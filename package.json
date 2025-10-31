@@ -37,7 +37,7 @@
 		"eslint-config-prettier": "10.1.8",
 		"eslint-plugin-svelte": "3.13.0",
 		"globals": "16.4.0",
-		"jsdom": "27.0.1",
+		"jsdom": "27.1.0",
 		"msw": "2.11.6",
 		"nx": "22.0.2",
 		"playwright": "1.56.1",
@@ -64,6 +64,6 @@
 	},
 	"nx": {},
 	"dependencies": {
-		"wrangler": "^4.45.3"
+		"wrangler": "4.45.3"
 	}
 }
