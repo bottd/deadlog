@@ -1,0 +1,17 @@
+.DS_Store
+node_modules
+.direnv
+.pre-commit-config.yaml
+
+# SQLite databases
+*.db
+*.db-journal
+
+# Build artifacts
+/dist
+/.svelte-kit
+/apps/web/.svelte-kit
+/apps/web/static/assets/meta/
+.nx/cache
+.nx/workspace-data
+apps/web/static/deadlog.db

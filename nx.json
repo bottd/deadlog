@@ -1,0 +1,24 @@
+{
+	"$schema": "./node_modules/nx/schemas/nx-schema.json",
+	"targetDefaults": {
+		"build": {
+			"dependsOn": ["^build"],
+			"cache": true
+		},
+		"generate": {
+			"cache": false
+		},
+		"test": {
+			"cache": false
+		}
+	},
+	"namedInputs": {
+		"default": ["{projectRoot}/**/*", "sharedGlobals"],
+		"production": [
+			"default",
+			"!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
+			"!{projectRoot}/tsconfig.spec.json"
+		],
+		"sharedGlobals": []
+	}
+}

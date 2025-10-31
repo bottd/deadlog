@@ -1,0 +1,20 @@
+{
+	"extends": "../../tsconfig.base.json",
+	"compilerOptions": {
+		"module": "ESNext",
+		"moduleResolution": "bundler",
+		"jsx": "react",
+		"forceConsistentCasingInFileNames": true,
+		"strict": true,
+		"noImplicitOverride": true,
+		"noPropertyAccessFromIndexSignature": false,
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true,
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": true,
+		"types": ["node", "@cloudflare/workers-types"]
+	},
+	"files": [],
+	"include": ["src/**/*.ts", "src/**/*.tsx"],
+	"references": []
+}

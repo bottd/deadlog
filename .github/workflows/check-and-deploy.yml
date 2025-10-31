@@ -1,0 +1,71 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: [main]
+
+  # Run every hour to check for new patches
+  #  schedule:
+  #    - cron: '0 * * * *'
+
+  # Allow manual triggering
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v27
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Nix dev environment
+        uses: nicknovitski/nix-develop@v1
+
+      - name: Clean npm cache
+        run: npm cache clean --force
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build scraper and generate database
+        run: npx nx build scraper
+
+      - name: Export database to SQL
+        run: |
+          sqlite3 apps/web/static/deadlog.db .dump > deadlog.sql
+          grep -v -E "^(BEGIN|COMMIT|ROLLBACK|SAVEPOINT)" deadlog.sql > deadlog-clean.sql
+
+      - name: Drop existing D1 tables
+        working-directory: apps/web
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx wrangler d1 execute deadlog --remote --file=../../libs/db/drop-tables.sql
+
+      - name: Import new data to D1 database
+        working-directory: apps/web
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx wrangler d1 execute deadlog --remote --file=../../deadlog-clean.sql
+
+      - name: Build web project
+        run: npx nx build web
+        env:
+          CLOUDFLARE: true
+          DATABASE_URL: file:apps/web/static/deadlog.db
+
+      - name: Deploy to Cloudflare Workers
+        working-directory: apps/web
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: wrangler deploy

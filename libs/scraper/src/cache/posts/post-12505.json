@@ -1,0 +1,9 @@
+{
+	"postId": "post-21182",
+	"title": "07-23-2024 Update",
+	"author": "Yoshi",
+	"authorImage": "https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630",
+	"pubDate": "2024-07-23T14:53:43-0700",
+	"content": "\n\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\n\t\n\t\n\n\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\n\n\t<div class=\"message-userContent lbContainer js-lbContainer \" data-lb-id=\"post-21182\" data-lb-caption-desc=\"Yoshi · Jul 23, 2024 at 2:53 PM\">\n\n\t\t\n\t\t\t\n\n\t\n\t\t\n\t\n\n\t\t\n\n\t\t<article class=\"message-body js-selectToQuote\">\n\t\t\t\n\t\t\t\t\n\t\t\t\n\n\t\t\t<div>\n\t\t\t\t\n\t\t\t\t\t<div class=\"bbWrapper\">- Fixed a recent issue with Bebop gun not using lag compensation correctly when hitting orbs<br>\n- Mid Boss starting health increased from 5000 to 6000<br>\n- Mid Boss health gained per minute increased from 275 to 350<br>\n- Mid Boss warning sound now plays at 50% HP<br>\n- Fixed bot behavior with the new Urn locations<br>\n- Fixed some bugs with Hero Demo options not working due to a recent update<br>\n- Fixed a rare case where you could abandon a match accidentally when accepting a friend invite<br>\n- Fixed some cases where the confirmation to abandon match wasn't showing up</div>\n\t\t\t\t\n\t\t\t</div>\n\n\t\t\t<div class=\"js-selectToQuoteEnd\">&nbsp;</div>\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t</article>\n\n\t\t\n\t\t\t\n\n\t\n\t\t\n\t\n\n\t\t\n\n\t\t\n\t</div>\n\n\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\n\n\t\n\n\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\n\n\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t",
+	"posterReplies": []
+}

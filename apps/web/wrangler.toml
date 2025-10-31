@@ -1,0 +1,20 @@
+# Cloudflare Pages configuration
+name = "deadlog"
+compatibility_date = "2025-04-03"
+compatibility_flags = ["nodejs_compat"]
+main = ".svelte-kit/cloudflare/_worker.js"
+
+[observability]
+[observability.logs]
+enabled = true
+head_sampling_rate = 1
+invocation_logs = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "deadlog"
+database_id = "e5334011-294b-4fca-9e36-2ebdd5c48886"
+
+[assets]
+binding = "ASSETS"
+directory = ".svelte-kit/cloudflare"

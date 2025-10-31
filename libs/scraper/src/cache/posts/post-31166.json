@@ -1,0 +1,9 @@
+{
+	"postId": "post-55324",
+	"title": "09-19-2024 Update",
+	"author": "Yoshi",
+	"authorImage": "https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630",
+	"pubDate": "2024-09-19T17:58:06-0700",
+	"content": "\n\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\n\t\n\t\n\n\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\n\n\t<div class=\"message-userContent lbContainer js-lbContainer \" data-lb-id=\"post-55324\" data-lb-caption-desc=\"Yoshi · Sep 19, 2024 at 5:58 PM\">\n\n\t\t\n\t\t\t\n\n\t\n\t\t\n\t\n\n\t\t\n\n\t\t<article class=\"message-body js-selectToQuote\">\n\t\t\t\n\t\t\t\t\n\t\t\t\n\n\t\t\t<div>\n\t\t\t\t\n\t\t\t\t\t<div class=\"bbWrapper\">- Replaced the recent soul duplication hotfix with new behavior. Pre 10 min, lanes now always split orbs when there are more heroes than the assigned participants for that lane (3+ people in a dual lane, 2+ people in a solo). Previously it only split with 3+ people regardless of the lane, which is what allowed soul abuses when dipping into a solo lane.<br>\n- Private lobbies can now assign players to duo and solo lanes<br>\n- Fixed some recent bugs with Vindicta Flight that could cause some large bursts in a direction<br>\n- Fixed being able to shoot while using Ethereal Shift and flying with Vindicta<br>\n- Veil Walker: Fire Rate reduced from 30% to 20%</div>\n\t\t\t\t\n\t\t\t</div>\n\n\t\t\t<div class=\"js-selectToQuoteEnd\">&nbsp;</div>\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t</article>\n\n\t\t\n\t\t\t\n\n\t\n\t\t\n\t\n\n\t\t\n\n\t\t\n\t</div>\n\n\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\n\n\t\n\n\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\n\n\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t",
+	"posterReplies": []
+}

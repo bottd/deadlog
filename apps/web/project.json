@@ -1,0 +1,56 @@
+{
+	"name": "web",
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "apps/web/src",
+	"projectType": "application",
+	"targets": {
+		"dev": {
+			"executor": "@nx/vite:dev-server",
+			"dependsOn": ["^build"],
+			"options": {
+				"buildTarget": "web:build",
+				"port": 5173
+			}
+		},
+		"build": {
+			"executor": "nx:run-commands",
+			"dependsOn": ["^build", "prepare"],
+			"outputs": ["{workspaceRoot}/dist/apps/web"],
+			"options": {
+				"command": "DATABASE_URL=file:$PWD/static/deadlog.db vite build",
+				"cwd": "apps/web"
+			}
+		},
+		"preview": {
+			"executor": "@nx/vite:preview-server",
+			"options": {
+				"buildTarget": "web:build",
+				"port": 4173
+			}
+		},
+		"prepare": {
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "svelte-kit sync",
+				"cwd": "apps/web"
+			}
+		},
+		"check": {
+			"executor": "nx:run-commands",
+			"dependsOn": ["prepare"],
+			"options": {
+				"command": "svelte-check --tsconfig apps/web/tsconfig.json"
+			}
+		},
+		"test": {
+			"executor": "nx:run-commands",
+			"dependsOn": ["prepare"],
+			"options": {
+				"command": "vitest run",
+				"cwd": "apps/web"
+			}
+		}
+	},
+	"tags": [],
+	"implicitDependencies": ["scraper", "meta"]
+}

@@ -1,0 +1,23 @@
+{
+	"extends": "../../tsconfig.base.json",
+	"compilerOptions": {
+		"module": "ESNext",
+		"forceConsistentCasingInFileNames": true,
+		"strict": true,
+		"noImplicitOverride": true,
+		"noPropertyAccessFromIndexSignature": false,
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true,
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": true,
+		"types": [
+			"node",
+			"vitest/globals",
+			"@testing-library/jest-dom",
+			"@cloudflare/workers-types"
+		]
+	},
+	"files": ["drizzle.config.ts", "vite.config.ts"],
+	"include": ["src/**/*.ts"],
+	"references": []
+}

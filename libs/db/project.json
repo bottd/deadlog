@@ -1,0 +1,16 @@
+{
+	"name": "db",
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "libs/db/src",
+	"projectType": "library",
+	"targets": {
+		"check": {
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "tsc --noEmit",
+				"cwd": "libs/db"
+			}
+		}
+	},
+	"tags": []
+}
