@@ -17,11 +17,11 @@
 		"@sveltejs/adapter-node": "5.4.0",
 		"@sveltejs/kit": "2.48.4",
 		"@sveltejs/vite-plugin-svelte": "6.2.1",
-		"@tanstack/svelte-query": "6.0.3",
 		"@tailwindcss/typography": "0.5.19",
 		"@tailwindcss/vite": "4.1.16",
 		"@takumi-rs/core": "0.41.0",
 		"@takumi-rs/helpers": "0.41.0",
+		"@tanstack/svelte-query": "6.0.3",
 		"@testing-library/jest-dom": "6.9.1",
 		"@types/jsdom": "27.0.0",
 		"@types/node": "24.9.2",
@@ -62,5 +62,8 @@
 		"vitest": "3.2.4",
 		"zod": "4.1.12"
 	},
-	"nx": {}
+	"nx": {},
+	"dependencies": {
+		"wrangler": "^4.45.3"
+	}
 }

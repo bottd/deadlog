@@ -101,7 +101,6 @@
               treefmtEval.config.build.wrapper
               playwright-test
               sqlite
-              wrangler
             ];
 
             shellHook = ''
