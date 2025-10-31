@@ -11,5 +11,6 @@
 		"strict": true,
 		"types": ["vitest/globals", "@testing-library/jest-dom", "@cloudflare/workers-types"]
 	},
-	"files": ["svelte.config.js", "vite.config.ts"]
+	"include": ["src/**/*", "svelte.config.js", "vite.config.ts"],
+	"exclude": [".svelte-kit/**", "node_modules/**"]
 }
