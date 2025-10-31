@@ -17,14 +17,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Install Nix
+        uses: cachix/install-nix-action@v27
         with:
-          node-version: '20'
-          cache: 'npm'
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Clean npm cache
-        run: npm cache clean --force
+      - name: Setup Cachix
+        uses: cachix/cachix-action@v15
+        with:
+          name: deadlog
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+      - name: Setup Nix dev environment
+        uses: nicknovitski/nix-develop@v1
 
       - name: Install dependencies
         run: npm ci

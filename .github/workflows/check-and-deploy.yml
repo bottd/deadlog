@@ -26,6 +26,12 @@ jobs:
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Setup Cachix
+        uses: cachix/cachix-action@v15
+        with:
+          name: deadlog
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
       - name: Setup Nix dev environment
         uses: nicknovitski/nix-develop@v1
 
