@@ -9,8 +9,9 @@ A changelog site for Deadlock
 - TypeScript
 - Drizzle ORM
   - SQLite (`@libsql/client`)
-  - SQLite (`@libsql/client`)
+  - Cloudflare D1 (`drizzle-orm/d1`)
 - Playwright
+- NX
 - [Deadlock API](https://deadlock-api.com)
 
 ## Development
