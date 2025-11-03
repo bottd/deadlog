@@ -75,9 +75,10 @@ async function getDocument(htmlContent: string): Promise<Document> {
 		return parser.parseFromString(htmlContent, 'text/html');
 	} else {
 		// Node.js environment
-		const { JSDOM } = await import('jsdom');
-		const dom = new JSDOM(htmlContent);
-		return dom.window.document;
+		const { Window } = await import('happy-dom');
+		const window = new Window();
+		window.document.write(htmlContent);
+		return window.document as unknown as Document;
 	}
 }
 
