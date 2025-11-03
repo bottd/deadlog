@@ -18,7 +18,11 @@ import {
 	resolveItemIds
 } from '$lib/server/changelog-utils';
 
-export const prerender = true;
+export const prerender = false;
+
+function toSlug(name: string): string {
+	return name.toLowerCase().replace(/\s+/g, '-');
+}
 
 export const load: PageServerLoad = async ({ locals, url }) => {
 	let hero: string[] = [];
@@ -95,7 +99,7 @@ export const load: PageServerLoad = async ({ locals, url }) => {
 			pageMeta = {
 				title: `${data.name} Changelog - Deadlog`,
 				description: `View all ${data.name} balance changes and updates in Deadlock`,
-				image: `https://deadlog.io/assets/meta/hero/${hero[0]}.png`
+				image: `https://deadlog.io/assets/meta/hero/${toSlug(data.name)}.png`
 			};
 		}
 	} else if (item[0]) {
@@ -104,7 +108,7 @@ export const load: PageServerLoad = async ({ locals, url }) => {
 			pageMeta = {
 				title: `${data.name} Changes - Deadlog`,
 				description: `View all ${data.name} balance changes and updates in Deadlock`,
-				image: `https://deadlog.io/assets/meta/item/${item[0]}.png`
+				image: `https://deadlog.io/assets/meta/item/${toSlug(data.name)}.png`
 			};
 		}
 	}
