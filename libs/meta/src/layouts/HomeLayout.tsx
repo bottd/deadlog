@@ -1,6 +1,6 @@
 import React from 'react';
 import { LayoutContainer } from '../components/LayoutContainer';
-import { BrandingHeader } from '../components/BrandingHeader';
+import { Header } from '../components/Header';
 import { AuthorDisplay } from '../components/AuthorDisplay';
 import { IconGrid } from '../components/IconGrid';
 import { Theme } from '../theme';
@@ -22,7 +22,7 @@ export function HomeLayout({
 }: HomeLayoutProps) {
 	return (
 		<LayoutContainer>
-			<BrandingHeader />
+			<Header />
 			<div
 				style={{
 					display: 'flex',

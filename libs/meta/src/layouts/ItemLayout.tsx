@@ -1,6 +1,6 @@
 import React from 'react';
 import { LayoutContainer } from '../components/LayoutContainer';
-import { BrandingHeader } from '../components/BrandingHeader';
+import { Header } from '../components/Header';
 import { Theme } from '../theme';
 
 interface ItemLayoutProps {
@@ -13,7 +13,7 @@ interface ItemLayoutProps {
 export function ItemLayout({ name, type, image, changePreview }: ItemLayoutProps) {
 	return (
 		<LayoutContainer>
-			<BrandingHeader />
+			<Header />
 			<div
 				style={{
 					display: 'flex',

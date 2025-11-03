@@ -1,7 +1,7 @@
 import React from 'react';
 import { Theme } from '../theme';
 
-export function BrandingHeader() {
+export function Header() {
 	return (
 		<div
 			style={{

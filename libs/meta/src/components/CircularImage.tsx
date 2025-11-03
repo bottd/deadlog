@@ -1,13 +1,13 @@
 import React from 'react';
 import { Theme } from '../theme';
 
-interface CircularImageProps {
+interface RoundIconProps {
 	src: string;
 	size: string;
 	border?: string;
 }
 
-export function CircularImage({ src, size, border = '8px' }: CircularImageProps) {
+export function RoundIcon({ src, size, border = '8px' }: RoundIconProps) {
 	return (
 		<div
 			style={{

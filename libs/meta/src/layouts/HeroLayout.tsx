@@ -1,7 +1,7 @@
 import React from 'react';
 import { LayoutContainer } from '../components/LayoutContainer';
-import { BrandingHeader } from '../components/BrandingHeader';
-import { CircularImage } from '../components/CircularImage';
+import { Header } from '../components/Header';
+import { RoundIcon } from '../components/CircularImage';
 import { Theme } from '../theme';
 
 export interface HeroPreviewItem {
@@ -21,7 +21,7 @@ interface HeroLayoutProps {
 export function HeroLayout({ name, heroType, image, changePreview }: HeroLayoutProps) {
 	return (
 		<LayoutContainer>
-			<BrandingHeader />
+			<Header />
 			<div
 				style={{
 					display: 'flex',
@@ -31,7 +31,7 @@ export function HeroLayout({ name, heroType, image, changePreview }: HeroLayoutP
 					paddingTop: '40px'
 				}}
 			>
-				<CircularImage src={image} size="280px" />
+				<RoundIcon src={image} size="280px" />
 				<div
 					style={{
 						display: 'flex',
