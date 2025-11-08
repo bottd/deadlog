@@ -106,7 +106,7 @@
               export PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
               export PLAYWRIGHT_BROWSERS_PATH="${pkgs.playwright-driver.browsers}"
 
-              # Make NX CLI available directly
+              # Make CLIs from NPM available
               export PATH="$PWD/node_modules/.bin:$PATH"
 
               ${pre-commit-check.shellHook}
