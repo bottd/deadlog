@@ -97,7 +97,6 @@
 
             packages = with pkgs; [
               nodejs_24
-              nodePackages.prettier
               treefmtEval.config.build.wrapper
               playwright-test
               sqlite
