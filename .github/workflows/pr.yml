@@ -12,6 +12,9 @@ jobs:
         task: [check, lint, test, build]
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Setup pipeline
         uses: ./.github/actions/setup-pipeline
         with:

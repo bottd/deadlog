@@ -1,5 +1,5 @@
 name: Setup Pipeline
-description: Checkout code, setup Nix environment, and install dependencies
+description: Setup Nix environment and install dependencies
 
 inputs:
   github-token:
@@ -14,9 +14,6 @@ outputs:
 runs:
   using: composite
   steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-
     - name: Install Nix
       uses: cachix/install-nix-action@v27
       with:
