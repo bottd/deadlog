@@ -37,6 +37,13 @@
 				"command": "vitest run",
 				"cwd": "libs/meta"
 			}
+		},
+		"lint": {
+			"executor": "@nx/eslint:lint",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["libs/meta/**/*.{ts,js}"]
+			}
 		}
 	},
 	"tags": [],

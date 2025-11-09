@@ -10,6 +10,15 @@
 		},
 		"test": {
 			"cache": false
+		},
+		"lint": {
+			"cache": true,
+			"inputs": [
+				"default",
+				"{workspaceRoot}/eslint.config.js",
+				"{workspaceRoot}/.prettierrc",
+				"{workspaceRoot}/.prettierignore"
+			]
 		}
 	},
 	"namedInputs": {

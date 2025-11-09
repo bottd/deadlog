@@ -49,6 +49,13 @@
 				"command": "vitest run",
 				"cwd": "apps/web"
 			}
+		},
+		"lint": {
+			"executor": "@nx/eslint:lint",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["apps/web/**/*.{ts,js,svelte}"]
+			}
 		}
 	},
 	"tags": [],

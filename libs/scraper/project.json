@@ -39,6 +39,13 @@
 				"command": "vitest run",
 				"cwd": "libs/scraper"
 			}
+		},
+		"lint": {
+			"executor": "@nx/eslint:lint",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["libs/scraper/**/*.{ts,js}"]
+			}
 		}
 	},
 	"tags": []

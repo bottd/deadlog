@@ -26,6 +26,9 @@ jobs:
       - name: Run type checking
         run: npm run check
 
+      - name: Run lint
+        run: npm run lint
+
       - name: Build scraper and generate database
         run: npx nx build scraper
 
