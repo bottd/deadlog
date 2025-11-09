@@ -1,0 +1,42 @@
+name: Setup Pipeline
+description: Checkout code, setup Nix environment, and install dependencies
+
+inputs:
+  github-token:
+    description: GitHub token for Nix installation
+    required: true
+
+# outputs:
+#   dep-graph-path:
+#     description: Path to the generated dependency graph file
+#     value: ${{ steps.dep-graph.outputs.path }}
+#
+runs:
+  using: composite
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Install Nix
+      uses: cachix/install-nix-action@v27
+      with:
+        github_access_token: ${{ inputs.github-token }}
+
+    - name: Setup Cachix
+      uses: cachix/cachix-action@v15
+      with:
+        name: deadlog.io
+
+    - name: Setup Nix dev environment
+      uses: nicknovitski/nix-develop@v1
+
+    - name: Install dependencies
+      shell: bash
+      run: npm ci
+
+    # - name: Generate dependency graph
+    #   id: dep-graph
+    #   shell: bash
+    #   run: |
+    #     npx nx dep-graph --file dep-graph.json
+    #     echo "path=dep-graph.json" >> $GITHUB_OUTPUT

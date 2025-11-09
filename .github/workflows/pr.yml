@@ -5,34 +5,32 @@ on:
     branches: [main]
 
 jobs:
+  dep-graph:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup pipeline
+        uses: ./.github/actions/setup-pipeline
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload dependency graph
+        uses: actions/upload-artifact@v4
+        with:
+          name: dependency-graph
+          path: dep-graph.json
+
   ci:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        task: [check, test, build]
-    env:
-      NX_CACHE_PROJECT_GRAPH: false
+        task: [check, lint, test, build]
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Install Nix
-        uses: cachix/install-nix-action@v27
+      - name: Setup pipeline
+        uses: ./.github/actions/setup-pipeline
         with:
-          github_access_token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Setup Cachix
-        uses: cachix/cachix-action@v15
-        with:
-          name: deadlog
-          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
-
-      - name: Setup Nix dev environment
-        uses: nicknovitski/nix-develop@v1
-
-      - name: Install dependencies
-        run: npm ci
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install Playwright browsers
         if: matrix.task == 'test' || matrix.task == 'build'
@@ -41,6 +39,10 @@ jobs:
       - name: Run check
         if: matrix.task == 'check'
         run: npm run check
+
+      - name: Run lint
+        if: matrix.task == 'lint'
+        run: npm run lint
 
       - name: Run tests
         if: matrix.task == 'test'
