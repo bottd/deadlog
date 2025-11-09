@@ -5,22 +5,7 @@ on:
     branches: [main]
 
 jobs:
-  dep-graph:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Setup pipeline
-        uses: ./.github/actions/setup-pipeline
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Upload dependency graph
-        uses: actions/upload-artifact@v4
-        with:
-          name: dependency-graph
-          path: dep-graph.json
-
-  ci:
+  pull-request:
     runs-on: ubuntu-latest
     strategy:
       matrix:
