@@ -10,6 +10,13 @@
 				"command": "tsc --noEmit",
 				"cwd": "libs/db"
 			}
+		},
+		"lint": {
+			"executor": "@nx/eslint:lint",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["libs/db/**/*.{ts,js}"]
+			}
 		}
 	},
 	"tags": []

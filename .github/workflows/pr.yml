@@ -12,14 +12,13 @@ jobs:
         task: [check, lint, test, build]
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Setup pipeline
         uses: ./.github/actions/setup-pipeline
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Install Playwright browsers
-        if: matrix.task == 'test' || matrix.task == 'build'
-        run: npx playwright install --with-deps chromium
 
       - name: Run check
         if: matrix.task == 'check'

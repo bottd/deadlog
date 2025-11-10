@@ -18,6 +18,9 @@ jobs:
       contents: write
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Setup pipeline
         uses: ./.github/actions/setup-pipeline
         with:
@@ -25,6 +28,9 @@ jobs:
 
       - name: Run type checking
         run: npm run check
+
+      - name: Run lint
+        run: npm run lint
 
       - name: Build scraper and generate database
         run: npx nx build scraper
