@@ -4,7 +4,7 @@
 
 <nav class="border-border bg-card sticky top-0 z-50 border-b pb-4">
 	<div class="container mx-auto">
-		<div class="flex h-16 items-center px-4">
+		<div class="flex h-16 items-center">
 			<a
 				href="/"
 				class="text-primary flex items-baseline gap-2 text-xl font-bold transition-colors hover:opacity-80"
