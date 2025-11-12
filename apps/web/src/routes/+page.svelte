@@ -1,7 +1,5 @@
 <script lang="ts">
 	import { MetaTags } from 'svelte-meta-tags';
-	import { Footer } from '$lib/components/ui/footer';
-	import { FilterInput } from '$lib/components/filter-bar';
 	import { Changelog } from '$lib/components/changelog';
 	import { ScrollToTop } from '$lib/components/scroll-to-top';
 	import type { PageData } from './$types';
@@ -45,10 +43,7 @@
 
 <div class="relative min-h-screen bg-[#0a0a0a]">
 	<div class="relative container mx-auto px-4 py-12">
-		<FilterInput />
-
 		<Changelog />
-		<Footer />
 	</div>
 </div>
 

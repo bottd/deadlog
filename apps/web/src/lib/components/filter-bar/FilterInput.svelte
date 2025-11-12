@@ -124,7 +124,7 @@
 </script>
 
 <div
-	class="sticky z-40 -mx-4 w-full bg-[#0a0a0a] px-4 py-4"
+	class="sticky z-40 w-full bg-[#0a0a0a]"
 	style="top: max(64px, env(safe-area-inset-top));"
 >
 	<div class="relative">
