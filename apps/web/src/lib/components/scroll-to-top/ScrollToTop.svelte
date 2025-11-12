@@ -21,7 +21,7 @@
 {#if showScrollTop}
 	<button
 		onclick={scrollToTop}
-		class="fixed right-8 bottom-8 z-50 flex size-12 items-center justify-center rounded-full bg-[#c89b3c] text-white shadow-lg transition-all hover:scale-110 hover:bg-[#d4a854]"
+		class="bg-primary text-primary-foreground fixed right-8 bottom-8 z-50 flex size-12 items-center justify-center rounded-full shadow-lg transition-all hover:scale-110 hover:opacity-80"
 		aria-label="Scroll to top"
 	>
 		<svg

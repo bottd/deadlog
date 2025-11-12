@@ -49,13 +49,13 @@
 					height="36"
 					loading="lazy"
 					decoding="async"
-					class="size-9 rounded-full border-2 border-[#1a1a1a] bg-[#0f0f0f] object-cover transition-transform hover:z-10 hover:scale-110"
+					class="border-border bg-card size-9 rounded-full border-2 object-cover transition-transform hover:z-10 hover:scale-110"
 					style="margin-left:{i === 0 ? 0 : heroOverlap}px"
 				/>
 			{/each}
 			{#if remainingHeroesCount > 0}
 				<span
-					class="flex size-9 items-center justify-center rounded-full border-2 border-[#c89b3c]/30 bg-[#0f0f0f] text-xs font-semibold text-[#c89b3c]"
+					class="border-primary/30 bg-card text-primary flex size-9 items-center justify-center rounded-full border-2 text-xs font-semibold"
 					style="margin-left:{heroOverlap}px"
 				>
 					...
@@ -75,13 +75,13 @@
 					height="36"
 					loading="lazy"
 					decoding="async"
-					class="size-9 rounded-md border-2 border-[#1a1a1a] bg-[#0f0f0f] object-cover transition-transform hover:z-10 hover:scale-110"
+					class="border-border bg-card size-9 rounded-md border-2 object-cover transition-transform hover:z-10 hover:scale-110"
 					style="margin-left:{i === 0 ? 0 : itemOverlap}px"
 				/>
 			{/each}
 			{#if remainingItemsCount > 0}
 				<span
-					class="flex size-9 items-center justify-center rounded-md border-2 border-[#c89b3c]/30 bg-[#0f0f0f] text-xs font-semibold text-[#c89b3c]"
+					class="border-primary/30 bg-card text-primary flex size-9 items-center justify-center rounded-md border-2 text-xs font-semibold"
 					style="margin-left:{itemOverlap}px"
 				>
 					...

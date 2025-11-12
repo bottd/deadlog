@@ -124,13 +124,13 @@
 </script>
 
 <div
-	class="sticky z-40 w-full bg-[#0a0a0a]"
+	class="bg-background sticky z-40 w-full"
 	style="top: max(64px, env(safe-area-inset-top));"
 >
 	<div class="relative">
 		<form
 			onsubmit={handleSubmit}
-			class="flex min-h-[44px] w-full items-center gap-2 rounded-md border border-[#2a2a2a] bg-[#121212]/80 px-3 py-2 text-sm text-white backdrop-blur-sm transition-colors focus-within:border-[#c89b3c] focus-within:ring-1 focus-within:ring-[#c89b3c]/20"
+			class="border-border bg-card/80 text-foreground focus-within:border-primary focus-within:ring-primary/20 flex min-h-[44px] w-full items-center gap-2 rounded-md border-2 px-3 py-2 text-sm backdrop-blur-sm transition-colors focus-within:ring-1"
 		>
 			<div class="flex min-w-0 flex-1 flex-wrap items-center gap-1.5">
 				{#each selectedHeroObjects as hero (hero.id)}
@@ -153,7 +153,7 @@
 				<input
 					type="text"
 					placeholder="Add more filters or search..."
-					class="min-w-0 flex-1 bg-transparent outline-none placeholder:text-gray-600 sm:min-w-[200px]"
+					class="placeholder:text-muted-foreground min-w-0 flex-1 bg-transparent outline-none sm:min-w-[200px]"
 					bind:value={inputValue}
 					onfocus={() => (open = true)}
 					onkeydown={(e) => !open && e.key !== 'Escape' && (open = true)}
@@ -167,35 +167,35 @@
 						e.stopPropagation();
 						clearAll();
 					}}
-					class="shrink-0 rounded-sm p-1 transition-colors hover:bg-[#2a2a2a]"
+					class="hover:bg-secondary shrink-0 rounded-sm p-1 transition-colors"
 					aria-label="Clear all filters"
 				>
-					<XIcon class="size-4 text-gray-500" />
+					<XIcon class="text-muted-foreground size-4" />
 				</button>
 			{/if}
 
 			<button
 				type="submit"
-				class="shrink-0 rounded-sm bg-[#c89b3c] p-1.5 transition-colors hover:bg-[#d4a84a]"
+				class="bg-primary shrink-0 rounded-sm p-1.5 transition-colors hover:opacity-80"
 				aria-label="Apply search"
 				title="Press Enter or click to search"
 			>
-				<SearchIcon class="size-3.5 text-white" />
+				<SearchIcon class="text-primary-foreground size-3.5" />
 			</button>
 		</form>
 
 		{#if open}
 			<div
-				class="absolute inset-x-0 top-full z-50 mt-2 max-h-[450px] overflow-hidden rounded-md border border-[#2a2a2a] bg-[#0a0a0a]/95 shadow-2xl backdrop-blur-lg"
+				class="border-border bg-background/95 absolute inset-x-0 top-full z-50 mt-2 max-h-[450px] overflow-hidden rounded-md border shadow-2xl backdrop-blur-lg"
 			>
-				<div class="flex border-b border-[#2a2a2a] p-2">
+				<div class="border-border flex border-b p-2">
 					<button
 						type="button"
 						onclick={() => (filterMode = 'all')}
 						class="flex-1 rounded-sm px-3 py-1.5 text-xs font-medium transition-colors {filterMode ===
 						'all'
-							? 'bg-[#c89b3c] text-white'
-							: 'text-gray-400 hover:bg-[#1a1a1a] hover:text-white'}"
+							? 'bg-primary text-primary-foreground'
+							: 'text-muted-foreground hover:bg-secondary hover:text-foreground'}"
 					>
 						All
 					</button>
@@ -204,8 +204,8 @@
 						onclick={() => (filterMode = 'heroes')}
 						class="flex-1 rounded-sm px-3 py-1.5 text-xs font-medium transition-colors {filterMode ===
 						'heroes'
-							? 'bg-[#c89b3c] text-white'
-							: 'text-gray-400 hover:bg-[#1a1a1a] hover:text-white'}"
+							? 'bg-primary text-primary-foreground'
+							: 'text-muted-foreground hover:bg-secondary hover:text-foreground'}"
 					>
 						Heroes
 					</button>
@@ -214,8 +214,8 @@
 						onclick={() => (filterMode = 'items')}
 						class="flex-1 rounded-sm px-3 py-1.5 text-xs font-medium transition-colors {filterMode ===
 						'items'
-							? 'bg-[#c89b3c] text-white'
-							: 'text-gray-400 hover:bg-[#1a1a1a] hover:text-white'}"
+							? 'bg-primary text-primary-foreground'
+							: 'text-muted-foreground hover:bg-secondary hover:text-foreground'}"
 					>
 						Items
 					</button>
@@ -224,7 +224,7 @@
 				<Command.Root class="bg-transparent" shouldFilter={false}>
 					<Command.List class="max-h-[350px] overflow-y-auto p-2">
 						{#if (filterMode === 'all' && mergedList.length === 0) || (filterMode !== 'all' && filteredHeroes.length === 0 && filteredItems.length === 0)}
-							<Command.Empty class="py-6 text-center text-sm text-gray-500">
+							<Command.Empty class="text-muted-foreground py-6 text-center text-sm">
 								No results found.
 							</Command.Empty>
 						{:else if filterMode === 'all'}
@@ -234,8 +234,8 @@
 										<Command.Item
 											value={entity.data.name}
 											onSelect={() => selectHero(entity.data.id)}
-											class="flex cursor-pointer items-center gap-3 rounded-sm px-3 py-2 transition-colors hover:bg-[#1a1a1a] aria-selected:bg-[#1a1a1a] {entity.isSelected &&
-												'bg-[#c89b3c]/10'}"
+											class="hover:bg-secondary aria-selected:bg-secondary flex cursor-pointer items-center gap-3 rounded-sm px-3 py-2 transition-colors {entity.isSelected &&
+												'bg-primary/10'}"
 										>
 											<img
 												src={Object.values(entity.data.images)[0] as string}
@@ -244,14 +244,14 @@
 											/>
 											<span
 												class="flex-1 text-sm {entity.isSelected
-													? 'font-medium text-[#c89b3c]'
-													: 'text-white'}"
+													? 'text-primary font-medium'
+													: 'text-foreground'}"
 											>
 												{entity.data.name}
 											</span>
 											{#if entity.isSelected}
 												<div
-													class="size-2 rounded-full bg-[#c89b3c]"
+													class="bg-primary size-2 rounded-full"
 													aria-label="Selected"
 												></div>
 											{/if}
@@ -260,8 +260,8 @@
 										<Command.Item
 											value={entity.data.name}
 											onSelect={() => selectItem(entity.data.id)}
-											class="flex cursor-pointer items-center gap-3 rounded-sm px-3 py-2 transition-colors hover:bg-[#1a1a1a] aria-selected:bg-[#1a1a1a] {entity.isSelected &&
-												'bg-[#4a9eff]/10'}"
+											class="hover:bg-secondary aria-selected:bg-secondary flex cursor-pointer items-center gap-3 rounded-sm px-3 py-2 transition-colors {entity.isSelected &&
+												'bg-blue-500/10'}"
 										>
 											{#if entity.data.images?.png || entity.data.images?.webp}
 												<img
@@ -270,18 +270,18 @@
 													class="size-8 rounded object-cover"
 												/>
 											{:else}
-												<div class="size-8 rounded bg-[#2a2a2a]"></div>
+												<div class="bg-secondary size-8 rounded"></div>
 											{/if}
 											<span
 												class="flex-1 text-sm {entity.isSelected
-													? 'font-medium text-[#4a9eff]'
-													: 'text-white'}"
+													? 'font-medium text-blue-500'
+													: 'text-foreground'}"
 											>
 												{entity.data.name}
 											</span>
 											{#if entity.isSelected}
 												<div
-													class="size-2 rounded-full bg-[#4a9eff]"
+													class="size-2 rounded-full bg-blue-500"
 													aria-label="Selected"
 												></div>
 											{/if}
@@ -297,8 +297,8 @@
 										<Command.Item
 											value={hero.name}
 											onSelect={() => selectHero(hero.id)}
-											class="flex cursor-pointer items-center gap-3 rounded-sm px-3 py-2 transition-colors hover:bg-[#1a1a1a] aria-selected:bg-[#1a1a1a] {isSelected &&
-												'bg-[#c89b3c]/10'}"
+											class="hover:bg-secondary aria-selected:bg-secondary flex cursor-pointer items-center gap-3 rounded-sm px-3 py-2 transition-colors {isSelected &&
+												'bg-primary/10'}"
 										>
 											<img
 												src={Object.values(hero.images)[0] as string}
@@ -307,14 +307,14 @@
 											/>
 											<span
 												class="flex-1 text-sm {isSelected
-													? 'font-medium text-[#c89b3c]'
-													: 'text-white'}"
+													? 'text-primary font-medium'
+													: 'text-foreground'}"
 											>
 												{hero.name}
 											</span>
 											{#if isSelected}
 												<div
-													class="size-2 rounded-full bg-[#c89b3c]"
+													class="bg-primary size-2 rounded-full"
 													aria-label="Selected"
 												></div>
 											{/if}
@@ -330,8 +330,8 @@
 										<Command.Item
 											value={item.name}
 											onSelect={() => selectItem(item.id)}
-											class="flex cursor-pointer items-center gap-3 rounded-sm px-3 py-2 transition-colors hover:bg-[#1a1a1a] aria-selected:bg-[#1a1a1a] {isSelected &&
-												'bg-[#4a9eff]/10'}"
+											class="hover:bg-secondary aria-selected:bg-secondary flex cursor-pointer items-center gap-3 rounded-sm px-3 py-2 transition-colors {isSelected &&
+												'bg-blue-500/10'}"
 										>
 											{#if item.images?.png || item.images?.webp}
 												<img
@@ -340,18 +340,18 @@
 													class="size-8 rounded object-cover"
 												/>
 											{:else}
-												<div class="size-8 rounded bg-[#2a2a2a]"></div>
+												<div class="bg-secondary size-8 rounded"></div>
 											{/if}
 											<span
 												class="flex-1 text-sm {isSelected
-													? 'font-medium text-[#4a9eff]'
-													: 'text-white'}"
+													? 'font-medium text-blue-500'
+													: 'text-foreground'}"
 											>
 												{item.name}
 											</span>
 											{#if isSelected}
 												<div
-													class="size-2 rounded-full bg-[#4a9eff]"
+													class="size-2 rounded-full bg-blue-500"
 													aria-label="Selected"
 												></div>
 											{/if}
@@ -375,7 +375,7 @@
 	</div>
 
 	{#if selectedHeroObjects.length || selectedItemObjects.length || params.q}
-		<p class="mt-2 text-xs text-gray-500">
+		<p class="text-muted-foreground mt-2 text-xs">
 			{#if selectedHeroObjects.length}
 				Filtering by {selectedHeroObjects.length} hero{selectedHeroObjects.length !== 1
 					? 's'

@@ -12,13 +12,13 @@
 	let { name, icon, onRemove, badgeColor = 'hero' }: Props = $props();
 
 	const colorClasses = {
-		hero: 'border-[#c89b3c]/30 bg-[#c89b3c]/20 text-[#c89b3c] hover:bg-[#c89b3c]/30',
-		item: 'border-[#4a9eff]/30 bg-[#4a9eff]/20 text-[#4a9eff] hover:bg-[#4a9eff]/30'
+		hero: 'border-primary/30 bg-primary/20 text-primary hover:bg-primary/30',
+		item: 'border-blue-500/30 bg-blue-500/20 text-blue-500 hover:bg-blue-500/30'
 	};
 
 	const hoverClasses = {
-		hero: 'hover:bg-[#c89b3c]/50',
-		item: 'hover:bg-[#4a9eff]/50'
+		hero: 'hover:bg-primary/50',
+		item: 'hover:bg-blue-500/50'
 	};
 </script>
 

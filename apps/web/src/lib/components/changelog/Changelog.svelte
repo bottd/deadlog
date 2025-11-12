@@ -171,18 +171,18 @@
 	<!-- Background refetch indicator -->
 	{#if query.isFetching && !query.isFetchingNextPage && query.data}
 		<div
-			class="fixed top-20 right-4 z-50 flex items-center gap-2 rounded-lg bg-[#1a1a1a] px-4 py-2 shadow-lg"
+			class="bg-card border-border fixed top-20 right-4 z-50 flex items-center gap-2 rounded-lg border px-4 py-2 shadow-lg"
 		>
 			<div
-				class="size-4 animate-spin rounded-full border-2 border-[#c89b3c] border-t-transparent"
+				class="border-primary size-4 animate-spin rounded-full border-2 border-t-transparent"
 			></div>
-			<span class="text-sm text-gray-400">Updating...</span>
+			<span class="text-muted-foreground text-sm">Updating...</span>
 		</div>
 	{/if}
 
 	<!-- Timeline guide line -->
 	<div
-		class="absolute top-0 bottom-0 left-6 hidden w-0.5 bg-gradient-to-b from-[#c89b3c] via-[#c89b3c]/50 to-transparent md:block"
+		class="from-primary via-primary/50 absolute top-0 bottom-0 left-6 hidden w-0.5 bg-gradient-to-b to-transparent md:block"
 	></div>
 
 	<!-- Error State -->
@@ -204,13 +204,15 @@
 					/>
 				</svg>
 			</div>
-			<h3 class="mb-2 text-xl font-semibold text-white">Failed to load changelogs</h3>
-			<p class="mb-6 max-w-md text-gray-500">
+			<h3 class="text-foreground mb-2 text-xl font-semibold">
+				Failed to load changelogs
+			</h3>
+			<p class="text-muted-foreground mb-6 max-w-md">
 				{query.error?.message || 'An error occurred while fetching changelogs'}
 			</p>
 			<button
 				onclick={() => query.refetch()}
-				class="rounded-md bg-[#c89b3c] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#d4a854]"
+				class="bg-primary text-primary-foreground rounded-md px-4 py-2 text-sm font-medium transition-colors hover:opacity-80"
 			>
 				Try again
 			</button>
@@ -221,7 +223,7 @@
 	{#if query.isPending && !query.data}
 		<div class="flex items-center justify-center py-16">
 			<div
-				class="size-12 animate-spin rounded-full border-4 border-[#c89b3c] border-t-transparent"
+				class="border-primary size-12 animate-spin rounded-full border-4 border-t-transparent"
 			></div>
 		</div>
 	{/if}
@@ -278,10 +280,10 @@
 				{/if}
 			{:else}
 				<div class="flex flex-col items-center justify-center py-16 text-center">
-					<div class="mb-4 rounded-full bg-[#1a1a1a] p-6">
+					<div class="mb-4 rounded-full bg-card p-6">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
-							class="size-12 text-gray-600"
+							class="size-12 text-muted-foreground"
 							fill="none"
 							viewBox="0 0 24 24"
 							stroke="currentColor"
@@ -294,14 +296,14 @@
 							/>
 						</svg>
 					</div>
-					<h3 class="mb-2 text-xl font-semibold text-white">No changes found</h3>
-					<p class="mb-6 max-w-md text-gray-500">
+					<h3 class="mb-2 text-xl font-semibold text-foreground">No changes found</h3>
+					<p class="mb-6 max-w-md text-muted-foreground">
 						No changelog entries match your current filters. Try adjusting your search or
 						clearing the filters.
 					</p>
 					<button
 						onclick={() => params.reset()}
-						class="rounded-md bg-[#c89b3c] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#d4a854]"
+						class="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:opacity-80"
 					>
 						Clear all filters
 					</button>
@@ -313,7 +315,7 @@
 				{#if query.isFetchingNextPage}
 					<div class="flex items-center justify-center">
 						<div
-							class="size-8 animate-spin rounded-full border-4 border-[#c89b3c] border-t-transparent"
+							class="border-primary size-8 animate-spin rounded-full border-4 border-t-transparent"
 						></div>
 					</div>
 				{:else if query.hasNextPage}
@@ -321,12 +323,12 @@
 					<button
 						onclick={() => query.fetchNextPage()}
 						disabled={query.isFetchingNextPage}
-						class="rounded-md bg-[#c89b3c]/10 px-6 py-3 text-sm font-medium text-[#c89b3c] transition-colors hover:bg-[#c89b3c]/20 disabled:opacity-50"
+						class="bg-primary/10 text-primary hover:bg-primary/20 rounded-md px-6 py-3 text-sm font-medium transition-colors disabled:opacity-50"
 					>
 						Load more changes
 					</button>
 				{:else if !query.hasNextPage && filteredChangelogs.length > 0}
-					<p class="text-sm text-gray-500">All changes loaded</p>
+					<p class="text-muted-foreground text-sm">All changes loaded</p>
 				{/if}
 			</div>
 		</div>

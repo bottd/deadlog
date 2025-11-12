@@ -13,12 +13,12 @@
 
 <div
 	class="flex size-12 items-center justify-center rounded-full border-4 {isActive
-		? 'border-[#c89b3c] bg-[#c89b3c] shadow-lg shadow-[#c89b3c]/50'
-		: 'border-[#1a1a1a] bg-[#0a0a0a] transition-all'}"
+		? 'border-primary bg-primary shadow-primary/50 shadow-lg'
+		: 'border-border bg-background transition-all'}"
 >
 	{#if bigUpdate}
-		<Star class="size-6 fill-black text-black" />
+		<Star class="fill-primary-foreground text-primary-foreground size-6" />
 	{:else}
-		<div class="size-3 rounded-full bg-[#c89b3c]"></div>
+		<div class="bg-primary size-3 rounded-full"></div>
 	{/if}
 </div>

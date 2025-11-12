@@ -153,7 +153,7 @@
 </script>
 
 <div
-	class="prose prose-invert prose-sm max-w-none [&_a]:text-[#c89b3c] [&_a:hover]:text-[#d4a854] [&_code]:rounded [&_code]:bg-[#0f0f0f] [&_code]:px-1 [&_code]:text-[#c89b3c] [&_h1]:text-white [&_h2]:text-white [&_h3]:text-[#c89b3c] [&_ol]:list-decimal [&_pre]:border [&_pre]:border-[#1a1a1a] [&_pre]:bg-[#0f0f0f] [&_strong]:text-white [&_ul]:list-disc [&>*]:text-[#eaeaea]"
+	class="prose prose-invert prose-sm [&_a]:text-primary [&_code]:bg-card [&_code]:text-primary [&_h1]:text-foreground [&_h2]:text-foreground [&_h3]:text-primary [&_pre]:border-border [&_pre]:bg-card [&_strong]:text-foreground [&>*]:text-foreground/90 max-w-none [&_a:hover]:opacity-80 [&_code]:rounded [&_code]:px-1 [&_ol]:list-decimal [&_pre]:border [&_ul]:list-disc"
 >
 	{#if contentJson}
 		<!-- Render structured JSON content -->
@@ -167,9 +167,9 @@
 			{#if (!hasParams || showFullChange || forceShowNotes) && contentJson.notes.length > 0}
 				<Accordion.Item value="general">
 					<Accordion.Trigger
-						class="flex w-full items-center justify-between rounded-lg border border-[#1a1a1a] bg-[#0f0f0f] px-4 py-3 text-left hover:bg-[#1a1a1a]/50"
+						class="border-border bg-card hover:bg-secondary/50 flex w-full items-center justify-between rounded-lg border px-4 py-3 text-left"
 					>
-						<h3 class="mb-0 text-lg font-semibold text-[#c89b3c]">
+						<h3 class="text-primary mb-0 text-lg font-semibold">
 							General Changes ({displayedNotes.length})
 						</h3>
 					</Accordion.Trigger>
@@ -185,7 +185,7 @@
 							<button
 								type="button"
 								onclick={() => (showAllNotes = true)}
-								class="mt-3 text-sm text-[#c89b3c] transition-colors hover:text-[#d4a854]"
+								class="text-primary mt-3 text-sm transition-colors hover:opacity-80"
 							>
 								+ Show {contentJson.notes.length - displayedNotes.length} more note{contentJson
 									.notes.length -
@@ -198,7 +198,7 @@
 							<button
 								type="button"
 								onclick={() => (showAllNotes = false)}
-								class="mt-3 text-sm text-[#c89b3c] transition-colors hover:text-[#d4a854]"
+								class="text-primary mt-3 text-sm transition-colors hover:opacity-80"
 							>
 								- Show less
 							</button>
@@ -210,9 +210,9 @@
 			{#if visibleHeroes.length > 0}
 				<Accordion.Item value="heroes">
 					<Accordion.Trigger
-						class="flex w-full items-center justify-between rounded-lg border border-[#1a1a1a] bg-[#0f0f0f] px-4 py-3 text-left hover:bg-[#1a1a1a]/50"
+						class="border-border bg-card hover:bg-secondary/50 flex w-full items-center justify-between rounded-lg border px-4 py-3 text-left"
 					>
-						<h3 class="mb-0 text-lg font-semibold text-[#c89b3c]">
+						<h3 class="text-primary mb-0 text-lg font-semibold">
 							Hero Changes ({visibleHeroes.length})
 						</h3>
 					</Accordion.Trigger>
@@ -236,9 +236,9 @@
 			{#if visibleItems.length > 0}
 				<Accordion.Item value="items">
 					<Accordion.Trigger
-						class="flex w-full items-center justify-between rounded-lg border border-[#1a1a1a] bg-[#0f0f0f] px-4 py-3 text-left hover:bg-[#1a1a1a]/50"
+						class="border-border bg-card hover:bg-secondary/50 flex w-full items-center justify-between rounded-lg border px-4 py-3 text-left"
 					>
-						<h3 class="mb-0 text-lg font-semibold text-[#c89b3c]">
+						<h3 class="text-primary mb-0 text-lg font-semibold">
 							Item Changes ({visibleItems.length})
 						</h3>
 					</Accordion.Trigger>
@@ -261,9 +261,9 @@
 			{#if (!hasParams || showFullChange) && Object.keys(contentJson.abilities).length > 0}
 				<Accordion.Item value="abilities">
 					<Accordion.Trigger
-						class="flex w-full items-center justify-between rounded-lg border border-[#1a1a1a] bg-[#0f0f0f] px-4 py-3 text-left hover:bg-[#1a1a1a]/50"
+						class="border-border bg-card hover:bg-secondary/50 flex w-full items-center justify-between rounded-lg border px-4 py-3 text-left"
 					>
-						<h3 class="mb-0 text-lg font-semibold text-[#c89b3c]">
+						<h3 class="text-primary mb-0 text-lg font-semibold">
 							Ability Changes ({Object.keys(contentJson.abilities).length})
 						</h3>
 					</Accordion.Trigger>

@@ -41,7 +41,7 @@
 	}}
 />
 
-<div class="relative min-h-screen bg-[#0a0a0a]">
+<div class="bg-background relative min-h-screen">
 	<div class="relative container mx-auto px-4 py-12">
 		<Changelog />
 	</div>

@@ -132,7 +132,7 @@
 	}
 </script>
 
-<Card.Root class="border-[#1a1a1a] bg-[#121212]/50 backdrop-blur-sm" {id}>
+<Card.Root class="border-border bg-card/50 backdrop-blur-sm" {id}>
 	<Card.Content class="relative p-6">
 		<!-- Top row: Metadata on left, icons and copy button on right -->
 		<div class="mb-4 flex w-full items-start justify-between gap-4">
@@ -141,14 +141,14 @@
 				<div class="flex flex-col gap-2">
 					<div class="flex items-baseline gap-3">
 						{#if isSubChange}
-							<Zap class="size-5 text-[#c89b3c]" />
+							<Zap class="text-primary size-5" />
 						{/if}
-						<div class="text-lg font-medium text-white">
+						<div class="text-foreground text-lg font-medium">
 							{formatDateWithSuffix(date)}
 						</div>
 					</div>
 					<div class="flex items-center gap-3 text-sm">
-						<div class="flex items-center gap-2 text-gray-500">
+						<div class="text-muted-foreground flex items-center gap-2">
 							{#if authorImage}
 								<img
 									src={authorImage}
@@ -157,12 +157,12 @@
 									height="20"
 									loading="lazy"
 									decoding="async"
-									class="size-5 rounded-full border border-[#c89b3c]/30"
+									class="border-primary/30 size-5 rounded-full border"
 								/>
 							{/if}
 							<span>By {author}</span>
 						</div>
-						<div class="text-xs text-gray-600">
+						<div class="text-muted-foreground text-xs">
 							{format(date, 'h:mm a')}
 						</div>
 					</div>
@@ -181,7 +181,7 @@
 					variant="ghost"
 					size="icon-sm"
 					onclick={copyLink}
-					class="text-gray-600 transition-colors hover:bg-[#c89b3c]/10 hover:text-[#c89b3c]"
+					class="text-muted-foreground hover:bg-primary/10 hover:text-primary transition-colors"
 					title={copied ? 'Copied!' : 'Copy link'}
 				>
 					{#if copied}
@@ -211,7 +211,7 @@
 			{/if}
 			{#if !isExpanded && !isFiltered}
 				<div
-					class="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-[#121212]"
+					class="from-card pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t"
 				></div>
 			{/if}
 		</div>
