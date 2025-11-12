@@ -222,7 +222,6 @@
 									contentJson={update.contentJson}
 									{heroMap}
 									{itemMap}
-									isSubChange={true}
 									{isFiltered}
 									forceShowNotes={shouldShowGeneralNotes(update, filterState)}
 									defaultOpen={entryIndex === 0 && updateIndex === 0}
