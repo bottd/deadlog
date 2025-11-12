@@ -17,6 +17,9 @@
 	} from '$lib/utils/selectedEntities.svelte';
 	import { createInfiniteQuery } from '@tanstack/svelte-query';
 	import { useIntersectionObserver } from 'runed';
+	import AlertCircle from '@lucide/svelte/icons/alert-circle';
+	import Frown from '@lucide/svelte/icons/frown';
+	import { Spinner } from '$lib/components/ui/spinner';
 
 	const params = getSearchParams();
 	const { changelogs, heroes, items, initialLoadCount, totalCount } = page.data;
@@ -170,28 +173,14 @@
 
 <main
 	class="bg-background relative container mx-auto mt-8 min-h-screen"
-	aria-label="Changelog timeline"
+	aria-label="Changelog entries"
 >
 	<GuideLine />
 
-	<!-- Error State -->
 	{#if query.isError}
 		<div class="flex flex-col items-center justify-center py-16 text-center">
 			<div class="mb-4 rounded-full bg-red-950/50 p-6">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					class="size-12 text-red-500"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke="currentColor"
-				>
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-					/>
-				</svg>
+				<AlertCircle class="size-12 text-red-500" />
 			</div>
 			<h3 class="text-foreground mb-2 text-xl font-semibold">
 				Failed to load changelogs
@@ -208,13 +197,8 @@
 		</div>
 	{/if}
 
-	<!-- Initial Loading State -->
 	{#if query.isPending && !query.data}
-		<div class="flex items-center justify-center py-16">
-			<div
-				class="border-primary size-12 animate-spin rounded-full border-4 border-t-transparent"
-			></div>
-		</div>
+		<Spinner />
 	{/if}
 
 	<!-- Changelog entries -->
@@ -270,20 +254,7 @@
 			{:else}
 				<div class="flex flex-col items-center justify-center py-16 text-center">
 					<div class="mb-4 rounded-full bg-card p-6">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="size-12 text-muted-foreground"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-							/>
-						</svg>
+						<Frown class="size-12 text-muted-foreground" />
 					</div>
 					<h3 class="mb-2 text-xl font-semibold text-foreground">No changes found</h3>
 					<p class="mb-6 max-w-md text-muted-foreground">
