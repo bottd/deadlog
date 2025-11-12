@@ -2,7 +2,7 @@
 	import { FilterInput } from '$lib/components/filter-bar';
 </script>
 
-<nav class="border-border bg-card sticky top-0 z-50 border-b pb-4">
+<nav>
 	<div class="container mx-auto">
 		<div class="flex h-16 items-center">
 			<a
@@ -18,3 +18,10 @@
 		<FilterInput />
 	</div>
 </nav>
+
+<style lang="postcss">
+	nav {
+		@apply border-border bg-card sticky z-50 border-b pb-4;
+		top: var(--safe-area-inset-top);
+	}
+</style>
