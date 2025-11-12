@@ -15,6 +15,9 @@ export default defineConfig({
 	server: {
 		fs: {
 			allow: ['../..']
+		},
+		watch: {
+			ignored: ['**/.direnv/**', '**/node_modules/**']
 		}
 	},
 	resolve: {
@@ -43,11 +46,7 @@ export default defineConfig({
 		ui: false,
 		projects: [
 			{
-				plugins: [
-					tsconfigPaths({
-						projects: ['../../tsconfig.base.json']
-					})
-				],
+				plugins: [tsconfigPaths({ projects: ['../../tsconfig.base.json'] })],
 				test: {
 					name: 'client',
 					browser: {
@@ -62,11 +61,7 @@ export default defineConfig({
 				}
 			},
 			{
-				plugins: [
-					tsconfigPaths({
-						projects: ['../../tsconfig.base.json']
-					})
-				],
+				plugins: [tsconfigPaths({ projects: ['../../tsconfig.base.json'] })],
 				test: {
 					name: 'server',
 					environment: 'node',

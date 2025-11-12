@@ -5,11 +5,14 @@
 	"projectType": "application",
 	"targets": {
 		"dev": {
-			"executor": "@nx/vite:dev-server",
-			"dependsOn": ["^build"],
+			"executor": "nx:run-commands",
+			"dependsOn": ["^build", "prepare"],
 			"options": {
-				"buildTarget": "web:build",
-				"port": 5173
+				"command": "vite dev --port 5173",
+				"cwd": "apps/web",
+				"env": {
+					"DATABASE_URL": "file:static/deadlog.db"
+				}
 			}
 		},
 		"build": {
@@ -17,15 +20,22 @@
 			"dependsOn": ["^build", "prepare"],
 			"outputs": ["{workspaceRoot}/dist/apps/web"],
 			"options": {
-				"command": "DATABASE_URL=file:$PWD/static/deadlog.db vite build",
-				"cwd": "apps/web"
+				"command": "vite build",
+				"cwd": "apps/web",
+				"env": {
+					"DATABASE_URL": "file:static/deadlog.db"
+				}
 			}
 		},
 		"preview": {
-			"executor": "@nx/vite:preview-server",
+			"executor": "nx:run-commands",
+			"dependsOn": ["build"],
 			"options": {
-				"buildTarget": "web:build",
-				"port": 4173
+				"command": "vite preview --port 4173",
+				"cwd": "apps/web",
+				"env": {
+					"DATABASE_URL": "file:static/deadlog.db"
+				}
 			}
 		},
 		"prepare": {
