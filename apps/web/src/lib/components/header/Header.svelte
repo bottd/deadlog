@@ -20,6 +20,8 @@
 </nav>
 
 <style lang="postcss">
+	@reference "../../../app.css";
+
 	nav {
 		@apply border-border bg-card sticky z-50 border-b pb-4;
 		top: var(--safe-area-inset-top);
