@@ -4,7 +4,7 @@
  * @param searchQuery - The query to highlight
  * @returns HTML string with highlighted matches
  */
-const HIGHLIGHT_CLASS = 'bg-[#c89b3c]/30 text-white rounded px-0.5' as const;
+const HIGHLIGHT_CLASS = 'bg-primary/30 text-foreground rounded px-0.5' as const;
 const REGEX_SPECIAL_CHARS = /[.*+?^${}()|[\]\\]/g;
 
 export function highlightText(text: string, searchQuery: string): string {

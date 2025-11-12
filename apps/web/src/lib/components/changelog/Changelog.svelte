@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { ChangeListItem } from './list';
+	import GuideLine from './GuideLine.svelte';
 	import { ChangelogEntry } from '.';
 	import {
 		getVisibleHeroNames,
@@ -16,6 +17,9 @@
 	} from '$lib/utils/selectedEntities.svelte';
 	import { createInfiniteQuery } from '@tanstack/svelte-query';
 	import { useIntersectionObserver } from 'runed';
+	import AlertCircle from '@lucide/svelte/icons/alert-circle';
+	import Frown from '@lucide/svelte/icons/frown';
+	import { Spinner } from '$lib/components/ui/spinner';
 
 	const params = getSearchParams();
 	const { changelogs, heroes, items, initialLoadCount, totalCount } = page.data;
@@ -167,63 +171,34 @@
 	});
 </script>
 
-<main class="relative mt-12" aria-label="Changelog timeline">
-	<!-- Background refetch indicator -->
-	{#if query.isFetching && !query.isFetchingNextPage && query.data}
-		<div
-			class="fixed top-20 right-4 z-50 flex items-center gap-2 rounded-lg bg-[#1a1a1a] px-4 py-2 shadow-lg"
-		>
-			<div
-				class="size-4 animate-spin rounded-full border-2 border-[#c89b3c] border-t-transparent"
-			></div>
-			<span class="text-sm text-gray-400">Updating...</span>
-		</div>
-	{/if}
+<main
+	class="bg-background relative container mx-auto mt-8 min-h-screen"
+	aria-label="Changelog entries"
+>
+	<GuideLine />
 
-	<!-- Timeline guide line -->
-	<div
-		class="absolute top-0 bottom-0 left-6 hidden w-0.5 bg-gradient-to-b from-[#c89b3c] via-[#c89b3c]/50 to-transparent md:block"
-	></div>
-
-	<!-- Error State -->
 	{#if query.isError}
 		<div class="flex flex-col items-center justify-center py-16 text-center">
 			<div class="mb-4 rounded-full bg-red-950/50 p-6">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					class="size-12 text-red-500"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke="currentColor"
-				>
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-					/>
-				</svg>
+				<AlertCircle class="size-12 text-red-500" />
 			</div>
-			<h3 class="mb-2 text-xl font-semibold text-white">Failed to load changelogs</h3>
-			<p class="mb-6 max-w-md text-gray-500">
+			<h3 class="text-foreground mb-2 text-xl font-semibold">
+				Failed to load changelogs
+			</h3>
+			<p class="text-muted-foreground mb-6 max-w-md">
 				{query.error?.message || 'An error occurred while fetching changelogs'}
 			</p>
 			<button
 				onclick={() => query.refetch()}
-				class="rounded-md bg-[#c89b3c] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#d4a854]"
+				class="bg-primary text-primary-foreground rounded-md px-4 py-2 text-sm font-medium transition-colors hover:opacity-80"
 			>
 				Try again
 			</button>
 		</div>
 	{/if}
 
-	<!-- Initial Loading State -->
 	{#if query.isPending && !query.data}
-		<div class="flex items-center justify-center py-16">
-			<div
-				class="size-12 animate-spin rounded-full border-4 border-[#c89b3c] border-t-transparent"
-			></div>
-		</div>
+		<Spinner />
 	{/if}
 
 	<!-- Changelog entries -->
@@ -247,7 +222,6 @@
 									contentJson={update.contentJson}
 									{heroMap}
 									{itemMap}
-									isSubChange={true}
 									{isFiltered}
 									forceShowNotes={shouldShowGeneralNotes(update, filterState)}
 									defaultOpen={entryIndex === 0 && updateIndex === 0}
@@ -278,30 +252,17 @@
 				{/if}
 			{:else}
 				<div class="flex flex-col items-center justify-center py-16 text-center">
-					<div class="mb-4 rounded-full bg-[#1a1a1a] p-6">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="size-12 text-gray-600"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-							/>
-						</svg>
+					<div class="mb-4 rounded-full bg-card p-6">
+						<Frown class="size-12 text-muted-foreground" />
 					</div>
-					<h3 class="mb-2 text-xl font-semibold text-white">No changes found</h3>
-					<p class="mb-6 max-w-md text-gray-500">
+					<h3 class="mb-2 text-xl font-semibold text-foreground">No changes found</h3>
+					<p class="mb-6 max-w-md text-muted-foreground">
 						No changelog entries match your current filters. Try adjusting your search or
 						clearing the filters.
 					</p>
 					<button
 						onclick={() => params.reset()}
-						class="rounded-md bg-[#c89b3c] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#d4a854]"
+						class="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:opacity-80"
 					>
 						Clear all filters
 					</button>
@@ -313,7 +274,7 @@
 				{#if query.isFetchingNextPage}
 					<div class="flex items-center justify-center">
 						<div
-							class="size-8 animate-spin rounded-full border-4 border-[#c89b3c] border-t-transparent"
+							class="border-primary size-8 animate-spin rounded-full border-4 border-t-transparent"
 						></div>
 					</div>
 				{:else if query.hasNextPage}
@@ -321,12 +282,12 @@
 					<button
 						onclick={() => query.fetchNextPage()}
 						disabled={query.isFetchingNextPage}
-						class="rounded-md bg-[#c89b3c]/10 px-6 py-3 text-sm font-medium text-[#c89b3c] transition-colors hover:bg-[#c89b3c]/20 disabled:opacity-50"
+						class="bg-primary/10 text-primary hover:bg-primary/20 rounded-md px-6 py-3 text-sm font-medium transition-colors disabled:opacity-50"
 					>
 						Load more changes
 					</button>
 				{:else if !query.hasNextPage && filteredChangelogs.length > 0}
-					<p class="text-sm text-gray-500">All changes loaded</p>
+					<p class="text-muted-foreground text-sm">All changes loaded</p>
 				{/if}
 			</div>
 		</div>

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 	import { Header } from '$lib/components/header';
+	import { Footer } from '$lib/components/ui/footer';
 	import { useSearchParams } from 'runed/kit';
 	import { setContext } from 'svelte';
 	import { paramSchema, SEARCH_PARAMS_KEY } from '$lib/utils/searchParams.svelte';
@@ -27,4 +28,6 @@
 	<Header />
 
 	{@render children?.()}
+
+	<Footer />
 </QueryClientProvider>

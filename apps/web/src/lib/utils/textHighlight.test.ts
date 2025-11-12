@@ -18,7 +18,7 @@ describe('highlightText', () => {
 		const text = 'This is a test';
 		const result = highlightText(text, 'test');
 		expect(result).toBe(
-			'This is a <mark class="bg-[#c89b3c]/30 text-white rounded px-0.5">test</mark>'
+			'This is a <mark class="bg-primary/30 text-foreground rounded px-0.5">test</mark>'
 		);
 	});
 
@@ -26,7 +26,7 @@ describe('highlightText', () => {
 		const text = 'This test is a test';
 		const result = highlightText(text, 'test');
 		expect(result).toBe(
-			'This <mark class="bg-[#c89b3c]/30 text-white rounded px-0.5">test</mark> is a <mark class="bg-[#c89b3c]/30 text-white rounded px-0.5">test</mark>'
+			'This <mark class="bg-primary/30 text-foreground rounded px-0.5">test</mark> is a <mark class="bg-primary/30 text-foreground rounded px-0.5">test</mark>'
 		);
 	});
 
@@ -34,7 +34,7 @@ describe('highlightText', () => {
 		const text = 'This TEST is a Test';
 		const result = highlightText(text, 'test');
 		expect(result).toBe(
-			'This <mark class="bg-[#c89b3c]/30 text-white rounded px-0.5">TEST</mark> is a <mark class="bg-[#c89b3c]/30 text-white rounded px-0.5">Test</mark>'
+			'This <mark class="bg-primary/30 text-foreground rounded px-0.5">TEST</mark> is a <mark class="bg-primary/30 text-foreground rounded px-0.5">Test</mark>'
 		);
 	});
 
@@ -42,7 +42,7 @@ describe('highlightText', () => {
 		const text = 'Infernus was buffed';
 		const result = highlightText(text, 'INFERNUS');
 		expect(result).toBe(
-			'<mark class="bg-[#c89b3c]/30 text-white rounded px-0.5">Infernus</mark> was buffed'
+			'<mark class="bg-primary/30 text-foreground rounded px-0.5">Infernus</mark> was buffed'
 		);
 	});
 
@@ -50,7 +50,7 @@ describe('highlightText', () => {
 		const text = 'Damage increased';
 		const result = highlightText(text, 'Damage');
 		expect(result).toBe(
-			'<mark class="bg-[#c89b3c]/30 text-white rounded px-0.5">Damage</mark> increased'
+			'<mark class="bg-primary/30 text-foreground rounded px-0.5">Damage</mark> increased'
 		);
 	});
 
@@ -58,7 +58,7 @@ describe('highlightText', () => {
 		const text = 'Cost: $100 (reduced)';
 		const result = highlightText(text, '$100');
 		expect(result).toBe(
-			'Cost: <mark class="bg-[#c89b3c]/30 text-white rounded px-0.5">$100</mark> (reduced)'
+			'Cost: <mark class="bg-primary/30 text-foreground rounded px-0.5">$100</mark> (reduced)'
 		);
 	});
 
@@ -66,7 +66,7 @@ describe('highlightText', () => {
 		const text = 'Pattern [test] found';
 		const result = highlightText(text, '[test]');
 		expect(result).toBe(
-			'Pattern <mark class="bg-[#c89b3c]/30 text-white rounded px-0.5">[test]</mark> found'
+			'Pattern <mark class="bg-primary/30 text-foreground rounded px-0.5">[test]</mark> found'
 		);
 	});
 
@@ -74,7 +74,7 @@ describe('highlightText', () => {
 		const text = 'Version 1.2.3 released';
 		const result = highlightText(text, '1.2');
 		expect(result).toBe(
-			'Version <mark class="bg-[#c89b3c]/30 text-white rounded px-0.5">1.2</mark>.3 released'
+			'Version <mark class="bg-primary/30 text-foreground rounded px-0.5">1.2</mark>.3 released'
 		);
 	});
 
@@ -82,7 +82,7 @@ describe('highlightText', () => {
 		const text = 'Fixed bug (issue #123)';
 		const result = highlightText(text, '(issue #123)');
 		expect(result).toBe(
-			'Fixed bug <mark class="bg-[#c89b3c]/30 text-white rounded px-0.5">(issue #123)</mark>'
+			'Fixed bug <mark class="bg-primary/30 text-foreground rounded px-0.5">(issue #123)</mark>'
 		);
 	});
 
@@ -90,7 +90,7 @@ describe('highlightText', () => {
 		const text = 'Infernus was buffed';
 		const result = highlightText(text, 'Infernus');
 		expect(result).toBe(
-			'<mark class="bg-[#c89b3c]/30 text-white rounded px-0.5">Infernus</mark> was buffed'
+			'<mark class="bg-primary/30 text-foreground rounded px-0.5">Infernus</mark> was buffed'
 		);
 	});
 
@@ -98,7 +98,7 @@ describe('highlightText', () => {
 		const text = 'Hero is Infernus';
 		const result = highlightText(text, 'Infernus');
 		expect(result).toBe(
-			'Hero is <mark class="bg-[#c89b3c]/30 text-white rounded px-0.5">Infernus</mark>'
+			'Hero is <mark class="bg-primary/30 text-foreground rounded px-0.5">Infernus</mark>'
 		);
 	});
 
@@ -106,7 +106,7 @@ describe('highlightText', () => {
 		const text = 'Metal Skin cost reduced significantly';
 		const result = highlightText(text, 'Metal Skin');
 		expect(result).toBe(
-			'<mark class="bg-[#c89b3c]/30 text-white rounded px-0.5">Metal Skin</mark> cost reduced significantly'
+			'<mark class="bg-primary/30 text-foreground rounded px-0.5">Metal Skin</mark> cost reduced significantly'
 		);
 	});
 });

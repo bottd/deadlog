@@ -52,7 +52,7 @@
 	import * as Card from '$lib/components/ui/card';
 	import { Button } from '$lib/components/ui/button';
 	import type { ChangelogContentJson } from '@deadlog/db';
-	import { Link, Check, Zap } from '@lucide/svelte';
+	import { Link, Check } from '@lucide/svelte';
 	import { format } from 'date-fns';
 	import { formatDateWithSuffix } from '$lib/utils/dateFormatters';
 	import type { EntityType } from '$lib/utils/types';
@@ -81,7 +81,6 @@
 			number,
 			{ name: string; images?: { png?: string; webp?: string } | null }
 		>;
-		isSubChange?: boolean;
 		isFiltered?: boolean;
 		forceShowNotes?: boolean;
 		defaultOpen?: boolean;
@@ -97,7 +96,6 @@
 		contentJson,
 		heroMap,
 		itemMap,
-		isSubChange = false,
 		isFiltered = false,
 		forceShowNotes = false,
 		defaultOpen = false
@@ -132,23 +130,18 @@
 	}
 </script>
 
-<Card.Root class="border-[#1a1a1a] bg-[#121212]/50 backdrop-blur-sm" {id}>
-	<Card.Content class="relative p-6">
-		<!-- Top row: Metadata on left, icons and copy button on right -->
+<Card.Root {id}>
+	<Card.Content>
 		<div class="mb-4 flex w-full items-start justify-between gap-4">
-			<!-- Left side: Date and metadata -->
 			<div class="flex-1">
 				<div class="flex flex-col gap-2">
 					<div class="flex items-baseline gap-3">
-						{#if isSubChange}
-							<Zap class="size-5 text-[#c89b3c]" />
-						{/if}
-						<div class="text-lg font-medium text-white">
+						<div class="text-foreground text-lg font-medium">
 							{formatDateWithSuffix(date)}
 						</div>
 					</div>
 					<div class="flex items-center gap-3 text-sm">
-						<div class="flex items-center gap-2 text-gray-500">
+						<div class="text-muted-foreground flex items-center gap-2">
 							{#if authorImage}
 								<img
 									src={authorImage}
@@ -157,31 +150,29 @@
 									height="20"
 									loading="lazy"
 									decoding="async"
-									class="size-5 rounded-full border border-[#c89b3c]/30"
+									class="border-primary/30 size-5 rounded-full border"
 								/>
 							{/if}
 							<span>By {author}</span>
 						</div>
-						<div class="text-xs text-gray-600">
+						<div class="text-muted-foreground text-xs">
 							{format(date, 'h:mm a')}
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<!-- Right side: Icons and copy button -->
 			<div class="flex items-start gap-2">
 				{#if icons}
 					<div class="flex justify-end">
 						<IconPreview heroes={icons.heroes} items={icons.items} />
 					</div>
 				{/if}
-				<!-- Copy link button -->
 				<Button
 					variant="ghost"
 					size="icon-sm"
 					onclick={copyLink}
-					class="text-gray-600 transition-colors hover:bg-[#c89b3c]/10 hover:text-[#c89b3c]"
+					class="text-muted-foreground hover:bg-primary/10 hover:text-primary transition-colors"
 					title={copied ? 'Copied!' : 'Copy link'}
 				>
 					{#if copied}
@@ -193,7 +184,6 @@
 			</div>
 		</div>
 
-		<!-- Content with overflow control -->
 		<div
 			class="mb-3 break-words {isExpanded || isFiltered
 				? ''
@@ -211,7 +201,7 @@
 			{/if}
 			{#if !isExpanded && !isFiltered}
 				<div
-					class="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-[#121212]"
+					class="from-card pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t"
 				></div>
 			{/if}
 		</div>

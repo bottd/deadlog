@@ -46,7 +46,7 @@
 
 {#each segments as segment, i (i)}
 	{#if segment.isPattern}
-		<span class="font-semibold text-[#c89b3c]">{segment.text}</span>
+		<span class="text-primary font-semibold">{segment.text}</span>
 	{:else if params.q}
 		<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 		{@html highlightText(segment.text, params.q)}
