@@ -40,11 +40,5 @@
 		image
 	}}
 />
-
-<div class="bg-background relative min-h-screen">
-	<div class="relative container mx-auto px-4 py-12">
-		<Changelog />
-	</div>
-</div>
-
+<Changelog />
 <ScrollToTop />

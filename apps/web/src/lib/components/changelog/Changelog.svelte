@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { ChangeListItem } from './list';
+	import GuideLine from './GuideLine.svelte';
 	import { ChangelogEntry } from '.';
 	import {
 		getVisibleHeroNames,
@@ -167,23 +168,11 @@
 	});
 </script>
 
-<main class="relative mt-12" aria-label="Changelog timeline">
-	<!-- Background refetch indicator -->
-	{#if query.isFetching && !query.isFetchingNextPage && query.data}
-		<div
-			class="bg-card border-border fixed top-20 right-4 z-50 flex items-center gap-2 rounded-lg border px-4 py-2 shadow-lg"
-		>
-			<div
-				class="border-primary size-4 animate-spin rounded-full border-2 border-t-transparent"
-			></div>
-			<span class="text-muted-foreground text-sm">Updating...</span>
-		</div>
-	{/if}
-
-	<!-- Timeline guide line -->
-	<div
-		class="from-primary via-primary/50 absolute top-0 bottom-0 left-6 hidden w-0.5 bg-gradient-to-b to-transparent md:block"
-	></div>
+<main
+	class="bg-background relative container mx-auto mt-8 min-h-screen"
+	aria-label="Changelog timeline"
+>
+	<GuideLine />
 
 	<!-- Error State -->
 	{#if query.isError}

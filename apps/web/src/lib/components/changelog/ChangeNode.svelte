@@ -12,8 +12,8 @@
 </script>
 
 <div
-	class="flex size-12 items-center justify-center rounded-full border-4 {isActive
-		? 'border-primary bg-primary shadow-primary/50 shadow-lg'
+	class="flex size-9 items-center justify-center rounded-full border-4 {isActive
+		? 'border-primary bg-primary '
 		: 'border-border bg-background transition-all'}"
 >
 	{#if bigUpdate}
