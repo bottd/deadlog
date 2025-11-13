@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { IconPreview } from '.';
+	import { EntityPreview } from '.';
 	import type { EntityIcon } from '$lib/utils/types';
 	import { Button } from '$lib/components/ui/button';
 	import { Link, Check } from '@lucide/svelte';
@@ -61,9 +61,14 @@
 	</div>
 
 	<div class="flex items-start gap-2">
-		{#if icons}
-			<IconPreview heroes={icons.heroes} items={icons.items} />
-		{/if}
+		<div class="flex flex-col gap-2">
+			{#if icons?.heroes}
+				<EntityPreview entities={icons.heroes} />
+			{/if}
+			{#if icons?.items}
+				<EntityPreview entities={icons.items} />
+			{/if}
+		</div>
 		<Button
 			variant="ghost"
 			size="icon-sm"
