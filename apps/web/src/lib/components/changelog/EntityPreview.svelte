@@ -6,7 +6,7 @@
 	}
 
 	let { entities }: Props = $props();
-	const maxIconsPerRow = 19;
+	const maxIconsPerRow = 9;
 
 	const overlap = $derived.by(function (): number {
 		const { length } = entities;

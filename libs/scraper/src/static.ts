@@ -119,7 +119,8 @@ export async function queryChangelogs(
 		.offset(offset)
 		.all();
 
-	return results;
+	// Extract changelogs from nested structure when using selectDistinct
+	return results.map((r: { changelogs: ScrapedChangelog }) => r.changelogs);
 }
 
 /**
