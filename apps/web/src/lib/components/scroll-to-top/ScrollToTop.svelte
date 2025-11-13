@@ -1,23 +1,13 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import ArrowUp from '@lucide/svelte/icons/arrow-up';
 	let showScrollTop = $state(false);
 
 	function scrollToTop() {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	}
-
-	onMount(() => {
-		const handleScroll = () => {
-			showScrollTop = window.scrollY > 500;
-		};
-		window.addEventListener('scroll', handleScroll);
-
-		return () => {
-			window.removeEventListener('scroll', handleScroll);
-		};
-	});
 </script>
+
+<svelte:window onscroll={() => (showScrollTop = window.scrollY > 500)} />
 
 {#if showScrollTop}
 	<button
