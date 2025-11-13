@@ -1,14 +1,11 @@
 <script lang="ts">
 	import { NoteWithPatterns } from '..';
-	import type {
-		HeroAbilityChange,
-		NoteWithPatterns as NoteWithPatternsType
-	} from '@deadlog/db';
+	import type { HeroAbilityChange, Note as NoteType } from '@deadlog/db';
 
 	interface Props {
 		title: string;
 		image?: string;
-		notes: NoteWithPatternsType[];
+		notes: NoteType[];
 		abilities?: HeroAbilityChange[];
 		isHighlighted?: boolean;
 	}

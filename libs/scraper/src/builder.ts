@@ -12,7 +12,7 @@ import {
 	insertHeroSchema,
 	insertItemSchema,
 	insertChangelogSchema,
-	insertChangelogIconSchema,
+	insertChangelogEntitySchema,
 	insertChangelogHeroSchema,
 	insertChangelogItemSchema
 } from '@deadlog/db';
@@ -104,7 +104,7 @@ export async function buildDatabase(
 	`);
 
 	await db.run(sql`
-		CREATE TABLE IF NOT EXISTS changelog_icons (
+		CREATE TABLE IF NOT EXISTS changelog_entities (
 			changelog_id TEXT NOT NULL REFERENCES changelogs(id),
 			entity_type TEXT NOT NULL CHECK(entity_type IN ('hero', 'item')),
 			entity_id INTEGER NOT NULL,
@@ -285,25 +285,25 @@ export async function buildDatabase(
 
 		// Insert icons for this changelog
 		for (const heroIcon of icons.heroes) {
-			const iconData = insertChangelogIconSchema.parse({
+			const iconData = insertChangelogEntitySchema.parse({
 				changelogId: patch.postId,
 				entityType: 'hero',
 				entityId: heroIcon.id as number,
 				entityName: heroIcon.alt,
 				imageSrc: heroIcon.src
 			});
-			await db.insert(schema.changelogIcons).values(iconData).onConflictDoNothing();
+			await db.insert(schema.changelogEntities).values(iconData).onConflictDoNothing();
 		}
 
 		for (const itemIcon of icons.items) {
-			const iconData = insertChangelogIconSchema.parse({
+			const iconData = insertChangelogEntitySchema.parse({
 				changelogId: patch.postId,
 				entityType: 'item',
 				entityId: itemIcon.id as number,
 				entityName: itemIcon.alt,
 				imageSrc: itemIcon.src
 			});
-			await db.insert(schema.changelogIcons).values(iconData).onConflictDoNothing();
+			await db.insert(schema.changelogEntities).values(iconData).onConflictDoNothing();
 		}
 
 		// Insert hero mentions into junction table
@@ -380,25 +380,31 @@ export async function buildDatabase(
 
 				// Insert icons for this update
 				for (const heroIcon of replyIcons.heroes) {
-					const iconData = insertChangelogIconSchema.parse({
+					const iconData = insertChangelogEntitySchema.parse({
 						changelogId: updateId,
 						entityType: 'hero',
 						entityId: heroIcon.id as number,
 						entityName: heroIcon.alt,
 						imageSrc: heroIcon.src
 					});
-					await db.insert(schema.changelogIcons).values(iconData).onConflictDoNothing();
+					await db
+						.insert(schema.changelogEntities)
+						.values(iconData)
+						.onConflictDoNothing();
 				}
 
 				for (const itemIcon of replyIcons.items) {
-					const iconData = insertChangelogIconSchema.parse({
+					const iconData = insertChangelogEntitySchema.parse({
 						changelogId: updateId,
 						entityType: 'item',
 						entityId: itemIcon.id as number,
 						entityName: itemIcon.alt,
 						imageSrc: itemIcon.src
 					});
-					await db.insert(schema.changelogIcons).values(iconData).onConflictDoNothing();
+					await db
+						.insert(schema.changelogEntities)
+						.values(iconData)
+						.onConflictDoNothing();
 				}
 
 				// Insert hero mentions for this update

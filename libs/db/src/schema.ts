@@ -2,62 +2,60 @@ import { sqliteTable, text, integer, primaryKey, index } from 'drizzle-orm/sqlit
 import { createInsertSchema, createSelectSchema } from 'drizzle-zod';
 import { z } from 'zod';
 
+export type ScalingPattern = z.infer<typeof scalingPatternSchema>;
 export const scalingPatternSchema = z.object({
 	text: z.string(),
 	start: z.number(),
 	end: z.number()
 });
 
-export const noteWithPatternsSchema = z.object({
+export type Note = z.infer<typeof noteSchema>;
+export const noteSchema = z.object({
 	text: z.string(),
 	patterns: z.array(scalingPatternSchema)
 });
 
+export type HeroAbilityChange = z.infer<typeof heroAbilityChangeSchema>;
 export const heroAbilityChangeSchema = z.object({
 	abilityName: z.string(),
 	abilityImage: z.string(),
-	notes: z.array(noteWithPatternsSchema)
+	notes: z.array(noteSchema)
 });
 
-export const heroChangesSchema = z.record(
+export type HeroChange = z.infer<typeof heroChangeSchema>;
+export const heroChangeSchema = z.record(
 	z.string(),
 	z.object({
 		id: z.number(),
-		notes: z.array(noteWithPatternsSchema),
+		notes: z.array(noteSchema),
 		abilities: z.array(heroAbilityChangeSchema).optional()
 	})
 );
 
-export const itemChangesSchema = z.record(
+export type ItemChange = z.infer<typeof itemChangeSchema>;
+export const itemChangeSchema = z.record(
 	z.string(),
 	z.object({
 		id: z.number(),
-		notes: z.array(noteWithPatternsSchema)
+		notes: z.array(noteSchema)
 	})
 );
 
-export const abilityChangesSchema = z.record(
+export type AbilityChange = z.infer<typeof abilityChangeSchema>;
+export const abilityChangeSchema = z.record(
 	z.string(),
 	z.object({
-		notes: z.array(noteWithPatternsSchema)
+		notes: z.array(noteSchema)
 	})
 );
 
-export const changelogContentJsonSchema = z.object({
-	notes: z.array(noteWithPatternsSchema),
-	heroes: heroChangesSchema,
-	items: itemChangesSchema,
-	abilities: abilityChangesSchema
-});
-
-// TypeScript types derived from Zod schemas
-export type ScalingPattern = z.infer<typeof scalingPatternSchema>;
-export type NoteWithPatterns = z.infer<typeof noteWithPatternsSchema>;
-export type HeroAbilityChange = z.infer<typeof heroAbilityChangeSchema>;
-export type HeroChanges = z.infer<typeof heroChangesSchema>;
-export type ItemChanges = z.infer<typeof itemChangesSchema>;
-export type AbilityChanges = z.infer<typeof abilityChangesSchema>;
 export type ChangelogContentJson = z.infer<typeof changelogContentJsonSchema>;
+export const changelogContentJsonSchema = z.object({
+	notes: z.array(noteSchema),
+	heroes: heroChangeSchema,
+	items: itemChangeSchema,
+	abilities: abilityChangeSchema
+});
 
 export const changelogs = sqliteTable('changelogs', {
 	id: text('id').primaryKey(),
@@ -73,14 +71,15 @@ export const changelogs = sqliteTable('changelogs', {
 	parentChange: text('parent_change')
 });
 
+export type InsertChangelog = z.infer<typeof insertChangelogSchema>;
 export const insertChangelogSchema = createInsertSchema(changelogs, {
 	contentJson: changelogContentJsonSchema.optional()
 });
+
+export type SelectChangelog = z.infer<typeof selectChangelogSchema>;
 export const selectChangelogSchema = createSelectSchema(changelogs, {
 	contentJson: changelogContentJsonSchema.optional()
 });
-export type InsertChangelog = z.infer<typeof insertChangelogSchema>;
-export type SelectChangelog = z.infer<typeof selectChangelogSchema>;
 
 export const heroes = sqliteTable('heroes', {
 	id: integer('id').primaryKey(),
@@ -91,14 +90,15 @@ export const heroes = sqliteTable('heroes', {
 	isReleased: integer('is_released', { mode: 'boolean' }).notNull().default(true)
 });
 
+export type InsertHero = z.infer<typeof insertHeroSchema>;
 export const insertHeroSchema = createInsertSchema(heroes, {
 	images: z.record(z.string(), z.string())
 });
+
+export type SelectHero = z.infer<typeof selectHeroSchema>;
 export const selectHeroSchema = createSelectSchema(heroes, {
 	images: z.record(z.string(), z.string())
 });
-export type InsertHero = z.infer<typeof insertHeroSchema>;
-export type SelectHero = z.infer<typeof selectHeroSchema>;
 
 export const items = sqliteTable('items', {
 	id: integer('id').primaryKey(),
@@ -119,28 +119,30 @@ export const itemImagesSchema = z
 	.refine((data) => data.png || data.webp, {
 		message: 'At least one image (png or webp) must be provided'
 	});
+
+export type InsertItem = z.infer<typeof insertItemSchema>;
 export const insertItemSchema = createInsertSchema(items, {
 	images: itemImagesSchema
 });
+
+export type SelectItem = z.infer<typeof selectItemSchema>;
 export const selectItemSchema = createSelectSchema(items, {
 	images: itemImagesSchema
 });
-export type InsertItem = z.infer<typeof insertItemSchema>;
-export type SelectItem = z.infer<typeof selectItemSchema>;
 
 export const metadata = sqliteTable('metadata', {
 	key: text('key').primaryKey(),
 	value: text('value')
 });
 
-export const insertMetadataSchema = createInsertSchema(metadata);
-export const selectMetadataSchema = createSelectSchema(metadata);
 export type InsertMetadata = z.infer<typeof insertMetadataSchema>;
-export type SelectMetadata = z.infer<typeof selectMetadataSchema>;
+export const insertMetadataSchema = createInsertSchema(metadata);
 
-// Junction table: changelog icons (pre-computed during parsing)
-export const changelogIcons = sqliteTable(
-	'changelog_icons',
+export type SelectMetadata = z.infer<typeof selectMetadataSchema>;
+export const selectMetadataSchema = createSelectSchema(metadata);
+
+export const changelogEntities = sqliteTable(
+	'changelog_entities',
 	{
 		changelogId: text('changelog_id')
 			.notNull()
@@ -155,14 +157,14 @@ export const changelogIcons = sqliteTable(
 	})
 );
 
-export const insertChangelogIconSchema = createInsertSchema(changelogIcons, {
+export const insertChangelogEntitySchema = createInsertSchema(changelogEntities, {
 	entityType: z.enum(['hero', 'item'])
 });
-export const selectChangelogIconSchema = createSelectSchema(changelogIcons, {
+export const selectChangelogEntitySchema = createSelectSchema(changelogEntities, {
 	entityType: z.enum(['hero', 'item'])
 });
-export type InsertChangelogIcon = z.infer<typeof insertChangelogIconSchema>;
-export type SelectChangelogIcon = z.infer<typeof selectChangelogIconSchema>;
+export type InsertChangelogEntity = z.infer<typeof insertChangelogEntitySchema>;
+export type SelectChangelogEntity = z.infer<typeof selectChangelogEntitySchema>;
 
 // Junction table: changelog to heroes (for efficient filtering)
 export const changelogHeroes = sqliteTable(

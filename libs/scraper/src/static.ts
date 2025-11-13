@@ -326,13 +326,13 @@ export async function getChangelogIcons(
 }> {
 	const results = await db
 		.select()
-		.from(schema.changelogIcons)
-		.where(eq(schema.changelogIcons.changelogId, changelogId))
+		.from(schema.changelogEntities)
+		.where(eq(schema.changelogEntities.changelogId, changelogId))
 		.all();
 
 	const heroes = results
-		.filter((r: typeof schema.changelogIcons.$inferSelect) => r.entityType === 'hero')
-		.map((r: typeof schema.changelogIcons.$inferSelect) => ({
+		.filter((r: typeof schema.changelogEntities.$inferSelect) => r.entityType === 'hero')
+		.map((r: typeof schema.changelogEntities.$inferSelect) => ({
 			id: r.entityId,
 			src: r.imageSrc,
 			alt: r.entityName,
@@ -340,8 +340,8 @@ export async function getChangelogIcons(
 		}));
 
 	const items = results
-		.filter((r: typeof schema.changelogIcons.$inferSelect) => r.entityType === 'item')
-		.map((r: typeof schema.changelogIcons.$inferSelect) => ({
+		.filter((r: typeof schema.changelogEntities.$inferSelect) => r.entityType === 'item')
+		.map((r: typeof schema.changelogEntities.$inferSelect) => ({
 			id: r.entityId,
 			src: r.imageSrc,
 			alt: r.entityName,

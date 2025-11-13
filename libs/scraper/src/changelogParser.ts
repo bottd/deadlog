@@ -7,7 +7,7 @@ import {
 	type EnrichedItem,
 	type EntityType
 } from './types/assets';
-import type { ChangelogContentJson, ScalingPattern, NoteWithPatterns } from '@deadlog/db';
+import type { ChangelogContentJson, ScalingPattern, Note } from '@deadlog/db';
 import { changelogContentJsonSchema } from '@deadlog/db';
 import { escapeRegex } from './regex';
 
@@ -17,7 +17,7 @@ import { escapeRegex } from './regex';
  * - Numeric sequences like "1/2/3/4" or "10/20/30/40"
  * - Value changes like "X → Y" or "X -> Y" or "X to Y"
  */
-function extractScalingPatterns(text: string): NoteWithPatterns {
+function extractScalingPatterns(text: string): Note {
 	const patterns: ScalingPattern[] = [];
 
 	// Pattern 1: Numeric sequences like "1/2/3/4" or "1.5/2/2.5/3"
@@ -303,9 +303,9 @@ export async function parseHtmlToJson(
 	for (const heroData of Object.values(result.heroes)) {
 		const abilityChanges = new Map<
 			string,
-			{ name: string; image: string; notes: NoteWithPatterns[] }
+			{ name: string; image: string; notes: Note[] }
 		>();
-		const remainingNotes: NoteWithPatterns[] = [];
+		const remainingNotes: Note[] = [];
 
 		for (const note of heroData.notes) {
 			// Try to find ability name at the start of the note

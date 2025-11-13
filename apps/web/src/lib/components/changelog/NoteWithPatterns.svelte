@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { NoteWithPatterns } from '@deadlog/db';
+	import type { Note } from '@deadlog/db';
 
 	interface Props {
-		note: NoteWithPatterns;
+		note: Note;
 	}
 
 	let { note }: Props = $props();

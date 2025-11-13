@@ -1,4 +1,4 @@
-import type { ChangelogContentJson, NoteWithPatterns } from '@deadlog/db';
+import type { ChangelogContentJson, Note } from '@deadlog/db';
 import type { EntityType } from '@deadlog/scraper';
 import { ENTITY_TYPES } from '@deadlog/scraper';
 
@@ -65,7 +65,7 @@ type EntityKey = 'heroes' | 'items';
 
 interface EntityData {
 	id?: number;
-	notes?: readonly NoteWithPatterns[];
+	notes?: readonly Note[];
 }
 
 type EntityContentMap = Readonly<Record<string, EntityData>>;
@@ -271,7 +271,7 @@ export function shouldShowGeneralNotes(
 export function getFilteredGeneralNotes(
 	changelog: FilteredChangelog,
 	filterState: FilterState
-): NoteWithPatterns[] | null {
+): Note[] | null {
 	const { selectedHeroNames, selectedItemNames, searchQuery } = filterState;
 	const hasHeroFilter = selectedHeroNames.size > 0;
 	const hasItemFilter = selectedItemNames.size > 0;
