@@ -13,7 +13,6 @@
 
 	const params = getSearchParams();
 
-	// Derived values for selected hero/item objects
 	const selectedHeroObjects = $derived(getSelectedHeroObjects());
 	const selectedItemObjects = $derived(getSelectedItemObjects());
 
@@ -123,10 +122,7 @@
 	}
 </script>
 
-<div
-	class="bg-background sticky z-40 w-full"
-	style="top: max(64px, env(safe-area-inset-top));"
->
+<div class="sticky z-40 w-full" style="top: max(64px, env(safe-area-inset-top));">
 	<div class="relative">
 		<form
 			onsubmit={handleSubmit}
@@ -363,7 +359,6 @@
 					</Command.List>
 				</Command.Root>
 			</div>
-
 			<button
 				type="button"
 				class="fixed inset-0 z-40"
@@ -373,26 +368,4 @@
 			></button>
 		{/if}
 	</div>
-
-	{#if selectedHeroObjects.length || selectedItemObjects.length || params.q}
-		<p class="text-muted-foreground mt-2 text-xs">
-			{#if selectedHeroObjects.length}
-				Filtering by {selectedHeroObjects.length} hero{selectedHeroObjects.length !== 1
-					? 's'
-					: ''}
-			{/if}
-			{#if selectedHeroObjects.length && selectedItemObjects.length}
-				•
-			{/if}
-			{#if selectedItemObjects.length}
-				{selectedItemObjects.length} item{selectedItemObjects.length !== 1 ? 's' : ''}
-			{/if}
-			{#if (selectedHeroObjects.length || selectedItemObjects.length) && params.q}
-				•
-			{/if}
-			{#if params.q}
-				Searching: "{params.q}"
-			{/if}
-		</p>
-	{/if}
 </div>

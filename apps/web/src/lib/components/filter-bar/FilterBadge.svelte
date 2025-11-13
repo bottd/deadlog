@@ -10,41 +10,24 @@
 	}
 
 	let { name, icon, onRemove, badgeColor = 'hero' }: Props = $props();
-
-	const colorClasses = {
-		hero: 'border-primary/30 bg-primary/20 text-primary hover:bg-primary/30',
-		item: 'border-blue-500/30 bg-blue-500/20 text-blue-500 hover:bg-blue-500/30'
-	};
-
-	const hoverClasses = {
-		hero: 'hover:bg-primary/50',
-		item: 'hover:bg-blue-500/50'
-	};
 </script>
 
-<Badge
-	class="flex items-center gap-1.5 py-1 pr-1 pl-1.5 transition-colors {colorClasses[
-		badgeColor
-	]}"
->
+<Badge variant={badgeColor === 'hero' ? 'default' : 'secondary'} onclick={onRemove}>
 	{#if icon}
-		<img
-			src={icon}
-			alt={name}
-			width="16"
-			height="16"
-			loading="lazy"
-			decoding="async"
-			class="size-4 rounded-sm object-cover"
-		/>
+		<img src={icon} alt={name} width="16" height="16" loading="lazy" decoding="async" />
 	{/if}
-	<span class="text-xs font-medium">{name}</span>
-	<button
-		type="button"
-		onclick={onRemove}
-		class="ml-0.5 rounded-sm p-0.5 transition-colors {hoverClasses[badgeColor]}"
-		aria-label="Remove {name}"
-	>
-		<XIcon class="size-3" />
-	</button>
+	<span>{name}</span>
+	<XIcon class="size-3" />
 </Badge>
+
+<style lang="postcss">
+	@reference "../../../app.css";
+
+	img {
+		@apply size-4 rounded-sm object-cover;
+	}
+
+	span {
+		@apply text-xs font-medium;
+	}
+</style>
