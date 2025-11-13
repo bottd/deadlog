@@ -218,7 +218,6 @@
 									author={update.author}
 									authorImage={update.authorImage}
 									icons={update.icons}
-									fullContent={update.fullContent}
 									contentJson={update.contentJson}
 									{heroMap}
 									{itemMap}
@@ -239,7 +238,6 @@
 							author={entry.author}
 							authorImage={entry.authorImage}
 							icons={entry.icons}
-							fullContent={entry.fullContent}
 							contentJson={entry.contentJson}
 							{heroMap}
 							{itemMap}
