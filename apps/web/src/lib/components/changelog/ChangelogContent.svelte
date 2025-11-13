@@ -14,7 +14,6 @@
 
 	interface Props {
 		contentJson?: ChangelogContentJson | null;
-		fullContent?: string;
 		heroMap?: Record<number, { name: string; images: Record<string, string> }>;
 		itemMap?: Record<
 			number,
@@ -26,7 +25,6 @@
 
 	let {
 		contentJson,
-		fullContent,
 		heroMap = {},
 		itemMap = {},
 		showFullChange = false,
@@ -166,9 +164,7 @@
 			<!-- General Notes - show if not filtered OR if showing full patch OR if forced to show -->
 			{#if (!hasParams || showFullChange || forceShowNotes) && contentJson.notes.length > 0}
 				<Accordion.Item value="general">
-					<Accordion.Trigger
-						class="border-border bg-card hover:bg-secondary/50 flex w-full items-center justify-between rounded-lg border px-4 py-3 text-left"
-					>
+					<Accordion.Trigger>
 						<h3 class="text-primary mb-0 text-lg font-semibold">
 							General Changes ({displayedNotes.length})
 						</h3>
@@ -209,9 +205,7 @@
 			<!-- Hero Changes -->
 			{#if visibleHeroes.length > 0}
 				<Accordion.Item value="heroes">
-					<Accordion.Trigger
-						class="border-border bg-card hover:bg-secondary/50 flex w-full items-center justify-between rounded-lg border px-4 py-3 text-left"
-					>
+					<Accordion.Trigger>
 						<h3 class="text-primary mb-0 text-lg font-semibold">
 							Hero Changes ({visibleHeroes.length})
 						</h3>
@@ -235,9 +229,7 @@
 			<!-- Item Changes -->
 			{#if visibleItems.length > 0}
 				<Accordion.Item value="items">
-					<Accordion.Trigger
-						class="border-border bg-card hover:bg-secondary/50 flex w-full items-center justify-between rounded-lg border px-4 py-3 text-left"
-					>
+					<Accordion.Trigger>
 						<h3 class="text-primary mb-0 text-lg font-semibold">
 							Item Changes ({visibleItems.length})
 						</h3>
@@ -260,9 +252,7 @@
 			<!-- Ability Changes - show if not filtered OR if showing full patch -->
 			{#if (!hasParams || showFullChange) && Object.keys(contentJson.abilities).length > 0}
 				<Accordion.Item value="abilities">
-					<Accordion.Trigger
-						class="border-border bg-card hover:bg-secondary/50 flex w-full items-center justify-between rounded-lg border px-4 py-3 text-left"
-					>
+					<Accordion.Trigger>
 						<h3 class="text-primary mb-0 text-lg font-semibold">
 							Ability Changes ({Object.keys(contentJson.abilities).length})
 						</h3>
@@ -277,9 +267,5 @@
 				</Accordion.Item>
 			{/if}
 		</Accordion.Root>
-	{:else if fullContent}
-		<!-- Fallback to HTML rendering if JSON not available -->
-		<!-- eslint-disable-next-line svelte/no-at-html-tags -->
-		{@html fullContent}
 	{/if}
 </div>
