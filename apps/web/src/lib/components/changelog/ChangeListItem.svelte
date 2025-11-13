@@ -64,7 +64,6 @@
 			heroes: EntityIcon[];
 			items: EntityIcon[];
 		};
-		fullContent?: string;
 		contentJson?: ChangelogContentJson | null;
 		heroMap?: Record<number, { name: string; images: Record<string, string> }>;
 		itemMap?: Record<
@@ -82,7 +81,6 @@
 		author,
 		authorImage,
 		icons,
-		fullContent,
 		contentJson,
 		heroMap,
 		itemMap,
@@ -115,7 +113,6 @@
 			{#if browser}
 				<ChangelogContent
 					{contentJson}
-					{fullContent}
 					{heroMap}
 					{itemMap}
 					{showFullChange}
