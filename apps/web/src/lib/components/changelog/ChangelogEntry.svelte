@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
-	import ChangeNode from './ChangeNode.svelte';
+	import { GutterNode } from '../gutter-line';
 
 	interface Props {
 		children: Snippet;
@@ -12,7 +12,7 @@
 
 <div class="relative">
 	<div class="absolute top-0 left-0 z-10 -ml-14 hidden md:block">
-		<ChangeNode bigUpdate={isBigUpdate} />
+		<GutterNode bigUpdate={isBigUpdate} />
 	</div>
 
 	{@render children()}

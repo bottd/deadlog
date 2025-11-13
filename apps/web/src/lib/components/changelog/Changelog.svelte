@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { ChangeListItem } from './list';
-	import GuideLine from './GuideLine.svelte';
+	import { GutterLine } from '../gutter-line';
 	import { ChangelogEntry } from '.';
 	import {
 		getVisibleHeroNames,
@@ -175,7 +175,7 @@
 	class="bg-background relative container mx-auto mt-8 min-h-screen"
 	aria-label="Changelog entries"
 >
-	<GuideLine />
+	<GutterLine />
 
 	{#if query.isError}
 		<div class="flex flex-col items-center justify-center py-16 text-center">
