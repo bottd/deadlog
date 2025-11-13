@@ -1,21 +1,20 @@
 <script lang="ts">
 	import '../app.css';
 	import { Header } from '$lib/components/header';
+	import { Toaster } from '$lib/components/ui/sonner';
 	import { Footer } from '$lib/components/ui/footer';
 	import { useSearchParams } from 'runed/kit';
 	import { setContext } from 'svelte';
 	import { paramSchema, SEARCH_PARAMS_KEY } from '$lib/utils/searchParams.svelte';
 	import { QueryClient, QueryClientProvider } from '@tanstack/svelte-query';
 
-	// Initialize search params and set in context
 	const params = useSearchParams(paramSchema);
 	setContext(SEARCH_PARAMS_KEY, params);
 
-	// Initialize TanStack Query client
 	const queryClient = new QueryClient({
 		defaultOptions: {
 			queries: {
-				staleTime: 1000 * 60 * 5, // 5 minutes
+				staleTime: Infinity,
 				refetchOnWindowFocus: false
 			}
 		}
@@ -25,6 +24,8 @@
 </script>
 
 <QueryClientProvider client={queryClient}>
+	<Toaster />
+
 	<Header />
 
 	{@render children?.()}

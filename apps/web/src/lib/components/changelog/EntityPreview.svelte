@@ -2,10 +2,10 @@
 	import type { EntityIcon } from '$lib/utils/types';
 
 	interface Props {
-		entities?: EntityIcon[];
+		entities: EntityIcon[];
 	}
 
-	let { entities = [] }: Props = $props();
+	let { entities }: Props = $props();
 	const maxIconsPerRow = 19;
 
 	const overlap = $derived.by(function (): number {
@@ -20,25 +20,23 @@
 	});
 </script>
 
-{#if entities.length > 0}
-	<div class="flex justify-end">
-		{#each entities.slice(0, maxIconsPerRow) as hero, i (hero.id)}
-			<img
-				src={hero.src}
-				alt={hero.alt}
-				title={hero.alt}
-				width="36"
-				height="36"
-				loading="lazy"
-				decoding="async"
-				style="margin-left:{i === 0 ? 0 : overlap}px"
-			/>
-		{/each}
-		{#if entities.length > maxIconsPerRow}
-			<span class="ellipse" style="margin-left:{overlap}px"> ... </span>
-		{/if}
-	</div>
-{/if}
+<div class="flex justify-end">
+	{#each entities.slice(0, maxIconsPerRow) as hero, i (hero.id)}
+		<img
+			src={hero.src}
+			alt={hero.alt}
+			title={hero.alt}
+			width="36"
+			height="36"
+			loading="lazy"
+			decoding="async"
+			style="margin-left:{i === 0 ? 0 : overlap}px"
+		/>
+	{/each}
+	{#if entities.length > maxIconsPerRow}
+		<span class="ellipse" style="margin-left:{overlap}px"> ... </span>
+	{/if}
+</div>
 
 <style lang="postcss">
 	@reference "../../../app.css";

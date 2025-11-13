@@ -24,13 +24,12 @@ describe.skipIf(!existsSync(dbPath))('Database Static Reader', () => {
 			const firstPatch = patches[0];
 			expect(firstPatch).toHaveProperty('id');
 			expect(firstPatch).toHaveProperty('title');
-			expect(firstPatch).toHaveProperty('link');
-			expect(firstPatch).toHaveProperty('content_encoded');
+			expect(firstPatch).toHaveProperty('contentJson');
 			expect(firstPatch).toHaveProperty('author');
+			expect(firstPatch).toHaveProperty('authorImage');
 			expect(firstPatch).toHaveProperty('guid');
-			expect(firstPatch).toHaveProperty('pub_date');
-			expect(firstPatch).toHaveProperty('date');
-			expect(firstPatch.date).toBeInstanceOf(Date);
+			expect(firstPatch).toHaveProperty('pubDate');
+			expect(typeof firstPatch.pubDate).toBe('string');
 		});
 
 		it('should return patches with valid data types', async () => {
@@ -40,11 +39,10 @@ describe.skipIf(!existsSync(dbPath))('Database Static Reader', () => {
 
 			expect(typeof firstPatch.id).toBe('string');
 			expect(typeof firstPatch.title).toBe('string');
-			expect(typeof firstPatch.link).toBe('string');
-			expect(typeof firstPatch.content_encoded).toBe('string');
 			expect(typeof firstPatch.author).toBe('string');
-			expect(typeof firstPatch.guid).toBe('object');
-			expect(typeof firstPatch.pub_date).toBe('string');
+			expect(typeof firstPatch.authorImage).toBe('string');
+			expect(typeof firstPatch.pubDate).toBe('string');
+			expect(typeof firstPatch.majorUpdate).toBe('boolean');
 		});
 
 		it('should parse categories from JSON', async () => {
@@ -58,14 +56,14 @@ describe.skipIf(!existsSync(dbPath))('Database Static Reader', () => {
 			}
 		});
 
-		it('should include fullContent when available', async () => {
+		it('should include contentJson when available', async () => {
 			const db = getDb();
 			const patches = await getAllChangelogs(db);
-			const patchWithContent = patches.find((p) => p.fullContent);
+			const patchWithContent = patches.find((p) => p.contentJson);
 
-			if (patchWithContent && patchWithContent.fullContent) {
-				expect(typeof patchWithContent.fullContent).toBe('string');
-				expect(patchWithContent.fullContent.length).toBeGreaterThan(0);
+			if (patchWithContent && patchWithContent.contentJson) {
+				expect(typeof patchWithContent.contentJson).toBe('object');
+				expect(patchWithContent.contentJson).not.toBeNull();
 			}
 		});
 	});
@@ -95,9 +93,10 @@ describe.skipIf(!existsSync(dbPath))('Database Static Reader', () => {
 			const patch = await getChangelogById(db, testId);
 			expect(patch).toHaveProperty('id');
 			expect(patch).toHaveProperty('title');
-			expect(patch).toHaveProperty('link');
-			expect(patch).toHaveProperty('content_encoded');
-			expect(patch?.date).toBeInstanceOf(Date);
+			expect(patch).toHaveProperty('contentJson');
+			expect(patch).toHaveProperty('author');
+			expect(patch).toHaveProperty('pubDate');
+			expect(typeof patch?.pubDate).toBe('string');
 		});
 
 		it('should return same data as getAllChangelogs for matching id', async () => {
@@ -110,7 +109,7 @@ describe.skipIf(!existsSync(dbPath))('Database Static Reader', () => {
 
 			expect(patchFromGetById?.id).toBe(patchFromGetAll.id);
 			expect(patchFromGetById?.title).toBe(patchFromGetAll.title);
-			expect(patchFromGetById?.link).toBe(patchFromGetAll.link);
+			expect(patchFromGetById?.author).toBe(patchFromGetAll.author);
 		});
 	});
 

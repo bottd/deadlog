@@ -2,7 +2,8 @@
 	import { EntityPreview } from '.';
 	import type { EntityIcon } from '$lib/utils/types';
 	import { Button } from '$lib/components/ui/button';
-	import { Link, Check } from '@lucide/svelte';
+	import { Link } from '@lucide/svelte';
+	import { toast } from 'svelte-sonner';
 	import { format } from 'date-fns';
 	import { formatDateWithSuffix } from '$lib/utils/dateFormatters';
 
@@ -19,21 +20,11 @@
 
 	let { author, authorImage, date, icons, id }: Props = $props();
 
-	let copied = $state(false);
-
 	async function copyLink(e: MouseEvent) {
 		e.preventDefault();
 		e.stopPropagation();
-		const url = `${window.location.origin}/?change=${id}`;
-		try {
-			await navigator.clipboard.writeText(url);
-			copied = true;
-			setTimeout(() => {
-				copied = false;
-			}, 2000);
-		} catch (err) {
-			console.error('Failed to copy:', err);
-		}
+		await navigator.clipboard.writeText(`${window.location.origin}/?change=${id}`);
+		toast.success('Copied to clipboard');
 	}
 </script>
 
@@ -74,13 +65,9 @@
 			size="icon-sm"
 			onclick={copyLink}
 			class="text-muted-foreground hover:bg-primary/10 hover:text-primary transition-colors"
-			title={copied ? 'Copied!' : 'Copy link'}
+			title="Copy link to clipboard"
 		>
-			{#if copied}
-				<Check class="size-5" />
-			{:else}
-				<Link class="size-5" />
-			{/if}
+			<Link class="size-5" />
 		</Button>
 	</div>
 </div>

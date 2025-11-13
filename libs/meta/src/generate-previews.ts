@@ -93,7 +93,7 @@ async function generateChangelogOG(
 async function generateHomeOG(
 	latestChangelog: {
 		id: string;
-		date: Date;
+		pubDate: string;
 		author: string;
 		authorImage: string;
 	},
@@ -111,7 +111,7 @@ async function generateHomeOG(
 	);
 
 	const element = React.createElement(HomeLayout, {
-		lastUpdated: formatDateWithSuffix(latestChangelog.date),
+		lastUpdated: formatDateWithSuffix(latestChangelog.pubDate),
 		author: latestChangelog.author,
 		authorImage: authorImageDataUri,
 		heroIcons: heroIconsDataUris,
@@ -197,13 +197,13 @@ async function main() {
 	if (!heroesOnly && !itemsOnly) {
 		if (allChangelogs.length > 0) {
 			const latest = allChangelogs.reduce((mostRecent, current) => {
-				return current.date > mostRecent.date ? current : mostRecent;
+				return current.pubDate > mostRecent.pubDate ? current : mostRecent;
 			}, allChangelogs[0]);
 
 			await generateHomeOG(
 				{
 					id: latest.id,
-					date: latest.date,
+					pubDate: latest.pubDate,
 					author: latest.author,
 					authorImage: latest.authorImage
 				},
@@ -245,7 +245,7 @@ async function main() {
 			}
 
 			await generateChangelogOG(changelog.id, {
-				title: `${formatDateWithSuffix(changelog.date)} Update`,
+				title: `${formatDateWithSuffix(changelog.pubDate)} Update`,
 				author: changelog.author,
 				authorIcon: changelog.authorImage,
 				heroPreviews: heroPreviews.slice(0, 6),
