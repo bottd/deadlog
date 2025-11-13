@@ -2,7 +2,6 @@ import { sqliteTable, text, integer, primaryKey, index } from 'drizzle-orm/sqlit
 import { createInsertSchema, createSelectSchema } from 'drizzle-zod';
 import { z } from 'zod';
 
-// Structured changelog content types - Zod schemas
 export const scalingPatternSchema = z.object({
 	text: z.string(),
 	start: z.number(),

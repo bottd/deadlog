@@ -10,9 +10,9 @@
 				class="text-primary flex items-baseline gap-2 text-xl font-bold transition-colors hover:opacity-80"
 			>
 				<span>deadlog.io</span>
-				<span class="text-muted-foreground text-sm font-normal"
-					>deadlock changelog viewer</span
-				>
+				<span class="text-muted-foreground text-sm font-normal">
+					deadlock changelog viewer
+				</span>
 			</a>
 		</div>
 		<FilterInput />

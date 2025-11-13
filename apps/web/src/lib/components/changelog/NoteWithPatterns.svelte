@@ -1,15 +1,11 @@
 <script lang="ts">
 	import type { NoteWithPatterns } from '@deadlog/db';
-	import { highlightText } from '$lib/utils/textHighlight';
-	import { getSearchParams } from '$lib/utils/searchParams.svelte';
 
 	interface Props {
 		note: NoteWithPatterns;
 	}
 
 	let { note }: Props = $props();
-
-	const params = getSearchParams();
 
 	const segments = $derived.by(() => {
 		if (note.patterns.length === 0) {
@@ -47,9 +43,6 @@
 {#each segments as segment, i (i)}
 	{#if segment.isPattern}
 		<span class="text-primary font-semibold">{segment.text}</span>
-	{:else if params.q}
-		<!-- eslint-disable-next-line svelte/no-at-html-tags -->
-		{@html highlightText(segment.text, params.q)}
 	{:else}
 		{segment.text}
 	{/if}
