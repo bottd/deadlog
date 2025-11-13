@@ -3,6 +3,7 @@ export type {
 	EnrichedHero,
 	EnrichedItem,
 	EntityType,
+	EntityIcon,
 	HeroId,
 	ItemId
 } from '@deadlog/scraper';

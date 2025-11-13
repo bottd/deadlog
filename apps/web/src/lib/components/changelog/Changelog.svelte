@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { ChangeListItem } from './list';
+	import ChangeListItem from './ChangeListItem.svelte';
 	import { GutterLine } from '../gutter-line';
 	import { ChangelogEntry } from '.';
 	import {

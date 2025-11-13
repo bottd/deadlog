@@ -31,6 +31,7 @@ export type {
 	ItemId,
 	EnrichedHero,
 	EnrichedItem,
-	EntityType
+	EntityType,
+	EntityIcon
 } from './types/assets';
 export { ENTITY_TYPES } from './types/assets';

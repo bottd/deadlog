@@ -10,6 +10,13 @@ export const ENTITY_TYPES = {
 
 export type EntityType = (typeof ENTITY_TYPES)[keyof typeof ENTITY_TYPES];
 
+export interface EntityIcon {
+	id: number;
+	src: string;
+	alt: string;
+	type: EntityType;
+}
+
 // Schema for stat values that have a value and display name
 const statValueSchema = z.object({
 	value: z.number(),
