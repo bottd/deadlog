@@ -25,7 +25,7 @@ export {
 
 export { formatDate, formatDateWithSuffix, formatTime } from './dateFormatters';
 
-export type { ChangelogEntry } from './deadlock';
+export type { ScrapedChangelog } from './deadlock';
 export type {
 	HeroId,
 	ItemId,

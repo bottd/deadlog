@@ -60,7 +60,6 @@ export const changelogContentJsonSchema = z.object({
 export const changelogs = sqliteTable('changelogs', {
 	id: text('id').primaryKey(),
 	title: text('title').notNull(),
-	content: text('content').notNull(),
 	contentJson: text('content_json', { mode: 'json' }).$type<ChangelogContentJson>(),
 	author: text('author').notNull(),
 	authorImage: text('author_image').notNull(),

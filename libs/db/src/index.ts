@@ -1,7 +1,6 @@
 export { getDb, getD1Db, getLibsqlDb, type DrizzleDB } from './client';
 export * as schema from './schema';
 
-// Export types
 export type {
 	ScalingPattern,
 	Note,
@@ -26,7 +25,6 @@ export type {
 	SelectChangelogItem
 } from './schema';
 
-// Export Zod schemas
 export {
 	scalingPatternSchema,
 	noteSchema,

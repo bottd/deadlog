@@ -1,60 +1,24 @@
-import { parseISO } from 'date-fns';
 import { eq, sql, desc, gt, or } from 'drizzle-orm';
-import type { ChangelogEntry } from './deadlock';
+import type { ScrapedChangelog } from './deadlock';
 import type { HeroId, ItemId, EnrichedHero, EnrichedItem } from './types/assets';
 import { getLibsqlDb, type DrizzleDB, schema } from '@deadlog/db';
 
 export { getLibsqlDb as getDb };
 
-/**
- * Helper to build text search condition for title and content fields
- */
 function buildTextSearchCondition(searchQuery: string) {
 	const pattern = `%${searchQuery}%`;
-	const condition = or(
-		sql`LOWER(${schema.changelogs.title}) LIKE LOWER(${pattern})`,
-		sql`LOWER(${schema.changelogs.content}) LIKE LOWER(${pattern})`
-	);
+	const condition = or(sql`LOWER(${schema.changelogs.title}) LIKE LOWER(${pattern})`);
 	if (!condition) {
 		throw new Error('Failed to build text search condition');
 	}
 	return condition;
 }
 
-function rowToChangelogEntry(row: typeof schema.changelogs.$inferSelect): ChangelogEntry {
-	return {
-		id: row.id,
-		title: row.title,
-		link: row.guid ?? '',
-		content_encoded: row.content,
-		fullContent: row.content,
-		contentJson: row.contentJson ?? undefined,
-		author: row.author,
-		authorImage: row.authorImage,
-		category: row.category
-			? { domain: '', text: row.category }
-			: { domain: '', text: '' },
-		guid: { text: row.guid ?? '', is_perma_link: false },
-		pub_date: row.pubDate,
-		date: parseISO(row.pubDate),
-		dc_creator: row.author,
-		slash_comments: '',
-		majorUpdate: row.majorUpdate,
-		parentChange: row.parentChange ?? undefined
-	};
-}
-
-export async function getAllChangelogs(db: DrizzleDB): Promise<ChangelogEntry[]> {
+export async function getAllChangelogs(db: DrizzleDB) {
 	const results = await db.select().from(schema.changelogs).all();
-	return results.map(rowToChangelogEntry);
+	return results;
 }
 
-/**
- * Unified method to query changelogs with optional filters
- * @param db Database instance
- * @param options Query options
- * @returns Paginated and filtered changelogs
- */
 export async function queryChangelogs(
 	db: DrizzleDB,
 	options: {
@@ -64,7 +28,7 @@ export async function queryChangelogs(
 		limit?: number;
 		offset?: number;
 	} = {}
-): Promise<ChangelogEntry[]> {
+) {
 	const { heroIds = [], itemIds = [], searchQuery, limit = 5, offset = 0 } = options;
 
 	const hasHeroFilter = heroIds.length > 0;
@@ -88,7 +52,7 @@ export async function queryChangelogs(
 			? await query.where(conditions[0]).all()
 			: await query.all();
 
-		return results.map(rowToChangelogEntry);
+		return results;
 	}
 
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -155,9 +119,7 @@ export async function queryChangelogs(
 		.offset(offset)
 		.all();
 
-	return results.map((r: { changelogs: typeof schema.changelogs.$inferSelect }) =>
-		rowToChangelogEntry(r.changelogs)
-	);
+	return results;
 }
 
 /**
@@ -168,7 +130,7 @@ export async function getChangelogsPaginated(
 	db: DrizzleDB,
 	limit = 5,
 	offset = 0
-): Promise<ChangelogEntry[]> {
+): Promise<ScrapedChangelog[]> {
 	return queryChangelogs(db, { limit, offset });
 }
 
@@ -189,7 +151,7 @@ export async function getChangelogsByTextSearch(
 	searchQuery: string,
 	limit = 5,
 	offset = 0
-): Promise<ChangelogEntry[]> {
+): Promise<ScrapedChangelog[]> {
 	if (!searchQuery?.trim()) {
 		return getChangelogsPaginated(db, limit, offset);
 	}
@@ -203,7 +165,7 @@ export async function getChangelogsByTextSearch(
 		.offset(offset)
 		.all();
 
-	return results.map(rowToChangelogEntry);
+	return results;
 }
 
 /**
@@ -233,17 +195,14 @@ export async function getChangelogPosition(
 	return results.length;
 }
 
-export async function getChangelogById(
-	db: DrizzleDB,
-	id: string
-): Promise<ChangelogEntry | null> {
+export async function getChangelogById(db: DrizzleDB, id: string) {
 	const result = await db
 		.select()
 		.from(schema.changelogs)
 		.where(eq(schema.changelogs.id, id))
 		.get();
 
-	return result ? rowToChangelogEntry(result) : null;
+	return result;
 }
 
 export async function getMetadata(db: DrizzleDB, key: string) {
@@ -354,10 +313,7 @@ export async function getChangelogIcons(
 /**
  * Get changelogs filtered by hero IDs (SQL-based filtering)
  */
-export async function getChangelogsByHeroIds(
-	db: DrizzleDB,
-	heroIds: number[]
-): Promise<ChangelogEntry[]> {
+export async function getChangelogsByHeroIds(db: DrizzleDB, heroIds: number[]) {
 	if (heroIds.length === 0) {
 		return getAllChangelogs(db);
 	}
@@ -378,9 +334,7 @@ export async function getChangelogsByHeroIds(
 		)
 		.all();
 
-	return results.map((r: { changelogs: typeof schema.changelogs.$inferSelect }) =>
-		rowToChangelogEntry(r.changelogs)
-	);
+	return results;
 }
 
 /**
@@ -392,7 +346,7 @@ export async function getChangelogsByHeroIdsPaginated(
 	limit = 5,
 	offset = 0,
 	searchQuery?: string
-): Promise<ChangelogEntry[]> {
+): Promise<ScrapedChangelog[]> {
 	if (heroIds.length === 0) {
 		return searchQuery
 			? getChangelogsByTextSearch(db, searchQuery, limit, offset)
@@ -424,18 +378,13 @@ export async function getChangelogsByHeroIdsPaginated(
 		.offset(offset)
 		.all();
 
-	return results.map((r: { changelogs: typeof schema.changelogs.$inferSelect }) =>
-		rowToChangelogEntry(r.changelogs)
-	);
+	return results;
 }
 
 /**
  * Get changelogs filtered by item IDs (SQL-based filtering)
  */
-export async function getChangelogsByItemIds(
-	db: DrizzleDB,
-	itemIds: number[]
-): Promise<ChangelogEntry[]> {
+export async function getChangelogsByItemIds(db: DrizzleDB, itemIds: number[]) {
 	if (itemIds.length === 0) {
 		return getAllChangelogs(db);
 	}
@@ -456,9 +405,7 @@ export async function getChangelogsByItemIds(
 		)
 		.all();
 
-	return results.map((r: { changelogs: typeof schema.changelogs.$inferSelect }) =>
-		rowToChangelogEntry(r.changelogs)
-	);
+	return results;
 }
 
 /**
@@ -470,7 +417,7 @@ export async function getChangelogsByItemIdsPaginated(
 	limit = 5,
 	offset = 0,
 	searchQuery?: string
-): Promise<ChangelogEntry[]> {
+): Promise<ScrapedChangelog[]> {
 	if (itemIds.length === 0) {
 		return searchQuery
 			? getChangelogsByTextSearch(db, searchQuery, limit, offset)
@@ -502,9 +449,7 @@ export async function getChangelogsByItemIdsPaginated(
 		.offset(offset)
 		.all();
 
-	return results.map((r: { changelogs: typeof schema.changelogs.$inferSelect }) =>
-		rowToChangelogEntry(r.changelogs)
-	);
+	return results;
 }
 
 /**
@@ -518,7 +463,7 @@ export async function getChangelogsByHeroAndItemIds(
 	limit = 5,
 	offset = 0,
 	searchQuery?: string
-): Promise<ChangelogEntry[]> {
+): Promise<ScrapedChangelog[]> {
 	if (heroIds.length === 0 || itemIds.length === 0) {
 		return getChangelogsPaginated(db, limit, offset);
 	}
@@ -556,7 +501,5 @@ export async function getChangelogsByHeroAndItemIds(
 		.offset(offset)
 		.all();
 
-	return results.map((r: { changelogs: typeof schema.changelogs.$inferSelect }) =>
-		rowToChangelogEntry(r.changelogs)
-	);
+	return results;
 }

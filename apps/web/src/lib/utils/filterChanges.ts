@@ -78,7 +78,6 @@ function matchesEntities(
 	const presentNames = new Set<string>();
 	const entityKey: EntityKey = entityType === ENTITY_TYPES.HERO ? 'heroes' : 'items';
 
-	// Entity names are the keys in the contentJson
 	const content = changelog.contentJson?.[entityKey];
 	if (content) {
 		Object.keys(content).forEach((name) => {
@@ -86,7 +85,6 @@ function matchesEntities(
 		});
 	}
 
-	// Check if all selected entities are present
 	for (const name of selectedNames) {
 		if (!presentNames.has(name)) {
 			return false;
@@ -220,7 +218,6 @@ function isEntityInGeneralNotesOnly(
 	const hasContentSection = content && entityName in content;
 	if (hasContentSection) return false;
 
-	// Check if entity is only mentioned in general notes
 	return (
 		changelog.contentJson?.notes?.some((note) =>
 			note.text.toLowerCase().includes(entityName.toLowerCase())

@@ -26,7 +26,6 @@ function extractScalingPatterns(text: string): Note {
 	// Pattern 2: Value changes like "10 → 15" or "10% -> 15%" or "10 to 15"
 	const changeRegex = /([\d.]+%?\s*(?:→|->|to)\s*[\d.]+%?)/gi;
 
-	// Find all sequence patterns
 	let match;
 	while ((match = sequenceRegex.exec(text)) !== null) {
 		patterns.push({
@@ -41,7 +40,6 @@ function extractScalingPatterns(text: string): Note {
 		const start = match.index;
 		const end = start + match[1].length;
 
-		// Check if this overlaps with any existing pattern
 		const overlaps = patterns.some(
 			(p) => (start >= p.start && start < p.end) || (end > p.start && end <= p.end)
 		);
@@ -55,7 +53,6 @@ function extractScalingPatterns(text: string): Note {
 		}
 	}
 
-	// Sort patterns by start position
 	patterns.sort((a, b) => a.start - b.start);
 
 	return {
@@ -216,29 +213,23 @@ export async function parseHtmlToJson(
 	const doc = await getDocument(htmlContent);
 
 	function processText(text: string) {
-		// Skip empty or bracketed headlines (e.g., "[General]", "[Heroes]")
 		if (!text || !text.trim() || /^\s*\[.*\]\s*$/.test(text)) return;
 
-		// Check if line starts with bullet or text
 		const hasBullet = /^\s*[-•*]\s+/.test(text);
 		const startsWithText = /^\s*[a-zA-Z0-9]/.test(text);
 		if (!hasBullet && !startsWithText) return;
 
-		// Remove bullet character if present, then trim
 		const cleanedText = text.replace(/^\s*[-•*]\s+/, '').trim();
 
-		// No colon = general note
 		if (!cleanedText.includes(':')) {
 			result.notes.push(extractScalingPatterns(cleanedText));
 			return;
 		}
 
-		// Split on the first colon
 		const colonIndex = cleanedText.indexOf(':');
 		const beforeColon = cleanedText.substring(0, colonIndex).trim();
 		const afterColon = cleanedText.substring(colonIndex + 1).trim();
 
-		// Try to match with heroes
 		const heroMatch = heroes.find(
 			(h) => h.name.toLowerCase() === beforeColon.toLowerCase()
 		);
@@ -250,7 +241,6 @@ export async function parseHtmlToJson(
 			return;
 		}
 
-		// Try to match with items
 		const itemMatch = items.find(
 			(i) => i.name.toLowerCase() === beforeColon.toLowerCase()
 		);
@@ -262,18 +252,15 @@ export async function parseHtmlToJson(
 			return;
 		}
 
-		// If no match found, treat it as an ability
 		if (!result.abilities[beforeColon]) {
 			result.abilities[beforeColon] = { notes: [] };
 		}
 		result.abilities[beforeColon].notes.push(extractScalingPatterns(afterColon));
 	}
 
-	// Helper function to process a node and extract text blocks
 	function processNode(node: Element) {
 		const tagName = node.tagName.toLowerCase();
 
-		// Handle lists - extract each list item as a separate entry
 		if (tagName === 'ul' || tagName === 'ol') {
 			const listItems = node.querySelectorAll('li');
 
@@ -286,20 +273,17 @@ export async function parseHtmlToJson(
 			return;
 		}
 
-		// For all other elements, extract and process lines
 		const text = node.textContent?.trim();
 		if (text) {
 			extractLines(text).forEach(processText);
 		}
 	}
 
-	// Process all top-level elements in the body
 	const elements = doc.body.children;
 	for (const element of [...elements]) {
 		processNode(element);
 	}
 
-	// Post-process hero notes to extract ability-specific changes
 	for (const heroData of Object.values(result.heroes)) {
 		const abilityChanges = new Map<
 			string,
@@ -308,22 +292,17 @@ export async function parseHtmlToJson(
 		const remainingNotes: Note[] = [];
 
 		for (const note of heroData.notes) {
-			// Try to find ability name at the start of the note
 			let abilityFound = false;
 
 			for (const ability of abilities) {
-				// Skip abilities without a name or image
 				if (!ability.name) continue;
 				const abilityImage = ability.image || ability.image_webp;
 				if (!abilityImage) continue;
 
-				// Match ability name at the start (case insensitive)
 				const abilityNamePattern = new RegExp(`^${escapeRegex(ability.name)}\\b`, 'i');
 				if (abilityNamePattern.test(note.text)) {
-					// Trim the ability name from the note text
 					let trimmedText = note.text.replace(abilityNamePattern, '').trim();
 
-					// Uppercase the first letter of the trimmed text
 					if (trimmedText.length > 0) {
 						trimmedText = trimmedText.charAt(0).toUpperCase() + trimmedText.slice(1);
 					}
@@ -337,7 +316,6 @@ export async function parseHtmlToJson(
 					}
 					const abilityData = abilityChanges.get(ability.name);
 					if (abilityData) {
-						// Create a new note with the trimmed text but preserve the patterns
 						abilityData.notes.push({
 							text: trimmedText,
 							patterns: note.patterns
@@ -354,7 +332,6 @@ export async function parseHtmlToJson(
 			}
 		}
 
-		// Update hero data with ability-specific changes
 		heroData.notes = remainingNotes;
 		heroData.abilities = Array.from(abilityChanges.values(), (abilityData) => ({
 			abilityName: abilityData.name,
@@ -363,6 +340,5 @@ export async function parseHtmlToJson(
 		}));
 	}
 
-	// Validate the result at build time
 	return changelogContentJsonSchema.parse(result);
 }

@@ -1,14 +1,15 @@
-import { getChangelogIcons, type ChangelogEntry } from '@deadlog/scraper';
-import type { DrizzleDB, ChangelogContentJson } from '@deadlog/db';
+import { getChangelogIcons, type ScrapedChangelog } from '@deadlog/scraper';
+import type { DrizzleDB } from '@deadlog/db';
 import { compareDesc } from 'date-fns';
 
-export interface ChangelogWithIcons extends ChangelogEntry {
+export interface ChangelogWithIcons extends ScrapedChangelog {
 	icons: {
 		heroes: { id: number; src: string; alt: string; type: 'hero' | 'item' }[];
 		items: { id: number; src: string; alt: string; type: 'hero' | 'item' }[];
 	};
+	date: Date;
 	fullContent: string;
-	contentJson?: ChangelogContentJson;
+	content_encoded?: string;
 	updates?: ChangelogWithIcons[];
 }
 
@@ -49,7 +50,7 @@ export function resolveItemIds(
  */
 export async function enrichChangelogs(
 	db: DrizzleDB,
-	changelogs: ChangelogEntry[]
+	changelogs: ScrapedChangelog[]
 ): Promise<ChangelogWithIcons[]> {
 	// Separate main changelogs and updates
 	const mainChangelogs = changelogs.filter(
@@ -69,36 +70,41 @@ export async function enrichChangelogs(
 	}
 
 	// Sort by date
-	const sorted = [...mainChangelogs].sort((a, b) => compareDesc(a.date, b.date));
+	const sorted = [...mainChangelogs].sort((a, b) =>
+		compareDesc(new Date(a.pubDate), new Date(b.pubDate))
+	);
 
 	// Enrich with icons and updates
 	const enriched = await Promise.all(
 		sorted.map(async (entry) => {
-			const content = entry.fullContent ?? entry.content_encoded;
+			const content = ''; // No fullContent on base type
 			const icons = await getChangelogIcons(db, entry.id);
 
 			const entryUpdates = updatesMap.get(entry.id) || [];
 			const enrichedUpdates: ChangelogWithIcons[] = await Promise.all(
 				entryUpdates
-					.sort((a: { date: Date }, b: { date: Date }) => -compareDesc(a.date, b.date))
-					.map(async (update: ChangelogEntry): Promise<ChangelogWithIcons> => {
-						const updateContent = update.fullContent ?? update.content_encoded;
+					.sort(
+						(a: { pubDate: string }, b: { pubDate: string }) =>
+							-compareDesc(new Date(a.pubDate), new Date(b.pubDate))
+					)
+					.map(async (update: ScrapedChangelog): Promise<ChangelogWithIcons> => {
+						const updateContent = ''; // No fullContent on base type
 						const updateIcons = await getChangelogIcons(db, update.id);
 
 						return {
 							...update,
+							date: new Date(update.pubDate),
 							icons: updateIcons,
-							fullContent: updateContent,
-							contentJson: update.contentJson
+							fullContent: updateContent
 						};
 					})
 			);
 
 			return {
 				...entry,
+				date: new Date(entry.pubDate),
 				icons,
 				fullContent: content,
-				contentJson: entry.contentJson,
 				updates: enrichedUpdates
 			};
 		})

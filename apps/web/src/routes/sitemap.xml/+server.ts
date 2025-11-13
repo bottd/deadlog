@@ -18,7 +18,7 @@ export const GET: RequestHandler = async ({ locals }) => {
 			(entry) => `
   <url>
     <loc>${site}/?change=${encodeURIComponent(entry.id)}</loc>
-    <lastmod>${entry.date.toISOString()}</lastmod>
+    <lastmod>${new Date(entry.pubDate).toISOString()}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>`

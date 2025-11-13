@@ -1,4 +1,4 @@
-import { PatchesApi, Configuration, type Patch } from 'deadlock-api-client';
+import { PatchesApi, Configuration } from 'deadlock-api-client';
 import type { ChangelogContentJson } from '@deadlog/db';
 
 const config = {
@@ -7,13 +7,15 @@ const config = {
 
 export const patchesApi = new PatchesApi(new Configuration(config));
 
-export interface ChangelogEntry extends Patch {
+export interface ScrapedChangelog {
 	id: string;
-	date: Date;
-	fullContent?: string;
-	contentJson?: ChangelogContentJson;
+	title: string;
+	contentJson: ChangelogContentJson | null;
+	author: string;
 	authorImage: string;
-	scrapedAt?: Date;
-	majorUpdate?: boolean;
-	parentChange?: string | null;
+	category: string | null;
+	guid: string | null;
+	pubDate: string;
+	majorUpdate: boolean;
+	parentChange: string | null;
 }
