@@ -62,10 +62,9 @@ export async function buildDatabase(
 		CREATE TABLE IF NOT EXISTS changelogs (
 			id TEXT PRIMARY KEY,
 			title TEXT NOT NULL,
-			content TEXT NOT NULL,
 			content_json TEXT,
 			author TEXT NOT NULL,
-			author_image TEXT,
+			author_image TEXT NOT NULL,
 			category TEXT,
 			guid TEXT,
 			pub_date TEXT NOT NULL,

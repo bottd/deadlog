@@ -38,7 +38,8 @@ export default defineConfig({
 			'@tanstack/svelte-query',
 			/^@floating-ui/,
 			'nanoid',
-			'mode-watcher'
+			'mode-watcher',
+			'svelte-sonner'
 		]
 	},
 	test: {
