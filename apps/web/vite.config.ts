@@ -17,12 +17,21 @@ export default defineConfig({
 			allow: ['../..']
 		},
 		watch: {
-			ignored: ['**/.direnv/**', '**/node_modules/**']
+			ignored: [
+				'**/.direnv/**',
+				'**/node_modules/**',
+				'**/.nx/**',
+				'**/.svelte-kit/**',
+				'**/dist/**',
+				'**/build/**',
+				'**/.github/**'
+			],
+			usePolling: true,
+			interval: 1000
 		}
 	},
 	resolve: {
 		alias: {
-			// SvelteKit's $lib alias for tests - mirrors kit.alias in svelte.config.js
 			$lib: path.resolve(__dirname, './src/lib')
 		}
 	},
