@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { NoteWithPatterns } from '..';
 	import type { HeroAbilityChange, Note as NoteType } from '@deadlog/db';
+	import { cn } from '$lib/utils';
 
 	interface Props {
 		title: string;
@@ -14,9 +15,12 @@
 </script>
 
 <div
-	class="group rounded-lg border p-4 shadow-md transition-all hover:translate-x-1 {isHighlighted
-		? 'border-primary/50 bg-primary/5 shadow-primary/20 hover:border-primary/70 hover:shadow-primary/30 hover:shadow-lg'
-		: 'border-border bg-card hover:border-primary/40 hover:shadow-primary/10 hover:shadow-lg'}"
+	class={cn(
+		'group rounded-lg border p-4 shadow-md transition-all hover:translate-x-1',
+		isHighlighted
+			? 'border-primary/50 bg-primary/5 shadow-primary/20 hover:border-primary/70 hover:shadow-primary/30 hover:shadow-lg'
+			: 'border-border bg-card hover:border-primary/40 hover:shadow-primary/10 hover:shadow-lg'
+	)}
 >
 	<div class="mb-3 flex items-center gap-3">
 		{#if image}

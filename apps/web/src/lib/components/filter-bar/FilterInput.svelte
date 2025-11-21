@@ -3,6 +3,7 @@
 	import SearchIcon from '@lucide/svelte/icons/search';
 	import XIcon from '@lucide/svelte/icons/x';
 	import * as Command from '$lib/components/ui/command';
+	import { cn } from '$lib/utils';
 	import FilterBadge from './FilterBadge.svelte';
 	import type { EnrichedHero, EnrichedItem } from '$lib/utils/types';
 	import { getSearchParams } from '$lib/utils/searchParams.svelte';
@@ -188,30 +189,36 @@
 					<button
 						type="button"
 						onclick={() => (filterMode = 'all')}
-						class="flex-1 rounded-sm px-3 py-1.5 text-xs font-medium transition-colors {filterMode ===
-						'all'
-							? 'bg-primary text-primary-foreground'
-							: 'text-muted-foreground hover:bg-secondary hover:text-foreground'}"
+						class={cn(
+							'flex-1 rounded-sm px-3 py-1.5 text-xs font-medium transition-colors',
+							filterMode === 'all'
+								? 'bg-primary text-primary-foreground'
+								: 'text-muted-foreground hover:bg-secondary hover:text-foreground'
+						)}
 					>
 						All
 					</button>
 					<button
 						type="button"
 						onclick={() => (filterMode = 'heroes')}
-						class="flex-1 rounded-sm px-3 py-1.5 text-xs font-medium transition-colors {filterMode ===
-						'heroes'
-							? 'bg-primary text-primary-foreground'
-							: 'text-muted-foreground hover:bg-secondary hover:text-foreground'}"
+						class={cn(
+							'flex-1 rounded-sm px-3 py-1.5 text-xs font-medium transition-colors',
+							filterMode === 'heroes'
+								? 'bg-primary text-primary-foreground'
+								: 'text-muted-foreground hover:bg-secondary hover:text-foreground'
+						)}
 					>
 						Heroes
 					</button>
 					<button
 						type="button"
 						onclick={() => (filterMode = 'items')}
-						class="flex-1 rounded-sm px-3 py-1.5 text-xs font-medium transition-colors {filterMode ===
-						'items'
-							? 'bg-primary text-primary-foreground'
-							: 'text-muted-foreground hover:bg-secondary hover:text-foreground'}"
+						class={cn(
+							'flex-1 rounded-sm px-3 py-1.5 text-xs font-medium transition-colors',
+							filterMode === 'items'
+								? 'bg-primary text-primary-foreground'
+								: 'text-muted-foreground hover:bg-secondary hover:text-foreground'
+						)}
 					>
 						Items
 					</button>
@@ -230,8 +237,10 @@
 										<Command.Item
 											value={entity.data.name}
 											onSelect={() => selectHero(entity.data.id)}
-											class="hover:bg-secondary aria-selected:bg-secondary flex cursor-pointer items-center gap-3 rounded-sm px-3 py-2 transition-colors {entity.isSelected &&
-												'bg-primary/10'}"
+											class={cn(
+												'hover:bg-secondary aria-selected:bg-secondary flex cursor-pointer items-center gap-3 rounded-sm px-3 py-2 transition-colors',
+												entity.isSelected && 'bg-primary/10'
+											)}
 										>
 											<img
 												src={Object.values(entity.data.images)[0] as string}
@@ -239,9 +248,12 @@
 												class="size-8 rounded object-cover"
 											/>
 											<span
-												class="flex-1 text-sm {entity.isSelected
-													? 'text-primary font-medium'
-													: 'text-foreground'}"
+												class={cn(
+													'flex-1 text-sm',
+													entity.isSelected
+														? 'text-primary font-medium'
+														: 'text-foreground'
+												)}
 											>
 												{entity.data.name}
 											</span>
@@ -256,8 +268,10 @@
 										<Command.Item
 											value={entity.data.name}
 											onSelect={() => selectItem(entity.data.id)}
-											class="hover:bg-secondary aria-selected:bg-secondary flex cursor-pointer items-center gap-3 rounded-sm px-3 py-2 transition-colors {entity.isSelected &&
-												'bg-blue-500/10'}"
+											class={cn(
+												'hover:bg-secondary aria-selected:bg-secondary flex cursor-pointer items-center gap-3 rounded-sm px-3 py-2 transition-colors',
+												entity.isSelected && 'bg-blue-500/10'
+											)}
 										>
 											{#if entity.data.images?.png || entity.data.images?.webp}
 												<img
@@ -269,9 +283,12 @@
 												<div class="bg-secondary size-8 rounded"></div>
 											{/if}
 											<span
-												class="flex-1 text-sm {entity.isSelected
-													? 'font-medium text-blue-500'
-													: 'text-foreground'}"
+												class={cn(
+													'flex-1 text-sm',
+													entity.isSelected
+														? 'font-medium text-blue-500'
+														: 'text-foreground'
+												)}
 											>
 												{entity.data.name}
 											</span>
@@ -293,8 +310,10 @@
 										<Command.Item
 											value={hero.name}
 											onSelect={() => selectHero(hero.id)}
-											class="hover:bg-secondary aria-selected:bg-secondary flex cursor-pointer items-center gap-3 rounded-sm px-3 py-2 transition-colors {isSelected &&
-												'bg-primary/10'}"
+											class={cn(
+												'hover:bg-secondary aria-selected:bg-secondary flex cursor-pointer items-center gap-3 rounded-sm px-3 py-2 transition-colors',
+												isSelected && 'bg-primary/10'
+											)}
 										>
 											<img
 												src={Object.values(hero.images)[0] as string}
@@ -302,9 +321,10 @@
 												class="size-8 rounded object-cover"
 											/>
 											<span
-												class="flex-1 text-sm {isSelected
-													? 'text-primary font-medium'
-													: 'text-foreground'}"
+												class={cn(
+													'flex-1 text-sm',
+													isSelected ? 'text-primary font-medium' : 'text-foreground'
+												)}
 											>
 												{hero.name}
 											</span>
@@ -326,8 +346,10 @@
 										<Command.Item
 											value={item.name}
 											onSelect={() => selectItem(item.id)}
-											class="hover:bg-secondary aria-selected:bg-secondary flex cursor-pointer items-center gap-3 rounded-sm px-3 py-2 transition-colors {isSelected &&
-												'bg-blue-500/10'}"
+											class={cn(
+												'hover:bg-secondary aria-selected:bg-secondary flex cursor-pointer items-center gap-3 rounded-sm px-3 py-2 transition-colors',
+												isSelected && 'bg-blue-500/10'
+											)}
 										>
 											{#if item.images?.png || item.images?.webp}
 												<img
@@ -339,9 +361,10 @@
 												<div class="bg-secondary size-8 rounded"></div>
 											{/if}
 											<span
-												class="flex-1 text-sm {isSelected
-													? 'font-medium text-blue-500'
-													: 'text-foreground'}"
+												class={cn(
+													'flex-1 text-sm',
+													isSelected ? 'font-medium text-blue-500' : 'text-foreground'
+												)}
 											>
 												{item.name}
 											</span>

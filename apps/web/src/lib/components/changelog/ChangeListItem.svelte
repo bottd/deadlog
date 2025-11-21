@@ -10,9 +10,15 @@
 </script>
 
 <script lang="ts">
-	import ChangeHeader from './ChangeHeader.svelte';
 	import { onMount } from 'svelte';
+	import { browser } from '$app/environment';
+	import { cn } from '$lib/utils';
 	import { getSearchParams } from '$lib/utils/searchParams.svelte';
+	import type { EntityIcon } from '$lib/utils/types';
+	import type { ChangelogContentJson } from '@deadlog/db';
+	import * as Card from '$lib/components/ui/card';
+	import { ChangelogContent, ExpandButton } from '.';
+	import ChangeHeader from './ChangeHeader.svelte';
 
 	const params = getSearchParams();
 
@@ -49,11 +55,6 @@
 	function toggleShowFullChange(id: string) {
 		showFullChangeIds = toggle(showFullChangeIds, id);
 	}
-	import { ChangelogContent, ExpandButton } from '.';
-	import * as Card from '$lib/components/ui/card';
-	import type { ChangelogContentJson } from '@deadlog/db';
-	import type { EntityIcon } from '$lib/utils/types';
-	import { browser } from '$app/environment';
 
 	interface Props {
 		id: string;
@@ -106,9 +107,10 @@
 		<ChangeHeader {id} {date} {author} {authorImage} {icons} />
 
 		<div
-			class="mb-3 break-words {isExpanded || isFiltered
-				? ''
-				: 'relative max-h-[120px] overflow-hidden'}"
+			class={cn(
+				'mb-3 break-words',
+				!isExpanded && !isFiltered && 'relative max-h-[120px] overflow-hidden'
+			)}
 		>
 			{#if browser}
 				<ChangelogContent
