@@ -29,7 +29,7 @@ runs:
 
     - name: Install dependencies
       shell: bash
-      run: npm ci
+      run: pnpm install --frozen-lockfile
 
     - name: Generate dependency graph
       id: dep-graph

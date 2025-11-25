@@ -27,10 +27,10 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run type checking
-        run: npm run check
+        run: pnpm run check
 
       - name: Run lint
-        run: npm run lint
+        run: pnpm run lint
 
       - name: Build scraper and generate database
         run: npx nx build scraper
