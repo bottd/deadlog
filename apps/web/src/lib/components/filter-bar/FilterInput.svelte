@@ -2,22 +2,15 @@
 	import { page } from '$app/state';
 	import SearchIcon from '@lucide/svelte/icons/search';
 	import XIcon from '@lucide/svelte/icons/x';
+	import * as Command from '$lib/components/ui/command';
+	import { cn } from '$lib/utils';
 	import FilterBadge from './FilterBadge.svelte';
-	import FilterDropdown from './FilterDropdown.svelte';
 	import type { EnrichedHero, EnrichedItem } from '$lib/utils/types';
 	import { getSearchParams } from '$lib/utils/searchParams.svelte';
 	import {
 		getSelectedHeroObjects,
 		getSelectedItemObjects
 	} from '$lib/utils/selectedEntities.svelte';
-
-	type FilterMode = 'all' | 'heroes' | 'items';
-
-	interface MergedEntity {
-		type: 'hero' | 'item';
-		data: EnrichedHero | EnrichedItem;
-		isSelected: boolean;
-	}
 
 	const params = getSearchParams();
 
@@ -28,7 +21,7 @@
 
 	let open = $state(false);
 	let inputValue = $state(params.q);
-	let filterMode = $state<FilterMode>('all');
+	let filterMode = $state<'all' | 'heroes' | 'items'>('all');
 
 	function toggle<T>(array: T[], id: T): T[] {
 		return array.includes(id) ? array.filter((i) => i !== id) : [...array, id];
@@ -70,20 +63,27 @@
 			})
 	);
 
-	const mergedList = $derived.by((): MergedEntity[] => {
+	type MergedEntity =
+		| { type: 'hero'; data: EnrichedHero; isSelected: boolean }
+		| { type: 'item'; data: EnrichedItem; isSelected: boolean };
+
+	const mergedList = $derived.by(() => {
 		if (filterMode !== 'all') return [];
 
 		const heroEntities: MergedEntity[] = filteredHeroes.map((hero: EnrichedHero) => ({
-			type: 'hero',
+			type: 'hero' as const,
 			data: hero,
 			isSelected: params.hero.includes(hero.name)
 		}));
 
-		const itemEntities: MergedEntity[] = filteredItems.map((item: EnrichedItem) => ({
-			type: 'item',
-			data: item,
-			isSelected: params.item.includes(item.name)
-		}));
+		const itemEntities = filteredItems.map(
+			(item: EnrichedItem) =>
+				({
+					type: 'item' as const,
+					data: item,
+					isSelected: params.item.includes(item.name)
+				}) satisfies MergedEntity
+		);
 
 		return [...heroEntities, ...itemEntities].sort((a, b) => {
 			if (a.isSelected && !b.isSelected) return -1;
@@ -95,14 +95,18 @@
 	function selectHero(heroId: number) {
 		const hero = heroes.find((h: EnrichedHero) => h.id === heroId);
 		if (hero) {
-			params.update({ hero: toggle(params.hero, hero.name) });
+			params.update({
+				hero: toggle(params.hero, hero.name)
+			});
 		}
 	}
 
 	function selectItem(itemId: number) {
 		const item = items.find((i: EnrichedItem) => i.id === itemId);
 		if (item) {
-			params.update({ item: toggle(params.item, item.name) });
+			params.update({
+				item: toggle(params.item, item.name)
+			});
 		}
 	}
 
@@ -117,16 +121,15 @@
 		params.update({ q: inputValue });
 		open = false;
 	}
-
-	const hasFilters = $derived(
-		selectedHeroObjects.length > 0 || selectedItemObjects.length > 0 || params.q
-	);
 </script>
 
-<div class="filter-container">
+<div class="sticky z-40 w-full" style="top: max(64px, env(safe-area-inset-top));">
 	<div class="relative">
-		<form onsubmit={handleSubmit} class="filter-form">
-			<div class="filter-badges">
+		<form
+			onsubmit={handleSubmit}
+			class="border-border bg-card/80 text-foreground focus-within:border-primary focus-within:ring-primary/20 flex min-h-[44px] w-full items-center gap-2 rounded-md border-2 px-3 py-2 text-sm backdrop-blur-sm transition-colors focus-within:ring-1"
+		>
+			<div class="flex min-w-0 flex-1 flex-wrap items-center gap-1.5">
 				{#each selectedHeroObjects as hero (hero.id)}
 					<FilterBadge
 						name={hero.name}
@@ -147,21 +150,21 @@
 				<input
 					type="text"
 					placeholder="Add more filters or search..."
-					class="filter-input"
+					class="placeholder:text-muted-foreground min-w-0 flex-1 bg-transparent outline-none sm:min-w-[200px]"
 					bind:value={inputValue}
 					onfocus={() => (open = true)}
 					onkeydown={(e) => !open && e.key !== 'Escape' && (open = true)}
 				/>
 			</div>
 
-			{#if hasFilters}
+			{#if selectedHeroObjects.length || selectedItemObjects.length || params.q}
 				<button
 					type="button"
 					onclick={(e) => {
 						e.stopPropagation();
 						clearAll();
 					}}
-					class="clear-button"
+					class="hover:bg-secondary shrink-0 rounded-sm p-1 transition-colors"
 					aria-label="Clear all filters"
 				>
 					<XIcon class="text-muted-foreground size-4" />
@@ -170,7 +173,7 @@
 
 			<button
 				type="submit"
-				class="search-button"
+				class="bg-primary shrink-0 rounded-sm p-1.5 transition-colors hover:opacity-80"
 				aria-label="Apply search"
 				title="Press Enter or click to search"
 			>
@@ -179,47 +182,213 @@
 		</form>
 
 		{#if open}
-			<FilterDropdown
-				{filterMode}
-				onFilterModeChange={(mode) => (filterMode = mode)}
-				{mergedList}
-				{filteredHeroes}
-				{filteredItems}
-				selectedHeroNames={params.hero}
-				selectedItemNames={params.item}
-				onSelectHero={selectHero}
-				onSelectItem={selectItem}
-				onClose={() => (open = false)}
-			/>
+			<div
+				class="border-border bg-background/95 absolute inset-x-0 top-full z-50 mt-2 max-h-[450px] overflow-hidden rounded-md border shadow-2xl backdrop-blur-lg"
+			>
+				<div class="border-border flex border-b p-2">
+					<button
+						type="button"
+						onclick={() => (filterMode = 'all')}
+						class={cn(
+							'flex-1 rounded-sm px-3 py-1.5 text-xs font-medium transition-colors',
+							filterMode === 'all'
+								? 'bg-primary text-primary-foreground'
+								: 'text-muted-foreground hover:bg-secondary hover:text-foreground'
+						)}
+					>
+						All
+					</button>
+					<button
+						type="button"
+						onclick={() => (filterMode = 'heroes')}
+						class={cn(
+							'flex-1 rounded-sm px-3 py-1.5 text-xs font-medium transition-colors',
+							filterMode === 'heroes'
+								? 'bg-primary text-primary-foreground'
+								: 'text-muted-foreground hover:bg-secondary hover:text-foreground'
+						)}
+					>
+						Heroes
+					</button>
+					<button
+						type="button"
+						onclick={() => (filterMode = 'items')}
+						class={cn(
+							'flex-1 rounded-sm px-3 py-1.5 text-xs font-medium transition-colors',
+							filterMode === 'items'
+								? 'bg-primary text-primary-foreground'
+								: 'text-muted-foreground hover:bg-secondary hover:text-foreground'
+						)}
+					>
+						Items
+					</button>
+				</div>
+
+				<Command.Root class="bg-transparent" shouldFilter={false}>
+					<Command.List class="max-h-[350px] overflow-y-auto p-2">
+						{#if (filterMode === 'all' && mergedList.length === 0) || (filterMode !== 'all' && filteredHeroes.length === 0 && filteredItems.length === 0)}
+							<Command.Empty class="text-muted-foreground py-6 text-center text-sm">
+								No results found.
+							</Command.Empty>
+						{:else if filterMode === 'all'}
+							<Command.Group>
+								{#each mergedList as entity (entity.type === 'hero' ? `hero-${entity.data.id}` : `item-${entity.data.id}`)}
+									{#if entity.type === 'hero'}
+										<Command.Item
+											value={entity.data.name}
+											onSelect={() => selectHero(entity.data.id)}
+											class={cn(
+												'hover:bg-secondary aria-selected:bg-secondary flex cursor-pointer items-center gap-3 rounded-sm px-3 py-2 transition-colors',
+												entity.isSelected && 'bg-primary/10'
+											)}
+										>
+											<img
+												src={Object.values(entity.data.images)[0] as string}
+												alt={entity.data.name}
+												class="size-8 rounded object-cover"
+											/>
+											<span
+												class={cn(
+													'flex-1 text-sm',
+													entity.isSelected
+														? 'text-primary font-medium'
+														: 'text-foreground'
+												)}
+											>
+												{entity.data.name}
+											</span>
+											{#if entity.isSelected}
+												<div
+													class="bg-primary size-2 rounded-full"
+													aria-label="Selected"
+												></div>
+											{/if}
+										</Command.Item>
+									{:else}
+										<Command.Item
+											value={entity.data.name}
+											onSelect={() => selectItem(entity.data.id)}
+											class={cn(
+												'hover:bg-secondary aria-selected:bg-secondary flex cursor-pointer items-center gap-3 rounded-sm px-3 py-2 transition-colors',
+												entity.isSelected && 'bg-blue-500/10'
+											)}
+										>
+											{#if entity.data.images?.png || entity.data.images?.webp}
+												<img
+													src={entity.data.images?.png || entity.data.images?.webp}
+													alt={entity.data.name}
+													class="size-8 rounded object-cover"
+												/>
+											{:else}
+												<div class="bg-secondary size-8 rounded"></div>
+											{/if}
+											<span
+												class={cn(
+													'flex-1 text-sm',
+													entity.isSelected
+														? 'font-medium text-blue-500'
+														: 'text-foreground'
+												)}
+											>
+												{entity.data.name}
+											</span>
+											{#if entity.isSelected}
+												<div
+													class="size-2 rounded-full bg-blue-500"
+													aria-label="Selected"
+												></div>
+											{/if}
+										</Command.Item>
+									{/if}
+								{/each}
+							</Command.Group>
+						{:else}
+							{#if filteredHeroes.length > 0}
+								<Command.Group>
+									{#each filteredHeroes as hero (hero.id)}
+										{@const isSelected = params.hero.includes(hero.name)}
+										<Command.Item
+											value={hero.name}
+											onSelect={() => selectHero(hero.id)}
+											class={cn(
+												'hover:bg-secondary aria-selected:bg-secondary flex cursor-pointer items-center gap-3 rounded-sm px-3 py-2 transition-colors',
+												isSelected && 'bg-primary/10'
+											)}
+										>
+											<img
+												src={Object.values(hero.images)[0] as string}
+												alt={hero.name}
+												class="size-8 rounded object-cover"
+											/>
+											<span
+												class={cn(
+													'flex-1 text-sm',
+													isSelected ? 'text-primary font-medium' : 'text-foreground'
+												)}
+											>
+												{hero.name}
+											</span>
+											{#if isSelected}
+												<div
+													class="bg-primary size-2 rounded-full"
+													aria-label="Selected"
+												></div>
+											{/if}
+										</Command.Item>
+									{/each}
+								</Command.Group>
+							{/if}
+
+							{#if filteredItems.length > 0}
+								<Command.Group>
+									{#each filteredItems as item (item.id)}
+										{@const isSelected = params.item.includes(item.name)}
+										<Command.Item
+											value={item.name}
+											onSelect={() => selectItem(item.id)}
+											class={cn(
+												'hover:bg-secondary aria-selected:bg-secondary flex cursor-pointer items-center gap-3 rounded-sm px-3 py-2 transition-colors',
+												isSelected && 'bg-blue-500/10'
+											)}
+										>
+											{#if item.images?.png || item.images?.webp}
+												<img
+													src={item.images?.png || item.images?.webp}
+													alt={item.name}
+													class="size-8 rounded object-cover"
+												/>
+											{:else}
+												<div class="bg-secondary size-8 rounded"></div>
+											{/if}
+											<span
+												class={cn(
+													'flex-1 text-sm',
+													isSelected ? 'font-medium text-blue-500' : 'text-foreground'
+												)}
+											>
+												{item.name}
+											</span>
+											{#if isSelected}
+												<div
+													class="size-2 rounded-full bg-blue-500"
+													aria-label="Selected"
+												></div>
+											{/if}
+										</Command.Item>
+									{/each}
+								</Command.Group>
+							{/if}
+						{/if}
+					</Command.List>
+				</Command.Root>
+			</div>
+			<button
+				type="button"
+				class="fixed inset-0 z-40"
+				onclick={() => (open = false)}
+				aria-label="Close dropdown"
+				tabindex="-1"
+			></button>
 		{/if}
 	</div>
 </div>
-
-<style lang="postcss">
-	@reference "../../../app.css";
-
-	.filter-container {
-		@apply sticky z-40 w-full;
-		top: max(64px, env(safe-area-inset-top));
-	}
-
-	.filter-form {
-		@apply border-border bg-card/80 text-foreground focus-within:border-primary focus-within:ring-primary/20 flex min-h-[44px] w-full items-center gap-2 rounded-md border-2 px-3 py-2 text-sm backdrop-blur-sm transition-colors focus-within:ring-1;
-	}
-
-	.filter-badges {
-		@apply flex min-w-0 flex-1 flex-wrap items-center gap-1.5;
-	}
-
-	.filter-input {
-		@apply placeholder:text-muted-foreground min-w-0 flex-1 bg-transparent outline-none sm:min-w-[200px];
-	}
-
-	.clear-button {
-		@apply hover:bg-secondary shrink-0 rounded-sm p-1 transition-colors;
-	}
-
-	.search-button {
-		@apply bg-primary shrink-0 rounded-sm p-1.5 transition-colors hover:opacity-80;
-	}
-</style>
