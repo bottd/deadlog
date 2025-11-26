@@ -97,7 +97,7 @@
 
             packages = with pkgs; [
               nodejs_24
-              pnpm
+              nodejs_24.pkgs.pnpm
               treefmtEval.config.build.wrapper
               playwright-test
               sqlite
