@@ -2,7 +2,45 @@
 @import 'tw-animate-css';
 
 /* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Black&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@font-face {
+	font-family: 'Archivo';
+	src: url('/fonts/Archivo-VariableFont_wdth,wght.ttf') format('truetype');
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Archivo';
+	src: url('/fonts/Archivo-Italic-VariableFont_wdth,wght.ttf') format('truetype');
+	font-weight: 100 900;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Archivo Black';
+	src: url('/fonts/ArchivoBlack-Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'JetBrains Mono';
+	src: url('/fonts/JetBrainsMono-VariableFont_wght.ttf') format('truetype');
+	font-weight: 100 800;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'JetBrains Mono';
+	src: url('/fonts/JetBrainsMono-Italic-VariableFont_wght.ttf') format('truetype');
+	font-weight: 100 800;
+	font-style: italic;
+	font-display: swap;
+}
 
 :root {
 	--radius: 0.625rem;
