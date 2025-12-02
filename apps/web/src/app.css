@@ -1,6 +1,9 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Black&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
 :root {
 	--radius: 0.625rem;
 	--safe-area-inset-top: env(safe-area-inset-top, 0px);
@@ -75,6 +78,11 @@
 }
 
 @theme inline {
+	/* Font families */
+	--font-sans: 'Archivo', ui-sans-serif, system-ui, sans-serif;
+	--font-display: 'Archivo Black', 'Archivo', ui-sans-serif, system-ui, sans-serif;
+	--font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
 	--radius-sm: calc(var(--radius) - 4px);
 	--radius-md: calc(var(--radius) - 2px);
 	--radius-lg: var(--radius);
@@ -118,7 +126,7 @@
 	}
 	html,
 	body {
-		@apply text-foreground bg-background;
+		@apply text-foreground bg-background font-sans;
 		padding-top: var(--safe-area-inset-top);
 		padding-right: var(--safe-area-inset-right);
 		padding-bottom: var(--safe-area-inset-bottom);

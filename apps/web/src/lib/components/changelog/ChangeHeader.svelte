@@ -5,7 +5,7 @@
 	import { Link } from '@lucide/svelte';
 	import { toast } from 'svelte-sonner';
 	import { format } from 'date-fns';
-	import { formatDateWithSuffix } from '$lib/utils/dateFormatters';
+	import { formatDateWithSuffix } from '@deadlog/utils';
 
 	interface Props {
 		id: string;
@@ -30,7 +30,7 @@
 
 <div class="mb-4 flex w-full items-start justify-between gap-4">
 	<div class="flex flex-col gap-2">
-		<h2 class="text-foreground text-xl font-medium">
+		<h2 class="text-foreground font-display text-xl">
 			{formatDateWithSuffix(date)}
 		</h2>
 		<div class="text-muted-foreground flex items-center text-sm">

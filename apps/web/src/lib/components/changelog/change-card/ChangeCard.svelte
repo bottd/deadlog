@@ -35,7 +35,7 @@
 			/>
 		{/if}
 		<h4
-			class="text-primary text-lg font-semibold transition-colors group-hover:opacity-80"
+			class="text-primary font-display text-lg transition-colors group-hover:opacity-80"
 		>
 			{title}
 		</h4>

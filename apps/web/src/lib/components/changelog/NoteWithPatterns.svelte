@@ -42,7 +42,10 @@
 
 {#each segments as segment, i (i)}
 	{#if segment.isPattern}
-		<span class="text-primary font-semibold">{segment.text}</span>
+		<code
+			class="bg-primary/10 text-primary rounded px-1 py-0.5 font-mono text-[0.9em] font-medium"
+			>{segment.text}</code
+		>
 	{:else}
 		{segment.text}
 	{/if}

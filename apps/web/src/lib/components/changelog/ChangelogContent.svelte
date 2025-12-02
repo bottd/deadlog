@@ -151,7 +151,7 @@
 </script>
 
 <div
-	class="prose prose-invert prose-sm [&_a]:text-primary [&_code]:bg-card [&_code]:text-primary [&_h1]:text-foreground [&_h2]:text-foreground [&_h3]:text-primary [&_pre]:border-border [&_pre]:bg-card [&_strong]:text-foreground [&>*]:text-foreground/90 max-w-none [&_a:hover]:opacity-80 [&_code]:rounded [&_code]:px-1 [&_ol]:list-decimal [&_pre]:border [&_ul]:list-disc"
+	class="prose prose-invert prose-sm [&_a]:text-primary [&_code]:bg-card [&_code]:text-primary [&_h1]:text-foreground [&_h2]:text-foreground [&_h3]:text-primary [&_h3]:font-display [&_pre]:border-border [&_pre]:bg-card [&_strong]:text-foreground [&>*]:text-foreground/90 max-w-none [&_a:hover]:opacity-80 [&_code]:rounded [&_code]:px-1 [&_code]:font-mono [&_ol]:list-decimal [&_pre]:border [&_pre]:font-mono [&_ul]:list-disc"
 >
 	{#if contentJson}
 		<!-- Render structured JSON content -->
@@ -165,8 +165,10 @@
 			{#if (!hasParams || showFullChange || forceShowNotes) && contentJson.notes.length > 0}
 				<Accordion.Item value="general">
 					<Accordion.Trigger>
-						<h3 class="text-primary mb-0 text-lg font-semibold">
-							General Changes ({displayedNotes.length})
+						<h3 class="text-primary font-display mb-0 text-lg">
+							General Changes <span class="font-mono text-base"
+								>({displayedNotes.length})</span
+							>
 						</h3>
 					</Accordion.Trigger>
 					<Accordion.Content class="pt-4">
@@ -206,8 +208,10 @@
 			{#if visibleHeroes.length > 0}
 				<Accordion.Item value="heroes">
 					<Accordion.Trigger>
-						<h3 class="text-primary mb-0 text-lg font-semibold">
-							Hero Changes ({visibleHeroes.length})
+						<h3 class="text-primary font-display mb-0 text-lg">
+							Hero Changes <span class="font-mono text-base"
+								>({visibleHeroes.length})</span
+							>
 						</h3>
 					</Accordion.Trigger>
 					<Accordion.Content class="pt-4">
@@ -230,8 +234,9 @@
 			{#if visibleItems.length > 0}
 				<Accordion.Item value="items">
 					<Accordion.Trigger>
-						<h3 class="text-primary mb-0 text-lg font-semibold">
-							Item Changes ({visibleItems.length})
+						<h3 class="text-primary font-display mb-0 text-lg">
+							Item Changes <span class="font-mono text-base">({visibleItems.length})</span
+							>
 						</h3>
 					</Accordion.Trigger>
 					<Accordion.Content class="pt-4">
@@ -253,8 +258,10 @@
 			{#if (!hasParams || showFullChange) && Object.keys(contentJson.abilities).length > 0}
 				<Accordion.Item value="abilities">
 					<Accordion.Trigger>
-						<h3 class="text-primary mb-0 text-lg font-semibold">
-							Ability Changes ({Object.keys(contentJson.abilities).length})
+						<h3 class="text-primary font-display mb-0 text-lg">
+							Ability Changes <span class="font-mono text-base"
+								>({Object.keys(contentJson.abilities).length})</span
+							>
 						</h3>
 					</Accordion.Trigger>
 					<Accordion.Content class="pt-4">

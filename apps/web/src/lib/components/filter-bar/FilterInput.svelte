@@ -5,12 +5,21 @@
 	import * as Command from '$lib/components/ui/command';
 	import { cn } from '$lib/utils';
 	import FilterBadge from './FilterBadge.svelte';
+	import EntityItem from './EntityItem.svelte';
 	import type { EnrichedHero, EnrichedItem } from '$lib/utils/types';
 	import { getSearchParams } from '$lib/utils/searchParams.svelte';
 	import {
 		getSelectedHeroObjects,
 		getSelectedItemObjects
 	} from '$lib/utils/selectedEntities.svelte';
+
+	function getHeroImage(hero: EnrichedHero): string {
+		return Object.values(hero.images)[0] as string;
+	}
+
+	function getItemImage(item: EnrichedItem): string | undefined {
+		return item.images?.png || item.images?.webp;
+	}
 
 	const params = getSearchParams();
 
@@ -233,108 +242,31 @@
 						{:else if filterMode === 'all'}
 							<Command.Group>
 								{#each mergedList as entity (entity.type === 'hero' ? `hero-${entity.data.id}` : `item-${entity.data.id}`)}
-									{#if entity.type === 'hero'}
-										<Command.Item
-											value={entity.data.name}
-											onSelect={() => selectHero(entity.data.id)}
-											class={cn(
-												'hover:bg-secondary aria-selected:bg-secondary flex cursor-pointer items-center gap-3 rounded-sm px-3 py-2 transition-colors',
-												entity.isSelected && 'bg-primary/10'
-											)}
-										>
-											<img
-												src={Object.values(entity.data.images)[0] as string}
-												alt={entity.data.name}
-												class="size-8 rounded object-cover"
-											/>
-											<span
-												class={cn(
-													'flex-1 text-sm',
-													entity.isSelected
-														? 'text-primary font-medium'
-														: 'text-foreground'
-												)}
-											>
-												{entity.data.name}
-											</span>
-											{#if entity.isSelected}
-												<div
-													class="bg-primary size-2 rounded-full"
-													aria-label="Selected"
-												></div>
-											{/if}
-										</Command.Item>
-									{:else}
-										<Command.Item
-											value={entity.data.name}
-											onSelect={() => selectItem(entity.data.id)}
-											class={cn(
-												'hover:bg-secondary aria-selected:bg-secondary flex cursor-pointer items-center gap-3 rounded-sm px-3 py-2 transition-colors',
-												entity.isSelected && 'bg-blue-500/10'
-											)}
-										>
-											{#if entity.data.images?.png || entity.data.images?.webp}
-												<img
-													src={entity.data.images?.png || entity.data.images?.webp}
-													alt={entity.data.name}
-													class="size-8 rounded object-cover"
-												/>
-											{:else}
-												<div class="bg-secondary size-8 rounded"></div>
-											{/if}
-											<span
-												class={cn(
-													'flex-1 text-sm',
-													entity.isSelected
-														? 'font-medium text-blue-500'
-														: 'text-foreground'
-												)}
-											>
-												{entity.data.name}
-											</span>
-											{#if entity.isSelected}
-												<div
-													class="size-2 rounded-full bg-blue-500"
-													aria-label="Selected"
-												></div>
-											{/if}
-										</Command.Item>
-									{/if}
+									<EntityItem
+										name={entity.data.name}
+										imageSrc={entity.type === 'hero'
+											? getHeroImage(entity.data as EnrichedHero)
+											: getItemImage(entity.data as EnrichedItem)}
+										isSelected={entity.isSelected}
+										colorClass={entity.type}
+										onSelect={() =>
+											entity.type === 'hero'
+												? selectHero(entity.data.id)
+												: selectItem(entity.data.id)}
+									/>
 								{/each}
 							</Command.Group>
 						{:else}
 							{#if filteredHeroes.length > 0}
 								<Command.Group>
 									{#each filteredHeroes as hero (hero.id)}
-										{@const isSelected = params.hero.includes(hero.name)}
-										<Command.Item
-											value={hero.name}
+										<EntityItem
+											name={hero.name}
+											imageSrc={getHeroImage(hero)}
+											isSelected={params.hero.includes(hero.name)}
+											colorClass="hero"
 											onSelect={() => selectHero(hero.id)}
-											class={cn(
-												'hover:bg-secondary aria-selected:bg-secondary flex cursor-pointer items-center gap-3 rounded-sm px-3 py-2 transition-colors',
-												isSelected && 'bg-primary/10'
-											)}
-										>
-											<img
-												src={Object.values(hero.images)[0] as string}
-												alt={hero.name}
-												class="size-8 rounded object-cover"
-											/>
-											<span
-												class={cn(
-													'flex-1 text-sm',
-													isSelected ? 'text-primary font-medium' : 'text-foreground'
-												)}
-											>
-												{hero.name}
-											</span>
-											{#if isSelected}
-												<div
-													class="bg-primary size-2 rounded-full"
-													aria-label="Selected"
-												></div>
-											{/if}
-										</Command.Item>
+										/>
 									{/each}
 								</Command.Group>
 							{/if}
@@ -342,39 +274,13 @@
 							{#if filteredItems.length > 0}
 								<Command.Group>
 									{#each filteredItems as item (item.id)}
-										{@const isSelected = params.item.includes(item.name)}
-										<Command.Item
-											value={item.name}
+										<EntityItem
+											name={item.name}
+											imageSrc={getItemImage(item)}
+											isSelected={params.item.includes(item.name)}
+											colorClass="item"
 											onSelect={() => selectItem(item.id)}
-											class={cn(
-												'hover:bg-secondary aria-selected:bg-secondary flex cursor-pointer items-center gap-3 rounded-sm px-3 py-2 transition-colors',
-												isSelected && 'bg-blue-500/10'
-											)}
-										>
-											{#if item.images?.png || item.images?.webp}
-												<img
-													src={item.images?.png || item.images?.webp}
-													alt={item.name}
-													class="size-8 rounded object-cover"
-												/>
-											{:else}
-												<div class="bg-secondary size-8 rounded"></div>
-											{/if}
-											<span
-												class={cn(
-													'flex-1 text-sm',
-													isSelected ? 'font-medium text-blue-500' : 'text-foreground'
-												)}
-											>
-												{item.name}
-											</span>
-											{#if isSelected}
-												<div
-													class="size-2 rounded-full bg-blue-500"
-													aria-label="Selected"
-												></div>
-											{/if}
-										</Command.Item>
+										/>
 									{/each}
 								</Command.Group>
 							{/if}

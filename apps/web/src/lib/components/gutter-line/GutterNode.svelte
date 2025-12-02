@@ -8,7 +8,7 @@
 
 	let { bigUpdate = false, active = false }: Props = $props();
 
-	const isActive = active || bigUpdate;
+	const isActive = $derived(active || bigUpdate);
 </script>
 
 <div

@@ -31,36 +31,6 @@ export interface FilteredChangelog {
 	majorUpdate?: boolean;
 }
 
-export function filterChangelogs(
-	changelogs: FilteredChangelog[],
-	filterState: FilterState
-): FilteredChangelog[] {
-	const { selectedHeroNames, selectedItemNames, searchQuery } = filterState;
-	const hasHeroFilter = selectedHeroNames.size > 0;
-	const hasItemFilter = selectedItemNames.size > 0;
-	const hasSearchQuery = searchQuery.trim().length > 0;
-
-	if (!hasHeroFilter && !hasItemFilter && !hasSearchQuery) {
-		return changelogs;
-	}
-
-	return changelogs.filter((changelog) => {
-		if (hasHeroFilter) {
-			if (!matchesEntities(changelog, selectedHeroNames, ENTITY_TYPES.HERO)) return false;
-		}
-
-		if (hasItemFilter) {
-			if (!matchesEntities(changelog, selectedItemNames, ENTITY_TYPES.ITEM)) return false;
-		}
-
-		if (hasSearchQuery) {
-			if (!matchesSearch(changelog, searchQuery)) return false;
-		}
-
-		return true;
-	});
-}
-
 type EntityKey = 'heroes' | 'items';
 
 interface EntityData {
@@ -69,43 +39,6 @@ interface EntityData {
 }
 
 type EntityContentMap = Readonly<Record<string, EntityData>>;
-
-function matchesEntities(
-	changelog: FilteredChangelog,
-	selectedNames: ReadonlySet<string>,
-	entityType: EntityType
-): boolean {
-	const presentNames = new Set<string>();
-	const entityKey: EntityKey = entityType === ENTITY_TYPES.HERO ? 'heroes' : 'items';
-
-	const content = changelog.contentJson?.[entityKey];
-	if (content) {
-		Object.keys(content).forEach((name) => {
-			presentNames.add(name);
-		});
-	}
-
-	for (const name of selectedNames) {
-		if (!presentNames.has(name)) {
-			return false;
-		}
-	}
-
-	return true;
-}
-
-function matchesSearch(changelog: FilteredChangelog, searchQuery: string): boolean {
-	const query = searchQuery.toLowerCase().trim();
-
-	if (changelog.title.toLowerCase().includes(query)) return true;
-
-	if (changelog.fullContent) {
-		const plaintext = changelog.fullContent.replace(/<[^>]*>/g, ' ');
-		return plaintext.toLowerCase().includes(query);
-	}
-
-	return false;
-}
 
 function collectContentNames(
 	content?: EntityContentMap,

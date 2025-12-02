@@ -29,11 +29,11 @@ runs:
 
     - name: Install dependencies
       shell: bash
-      run: pnpm install --frozen-lockfile
+      run: bun install --frozen-lockfile
 
     - name: Generate dependency graph
       id: dep-graph
       shell: bash
       run: |
-        npx nx dep-graph --file dep-graph.json
+        bunx nx dep-graph --file dep-graph.json
         echo "path=dep-graph.json" >> $GITHUB_OUTPUT

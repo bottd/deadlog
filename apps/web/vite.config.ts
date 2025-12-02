@@ -40,6 +40,7 @@ export default defineConfig({
 			'@deadlog/scraper',
 			'@deadlog/db',
 			'@deadlog/meta',
+			'@deadlog/utils',
 			'runed',
 			'@lucide/svelte',
 			'bits-ui',

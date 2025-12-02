@@ -7,9 +7,9 @@
 		<div class="flex h-16 items-center">
 			<a
 				href="/"
-				class="text-primary flex items-baseline gap-2 text-xl font-bold transition-colors hover:opacity-80"
+				class="text-primary flex items-baseline gap-2 text-xl transition-colors hover:opacity-80"
 			>
-				<span>deadlog.io</span>
+				<span class="font-display">deadlog.io</span>
 				<span class="text-muted-foreground text-sm font-normal">
 					deadlock changelog viewer
 				</span>

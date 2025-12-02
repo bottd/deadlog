@@ -23,7 +23,7 @@ export {
 // Note: extractIcons and parseHtmlToJson are only used server-side during database building
 // They are not exported to prevent happy-dom from being bundled in client builds
 
-export { formatDate, formatDateWithSuffix, formatTime } from './dateFormatters';
+export { formatDate, formatDateWithSuffix, formatTime } from '@deadlog/utils';
 
 export type { ScrapedChangelog } from './deadlock';
 export type {

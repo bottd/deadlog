@@ -6,7 +6,9 @@
 	import { getSearchParams } from '$lib/utils/searchParams.svelte';
 
 	let { data }: { data: PageData } = $props();
-	const { title, description, image } = data;
+	const title = $derived(data.title);
+	const description = $derived(data.description);
+	const image = $derived(data.image);
 
 	const params = getSearchParams();
 	const canonical = $derived.by(() =>
