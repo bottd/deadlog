@@ -232,20 +232,8 @@ export async function getAllHeroes(db: DrizzleDB): Promise<EnrichedHero[]> {
 	return results.map(rowToHero);
 }
 
-function rowToItem(row: typeof schema.items.$inferSelect): EnrichedItem {
-	return {
-		id: row.id,
-		name: row.name,
-		className: row.className,
-		type: row.type as 'weapon' | 'ability' | 'upgrade',
-		images: row.images ?? null,
-		isReleased: row.isReleased
-	};
-}
-
 export async function getAllItems(db: DrizzleDB): Promise<EnrichedItem[]> {
-	const results = await db.select().from(schema.items).all();
-	return results.map(rowToItem);
+	return await db.select().from(schema.items).all();
 }
 
 export async function getHeroByName(
@@ -271,7 +259,7 @@ export async function getItemByName(
 		.where(eq(schema.items.name, name))
 		.get();
 
-	return result ? rowToItem(result) : null;
+	return result ?? null;
 }
 
 /**

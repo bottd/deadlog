@@ -16,23 +16,28 @@
 <HoverCard.Root>
 	<HoverCard.Trigger
 		onclick={onSelect}
-		class="cursor-pointer"
+		class="cursor-pointer transition-all duration-200 hover:scale-105"
 		aria-label="Filter by {name}"
 	>
 		{@render children()}
 	</HoverCard.Trigger>
-	<HoverCard.Content class="w-56">
-		<div class="flex gap-3">
+	<HoverCard.Content class="border-border/60 shadow-primary/5 w-64 shadow-xl">
+		<div class="flex gap-4">
 			{#if imageSrc}
-				<img
-					src={imageSrc}
-					alt={name}
-					class="border-border bg-card size-12 rounded-full border-2 object-cover"
-				/>
+				<div class="relative">
+					<div class="bg-primary/10 absolute inset-0 rounded-lg blur-sm"></div>
+					<img
+						src={imageSrc}
+						alt={name}
+						class="border-primary/30 bg-card hover:border-primary/50 relative size-14 rounded-lg border-2 object-cover shadow-md transition-all duration-300 hover:scale-105"
+					/>
+				</div>
 			{/if}
-			<div class="flex flex-col justify-center">
-				<p class="font-display text-sm">{name}</p>
-				<p class="text-muted-foreground text-xs">Click to filter by {type}</p>
+			<div class="flex flex-col justify-center gap-1">
+				<p class="font-display text-foreground text-base tracking-tight">{name}</p>
+				<p class="text-muted-foreground text-xs tracking-tight">
+					Click to filter by {type}
+				</p>
 			</div>
 		</div>
 	</HoverCard.Content>

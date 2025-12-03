@@ -67,10 +67,7 @@
 		};
 		contentJson?: ChangelogContentJson | null;
 		heroMap?: Record<number, { name: string; images: Record<string, string> }>;
-		itemMap?: Record<
-			number,
-			{ name: string; images?: { png?: string; webp?: string } | null }
-		>;
+		itemMap?: Record<number, { name: string; image: string }>;
 		isFiltered?: boolean;
 		forceShowNotes?: boolean;
 		defaultOpen?: boolean;
@@ -102,13 +99,13 @@
 	}
 </script>
 
-<Card.Root {id}>
-	<Card.Content>
+<Card.Root {id} class="group/card py-6">
+	<Card.Content class="px-8">
 		<ChangeHeader {id} {date} {author} {authorImage} {icons} />
 
 		<div
-			class="relative mb-3 overflow-hidden break-words transition-all duration-300"
-			class:max-h-[120px]={!isExpanded && !isFiltered}
+			class="relative mb-4 overflow-hidden break-words transition-all duration-500 ease-out"
+			class:max-h-[140px]={!isExpanded && !isFiltered}
 		>
 			{#if browser}
 				<ChangelogContent
@@ -121,7 +118,7 @@
 			{/if}
 			{#if !isExpanded && !isFiltered}
 				<div
-					class="from-card pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t"
+					class="from-card via-card pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t to-transparent"
 				></div>
 			{/if}
 		</div>

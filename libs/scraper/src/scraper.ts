@@ -96,6 +96,7 @@ export interface ScraperOptions {
 	userAgent?: string;
 	useCache?: boolean;
 	cacheDir?: string;
+	maxPagesToScrape?: number;
 }
 
 const DEFAULT_OPTIONS = {
@@ -104,7 +105,8 @@ const DEFAULT_OPTIONS = {
 	userAgent:
 		'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
 	useCache: false,
-	cacheDir: './src/lib/db/cache'
+	cacheDir: './src/lib/db/cache',
+	maxPagesToScrape: 1
 } satisfies Required<ScraperOptions>;
 
 /**
@@ -224,7 +226,7 @@ export async function scrapeChangelogPage(
 
 		console.log(`🔍 Scraping changelog forum...`);
 
-		while (hasMorePages) {
+		while (hasMorePages && currentPage <= opts.maxPagesToScrape) {
 			const pageUrl = currentPage === 1 ? baseUrl : `${baseUrl}page-${currentPage}`;
 			console.log(`  📄 Page ${currentPage}: ${pageUrl}`);
 

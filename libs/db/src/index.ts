@@ -37,7 +37,6 @@ export {
 	selectChangelogSchema,
 	insertHeroSchema,
 	selectHeroSchema,
-	itemImagesSchema,
 	insertItemSchema,
 	selectItemSchema,
 	insertMetadataSchema,

@@ -29,26 +29,35 @@
 	}
 </script>
 
-<div class="mb-4 flex w-full items-start justify-between gap-4">
-	<div class="flex flex-col gap-2">
-		<h2 class="text-foreground font-display text-xl">
+<div class="relative mb-6 flex w-full items-start justify-between gap-6">
+	<div
+		class="via-border absolute top-0 -left-6 h-full w-px bg-gradient-to-b from-transparent to-transparent"
+	></div>
+
+	<div class="flex flex-col gap-3">
+		<h2 class="text-foreground font-display text-2xl leading-tight tracking-tight">
 			{formatDateWithSuffix(date)}
 		</h2>
-		<div class="text-muted-foreground flex items-center text-sm">
-			<Avatar.Root class="border-primary/30 size-6 border">
+		<div class="text-muted-foreground flex items-center gap-2.5 text-sm">
+			<Avatar.Root
+				class="border-primary/30 hover:border-primary/50 hover:shadow-primary/10 size-7 border transition-all duration-300 hover:scale-110 hover:shadow-md"
+			>
 				<Avatar.Image src={authorImage} alt={author} />
 				<Avatar.Fallback class="bg-muted text-xs">
 					{author.slice(0, 2).toUpperCase()}
 				</Avatar.Fallback>
 			</Avatar.Root>
-			<span class="px-2">
-				By {author} at {format(date, 'h:mm a')}
+			<span class="tracking-tight">
+				By <span class="text-foreground font-medium">{author}</span> at {format(
+					date,
+					'h:mm a'
+				)}
 			</span>
 		</div>
 	</div>
 
-	<div class="flex items-start gap-2">
-		<div class="flex flex-col gap-2">
+	<div class="flex items-start gap-3">
+		<div class="flex flex-col gap-2.5">
 			{#if icons?.heroes}
 				<EntityPreview entities={icons.heroes} />
 			{/if}
@@ -60,10 +69,10 @@
 			variant="ghost"
 			size="icon-sm"
 			onclick={copyLink}
-			class="text-muted-foreground hover:bg-primary/10 hover:text-primary transition-colors"
+			class="text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all duration-300 hover:scale-110 hover:rotate-12"
 			title="Copy link to clipboard"
 		>
-			<Link class="size-5" />
+			<Link class="size-4" />
 		</Button>
 	</div>
 </div>

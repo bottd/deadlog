@@ -90,7 +90,7 @@ export async function buildDatabase(
 			name TEXT NOT NULL,
 			class_name TEXT NOT NULL,
 			type TEXT NOT NULL,
-			images TEXT,
+			image TEXT NOT NULL,
 			is_released INTEGER NOT NULL DEFAULT 0
 		)
 	`);
@@ -147,7 +147,10 @@ export async function buildDatabase(
 
 	// Scrape patches directly from the forums
 	console.log('🕷️  Scraping changelog from forums...');
-	const changelogPosts = await scrapeChangelogPage({ timeout: 30000 });
+	const changelogPosts = await scrapeChangelogPage({
+		timeout: 30000,
+		maxPagesToScrape: 10
+	});
 	console.log(`✅ Found ${changelogPosts.length} changelog posts`);
 
 	// Scrape full content from each post (with caching enabled)
@@ -197,7 +200,7 @@ export async function buildDatabase(
 
 	// Filter out items without any images (png or webp)
 	const itemsWithImages = deduplicatedItems.filter(
-		(item) => item.image || item.image_webp
+		(item) => item.shop_image || item.shop_image_webp || item.image || item.image_webp
 	);
 
 	if (itemsWithImages.length < deduplicatedItems.length) {
@@ -212,10 +215,8 @@ export async function buildDatabase(
 			name: item.name,
 			className: item.class_name,
 			type: item.type,
-			images: {
-				png: item.image,
-				webp: item.image_webp
-			},
+			image:
+				item.shop_image_webp || item.image_webp || item.shop_image || item.image || '',
 			isReleased: false // Will be updated after parsing changelogs
 		});
 		await db.insert(schema.items).values(itemData).onConflictDoNothing();
@@ -235,10 +236,7 @@ export async function buildDatabase(
 	const enrichedItems = itemsWithImages.map((item) => ({
 		...item,
 		className: item.class_name,
-		images: {
-			png: item.image,
-			webp: item.image_webp
-		},
+		image: item.image_webp || item.image || '',
 		isReleased: false
 	}));
 

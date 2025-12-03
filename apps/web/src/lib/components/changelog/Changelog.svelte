@@ -117,15 +117,12 @@
 	});
 
 	const itemMap = $derived.by(() => {
-		const map: Record<
-			number,
-			{ name: string; images?: { png?: string; webp?: string } | null }
-		> = {};
+		const map: Record<number, { name: string; image: string }> = {};
 		for (const item of items) {
 			if (item.id) {
 				map[item.id] = {
 					name: item.name,
-					images: item.images
+					image: item.image
 				};
 			}
 		}
@@ -171,7 +168,7 @@
 	});
 </script>
 
-<main class="relative container mx-auto mt-8" aria-label="Changelog entries">
+<main class="relative container mx-auto mt-12 mb-24" aria-label="Changelog entries">
 	<GutterLine />
 
 	{#if query.isError}
@@ -204,11 +201,10 @@
 
 	<!-- Changelog entries -->
 	{#if !query.isError && query.data}
-		<div class="relative space-y-8 md:ml-14">
+		<div class="relative space-y-10 md:ml-14">
 			{#each filteredChangelogs as entry, entryIndex (entry.id)}
 				{@const showNotes = shouldShowGeneralNotes(entry, filterState)}
 
-				<!-- Render updates first (most recent) if they exist -->
 				{#if entry.updates && entry.updates.length > 0}
 					{#each entry.updates.slice().reverse() as update, updateIndex (update.id)}
 						{#if !isFiltered || (getVisibleHeroNames(update, filterState)?.size ?? 0) > 0 || (getVisibleItemNames(update, filterState)?.size ?? 0) > 0}
@@ -268,7 +264,6 @@
 				</div>
 			{/each}
 
-			<!-- Infinite scroll trigger and load more button -->
 			<div bind:this={trigger} class="flex flex-col items-center gap-4 py-8">
 				{#if query.isFetchingNextPage}
 					<div class="flex items-center justify-center">
@@ -277,7 +272,6 @@
 						></div>
 					</div>
 				{:else if query.hasNextPage}
-					<!-- Manual load more button as fallback -->
 					<button
 						onclick={() => query.fetchNextPage()}
 						disabled={query.isFetchingNextPage}

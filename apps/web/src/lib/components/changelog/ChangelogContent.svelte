@@ -9,10 +9,7 @@
 	interface Props {
 		contentJson?: ChangelogContentJson | null;
 		heroMap?: Record<number, { name: string; images: Record<string, string> }>;
-		itemMap?: Record<
-			number,
-			{ name: string; images?: { png?: string; webp?: string } | null }
-		>;
+		itemMap?: Record<number, { name: string; image: string }>;
 		showFullChange?: boolean;
 		forceShowNotes?: boolean;
 	}
@@ -54,13 +51,16 @@
 
 	function getHeroImage(heroId?: number): string | undefined {
 		if (!heroId || !heroMap[heroId]) return undefined;
-		return Object.values(heroMap[heroId].images)[0];
+		const images = heroMap[heroId].images;
+		return (
+			images.icon_image_small_webp || images.icon_image_small || Object.values(images)[0]
+		);
 	}
 
 	function getItemImage(itemId?: number): string | undefined {
 		if (!itemId || !itemMap[itemId]) return undefined;
 		const item = itemMap[itemId];
-		return item.images?.png || item.images?.webp;
+		return item.image;
 	}
 
 	const filteredGeneralNotes = $derived.by(() => {
@@ -94,21 +94,24 @@
 		<Accordion.Root
 			type="multiple"
 			value={['general', 'heroes', 'items', 'abilities']}
-			class="space-y-2"
+			class="space-y-4"
 		>
 			{#if (!hasParams || showFullChange || forceShowNotes) && contentJson.notes.length > 0}
-				<Accordion.Item value="general">
-					<Accordion.Trigger>
-						<h3 class="text-primary font-display mb-0 text-lg">
-							General Changes <span class="font-mono text-base"
+				<Accordion.Item value="general" class="relative">
+					<Accordion.Trigger class="peer/trigger pl-4">
+						<h3 class="text-primary font-display mb-0 text-xl tracking-tight">
+							General Changes <span class="font-mono text-base opacity-70"
 								>({displayedNotes.length})</span
 							>
 						</h3>
 					</Accordion.Trigger>
-					<Accordion.Content class="pt-1">
-						<ul>
+					<div
+						class="bg-primary/0 peer-hover/trigger:bg-primary/40 absolute top-3 left-0 h-8 w-0.5 rounded-full transition-all duration-300 peer-hover/trigger:h-10"
+					></div>
+					<Accordion.Content class="pt-3 pl-4">
+						<ul class="marker:text-primary/40 list-disc space-y-2 pl-5">
 							{#each displayedNotes as note, i (i)}
-								<li>
+								<li class="text-foreground/85 leading-relaxed">
 									<NoteWithPatterns {note} />
 								</li>
 							{/each}
@@ -140,15 +143,18 @@
 			{/if}
 
 			{#if visibleHeroes.length > 0}
-				<Accordion.Item value="heroes">
-					<Accordion.Trigger>
-						<h3 class="text-primary font-display mb-0 text-lg">
-							Hero Changes <span class="font-mono text-base"
+				<Accordion.Item value="heroes" class="relative">
+					<Accordion.Trigger class="peer/trigger pl-4">
+						<h3 class="text-primary font-display mb-0 text-xl tracking-tight">
+							Hero Changes <span class="font-mono text-base opacity-70"
 								>({visibleHeroes.length})</span
 							>
 						</h3>
 					</Accordion.Trigger>
-					<Accordion.Content class="pt-1">
+					<div
+						class="bg-primary/0 peer-hover/trigger:bg-primary/40 absolute top-3 left-0 h-8 w-0.5 rounded-full transition-all duration-300 peer-hover/trigger:h-10"
+					></div>
+					<Accordion.Content class="pt-3 pl-4">
 						<div>
 							{#each visibleHeroes as [heroName, heroData] (heroName)}
 								<ChangeCard
@@ -164,14 +170,18 @@
 			{/if}
 
 			{#if visibleItems.length > 0}
-				<Accordion.Item value="items">
-					<Accordion.Trigger>
-						<h3 class="text-primary font-display mb-0 text-lg">
-							Item Changes <span class="font-mono text-base">({visibleItems.length})</span
+				<Accordion.Item value="items" class="relative">
+					<Accordion.Trigger class="peer/trigger pl-4">
+						<h3 class="text-primary font-display mb-0 text-xl tracking-tight">
+							Item Changes <span class="font-mono text-base opacity-70"
+								>({visibleItems.length})</span
 							>
 						</h3>
 					</Accordion.Trigger>
-					<Accordion.Content class="pt-1">
+					<div
+						class="bg-primary/0 peer-hover/trigger:bg-primary/40 absolute top-3 left-0 h-8 w-0.5 rounded-full transition-all duration-300 peer-hover/trigger:h-10"
+					></div>
+					<Accordion.Content class="pt-3 pl-4">
 						<div>
 							{#each visibleItems as [itemName, itemData] (itemName)}
 								<ChangeCard
@@ -186,15 +196,18 @@
 			{/if}
 
 			{#if (!hasParams || showFullChange) && Object.keys(contentJson.abilities).length > 0}
-				<Accordion.Item value="abilities">
-					<Accordion.Trigger>
-						<h3 class="text-primary font-display mb-0 text-lg">
-							Ability Changes <span class="font-mono text-base"
+				<Accordion.Item value="abilities" class="relative">
+					<Accordion.Trigger class="peer/trigger pl-4">
+						<h3 class="text-primary font-display mb-0 text-xl tracking-tight">
+							Ability Changes <span class="font-mono text-base opacity-70"
 								>({Object.keys(contentJson.abilities).length})</span
 							>
 						</h3>
 					</Accordion.Trigger>
-					<Accordion.Content class="pt-1">
+					<div
+						class="bg-primary/0 peer-hover/trigger:bg-primary/40 absolute top-3 left-0 h-8 w-0.5 rounded-full transition-all duration-300 peer-hover/trigger:h-10"
+					></div>
+					<Accordion.Content class="pt-3 pl-4">
 						<div>
 							{#each Object.entries(contentJson.abilities) as [abilityName, abilityData] (abilityName)}
 								<ChangeCard title={abilityName} notes={abilityData.notes} />
@@ -214,48 +227,48 @@
 		@apply max-w-none text-sm;
 
 		:global(> *) {
-			@apply text-foreground/90;
+			@apply text-foreground/85;
 		}
 
 		:global(a) {
-			@apply text-primary transition-colors hover:opacity-80;
+			@apply text-primary font-medium underline-offset-2 transition-all duration-200 hover:underline hover:opacity-80;
 		}
 
 		:global(strong) {
-			@apply text-foreground;
+			@apply text-foreground font-semibold;
 		}
 
 		:global(h1),
 		:global(h2) {
-			@apply text-foreground;
+			@apply text-foreground font-display tracking-tight;
 		}
 
 		:global(h3) {
-			@apply font-display text-primary;
+			@apply font-display text-primary tracking-tight;
 		}
 
 		:global(code) {
-			@apply bg-card text-primary rounded px-1 font-mono;
+			@apply bg-primary/5 text-primary border-primary/10 rounded border px-1.5 py-0.5 font-mono text-xs;
 		}
 
 		:global(pre) {
-			@apply border-border bg-card border font-mono;
+			@apply border-border bg-card/50 rounded-lg border p-4 font-mono text-xs;
 		}
 
 		:global(ul) {
-			@apply my-2 ml-4 list-disc;
+			@apply my-3 ml-5 list-disc space-y-1.5;
 		}
 
 		:global(ol) {
-			@apply my-2 ml-4 list-decimal;
+			@apply my-3 ml-5 list-decimal space-y-1.5;
 		}
 
 		:global(li) {
-			@apply my-0.5;
+			@apply leading-relaxed;
 		}
 	}
 
 	.show-more-btn {
-		@apply text-primary mt-3 text-sm transition-colors hover:opacity-80;
+		@apply text-primary mt-4 text-sm font-medium transition-all duration-200 hover:translate-x-1 hover:opacity-80;
 	}
 </style>

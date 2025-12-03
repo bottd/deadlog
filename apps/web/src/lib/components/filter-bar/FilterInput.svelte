@@ -20,8 +20,8 @@
 		return Object.values(hero.images)[0] as string;
 	}
 
-	function getItemImage(item: EnrichedItem): string | undefined {
-		return item.images?.png || item.images?.webp;
+	function getItemImage(item: EnrichedItem): string {
+		return item.image;
 	}
 
 	const params = getSearchParams();
@@ -213,7 +213,7 @@
 				{#each selectedItemObjects as item (item.id)}
 					<FilterBadge
 						name={item.name}
-						icon={item.images?.png || item.images?.webp}
+						icon={item.image}
 						onRemove={() => selectItem(item.id)}
 						badgeColor="item"
 					/>

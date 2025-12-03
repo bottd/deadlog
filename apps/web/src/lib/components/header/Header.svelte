@@ -2,15 +2,25 @@
 	import { FilterInput } from '$lib/components/filter-bar';
 </script>
 
-<nav class="border-border bg-card sticky z-50 border-b pb-4">
+<nav
+	class="border-border bg-card/80 sticky z-50 border-b pb-5 backdrop-blur-xl transition-all duration-300"
+>
 	<div class="container mx-auto">
-		<div class="flex h-16 items-center">
+		<div class="flex h-20 items-center">
 			<a
 				href="/"
-				class="text-primary flex items-baseline gap-2 text-xl transition-colors hover:opacity-80"
+				class="group flex items-baseline gap-3 transition-all duration-300 hover:gap-4"
 			>
-				<span class="font-display">deadlog.io</span>
-				<span class="text-muted-foreground text-sm font-normal">
+				<div
+					class="bg-primary h-6 w-1 rounded-full transition-all duration-300 group-hover:h-8"
+				></div>
+				<span
+					class="font-display text-primary group-hover:text-primary/90 text-2xl tracking-tight transition-colors duration-300"
+					>deadlog.io</span
+				>
+				<span
+					class="text-muted-foreground text-sm font-normal opacity-70 transition-all duration-300 group-hover:opacity-100"
+				>
 					deadlock changelog viewer
 				</span>
 			</a>

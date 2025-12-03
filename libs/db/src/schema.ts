@@ -103,30 +103,21 @@ export const items = sqliteTable('items', {
 	id: integer('id').primaryKey(),
 	name: text('name').notNull(),
 	className: text('class_name').notNull(),
-	type: text('type').notNull(),
-	images: text('images', { mode: 'json' })
-		.notNull()
-		.$type<{ png?: string; webp?: string }>(),
+	type: text('type', { enum: ['weapon', 'ability', 'upgrade'] }).notNull(),
+	image: text('image').notNull(),
 	isReleased: integer('is_released', { mode: 'boolean' }).notNull().default(false)
 });
 
-export const itemImagesSchema = z
-	.object({
-		png: z.string().optional(),
-		webp: z.string().optional()
-	})
-	.refine((data) => data.png || data.webp, {
-		message: 'At least one image (png or webp) must be provided'
-	});
-
 export type InsertItem = z.infer<typeof insertItemSchema>;
 export const insertItemSchema = createInsertSchema(items, {
-	images: itemImagesSchema
+	image: z.string().min(1, 'Image URL must be provided'),
+	type: z.enum(['weapon', 'ability', 'upgrade'])
 });
 
 export type SelectItem = z.infer<typeof selectItemSchema>;
 export const selectItemSchema = createSelectSchema(items, {
-	images: itemImagesSchema
+	image: z.string(),
+	type: z.enum(['weapon', 'ability', 'upgrade'])
 });
 
 export const metadata = sqliteTable('metadata', {

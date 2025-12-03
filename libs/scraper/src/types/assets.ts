@@ -91,7 +91,11 @@ const itemSchema = z.object({
 		)
 		.optional(),
 	image: z.string().optional(),
-	image_webp: z.string().optional()
+	image_webp: z.string().optional(),
+	shop_image: z.string().optional(),
+	shop_image_webp: z.string().optional(),
+	shop_image_small: z.string().optional(),
+	shop_image_small_webp: z.string().optional()
 });
 
 export type Item = z.infer<typeof itemSchema>;
@@ -124,7 +128,8 @@ export interface EnrichedHero extends Omit<HeroDb, 'images' | 'isReleased'> {
 	isReleased: boolean;
 }
 
-export interface EnrichedItem extends Omit<ItemDb, 'images' | 'isReleased'> {
-	images: { png?: string; webp?: string };
+export interface EnrichedItem extends Omit<ItemDb, 'images' | 'isReleased' | 'type'> {
+	image: string;
+	type: 'weapon' | 'ability' | 'upgrade';
 	isReleased: boolean;
 }

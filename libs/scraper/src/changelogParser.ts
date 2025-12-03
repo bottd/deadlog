@@ -174,13 +174,13 @@ export function extractIcons(
 			textContent,
 			heroesDb,
 			ENTITY_TYPES.HERO,
-			(hero) => Object.values(hero.images)[0]
+			(hero) => hero.images.icon_image_small_webp
 		) as { id: HeroId; src: string; alt: string; type: 'hero' }[],
 		items: extractIconsForEntity(
 			textContent,
 			itemsDb,
 			ENTITY_TYPES.ITEM,
-			(item) => item.images?.png || item.images?.webp
+			(item) => item.image
 		) as { id: ItemId; src: string; alt: string; type: 'item' }[]
 	};
 }
@@ -296,7 +296,7 @@ export async function parseHtmlToJson(
 
 			for (const ability of abilities) {
 				if (!ability.name) continue;
-				const abilityImage = ability.image || ability.image_webp;
+				const abilityImage = ability.image_webp || ability.image;
 				if (!abilityImage) continue;
 
 				const abilityNamePattern = new RegExp(`^${escapeRegex(ability.name)}\\b`, 'i');
