@@ -10,7 +10,7 @@
 		type FilterState,
 		type FilteredChangelog
 	} from '$lib/utils/filterChanges';
-	import { getSearchParams } from '$lib/utils/searchParams.svelte';
+	import { getSearchParams } from '$lib/stores/searchParams.svelte';
 	import {
 		getSelectedHeroObjects,
 		getSelectedItemObjects
@@ -19,7 +19,7 @@
 	import { useIntersectionObserver } from 'runed';
 	import AlertCircle from '@lucide/svelte/icons/alert-circle';
 	import Frown from '@lucide/svelte/icons/frown';
-	import { Spinner } from '$lib/components/ui/spinner';
+	import ChangelogSkeleton from './ChangelogSkeleton.svelte';
 
 	const params = getSearchParams();
 	const { changelogs, heroes, items, initialLoadCount, totalCount } = page.data;
@@ -172,7 +172,7 @@
 </script>
 
 <main
-	class="bg-background relative container mx-auto mt-8 min-h-screen"
+	class="bg-background bg-gradient-mesh relative container mx-auto mt-8 min-h-screen"
 	aria-label="Changelog entries"
 >
 	<GutterLine />
@@ -198,7 +198,11 @@
 	{/if}
 
 	{#if query.isPending && !query.data}
-		<Spinner />
+		<div class="space-y-8 md:ml-14">
+			{#each { length: 3 }, i (i)}
+				<ChangelogSkeleton delay={i * 100} />
+			{/each}
+		</div>
 	{/if}
 
 	<!-- Changelog entries -->
@@ -211,7 +215,7 @@
 				{#if entry.updates && entry.updates.length > 0}
 					{#each entry.updates.slice().reverse() as update, updateIndex (update.id)}
 						{#if !isFiltered || (getVisibleHeroNames(update, filterState)?.size ?? 0) > 0 || (getVisibleItemNames(update, filterState)?.size ?? 0) > 0}
-							<ChangelogEntry isBigUpdate={false}>
+							<ChangelogEntry isBigUpdate={false} {entryIndex}>
 								<ChangeListItem
 									id={update.id}
 									date={update.date}
@@ -231,7 +235,7 @@
 				{/if}
 
 				{#if !isFiltered || (getVisibleHeroNames(entry, filterState)?.size ?? 0) > 0 || (getVisibleItemNames(entry, filterState)?.size ?? 0) > 0 || showNotes}
-					<ChangelogEntry isBigUpdate={false}>
+					<ChangelogEntry isBigUpdate={false} {entryIndex}>
 						<ChangeListItem
 							id={entry.id}
 							date={entry.date}

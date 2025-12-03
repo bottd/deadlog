@@ -3,7 +3,9 @@
 	import { Header } from '$lib/components/header';
 	import { Toaster } from '$lib/components/ui/sonner';
 	import { Footer } from '$lib/components/ui/footer';
+	import * as Tooltip from '$lib/components/ui/tooltip';
 	import { QueryClient, QueryClientProvider } from '@tanstack/svelte-query';
+	import { setSearchParams } from '$lib/stores/searchParams.svelte';
 
 	const queryClient = new QueryClient({
 		defaultOptions: {
@@ -14,15 +16,20 @@
 		}
 	});
 
+	// Initialize search params context for all child components
+	setSearchParams();
+
 	let { children } = $props();
 </script>
 
 <QueryClientProvider client={queryClient}>
-	<Toaster />
+	<Tooltip.Provider>
+		<Toaster />
 
-	<Header />
+		<Header />
 
-	{@render children?.()}
+		{@render children?.()}
 
-	<Footer />
+		<Footer />
+	</Tooltip.Provider>
 </QueryClientProvider>

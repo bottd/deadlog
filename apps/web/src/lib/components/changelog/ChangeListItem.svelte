@@ -3,17 +3,17 @@
 	let showFullChangeIds = $state(new Set<string>());
 
 	function toggle(set: Set<string>, id: string) {
-		return set.has(id)
-			? new Set([...set].filter((i) => i !== id))
-			: new Set([...set, id]);
+		const next = new Set(set);
+		if (next.has(id)) next.delete(id);
+		else next.add(id);
+		return next;
 	}
 </script>
 
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { browser } from '$app/environment';
-	import { cn } from '$lib/utils';
-	import { getSearchParams } from '$lib/utils/searchParams.svelte';
+	import { getSearchParams } from '$lib/stores/searchParams.svelte';
 	import type { EntityIcon } from '$lib/utils/types';
 	import type { ChangelogContentJson } from '@deadlog/db';
 	import * as Card from '$lib/components/ui/card';
@@ -107,10 +107,8 @@
 		<ChangeHeader {id} {date} {author} {authorImage} {icons} />
 
 		<div
-			class={cn(
-				'mb-3 break-words',
-				!isExpanded && !isFiltered && 'relative max-h-[120px] overflow-hidden'
-			)}
+			class="relative mb-3 overflow-hidden break-words transition-all duration-300"
+			class:max-h-[120px]={!isExpanded && !isFiltered}
 		>
 			{#if browser}
 				<ChangelogContent
@@ -127,6 +125,7 @@
 				></div>
 			{/if}
 		</div>
+
 		<ExpandButton isExpanded={isExpanded || showFullChange} toggle={onToggle} />
 	</Card.Content>
 </Card.Root>

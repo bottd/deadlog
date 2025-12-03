@@ -2,6 +2,7 @@
 	import { EntityPreview } from '.';
 	import type { EntityIcon } from '$lib/utils/types';
 	import { Button } from '$lib/components/ui/button';
+	import * as Avatar from '$lib/components/ui/avatar';
 	import { Link } from '@lucide/svelte';
 	import { toast } from 'svelte-sonner';
 	import { format } from 'date-fns';
@@ -34,17 +35,12 @@
 			{formatDateWithSuffix(date)}
 		</h2>
 		<div class="text-muted-foreground flex items-center text-sm">
-			{#if authorImage}
-				<img
-					src={authorImage}
-					alt={author}
-					width="20"
-					height="20"
-					loading="lazy"
-					decoding="async"
-					class="border-primary/30 size-6 rounded-full border"
-				/>
-			{/if}
+			<Avatar.Root class="border-primary/30 size-6 border">
+				<Avatar.Image src={authorImage} alt={author} />
+				<Avatar.Fallback class="bg-muted text-xs">
+					{author.slice(0, 2).toUpperCase()}
+				</Avatar.Fallback>
+			</Avatar.Root>
 			<span class="px-2">
 				By {author} at {format(date, 'h:mm a')}
 			</span>

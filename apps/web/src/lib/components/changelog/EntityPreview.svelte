@@ -1,37 +1,53 @@
 <script lang="ts">
 	import type { EntityIcon } from '$lib/utils/types';
+	import { getSearchParams } from '$lib/stores/searchParams.svelte';
+	import EntityTooltip from './EntityTooltip.svelte';
 
 	interface Props {
 		entities: EntityIcon[];
 	}
 
 	let { entities }: Props = $props();
+	const params = getSearchParams();
 	const maxIconsPerRow = 9;
 
-	const overlap = $derived.by(function (): number {
-		const { length } = entities;
-
-		if (length === undefined) return 0;
-		if (length <= 3) return 0;
-		if (length <= 5) return -8;
-		if (length <= 8) return -12;
-		if (length <= 12) return -16;
+	const overlap = $derived.by(() => {
+		const len = entities.length;
+		if (len <= 3) return 0;
+		if (len <= 5) return -8;
+		if (len <= 8) return -12;
+		if (len <= 12) return -16;
 		return -20;
 	});
+
+	function handleSelect(entity: EntityIcon) {
+		const name = entity.alt;
+		if (entity.type === 'hero') {
+			params.hero = [...new Set([...params.hero, name])];
+		} else {
+			params.item = [...new Set([...params.item, name])];
+		}
+	}
 </script>
 
 <div class="flex justify-end">
-	{#each entities.slice(0, maxIconsPerRow) as hero, i (hero.id)}
-		<img
-			src={hero.src}
-			alt={hero.alt}
-			title={hero.alt}
-			width="36"
-			height="36"
-			loading="lazy"
-			decoding="async"
-			style="margin-left:{i === 0 ? 0 : overlap}px"
-		/>
+	{#each entities.slice(0, maxIconsPerRow) as entity, i (entity.id)}
+		<EntityTooltip
+			name={entity.alt}
+			imageSrc={entity.src}
+			type={entity.type}
+			onSelect={() => handleSelect(entity)}
+		>
+			<img
+				src={entity.src}
+				alt={entity.alt}
+				width="36"
+				height="36"
+				loading="lazy"
+				decoding="async"
+				style="margin-left:{i === 0 ? 0 : overlap}px"
+			/>
+		</EntityTooltip>
 	{/each}
 	{#if entities.length > maxIconsPerRow}
 		<span class="ellipse" style="margin-left:{overlap}px"> ... </span>

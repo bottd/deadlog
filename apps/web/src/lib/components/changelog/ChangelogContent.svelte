@@ -4,7 +4,7 @@
 	import * as Accordion from '$lib/components/ui/accordion';
 	import type { ChangelogContentJson } from '@deadlog/db';
 	import { getFilteredGeneralNotes } from '$lib/utils/filterChanges';
-	import { getSearchParams } from '$lib/utils/searchParams.svelte';
+	import { getSearchParams } from '$lib/stores/searchParams.svelte';
 
 	const params = getSearchParams();
 
@@ -33,24 +33,9 @@
 
 	let showAllNotes = $state(false);
 
-	// Store the original filtered IDs for highlighting purposes when showing full patch
-	// We need to track what the user originally filtered by, even when showing all content
-	const originalFilteredHeroIds = $derived(
-		showFullChange && !params.hero.length && !params.item.length ? null : params.hero
-	);
-	const originalFilteredItemIds = $derived(
-		showFullChange && !params.item.length && !params.hero.length ? null : params.item
-	);
-
 	// Determine if we have an active hero or item filter (for cross-entity hiding)
-	const hasHeroFilter = $derived(
-		(originalFilteredHeroIds && originalFilteredHeroIds.length > 0) ||
-			(params.hero && params.hero.length > 0)
-	);
-	const hasItemFilter = $derived(
-		(originalFilteredItemIds && originalFilteredItemIds.length > 0) ||
-			(params.item && params.item.length > 0)
-	);
+	const hasHeroFilter = $derived(params.hero.length > 0);
+	const hasItemFilter = $derived(params.item.length > 0);
 
 	// Filter heroes based on selectedHeroes
 	const visibleHeroes = $derived.by(() => {
@@ -90,14 +75,14 @@
 
 	// Helper to check if a hero should be highlighted (by name, not ID)
 	function isHeroHighlighted(heroName?: string): boolean {
-		if (!showFullChange || !originalFilteredHeroIds || !heroName) return false;
-		return originalFilteredHeroIds.includes(heroName);
+		if (!showFullChange || !hasHeroFilter || !heroName) return false;
+		return params.hero.includes(heroName);
 	}
 
 	// Helper to check if an item should be highlighted (by name, not ID)
 	function isItemHighlighted(itemName?: string): boolean {
-		if (!showFullChange || !originalFilteredItemIds || !itemName) return false;
-		return originalFilteredItemIds.includes(itemName);
+		if (!showFullChange || !hasItemFilter || !itemName) return false;
+		return params.item.includes(itemName);
 	}
 
 	// Helper to get hero image from heroMap

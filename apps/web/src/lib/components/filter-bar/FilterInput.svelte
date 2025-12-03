@@ -2,12 +2,15 @@
 	import { page } from '$app/state';
 	import SearchIcon from '@lucide/svelte/icons/search';
 	import XIcon from '@lucide/svelte/icons/x';
+	import FilterIcon from '@lucide/svelte/icons/filter';
 	import * as Command from '$lib/components/ui/command';
-	import { cn } from '$lib/utils';
+	import * as ToggleGroup from '$lib/components/ui/toggle-group';
+	import * as Sheet from '$lib/components/ui/sheet';
+	import { Button } from '$lib/components/ui/button';
 	import FilterBadge from './FilterBadge.svelte';
 	import EntityItem from './EntityItem.svelte';
 	import type { EnrichedHero, EnrichedItem } from '$lib/utils/types';
-	import { getSearchParams } from '$lib/utils/searchParams.svelte';
+	import { getSearchParams } from '$lib/stores/searchParams.svelte';
 	import {
 		getSelectedHeroObjects,
 		getSelectedItemObjects
@@ -26,9 +29,11 @@
 	const selectedHeroObjects = $derived(getSelectedHeroObjects());
 	const selectedItemObjects = $derived(getSelectedItemObjects());
 
-	const { heroes, items } = page.data;
+	const heroes = $derived(page.data.heroes ?? []);
+	const items = $derived(page.data.items ?? []);
 
 	let open = $state(false);
+	let sheetOpen = $state(false);
 	let inputValue = $state(params.q);
 	let filterMode = $state<'all' | 'heroes' | 'items'>('all');
 
@@ -104,18 +109,14 @@
 	function selectHero(heroId: number) {
 		const hero = heroes.find((h: EnrichedHero) => h.id === heroId);
 		if (hero) {
-			params.update({
-				hero: toggle(params.hero, hero.name)
-			});
+			params.hero = toggle(params.hero, hero.name);
 		}
 	}
 
 	function selectItem(itemId: number) {
 		const item = items.find((i: EnrichedItem) => i.id === itemId);
 		if (item) {
-			params.update({
-				item: toggle(params.item, item.name)
-			});
+			params.item = toggle(params.item, item.name);
 		}
 	}
 
@@ -131,6 +132,71 @@
 		open = false;
 	}
 </script>
+
+{#snippet filterContent()}
+	<div class="border-border flex border-b p-2">
+		<ToggleGroup.Root type="single" bind:value={filterMode} class="w-full">
+			<ToggleGroup.Item value="all" class="flex-1 text-xs">All</ToggleGroup.Item>
+			<ToggleGroup.Item value="heroes" class="flex-1 text-xs">Heroes</ToggleGroup.Item>
+			<ToggleGroup.Item value="items" class="flex-1 text-xs">Items</ToggleGroup.Item>
+		</ToggleGroup.Root>
+	</div>
+
+	<Command.Root class="bg-transparent" shouldFilter={false}>
+		<Command.List class="max-h-[350px] overflow-y-auto p-2">
+			{#if (filterMode === 'all' && mergedList.length === 0) || (filterMode !== 'all' && filteredHeroes.length === 0 && filteredItems.length === 0)}
+				<Command.Empty class="text-muted-foreground py-6 text-center text-sm">
+					No results found.
+				</Command.Empty>
+			{:else if filterMode === 'all'}
+				<Command.Group>
+					{#each mergedList as entity (entity.type === 'hero' ? `hero-${entity.data.id}` : `item-${entity.data.id}`)}
+						<EntityItem
+							name={entity.data.name}
+							imageSrc={entity.type === 'hero'
+								? getHeroImage(entity.data as EnrichedHero)
+								: getItemImage(entity.data as EnrichedItem)}
+							isSelected={entity.isSelected}
+							colorClass={entity.type}
+							onSelect={() =>
+								entity.type === 'hero'
+									? selectHero(entity.data.id)
+									: selectItem(entity.data.id)}
+						/>
+					{/each}
+				</Command.Group>
+			{:else}
+				{#if filteredHeroes.length > 0}
+					<Command.Group>
+						{#each filteredHeroes as hero (hero.id)}
+							<EntityItem
+								name={hero.name}
+								imageSrc={getHeroImage(hero)}
+								isSelected={params.hero.includes(hero.name)}
+								colorClass="hero"
+								onSelect={() => selectHero(hero.id)}
+							/>
+						{/each}
+					</Command.Group>
+				{/if}
+
+				{#if filteredItems.length > 0}
+					<Command.Group>
+						{#each filteredItems as item (item.id)}
+							<EntityItem
+								name={item.name}
+								imageSrc={getItemImage(item)}
+								isSelected={params.item.includes(item.name)}
+								colorClass="item"
+								onSelect={() => selectItem(item.id)}
+							/>
+						{/each}
+					</Command.Group>
+				{/if}
+			{/if}
+		</Command.List>
+	</Command.Root>
+{/snippet}
 
 <div class="sticky z-40 w-full" style="top: max(64px, env(safe-area-inset-top));">
 	<div class="relative">
@@ -156,14 +222,22 @@
 					/>
 				{/each}
 
+				<!-- Desktop: show input that opens dropdown -->
 				<input
 					type="text"
 					placeholder="Add more filters or search..."
-					class="placeholder:text-muted-foreground min-w-0 flex-1 bg-transparent outline-none sm:min-w-[200px]"
+					class="placeholder:text-muted-foreground hidden min-w-0 flex-1 bg-transparent outline-none sm:block sm:min-w-[200px]"
 					bind:value={inputValue}
 					onfocus={() => (open = true)}
 					onkeydown={(e) => !open && e.key !== 'Escape' && (open = true)}
 				/>
+
+				<!-- Mobile: placeholder text -->
+				<span class="text-muted-foreground flex-1 sm:hidden">
+					{selectedHeroObjects.length || selectedItemObjects.length
+						? ''
+						: 'Tap filter to add...'}
+				</span>
 			</div>
 
 			{#if selectedHeroObjects.length || selectedItemObjects.length || params.q}
@@ -180,6 +254,32 @@
 				</button>
 			{/if}
 
+			<!-- Mobile: Sheet trigger -->
+			<Sheet.Root bind:open={sheetOpen}>
+				<Sheet.Trigger>
+					{#snippet child({ props })}
+						<Button
+							{...props}
+							variant="ghost"
+							size="icon-sm"
+							class="text-muted-foreground sm:hidden"
+							aria-label="Open filters"
+						>
+							<FilterIcon class="size-4" />
+						</Button>
+					{/snippet}
+				</Sheet.Trigger>
+				<Sheet.Content side="bottom" class="pb-safe max-h-[85vh] rounded-t-xl">
+					<!-- Drag handle -->
+					<div class="bg-muted mx-auto mb-4 h-1 w-12 rounded-full"></div>
+					<Sheet.Header>
+						<Sheet.Title>Filter changelog</Sheet.Title>
+						<Sheet.Description>Select heroes and items to filter by</Sheet.Description>
+					</Sheet.Header>
+					{@render filterContent()}
+				</Sheet.Content>
+			</Sheet.Root>
+
 			<button
 				type="submit"
 				class="bg-primary shrink-0 rounded-sm p-1.5 transition-colors hover:opacity-80"
@@ -190,107 +290,16 @@
 			</button>
 		</form>
 
+		<!-- Desktop dropdown (hidden on mobile) -->
 		{#if open}
 			<div
-				class="border-border bg-background/95 absolute inset-x-0 top-full z-50 mt-2 max-h-[450px] overflow-hidden rounded-md border shadow-2xl backdrop-blur-lg"
+				class="border-border bg-background/95 absolute inset-x-0 top-full z-50 mt-2 hidden max-h-[450px] overflow-hidden rounded-md border shadow-2xl backdrop-blur-lg sm:block"
 			>
-				<div class="border-border flex border-b p-2">
-					<button
-						type="button"
-						onclick={() => (filterMode = 'all')}
-						class={cn(
-							'flex-1 rounded-sm px-3 py-1.5 text-xs font-medium transition-colors',
-							filterMode === 'all'
-								? 'bg-primary text-primary-foreground'
-								: 'text-muted-foreground hover:bg-secondary hover:text-foreground'
-						)}
-					>
-						All
-					</button>
-					<button
-						type="button"
-						onclick={() => (filterMode = 'heroes')}
-						class={cn(
-							'flex-1 rounded-sm px-3 py-1.5 text-xs font-medium transition-colors',
-							filterMode === 'heroes'
-								? 'bg-primary text-primary-foreground'
-								: 'text-muted-foreground hover:bg-secondary hover:text-foreground'
-						)}
-					>
-						Heroes
-					</button>
-					<button
-						type="button"
-						onclick={() => (filterMode = 'items')}
-						class={cn(
-							'flex-1 rounded-sm px-3 py-1.5 text-xs font-medium transition-colors',
-							filterMode === 'items'
-								? 'bg-primary text-primary-foreground'
-								: 'text-muted-foreground hover:bg-secondary hover:text-foreground'
-						)}
-					>
-						Items
-					</button>
-				</div>
-
-				<Command.Root class="bg-transparent" shouldFilter={false}>
-					<Command.List class="max-h-[350px] overflow-y-auto p-2">
-						{#if (filterMode === 'all' && mergedList.length === 0) || (filterMode !== 'all' && filteredHeroes.length === 0 && filteredItems.length === 0)}
-							<Command.Empty class="text-muted-foreground py-6 text-center text-sm">
-								No results found.
-							</Command.Empty>
-						{:else if filterMode === 'all'}
-							<Command.Group>
-								{#each mergedList as entity (entity.type === 'hero' ? `hero-${entity.data.id}` : `item-${entity.data.id}`)}
-									<EntityItem
-										name={entity.data.name}
-										imageSrc={entity.type === 'hero'
-											? getHeroImage(entity.data as EnrichedHero)
-											: getItemImage(entity.data as EnrichedItem)}
-										isSelected={entity.isSelected}
-										colorClass={entity.type}
-										onSelect={() =>
-											entity.type === 'hero'
-												? selectHero(entity.data.id)
-												: selectItem(entity.data.id)}
-									/>
-								{/each}
-							</Command.Group>
-						{:else}
-							{#if filteredHeroes.length > 0}
-								<Command.Group>
-									{#each filteredHeroes as hero (hero.id)}
-										<EntityItem
-											name={hero.name}
-											imageSrc={getHeroImage(hero)}
-											isSelected={params.hero.includes(hero.name)}
-											colorClass="hero"
-											onSelect={() => selectHero(hero.id)}
-										/>
-									{/each}
-								</Command.Group>
-							{/if}
-
-							{#if filteredItems.length > 0}
-								<Command.Group>
-									{#each filteredItems as item (item.id)}
-										<EntityItem
-											name={item.name}
-											imageSrc={getItemImage(item)}
-											isSelected={params.item.includes(item.name)}
-											colorClass="item"
-											onSelect={() => selectItem(item.id)}
-										/>
-									{/each}
-								</Command.Group>
-							{/if}
-						{/if}
-					</Command.List>
-				</Command.Root>
+				{@render filterContent()}
 			</div>
 			<button
 				type="button"
-				class="fixed inset-0 z-40"
+				class="fixed inset-0 z-40 hidden sm:block"
 				onclick={() => (open = false)}
 				aria-label="Close dropdown"
 				tabindex="-1"

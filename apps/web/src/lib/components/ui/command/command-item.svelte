@@ -1,12 +1,14 @@
 <script lang="ts">
 	import { Command as CommandPrimitive } from 'bits-ui';
 	import { cn } from '$lib/utils.js';
+	import type { Snippet } from 'svelte';
 
 	let {
 		ref = $bindable(null),
 		class: className,
+		children,
 		...restProps
-	}: CommandPrimitive.ItemProps = $props();
+	}: CommandPrimitive.ItemProps & { children?: Snippet } = $props();
 </script>
 
 <CommandPrimitive.Item
@@ -17,4 +19,8 @@
 		className
 	)}
 	{...restProps}
-/>
+>
+	{#if children}
+		{@render children()}
+	{/if}
+</CommandPrimitive.Item>

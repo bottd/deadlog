@@ -10,8 +10,7 @@ import {
 } from '@deadlog/scraper';
 import { formatISO } from 'date-fns';
 import type { PageServerLoad } from './$types';
-import { validateSearchParams } from 'runed/kit';
-import { paramSchema } from '$lib/utils/searchParams.svelte';
+import { parseSearchParams } from '$lib/stores/searchParams.svelte';
 import {
 	enrichChangelogs,
 	resolveHeroIds,
@@ -25,20 +24,7 @@ function toSlug(name: string): string {
 }
 
 export const load: PageServerLoad = async ({ locals, url }) => {
-	let hero: string[] = [];
-	let item: string[] = [];
-	let change: number | undefined = undefined;
-	let q: string | null = null;
-
-	try {
-		const validated = validateSearchParams(url, paramSchema);
-		hero = validated.data.hero;
-		item = validated.data.item;
-		change = validated.data.change;
-		q = validated.data.q;
-	} catch {
-		// Validation fails during prerendering
-	}
+	const { hero, item, change, q } = parseSearchParams(url);
 
 	const [heroes, items] = await Promise.all([
 		getAllHeroes(locals.db),
