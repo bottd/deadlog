@@ -6,15 +6,14 @@ import {
 	getAllItems,
 	getHeroByName,
 	getItemByName,
-	formatDateWithSuffix
+	formatDate
 } from '@deadlog/scraper';
-import { formatISO } from 'date-fns';
 import type { PageServerLoad } from './$types';
-import { parseSearchParams } from '$lib/stores/searchParams.svelte';
 import {
 	enrichChangelogs,
 	resolveHeroIds,
-	resolveItemIds
+	resolveItemIds,
+	parseApiParams
 } from '$lib/server/changelog-utils';
 
 export const prerender = false;
@@ -24,7 +23,7 @@ function toSlug(name: string): string {
 }
 
 export const load: PageServerLoad = async ({ locals, url }) => {
-	const { hero, item, change, q } = parseSearchParams(url);
+	const { hero, item, q, change } = parseApiParams(url);
 
 	const [heroes, items] = await Promise.all([
 		getAllHeroes(locals.db),
@@ -72,10 +71,10 @@ export const load: PageServerLoad = async ({ locals, url }) => {
 		const changelog = enriched.find((c) => c.id === String(change));
 		pageMeta = {
 			title: changelog
-				? `${formatDateWithSuffix(changelog.date)} Update - Deadlog`
+				? `${formatDate(changelog.date)} Update - Deadlog`
 				: pageMeta.title,
 			description: changelog
-				? `View the ${formatDateWithSuffix(changelog.date)} Deadlock changelog`
+				? `View the ${formatDate(changelog.date)} Deadlock changelog`
 				: pageMeta.description,
 			image: `https://deadlog.io/assets/meta/change/${change}.png`
 		};
@@ -105,9 +104,7 @@ export const load: PageServerLoad = async ({ locals, url }) => {
 		items,
 		totalCount,
 		initialLoadCount: initialLoadLimit,
-		lastUpdate: allChangelogs[0]?.date
-			? formatISO(allChangelogs[0].date)
-			: formatISO(new Date()),
+		lastUpdate: (allChangelogs[0]?.date ?? new Date()).toISOString(),
 		title: pageMeta.title,
 		description: pageMeta.description,
 		image: pageMeta.image

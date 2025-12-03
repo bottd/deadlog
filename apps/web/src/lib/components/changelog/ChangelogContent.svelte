@@ -5,6 +5,7 @@
 	import type { ChangelogContentJson } from '@deadlog/db';
 	import { getFilteredGeneralNotes } from '$lib/utils/filterChanges';
 	import { getSearchParams } from '$lib/stores/searchParams.svelte';
+	import { getHeroImageFromMap, getItemImageFromMap } from '$lib/utils/entityImages';
 
 	interface Props {
 		contentJson?: ChangelogContentJson | null;
@@ -49,19 +50,8 @@
 		return itemEntries.filter(([itemName]) => params.item.includes(itemName));
 	});
 
-	function getHeroImage(heroId?: number): string | undefined {
-		if (!heroId || !heroMap[heroId]) return undefined;
-		const images = heroMap[heroId].images;
-		return (
-			images.icon_image_small_webp || images.icon_image_small || Object.values(images)[0]
-		);
-	}
-
-	function getItemImage(itemId?: number): string | undefined {
-		if (!itemId || !itemMap[itemId]) return undefined;
-		const item = itemMap[itemId];
-		return item.image;
-	}
+	const getHeroImage = (heroId?: number) => getHeroImageFromMap(heroId, heroMap);
+	const getItemImage = (itemId?: number) => getItemImageFromMap(itemId, itemMap);
 
 	const filteredGeneralNotes = $derived.by(() => {
 		if (!contentJson || !hasParams || showFullChange || showAllNotes) {

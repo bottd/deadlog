@@ -1,13 +1,8 @@
 <script module lang="ts">
+	import { toggleSet } from '$lib/utils/toggle';
+
 	let expandedChangeIds = $state(new Set<string>());
 	let showFullChangeIds = $state(new Set<string>());
-
-	function toggle(set: Set<string>, id: string) {
-		const next = new Set(set);
-		if (next.has(id)) next.delete(id);
-		else next.add(id);
-		return next;
-	}
 </script>
 
 <script lang="ts">
@@ -46,14 +41,14 @@
 	});
 
 	function toggleExpandedChange(id: string) {
-		expandedChangeIds = toggle(expandedChangeIds, id);
+		expandedChangeIds = toggleSet(expandedChangeIds, id);
 
 		if (expandedChangeIds.has(id)) {
 			params.update({ change: Number(id) });
 		}
 	}
 	function toggleShowFullChange(id: string) {
-		showFullChangeIds = toggle(showFullChangeIds, id);
+		showFullChangeIds = toggleSet(showFullChangeIds, id);
 	}
 
 	interface Props {

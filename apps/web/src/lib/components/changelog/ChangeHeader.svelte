@@ -5,8 +5,7 @@
 	import * as Avatar from '$lib/components/ui/avatar';
 	import { Link } from '@lucide/svelte';
 	import { toast } from 'svelte-sonner';
-	import { format } from 'date-fns';
-	import { formatDateWithSuffix } from '@deadlog/utils';
+	import { formatDate, formatTime } from '@deadlog/utils';
 
 	interface Props {
 		id: string;
@@ -36,22 +35,17 @@
 
 	<div class="flex flex-col gap-3">
 		<h2 class="text-foreground font-display text-2xl leading-tight tracking-tight">
-			{formatDateWithSuffix(date)}
+			{formatDate(date)}
 		</h2>
 		<div class="text-muted-foreground flex items-center gap-2.5 text-sm">
-			<Avatar.Root
-				class="border-primary/30 hover:border-primary/50 hover:shadow-primary/10 size-7 border transition-all duration-300 hover:scale-110 hover:shadow-md"
-			>
+			<Avatar.Root class="border-primary/30 size-7 border">
 				<Avatar.Image src={authorImage} alt={author} />
 				<Avatar.Fallback class="bg-muted text-xs">
 					{author.slice(0, 2).toUpperCase()}
 				</Avatar.Fallback>
 			</Avatar.Root>
 			<span class="tracking-tight">
-				By <span class="text-foreground font-medium">{author}</span> at {format(
-					date,
-					'h:mm a'
-				)}
+				By <span class="text-foreground font-medium">{author}</span> at {formatTime(date)}
 			</span>
 		</div>
 	</div>

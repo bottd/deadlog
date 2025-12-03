@@ -15,14 +15,8 @@
 		getSelectedHeroObjects,
 		getSelectedItemObjects
 	} from '$lib/utils/selectedEntities.svelte';
-
-	function getHeroImage(hero: EnrichedHero): string {
-		return Object.values(hero.images)[0] as string;
-	}
-
-	function getItemImage(item: EnrichedItem): string {
-		return item.image;
-	}
+	import { getHeroImage, getItemImage } from '$lib/utils/entityImages';
+	import { toggleArray } from '$lib/utils/toggle';
 
 	const params = getSearchParams();
 
@@ -36,10 +30,6 @@
 	let sheetOpen = $state(false);
 	let inputValue = $state(params.q);
 	let filterMode = $state<'all' | 'heroes' | 'items'>('all');
-
-	function toggle<T>(array: T[], id: T): T[] {
-		return array.includes(id) ? array.filter((i) => i !== id) : [...array, id];
-	}
 
 	const filteredHeroes = $derived(
 		heroes
@@ -109,14 +99,14 @@
 	function selectHero(heroId: number) {
 		const hero = heroes.find((h: EnrichedHero) => h.id === heroId);
 		if (hero) {
-			params.hero = toggle(params.hero, hero.name);
+			params.hero = toggleArray(params.hero, hero.name);
 		}
 	}
 
 	function selectItem(itemId: number) {
 		const item = items.find((i: EnrichedItem) => i.id === itemId);
 		if (item) {
-			params.item = toggle(params.item, item.name);
+			params.item = toggleArray(params.item, item.name);
 		}
 	}
 
@@ -279,11 +269,11 @@
 
 			<button
 				type="submit"
-				class="bg-primary shrink-0 rounded-sm p-1.5 transition-colors hover:opacity-80"
+				class="bg-primary -my-[10px] -mr-[13px] flex shrink-0 items-center self-stretch rounded-r px-3 transition-colors hover:opacity-80"
 				aria-label="Apply search"
 				title="Press Enter or click to search"
 			>
-				<SearchIcon class="text-primary-foreground size-3.5" />
+				<SearchIcon class="text-primary-foreground size-5 stroke-[2.5]" />
 			</button>
 		</form>
 

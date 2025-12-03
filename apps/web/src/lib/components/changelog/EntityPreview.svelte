@@ -13,11 +13,10 @@
 
 	const overlap = $derived.by(() => {
 		const len = entities.length;
-		if (len <= 3) return 0;
-		if (len <= 5) return -8;
-		if (len <= 8) return -12;
-		if (len <= 12) return -16;
-		return -20;
+		if (len <= 4) return -4;
+		if (len <= 6) return -8;
+		if (len <= 9) return -12;
+		return -16;
 	});
 
 	function handleSelect(entity: EntityIcon) {

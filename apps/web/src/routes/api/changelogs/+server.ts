@@ -4,30 +4,28 @@ import { queryChangelogs, getAllHeroes, getAllItems } from '@deadlog/scraper';
 import {
 	enrichChangelogs,
 	resolveHeroIds,
-	resolveItemIds
+	resolveItemIds,
+	parseApiParams
 } from '$lib/server/changelog-utils';
-import { parseCSV } from '$lib/stores/searchParams.svelte';
-
-function parseApiParams(url: URL) {
-	return {
-		limit: Number(url.searchParams.get('limit')) || 5,
-		offset: Number(url.searchParams.get('offset')) || 0,
-		hero: parseCSV(url.searchParams.get('hero')),
-		item: parseCSV(url.searchParams.get('item')),
-		q: url.searchParams.get('q') ?? ''
-	};
-}
 
 export const GET: RequestHandler = async ({ url, locals }) => {
 	const { limit, offset, hero, item, q } = parseApiParams(url);
 
-	const [heroes, items] = await Promise.all([
-		getAllHeroes(locals.db),
-		getAllItems(locals.db)
-	]);
+	const heroIdsParam = url.searchParams.get('heroIds');
+	const itemIdsParam = url.searchParams.get('itemIds');
 
-	const heroIds = resolveHeroIds(hero, heroes);
-	const itemIds = resolveItemIds(item, items);
+	let heroIds = heroIdsParam ? heroIdsParam.split(',').map(Number) : [];
+	let itemIds = itemIdsParam ? itemIdsParam.split(',').map(Number) : [];
+
+	if (hero.length > 0 && heroIds.length === 0) {
+		const heroes = await getAllHeroes(locals.db);
+		heroIds = resolveHeroIds(hero, heroes);
+	}
+
+	if (item.length > 0 && itemIds.length === 0) {
+		const items = await getAllItems(locals.db);
+		itemIds = resolveItemIds(item, items);
+	}
 
 	const changelogs = await queryChangelogs(locals.db, {
 		heroIds,
