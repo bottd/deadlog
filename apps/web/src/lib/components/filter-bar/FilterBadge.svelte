@@ -14,20 +14,16 @@
 
 <Badge variant={badgeColor === 'hero' ? 'default' : 'secondary'} onclick={onRemove}>
 	{#if icon}
-		<img src={icon} alt={name} width="16" height="16" loading="lazy" decoding="async" />
+		<img
+			src={icon}
+			alt={name}
+			width="16"
+			height="16"
+			loading="lazy"
+			decoding="async"
+			class="size-4 rounded-sm object-cover"
+		/>
 	{/if}
-	<span>{name}</span>
+	<span class="text-xs font-medium">{name}</span>
 	<XIcon class="size-3" />
 </Badge>
-
-<style lang="postcss">
-	@reference "../../../app.css";
-
-	img {
-		@apply size-4 rounded-sm object-cover;
-	}
-
-	span {
-		@apply text-xs font-medium;
-	}
-</style>

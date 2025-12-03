@@ -24,12 +24,14 @@
 
 <QueryClientProvider client={queryClient}>
 	<Tooltip.Provider>
-		<Toaster />
+		<div class="bg-background bg-wire-grid min-h-screen">
+			<Toaster />
 
-		<Header />
+			<Header />
 
-		{@render children?.()}
+			{@render children?.()}
 
-		<Footer />
+			<Footer />
+		</div>
 	</Tooltip.Provider>
 </QueryClientProvider>

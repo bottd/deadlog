@@ -171,10 +171,7 @@
 	});
 </script>
 
-<main
-	class="bg-background bg-gradient-mesh relative container mx-auto mt-8 min-h-screen"
-	aria-label="Changelog entries"
->
+<main class="relative container mx-auto mt-8" aria-label="Changelog entries">
 	<GutterLine />
 
 	{#if query.isError}
