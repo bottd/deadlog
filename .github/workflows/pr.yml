@@ -22,20 +22,20 @@ jobs:
 
       - name: Run check
         if: matrix.task == 'check'
-        run: bun run check
+        run: pnpm run check
 
       - name: Run lint
         if: matrix.task == 'lint'
-        run: bun run lint
+        run: pnpm run lint
 
       - name: Run tests
         if: matrix.task == 'test'
-        run: bun run test
+        run: pnpm run test
         env:
           NODE_ENV: test
 
       - name: Build web
         if: matrix.task == 'build'
-        run: bunx nx build web
+        run: pnpm exec nx build web
         env:
           NODE_ENV: production

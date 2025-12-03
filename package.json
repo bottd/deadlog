@@ -5,9 +5,9 @@
 	"type": "module",
 	"scripts": {
 		"postinstall": "cd node_modules/deadlock-api-client && npm run build",
-		"test": "npx nx run-many -t test --projects=* --exclude=deadlog.io",
-		"check": "npx nx run-many -t check --projects=* --exclude=deadlog.io",
-		"lint": "npx nx run-many -t lint --projects=* --exclude=deadlog.io"
+		"test": "pnpm exec nx run-many -t test --projects=* --exclude=deadlog.io",
+		"check": "pnpm exec nx run-many -t check --projects=* --exclude=deadlog.io",
+		"lint": "pnpm exec nx run-many -t lint --projects=* --exclude=deadlog.io"
 	},
 	"devDependencies": {
 		"@cloudflare/workers-types": "4.20251202.0",
