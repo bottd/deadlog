@@ -30,12 +30,12 @@ jobs:
 
       - name: Run tests
         if: matrix.task == 'test'
-        run: pnpm test
+        run: pnpm run test
         env:
           NODE_ENV: test
 
       - name: Build web
         if: matrix.task == 'build'
-        run: npx nx build web
+        run: pnpm exec nx build web
         env:
           NODE_ENV: production

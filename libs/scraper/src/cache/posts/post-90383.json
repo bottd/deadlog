@@ -1,5 +1,5 @@
 {
-	"postId": "post-171245",
+	"postId": "171245",
 	"title": "11-21-2025 Update",
 	"author": "Yoshi",
 	"authorImage": "https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630",
@@ -17,6 +17,10 @@
 		{
 			"content": "\n\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\n\t\n\t\n\n\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\n\n\t<div class=\"message-userContent lbContainer js-lbContainer \" data-lb-id=\"post-172338\" data-lb-caption-desc=\"Yoshi · Nov 23, 2025 at 9:34 PM\">\n\n\t\t\n\n\t\t<article class=\"message-body js-selectToQuote\">\n\t\t\t\n\t\t\t\t\n\t\t\t\n\n\t\t\t<div itemprop=\"text\">\n\t\t\t\t\n\t\t\t\t\t<div class=\"bbWrapper\">- Hero kill bounty split efficiency for 1/2/3/4/5/6 players changed from 100/100/90/84/65/72% to 100/100/85/70/55/50%<br>\n- Guardians HP increased from 4250 to 5500<br>\n- Guardians armor decay peak at 12m instead of 10m<br>\n- Fixed Base Guardians HP not matching Lane Guardians (were 1000 less)<br>\n- Hero base health increased by 50<br>\n- Trophy Collector: Souls per minute reduced from 30 to 22<br>\n- Trophy Collector: Health per stack reduced from 25 to 20<br>\n- Focus Lens: Cooldown increased from 25s to 32s (Spirit Sap now matches this too)</div>\n\t\t\t\t\n\t\t\t</div>\n\n\t\t\t<div class=\"js-selectToQuoteEnd\">&nbsp;</div>\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t</article>\n\n\t\t\n\n\t\t\n\t</div>\n\n\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\n\n\t\n\n\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\n\n\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t",
 			"timestamp": "2025-11-23T21:34:45-0800"
+		},
+		{
+			"content": "\n\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\n\t\n\t\n\n\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\n\n\t<div class=\"message-userContent lbContainer js-lbContainer \" data-lb-id=\"post-173347\" data-lb-caption-desc=\"Yoshi · Nov 27, 2025 at 11:32 AM\">\n\n\t\t\n\n\t\t<article class=\"message-body js-selectToQuote\">\n\t\t\t\n\t\t\t\t\n\t\t\t\n\n\t\t\t<div itemprop=\"text\">\n\t\t\t\t\n\t\t\t\t\t<div class=\"bbWrapper\">- Medic Pack now heal amounts increased by 2x<br>\n- Medic Pack heal now splits its value evenly based on the number of nearby heroes (so 1 hero is 100%, 2 heroes is 50%, 3 heroes is 33%, etc. Other nearby units also get the reduced values.)<br>\n- Medic Pack regen applied over 2s instead of 1s<br>\n- Medic Pack ally search radius from 30 to 35<br>\n- Medic Pack pickup range scales after 10 minutes (similar to the expiry duration), from 18m at 10 minutes scaling up by 1m per minute up to 26m range.<br>\n<br>\n- Walkers now have escalating health after each one dies. From a constant 12880 to 8000/11000/14000 (model scale slightly smaller for 1st and slightly bigger for last)<br>\n<br>\n- Focus Lens: Cooldown increased from 32s to 38s<br>\n- Focus Lens: Duration reduced from 4.25s to 4s</div>\n\t\t\t\t\n\t\t\t</div>\n\n\t\t\t<div class=\"js-selectToQuoteEnd\">&nbsp;</div>\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t</article>\n\n\t\t\n\n\t\t\n\t</div>\n\n\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\n\n\t\n\n\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\n\n\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t",
+			"timestamp": "2025-11-27T11:32:53-0800"
 		}
 	]
 }

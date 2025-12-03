@@ -16,7 +16,8 @@ const config = {
 		alias: {
 			'@deadlog/scraper': '../../libs/scraper/src/index.ts',
 			'@deadlog/meta': '../../libs/meta/src/index.ts',
-			'@deadlog/db': '../../libs/db/src/index.ts'
+			'@deadlog/db': '../../libs/db/src/index.ts',
+			'@deadlog/utils': '../../libs/utils/src/index.ts'
 		}
 	},
 	vitePlugin: {

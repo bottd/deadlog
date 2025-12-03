@@ -16,7 +16,7 @@
 	class="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm"
 	{...restProps}
 >
-	<div class={cn('pt-0 pb-4', className)}>
+	<div class={cn('pt-0 pb-2', className)}>
 		{@render children?.()}
 	</div>
 </AccordionPrimitive.Content>

@@ -1,17 +1,13 @@
-import { eq, sql, desc, gt, or } from 'drizzle-orm';
+import { eq, sql, desc, gt } from 'drizzle-orm';
 import type { ScrapedChangelog } from './deadlock';
-import type { HeroId, ItemId, EnrichedHero, EnrichedItem } from './types/assets';
+import type { EnrichedHero, EnrichedItem } from './types/assets';
 import { getLibsqlDb, type DrizzleDB, schema } from '@deadlog/db';
 
 export { getLibsqlDb as getDb };
 
 function buildTextSearchCondition(searchQuery: string) {
 	const pattern = `%${searchQuery}%`;
-	const condition = or(sql`LOWER(${schema.changelogs.title}) LIKE LOWER(${pattern})`);
-	if (!condition) {
-		throw new Error('Failed to build text search condition');
-	}
-	return condition;
+	return sql`LOWER(${schema.changelogs.title}) LIKE LOWER(${pattern})`;
 }
 
 export async function getAllChangelogs(db: DrizzleDB) {
@@ -35,72 +31,34 @@ export async function queryChangelogs(
 	const hasItemFilter = itemIds.length > 0;
 	const hasSearchFilter = !!searchQuery?.trim();
 
-	const conditions = [];
-	if (hasSearchFilter && searchQuery) {
-		conditions.push(buildTextSearchCondition(searchQuery));
-	}
-
-	if (!hasHeroFilter && !hasItemFilter) {
-		const query = db
-			.select()
-			.from(schema.changelogs)
-			.orderBy(desc(schema.changelogs.pubDate))
-			.limit(limit)
-			.offset(offset);
-
-		const results = hasSearchFilter
-			? await query.where(conditions[0]).all()
-			: await query.all();
-
-		return results;
-	}
-
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	let query = (db as any)
 		.selectDistinct({ changelogs: schema.changelogs })
 		.from(schema.changelogs);
 
-	if (hasHeroFilter && hasItemFilter) {
-		query = query
-			.innerJoin(
-				schema.changelogHeroes,
-				eq(schema.changelogs.id, schema.changelogHeroes.changelogId)
-			)
-			.innerJoin(
-				schema.changelogItems,
-				eq(schema.changelogs.id, schema.changelogItems.changelogId)
-			);
+	const conditions = [];
+	if (hasSearchFilter && searchQuery) {
+		conditions.push(buildTextSearchCondition(searchQuery));
+	}
 
-		conditions.push(
-			sql`${schema.changelogHeroes.heroId} IN (${sql.join(
-				heroIds.map((id) => sql`${id}`),
-				sql`, `
-			)})`
-		);
-		conditions.push(
-			sql`${schema.changelogItems.itemId} IN (${sql.join(
-				itemIds.map((id) => sql`${id}`),
-				sql`, `
-			)})`
-		);
-	} else if (hasHeroFilter) {
+	if (hasHeroFilter) {
 		query = query.innerJoin(
 			schema.changelogHeroes,
 			eq(schema.changelogs.id, schema.changelogHeroes.changelogId)
 		);
-
 		conditions.push(
 			sql`${schema.changelogHeroes.heroId} IN (${sql.join(
 				heroIds.map((id) => sql`${id}`),
 				sql`, `
 			)})`
 		);
-	} else if (hasItemFilter) {
+	}
+
+	if (hasItemFilter) {
 		query = query.innerJoin(
 			schema.changelogItems,
 			eq(schema.changelogs.id, schema.changelogItems.changelogId)
 		);
-
 		conditions.push(
 			sql`${schema.changelogItems.itemId} IN (${sql.join(
 				itemIds.map((id) => sql`${id}`),
@@ -110,7 +68,7 @@ export async function queryChangelogs(
 	}
 
 	if (conditions.length > 0) {
-		query = query.where(sql`${sql.join(conditions, sql` AND `)}`);
+		query = query.where(sql.join(conditions, sql` AND `));
 	}
 
 	const results = await query
@@ -124,49 +82,11 @@ export async function queryChangelogs(
 }
 
 /**
- * Get paginated changelogs sorted by publish date (newest first)
- * @deprecated Use queryChangelogs instead
- */
-export async function getChangelogsPaginated(
-	db: DrizzleDB,
-	limit = 5,
-	offset = 0
-): Promise<ScrapedChangelog[]> {
-	return queryChangelogs(db, { limit, offset });
-}
-
-/**
  * Get total count of changelogs
  */
 export async function getChangelogsCount(db: DrizzleDB): Promise<number> {
 	const result = await db.select().from(schema.changelogs).all();
 	return result.length;
-}
-
-/**
- * Get paginated changelogs filtered by text search query
- * Searches in title and content fields (case-insensitive)
- */
-export async function getChangelogsByTextSearch(
-	db: DrizzleDB,
-	searchQuery: string,
-	limit = 5,
-	offset = 0
-): Promise<ScrapedChangelog[]> {
-	if (!searchQuery?.trim()) {
-		return getChangelogsPaginated(db, limit, offset);
-	}
-
-	const results = await db
-		.select()
-		.from(schema.changelogs)
-		.where(buildTextSearchCondition(searchQuery))
-		.orderBy(desc(schema.changelogs.pubDate))
-		.limit(limit)
-		.offset(offset)
-		.all();
-
-	return results;
 }
 
 /**
@@ -216,36 +136,12 @@ export async function getMetadata(db: DrizzleDB, key: string) {
 	return result?.value ?? null;
 }
 
-function rowToHero(row: typeof schema.heroes.$inferSelect): EnrichedHero {
-	return {
-		id: row.id,
-		name: row.name,
-		className: row.className,
-		heroType: row.heroType,
-		images: row.images,
-		isReleased: row.isReleased
-	};
-}
-
 export async function getAllHeroes(db: DrizzleDB): Promise<EnrichedHero[]> {
-	const results = await db.select().from(schema.heroes).all();
-	return results.map(rowToHero);
-}
-
-function rowToItem(row: typeof schema.items.$inferSelect): EnrichedItem {
-	return {
-		id: row.id,
-		name: row.name,
-		className: row.className,
-		type: row.type as 'weapon' | 'ability' | 'upgrade',
-		images: row.images ?? null,
-		isReleased: row.isReleased
-	};
+	return db.select().from(schema.heroes).all();
 }
 
 export async function getAllItems(db: DrizzleDB): Promise<EnrichedItem[]> {
-	const results = await db.select().from(schema.items).all();
-	return results.map(rowToItem);
+	return await db.select().from(schema.items).all();
 }
 
 export async function getHeroByName(
@@ -258,7 +154,7 @@ export async function getHeroByName(
 		.where(eq(schema.heroes.name, name))
 		.get();
 
-	return result ? rowToHero(result) : null;
+	return result ?? null;
 }
 
 export async function getItemByName(
@@ -271,236 +167,74 @@ export async function getItemByName(
 		.where(eq(schema.items.name, name))
 		.get();
 
-	return result ? rowToItem(result) : null;
+	return result ?? null;
 }
 
-/**
- * Get icons for a specific changelog entry
- */
+interface EntityIcon {
+	id: number;
+	src: string;
+	alt: string;
+	type: 'hero' | 'item';
+}
+interface ChangelogIcons {
+	heroes: EntityIcon[];
+	items: EntityIcon[];
+}
+
 export async function getChangelogIcons(
 	db: DrizzleDB,
-	changelogId: string
-): Promise<{
-	heroes: { id: HeroId; src: string; alt: string; type: 'hero' | 'item' }[];
-	items: { id: ItemId; src: string; alt: string; type: 'hero' | 'item' }[];
-}> {
-	const results = await db
+	changelogIds: string[]
+): Promise<Record<string, ChangelogIcons>> {
+	const heroRows = await db
 		.select()
-		.from(schema.changelogEntities)
-		.where(eq(schema.changelogEntities.changelogId, changelogId))
-		.all();
-
-	const heroes = results
-		.filter((r: typeof schema.changelogEntities.$inferSelect) => r.entityType === 'hero')
-		.map((r: typeof schema.changelogEntities.$inferSelect) => ({
-			id: r.entityId,
-			src: r.imageSrc,
-			alt: r.entityName,
-			type: 'hero' as const
-		}));
-
-	const items = results
-		.filter((r: typeof schema.changelogEntities.$inferSelect) => r.entityType === 'item')
-		.map((r: typeof schema.changelogEntities.$inferSelect) => ({
-			id: r.entityId,
-			src: r.imageSrc,
-			alt: r.entityName,
-			type: 'item' as const
-		}));
-
-	return { heroes, items };
-}
-
-/**
- * Get changelogs filtered by hero IDs (SQL-based filtering)
- */
-export async function getChangelogsByHeroIds(db: DrizzleDB, heroIds: number[]) {
-	if (heroIds.length === 0) {
-		return getAllChangelogs(db);
-	}
-
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	const results = await (db as any)
-		.selectDistinct({ changelogs: schema.changelogs })
-		.from(schema.changelogs)
-		.innerJoin(
-			schema.changelogHeroes,
-			eq(schema.changelogs.id, schema.changelogHeroes.changelogId)
-		)
+		.from(schema.changelogHeroes)
+		.innerJoin(schema.heroes, eq(schema.changelogHeroes.heroId, schema.heroes.id))
 		.where(
-			sql`${schema.changelogHeroes.heroId} IN (${sql.join(
-				heroIds.map((id) => sql`${id}`),
+			sql`${schema.changelogHeroes.changelogId} IN (${sql.join(
+				changelogIds.map((id) => sql`${id}`),
 				sql`, `
 			)})`
 		)
 		.all();
 
-	return results;
-}
-
-/**
- * Get paginated changelogs filtered by hero IDs
- */
-export async function getChangelogsByHeroIdsPaginated(
-	db: DrizzleDB,
-	heroIds: number[],
-	limit = 5,
-	offset = 0,
-	searchQuery?: string
-): Promise<ScrapedChangelog[]> {
-	if (heroIds.length === 0) {
-		return searchQuery
-			? getChangelogsByTextSearch(db, searchQuery, limit, offset)
-			: getChangelogsPaginated(db, limit, offset);
-	}
-
-	const conditions = [
-		sql`${schema.changelogHeroes.heroId} IN (${sql.join(
-			heroIds.map((id) => sql`${id}`),
-			sql`, `
-		)})`
-	];
-
-	if (searchQuery?.trim()) {
-		conditions.push(buildTextSearchCondition(searchQuery));
-	}
-
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	const results = await (db as any)
-		.selectDistinct({ changelogs: schema.changelogs })
-		.from(schema.changelogs)
-		.innerJoin(
-			schema.changelogHeroes,
-			eq(schema.changelogs.id, schema.changelogHeroes.changelogId)
-		)
-		.where(sql`${sql.join(conditions, sql` AND `)}`)
-		.orderBy(desc(schema.changelogs.pubDate))
-		.limit(limit)
-		.offset(offset)
-		.all();
-
-	return results;
-}
-
-/**
- * Get changelogs filtered by item IDs (SQL-based filtering)
- */
-export async function getChangelogsByItemIds(db: DrizzleDB, itemIds: number[]) {
-	if (itemIds.length === 0) {
-		return getAllChangelogs(db);
-	}
-
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	const results = await (db as any)
-		.selectDistinct({ changelogs: schema.changelogs })
-		.from(schema.changelogs)
-		.innerJoin(
-			schema.changelogItems,
-			eq(schema.changelogs.id, schema.changelogItems.changelogId)
-		)
+	const itemRows = await db
+		.select()
+		.from(schema.changelogItems)
+		.innerJoin(schema.items, eq(schema.changelogItems.itemId, schema.items.id))
 		.where(
-			sql`${schema.changelogItems.itemId} IN (${sql.join(
-				itemIds.map((id) => sql`${id}`),
+			sql`${schema.changelogItems.changelogId} IN (${sql.join(
+				changelogIds.map((id) => sql`${id}`),
 				sql`, `
 			)})`
 		)
 		.all();
 
-	return results;
-}
+	const result: Record<string, ChangelogIcons> = {};
 
-/**
- * Get paginated changelogs filtered by item IDs
- */
-export async function getChangelogsByItemIdsPaginated(
-	db: DrizzleDB,
-	itemIds: number[],
-	limit = 5,
-	offset = 0,
-	searchQuery?: string
-): Promise<ScrapedChangelog[]> {
-	if (itemIds.length === 0) {
-		return searchQuery
-			? getChangelogsByTextSearch(db, searchQuery, limit, offset)
-			: getChangelogsPaginated(db, limit, offset);
+	for (const r of heroRows) {
+		const icons = (result[r.changelog_heroes.changelogId] ??= { heroes: [], items: [] });
+		const images = r.heroes.images;
+		icons.heroes.push({
+			id: r.heroes.id,
+			src:
+				images.icon_image_small_webp ??
+				images.icon_image_small ??
+				Object.values(images)[0] ??
+				'',
+			alt: r.heroes.name,
+			type: 'hero'
+		});
 	}
 
-	const conditions = [
-		sql`${schema.changelogItems.itemId} IN (${sql.join(
-			itemIds.map((id) => sql`${id}`),
-			sql`, `
-		)})`
-	];
-
-	if (searchQuery?.trim()) {
-		conditions.push(buildTextSearchCondition(searchQuery));
+	for (const r of itemRows) {
+		const icons = (result[r.changelog_items.changelogId] ??= { heroes: [], items: [] });
+		icons.items.push({
+			id: r.items.id,
+			src: r.items.image,
+			alt: r.items.name,
+			type: 'item'
+		});
 	}
 
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	const results = await (db as any)
-		.selectDistinct({ changelogs: schema.changelogs })
-		.from(schema.changelogs)
-		.innerJoin(
-			schema.changelogItems,
-			eq(schema.changelogs.id, schema.changelogItems.changelogId)
-		)
-		.where(sql`${sql.join(conditions, sql` AND `)}`)
-		.orderBy(desc(schema.changelogs.pubDate))
-		.limit(limit)
-		.offset(offset)
-		.all();
-
-	return results;
-}
-
-/**
- * Get paginated changelogs filtered by both hero and item IDs
- * Returns changelogs that mention BOTH the specified heroes AND items
- */
-export async function getChangelogsByHeroAndItemIds(
-	db: DrizzleDB,
-	heroIds: number[],
-	itemIds: number[],
-	limit = 5,
-	offset = 0,
-	searchQuery?: string
-): Promise<ScrapedChangelog[]> {
-	if (heroIds.length === 0 || itemIds.length === 0) {
-		return getChangelogsPaginated(db, limit, offset);
-	}
-
-	const conditions = [
-		sql`${schema.changelogHeroes.heroId} IN (${sql.join(
-			heroIds.map((id) => sql`${id}`),
-			sql`, `
-		)})`,
-		sql`${schema.changelogItems.itemId} IN (${sql.join(
-			itemIds.map((id) => sql`${id}`),
-			sql`, `
-		)})`
-	];
-
-	if (searchQuery?.trim()) {
-		conditions.push(buildTextSearchCondition(searchQuery));
-	}
-
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	const results = await (db as any)
-		.selectDistinct({ changelogs: schema.changelogs })
-		.from(schema.changelogs)
-		.innerJoin(
-			schema.changelogHeroes,
-			eq(schema.changelogs.id, schema.changelogHeroes.changelogId)
-		)
-		.innerJoin(
-			schema.changelogItems,
-			eq(schema.changelogs.id, schema.changelogItems.changelogId)
-		)
-		.where(sql`${sql.join(conditions, sql` AND `)}`)
-		.orderBy(desc(schema.changelogs.pubDate))
-		.limit(limit)
-		.offset(offset)
-		.all();
-
-	return results;
+	return result;
 }

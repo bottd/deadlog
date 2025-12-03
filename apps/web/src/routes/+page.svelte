@@ -3,10 +3,12 @@
 	import { Changelog } from '$lib/components/changelog';
 	import { ScrollToTop } from '$lib/components/scroll-to-top';
 	import type { PageData } from './$types';
-	import { getSearchParams } from '$lib/utils/searchParams.svelte';
+	import { getSearchParams } from '$lib/stores/searchParams.svelte';
 
 	let { data }: { data: PageData } = $props();
-	const { title, description, image } = data;
+	const title = $derived(data.title);
+	const description = $derived(data.description);
+	const image = $derived(data.image);
 
 	const params = getSearchParams();
 	const canonical = $derived.by(() =>

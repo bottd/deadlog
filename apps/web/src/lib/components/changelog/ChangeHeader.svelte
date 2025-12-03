@@ -2,10 +2,10 @@
 	import { EntityPreview } from '.';
 	import type { EntityIcon } from '$lib/utils/types';
 	import { Button } from '$lib/components/ui/button';
+	import * as Avatar from '$lib/components/ui/avatar';
 	import { Link } from '@lucide/svelte';
 	import { toast } from 'svelte-sonner';
-	import { format } from 'date-fns';
-	import { formatDateWithSuffix } from '$lib/utils/dateFormatters';
+	import { formatDate, formatTime } from '@deadlog/utils';
 
 	interface Props {
 		id: string;
@@ -28,31 +28,30 @@
 	}
 </script>
 
-<div class="mb-4 flex w-full items-start justify-between gap-4">
-	<div class="flex flex-col gap-2">
-		<h2 class="text-foreground text-xl font-medium">
-			{formatDateWithSuffix(date)}
+<div class="relative mb-6 flex w-full items-start justify-between gap-6">
+	<div
+		class="via-border absolute top-0 -left-6 h-full w-px bg-gradient-to-b from-transparent to-transparent"
+	></div>
+
+	<div class="flex flex-col gap-3">
+		<h2 class="text-foreground font-display text-2xl leading-tight tracking-tight">
+			{formatDate(date)}
 		</h2>
-		<div class="text-muted-foreground flex items-center text-sm">
-			{#if authorImage}
-				<img
-					src={authorImage}
-					alt={author}
-					width="20"
-					height="20"
-					loading="lazy"
-					decoding="async"
-					class="border-primary/30 size-6 rounded-full border"
-				/>
-			{/if}
-			<span class="px-2">
-				By {author} at {format(date, 'h:mm a')}
+		<div class="text-muted-foreground flex items-center gap-2.5 text-sm">
+			<Avatar.Root class="border-primary/30 size-7 border">
+				<Avatar.Image src={authorImage} alt={author} />
+				<Avatar.Fallback class="bg-muted text-xs">
+					{author.slice(0, 2).toUpperCase()}
+				</Avatar.Fallback>
+			</Avatar.Root>
+			<span class="tracking-tight">
+				By <span class="text-foreground font-medium">{author}</span> at {formatTime(date)}
 			</span>
 		</div>
 	</div>
 
-	<div class="flex items-start gap-2">
-		<div class="flex flex-col gap-2">
+	<div class="flex items-start gap-3">
+		<div class="flex flex-col gap-2.5">
 			{#if icons?.heroes}
 				<EntityPreview entities={icons.heroes} />
 			{/if}
@@ -64,10 +63,10 @@
 			variant="ghost"
 			size="icon-sm"
 			onclick={copyLink}
-			class="text-muted-foreground hover:bg-primary/10 hover:text-primary transition-colors"
+			class="text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all duration-300 hover:scale-110 hover:rotate-12"
 			title="Copy link to clipboard"
 		>
-			<Link class="size-5" />
+			<Link class="size-4" />
 		</Button>
 	</div>
 </div>

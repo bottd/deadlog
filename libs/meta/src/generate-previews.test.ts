@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeAll, afterAll } from 'vitest';
 import { mkdir, rm } from 'fs/promises';
 import { join } from 'path';
-import { getAllHeroes, getAllItems, getChangelogsByHeroIds } from '@deadlog/scraper';
+import { getAllHeroes, getAllItems, queryChangelogs } from '@deadlog/scraper';
 import { getLibsqlDb as getDb } from '@deadlog/db';
 
 // Import the main function to test - we'll need to refactor to export the functions
@@ -34,7 +34,7 @@ describe('OG Image Generation', () => {
 			// Check if at least one hero has changelog data with ability changes
 			let foundAbilityWithIcon = false;
 			for (const hero of releasedHeroes.slice(0, 5)) {
-				const changelogs = await getChangelogsByHeroIds(db, [hero.id]);
+				const changelogs = await queryChangelogs(db, { heroIds: [hero.id] });
 				if (changelogs.length > 0) {
 					const latestChangelog = changelogs[0];
 					const heroChanges = latestChangelog.contentJson?.heroes?.[hero.name];
@@ -65,7 +65,7 @@ describe('OG Image Generation', () => {
 			expect(hero).toBeDefined();
 
 			if (hero) {
-				const changelogs = await getChangelogsByHeroIds(db, [hero.id]);
+				const changelogs = await queryChangelogs(db, { heroIds: [hero.id] });
 
 				if (changelogs.length > 0) {
 					const latestChangelog = changelogs[0];
@@ -131,14 +131,14 @@ describe('OG Image Generation', () => {
 		it('should have changelog data for items with images', async () => {
 			const db = getDb();
 			const items = await getAllItems(db);
-			const itemsWithImages = items.filter((i) => i.images?.png || i.images?.webp);
+			const itemsWithImages = items.filter((i) => i.image);
 
 			expect(itemsWithImages.length).toBeGreaterThan(0);
 
 			// Verify at least one item has the required image format
 			const item = itemsWithImages[0];
-			expect(item.images).toBeDefined();
-			expect(item.images?.png || item.images?.webp).toBeTruthy();
+			expect(item.image).toBeDefined();
+			expect(item.image).toBeTruthy();
 		});
 
 		it('should format item preview text correctly', () => {

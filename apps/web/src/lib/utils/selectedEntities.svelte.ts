@@ -1,5 +1,5 @@
 import { page } from '$app/state';
-import { getSearchParams } from './searchParams.svelte';
+import { getSearchParams } from '$lib/stores/searchParams.svelte';
 import type { EnrichedHero, EnrichedItem } from './types';
 
 /**

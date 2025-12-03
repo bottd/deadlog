@@ -2,8 +2,9 @@ import {
 	getAllChangelogs,
 	getAllHeroes,
 	getAllItems,
-	formatDateWithSuffix,
+	formatDate,
 	getChangelogIcons,
+	queryChangelogs,
 	type EnrichedHero,
 	type EnrichedItem
 } from '@deadlog/scraper';
@@ -99,7 +100,8 @@ async function generateHomeOG(
 	},
 	db: ReturnType<typeof getDb>
 ) {
-	const icons = await getChangelogIcons(db, latestChangelog.id);
+	const iconsMap = await getChangelogIcons(db, [latestChangelog.id]);
+	const icons = iconsMap[latestChangelog.id] ?? { heroes: [], items: [] };
 
 	// Convert all image URLs to data URIs
 	const authorImageDataUri = await convertImageUrl(latestChangelog.authorImage);
@@ -111,7 +113,7 @@ async function generateHomeOG(
 	);
 
 	const element = React.createElement(HomeLayout, {
-		lastUpdated: formatDateWithSuffix(latestChangelog.pubDate),
+		lastUpdated: formatDate(latestChangelog.pubDate),
 		author: latestChangelog.author,
 		authorImage: authorImageDataUri,
 		heroIcons: heroIconsDataUris,
@@ -159,7 +161,7 @@ async function generateHeroOG(
 }
 
 async function generateItemOG(item: EnrichedItem, changePreview: string | null) {
-	const image = item.images.png ?? item.images.webp;
+	const image = item.image;
 	if (!image) {
 		throw new Error(`Item ${item.name} has no images`);
 	}
@@ -214,7 +216,8 @@ async function main() {
 
 		let changelogCount = 0;
 		for (const changelog of allChangelogs) {
-			const icons = await getChangelogIcons(db, changelog.id);
+			const iconsMap = await getChangelogIcons(db, [changelog.id]);
+			const icons = iconsMap[changelog.id] ?? { heroes: [], items: [] };
 
 			// Extract heroes with their abilities
 			const heroPreviews: HeroPreview[] = [];
@@ -245,7 +248,7 @@ async function main() {
 			}
 
 			await generateChangelogOG(changelog.id, {
-				title: `${formatDateWithSuffix(changelog.pubDate)} Update`,
+				title: `${formatDate(changelog.pubDate)} Update`,
 				author: changelog.author,
 				authorIcon: changelog.authorImage,
 				heroPreviews: heroPreviews.slice(0, 6),
@@ -261,11 +264,10 @@ async function main() {
 
 	// Generate hero OG images
 	if (!changelogOnly && !itemsOnly) {
-		const { getChangelogsByHeroIds } = await import('@deadlog/scraper');
 		let heroCount = 0;
 
 		for (const hero of heroes.filter((h) => h.isReleased)) {
-			const changelogs = await getChangelogsByHeroIds(db, [hero.id]);
+			const changelogs = await queryChangelogs(db, { heroIds: [hero.id] });
 
 			let previewData: HeroPreviewItem[] | null = null;
 			if (changelogs.length > 0) {
@@ -314,13 +316,12 @@ async function main() {
 
 	// Generate item OG images
 	if (!changelogOnly && !heroesOnly) {
-		const { getChangelogsByItemIds } = await import('@deadlog/scraper');
 		let itemCount = 0;
 
 		for (const item of items) {
-			if (!item.images?.png && !item.images?.webp) continue;
+			if (!item.image) continue;
 
-			const changelogs = await getChangelogsByItemIds(db, [item.id]);
+			const changelogs = await queryChangelogs(db, { itemIds: [item.id] });
 			if (changelogs.length > 0) {
 				let previewText: string | null = null;
 				const latestChangelog = changelogs[0];
