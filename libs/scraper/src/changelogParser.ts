@@ -180,7 +180,7 @@ export function extractIcons(
 			textContent,
 			itemsDb,
 			ENTITY_TYPES.ITEM,
-			(item) => item.image
+			(item) => item.shopImage
 		) as { id: ItemId; src: string; alt: string; type: 'item' }[]
 	};
 }

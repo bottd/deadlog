@@ -2,9 +2,7 @@
 export {
 	queryChangelogs,
 	getAllChangelogs,
-	getChangelogsPaginated,
 	getChangelogsCount,
-	getChangelogsByTextSearch,
 	getChangelogPosition,
 	getChangelogById,
 	getMetadata,
@@ -12,18 +10,13 @@ export {
 	getAllItems,
 	getHeroByName,
 	getItemByName,
-	getChangelogIcons,
-	getChangelogsByHeroIds,
-	getChangelogsByHeroIdsPaginated,
-	getChangelogsByItemIds,
-	getChangelogsByItemIdsPaginated,
-	getChangelogsByHeroAndItemIds
+	getChangelogIcons
 } from './static';
 
 // Note: extractIcons and parseHtmlToJson are only used server-side during database building
 // They are not exported to prevent happy-dom from being bundled in client builds
 
-export { formatDate, formatDateWithSuffix, formatTime } from '@deadlog/utils';
+export { formatDate, formatTime } from '@deadlog/utils';
 
 export type { ScrapedChangelog } from './deadlock';
 export type {

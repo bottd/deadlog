@@ -1,1 +1,1 @@
-export { formatDate, formatDateWithSuffix, formatTime } from './dateFormatters';
+export { formatDate, formatTime } from './dateFormatters';

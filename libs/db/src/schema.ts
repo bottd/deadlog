@@ -131,31 +131,6 @@ export const insertMetadataSchema = createInsertSchema(metadata);
 export type SelectMetadata = z.infer<typeof selectMetadataSchema>;
 export const selectMetadataSchema = createSelectSchema(metadata);
 
-export const changelogEntities = sqliteTable(
-	'changelog_entities',
-	{
-		changelogId: text('changelog_id')
-			.notNull()
-			.references(() => changelogs.id),
-		entityType: text('entity_type', { enum: ['hero', 'item'] }).notNull(),
-		entityId: integer('entity_id').notNull(),
-		entityName: text('entity_name').notNull(),
-		imageSrc: text('image_src').notNull()
-	},
-	(table) => ({
-		pk: primaryKey({ columns: [table.changelogId, table.entityType, table.entityId] })
-	})
-);
-
-export const insertChangelogEntitySchema = createInsertSchema(changelogEntities, {
-	entityType: z.enum(['hero', 'item'])
-});
-export const selectChangelogEntitySchema = createSelectSchema(changelogEntities, {
-	entityType: z.enum(['hero', 'item'])
-});
-export type InsertChangelogEntity = z.infer<typeof insertChangelogEntitySchema>;
-export type SelectChangelogEntity = z.infer<typeof selectChangelogEntitySchema>;
-
 // Junction table: changelog to heroes (for efficient filtering)
 export const changelogHeroes = sqliteTable(
 	'changelog_heroes',

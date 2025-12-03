@@ -2,7 +2,6 @@ import { describe, it, expect } from 'vitest';
 import { getAllChangelogs, getChangelogById, getMetadata, getDb } from './static';
 import { existsSync } from 'fs';
 import { resolve } from 'path';
-import { parseISO, getYear } from 'date-fns';
 
 // Standard database path from repo root
 const dbPath = resolve(process.cwd(), 'dist/data/deadlog.db');
@@ -187,10 +186,10 @@ describe.skipIf(!existsSync(dbPath))('Database Static Reader', () => {
 			const lastUpdated = await getMetadata(db, 'last_updated');
 
 			if (lastUpdated !== null) {
-				const date = parseISO(lastUpdated);
+				const date = new Date(lastUpdated);
 				expect(date.toString()).not.toBe('Invalid Date');
 				// Should be a reasonable date (after 2020)
-				expect(getYear(date)).toBeGreaterThanOrEqual(2020);
+				expect(date.getFullYear()).toBeGreaterThanOrEqual(2020);
 			} else {
 				// If no last_updated metadata, check for built_at instead
 				const builtAt = await getMetadata(db, 'built_at');

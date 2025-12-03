@@ -5,21 +5,19 @@ import { mkdir, unlink } from 'fs/promises';
 import { existsSync } from 'fs';
 import path from 'path';
 import { z } from 'zod';
-import { formatISO } from 'date-fns';
 import { fetchHeroes, fetchItems } from './assets';
 import {
 	schema,
 	insertHeroSchema,
 	insertItemSchema,
 	insertChangelogSchema,
-	insertChangelogEntitySchema,
 	insertChangelogHeroSchema,
 	insertChangelogItemSchema
 } from '@deadlog/db';
 import { sql } from 'drizzle-orm';
 import { parseAuthorName } from './authorParser';
 import { scrapeChangelogPage, scrapeMultipleChangelogPosts } from './scraper';
-import { parseHtmlToJson, extractIcons } from './changelogParser';
+import { parseHtmlToJson } from './changelogParser';
 
 const buildDatabaseOptionsSchema = z.object({
 	outputDir: z.string().default('./dist/data')
@@ -99,17 +97,6 @@ export async function buildDatabase(
 		CREATE TABLE IF NOT EXISTS metadata (
 			key TEXT PRIMARY KEY,
 			value TEXT
-		)
-	`);
-
-	await db.run(sql`
-		CREATE TABLE IF NOT EXISTS changelog_entities (
-			changelog_id TEXT NOT NULL REFERENCES changelogs(id),
-			entity_type TEXT NOT NULL CHECK(entity_type IN ('hero', 'item')),
-			entity_id INTEGER NOT NULL,
-			entity_name TEXT NOT NULL,
-			image_src TEXT NOT NULL,
-			PRIMARY KEY (changelog_id, entity_type, entity_id)
 		)
 	`);
 
@@ -216,7 +203,7 @@ export async function buildDatabase(
 			className: item.class_name,
 			type: item.type,
 			image:
-				item.shop_image_webp || item.image_webp || item.shop_image || item.image || '',
+				item.shop_image_webp || item.shop_image || item.image_webp || item.image || '',
 			isReleased: false // Will be updated after parsing changelogs
 		});
 		await db.insert(schema.items).values(itemData).onConflictDoNothing();
@@ -237,6 +224,7 @@ export async function buildDatabase(
 		...item,
 		className: item.class_name,
 		image: item.image_webp || item.image || '',
+		shopImage: item.shop_image_webp || item.shop_image,
 		isReleased: false
 	}));
 
@@ -248,12 +236,6 @@ export async function buildDatabase(
 			heroes: enrichedHeroes,
 			items: enrichedItems,
 			abilities
-		});
-
-		// Extract icons for this changelog
-		const icons = extractIcons(patch.content, {
-			heroes: enrichedHeroes,
-			items: enrichedItems
 		});
 
 		// Extract just the date part (YYYY-MM-DD) from pub_date for comparison
@@ -279,29 +261,6 @@ export async function buildDatabase(
 			target: schema.changelogs.id,
 			set: changelogData
 		});
-
-		// Insert icons for this changelog
-		for (const heroIcon of icons.heroes) {
-			const iconData = insertChangelogEntitySchema.parse({
-				changelogId: patch.postId,
-				entityType: 'hero',
-				entityId: heroIcon.id as number,
-				entityName: heroIcon.alt,
-				imageSrc: heroIcon.src
-			});
-			await db.insert(schema.changelogEntities).values(iconData).onConflictDoNothing();
-		}
-
-		for (const itemIcon of icons.items) {
-			const iconData = insertChangelogEntitySchema.parse({
-				changelogId: patch.postId,
-				entityType: 'item',
-				entityId: itemIcon.id as number,
-				entityName: itemIcon.alt,
-				imageSrc: itemIcon.src
-			});
-			await db.insert(schema.changelogEntities).values(iconData).onConflictDoNothing();
-		}
 
 		// Insert hero mentions into junction table
 		if (contentJson.heroes) {
@@ -349,12 +308,6 @@ export async function buildDatabase(
 					abilities
 				});
 
-				// Extract icons for this update
-				const replyIcons = extractIcons(reply.content, {
-					heroes: enrichedHeroes,
-					items: enrichedItems
-				});
-
 				const updateId = `${patch.postId}-update-${i + 1}`;
 				const updateData = insertChangelogSchema.parse({
 					id: updateId,
@@ -374,35 +327,6 @@ export async function buildDatabase(
 					target: schema.changelogs.id,
 					set: updateData
 				});
-
-				// Insert icons for this update
-				for (const heroIcon of replyIcons.heroes) {
-					const iconData = insertChangelogEntitySchema.parse({
-						changelogId: updateId,
-						entityType: 'hero',
-						entityId: heroIcon.id as number,
-						entityName: heroIcon.alt,
-						imageSrc: heroIcon.src
-					});
-					await db
-						.insert(schema.changelogEntities)
-						.values(iconData)
-						.onConflictDoNothing();
-				}
-
-				for (const itemIcon of replyIcons.items) {
-					const iconData = insertChangelogEntitySchema.parse({
-						changelogId: updateId,
-						entityType: 'item',
-						entityId: itemIcon.id as number,
-						entityName: itemIcon.alt,
-						imageSrc: itemIcon.src
-					});
-					await db
-						.insert(schema.changelogEntities)
-						.values(iconData)
-						.onConflictDoNothing();
-				}
 
 				// Insert hero mentions for this update
 				if (replyJson.heroes) {
@@ -480,21 +404,31 @@ export async function buildDatabase(
 	console.log(`  ✅ Marked ${releasedItems.rows[0]?.count ?? 0} items as released`);
 
 	console.log('📋 Adding metadata...');
-	const builtAt = formatISO(new Date());
+	const builtAt = new Date().toISOString();
 	const patchCount = patches.length.toString();
 
-	// Helper to upsert metadata entries
-	const upsertMetadata = async (key: string, value: string) => {
-		await db.insert(schema.metadata).values({ key, value }).onConflictDoUpdate({
-			target: schema.metadata.key,
-			set: { value }
-		});
-	};
-
 	await Promise.all([
-		upsertMetadata('built_at', builtAt),
-		upsertMetadata('patch_count', patchCount),
-		upsertMetadata('big_patch_days', JSON.stringify(bigDaysResponse.data))
+		db
+			.insert(schema.metadata)
+			.values({ key: 'built_at', value: builtAt })
+			.onConflictDoUpdate({
+				target: schema.metadata.key,
+				set: { value: builtAt }
+			}),
+		db
+			.insert(schema.metadata)
+			.values({ key: 'patch_count', value: patchCount })
+			.onConflictDoUpdate({
+				target: schema.metadata.key,
+				set: { value: patchCount }
+			}),
+		db
+			.insert(schema.metadata)
+			.values({ key: 'big_patch_days', value: JSON.stringify(bigDaysResponse.data) })
+			.onConflictDoUpdate({
+				target: schema.metadata.key,
+				set: { value: JSON.stringify(bigDaysResponse.data) }
+			})
 	]);
 
 	console.log('🔍 Creating indexes...');

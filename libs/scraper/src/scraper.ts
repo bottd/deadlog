@@ -1,54 +1,21 @@
-import { chromium, type Browser } from 'playwright';
+import { chromium, type Browser, type Page } from 'playwright';
 import { mkdir, writeFile, readFile } from 'fs/promises';
 import { existsSync } from 'fs';
 import path from 'path';
-import { formatISO } from 'date-fns';
 import { z } from 'zod';
+import { Window } from 'happy-dom';
 
+// Semantic selectors for XenForo forum software
+// Ordered by specificity - first match wins
 const SELECTORS = {
-	CONTENT: [
-		'.cPost_contentWrap [data-role="commentContent"]',
-		'.ipsType_normal',
-		'article .post-content',
-		'.post_body',
-		'.message-content'
-	],
-	AVATAR: [
-		'.cAuthorPane_photo img',
-		'.message-avatar img',
-		'[data-role="photo"] img',
-		'.ipsUserPhoto img',
-		'.message-user-avatar img'
-	],
-	TITLE: ['h1', '.p-title-value', '.ipsType_pageTitle'],
-	AUTHOR: [
-		'.username',
-		'.structItem-startedBy a',
-		'.ipsType_break a',
-		'.author a',
-		'.message-name a',
-		'.cAuthorPane_author a'
-	],
-	DATE: ['time', '.structItem-startDate time', '.ipsType_light time'],
-	THREAD: [
-		'.structItem',
-		'.ipsDataItem_main',
-		'.discussionListItem',
-		'[data-type="thread"]',
-		'.structItemContainer'
-	],
-	THREAD_TITLE: [
-		'.structItem-title a',
-		'.ipsDataItem_title a',
-		'.title a',
-		'[data-preview-url] a'
-	],
-	NEXT_PAGE: [
-		'.pageNav-jump--next',
-		'.ipsPagination_next a',
-		'a[rel="next"]',
-		'.pagination .next a'
-	]
+	CONTENT: ['.bbWrapper', '.message-content'],
+	AVATAR: ['.message-avatar img'],
+	TITLE: ['h1.p-title-value', 'h1'],
+	AUTHOR: ['.message-name .username', '.username'],
+	DATE: ['time[datetime]', 'time'],
+	THREAD: ['.structItem'],
+	THREAD_TITLE: ['.structItem-title a'],
+	NEXT_PAGE: ['.pageNav-jump--next', 'a[rel="next"]']
 } as const;
 
 export interface ChangelogPost {
@@ -97,6 +64,9 @@ export interface ScraperOptions {
 	useCache?: boolean;
 	cacheDir?: string;
 	maxPagesToScrape?: number;
+	maxRetries?: number;
+	retryDelayMs?: number;
+	useFetch?: boolean; // Use fetch-based scraping instead of Playwright
 }
 
 const DEFAULT_OPTIONS = {
@@ -106,8 +76,50 @@ const DEFAULT_OPTIONS = {
 		'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
 	useCache: false,
 	cacheDir: './src/lib/db/cache',
-	maxPagesToScrape: 1
+	maxPagesToScrape: 1,
+	maxRetries: 3,
+	retryDelayMs: 1000,
+	useFetch: false
 } satisfies Required<ScraperOptions>;
+
+/**
+ * Sleep helper for retry delays
+ */
+function sleep(ms: number): Promise<void> {
+	return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+/**
+ * Retry wrapper with exponential backoff
+ */
+async function withRetry<T>(
+	fn: () => Promise<T>,
+	options: { maxRetries: number; retryDelayMs: number; context?: string }
+): Promise<T> {
+	const { maxRetries, retryDelayMs, context = 'operation' } = options;
+	let lastError: Error | null = null;
+
+	for (let attempt = 1; attempt <= maxRetries; attempt++) {
+		try {
+			return await fn();
+		} catch (error) {
+			lastError = error instanceof Error ? error : new Error(String(error));
+
+			if (attempt < maxRetries) {
+				const delay = retryDelayMs * Math.pow(2, attempt - 1); // Exponential backoff
+				console.warn(
+					`⚠️  ${context} failed (attempt ${attempt}/${maxRetries}), retrying in ${delay}ms...`,
+					lastError.message
+				);
+				await sleep(delay);
+			}
+		}
+	}
+
+	throw new Error(
+		`${context} failed after ${maxRetries} attempts: ${lastError?.message}`
+	);
+}
 
 /**
  * Helper to find the first matching element from a list of selectors
@@ -124,83 +136,135 @@ function findBySelectors<T extends Element>(
 }
 
 /**
- * Scrapes full content and author info from a Deadlock forum post
+ * Shared extraction logic for post content (works with both Playwright and happy-dom)
  */
-export async function scrapeForumPost(
-	url: string,
-	options: ScraperOptions = {}
-): Promise<{ content: string; authorImage?: string } | null> {
-	const opts = { ...DEFAULT_OPTIONS, ...options };
-	let browser: Browser | null = null;
-
-	try {
-		browser = await chromium.launch({ headless: opts.headless });
-		const context = await browser.newContext({
-			userAgent: opts.userAgent
-		});
-		const page = await context.newPage();
-
-		// Navigate to the forum post
-		await page.goto(url, { waitUntil: 'domcontentloaded', timeout: opts.timeout });
-
-		// Wait for the main content area to load
-		await page.waitForSelector('.ipsType_normal, .cPost_contentWrap, article', {
-			timeout: opts.timeout
-		});
-
-		// Extract the post content and author image
-		const data = await page.evaluate(
-			({
-				selectors,
-				findBySelectorsStr
-			}: {
-				selectors: typeof SELECTORS;
-				findBySelectorsStr: string;
-			}) => {
-				// Inject helper function into page context
-				const findBySelectors = new Function('return ' + findBySelectorsStr)() as (
-					selectors: readonly string[],
-					querySelectorFn: (selector: string) => Element | null
-				) => Element | null;
-
-				// Extract content
-				const contentElement = findBySelectors(selectors.CONTENT, (s: string) =>
-					document.querySelector(s)
-				);
-				let content = contentElement?.innerHTML || null;
-
-				// Fallback: try to find the largest text content block
-				if (!content) {
-					const articles = document.querySelectorAll('article');
-					if (articles.length > 0) {
-						content = articles[0].innerHTML;
-					}
-				}
-
-				// Extract author profile image
-				const imgElement = findBySelectors(
-					selectors.AVATAR,
-					(s: string) => document.querySelector(s) as HTMLImageElement
-				) as HTMLImageElement | null;
-				const authorImage = imgElement?.src;
-
-				return { content, authorImage };
-			},
-			{ selectors: SELECTORS, findBySelectorsStr: findBySelectors.toString() }
-		);
-
-		if (!data.content) {
-			console.warn(`No content found for URL: ${url}`);
-			return null;
-		}
-
-		return { content: data.content, authorImage: data.authorImage };
-	} catch (error) {
-		console.error(`Failed to scrape ${url}:`, error);
+function extractPostContent(
+	document: Document,
+	selectors: typeof SELECTORS
+): (Omit<PostContentResult, 'postId'> & { postId: string }) | null {
+	// Extract the main post (first post)
+	const firstPost = document.querySelector('.message');
+	if (!firstPost) {
 		return null;
-	} finally {
-		await browser?.close();
 	}
+
+	// Extract title
+	const titleElement = document.querySelector(selectors.TITLE.join(', '));
+	const title = titleElement?.textContent?.trim() || '';
+
+	// Extract main post content
+	const contentElement = firstPost.querySelector(selectors.CONTENT.join(', '));
+	const content = contentElement?.innerHTML || '';
+
+	// Extract author
+	const authorElement = firstPost.querySelector(selectors.AUTHOR.join(', '));
+	const author = authorElement?.textContent?.trim() || '';
+
+	// Extract author image
+	const avatarElement = firstPost.querySelector(
+		selectors.AVATAR.join(', ')
+	) as HTMLImageElement | null;
+	const authorImage = avatarElement?.src || undefined;
+
+	// Extract date
+	const dateElement = firstPost.querySelector(selectors.DATE.join(', '));
+	const pubDate =
+		dateElement?.getAttribute('datetime') || dateElement?.textContent?.trim();
+
+	// Extract post ID from URL or data attribute
+	const postId =
+		firstPost.getAttribute('data-content')?.replace('post-', '') ||
+		firstPost.getAttribute('id')?.replace(/\D/g, '') ||
+		'';
+
+	// Find all subsequent posts by the same author (changelog poster)
+	const posterReplies: { content: string; timestamp: string }[] = [];
+	const allPosts = document.querySelectorAll('.message');
+	const authorLower = author.toLowerCase();
+
+	for (let i = 1; i < allPosts.length; i++) {
+		const post = allPosts[i];
+		const postAuthor = post
+			.querySelector(selectors.AUTHOR.join(', '))
+			?.textContent?.trim()
+			.toLowerCase();
+
+		// Check if author matches the original poster (case insensitive)
+		if (postAuthor && postAuthor === authorLower) {
+			const replyContent = post.querySelector(selectors.CONTENT.join(', '));
+			const replyDateElement = post.querySelector(selectors.DATE.join(', '));
+			const replyTimestamp =
+				replyDateElement?.getAttribute('datetime') ||
+				replyDateElement?.textContent?.trim();
+
+			if (replyContent && replyTimestamp) {
+				posterReplies.push({
+					content: replyContent.innerHTML,
+					timestamp: replyTimestamp
+				});
+			}
+		}
+	}
+
+	if (!pubDate) {
+		return null; // Will be caught and throw error by caller
+	}
+
+	return {
+		postId,
+		title,
+		author,
+		authorImage,
+		pubDate,
+		content,
+		posterReplies
+	};
+}
+
+/**
+ * Fetch-based scraping using happy-dom (lighter weight than Playwright)
+ * Best for server-rendered content like XenForo forums
+ */
+async function fetchAndParsePost(
+	url: string,
+	opts: Required<ScraperOptions>
+): Promise<PostContentResult | null> {
+	const response = await fetch(url, {
+		headers: {
+			'User-Agent': opts.userAgent,
+			Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+		},
+		signal: AbortSignal.timeout(opts.timeout)
+	});
+
+	if (!response.ok) {
+		throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+	}
+
+	const html = await response.text();
+
+	// Parse HTML with happy-dom
+	const window = new Window({ url });
+	window.document.write(html);
+
+	const data = extractPostContent(window.document as unknown as Document, SELECTORS);
+
+	// Clean up happy-dom resources
+	window.close();
+
+	if (!data) {
+		throw new Error(`No post found for URL: ${url}`);
+	}
+
+	if (!data.content) {
+		throw new Error(`No content found for URL: ${url}`);
+	}
+
+	if (!data.pubDate) {
+		throw new Error(`Date not found for post: ${url}`);
+	}
+
+	return data;
 }
 
 /**
@@ -236,7 +300,7 @@ export async function scrapeChangelogPage(
 			});
 
 			// Wait for the thread list to load
-			await page.waitForSelector('.structItemContainer, .ipsDataItem', {
+			await page.waitForSelector('.structItem', {
 				timeout: opts.timeout
 			});
 
@@ -288,15 +352,13 @@ export async function scrapeChangelogPage(
 						// Extract date
 						const dateElement = thread.querySelector(selectors.DATE.join(', '));
 						const pubDate =
-							dateElement?.getAttribute('datetime') ||
-							dateElement?.textContent?.trim() ||
-							formatISO(new Date());
+							dateElement?.getAttribute('datetime') || dateElement?.textContent?.trim();
 
 						// Extract post ID from URL
 						const postIdMatch = url.match(/threads\/[^/]+\.(\d+)/);
 						const postId = postIdMatch ? postIdMatch[1] : '';
 
-						if (url && postId) {
+						if (url && postId && pubDate) {
 							results.push({
 								title,
 								url,
@@ -343,6 +405,95 @@ export async function scrapeChangelogPage(
 }
 
 /**
+ * Scrapes a single changelog post using Playwright (with shared browser context)
+ * Internal function - use scrapeChangelogPost for the public API
+ */
+async function scrapePostWithPlaywright(
+	url: string,
+	page: Page,
+	opts: Required<ScraperOptions>
+): Promise<PostContentResult | null> {
+	await page.goto(url, { waitUntil: 'domcontentloaded', timeout: opts.timeout });
+	await page.waitForSelector('.message', { timeout: opts.timeout });
+
+	const data = await page.evaluate((selectors) => {
+		const firstPost = document.querySelector('.message');
+		if (!firstPost) return null;
+
+		const titleElement = document.querySelector(selectors.TITLE.join(', '));
+		const title = titleElement?.textContent?.trim() || '';
+
+		const contentElement = firstPost.querySelector(selectors.CONTENT.join(', '));
+		const content = contentElement?.innerHTML || '';
+
+		const authorElement = firstPost.querySelector(selectors.AUTHOR.join(', '));
+		const author = authorElement?.textContent?.trim() || '';
+
+		const avatarElement = firstPost.querySelector(
+			selectors.AVATAR.join(', ')
+		) as HTMLImageElement;
+		const authorImage = avatarElement?.src || undefined;
+
+		const dateElement = firstPost.querySelector(selectors.DATE.join(', '));
+		const pubDate =
+			dateElement?.getAttribute('datetime') || dateElement?.textContent?.trim();
+
+		const postId =
+			firstPost.getAttribute('data-content')?.replace('post-', '') ||
+			firstPost.getAttribute('id')?.replace(/\D/g, '') ||
+			'';
+
+		const posterReplies: { content: string; timestamp: string }[] = [];
+		const allPosts = document.querySelectorAll('.message');
+		const authorLower = author.toLowerCase();
+
+		for (let i = 1; i < allPosts.length; i++) {
+			const post = allPosts[i];
+			const postAuthor = post
+				.querySelector(selectors.AUTHOR.join(', '))
+				?.textContent?.trim()
+				.toLowerCase();
+
+			if (postAuthor && postAuthor === authorLower) {
+				const replyContent = post.querySelector(selectors.CONTENT.join(', '));
+				const replyDateElement = post.querySelector(selectors.DATE.join(', '));
+				const replyTimestamp =
+					replyDateElement?.getAttribute('datetime') ||
+					replyDateElement?.textContent?.trim() ||
+					new Date().toISOString();
+
+				if (replyContent) {
+					posterReplies.push({
+						content: replyContent.innerHTML,
+						timestamp: replyTimestamp
+					});
+				}
+			}
+		}
+
+		return {
+			postId,
+			title,
+			author,
+			authorImage,
+			pubDate: pubDate || null,
+			content,
+			posterReplies
+		};
+	}, SELECTORS);
+
+	if (!data || !data.content) {
+		throw new Error(`No content found for URL: ${url}`);
+	}
+
+	if (!data.pubDate) {
+		throw new Error(`Date not found for post: ${url}`);
+	}
+
+	return data as PostContentResult;
+}
+
+/**
  * Scrapes a single changelog post including main content and poster replies
  */
 export async function scrapeChangelogPost(
@@ -355,7 +506,7 @@ export async function scrapeChangelogPost(
 	const postIdMatch = url.match(/threads\/[^/]+\.(\d+)/);
 	const postId = postIdMatch ? postIdMatch[1] : null;
 
-	// Check cache if enabled (for individual calls outside of batch scraping)
+	// Check cache if enabled
 	if (opts.useCache && postId) {
 		const cacheFile = path.join(opts.cacheDir, `post-${postId}.json`);
 		if (existsSync(cacheFile)) {
@@ -368,140 +519,77 @@ export async function scrapeChangelogPost(
 		}
 	}
 
+	// Use fetch-based scraping if enabled (lighter weight)
+	if (opts.useFetch) {
+		const data = await withRetry(() => fetchAndParsePost(url, opts), {
+			maxRetries: opts.maxRetries,
+			retryDelayMs: opts.retryDelayMs,
+			context: `fetch ${url}`
+		});
+
+		if (opts.useCache && postId && data) {
+			await writeToCache(opts.cacheDir, postId, data);
+		}
+
+		return data;
+	}
+
+	// Playwright-based scraping (launches new browser for single post)
 	let browser: Browser | null = null;
 
 	try {
 		browser = await chromium.launch({ headless: opts.headless });
-		const context = await browser.newContext({
-			userAgent: opts.userAgent
-		});
+		const context = await browser.newContext({ userAgent: opts.userAgent });
 		const page = await context.newPage();
 
-		await page.goto(url, { waitUntil: 'domcontentloaded', timeout: opts.timeout });
+		const data = await withRetry(() => scrapePostWithPlaywright(url, page, opts), {
+			maxRetries: opts.maxRetries,
+			retryDelayMs: opts.retryDelayMs,
+			context: `scrape ${url}`
+		});
 
-		// Wait for the main content area to load
-		await page.waitForSelector('article, .message, .cPost', { timeout: opts.timeout });
-
-		// Extract post content and poster replies
-		const data = await page.evaluate((selectors) => {
-			// Extract the main post (first post)
-			const firstPost = document.querySelector('article, .message, .cPost');
-			if (!firstPost) {
-				return null;
-			}
-
-			// Extract title
-			const titleElement = document.querySelector(selectors.TITLE.join(', '));
-			const title = titleElement?.textContent?.trim() || '';
-
-			// Extract main post content
-			const contentElement = firstPost.querySelector(selectors.CONTENT.join(', '));
-			const content = contentElement?.innerHTML || '';
-
-			// Extract author
-			const authorElement = firstPost.querySelector(selectors.AUTHOR.join(', '));
-			const author = authorElement?.textContent?.trim() || '';
-
-			// Extract author image
-			const avatarElement = firstPost.querySelector(
-				selectors.AVATAR.join(', ')
-			) as HTMLImageElement;
-			const authorImage = avatarElement?.src || undefined;
-
-			// Extract date
-			const dateElement = firstPost.querySelector('time');
-			const pubDate =
-				dateElement?.getAttribute('datetime') ||
-				dateElement?.textContent?.trim() ||
-				new Date().toISOString();
-
-			// Extract post ID from URL or data attribute
-			const postId =
-				firstPost.getAttribute('data-content') ||
-				firstPost.getAttribute('id')?.replace(/\D/g, '') ||
-				'';
-
-			// Find all subsequent posts by the same author (changelog poster)
-			const posterReplies: { content: string; timestamp: string }[] = [];
-			const allPosts = document.querySelectorAll('article, .message, .cPost');
-			const authorLower = author.toLowerCase();
-
-			for (let i = 1; i < allPosts.length; i++) {
-				const post = allPosts[i];
-				const postAuthor = post
-					.querySelector(selectors.AUTHOR.join(', '))
-					?.textContent?.trim()
-					.toLowerCase();
-
-				// Check if author matches the original poster (case insensitive)
-				if (postAuthor && postAuthor === authorLower) {
-					const replyContent = post.querySelector(selectors.CONTENT.join(', '));
-					const replyDateElement = post.querySelector('time');
-					const replyTimestamp =
-						replyDateElement?.getAttribute('datetime') ||
-						replyDateElement?.textContent?.trim() ||
-						formatISO(new Date());
-
-					if (replyContent) {
-						posterReplies.push({
-							content: replyContent.innerHTML,
-							timestamp: replyTimestamp
-						});
-					}
-				}
-			}
-
-			return {
-				postId,
-				title,
-				author,
-				authorImage,
-				pubDate,
-				content,
-				posterReplies
-			};
-		}, SELECTORS);
-
-		if (!data || !data.content) {
-			console.warn(`No content found for URL: ${url}`);
-			return null;
-		}
-
-		// Write to cache if enabled
 		if (opts.useCache && postId && data) {
-			try {
-				if (!existsSync(opts.cacheDir)) {
-					await mkdir(opts.cacheDir, { recursive: true });
-				}
-				const cacheFile = path.join(opts.cacheDir, `post-${postId}.json`);
-				await writeFile(cacheFile, JSON.stringify(data, null, 2), 'utf-8');
-			} catch (error) {
-				console.warn(`Failed to write cache for post ${postId}:`, error);
-			}
+			await writeToCache(opts.cacheDir, postId, data);
 		}
 
 		return data;
-	} catch (error) {
-		console.error(`Failed to scrape changelog post ${url}:`, error);
-		return null;
 	} finally {
 		await browser?.close();
 	}
 }
 
 /**
- * Scrapes multiple changelog posts in parallel with rate limiting
+ * Helper to write scraped data to cache
+ */
+async function writeToCache(
+	cacheDir: string,
+	postId: string,
+	data: PostContentResult
+): Promise<void> {
+	try {
+		if (!existsSync(cacheDir)) {
+			await mkdir(cacheDir, { recursive: true });
+		}
+		const cacheFile = path.join(cacheDir, `post-${postId}.json`);
+		await writeFile(cacheFile, JSON.stringify(data, null, 2), 'utf-8');
+	} catch (error) {
+		console.warn(`Failed to write cache for post ${postId}:`, error);
+	}
+}
+
+/**
+ * Scrapes multiple changelog posts with shared browser instance for efficiency
  */
 export async function scrapeMultipleChangelogPosts(
 	posts: ChangelogPost[],
 	options: ScraperOptions & { concurrency?: number; delayMs?: number } = {}
 ): Promise<PostContentResult[]> {
-	const { concurrency = 10, delayMs = 1000, ...scraperOptions } = options;
+	const { concurrency = 5, delayMs = 500, ...scraperOptions } = options;
 	const opts = { ...DEFAULT_OPTIONS, ...scraperOptions };
 	const results: PostContentResult[] = [];
 
 	console.log(
-		`🕷️  Scraping ${posts.length} changelog posts (concurrency: ${concurrency})...`
+		`🕷️  Scraping ${posts.length} changelog posts (concurrency: ${concurrency}, mode: ${opts.useFetch ? 'fetch' : 'playwright'})...`
 	);
 
 	// Pre-check cache and separate cached vs non-cached posts
@@ -539,29 +627,86 @@ export async function scrapeMultipleChangelogPosts(
 		postsToScrape.push(...posts);
 	}
 
-	// Process non-cached posts in batches to respect rate limits
-	for (let i = 0; i < postsToScrape.length; i += concurrency) {
-		const batch = postsToScrape.slice(i, i + concurrency);
-		const batchPromises = batch.map(async (post): Promise<PostContentResult | null> => {
-			try {
-				return await scrapeChangelogPost(post.url, scraperOptions);
-			} catch (error) {
-				console.error(`Failed to scrape ${post.postId}:`, error);
-				return null;
+	// Use fetch-based scraping if enabled
+	if (opts.useFetch) {
+		for (let i = 0; i < postsToScrape.length; i += concurrency) {
+			const batch = postsToScrape.slice(i, i + concurrency);
+			const batchPromises = batch.map(async (post) => {
+				const data = await withRetry(() => fetchAndParsePost(post.url, opts), {
+					maxRetries: opts.maxRetries,
+					retryDelayMs: opts.retryDelayMs,
+					context: `fetch ${post.postId}`
+				});
+
+				if (opts.useCache && data) {
+					await writeToCache(opts.cacheDir, post.postId, data);
+				}
+
+				return data;
+			});
+
+			const batchResults = await Promise.all(batchPromises);
+			results.push(...batchResults.filter((r): r is PostContentResult => r !== null));
+
+			const totalProcessed =
+				cachedPosts.length + Math.min(i + concurrency, postsToScrape.length);
+			console.log(`  ✅ Processed ${totalProcessed}/${posts.length} posts`);
+
+			if (i + concurrency < postsToScrape.length) {
+				await sleep(delayMs);
 			}
-		});
+		}
+	} else {
+		// Playwright-based scraping with shared browser instance
+		let browser: Browser | null = null;
 
-		const batchResults = await Promise.all(batchPromises);
-		results.push(...batchResults.filter((r): r is PostContentResult => r !== null));
+		try {
+			browser = await chromium.launch({ headless: opts.headless });
+			const context = await browser.newContext({ userAgent: opts.userAgent });
 
-		// Progress update
-		const totalProcessed =
-			cachedPosts.length + Math.min(i + concurrency, postsToScrape.length);
-		console.log(`  ✅ Processed ${totalProcessed}/${posts.length} posts`);
+			// Create a pool of pages for concurrent scraping
+			const pages: Page[] = [];
+			for (let i = 0; i < concurrency; i++) {
+				pages.push(await context.newPage());
+			}
 
-		// Delay between batches to avoid rate limiting
-		if (i + concurrency < postsToScrape.length) {
-			await new Promise((resolve) => setTimeout(resolve, delayMs));
+			for (let i = 0; i < postsToScrape.length; i += concurrency) {
+				const batch = postsToScrape.slice(i, i + concurrency);
+				const batchPromises = batch.map(async (post, batchIndex) => {
+					const page = pages[batchIndex % pages.length];
+
+					const data = await withRetry(
+						() => scrapePostWithPlaywright(post.url, page, opts),
+						{
+							maxRetries: opts.maxRetries,
+							retryDelayMs: opts.retryDelayMs,
+							context: `scrape ${post.postId}`
+						}
+					);
+
+					if (opts.useCache && data) {
+						await writeToCache(opts.cacheDir, post.postId, data);
+					}
+
+					return data;
+				});
+
+				const batchResults = await Promise.all(batchPromises);
+				results.push(...batchResults.filter((r): r is PostContentResult => r !== null));
+
+				const totalProcessed =
+					cachedPosts.length + Math.min(i + concurrency, postsToScrape.length);
+				console.log(`  ✅ Processed ${totalProcessed}/${posts.length} posts`);
+
+				if (i + concurrency < postsToScrape.length) {
+					await sleep(delayMs);
+				}
+			}
+
+			// Close all pages
+			await Promise.all(pages.map((p) => p.close()));
+		} finally {
+			await browser?.close();
 		}
 	}
 

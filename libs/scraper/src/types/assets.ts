@@ -130,6 +130,7 @@ export interface EnrichedHero extends Omit<HeroDb, 'images' | 'isReleased'> {
 
 export interface EnrichedItem extends Omit<ItemDb, 'images' | 'isReleased' | 'type'> {
 	image: string;
+	shopImage?: string;
 	type: 'weapon' | 'ability' | 'upgrade';
 	isReleased: boolean;
 }
