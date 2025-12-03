@@ -16,10 +16,10 @@
 
 <div
 	class={cn(
-		'group rounded-lg border p-4 shadow-md transition-all hover:translate-x-1',
+		'group rounded-lg border p-4 shadow-md transition-all hover:translate-x-1 hover:shadow-lg',
 		isHighlighted
-			? 'border-primary/50 bg-primary/5 shadow-primary/20 hover:border-primary/70 hover:shadow-primary/30 hover:shadow-lg'
-			: 'border-border bg-card hover:border-primary/40 hover:shadow-primary/10 hover:shadow-lg'
+			? 'border-primary/50 bg-primary/5 shadow-primary/20 hover:border-primary/70 hover:shadow-primary/30'
+			: 'border-border bg-card hover:border-primary/40 hover:shadow-primary/10'
 	)}
 >
 	<div class="mb-3 flex items-center gap-3">
@@ -31,7 +31,7 @@
 				height="48"
 				loading="lazy"
 				decoding="async"
-				class="border-primary/30 group-hover:border-primary/50 group-hover:shadow-primary/20 size-12 rounded-full border-2 object-cover shadow-sm transition-all group-hover:shadow-md"
+				class="hero-avatar"
 			/>
 		{/if}
 		<h4
@@ -82,3 +82,12 @@
 		</ul>
 	{/if}
 </div>
+
+<style lang="postcss">
+	@reference "../../../../app.css";
+
+	.hero-avatar {
+		@apply border-primary/30 bg-card size-12 rounded-full border-2 object-cover shadow-sm transition-all;
+		@apply group-hover:border-primary/50 group-hover:shadow-primary/20 group-hover:shadow-md;
+	}
+</style>

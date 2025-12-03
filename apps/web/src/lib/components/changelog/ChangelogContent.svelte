@@ -135,9 +135,7 @@
 	});
 </script>
 
-<div
-	class="prose prose-invert prose-sm [&_a]:text-primary [&_code]:bg-card [&_code]:text-primary [&_h1]:text-foreground [&_h2]:text-foreground [&_h3]:text-primary [&_h3]:font-display [&_pre]:border-border [&_pre]:bg-card [&_strong]:text-foreground [&>*]:text-foreground/90 max-w-none [&_a:hover]:opacity-80 [&_code]:rounded [&_code]:px-1 [&_code]:font-mono [&_ol]:list-decimal [&_pre]:border [&_pre]:font-mono [&_ul]:list-disc"
->
+<div class="prose-content">
 	{#if contentJson}
 		<!-- Render structured JSON content -->
 
@@ -168,7 +166,7 @@
 							<button
 								type="button"
 								onclick={() => (showAllNotes = true)}
-								class="text-primary mt-3 text-sm transition-colors hover:opacity-80"
+								class="show-more-btn"
 							>
 								+ Show {contentJson.notes.length - displayedNotes.length} more note{contentJson
 									.notes.length -
@@ -181,7 +179,7 @@
 							<button
 								type="button"
 								onclick={() => (showAllNotes = false)}
-								class="text-primary mt-3 text-sm transition-colors hover:opacity-80"
+								class="show-more-btn"
 							>
 								- Show less
 							</button>
@@ -261,3 +259,52 @@
 		</Accordion.Root>
 	{/if}
 </div>
+
+<style lang="postcss">
+	@reference "../../../app.css";
+
+	.prose-content {
+		@apply prose prose-sm prose-invert max-w-none;
+
+		:global(> *) {
+			@apply text-foreground/90;
+		}
+
+		:global(a) {
+			@apply text-primary transition-colors hover:opacity-80;
+		}
+
+		:global(strong) {
+			@apply text-foreground;
+		}
+
+		:global(h1),
+		:global(h2) {
+			@apply text-foreground;
+		}
+
+		:global(h3) {
+			@apply font-display text-primary;
+		}
+
+		:global(code) {
+			@apply bg-card text-primary rounded px-1 font-mono;
+		}
+
+		:global(pre) {
+			@apply border-border bg-card border font-mono;
+		}
+
+		:global(ul) {
+			@apply list-disc;
+		}
+
+		:global(ol) {
+			@apply list-decimal;
+		}
+	}
+
+	.show-more-btn {
+		@apply text-primary mt-3 text-sm transition-colors hover:opacity-80;
+	}
+</style>

@@ -26,7 +26,11 @@
 	)}
 >
 	{#if imageSrc}
-		<img src={imageSrc} alt={name} class="size-8 rounded object-cover" />
+		<img
+			src={imageSrc}
+			alt={name}
+			class="border-border bg-card size-8 rounded border object-cover"
+		/>
 	{:else}
 		<div class="bg-secondary size-8 rounded"></div>
 	{/if}

@@ -200,10 +200,7 @@
 
 <div class="sticky z-40 w-full" style="top: max(64px, env(safe-area-inset-top));">
 	<div class="relative">
-		<form
-			onsubmit={handleSubmit}
-			class="border-border bg-card/80 text-foreground focus-within:border-primary focus-within:ring-primary/20 flex min-h-[44px] w-full items-center gap-2 rounded-md border-2 px-3 py-2 text-sm backdrop-blur-sm transition-colors focus-within:ring-1"
-		>
+		<form onsubmit={handleSubmit} class="filter-form">
 			<div class="flex min-w-0 flex-1 flex-wrap items-center gap-1.5">
 				{#each selectedHeroObjects as hero (hero.id)}
 					<FilterBadge
@@ -292,9 +289,7 @@
 
 		<!-- Desktop dropdown (hidden on mobile) -->
 		{#if open}
-			<div
-				class="border-border bg-background/95 absolute inset-x-0 top-full z-50 mt-2 hidden max-h-[450px] overflow-hidden rounded-md border shadow-2xl backdrop-blur-lg sm:block"
-			>
+			<div class="filter-dropdown">
 				{@render filterContent()}
 			</div>
 			<button
@@ -307,3 +302,18 @@
 		{/if}
 	</div>
 </div>
+
+<style lang="postcss">
+	@reference "../../../app.css";
+
+	.filter-form {
+		@apply flex min-h-[44px] w-full items-center gap-2 rounded-md border-2 px-3 py-2 text-sm transition-colors;
+		@apply border-border bg-card/80 text-foreground backdrop-blur-sm;
+		@apply focus-within:border-primary focus-within:ring-primary/20 focus-within:ring-1;
+	}
+
+	.filter-dropdown {
+		@apply absolute inset-x-0 top-full z-50 mt-2 hidden max-h-[450px] overflow-hidden rounded-md border shadow-2xl sm:block;
+		@apply border-border bg-background/95 backdrop-blur-lg;
+	}
+</style>

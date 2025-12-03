@@ -24,11 +24,7 @@
 	<HoverCard.Content class="w-56">
 		<div class="flex gap-3">
 			{#if imageSrc}
-				<img
-					src={imageSrc}
-					alt={name}
-					class="border-border size-12 rounded-full border-2 object-cover"
-				/>
+				<img src={imageSrc} alt={name} class="avatar" />
 			{/if}
 			<div class="flex flex-col justify-center">
 				<p class="font-display text-sm">{name}</p>
@@ -37,3 +33,11 @@
 		</div>
 	</HoverCard.Content>
 </HoverCard.Root>
+
+<style lang="postcss">
+	@reference "../../../app.css";
+
+	.avatar {
+		@apply border-border bg-card size-12 rounded-full border-2 object-cover;
+	}
+</style>

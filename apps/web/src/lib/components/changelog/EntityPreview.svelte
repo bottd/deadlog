@@ -45,6 +45,7 @@
 				height="36"
 				loading="lazy"
 				decoding="async"
+				class="border-border bg-card size-9 rounded-full border-2 object-cover transition-transform hover:z-10 hover:scale-110"
 				style="margin-left:{i === 0 ? 0 : overlap}px"
 			/>
 		</EntityTooltip>
@@ -56,10 +57,6 @@
 
 <style lang="postcss">
 	@reference "../../../app.css";
-
-	img {
-		@apply border-border bg-card size-9 rounded-full border-2 object-cover transition-transform hover:z-10 hover:scale-110;
-	}
 
 	.ellipse {
 		@apply border-primary/30 bg-card text-primary flex size-9 items-center justify-center rounded-md border-2 text-xs font-semibold;
