@@ -99,7 +99,7 @@
 		<ChangeHeader {id} {date} {author} {authorImage} {icons} />
 
 		<div
-			class="relative mb-4 overflow-hidden break-words transition-all duration-500 ease-out"
+			class="relative mb-4 overflow-hidden break-words transition-all duration-300 ease-out"
 			class:max-h-[140px]={!isExpanded && !isFiltered}
 		>
 			{#if browser}

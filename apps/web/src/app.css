@@ -219,7 +219,7 @@
 		padding-top: var(--safe-area-inset-top);
 		padding-right: var(--safe-area-inset-right);
 		padding-bottom: var(--safe-area-inset-bottom);
-		padding-left: var(--safe-area-left);
+		padding-left: var(--safe-area-inset-left);
 		font-feature-settings:
 			'kern' 1,
 			'liga' 1,
@@ -268,4 +268,16 @@
 		var(--editorial-divider) 90%,
 		transparent
 	);
+}
+
+/* Accessibility: reduced motion style */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
 }
