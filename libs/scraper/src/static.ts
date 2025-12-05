@@ -1,6 +1,6 @@
 import { eq, sql, desc, gt } from 'drizzle-orm';
 import type { ScrapedChangelog } from './deadlock';
-import type { EnrichedHero, EnrichedItem } from './types/assets';
+import type { EnrichedHero, EnrichedItem, EntityIcon } from './types/assets';
 import { getLibsqlDb, type DrizzleDB, schema } from '@deadlog/db';
 
 export { getLibsqlDb as getDb };
@@ -13,6 +13,11 @@ function buildTextSearchCondition(searchQuery: string) {
 export async function getAllChangelogs(db: DrizzleDB) {
 	const results = await db.select().from(schema.changelogs).all();
 	return results;
+}
+
+export async function getAllChangelogIds(db: DrizzleDB): Promise<string[]> {
+	const results = await db.select().from(schema.changelogs).all();
+	return results.map((r) => r.id);
 }
 
 export async function queryChangelogs(
@@ -157,6 +162,24 @@ export async function getHeroByName(
 	return result ?? null;
 }
 
+export async function getHeroBySlug(
+	db: DrizzleDB,
+	slug: string
+): Promise<EnrichedHero | null> {
+	const result = await db
+		.select()
+		.from(schema.heroes)
+		.where(eq(schema.heroes.slug, slug))
+		.get();
+
+	return result ?? null;
+}
+
+export async function getAllHeroSlugs(db: DrizzleDB): Promise<string[]> {
+	const results = await db.select().from(schema.heroes).all();
+	return results.map((r) => r.slug);
+}
+
 export async function getItemByName(
 	db: DrizzleDB,
 	name: string
@@ -170,12 +193,66 @@ export async function getItemByName(
 	return result ?? null;
 }
 
-interface EntityIcon {
-	id: number;
-	src: string;
-	alt: string;
-	type: 'hero' | 'item';
+export async function getItemBySlug(
+	db: DrizzleDB,
+	slug: string
+): Promise<EnrichedItem | null> {
+	const result = await db
+		.select()
+		.from(schema.items)
+		.where(eq(schema.items.slug, slug))
+		.get();
+
+	return result ?? null;
 }
+
+export async function getAllItemSlugs(db: DrizzleDB): Promise<string[]> {
+	const results = await db.select().from(schema.items).all();
+	return results.map((r) => r.slug);
+}
+
+export async function getChangelogsByHeroId(
+	db: DrizzleDB,
+	heroId: number,
+	limit = 50
+): Promise<ScrapedChangelog[]> {
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	const results = await (db as any)
+		.selectDistinct({ changelogs: schema.changelogs })
+		.from(schema.changelogs)
+		.innerJoin(
+			schema.changelogHeroes,
+			eq(schema.changelogs.id, schema.changelogHeroes.changelogId)
+		)
+		.where(eq(schema.changelogHeroes.heroId, heroId))
+		.orderBy(desc(schema.changelogs.pubDate))
+		.limit(limit)
+		.all();
+
+	return results.map((r: { changelogs: ScrapedChangelog }) => r.changelogs);
+}
+
+export async function getChangelogsByItemId(
+	db: DrizzleDB,
+	itemId: number,
+	limit = 50
+): Promise<ScrapedChangelog[]> {
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	const results = await (db as any)
+		.selectDistinct({ changelogs: schema.changelogs })
+		.from(schema.changelogs)
+		.innerJoin(
+			schema.changelogItems,
+			eq(schema.changelogs.id, schema.changelogItems.changelogId)
+		)
+		.where(eq(schema.changelogItems.itemId, itemId))
+		.orderBy(desc(schema.changelogs.pubDate))
+		.limit(limit)
+		.all();
+
+	return results.map((r: { changelogs: ScrapedChangelog }) => r.changelogs);
+}
+
 interface ChangelogIcons {
 	heroes: EntityIcon[];
 	items: EntityIcon[];
@@ -222,7 +299,8 @@ export async function getChangelogIcons(
 				Object.values(images)[0] ??
 				'',
 			alt: r.heroes.name,
-			type: 'hero'
+			type: 'hero',
+			heroType: r.heroes.heroType
 		});
 	}
 
@@ -232,7 +310,8 @@ export async function getChangelogIcons(
 			id: r.items.id,
 			src: r.items.image,
 			alt: r.items.name,
-			type: 'item'
+			type: 'item',
+			itemCategory: r.items.type
 		});
 	}
 

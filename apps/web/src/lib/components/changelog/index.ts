@@ -6,3 +6,4 @@ export { default as EntityPreview } from './EntityPreview.svelte';
 export { default as EntityTooltip } from './EntityTooltip.svelte';
 export { default as ExpandButton } from './ExpandButton.svelte';
 export { default as NoteWithPatterns } from './NoteWithPatterns.svelte';
+export { default as PatchPreviewCard } from './PatchPreviewCard.svelte';
