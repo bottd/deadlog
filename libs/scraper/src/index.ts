@@ -2,6 +2,7 @@
 export {
 	queryChangelogs,
 	getAllChangelogs,
+	getAllChangelogIds,
 	getChangelogsCount,
 	getChangelogPosition,
 	getChangelogById,
@@ -9,7 +10,13 @@ export {
 	getAllHeroes,
 	getAllItems,
 	getHeroByName,
+	getHeroBySlug,
+	getAllHeroSlugs,
 	getItemByName,
+	getItemBySlug,
+	getAllItemSlugs,
+	getChangelogsByHeroId,
+	getChangelogsByItemId,
 	getChangelogIcons
 } from './static';
 

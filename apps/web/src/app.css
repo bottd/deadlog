@@ -92,6 +92,16 @@
 	--editorial-accent: var(--accent-500);
 	--editorial-divider: var(--border-default);
 
+	/* Hero Types */
+	--type-marksman: oklch(0.75 0.15 55);
+	--type-mystic: oklch(0.65 0.2 300);
+	--type-brawler: oklch(0.6 0.2 25);
+
+	/* Item Categories */
+	--item-weapon: oklch(0.65 0.2 40);
+	--item-vitality: oklch(0.65 0.2 140);
+	--item-spirit: oklch(0.65 0.2 290);
+
 	--chart-1: var(--color-orange-500);
 	--chart-2: var(--color-teal-500);
 	--chart-3: var(--color-slate-600);
@@ -150,6 +160,16 @@
 	--ring: var(--accent-500);
 	--editorial-accent: var(--accent-500);
 	--editorial-divider: var(--border-default);
+
+	/* Hero Types */
+	--type-marksman: oklch(0.75 0.15 55);
+	--type-mystic: oklch(0.65 0.2 300);
+	--type-brawler: oklch(0.6 0.2 25);
+
+	/* Item Categories */
+	--item-weapon: oklch(0.65 0.2 40);
+	--item-vitality: oklch(0.65 0.2 140);
+	--item-spirit: oklch(0.65 0.2 290);
 
 	--chart-1: var(--color-blue-500);
 	--chart-2: var(--color-emerald-500);

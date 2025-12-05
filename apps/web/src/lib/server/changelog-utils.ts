@@ -1,11 +1,15 @@
-import { getChangelogIcons, type ScrapedChangelog } from '@deadlog/scraper';
+import {
+	getChangelogIcons,
+	type ScrapedChangelog,
+	type EntityIcon
+} from '@deadlog/scraper';
 import type { DrizzleDB } from '@deadlog/db';
 import { parseCSV } from '$lib/stores/searchParams.svelte';
 
 export interface ChangelogWithIcons extends ScrapedChangelog {
 	icons: {
-		heroes: { id: number; src: string; alt: string; type: 'hero' | 'item' }[];
-		items: { id: number; src: string; alt: string; type: 'hero' | 'item' }[];
+		heroes: EntityIcon[];
+		items: EntityIcon[];
 	};
 	date: Date;
 	fullContent: string;

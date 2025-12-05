@@ -19,6 +19,8 @@ import { parseAuthorName } from './authorParser';
 import { scrapeChangelogPage, scrapeMultipleChangelogPosts } from './scraper';
 import { parseHtmlToJson } from './changelogParser';
 
+import { toSlug } from '@deadlog/utils';
+
 const buildDatabaseOptionsSchema = z.object({
 	outputDir: z.string().default('./dist/data')
 });
@@ -75,6 +77,7 @@ export async function buildDatabase(
 		CREATE TABLE IF NOT EXISTS heroes (
 			id INTEGER PRIMARY KEY,
 			name TEXT NOT NULL,
+			slug TEXT NOT NULL UNIQUE,
 			class_name TEXT NOT NULL,
 			hero_type TEXT,
 			images TEXT NOT NULL,
@@ -86,6 +89,7 @@ export async function buildDatabase(
 		CREATE TABLE IF NOT EXISTS items (
 			id INTEGER PRIMARY KEY,
 			name TEXT NOT NULL,
+			slug TEXT NOT NULL UNIQUE,
 			class_name TEXT NOT NULL,
 			type TEXT NOT NULL,
 			image TEXT NOT NULL,
@@ -156,6 +160,7 @@ export async function buildDatabase(
 		const heroData = insertHeroSchema.parse({
 			id: hero.id,
 			name: hero.name,
+			slug: toSlug(hero.name),
 			className: hero.class_name,
 			heroType: hero.hero_type ?? null,
 			images: hero.images,
@@ -200,6 +205,7 @@ export async function buildDatabase(
 		const itemData = insertItemSchema.parse({
 			id: item.id,
 			name: item.name,
+			slug: toSlug(item.name),
 			className: item.class_name,
 			type: item.type,
 			image:
@@ -444,6 +450,8 @@ export async function buildDatabase(
 	await db.run(
 		sql`CREATE INDEX IF NOT EXISTS idx_changelog_items_item_id ON changelog_items(item_id)`
 	);
+	await db.run(sql`CREATE INDEX IF NOT EXISTS idx_heroes_slug ON heroes(slug)`);
+	await db.run(sql`CREATE INDEX IF NOT EXISTS idx_items_slug ON items(slug)`);
 
 	client.close();
 

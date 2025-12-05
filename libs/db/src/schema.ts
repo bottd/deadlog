@@ -83,6 +83,7 @@ export const selectChangelogSchema = createSelectSchema(changelogs, {
 export const heroes = sqliteTable('heroes', {
 	id: integer('id').primaryKey(),
 	name: text('name').notNull(),
+	slug: text('slug').notNull().unique(),
 	className: text('class_name').notNull(),
 	heroType: text('hero_type'),
 	images: text('images', { mode: 'json' }).notNull().$type<Record<string, string>>(),
@@ -102,6 +103,7 @@ export const selectHeroSchema = createSelectSchema(heroes, {
 export const items = sqliteTable('items', {
 	id: integer('id').primaryKey(),
 	name: text('name').notNull(),
+	slug: text('slug').notNull().unique(),
 	className: text('class_name').notNull(),
 	type: text('type', { enum: ['weapon', 'ability', 'upgrade'] }).notNull(),
 	image: text('image').notNull(),

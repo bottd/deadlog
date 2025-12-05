@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import ChangeListItem from './ChangeListItem.svelte';
-	import { GutterLine } from '../gutter-line';
-	import { ChangelogEntry } from '.';
+	import PatchPreviewCard from './PatchPreviewCard.svelte';
 	import {
 		getVisibleHeroNames,
 		getVisibleItemNames,
@@ -17,12 +15,32 @@
 	} from '$lib/utils/selectedEntities.svelte';
 	import { createInfiniteQuery } from '@tanstack/svelte-query';
 	import { useIntersectionObserver } from 'runed';
+	import { fly } from 'svelte/transition';
 	import AlertCircle from '@lucide/svelte/icons/alert-circle';
 	import Frown from '@lucide/svelte/icons/frown';
-	import ChangelogSkeleton from './ChangelogSkeleton.svelte';
+	import { browser } from '$app/environment';
+
+	// Check for reduced motion preference
+	let reducedMotion = $state(false);
+	$effect(() => {
+		if (browser) {
+			const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+			reducedMotion = mediaQuery.matches;
+			const handler = (e: MediaQueryListEvent) => {
+				reducedMotion = e.matches;
+			};
+			mediaQuery.addEventListener('change', handler);
+			return () => mediaQuery.removeEventListener('change', handler);
+		}
+	});
 
 	const params = getSearchParams();
-	const { changelogs, heroes, items, initialLoadCount, totalCount } = page.data;
+
+	// Make these reactive to handle navigation
+	// Guard against undefined data (can happen during navigation)
+	const changelogs = $derived(page.data.changelogs ?? []);
+	const initialLoadCount = $derived(page.data.initialLoadCount ?? 5);
+	const totalCount = $derived(page.data.totalCount ?? 0);
 
 	interface PageData {
 		changelogs: FilteredChangelog[];
@@ -41,6 +59,8 @@
 		number
 	>(() => ({
 		queryKey: ['changelogs', params.hero, params.item, params.q],
+		// Always enable - we have initialData from SSR
+		enabled: true,
 		initialData: {
 			pages: [
 				{
@@ -73,11 +93,7 @@
 		getNextPageParam: (lastPage, pages) => {
 			return lastPage.hasMore ? pages.length : undefined;
 		},
-		initialPageParam: 0,
-		refetchOnWindowFocus: true,
-		refetchOnReconnect: true,
-		retry: 3,
-		retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000)
+		initialPageParam: 0
 	}));
 
 	let trigger = $state<HTMLDivElement | null>(null);
@@ -101,33 +117,6 @@
 		},
 		{ threshold: 0.1 }
 	);
-
-	// Build hero and item maps for lookups (ID -> data)
-	const heroMap = $derived.by(() => {
-		const map: Record<number, { name: string; images: Record<string, string> }> = {};
-		for (const hero of heroes) {
-			if (hero.id) {
-				map[hero.id] = {
-					name: hero.name,
-					images: hero.images
-				};
-			}
-		}
-		return map;
-	});
-
-	const itemMap = $derived.by(() => {
-		const map: Record<number, { name: string; image: string }> = {};
-		for (const item of items) {
-			if (item.id) {
-				map[item.id] = {
-					name: item.name,
-					image: item.image
-				};
-			}
-		}
-		return map;
-	});
 
 	const filterState = $derived.by(
 		(): FilterState => ({
@@ -166,11 +155,13 @@
 			);
 		});
 	});
+
+	// Track card index for animations - only animate initial load
+	let cardIndex = $state(0);
+	const initialLoadSize = changelogs.length;
 </script>
 
-<main class="relative container mx-auto mt-12 mb-24" aria-label="Changelog entries">
-	<GutterLine />
-
+<main class="container mx-auto mt-12 mb-24 px-4" aria-label="Changelog entries">
 	{#if query.isError}
 		<div class="flex flex-col items-center justify-center py-16 text-center">
 			<div class="mb-4 rounded-full bg-red-950/50 p-6">
@@ -192,97 +183,101 @@
 	{/if}
 
 	{#if query.isPending && !query.data}
-		<div class="space-y-8 md:ml-14">
-			{#each { length: 3 }, i (i)}
-				<ChangelogSkeleton delay={i * 100} />
+		<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+			{#each { length: 6 }, i (i)}
+				<div
+					class="bg-card border-border/60 h-44 animate-pulse rounded-lg border"
+					style="animation-delay: {i * 100}ms"
+				></div>
 			{/each}
 		</div>
 	{/if}
 
-	<!-- Changelog entries -->
+	<!-- Changelog entries grid -->
 	{#if !query.isError && query.data}
-		<div class="relative space-y-10 md:ml-14">
-			{#each filteredChangelogs as entry, entryIndex (entry.id)}
+		<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+			{#each filteredChangelogs as entry (entry.id)}
 				{@const showNotes = shouldShowGeneralNotes(entry, filterState)}
 
 				{#if entry.updates && entry.updates.length > 0}
-					{#each entry.updates.slice().reverse() as update, updateIndex (update.id)}
+					{#each entry.updates.slice().reverse() as update (update.id)}
 						{#if !isFiltered || (getVisibleHeroNames(update, filterState)?.size ?? 0) > 0 || (getVisibleItemNames(update, filterState)?.size ?? 0) > 0}
-							<ChangelogEntry isBigUpdate={false} {entryIndex}>
-								<ChangeListItem
+							{@const shouldAnimate = cardIndex < initialLoadSize}
+							{@const currentIndex = cardIndex++}
+							<div
+								in:fly={reducedMotion || !shouldAnimate
+									? { duration: 0 }
+									: { y: 20, duration: 300, delay: Math.min(currentIndex, 10) * 50 }}
+							>
+								<PatchPreviewCard
 									id={update.id}
 									date={update.date}
 									author={update.author}
 									authorImage={update.authorImage}
 									icons={update.icons}
-									contentJson={update.contentJson}
-									{heroMap}
-									{itemMap}
-									{isFiltered}
-									forceShowNotes={shouldShowGeneralNotes(update, filterState)}
-									defaultOpen={entryIndex === 0 && updateIndex === 0}
 								/>
-							</ChangelogEntry>
+							</div>
 						{/if}
 					{/each}
 				{/if}
 
 				{#if !isFiltered || (getVisibleHeroNames(entry, filterState)?.size ?? 0) > 0 || (getVisibleItemNames(entry, filterState)?.size ?? 0) > 0 || showNotes}
-					<ChangelogEntry isBigUpdate={false} {entryIndex}>
-						<ChangeListItem
+					{@const shouldAnimate = cardIndex < initialLoadSize}
+					{@const currentIndex = cardIndex++}
+					<div
+						in:fly={reducedMotion || !shouldAnimate
+							? { duration: 0 }
+							: { y: 20, duration: 300, delay: Math.min(currentIndex, 10) * 50 }}
+					>
+						<PatchPreviewCard
 							id={entry.id}
 							date={entry.date}
 							author={entry.author}
 							authorImage={entry.authorImage}
 							icons={entry.icons}
-							contentJson={entry.contentJson}
-							{heroMap}
-							{itemMap}
-							{isFiltered}
-							forceShowNotes={showNotes}
-							defaultOpen={entryIndex === 0 &&
-								(!entry.updates || entry.updates.length === 0)}
 						/>
-					</ChangelogEntry>
+					</div>
 				{/if}
 			{:else}
-				<div class="flex flex-col items-center justify-center py-16 text-center">
-					<div class="mb-4 rounded-full bg-card p-6">
-						<Frown class="size-12 text-muted-foreground" />
+				<div
+					class="col-span-full flex flex-col items-center justify-center py-16 text-center"
+				>
+					<div class="bg-card mb-4 rounded-full p-6">
+						<Frown class="text-muted-foreground size-12" />
 					</div>
-					<h3 class="mb-2 text-xl font-semibold text-foreground">No changes found</h3>
-					<p class="mb-6 max-w-md text-muted-foreground">
+					<h3 class="text-foreground mb-2 text-xl font-semibold">No changes found</h3>
+					<p class="text-muted-foreground mb-6 max-w-md">
 						No changelog entries match your current filters. Try adjusting your search or
 						clearing the filters.
 					</p>
 					<button
 						onclick={() => params.reset()}
-						class="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:opacity-80"
+						class="bg-primary text-primary-foreground rounded-md px-4 py-2 text-sm font-medium transition-colors hover:opacity-80"
 					>
 						Clear all filters
 					</button>
 				</div>
 			{/each}
+		</div>
 
-			<div bind:this={trigger} class="flex flex-col items-center gap-4 py-8">
-				{#if query.isFetchingNextPage}
-					<div class="flex items-center justify-center">
-						<div
-							class="border-primary size-8 animate-spin rounded-full border-4 border-t-transparent"
-						></div>
-					</div>
-				{:else if query.hasNextPage}
-					<button
-						onclick={() => query.fetchNextPage()}
-						disabled={query.isFetchingNextPage}
-						class="bg-primary/10 text-primary hover:bg-primary/20 rounded-md px-6 py-3 text-sm font-medium transition-colors disabled:opacity-50"
-					>
-						Load more changes
-					</button>
-				{:else if !query.hasNextPage && filteredChangelogs.length > 0}
-					<p class="text-muted-foreground text-sm">All changes loaded</p>
-				{/if}
-			</div>
+		<div bind:this={trigger} class="flex flex-col items-center gap-4 py-8">
+			{#if query.isFetchingNextPage}
+				<div class="flex items-center justify-center">
+					<div
+						class="border-primary size-8 animate-spin rounded-full border-4 border-t-transparent"
+					></div>
+				</div>
+			{:else if query.hasNextPage}
+				<button
+					onclick={() => query.fetchNextPage()}
+					disabled={query.isFetchingNextPage}
+					class="bg-primary/10 text-primary hover:bg-primary/20 rounded-md px-6 py-3 text-sm font-medium transition-colors disabled:opacity-50"
+				>
+					Load more changes
+				</button>
+			{:else if !query.hasNextPage && filteredChangelogs.length > 0}
+				<p class="text-muted-foreground text-sm">All changes loaded</p>
+			{/if}
 		</div>
 	{/if}
 </main>

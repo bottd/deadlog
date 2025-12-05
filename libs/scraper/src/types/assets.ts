@@ -15,6 +15,8 @@ export interface EntityIcon {
 	src: string;
 	alt: string;
 	type: EntityType;
+	heroType?: string | null;
+	itemCategory?: 'weapon' | 'ability' | 'upgrade';
 }
 
 // Schema for stat values that have a value and display name

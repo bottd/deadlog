@@ -1,18 +1,11 @@
 import type { ChangelogContentJson, Note } from '@deadlog/db';
-import type { EntityType } from '@deadlog/scraper';
+import type { EntityType, EntityIcon } from '@deadlog/scraper';
 import { ENTITY_TYPES } from '@deadlog/scraper';
 
 export interface FilterState {
 	selectedHeroNames: ReadonlySet<string>;
 	selectedItemNames: ReadonlySet<string>;
 	searchQuery: string;
-}
-
-interface EntityIcon {
-	id: number;
-	src: string;
-	alt: string;
-	type: EntityType;
 }
 
 export interface FilteredChangelog {

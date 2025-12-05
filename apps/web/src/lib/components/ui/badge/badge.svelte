@@ -11,7 +11,19 @@
 					'bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90 border-transparent',
 				destructive:
 					'bg-destructive [a&]:hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/70 border-transparent text-white',
-				outline: 'text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground'
+				outline: 'text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground',
+				marksman:
+					'bg-[var(--type-marksman)] border-transparent text-white [a&]:hover:opacity-90',
+				mystic:
+					'bg-[var(--type-mystic)] border-transparent text-white [a&]:hover:opacity-90',
+				brawler:
+					'bg-[var(--type-brawler)] border-transparent text-white [a&]:hover:opacity-90',
+				weapon:
+					'bg-[var(--item-weapon)] border-transparent text-white [a&]:hover:opacity-90',
+				vitality:
+					'bg-[var(--item-vitality)] border-transparent text-white [a&]:hover:opacity-90',
+				spirit:
+					'bg-[var(--item-spirit)] border-transparent text-white [a&]:hover:opacity-90'
 			}
 		},
 		defaultVariants: {

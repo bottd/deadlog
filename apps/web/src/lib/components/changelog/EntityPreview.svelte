@@ -35,6 +35,8 @@
 			name={entity.alt}
 			imageSrc={entity.src}
 			type={entity.type}
+			heroType={entity.heroType}
+			itemCategory={entity.itemCategory}
 			onSelect={() => handleSelect(entity)}
 		>
 			<img
