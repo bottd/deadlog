@@ -84,13 +84,17 @@ const changeIconSchema = z.discriminatedUnion('type', [
 		src: z.string().url(),
 		alt: z.string(),
 		type: z.literal(ENTITY_TYPES.HERO),
-		id: z.number()
+		id: z.number(),
+		heroType: z.string().nullable().optional(),
+		itemCategory: z.enum(['weapon', 'ability', 'upgrade']).optional()
 	}),
 	z.object({
 		src: z.string().url(),
 		alt: z.string(),
 		type: z.literal(ENTITY_TYPES.ITEM),
-		id: z.number()
+		id: z.number(),
+		heroType: z.string().nullable().optional(),
+		itemCategory: z.enum(['weapon', 'ability', 'upgrade']).optional()
 	})
 ]);
 
@@ -145,12 +149,31 @@ function extractIconsForEntity<T extends EnrichedHero | EnrichedItem>(
 		if (regex.test(textContent)) {
 			const image = getImage(entity);
 			if (image) {
-				const result = changeIconSchema.safeParse({
+				const iconData: {
+					src: string;
+					alt: string;
+					type: EntityType;
+					id: number;
+					heroType?: string | null;
+					itemCategory?: 'weapon' | 'ability' | 'upgrade';
+				} = {
 					src: image,
 					alt: entity.name,
 					type,
 					id: entity.id
-				});
+				};
+
+				// Add heroType for heroes
+				if ('heroType' in entity) {
+					iconData.heroType = entity.heroType;
+				}
+
+				// Add itemCategory for items
+				if ('type' in entity && entity.type) {
+					iconData.itemCategory = entity.type;
+				}
+
+				const result = changeIconSchema.safeParse(iconData);
 
 				if (result.success) {
 					icons.push(result.data);

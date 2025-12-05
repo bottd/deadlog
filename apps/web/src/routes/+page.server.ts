@@ -2,12 +2,11 @@ import {
 	queryChangelogs,
 	getChangelogsCount,
 	getChangelogPosition,
-	getAllHeroes,
-	getAllItems,
 	getHeroByName,
 	getItemByName,
 	formatDate
 } from '@deadlog/scraper';
+import { toSlug } from '@deadlog/utils';
 import type { PageServerLoad } from './$types';
 import {
 	enrichChangelogs,
@@ -18,17 +17,11 @@ import {
 
 export const prerender = false;
 
-function toSlug(name: string): string {
-	return name.toLowerCase().replace(/\s+/g, '-');
-}
-
-export const load: PageServerLoad = async ({ locals, url }) => {
+export const load: PageServerLoad = async ({ locals, url, parent }) => {
 	const { hero, item, q, change } = parseApiParams(url);
 
-	const [heroes, items] = await Promise.all([
-		getAllHeroes(locals.db),
-		getAllItems(locals.db)
-	]);
+	// Get heroes and items from layout data
+	const { heroes, items } = await parent();
 
 	const heroIds = resolveHeroIds(hero, heroes);
 	const itemIds = resolveItemIds(item, items);
@@ -100,8 +93,6 @@ export const load: PageServerLoad = async ({ locals, url }) => {
 
 	return {
 		changelogs: enriched,
-		heroes,
-		items,
 		totalCount,
 		initialLoadCount: initialLoadLimit,
 		lastUpdate: (allChangelogs[0]?.date ?? new Date()).toISOString(),
