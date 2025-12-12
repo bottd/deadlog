@@ -10,7 +10,7 @@
 		"lint": "pnpm exec nx run-many -t lint --projects=* --exclude=deadlog.io"
 	},
 	"devDependencies": {
-		"@cloudflare/workers-types": "4.20251211.0",
+		"@cloudflare/workers-types": "4.20251212.0",
 		"@eslint/js": "9.39.1",
 		"@fontsource/inter": "5.2.8",
 		"@libsql/client": "0.15.15",
@@ -48,9 +48,9 @@
 		"prettier-plugin-sql": "0.19.2",
 		"prettier-plugin-svelte": "3.4.0",
 		"prettier-plugin-tailwindcss": "0.7.2",
-		"react": "19.2.2",
+		"react": "19.2.3",
 		"runed": "0.37.0",
-		"svelte": "5.45.9",
+		"svelte": "5.45.10",
 		"svelte-check": "4.3.4",
 		"svelte-meta-tags": "4.5.0",
 		"svelte-sonner": "1.0.7",
