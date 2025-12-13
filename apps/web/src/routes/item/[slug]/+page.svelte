@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { browser } from '$app/environment';
-	import { PatchPreviewCard } from '$lib/components/changelog';
+	import { PatchPreviewCard, PatchTimeline } from '$lib/components/changelog';
 	import { Badge } from '$lib/components/ui/badge';
 	import ArrowLeft from '@lucide/svelte/icons/arrow-left';
 	import { MetaTags } from 'svelte-meta-tags';
@@ -43,10 +43,12 @@
 
 	// Use query data with fallback to SSR data
 	const changelogs = $derived(
-		(query.data?.changelogs ?? initialChangelogs).map((c: any) => ({
-			...c,
-			date: typeof c.date === 'string' ? new Date(c.date) : c.date
-		}))
+		(query.data?.changelogs ?? initialChangelogs).map(
+			(c: (typeof initialChangelogs)[number]) => ({
+				...c,
+				date: typeof c.date === 'string' ? new Date(c.date) : c.date
+			})
+		)
 	);
 
 	// Check for reduced motion preference
@@ -138,6 +140,15 @@
 						{changelogs.length} change{changelogs.length !== 1 ? 's' : ''}
 					</Badge>
 				</div>
+				{#if changelogs.length > 1}
+					<PatchTimeline
+						patches={changelogs.map((c: { id: string; date: Date }) => ({
+							id: c.id,
+							date: c.date
+						}))}
+						class="mt-4 max-w-md"
+					/>
+				{/if}
 			</div>
 		</div>
 	</header>

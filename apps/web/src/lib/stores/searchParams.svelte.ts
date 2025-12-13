@@ -1,5 +1,6 @@
 import { page } from '$app/state';
 import { goto } from '$app/navigation';
+import { building } from '$app/environment';
 import { getContext, hasContext, setContext } from 'svelte';
 import { z } from 'zod';
 
@@ -36,8 +37,16 @@ export function parseSearchParams(url: URL): SearchParams {
 	};
 }
 
+/** Check if we can safely access URL search params (not during prerendering) */
+function canAccessSearchParams(): boolean {
+	// During build/prerender, URL search params aren't available
+	if (building) return false;
+	return true;
+}
+
 class SearchParamsStore {
 	get hero(): string[] {
+		if (!canAccessSearchParams()) return [];
 		return parseCSV(page.url.searchParams.get('hero'));
 	}
 
@@ -46,6 +55,7 @@ class SearchParamsStore {
 	}
 
 	get item(): string[] {
+		if (!canAccessSearchParams()) return [];
 		return parseCSV(page.url.searchParams.get('item'));
 	}
 
@@ -54,6 +64,7 @@ class SearchParamsStore {
 	}
 
 	get change(): number | undefined {
+		if (!canAccessSearchParams()) return undefined;
 		const val = page.url.searchParams.get('change');
 		return val ? Number(val) : undefined;
 	}
@@ -63,6 +74,7 @@ class SearchParamsStore {
 	}
 
 	get q(): string {
+		if (!canAccessSearchParams()) return '';
 		return page.url.searchParams.get('q') ?? '';
 	}
 
@@ -71,6 +83,7 @@ class SearchParamsStore {
 	}
 
 	#updateParam(key: string, value: string | null) {
+		if (!canAccessSearchParams()) return;
 		const url = new URL(page.url);
 		if (value === null) {
 			url.searchParams.delete(key);
@@ -81,6 +94,7 @@ class SearchParamsStore {
 	}
 
 	update(values: Partial<{ hero: string[]; item: string[]; change: number; q: string }>) {
+		if (!canAccessSearchParams()) return;
 		const url = new URL(page.url);
 
 		if ('hero' in values) {
@@ -119,6 +133,7 @@ class SearchParamsStore {
 	}
 
 	reset() {
+		if (!canAccessSearchParams()) return;
 		goto('?', { replaceState: false, keepFocus: true, noScroll: true });
 	}
 
