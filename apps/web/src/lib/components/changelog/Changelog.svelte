@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import PatchPreviewCard from './PatchPreviewCard.svelte';
+	import LatestUpdateBanner from './LatestUpdateBanner.svelte';
 	import {
 		getVisibleHeroNames,
 		getVisibleItemNames,
@@ -16,8 +17,10 @@
 	import { createInfiniteQuery } from '@tanstack/svelte-query';
 	import { useIntersectionObserver } from 'runed';
 	import { fly } from 'svelte/transition';
+	import { untrack } from 'svelte';
 	import AlertCircle from '@lucide/svelte/icons/alert-circle';
 	import Frown from '@lucide/svelte/icons/frown';
+	import History from '@lucide/svelte/icons/history';
 	import { browser } from '$app/environment';
 
 	// Check for reduced motion preference
@@ -156,9 +159,66 @@
 		});
 	});
 
-	// Track card index for animations - only animate initial load
-	let cardIndex = $state(0);
-	const initialLoadSize = changelogs.length;
+	// Flatten all entries (updates + main changelogs) into a single ordered list
+	interface FlatEntry {
+		id: string;
+		date: Date;
+		author: string;
+		authorImage?: string;
+		icons?: FilteredChangelog['icons'];
+	}
+
+	const flattenedEntries = $derived.by((): FlatEntry[] => {
+		const entries: FlatEntry[] = [];
+
+		for (const changelog of filteredChangelogs) {
+			const showNotes = shouldShowGeneralNotes(changelog, filterState);
+
+			// Add updates first (reversed so newest is first)
+			if (changelog.updates && changelog.updates.length > 0) {
+				for (const update of changelog.updates.slice().reverse()) {
+					if (
+						!isFiltered ||
+						(getVisibleHeroNames(update, filterState)?.size ?? 0) > 0 ||
+						(getVisibleItemNames(update, filterState)?.size ?? 0) > 0
+					) {
+						entries.push({
+							id: update.id,
+							date: update.date,
+							author: update.author,
+							authorImage: update.authorImage,
+							icons: update.icons
+						});
+					}
+				}
+			}
+
+			// Add main changelog entry
+			if (
+				!isFiltered ||
+				(getVisibleHeroNames(changelog, filterState)?.size ?? 0) > 0 ||
+				(getVisibleItemNames(changelog, filterState)?.size ?? 0) > 0 ||
+				showNotes
+			) {
+				entries.push({
+					id: changelog.id,
+					date: changelog.date,
+					author: changelog.author,
+					authorImage: changelog.authorImage,
+					icons: changelog.icons
+				});
+			}
+		}
+
+		return entries;
+	});
+
+	// Separate latest entry from history
+	const latestEntry = $derived(flattenedEntries[0]);
+	const historyEntries = $derived(flattenedEntries.slice(1));
+
+	// Intentionally capture initial length only (don't track changes) for animation
+	const initialLoadSize = untrack(() => changelogs.length);
 </script>
 
 <main class="container mx-auto mt-12 mb-24 px-4" aria-label="Changelog entries">
@@ -193,72 +253,72 @@
 		</div>
 	{/if}
 
-	<!-- Changelog entries grid -->
+	<!-- Changelog entries -->
 	{#if !query.isError && query.data}
-		<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-			{#each filteredChangelogs as entry (entry.id)}
-				{@const showNotes = shouldShowGeneralNotes(entry, filterState)}
-
-				{#if entry.updates && entry.updates.length > 0}
-					{#each entry.updates.slice().reverse() as update (update.id)}
-						{#if !isFiltered || (getVisibleHeroNames(update, filterState)?.size ?? 0) > 0 || (getVisibleItemNames(update, filterState)?.size ?? 0) > 0}
-							{@const shouldAnimate = cardIndex < initialLoadSize}
-							{@const currentIndex = cardIndex++}
-							<div
-								in:fly={reducedMotion || !shouldAnimate
-									? { duration: 0 }
-									: { y: 20, duration: 300, delay: Math.min(currentIndex, 10) * 50 }}
-							>
-								<PatchPreviewCard
-									id={update.id}
-									date={update.date}
-									author={update.author}
-									authorImage={update.authorImage}
-									icons={update.icons}
-								/>
-							</div>
-						{/if}
-					{/each}
-				{/if}
-
-				{#if !isFiltered || (getVisibleHeroNames(entry, filterState)?.size ?? 0) > 0 || (getVisibleItemNames(entry, filterState)?.size ?? 0) > 0 || showNotes}
-					{@const shouldAnimate = cardIndex < initialLoadSize}
-					{@const currentIndex = cardIndex++}
-					<div
-						in:fly={reducedMotion || !shouldAnimate
-							? { duration: 0 }
-							: { y: 20, duration: 300, delay: Math.min(currentIndex, 10) * 50 }}
-					>
-						<PatchPreviewCard
-							id={entry.id}
-							date={entry.date}
-							author={entry.author}
-							authorImage={entry.authorImage}
-							icons={entry.icons}
-						/>
-					</div>
-				{/if}
-			{:else}
-				<div
-					class="col-span-full flex flex-col items-center justify-center py-16 text-center"
-				>
-					<div class="bg-card mb-4 rounded-full p-6">
-						<Frown class="text-muted-foreground size-12" />
-					</div>
-					<h3 class="text-foreground mb-2 text-xl font-semibold">No changes found</h3>
-					<p class="text-muted-foreground mb-6 max-w-md">
-						No changelog entries match your current filters. Try adjusting your search or
-						clearing the filters.
-					</p>
-					<button
-						onclick={() => params.reset()}
-						class="bg-primary text-primary-foreground rounded-md px-4 py-2 text-sm font-medium transition-colors hover:opacity-80"
-					>
-						Clear all filters
-					</button>
+		{#if flattenedEntries.length > 0}
+			<!-- Latest Update Banner -->
+			{#if latestEntry}
+				<div in:fly={reducedMotion ? { duration: 0 } : { y: 20, duration: 300 }}>
+					<LatestUpdateBanner
+						id={latestEntry.id}
+						date={latestEntry.date}
+						author={latestEntry.author}
+						authorImage={latestEntry.authorImage}
+						icons={latestEntry.icons}
+					/>
 				</div>
-			{/each}
-		</div>
+			{/if}
+
+			<!-- Change History Section -->
+			{#if historyEntries.length > 0}
+				<div class="mt-12 mb-6">
+					<div class="flex items-center gap-3">
+						<History class="text-muted-foreground size-5" />
+						<h2 class="text-foreground font-display text-xl font-semibold tracking-tight">
+							Change History
+						</h2>
+					</div>
+					<div class="border-border/60 mt-3 border-t"></div>
+				</div>
+
+				<div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+					{#each historyEntries as entry, i (entry.id)}
+						{@const shouldAnimate = i < initialLoadSize - 1}
+						<div
+							class="h-full"
+							in:fly={reducedMotion || !shouldAnimate
+								? { duration: 0 }
+								: { y: 20, duration: 300, delay: Math.min(i, 10) * 50 }}
+						>
+							<PatchPreviewCard
+								id={entry.id}
+								date={entry.date}
+								author={entry.author}
+								authorImage={entry.authorImage}
+								icons={entry.icons}
+							/>
+						</div>
+					{/each}
+				</div>
+			{/if}
+		{:else}
+			<div class="flex flex-col items-center justify-center py-16 text-center">
+				<div class="bg-card mb-4 rounded-full p-6">
+					<Frown class="text-muted-foreground size-12" />
+				</div>
+				<h3 class="text-foreground mb-2 text-xl font-semibold">No changes found</h3>
+				<p class="text-muted-foreground mb-6 max-w-md">
+					No changelog entries match your current filters. Try adjusting your search or
+					clearing the filters.
+				</p>
+				<button
+					onclick={() => params.reset()}
+					class="bg-primary text-primary-foreground rounded-md px-4 py-2 text-sm font-medium transition-colors hover:opacity-80"
+				>
+					Clear all filters
+				</button>
+			</div>
+		{/if}
 
 		<div bind:this={trigger} class="flex flex-col items-center gap-4 py-8">
 			{#if query.isFetchingNextPage}

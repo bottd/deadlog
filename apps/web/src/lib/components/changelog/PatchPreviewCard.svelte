@@ -2,6 +2,7 @@
 	import type { EntityIcon } from '$lib/utils/types';
 	import * as Card from '$lib/components/ui/card';
 	import * as Avatar from '$lib/components/ui/avatar';
+	import { Badge } from '$lib/components/ui/badge';
 	import { formatDate } from '@deadlog/utils';
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
 
@@ -18,46 +19,23 @@
 
 	let { id, date, author, authorImage, icons }: Props = $props();
 
-	const maxIconsPerRow = 6;
+	const maxOverlappingIcons = 8;
 
 	const heroes = $derived(icons?.heroes ?? []);
 	const items = $derived(icons?.items ?? []);
 
-	const displayHeroes = $derived(heroes.slice(0, maxIconsPerRow));
-	const heroOverflow = $derived(Math.max(0, heroes.length - maxIconsPerRow));
-
-	const displayItems = $derived(items.slice(0, maxIconsPerRow));
-	const itemOverflow = $derived(Math.max(0, items.length - maxIconsPerRow));
+	// Combine heroes and items for overlapping display
+	const allEntities = $derived([...heroes, ...items]);
+	const displayEntities = $derived(allEntities.slice(0, maxOverlappingIcons));
+	const entityOverflow = $derived(Math.max(0, allEntities.length - maxOverlappingIcons));
 </script>
 
-{#snippet iconRow(entities: EntityIcon[], overflow: number)}
-	<div class="flex items-center gap-1">
-		{#each entities as entity (entity.id)}
-			<img
-				src={entity.src}
-				alt={entity.alt}
-				width="28"
-				height="28"
-				loading="lazy"
-				decoding="async"
-				class="border-border bg-card size-7 rounded-full border-2 object-cover"
-			/>
-		{/each}
-		{#if overflow > 0}
-			<span
-				class="border-border bg-muted text-muted-foreground flex size-7 items-center justify-center rounded-full border-2 text-xs font-medium"
-			>
-				+{overflow}
-			</span>
-		{/if}
-	</div>
-{/snippet}
-
-<a href="/change/{id}" class="group block">
+<a href="/change/{id}" class="group block h-full">
 	<Card.Root
 		class="hover:border-primary/50 h-full cursor-pointer transition-all duration-200 hover:-translate-y-0.5"
 	>
 		<Card.Content class="flex h-full flex-col gap-4 p-5">
+			<!-- Header: Date and Author -->
 			<div class="flex items-center justify-between gap-3">
 				<time class="text-foreground font-display text-lg leading-tight tracking-tight">
 					{formatDate(date)}
@@ -73,21 +51,54 @@
 				</div>
 			</div>
 
-			<div class="flex flex-1 flex-col gap-2">
-				{#if displayHeroes.length > 0}
-					{@render iconRow(displayHeroes, heroOverflow)}
+			<!-- Entity Icons - Overlapping style for visual density -->
+			{#if displayEntities.length > 0}
+				<div class="flex items-center">
+					<div class="flex -space-x-2">
+						{#each displayEntities as entity, i (entity.id)}
+							<img
+								src={entity.src}
+								alt={entity.alt}
+								width="36"
+								height="36"
+								loading="lazy"
+								decoding="async"
+								class="ring-card size-9 rounded-full object-cover ring-2 transition-transform hover:z-10 hover:scale-110"
+								style="z-index: {displayEntities.length - i}"
+							/>
+						{/each}
+					</div>
+					{#if entityOverflow > 0}
+						<span
+							class="bg-muted text-muted-foreground ring-card ml-1 flex size-9 items-center justify-center rounded-full text-xs font-semibold ring-2"
+						>
+							+{entityOverflow}
+						</span>
+					{/if}
+				</div>
+			{/if}
+
+			<!-- Summary badges -->
+			<div class="flex flex-wrap gap-2">
+				{#if heroes.length > 0}
+					<Badge variant="secondary" class="text-xs">
+						{heroes.length} hero{heroes.length !== 1 ? 'es' : ''}
+					</Badge>
 				{/if}
-				{#if displayItems.length > 0}
-					{@render iconRow(displayItems, itemOverflow)}
+				{#if items.length > 0}
+					<Badge variant="secondary" class="text-xs">
+						{items.length} item{items.length !== 1 ? 's' : ''}
+					</Badge>
 				{/if}
 			</div>
 
+			<!-- CTA -->
 			<div
-				class="text-muted-foreground group-hover:text-primary flex items-center gap-1.5 text-sm font-medium transition-colors"
+				class="text-muted-foreground group-hover:text-primary mt-auto flex items-center gap-1.5 text-sm font-medium transition-colors"
 			>
 				<span>View changes</span>
 				<ArrowRight
-					class="size-4 transition-transform duration-200 group-hover:translate-x-0.5"
+					class="size-4 transition-transform duration-200 group-hover:translate-x-1"
 				/>
 			</div>
 		</Card.Content>
