@@ -26,7 +26,7 @@ export const load: PageServerLoad = async ({ locals, url, parent }) => {
 	const heroIds = resolveHeroIds(hero, heroes);
 	const itemIds = resolveItemIds(item, items);
 
-	let initialLoadLimit = 5;
+	let initialLoadLimit = 12;
 	if (change) {
 		const position = await getChangelogPosition(locals.db, String(change));
 		initialLoadLimit = position + 1 + 5;
@@ -91,11 +91,23 @@ export const load: PageServerLoad = async ({ locals, url, parent }) => {
 		}
 	}
 
+	// Get latest patch summary for hero banner
+	const latestPatch = enriched[0];
+	const latestPatchSummary = latestPatch
+		? {
+				id: latestPatch.id,
+				date: latestPatch.date,
+				heroCount: latestPatch.icons?.heroes?.length ?? 0,
+				itemCount: latestPatch.icons?.items?.length ?? 0
+			}
+		: null;
+
 	return {
 		changelogs: enriched,
 		totalCount,
 		initialLoadCount: initialLoadLimit,
 		lastUpdate: (allChangelogs[0]?.date ?? new Date()).toISOString(),
+		latestPatchSummary,
 		title: pageMeta.title,
 		description: pageMeta.description,
 		image: pageMeta.image

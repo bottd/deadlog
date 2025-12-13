@@ -25,7 +25,15 @@
 				</span>
 			</a>
 		</div>
-		<FilterInput />
+		<div class="flex flex-col gap-2">
+			<label
+				for="filter-input"
+				class="text-muted-foreground text-xs font-medium tracking-wider uppercase"
+			>
+				Filter by hero, item, or keyword
+			</label>
+			<FilterInput />
+		</div>
 	</div>
 </nav>
 

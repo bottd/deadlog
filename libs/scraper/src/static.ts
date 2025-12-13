@@ -1,4 +1,4 @@
-import { eq, sql, desc, gt } from 'drizzle-orm';
+import { eq, sql, desc, gt, and, ne, isNotNull } from 'drizzle-orm';
 import type { ScrapedChangelog } from './deadlock';
 import type { EnrichedHero, EnrichedItem, EntityIcon } from './types/assets';
 import { getLibsqlDb, type DrizzleDB, schema } from '@deadlog/db';
@@ -207,7 +207,11 @@ export async function getItemBySlug(
 }
 
 export async function getAllItemSlugs(db: DrizzleDB): Promise<string[]> {
-	const results = await db.select().from(schema.items).all();
+	const results = await db
+		.select()
+		.from(schema.items)
+		.where(and(isNotNull(schema.items.slug), ne(schema.items.slug, '')))
+		.all();
 	return results.map((r) => r.slug);
 }
 
