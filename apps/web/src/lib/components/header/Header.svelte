@@ -18,9 +18,7 @@
 					class="font-display text-primary group-hover:text-primary/90 text-2xl tracking-tight transition-colors duration-300"
 					>deadlog.io</span
 				>
-				<span
-					class="text-muted-foreground text-sm font-normal opacity-70 transition-all duration-300 group-hover:opacity-100"
-				>
+				<span class="text-foreground text-sm font-normal transition-all duration-300">
 					deadlock changelog viewer
 				</span>
 			</a>

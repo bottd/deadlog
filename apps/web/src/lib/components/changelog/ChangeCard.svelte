@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { NoteWithPatterns } from '..';
+	import NoteWithPatterns from './NoteWithPatterns.svelte';
 	import type { HeroAbilityChange, Note as NoteType } from '@deadlog/db';
 
 	interface Props {

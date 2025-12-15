@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ChangeCard } from './change-card';
+	import ChangeCard from './ChangeCard.svelte';
 	import { NoteWithPatterns } from '.';
 	import * as Accordion from '$lib/components/ui/accordion';
 	import type { ChangelogContentJson } from '@deadlog/db';
