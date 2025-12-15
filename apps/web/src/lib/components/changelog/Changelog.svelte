@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import ChangeListItem from './ChangeListItem.svelte';
-	import LatestUpdateBanner from './LatestUpdateBanner.svelte';
+	import ChangelogCard from './ChangelogCard.svelte';
 	import {
 		getVisibleHeroNames,
 		getVisibleItemNames,
@@ -18,17 +17,12 @@
 	import { useIntersectionObserver } from 'runed';
 	import AlertCircle from '@lucide/svelte/icons/alert-circle';
 	import Frown from '@lucide/svelte/icons/frown';
-	import History from '@lucide/svelte/icons/history';
 
 	const params = getSearchParams();
 
-	// Make these reactive to handle navigation
-	// Guard against undefined data (can happen during navigation)
 	const changelogs = $derived(page.data.changelogs ?? []);
-	const initialLoadCount = $derived(page.data.initialLoadCount ?? 5);
+	const initialLoadCount = $derived(page.data.initialLoadCount ?? 12);
 	const totalCount = $derived(page.data.totalCount ?? 0);
-	const heroMap = $derived(page.data.heroMap);
-	const itemMap = $derived(page.data.itemMap);
 
 	interface PageData {
 		changelogs: FilteredChangelog[];
@@ -47,7 +41,6 @@
 		number
 	>(() => ({
 		queryKey: ['changelogs', params.hero, params.item, params.q],
-		// Always enable - we have initialData from SSR
 		enabled: true,
 		initialData: {
 			pages: [
@@ -62,8 +55,7 @@
 			pageParams: [0]
 		},
 		queryFn: async ({ pageParam }) => {
-			const limit = 5;
-			// pageParam 0 is initialData, pageParam 1+ are new fetches
+			const limit = 12;
 			const offset = initialLoadCount + (pageParam - 1) * limit;
 			const searchParams = params.toURLSearchParams();
 			searchParams.set('limit', String(limit));
@@ -92,7 +84,6 @@
 			const entry = entries[0];
 			if (!entry) return;
 
-			// Only fetch if intersecting, there's a next page, not already fetching, and no errors
 			if (
 				entry.isIntersecting &&
 				query.hasNextPage &&
@@ -134,7 +125,6 @@
 
 			if ((heroes?.size ?? 0) > 0 || (items?.size ?? 0) > 0 || notes) return true;
 
-			// Check updates
 			return (
 				changelog.updates?.some((update: FilteredChangelog) => {
 					const updateItems = getVisibleItemNames(update, filterState);
@@ -143,73 +133,9 @@
 			);
 		});
 	});
-
-	// Flatten all entries (updates + main changelogs) into a single ordered list for display
-	interface FlatEntry {
-		id: string;
-		date: Date;
-		author: string;
-		authorImage?: string;
-		icons?: FilteredChangelog['icons'];
-		contentJson?: FilteredChangelog['contentJson'];
-		isSubChange: boolean;
-	}
-
-	const flattenedEntries = $derived.by((): FlatEntry[] => {
-		const entries: FlatEntry[] = [];
-
-		for (const changelog of filteredChangelogs) {
-			const showNotes = shouldShowGeneralNotes(changelog, filterState);
-
-			// Add updates first (reversed so newest is first) - these are sub-changes
-			if (changelog.updates && changelog.updates.length > 0) {
-				for (const update of changelog.updates.slice().reverse()) {
-					if (
-						!isFiltered ||
-						(getVisibleHeroNames(update, filterState)?.size ?? 0) > 0 ||
-						(getVisibleItemNames(update, filterState)?.size ?? 0) > 0
-					) {
-						entries.push({
-							id: update.id,
-							date: update.date,
-							author: update.author,
-							authorImage: update.authorImage,
-							icons: update.icons,
-							contentJson: update.contentJson,
-							isSubChange: true
-						});
-					}
-				}
-			}
-
-			// Add main changelog entry - these are base posts, not sub-changes
-			if (
-				!isFiltered ||
-				(getVisibleHeroNames(changelog, filterState)?.size ?? 0) > 0 ||
-				(getVisibleItemNames(changelog, filterState)?.size ?? 0) > 0 ||
-				showNotes
-			) {
-				entries.push({
-					id: changelog.id,
-					date: changelog.date,
-					author: changelog.author,
-					authorImage: changelog.authorImage,
-					icons: changelog.icons,
-					contentJson: changelog.contentJson,
-					isSubChange: false
-				});
-			}
-		}
-
-		return entries;
-	});
-
-	// Separate latest entry from history
-	const latestEntry = $derived(flattenedEntries[0]);
-	const historyEntries = $derived(flattenedEntries.slice(1));
 </script>
 
-<main class="container mx-auto mt-12 mb-24 px-4" aria-label="Changelog entries">
+<main class="container mx-auto mt-8 mb-24 px-4" aria-label="Changelog entries">
 	{#if query.isError}
 		<div class="flex flex-col items-center justify-center py-16 text-center">
 			<div class="mb-4 rounded-full bg-red-950/50 p-6">
@@ -231,65 +157,30 @@
 	{/if}
 
 	{#if query.isPending && !query.data}
-		<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-			{#each { length: 6 }, i (i)}
+		<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+			{#each { length: 12 }, i (i)}
 				<div
-					class="bg-card border-border/60 h-44 animate-pulse rounded-lg border"
-					style="animation-delay: {i * 100}ms"
+					class="bg-card border-border h-36 animate-pulse rounded-lg border"
+					style="animation-delay: {i * 50}ms"
 				></div>
 			{/each}
 		</div>
 	{/if}
 
-	<!-- Changelog entries -->
 	{#if !query.isError && query.data}
-		{#if flattenedEntries.length > 0}
-			<!-- Latest Update Banner -->
-			{#if latestEntry}
-				<div class="relative md:ml-14">
-					<LatestUpdateBanner
-						id={latestEntry.id}
-						date={latestEntry.date}
-						author={latestEntry.author}
-						authorImage={latestEntry.authorImage}
-						icons={latestEntry.icons}
-						contentJson={latestEntry.contentJson}
-						isSubChange={latestEntry.isSubChange}
-						{heroMap}
-						{itemMap}
+		{#if filteredChangelogs.length > 0}
+			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+				{#each filteredChangelogs as entry, i (entry.id)}
+					<ChangelogCard
+						id={entry.id}
+						date={entry.date}
+						author={entry.author}
+						authorImage={entry.authorImage}
+						icons={entry.icons}
+						isLatest={i === 0 && !isFiltered}
 					/>
-				</div>
-			{/if}
-
-			<!-- Change History Section -->
-			{#if historyEntries.length > 0}
-				<div class="mt-12 mb-12 md:ml-14">
-					<div class="flex items-center gap-3">
-						<History class="text-muted-foreground size-5" />
-						<h2 class="text-foreground font-display text-xl font-semibold tracking-tight">
-							Change History
-						</h2>
-					</div>
-					<div class="border-border/60 mt-3 border-t"></div>
-				</div>
-
-				<div class="relative space-y-10 md:ml-14">
-					{#each historyEntries as entry, i (entry.id)}
-						<ChangeListItem
-							id={entry.id}
-							date={entry.date}
-							author={entry.author}
-							authorImage={entry.authorImage}
-							icons={entry.icons}
-							contentJson={entry.contentJson}
-							isSubChange={entry.isSubChange}
-							entryIndex={i + 1}
-							{heroMap}
-							{itemMap}
-						/>
-					{/each}
-				</div>
-			{/if}
+				{/each}
+			</div>
 		{:else}
 			<div class="flex flex-col items-center justify-center py-16 text-center">
 				<div class="bg-card mb-4 rounded-full p-6">
@@ -324,7 +215,7 @@
 				>
 					Load more changes
 				</button>
-			{:else if !query.hasNextPage && flattenedEntries.length > 0}
+			{:else if !query.hasNextPage && filteredChangelogs.length > 0}
 				<p class="text-muted-foreground text-sm">All changes loaded</p>
 			{/if}
 		</div>
