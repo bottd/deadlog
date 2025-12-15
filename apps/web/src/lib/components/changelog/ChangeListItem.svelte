@@ -1,10 +1,3 @@
-<script module lang="ts">
-	import { toggleSet } from '$lib/utils/toggle';
-
-	let expandedChangeIds = $state(new Set<string>());
-	let showFullChangeIds = $state(new Set<string>());
-</script>
-
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { browser } from '$app/environment';
@@ -12,15 +5,17 @@
 	import type { EntityIcon } from '$lib/utils/types';
 	import type { ChangelogContentJson } from '@deadlog/db';
 	import * as Card from '$lib/components/ui/card';
-	import { ChangelogContent, ExpandButton } from '.';
+	import { ChangelogContent } from '.';
+	import { GutterNode } from '../gutter-line';
 	import ChangeHeader from './ChangeHeader.svelte';
+	import { fly } from 'svelte/transition';
+	import { cubicOut } from 'svelte/easing';
 
 	const params = getSearchParams();
 
 	onMount(() => {
 		const change = params.change;
 		if (change) {
-			expandedChangeIds = new Set([change.toString()]);
 			setTimeout(() => {
 				const element = document.getElementById(change.toString());
 				if (element) {
@@ -34,22 +29,8 @@
 					});
 				}
 			}, 100);
-		} else if (defaultOpen && expandedChangeIds.size === 0) {
-			// Open the first item by default if no query param is set
-			expandedChangeIds = new Set([id]);
 		}
 	});
-
-	function toggleExpandedChange(id: string) {
-		expandedChangeIds = toggleSet(expandedChangeIds, id);
-
-		if (expandedChangeIds.has(id)) {
-			params.update({ change: Number(id) });
-		}
-	}
-	function toggleShowFullChange(id: string) {
-		showFullChangeIds = toggleSet(showFullChangeIds, id);
-	}
 
 	interface Props {
 		id: string;
@@ -63,9 +44,8 @@
 		contentJson?: ChangelogContentJson | null;
 		heroMap?: Record<number, { name: string; images: Record<string, string> }>;
 		itemMap?: Record<number, { name: string; image: string }>;
-		isFiltered?: boolean;
-		forceShowNotes?: boolean;
-		defaultOpen?: boolean;
+		isSubChange?: boolean;
+		entryIndex?: number;
 	}
 
 	let {
@@ -77,47 +57,34 @@
 		contentJson,
 		heroMap,
 		itemMap,
-		isFiltered = false,
-		forceShowNotes = false,
-		defaultOpen = false
+		isSubChange = false,
+		entryIndex = 0
 	}: Props = $props();
-
-	const isExpanded = $derived(expandedChangeIds.has(id));
-	const showFullChange = $derived(showFullChangeIds.has(id));
-
-	function onToggle() {
-		if (isFiltered) {
-			toggleShowFullChange(id);
-		} else {
-			toggleExpandedChange(id);
-		}
-	}
 </script>
 
-<Card.Root {id} class="group/card py-6">
-	<Card.Content class="px-8">
-		<ChangeHeader {id} {date} {author} {authorImage} {icons} />
+<div
+	class="group/entry relative"
+	transition:fly={{ y: 16, duration: 600, delay: entryIndex * 100, easing: cubicOut }}
+>
+	<div class="absolute top-0 left-0 z-10 -ml-14 hidden md:block">
+		<GutterNode bigUpdate={!isSubChange} />
+	</div>
 
+	{#if entryIndex > 0}
 		<div
-			class="relative mb-4 overflow-hidden break-words transition-all duration-300 ease-out"
-			class:max-h-[140px]={!isExpanded && !isFiltered}
-		>
-			{#if browser}
-				<ChangelogContent
-					{contentJson}
-					{heroMap}
-					{itemMap}
-					{showFullChange}
-					{forceShowNotes}
-				/>
-			{/if}
-			{#if !isExpanded && !isFiltered}
-				<div
-					class="from-card via-card pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t to-transparent"
-				></div>
-			{/if}
-		</div>
+			class="editorial-divider mb-10 opacity-0 transition-opacity duration-500 group-hover/entry:opacity-100"
+		></div>
+	{/if}
 
-		<ExpandButton isExpanded={isExpanded || showFullChange} toggle={onToggle} />
-	</Card.Content>
-</Card.Root>
+	<Card.Root {id} class="group/card py-6">
+		<Card.Content class="px-8">
+			<ChangeHeader {id} {date} {author} {authorImage} {icons} />
+
+			<div class="break-words">
+				{#if browser}
+					<ChangelogContent {contentJson} {heroMap} {itemMap} />
+				{/if}
+			</div>
+		</Card.Content>
+	</Card.Root>
+</div>

@@ -4,7 +4,7 @@
 	import { Button } from '$lib/components/ui/button';
 	import * as Avatar from '$lib/components/ui/avatar';
 	import { Link } from '@lucide/svelte';
-	import { toast } from 'svelte-sonner';
+	import { copyChangelogLink } from '$lib/utils/clipboard';
 	import { formatDate, formatTime } from '@deadlog/utils';
 
 	interface Props {
@@ -19,13 +19,6 @@
 	}
 
 	let { author, authorImage, date, icons, id }: Props = $props();
-
-	async function copyLink(e: MouseEvent) {
-		e.preventDefault();
-		e.stopPropagation();
-		await navigator.clipboard.writeText(`${window.location.origin}/?change=${id}`);
-		toast.success('Copied to clipboard');
-	}
 </script>
 
 <div class="relative mb-6 flex w-full items-start justify-between gap-6">
@@ -34,7 +27,9 @@
 	></div>
 
 	<div class="flex flex-col gap-3">
-		<h2 class="text-foreground font-display text-2xl leading-tight tracking-tight">
+		<h2
+			class="text-foreground font-display text-2xl leading-tight tracking-tight tabular-nums"
+		>
 			{formatDate(date)}
 		</h2>
 		<div class="text-muted-foreground flex items-center gap-2.5 text-sm">
@@ -62,7 +57,7 @@
 		<Button
 			variant="ghost"
 			size="icon-sm"
-			onclick={copyLink}
+			onclick={(e) => copyChangelogLink(e, id)}
 			class="text-muted-foreground hover:bg-primary/10 hover:text-primary transition-all duration-300 hover:scale-110 hover:rotate-12"
 			title="Copy link to clipboard"
 		>
