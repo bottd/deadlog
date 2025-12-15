@@ -5,6 +5,7 @@
 	import type { ChangelogContentJson } from '@deadlog/db';
 	import { getSearchParams } from '$lib/stores/searchParams.svelte';
 	import { getHeroImageFromMap, getItemImageFromMap } from '$lib/utils/entityImages';
+	import type { Snippet } from 'svelte';
 
 	interface Props {
 		contentJson?: ChangelogContentJson | null;
@@ -41,6 +42,65 @@
 	const getItemImage = (itemId?: number) => getItemImageFromMap(itemId, itemMap);
 </script>
 
+{#snippet section(value: string, title: string, count: number, children: Snippet)}
+	<Accordion.Item {value} class="relative">
+		<Accordion.Trigger class="peer/trigger pl-4">
+			<h3 class="text-primary font-display mb-0 text-xl tracking-tight">
+				{title} <span class="font-mono text-base opacity-70">({count})</span>
+			</h3>
+		</Accordion.Trigger>
+		<div
+			class="bg-primary/0 peer-hover/trigger:bg-primary/40 absolute top-3 left-0 h-8 w-0.5 rounded-full transition-all duration-300 peer-hover/trigger:h-10"
+		></div>
+		<Accordion.Content class="pt-3 pl-4">
+			{@render children()}
+		</Accordion.Content>
+	</Accordion.Item>
+{/snippet}
+
+{#snippet generalContent()}
+	<ul class="marker:text-primary/40 list-disc space-y-2 pl-5">
+		{#each contentJson?.notes ?? [] as note, i (i)}
+			<li class="text-foreground/85 leading-relaxed">
+				<NoteWithPatterns {note} />
+			</li>
+		{/each}
+	</ul>
+{/snippet}
+
+{#snippet heroesContent()}
+	<div>
+		{#each visibleHeroes as [heroName, heroData] (heroName)}
+			<ChangeCard
+				title={heroName}
+				image={getHeroImage(heroData.id)}
+				notes={heroData.notes}
+				abilities={heroData.abilities}
+			/>
+		{/each}
+	</div>
+{/snippet}
+
+{#snippet itemsContent()}
+	<div>
+		{#each visibleItems as [itemName, itemData] (itemName)}
+			<ChangeCard
+				title={itemName}
+				image={getItemImage(itemData.id)}
+				notes={itemData.notes}
+			/>
+		{/each}
+	</div>
+{/snippet}
+
+{#snippet abilitiesContent()}
+	<div>
+		{#each Object.entries(contentJson?.abilities ?? {}) as [abilityName, abilityData] (abilityName)}
+			<ChangeCard title={abilityName} notes={abilityData.notes} />
+		{/each}
+	</div>
+{/snippet}
+
 <div class="prose-content">
 	{#if contentJson}
 		<Accordion.Root
@@ -49,102 +109,29 @@
 			class="space-y-4"
 		>
 			{#if contentJson.notes.length > 0}
-				<Accordion.Item value="general" class="relative">
-					<Accordion.Trigger class="peer/trigger pl-4">
-						<h3 class="text-primary font-display mb-0 text-xl tracking-tight">
-							General Changes <span class="font-mono text-base opacity-70"
-								>({contentJson.notes.length})</span
-							>
-						</h3>
-					</Accordion.Trigger>
-					<div
-						class="bg-primary/0 peer-hover/trigger:bg-primary/40 absolute top-3 left-0 h-8 w-0.5 rounded-full transition-all duration-300 peer-hover/trigger:h-10"
-					></div>
-					<Accordion.Content class="pt-3 pl-4">
-						<ul class="marker:text-primary/40 list-disc space-y-2 pl-5">
-							{#each contentJson.notes as note, i (i)}
-								<li class="text-foreground/85 leading-relaxed">
-									<NoteWithPatterns {note} />
-								</li>
-							{/each}
-						</ul>
-					</Accordion.Content>
-				</Accordion.Item>
+				{@render section(
+					'general',
+					'General Changes',
+					contentJson.notes.length,
+					generalContent
+				)}
 			{/if}
 
 			{#if visibleHeroes.length > 0}
-				<Accordion.Item value="heroes" class="relative">
-					<Accordion.Trigger class="peer/trigger pl-4">
-						<h3 class="text-primary font-display mb-0 text-xl tracking-tight">
-							Hero Changes <span class="font-mono text-base opacity-70"
-								>({visibleHeroes.length})</span
-							>
-						</h3>
-					</Accordion.Trigger>
-					<div
-						class="bg-primary/0 peer-hover/trigger:bg-primary/40 absolute top-3 left-0 h-8 w-0.5 rounded-full transition-all duration-300 peer-hover/trigger:h-10"
-					></div>
-					<Accordion.Content class="pt-3 pl-4">
-						<div>
-							{#each visibleHeroes as [heroName, heroData] (heroName)}
-								<ChangeCard
-									title={heroName}
-									image={getHeroImage(heroData.id)}
-									notes={heroData.notes}
-									abilities={heroData.abilities}
-								/>
-							{/each}
-						</div>
-					</Accordion.Content>
-				</Accordion.Item>
+				{@render section('heroes', 'Hero Changes', visibleHeroes.length, heroesContent)}
 			{/if}
 
 			{#if visibleItems.length > 0}
-				<Accordion.Item value="items" class="relative">
-					<Accordion.Trigger class="peer/trigger pl-4">
-						<h3 class="text-primary font-display mb-0 text-xl tracking-tight">
-							Item Changes <span class="font-mono text-base opacity-70"
-								>({visibleItems.length})</span
-							>
-						</h3>
-					</Accordion.Trigger>
-					<div
-						class="bg-primary/0 peer-hover/trigger:bg-primary/40 absolute top-3 left-0 h-8 w-0.5 rounded-full transition-all duration-300 peer-hover/trigger:h-10"
-					></div>
-					<Accordion.Content class="pt-3 pl-4">
-						<div>
-							{#each visibleItems as [itemName, itemData] (itemName)}
-								<ChangeCard
-									title={itemName}
-									image={getItemImage(itemData.id)}
-									notes={itemData.notes}
-								/>
-							{/each}
-						</div>
-					</Accordion.Content>
-				</Accordion.Item>
+				{@render section('items', 'Item Changes', visibleItems.length, itemsContent)}
 			{/if}
 
 			{#if Object.keys(contentJson.abilities).length > 0}
-				<Accordion.Item value="abilities" class="relative">
-					<Accordion.Trigger class="peer/trigger pl-4">
-						<h3 class="text-primary font-display mb-0 text-xl tracking-tight">
-							Ability Changes <span class="font-mono text-base opacity-70"
-								>({Object.keys(contentJson.abilities).length})</span
-							>
-						</h3>
-					</Accordion.Trigger>
-					<div
-						class="bg-primary/0 peer-hover/trigger:bg-primary/40 absolute top-3 left-0 h-8 w-0.5 rounded-full transition-all duration-300 peer-hover/trigger:h-10"
-					></div>
-					<Accordion.Content class="pt-3 pl-4">
-						<div>
-							{#each Object.entries(contentJson.abilities) as [abilityName, abilityData] (abilityName)}
-								<ChangeCard title={abilityName} notes={abilityData.notes} />
-							{/each}
-						</div>
-					</Accordion.Content>
-				</Accordion.Item>
+				{@render section(
+					'abilities',
+					'Ability Changes',
+					Object.keys(contentJson.abilities).length,
+					abilitiesContent
+				)}
 			{/if}
 		</Accordion.Root>
 	{/if}

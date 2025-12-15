@@ -1,6 +1,5 @@
 import type { ChangelogContentJson, Note } from '@deadlog/db';
-import type { EntityType, EntityIcon } from '@deadlog/scraper';
-import { ENTITY_TYPES } from '@deadlog/scraper';
+import type { EntityIcon } from '@deadlog/scraper';
 
 export interface FilterState {
 	selectedHeroNames: ReadonlySet<string>;
@@ -24,99 +23,100 @@ export interface FilteredChangelog {
 	majorUpdate?: boolean;
 }
 
-type EntityKey = 'heroes' | 'items';
+type EntityContentMap = Readonly<
+	Record<string, { id?: number; notes?: readonly Note[] }>
+>;
 
-interface EntityData {
-	id?: number;
-	notes?: readonly Note[];
-}
-
-type EntityContentMap = Readonly<Record<string, EntityData>>;
-
-function collectContentNames(
-	content?: EntityContentMap,
-	selectedNames?: ReadonlySet<string>,
-	searchQuery?: string
+/** Collect entity names from content, optionally filtering by selection and/or search query */
+function collectNames(
+	content: EntityContentMap | undefined,
+	selected?: ReadonlySet<string>,
+	query?: string
 ): Set<string> {
-	const names = new Set<string>();
-	if (!content) return names;
+	if (!content) return new Set();
 
-	const query = searchQuery?.toLowerCase().trim();
+	const normalizedQuery = query?.toLowerCase().trim();
+	const result = new Set<string>();
 
-	for (const [entityName, entityData] of Object.entries(content)) {
-		// Check if this entity is selected (if filter exists)
-		if (selectedNames && !selectedNames.has(entityName)) continue;
+	for (const [name, data] of Object.entries(content)) {
+		if (selected && !selected.has(name)) continue;
 
-		if (query) {
-			const nameMatches = entityName.toLowerCase().includes(query);
-			const notesMatch = entityData.notes?.some((note) =>
-				note.text.toLowerCase().includes(query)
+		if (normalizedQuery) {
+			const matchesName = name.toLowerCase().includes(normalizedQuery);
+			const matchesNotes = data.notes?.some((n) =>
+				n.text.toLowerCase().includes(normalizedQuery)
 			);
-			if (nameMatches || notesMatch) {
-				names.add(entityName);
-			}
-		} else {
-			names.add(entityName);
+			if (!matchesName && !matchesNotes) continue;
 		}
+
+		result.add(name);
 	}
-	return names;
+	return result;
 }
 
-function getVisibleEntityNames(
+/** Check if search query matches changelog title or general notes */
+function matchesGeneralContent(changelog: FilteredChangelog, query: string): boolean {
+	const q = query.toLowerCase().trim();
+	if (!q) return false;
+	return (
+		changelog.title.toLowerCase().includes(q) ||
+		changelog.contentJson?.notes?.some((n) => n.text.toLowerCase().includes(q)) ||
+		false
+	);
+}
+
+/** Core logic for getting visible entity names based on filters */
+function getVisibleNames(
 	changelog: FilteredChangelog,
-	filterState: FilterState,
-	entityType: EntityType,
-	selectedNames: ReadonlySet<string>,
-	otherSelectedNames: ReadonlySet<string>
+	entityKey: 'heroes' | 'items',
+	selected: ReadonlySet<string>,
+	otherSelected: ReadonlySet<string>,
+	searchQuery: string
 ): Set<string> | null {
-	const { searchQuery } = filterState;
-	const entityKey: EntityKey = entityType === ENTITY_TYPES.HERO ? 'heroes' : 'items';
+	const hasFilter = selected.size > 0;
+	const hasOtherFilter = otherSelected.size > 0;
+	const query = searchQuery.trim();
 
-	const hasFilter = selectedNames.size > 0;
-	const hasOtherFilter = otherSelectedNames.size > 0;
-	const hasSearchQuery = searchQuery.trim().length > 0;
-
-	if (!hasFilter && !hasSearchQuery) {
-		return hasOtherFilter ? new Set<string>() : null;
+	// No filters active - show all (null) or none if other type is filtered
+	if (!hasFilter && !query) {
+		return hasOtherFilter ? new Set() : null;
 	}
 
 	const content = changelog.contentJson?.[entityKey] as EntityContentMap | undefined;
-	const query = searchQuery.toLowerCase().trim();
 
-	if (hasFilter && !hasSearchQuery) {
-		return collectContentNames(content, selectedNames);
+	// Only entity filter (no search) - show selected entities
+	if (hasFilter && !query) {
+		return collectNames(content, selected);
 	}
 
-	if (
-		changelog.title.toLowerCase().includes(query) ||
-		changelog.contentJson?.notes?.some((note) => note.text.toLowerCase().includes(query))
-	) {
-		return collectContentNames(content);
+	// Search matches title/general notes - show all entities of this type
+	if (matchesGeneralContent(changelog, query)) {
+		return collectNames(content);
 	}
 
-	const visibleNames = collectContentNames(content, undefined, query);
-
+	// Search by query, then intersect with selection if needed
+	const matched = collectNames(content, undefined, query);
 	if (hasFilter) {
-		const filtered = new Set<string>();
-		for (const name of visibleNames) {
-			if (selectedNames.has(name)) filtered.add(name);
+		const intersected = new Set<string>();
+		for (const name of matched) {
+			if (selected.has(name)) intersected.add(name);
 		}
-		return filtered;
+		return intersected;
 	}
 
-	return visibleNames.size > 0 ? visibleNames : null;
+	return matched.size > 0 ? matched : null;
 }
 
 export function getVisibleHeroNames(
 	changelog: FilteredChangelog,
 	filterState: FilterState
 ): Set<string> | null {
-	return getVisibleEntityNames(
+	return getVisibleNames(
 		changelog,
-		filterState,
-		ENTITY_TYPES.HERO,
+		'heroes',
 		filterState.selectedHeroNames,
-		filterState.selectedItemNames
+		filterState.selectedItemNames,
+		filterState.searchQuery
 	);
 }
 
@@ -124,30 +124,28 @@ export function getVisibleItemNames(
 	changelog: FilteredChangelog,
 	filterState: FilterState
 ): Set<string> | null {
-	return getVisibleEntityNames(
+	return getVisibleNames(
 		changelog,
-		filterState,
-		ENTITY_TYPES.ITEM,
+		'items',
 		filterState.selectedItemNames,
-		filterState.selectedHeroNames
+		filterState.selectedHeroNames,
+		filterState.searchQuery
 	);
 }
 
-function isEntityInGeneralNotesOnly(
+/** Check if entity is mentioned in general notes but doesn't have its own section */
+function isMentionedOnlyInGeneralNotes(
 	changelog: FilteredChangelog,
 	entityName: string,
-	entityType: EntityType
+	entityKey: 'heroes' | 'items'
 ): boolean {
-	const entityKey: EntityKey = entityType === ENTITY_TYPES.HERO ? 'heroes' : 'items';
-
 	const content = changelog.contentJson?.[entityKey];
-	const hasContentSection = content && entityName in content;
-	if (hasContentSection) return false;
+	if (content && entityName in content) return false;
 
 	return (
-		changelog.contentJson?.notes?.some((note) =>
-			note.text.toLowerCase().includes(entityName.toLowerCase())
-		) || false
+		changelog.contentJson?.notes?.some((n) =>
+			n.text.toLowerCase().includes(entityName.toLowerCase())
+		) ?? false
 	);
 }
 
@@ -156,36 +154,24 @@ export function shouldShowGeneralNotes(
 	filterState: FilterState
 ): boolean {
 	const { selectedHeroNames, selectedItemNames, searchQuery } = filterState;
-	const hasHeroFilter = selectedHeroNames.size > 0;
-	const hasItemFilter = selectedItemNames.size > 0;
-	const hasSearchQuery = searchQuery.trim().length > 0;
+	const query = searchQuery.trim();
 
-	if (!hasHeroFilter && !hasItemFilter && !hasSearchQuery) {
+	// No filters - don't highlight general notes
+	if (!selectedHeroNames.size && !selectedItemNames.size && !query) {
 		return false;
 	}
 
-	if (hasSearchQuery) {
-		const query = searchQuery.toLowerCase().trim();
-		const matchesGeneralNotes = changelog.contentJson?.notes?.some((note) =>
-			note.text.toLowerCase().includes(query)
-		);
-		if (matchesGeneralNotes) return true;
+	// Search query matches general notes
+	if (query && matchesGeneralContent(changelog, query)) {
+		return true;
 	}
 
-	if (hasHeroFilter) {
-		for (const heroName of selectedHeroNames) {
-			if (isEntityInGeneralNotesOnly(changelog, heroName, ENTITY_TYPES.HERO)) {
-				return true;
-			}
-		}
+	// Check if any selected entity is only mentioned in general notes
+	for (const name of selectedHeroNames) {
+		if (isMentionedOnlyInGeneralNotes(changelog, name, 'heroes')) return true;
 	}
-
-	if (hasItemFilter) {
-		for (const itemName of selectedItemNames) {
-			if (isEntityInGeneralNotesOnly(changelog, itemName, ENTITY_TYPES.ITEM)) {
-				return true;
-			}
-		}
+	for (const name of selectedItemNames) {
+		if (isMentionedOnlyInGeneralNotes(changelog, name, 'items')) return true;
 	}
 
 	return false;
