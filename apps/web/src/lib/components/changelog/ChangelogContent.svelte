@@ -1,34 +1,22 @@
 <script lang="ts">
-	import { ChangeCard } from './change-card';
+	import ChangeCard from './ChangeCard.svelte';
 	import { NoteWithPatterns } from '.';
 	import * as Accordion from '$lib/components/ui/accordion';
 	import type { ChangelogContentJson } from '@deadlog/db';
-	import { getFilteredGeneralNotes } from '$lib/utils/filterChanges';
 	import { getSearchParams } from '$lib/stores/searchParams.svelte';
 	import { getHeroImageFromMap, getItemImageFromMap } from '$lib/utils/entityImages';
+	import type { Snippet } from 'svelte';
 
 	interface Props {
 		contentJson?: ChangelogContentJson | null;
 		heroMap?: Record<number, { name: string; images: Record<string, string> }>;
 		itemMap?: Record<number, { name: string; image: string }>;
-		showFullChange?: boolean;
-		forceShowNotes?: boolean;
 	}
 
-	let {
-		contentJson,
-		heroMap = {},
-		itemMap = {},
-		showFullChange = false,
-		forceShowNotes = false
-	}: Props = $props();
+	let { contentJson, heroMap = {}, itemMap = {} }: Props = $props();
 
 	const params = getSearchParams();
-	let showAllNotes = $state(false);
 
-	const hasParams = $derived(
-		params.hero.length > 0 || params.item.length > 0 || params.change || params.q
-	);
 	const hasHeroFilter = $derived(params.hero.length > 0);
 	const hasItemFilter = $derived(params.item.length > 0);
 
@@ -52,32 +40,66 @@
 
 	const getHeroImage = (heroId?: number) => getHeroImageFromMap(heroId, heroMap);
 	const getItemImage = (itemId?: number) => getItemImageFromMap(itemId, itemMap);
-
-	const filteredGeneralNotes = $derived.by(() => {
-		if (!contentJson || !hasParams || showFullChange || showAllNotes) {
-			return null;
-		}
-		return getFilteredGeneralNotes(
-			{ id: '', title: '', date: new Date(), author: '', contentJson },
-			{
-				selectedHeroNames: new Set(params.hero),
-				selectedItemNames: new Set(params.item),
-				searchQuery: params.q
-			}
-		);
-	});
-
-	const displayedNotes = $derived.by(() => {
-		if (!contentJson?.notes) return [];
-		if (filteredGeneralNotes === null) return contentJson.notes;
-		return filteredGeneralNotes;
-	});
-
-	const hasHiddenNotes = $derived.by(() => {
-		if (!contentJson?.notes || filteredGeneralNotes === null) return false;
-		return contentJson.notes.length > filteredGeneralNotes.length;
-	});
 </script>
+
+{#snippet section(value: string, title: string, count: number, children: Snippet)}
+	<Accordion.Item {value} class="relative">
+		<Accordion.Trigger class="peer/trigger pl-4">
+			<h3 class="text-primary font-display mb-0 text-xl tracking-tight">
+				{title} <span class="font-mono text-base opacity-70">({count})</span>
+			</h3>
+		</Accordion.Trigger>
+		<div
+			class="bg-primary/0 peer-hover/trigger:bg-primary/40 absolute top-3 left-0 h-8 w-0.5 rounded-full transition-all duration-300 peer-hover/trigger:h-10"
+		></div>
+		<Accordion.Content class="pt-3 pl-4">
+			{@render children()}
+		</Accordion.Content>
+	</Accordion.Item>
+{/snippet}
+
+{#snippet generalContent()}
+	<ul class="marker:text-primary/40 list-disc space-y-2 pl-5">
+		{#each contentJson?.notes ?? [] as note, i (i)}
+			<li class="text-foreground/85 leading-relaxed">
+				<NoteWithPatterns {note} />
+			</li>
+		{/each}
+	</ul>
+{/snippet}
+
+{#snippet heroesContent()}
+	<div>
+		{#each visibleHeroes as [heroName, heroData] (heroName)}
+			<ChangeCard
+				title={heroName}
+				image={getHeroImage(heroData.id)}
+				notes={heroData.notes}
+				abilities={heroData.abilities}
+			/>
+		{/each}
+	</div>
+{/snippet}
+
+{#snippet itemsContent()}
+	<div>
+		{#each visibleItems as [itemName, itemData] (itemName)}
+			<ChangeCard
+				title={itemName}
+				image={getItemImage(itemData.id)}
+				notes={itemData.notes}
+			/>
+		{/each}
+	</div>
+{/snippet}
+
+{#snippet abilitiesContent()}
+	<div>
+		{#each Object.entries(contentJson?.abilities ?? {}) as [abilityName, abilityData] (abilityName)}
+			<ChangeCard title={abilityName} notes={abilityData.notes} />
+		{/each}
+	</div>
+{/snippet}
 
 <div class="prose-content">
 	{#if contentJson}
@@ -86,125 +108,30 @@
 			value={['general', 'heroes', 'items', 'abilities']}
 			class="space-y-4"
 		>
-			{#if (!hasParams || showFullChange || forceShowNotes) && contentJson.notes.length > 0}
-				<Accordion.Item value="general" class="relative">
-					<Accordion.Trigger class="peer/trigger pl-4">
-						<h3 class="text-primary font-display mb-0 text-xl tracking-tight">
-							General Changes <span class="font-mono text-base opacity-70"
-								>({displayedNotes.length})</span
-							>
-						</h3>
-					</Accordion.Trigger>
-					<div
-						class="bg-primary/0 peer-hover/trigger:bg-primary/40 absolute top-3 left-0 h-8 w-0.5 rounded-full transition-all duration-300 peer-hover/trigger:h-10"
-					></div>
-					<Accordion.Content class="pt-3 pl-4">
-						<ul class="marker:text-primary/40 list-disc space-y-2 pl-5">
-							{#each displayedNotes as note, i (i)}
-								<li class="text-foreground/85 leading-relaxed">
-									<NoteWithPatterns {note} />
-								</li>
-							{/each}
-						</ul>
-						{#if hasHiddenNotes && !showAllNotes}
-							<button
-								type="button"
-								onclick={() => (showAllNotes = true)}
-								class="show-more-btn"
-							>
-								+ Show {contentJson.notes.length - displayedNotes.length} more note{contentJson
-									.notes.length -
-									displayedNotes.length !==
-								1
-									? 's'
-									: ''}
-							</button>
-						{:else if hasHiddenNotes && showAllNotes}
-							<button
-								type="button"
-								onclick={() => (showAllNotes = false)}
-								class="show-more-btn"
-							>
-								- Show less
-							</button>
-						{/if}
-					</Accordion.Content>
-				</Accordion.Item>
+			{#if contentJson.notes.length > 0}
+				{@render section(
+					'general',
+					'General Changes',
+					contentJson.notes.length,
+					generalContent
+				)}
 			{/if}
 
 			{#if visibleHeroes.length > 0}
-				<Accordion.Item value="heroes" class="relative">
-					<Accordion.Trigger class="peer/trigger pl-4">
-						<h3 class="text-primary font-display mb-0 text-xl tracking-tight">
-							Hero Changes <span class="font-mono text-base opacity-70"
-								>({visibleHeroes.length})</span
-							>
-						</h3>
-					</Accordion.Trigger>
-					<div
-						class="bg-primary/0 peer-hover/trigger:bg-primary/40 absolute top-3 left-0 h-8 w-0.5 rounded-full transition-all duration-300 peer-hover/trigger:h-10"
-					></div>
-					<Accordion.Content class="pt-3 pl-4">
-						<div>
-							{#each visibleHeroes as [heroName, heroData] (heroName)}
-								<ChangeCard
-									title={heroName}
-									image={getHeroImage(heroData.id)}
-									notes={heroData.notes}
-									abilities={heroData.abilities}
-								/>
-							{/each}
-						</div>
-					</Accordion.Content>
-				</Accordion.Item>
+				{@render section('heroes', 'Hero Changes', visibleHeroes.length, heroesContent)}
 			{/if}
 
 			{#if visibleItems.length > 0}
-				<Accordion.Item value="items" class="relative">
-					<Accordion.Trigger class="peer/trigger pl-4">
-						<h3 class="text-primary font-display mb-0 text-xl tracking-tight">
-							Item Changes <span class="font-mono text-base opacity-70"
-								>({visibleItems.length})</span
-							>
-						</h3>
-					</Accordion.Trigger>
-					<div
-						class="bg-primary/0 peer-hover/trigger:bg-primary/40 absolute top-3 left-0 h-8 w-0.5 rounded-full transition-all duration-300 peer-hover/trigger:h-10"
-					></div>
-					<Accordion.Content class="pt-3 pl-4">
-						<div>
-							{#each visibleItems as [itemName, itemData] (itemName)}
-								<ChangeCard
-									title={itemName}
-									image={getItemImage(itemData.id)}
-									notes={itemData.notes}
-								/>
-							{/each}
-						</div>
-					</Accordion.Content>
-				</Accordion.Item>
+				{@render section('items', 'Item Changes', visibleItems.length, itemsContent)}
 			{/if}
 
-			{#if (!hasParams || showFullChange) && Object.keys(contentJson.abilities).length > 0}
-				<Accordion.Item value="abilities" class="relative">
-					<Accordion.Trigger class="peer/trigger pl-4">
-						<h3 class="text-primary font-display mb-0 text-xl tracking-tight">
-							Ability Changes <span class="font-mono text-base opacity-70"
-								>({Object.keys(contentJson.abilities).length})</span
-							>
-						</h3>
-					</Accordion.Trigger>
-					<div
-						class="bg-primary/0 peer-hover/trigger:bg-primary/40 absolute top-3 left-0 h-8 w-0.5 rounded-full transition-all duration-300 peer-hover/trigger:h-10"
-					></div>
-					<Accordion.Content class="pt-3 pl-4">
-						<div>
-							{#each Object.entries(contentJson.abilities) as [abilityName, abilityData] (abilityName)}
-								<ChangeCard title={abilityName} notes={abilityData.notes} />
-							{/each}
-						</div>
-					</Accordion.Content>
-				</Accordion.Item>
+			{#if Object.keys(contentJson.abilities).length > 0}
+				{@render section(
+					'abilities',
+					'Ability Changes',
+					Object.keys(contentJson.abilities).length,
+					abilitiesContent
+				)}
 			{/if}
 		</Accordion.Root>
 	{/if}
@@ -256,9 +183,5 @@
 		:global(li) {
 			@apply leading-relaxed;
 		}
-	}
-
-	.show-more-btn {
-		@apply text-primary mt-4 text-sm font-medium transition-all duration-200 hover:translate-x-1 hover:opacity-80;
 	}
 </style>
