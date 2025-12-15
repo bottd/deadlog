@@ -13,8 +13,7 @@
 		getSelectedHeroObjects,
 		getSelectedItemObjects
 	} from '$lib/utils/selectedEntities.svelte';
-	import { createInfiniteQuery } from '@tanstack/svelte-query';
-	import { useIntersectionObserver } from 'runed';
+	import { useChangelogQuery } from '$lib/hooks/useChangelogQuery.svelte';
 	import AlertCircle from '@lucide/svelte/icons/alert-circle';
 	import Frown from '@lucide/svelte/icons/frown';
 
@@ -24,78 +23,13 @@
 	const initialLoadCount = $derived(page.data.initialLoadCount ?? 12);
 	const totalCount = $derived(page.data.totalCount ?? 0);
 
-	interface PageData {
-		changelogs: FilteredChangelog[];
-		hasMore: boolean;
-	}
-	interface InfiniteData {
-		pages: PageData[];
-		pageParams: number[];
-	}
+	const queryState = useChangelogQuery({
+		getInitialChangelogs: () => changelogs,
+		getInitialLoadCount: () => initialLoadCount,
+		getTotalCount: () => totalCount
+	});
 
-	const query = createInfiniteQuery<
-		PageData,
-		Error,
-		InfiniteData,
-		(string | string[])[],
-		number
-	>(() => ({
-		queryKey: ['changelogs', params.hero, params.item, params.q],
-		enabled: true,
-		initialData: {
-			pages: [
-				{
-					changelogs,
-					hasMore:
-						totalCount > 0
-							? totalCount > initialLoadCount
-							: changelogs.length === initialLoadCount
-				}
-			],
-			pageParams: [0]
-		},
-		queryFn: async ({ pageParam }) => {
-			const limit = 12;
-			const offset = initialLoadCount + (pageParam - 1) * limit;
-			const searchParams = params.toURLSearchParams();
-			searchParams.set('limit', String(limit));
-			searchParams.set('offset', String(offset));
-
-			const url = `/api/changelogs?${searchParams.toString()}`;
-			const response = await fetch(url);
-
-			if (!response.ok) {
-				throw new Error(`Failed to fetch changelogs: ${response.statusText}`);
-			}
-
-			return (await response.json()) as PageData;
-		},
-		getNextPageParam: (lastPage, pages) => {
-			return lastPage.hasMore ? pages.length : undefined;
-		},
-		initialPageParam: 0
-	}));
-
-	let trigger = $state<HTMLDivElement | null>(null);
-
-	useIntersectionObserver(
-		() => trigger,
-		(entries) => {
-			const entry = entries[0];
-			if (!entry) return;
-
-			if (
-				entry.isIntersecting &&
-				query.hasNextPage &&
-				!query.isFetchingNextPage &&
-				!query.isFetching &&
-				query.status !== 'error'
-			) {
-				query.fetchNextPage();
-			}
-		},
-		{ threshold: 0.1 }
-	);
+	const query = $derived(queryState.query);
 
 	const filterState = $derived.by(
 		(): FilterState => ({
@@ -112,9 +46,7 @@
 	);
 
 	const filteredChangelogs = $derived.by(() => {
-		const allChangelogs = ((query.data?.pages || []) as PageData[]).flatMap(
-			(page) => page.changelogs
-		);
+		const allChangelogs = (query.data?.pages ?? []).flatMap((p) => p.changelogs);
 
 		if (!isFiltered) return allChangelogs;
 
@@ -200,7 +132,7 @@
 			</div>
 		{/if}
 
-		<div bind:this={trigger} class="flex flex-col items-center gap-4 py-8">
+		<div bind:this={queryState.trigger} class="flex flex-col items-center gap-4 py-8">
 			{#if query.isFetchingNextPage}
 				<div class="flex items-center justify-center">
 					<div
