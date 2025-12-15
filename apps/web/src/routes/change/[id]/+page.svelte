@@ -91,12 +91,6 @@
 			{/if}
 		</header>
 
-		<ChangelogContent
-			contentJson={changelog.contentJson}
-			{heroMap}
-			{itemMap}
-			showFullChange={true}
-			forceShowNotes={true}
-		/>
+		<ChangelogContent contentJson={changelog.contentJson} {heroMap} {itemMap} />
 	</article>
 </main>

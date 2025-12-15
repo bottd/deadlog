@@ -3,7 +3,6 @@
 	import { NoteWithPatterns } from '.';
 	import * as Accordion from '$lib/components/ui/accordion';
 	import type { ChangelogContentJson } from '@deadlog/db';
-	import { getFilteredGeneralNotes } from '$lib/utils/filterChanges';
 	import { getSearchParams } from '$lib/stores/searchParams.svelte';
 	import { getHeroImageFromMap, getItemImageFromMap } from '$lib/utils/entityImages';
 
@@ -11,24 +10,12 @@
 		contentJson?: ChangelogContentJson | null;
 		heroMap?: Record<number, { name: string; images: Record<string, string> }>;
 		itemMap?: Record<number, { name: string; image: string }>;
-		showFullChange?: boolean;
-		forceShowNotes?: boolean;
 	}
 
-	let {
-		contentJson,
-		heroMap = {},
-		itemMap = {},
-		showFullChange = false,
-		forceShowNotes = false
-	}: Props = $props();
+	let { contentJson, heroMap = {}, itemMap = {} }: Props = $props();
 
 	const params = getSearchParams();
-	let showAllNotes = $state(false);
 
-	const hasParams = $derived(
-		params.hero.length > 0 || params.item.length > 0 || params.change || params.q
-	);
 	const hasHeroFilter = $derived(params.hero.length > 0);
 	const hasItemFilter = $derived(params.item.length > 0);
 
@@ -52,31 +39,6 @@
 
 	const getHeroImage = (heroId?: number) => getHeroImageFromMap(heroId, heroMap);
 	const getItemImage = (itemId?: number) => getItemImageFromMap(itemId, itemMap);
-
-	const filteredGeneralNotes = $derived.by(() => {
-		if (!contentJson || !hasParams || showFullChange || showAllNotes) {
-			return null;
-		}
-		return getFilteredGeneralNotes(
-			{ id: '', title: '', date: new Date(), author: '', contentJson },
-			{
-				selectedHeroNames: new Set(params.hero),
-				selectedItemNames: new Set(params.item),
-				searchQuery: params.q
-			}
-		);
-	});
-
-	const displayedNotes = $derived.by(() => {
-		if (!contentJson?.notes) return [];
-		if (filteredGeneralNotes === null) return contentJson.notes;
-		return filteredGeneralNotes;
-	});
-
-	const hasHiddenNotes = $derived.by(() => {
-		if (!contentJson?.notes || filteredGeneralNotes === null) return false;
-		return contentJson.notes.length > filteredGeneralNotes.length;
-	});
 </script>
 
 <div class="prose-content">
@@ -86,12 +48,12 @@
 			value={['general', 'heroes', 'items', 'abilities']}
 			class="space-y-4"
 		>
-			{#if (!hasParams || showFullChange || forceShowNotes) && contentJson.notes.length > 0}
+			{#if contentJson.notes.length > 0}
 				<Accordion.Item value="general" class="relative">
 					<Accordion.Trigger class="peer/trigger pl-4">
 						<h3 class="text-primary font-display mb-0 text-xl tracking-tight">
 							General Changes <span class="font-mono text-base opacity-70"
-								>({displayedNotes.length})</span
+								>({contentJson.notes.length})</span
 							>
 						</h3>
 					</Accordion.Trigger>
@@ -100,34 +62,12 @@
 					></div>
 					<Accordion.Content class="pt-3 pl-4">
 						<ul class="marker:text-primary/40 list-disc space-y-2 pl-5">
-							{#each displayedNotes as note, i (i)}
+							{#each contentJson.notes as note, i (i)}
 								<li class="text-foreground/85 leading-relaxed">
 									<NoteWithPatterns {note} />
 								</li>
 							{/each}
 						</ul>
-						{#if hasHiddenNotes && !showAllNotes}
-							<button
-								type="button"
-								onclick={() => (showAllNotes = true)}
-								class="show-more-btn"
-							>
-								+ Show {contentJson.notes.length - displayedNotes.length} more note{contentJson
-									.notes.length -
-									displayedNotes.length !==
-								1
-									? 's'
-									: ''}
-							</button>
-						{:else if hasHiddenNotes && showAllNotes}
-							<button
-								type="button"
-								onclick={() => (showAllNotes = false)}
-								class="show-more-btn"
-							>
-								- Show less
-							</button>
-						{/if}
 					</Accordion.Content>
 				</Accordion.Item>
 			{/if}
@@ -185,7 +125,7 @@
 				</Accordion.Item>
 			{/if}
 
-			{#if (!hasParams || showFullChange) && Object.keys(contentJson.abilities).length > 0}
+			{#if Object.keys(contentJson.abilities).length > 0}
 				<Accordion.Item value="abilities" class="relative">
 					<Accordion.Trigger class="peer/trigger pl-4">
 						<h3 class="text-primary font-display mb-0 text-xl tracking-tight">
@@ -256,9 +196,5 @@
 		:global(li) {
 			@apply leading-relaxed;
 		}
-	}
-
-	.show-more-btn {
-		@apply text-primary mt-4 text-sm font-medium transition-all duration-200 hover:translate-x-1 hover:opacity-80;
 	}
 </style>
