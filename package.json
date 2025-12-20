@@ -10,12 +10,12 @@
 		"lint": "pnpm exec nx run-many -t lint --projects=* --exclude=deadlog.io"
 	},
 	"devDependencies": {
-		"@cloudflare/workers-types": "4.20251219.0",
+		"@cloudflare/workers-types": "4.20251220.0",
 		"@eslint/js": "9.39.2",
 		"@fontsource/inter": "5.2.8",
 		"@libsql/client": "0.15.15",
 		"@lucide/svelte": "0.562.0",
-		"@nx/eslint": "22.3.1",
+		"@nx/eslint": "22.3.3",
 		"@internationalized/date": "3.10.1",
 		"@sveltejs/adapter-cloudflare": "7.2.4",
 		"@sveltejs/adapter-node": "5.4.0",
@@ -42,7 +42,7 @@
 		"happy-dom": "20.0.11",
 		"mode-watcher": "1.1.0",
 		"msw": "2.12.4",
-		"nx": "22.3.1",
+		"nx": "22.3.3",
 		"playwright": "1.57.0",
 		"prettier": "3.7.4",
 		"prettier-plugin-sql": "0.19.2",
