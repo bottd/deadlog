@@ -10,7 +10,7 @@
 		"lint": "pnpm exec nx run-many -t lint --projects=* --exclude=deadlog.io"
 	},
 	"devDependencies": {
-		"@cloudflare/workers-types": "4.20260101.0",
+		"@cloudflare/workers-types": "4.20260103.0",
 		"@eslint/js": "9.39.2",
 		"@fontsource/inter": "5.2.8",
 		"@libsql/client": "0.15.15",
@@ -29,7 +29,7 @@
 		"@testing-library/jest-dom": "6.9.1",
 		"@types/node": "24.10.4",
 		"@types/react": "19.2.7",
-		"bits-ui": "2.14.4",
+		"bits-ui": "2.15.1",
 		"clsx": "2.1.1",
 		"deadlock-api-client": "github:deadlock-api/openapi-clients#path:typescript/api",
 		"drizzle-kit": "0.31.8",
