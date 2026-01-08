@@ -1,0 +1,17 @@
+{
+	"name": "@deadlog/db",
+	"version": "1.0.0",
+	"type": "module",
+	"private": true,
+	"exports": {
+		".": "./src/index.ts"
+	},
+	"dependencies": {
+		"@libsql/client": "0.17.0",
+		"drizzle-orm": "0.45.1"
+	},
+	"devDependencies": {
+		"@types/node": "24.10.4",
+		"drizzle-kit": "0.31.8"
+	}
+}

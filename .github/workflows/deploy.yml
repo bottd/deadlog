@@ -33,7 +33,9 @@ jobs:
         run: pnpm run lint
 
       - name: Build scraper and generate database
-        run: pnpm exec nx build scraper
+        run: pnpm run build:scraper
+        env:
+          DATABASE_URL: file:apps/web/static/deadlog.db
 
       - name: Export database to SQL
         run: |
@@ -53,7 +55,7 @@ jobs:
         run: pnpm exec wrangler d1 execute deadlog --remote --file=deadlog-clean.sql --config=apps/web/wrangler.toml
 
       - name: Build web project
-        run: pnpm exec nx build web
+        run: pnpm run build
         env:
           CLOUDFLARE: true
           DATABASE_URL: file:apps/web/static/deadlog.db

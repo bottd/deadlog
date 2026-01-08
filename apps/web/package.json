@@ -3,7 +3,19 @@
 	"version": "1.0.0",
 	"type": "module",
 	"private": true,
+	"scripts": {
+		"dev": "DATABASE_URL=file:static/deadlog.db vite dev --port 5173",
+		"build": "DATABASE_URL=file:static/deadlog.db vite build",
+		"preview": "DATABASE_URL=file:static/deadlog.db vite preview --port 4173",
+		"prepare": "svelte-kit sync",
+		"check": "svelte-check --tsconfig tsconfig.json",
+		"test": "vitest run",
+		"lint": "eslint ."
+	},
 	"dependencies": {
+		"@deadlog/db": "workspace:*",
+		"@deadlog/scraper": "workspace:*",
+		"@deadlog/utils": "workspace:*",
 		"@sveltejs/kit": "2.49.3",
 		"svelte": "5.46.1"
 	},

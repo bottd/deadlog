@@ -6,11 +6,6 @@ inputs:
     description: GitHub token for Nix installation
     required: true
 
-outputs:
-  dep-graph-path:
-    description: Path to the generated dependency graph file
-    value: ${{ steps.dep-graph.outputs.path }}
-
 runs:
   using: composite
   steps:
@@ -30,10 +25,3 @@ runs:
     - name: Install dependencies
       shell: bash
       run: pnpm install --frozen-lockfile
-
-    - name: Generate dependency graph
-      id: dep-graph
-      shell: bash
-      run: |
-        pnpm exec nx dep-graph --file dep-graph.json
-        echo "path=dep-graph.json" >> $GITHUB_OUTPUT

@@ -1,0 +1,17 @@
+{
+	"name": "@deadlog/meta",
+	"version": "1.0.0",
+	"type": "module",
+	"private": true,
+	"exports": {
+		".": "./src/index.ts"
+	},
+	"dependencies": {
+		"@deadlog/db": "workspace:*",
+		"@deadlog/scraper": "workspace:*",
+		"@deadlog/utils": "workspace:*"
+	},
+	"devDependencies": {
+		"@types/node": "24.10.4"
+	}
+}

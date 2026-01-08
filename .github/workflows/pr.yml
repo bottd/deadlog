@@ -36,7 +36,7 @@ jobs:
 
       - name: Build web
         if: matrix.task == 'build'
-        run: pnpm exec nx build web
+        run: pnpm run build
         env:
           NODE_ENV: production
 

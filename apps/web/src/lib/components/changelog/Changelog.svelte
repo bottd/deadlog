@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import ChangelogCard from './ChangelogCard.svelte';
+	import { ChangelogCard } from './index';
 	import {
 		getVisibleHeroNames,
 		getVisibleItemNames,
@@ -16,6 +16,8 @@
 	import { useChangelogQuery } from '$lib/hooks/useChangelogQuery.svelte';
 	import AlertCircle from '@lucide/svelte/icons/alert-circle';
 	import Frown from '@lucide/svelte/icons/frown';
+	import { scale, fly } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
 
 	const params = getSearchParams();
 
@@ -69,19 +71,24 @@
 
 <main class="container mx-auto mt-8 mb-24 px-4" aria-label="Changelog entries">
 	{#if query.isError}
-		<div class="flex flex-col items-center justify-center py-16 text-center">
-			<div class="mb-4 rounded-full bg-red-950/50 p-6">
-				<AlertCircle class="size-12 text-red-500" />
+		<div
+			class="bg-card border-border relative overflow-hidden rounded-xl border p-12 text-center"
+			in:scale={{ start: 0.9, duration: 400 }}
+		>
+			<div
+				class="bg-destructive/10 mx-auto mb-6 flex size-20 items-center justify-center rounded-full"
+			>
+				<AlertCircle class="text-destructive size-10" />
 			</div>
-			<h3 class="text-foreground mb-2 text-xl font-semibold">
+			<h3 class="text-foreground font-display mb-3 text-2xl tracking-tight">
 				Failed to load changelogs
 			</h3>
-			<p class="text-muted-foreground mb-6 max-w-md">
+			<p class="text-muted-foreground mx-auto mb-8 max-w-md">
 				{query.error?.message || 'An error occurred while fetching changelogs'}
 			</p>
 			<button
 				onclick={() => query.refetch()}
-				class="bg-primary text-primary-foreground rounded-md px-4 py-2 text-sm font-medium transition-colors hover:opacity-80"
+				class="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold transition-all hover:scale-105"
 			>
 				Try again
 			</button>
@@ -93,7 +100,7 @@
 			{#each { length: 12 }, i (i)}
 				<div
 					class="bg-card border-border h-36 animate-pulse rounded-lg border"
-					style="animation-delay: {i * 50}ms"
+					style:animation-delay="{i * 50}ms"
 				></div>
 			{/each}
 		</div>
@@ -101,31 +108,66 @@
 
 	{#if !query.isError && query.data}
 		{#if filteredChangelogs.length > 0}
+			<!-- Latest update featured section -->
+			{#each filteredChangelogs as entry, i (entry.id)}
+				{#if i === 0 && !isFiltered}
+					<div in:fly={{ y: 20, duration: 350, easing: quintOut }}>
+						<ChangelogCard
+							id={entry.id}
+							date={entry.date}
+							author={entry.author}
+							authorImage={entry.authorImage}
+							icons={entry.icons}
+							isLatest={true}
+						/>
+					</div>
+				{/if}
+			{/each}
+
+			<!-- Grid for remaining changes -->
 			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 				{#each filteredChangelogs as entry, i (entry.id)}
-					<ChangelogCard
-						id={entry.id}
-						date={entry.date}
-						author={entry.author}
-						authorImage={entry.authorImage}
-						icons={entry.icons}
-						isLatest={i === 0 && !isFiltered}
-					/>
+					{#if i !== 0 || isFiltered}
+						<div
+							in:fly={{
+								y: 20,
+								delay: Math.min(i, 8) * 30,
+								duration: 350,
+								easing: quintOut
+							}}
+						>
+							<ChangelogCard
+								id={entry.id}
+								date={entry.date}
+								author={entry.author}
+								authorImage={entry.authorImage}
+								icons={entry.icons}
+								isLatest={false}
+							/>
+						</div>
+					{/if}
 				{/each}
 			</div>
 		{:else}
-			<div class="flex flex-col items-center justify-center py-16 text-center">
-				<div class="bg-card mb-4 rounded-full p-6">
-					<Frown class="text-muted-foreground size-12" />
+			<div
+				class="bg-card border-border relative overflow-hidden rounded-xl border p-12 text-center"
+				in:scale={{ start: 0.95, duration: 400 }}
+			>
+				<div
+					class="bg-muted/50 mx-auto mb-6 flex size-20 items-center justify-center rounded-full"
+				>
+					<Frown class="text-muted-foreground size-10" />
 				</div>
-				<h3 class="text-foreground mb-2 text-xl font-semibold">No changes found</h3>
-				<p class="text-muted-foreground mb-6 max-w-md">
+				<h3 class="text-foreground font-display mb-3 text-2xl tracking-tight">
+					No changes found
+				</h3>
+				<p class="text-muted-foreground mx-auto mb-8 max-w-md">
 					No changelog entries match your current filters. Try adjusting your search or
 					clearing the filters.
 				</p>
 				<button
 					onclick={() => params.reset()}
-					class="bg-primary text-primary-foreground rounded-md px-4 py-2 text-sm font-medium transition-colors hover:opacity-80"
+					class="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold transition-all hover:scale-105"
 				>
 					Clear all filters
 				</button>
@@ -143,12 +185,19 @@
 				<button
 					onclick={() => query.fetchNextPage()}
 					disabled={query.isFetchingNextPage}
-					class="bg-primary/10 text-primary hover:bg-primary/20 rounded-md px-6 py-3 text-sm font-medium transition-colors disabled:opacity-50"
+					class="bg-primary/10 text-primary hover:bg-primary/20 inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold transition-all hover:scale-105 disabled:opacity-50"
 				>
 					Load more changes
 				</button>
 			{:else if !query.hasNextPage && filteredChangelogs.length > 0}
-				<p class="text-muted-foreground text-sm">All changes loaded</p>
+				<div
+					class="text-muted-foreground flex items-center gap-2"
+					in:fly={{ opacity: 0, duration: 400 }}
+				>
+					<span class="bg-border size-1.5 rounded-full"></span>
+					<p class="text-sm">All changes loaded</p>
+					<span class="bg-border size-1.5 rounded-full"></span>
+				</div>
 			{/if}
 		</div>
 	{/if}

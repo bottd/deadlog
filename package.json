@@ -5,9 +5,17 @@
 	"type": "module",
 	"scripts": {
 		"postinstall": "cd node_modules/deadlock-api-client && npm run build",
-		"test": "pnpm exec nx run-many -t test --projects=* --exclude=deadlog.io",
-		"check": "pnpm exec nx run-many -t check --projects=* --exclude=deadlog.io",
-		"lint": "pnpm exec nx run-many -t lint --projects=* --exclude=deadlog.io"
+		"dev": "pnpm --filter 'deadlog-web' dev",
+		"build": "pnpm --filter 'deadlog-web' build",
+		"preview": "pnpm --filter 'deadlog-web' preview",
+		"test": "pnpm --filter 'deadlog-web' test",
+		"test:all": "pnpm -r --filter './apps/**' --filter './libs/**' run test",
+		"check": "pnpm --filter 'deadlog-web' check",
+		"lint": "pnpm --filter 'deadlog-web' lint",
+		"format": "prettier --write .",
+		"fmt:check": "prettier --check .",
+		"build:scraper": "OUTPUT_DIR=apps/web/static tsx --tsconfig=tsconfig.base.json libs/scraper/src/compile.ts",
+		"build:meta": "DATABASE_URL=file:apps/web/static/deadlog.db tsx --tsconfig=tsconfig.base.json libs/meta/src/generate-previews.ts"
 	},
 	"devDependencies": {
 		"@cloudflare/workers-types": "4.20260108.0",
@@ -15,7 +23,6 @@
 		"@fontsource/inter": "5.2.8",
 		"@libsql/client": "0.17.0",
 		"@lucide/svelte": "0.562.0",
-		"@nx/eslint": "22.3.3",
 		"@internationalized/date": "3.10.1",
 		"@sveltejs/adapter-cloudflare": "7.2.4",
 		"@sveltejs/adapter-node": "5.4.0",
@@ -42,7 +49,6 @@
 		"happy-dom": "20.1.0",
 		"mode-watcher": "1.1.0",
 		"msw": "2.12.7",
-		"nx": "22.3.3",
 		"playwright": "1.57.0",
 		"prettier": "3.7.4",
 		"prettier-plugin-sql": "0.19.2",
@@ -68,6 +74,5 @@
 		"vitest": "4.0.16",
 		"wrangler": "4.57.0",
 		"zod": "4.3.5"
-	},
-	"nx": {}
+	}
 }

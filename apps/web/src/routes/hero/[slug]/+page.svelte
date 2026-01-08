@@ -4,8 +4,10 @@
 	import { PatchPreviewCard, PatchTimeline } from '$lib/components/changelog';
 	import { Badge } from '$lib/components/ui/badge';
 	import ArrowLeft from '@lucide/svelte/icons/arrow-left';
+	import Activity from '@lucide/svelte/icons/activity';
 	import { MetaTags } from 'svelte-meta-tags';
-	import { fly } from 'svelte/transition';
+	import { fly, scale, blur } from 'svelte/transition';
+	import { elasticOut, quintOut, expoOut } from 'svelte/easing';
 	import { createQuery } from '@tanstack/svelte-query';
 	import { queryKeys } from '$lib/queries/keys';
 	import { toast } from 'svelte-sonner';
@@ -20,7 +22,6 @@
 	}
 
 	// Use TanStack Query with SSR data as initialData
-	// This enables: background refetch, prefetch cache hits, stale-while-revalidate
 	const query = createQuery<HeroQueryData>(() => ({
 		queryKey: queryKeys.hero(hero.slug),
 		queryFn: async () => {
@@ -29,10 +30,10 @@
 			return res.json();
 		},
 		initialData: { hero, changelogs: initialChangelogs },
-		staleTime: 60 * 60 * 1000 // 1 hour - matches QueryClient default
+		staleTime: 60 * 60 * 1000
 	}));
 
-	// Show toast if background refetch fails (user still sees SSR data)
+	// Show toast if background refetch fails
 	$effect(() => {
 		if (query.isError && browser) {
 			toast.error('Failed to refresh data', {
@@ -64,6 +65,86 @@
 			return () => mediaQuery.removeEventListener('change', handler);
 		}
 	});
+
+	// Transition config based on reduced motion
+	const transitionConfig = $derived(
+		reducedMotion
+			? { duration: 0 }
+			: {
+					duration: 400,
+					easing: quintOut
+				}
+	);
+
+	const cardTransitionConfig = $derived((i: number) =>
+		reducedMotion
+			? { duration: 0 }
+			: {
+					delay: Math.min(i, 12) * 40,
+					duration: 400,
+					easing: quintOut
+				}
+	);
+
+	// Type-specific styles using Svelte $derived
+	const typeGradient = $derived(() => {
+		if (!hero.heroType) return '';
+		const colors: Record<string, string> = {
+			marksman: 'from-amber-500/20 via-yellow-500/10 to-amber-500/5',
+			mystic: 'from-purple-500/20 via-fuchsia-500/10 to-purple-500/5',
+			brawler: 'from-red-500/20 via-orange-500/10 to-red-500/5'
+		};
+		return colors[hero.heroType] || '';
+	});
+
+	const typePatternColor = $derived(() => {
+		if (!hero.heroType) return '';
+		const colors: Record<string, string> = {
+			marksman: 'oklch(0.75 0.15 55)',
+			mystic: 'oklch(0.65 0.2 300)',
+			brawler: 'oklch(0.6 0.2 25)'
+		};
+		return colors[hero.heroType] || '';
+	});
+
+	const typeBorderColor = $derived(() => {
+		if (!hero.heroType) return 'border-border';
+		const borderColors: Record<string, string> = {
+			marksman: 'border-amber-500/30',
+			mystic: 'border-purple-500/30',
+			brawler: 'border-red-500/30'
+		};
+		return borderColors[hero.heroType] || 'border-border';
+	});
+
+	const typeAccentColor = $derived(() => {
+		if (!hero.heroType) return '';
+		const colors: Record<string, string> = {
+			marksman: '#f59e0b',
+			mystic: '#a855f7',
+			brawler: '#ef4444'
+		};
+		return colors[hero.heroType] || '';
+	});
+
+	const typeBorderVar = $derived(() => {
+		if (!hero.heroType) return '';
+		return `var(--type-${hero.heroType})`;
+	});
+
+	// Svelte motion for rotating ring
+	let rotation = $state(0);
+	let rotationFrame: number;
+
+	$effect(() => {
+		if (reducedMotion) return;
+		const animateRotation = () => {
+			rotation = (rotation + 0.05) % 360;
+			rotationFrame = requestAnimationFrame(animateRotation);
+		};
+		rotationFrame = requestAnimationFrame(animateRotation);
+		return () => cancelAnimationFrame(rotationFrame);
+	});
 </script>
 
 <MetaTags
@@ -85,98 +166,197 @@
 	}}
 />
 
-<main class="container mx-auto mt-8 mb-24 max-w-6xl px-4">
-	<a
-		href="/"
-		data-sveltekit-reload
-		class="text-muted-foreground hover:text-foreground mb-8 inline-flex items-center gap-2 text-sm transition-colors"
-	>
-		<ArrowLeft class="size-4" />
-		Back to all changes
-	</a>
+<main class="min-h-screen">
+	<!-- Dynamic background based on hero type -->
+	{#if hero.heroType}
+		<div
+			class="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
+			in:blur={{ duration: 800, easing: expoOut }}
+		>
+			<div class="bg-gradient-to-br {typeGradient} absolute inset-0"></div>
+			<!-- Diagonal slash pattern -->
+			<div
+				class="absolute inset-0"
+				style:opacity="0.03"
+				style:background-image="
+				linear-gradient(45deg, transparent 48%, {typePatternColor} 48%, {typePatternColor} 52%,
+				transparent 52%), linear-gradient(-45deg, transparent 48%, {typePatternColor} 48%, {typePatternColor}
+				52%, transparent 52%)
+				"
+				style:background-size="60px 60px"
+			></div>
+		</div>
+	{/if}
 
-	<header
-		class="bg-card border-border mb-8 rounded-lg border p-6 md:p-8"
-		in:fly={reducedMotion ? { duration: 0 } : { y: -20, duration: 300 }}
-	>
-		<div class="flex flex-col items-center gap-6 md:flex-row md:items-start">
-			{#if hero.image}
-				<div class="relative">
-					<!-- Subtle glow effect behind portrait -->
-					{#if hero.heroType}
-						<div
-							class="absolute inset-0 -z-10 rounded-lg opacity-20 blur-2xl"
-							style="background-color: var(--type-{hero.heroType})"
-						></div>
-					{/if}
-					<!-- Hero image with type-colored accent border -->
-					<img
-						src={hero.image}
-						alt={hero.name}
-						class="size-32 rounded-lg border-[3px] object-cover md:size-40 {hero.heroType
-							? `border-[var(--type-${hero.heroType})]`
-							: 'border-primary/30'}"
-					/>
+	<div class="container mx-auto mt-8 mb-24 max-w-6xl px-4">
+		<a
+			href="/"
+			data-sveltekit-reload
+			class="text-muted-foreground hover:text-foreground mb-8 inline-flex items-center gap-2 text-sm transition-all hover:gap-3"
+		>
+			<ArrowLeft class="size-4" />
+			<span>Back to all changes</span>
+		</a>
+
+		<!-- Hero Header -->
+		<header
+			class="relative overflow-hidden rounded-xl border-2 {typeBorderColor} bg-gradient-to-br {typeGradient} p-8 md:p-12"
+			in:fly={{ y: -20, ...transitionConfig }}
+		>
+			<!-- Decorative corner accent -->
+			{#if hero.heroType}
+				<div
+					class="absolute top-0 right-0 h-32 w-32 opacity-20"
+					in:fly={{ x: 20, duration: 600, easing: elasticOut }}
+				>
+					<div
+						class="absolute top-0 right-0 h-16 w-1"
+						style:background-color={typeAccentColor}
+					></div>
+					<div
+						class="absolute top-0 right-0 h-1 w-16"
+						style:background-color={typeAccentColor}
+					></div>
 				</div>
 			{/if}
-			<div class="flex-1 text-center md:text-left">
-				<h1 class="text-foreground font-display mb-3 text-3xl tracking-tight md:text-4xl">
-					{hero.name}
-				</h1>
-				<div
-					class="mb-4 flex flex-wrap items-center justify-center gap-2 md:justify-start"
-				>
-					{#if hero.heroType}
-						<Badge variant={hero.heroType} class="capitalize">
-							{hero.heroType}
-						</Badge>
-					{/if}
-					<Badge variant="secondary">
-						{changelogs.length} change{changelogs.length !== 1 ? 's' : ''}
-					</Badge>
-				</div>
-				{#if changelogs.length > 1}
-					<PatchTimeline
-						patches={changelogs.map((c: { id: string; date: Date }) => ({
-							id: c.id,
-							date: c.date
-						}))}
-						class="mt-4 max-w-md"
-					/>
-				{/if}
-			</div>
-		</div>
-	</header>
 
-	<section>
-		<h2 class="text-foreground font-display mb-6 text-2xl tracking-tight">
-			Change History
-		</h2>
-
-		{#if changelogs.length > 0}
-			<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-				{#each changelogs as changelog, i (changelog.id)}
-					<div
-						in:fly={reducedMotion
-							? { duration: 0 }
-							: { y: 20, duration: 300, delay: Math.min(i, 10) * 50 }}
-					>
-						<PatchPreviewCard
-							id={changelog.id}
-							date={changelog.date}
-							author={changelog.author}
-							authorImage={changelog.authorImage}
-							icons={changelog.icons}
+			<div
+				class="relative z-10 flex flex-col items-center gap-8 md:flex-row md:items-start"
+			>
+				<!-- Hero portrait with enhanced treatment -->
+				{#if hero.image}
+					<div class="relative shrink-0">
+						<!-- Glowing background -->
+						{#if hero.heroType}
+							<div
+								class="absolute inset-0 -z-10 rounded-xl blur-2xl"
+								style:background-color={typeBorderVar}
+								style:opacity="0.3"
+								in:scale={{ duration: 600, easing: expoOut }}
+							></div>
+							<!-- Rotating dashed border ring using Svelte motion -->
+							<div class="absolute inset-0 -z-10 rounded-xl p-1">
+								<div
+									class="h-full w-full rounded-xl border-2 border-dashed"
+									style:border-color={typeBorderVar}
+									style:opacity="0.4"
+									style:transform="rotate({rotation}deg)"
+								></div>
+							</div>
+						{/if}
+						<!-- Main portrait -->
+						<img
+							src={hero.image}
+							alt={hero.name}
+							class="size-32 rounded-xl border-[3px] object-cover shadow-2xl md:size-40"
+							style:border-color={hero.heroType ? typeBorderVar : undefined}
+							in:scale={{ start: 0.9, duration: 500, easing: elasticOut }}
 						/>
 					</div>
-				{/each}
+				{/if}
+
+				<!-- Hero info -->
+				<div
+					class="flex-1 text-center md:text-left"
+					in:blur={{ duration: 600, delay: 100 }}
+				>
+					<div
+						class="border-primary/20 bg-primary/5 mb-3 inline-flex items-center gap-2 rounded-full border px-3 py-1"
+					>
+						<Activity class="text-primary size-3.5" />
+						<span class="text-primary text-xs font-semibold tracking-wider uppercase"
+							>Hero Profile</span
+						>
+					</div>
+
+					<h1
+						class="text-foreground font-display mb-4 text-4xl tracking-tight md:text-5xl lg:text-6xl"
+					>
+						{hero.name}
+					</h1>
+
+					<div
+						class="mb-5 flex flex-wrap items-center justify-center gap-3 md:justify-start"
+					>
+						{#if hero.heroType}
+							<Badge variant={hero.heroType} class="px-3 py-1 text-sm">
+								<span class="capitalize">{hero.heroType}</span>
+							</Badge>
+						{/if}
+						<div class="bg-muted/50 flex items-center gap-2 rounded-md px-3 py-1">
+							<span class="text-foreground text-sm font-semibold"
+								>{changelogs.length}</span
+							>
+							<span class="text-muted-foreground text-sm"
+								>change{changelogs.length !== 1 ? 's' : ''}</span
+							>
+						</div>
+					</div>
+
+					{#if changelogs.length > 1}
+						<div class="inline-block" in:fly={{ y: 10, duration: 400, delay: 200 }}>
+							<PatchTimeline
+								patches={changelogs.map((c: { id: string; date: Date }) => ({
+									id: c.id,
+									date: c.date
+								}))}
+								class="max-w-md"
+								timelineColor={hero.heroType}
+							/>
+						</div>
+					{/if}
+				</div>
 			</div>
-		{:else}
-			<div class="bg-card border-border rounded-lg border p-8 text-center">
-				<p class="text-muted-foreground">
-					No recorded changes for {hero.name} yet.
-				</p>
+		</header>
+
+		<!-- Changes Section -->
+		<section>
+			<div
+				class="mb-6 flex items-center gap-3"
+				in:fly={{ y: -10, duration: 400, delay: 100 }}
+			>
+				<div class="bg-border h-px flex-1"></div>
+				<h2
+					class="text-foreground font-display text-center text-xl tracking-tight md:text-2xl"
+				>
+					Change History
+				</h2>
+				<div class="bg-border h-px flex-1"></div>
 			</div>
-		{/if}
-	</section>
+
+			{#if changelogs.length > 0}
+				<div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+					{#each changelogs as changelog, i (changelog.id)}
+						<div in:fly={{ y: 30, ...cardTransitionConfig(i) }}>
+							<PatchPreviewCard
+								id={changelog.id}
+								date={changelog.date}
+								author={changelog.author}
+								authorImage={changelog.authorImage}
+								icons={changelog.icons}
+							/>
+						</div>
+					{/each}
+				</div>
+			{:else}
+				<div
+					class="bg-card border-border relative overflow-hidden rounded-xl border p-12 text-center"
+					in:scale={{ start: 0.95, duration: 400 }}
+				>
+					<div
+						class="text-muted-foreground/30 bg-muted mx-auto mb-4 flex size-20 items-center justify-center rounded-full"
+					>
+						<Activity class="size-8" />
+					</div>
+					<p class="text-muted-foreground text-lg">
+						No changes recorded for <span class="text-foreground font-medium"
+							>{hero.name}</span
+						>
+						yet.
+					</p>
+					<p class="text-muted-foreground mt-2 text-sm">Check back soon for updates.</p>
+				</div>
+			{/if}
+		</section>
+	</div>
 </main>
