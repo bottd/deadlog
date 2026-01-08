@@ -42,5 +42,6 @@
 		image
 	}}
 />
+
 <Changelog />
 <ScrollToTop />

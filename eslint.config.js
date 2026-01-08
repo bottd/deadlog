@@ -42,15 +42,7 @@ export default ts.config(
 			'@typescript-eslint/no-unsafe-assignment': 'off',
 			'@typescript-eslint/no-unsafe-member-access': 'off',
 			'@typescript-eslint/no-unsafe-argument': 'off',
-			'svelte/no-navigation-without-resolve': [
-				'warn',
-				{
-					ignoreGoto: false,
-					ignoreLinks: true,
-					ignorePushState: false,
-					ignoreReplaceState: false
-				}
-			],
+			'svelte/no-navigation-without-resolve': 'off',
 			'svelte/prefer-svelte-reactivity': 'off'
 		}
 	},

@@ -2,12 +2,11 @@ import {
 	queryChangelogs,
 	getChangelogsCount,
 	getChangelogPosition,
-	getAllHeroes,
-	getAllItems,
 	getHeroByName,
 	getItemByName,
 	formatDate
 } from '@deadlog/scraper';
+import { toSlug } from '@deadlog/utils';
 import type { PageServerLoad } from './$types';
 import {
 	enrichChangelogs,
@@ -18,22 +17,16 @@ import {
 
 export const prerender = false;
 
-function toSlug(name: string): string {
-	return name.toLowerCase().replace(/\s+/g, '-');
-}
-
-export const load: PageServerLoad = async ({ locals, url }) => {
+export const load: PageServerLoad = async ({ locals, url, parent }) => {
 	const { hero, item, q, change } = parseApiParams(url);
 
-	const [heroes, items] = await Promise.all([
-		getAllHeroes(locals.db),
-		getAllItems(locals.db)
-	]);
+	// Get heroes and items from layout data
+	const { heroes, items } = await parent();
 
 	const heroIds = resolveHeroIds(hero, heroes);
 	const itemIds = resolveItemIds(item, items);
 
-	let initialLoadLimit = 5;
+	let initialLoadLimit = 12;
 	if (change) {
 		const position = await getChangelogPosition(locals.db, String(change));
 		initialLoadLimit = position + 1 + 5;
@@ -98,13 +91,23 @@ export const load: PageServerLoad = async ({ locals, url }) => {
 		}
 	}
 
+	// Get latest patch summary for hero banner
+	const latestPatch = enriched[0];
+	const latestPatchSummary = latestPatch
+		? {
+				id: latestPatch.id,
+				date: latestPatch.date,
+				heroCount: latestPatch.icons?.heroes?.length ?? 0,
+				itemCount: latestPatch.icons?.items?.length ?? 0
+			}
+		: null;
+
 	return {
 		changelogs: enriched,
-		heroes,
-		items,
 		totalCount,
 		initialLoadCount: initialLoadLimit,
 		lastUpdate: (allChangelogs[0]?.date ?? new Date()).toISOString(),
+		latestPatchSummary,
 		title: pageMeta.title,
 		description: pageMeta.description,
 		image: pageMeta.image

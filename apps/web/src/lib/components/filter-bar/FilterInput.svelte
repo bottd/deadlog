@@ -16,116 +16,36 @@
 		getSelectedItemObjects
 	} from '$lib/utils/selectedEntities.svelte';
 	import { getHeroImage, getItemImage } from '$lib/utils/entityImages';
-	import { toggleArray } from '$lib/utils/toggle';
+	import { FilterState } from './filterState.svelte';
 
 	const params = getSearchParams();
 
 	const selectedHeroObjects = $derived(getSelectedHeroObjects());
 	const selectedItemObjects = $derived(getSelectedItemObjects());
 
-	const heroes = $derived(page.data.heroes ?? []);
-	const items = $derived(page.data.items ?? []);
+	const filterState = new FilterState(
+		() => page.data.heroes ?? [],
+		() => page.data.items ?? []
+	);
 
 	let open = $state(false);
 	let sheetOpen = $state(false);
-	let inputValue = $state(params.q);
-	let filterMode = $state<'all' | 'heroes' | 'items'>('all');
-
-	const filteredHeroes = $derived(
-		heroes
-			.filter((hero: EnrichedHero) => {
-				if (!hero.isReleased) return false;
-				if (filterMode === 'items') return false;
-				if (!inputValue) return true;
-				return hero.name.toLowerCase().includes(inputValue.toLowerCase());
-			})
-			.sort((a: EnrichedHero, b: EnrichedHero) => {
-				const aSelected = params.hero.includes(a.name);
-				const bSelected = params.hero.includes(b.name);
-				if (aSelected && !bSelected) return -1;
-				if (!aSelected && bSelected) return 1;
-				return a.name.localeCompare(b.name);
-			})
-	);
-
-	const filteredItems = $derived(
-		items
-			.filter((item: EnrichedItem) => {
-				if (filterMode === 'heroes') return false;
-				if (!item.name || item.name.trim() === '' || item.name.includes('_'))
-					return false;
-				if (!item.isReleased) return false;
-				if (!inputValue) return true;
-				return item.name.toLowerCase().includes(inputValue.toLowerCase());
-			})
-			.sort((a: EnrichedItem, b: EnrichedItem) => {
-				const aSelected = params.item.includes(a.name);
-				const bSelected = params.item.includes(b.name);
-				if (aSelected && !bSelected) return -1;
-				if (!aSelected && bSelected) return 1;
-				return a.name.localeCompare(b.name);
-			})
-	);
-
-	type MergedEntity =
-		| { type: 'hero'; data: EnrichedHero; isSelected: boolean }
-		| { type: 'item'; data: EnrichedItem; isSelected: boolean };
-
-	const mergedList = $derived.by(() => {
-		if (filterMode !== 'all') return [];
-
-		const heroEntities: MergedEntity[] = filteredHeroes.map((hero: EnrichedHero) => ({
-			type: 'hero' as const,
-			data: hero,
-			isSelected: params.hero.includes(hero.name)
-		}));
-
-		const itemEntities = filteredItems.map(
-			(item: EnrichedItem) =>
-				({
-					type: 'item' as const,
-					data: item,
-					isSelected: params.item.includes(item.name)
-				}) satisfies MergedEntity
-		);
-
-		return [...heroEntities, ...itemEntities].sort((a, b) => {
-			if (a.isSelected && !b.isSelected) return -1;
-			if (!a.isSelected && b.isSelected) return 1;
-			return a.data.name.localeCompare(b.data.name);
-		});
-	});
-
-	function selectHero(heroId: number) {
-		const hero = heroes.find((h: EnrichedHero) => h.id === heroId);
-		if (hero) {
-			params.hero = toggleArray(params.hero, hero.name);
-		}
-	}
-
-	function selectItem(itemId: number) {
-		const item = items.find((i: EnrichedItem) => i.id === itemId);
-		if (item) {
-			params.item = toggleArray(params.item, item.name);
-		}
-	}
 
 	function clearAll() {
 		open = false;
-		inputValue = '';
-		params.reset();
+		filterState.clearAll();
 	}
 
 	function handleSubmit(e: Event) {
 		e.preventDefault();
-		params.update({ q: inputValue });
+		filterState.updateSearch();
 		open = false;
 	}
 </script>
 
 {#snippet filterContent()}
 	<div class="border-border flex border-b p-2">
-		<ToggleGroup.Root type="single" bind:value={filterMode} class="w-full">
+		<ToggleGroup.Root type="single" bind:value={filterState.filterMode} class="w-full">
 			<ToggleGroup.Item value="all" class="flex-1 text-xs">All</ToggleGroup.Item>
 			<ToggleGroup.Item value="heroes" class="flex-1 text-xs">Heroes</ToggleGroup.Item>
 			<ToggleGroup.Item value="items" class="flex-1 text-xs">Items</ToggleGroup.Item>
@@ -134,13 +54,13 @@
 
 	<Command.Root class="bg-transparent" shouldFilter={false}>
 		<Command.List class="max-h-[350px] overflow-y-auto p-2">
-			{#if (filterMode === 'all' && mergedList.length === 0) || (filterMode !== 'all' && filteredHeroes.length === 0 && filteredItems.length === 0)}
+			{#if (filterState.filterMode === 'all' && filterState.mergedList.length === 0) || (filterState.filterMode !== 'all' && filterState.filteredHeroes.length === 0 && filterState.filteredItems.length === 0)}
 				<Command.Empty class="text-muted-foreground py-6 text-center text-sm">
 					No results found.
 				</Command.Empty>
-			{:else if filterMode === 'all'}
+			{:else if filterState.filterMode === 'all'}
 				<Command.Group>
-					{#each mergedList as entity (entity.type === 'hero' ? `hero-${entity.data.id}` : `item-${entity.data.id}`)}
+					{#each filterState.mergedList as entity (entity.type === 'hero' ? `hero-${entity.data.id}` : `item-${entity.data.id}`)}
 						<EntityItem
 							name={entity.data.name}
 							imageSrc={entity.type === 'hero'
@@ -150,35 +70,35 @@
 							colorClass={entity.type}
 							onSelect={() =>
 								entity.type === 'hero'
-									? selectHero(entity.data.id)
-									: selectItem(entity.data.id)}
+									? filterState.selectHero(entity.data.id)
+									: filterState.selectItem(entity.data.id)}
 						/>
 					{/each}
 				</Command.Group>
 			{:else}
-				{#if filteredHeroes.length > 0}
+				{#if filterState.filteredHeroes.length > 0}
 					<Command.Group>
-						{#each filteredHeroes as hero (hero.id)}
+						{#each filterState.filteredHeroes as hero (hero.id)}
 							<EntityItem
 								name={hero.name}
 								imageSrc={getHeroImage(hero)}
-								isSelected={params.hero.includes(hero.name)}
+								isSelected={filterState.isHeroSelected(hero.name)}
 								colorClass="hero"
-								onSelect={() => selectHero(hero.id)}
+								onSelect={() => filterState.selectHero(hero.id)}
 							/>
 						{/each}
 					</Command.Group>
 				{/if}
 
-				{#if filteredItems.length > 0}
+				{#if filterState.filteredItems.length > 0}
 					<Command.Group>
-						{#each filteredItems as item (item.id)}
+						{#each filterState.filteredItems as item (item.id)}
 							<EntityItem
 								name={item.name}
 								imageSrc={getItemImage(item)}
-								isSelected={params.item.includes(item.name)}
+								isSelected={filterState.isItemSelected(item.name)}
 								colorClass="item"
-								onSelect={() => selectItem(item.id)}
+								onSelect={() => filterState.selectItem(item.id)}
 							/>
 						{/each}
 					</Command.Group>
@@ -196,7 +116,7 @@
 					<FilterBadge
 						name={hero.name}
 						icon={Object.values(hero.images)[0] as string}
-						onRemove={() => selectHero(hero.id)}
+						onRemove={() => filterState.selectHero(hero.id)}
 						badgeColor="hero"
 					/>
 				{/each}
@@ -204,7 +124,7 @@
 					<FilterBadge
 						name={item.name}
 						icon={item.image}
-						onRemove={() => selectItem(item.id)}
+						onRemove={() => filterState.selectItem(item.id)}
 						badgeColor="item"
 					/>
 				{/each}
@@ -214,7 +134,7 @@
 					type="text"
 					placeholder="Add more filters or search..."
 					class="placeholder:text-muted-foreground hidden min-w-0 flex-1 bg-transparent outline-none sm:block sm:min-w-[200px]"
-					bind:value={inputValue}
+					bind:value={filterState.inputValue}
 					onfocus={() => (open = true)}
 					onkeydown={(e) => !open && e.key !== 'Escape' && (open = true)}
 				/>
