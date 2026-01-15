@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@cloudflare/workers-types':
-        specifier: 4.20260114.0
-        version: 4.20260114.0
+        specifier: 4.20260115.0
+        version: 4.20260115.0
       '@eslint/js':
         specifier: 9.39.2
         version: 9.39.2
@@ -31,7 +31,7 @@ importers:
         version: 22.3.3(@babel/traverse@7.28.5)(@zkochan/js-yaml@0.0.7)(eslint@9.39.2(jiti@2.6.1))(nx@22.3.3)
       '@sveltejs/adapter-cloudflare':
         specifier: 7.2.4
-        version: 7.2.4(@sveltejs/kit@2.49.4(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.46.3)(vite@7.3.1(@types/node@24.10.8)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2)))(svelte@5.46.3)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.8)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2)))(wrangler@4.59.1(@cloudflare/workers-types@4.20260114.0))
+        version: 7.2.4(@sveltejs/kit@2.49.4(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.46.3)(vite@7.3.1(@types/node@24.10.8)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2)))(svelte@5.46.3)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.8)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2)))(wrangler@4.59.1(@cloudflare/workers-types@4.20260115.0))
       '@sveltejs/adapter-node':
         specifier: 5.5.0
         version: 5.5.0(@sveltejs/kit@2.49.4(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.46.3)(vite@7.3.1(@types/node@24.10.8)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2)))(svelte@5.46.3)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.8)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2)))
@@ -54,8 +54,8 @@ importers:
         specifier: 0.62.8
         version: 0.62.8
       '@tanstack/svelte-query':
-        specifier: 6.0.14
-        version: 6.0.14(svelte@5.46.3)
+        specifier: 6.0.15
+        version: 6.0.15(svelte@5.46.3)
       '@testing-library/jest-dom':
         specifier: 6.9.1
         version: 6.9.1
@@ -85,10 +85,10 @@ importers:
         version: 0.31.8
       drizzle-orm:
         specifier: 0.45.1
-        version: 0.45.1(@cloudflare/workers-types@4.20260114.0)(@libsql/client@0.17.0)
+        version: 0.45.1(@cloudflare/workers-types@4.20260115.0)(@libsql/client@0.17.0)
       drizzle-zod:
         specifier: 0.8.3
-        version: 0.8.3(drizzle-orm@0.45.1(@cloudflare/workers-types@4.20260114.0)(@libsql/client@0.17.0))(zod@4.3.5)
+        version: 0.8.3(drizzle-orm@0.45.1(@cloudflare/workers-types@4.20260115.0)(@libsql/client@0.17.0))(zod@4.3.5)
       eslint:
         specifier: 9.39.2
         version: 9.39.2(jiti@2.6.1)
@@ -102,8 +102,8 @@ importers:
         specifier: 17.0.0
         version: 17.0.0
       happy-dom:
-        specifier: 20.1.0
-        version: 20.1.0
+        specifier: 20.3.0
+        version: 20.3.0
       mode-watcher:
         specifier: 1.1.0
         version: 1.1.0(svelte@5.46.3)
@@ -117,17 +117,17 @@ importers:
         specifier: 1.57.0
         version: 1.57.0
       prettier:
-        specifier: 3.7.4
-        version: 3.7.4
+        specifier: 3.8.0
+        version: 3.8.0
       prettier-plugin-sql:
         specifier: 0.19.2
-        version: 0.19.2(prettier@3.7.4)
+        version: 0.19.2(prettier@3.8.0)
       prettier-plugin-svelte:
         specifier: 3.4.1
-        version: 3.4.1(prettier@3.7.4)(svelte@5.46.3)
+        version: 3.4.1(prettier@3.8.0)(svelte@5.46.3)
       prettier-plugin-tailwindcss:
         specifier: 0.7.2
-        version: 0.7.2(prettier-plugin-svelte@3.4.1(prettier@3.7.4)(svelte@5.46.3))(prettier@3.7.4)
+        version: 0.7.2(prettier-plugin-svelte@3.4.1(prettier@3.8.0)(svelte@5.46.3))(prettier@3.8.0)
       react:
         specifier: 19.2.3
         version: 19.2.3
@@ -175,10 +175,10 @@ importers:
         version: 6.0.4(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.8)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2))
       vitest:
         specifier: 4.0.17
-        version: 4.0.17(@types/node@24.10.8)(@vitest/browser-playwright@4.0.17)(happy-dom@20.1.0)(jiti@2.6.1)(lightningcss@1.30.2)(msw@2.12.7(@types/node@24.10.8)(typescript@5.9.3))(tsx@4.21.0)(yaml@2.8.2)
+        version: 4.0.17(@types/node@24.10.8)(@vitest/browser-playwright@4.0.17)(happy-dom@20.3.0)(jiti@2.6.1)(lightningcss@1.30.2)(msw@2.12.7(@types/node@24.10.8)(typescript@5.9.3))(tsx@4.21.0)(yaml@2.8.2)
       wrangler:
         specifier: 4.59.1
-        version: 4.59.1(@cloudflare/workers-types@4.20260114.0)
+        version: 4.59.1(@cloudflare/workers-types@4.20260115.0)
       zod:
         specifier: 4.3.5
         version: 4.3.5
@@ -768,8 +768,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@cloudflare/workers-types@4.20260114.0':
-    resolution: {integrity: sha512-Q3YG2tAPvN0Z9LueWZp8RyBIJYAppb2+knSh9WXagm/W6XERGKtYfMV0z9Ij5bJksmvvR/R9jTjjEqbK27kd8g==}
+  '@cloudflare/workers-types@4.20260115.0':
+    resolution: {integrity: sha512-vi68ZODh6m9fH9wdBOzDsyWgrYRIZbzZEAGGkvFn4b1FQSukxaWS8NAtSd/h9mL4gVK9hG8FEYq/jipdOo4RJg==}
 
   '@cspotcode/source-map-support@0.8.1':
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
@@ -2044,11 +2044,11 @@ packages:
   '@takumi-rs/helpers@0.62.8':
     resolution: {integrity: sha512-9qRFeuk0yTvAeVAaQoU2uW1XeigbTBta/fTReHxEsa0hYqyJe4gM4YicA0D29tfObhSRJUN/j2b2WmHuADAmcQ==}
 
-  '@tanstack/query-core@5.90.16':
-    resolution: {integrity: sha512-MvtWckSVufs/ja463/K4PyJeqT+HMlJWtw6PrCpywznd2NSgO3m4KwO9RqbFqGg6iDE8vVMFWMeQI4Io3eEYww==}
+  '@tanstack/query-core@5.90.17':
+    resolution: {integrity: sha512-hDww+RyyYhjhUfoYQ4es6pbgxY7LNiPWxt4l1nJqhByjndxJ7HIjDxTBtfvMr5HwjYavMrd+ids5g4Rfev3lVQ==}
 
-  '@tanstack/svelte-query@6.0.14':
-    resolution: {integrity: sha512-gKuHxbyGP2pCQgE/Px9FtlyFmHTt0OV5xTrKrk7PMKGkv3LPWTTwDb7xlMDe1V7U2K5ci+jq1j3HsuTPqIZxjA==}
+  '@tanstack/svelte-query@6.0.15':
+    resolution: {integrity: sha512-l9j5SWiixjtMM9OFDRqF+P2rfrMs62+xigGMPIOgBFYZoVQTmO5CtF12oTgtoSzgRmc/Ur9iI9a6elYu8Wmu3w==}
     peerDependencies:
       svelte: ^5.25.0
 
@@ -2937,8 +2937,8 @@ packages:
     resolution: {integrity: sha512-DKKrynuQRne0PNpEbzuEdHlYOMksHSUI8Zc9Unei5gTsMNA2/vMpoMz/yKba50pejK56qj98qM0SjYxAKi13gQ==}
     engines: {node: ^12.22.0 || ^14.16.0 || ^16.0.0 || >=17.0.0}
 
-  happy-dom@20.1.0:
-    resolution: {integrity: sha512-ebvqjBqzenBk2LjzNEAzoj7yhw7rW/R2/wVevMu6Mrq3MXtcI/RUz4+ozpcOcqVLEWPqLfg2v9EAU7fFXZUUJw==}
+  happy-dom@20.3.0:
+    resolution: {integrity: sha512-5qJbkqcvR8j/a4av5IWqqIWmEGf9dt6OhGMS6qxCgjSOBGzGa5XLoqg40OyD8XNzQ+g1g2zsXi10kjfpzYH55Q==}
     engines: {node: '>=20.0.0'}
 
   has-flag@4.0.0:
@@ -3559,8 +3559,8 @@ packages:
       prettier-plugin-svelte:
         optional: true
 
-  prettier@3.7.4:
-    resolution: {integrity: sha512-v6UNi1+3hSlVvv8fSaoUbggEM5VErKmmpGA7Pl3HF8V6uKY7rvClBOJlH6yNwQtfTueNkGVpOv/mtWL9L4bgRA==}
+  prettier@3.8.0:
+    resolution: {integrity: sha512-yEPsovQfpxYfgWNhCfECjG5AQaO+K3dp6XERmOepyPDVqcJm+bjyCVO3pmU+nAPe0N5dDvekfGezt/EIiRe1TA==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -4995,7 +4995,7 @@ snapshots:
   '@cloudflare/workerd-windows-64@1.20260111.0':
     optional: true
 
-  '@cloudflare/workers-types@4.20260114.0': {}
+  '@cloudflare/workers-types@4.20260115.0': {}
 
   '@cspotcode/source-map-support@0.8.1':
     dependencies:
@@ -5815,12 +5815,12 @@ snapshots:
     dependencies:
       acorn: 8.15.0
 
-  '@sveltejs/adapter-cloudflare@7.2.4(@sveltejs/kit@2.49.4(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.46.3)(vite@7.3.1(@types/node@24.10.8)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2)))(svelte@5.46.3)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.8)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2)))(wrangler@4.59.1(@cloudflare/workers-types@4.20260114.0))':
+  '@sveltejs/adapter-cloudflare@7.2.4(@sveltejs/kit@2.49.4(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.46.3)(vite@7.3.1(@types/node@24.10.8)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2)))(svelte@5.46.3)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.8)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2)))(wrangler@4.59.1(@cloudflare/workers-types@4.20260115.0))':
     dependencies:
-      '@cloudflare/workers-types': 4.20260114.0
+      '@cloudflare/workers-types': 4.20260115.0
       '@sveltejs/kit': 2.49.4(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.46.3)(vite@7.3.1(@types/node@24.10.8)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2)))(svelte@5.46.3)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.8)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2))
       worktop: 0.8.0-next.18
-      wrangler: 4.59.1(@cloudflare/workers-types@4.20260114.0)
+      wrangler: 4.59.1(@cloudflare/workers-types@4.20260115.0)
 
   '@sveltejs/adapter-node@5.5.0(@sveltejs/kit@2.49.4(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.46.3)(vite@7.3.1(@types/node@24.10.8)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2)))(svelte@5.46.3)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.8)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2)))':
     dependencies:
@@ -5986,11 +5986,11 @@ snapshots:
 
   '@takumi-rs/helpers@0.62.8': {}
 
-  '@tanstack/query-core@5.90.16': {}
+  '@tanstack/query-core@5.90.17': {}
 
-  '@tanstack/svelte-query@6.0.14(svelte@5.46.3)':
+  '@tanstack/svelte-query@6.0.15(svelte@5.46.3)':
     dependencies:
-      '@tanstack/query-core': 5.90.16
+      '@tanstack/query-core': 5.90.17
       svelte: 5.46.3
 
   '@testing-library/jest-dom@6.9.1':
@@ -6142,7 +6142,7 @@ snapshots:
       '@vitest/mocker': 4.0.17(msw@2.12.7(@types/node@24.10.8)(typescript@5.9.3))(vite@7.3.1(@types/node@24.10.8)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2))
       playwright: 1.57.0
       tinyrainbow: 3.0.3
-      vitest: 4.0.17(@types/node@24.10.8)(@vitest/browser-playwright@4.0.17)(happy-dom@20.1.0)(jiti@2.6.1)(lightningcss@1.30.2)(msw@2.12.7(@types/node@24.10.8)(typescript@5.9.3))(tsx@4.21.0)(yaml@2.8.2)
+      vitest: 4.0.17(@types/node@24.10.8)(@vitest/browser-playwright@4.0.17)(happy-dom@20.3.0)(jiti@2.6.1)(lightningcss@1.30.2)(msw@2.12.7(@types/node@24.10.8)(typescript@5.9.3))(tsx@4.21.0)(yaml@2.8.2)
     transitivePeerDependencies:
       - bufferutil
       - msw
@@ -6158,7 +6158,7 @@ snapshots:
       pngjs: 7.0.0
       sirv: 3.0.2
       tinyrainbow: 3.0.3
-      vitest: 4.0.17(@types/node@24.10.8)(@vitest/browser-playwright@4.0.17)(happy-dom@20.1.0)(jiti@2.6.1)(lightningcss@1.30.2)(msw@2.12.7(@types/node@24.10.8)(typescript@5.9.3))(tsx@4.21.0)(yaml@2.8.2)
+      vitest: 4.0.17(@types/node@24.10.8)(@vitest/browser-playwright@4.0.17)(happy-dom@20.3.0)(jiti@2.6.1)(lightningcss@1.30.2)(msw@2.12.7(@types/node@24.10.8)(typescript@5.9.3))(tsx@4.21.0)(yaml@2.8.2)
       ws: 8.18.3
     transitivePeerDependencies:
       - bufferutil
@@ -6522,14 +6522,14 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.45.1(@cloudflare/workers-types@4.20260114.0)(@libsql/client@0.17.0):
+  drizzle-orm@0.45.1(@cloudflare/workers-types@4.20260115.0)(@libsql/client@0.17.0):
     optionalDependencies:
-      '@cloudflare/workers-types': 4.20260114.0
+      '@cloudflare/workers-types': 4.20260115.0
       '@libsql/client': 0.17.0
 
-  drizzle-zod@0.8.3(drizzle-orm@0.45.1(@cloudflare/workers-types@4.20260114.0)(@libsql/client@0.17.0))(zod@4.3.5):
+  drizzle-zod@0.8.3(drizzle-orm@0.45.1(@cloudflare/workers-types@4.20260115.0)(@libsql/client@0.17.0))(zod@4.3.5):
     dependencies:
-      drizzle-orm: 0.45.1(@cloudflare/workers-types@4.20260114.0)(@libsql/client@0.17.0)
+      drizzle-orm: 0.45.1(@cloudflare/workers-types@4.20260115.0)(@libsql/client@0.17.0)
       zod: 4.3.5
 
   dunder-proto@1.0.1:
@@ -6901,7 +6901,7 @@ snapshots:
 
   graphql@16.12.0: {}
 
-  happy-dom@20.1.0:
+  happy-dom@20.3.0:
     dependencies:
       '@types/node': 20.19.25
       '@types/whatwg-mimetype': 3.0.2
@@ -7435,26 +7435,26 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier-plugin-sql@0.19.2(prettier@3.7.4):
+  prettier-plugin-sql@0.19.2(prettier@3.8.0):
     dependencies:
       jsox: 1.2.124
       node-sql-parser: 5.3.13
-      prettier: 3.7.4
+      prettier: 3.8.0
       sql-formatter: 15.6.10
       tslib: 2.8.1
 
-  prettier-plugin-svelte@3.4.1(prettier@3.7.4)(svelte@5.46.3):
+  prettier-plugin-svelte@3.4.1(prettier@3.8.0)(svelte@5.46.3):
     dependencies:
-      prettier: 3.7.4
+      prettier: 3.8.0
       svelte: 5.46.3
 
-  prettier-plugin-tailwindcss@0.7.2(prettier-plugin-svelte@3.4.1(prettier@3.7.4)(svelte@5.46.3))(prettier@3.7.4):
+  prettier-plugin-tailwindcss@0.7.2(prettier-plugin-svelte@3.4.1(prettier@3.8.0)(svelte@5.46.3))(prettier@3.8.0):
     dependencies:
-      prettier: 3.7.4
+      prettier: 3.8.0
     optionalDependencies:
-      prettier-plugin-svelte: 3.4.1(prettier@3.7.4)(svelte@5.46.3)
+      prettier-plugin-svelte: 3.4.1(prettier@3.8.0)(svelte@5.46.3)
 
-  prettier@3.7.4: {}
+  prettier@3.8.0: {}
 
   pretty-format@30.2.0:
     dependencies:
@@ -7960,7 +7960,7 @@ snapshots:
     optionalDependencies:
       vite: 7.3.1(@types/node@24.10.8)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2)
 
-  vitest@4.0.17(@types/node@24.10.8)(@vitest/browser-playwright@4.0.17)(happy-dom@20.1.0)(jiti@2.6.1)(lightningcss@1.30.2)(msw@2.12.7(@types/node@24.10.8)(typescript@5.9.3))(tsx@4.21.0)(yaml@2.8.2):
+  vitest@4.0.17(@types/node@24.10.8)(@vitest/browser-playwright@4.0.17)(happy-dom@20.3.0)(jiti@2.6.1)(lightningcss@1.30.2)(msw@2.12.7(@types/node@24.10.8)(typescript@5.9.3))(tsx@4.21.0)(yaml@2.8.2):
     dependencies:
       '@vitest/expect': 4.0.17
       '@vitest/mocker': 4.0.17(msw@2.12.7(@types/node@24.10.8)(typescript@5.9.3))(vite@7.3.1(@types/node@24.10.8)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2))
@@ -7985,7 +7985,7 @@ snapshots:
     optionalDependencies:
       '@types/node': 24.10.8
       '@vitest/browser-playwright': 4.0.17(msw@2.12.7(@types/node@24.10.8)(typescript@5.9.3))(playwright@1.57.0)(vite@7.3.1(@types/node@24.10.8)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2))(vitest@4.0.17)
-      happy-dom: 20.1.0
+      happy-dom: 20.3.0
     transitivePeerDependencies:
       - jiti
       - less
@@ -8038,7 +8038,7 @@ snapshots:
       mrmime: 2.0.1
       regexparam: 3.0.0
 
-  wrangler@4.59.1(@cloudflare/workers-types@4.20260114.0):
+  wrangler@4.59.1(@cloudflare/workers-types@4.20260115.0):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.4.1
       '@cloudflare/unenv-preset': 2.9.0(unenv@2.0.0-rc.24)(workerd@1.20260111.0)
@@ -8049,7 +8049,7 @@ snapshots:
       unenv: 2.0.0-rc.24
       workerd: 1.20260111.0
     optionalDependencies:
-      '@cloudflare/workers-types': 4.20260114.0
+      '@cloudflare/workers-types': 4.20260115.0
       fsevents: 2.3.3
     transitivePeerDependencies:
       - bufferutil
