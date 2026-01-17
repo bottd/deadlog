@@ -10,7 +10,7 @@
 		"lint": "pnpm exec nx run-many -t lint --projects=* --exclude=deadlog.io"
 	},
 	"devDependencies": {
-		"@cloudflare/workers-types": "4.20260116.0",
+		"@cloudflare/workers-types": "4.20260117.0",
 		"@eslint/js": "9.39.2",
 		"@fontsource/inter": "5.2.8",
 		"@libsql/client": "0.17.0",
@@ -23,9 +23,9 @@
 		"@sveltejs/vite-plugin-svelte": "6.2.4",
 		"@tailwindcss/typography": "0.5.19",
 		"@tailwindcss/vite": "4.1.18",
-		"@takumi-rs/core": "0.62.8",
-		"@takumi-rs/helpers": "0.62.8",
-		"@tanstack/svelte-query": "6.0.15",
+		"@takumi-rs/core": "0.63.1",
+		"@takumi-rs/helpers": "0.63.1",
+		"@tanstack/svelte-query": "6.0.16",
 		"@testing-library/jest-dom": "6.9.1",
 		"@types/node": "24.10.9",
 		"@types/react": "19.2.8",
