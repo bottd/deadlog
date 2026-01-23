@@ -4,7 +4,7 @@
 	"type": "module",
 	"private": true,
 	"dependencies": {
-		"@sveltejs/kit": "2.50.0",
+		"@sveltejs/kit": "2.50.1",
 		"svelte": "5.48.0"
 	},
 	"devDependencies": {}
