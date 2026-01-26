@@ -87,7 +87,7 @@
 	);
 
 	// Type-specific styles using Svelte $derived
-	const typeGradient = $derived(() => {
+	const typeGradient = $derived.by(() => {
 		if (!hero.heroType) return '';
 		const colors: Record<string, string> = {
 			marksman: 'from-amber-500/20 via-yellow-500/10 to-amber-500/5',
@@ -97,7 +97,7 @@
 		return colors[hero.heroType] || '';
 	});
 
-	const typePatternColor = $derived(() => {
+	const typePatternColor = $derived.by(() => {
 		if (!hero.heroType) return '';
 		const colors: Record<string, string> = {
 			marksman: 'oklch(0.75 0.15 55)',
@@ -107,7 +107,7 @@
 		return colors[hero.heroType] || '';
 	});
 
-	const typeBorderColor = $derived(() => {
+	const typeBorderColor = $derived.by(() => {
 		if (!hero.heroType) return 'border-border';
 		const borderColors: Record<string, string> = {
 			marksman: 'border-amber-500/30',
@@ -117,7 +117,7 @@
 		return borderColors[hero.heroType] || 'border-border';
 	});
 
-	const typeAccentColor = $derived(() => {
+	const typeAccentColor = $derived.by(() => {
 		if (!hero.heroType) return '';
 		const colors: Record<string, string> = {
 			marksman: '#f59e0b',
@@ -127,7 +127,7 @@
 		return colors[hero.heroType] || '';
 	});
 
-	const typeBorderVar = $derived(() => {
+	const typeBorderVar = $derived.by(() => {
 		if (!hero.heroType) return '';
 		return `var(--type-${hero.heroType})`;
 	});
