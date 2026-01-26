@@ -36,7 +36,7 @@ jobs:
 
       - name: Build web
         if: matrix.task == 'build'
-        run: pnpm run build
+        run: pnpm run build:scraper && pnpm run build
         env:
           NODE_ENV: production
 
