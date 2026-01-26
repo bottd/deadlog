@@ -41,7 +41,10 @@ export async function queryChangelogs(
 		.selectDistinct({ changelogs: schema.changelogs })
 		.from(schema.changelogs);
 
-	const conditions = [];
+	// Only return main changelogs (exclude child updates) for pagination to work correctly
+	const conditions = [
+		sql`(${schema.changelogs.parentChange} IS NULL OR ${schema.changelogs.parentChange} = '')`
+	];
 	if (hasSearchFilter && searchQuery) {
 		conditions.push(buildTextSearchCondition(searchQuery));
 	}
@@ -87,16 +90,46 @@ export async function queryChangelogs(
 }
 
 /**
- * Get total count of changelogs
+ * Get total count of main changelogs (excludes child updates)
  */
 export async function getChangelogsCount(db: DrizzleDB): Promise<number> {
-	const result = await db.select().from(schema.changelogs).all();
+	const result = await db
+		.select()
+		.from(schema.changelogs)
+		.where(
+			sql`(${schema.changelogs.parentChange} IS NULL OR ${schema.changelogs.parentChange} = '')`
+		)
+		.all();
 	return result.length;
 }
 
 /**
- * Find the position (index) of a specific changelog in the sorted list (by pubDate desc)
- * Returns the number of changelogs that come before this one
+ * Get child updates for given parent changelog IDs
+ */
+export async function getUpdatesForChangelogs(
+	db: DrizzleDB,
+	parentIds: string[]
+): Promise<ScrapedChangelog[]> {
+	if (parentIds.length === 0) return [];
+
+	const results = await db
+		.select()
+		.from(schema.changelogs)
+		.where(
+			sql`${schema.changelogs.parentChange} IN (${sql.join(
+				parentIds.map((id) => sql`${id}`),
+				sql`, `
+			)})`
+		)
+		.orderBy(desc(schema.changelogs.pubDate))
+		.all();
+
+	return results;
+}
+
+/**
+ * Find the position (index) of a specific main changelog in the sorted list (by pubDate desc)
+ * Returns the number of main changelogs that come before this one
  */
 export async function getChangelogPosition(
 	db: DrizzleDB,
@@ -112,10 +145,16 @@ export async function getChangelogPosition(
 		return 0;
 	}
 
+	// Only count main changelogs (exclude child updates)
 	const results = await db
 		.select()
 		.from(schema.changelogs)
-		.where(gt(schema.changelogs.pubDate, target.pubDate))
+		.where(
+			and(
+				gt(schema.changelogs.pubDate, target.pubDate),
+				sql`(${schema.changelogs.parentChange} IS NULL OR ${schema.changelogs.parentChange} = '')`
+			)
+		)
 		.all();
 
 	return results.length;

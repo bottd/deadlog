@@ -6,6 +6,7 @@ export {
 	getChangelogsCount,
 	getChangelogPosition,
 	getChangelogById,
+	getUpdatesForChangelogs,
 	getMetadata,
 	getAllHeroes,
 	getAllItems,

@@ -20,7 +20,6 @@
 	import { quintOut } from 'svelte/easing';
 
 	const params = getSearchParams();
-
 	const changelogs = $derived(page.data.changelogs ?? []);
 	const initialLoadCount = $derived(page.data.initialLoadCount ?? 12);
 	const totalCount = $derived(page.data.totalCount ?? 0);
@@ -35,8 +34,8 @@
 
 	const filterState = $derived.by(
 		(): FilterState => ({
-			selectedHeroNames: new Set(getSelectedHeroObjects().map((hero) => hero.name)),
-			selectedItemNames: new Set(getSelectedItemObjects().map((item) => item.name)),
+			selectedHeroNames: new Set(getSelectedHeroObjects().map((h) => h.name)),
+			selectedItemNames: new Set(getSelectedItemObjects().map((i) => i.name)),
 			searchQuery: params.q || ''
 		})
 	);
@@ -48,22 +47,21 @@
 	);
 
 	const filteredChangelogs = $derived.by(() => {
-		const allChangelogs = (query.data?.pages ?? []).flatMap((p) => p.changelogs);
-
-		if (!isFiltered) return allChangelogs;
-
-		return allChangelogs.filter((changelog: FilteredChangelog) => {
-			const heroes = getVisibleHeroNames(changelog, filterState);
-			const items = getVisibleItemNames(changelog, filterState);
-			const notes = shouldShowGeneralNotes(changelog, filterState);
-
-			if ((heroes?.size ?? 0) > 0 || (items?.size ?? 0) > 0 || notes) return true;
-
+		const all = (query.data?.pages ?? []).flatMap((p) => p.changelogs);
+		if (!isFiltered) return all;
+		return all.filter((c: FilteredChangelog) => {
+			const heroes = getVisibleHeroNames(c, filterState);
+			const items = getVisibleItemNames(c, filterState);
+			if (
+				(heroes?.size ?? 0) > 0 ||
+				(items?.size ?? 0) > 0 ||
+				shouldShowGeneralNotes(c, filterState)
+			)
+				return true;
 			return (
-				changelog.updates?.some((update: FilteredChangelog) => {
-					const updateItems = getVisibleItemNames(update, filterState);
-					return (updateItems?.size ?? 0) > 0;
-				}) ?? false
+				c.updates?.some(
+					(u: FilteredChangelog) => (getVisibleItemNames(u, filterState)?.size ?? 0) > 0
+				) ?? false
 			);
 		});
 	});
@@ -72,131 +70,135 @@
 <main class="container mx-auto mt-8 mb-24 px-4" aria-label="Changelog entries">
 	{#if query.isError}
 		<div
-			class="bg-card border-border relative overflow-hidden rounded-xl border p-12 text-center"
+			class="clip-corner bg-card border-destructive/30 relative overflow-hidden border-2 p-12 text-center"
 			in:scale={{ start: 0.9, duration: 400 }}
 		>
+			<div class="bg-destructive/50 absolute top-0 left-0 h-8 w-px"></div>
+			<div class="bg-destructive/50 absolute top-0 left-0 h-px w-8"></div>
 			<div
-				class="bg-destructive/10 mx-auto mb-6 flex size-20 items-center justify-center rounded-full"
+				class="clip-corner-sm bg-destructive/10 border-destructive/20 mx-auto mb-6 flex size-20 items-center justify-center border"
 			>
 				<AlertCircle class="text-destructive size-10" />
 			</div>
 			<h3 class="text-foreground font-display mb-3 text-2xl tracking-tight">
-				Failed to load changelogs
+				Connection Failed
 			</h3>
-			<p class="text-muted-foreground mx-auto mb-8 max-w-md">
-				{query.error?.message || 'An error occurred while fetching changelogs'}
+			<p
+				class="text-muted-foreground mx-auto mb-2 font-mono text-xs tracking-wide uppercase"
+			>
+				Error: {query.error?.message || 'FETCH_FAILED'}
 			</p>
 			<button
 				onclick={() => query.refetch()}
-				class="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold transition-all hover:scale-105"
+				class="clip-corner-sm bg-destructive/10 text-destructive hover:bg-destructive/20 border-destructive/30 mt-6 border px-6 py-3 font-mono text-sm font-semibold transition-all hover:scale-105"
 			>
-				Try again
+				Retry
 			</button>
 		</div>
 	{/if}
 
 	{#if query.isPending && !query.data}
+		<div
+			class="clip-corner-lg shimmer border-primary/20 mb-8 h-64 border-2 md:h-52"
+		></div>
 		<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 			{#each { length: 12 }, i (i)}
 				<div
-					class="bg-card border-border h-36 animate-pulse rounded-lg border"
-					style:animation-delay="{i * 50}ms"
-				></div>
+					class="clip-corner-sm shimmer border-border/50 relative h-[200px] border"
+					style:animation-delay="{i * 80}ms"
+				>
+					<div class="bg-primary/20 absolute top-0 left-0 h-6 w-px"></div>
+					<div class="bg-primary/20 absolute top-0 left-0 h-px w-6"></div>
+					<div class="flex flex-col gap-3 p-4">
+						<div class="bg-muted/50 h-4 w-24 rounded"></div>
+						<div class="bg-muted/30 h-3 w-16 rounded"></div>
+						<div class="mt-2 flex gap-1">
+							{#each { length: 4 }, j (j)}<div
+									class="bg-muted/40 size-7 rounded-md"
+								></div>{/each}
+						</div>
+					</div>
+				</div>
 			{/each}
 		</div>
 	{/if}
 
 	{#if !query.isError && query.data}
 		{#if filteredChangelogs.length > 0}
-			<!-- Latest update featured section -->
-			{#each filteredChangelogs as entry, i (entry.id)}
-				{#if i === 0 && !isFiltered}
-					<div in:fly={{ y: 20, duration: 350, easing: quintOut }}>
-						<ChangelogCard
-							id={entry.id}
-							date={entry.date}
-							author={entry.author}
-							authorImage={entry.authorImage}
-							icons={entry.icons}
-							isLatest={true}
-						/>
-					</div>
-				{/if}
-			{/each}
+			{#if !isFiltered}
+				<div in:fly={{ y: 20, duration: 350, easing: quintOut }}>
+					<ChangelogCard {...filteredChangelogs[0]} isLatest={true} />
+				</div>
+			{/if}
 
-			<!-- Grid for remaining changes -->
 			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-				{#each filteredChangelogs as entry, i (entry.id)}
-					{#if i !== 0 || isFiltered}
-						<div
-							in:fly={{
-								y: 20,
-								delay: Math.min(i, 8) * 30,
-								duration: 350,
-								easing: quintOut
-							}}
-						>
-							<ChangelogCard
-								id={entry.id}
-								date={entry.date}
-								author={entry.author}
-								authorImage={entry.authorImage}
-								icons={entry.icons}
-								isLatest={false}
-							/>
-						</div>
-					{/if}
+				{#each filteredChangelogs.slice(isFiltered ? 0 : 1) as entry, i (entry.id)}
+					<div
+						in:fly={{
+							y: 20,
+							delay: Math.min(i, 8) * 30,
+							duration: 350,
+							easing: quintOut
+						}}
+					>
+						<ChangelogCard {...entry} isLatest={false} />
+					</div>
 				{/each}
 			</div>
 		{:else}
 			<div
-				class="bg-card border-border relative overflow-hidden rounded-xl border p-12 text-center"
+				class="clip-corner bg-card border-border/50 relative overflow-hidden border-2 p-12 text-center"
 				in:scale={{ start: 0.95, duration: 400 }}
 			>
+				<div class="bg-muted-foreground/30 absolute top-0 left-0 h-8 w-px"></div>
+				<div class="bg-muted-foreground/30 absolute top-0 left-0 h-px w-8"></div>
 				<div
-					class="bg-muted/50 mx-auto mb-6 flex size-20 items-center justify-center rounded-full"
+					class="clip-corner-sm bg-muted/30 border-border mx-auto mb-6 flex size-20 items-center justify-center border"
 				>
 					<Frown class="text-muted-foreground size-10" />
 				</div>
+				<p class="text-muted-foreground mb-2 font-mono text-xs tracking-wide uppercase">
+					No Results
+				</p>
 				<h3 class="text-foreground font-display mb-3 text-2xl tracking-tight">
 					No changes found
 				</h3>
 				<p class="text-muted-foreground mx-auto mb-8 max-w-md">
-					No changelog entries match your current filters. Try adjusting your search or
-					clearing the filters.
+					No changelog entries match your filters.
 				</p>
 				<button
 					onclick={() => params.reset()}
-					class="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold transition-all hover:scale-105"
+					class="clip-corner-sm bg-primary/10 text-primary hover:bg-primary/20 border-primary/30 border px-6 py-3 font-mono text-sm font-semibold transition-all hover:scale-105"
 				>
-					Clear all filters
+					Clear Filters
 				</button>
 			</div>
 		{/if}
 
-		<div bind:this={queryState.trigger} class="flex flex-col items-center gap-4 py-8">
+		<div bind:this={queryState.trigger} class="flex flex-col items-center gap-4 py-12">
 			{#if query.isFetchingNextPage}
-				<div class="flex items-center justify-center">
+				<div class="flex flex-col items-center gap-3">
 					<div
-						class="border-primary size-8 animate-spin rounded-full border-4 border-t-transparent"
+						class="border-primary/30 size-10 animate-spin rounded-lg border-2 border-t-transparent"
 					></div>
+					<span class="text-muted-foreground font-mono text-xs tracking-wider uppercase"
+						>Loading...</span
+					>
 				</div>
 			{:else if query.hasNextPage}
 				<button
 					onclick={() => query.fetchNextPage()}
-					disabled={query.isFetchingNextPage}
-					class="bg-primary/10 text-primary hover:bg-primary/20 inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold transition-all hover:scale-105 disabled:opacity-50"
+					class="clip-corner-sm bg-primary/10 text-primary hover:bg-primary/20 border-primary/30 group border px-8 py-3 font-mono text-sm font-semibold transition-all hover:scale-105 disabled:opacity-50"
 				>
-					Load more changes
+					Load More
 				</button>
-			{:else if !query.hasNextPage && filteredChangelogs.length > 0}
-				<div
-					class="text-muted-foreground flex items-center gap-2"
-					in:fly={{ opacity: 0, duration: 400 }}
-				>
-					<span class="bg-border size-1.5 rounded-full"></span>
-					<p class="text-sm">All changes loaded</p>
-					<span class="bg-border size-1.5 rounded-full"></span>
+			{:else if filteredChangelogs.length > 0}
+				<div class="flex items-center gap-4" in:fly={{ y: 10, duration: 400 }}>
+					<div class="bg-primary/30 h-px w-16"></div>
+					<p class="text-muted-foreground font-mono text-xs tracking-wider uppercase">
+						End of Log
+					</p>
+					<div class="bg-primary/30 h-px w-16"></div>
 				</div>
 			{/if}
 		</div>

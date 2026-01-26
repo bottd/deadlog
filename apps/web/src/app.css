@@ -264,6 +264,75 @@
 	background-size: var(--grid-size) var(--grid-size);
 }
 
+/* Corner cut clip-paths */
+.clip-corner {
+	--corner: 12px;
+	clip-path: polygon(
+		0 0,
+		calc(100% - var(--corner)) 0,
+		100% var(--corner),
+		100% 100%,
+		var(--corner) 100%,
+		0 calc(100% - var(--corner))
+	);
+}
+.clip-corner-sm {
+	--corner: 10px;
+	clip-path: polygon(
+		0 0,
+		calc(100% - var(--corner)) 0,
+		100% var(--corner),
+		100% 100%,
+		var(--corner) 100%,
+		0 calc(100% - var(--corner))
+	);
+}
+.clip-corner-lg {
+	--corner: 24px;
+	clip-path: polygon(
+		0 0,
+		calc(100% - var(--corner)) 0,
+		100% var(--corner),
+		100% 100%,
+		var(--corner) 100%,
+		0 calc(100% - var(--corner))
+	);
+}
+
+/* Shimmer loading effect */
+@keyframes shimmer {
+	0% {
+		background-position: -200% 0;
+	}
+	100% {
+		background-position: 200% 0;
+	}
+}
+.shimmer {
+	background: linear-gradient(
+		90deg,
+		var(--card) 0%,
+		oklch(from var(--primary) l c h / 0.1) 50%,
+		var(--card) 100%
+	);
+	background-size: 200% 100%;
+	animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* Pulse glow animation */
+@keyframes pulse-glow {
+	0%,
+	100% {
+		box-shadow: 0 0 0 0 oklch(from var(--primary) l c h / 0.4);
+	}
+	50% {
+		box-shadow: 0 0 20px 4px oklch(from var(--primary) l c h / 0.2);
+	}
+}
+.pulse-glow {
+	animation: pulse-glow 2s ease-in-out infinite;
+}
+
 .editorial-accent-line {
 	position: relative;
 }

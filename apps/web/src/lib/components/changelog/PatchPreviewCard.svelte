@@ -1,8 +1,6 @@
 <script lang="ts">
 	import type { EntityIcon } from '$lib/utils/types';
-	import * as Card from '$lib/components/ui/card';
 	import * as Avatar from '$lib/components/ui/avatar';
-	import { Badge } from '$lib/components/ui/badge';
 	import { formatDate } from '@deadlog/utils';
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
 	import Calendar from '@lucide/svelte/icons/calendar';
@@ -12,125 +10,111 @@
 		date: Date;
 		author: string;
 		authorImage?: string;
-		icons?: {
-			heroes: EntityIcon[];
-			items: EntityIcon[];
-		};
+		icons?: { heroes: EntityIcon[]; items: EntityIcon[] };
 	}
 
 	let { id, date, author, authorImage, icons }: Props = $props();
 
-	const maxOverlappingIcons = 8;
-
 	const heroes = $derived(icons?.heroes ?? []);
 	const items = $derived(icons?.items ?? []);
-
-	// Combine heroes and items for overlapping display
 	const allEntities = $derived([...heroes, ...items]);
-	const displayEntities = $derived(allEntities.slice(0, maxOverlappingIcons));
-	const entityOverflow = $derived(Math.max(0, allEntities.length - maxOverlappingIcons));
+	const displayEntities = $derived(allEntities.slice(0, 6));
+	const overflow = $derived(Math.max(0, allEntities.length - 6));
 </script>
 
-<a href="/change/{id}" class="group block h-full">
-	<Card.Root
-		class="hover:border-primary/40 hover:shadow-primary/5 relative h-full cursor-pointer overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-	>
-		<!-- Subtle top accent line that reveals on hover -->
-		<div
-			class="bg-primary absolute top-0 left-0 h-0.5 w-0 transition-all duration-500 group-hover:w-full"
-		></div>
+<a
+	href="/change/{id}"
+	class="clip-corner-sm bg-card hover:bg-card-accent/30 border-border hover:border-primary/40 group relative block h-full overflow-hidden border transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+>
+	<!-- Corner accents -->
+	<div
+		class="bg-primary/30 group-hover:bg-primary/70 absolute top-0 left-0 h-5 w-px transition-colors duration-300"
+	></div>
+	<div
+		class="bg-primary/30 group-hover:bg-primary/70 absolute top-0 left-0 h-px w-5 transition-colors duration-300"
+	></div>
+	<div
+		class="bg-primary/15 group-hover:bg-primary/50 absolute right-0 bottom-0 h-3 w-px transition-colors duration-300"
+	></div>
+	<div
+		class="bg-primary/15 group-hover:bg-primary/50 absolute right-0 bottom-0 h-px w-3 transition-colors duration-300"
+	></div>
 
-		<Card.Content class="relative z-10 flex h-full flex-col gap-4 p-5">
-			<!-- Header: Date and Author -->
-			<div class="flex items-center justify-between gap-3">
-				<div class="flex items-center gap-2">
-					<Calendar
-						class="text-muted-foreground group-hover:text-primary size-3.5 transition-colors"
-					/>
-					<time
-						class="text-foreground font-display group-hover:text-primary text-base leading-tight tracking-tight transition-colors"
-					>
-						{formatDate(date)}
-					</time>
-				</div>
-				<div class="text-muted-foreground flex items-center gap-2 text-sm">
-					<Avatar.Root
-						class="border-primary/20 group-hover:border-primary/40 size-6 border transition-all"
-					>
-						<Avatar.Image src={authorImage} alt={author} />
-						<Avatar.Fallback class="bg-muted text-xs">
-							{author.slice(0, 2).toUpperCase()}
-						</Avatar.Fallback>
-					</Avatar.Root>
-					<span class="hidden tracking-tight sm:inline">{author}</span>
-				</div>
-			</div>
+	<!-- Hover gradient -->
+	<div
+		class="from-primary/0 group-hover:from-primary/5 pointer-events-none absolute inset-0 bg-gradient-to-br to-transparent transition-all duration-500"
+	></div>
 
-			<!-- Entity Icons - Overlapping style for visual density -->
-			{#if displayEntities.length > 0}
-				<div class="flex items-center">
-					<div class="flex -space-x-2">
-						{#each displayEntities as entity, i (entity.id)}
-							<div
-								class="transition-transform duration-200 hover:z-20 hover:scale-125"
-								style="z-index: {displayEntities.length - i}"
-							>
-								<img
-									src={entity.src}
-									alt={entity.alt}
-									width="36"
-									height="36"
-									loading="lazy"
-									decoding="async"
-									class="ring-card size-9 rounded-full object-cover shadow-sm ring-2"
-								/>
-							</div>
-						{/each}
-					</div>
-					{#if entityOverflow > 0}
-						<span
-							class="bg-muted text-muted-foreground ring-card group-hover:bg-primary/10 group-hover:text-primary ml-1.5 flex size-9 items-center justify-center rounded-full text-xs font-semibold ring-2 transition-all"
-						>
-							+{entityOverflow}
-						</span>
-					{/if}
-				</div>
-			{/if}
-
-			<!-- Summary badges -->
-			<div class="flex flex-wrap gap-2">
-				{#if heroes.length > 0}
-					<Badge
-						variant="secondary"
-						class="group-hover:border-primary/30 text-xs transition-all"
-					>
-						{heroes.length} hero{heroes.length !== 1 ? 'es' : ''}
-					</Badge>
-				{/if}
-				{#if items.length > 0}
-					<Badge
-						variant="secondary"
-						class="group-hover:border-primary/30 text-xs transition-all"
-					>
-						{items.length} item{items.length !== 1 ? 's' : ''}
-					</Badge>
-				{/if}
-			</div>
-
-			<!-- CTA -->
-			<div
-				class="text-muted-foreground group-hover:text-primary mt-auto flex items-center gap-1.5 text-sm font-medium transition-colors duration-200"
-			>
-				<span>View changes</span>
-				<ArrowRight
-					class="size-4 transition-transform duration-300 group-hover:translate-x-1"
+	<div class="relative z-10 flex h-full flex-col gap-3 p-4">
+		<div class="flex items-start justify-between gap-2">
+			<div class="flex items-center gap-2">
+				<Calendar
+					class="text-muted-foreground group-hover:text-primary size-3.5 shrink-0 transition-colors duration-300"
 				/>
+				<time
+					class="text-foreground font-display group-hover:text-primary text-sm leading-tight tracking-tight transition-colors duration-300"
+				>
+					{formatDate(date)}
+				</time>
 			</div>
-		</Card.Content>
+			<Avatar.Root
+				class="border-primary/20 group-hover:border-primary/50 size-5 border transition-all duration-300"
+			>
+				<Avatar.Image src={authorImage} alt={author} />
+				<Avatar.Fallback class="bg-muted text-[9px] font-medium"
+					>{author.slice(0, 2).toUpperCase()}</Avatar.Fallback
+				>
+			</Avatar.Root>
+		</div>
 
-		<!-- Subtle gradient overlay on hover -->
+		{#if displayEntities.length > 0}
+			<div class="flex items-center">
+				<div class="flex -space-x-1.5">
+					{#each displayEntities as entity, i (entity.id)}
+						<img
+							src={entity.src}
+							alt={entity.alt}
+							width="32"
+							height="32"
+							loading="lazy"
+							decoding="async"
+							class="border-border/80 bg-card hover:border-primary/50 size-8 rounded-md border object-cover shadow-sm transition-all duration-200 hover:z-20 hover:-translate-y-0.5 hover:scale-110"
+							style="z-index: {displayEntities.length - i}"
+						/>
+					{/each}
+				</div>
+				{#if overflow > 0}
+					<span
+						class="bg-muted/80 text-muted-foreground group-hover:bg-primary/15 group-hover:text-primary ml-1.5 flex size-8 items-center justify-center rounded-md font-mono text-[10px] font-semibold transition-all duration-300"
+					>
+						+{overflow}
+					</span>
+				{/if}
+			</div>
+		{/if}
+
+		<div class="flex items-center gap-3 text-xs">
+			{#if heroes.length > 0}
+				<span class="flex items-baseline gap-1">
+					<span class="text-primary font-mono font-bold">{heroes.length}</span>
+					<span class="text-muted-foreground">hero{heroes.length !== 1 ? 'es' : ''}</span>
+				</span>
+			{/if}
+			{#if items.length > 0}
+				<span class="flex items-baseline gap-1">
+					<span class="text-primary font-mono font-bold">{items.length}</span>
+					<span class="text-muted-foreground">item{items.length !== 1 ? 's' : ''}</span>
+				</span>
+			{/if}
+		</div>
+
 		<div
-			class="from-primary/0 to-primary/0 group-hover:from-primary/5 pointer-events-none absolute inset-0 bg-gradient-to-br transition-opacity duration-300 group-hover:to-transparent"
-		></div>
-	</Card.Root>
+			class="text-muted-foreground group-hover:text-primary mt-auto flex items-center gap-1.5 text-xs font-medium transition-all duration-300"
+		>
+			<span class="opacity-0 transition-opacity group-hover:opacity-100">View</span>
+			<ArrowRight
+				class="size-3.5 -translate-x-4 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100"
+			/>
+		</div>
+	</div>
 </a>

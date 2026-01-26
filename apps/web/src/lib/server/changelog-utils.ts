@@ -1,5 +1,6 @@
 import {
 	getChangelogIcons,
+	getUpdatesForChangelogs,
 	type ScrapedChangelog,
 	type EntityIcon
 } from '@deadlog/scraper';
@@ -56,9 +57,10 @@ export async function enrichChangelogs(
 	db: DrizzleDB,
 	changelogs: ScrapedChangelog[]
 ): Promise<ChangelogWithIcons[]> {
-	// Separate main changelogs and updates
-	const mainChangelogs = changelogs.filter((entry) => !entry.parentChange);
-	const updates = changelogs.filter((entry) => entry.parentChange);
+	// changelogs should only contain main entries (no parentChange)
+	// Fetch child updates for these changelogs
+	const parentIds = changelogs.map((c) => c.id);
+	const updates = await getUpdatesForChangelogs(db, parentIds);
 
 	// Build updates map
 	const updatesMap = new Map<string, ScrapedChangelog[]>();
@@ -70,12 +72,12 @@ export async function enrichChangelogs(
 	}
 
 	// Sort by date (descending - newest first)
-	const sorted = [...mainChangelogs].sort(
+	const sorted = [...changelogs].sort(
 		(a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime()
 	);
 
-	// Get all changelog IDs for bulk fetching icons
-	const changelogIds = changelogs.map((c) => c.id);
+	// Get all changelog IDs for bulk fetching icons (including updates)
+	const changelogIds = [...changelogs.map((c) => c.id), ...updates.map((u) => u.id)];
 	const iconsByChangelog = await getChangelogIcons(db, changelogIds);
 
 	// Enrich with icons and updates
