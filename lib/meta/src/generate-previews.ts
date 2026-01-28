@@ -22,7 +22,7 @@ import { HeroLayout, type HeroPreviewItem } from './layouts/HeroLayout';
 import { ItemLayout } from './layouts/ItemLayout';
 import type { HeroPreview } from './components/HeroPreview';
 
-const OUTPUT_DIR = 'apps/web/static/assets/meta';
+const OUTPUT_DIR = 'app/static/assets/meta';
 const CHANGELOG_DIR = `${OUTPUT_DIR}/change`;
 const HERO_DIR = `${OUTPUT_DIR}/hero`;
 const ITEM_DIR = `${OUTPUT_DIR}/item`;

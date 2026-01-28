@@ -3,7 +3,7 @@ import ts from 'typescript-eslint';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import eslintPluginSvelte from 'eslint-plugin-svelte';
 import globals from 'globals';
-import svelteConfig from './apps/web/svelte.config.js';
+import svelteConfig from './app/svelte.config.js';
 
 export default ts.config(
 	js.configs.recommended,
@@ -51,12 +51,12 @@ export default ts.config(
 			'build/**',
 			'node_modules/**',
 			'.svelte-kit/**',
-			'apps/web/.svelte-kit/**',
+			'app/.svelte-kit/**',
 			'package-lock.json',
-			'apps/web/vitest-setup-client.ts',
-			'libs/*/vite.config.ts',
-			'libs/*/tsconfig.json',
-			'libs/*/project.json'
+			'app/vitest-setup-client.ts',
+			'lib/*/vite.config.ts',
+			'lib/*/tsconfig.json',
+			'lib/*/project.json'
 		]
 	},
 	eslintConfigPrettier

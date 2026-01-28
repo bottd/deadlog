@@ -6,7 +6,7 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 const adapter =
 	process.env.CLOUDFLARE === 'true'
 		? adapterCloudflare({ platformProxy: {} })
-		: adapterNode({ out: '../../dist/apps/web' });
+		: adapterNode({ out: '../dist/app' });
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -14,10 +14,10 @@ const config = {
 	kit: {
 		adapter,
 		alias: {
-			'@deadlog/scraper': '../../libs/scraper/src/index.ts',
-			'@deadlog/meta': '../../libs/meta/src/index.ts',
-			'@deadlog/db': '../../libs/db/src/index.ts',
-			'@deadlog/utils': '../../libs/utils/src/index.ts'
+			'@deadlog/scraper': '../lib/scraper/src/index.ts',
+			'@deadlog/meta': '../lib/meta/src/index.ts',
+			'@deadlog/db': '../lib/db/src/index.ts',
+			'@deadlog/utils': '../lib/utils/src/index.ts'
 		}
 	},
 	vitePlugin: {

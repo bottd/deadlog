@@ -177,17 +177,17 @@ importers:
         specifier: 4.3.6
         version: 4.3.6
 
-  apps/web:
+  app:
     dependencies:
       '@deadlog/db':
         specifier: workspace:*
-        version: link:../../libs/db
+        version: link:../lib/db
       '@deadlog/scraper':
         specifier: workspace:*
-        version: link:../../libs/scraper
+        version: link:../lib/scraper
       '@deadlog/utils':
         specifier: workspace:*
-        version: link:../../libs/utils
+        version: link:../lib/utils
       '@sveltejs/kit':
         specifier: 2.50.1
         version: 2.50.1(@sveltejs/vite-plugin-svelte@6.2.4(svelte@5.48.0)(vite@7.3.1(@types/node@24.10.9)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2)))(svelte@5.48.0)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.9)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2))
@@ -199,7 +199,7 @@ importers:
         specifier: 2.0.0-next.27
         version: 2.0.0-next.27(svelte@5.48.0)
 
-  libs/db:
+  lib/db:
     dependencies:
       '@libsql/client':
         specifier: 0.17.0
@@ -215,7 +215,7 @@ importers:
         specifier: 0.31.8
         version: 0.31.8
 
-  libs/meta:
+  lib/meta:
     dependencies:
       '@deadlog/db':
         specifier: workspace:*
@@ -231,7 +231,7 @@ importers:
         specifier: 24.10.4
         version: 24.10.4
 
-  libs/scraper:
+  lib/scraper:
     dependencies:
       '@deadlog/db':
         specifier: workspace:*
@@ -241,7 +241,7 @@ importers:
         version: link:../utils
       deadlock-api-client:
         specifier: github:deadlock-api/openapi-clients#path:typescript/api
-        version: deadlock_api_client@https://codeload.github.com/deadlock-api/openapi-clients/tar.gz/6fb495401afc1c89ba70af018602c0b7c33e5659#path:typescript/api
+        version: deadlock_api_client@https://codeload.github.com/deadlock-api/openapi-clients/tar.gz/4b2e2e53d1222ad2eb2f22ffa36995d6b972766e#path:typescript/api
     devDependencies:
       '@types/node':
         specifier: 24.10.4
@@ -250,7 +250,7 @@ importers:
         specifier: 20.1.0
         version: 20.1.0
 
-  libs/utils: {}
+  lib/utils: {}
 
 packages:
 
@@ -1906,8 +1906,8 @@ packages:
     resolution: {integrity: sha512-0R9ikRb668HB7QDxT1vkpuUBtqc53YyAwMwGeUFKRojY/NWKvdZ+9UYtRfGmhqNbRkTSVpMbmyhXipFFv2cb/A==}
     engines: {node: '>= 12'}
 
-  deadlock_api_client@https://codeload.github.com/deadlock-api/openapi-clients/tar.gz/6fb495401afc1c89ba70af018602c0b7c33e5659#path:typescript/api:
-    resolution: {path: typescript/api, tarball: https://codeload.github.com/deadlock-api/openapi-clients/tar.gz/6fb495401afc1c89ba70af018602c0b7c33e5659}
+  deadlock_api_client@https://codeload.github.com/deadlock-api/openapi-clients/tar.gz/4b2e2e53d1222ad2eb2f22ffa36995d6b972766e#path:typescript/api:
+    resolution: {path: typescript/api, tarball: https://codeload.github.com/deadlock-api/openapi-clients/tar.gz/4b2e2e53d1222ad2eb2f22ffa36995d6b972766e}
     version: 0.1.0
 
   deadlock_api_client@https://codeload.github.com/deadlock-api/openapi-clients/tar.gz/8024a10f78255b6e0276841da795da2770c7d416#path:typescript/api:
@@ -4781,7 +4781,7 @@ snapshots:
 
   data-uri-to-buffer@4.0.1: {}
 
-  deadlock_api_client@https://codeload.github.com/deadlock-api/openapi-clients/tar.gz/6fb495401afc1c89ba70af018602c0b7c33e5659#path:typescript/api:
+  deadlock_api_client@https://codeload.github.com/deadlock-api/openapi-clients/tar.gz/4b2e2e53d1222ad2eb2f22ffa36995d6b972766e#path:typescript/api:
     dependencies:
       axios: 1.13.2
     transitivePeerDependencies:

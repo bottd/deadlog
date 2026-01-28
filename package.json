@@ -9,13 +9,13 @@
 		"build": "pnpm --filter 'deadlog-web' build",
 		"preview": "pnpm --filter 'deadlog-web' preview",
 		"test": "pnpm --filter 'deadlog-web' test",
-		"test:all": "pnpm -r --filter './apps/**' --filter './libs/**' run test",
+		"test:all": "pnpm -r --filter './app' --filter './lib/**' run test",
 		"check": "pnpm --filter 'deadlog-web' check",
 		"lint": "pnpm --filter 'deadlog-web' lint",
 		"format": "prettier --write .",
 		"fmt:check": "prettier --check .",
-		"build:scraper": "OUTPUT_DIR=apps/web/static tsx --tsconfig=tsconfig.base.json libs/scraper/src/compile.ts",
-		"build:meta": "DATABASE_URL=file:apps/web/static/deadlog.db tsx --tsconfig=tsconfig.base.json libs/meta/src/generate-previews.ts"
+		"build:scraper": "OUTPUT_DIR=app/static tsx --tsconfig=tsconfig.base.json lib/scraper/src/compile.ts",
+		"build:meta": "DATABASE_URL=file:app/static/deadlog.db tsx --tsconfig=tsconfig.base.json lib/meta/src/generate-previews.ts"
 	},
 	"devDependencies": {
 		"@cloudflare/workers-types": "4.20260124.0",

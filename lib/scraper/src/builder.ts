@@ -148,7 +148,7 @@ export async function buildDatabase(
 	const patches = await scrapeMultipleChangelogPosts(changelogPosts, {
 		timeout: 30000,
 		useCache: true,
-		cacheDir: path.resolve('libs/scraper/src/cache/posts')
+		cacheDir: path.resolve('lib/scraper/src/cache/posts')
 	});
 
 	console.log(`📅 Found ${bigDayDates.size} big patch days`);

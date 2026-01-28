@@ -1,7 +1,7 @@
 {
-	"name": "scraper",
+	"name": "meta",
 	"$schema": "../../node_modules/nx/schemas/project-schema.json",
-	"sourceRoot": "libs/scraper/src",
+	"sourceRoot": "lib/meta/src",
 	"projectType": "library",
 	"targets": {
 		"build": {
@@ -12,10 +12,9 @@
 				"{projectRoot}/tsconfig.json",
 				"{workspaceRoot}/tsconfig.base.json"
 			],
-			"outputs": ["{workspaceRoot}/apps/web/static"],
+			"outputs": ["{workspaceRoot}/app/static/og"],
 			"options": {
-				"command": "OUTPUT_DIR=apps/web/static tsx --tsconfig=tsconfig.base.json libs/scraper/src/compile.ts",
-				"cwd": "."
+				"command": "DATABASE_URL=file:$PWD/app/static/deadlog.db tsx --tsconfig=tsconfig.base.json lib/meta/src/generate-previews.ts"
 			}
 		},
 		"check": {
@@ -26,27 +25,27 @@
 				"{projectRoot}/tsconfig.json",
 				"{workspaceRoot}/tsconfig.base.json"
 			],
-			"outputs": ["{workspaceRoot}/dist/.tsbuildinfo/scraper"],
+			"outputs": ["{workspaceRoot}/dist/.tsbuildinfo/meta"],
 			"options": {
 				"command": "tsc --noEmit",
-				"cwd": "libs/scraper"
+				"cwd": "lib/meta"
 			}
 		},
 		"test": {
 			"executor": "nx:run-commands",
-			"dependsOn": ["build"],
 			"options": {
 				"command": "vitest run",
-				"cwd": "libs/scraper"
+				"cwd": "lib/meta"
 			}
 		},
 		"lint": {
 			"executor": "@nx/eslint:lint",
 			"outputs": ["{options.outputFile}"],
 			"options": {
-				"lintFilePatterns": ["libs/scraper/**/*.{ts,js}"]
+				"lintFilePatterns": ["lib/meta/**/*.{ts,js}"]
 			}
 		}
 	},
-	"tags": []
+	"tags": [],
+	"implicitDependencies": ["scraper"]
 }
