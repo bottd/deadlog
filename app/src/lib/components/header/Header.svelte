@@ -31,7 +31,7 @@
 				<div class="flex flex-col">
 					<div class="flex items-baseline gap-2">
 						<span
-							class="font-display text-foreground text-xl tracking-tight transition-colors duration-300 md:text-2xl"
+							class="font-display text-foreground heading-glow text-xl tracking-tight transition-colors duration-300 md:text-2xl"
 						>
 							dead<span class="text-primary">log</span>
 						</span>

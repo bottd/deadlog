@@ -27,6 +27,14 @@
 }
 
 @font-face {
+	font-family: 'Orbitron';
+	src: url('/fonts/Orbitron-VariableFont_wght.ttf') format('truetype');
+	font-weight: 400 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
 	font-family: 'JetBrains Mono';
 	src: url('/fonts/JetBrainsMono-VariableFont_wght.ttf') format('truetype');
 	font-weight: 100 800;
@@ -130,7 +138,8 @@
 	--base-25: oklch(0.18 0.01 270);
 	--base-10: oklch(0.97 0.002 60);
 
-	--accent-500: oklch(0.72 0.15 85);
+	/* Enhanced dark mode accent - increased lightness and chroma */
+	--accent-500: oklch(0.75 0.18 85);
 	--accent-100: oklch(0.2 0.03 85);
 
 	--border-default: oklch(0.25 0.01 270);
@@ -161,15 +170,15 @@
 	--editorial-accent: var(--accent-500);
 	--editorial-divider: var(--border-default);
 
-	/* Hero Types */
-	--type-marksman: oklch(0.75 0.15 55);
-	--type-mystic: oklch(0.65 0.2 300);
-	--type-brawler: oklch(0.6 0.2 25);
+	/* Hero Types - enhanced chroma for dark mode */
+	--type-marksman: oklch(0.78 0.18 55);
+	--type-mystic: oklch(0.68 0.23 300);
+	--type-brawler: oklch(0.63 0.23 25);
 
-	/* Item Categories */
-	--item-weapon: oklch(0.65 0.2 40);
-	--item-vitality: oklch(0.65 0.2 140);
-	--item-spirit: oklch(0.65 0.2 290);
+	/* Item Categories - enhanced chroma for dark mode */
+	--item-weapon: oklch(0.68 0.23 40);
+	--item-vitality: oklch(0.68 0.23 140);
+	--item-spirit: oklch(0.68 0.23 290);
 
 	--chart-1: var(--color-blue-500);
 	--chart-2: var(--color-emerald-500);
@@ -189,7 +198,7 @@
 @theme inline {
 	/* Font families */
 	--font-sans: 'Archivo', ui-sans-serif, system-ui, sans-serif;
-	--font-display: 'Archivo Black', 'Archivo', ui-sans-serif, system-ui, sans-serif;
+	--font-display: 'Orbitron', 'Archivo Black', ui-sans-serif, system-ui, sans-serif;
 	--font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
 	--radius-sm: calc(var(--radius) - 4px);
@@ -357,6 +366,24 @@
 		var(--editorial-divider) 90%,
 		transparent
 	);
+}
+
+/* Card glow effect */
+.card-glow {
+	box-shadow:
+		0 0 20px -8px oklch(from var(--primary) l c h / 0.25),
+		0 0 40px -12px oklch(from var(--primary) l c h / 0.1);
+}
+
+.dark .card-glow {
+	box-shadow:
+		0 0 25px -8px oklch(from var(--primary) l c h / 0.35),
+		0 0 50px -15px oklch(from var(--primary) l c h / 0.15);
+}
+
+/* Heading glow for dark mode */
+.dark .heading-glow {
+	text-shadow: 0 0 30px oklch(from var(--primary) l c h / 0.3);
 }
 
 /* Accessibility: reduced motion style */

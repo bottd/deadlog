@@ -114,7 +114,7 @@ export async function enrichChangelogs(
 
 export function parseApiParams(url: URL) {
 	return {
-		limit: Number(url.searchParams.get('limit')) || 5,
+		limit: Number(url.searchParams.get('limit')) || 8,
 		offset: Number(url.searchParams.get('offset')) || 0,
 		hero: parseCSV(url.searchParams.get('hero')),
 		item: parseCSV(url.searchParams.get('item')),

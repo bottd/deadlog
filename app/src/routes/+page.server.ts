@@ -26,7 +26,7 @@ export const load: PageServerLoad = async ({ locals, url, parent }) => {
 	const heroIds = resolveHeroIds(hero, heroes);
 	const itemIds = resolveItemIds(item, items);
 
-	let initialLoadLimit = 12;
+	let initialLoadLimit = 15;
 	if (change) {
 		const position = await getChangelogPosition(locals.db, String(change));
 		initialLoadLimit = position + 1 + 5;

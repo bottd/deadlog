@@ -55,15 +55,15 @@
 {#if isLatest}
 	<a href="/change/{id}" class="group relative col-span-full mb-8 block">
 		<div
-			class="clip-corner-lg border-primary/40 hover:border-primary/70 bg-card relative flex flex-col overflow-hidden border-2 transition-all duration-500 hover:shadow-2xl md:flex-row md:items-stretch"
+			class="clip-corner-lg border-primary/40 hover:border-primary/70 bg-card card-glow relative flex flex-col overflow-hidden border-2 transition-all duration-500 hover:shadow-2xl md:flex-row md:items-stretch"
 		>
 			<div
 				class="from-primary/0 via-primary/8 to-primary/0 pointer-events-none absolute inset-0 bg-gradient-to-r opacity-0 transition-opacity duration-700 group-hover:opacity-100"
 			></div>
-			<div class="bg-primary absolute top-0 left-0 z-20 h-16 w-1"></div>
-			<div class="bg-primary absolute top-0 left-0 z-20 h-1 w-16"></div>
-			<div class="bg-primary/60 absolute right-0 bottom-0 z-20 h-12 w-1"></div>
-			<div class="bg-primary/60 absolute right-0 bottom-0 z-20 h-1 w-12"></div>
+			<div class="bg-primary absolute top-0 left-0 z-20 h-16 w-0.5"></div>
+			<div class="bg-primary absolute top-0 left-0 z-20 h-0.5 w-16"></div>
+			<div class="bg-primary/60 absolute right-0 bottom-0 z-20 h-12 w-0.5"></div>
+			<div class="bg-primary/60 absolute right-0 bottom-0 z-20 h-0.5 w-12"></div>
 
 			<div class="relative z-10 flex flex-1 flex-col gap-5 p-6 md:p-8">
 				<div class="flex items-center gap-4">
@@ -81,7 +81,7 @@
 				</div>
 
 				<h3
-					class="font-display text-foreground group-hover:text-primary text-3xl tracking-tight transition-colors duration-300 md:text-4xl"
+					class="font-display text-foreground group-hover:text-primary heading-glow text-3xl tracking-tight transition-colors duration-300 md:text-4xl"
 					in:fly={{ y: 20, duration: 400, delay: 100 }}
 				>
 					{formatDate(date)}
@@ -176,16 +176,16 @@
 		class="clip-corner-sm bg-card hover:bg-card-accent/30 border-border hover:border-primary/40 group relative flex min-h-[200px] flex-col overflow-hidden border transition-all duration-300 hover:shadow-xl"
 	>
 		<div
-			class="bg-primary/40 group-hover:bg-primary absolute top-0 left-0 h-6 w-px transition-colors duration-300"
+			class="bg-primary/40 group-hover:bg-primary absolute top-0 left-0 h-6 w-0.5 transition-colors duration-300"
 		></div>
 		<div
-			class="bg-primary/40 group-hover:bg-primary absolute top-0 left-0 h-px w-6 transition-colors duration-300"
+			class="bg-primary/40 group-hover:bg-primary absolute top-0 left-0 h-0.5 w-6 transition-colors duration-300"
 		></div>
 		<div
-			class="bg-primary/20 group-hover:bg-primary/60 absolute right-0 bottom-0 h-4 w-px transition-colors duration-300"
+			class="bg-primary/20 group-hover:bg-primary/60 absolute right-0 bottom-0 h-4 w-0.5 transition-colors duration-300"
 		></div>
 		<div
-			class="bg-primary/20 group-hover:bg-primary/60 absolute right-0 bottom-0 h-px w-4 transition-colors duration-300"
+			class="bg-primary/20 group-hover:bg-primary/60 absolute right-0 bottom-0 h-0.5 w-4 transition-colors duration-300"
 		></div>
 		<div
 			class="from-primary/0 group-hover:from-primary/5 pointer-events-none absolute inset-0 bg-gradient-to-br to-transparent transition-all duration-500"
