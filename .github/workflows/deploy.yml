@@ -33,33 +33,35 @@ jobs:
         run: pnpm run lint
 
       - name: Build scraper and generate database
-        run: pnpm exec nx build scraper
+        run: pnpm run build:scraper
+        env:
+          DATABASE_URL: file:app/static/deadlog.db
 
       - name: Export database to SQL
         run: |
-          sqlite3 apps/web/static/deadlog.db .dump > deadlog.sql
+          sqlite3 app/static/deadlog.db .dump > deadlog.sql
           grep -v -E "^(BEGIN|COMMIT|ROLLBACK|SAVEPOINT)" deadlog.sql > deadlog-clean.sql
 
       - name: Drop existing D1 tables
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        run: pnpm exec wrangler d1 execute deadlog --remote --file=libs/db/drop-tables.sql --config=apps/web/wrangler.toml
+        run: pnpm exec wrangler d1 execute deadlog --remote --file=lib/db/drop-tables.sql --config=app/wrangler.toml
 
       - name: Import new data to D1 database
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        run: pnpm exec wrangler d1 execute deadlog --remote --file=deadlog-clean.sql --config=apps/web/wrangler.toml
+        run: pnpm exec wrangler d1 execute deadlog --remote --file=deadlog-clean.sql --config=app/wrangler.toml
 
       - name: Build web project
-        run: pnpm exec nx build web
+        run: pnpm run build
         env:
           CLOUDFLARE: true
-          DATABASE_URL: file:apps/web/static/deadlog.db
+          DATABASE_URL: file:app/static/deadlog.db
 
       - name: Deploy to Cloudflare Workers
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        run: pnpm exec wrangler deploy --config=apps/web/wrangler.toml
+        run: pnpm exec wrangler deploy --config=app/wrangler.toml

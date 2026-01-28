@@ -5,17 +5,24 @@
 	"type": "module",
 	"scripts": {
 		"postinstall": "cd node_modules/deadlock-api-client && npm run build",
-		"test": "pnpm exec nx run-many -t test --projects=* --exclude=deadlog.io",
-		"check": "pnpm exec nx run-many -t check --projects=* --exclude=deadlog.io",
-		"lint": "pnpm exec nx run-many -t lint --projects=* --exclude=deadlog.io"
+		"dev": "pnpm --filter 'deadlog-web' dev",
+		"build": "pnpm --filter 'deadlog-web' build",
+		"preview": "pnpm --filter 'deadlog-web' preview",
+		"test": "pnpm --filter 'deadlog-web' test",
+		"test:all": "pnpm -r --filter './app' --filter './lib/**' run test",
+		"check": "pnpm --filter 'deadlog-web' check",
+		"lint": "pnpm --filter 'deadlog-web' lint",
+		"format": "prettier --write .",
+		"fmt:check": "prettier --check .",
+		"build:scraper": "OUTPUT_DIR=app/static tsx --tsconfig=tsconfig.base.json lib/scraper/src/compile.ts",
+		"build:meta": "DATABASE_URL=file:app/static/deadlog.db tsx --tsconfig=tsconfig.base.json lib/meta/src/generate-previews.ts"
 	},
 	"devDependencies": {
-		"@cloudflare/workers-types": "4.20260123.0",
+		"@cloudflare/workers-types": "4.20260124.0",
 		"@eslint/js": "9.39.2",
 		"@fontsource/inter": "5.2.8",
 		"@libsql/client": "0.17.0",
-		"@lucide/svelte": "0.562.0",
-		"@nx/eslint": "22.4.1",
+		"@lucide/svelte": "0.563.1",
 		"@internationalized/date": "3.10.1",
 		"@sveltejs/adapter-cloudflare": "7.2.6",
 		"@sveltejs/adapter-node": "5.5.2",
@@ -25,7 +32,7 @@
 		"@tailwindcss/vite": "4.1.18",
 		"@takumi-rs/core": "0.65.0",
 		"@takumi-rs/helpers": "0.65.0",
-		"@tanstack/svelte-query": "6.0.17",
+		"@tanstack/svelte-query": "6.0.18",
 		"@testing-library/jest-dom": "6.9.1",
 		"@types/node": "24.10.9",
 		"@types/react": "19.2.9",
@@ -39,10 +46,9 @@
 		"eslint-config-prettier": "10.1.8",
 		"eslint-plugin-svelte": "3.14.0",
 		"globals": "17.1.0",
-		"happy-dom": "20.3.7",
+		"happy-dom": "20.3.9",
 		"mode-watcher": "1.1.0",
 		"msw": "2.12.7",
-		"nx": "22.4.1",
 		"playwright": "1.57.0",
 		"prettier": "3.8.1",
 		"prettier-plugin-sql": "0.19.2",
@@ -68,6 +74,5 @@
 		"vitest": "4.0.18",
 		"wrangler": "4.60.0",
 		"zod": "4.3.6"
-	},
-	"nx": {}
+	}
 }
