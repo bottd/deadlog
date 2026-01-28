@@ -1,0 +1,124 @@
+@document.meta
+title: 12-29-2025 Update
+thread_id: 95233
+published: 2025-12-29T22:33:52-0800
+author: Yoshi
+author_image: https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630
+category: patch
+major_update: false
+status: draft
+@end
+
+
+* Hero Changes
+
+** Bebop
+
+- Stamina increased from 2 to 3
+- Stamina regeneration cooldown increased from 4.55s to 6s
+- Bebop Health per boon increased from +46 to +52
+- Sticky Bomb base damage reduced from 100 to 75
+- Sticky Bomb T2 damage reduced from 63 to 60
+- Sticky Bomb Spirit Scaling increased from 1.1 to 1.5
+- Sticky Bomb per hero hit from 1.5% to 1% + 0.0025% Spirit Scaling
+- Sticky Bomb per hero kill from 4% to 2.5% + 0.015% Spirit Scaling
+
+** Grey Talon
+
+- Rain of Arrows cooldown reduced from 35s to 30s
+- Rain of Arrows T3 now also grants +30% Bullet Evasion
+- Guided Owl duration increased from 16s to 18s
+- Guided Owl T1 damage increased from +81 to +85
+- Guided Owl Spirit Power per kill increased from 5 to 8
+
+** Holliday
+
+- Powder Keg cooldown reduced from 32s to 28s
+- Fixed Lasso being removed by Divine Barrier
+
+** Ivy
+
+- Watcher's Covenant Replicated Healing increased from 25% to 35%
+- Watcher's Covenant Replicated Healing now scales with boons (0.5)
+- Air Drop ally damage penalty reduced from -30% to -20%
+
+** Kelvin
+
+- Frost Grenade T3 now also reduces stamina regen by -30%
+- Ice Path T3 Max Spirit Power increased from 55 to 75
+- Ice Path T3 Spirit Power linger duration increased from 6s to 8s
+
+** Mo & Krill
+
+- Burrow initial knockup vertical area detection improved
+- Sand Blast now deals a fixed 40 damage
+- Sand Blast can now be casted while Burrowed
+- Sand Blast T2 increased from -19s Cooldown to -23s
+- Sand Blast T3 now also slows dash distance by 40%
+
+** Paradox
+
+- Kinetic Carbine cooldown reduced from 30s to 27s
+- Time Wall Width increased from 7m to 7.5m
+
+** Seven
+
+- Lightning Ball T3 increased from +1m to +1.5m
+- Power Surge T2 reduced from -15% Spirit Resist for 8s to -10% for 6s
+- Storm Cloud DPS increased from 90 to 95
+- Storm Cloud T3 increased from +54 DPS to 65
+- Storm Cloud T3 move speed increased from 2.5 to 3.8
+
+** Sinclair
+
+- Spirit power growth increased from 1.1 to 1.3
+- Vexing Bolt initial velocity reduced from 1000 to 800
+- Vexing Bolt now only snaps to heroes
+- Vexing Bolt max duration increased from 3s to 4s (max damage is still at 2s)
+- Rabbit Hex cooldown reduced from 30s to 26s
+- Rabbit Hex radius increased from 6m to 6.5m
+
+** Yamato
+
+- Power Slash T3 bonus damage reduced from +166 to +150
+- Power Slash T3 now also increases spirit power scaling by 0.5
+- Shadow Transformation heal on kill increased from 12% to 15%
+
+@comment
+Poster reply 1 (2025-12-30T22:38:21-0800)
+Consider creating a separate file: 12-29-2025-update-reply-1.norg with parent_id in metadata
+@end
+
+
+* Hero Changes
+
+** Bebop
+
+- Stamina regeneration cooldown improved from 6s to 5.5s
+- Sticky Bomb stacks now count for half for each stack after a certain threshold (100 on hit and 10 on kill)
+- Sticky Bomb base damage increased from 70 to 80
+- Sticky Bomb T2 increased from +60 to +70
+
+** Billy
+
+- Base bullet damage reduced from 6.79 to 6.3
+
+** Lady Geist
+
+- Ammo reduced from 10 to 9
+- Bullet Falloff from 58m to 52m
+
+** McGinnis
+
+- Medicinal Specter radius spirit scaling reduced from 0.0456 to 0.03
+- Medicinal Specter duration spirit scaling reduced from 0.11 to 0.05
+- Medicinal Specter T3 reduced from 3% Max Health to 2.5%
+- Heavy Barrage T1 slow increased from 30% to 40% (and 20% dash slow)
+- Heavy Barrage T3 spirit scaling increased from +0.1 to +0.2
+
+* Item Changes
+
+** Toxic Bullets
+
+- Bleed damage reduced from 2.2% to 2%
+- Buildup is 10% harder

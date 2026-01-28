@@ -1,6 +1,10 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { ChangelogContent, EntityPreview } from '$lib/components/changelog';
+	import {
+		ChangelogContent,
+		EntityPreview,
+		NorgContent
+	} from '$lib/components/changelog';
 	import * as Avatar from '$lib/components/ui/avatar';
 	import { Button } from '$lib/components/ui/button';
 	import { formatDate, formatTime } from '@deadlog/utils';
@@ -9,7 +13,8 @@
 	import { toast } from 'svelte-sonner';
 	import { MetaTags } from 'svelte-meta-tags';
 
-	const { changelog, heroMap, itemMap, title, description, image } = page.data;
+	const { changelog, heroMap, itemMap, title, description, image, NorgComponent } =
+		page.data;
 
 	async function copyLink() {
 		await navigator.clipboard.writeText(window.location.href);
@@ -93,6 +98,10 @@
 			{/if}
 		</header>
 
-		<ChangelogContent contentJson={changelog.contentJson} {heroMap} {itemMap} />
+		{#if NorgComponent}
+			<NorgContent content={NorgComponent} />
+		{:else}
+			<ChangelogContent contentJson={changelog.contentJson} {heroMap} {itemMap} />
+		{/if}
 	</article>
 </main>

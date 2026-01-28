@@ -1,0 +1,30 @@
+{
+	"name": "changelog",
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "lib/changelog/src",
+	"projectType": "library",
+	"targets": {
+		"check": {
+			"executor": "nx:run-commands",
+			"cache": true,
+			"inputs": [
+				"{projectRoot}/src/**/*",
+				"{projectRoot}/tsconfig.json",
+				"{workspaceRoot}/tsconfig.base.json"
+			],
+			"outputs": ["{workspaceRoot}/dist/.tsbuildinfo/changelog"],
+			"options": {
+				"command": "tsc --noEmit",
+				"cwd": "lib/changelog"
+			}
+		},
+		"lint": {
+			"executor": "@nx/eslint:lint",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["lib/changelog/**/*.{ts,js}"]
+			}
+		}
+	},
+	"tags": []
+}

@@ -1,0 +1,43 @@
+@document.meta
+title: 01-12-2025 Update
+thread_id: 53389
+published: 2025-01-12T18:51:01-0800
+author: Yoshi
+author_image: https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630
+category: patch
+major_update: false
+status: draft
+@end
+
+* General Changes
+
+- Unstoppable state no longer blocks anti-heal effects
+
+* Hero Changes
+
+** Yamato
+
+- Bullet damage growth reduced from 0.33 to 0.27
+- Shadow Transformation T1 reduced from +20% Fire Rate to +15%
+
+* Item Changes
+
+** Alchemical Fire
+
+- Effectiveness reduction (40%) vs buildings/midboss now affects the Weapon Damage bonus too (instead of just DPS)
+
+** Berserker
+
+- Weapon Damage per Stack reduced from 6% to 5%
+- Bullet Resistance reduced from 9% to 8%
+
+** Frenzy
+
+- Weapon Damage per Stack reduced from 8% to 7%
+- Bullet Resistance reduced from 10% to 8%
+- Fire Rate reduced from 40% to 35%
+- Low Health Bullet Resistance reduced from 55% to 50%
+
+** Restorative Shot
+
+- Cooldown increased from 7s to 9s

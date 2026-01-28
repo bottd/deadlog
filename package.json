@@ -14,7 +14,7 @@
 		"lint": "pnpm --filter 'deadlog-web' lint",
 		"format": "prettier --write .",
 		"fmt:check": "prettier --check .",
-		"build:scraper": "OUTPUT_DIR=app/static tsx --tsconfig=tsconfig.base.json lib/scraper/src/compile.ts",
+		"build:scraper": "tsx --tsconfig=tsconfig.base.json lib/scraper/src/compile.ts",
 		"build:meta": "DATABASE_URL=file:app/static/deadlog.db tsx --tsconfig=tsconfig.base.json lib/meta/src/generate-previews.ts"
 	},
 	"devDependencies": {
@@ -68,6 +68,7 @@
 		"typescript": "5.9.3",
 		"typescript-eslint": "8.53.1",
 		"vite": "7.3.1",
+		"vite-plugin-norg": "2.1.8",
 		"vite-tsconfig-paths": "6.0.4",
 		"@vitest/browser": "4.0.18",
 		"@vitest/browser-playwright": "4.0.18",

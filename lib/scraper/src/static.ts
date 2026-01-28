@@ -1,9 +1,22 @@
 import { eq, sql, desc, gt, and, ne, isNotNull } from 'drizzle-orm';
-import type { ScrapedChangelog } from './deadlock';
 import type { EnrichedHero, EnrichedItem, EntityIcon } from './types/assets';
+import type { ChangelogContentJson } from '@deadlog/db';
 import { getLibsqlDb, type DrizzleDB, schema } from '@deadlog/db';
 
 export { getLibsqlDb as getDb };
+
+export interface ScrapedChangelog {
+	id: string;
+	title: string;
+	contentJson: ChangelogContentJson | null;
+	author: string;
+	authorImage: string;
+	category: string | null;
+	guid: string | null;
+	pubDate: string;
+	majorUpdate: boolean;
+	parentChange: string | null;
+}
 
 function buildTextSearchCondition(searchQuery: string) {
 	const pattern = `%${searchQuery}%`;

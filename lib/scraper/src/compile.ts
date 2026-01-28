@@ -1,20 +1,33 @@
-import { buildDatabase } from './builder';
+import { scrapeChangelogs } from './scrape';
+import { buildDatabaseFromNorg } from './buildFromNorg';
 
 async function main() {
-	const outputDir = process.env.OUTPUT_DIR || './dist/data';
+	const args = process.argv.slice(2);
+	const overwrite = args.includes('--overwrite');
 
-	console.log('🗄️  Building static database...\n');
+	const outputDir = process.env.OUTPUT_DIR || './app/static';
+	const changelogsDir = process.env.CHANGELOGS_DIR || './app/changelogs';
 
-	try {
-		const result = await buildDatabase({ outputDir });
+	// Step 1: Scrape forum and write .norg files
+	console.log('📝 Step 1: Scraping changelogs from forum...\n');
+	await scrapeChangelogs({ overwrite });
 
-		console.log('\n✅ Database built successfully!');
-		console.log(`   Path: ${result.path}`);
-		console.log(`   Patches: ${result.patchCount}`);
-	} catch (error) {
-		console.error('\n❌ Database build failed:', error);
-		process.exit(1);
-	}
+	// Step 2: Build database from .norg files
+	console.log('\n🗄️  Step 2: Building database...\n');
+
+	const result = await buildDatabaseFromNorg({
+		outputDir,
+		changelogsDir
+	});
+
+	console.log('\n✅ Build complete!');
+	console.log(`   Database: ${result.path}`);
+	console.log(`   Changelogs: ${result.patchCount}`);
+	console.log(`   Hero refs: ${result.heroMatches}`);
+	console.log(`   Item refs: ${result.itemMatches}`);
 }
 
-main();
+main().catch((err) => {
+	console.error('\n❌ Build failed:', err);
+	process.exit(1);
+});

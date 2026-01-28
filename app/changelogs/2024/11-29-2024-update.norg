@@ -1,0 +1,17 @@
+@document.meta
+title: 11-29-2024 Update
+thread_id: 49470
+published: 2024-11-29T09:59:16-0800
+author: Yoshi
+author_image: https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630
+category: patch
+major_update: false
+status: draft
+@end
+
+* General Changes
+
+- Guardians now deal 25% more damage to troopers
+- Guardians now take 25% more damage from troopers/players
+- Range to be considered for souls reduced by 5m (The way it works now is there are two independent search ranges that gather nearby allied heroes to consider, the first is 50m from the orb itself, and the second is 35m from the hero that killed the trooper. The change reduces it by 5m on both. )
+- Respawn time at 40 minutes moved to 35 minutes

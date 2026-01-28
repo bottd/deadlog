@@ -1,0 +1,44 @@
+@document.meta
+title: 11-01-2024 Update
+thread_id: 43705
+published: 2024-11-01T16:12:33-0700
+author: Yoshi
+author_image: https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630
+category: patch
+major_update: false
+status: draft
+@end
+
+* General Changes
+
+- Improved Burst: Damage threshold requirement reduced from 200 to 175
+
+* Hero Changes
+
+** Bebop
+
+- Sticky Bomb now gains 1% stack on attach (still gains 5% on target death)
+
+** Grey Talon
+
+- Base bullet damage reduced from 30 to 27
+- Movement speed scaling from Spirit Power reduced from 0.032 to 0.025
+
+** Mirage
+
+- Fire Scarabs cooldown increased from 32s to 40s
+- HP per boon reduced from 41 to 37
+
+** Paradox
+
+- Time Wall T3 silence duration reduced from 3s to 2.5s
+
+* Item Changes
+
+** Metal Skin
+
+- Cooldown increased from 21s to 28s
+
+** Siphon Bullets
+
+- Max HP Steal is now affected by falloff

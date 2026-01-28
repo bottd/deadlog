@@ -60,6 +60,7 @@ export const changelogContentJsonSchema = z.object({
 export const changelogs = sqliteTable('changelogs', {
 	id: text('id').primaryKey(),
 	title: text('title').notNull(),
+	slug: text('slug'), // Path to .norg file (e.g., "2025/01-23-update")
 	contentJson: text('content_json', { mode: 'json' }).$type<ChangelogContentJson>(),
 	author: text('author').notNull(),
 	authorImage: text('author_image').notNull(),

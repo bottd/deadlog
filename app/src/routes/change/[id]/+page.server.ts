@@ -52,7 +52,9 @@ export const load: PageServerLoad = async ({ params, locals }) => {
 		changelog: {
 			...changelog,
 			date,
-			icons
+			icons,
+			// Include slug for .norg rendering (if available)
+			slug: changelog.slug ?? null
 		},
 		heroMap,
 		itemMap,

@@ -10,14 +10,17 @@ const adapter =
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
+	extensions: ['.svelte', '.norg'],
 	preprocess: vitePreprocess(),
 	kit: {
 		adapter,
 		alias: {
+			'@deadlog/changelog': '../lib/changelog/src/index.ts',
 			'@deadlog/scraper': '../lib/scraper/src/index.ts',
 			'@deadlog/meta': '../lib/meta/src/index.ts',
 			'@deadlog/db': '../lib/db/src/index.ts',
-			'@deadlog/utils': '../lib/utils/src/index.ts'
+			'@deadlog/utils': '../lib/utils/src/index.ts',
+			$changelogs: './changelogs'
 		}
 	},
 	vitePlugin: {
