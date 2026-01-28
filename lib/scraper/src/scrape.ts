@@ -328,7 +328,6 @@ export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<voi
 		timeout: 30000,
 		useCache: true,
 		cacheDir: 'lib/scraper/src/cache/posts',
-		useFetch: true,
 		concurrency: 5,
 		delayMs: 500
 	});
