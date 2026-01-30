@@ -5,11 +5,11 @@
 		content: Component;
 	}
 
-	let { content }: Props = $props();
+	let { content: Content }: Props = $props();
 </script>
 
 <div class="norg-content">
-	<svelte:component this={content} />
+	<Content />
 </div>
 
 <style lang="postcss">

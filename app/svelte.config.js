@@ -14,6 +14,9 @@ const config = {
 	preprocess: vitePreprocess(),
 	kit: {
 		adapter,
+		prerender: {
+			handleHttpError: 'warn'
+		},
 		alias: {
 			'@deadlog/changelog': '../lib/changelog/src/index.ts',
 			'@deadlog/scraper': '../lib/scraper/src/index.ts',

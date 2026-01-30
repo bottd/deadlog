@@ -68,6 +68,10 @@ function extractContent(html: string): string {
 		text = text.replace(/&lt;/g, '<');
 		text = text.replace(/&gt;/g, '>');
 		text = text.replace(/&nbsp;/g, ' ');
+		// Convert <a> tags to plain URLs
+		text = text.replace(/<a\s[^>]*href="([^"]*)"[^>]*>[^<]*<\/a>/gi, '$1');
+		// Strip any remaining HTML tags (norg parser crashes on < >)
+		text = text.replace(/<[^>]+>/g, '');
 		text = text.replace(/\n{2,}/g, '\n');
 		window.close();
 		return text.trim();
@@ -238,7 +242,8 @@ function generateChangelog(
 		'status: draft',
 		'@end',
 		'',
-		structuredContent
+		structuredContent ||
+			'* Changelog\n\nNo structured changes were parsed for this update.'
 	);
 
 	if (content.posterReplies?.length) {

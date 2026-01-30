@@ -18,7 +18,7 @@ status: draft
 - Fixed various bugs with Arcane Surge
 - Tick gold increased from 2/1% to 2.5/1.5%
 - Spellslinger Headshots: Cooldown is now on a per target basis rather than on the item itself (this is a buff/flexibility improvement)
-- Spellslinger Headshots: Spirit Amp per headshot increased from 3% to 4%</span>
+- Spellslinger Headshots: Spirit Amp per headshot increased from 3% to 4%
 
 * Hero Changes
 
@@ -43,7 +43,7 @@ status: draft
 ** Yamato
 
 - Shadow Transformation Bullet and Spirit Resist reduced from 45% to 40%
-- Shadow Transformation T3 increased from 15% to 20% Resist</span>
+- Shadow Transformation T3 increased from 15% to 20% Resist
 
 * Item Changes
 

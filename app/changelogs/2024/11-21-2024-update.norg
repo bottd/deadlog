@@ -158,7 +158,7 @@ status: draft
 - Silence Glyph: No longer a tracking projectile using a unit target, releases an aim-based projectile that silences on impact
 - Silence Glyph: Cooldown reduced from 32s to 24s
 - Knock Down: Cast range now ignores the Z height (similar to Lash's Death Slam)
-- New T3 Spirit Item, Spirit Snatch: Requires Spirit Strike. Causes your melee attacks to steal 12% Spirit Resist and 26 Spirit Power for 16s. Cooldown 6s. Buff you receive stacks if you hit different heroes. Grants +15% Melee Damage, +8% Spirit Resist,  +125 Health  and +1 Sprint. (Thanks to <a href="https://forums.playdeadlock.com/threads/spirt-snatch-3k-soul-spirit-strike-upgrade.46932/" class="link link--internal" data-proxy-href="/proxy.php?link=https%3A%2F%2Fforums.playdeadlock.com%2Fthreads%2Fspirt-snatch-3k-soul-spirit-strike-upgrade.46932%2F&hash=6e584ca1dd76b525ba9f3c189223d91f">https://forums.playdeadlock.com/threads/spirt-snatch-3k-soul-spirit-strike-upgrade.46932/</a> )
+- New T3 Spirit Item, Spirit Snatch: Requires Spirit Strike. Causes your melee attacks to steal 12% Spirit Resist and 26 Spirit Power for 16s. Cooldown 6s. Buff you receive stacks if you hit different heroes. Grants +15% Melee Damage, +8% Spirit Resist,  +125 Health  and +1 Sprint. (Thanks to https://forums.playdeadlock.com/threads/spirt-snatch-3k-soul-spirit-strike-upgrade.46932/)
 - New T3 Spirit Item, Arcane Surge: Requires Kinetic Dash. After successful Dash Jump, the next ability you use will also have +20% Range, +20% Duration and +20 Spirit Power. Grants +100 Health, +1 Stamina and +15% Slow Resist.
 
 * Hero Changes
