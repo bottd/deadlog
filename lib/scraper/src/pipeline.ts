@@ -6,9 +6,9 @@ import {
 	scrapeMultipleChangelogPosts,
 	type ChangelogPost,
 	type PostContentResult
-} from './scraper';
+} from './forumFetcher';
 import { parseAuthorName } from './authorParser';
-import { fetchHeroes, fetchItems } from './assets';
+import { fetchHeroes, fetchItems } from './deadlockApi';
 
 const CHANGELOGS_DIR = process.env.CHANGELOGS_DIR || 'app/changelogs';
 
@@ -68,8 +68,19 @@ function extractContent(html: string): string {
 		text = text.replace(/&lt;/g, '<');
 		text = text.replace(/&gt;/g, '>');
 		text = text.replace(/&nbsp;/g, ' ');
-		// Convert <a> tags to plain URLs
+		// Convert <a> tags to plain URLs (won't match <a><img></a> since [^<]* can't match <img>)
 		text = text.replace(/<a\s[^>]*href="([^"]*)"[^>]*>[^<]*<\/a>/gi, '$1');
+		// Convert <img> tags to norg @image blocks (after <a> conversion, before final HTML strip)
+		text = text.replace(
+			/<img\s+[^>]*src="([^"]*)"[^>]*alt="([^"]*)"[^>]*>/gi,
+			(_, src, alt) => {
+				// Decode proxy URLs to direct URLs
+				const proxyMatch = src.match(/\/proxy\.php\?image=([^&]+)/);
+				const url = proxyMatch ? decodeURIComponent(proxyMatch[1]) : src;
+				const label = alt.replace(/\.[^.]+$/, '').replace(/[-_]/g, ' ');
+				return `\n@image ${url}\n${label}\n@end\n`;
+			}
+		);
 		// Strip any remaining HTML tags (norg parser crashes on < >)
 		text = text.replace(/<[^>]+>/g, '');
 		text = text.replace(/\n{2,}/g, '\n');
@@ -131,8 +142,24 @@ function parseAndGroupContent(rawContent: string, entities: EntityLists): Groupe
 
 	const lines = rawContent.split('\n');
 
-	for (const line of lines) {
-		const trimmed = line.trim();
+	for (let i = 0; i < lines.length; i++) {
+		const trimmed = lines[i].trim();
+
+		// Collect @image blocks as-is
+		if (trimmed.startsWith('@image ')) {
+			const blockLines = [trimmed];
+			while (i + 1 < lines.length && lines[i + 1].trim() !== '@end') {
+				i++;
+				blockLines.push(lines[i]);
+			}
+			if (i + 1 < lines.length) {
+				i++;
+				blockLines.push(lines[i]); // @end
+			}
+			result.general.push(blockLines.join('\n'));
+			continue;
+		}
+
 		if (!trimmed || !trimmed.startsWith('-')) {
 			continue;
 		}
@@ -165,7 +192,11 @@ function generateStructuredContent(grouped: GroupedContent): string {
 		sections.push('* General Changes');
 		sections.push('');
 		for (const note of grouped.general) {
-			sections.push(`- ${note}`);
+			if (note.startsWith('@image ')) {
+				sections.push(note);
+			} else {
+				sections.push(`- ${note}`);
+			}
 		}
 	}
 

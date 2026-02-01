@@ -11,6 +11,7 @@ status: draft
 
 * General Changes
 
+- Fixed some cases where slows could cause your speed to fall below the 2 m/s minimum
 - Fixed slow percentage calculations being based off of assuming min speed is 0 rather than 2 (in effect this reduces how strong slows are)
 - T4 items cost reduced from 6.2k to 6k
 - Shield duration to not take damage before regenerating increased from 18s to 30s
@@ -19,6 +20,7 @@ status: draft
 - Tick gold increased from 2/1% to 2.5/1.5%
 - Spellslinger Headshots: Cooldown is now on a per target basis rather than on the item itself (this is a buff/flexibility improvement)
 - Spellslinger Headshots: Spirit Amp per headshot increased from 3% to 4%
+- Spellslinger Headshots: Fixed the base Spirit Amp requiring a headshot (this fix was released recently)
 
 * Hero Changes
 
@@ -50,6 +52,10 @@ status: draft
 ** Alchemical Fire
 
 - Base DPS reduced from 55 to 50
+
+** Knockdown
+
+- Stun duration reduced form 0.75s to 0.5s for ground targets (airborne values adjusted to be similar to before)
 
 ** Restorative Shot
 

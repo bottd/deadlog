@@ -54,8 +54,8 @@ status: draft
 - Updated Ivy VO - largely remastering pass, but also fixed some lines with Spanish pronunciation issues
 - Fixed a regression where Kelvin referenced Grey Talon incorrectly
 - Updated Divine Barrier cast sound
-- Added Telemetry HUD options to the settings menu. The Telemetry HUD is an in-game HUD which can be used to monitor the frame rate and network conditions. The Telemetry HUD can be enabled under Settings > Game. More information on the HUD can be found here: https://help.steampowered.com/en/faqs/view/5E6F-5B36-5485-F6B9
-- Added new Learn to Play tutorial images in collaboration with Toastyghostey (https://www.instagram.com/toastyghostey/)
+- Added Telemetry HUD options to the settings menu. The Telemetry HUD is an in-game HUD which can be used to monitor the frame rate and network conditions. The Telemetry HUD can be enabled under Settings > Game. More information on the HUD can be found here: /proxy.php?link=https%3A%2F%2Fhelp.steampowered.com%2Fen%2Ffaqs%2Fview%2F5E6F-5B36-5485-F6B9&hash=38af1ac18a281c0346d651b95d0db673
+- Added new Learn to Play tutorial images in collaboration with Toastyghostey (/proxy.php?link=https%3A%2F%2Fwww.instagram.com%2Ftoastyghostey%2F&hash=9f4160e2822fddd58d9704ebdd22340c)
 - Steam Input Support:
 - Added support for new Crouch Toggle button
 - Added 3 new Official Control Schemes: { Standard | Gyro | FlickStick }. Thanks to @FlickStickVids for consultation.

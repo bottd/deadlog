@@ -95,6 +95,43 @@ function parseDocument(html: string, url: string): Document {
 	return window.document as unknown as Document;
 }
 
+/**
+ * Attributes to preserve per tag when cleaning cached HTML.
+ * Everything else is stripped to reduce cache size.
+ */
+const KEEP_ATTRS: Record<string, string[]> = {
+	a: ['href'],
+	img: ['src', 'alt'],
+	div: ['class']
+};
+
+/**
+ * Strip unnecessary HTML attributes from cached content using happy-dom.
+ * Only class (on divs), href (on links), src/alt (on images) are kept.
+ */
+function cleanHtml(html: string): string {
+	const window = new Window();
+	window.document.write(`<body>${html}</body>`);
+	const body = window.document.body;
+
+	for (const el of body.querySelectorAll('*')) {
+		const keep = KEEP_ATTRS[el.tagName.toLowerCase()] || [];
+		const toRemove: string[] = [];
+		for (const attr of el.attributes) {
+			if (!keep.includes(attr.name)) {
+				toRemove.push(attr.name);
+			}
+		}
+		for (const name of toRemove) {
+			el.removeAttribute(name);
+		}
+	}
+
+	const result = body.innerHTML.replace(/^[\n\t\r ]+/, '').trimEnd();
+	window.close();
+	return result;
+}
+
 function extractPostContent(document: Document): PostContentResult | null {
 	const firstPost = document.querySelector('.message');
 	if (!firstPost) return null;
@@ -103,7 +140,7 @@ function extractPostContent(document: Document): PostContentResult | null {
 	const title = titleElement?.textContent?.trim() || '';
 
 	const contentElement = firstPost.querySelector(SELECTORS.CONTENT.join(', '));
-	const content = contentElement?.innerHTML || '';
+	const content = cleanHtml(contentElement?.innerHTML || '');
 
 	const authorElement = firstPost.querySelector(SELECTORS.AUTHOR.join(', '));
 	const author = authorElement?.textContent?.trim() || '';
@@ -143,7 +180,7 @@ function extractPostContent(document: Document): PostContentResult | null {
 
 			if (replyContent && replyTimestamp) {
 				posterReplies.push({
-					content: replyContent.innerHTML,
+					content: cleanHtml(replyContent.innerHTML),
 					timestamp: replyTimestamp
 				});
 			}

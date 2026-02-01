@@ -19,7 +19,7 @@ export {
 	getChangelogsByItemId,
 	getChangelogIcons,
 	type ScrapedChangelog
-} from './static';
+} from './queries';
 
 export { formatDate, formatTime } from '@deadlog/utils';
 export type {
@@ -29,5 +29,5 @@ export type {
 	EnrichedItem,
 	EntityType,
 	EntityIcon
-} from './types/assets';
-export { ENTITY_TYPES } from './types/assets';
+} from './types/deadlockApi';
+export { ENTITY_TYPES } from './types/deadlockApi';

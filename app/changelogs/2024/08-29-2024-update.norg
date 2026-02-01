@@ -94,6 +94,9 @@ status: draft
 - The upper floor teleporters have moved to the street level
 - The interior teleporters have moved to the Bodega building and the Theater
 - Teleporters are closed for the first 10 minutes (they look visually closed)
+@image https://project8-data.community.forum/attachments/13/13969-41bfe806f2a5904393285b5d54f572d5.jpg?hash=Z3N_uRZvPI
+teleporter locations screenshots update
+@end
 - Guardians no longer give 1 AP
 - AP is now added to the following Soul levels: 3500, 5200, 8000, 9700
 - Parry cooldown reduced from 6s to 5s
@@ -103,9 +106,15 @@ status: draft
 - Replaced some bounce pads with ropes if the purpose was to go straight up
 - Added two bounce pads next to sidelane walkers at cultural center and courthouse
 - Added bounce pad from the Amber Orange/Sapphire Blue Walker walkway to the low roofs toward the Walker.
+@image https://project8-data.community.forum/attachments/13/13974-0eb337cb00c2bf930185cbf14508683c.jpg?hash=pr6BYtLXhU
+new bouncepad
+@end
 - Removed some rooftop zap volumes that damage players
 - Several buildings have been made taller to make their rooftops out of bounds
 - Several buildings have been made shorter to make them more accessible
+@image https://project8-data.community.forum/attachments/13/13984-5a1fedb7b5143f08f44bedc827e5b216.jpg?hash=sXLDC_xIMj
+valid rooftop locations
+@end
 - A few of the buildings have new passageways at higher floors that are along the way to the rooftop
 - Breakable containers have been added to the new playable rooftops
 - Juke closets have replaced the previous location of the upper floor teleporters

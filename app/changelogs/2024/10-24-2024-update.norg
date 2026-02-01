@@ -14,6 +14,9 @@ status: draft
 - Added 6 new heroes to Hero Labs, a new experimental hero matchmaking mode. The heroes are Holliday, Calico, Wrecker, Fathom, Viper and Magician (temp names). The goal of this mode is to invite players to help us in giving hero design feedback while heroes are in very early phases. Most heroes in this mode will have placeholder models, names, effects, etc (some exceptions are older in-dev heroes that had more developed art). They will also sometimes have placeholder/copy-paste abilities for certain slots if that ability slot is still TBD (such as Magician ultimate). There will be a specific hero labs section on the forum to post feedback on these. Heroes in this mode will often be removed, abilities changed, new heroes added, removed heroes re-added, etc. Patch notes for changes to heroes in this mode will be posted on the Hero Labs subforum. This mode will have limited testing hours for now while we gauge activity, in order to ensure faster queue times. You must have at least 50 games played to be able to queue here. If you don't get a new hero selected (since there are less new heroes than there are players), you will be considered higher priority for subsequent matches to get a new hero from your roster selection.
 - Added Commends. You can commend players you've enjoyed playing with during the game or in the post-game scoreboard (same places you would report).  The number of commends you've received on each hero will be displayed in your profile.
 - Added new character shader to improve player visibility in all areas of the map and experiment with more stylized rendering of character models
+@image https://project8-data.community.forum/attachments/26/26043-0a7f28f92179f3eb7fa034e749847461.jpg?hash=TFfcNYdH9K
+lighting changes
+@end
 - Updated environment lighting and sky
 - Added sequential kill streak music cues
 - Added keybinds for "Fly Up" and "Fly Down".  Used for flying abilities like Ivy's Air Drop and Vindicta's Flight
@@ -83,6 +86,15 @@ status: draft
 - Breakables Souls reduced from 35 + 3/min to 30 + 2.5/min
 - Urn comeback properties now require an 8% net worth lead to kick in
 - Urn pickup locations are the same as before, however now the drop-off locations will be variable based on which team is leading. If there isn't a lead over 8% net worth, then the drop-off location is the same as before. If there is, then the drop-off location will be closer to the losing team's side. The minimap will show where the drop-off location is as usual, as well as an indicator in the world that helps show you where it is.
+@image https://project8-data.community.forum/attachments/26/26029-316e26e32d5d9c28711b7b32c47c9ec2.jpg?hash=Bcy1Su9gev
+urn 01
+@end
+@image https://project8-data.community.forum/attachments/26/26030-66b9044d013d7baf5a1aa5a85be4cda7.jpg?hash=kSgwnPOjDr
+urn 02
+@end
+@image https://project8-data.community.forum/attachments/26/26031-964938f678db211578e57da87f872680.jpg?hash=u8rCtcD0c_
+urn 03
+@end
 - If the Urn hasn't been delivered within 90 seconds of pickup time, it now drains your health for 1% of Max HP per second (the timer is per team). Your regen is disabled during this.
 - Whenever the Urn is dropped after 90 seconds of pickup time, it starts moving back to its spawn point immediately and cannot be picked up by the same team for 12 seconds.
 - Increased speed Urn walks back
@@ -105,9 +117,15 @@ status: draft
 - Sinner's Sacrifice now shares souls of subsequent hits with everyone that hit it recently (rather than the bigger value from last hit only going to one player)
 - Redesigned stairs from central canal to the outer lanes (near Urn spawn)
 - Added a skybridge with interior from the Subway Entrance buildings into the Port Authority and Speakeasy buildings
+@image https://project8-data.community.forum/attachments/26/26034-dadcc55de196610454a06ffd805d0234.jpg?hash=a48dE8_vh4
+canal
+@end
 - Connection hallways behind the Chapel and Firehouse now has an option to continue inside to the Walker arenas
 - Added a Bounce Pad from these connection hallways to the front of the overpass
 - Neutral camps beside Amber Purple and Sapphire Yellow Walker arenas moved from the ground floor to the upper floor
+@image https://project8-data.community.forum/attachments/26/26036-93a05dca9721d8ccbea072fb616bb646.jpg?hash=A8rfo7fvQ4
+outer lane connection 102424
+@end
 - Redesigned traversal from ground floor to upper floor of the Garage and Night Club to get to the Sinner's Sacrifice neutrals
 - Replaced fire escape stairs with ropes on the exterior of the Garage and Night Club
 - Added more zipline nodes to outer lanes

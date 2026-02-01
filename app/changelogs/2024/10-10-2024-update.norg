@@ -129,16 +129,31 @@ status: draft
 - Bullet and Spirit Lifesteal now stack diminishingly
 - Teleporters now grant +3 m/s for 5s after arriving at the other side
 - Updated teleporter locations
+@image https://project8-data.community.forum/attachments/23/23115-6351c66f805cedd1dd63428bfd258de2.jpg?hash=LFr8AwcJ9D
+teleporters map
+@end
 - Moved teleporters to travel between outer lane Walkers
+@image https://project8-data.community.forum/attachments/23/23114-140801732d6f661891f71451f40a2f01.jpg?hash=S5uNgU90Du
+teleporter walkers
+@end
 - Added teleporters in the underground tunnels
+@image https://project8-data.community.forum/attachments/23/23111-d4918f22661c976f90f76458cab51888.jpg?hash=wyFimvcxZR
+teleporter underground
+@end
 - Changed underground teleporters to go between Subway and Tunnel on the same side of the map
 - Widened stairs from Shrines back to the player spawn area
 - Added ledge to mantle back up to the player spawn area from the pit
 - Added bridge and stair to the upper level of the Subway Entrance building from the outer lane Walker arenas
 - Added upper level connection through the Subway Entrance building
+@image https://project8-data.community.forum/attachments/23/23119-3c37b9c2a5165ddd441507e62f9d3beb.jpg?hash=3MJGJRS_zb
+outer lane 01
+@end
 - Moved Guardians back slightly further from stairs down to the canal
 - Widened channels surrounding Mid Temple slightly
 - Widened archways between Mid Temple channels
+@image https://project8-data.community.forum/attachments/23/23120-8103145c268db3ec157f9f2e5b7cf9a0.jpg?hash=IJMzjSZvpH
+mid channel 01
+@end
 - Garage and Night Club: Changed ropes so that they take you to the second floor and added back stairs to take you to the roof
 - Basic Magazine: Ammo increased from 24% to 26%
 - Health Nova: Spirit Power increased from +4 to +6

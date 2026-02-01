@@ -1,5 +1,5 @@
 import { eq, sql, desc, gt, and, ne, isNotNull } from 'drizzle-orm';
-import type { EnrichedHero, EnrichedItem, EntityIcon } from './types/assets';
+import type { EnrichedHero, EnrichedItem, EntityIcon } from './types/deadlockApi';
 import type { ChangelogContentJson } from '@deadlog/db';
 import { getLibsqlDb, type DrizzleDB, schema } from '@deadlog/db';
 

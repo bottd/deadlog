@@ -12,7 +12,13 @@ status: draft
 * General Changes
 
 - Added new hero, Mirage.
+@image https://project8-data.community.forum/attachments/20/20368-e3ba7aa1f4a51da04dc021866fa54506.jpg?hash=ymVdtOoaPa
+hero mirage
+@end
 - Added an initial Anti-Cheat detection system. When a user is detected as cheating, during the game session the opponents will be given a choice between banning the user immediately and ending the match or turning the cheater into a frog for the rest of the game and then banning them afterwards. The system is set to conservative detection levels as we work on a v2 anti-cheat system that is more extensive. We will turn on the banning of users in a couple of days after the update is out. When a match is ended this way, the results will not count for other players.
+@image https://project8-data.community.forum/attachments/20/20367-5afd920938a15b06c92dbacbd525b980.jpg?hash=QQG9epHAYO
+two buttons abrams
+@end
 - Added global quickcast support. You can now configure your abilities and/or items to be on quickcast mode globally. You can also customize each ability individually to be quickcast or not. This also supports grenade style abilities.
 - Hero specific keybinds now say the ability name instead of ability 1-4
 - Added Zipline hotkey that can be independently bound from space/jump
@@ -138,13 +144,28 @@ status: draft
 - Improved Reach: Now provides 12% Bullet Resist instead of 12% Spirit Resist
 - Outer lanes at the middle of the map pushed further away from the inner lanes
 - Added connection from canal near the urn platforms through the Radio Station and Apartment buildings
+@image https://project8-data.community.forum/attachments/20/20364-737a9eb201f55b83b3b09dc8d87bd1c2.jpg?hash=0gyuyoyo_r
+radio station connection
+@end
 - Reworked interior corridors of Fish Market/Nursery to exit to the buildings sooner
 - Added interior room partition from the Fish Market/Nursery to the Shops
 - Moved rope to the Fish Market/Nursery rooftop to the back of the building
 - Removed upper interior hallway from rope to the Fish Market/Nursery rooftops
 - Moved truck from in front of archway with cosmic veil to the back of the Fish Market/Nursery
+@image https://project8-data.community.forum/attachments/20/20363-389f6eb1102c577c4052e2f4307e2341.jpg?hash=xVUkAzjhW9
+fish market changes
+@end
 - Redesigned outer lane path (ziplines and trooper nodes) from Walker to Guardian on Amber Yellow and Sapphire Purple
+@image https://project8-data.community.forum/attachments/20/20361-1672050e626e1611deecb2139c8b59f7.jpg?hash=iojHR_BDBx
+amber yellow patch
+@end
+@image https://project8-data.community.forum/attachments/20/20362-0ce5e2aaa8d4e097eeec35b303e96b82.jpg?hash=vXAxwTYkow
+amber purple patch
+@end
 - Added interior passage beside Subway Entrance to the outer lanes
+@image https://project8-data.community.forum/attachments/20/20366-90529144c84ff416aea345345096a12e.jpg?hash=_S-M-Q7HiK
+subway entrance connection
+@end
 
 * Hero Changes
 

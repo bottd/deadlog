@@ -75,6 +75,7 @@ status: draft
 - Vexing Bolt initial velocity reduced from 1000 to 800
 - Vexing Bolt now only snaps to heroes
 - Vexing Bolt max duration increased from 3s to 4s (max damage is still at 2s)
+- Vexing Bolt now shows the target to redirect to (similar to Wraith's Cards)
 - Rabbit Hex cooldown reduced from 30s to 26s
 - Rabbit Hex radius increased from 6m to 6.5m
 
@@ -122,3 +123,37 @@ Consider creating a separate file: 12-29-2025-update-reply-1.norg with parent_id
 
 - Bleed damage reduced from 2.2% to 2%
 - Buildup is 10% harder
+
+@comment
+Poster reply 2 (2026-01-20T13:58:55-0800)
+Consider creating a separate file: 12-29-2025-update-reply-2.norg with parent_id in metadata
+@end
+
+* General Changes
+
+- Respawn time at 19 minutes reduced from 35s to 30s
+- Respawn time at 30 minutes reduced from 75s to 70s
+- You now have a longer respawn time if you die and are meaningfully richer than the enemy team's average net worth (scales from +6s to +22s penalty, based on networth being 15 to 30% higher and game time being 10min to 25min, if under 15% NW or 10min, nothing happens)
+- Neutral respawn times, hp, and bounty reduced by 30% (sinner's sacrifice unaffected)
+- Urn no longer requires a drop off channel time
+- Urn is now knocked out of your hands with a light melee (instead of only with a heavy melee)
+- Urn pickup channel time is reset if you get hit with a light or heavy melee
+- Can no longer parry while channeling to pickup the urn
+- Urn carrier resist reduced from 50% to 30%
+- Down Dash stamina cost reduced from 1 to 0.5
+- Stamina Regen in the healing zone is now dramatically increased
+
+* Item Changes
+
+** Kinetic Dash
+
+- Ammo count reduced from +8 to +6
+
+@comment
+Poster reply 3 (2026-01-20T18:10:58-0800)
+Consider creating a separate file: 12-29-2025-update-reply-3.norg with parent_id in metadata
+@end
+
+* General Changes
+
+- Urn now drops if it travels through doorman portals

@@ -133,20 +133,41 @@ status: draft
 - Initial Urn bounty reduced from 4050 to 3000 (changed from 1750 + 230*Min to 700 + 230*Min)
 - Adding an alternate Urn mechanic as an experiment for 2 days. This will be enabled this weekend only and Monday will be back to normal. Urn pickup location is the same, but drop-off location is now always at the top of mid temple. The bonus souls the team gets is reduced by 60% (the delivering player reward is unchanged). The reveal time is now 40s.
 - Moved rooftop neutral camps on Amber Yellow and Sapphire Purple to rooftops closer to the Guardian
+@image https://project8-data.community.forum/attachments/30/30148-d632db1a57bac84efafd1f06568bbdca.jpg?hash=XNpnAfM5z2
+rooftop neutral camp 112124
+@end
 - Added a truck to climb up into the interior bridge area at the Port Authority and Jazz Club buildings
 - Moved stairs up from the central canal to the Radio Station interior closer to the inner lanes
 - Removed stairs up to the Radio Station interior from the underground Teleport Station
 - Redesigned Radio Station interior to be more open
+@image https://project8-data.community.forum/attachments/30/30153-16e7f9c01ad0338e6c831c6ae344b06f.jpg?hash=vUQDhBS3u7
+canal update 112124
+@end
 - Moved connection corridor between Inner and Outer lanes (Amber Yellow and Sapphire Purple) to be farther from the base entrances
 - Removed the cosmic veils from the entrances of the connection corridor
 - Changed entrance to the Armory/Warehouse from the inner lane to be more direct (not a hallway)
+@image https://project8-data.community.forum/attachments/30/30155-4b7fd9a547dceedf8f5fb08037d66a9c.jpg?hash=61ONTc41sT
+armory entrance 112124
+@end
 - Moved the side lane teleporters to the crawl space under the Hard camp
 - Removed bookshelf model inside the upper floor of the Police Station/Garment Building to see the corridor behind it
 - Removed Rope inside the Police Station/Garment Building
+@image https://project8-data.community.forum/attachments/30/30156-a8c2716fc1d7559cda993e3443effa05.jpg?hash=kVX3m19afn
+garment interior 112124
+@end
 - Added interior stair connection in Factory/Mansion to stay inside from lower to upper areas
+@image https://project8-data.community.forum/attachments/30/30149-4f38d7344afd4801416113724732afb6.jpg?hash=xryuxEx9Gu
+outer lane update 112124
+@end
 - Added a fence guard beside the stairs inside the Garage/Night Club
+@image https://project8-data.community.forum/attachments/30/30157-430fcc275de8c59e7765fa300eebf4eb.jpg?hash=1_YXZ1vh2H
+garage interior 112124
+@end
 - Added zapper effect to the antenna models on rooftops
 - New building facade art in Amber Blue and Purple lanes
+@image https://project8-data.community.forum/attachments/30/30159-e1f8f6c21c976be0f73c94e165766979.jpg?hash=Rq-4W8I3qF
+new drugstore 112124
+@end
 - Added a street gate structure between the Garage and the Record Shop
 - Below is a group of changes bundled together that pairs reducing sustain abilities/items as well as anti-heal mechanics by some percentage (some things less than others depending on the specific circumstances of the ability)
 - Soul Shredder Bullets: Spirit Lifesteal reduced from 20% to 18%
@@ -158,7 +179,7 @@ status: draft
 - Silence Glyph: No longer a tracking projectile using a unit target, releases an aim-based projectile that silences on impact
 - Silence Glyph: Cooldown reduced from 32s to 24s
 - Knock Down: Cast range now ignores the Z height (similar to Lash's Death Slam)
-- New T3 Spirit Item, Spirit Snatch: Requires Spirit Strike. Causes your melee attacks to steal 12% Spirit Resist and 26 Spirit Power for 16s. Cooldown 6s. Buff you receive stacks if you hit different heroes. Grants +15% Melee Damage, +8% Spirit Resist,  +125 Health  and +1 Sprint. (Thanks to https://forums.playdeadlock.com/threads/spirt-snatch-3k-soul-spirit-strike-upgrade.46932/)
+- New T3 Spirit Item, Spirit Snatch: Requires Spirit Strike. Causes your melee attacks to steal 12% Spirit Resist and 26 Spirit Power for 16s. Cooldown 6s. Buff you receive stacks if you hit different heroes. Grants +15% Melee Damage, +8% Spirit Resist,  +125 Health  and +1 Sprint. (Thanks to /proxy.php?link=https%3A%2F%2Fforums.playdeadlock.com%2Fthreads%2Fspirt-snatch-3k-soul-spirit-strike-upgrade.46932%2F&hash=6e584ca1dd76b525ba9f3c189223d91f )
 - New T3 Spirit Item, Arcane Surge: Requires Kinetic Dash. After successful Dash Jump, the next ability you use will also have +20% Range, +20% Duration and +20 Spirit Power. Grants +100 Health, +1 Stamina and +15% Slow Resist.
 
 * Hero Changes

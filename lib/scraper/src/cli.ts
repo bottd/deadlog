@@ -1,5 +1,5 @@
-import { scrapeChangelogs } from './scrape';
-import { buildDatabaseFromNorg } from './buildFromNorg';
+import { scrapeChangelogs } from './pipeline';
+import { buildDatabaseFromNorg } from './buildDatabase';
 
 async function main() {
 	const args = process.argv.slice(2);

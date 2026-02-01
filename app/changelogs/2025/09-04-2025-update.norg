@@ -14,9 +14,6 @@ status: draft
 - Rejuv only heals the person hitting the crystal
 - Dying to a non-player (when there is no bounty/assists) now increases the respawn time for that death by 10 seconds
 - Patron 1st death time is now a constant 12s instead of being variable between 8 and 15 seconds
-- Doorman: Call Bell explosion damage reduced from 70 to 60
-- Doorman: Call Bell explosion damage spirit scaling increased from 1.4 to 1.5
-- Doorman: Hotel Guest now teleports the target back to the beginning of the hotel if they fall into the void.
 
 * Hero Changes
 
@@ -45,6 +42,12 @@ status: draft
 - Ava T3 increased from -15s Cooldown to -20s
 - Ava T3 increased from +25 Health Regen to +35
 - Return to Shadows cooldown reduced from 110s to 100s
+
+** Doorman
+
+- Call Bell explosion damage reduced from 70 to 60
+- Call Bell explosion damage spirit scaling increased from 1.4 to 1.5
+- Hotel Guest now teleports the target back to the beginning of the hotel if they fall into the void.
 
 ** Drifter
 

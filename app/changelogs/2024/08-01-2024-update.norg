@@ -12,6 +12,9 @@ status: draft
 * General Changes
 
 - Added a new hero, Viscous. He's green.
+@image https://project8-data.community.forum/attachments/8/8606-5e65b8fab4e5d8bfec0c89803747f777.jpg?hash=iAqrn-aLP0
+1722549138302
+@end
 - Improved client performance
 - Reworked the Hero Builds system. Browsing and editing builds now happens within the Shop UI (accessible via Sandbox or during a normal game). You can create custom categories for items with unique names and descriptions that can be independently resized and positioned. The interface for browsing builds has also been improved, public builds will now be sorted by popularity (number of favorites). Old builds are incompatible with this system, so they won't be visible in this UI, but we'll have a console command we'll release soon that you can use to print out your older guides if you need them for reference.
 - North America (NA) servers have been moved from the west coast to closer to the middle of the country to make latency between east and west coast a little more even, as the majority of users are east coast now. The total average ping amongst all players will be lower as a result of this (a little higher for some and a lot lower for others).
@@ -73,11 +76,17 @@ status: draft
 - Improved visibility of low health state on troopers about to die
 - Fixed Pocket's Cloak being able to tunnel through some ceilings and out of the world
 - Reworked the location of the Walker on Amber Yellow and Sapphire Purple lanes. They are a little further towards the map edges. Nearby terrain has been reworked as well.
+@image https://project8-data.community.forum/attachments/8/8600-bec5521cea56fd07b5b4d9a10f29ec7f.jpg?hash=w44NZ_-AdQ
+DL Yellow changes
+@end
 - The shooting experience near corners has been improved. Previously if your hero's eyes were obstructed at all, you would be unable to shoot altogether even if a large portion of your body was clearly visible. The check will now be a little more sophisticated and custom per hero, to allow you to shoot if your body is reasonably exposed. A part of this will also involve your hero leaning out a bit if not enough of your model is exposed to enemies.
 - Soul Orbs now fly out in different initial directions before floating up. There is a 1/3rd chance it goes left, 1/3rd chance it goes right, and 1/3rd chance it goes up.
 - Teleporters are now in pairs that send you between them to traverse the map horizontally
 - Removed outer lane teleporters
 - Added teleporters to areas between lanes (one in each quadrant). Total of 6 teleporters.
+@image https://project8-data.community.forum/attachments/8/8602-b267b561ab0628e1cc782e934d30cdac.jpg?hash=ageyfsv0Wt
+teleporter locations map
+@end
 - Old teleport exit location changed to a connection to the street that slopes down to Mid
 - Added connection from the underground teleport station to the outer lane Guardian (previously a juke spot)
 - Added steam tunnel connection from Amber Blue Guardian and Sapphire Orange Guardian to Mid (one-way)

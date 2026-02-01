@@ -99,6 +99,10 @@ status: draft
 
 * Item Changes
 
+** Active Reload
+
+- Move speed reduced from 1 to 0.75​- Backstabber: Move speed reduced from 1.75 to 1.5​- Fleetfoot: Move speed reduced from 3.5 to 3.25​- Enduring Speed: Move speed reduced from 2.25 to 2.0​- Guardian Ward: Move speed reduced from 3 to 2.75​- Spirit Shielding: Move speed reduced from 1.75 to 1.5​- Weapon Shielding: Move speed reduced from 1.75 to 1.5​- Blood Tribute: Move speed reduced from 2.25 to 2​- Burst Fire: Move speed reduced from 1.5 to 1.25​- Headhunter: Move speed reduced from 2 to 1.75​- Heroic Aura: Move speed reduced from 2.5 to 2.25​- Counterspell: Move speed reduced from 2 to 1.75​- Debuff Remover: Move speed reduced from 2.5 to 2.25​- Fortitude: Move speed reduced from 1.5 to 1.25​- Veil Walker: Invis move speed reduced from 4 to 3.5​- Radiant Regeneration: Move speed reduced from 2 to 1.75​- Surge of Power: Move speed reduced from 2 to 1.75​- Frenzy: Move speed reduced from 1 to 0.75​- Frenzy: Active move speed reduced from 3 to 2.5​- Divine Barrier: Move speed reduced from 3 to 2.75​- Healing Tempo: Move speed reduced from 1.5 to 1.25​- Juggernaut: Move speed reduced from 2.25 to 2​- Ethereal Shift: Move speed reduced from 3 to 2.5​- Sprint ramp rate reduced from 0.75/sec to 0.6/sec
+
 ** Colossus
 
 - Bonus Health reduced from +600 to +300
@@ -132,6 +136,10 @@ status: draft
 ** Spirit Snatch
 
 - Spirit Resist steal reduced from 15% to 12%
+
+** Sprint Boots
+
+- Sprint reduced from 2.2 to 2.0​- Long Range: Sprint reduced from 1 to 0.75​- Swift Striker: Sprint reduced from 1 to 0.75​- Mystic Slow: Sprint reduced from 1 to 0.75​- Heroic Aura: Sprint reduced from 2 to 1.5​- Hunter's Aura: Sprint reduced from 1 to 0.75​- Sharpshooter: Sprint reduced from 1.5 to 1​- Rescue Beam: Sprint reduced from 1 to 0.75​- Trophy Collector: Sprint reduced from 2.2 to 2.0​- Disarming Hex: Sprint reduced from 1 to 0.75​- Shadow Weave: Sprint reduced from 2 to 1.5​- Lightning Scroll: Sprint reduced from 1 to 0.75​- Vortex Web: Sprint reduced from 1 to 0.75​- Enduring Speed: Slow resist reduced from 30% to 25%
 
 ** Tankbuster
 

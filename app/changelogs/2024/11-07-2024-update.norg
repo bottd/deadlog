@@ -56,6 +56,7 @@ status: draft
 - New sounds added to Lash’s Ground Strike and Flog abilities
 - Renamed "Mouse Wheel" to "Chat Wheel"
 - Steam Input support:
+- Added all missing Steam Input Actions from the Key Bindings screen (including Fly Up/Fly Down)​- Added a "Replay Controls" action set​- Allow Steam Deck to see the Key Bindings Screen​- Improved Glyph Swapping behavior when mixing controller and keyboard inputs​- Added Controller tab to house Controller specific options.​- Added a Steam Input Configurator launch button.​- Added Glyph Locking options: { Automatic | Keyboard & Mouse Only | Game Pad Only }​- Fixed crash in spectator mode when querying controller button state​- Fixed Controller not working until loading a level​- Official Steam Input configs for SteamDeck and DualSense have been updated​- Note: Legacy Analog Modes have been removed/replaced in favor of new Camera specific Steam Input modes. Some users may need to re-bind their joysticks/gyros.​
 - Troopers no longer change soul sharing rules after laning phase ends (meaning 2 heroes don't split souls)
 - Troopers no longer increase their bounty by 20% at 8 minutes
 - Hero Kill gold increased from 150->1400 to 175->2000 (from 0 min to 45 min)
@@ -64,6 +65,9 @@ status: draft
 - Walkers damage vs players increased by 10%
 - Guardians will now focus their attack on enemy players if an enemy player shoots a hero and the enemy player is within 15m of the Guardian
 - Moved 8 neutral camps (4 on each side) from outside the outer lanes behind the Walkers to in between inner and outer lanes
+@image https://project8-data.community.forum/attachments/28/28472-70298c1780a124846c920f345429869f.jpg?hash=zCYaoiIjqZ
+neutrals update
+@end
 - Added Cosmic Veils to the ground floor entrances to Mid that grant vision looking in but block vision looking out
 - Biased Urn delivery locations moved slightly closer to neutral positions
 - Minor adjustments to respawn curve (40s respawn happening at 20m now happens at 17m)
@@ -73,6 +77,9 @@ status: draft
 - Fixed Troopers resistance against Base Guardians not working properly
 - Redesigned the warehouse interior to allow entry from the front of the Tenements and Music Hall buildings
 - Moved the stairs from the warehouse interior to the underground tunnel further from the Urn delivery location
+@image https://project8-data.community.forum/attachments/28/28468-bfd21c432a34850511740c099b1f7060.jpg?hash=RCFYb2rkNN
+warehouse update
+@end
 - Removed all railings from fire escape stairs
 - Pass at making rooftops smoother to navigate
 - Removed angled supports from chimney
@@ -80,8 +87,14 @@ status: draft
 - Added stairs on top of Bodega
 - Replaced small chimneys and temporary spikes with larger roof spikes to designate zap trigger locations
 - Replaced temp antennae with more "menacing" version to designate zap trigger locations
+@image https://project8-data.community.forum/attachments/28/28471-f99e851a756fd4e24e356e700bfdc476.jpg?hash=urreBpPM3w
+roof spikes
+@end
 - New Hotel building art pass
 - Changed exit location from the player spawn area to the rest of the base to the angled walls
+@image https://project8-data.community.forum/attachments/28/28466-0c0806eaa27f78a787c23901f1bea4ef.jpg?hash=p8laI8BwHm
+base update (1)
+@end
 - Combat Barrier: Fire Rate increased from 6% to 7%
 - Withering Whip: Bullet Resist reduction reduced from -14% to -11%
 - Withering Whip: Cooldown reduced from 22s to 18s

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { getAllChangelogs, getChangelogById, getMetadata, getDb } from './static';
+import { getAllChangelogs, getChangelogById, getMetadata, getDb } from './queries';
 import { existsSync } from 'fs';
 import { resolve } from 'path';
 

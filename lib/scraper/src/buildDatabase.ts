@@ -9,7 +9,7 @@ import { mkdir, unlink } from 'fs/promises';
 import { existsSync } from 'fs';
 import path from 'path';
 import { sql } from 'drizzle-orm';
-import { fetchHeroes, fetchItems } from './assets';
+import { fetchHeroes, fetchItems } from './deadlockApi';
 import {
 	schema,
 	insertHeroSchema,
