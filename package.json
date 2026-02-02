@@ -68,7 +68,7 @@
 		"typescript": "5.9.3",
 		"typescript-eslint": "8.54.0",
 		"vite": "7.3.1",
-		"vite-plugin-norg": "2.1.8",
+		"vite-plugin-norg": "2.2.0",
 		"vite-tsconfig-paths": "6.0.5",
 		"@vitest/browser": "4.0.18",
 		"@vitest/browser-playwright": "4.0.18",
