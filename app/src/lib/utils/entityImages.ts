@@ -5,5 +5,5 @@ export function getHeroImage(hero: EnrichedHero): string {
 }
 
 export function getItemImage(item: EnrichedItem): string {
-	return item.shopImage || item.image;
+	return item.shopImage ?? item.image;
 }

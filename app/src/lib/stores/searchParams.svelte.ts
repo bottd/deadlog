@@ -2,6 +2,7 @@ import { page } from '$app/state';
 import { goto } from '$app/navigation';
 import { building } from '$app/environment';
 import { getContext, hasContext, setContext } from 'svelte';
+
 const SEARCH_PARAMS_KEY = Symbol('searchParams');
 
 export function parseCSV(value: string | null): string[] {

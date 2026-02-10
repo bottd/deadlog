@@ -97,7 +97,6 @@
 	--border-subtle: var(--border-light);
 	--input: var(--border-default);
 	--ring: var(--accent-500);
-	--editorial-accent: var(--accent-500);
 	--editorial-divider: var(--border-default);
 
 	/* Hero Types */
@@ -167,7 +166,6 @@
 	--border-subtle: var(--border-light);
 	--input: var(--border-default);
 	--ring: var(--accent-500);
-	--editorial-accent: var(--accent-500);
 	--editorial-divider: var(--border-default);
 
 	/* Hero Types - enhanced chroma for dark mode */
@@ -343,21 +341,6 @@
 }
 .pulse-glow {
 	animation: pulse-glow 2s ease-in-out infinite;
-}
-
-.editorial-accent-line {
-	position: relative;
-}
-
-.editorial-accent-line::before {
-	content: '';
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 3px;
-	height: 100%;
-	background: var(--editorial-accent);
-	border-radius: 99px;
 }
 
 .editorial-divider {

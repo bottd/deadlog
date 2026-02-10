@@ -65,7 +65,7 @@
 	<div class="flex gap-8">
 		{#if NorgComponent && changelog.icons}
 			<aside class="hidden w-56 shrink-0 xl:block">
-				<div class="sticky top-8">
+				<div class="sticky top-[12rem]">
 					<ChangelogToc heroes={changelog.icons.heroes} items={changelog.icons.items} />
 				</div>
 			</aside>
