@@ -14,6 +14,7 @@
 		getSelectedItemObjects
 	} from '$lib/utils/selectedEntities.svelte';
 	import { useChangelogQuery } from '$lib/hooks/useChangelogQuery.svelte';
+	import { CornerAccents } from '$lib/components/ui/corner-accents';
 	import AlertCircle from '@lucide/svelte/icons/alert-circle';
 	import Frown from '@lucide/svelte/icons/frown';
 	import { scale, fly } from 'svelte/transition';
@@ -73,8 +74,7 @@
 			class="clip-corner bg-card border-destructive/30 relative overflow-hidden border-2 p-12 text-center"
 			in:scale={{ start: 0.9, duration: 400 }}
 		>
-			<div class="bg-destructive/50 absolute top-0 left-0 h-8 w-px"></div>
-			<div class="bg-destructive/50 absolute top-0 left-0 h-px w-8"></div>
+			<CornerAccents tlSize="2rem" tlColor="bg-destructive/50" />
 			<div
 				class="clip-corner-sm bg-destructive/10 border-destructive/20 mx-auto mb-6 flex size-20 items-center justify-center border"
 			>
@@ -107,8 +107,7 @@
 					class="clip-corner-sm shimmer border-border/50 relative h-[200px] border"
 					style:animation-delay="{i * 80}ms"
 				>
-					<div class="bg-primary/20 absolute top-0 left-0 h-6 w-px"></div>
-					<div class="bg-primary/20 absolute top-0 left-0 h-px w-6"></div>
+					<CornerAccents tlSize="1.5rem" tlColor="bg-primary/20" />
 					<div class="flex flex-col gap-3 p-4">
 						<div class="bg-muted/50 h-4 w-24 rounded"></div>
 						<div class="bg-muted/30 h-3 w-16 rounded"></div>
@@ -150,8 +149,7 @@
 				class="clip-corner bg-card border-border/50 relative overflow-hidden border-2 p-12 text-center"
 				in:scale={{ start: 0.95, duration: 400 }}
 			>
-				<div class="bg-muted-foreground/30 absolute top-0 left-0 h-8 w-px"></div>
-				<div class="bg-muted-foreground/30 absolute top-0 left-0 h-px w-8"></div>
+				<CornerAccents tlSize="2rem" tlColor="bg-muted-foreground/30" />
 				<div
 					class="clip-corner-sm bg-muted/30 border-border mx-auto mb-6 flex size-20 items-center justify-center border"
 				>

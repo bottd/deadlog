@@ -6,6 +6,7 @@
 	import * as Sheet from '$lib/components/ui/sheet';
 	import { Button } from '$lib/components/ui/button';
 	import { formatDate, formatTime } from '@deadlog/utils';
+	import { CornerAccents } from '$lib/components/ui/corner-accents';
 	import ArrowLeft from '@lucide/svelte/icons/arrow-left';
 	import Link from '@lucide/svelte/icons/link';
 	import ListIcon from '@lucide/svelte/icons/list';
@@ -74,17 +75,7 @@
 		<article
 			class="clip-corner bg-card border-border relative min-w-0 flex-1 overflow-hidden border"
 		>
-			<!-- Corner accents -->
-			<div class="bg-primary/40 absolute top-0 left-0 h-8 w-px" aria-hidden="true"></div>
-			<div class="bg-primary/40 absolute top-0 left-0 h-px w-8" aria-hidden="true"></div>
-			<div
-				class="bg-primary/20 absolute right-0 bottom-0 h-5 w-px"
-				aria-hidden="true"
-			></div>
-			<div
-				class="bg-primary/20 absolute right-0 bottom-0 h-px w-5"
-				aria-hidden="true"
-			></div>
+			<CornerAccents tlSize="2rem" brSize="1.25rem" />
 			<div
 				class="from-primary/60 via-primary/20 absolute inset-x-0 top-0 h-px bg-gradient-to-r to-transparent"
 				aria-hidden="true"

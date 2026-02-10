@@ -2,6 +2,7 @@
 	import type { EntityIcon } from '$lib/utils/types';
 	import * as Avatar from '$lib/components/ui/avatar';
 	import { formatDate } from '@deadlog/utils';
+	import { CornerAccents } from '$lib/components/ui/corner-accents';
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
 	import Calendar from '@lucide/svelte/icons/calendar';
 
@@ -26,19 +27,14 @@
 	href="/change/{id}"
 	class="clip-corner-sm bg-card hover:bg-card-accent/30 border-border hover:border-primary/40 group relative block h-full overflow-hidden border transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
 >
-	<!-- Corner accents -->
-	<div
-		class="bg-primary/30 group-hover:bg-primary/70 absolute top-0 left-0 h-5 w-px transition-colors duration-300"
-	></div>
-	<div
-		class="bg-primary/30 group-hover:bg-primary/70 absolute top-0 left-0 h-px w-5 transition-colors duration-300"
-	></div>
-	<div
-		class="bg-primary/15 group-hover:bg-primary/50 absolute right-0 bottom-0 h-3 w-px transition-colors duration-300"
-	></div>
-	<div
-		class="bg-primary/15 group-hover:bg-primary/50 absolute right-0 bottom-0 h-px w-3 transition-colors duration-300"
-	></div>
+	<CornerAccents
+		tlSize="1.25rem"
+		brSize="0.75rem"
+		tlColor="bg-primary/30"
+		brColor="bg-primary/15"
+		tlHover="group-hover:bg-primary/70"
+		brHover="group-hover:bg-primary/50"
+	/>
 
 	<!-- Hover gradient -->
 	<div
