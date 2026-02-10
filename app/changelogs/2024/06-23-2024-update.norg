@@ -15,24 +15,15 @@ status: draft
 
 * Hero Changes
 
-@inline svelte
-<script>
-  import SectionPreview from '$lib/components/changelog/SectionPreview.svelte';
-</script>
+@inline
 <SectionPreview type="hero" names={["Yamato"]} />
 @end
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Yamato" type="hero" />
 @end
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Shadow Transformation" />
 @end
 
@@ -40,35 +31,23 @@ status: draft
 
 * Item Changes
 
-@inline svelte
-<script>
-  import SectionPreview from '$lib/components/changelog/SectionPreview.svelte';
-</script>
+@inline
 <SectionPreview type="item" names={["Melee Charge", "Spirit Strike", "Veil Walker"]} />
 @end
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Melee Charge" type="item" />
 @end
 
 - No longer grants +15% Melee Damage
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Spirit Strike" type="item" />
 @end
 
 - Melee damage reduced from 20% to 15%
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Veil Walker" type="item" />
 @end
 

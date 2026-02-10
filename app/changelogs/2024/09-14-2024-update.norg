@@ -12,24 +12,15 @@ status: draft
 
 * Hero Changes
 
-@inline svelte
-<script>
-  import SectionPreview from '$lib/components/changelog/SectionPreview.svelte';
-</script>
+@inline
 <SectionPreview type="hero" names={["Bebop", "McGinnis"]} />
 @end
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Bebop" type="hero" />
 @end
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Hyper Beam" />
 @end
 
@@ -38,36 +29,24 @@ status: draft
 
 - Hyper Beam end radius reduced from 5m to 4m
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Hyper Beam" />
 @end
 
 - Hyper Beam slow reduced from 40% to 30%
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Hyper Beam DPS" />
 @end
 
 - Hyper Beam DPS reduced from 220 to 205
 - Hyper Beam DPS spirit scaling reduced from 3 to 2.7
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="McGinnis" type="hero" />
 @end
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Medicinal Specter" />
 @end
 
@@ -75,17 +54,11 @@ status: draft
 
 * Item Changes
 
-@inline svelte
-<script>
-  import SectionPreview from '$lib/components/changelog/SectionPreview.svelte';
-</script>
+@inline
 <SectionPreview type="item" names={["Ammo Scavenger"]} />
 @end
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Ammo Scavenger" type="item" />
 @end
 

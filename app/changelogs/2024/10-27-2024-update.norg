@@ -15,26 +15,17 @@ status: draft
 
 * Hero Changes
 
-@inline svelte
-<script>
-  import SectionPreview from '$lib/components/changelog/SectionPreview.svelte';
-</script>
+@inline
 <SectionPreview type="hero" names={["Bebop", "Grey Talon", "Kelvin", "McGinnis", "Paradox", "Seven", "Shiv", "Yamato"]} />
 @end
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Bebop" type="hero" />
 @end
 
 - Sticky Bomb stacks no longer decrease on death
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Sticky Bomb" />
 @end
 
@@ -44,94 +35,61 @@ status: draft
 - Sticky Bomb T1 improved from -7.5s to -8s
 - Sticky Bomb cooldown reduced from 19s to 18s
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Grey Talon" type="hero" />
 @end
 
 - Movespeed spirit scaling reduced from 0.04 to 0.032
 - Bullet damage spirit scaling reduced from 0.13 to 0.12
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Kelvin" type="hero" />
 @end
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Ice Path" />
 @end
 
 - Ice Path cooldown increased from 38s to 42s
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="McGinnis" type="hero" />
 @end
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Mini Turrets Spirit Resist" />
 @end
 
 - Mini Turrets Spirit Resist reduced from 80% to 70%
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Spectral Wall" />
 @end
 
 - Spectral Wall cooldown increased from 37s to 46s
 - Spectral Wall T2 cooldown improved from -14s to -23s
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Paradox" type="hero" />
 @end
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Pulse Grenade" />
 @end
 
 - Pulse Grenade T3 reduced from +1m per Pulse to +0.75m
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Seven" type="hero" />
 @end
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Storm Cloud DPS" />
 @end
 
 - Storm Cloud DPS increased from 110 to 120
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Shiv" type="hero" />
 @end
 
@@ -139,17 +97,11 @@ status: draft
 - Killing Blow rage per weapon damage increased from 0.015 to 0.017
 - Killing Blow drain rate reduced from 0.3 to 0.25
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Yamato" type="hero" />
 @end
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Shadow Transformation" />
 @end
 
@@ -157,17 +109,11 @@ status: draft
 
 * Item Changes
 
-@inline svelte
-<script>
-  import SectionPreview from '$lib/components/changelog/SectionPreview.svelte';
-</script>
+@inline
 <SectionPreview type="item" names={["Majestic Leap"]} />
 @end
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Majestic Leap" type="item" />
 @end
 

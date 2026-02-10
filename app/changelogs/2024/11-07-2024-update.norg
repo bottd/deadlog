@@ -109,55 +109,37 @@ base update (1)
 
 * Hero Changes
 
-@inline svelte
-<script>
-  import SectionPreview from '$lib/components/changelog/SectionPreview.svelte';
-</script>
+@inline
 <SectionPreview type="hero" names={["Abrams", "Bebop", "Dynamo", "Grey Talon", "Haze", "Infernus", "Ivy", "Lash", "McGinnis", "Mirage", "Paradox", "Pocket", "Vindicta", "Viscous", "Warden", "Wraith", "Yamato"]} />
 @end
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Abrams" type="hero" />
 @end
 
 - Reverted Melee attack speed reduction
 - Shoulder Charge can now again use left/right strafe to slightly change direction
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Shoulder Charge" />
 @end
 
 - Shoulder Charge now carries momentum at the end of the charge
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Siphon Life" />
 @end
 
 - Siphon Life spirit scaling increased from 0.3 to 0.36
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Infernal Resilience Damage Regen" />
 @end
 
 - Infernal Resilience Damage Regen reduced from 15% to 14%
 - Infernal Resilience Damage Regen duration increased from 18s to 20s
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Infernal Resilience" />
 @end
 
@@ -165,17 +147,11 @@ base update (1)
 
 - Fixed an issue where Seismic impact would travel more downwards instead of the facing direction
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Bebop" type="hero" />
 @end
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Sticky Bomb" />
 @end
 
@@ -185,68 +161,47 @@ base update (1)
 - Sticky Bomb now calculates its damage at detonation time rather than cast time (affects item combinations)
 - Sticky Bomb now has 2x cast range when used on allies
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Hook" />
 @end
 
 - Hook damage reduced from 40 to 10
 - Hook damage now has spirit scaling of 2x
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Hyper Beam" />
 @end
 
 - Hyper Beam now goes on cooldown for 3 seconds when canceled during precast
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Dynamo" type="hero" />
 @end
 
 - Now gains 1% Bullet Resist per Boon (0->14%)
 - Fixed Quantum Entanglement sometimes not moving you to the destination properly
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Singularity" />
 @end
 
 - Singularity now deals 1.5% Max HP in the base ability
 - Singularity T3 increased from 3.8% to 4%
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Singularity Base DPS" />
 @end
 
 - Singularity Base DPS reduced from 60 to 45
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Grey Talon" type="hero" />
 @end
 
 - Base bullet damage reduced from 27 to 24
 - Bullet damage growth per boon increased from 1.41 to 1.62 (same total damage later on)
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Falloff" />
 @end
 
@@ -255,10 +210,7 @@ base update (1)
 - Rain of Arrows strafe distance with stamina reduced by 30%
 - Charged Shot hitbox size reduced by 20%
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Haze" type="hero" />
 @end
 
@@ -266,26 +218,17 @@ base update (1)
 - Bullet Dance now grants +30% Fire Rate
 - Bullet Dance now allows you to use items during it
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Sleep Dagger" />
 @end
 
 - Sleep Dagger T3 now also causes targets to wake up with -40% Fire Rate
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Infernus" type="hero" />
 @end
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Catalyst" />
 @end
 
@@ -293,97 +236,64 @@ base update (1)
 
 - Afterburn buildup per bullet/headshot reduced from 10%/16% to 9%/14%
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Ivy" type="hero" />
 @end
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Watcher's Covenant Fire Rate" />
 @end
 
 - Watcher's Covenant Fire Rate spirit scaling increased from 0.2 to 0.3
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Watcher's Covenant Bullet Lifesteal" />
 @end
 
 - Watcher's Covenant Bullet Lifesteal spirit scaling increased from 0.2 to 0.3
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Lash" type="hero" />
 @end
 
 - Ground Strike can now be cast while on the zipline
 - Fixed interaction between Mirage's tornado and Death Slam
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Ground Strike" />
 @end
 
 - Ground Strike now pulls enemies to the ground with you (similar to Stone Form recently)
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="McGinnis" type="hero" />
 @end
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Mini Turrets DPS" />
 @end
 
 - Mini Turrets DPS reduced from 60 to 40
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Mini Turrets" />
 @end
 
 - Mini Turrets health reduced from 20% max HP to 15%
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Mirage" type="hero" />
 @end
 
 - Bullet size reduced from 6 to 5
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Tornado" />
 @end
 
 - Tornado speed reduced from 20m to 18m
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Torando Lift Duration" />
 @end
 
@@ -391,19 +301,13 @@ base update (1)
 
 - Fire Scarabs T2 reduced from -15% Bullet Resist to -10%
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Paradox" type="hero" />
 @end
 
 - Bullet velocity increased from 411 to 525
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Time Wall" />
 @end
 
@@ -412,10 +316,7 @@ base update (1)
 - Time Wall cooldown reduced from 37s to 25s
 - Time Wall T2 is now Deals 10% Max Health Damage
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Kinetic Carbine Max Damage Amp" />
 @end
 
@@ -423,17 +324,11 @@ base update (1)
 
 - Paradoxical Swap time to complete the swap reduced from 0.5-1.5 to 0.3-0.6 (variable based on distance)
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Pocket" type="hero" />
 @end
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Barrage" />
 @end
 
@@ -441,29 +336,20 @@ base update (1)
 
 - Light melee damage increased from 63 to 75
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Vindicta" type="hero" />
 @end
 
 - Base bullet damage reduced from 15 to 13
 - Bullet damage growth per boon increased from 0.65 to 0.8 (same total damage later on)
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Stake" />
 @end
 
 - Stake duration increased from 1.75s to 2s
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Flight" />
 @end
 
@@ -472,17 +358,11 @@ base update (1)
 - Crow Familiar tick rate changed from every 0.5s to every 1s
 - Assassinate starts at 25% power instead of 50% power
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Viscous" type="hero" />
 @end
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="The Cube" />
 @end
 
@@ -492,20 +372,14 @@ base update (1)
 - Goo Ball size now increases with range upgrades (doesn't affect collision with world)
 - Fixed some hit detection issues with Goo Ball
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Warden" type="hero" />
 @end
 
 - Now has +1 Sprint
 - Bullet Velocity increased from 213 to 290
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Last Stand" />
 @end
 
@@ -513,35 +387,23 @@ base update (1)
 - Last Stand T3 no longer grants unstoppable during channel
 - Last Stand now grants +50% Spirit Resist during channel
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Wraith" type="hero" />
 @end
 
 - Telekinesis cast time increased from 0.6 to 0.7
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Telekinesis" />
 @end
 
 - Telekinesis damage reduced from 200 to 175
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Yamato" type="hero" />
 @end
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Shadow Transformation" />
 @end
 
@@ -554,81 +416,54 @@ base update (1)
 
 * Item Changes
 
-@inline svelte
-<script>
-  import SectionPreview from '$lib/components/changelog/SectionPreview.svelte';
-</script>
+@inline
 <SectionPreview type="item" names={["Active Reload", "Alchemical Fire", "Ammo Scavenger", "Berserker", "Bullet Armor", "Close Quarters", "Debuff Reducer", "Decay", "Divine Barrier", "Extra Health", "Fortitude", "Frenzy", "Glass Cannon", "Healbane", "Healing Nova", "Healing Rite", "Heroic Aura", "Inhibitor", "Intensifying Magazine", "Lifestrike", "Long Range", "Lucky Shot", "Magic Carpet", "Melee Charge", "Metal Skin", "Mystic Burst", "Phantom Strike", "Reactive Barrier", "Restorative Locket", "Restorative Shot", "Return Fire", "Shadow Weave", "Sharpshooter", "Silencer", "Siphon Bullets", "Slowing Bullets", "Slowing Hex", "Soul Rebirth", "Spirit Armor", "Superior Cooldown", "Toxic Bullets", "Vampiric Burst", "Veil Walker"]} />
 @end
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Active Reload" type="item" />
 @end
 
 - Now grants +50 Health
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Alchemical Fire" type="item" />
 @end
 
 - Now grants +1 Sprint
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Ammo Scavenger" type="item" />
 @end
 
 - Duration increased from 35s to 45s
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Berserker" type="item" />
 @end
 
 - Bullet Resist increased from 7% to 9%
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Bullet Armor" type="item" />
 @end
 
 - Bullet Resist increased from 25% to 26%
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Close Quarters" type="item" />
 @end
 
 - No longer grants +85 Bullet Shield Health
 - Now grants +5% Bullet Resist
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Debuff Reducer" type="item" />
 @end
 
 - Health increased from +75 to +125
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Decay" type="item" />
 @end
 
@@ -638,203 +473,137 @@ base update (1)
 - Bleed Damage reduced from 3.1% to 1%
 - Cooldown reduced from 45s to 33s
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Divine Barrier" type="item" />
 @end
 
 - No longer grants +8% Ability Range
 - Now grants +6 Spirit Power
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Extra Health" type="item" />
 @end
 
 - Weapon Damage increased from 6% to 7%
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Fortitude" type="item" />
 @end
 
 - Health increased from 365 to 400
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Frenzy" type="item" />
 @end
 
 - Low HP bullet resist increased from 45% to 55%
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Glass Cannon" type="item" />
 @end
 
 - Health loss reduced from -15% to -12%
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Healbane" type="item" />
 @end
 
 - Healing reduction increased from -40% to -45%
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Healing Nova" type="item" />
 @end
 
 - Now grants +6% Ability Range
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Healing Rite" type="item" />
 @end
 
 - Duration increased from 19s to 20s (total health restored unchanged)
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Heroic Aura" type="item" />
 @end
 
 - Cooldown reduced from 32s to 25s
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Inhibitor" type="item" />
 @end
 
 - Slow reduced from 25% to 20%
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Intensifying Magazine" type="item" />
 @end
 
 - Time to reach Max Damage reduced from 3s to 2.7s
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Lifestrike" type="item" />
 @end
 
 - Bullet resistance increased from 8% to 10%
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Long Range" type="item" />
 @end
 
 - Long range Weapon Damage reduced from 40% to 30%
 - Now grants +10% Weapon Damage
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Lucky Shot" type="item" />
 @end
 
 - Fixed it causing proc effects to roll twice whenever it procced
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Magic Carpet" type="item" />
 @end
 
 - Now grants +10% Ability Range
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Melee Charge" type="item" />
 @end
 
 - No longer grants +1 HP Regen
 - Weapon Damage reduced from 12% to 10%
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Metal Skin" type="item" />
 @end
 
 - No longer blocks melee damage
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Mystic Burst" type="item" />
 @end
 
 - Now triggers on your base damage, rather than how much the target receives
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Phantom Strike" type="item" />
 @end
 
 - Now grounds any flying targets on impact (similar to how Slowing Hex used to work)
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Reactive Barrier" type="item" />
 @end
 
 - Restores 1 stamina on proc
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Restorative Locket" type="item" />
 @end
 
 - No longer grants +5 Spirit Power
 - Now grants +25% Melee Resistance
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Restorative Shot" type="item" />
 @end
 
@@ -842,65 +611,44 @@ base update (1)
 - Now grants +90 Bullet Shield
 - Now procs on orb shots for NPC heal value
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Return Fire" type="item" />
 @end
 
 - Duration reduced from 7s to 6s
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Shadow Weave" type="item" />
 @end
 
 - Detection range increased from 18m to 22m
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Sharpshooter" type="item" />
 @end
 
 - Long range Weapon Damage reduced from 70% to 50%
 - Now grants +20% Weapon Damage
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Silencer" type="item" />
 @end
 
 - Now grants +12% Spirit Resist
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Siphon Bullets" type="item" />
 @end
 
 - Now grants +15% Weapon Damage
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Slowing Bullets" type="item" />
 @end
 
 - Spirit Power increased from +5 to +6
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Slowing Hex" type="item" />
 @end
 
@@ -910,55 +658,37 @@ base update (1)
 - No longer grants +1 Sprint
 - Damage reduced from 70 to 40
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Soul Rebirth" type="item" />
 @end
 
 - Removed from the game
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Spirit Armor" type="item" />
 @end
 
 - Spirit Resist increased from 20% to 22%
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Superior Cooldown" type="item" />
 @end
 
 - Now grants +15% Ammo
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Toxic Bullets" type="item" />
 @end
 
 - Damage changed from 5% of Current Health to 2.5% of Max Health
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Vampiric Burst" type="item" />
 @end
 
 - Cooldown reduced from 34s to 30s
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Veil Walker" type="item" />
 @end
 

@@ -23,107 +23,71 @@ status: draft
 
 * Hero Changes
 
-@inline svelte
-<script>
-  import SectionPreview from '$lib/components/changelog/SectionPreview.svelte';
-</script>
+@inline
 <SectionPreview type="hero" names={["Bebop", "Calico", "Holliday", "Kelvin", "Mirage", "Shiv", "Vindicta", "Vyper", "Wraith", "Yamato"]} />
 @end
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Bebop" type="hero" />
 @end
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Hook" />
 @end
 
 - Hook T1 reduced from 30% more weapon damage to 25%
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Exploding Uppercut" />
 @end
 
 - Exploding Uppercut T2 reduced from +60% weapon damage to +50%
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Sticky Bomb" />
 @end
 
 - Sticky Bomb damage reduced from 120 to 110
 - Sticky Bomb T2 reduced from +80 Damage to +75
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Calico" type="hero" />
 @end
 
 - Bullet Damage increased from 2 to 2.2
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Leaping Slash Radius" />
 @end
 
 - Leaping Slash Radius increased from 4m to 4.5m
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Leaping Slash" />
 @end
 
 - Leaping Slash T2 damage increased from +50 to +75
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Ava" />
 @end
 
 - Ava now destroys breakables it runs through
 - Ava T2 increased from 25% movespeed to 35%
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Holliday" type="hero" />
 @end
 
 - Bullet damage growth increased from 1.5 to 1.7
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Powder Keg" />
 @end
 
 - Powder Keg T2 reduced from 140 to 120
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Crackshot" />
 @end
 
@@ -137,29 +101,20 @@ status: draft
 - Spirit Lasso T2 duration increased from +0.5 to +0.75
 - Fixed height on damage from Bounce Pad sometimes causing it to not hurt heroes on your lasso
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Kelvin" type="hero" />
 @end
 
 - Health increased from 600 to 650
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Mirage" type="hero" />
 @end
 
 - Fire Scarabs Max Health Steal reduced from 75 to 50
 - Fire Scarabs Max Health Steal spirit scaling increased from 0.9 to 1.4
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Shiv" type="hero" />
 @end
 
@@ -169,64 +124,43 @@ status: draft
 - Slice and Dice spirit scaling increased from 1.3 to 1.55
 - Bloodletting deferred damage duration reduced from 13s to 12s
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Bloodletting" />
 @end
 
 - Bloodletting cooldown increased from 50s to 60s
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Vindicta" type="hero" />
 @end
 
 - Movespeed reduced from 9 to 8
 - Bullet Velocity reduced from 810 to 740
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Vyper" type="hero" />
 @end
 
 - Bullet Damage decreased from 9 to 7
 - Move Speed reduced from 7.3 to 7.0
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Lethal Venom Max Damage" />
 @end
 
 - Lethal Venom Max Damage reduced from 200 to 180
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Slither" />
 @end
 
 - Slither T3 spirit and bullet resist while sliding reduced from +30% to +25%
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Wraith" type="hero" />
 @end
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Card Trick" />
 @end
 
@@ -235,10 +169,7 @@ status: draft
 
 - Card Trick summon rate from non-heroes reduced from 0.35 to 0.25
 
-@inline svelte
-<script>
-  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
-</script>
+@inline
 <AbilityHeading name="Telekinesis" />
 @end
 
@@ -247,10 +178,7 @@ status: draft
 - Telekinesis cast delay reduced from 0.4s to 0.3s
 - Telekinesis up/down motion now lasts 0.25s longer and moves a little bit higher
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Yamato" type="hero" />
 @end
 
@@ -258,46 +186,31 @@ status: draft
 
 * Item Changes
 
-@inline svelte
-<script>
-  import SectionPreview from '$lib/components/changelog/SectionPreview.svelte';
-</script>
+@inline
 <SectionPreview type="item" names={["Alchemical Fire", "Extra Stamina", "Hunter's Aura", "Sharpshooter"]} />
 @end
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Alchemical Fire" type="item" />
 @end
 
 - Reduced from -40% Effectiveness vs non-heroes to -50%
 - Weapon Damage in radius reduced from +50% to +40%
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Extra Stamina" type="item" />
 @end
 
 - Fire Rate reduced from 5% to 4%
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Hunter's Aura" type="item" />
 @end
 
 - Bullet Resist Reduction reduced from -9% to -8%
 - Fire Rate Slow increased from -9% to -10%
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Sharpshooter" type="item" />
 @end
 

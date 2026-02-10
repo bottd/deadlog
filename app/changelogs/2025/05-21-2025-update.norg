@@ -28,17 +28,11 @@ status: draft
 
 * Item Changes
 
-@inline svelte
-<script>
-  import SectionPreview from '$lib/components/changelog/SectionPreview.svelte';
-</script>
+@inline
 <SectionPreview type="item" names={["Decay", "Express Shot", "Frenzy", "Headhunter", "Headshot Booster", "Siphon Bullets", "Spirit Rend", "Superior Cooldown"]} />
 @end
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Decay" type="item" />
 @end
 
@@ -48,29 +42,20 @@ status: draft
 - Cooldown increased from 30s to 36s
 - Healing Reduction increased from -35% to -40%
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Express Shot" type="item" />
 @end
 
 - Weapon Damage increased from 125% to 150%
 - Now does reduced damage for non-primary gun damage (alt fires, carbine), 150% to 75%
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Frenzy" type="item" />
 @end
 
 - Active Spirit Resistance reduced from 40% to 30%
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Headhunter" type="item" />
 @end
 
@@ -79,19 +64,13 @@ status: draft
 - Bonus damage reduced from 120 to 100
 - Bonus damage now scales with spirit power (0.3)
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Headshot Booster" type="item" />
 @end
 
 - Health reduced from 65 to 40
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Siphon Bullets" type="item" />
 @end
 
@@ -99,19 +78,13 @@ status: draft
 - Spirit Resistance reduced from 12% to 10%
 - Fixed the cooldown not being consumed when blocked by Plated Armor
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Spirit Rend" type="item" />
 @end
 
 - Fixed being able to get 2 stacks without using the cooldown
 
-@inline svelte
-<script>
-  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
-</script>
+@inline
 <EntityHeading name="Superior Cooldown" type="item" />
 @end
 

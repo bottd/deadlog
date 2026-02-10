@@ -16,6 +16,7 @@ export default defineConfig({
 		norgPlugin({
 			mode: 'svelte',
 			include: [`${changelogsDir}/**/*.norg`],
+			componentDir: '$lib/components/changelog',
 			arboriumConfig: {
 				themes: { light: 'github-light', dark: 'github-dark' }
 			}
