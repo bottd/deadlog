@@ -1,7 +1,3 @@
-/**
- * Changelog loading utilities
- */
-
 import { readFileSync, existsSync, readdirSync, statSync } from 'fs';
 import { join, relative } from 'path';
 import { ChangelogMetadataSchema, type ParsedChangelog } from './schema';
@@ -25,14 +21,10 @@ function findNorgFiles(dir: string): string[] {
 	return files;
 }
 
-/**
- * Parse norg frontmatter and TOC from content
- */
 function parseNorgContent(content: string): {
 	metadata: Record<string, unknown>;
 	toc: TocEntry[];
 } {
-	// Parse metadata
 	const metaMatch = content.match(/@document\.meta\s*\n([\s\S]*?)\n@end/);
 	const metadata: Record<string, unknown> = {};
 
@@ -60,7 +52,6 @@ function parseNorgContent(content: string): {
 		}
 	}
 
-	// Parse TOC from headings
 	const toc: TocEntry[] = [];
 	const contentWithoutMeta = content
 		.replace(/@document\.meta[\s\S]*?@end/g, '')
@@ -82,9 +73,6 @@ function parseNorgContent(content: string): {
 	return { metadata, toc };
 }
 
-/**
- * Load all changelog files from a directory
- */
 export async function loadAllChangelogs(
 	changelogsDir: string,
 	options: { curatedOnly?: boolean } = {}
@@ -96,7 +84,6 @@ export async function loadAllChangelogs(
 	for (const filepath of files) {
 		const content = readFileSync(filepath, 'utf-8');
 
-		// Skip draft files if curatedOnly
 		if (curatedOnly && content.includes('status: draft')) {
 			continue;
 		}
@@ -104,7 +91,7 @@ export async function loadAllChangelogs(
 		try {
 			const { metadata: rawMetadata, toc } = parseNorgContent(content);
 			const metadata = ChangelogMetadataSchema.parse(rawMetadata);
-			const entities = extractEntities(toc);
+			const entities = extractEntities(toc, content);
 			const relativePath = relative(changelogsDir, filepath);
 			const slug = relativePath.replace(/\.norg$/, '');
 

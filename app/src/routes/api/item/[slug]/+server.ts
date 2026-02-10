@@ -14,14 +14,12 @@ export const GET: RequestHandler = async ({ params, locals, setHeaders }) => {
 			throw error(404, { message: 'Item not found' });
 		}
 
-		// Cache successful lookups - changelog data rarely changes
 		setHeaders({
 			'cache-control': 'public, max-age=3600, stale-while-revalidate=86400'
 		});
 
 		const changelogs = await getChangelogsByItemId(locals.db, item.id);
 
-		// Return early if no changelogs to avoid empty icon query
 		if (changelogs.length === 0) {
 			return json({ item, changelogs: [] });
 		}

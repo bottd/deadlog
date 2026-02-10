@@ -1,7 +1,3 @@
-/**
- * Database builder from .norg changelog files
- */
-
 import { createClient } from '@libsql/client';
 import { drizzle } from 'drizzle-orm/libsql';
 import { PatchesApi, Configuration } from 'deadlock-api-client';
@@ -76,7 +72,6 @@ export async function buildDatabaseFromNorg(
 	console.log(`🦸 Found ${heroes.length} heroes`);
 	console.log(`⚔️  Found ${items.length} items`);
 
-	// Insert heroes
 	console.log('💾 Inserting heroes...');
 	for (const hero of heroes) {
 		await db
@@ -96,7 +91,6 @@ export async function buildDatabaseFromNorg(
 	}
 	console.log(`  ✅ Inserted ${heroes.length} heroes`);
 
-	// Insert items (deduplicated, with images only)
 	console.log('💾 Inserting items...');
 	const seenItems = new Set<string>();
 	const itemsToInsert = items.filter((item) => {
@@ -129,16 +123,13 @@ export async function buildDatabaseFromNorg(
 	}
 	console.log(`  ✅ Inserted ${itemsToInsert.length} items`);
 
-	// Build lookup maps
 	const heroMap = new Map(heroes.map((h) => [normalizeEntityName(h.name), h.id]));
 	const itemMap = new Map(itemsToInsert.map((i) => [normalizeEntityName(i.name), i.id]));
 
-	// Load changelogs
 	console.log(`📂 Loading changelogs from ${changelogsDir}...`);
 	const changelogs = await loadAllChangelogs(changelogsDir, { curatedOnly: false });
 	console.log(`  ✅ Found ${changelogs.length} changelog files`);
 
-	// Insert changelogs
 	console.log('💾 Inserting changelogs...');
 	let heroMatches = 0;
 	let itemMatches = 0;
@@ -153,18 +144,15 @@ export async function buildDatabaseFromNorg(
 				id: metadata.thread_id,
 				title: metadata.title,
 				slug,
-				contentJson: null,
 				author: metadata.author,
 				authorImage: metadata.author_image ?? '',
 				category: metadata.category,
-				guid: metadata.thread_id,
 				pubDate: metadata.published,
 				majorUpdate: isMajorUpdate,
 				parentChange: metadata.parent_id ?? null
 			})
 			.onConflictDoNothing();
 
-		// Link heroes
 		for (const heroName of entities.heroes) {
 			const heroId = heroMap.get(normalizeEntityName(heroName));
 			if (heroId) {
@@ -181,7 +169,6 @@ export async function buildDatabaseFromNorg(
 			}
 		}
 
-		// Link items
 		for (const itemName of entities.items) {
 			const itemId = itemMap.get(normalizeEntityName(itemName));
 			if (itemId) {
@@ -203,7 +190,6 @@ export async function buildDatabaseFromNorg(
 	console.log(`  🦸 ${heroMatches} hero references`);
 	console.log(`  ⚔️  ${itemMatches} item references`);
 
-	// Update released status
 	console.log('🔄 Updating released status...');
 	await db.run(sql`
 		UPDATE heroes SET is_released = 1
@@ -214,7 +200,6 @@ export async function buildDatabaseFromNorg(
 		WHERE id IN (SELECT DISTINCT item_id FROM changelog_items)
 	`);
 
-	// Add metadata
 	console.log('📋 Adding metadata...');
 	const builtAt = new Date().toISOString();
 	await db
@@ -229,7 +214,6 @@ export async function buildDatabaseFromNorg(
 			set: { value: String(changelogs.length) }
 		});
 
-	// Create indexes
 	console.log('🔍 Creating indexes...');
 	await db.run(
 		sql`CREATE INDEX IF NOT EXISTS idx_changelogs_pub_date ON changelogs(pub_date DESC)`
@@ -241,8 +225,9 @@ export async function buildDatabaseFromNorg(
 	await db.run(
 		sql`CREATE INDEX IF NOT EXISTS idx_changelog_items_item_id ON changelog_items(item_id)`
 	);
-	await db.run(sql`CREATE INDEX IF NOT EXISTS idx_heroes_slug ON heroes(slug)`);
-	await db.run(sql`CREATE INDEX IF NOT EXISTS idx_items_slug ON items(slug)`);
+	await db.run(
+		sql`CREATE INDEX IF NOT EXISTS idx_changelogs_parent_change ON changelogs(parent_change, pub_date DESC)`
+	);
 
 	client.close();
 
@@ -259,11 +244,9 @@ async function createTables(db: ReturnType<typeof drizzle>) {
 			id TEXT PRIMARY KEY,
 			title TEXT NOT NULL,
 			slug TEXT,
-			content_json TEXT,
 			author TEXT NOT NULL,
 			author_image TEXT NOT NULL,
 			category TEXT,
-			guid TEXT,
 			pub_date TEXT NOT NULL,
 			major_update INTEGER NOT NULL DEFAULT 0,
 			parent_change TEXT

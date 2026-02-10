@@ -8,8 +8,7 @@
 	},
 	"dependencies": {
 		"@deadlog/db": "workspace:*",
-		"@deadlog/scraper": "workspace:*",
-		"@deadlog/utils": "workspace:*"
+		"@deadlog/scraper": "workspace:*"
 	},
 	"devDependencies": {
 		"@types/node": "24.10.4"

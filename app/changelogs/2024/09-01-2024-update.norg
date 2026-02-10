@@ -17,22 +17,74 @@ status: draft
 
 * Hero Changes
 
-** Infernus
+@inline svelte
+<script>
+  import SectionPreview from '$lib/components/changelog/SectionPreview.svelte';
+</script>
+<SectionPreview type="hero" names={["Infernus", "Ivy", "Seven", "Viscous"]} />
+@end
+
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Infernus" type="hero" />
+@end
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Flame Dash" />
+@end
 
 - Flame Dash now has 30% Slow Resistance
 
-** Ivy
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Ivy" type="hero" />
+@end
 
 - Air Drop self cast time reduced from 2 to 1.3
 
-** Seven
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Seven" type="hero" />
+@end
 
 - Storm Cloud: Spirit Power DPS scaling reduced from 0.8 to 0.7
 
-** Viscous
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Viscous" type="hero" />
+@end
 
 - Puddle Punch base cast range from 60m to 40m
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Puddle Punch" />
+@end
+
 - Puddle Punch T2 damage from +50 to +35
+
 - Puddle Punch base cooldown increased from 24 to 28
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Puddle Punch" />
+@end
+
 - Puddle Punch now knocks people less high into the air
+
 - Base clip reduced from 24 to 20, Alt Fire now requires 5 bullets

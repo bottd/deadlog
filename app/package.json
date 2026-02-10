@@ -19,7 +19,5 @@
 		"@sveltejs/kit": "2.50.1",
 		"svelte": "5.48.0"
 	},
-	"devDependencies": {
-		"layerchart": "2.0.0-next.27"
-	}
+	"devDependencies": {}
 }

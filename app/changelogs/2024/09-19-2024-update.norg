@@ -18,6 +18,18 @@ status: draft
 
 * Item Changes
 
-** Veil Walker
+@inline svelte
+<script>
+  import SectionPreview from '$lib/components/changelog/SectionPreview.svelte';
+</script>
+<SectionPreview type="item" names={["Veil Walker"]} />
+@end
+
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Veil Walker" type="item" />
+@end
 
 - Fire Rate reduced from 30% to 20%

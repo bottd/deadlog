@@ -1,8 +1,5 @@
 import { z } from 'zod';
 
-/**
- * Schema for changelog metadata extracted from .norg frontmatter
- */
 export const ChangelogMetadataSchema = z.object({
 	title: z.string(),
 	thread_id: z.coerce.string(), // Forum thread ID (from URL)
@@ -16,17 +13,11 @@ export const ChangelogMetadataSchema = z.object({
 
 export type ChangelogMetadata = z.infer<typeof ChangelogMetadataSchema>;
 
-/**
- * Entities extracted from changelog document structure
- */
 export interface ChangelogEntities {
 	heroes: string[];
 	items: string[];
 }
 
-/**
- * A fully parsed changelog with metadata, entities, and file info
- */
 export interface ParsedChangelog {
 	filepath: string;
 	slug: string;

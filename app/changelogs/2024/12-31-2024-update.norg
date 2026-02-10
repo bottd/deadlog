@@ -12,47 +12,156 @@ status: draft
 
 * Hero Changes
 
-** Infernus
+@inline svelte
+<script>
+  import SectionPreview from '$lib/components/changelog/SectionPreview.svelte';
+</script>
+<SectionPreview type="hero" names={["Infernus", "Kelvin", "Mirage", "Shiv", "Vindicta", "Warden", "Yamato"]} />
+@end
+
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Infernus" type="hero" />
+@end
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Flame Dash" />
+@end
 
 - Flame Dash cooldown increased from 35s to 38s
 - Flame Dash spirit scaling increased from 0.7 to 0.8
 - Flame Dash T2 reduced from +45 to +40
 - Flame Dash T3 Charge Time increased from 18s to 20s
 
-** Kelvin
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Kelvin" type="hero" />
+@end
 
 - Base Spirit Resistance increased from 10% to 15%
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Ice Path" />
+@end
+
 - Ice Path cooldown increased from 42s to 46s
 
-** Mirage
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Mirage" type="hero" />
+@end
 
 - Fire Scarabs base damage reduced from 90 to 75
 
-** Shiv
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Shiv" type="hero" />
+@end
 
 - Bullet growth reduced from +0.31 to +0.27
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Serrated Knives" />
+@end
+
 - Serrated Knives T3 increased from +5 Bleed DPS to +7
 
-** Vindicta
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Vindicta" type="hero" />
+@end
 
 - Bullet Velocity reduced from 889 to 810
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Assassinate" />
+@end
+
 - Assassinate T2 reduced from +130 to +120
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Assassinate Charge Time" />
+@end
+
 - Assassinate Charge Time increased from 2s to 2.5s
 
-** Warden
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Warden" type="hero" />
+@end
 
 - Base bullet damage reduced from 19.8 to 19.5
 - Last Stand base DPS reduced from 100 to 90
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Last Stand DPS" />
+@end
+
 - Last Stand DPS spirit power scaling increased from 1.2 to 1.4
 
-** Yamato
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Yamato" type="hero" />
+@end
 
 - Bullet damage growth reduced from 0.35 to 0.33
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Shadow Transformation" />
+@end
+
 - Shadow Transformation cooldown increased from 85s to 100s
 
 * Item Changes
 
-** Rapid Recharge
+@inline svelte
+<script>
+  import SectionPreview from '$lib/components/changelog/SectionPreview.svelte';
+</script>
+<SectionPreview type="item" names={["Rapid Recharge"]} />
+@end
+
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Rapid Recharge" type="item" />
+@end
 
 - Charge Time reduced from -60% to -45%
 - Weapon Power increased from 12% to 18%

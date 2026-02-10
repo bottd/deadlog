@@ -1,16 +1,49 @@
 <script lang="ts">
+	import { untrack } from 'svelte';
 	import type { Component } from 'svelte';
+	import { setEntityMaps, type EntityMaps } from './entityContext';
 
 	interface Props {
 		content: Component;
+		heroMap?: EntityMaps['heroMap'];
+		itemMap?: EntityMaps['itemMap'];
+		abilityMap?: EntityMaps['abilityMap'];
 	}
 
-	let { content: Content }: Props = $props();
+	let { content: Content, heroMap = {}, itemMap = {}, abilityMap = {} }: Props = $props();
+
+	untrack(() => setEntityMaps({ heroMap, itemMap, abilityMap }));
+
+	function enhanceContent(node: HTMLElement) {
+		for (const heading of node.querySelectorAll('h1, h2')) {
+			if (!heading.id && heading.textContent) {
+				heading.id = heading.textContent
+					.toLowerCase()
+					.replace(/[^a-z0-9]+/g, '-')
+					.replace(/^-+|-+$/g, '');
+			}
+		}
+
+		for (const li of node.querySelectorAll('li')) {
+			if (li.querySelector('.scale-value')) continue;
+
+			const html = li.innerHTML;
+			const enhanced = html.replace(
+				/\b((?:from\s+)?[+-]?[\d,.]+[%smx]?)\s+(to)\s+([+-]?[\d,.]+[%smx]?)\b/gi,
+				(_match, fromVal, _to, toVal) => {
+					return `<span class="scale-value scale-from">${fromVal}</span> <span class="scale-arrow">→</span> <span class="scale-value scale-to">${toVal}</span>`;
+				}
+			);
+			if (enhanced !== html) {
+				li.innerHTML = enhanced;
+			}
+		}
+	}
 </script>
 
-<div class="norg-content">
+<section class="norg-content" aria-label="Changelog details" use:enhanceContent>
 	<Content />
-</div>
+</section>
 
 <style lang="postcss">
 	@reference "../../../app.css";
@@ -18,21 +51,45 @@
 	.norg-content {
 		@apply max-w-none text-sm leading-relaxed;
 
-		/* Headings */
+		/* Section headings — editorial treatment */
 		:global(h1) {
-			@apply text-foreground font-display mt-8 mb-6 text-2xl tracking-tight first:mt-0;
+			@apply text-foreground font-display relative mt-10 mb-6 pt-6 text-xl tracking-tight first:mt-0 first:pt-0;
+		}
+
+		:global(h1::before) {
+			content: '';
+			@apply from-primary/40 via-border to-border/0 absolute top-0 left-0 h-px w-full bg-gradient-to-r;
+		}
+
+		:global(h1:first-child::before) {
+			@apply hidden;
 		}
 
 		:global(h2) {
-			@apply text-primary font-display mt-6 mb-4 text-xl tracking-tight;
+			@apply text-primary font-display mt-6 mb-4 text-lg tracking-tight;
 		}
 
-		:global(h3) {
-			@apply text-foreground/90 font-display mt-4 mb-3 text-lg tracking-tight;
+		/* Entity/ability heading styling */
+		:global(header.entity-heading h3) {
+			@apply m-0 text-lg;
 		}
 
-		:global(h4) {
-			@apply text-foreground/80 mt-3 mb-2 text-base font-semibold;
+		:global(header.ability-heading h4) {
+			@apply m-0 text-sm;
+		}
+
+		/* Indent notes under entity/ability headings */
+		:global(header.entity-heading + ul) {
+			@apply ml-14 pl-2;
+		}
+
+		:global(header.ability-heading + ul) {
+			@apply ml-9;
+		}
+
+		/* Section preview badges */
+		:global(ul.section-preview + header.entity-heading) {
+			@apply mt-2;
 		}
 
 		/* Paragraphs */
@@ -42,21 +99,31 @@
 
 		/* Lists */
 		:global(ul) {
-			@apply marker:text-primary/40 my-3 ml-5 list-disc space-y-1.5;
+			@apply my-3 ml-5 list-none space-y-2;
 		}
 
 		:global(ol) {
-			@apply marker:text-primary/40 my-3 ml-5 list-decimal space-y-1.5;
+			@apply marker:text-primary/40 my-3 ml-5 list-decimal space-y-2;
 		}
 
 		:global(li) {
-			@apply text-foreground/85 leading-relaxed;
+			@apply text-foreground/85 relative leading-relaxed;
+		}
+
+		/* Custom bullet markers */
+		:global(ul > li::before) {
+			content: '';
+			@apply bg-primary/30 absolute top-[0.6em] -left-4 size-1 rounded-full;
 		}
 
 		/* Nested lists */
 		:global(li > ul),
 		:global(li > ol) {
 			@apply my-1.5;
+		}
+
+		:global(li > ul > li::before) {
+			@apply bg-primary/15;
 		}
 
 		/* Links */
@@ -110,9 +177,21 @@
 			@apply bg-muted/50 font-semibold;
 		}
 
-		/* Scaling patterns - highlight numbers */
-		:global(.scale-pattern) {
-			@apply text-primary font-mono;
+		/* Scale highlighting for numeric changes */
+		:global(.scale-value) {
+			@apply rounded px-1 py-0.5 font-mono text-[0.85em] font-semibold;
+		}
+
+		:global(.scale-from) {
+			@apply bg-muted/60 text-muted-foreground decoration-muted-foreground/30 line-through;
+		}
+
+		:global(.scale-to) {
+			@apply bg-primary/12 text-primary;
+		}
+
+		:global(.scale-arrow) {
+			@apply text-muted-foreground/50 text-[0.75em];
 		}
 	}
 </style>

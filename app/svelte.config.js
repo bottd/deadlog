@@ -2,7 +2,6 @@ import adapterCloudflare from '@sveltejs/adapter-cloudflare';
 import adapterNode from '@sveltejs/adapter-node';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
-// Use Cloudflare adapter when CLOUDFLARE env var is set, otherwise use Node adapter
 const adapter =
 	process.env.CLOUDFLARE === 'true'
 		? adapterCloudflare({ platformProxy: {} })
@@ -15,7 +14,8 @@ const config = {
 	kit: {
 		adapter,
 		prerender: {
-			handleHttpError: 'warn'
+			handleHttpError: 'warn',
+			handleMissingId: 'warn'
 		},
 		alias: {
 			'@deadlog/changelog': '../lib/changelog/src/index.ts',
@@ -28,9 +28,7 @@ const config = {
 	},
 	vitePlugin: {
 		inspector: false,
-		// Compile .svelte files from dependencies
 		dynamicCompileOptions({ filename }) {
-			// Compile Svelte files from node_modules
 			if (filename?.includes('node_modules')) {
 				return { runes: undefined };
 			}

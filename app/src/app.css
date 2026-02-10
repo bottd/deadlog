@@ -242,6 +242,9 @@
 	* {
 		@apply border-border outline-ring/50;
 	}
+	html {
+		scroll-padding-top: 12rem;
+	}
 	html,
 	body {
 		@apply text-foreground bg-background font-sans antialiased;

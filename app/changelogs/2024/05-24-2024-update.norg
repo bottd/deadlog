@@ -17,6 +17,18 @@ status: draft
 
 * Item Changes
 
-** Decay
+@inline svelte
+<script>
+  import SectionPreview from '$lib/components/changelog/SectionPreview.svelte';
+</script>
+<SectionPreview type="item" names={["Decay"]} />
+@end
+
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Decay" type="item" />
+@end
 
 - Cast range reduced from 30m to 15m

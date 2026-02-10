@@ -23,10 +23,8 @@ describe.skipIf(!existsSync(dbPath))('Database Static Reader', () => {
 			const firstPatch = patches[0];
 			expect(firstPatch).toHaveProperty('id');
 			expect(firstPatch).toHaveProperty('title');
-			expect(firstPatch).toHaveProperty('contentJson');
 			expect(firstPatch).toHaveProperty('author');
 			expect(firstPatch).toHaveProperty('authorImage');
-			expect(firstPatch).toHaveProperty('guid');
 			expect(firstPatch).toHaveProperty('pubDate');
 			expect(typeof firstPatch.pubDate).toBe('string');
 		});
@@ -52,17 +50,6 @@ describe.skipIf(!existsSync(dbPath))('Database Static Reader', () => {
 			if (patchWithCategory) {
 				// Category can be string or array depending on the data
 				expect(['string', 'object']).toContain(typeof patchWithCategory.category);
-			}
-		});
-
-		it('should include contentJson when available', async () => {
-			const db = getDb();
-			const patches = await getAllChangelogs(db);
-			const patchWithContent = patches.find((p) => p.contentJson);
-
-			if (patchWithContent && patchWithContent.contentJson) {
-				expect(typeof patchWithContent.contentJson).toBe('object');
-				expect(patchWithContent.contentJson).not.toBeNull();
 			}
 		});
 	});
@@ -92,7 +79,6 @@ describe.skipIf(!existsSync(dbPath))('Database Static Reader', () => {
 			const patch = await getChangelogById(db, testId);
 			expect(patch).toHaveProperty('id');
 			expect(patch).toHaveProperty('title');
-			expect(patch).toHaveProperty('contentJson');
 			expect(patch).toHaveProperty('author');
 			expect(patch).toHaveProperty('pubDate');
 			expect(typeof patch?.pubDate).toBe('string');

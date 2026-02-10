@@ -24,20 +24,61 @@ status: draft
 
 * Hero Changes
 
-** Ivy
+@inline svelte
+<script>
+  import SectionPreview from '$lib/components/changelog/SectionPreview.svelte';
+</script>
+<SectionPreview type="hero" names={["Ivy", "Shiv"]} />
+@end
+
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Ivy" type="hero" />
+@end
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Air Drop" />
+@end
 
 - Air Drop now silences the ally being carried until they are released
 
-** Shiv
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Shiv" type="hero" />
+@end
 
 - Bloodletting incoming damage deferred reduced from 40% to 35%
 
 * Item Changes
 
-** Reactive Barrier
+@inline svelte
+<script>
+  import SectionPreview from '$lib/components/changelog/SectionPreview.svelte';
+</script>
+<SectionPreview type="item" names={["Reactive Barrier", "Return Fire"]} />
+@end
+
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Reactive Barrier" type="item" />
+@end
 
 - Cooldown increased from 20s to 30s
 
-** Return Fire
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Return Fire" type="item" />
+@end
 
 - Bullet damage returned reduced form 80% to 70%

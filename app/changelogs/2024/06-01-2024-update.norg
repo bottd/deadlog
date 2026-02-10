@@ -12,7 +12,19 @@ status: draft
 
 * Item Changes
 
-** Return Fire
+@inline svelte
+<script>
+  import SectionPreview from '$lib/components/changelog/SectionPreview.svelte';
+</script>
+<SectionPreview type="item" names={["Return Fire"]} />
+@end
+
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Return Fire" type="item" />
+@end
 
 - No longer applies procs
 - Bullet damage return increased from 60% to 70%

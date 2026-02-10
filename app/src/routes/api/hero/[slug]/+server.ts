@@ -6,7 +6,6 @@ import {
 	getChangelogIcons
 } from '@deadlog/scraper';
 
-// Helper to extract the best available hero image
 function getHeroImage(hero: { images: Record<string, string> }): string {
 	return (
 		hero.images?.icon_hero_card_webp ||
@@ -26,14 +25,12 @@ export const GET: RequestHandler = async ({ params, locals, setHeaders }) => {
 			throw error(404, { message: 'Hero not found' });
 		}
 
-		// Cache successful lookups - changelog data rarely changes
 		setHeaders({
 			'cache-control': 'public, max-age=3600, stale-while-revalidate=86400'
 		});
 
 		const changelogs = await getChangelogsByHeroId(locals.db, hero.id);
 
-		// Return early if no changelogs to avoid empty icon query
 		if (changelogs.length === 0) {
 			return json({
 				hero: { ...hero, image: getHeroImage(hero) },

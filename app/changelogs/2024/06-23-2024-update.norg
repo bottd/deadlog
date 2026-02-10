@@ -15,21 +15,62 @@ status: draft
 
 * Hero Changes
 
-** Yamato
+@inline svelte
+<script>
+  import SectionPreview from '$lib/components/changelog/SectionPreview.svelte';
+</script>
+<SectionPreview type="hero" names={["Yamato"]} />
+@end
+
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Yamato" type="hero" />
+@end
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Shadow Transformation" />
+@end
 
 - Shadow Transformation now causes you to be unable to die during the buff
 
 * Item Changes
 
-** Melee Charge
+@inline svelte
+<script>
+  import SectionPreview from '$lib/components/changelog/SectionPreview.svelte';
+</script>
+<SectionPreview type="item" names={["Melee Charge", "Spirit Strike", "Veil Walker"]} />
+@end
+
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Melee Charge" type="item" />
+@end
 
 - No longer grants +15% Melee Damage
 
-** Spirit Strike
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Spirit Strike" type="item" />
+@end
 
 - Melee damage reduced from 20% to 15%
 
-** Veil Walker
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Veil Walker" type="item" />
+@end
 
 - Bullet Shield reduced from +200 to +150
 - Shield restore now takes 5s to fully regen

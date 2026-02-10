@@ -19,88 +19,227 @@ status: draft
 
 * Hero Changes
 
-** Lady Geist
+@inline svelte
+<script>
+  import SectionPreview from '$lib/components/changelog/SectionPreview.svelte';
+</script>
+<SectionPreview type="hero" names={["Lady Geist", "Pocket", "Shiv", "Vyper"]} />
+@end
+
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Lady Geist" type="hero" />
+@end
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Malice" />
+@end
 
 - Malice now costs 6% of your Current HP
 - Malice damage reduced from 32 to 25
 - Malice damage spirit scaling reduced from 0.72 to 0.6
+
 - T2 Malice reduced from 40 to 30
 
-** Pocket
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Pocket" type="hero" />
+@end
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Affliction" />
+@end
 
 - Affliction duration reduced from 14s to 12s
 
-** Shiv
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Shiv" type="hero" />
+@end
 
 - Slice and Dice damage reduced from 100 to 80
 - Bullet damage growth reduced from 0.246 to 0.22
 
-** Vyper
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Vyper" type="hero" />
+@end
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Lethal Venom" />
+@end
 
 - Lethal Venom T2 reduced from -60% Healing Reduction to -40%
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Slither" />
+@end
+
 - Slither T3 reduced from +25% Resist to +20%
 
 * Item Changes
 
-** Active Reload
+@inline svelte
+<script>
+  import SectionPreview from '$lib/components/changelog/SectionPreview.svelte';
+</script>
+<SectionPreview type="item" names={["Active Reload", "Boundless Spirit", "Capacitor", "Cultist Sacrifice", "Decay", "Divine Barrier", "Fleetfoot", "Headhunter", "Inhibitor", "Mercurial Magnum", "Silence Wave", "Spirit Burn", "Spirit Rend", "Split Shot", "Tankbuster"]} />
+@end
+
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Active Reload" type="item" />
+@end
 
 - Cooldown reduced from 14s to 12s
 
-** Boundless Spirit
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Boundless Spirit" type="item" />
+@end
 
 - Heal reduced from 100 to 75
 
-** Capacitor
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Capacitor" type="item" />
+@end
 
 - Cooldown increased from 30s to 40s
 
-** Cultist Sacrifice
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Cultist Sacrifice" type="item" />
+@end
 
 - Health reduced from 350 to 300
 
-** Decay
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Decay" type="item" />
+@end
 
 - Spirit power scaling reduced from 0.007 to 0.005
 - Cooldown increased from 22s to 24s
 - Cast range spirit scaling reduced from 0.16 to 0.14
 
-** Divine Barrier
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Divine Barrier" type="item" />
+@end
 
 - Cooldown increased from 36s to 45s
 
-** Fleetfoot
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Fleetfoot" type="item" />
+@end
 
 - Cooldown reduced from 12s to 11s
 
-** Headhunter
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Headhunter" type="item" />
+@end
 
 - Bonus Headshot damage reduced from 150 to 120
 
-** Inhibitor
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Inhibitor" type="item" />
+@end
 
 - Duration increased from 2.5s to 3s
 
-** Mercurial Magnum
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Mercurial Magnum" type="item" />
+@end
 
 - Fire Rate bonus reduced from +30% to +25%
 - Spirit Power scaling reduced from 0.6 to 0.5
 
-** Silence Wave
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Silence Wave" type="item" />
+@end
 
 - Cooldown increased from 24s to 28s
 
-** Spirit Burn
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Spirit Burn" type="item" />
+@end
 
 - Healing Reduction reduced from -80% to -70%
 
-** Spirit Rend
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Spirit Rend" type="item" />
+@end
 
 - Cooldown increased from 2s to 2.5s
 
-** Split Shot
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Split Shot" type="item" />
+@end
 
 - Shot count increased from 4 to 5
 
-** Tankbuster
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Tankbuster" type="item" />
+@end
 
 - Fixed working on mid boss and objectives

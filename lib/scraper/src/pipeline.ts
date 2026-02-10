@@ -12,7 +12,6 @@ import { fetchHeroes, fetchItems } from './deadlockApi';
 
 const CHANGELOGS_DIR = process.env.CHANGELOGS_DIR || 'app/changelogs';
 
-/** Entity lists for categorizing changelog lines */
 interface EntityLists {
 	heroes: Set<string>;
 	items: Set<string>;
@@ -22,10 +21,6 @@ interface ScrapeOptions {
 	overwrite?: boolean;
 }
 
-/**
- * Generate a URL-friendly slug from a changelog title
- * Example: "01-23-2025 Update" -> "01-23-2025-update"
- */
 function slugify(title: string): string {
 	return title
 		.toLowerCase()
@@ -33,9 +28,6 @@ function slugify(title: string): string {
 		.replace(/^-+|-+$/g, '');
 }
 
-/**
- * Check if a .norg file has been curated (marked as published)
- */
 function isCurated(filepath: string): boolean {
 	if (!existsSync(filepath)) return false;
 	const content = readFileSync(filepath, 'utf-8');
@@ -43,9 +35,6 @@ function isCurated(filepath: string): boolean {
 	return content.includes('status: published');
 }
 
-/**
- * Escape special characters in metadata values for norg frontmatter
- */
 function escapeMetaValue(value: string): string {
 	if (value.includes('\n') || value.includes(':') || value.includes('"')) {
 		return `"${value.replace(/"/g, '\\"')}"`;
@@ -53,9 +42,211 @@ function escapeMetaValue(value: string): string {
 	return value;
 }
 
-/**
- * Extract the changelog content from raw HTML, stripping wrapper elements
- */
+function escapeInlineAttr(value: string): string {
+	return value.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+}
+
+function entityHeadingBlock(name: string, type: 'hero' | 'item'): string {
+	const escaped = escapeInlineAttr(name);
+	return [
+		'@inline svelte',
+		'<script>',
+		"  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';",
+		'</script>',
+		`<EntityHeading name="${escaped}" type="${type}" />`,
+		'@end'
+	].join('\n');
+}
+
+function sectionPreviewBlock(type: 'hero' | 'item', names: string[]): string {
+	const escaped = names.map((n) => `"${escapeInlineAttr(n)}"`).join(', ');
+	return [
+		'@inline svelte',
+		'<script>',
+		"  import SectionPreview from '$lib/components/changelog/SectionPreview.svelte';",
+		'</script>',
+		`<SectionPreview type="${type}" names={[${escaped}]} />`,
+		'@end'
+	].join('\n');
+}
+
+function abilityHeadingBlock(name: string): string {
+	const escaped = escapeInlineAttr(name);
+	return [
+		'@inline svelte',
+		'<script>',
+		"  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';",
+		'</script>',
+		`<AbilityHeading name="${escaped}" />`,
+		'@end'
+	].join('\n');
+}
+
+const STAT_PREFIX_BLOCKLIST = new Set([
+	'base',
+	'bullet',
+	'gun',
+	'health',
+	'regen',
+	'dps',
+	'movespeed',
+	'move',
+	'stamina',
+	'weapon',
+	'melee',
+	'fire',
+	'is',
+	'fixed',
+	'starting',
+	'spirit',
+	'max',
+	'min',
+	'bonus'
+]);
+
+const STAT_PHRASE_BLOCKLIST = new Set([
+	'base health',
+	'base bullet',
+	'base regen',
+	'base sprint',
+	'base spirit',
+	'base spirit resist',
+	'base bullet resist',
+	'base bullet damage',
+	'base movement',
+	'bullet velocity',
+	'bullet resist',
+	'bullet damage',
+	'fire rate',
+	'fire rate spirit power',
+	'health regen',
+	'gun falloff',
+	'gun damage',
+	'move speed',
+	'starting health',
+	'last stand resistance',
+	'killing blow rage damage bonus'
+]);
+
+function detectAbilityPrefix(note: string, knownAbilities?: Set<string>): string | null {
+	const match = note.match(
+		/^([A-Z][a-zA-Z']*(?:\s+[A-Z][a-zA-Z']*)*)\s+(?:T[1-3]\b|[a-z])/
+	);
+	if (!match) return null;
+
+	const candidate = match[1];
+	const candidateLower = candidate.toLowerCase();
+
+	// If we have known abilities, only accept exact matches
+	if (knownAbilities && knownAbilities.size > 0) {
+		if (knownAbilities.has(candidateLower)) {
+			return candidate;
+		}
+		return null;
+	}
+
+	const firstWord = candidate.split(/\s+/)[0].toLowerCase();
+	if (STAT_PREFIX_BLOCKLIST.has(firstWord)) {
+		return null;
+	}
+
+	if (STAT_PHRASE_BLOCKLIST.has(candidateLower)) {
+		return null;
+	}
+
+	const rest = note.slice(candidate.length).trimStart().toLowerCase();
+	const keywords = [
+		'cooldown',
+		'damage',
+		'duration',
+		'radius',
+		'range',
+		'speed',
+		'heal',
+		'health',
+		'stun',
+		'slow',
+		'silence',
+		'lifesteal',
+		'dps',
+		'now ',
+		'no longer',
+		'is now',
+		'bonus',
+		'max ',
+		'min ',
+		'fire rate',
+		'movement',
+		'spirit',
+		'bullet',
+		'proc',
+		'channel',
+		'delay',
+		'change',
+		'projectile',
+		'width',
+		'height',
+		'scaling',
+		'reduced',
+		'increased',
+		'reworked',
+		't1 ',
+		't1:',
+		't2 ',
+		't2:',
+		't3 ',
+		't3:'
+	];
+
+	if (keywords.some((kw) => rest.startsWith(kw))) {
+		return candidate;
+	}
+
+	return null;
+}
+
+function groupNotesByAbility(
+	notes: string[],
+	knownAbilities?: Set<string>
+): { abilityName: string | null; notes: string[] }[] {
+	const groups: { abilityName: string | null; notes: string[] }[] = [];
+	let currentAbility: string | null = null;
+	let currentNotes: string[] = [];
+
+	for (const note of notes) {
+		const ability = detectAbilityPrefix(note, knownAbilities);
+
+		if (ability && ability !== currentAbility) {
+			// Flush previous group
+			if (currentNotes.length > 0) {
+				groups.push({ abilityName: currentAbility, notes: currentNotes });
+			}
+			currentAbility = ability;
+			currentNotes = [note];
+		} else if (ability && ability === currentAbility) {
+			currentNotes.push(note);
+		} else {
+			if (currentAbility !== null && currentNotes.length > 0) {
+				groups.push({ abilityName: currentAbility, notes: currentNotes });
+				currentAbility = null;
+				currentNotes = [];
+			}
+			// Add to general (null ability) group
+			if (groups.length > 0 && groups[groups.length - 1].abilityName === null) {
+				groups[groups.length - 1].notes.push(note);
+			} else {
+				groups.push({ abilityName: null, notes: [note] });
+			}
+		}
+	}
+
+	if (currentNotes.length > 0) {
+		groups.push({ abilityName: currentAbility, notes: currentNotes });
+	}
+
+	return groups;
+}
+
 function extractContent(html: string): string {
 	const window = new Window();
 	window.document.write(html);
@@ -98,9 +289,6 @@ interface ParsedNote {
 	text: string;
 }
 
-/**
- * Parse a changelog line to extract entity name and note text
- */
 function parseChangelogLine(line: string, entities: EntityLists): ParsedNote {
 	const text = line.replace(/^[-•]\s*/, '').trim();
 	if (!text) {
@@ -109,15 +297,15 @@ function parseChangelogLine(line: string, entities: EntityLists): ParsedNote {
 
 	const colonMatch = text.match(/^([^:]+):\s*(.+)$/);
 	if (colonMatch) {
-		const potentialEntity = colonMatch[1].trim();
+		const entity = colonMatch[1].trim();
 		const noteText = colonMatch[2].trim();
 
-		if (entities.heroes.has(potentialEntity.toLowerCase())) {
-			return { entityName: potentialEntity, entityType: 'hero', text: noteText };
+		if (entities.heroes.has(entity.toLowerCase())) {
+			return { entityName: entity, entityType: 'hero', text: noteText };
 		}
 
-		if (entities.items.has(potentialEntity.toLowerCase())) {
-			return { entityName: potentialEntity, entityType: 'item', text: noteText };
+		if (entities.items.has(entity.toLowerCase())) {
+			return { entityName: entity, entityType: 'item', text: noteText };
 		}
 	}
 
@@ -130,9 +318,6 @@ interface GroupedContent {
 	items: Map<string, string[]>;
 }
 
-/**
- * Parse raw changelog text and group by hero/item
- */
 function parseAndGroupContent(rawContent: string, entities: EntityLists): GroupedContent {
 	const result: GroupedContent = {
 		general: [],
@@ -164,6 +349,12 @@ function parseAndGroupContent(rawContent: string, entities: EntityLists): Groupe
 			continue;
 		}
 
+		// Skip stray lines that are just dashes/bullets with no content
+		const stripped = trimmed.replace(/^[-•]+\s*/, '').trim();
+		if (!stripped || stripped === '-') {
+			continue;
+		}
+
 		const parsed = parseChangelogLine(trimmed, entities);
 
 		if (parsed.entityType === 'hero' && parsed.entityName) {
@@ -182,9 +373,6 @@ function parseAndGroupContent(rawContent: string, entities: EntityLists): Groupe
 	return result;
 }
 
-/**
- * Generate structured norg content from grouped changes
- */
 function generateStructuredContent(grouped: GroupedContent): string {
 	const sections: string[] = [];
 
@@ -208,12 +396,34 @@ function generateStructuredContent(grouped: GroupedContent): string {
 			a[0].localeCompare(b[0])
 		);
 
+		sections.push('');
+		sections.push(
+			sectionPreviewBlock(
+				'hero',
+				sortedHeroes.map(([name]) => name)
+			)
+		);
+
 		for (const [heroName, notes] of sortedHeroes) {
 			sections.push('');
-			sections.push(`** ${heroName}`);
+			sections.push(entityHeadingBlock(heroName, 'hero'));
 			sections.push('');
-			for (const note of notes) {
-				sections.push(`- ${note}`);
+
+			const abilityGroups = groupNotesByAbility(notes);
+
+			for (let gi = 0; gi < abilityGroups.length; gi++) {
+				const group = abilityGroups[gi];
+				if (group.abilityName) {
+					sections.push(abilityHeadingBlock(group.abilityName));
+					sections.push('');
+				}
+				for (const note of group.notes) {
+					sections.push(`- ${note}`);
+				}
+				// Only add blank line between ability groups, not after the last one
+				if (gi < abilityGroups.length - 1) {
+					sections.push('');
+				}
 			}
 		}
 	}
@@ -226,9 +436,17 @@ function generateStructuredContent(grouped: GroupedContent): string {
 			a[0].localeCompare(b[0])
 		);
 
+		sections.push('');
+		sections.push(
+			sectionPreviewBlock(
+				'item',
+				sortedItems.map(([name]) => name)
+			)
+		);
+
 		for (const [itemName, notes] of sortedItems) {
 			sections.push('');
-			sections.push(`** ${itemName}`);
+			sections.push(entityHeadingBlock(itemName, 'item'));
 			sections.push('');
 			for (const note of notes) {
 				sections.push(`- ${note}`);
@@ -239,9 +457,6 @@ function generateStructuredContent(grouped: GroupedContent): string {
 	return sections.join('\n');
 }
 
-/**
- * Generate a .norg file from scraped post content
- */
 function generateChangelog(
 	content: PostContentResult,
 	threadId: string,
@@ -299,9 +514,6 @@ function generateChangelog(
 	return lines.join('\n');
 }
 
-/**
- * Scrape changelog posts from forum and write .norg files
- */
 export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<void> {
 	const { overwrite = false } = options;
 

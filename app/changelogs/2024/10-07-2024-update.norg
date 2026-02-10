@@ -15,12 +15,43 @@ status: draft
 
 * Hero Changes
 
-** Wraith
+@inline svelte
+<script>
+  import SectionPreview from '$lib/components/changelog/SectionPreview.svelte';
+</script>
+<SectionPreview type="hero" names={["Wraith"]} />
+@end
+
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Wraith" type="hero" />
+@end
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Card Trick Spirit" />
+@end
 
 - Card Trick Spirit scaling reduced from 1.5 to 1.2
 
 * Item Changes
 
-** Shadow Weave
+@inline svelte
+<script>
+  import SectionPreview from '$lib/components/changelog/SectionPreview.svelte';
+</script>
+<SectionPreview type="item" names={["Shadow Weave"]} />
+@end
+
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Shadow Weave" type="item" />
+@end
 
 - Ambush Fire Rate reduced from +40% to +30%

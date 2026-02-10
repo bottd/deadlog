@@ -15,50 +15,160 @@ status: draft
 
 * Hero Changes
 
-** Bebop
+@inline svelte
+<script>
+  import SectionPreview from '$lib/components/changelog/SectionPreview.svelte';
+</script>
+<SectionPreview type="hero" names={["Bebop", "Grey Talon", "Kelvin", "McGinnis", "Paradox", "Seven", "Shiv", "Yamato"]} />
+@end
+
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Bebop" type="hero" />
+@end
 
 - Sticky Bomb stacks no longer decrease on death
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Sticky Bomb" />
+@end
+
 - Sticky Bomb now gives stacks based on dying heroes hurt by Sticky Bomb damage with a 12 second buffer (previously anyone hit by the bomb would automatically grant stacks)
 - Sticky Bomb damage per stack increased from 3% to 5%
 - Sticky Bomb spirit power damage scaling increased from 0.9 to 1.2
 - Sticky Bomb T1 improved from -7.5s to -8s
 - Sticky Bomb cooldown reduced from 19s to 18s
 
-** Grey Talon
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Grey Talon" type="hero" />
+@end
 
 - Movespeed spirit scaling reduced from 0.04 to 0.032
 - Bullet damage spirit scaling reduced from 0.13 to 0.12
 
-** Kelvin
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Kelvin" type="hero" />
+@end
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Ice Path" />
+@end
 
 - Ice Path cooldown increased from 38s to 42s
 
-** McGinnis
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="McGinnis" type="hero" />
+@end
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Mini Turrets Spirit Resist" />
+@end
 
 - Mini Turrets Spirit Resist reduced from 80% to 70%
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Spectral Wall" />
+@end
+
 - Spectral Wall cooldown increased from 37s to 46s
 - Spectral Wall T2 cooldown improved from -14s to -23s
 
-** Paradox
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Paradox" type="hero" />
+@end
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Pulse Grenade" />
+@end
 
 - Pulse Grenade T3 reduced from +1m per Pulse to +0.75m
 
-** Seven
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Seven" type="hero" />
+@end
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Storm Cloud DPS" />
+@end
 
 - Storm Cloud DPS increased from 110 to 120
 
-** Shiv
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Shiv" type="hero" />
+@end
 
 - Killing Blow cast range increased from 13m to 14m
 - Killing Blow rage per weapon damage increased from 0.015 to 0.017
 - Killing Blow drain rate reduced from 0.3 to 0.25
 
-** Yamato
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Yamato" type="hero" />
+@end
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Shadow Transformation" />
+@end
 
 - Shadow Transformation cooldown reduced from 90s to 85s
 
 * Item Changes
 
-** Majestic Leap
+@inline svelte
+<script>
+  import SectionPreview from '$lib/components/changelog/SectionPreview.svelte';
+</script>
+<SectionPreview type="item" names={["Majestic Leap"]} />
+@end
+
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Majestic Leap" type="item" />
+@end
 
 - Cooldown reduced from 45s to 40s

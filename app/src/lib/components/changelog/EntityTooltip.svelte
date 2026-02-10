@@ -32,20 +32,17 @@
 	const slug = $derived(toSlug(name));
 	const entityUrl = $derived(`/${type}/${slug}`);
 
-	// Track the specific slug that was last prefetched to handle prop changes
-	let lastPrefetchedSlug = $state('');
-	let debounceTimer: ReturnType<typeof setTimeout>;
+	let prefetchedSlug = $state('');
+	let timer: ReturnType<typeof setTimeout>;
 
 	function attemptPrefetch() {
-		// Prevent duplicate fetching for the same entity
-		if (lastPrefetchedSlug === slug) return;
+		if (prefetchedSlug === slug) return;
 
 		const queryKey = type === 'hero' ? queryKeys.hero(slug) : queryKeys.item(slug);
 
-		// Check if we already have fresh data in cache
 		const state = queryClient.getQueryState(queryKey);
 		if (state?.data && state.dataUpdatedAt > Date.now() - 1000 * 60 * 60) {
-			lastPrefetchedSlug = slug;
+			prefetchedSlug = slug;
 			return;
 		}
 
@@ -57,17 +54,16 @@
 			staleTime: 60 * 60 * 1000 // 1 hour - matches QueryClient default
 		});
 
-		lastPrefetchedSlug = slug;
+		prefetchedSlug = slug;
 	}
 
 	function handleInteraction() {
-		clearTimeout(debounceTimer);
-		// Small delay to prevent spamming while moving mouse across grid
-		debounceTimer = setTimeout(attemptPrefetch, 200);
+		clearTimeout(timer);
+		timer = setTimeout(attemptPrefetch, 200);
 	}
 
 	function handleLeave() {
-		clearTimeout(debounceTimer);
+		clearTimeout(timer);
 	}
 
 	const badgeVariant = $derived.by((): BadgeVariant => {

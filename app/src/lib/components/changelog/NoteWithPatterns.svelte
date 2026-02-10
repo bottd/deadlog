@@ -1,5 +1,8 @@
 <script lang="ts">
-	import type { Note } from '@deadlog/db';
+	interface Note {
+		text: string;
+		patterns: { text: string; start: number; end: number }[];
+	}
 
 	interface Props {
 		note: Note;

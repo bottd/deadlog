@@ -12,16 +12,13 @@
 	import { queryKeys } from '$lib/queries/keys';
 	import { toast } from 'svelte-sonner';
 
-	// SSR data from page load
 	const { hero, changelogs: initialChangelogs, title, description, image } = page.data;
 
-	// Define the query data shape
 	interface HeroQueryData {
 		hero: typeof hero;
 		changelogs: typeof initialChangelogs;
 	}
 
-	// Use TanStack Query with SSR data as initialData
 	const query = createQuery<HeroQueryData>(() => ({
 		queryKey: queryKeys.hero(hero.slug),
 		queryFn: async () => {
@@ -33,7 +30,6 @@
 		staleTime: 60 * 60 * 1000
 	}));
 
-	// Show toast if background refetch fails
 	$effect(() => {
 		if (query.isError && browser) {
 			toast.error('Failed to refresh data', {
@@ -42,7 +38,6 @@
 		}
 	});
 
-	// Use query data with fallback to SSR data
 	const changelogs = $derived(
 		(query.data?.changelogs ?? initialChangelogs).map(
 			(c: (typeof initialChangelogs)[number]) => ({
@@ -52,7 +47,6 @@
 		)
 	);
 
-	// Check for reduced motion preference
 	let reducedMotion = $state(false);
 	$effect(() => {
 		if (browser) {
@@ -66,7 +60,6 @@
 		}
 	});
 
-	// Transition config based on reduced motion
 	const transitionConfig = $derived(
 		reducedMotion
 			? { duration: 0 }
@@ -86,7 +79,6 @@
 				}
 	);
 
-	// Type-specific styles using Svelte $derived
 	const typeGradient = $derived.by(() => {
 		if (!hero.heroType) return '';
 		const colors: Record<string, string> = {
@@ -132,7 +124,6 @@
 		return `var(--type-${hero.heroType})`;
 	});
 
-	// Svelte motion for rotating ring
 	let rotation = $state(0);
 	let rotationFrame: number;
 

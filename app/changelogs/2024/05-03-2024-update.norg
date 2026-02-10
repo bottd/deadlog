@@ -46,89 +46,350 @@ status: draft
 
 * Hero Changes
 
-** Abrams
+@inline svelte
+<script>
+  import SectionPreview from '$lib/components/changelog/SectionPreview.svelte';
+</script>
+<SectionPreview type="hero" names={["Abrams", "Bebop", "Dynamo", "Grey Talon", "Haze", "Infernus", "Kelvin", "Lady Geist", "Lash", "McGinnis", "Mo &amp; Krill", "Vindicta", "Yamato"]} />
+@end
+
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Abrams" type="hero" />
+@end
 
 - Base Health increased from 550 to 600
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Siphon DPS" />
+@end
+
 - Siphon DPS increased from 24 to 35
 
-** Bebop
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Bebop" type="hero" />
+@end
 
 - Weapon no longer has horizontal/vertical recoil
 
-** Dynamo
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Dynamo" type="hero" />
+@end
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Singularity DPS" />
+@end
 
 - Singularity DPS increased from 48 to 60
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Singularity" />
+@end
+
 - Singularity T3 Max HP DPS increased from 3.2% to 3.8%
 
-** Grey Talon
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Grey Talon" type="hero" />
+@end
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Charge Shot" />
+@end
 
 - Charge Shot damage increased from 95 to 105
 - Charge Shot T2 damage reduced from 80 to 70
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Guided Owl" />
+@end
+
 - Guided Owl damage increased from 200 to 300
 
-** Haze
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Haze" type="hero" />
+@end
 
 - Bullet Dance bonus Fire Rate reduced from +30 to +20
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Smoke Bomb" />
+@end
+
 - Smoke Bomb duration scaling from Spirit improved from 0.2 to 0.3
 
-** Infernus
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Infernus" type="hero" />
+@end
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Catalyst" />
+@end
 
 - Catalyst no longer slows Infernus to 1.3 m/s during the cast delay
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Concussive Combustion" />
+@end
+
 - Concussive Combustion damage increased from 130 to 160
 
-** Kelvin
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Kelvin" type="hero" />
+@end
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Frost Grenade" />
+@end
 
 - Frost Grenade T3 bonus damage increased from +100 to +175
 
-** Lady Geist
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Lady Geist" type="hero" />
+@end
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Blood Bomb" />
+@end
 
 - Blood Bomb damage increased from 80 to 100
 - Blood Bomb T2 damage increased from +65 to +70
+
 - Blood Bomb tooltip fixed to reference the correct self damage type and that it can be reduced with armor
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Malice" />
+@end
+
 - Malice damage amp per shard increased from 10% to 15%
 
-** Lash
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Lash" type="hero" />
+@end
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Grapple" />
+@end
 
 - Grapple cooldown reduced from 55 to 45
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Flog Damage" />
+@end
+
 - Flog Damage increased from 55 to 65
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Flog" />
+@end
+
 - Flog lifesteal from heroes increased from 70% to 80% of damage dealt
 - Flog lifesteal from non-heroes reduced from 35% to 30% of damage dealt
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Death Slam" />
+@end
+
 - Death Slam T1 from +3m to +5m
+
 - Fixed Death Slam's targeting cone not finding enemies near the edges
 - Fixed Death Slam to only target enemies who stay in the targeting cone
 
-** McGinnis
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="McGinnis" type="hero" />
+@end
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Heavy Barrage" />
+@end
 
 - Heavy Barrage now reduces your speed rather than setting it to a low cap (by itself this change isn't a buff or a nerf, but it allows you to buy items to move faster during the ultimate)
+
 - Heavy Barrage camera interaction with Fleetfoot Boots has been fixed
 
-** Mo & Krill
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Mo &amp; Krill" type="hero" />
+@end
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Sand Blast" />
+@end
 
 - Sand Blast range increased from 25m to 30m
 - Sand Blast width increased from 3m to 5m
 - Sand Blast is now permissive with small obstructions in the way
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Burrow" />
+@end
+
 - Burrow no longer loses its state as you change elevations
 - Burrow now knocks enemies up when you come up
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Combo DPS" />
+@end
+
 - Combo DPS increased from 50 to 60
+
 - No longer listed as a recommended new player hero
 
-** Vindicta
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Vindicta" type="hero" />
+@end
 
 - Base Bullet Damage reduced from 15 to 14
 - Bullet Damage gained per boon reduced from 0.88 to 0.7 (these are gained occasionally as you earn souls, up to 11 times)
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Stake" />
+@end
+
 - Stake T1 bonus duration reduced from +1.5s to +1.0s
+
 - Is now a recommended hero for new players
 
-** Yamato
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Yamato" type="hero" />
+@end
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Crimson Slash" />
+@end
 
 - Crimson Slash radius increased from 11m to 12m
 - Crimson Slash fire rate debuff duration increased from 3s to 4s
 - Crimson Slash T2 changed from "-5s Cooldown" to "10% Max Health heal on hero hit"
 - Crimson Slash T3 changed from "12% Max Health heal on hero hit" to "-6s Cooldown"
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Power Slash" />
+@end
+
 - Power Slash T1 Bullet Resist increased from 40% to 60%
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Flying Strike" />
+@end
+
 - Flying Strike cooldown reduced from 35 to 20
 - Flying Strike T2 changed from "-15s Cooldown" to "+20 Cast Range"
 - Flying Strike range no longer scales with Spirit
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Shadow Explosion" />
+@end
+
 - Shadow Explosion bonus Spirit per victim increased from 10 to 15
 - Shadow Explosion bonus Fire Rate per victim increased from 5 to 10
+
 - Shadow Explosion buff duration increased from 8s to 15s

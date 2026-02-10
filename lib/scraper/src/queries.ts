@@ -1,21 +1,28 @@
-import { eq, sql, desc, gt, and, ne, isNotNull } from 'drizzle-orm';
+import {
+	eq,
+	sql,
+	desc,
+	gt,
+	and,
+	or,
+	ne,
+	isNull,
+	isNotNull,
+	count,
+	inArray
+} from 'drizzle-orm';
 import type { EnrichedHero, EnrichedItem, EntityIcon } from './types/deadlockApi';
-import type { ChangelogContentJson } from '@deadlog/db';
-import { getLibsqlDb, type DrizzleDB, schema } from '@deadlog/db';
+import { getLibsqlDb, type DrizzleDB, type SelectChangelog, schema } from '@deadlog/db';
 
 export { getLibsqlDb as getDb };
 
-export interface ScrapedChangelog {
-	id: string;
-	title: string;
-	contentJson: ChangelogContentJson | null;
-	author: string;
-	authorImage: string;
-	category: string | null;
-	guid: string | null;
-	pubDate: string;
-	majorUpdate: boolean;
-	parentChange: string | null;
+export type ScrapedChangelog = SelectChangelog;
+
+function isMainChangelog() {
+	return or(
+		isNull(schema.changelogs.parentChange),
+		eq(schema.changelogs.parentChange, '')
+	);
 }
 
 function buildTextSearchCondition(searchQuery: string) {
@@ -24,12 +31,14 @@ function buildTextSearchCondition(searchQuery: string) {
 }
 
 export async function getAllChangelogs(db: DrizzleDB) {
-	const results = await db.select().from(schema.changelogs).all();
-	return results;
+	return db.select().from(schema.changelogs).all();
 }
 
 export async function getAllChangelogIds(db: DrizzleDB): Promise<string[]> {
-	const results = await db.select().from(schema.changelogs).all();
+	const results = await db
+		.select({ id: schema.changelogs.id })
+		.from(schema.changelogs)
+		.all();
 	return results.map((r) => r.id);
 }
 
@@ -42,7 +51,7 @@ export async function queryChangelogs(
 		limit?: number;
 		offset?: number;
 	} = {}
-) {
+): Promise<ScrapedChangelog[]> {
 	const { heroIds = [], itemIds = [], searchQuery, limit = 5, offset = 0 } = options;
 
 	const hasHeroFilter = heroIds.length > 0;
@@ -50,14 +59,12 @@ export async function queryChangelogs(
 	const hasSearchFilter = !!searchQuery?.trim();
 
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	let query = (db as any)
+	let query: any = db
 		.selectDistinct({ changelogs: schema.changelogs })
 		.from(schema.changelogs);
 
 	// Only return main changelogs (exclude child updates) for pagination to work correctly
-	const conditions = [
-		sql`(${schema.changelogs.parentChange} IS NULL OR ${schema.changelogs.parentChange} = '')`
-	];
+	const conditions = [isMainChangelog()];
 	if (hasSearchFilter && searchQuery) {
 		conditions.push(buildTextSearchCondition(searchQuery));
 	}
@@ -67,12 +74,7 @@ export async function queryChangelogs(
 			schema.changelogHeroes,
 			eq(schema.changelogs.id, schema.changelogHeroes.changelogId)
 		);
-		conditions.push(
-			sql`${schema.changelogHeroes.heroId} IN (${sql.join(
-				heroIds.map((id) => sql`${id}`),
-				sql`, `
-			)})`
-		);
+		conditions.push(inArray(schema.changelogHeroes.heroId, heroIds));
 	}
 
 	if (hasItemFilter) {
@@ -80,17 +82,10 @@ export async function queryChangelogs(
 			schema.changelogItems,
 			eq(schema.changelogs.id, schema.changelogItems.changelogId)
 		);
-		conditions.push(
-			sql`${schema.changelogItems.itemId} IN (${sql.join(
-				itemIds.map((id) => sql`${id}`),
-				sql`, `
-			)})`
-		);
+		conditions.push(inArray(schema.changelogItems.itemId, itemIds));
 	}
 
-	if (conditions.length > 0) {
-		query = query.where(sql.join(conditions, sql` AND `));
-	}
+	query = query.where(and(...conditions));
 
 	const results = await query
 		.orderBy(desc(schema.changelogs.pubDate))
@@ -98,22 +93,16 @@ export async function queryChangelogs(
 		.offset(offset)
 		.all();
 
-	// Extract changelogs from nested structure when using selectDistinct
 	return results.map((r: { changelogs: ScrapedChangelog }) => r.changelogs);
 }
 
-/**
- * Get total count of main changelogs (excludes child updates)
- */
 export async function getChangelogsCount(db: DrizzleDB): Promise<number> {
 	const result = await db
-		.select()
+		.select({ count: count() })
 		.from(schema.changelogs)
-		.where(
-			sql`(${schema.changelogs.parentChange} IS NULL OR ${schema.changelogs.parentChange} = '')`
-		)
-		.all();
-	return result.length;
+		.where(isMainChangelog())
+		.get();
+	return result?.count ?? 0;
 }
 
 /**
@@ -125,25 +114,14 @@ export async function getUpdatesForChangelogs(
 ): Promise<ScrapedChangelog[]> {
 	if (parentIds.length === 0) return [];
 
-	const results = await db
+	return db
 		.select()
 		.from(schema.changelogs)
-		.where(
-			sql`${schema.changelogs.parentChange} IN (${sql.join(
-				parentIds.map((id) => sql`${id}`),
-				sql`, `
-			)})`
-		)
+		.where(inArray(schema.changelogs.parentChange, parentIds))
 		.orderBy(desc(schema.changelogs.pubDate))
 		.all();
-
-	return results;
 }
 
-/**
- * Find the position (index) of a specific main changelog in the sorted list (by pubDate desc)
- * Returns the number of main changelogs that come before this one
- */
 export async function getChangelogPosition(
 	db: DrizzleDB,
 	changelogId: string
@@ -158,29 +136,17 @@ export async function getChangelogPosition(
 		return 0;
 	}
 
-	// Only count main changelogs (exclude child updates)
-	const results = await db
-		.select()
+	const result = await db
+		.select({ count: count() })
 		.from(schema.changelogs)
-		.where(
-			and(
-				gt(schema.changelogs.pubDate, target.pubDate),
-				sql`(${schema.changelogs.parentChange} IS NULL OR ${schema.changelogs.parentChange} = '')`
-			)
-		)
-		.all();
+		.where(and(gt(schema.changelogs.pubDate, target.pubDate), isMainChangelog()))
+		.get();
 
-	return results.length;
+	return result?.count ?? 0;
 }
 
 export async function getChangelogById(db: DrizzleDB, id: string) {
-	const result = await db
-		.select()
-		.from(schema.changelogs)
-		.where(eq(schema.changelogs.id, id))
-		.get();
-
-	return result;
+	return db.select().from(schema.changelogs).where(eq(schema.changelogs.id, id)).get();
 }
 
 export async function getMetadata(db: DrizzleDB, key: string) {
@@ -198,37 +164,31 @@ export async function getAllHeroes(db: DrizzleDB): Promise<EnrichedHero[]> {
 }
 
 export async function getAllItems(db: DrizzleDB): Promise<EnrichedItem[]> {
-	return await db.select().from(schema.items).all();
+	return db.select().from(schema.items).all();
 }
 
 export async function getHeroByName(
 	db: DrizzleDB,
 	name: string
 ): Promise<EnrichedHero | null> {
-	const result = await db
-		.select()
-		.from(schema.heroes)
-		.where(eq(schema.heroes.name, name))
-		.get();
-
-	return result ?? null;
+	return (
+		(await db.select().from(schema.heroes).where(eq(schema.heroes.name, name)).get()) ??
+		null
+	);
 }
 
 export async function getHeroBySlug(
 	db: DrizzleDB,
 	slug: string
 ): Promise<EnrichedHero | null> {
-	const result = await db
-		.select()
-		.from(schema.heroes)
-		.where(eq(schema.heroes.slug, slug))
-		.get();
-
-	return result ?? null;
+	return (
+		(await db.select().from(schema.heroes).where(eq(schema.heroes.slug, slug)).get()) ??
+		null
+	);
 }
 
 export async function getAllHeroSlugs(db: DrizzleDB): Promise<string[]> {
-	const results = await db.select().from(schema.heroes).all();
+	const results = await db.select({ slug: schema.heroes.slug }).from(schema.heroes).all();
 	return results.map((r) => r.slug);
 }
 
@@ -236,31 +196,25 @@ export async function getItemByName(
 	db: DrizzleDB,
 	name: string
 ): Promise<EnrichedItem | null> {
-	const result = await db
-		.select()
-		.from(schema.items)
-		.where(eq(schema.items.name, name))
-		.get();
-
-	return result ?? null;
+	return (
+		(await db.select().from(schema.items).where(eq(schema.items.name, name)).get()) ??
+		null
+	);
 }
 
 export async function getItemBySlug(
 	db: DrizzleDB,
 	slug: string
 ): Promise<EnrichedItem | null> {
-	const result = await db
-		.select()
-		.from(schema.items)
-		.where(eq(schema.items.slug, slug))
-		.get();
-
-	return result ?? null;
+	return (
+		(await db.select().from(schema.items).where(eq(schema.items.slug, slug)).get()) ??
+		null
+	);
 }
 
 export async function getAllItemSlugs(db: DrizzleDB): Promise<string[]> {
 	const results = await db
-		.select()
+		.select({ slug: schema.items.slug })
 		.from(schema.items)
 		.where(and(isNotNull(schema.items.slug), ne(schema.items.slug, '')))
 		.all();
@@ -272,8 +226,7 @@ export async function getChangelogsByHeroId(
 	heroId: number,
 	limit = 50
 ): Promise<ScrapedChangelog[]> {
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	const results = await (db as any)
+	const results = await db
 		.selectDistinct({ changelogs: schema.changelogs })
 		.from(schema.changelogs)
 		.innerJoin(
@@ -285,7 +238,7 @@ export async function getChangelogsByHeroId(
 		.limit(limit)
 		.all();
 
-	return results.map((r: { changelogs: ScrapedChangelog }) => r.changelogs);
+	return results.map((r) => r.changelogs);
 }
 
 export async function getChangelogsByItemId(
@@ -293,8 +246,7 @@ export async function getChangelogsByItemId(
 	itemId: number,
 	limit = 50
 ): Promise<ScrapedChangelog[]> {
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	const results = await (db as any)
+	const results = await db
 		.selectDistinct({ changelogs: schema.changelogs })
 		.from(schema.changelogs)
 		.innerJoin(
@@ -306,7 +258,7 @@ export async function getChangelogsByItemId(
 		.limit(limit)
 		.all();
 
-	return results.map((r: { changelogs: ScrapedChangelog }) => r.changelogs);
+	return results.map((r) => r.changelogs);
 }
 
 interface ChangelogIcons {
@@ -322,24 +274,14 @@ export async function getChangelogIcons(
 		.select()
 		.from(schema.changelogHeroes)
 		.innerJoin(schema.heroes, eq(schema.changelogHeroes.heroId, schema.heroes.id))
-		.where(
-			sql`${schema.changelogHeroes.changelogId} IN (${sql.join(
-				changelogIds.map((id) => sql`${id}`),
-				sql`, `
-			)})`
-		)
+		.where(inArray(schema.changelogHeroes.changelogId, changelogIds))
 		.all();
 
 	const itemRows = await db
 		.select()
 		.from(schema.changelogItems)
 		.innerJoin(schema.items, eq(schema.changelogItems.itemId, schema.items.id))
-		.where(
-			sql`${schema.changelogItems.changelogId} IN (${sql.join(
-				changelogIds.map((id) => sql`${id}`),
-				sql`, `
-			)})`
-		)
+		.where(inArray(schema.changelogItems.changelogId, changelogIds))
 		.all();
 
 	const result: Record<string, ChangelogIcons> = {};

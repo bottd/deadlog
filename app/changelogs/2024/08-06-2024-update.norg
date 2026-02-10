@@ -18,7 +18,19 @@ status: draft
 
 * Hero Changes
 
-** Viscous
+@inline svelte
+<script>
+  import SectionPreview from '$lib/components/changelog/SectionPreview.svelte';
+</script>
+<SectionPreview type="hero" names={["Viscous"]} />
+@end
+
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Viscous" type="hero" />
+@end
 
 - Added a directional arrow particle effect to Goo Ball for Viscous
 - Added additional particles while using Goo Ball
@@ -26,7 +38,24 @@ status: draft
 - Fixed Puddle Punch having 2x the range of the tooltip.
 - Fixed Puddle Punch being able to target behind puddle
 - Fixed Puddle Punch using Guardians as a surface to punch from
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Puddle Punch Range" />
+@end
+
 - Puddle Punch Range reduced from 70m to 60m
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Splatter" />
+@end
+
 - Splatter now deals less damage if it hits the same target multiple times. 66% damage for the second hit, 33% damage for the third hit.
+
 - Splatter Cooldown from 18s to 20s
 - Splatter Base Damage from 120 to 110

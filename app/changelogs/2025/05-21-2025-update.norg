@@ -28,7 +28,19 @@ status: draft
 
 * Item Changes
 
-** Decay
+@inline svelte
+<script>
+  import SectionPreview from '$lib/components/changelog/SectionPreview.svelte';
+</script>
+<SectionPreview type="item" names={["Decay", "Express Shot", "Frenzy", "Headhunter", "Headshot Booster", "Siphon Bullets", "Spirit Rend", "Superior Cooldown"]} />
+@end
+
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Decay" type="item" />
+@end
 
 - Cast range spirit scaling reduced from 0.13 to 0.1
 - Damage reduced from 2.5% to 2.4%
@@ -36,36 +48,71 @@ status: draft
 - Cooldown increased from 30s to 36s
 - Healing Reduction increased from -35% to -40%
 
-** Express Shot
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Express Shot" type="item" />
+@end
 
 - Weapon Damage increased from 125% to 150%
 - Now does reduced damage for non-primary gun damage (alt fires, carbine), 150% to 75%
 
-** Frenzy
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Frenzy" type="item" />
+@end
 
 - Active Spirit Resistance reduced from 40% to 30%
 
-** Headhunter
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Headhunter" type="item" />
+@end
 
 - Heal reduced from 6% to 4%
 - Heal now scales with spirit power (0.014)
 - Bonus damage reduced from 120 to 100
 - Bonus damage now scales with spirit power (0.3)
 
-** Headshot Booster
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Headshot Booster" type="item" />
+@end
 
 - Health reduced from 65 to 40
 
-** Siphon Bullets
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Siphon Bullets" type="item" />
+@end
 
 - Steal per hit reduced from 65 to 55
 - Spirit Resistance reduced from 12% to 10%
 - Fixed the cooldown not being consumed when blocked by Plated Armor
 
-** Spirit Rend
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Spirit Rend" type="item" />
+@end
 
 - Fixed being able to get 2 stacks without using the cooldown
 
-** Superior Cooldown
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Superior Cooldown" type="item" />
+@end
 
 - Cooldown Reduction reduced from 27% to 26%

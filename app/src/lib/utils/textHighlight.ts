@@ -1,9 +1,3 @@
-/**
- * Highlights matching text with HTML mark tags
- * @param text - The text to search in
- * @param searchQuery - The query to highlight
- * @returns HTML string with highlighted matches
- */
 const HIGHLIGHT_CLASS = 'bg-primary/30 text-foreground rounded px-0.5' as const;
 const REGEX_SPECIAL_CHARS = /[.*+?^${}()|[\]\\]/g;
 

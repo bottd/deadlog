@@ -53,95 +53,255 @@ status: draft
 
 * Hero Changes
 
-** Billy
+@inline svelte
+<script>
+  import SectionPreview from '$lib/components/changelog/SectionPreview.svelte';
+</script>
+<SectionPreview type="hero" names={["Billy", "Dynamo", "Lady Geist", "Mirage", "Shiv", "Vindicta", "Wraith"]} />
+@end
+
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Billy" type="hero" />
+@end
 
 - Health regen reduced from 3 to 2.5
 - Blasted non-player effectiveness reduced from 35% to 25%
 - Blasted light melee effectiveness reduced from 50% to 40%
 - Chain Gang will now break slightly faster when target is out of LOS
 
-** Dynamo
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Dynamo" type="hero" />
+@end
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Kinetic Pulse" />
+@end
 
 - Kinetic Pulse spirit scaling range reduced from 0.2 to 0.1
+
 - Health regen reduced from 2.5 to 1.75
 
-** Lady Geist
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Lady Geist" type="hero" />
+@end
 
 - Stamina dash distance moved to bucket 3 (slower)
 - Essence Bomb self damage spirit scaling reduced from 1.6 to 1.8
 - Malice self damage increased from 7% to 9%
 
-** Mirage
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Mirage" type="hero" />
+@end
 
 - Move speed reduced by 0.2
 - Bullet damage per boon reduced from 0.616 to 0.5
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Djinn's Mark" />
+@end
+
 - Djinn's Mark cooldown increased from 2.5s to 2.6s
 - Djinn's Mark max range from 45m to 40m
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Traveler" />
+@end
+
 - Traveler cooldown increased from 145s to 155s
 - Traveler T1 cooldown from -25s to -35s
 
-** Shiv
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Shiv" type="hero" />
+@end
 
 - Bloodletting deferred damage reduced from 30% to 25%
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Bloodletting" />
+@end
+
 - Bloodletting T2 deferred damage increased from 10% to 15%
+
 - Rage buildup rate reduced by 6%
 - Killing Blow cast range reduced from 15m to 13m
 
-** Vindicta
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Vindicta" type="hero" />
+@end
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Assassinate" />
+@end
 
 - Assassinate T2 reduced from +90 Max Bonus Damage to 80
 
-** Wraith
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Wraith" type="hero" />
+@end
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Sprint" />
+@end
 
 - Sprint speed spirit power scaling reduced from 0.6 to 0.5
+
 - Bullet damage per boon reduced from 0.17 to 0.14
+
+@inline svelte
+<script>
+  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';
+</script>
+<AbilityHeading name="Project Mind" />
+@end
+
 - Project Mind T2 spirit scaling reduced from 2.44 to 1.7
 
 * Item Changes
 
-** Active Reload
+@inline svelte
+<script>
+  import SectionPreview from '$lib/components/changelog/SectionPreview.svelte';
+</script>
+<SectionPreview type="item" names={["Active Reload", "Colossus", "Crippling Headshot", "Cultist Sacrifice", "Fleetfoot", "Focus Lens", "Majestic Leap", "Siphon Bullets", "Spirit Snatch", "Sprint Boots", "Tankbuster"]} />
+@end
+
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Active Reload" type="item" />
+@end
 
 - Move speed reduced from 1 to 0.75​- Backstabber: Move speed reduced from 1.75 to 1.5​- Fleetfoot: Move speed reduced from 3.5 to 3.25​- Enduring Speed: Move speed reduced from 2.25 to 2.0​- Guardian Ward: Move speed reduced from 3 to 2.75​- Spirit Shielding: Move speed reduced from 1.75 to 1.5​- Weapon Shielding: Move speed reduced from 1.75 to 1.5​- Blood Tribute: Move speed reduced from 2.25 to 2​- Burst Fire: Move speed reduced from 1.5 to 1.25​- Headhunter: Move speed reduced from 2 to 1.75​- Heroic Aura: Move speed reduced from 2.5 to 2.25​- Counterspell: Move speed reduced from 2 to 1.75​- Debuff Remover: Move speed reduced from 2.5 to 2.25​- Fortitude: Move speed reduced from 1.5 to 1.25​- Veil Walker: Invis move speed reduced from 4 to 3.5​- Radiant Regeneration: Move speed reduced from 2 to 1.75​- Surge of Power: Move speed reduced from 2 to 1.75​- Frenzy: Move speed reduced from 1 to 0.75​- Frenzy: Active move speed reduced from 3 to 2.5​- Divine Barrier: Move speed reduced from 3 to 2.75​- Healing Tempo: Move speed reduced from 1.5 to 1.25​- Juggernaut: Move speed reduced from 2.25 to 2​- Ethereal Shift: Move speed reduced from 3 to 2.5​- Sprint ramp rate reduced from 0.75/sec to 0.6/sec
 
-** Colossus
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Colossus" type="item" />
+@end
 
 - Bonus Health reduced from +600 to +300
 - Now grants +15% Base Health
 
-** Crippling Headshot
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Crippling Headshot" type="item" />
+@end
 
 - Bullet and Spirit Resist reduction from -18% to -16%
 
-** Cultist Sacrifice
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Cultist Sacrifice" type="item" />
+@end
 
 - Cooldown increased from 260s to 270s
 
-** Fleetfoot
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Fleetfoot" type="item" />
+@end
 
 - Active slow resist reduced from 40% to 35%
 
-** Focus Lens
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Focus Lens" type="item" />
+@end
 
 - Spirit Resist reduction reduced from -12% to -9% (affects Spirit Sap)
 
-** Majestic Leap
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Majestic Leap" type="item" />
+@end
 
 - Cooldown increased from 34s to 45s
 - Barrier scaling per boon reduced from 10 to 8
 
-** Siphon Bullets
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Siphon Bullets" type="item" />
+@end
 
 - Cooldown increased from 0.8s to 1.2s
 
-** Spirit Snatch
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Spirit Snatch" type="item" />
+@end
 
 - Spirit Resist steal reduced from 15% to 12%
 
-** Sprint Boots
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Sprint Boots" type="item" />
+@end
 
 - Sprint reduced from 2.2 to 2.0​- Long Range: Sprint reduced from 1 to 0.75​- Swift Striker: Sprint reduced from 1 to 0.75​- Mystic Slow: Sprint reduced from 1 to 0.75​- Heroic Aura: Sprint reduced from 2 to 1.5​- Hunter's Aura: Sprint reduced from 1 to 0.75​- Sharpshooter: Sprint reduced from 1.5 to 1​- Rescue Beam: Sprint reduced from 1 to 0.75​- Trophy Collector: Sprint reduced from 2.2 to 2.0​- Disarming Hex: Sprint reduced from 1 to 0.75​- Shadow Weave: Sprint reduced from 2 to 1.5​- Lightning Scroll: Sprint reduced from 1 to 0.75​- Vortex Web: Sprint reduced from 1 to 0.75​- Enduring Speed: Slow resist reduced from 30% to 25%
 
-** Tankbuster
+@inline svelte
+<script>
+  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';
+</script>
+<EntityHeading name="Tankbuster" type="item" />
+@end
 
 - Changed from doing % of Max Health to a % of Current Health
 - Damage dealt increased from 5% to 7.5%

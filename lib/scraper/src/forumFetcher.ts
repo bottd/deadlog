@@ -1,7 +1,3 @@
-/**
- * Forum scraper using fetch + happy-dom
- */
-
 import { mkdir, writeFile, readFile } from 'fs/promises';
 import { existsSync } from 'fs';
 import path from 'path';
@@ -95,20 +91,12 @@ function parseDocument(html: string, url: string): Document {
 	return window.document as unknown as Document;
 }
 
-/**
- * Attributes to preserve per tag when cleaning cached HTML.
- * Everything else is stripped to reduce cache size.
- */
 const KEEP_ATTRS: Record<string, string[]> = {
 	a: ['href'],
 	img: ['src', 'alt'],
 	div: ['class']
 };
 
-/**
- * Strip unnecessary HTML attributes from cached content using happy-dom.
- * Only class (on divs), href (on links), src/alt (on images) are kept.
- */
 function cleanHtml(html: string): string {
 	const window = new Window();
 	window.document.write(`<body>${html}</body>`);
@@ -229,9 +217,6 @@ function extractThreadList(document: Document): {
 	return { posts, hasNextPage };
 }
 
-/**
- * Scrapes the changelog forum to get all posts
- */
 export async function scrapeChangelogPage(
 	options: ScraperOptions = {}
 ): Promise<ChangelogPost[]> {
@@ -299,9 +284,6 @@ async function writeToCache(
 	}
 }
 
-/**
- * Scrapes multiple changelog posts with caching and concurrency
- */
 export async function scrapeMultipleChangelogPosts(
 	posts: ChangelogPost[],
 	options: ScraperOptions & { concurrency?: number; delayMs?: number } = {}
