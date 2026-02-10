@@ -48,38 +48,26 @@ function escapeInlineAttr(value: string): string {
 
 function entityHeadingBlock(name: string, type: 'hero' | 'item'): string {
 	const escaped = escapeInlineAttr(name);
-	return [
-		'@inline svelte',
-		'<script>',
-		"  import EntityHeading from '$lib/components/changelog/EntityHeading.svelte';",
-		'</script>',
-		`<EntityHeading name="${escaped}" type="${type}" />`,
-		'@end'
-	].join('\n');
+	return `\
+@inline
+<EntityHeading name="${escaped}" type="${type}" />
+@end`;
 }
 
 function sectionPreviewBlock(type: 'hero' | 'item', names: string[]): string {
 	const escaped = names.map((n) => `"${escapeInlineAttr(n)}"`).join(', ');
-	return [
-		'@inline svelte',
-		'<script>',
-		"  import SectionPreview from '$lib/components/changelog/SectionPreview.svelte';",
-		'</script>',
-		`<SectionPreview type="${type}" names={[${escaped}]} />`,
-		'@end'
-	].join('\n');
+	return `\
+@inline
+<SectionPreview type="${type}" names={[${escaped}]} />
+@end`;
 }
 
 function abilityHeadingBlock(name: string): string {
 	const escaped = escapeInlineAttr(name);
-	return [
-		'@inline svelte',
-		'<script>',
-		"  import AbilityHeading from '$lib/components/changelog/AbilityHeading.svelte';",
-		'</script>',
-		`<AbilityHeading name="${escaped}" />`,
-		'@end'
-	].join('\n');
+	return `\
+@inline
+<AbilityHeading name="${escaped}" />
+@end`;
 }
 
 const STAT_PREFIX_BLOCKLIST = new Set([
@@ -374,30 +362,24 @@ function parseAndGroupContent(rawContent: string, entities: EntityLists): Groupe
 }
 
 function generateStructuredContent(grouped: GroupedContent): string {
-	const sections: string[] = [];
+	const out: string[] = [];
 
 	if (grouped.general.length > 0) {
-		sections.push('* General Changes');
-		sections.push('');
+		out.push('* General Changes', '');
 		for (const note of grouped.general) {
-			if (note.startsWith('@image ')) {
-				sections.push(note);
-			} else {
-				sections.push(`- ${note}`);
-			}
+			out.push(note.startsWith('@image ') ? note : `- ${note}`);
 		}
 	}
 
 	if (grouped.heroes.size > 0) {
-		sections.push('');
-		sections.push('* Hero Changes');
-
 		const sortedHeroes = [...grouped.heroes.entries()].sort((a, b) =>
 			a[0].localeCompare(b[0])
 		);
 
-		sections.push('');
-		sections.push(
+		out.push(
+			'',
+			'* Hero Changes',
+			'',
 			sectionPreviewBlock(
 				'hero',
 				sortedHeroes.map(([name]) => name)
@@ -405,39 +387,33 @@ function generateStructuredContent(grouped: GroupedContent): string {
 		);
 
 		for (const [heroName, notes] of sortedHeroes) {
-			sections.push('');
-			sections.push(entityHeadingBlock(heroName, 'hero'));
-			sections.push('');
+			out.push('', entityHeadingBlock(heroName, 'hero'), '');
 
 			const abilityGroups = groupNotesByAbility(notes);
-
 			for (let gi = 0; gi < abilityGroups.length; gi++) {
 				const group = abilityGroups[gi];
 				if (group.abilityName) {
-					sections.push(abilityHeadingBlock(group.abilityName));
-					sections.push('');
+					out.push(abilityHeadingBlock(group.abilityName), '');
 				}
 				for (const note of group.notes) {
-					sections.push(`- ${note}`);
+					out.push(`- ${note}`);
 				}
-				// Only add blank line between ability groups, not after the last one
 				if (gi < abilityGroups.length - 1) {
-					sections.push('');
+					out.push('');
 				}
 			}
 		}
 	}
 
 	if (grouped.items.size > 0) {
-		sections.push('');
-		sections.push('* Item Changes');
-
 		const sortedItems = [...grouped.items.entries()].sort((a, b) =>
 			a[0].localeCompare(b[0])
 		);
 
-		sections.push('');
-		sections.push(
+		out.push(
+			'',
+			'* Item Changes',
+			'',
 			sectionPreviewBlock(
 				'item',
 				sortedItems.map(([name]) => name)
@@ -445,16 +421,14 @@ function generateStructuredContent(grouped: GroupedContent): string {
 		);
 
 		for (const [itemName, notes] of sortedItems) {
-			sections.push('');
-			sections.push(entityHeadingBlock(itemName, 'item'));
-			sections.push('');
+			out.push('', entityHeadingBlock(itemName, 'item'), '');
 			for (const note of notes) {
-				sections.push(`- ${note}`);
+				out.push(`- ${note}`);
 			}
 		}
 	}
 
-	return sections.join('\n');
+	return out.join('\n');
 }
 
 function generateChangelog(
@@ -470,7 +444,7 @@ function generateChangelog(
 	const grouped = parseAndGroupContent(rawContent, entities);
 	const structuredContent = generateStructuredContent(grouped);
 
-	const lines = [
+	const out: string[] = [
 		'@document.meta',
 		`title: ${escapeMetaValue(content.title)}`,
 		`thread_id: ${threadId}`,
@@ -479,17 +453,17 @@ function generateChangelog(
 	];
 
 	if (content.authorImage) {
-		lines.push(`author_image: ${content.authorImage}`);
+		out.push(`author_image: ${content.authorImage}`);
 	}
 
-	lines.push(
+	out.push(
 		'category: patch',
 		'major_update: false',
 		'status: draft',
 		'@end',
 		'',
 		structuredContent ||
-			'* Changelog\n\nNo structured changes were parsed for this update.'
+			`* Changelog\n\nNo structured changes were parsed for this update.`
 	);
 
 	if (content.posterReplies?.length) {
@@ -499,19 +473,19 @@ function generateChangelog(
 			const replyGrouped = parseAndGroupContent(replyRaw, entities);
 			const replyStructured = generateStructuredContent(replyGrouped);
 
-			lines.push(
+			out.push(
 				'',
-				'@comment',
-				`Poster reply ${i + 1} (${reply.timestamp})`,
-				`Consider creating a separate file: ${slug}-reply-${i + 1}.norg with parent_id in metadata`,
-				'@end',
+				`@comment
+Poster reply ${i + 1} (${reply.timestamp})
+Consider creating a separate file: ${slug}-reply-${i + 1}.norg with parent_id in metadata
+@end`,
 				'',
 				replyStructured
 			);
 		}
 	}
 
-	return lines.join('\n');
+	return out.join('\n');
 }
 
 export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<void> {
