@@ -13,8 +13,16 @@
 	import { toast } from 'svelte-sonner';
 	import { MetaTags } from 'svelte-meta-tags';
 
-	const { changelog, heroMap, itemMap, title, description, image, NorgComponent } =
-		page.data;
+	const {
+		changelog,
+		heroMap,
+		itemMap,
+		abilityMap,
+		title,
+		description,
+		image,
+		NorgComponent
+	} = page.data;
 
 	let tocOpen = $state(false);
 
@@ -163,7 +171,7 @@
 				</header>
 
 				{#if NorgComponent}
-					<NorgContent content={NorgComponent} {heroMap} {itemMap} />
+					<NorgContent content={NorgComponent} {heroMap} {itemMap} {abilityMap} />
 				{/if}
 			</div>
 		</article>

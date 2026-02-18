@@ -37,8 +37,17 @@ export const load: PageServerLoad = async ({ params, locals, parent }) => {
 	}
 
 	const itemMap: Record<number, { name: string; image: string }> = {};
+	const abilityMap: Record<string, { name: string; image: string; heroName: string }> =
+		{};
 	for (const item of items) {
 		itemMap[item.id] = { name: item.name, image: item.image };
+		if (item.type === 'ability') {
+			abilityMap[item.name.toLowerCase()] = {
+				name: item.name,
+				image: item.image,
+				heroName: ''
+			};
+		}
 	}
 
 	return {
@@ -49,6 +58,7 @@ export const load: PageServerLoad = async ({ params, locals, parent }) => {
 		},
 		heroMap,
 		itemMap,
+		abilityMap,
 		title: `${formatDate(date)} Update - Deadlog`,
 		description: `View the ${formatDate(date)} Deadlock changelog`,
 		image: `https://deadlog.io/assets/meta/change/${params.id}.png`

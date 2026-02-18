@@ -52,15 +52,6 @@
 					</span>
 				</div>
 			</a>
-
-			<!-- Status indicator -->
-			<div class="hidden items-center gap-2 lg:flex">
-				<div
-					class="bg-primary/80 size-1.5 animate-pulse rounded-full"
-					aria-hidden="true"
-				></div>
-				<span class="text-muted-foreground font-mono text-xs tracking-wide">LIVE</span>
-			</div>
 		</div>
 		<div class="flex flex-col gap-2">
 			<label

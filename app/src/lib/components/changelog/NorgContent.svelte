@@ -23,21 +23,6 @@
 					.replace(/^-+|-+$/g, '');
 			}
 		}
-
-		for (const li of node.querySelectorAll('li')) {
-			if (li.querySelector('.scale-value')) continue;
-
-			const html = li.innerHTML;
-			const enhanced = html.replace(
-				/\b((?:from\s+)?[+-]?[\d,.]+[%smx]?)\s+(to)\s+([+-]?[\d,.]+[%smx]?)\b/gi,
-				(_match, fromVal, _to, toVal) => {
-					return `<span class="scale-value scale-from">${fromVal}</span> <span class="scale-arrow">→</span> <span class="scale-value scale-to">${toVal}</span>`;
-				}
-			);
-			if (enhanced !== html) {
-				li.innerHTML = enhanced;
-			}
-		}
 	}
 </script>
 
@@ -175,23 +160,6 @@
 
 		:global(th) {
 			@apply bg-muted/50 font-semibold;
-		}
-
-		/* Scale highlighting for numeric changes */
-		:global(.scale-value) {
-			@apply rounded px-1 py-0.5 font-mono text-[0.85em] font-semibold;
-		}
-
-		:global(.scale-from) {
-			@apply bg-muted/60 text-muted-foreground decoration-muted-foreground/30 line-through;
-		}
-
-		:global(.scale-to) {
-			@apply bg-primary/12 text-primary;
-		}
-
-		:global(.scale-arrow) {
-			@apply text-muted-foreground/50 text-[0.75em];
 		}
 	}
 </style>
