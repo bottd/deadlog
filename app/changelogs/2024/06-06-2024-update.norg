@@ -106,17 +106,17 @@ status: draft
 
 * Hero Changes
 
-@inline
+@inline svelte
 <SectionPreview type="hero" names={["Abrams", "Bebop", "Dynamo", "Haze", "Infernus", "Ivy", "Kelvin", "McGinnis", "Pocket", "Seven", "Vindicta", "Warden"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Abrams" type="hero" />
 @end
 
 - Base HP growth reduced from 36 to 32
 
-@inline
+@inline svelte
 <AbilityHeading name="Infernal Resilience" />
 @end
 
@@ -124,23 +124,23 @@ status: draft
 
 - Seismic Impact personal brief busy state upon landing increased from 0.2s to 0.3s
 
-@inline
+@inline svelte
 <EntityHeading name="Bebop" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Hyper Beam" />
 @end
 
 - Hyper Beam slow now affects stamina dashes
 
-@inline
+@inline svelte
 <EntityHeading name="Dynamo" type="hero" />
 @end
 
 - Base HP growth reduced from 48 to 44
 
-@inline
+@inline svelte
 <AbilityHeading name="Quantum Entanglement" />
 @end
 
@@ -148,11 +148,11 @@ status: draft
 
 - Singularity base radius increased from 8m to 10m
 
-@inline
+@inline svelte
 <EntityHeading name="Haze" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Sleep Dagger" />
 @end
 
@@ -163,34 +163,34 @@ status: draft
 - Bullet Dance T2 changed to -40s Cooldown
 - Bullet Dance T3 changed to +1 Targets Hit Per Shot
 
-@inline
+@inline svelte
 <EntityHeading name="Infernus" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Flame Dash" />
 @end
 
 - Flame Dash cooldown increased from 30s to 38s
 
-@inline
+@inline svelte
 <EntityHeading name="Ivy" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Watcher's Covenant" />
 @end
 
 - Watcher's Covenant heal sharing reduced from 65% to 55%
 
-@inline
+@inline svelte
 <EntityHeading name="Kelvin" type="hero" />
 @end
 
 - Ice Path sprint speed increased from +1 to +2
 - Ice Path trail duration increased from 12s to 15s
 
-@inline
+@inline svelte
 <AbilityHeading name="Frozen Shelter" />
 @end
 
@@ -199,17 +199,17 @@ status: draft
 
 - Frozen Shelter can now be dismissed early
 
-@inline
+@inline svelte
 <EntityHeading name="McGinnis" type="hero" />
 @end
 
 - Spectral Wall can now be dismissed early
 
-@inline
+@inline svelte
 <EntityHeading name="Pocket" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Barrage" />
 @end
 
@@ -218,21 +218,21 @@ status: draft
 
 - Enchanted Satchel cast time reduced from 0.25s to 0.15s
 
-@inline
+@inline svelte
 <EntityHeading name="Seven" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Storm Cloud" />
 @end
 
 - Storm Cloud T1 increased from +30% to +35% Bullet Resist
 
-@inline
+@inline svelte
 <EntityHeading name="Vindicta" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Flight" />
 @end
 
@@ -242,13 +242,13 @@ status: draft
 - Flight T2 changed from +12 Spirit Damage to -15s Cooldown
 - Flight T3 changed from +3 m/s Bonus Air Speed to +12 Spirit Damage
 
-@inline
+@inline svelte
 <AbilityHeading name="Can" />
 @end
 
 - Can no longer melee while flying for extra movement
 
-@inline
+@inline svelte
 <AbilityHeading name="Assassinate" />
 @end
 
@@ -256,19 +256,19 @@ status: draft
 
 - Fixed being unable to move while scoped in with Assassinate
 
-@inline
+@inline svelte
 <EntityHeading name="Warden" type="hero" />
 @end
 
 - Base ammo increased from 14 to 16
 
-@inline
+@inline svelte
 <AbilityHeading name="Alchemical Flask" />
 @end
 
 - Alchemical Flask T3 increased from +25% Fire Rate Slow to +35%
 
-@inline
+@inline svelte
 <AbilityHeading name="Willpower" />
 @end
 
@@ -276,97 +276,97 @@ status: draft
 
 * Item Changes
 
-@inline
+@inline svelte
 <SectionPreview type="item" names={["Boundless Spirit", "Cold Front", "Enduring Spirit", "Extra Regen", "Intensifying Magazine", "Knockdown", "Leech", "Majestic Leap", "Mystic Reverb", "Reactive Barrier", "Refresher", "Sharpshooter", "Spirit Lifesteal", "Spiritual Overflow", "Torment Pulse"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Boundless Spirit" type="item" />
 @end
 
 - Spirit increased from 45 to 50
 
-@inline
+@inline svelte
 <EntityHeading name="Cold Front" type="item" />
 @end
 
 - cooldown reduced from 40s to 32s
 
-@inline
+@inline svelte
 <EntityHeading name="Enduring Spirit" type="item" />
 @end
 
 - Spirit Lifesteal reduced from +10% to +8%
 
-@inline
+@inline svelte
 <EntityHeading name="Extra Regen" type="item" />
 @end
 
 - Regen increased from 1.75 to 2
 
-@inline
+@inline svelte
 <EntityHeading name="Intensifying Magazine" type="item" />
 @end
 
 - Time for Max Damage reduced from 4s to 3.5s
 
-@inline
+@inline svelte
 <EntityHeading name="Knockdown" type="item" />
 @end
 
 - No longer provides +2 Sprint
 - Now provides +1 Stamina
 
-@inline
+@inline svelte
 <EntityHeading name="Leech" type="item" />
 @end
 
 - Spirit Lifesteal reduced from +35% to +33%
 
-@inline
+@inline svelte
 <EntityHeading name="Majestic Leap" type="item" />
 @end
 
 - Velocity increased from 22.5 to 27
 
-@inline
+@inline svelte
 <EntityHeading name="Mystic Reverb" type="item" />
 @end
 
 - Fixed the damage being reduced by armor twice
 - Damage reduced from 35% to 30%
 
-@inline
+@inline svelte
 <EntityHeading name="Reactive Barrier" type="item" />
 @end
 
 - Cooldown reduced from 35s to 25s
 
-@inline
+@inline svelte
 <EntityHeading name="Refresher" type="item" />
 @end
 
 - No longer has cast time (was 1s)
 
-@inline
+@inline svelte
 <EntityHeading name="Sharpshooter" type="item" />
 @end
 
 - Damage falloff bonus reduced from 20% to 15%
 
-@inline
+@inline svelte
 <EntityHeading name="Spirit Lifesteal" type="item" />
 @end
 
 - Reduced from +25% to +23%
 
-@inline
+@inline svelte
 <EntityHeading name="Spiritual Overflow" type="item" />
 @end
 
 - Spirit duration increased from 14s to 18s
 
-@inline
+@inline svelte
 <EntityHeading name="Torment Pulse" type="item" />
 @end
 

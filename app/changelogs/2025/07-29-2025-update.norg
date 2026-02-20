@@ -51,68 +51,68 @@ status: draft
 
 * Hero Changes
 
-@inline
+@inline svelte
 <SectionPreview type="hero" names={["Bebop", "Dynamo", "Grey Talon", "Kelvin", "Lady Geist", "McGinnis", "Mirage", "Paradox", "Pocket", "Seven", "Shiv", "Vindicta", "Viscous", "Warden", "Wraith", "Yamato"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Bebop" type="hero" />
 @end
 
 - No longer has +10% Base Bullet Resistance
 - Now has +0.3% Bullet Resistance per Boon
 
-@inline
+@inline svelte
 <AbilityHeading name="Exploding Uppercut" />
 @end
 
 - Exploding Uppercut T2 reduced from +50% Weapon Damage to +40%
 - Exploding Uppercut T2 duration reduced from 12s to 9s
 
-@inline
+@inline svelte
 <AbilityHeading name="Grapple Arm" />
 @end
 
 - Grapple Arm T1 reduced from +25% Weapon Damage to +20%
 - Grapple Arm T1 duration reduced from 10s to 6s
 
-@inline
+@inline svelte
 <EntityHeading name="Dynamo" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Kinetic Pulse" />
 @end
 
 - Kinetic Pulse damage height increased from 0.5m to 0.7m
 
-@inline
+@inline svelte
 <EntityHeading name="Grey Talon" type="hero" />
 @end
 
 - Spirit Snare Curse duration increased from 1.75s to 2s
 
-@inline
+@inline svelte
 <AbilityHeading name="Guided Owl" />
 @end
 
 - Guided Owl cooldown reduced from 135s to 120s
 
-@inline
+@inline svelte
 <EntityHeading name="Kelvin" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Arctic Beam" />
 @end
 
 - Arctic Beam T3 no longer bounces off of objectives
 
-@inline
+@inline svelte
 <EntityHeading name="Lady Geist" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Essence Bomb" />
 @end
 
@@ -122,14 +122,14 @@ status: draft
 - Essence Bomb T1 changed from "+2m Radius" to "-4s Cooldown"
 - Essence Bomb projectile speed increased by 25%
 
-@inline
+@inline svelte
 <EntityHeading name="McGinnis" type="hero" />
 @end
 
 - Health per boon reduced from 56 to 52
 - Spectral Wall fixed a bug where aiming at long stairs would sometimes cause the preview to go through it
 
-@inline
+@inline svelte
 <AbilityHeading name="Spectral Wall" />
 @end
 
@@ -138,72 +138,72 @@ status: draft
 
 - Spectral Wall will now erupt where the preview Particle is displaying when manually triggering the Eruption
 
-@inline
+@inline svelte
 <AbilityHeading name="Turrets" />
 @end
 
 - Turrets health per boon reduced from 12 to 10
 
-@inline
+@inline svelte
 <EntityHeading name="Mirage" type="hero" />
 @end
 
 - Base bullet damage reduced by 10%
 
-@inline
+@inline svelte
 <EntityHeading name="Paradox" type="hero" />
 @end
 
 - Bullet damage scaling increased by 10%
 
-@inline
+@inline svelte
 <EntityHeading name="Pocket" type="hero" />
 @end
 
 - Affliction initial Current HP % damage increased from 10% to 12%
 
-@inline
+@inline svelte
 <EntityHeading name="Seven" type="hero" />
 @end
 
 - Base movement speed reduced from 7.1 to 6.9
 - Move Speed spirit scaling reduced from 0.023 to 0.02
 
-@inline
+@inline svelte
 <AbilityHeading name="Power Surge" />
 @end
 
 - Power Surge T1 and T2 swapped
 
-@inline
+@inline svelte
 <AbilityHeading name="Storm Cloud" />
 @end
 
 - Storm Cloud cooldown increased from 170s to 180s
 
-@inline
+@inline svelte
 <AbilityHeading name="Storm Cloud Spirit Power" />
 @end
 
 - Storm Cloud Spirit Power scaling reduced from 0.7 to 0.65
 
-@inline
+@inline svelte
 <AbilityHeading name="Storm Cloud DPS" />
 @end
 
 - Storm Cloud DPS reduced from 95 to 90
 
-@inline
+@inline svelte
 <AbilityHeading name="Storm Cloud" />
 @end
 
 - Storm Cloud T3 reduced from +65 to +60
 
-@inline
+@inline svelte
 <EntityHeading name="Shiv" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Rage" />
 @end
 
@@ -212,7 +212,7 @@ status: draft
 - Rage buildup for all damage types increased by 20% (easier to build up)
 - Rage decay duration increased from 9s to 12s
 
-@inline
+@inline svelte
 <AbilityHeading name="Bloodletting" />
 @end
 
@@ -222,34 +222,34 @@ status: draft
 - Bloodletting T1 and T2 swapped
 - Bloodletting T3 increased from +20% to +35%
 
-@inline
+@inline svelte
 <EntityHeading name="Vindicta" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Crow" />
 @end
 
 - Crow T1 bounce no longer bounces off of objectives
 
-@inline
+@inline svelte
 <AbilityHeading name="Stake" />
 @end
 
 - Stake T3 reduced from +2m to +1m
 
-@inline
+@inline svelte
 <EntityHeading name="Viscous" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Puddle Punch" />
 @end
 
 - Puddle Punch cooldown reduced from 30s to 24s
 - Puddle Punch T3 increased from -11.5s Cooldown to -12s
 
-@inline
+@inline svelte
 <EntityHeading name="Warden" type="hero" />
 @end
 
@@ -257,20 +257,20 @@ status: draft
 - Bullet damage growth increased from 0.38 to 0.44
 - DPS reduced from 74 to 70
 
-@inline
+@inline svelte
 <AbilityHeading name="Last Stand" />
 @end
 
 - Last Stand lifesteal vs non-heroes reduced from 15% to 10%
 
-@inline
+@inline svelte
 <EntityHeading name="Wraith" type="hero" />
 @end
 
 - Bullet damage increased from 4.95 to 5.115
 - Bullet damage growth reduced from 0.18 to 0.175 (same overall peak damage)
 
-@inline
+@inline svelte
 <EntityHeading name="Yamato" type="hero" />
 @end
 
@@ -279,23 +279,23 @@ status: draft
 
 * Item Changes
 
-@inline
+@inline svelte
 <SectionPreview type="item" names={["Armor Piercing Rounds", "Berserker", "Blood Tribute", "Bullet Resist Shredder", "Capacitor", "Cheat Death", "Cold Front", "Crushing Fists", "Decay", "Disarming Hex", "Divine Barrier", "Express Shot", "Fleetfoot", "Guardian Ward", "Hunter's Aura", "Melee Charge", "Metal Skin", "Restorative Shot", "Return Fire", "Rusted Barrel", "Scourge", "Shadow Weave", "Slowing Bullets", "Slowing Hex", "Spellslinger", "Spirit Rend", "Spirit Resilience", "Spirit Sap", "Spirit Shielding", "Spirit Shredder Bullets", "Suppressor", "Surge of Power", "Swift Striker", "Tankbuster", "Toxic Bullets", "Trophy Collector", "Veil Walker", "Vortex Web", "Weapon Shielding", "Weighted Shots"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Armor Piercing Rounds" type="item" />
 @end
 
 - Chance reduced from 60% to 50%
 
-@inline
+@inline svelte
 <EntityHeading name="Berserker" type="item" />
 @end
 
 - Bullet Resistance reduced from 16% to 8%
 
-@inline
+@inline svelte
 <EntityHeading name="Blood Tribute" type="item" />
 @end
 
@@ -303,99 +303,99 @@ status: draft
 - Now grants +4 Out of Combat Regen
 - Active Move Speed increased from 1.75 to 2
 
-@inline
+@inline svelte
 <EntityHeading name="Bullet Resist Shredder" type="item" />
 @end
 
 - Bullet Resistance Reduction increased from -12% to -13%
 
-@inline
+@inline svelte
 <EntityHeading name="Capacitor" type="item" />
 @end
 
 - Damage increased from 45 to 50
 
-@inline
+@inline svelte
 <EntityHeading name="Cheat Death" type="item" />
 @end
 
 - Effect no longer gets pierced by kill events like Killing Blow or Guided Owl
 
-@inline
+@inline svelte
 <EntityHeading name="Cold Front" type="item" />
 @end
 
 - Spirit Resistance reduced from 10% to 6%
 
-@inline
+@inline svelte
 <EntityHeading name="Crushing Fists" type="item" />
 @end
 
 - Bullet Resistance reduced from 20% to 12%
 - Heavy Melee Distance reduced from +70% to +60%
 
-@inline
+@inline svelte
 <EntityHeading name="Decay" type="item" />
 @end
 
 - Damage increased from 2.4% to 2.6%
 
-@inline
+@inline svelte
 <EntityHeading name="Disarming Hex" type="item" />
 @end
 
 - Cooldown reduced from 25s to 20s
 
-@inline
+@inline svelte
 <EntityHeading name="Divine Barrier" type="item" />
 @end
 
 - Cooldown reduced from 45s to 40s
 
-@inline
+@inline svelte
 <EntityHeading name="Express Shot" type="item" />
 @end
 
 - Primary weapon damage increased from 165% to 185%
 
-@inline
+@inline svelte
 <EntityHeading name="Fleetfoot" type="item" />
 @end
 
 - Bullet Resistance reduced from 10% to 6%
 
-@inline
+@inline svelte
 <EntityHeading name="Guardian Ward" type="item" />
 @end
 
 - Cooldown reduced from 45s to 40s
 
-@inline
+@inline svelte
 <EntityHeading name="Hunter's Aura" type="item" />
 @end
 
 - Now grants +1 Sprint
 
-@inline
+@inline svelte
 <EntityHeading name="Melee Charge" type="item" />
 @end
 
 - Bullet Resistance reduced from 10% to 6%
 
-@inline
+@inline svelte
 <EntityHeading name="Metal Skin" type="item" />
 @end
 
 - Cooldown reduced from 24s to 20s
 
-@inline
+@inline svelte
 <EntityHeading name="Restorative Shot" type="item" />
 @end
 
 - Heal from NPC reduced from 20 to 15
 - Weapon damage reduced from 8% to 6%
 
-@inline
+@inline svelte
 <EntityHeading name="Return Fire" type="item" />
 @end
 
@@ -403,20 +403,20 @@ status: draft
 - Bullet Damage Returned reduced from 60% to 50%
 - Spirit Damage return from 30% to 25%
 
-@inline
+@inline svelte
 <EntityHeading name="Rusted Barrel" type="item" />
 @end
 
 - Now reduces Bullet Resistance by 5%
 - Cooldown reduced from 25s to 20s
 
-@inline
+@inline svelte
 <EntityHeading name="Scourge" type="item" />
 @end
 
 - Projectile speed increased from 800 to 1600
 
-@inline
+@inline svelte
 <EntityHeading name="Shadow Weave" type="item" />
 @end
 
@@ -424,37 +424,37 @@ status: draft
 - Cooldown reduced from 40s to 32s
 - Now grants +25% Melee Damage on Ambush reveal
 
-@inline
+@inline svelte
 <EntityHeading name="Slowing Bullets" type="item" />
 @end
 
 - After buildup is achieved, debuff duration is refreshed rather than starting buildup again
 
-@inline
+@inline svelte
 <EntityHeading name="Slowing Hex" type="item" />
 @end
 
 - Duration increased from 3s to 3.5s
 
-@inline
+@inline svelte
 <EntityHeading name="Spellslinger" type="item" />
 @end
 
 - Buff duration increased from 10s to 14s
 
-@inline
+@inline svelte
 <EntityHeading name="Spirit Rend" type="item" />
 @end
 
 - Spirit Resist Reduction increased from -7% to -8%
 
-@inline
+@inline svelte
 <EntityHeading name="Spirit Resilience" type="item" />
 @end
 
 - Spirit Resistance reduced from 30% to 25%
 
-@inline
+@inline svelte
 <EntityHeading name="Spirit Sap" type="item" />
 @end
 
@@ -462,7 +462,7 @@ status: draft
 - Cast Range increased from 30m to 40m
 - Bonus Health increased from 50 to 75
 
-@inline
+@inline svelte
 <EntityHeading name="Spirit Shielding" type="item" />
 @end
 
@@ -470,19 +470,19 @@ status: draft
 - Barrier no longer scales with Spirit Power (1.116)
 - Barrier now scales with Boons (+4)
 
-@inline
+@inline svelte
 <EntityHeading name="Spirit Shredder Bullets" type="item" />
 @end
 
 - Spirit Resist Reduction increased from -7% to -8%
 
-@inline
+@inline svelte
 <EntityHeading name="Suppressor" type="item" />
 @end
 
 - Fire Rate reduction reduced from -35% to -30%
 
-@inline
+@inline svelte
 <EntityHeading name="Surge of Power" type="item" />
 @end
 
@@ -491,45 +491,45 @@ status: draft
 - Fire Rate increased from 20% to 22%
 - Spirit Power increased from 25 to 28
 
-@inline
+@inline svelte
 <EntityHeading name="Swift Striker" type="item" />
 @end
 
 - Fire Rate increased from 18% to 20%
 
-@inline
+@inline svelte
 <EntityHeading name="Tankbuster" type="item" />
 @end
 
 - Now ignores enemy Spirit Resistance
 - Damage reduced from 6% to 5%
 
-@inline
+@inline svelte
 <EntityHeading name="Toxic Bullets" type="item" />
 @end
 
 - Damage reduced from 2.5% Max HP to 2.1%
 - Now scales with Spirit Power (0.005%)
 
-@inline
+@inline svelte
 <EntityHeading name="Trophy Collector" type="item" />
 @end
 
 - Out of Combat regen increased from 2 to 3.5
 
-@inline
+@inline svelte
 <EntityHeading name="Veil Walker" type="item" />
 @end
 
 - Cooldown reduced from 14s to 12s
 
-@inline
+@inline svelte
 <EntityHeading name="Vortex Web" type="item" />
 @end
 
 - Projectile Speed increased from 1800 to 2400
 
-@inline
+@inline svelte
 <EntityHeading name="Weapon Shielding" type="item" />
 @end
 
@@ -537,7 +537,7 @@ status: draft
 - Barrier no longer scales with Spirit Power (1.116)
 - Barrier now scales with Boons (+4)
 
-@inline
+@inline svelte
 <EntityHeading name="Weighted Shots" type="item" />
 @end
 
@@ -571,11 +571,11 @@ Consider creating a separate file: 07-29-2025-update-reply-2.norg with parent_id
 
 * Hero Changes
 
-@inline
+@inline svelte
 <SectionPreview type="hero" names={["Seven", "Shiv", "Vyper"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Seven" type="hero" />
 @end
 
@@ -583,11 +583,11 @@ Consider creating a separate file: 07-29-2025-update-reply-2.norg with parent_id
 - Base regen reduced from 1.5 to 1.0
 - Base health reduced from 700 to 650
 
-@inline
+@inline svelte
 <EntityHeading name="Shiv" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Bloodletting" />
 @end
 
@@ -598,13 +598,13 @@ Consider creating a separate file: 07-29-2025-update-reply-2.norg with parent_id
 - Bloodletting Rage deferred bonus from +14% to +15%
 - Bloodletting deferred damage from +20% to +25%
 
-@inline
+@inline svelte
 <EntityHeading name="Vyper" type="hero" />
 @end
 
 - Gun cycle time increased from 0.063 to 0.07 (a nerf)
 
-@inline
+@inline svelte
 <AbilityHeading name="Slither" />
 @end
 

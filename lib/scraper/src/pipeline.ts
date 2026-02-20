@@ -49,7 +49,7 @@ function escapeInlineAttr(value: string): string {
 function entityHeadingBlock(name: string, type: 'hero' | 'item'): string {
 	const escaped = escapeInlineAttr(name);
 	return `\
-@inline
+@inline svelte
 <EntityHeading name="${escaped}" type="${type}" />
 @end`;
 }
@@ -57,7 +57,7 @@ function entityHeadingBlock(name: string, type: 'hero' | 'item'): string {
 function sectionPreviewBlock(type: 'hero' | 'item', names: string[]): string {
 	const escaped = names.map((n) => `"${escapeInlineAttr(n)}"`).join(', ');
 	return `\
-@inline
+@inline svelte
 <SectionPreview type="${type}" names={[${escaped}]} />
 @end`;
 }
@@ -65,7 +65,7 @@ function sectionPreviewBlock(type: 'hero' | 'item', names: string[]): string {
 function abilityHeadingBlock(name: string): string {
 	const escaped = escapeInlineAttr(name);
 	return `\
-@inline
+@inline svelte
 <AbilityHeading name="${escaped}" />
 @end`;
 }

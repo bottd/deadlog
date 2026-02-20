@@ -15,17 +15,17 @@ status: draft
 
 * Hero Changes
 
-@inline
+@inline svelte
 <SectionPreview type="hero" names={["Yamato"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Yamato" type="hero" />
 @end
 
 - Bullet damage growth reduced from 0.33 to 0.27
 
-@inline
+@inline svelte
 <AbilityHeading name="Shadow Transformation" />
 @end
 
@@ -33,24 +33,24 @@ status: draft
 
 * Item Changes
 
-@inline
+@inline svelte
 <SectionPreview type="item" names={["Alchemical Fire", "Berserker", "Frenzy", "Restorative Shot"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Alchemical Fire" type="item" />
 @end
 
 - Effectiveness reduction (40%) vs buildings/midboss now affects the Weapon Damage bonus too (instead of just DPS)
 
-@inline
+@inline svelte
 <EntityHeading name="Berserker" type="item" />
 @end
 
 - Weapon Damage per Stack reduced from 6% to 5%
 - Bullet Resistance reduced from 9% to 8%
 
-@inline
+@inline svelte
 <EntityHeading name="Frenzy" type="item" />
 @end
 
@@ -59,7 +59,7 @@ status: draft
 - Fire Rate reduced from 40% to 35%
 - Low Health Bullet Resistance reduced from 55% to 50%
 
-@inline
+@inline svelte
 <EntityHeading name="Restorative Shot" type="item" />
 @end
 

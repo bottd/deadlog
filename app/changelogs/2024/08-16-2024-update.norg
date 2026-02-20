@@ -19,17 +19,17 @@ status: draft
 
 * Hero Changes
 
-@inline
+@inline svelte
 <SectionPreview type="hero" names={["Ivy", "Shiv"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Ivy" type="hero" />
 @end
 
 - Restored previous audio processing
 
-@inline
+@inline svelte
 <AbilityHeading name="Air Drop" />
 @end
 
@@ -39,7 +39,7 @@ status: draft
 - Air Drop bomb no longer silences in the base (now part of t3)
 - Air Drop bomb slow duration increased from 3s to 4.5s
 
-@inline
+@inline svelte
 <AbilityHeading name="Air Drop" />
 @end
 
@@ -48,14 +48,14 @@ status: draft
 - Air Drop T3 no longer extends debuff duration by +2s
 - Air Drop T3 silences enemies for 4.5s
 
-@inline
+@inline svelte
 <EntityHeading name="Shiv" type="hero" />
 @end
 
 - Gun base damage reduced from 6.3 to 5.7
 - Serrated Knives collision size reduced by 10%
 
-@inline
+@inline svelte
 <AbilityHeading name="Serrated Knives" />
 @end
 
@@ -63,19 +63,19 @@ status: draft
 
 - Serrated Knives base damage reduced from 75 to 35
 
-@inline
+@inline svelte
 <AbilityHeading name="Serrated Knives" />
 @end
 
 - Serrated Knives spirit scaling reduced from 1 to 0.6
 
-@inline
+@inline svelte
 <AbilityHeading name="Serrated Knives DPS" />
 @end
 
 - Serrated Knives DPS spirit scaling reduced from 0.2 to 0.16
 
-@inline
+@inline svelte
 <AbilityHeading name="Serrated Knives" />
 @end
 

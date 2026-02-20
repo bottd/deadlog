@@ -19,31 +19,31 @@ status: draft
 
 * Hero Changes
 
-@inline
+@inline svelte
 <SectionPreview type="hero" names={["Abrams", "Bebop", "Calico", "Dynamo", "Grey Talon", "Haze", "Holliday", "Kelvin", "Seven", "Shiv", "Sinclair", "Vindicta", "Viscous", "Vyper"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Abrams" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Infernal Resilience" />
 @end
 
 - Infernal Resilience increased from 11% to 12%
 
-@inline
+@inline svelte
 <EntityHeading name="Bebop" type="hero" />
 @end
 
 - Uppercut air control lockout period reduced from 0.5s to 0.3s
 
-@inline
+@inline svelte
 <EntityHeading name="Calico" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Gloom Bombs" />
 @end
 
@@ -55,7 +55,7 @@ status: draft
 - Leaping Slash updated to break breakables in the area
 - Leaping Slash fixed a bug where calico's slash would deal no damage near walls
 
-@inline
+@inline svelte
 <AbilityHeading name="Ava" />
 @end
 
@@ -69,38 +69,38 @@ status: draft
 - Return to Shadows cooldown increased from 80s to 90s
 - Fixed Leaping Slash doing bonus damage from Melee Charge
 
-@inline
+@inline svelte
 <EntityHeading name="Dynamo" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Kinetic Pulse" />
 @end
 
 - Kinetic Pulse damage spirit scaling increased from 1.4 to 1.8
 - Kinetic Pulse T3 now also adds +1 Charge
 
-@inline
+@inline svelte
 <EntityHeading name="Grey Talon" type="hero" />
 @end
 
 - Spirit Snare cooldown reduced from 37s to 34s
 - Spirit Snare T2 increased from +0.5s to +0.75s
 
-@inline
+@inline svelte
 <EntityHeading name="Haze" type="hero" />
 @end
 
 - Bullet Dance T3 increased from +40% Evasion to +60%
 - Bullet Dance T3 increased from +2 Dance Move Speed to +3
 
-@inline
+@inline svelte
 <EntityHeading name="Holliday" type="hero" />
 @end
 
 - Powder Keg will no longer arm instantly if the player has the Bounce Pad modifier
 
-@inline
+@inline svelte
 <AbilityHeading name="Powder Keg Charge Time" />
 @end
 
@@ -109,7 +109,7 @@ status: draft
 - Powder Keg knock up time reduced by 15%
 - Bounce Pad no will no longer expire after 5 seconds in the air
 
-@inline
+@inline svelte
 <AbilityHeading name="Bounce Pad" />
 @end
 
@@ -122,39 +122,39 @@ status: draft
 - Spirit Lasso duration now lasts 1.5s longer when using Bounce Pad
 - Spirit Lasso Fixed an issue where the lasso animation would get stuck on sometimes
 
-@inline
+@inline svelte
 <EntityHeading name="Kelvin" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Arctic Beam" />
 @end
 
 - Arctic Beam now also slows roll distances by 20%
 
-@inline
+@inline svelte
 <EntityHeading name="Seven" type="hero" />
 @end
 
 - Storm Cloud secondary ability delay reduced from 2s to 0.25s
 
-@inline
+@inline svelte
 <EntityHeading name="Shiv" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Serrated Knives" />
 @end
 
 - Serrated Knives no longer stops after hitting a Soul Orb
 
-@inline
+@inline svelte
 <EntityHeading name="Sinclair" type="hero" />
 @end
 
 - No longer has -35% Headshot Damage Reduction
 
-@inline
+@inline svelte
 <AbilityHeading name="Vexing Bolt" />
 @end
 
@@ -164,7 +164,7 @@ status: draft
 - Vexing Bolt allow for retarget to try to find targets through walls and to bend around corners
 - Rabbit can now use jump
 
-@inline
+@inline svelte
 <AbilityHeading name="Rabbit Hex" />
 @end
 
@@ -172,7 +172,7 @@ status: draft
 
 - Spectral Assistant update VFX radius & lifetimes to scale off of clone damage
 
-@inline
+@inline svelte
 <AbilityHeading name="Audience Participation" />
 @end
 
@@ -182,37 +182,37 @@ status: draft
 - Audience Participation VFX updated steal effect to feel snappier
 - Audience Participation fixed a typo in the ability description
 
-@inline
+@inline svelte
 <EntityHeading name="Vindicta" type="hero" />
 @end
 
 - Bullet damage reduced from 11.7 to 11.4
 
-@inline
+@inline svelte
 <AbilityHeading name="Crow" />
 @end
 
 - Crow projectile speed reduced from 4750 to 4250
 
-@inline
+@inline svelte
 <AbilityHeading name="Assassinate" />
 @end
 
 - Assassinate T2 reduced from +120 to +110
 
-@inline
+@inline svelte
 <EntityHeading name="Viscous" type="hero" />
 @end
 
 - Goo Ball turn rate improved by 10%
 
-@inline
+@inline svelte
 <EntityHeading name="Vyper" type="hero" />
 @end
 
 - Bullet damage growth increased from 0.32 to 0.36
 
-@inline
+@inline svelte
 <AbilityHeading name="Petrifying Bola" />
 @end
 
@@ -223,41 +223,41 @@ status: draft
 
 * Item Changes
 
-@inline
+@inline svelte
 <SectionPreview type="item" names={["Alchemical Fire", "Ammo Scavenger", "Berserker", "Bullet Lifesteal", "Heroic Aura", "Swift Striker"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Alchemical Fire" type="item" />
 @end
 
 - Base damage reduced from 50 to 45
 
-@inline
+@inline svelte
 <EntityHeading name="Ammo Scavenger" type="item" />
 @end
 
 - Ammo reduced from 15% to 10%
 
-@inline
+@inline svelte
 <EntityHeading name="Berserker" type="item" />
 @end
 
 - Damage to gain stack increased from 100 to 120
 
-@inline
+@inline svelte
 <EntityHeading name="Bullet Lifesteal" type="item" />
 @end
 
 - Lifesteal reduced from 26% to 24%
 
-@inline
+@inline svelte
 <EntityHeading name="Heroic Aura" type="item" />
 @end
 
 - Lifesteal reduced from 18% to 16%
 
-@inline
+@inline svelte
 <EntityHeading name="Swift Striker" type="item" />
 @end
 

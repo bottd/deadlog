@@ -15,15 +15,15 @@ status: draft
 
 * Hero Changes
 
-@inline
+@inline svelte
 <SectionPreview type="hero" names={["Yamato"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Yamato" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Shadow Transformation" />
 @end
 
@@ -31,23 +31,23 @@ status: draft
 
 * Item Changes
 
-@inline
+@inline svelte
 <SectionPreview type="item" names={["Melee Charge", "Spirit Strike", "Veil Walker"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Melee Charge" type="item" />
 @end
 
 - No longer grants +15% Melee Damage
 
-@inline
+@inline svelte
 <EntityHeading name="Spirit Strike" type="item" />
 @end
 
 - Melee damage reduced from 20% to 15%
 
-@inline
+@inline svelte
 <EntityHeading name="Veil Walker" type="item" />
 @end
 

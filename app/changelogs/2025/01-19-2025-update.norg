@@ -23,71 +23,71 @@ status: draft
 
 * Hero Changes
 
-@inline
+@inline svelte
 <SectionPreview type="hero" names={["Bebop", "Calico", "Holliday", "Kelvin", "Mirage", "Shiv", "Vindicta", "Vyper", "Wraith", "Yamato"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Bebop" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Hook" />
 @end
 
 - Hook T1 reduced from 30% more weapon damage to 25%
 
-@inline
+@inline svelte
 <AbilityHeading name="Exploding Uppercut" />
 @end
 
 - Exploding Uppercut T2 reduced from +60% weapon damage to +50%
 
-@inline
+@inline svelte
 <AbilityHeading name="Sticky Bomb" />
 @end
 
 - Sticky Bomb damage reduced from 120 to 110
 - Sticky Bomb T2 reduced from +80 Damage to +75
 
-@inline
+@inline svelte
 <EntityHeading name="Calico" type="hero" />
 @end
 
 - Bullet Damage increased from 2 to 2.2
 
-@inline
+@inline svelte
 <AbilityHeading name="Leaping Slash Radius" />
 @end
 
 - Leaping Slash Radius increased from 4m to 4.5m
 
-@inline
+@inline svelte
 <AbilityHeading name="Leaping Slash" />
 @end
 
 - Leaping Slash T2 damage increased from +50 to +75
 
-@inline
+@inline svelte
 <AbilityHeading name="Ava" />
 @end
 
 - Ava now destroys breakables it runs through
 - Ava T2 increased from 25% movespeed to 35%
 
-@inline
+@inline svelte
 <EntityHeading name="Holliday" type="hero" />
 @end
 
 - Bullet damage growth increased from 1.5 to 1.7
 
-@inline
+@inline svelte
 <AbilityHeading name="Powder Keg" />
 @end
 
 - Powder Keg T2 reduced from 140 to 120
 
-@inline
+@inline svelte
 <AbilityHeading name="Crackshot" />
 @end
 
@@ -101,20 +101,20 @@ status: draft
 - Spirit Lasso T2 duration increased from +0.5 to +0.75
 - Fixed height on damage from Bounce Pad sometimes causing it to not hurt heroes on your lasso
 
-@inline
+@inline svelte
 <EntityHeading name="Kelvin" type="hero" />
 @end
 
 - Health increased from 600 to 650
 
-@inline
+@inline svelte
 <EntityHeading name="Mirage" type="hero" />
 @end
 
 - Fire Scarabs Max Health Steal reduced from 75 to 50
 - Fire Scarabs Max Health Steal spirit scaling increased from 0.9 to 1.4
 
-@inline
+@inline svelte
 <EntityHeading name="Shiv" type="hero" />
 @end
 
@@ -124,43 +124,43 @@ status: draft
 - Slice and Dice spirit scaling increased from 1.3 to 1.55
 - Bloodletting deferred damage duration reduced from 13s to 12s
 
-@inline
+@inline svelte
 <AbilityHeading name="Bloodletting" />
 @end
 
 - Bloodletting cooldown increased from 50s to 60s
 
-@inline
+@inline svelte
 <EntityHeading name="Vindicta" type="hero" />
 @end
 
 - Movespeed reduced from 9 to 8
 - Bullet Velocity reduced from 810 to 740
 
-@inline
+@inline svelte
 <EntityHeading name="Vyper" type="hero" />
 @end
 
 - Bullet Damage decreased from 9 to 7
 - Move Speed reduced from 7.3 to 7.0
 
-@inline
+@inline svelte
 <AbilityHeading name="Lethal Venom Max Damage" />
 @end
 
 - Lethal Venom Max Damage reduced from 200 to 180
 
-@inline
+@inline svelte
 <AbilityHeading name="Slither" />
 @end
 
 - Slither T3 spirit and bullet resist while sliding reduced from +30% to +25%
 
-@inline
+@inline svelte
 <EntityHeading name="Wraith" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Card Trick" />
 @end
 
@@ -169,7 +169,7 @@ status: draft
 
 - Card Trick summon rate from non-heroes reduced from 0.35 to 0.25
 
-@inline
+@inline svelte
 <AbilityHeading name="Telekinesis" />
 @end
 
@@ -178,7 +178,7 @@ status: draft
 - Telekinesis cast delay reduced from 0.4s to 0.3s
 - Telekinesis up/down motion now lasts 0.25s longer and moves a little bit higher
 
-@inline
+@inline svelte
 <EntityHeading name="Yamato" type="hero" />
 @end
 
@@ -186,31 +186,31 @@ status: draft
 
 * Item Changes
 
-@inline
+@inline svelte
 <SectionPreview type="item" names={["Alchemical Fire", "Extra Stamina", "Hunter's Aura", "Sharpshooter"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Alchemical Fire" type="item" />
 @end
 
 - Reduced from -40% Effectiveness vs non-heroes to -50%
 - Weapon Damage in radius reduced from +50% to +40%
 
-@inline
+@inline svelte
 <EntityHeading name="Extra Stamina" type="item" />
 @end
 
 - Fire Rate reduced from 5% to 4%
 
-@inline
+@inline svelte
 <EntityHeading name="Hunter's Aura" type="item" />
 @end
 
 - Bullet Resist Reduction reduced from -9% to -8%
 - Fire Rate Slow increased from -9% to -10%
 
-@inline
+@inline svelte
 <EntityHeading name="Sharpshooter" type="item" />
 @end
 

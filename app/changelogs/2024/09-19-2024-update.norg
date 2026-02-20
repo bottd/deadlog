@@ -18,11 +18,11 @@ status: draft
 
 * Item Changes
 
-@inline
+@inline svelte
 <SectionPreview type="item" names={["Veil Walker"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Veil Walker" type="item" />
 @end
 

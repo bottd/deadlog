@@ -12,15 +12,15 @@ status: draft
 
 * Hero Changes
 
-@inline
+@inline svelte
 <SectionPreview type="hero" names={["Calico", "Holliday", "Sinclair", "Wraith"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Calico" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Leaping Slash" />
 @end
 
@@ -30,30 +30,30 @@ status: draft
 - Return to Shadows speed reduced from +50% to +30%
 - Return to Shadows T2 now also grants +20% speed
 
-@inline
+@inline svelte
 <EntityHeading name="Holliday" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Powder Keg" />
 @end
 
 - Powder Keg cooldown between charges increased from 2s to 3.5s
 
-@inline
+@inline svelte
 <AbilityHeading name="Bounce Pad" />
 @end
 
 - Bounce Pad T2 damage reduced from +100 to +80
 
-@inline
+@inline svelte
 <EntityHeading name="Sinclair" type="hero" />
 @end
 
 - Bullet Damage reduced by 15%
 - Bullet velocity increased from 86 to 340
 
-@inline
+@inline svelte
 <AbilityHeading name="Spectral Assistant" />
 @end
 
@@ -61,13 +61,13 @@ status: draft
 
 - Rabbit Hex targeting mechanism has been reworked. It is now an AoE target ability in the base. It has a 0.7s delay before the area is affected. Cast range increased from 20m to 30m, Movespeed reduced from 35% to 15% and cooldown reduced from 45s to 35s.
 
-@inline
+@inline svelte
 <AbilityHeading name="Rabbit Hex" />
 @end
 
 - Rabbit Hex now has new VFX
 
-@inline
+@inline svelte
 <AbilityHeading name="Audience Participation" />
 @end
 
@@ -76,7 +76,7 @@ status: draft
 - Audience Participation copy duration decreased from 20s to 10s
 - Various new and improved SFX
 
-@inline
+@inline svelte
 <EntityHeading name="Wraith" type="hero" />
 @end
 
@@ -85,24 +85,24 @@ status: draft
 
 * Item Changes
 
-@inline
+@inline svelte
 <SectionPreview type="item" names={["Ammo Scavenger", "Extra Stamina", "Restorative Shot"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Ammo Scavenger" type="item" />
 @end
 
 - Max Stacks reduced from 20 to 18
 - No longer grants +40 health
 
-@inline
+@inline svelte
 <EntityHeading name="Extra Stamina" type="item" />
 @end
 
 - No longer grants +4% Fire Rate
 
-@inline
+@inline svelte
 <EntityHeading name="Restorative Shot" type="item" />
 @end
 

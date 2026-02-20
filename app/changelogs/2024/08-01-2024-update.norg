@@ -123,11 +123,11 @@ teleporter locations map
 
 * Hero Changes
 
-@inline
+@inline svelte
 <SectionPreview type="hero" names={["Abrams", "Bebop", "Dynamo", "Grey Talon", "Haze", "Infernus", "Kelvin", "Lady Geist", "Lash", "McGinnis", "Mo &amp; Krill", "Paradox", "Pocket", "Seven", "Vindicta", "Wraith", "Yamato"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Abrams" type="hero" />
 @end
 
@@ -135,42 +135,42 @@ teleporter locations map
 - Fixed some cases where Shoulder Charge did not stun when hitting a wall
 - Fixed enemies being able to double jump out of Seismic Impact
 
-@inline
+@inline svelte
 <AbilityHeading name="Shoulder Charge" />
 @end
 
 - Shoulder Charge T3 reduced from +6.5 to +5.5 Weapon Damage
 
-@inline
+@inline svelte
 <AbilityHeading name="Seismic Impact" />
 @end
 
 - Seismic Impact damage reduced from 200 to 175
 
-@inline
+@inline svelte
 <EntityHeading name="Bebop" type="hero" />
 @end
 
 - Bullet Resistance growth per boon increased from 2% to 2.5%
 
-@inline
+@inline svelte
 <AbilityHeading name="Sticky Bomb" />
 @end
 
 - Sticky Bomb now prioritizes enemies over allies
 
-@inline
+@inline svelte
 <AbilityHeading name="Hyper Beam" />
 @end
 
 - Hyper Beam duration now scales with Spirit (0.08)
 - Hyper Beam spirit scaling increased from 2.2 to 2.4
 
-@inline
+@inline svelte
 <EntityHeading name="Dynamo" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Kinetic Pulse" />
 @end
 
@@ -179,38 +179,38 @@ teleporter locations map
 - Kinetic Pulse recharge time reduced from 6s to 5s
 - Rejuvenating Aurora regen Spirit Power scaling increased from 0.4 to 0.5
 
-@inline
+@inline svelte
 <EntityHeading name="Grey Talon" type="hero" />
 @end
 
 - Charged Shot collision size reduced by 10%
 - Guided Owl explosion radius increased from 10m to 12m
 
-@inline
+@inline svelte
 <AbilityHeading name="Guided Owl" />
 @end
 
 - Guided Owl cooldown reduced from 120s to 110s
 
-@inline
+@inline svelte
 <EntityHeading name="Haze" type="hero" />
 @end
 
 - Bullet damage falloff is now 20% more falloff than default
 
-@inline
+@inline svelte
 <AbilityHeading name="Can" />
 @end
 
 - Can now cast Smoke Bomb while on zipline
 
-@inline
+@inline svelte
 <EntityHeading name="Infernus" type="hero" />
 @end
 
 - Fixed Infernus being unable to slide out of Flame Dash
 
-@inline
+@inline svelte
 <AbilityHeading name="Afterburn" />
 @end
 
@@ -218,14 +218,14 @@ teleporter locations map
 
 - Afterburn base DPS reduced from 18 to 15
 
-@inline
+@inline svelte
 <AbilityHeading name="Afterburn" />
 @end
 
 - Afterburn T3 DPS reduced from 33 to 30
 - Afterburn spirit scaling increased from 0.4 to 0.5
 
-@inline
+@inline svelte
 <EntityHeading name="Kelvin" type="hero" />
 @end
 
@@ -236,29 +236,29 @@ teleporter locations map
 - Frost Grenade recharge time reduced from 8s to 7s
 - Ice Path sprint is now granted immediately on use
 
-@inline
+@inline svelte
 <EntityHeading name="Lady Geist" type="hero" />
 @end
 
 - Base sprint reduced from 2 to 1
 
-@inline
+@inline svelte
 <EntityHeading name="Lash" type="hero" />
 @end
 
 - Base sprint reduced from 3 to 1
 
-@inline
+@inline svelte
 <AbilityHeading name="Ground Strike Damage Per Meter" />
 @end
 
 - Ground Strike Damage Per Meter reduced from 6.3 to 6.0
 
-@inline
+@inline svelte
 <EntityHeading name="McGinnis" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Mini Turrets" />
 @end
 
@@ -269,17 +269,17 @@ teleporter locations map
 - Fixed Health Nova not working on Mini Turrets (when Health Nova was cast by McGinnis)
 - Mini Turret base HP increased from +50 to +75
 
-@inline
+@inline svelte
 <EntityHeading name="Mo &amp; Krill" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Can" />
 @end
 
 - Can now reload while burrowed
 
-@inline
+@inline svelte
 <EntityHeading name="Paradox" type="hero" />
 @end
 
@@ -287,27 +287,27 @@ teleporter locations map
 - Bullet (and Kinetic Carbine) projectile speed reduced by 10%
 - Ammo count reduced from 54 to 45
 
-@inline
+@inline svelte
 <EntityHeading name="Pocket" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Affliction" />
 @end
 
 - Affliction damage is dealt over 18s instead of 16s (same total damage, lower DPS)
 
-@inline
+@inline svelte
 <AbilityHeading name="Enchanter's Satchel" />
 @end
 
 - Enchanter's Satchel T3 changed from Disarms for 2.5s to Applies -40% Fire Rate for 4s
 
-@inline
+@inline svelte
 <EntityHeading name="Seven" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Static Charge" />
 @end
 
@@ -315,17 +315,17 @@ teleporter locations map
 - Static Charge T3 stun duration reduced from 1.25s to 1.1s
 - Static Charge T2 radius increased from +5m to +7m
 
-@inline
+@inline svelte
 <AbilityHeading name="Headshot" />
 @end
 
 - Headshot damage taken reduced by 25%
 
-@inline
+@inline svelte
 <EntityHeading name="Vindicta" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Flight" />
 @end
 
@@ -333,14 +333,14 @@ teleporter locations map
 
 - Gun damage growth increased from 0.85 to 1.0
 
-@inline
+@inline svelte
 <EntityHeading name="Wraith" type="hero" />
 @end
 
 - Card Trick post cast time reduced from 0.5s to 0.2s
 - Fixed some issues Card Trick tracking that could cause it to orb players or go to the wrong spot
 
-@inline
+@inline svelte
 <EntityHeading name="Yamato" type="hero" />
 @end
 
@@ -349,179 +349,179 @@ teleporter locations map
 
 * Item Changes
 
-@inline
+@inline svelte
 <SectionPreview type="item" names={["Ammo Scavenger", "Berserker", "Cold Front", "Colossus", "Divine Barrier", "Diviner's Kevlar", "Duration Extender", "Echo Shard", "Escalating Exposure", "Extra Regen", "Glass Cannon", "Heroic Aura", "Hunter's Aura", "Inhibitor", "Intensifying Magazine", "Kinetic Dash", "Leech", "Lifestrike", "Melee Lifesteal", "Metal Skin", "Monster Rounds", "Mystic Shot", "Phantom Strike", "Point Blank", "Rapid Rounds", "Reactive Barrier", "Refresher", "Rescue Beam", "Restorative Locket", "Return Fire", "Ricochet", "Silencer", "Siphon Bullets", "Slowing Bullets", "Soul Rebirth", "Spirit Strike", "Spiritual Overflow", "Superior Duration", "Surge of Power", "Titanic Magazine", "Veil Walker"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Ammo Scavenger" type="item" />
 @end
 
 - Spirit Power duration increased from 18s to 24s
 
-@inline
+@inline svelte
 <EntityHeading name="Berserker" type="item" />
 @end
 
 - Damage required to earn a stack increased from 100 to 110
 
-@inline
+@inline svelte
 <EntityHeading name="Cold Front" type="item" />
 @end
 
 - Damage reduced from 115 to 100
 - Spirit Power damage scaling increased from 0.98 to 1.25
 
-@inline
+@inline svelte
 <EntityHeading name="Colossus" type="item" />
 @end
 
 - Bonus HP increased from 500 to 600
 
-@inline
+@inline svelte
 <EntityHeading name="Divine Barrier" type="item" />
 @end
 
 - Cast range increased from 30m to 35m
 - Now grants +1.5 HP Regen
 
-@inline
+@inline svelte
 <EntityHeading name="Diviner's Kevlar" type="item" />
 @end
 
 - Buff duration increased from 12s to 15s
 
-@inline
+@inline svelte
 <EntityHeading name="Duration Extender" type="item" />
 @end
 
 - Bonus HP increased from 75 to 100
 
-@inline
+@inline svelte
 <EntityHeading name="Echo Shard" type="item" />
 @end
 
 - Bullet Resist increased from 10% to 16%
 
-@inline
+@inline svelte
 <EntityHeading name="Escalating Exposure" type="item" />
 @end
 
 - First stack no longer does double amp value
 - Now passively applies -12% Spirit Resist when dealing Spirit Damage
 
-@inline
+@inline svelte
 <EntityHeading name="Extra Regen" type="item" />
 @end
 
 - Regen increased from 2.5 to 2.7
 
-@inline
+@inline svelte
 <EntityHeading name="Glass Cannon" type="item" />
 @end
 
 - Weapon Damage increased from 70% to 75%
 
-@inline
+@inline svelte
 <EntityHeading name="Heroic Aura" type="item" />
 @end
 
 - Bonus Health increased from +125 to +150
 
-@inline
+@inline svelte
 <EntityHeading name="Hunter's Aura" type="item" />
 @end
 
 - No longer grants +16% Ammo
 - Now grants +150 Health
 
-@inline
+@inline svelte
 <EntityHeading name="Inhibitor" type="item" />
 @end
 
 - Debuff duration increased from 2s to 2.5s
 
-@inline
+@inline svelte
 <EntityHeading name="Intensifying Magazine" type="item" />
 @end
 
 - Fixed a bug that allowed you to gain weapon damage without firing
 
-@inline
+@inline svelte
 <EntityHeading name="Kinetic Dash" type="item" />
 @end
 
 - Now gives 1 HP regen
 
-@inline
+@inline svelte
 <EntityHeading name="Leech" type="item" />
 @end
 
 - Now provides +30% Degen Resistance (reduces anti heal effects by 30%)
 
-@inline
+@inline svelte
 <EntityHeading name="Lifestrike" type="item" />
 @end
 
 - Bullet Resist increased from 6% to 8%
 
-@inline
+@inline svelte
 <EntityHeading name="Melee Lifesteal" type="item" />
 @end
 
 - Bonus health increased from +50 to +70
 
-@inline
+@inline svelte
 <EntityHeading name="Metal Skin" type="item" />
 @end
 
 - Duration increased from 3s to 3.5s
 
-@inline
+@inline svelte
 <EntityHeading name="Monster Rounds" type="item" />
 @end
 
 - HP Bonus increased from +50 to +65
 
-@inline
+@inline svelte
 <EntityHeading name="Mystic Shot" type="item" />
 @end
 
 - Base Spirit Damage reduced from +70 to +65
 
-@inline
+@inline svelte
 <EntityHeading name="Phantom Strike" type="item" />
 @end
 
 - Cast range increased from 30m to 35m
 
-@inline
+@inline svelte
 <EntityHeading name="Point Blank" type="item" />
 @end
 
 - Bullet Shield increased from 250 to 300
 - Weapon Damage increased from 40% to 45%
 
-@inline
+@inline svelte
 <EntityHeading name="Rapid Rounds" type="item" />
 @end
 
 - HP Penalty increased from -40 HP to -50 HP
 
-@inline
+@inline svelte
 <EntityHeading name="Reactive Barrier" type="item" />
 @end
 
 - Now grants +75 HP
 
-@inline
+@inline svelte
 <EntityHeading name="Refresher" type="item" />
 @end
 
 - Cooldown reduced from 220s to 200s
 - Spirit Resist increased from 12% to 14%
 
-@inline
+@inline svelte
 <EntityHeading name="Rescue Beam" type="item" />
 @end
 
@@ -529,81 +529,81 @@ teleporter locations map
 - Now grants +2 Sprint
 - Bonus HP increased from +100 to +125
 
-@inline
+@inline svelte
 <EntityHeading name="Restorative Locket" type="item" />
 @end
 
 - When consuming at max stacks, replenishes target's stamina fully
 
-@inline
+@inline svelte
 <EntityHeading name="Return Fire" type="item" />
 @end
 
 - Bullet Damage returned increased from 70% to 80%
 - Bonus HP increased from +100 to +125
 
-@inline
+@inline svelte
 <EntityHeading name="Ricochet" type="item" />
 @end
 
 - Bonus Health increased from 100 to 125
 - Now gives +8% Fire Rate
 
-@inline
+@inline svelte
 <EntityHeading name="Silencer" type="item" />
 @end
 
 - Cooldown increased from 25s to 34s
 
-@inline
+@inline svelte
 <EntityHeading name="Siphon Bullets" type="item" />
 @end
 
 - Weapon damage is no longer conditional on 15m, now always gives +40% Weapon Damage (previously gave +45% when close)
 
-@inline
+@inline svelte
 <EntityHeading name="Slowing Bullets" type="item" />
 @end
 
 - Weapon Damage increased from 14% to 16%
 
-@inline
+@inline svelte
 <EntityHeading name="Soul Rebirth" type="item" />
 @end
 
 - Cooldown reduction increased from 10% to 15%
 
-@inline
+@inline svelte
 <EntityHeading name="Spirit Strike" type="item" />
 @end
 
 - Spirit Damage increased from 30 to 40
 
-@inline
+@inline svelte
 <EntityHeading name="Spiritual Overflow" type="item" />
 @end
 
 - Now grants +10% Spirit Lifesteal
 
-@inline
+@inline svelte
 <EntityHeading name="Superior Duration" type="item" />
 @end
 
 - Bonus HP increased from 125 to 175
 
-@inline
+@inline svelte
 <EntityHeading name="Surge of Power" type="item" />
 @end
 
 - Imbued Spirit Power increased from +24 to +26
 
-@inline
+@inline svelte
 <EntityHeading name="Titanic Magazine" type="item" />
 @end
 
 - Now gives +8% Bullet resistance
 
-@inline
+@inline svelte
 <EntityHeading name="Veil Walker" type="item" />
 @end
 

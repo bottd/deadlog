@@ -15,15 +15,15 @@ status: draft
 
 * Hero Changes
 
-@inline
+@inline svelte
 <SectionPreview type="hero" names={["Wraith"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Wraith" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Card Trick Spirit" />
 @end
 
@@ -31,11 +31,11 @@ status: draft
 
 * Item Changes
 
-@inline
+@inline svelte
 <SectionPreview type="item" names={["Shadow Weave"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Shadow Weave" type="item" />
 @end
 

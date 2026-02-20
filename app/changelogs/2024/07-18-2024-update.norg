@@ -90,21 +90,21 @@ status: draft
 
 * Hero Changes
 
-@inline
+@inline svelte
 <SectionPreview type="hero" names={["Abrams", "Bebop", "Dynamo", "Grey Talon", "Haze", "Ivy", "Kelvin", "Lady Geist", "Lash", "McGinnis", "Paradox", "Pocket", "Seven"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Abrams" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Shoulder Charge" />
 @end
 
 - Shoulder Charge now considers Spectral Wall and Frozen Shelter as walls
 
-@inline
+@inline svelte
 <AbilityHeading name="Infernal Resilience" />
 @end
 
@@ -115,7 +115,7 @@ status: draft
 - Improved reliability of Seismic Impact
 - Seismic Impact base radius increased from 6m to 9m
 
-@inline
+@inline svelte
 <AbilityHeading name="Seismic Impact" />
 @end
 
@@ -123,7 +123,7 @@ status: draft
 - Seismic Impact T3 moved to T2 (was -70s Cooldown)
 - Seismic Impact T3 is now Gains Unstoppable while in air and 3s after landing
 
-@inline
+@inline svelte
 <EntityHeading name="Bebop" type="hero" />
 @end
 
@@ -131,7 +131,7 @@ status: draft
 - No longer has 24% base bullet resistance
 - Now gains +2% Bullet Resistance per boon (happens 11 times)
 
-@inline
+@inline svelte
 <AbilityHeading name="Hook" />
 @end
 
@@ -140,58 +140,58 @@ status: draft
 - Uppercut horizontal distance knockback on enemy heroes is reduced from 25m to 20m
 - Fixed enemies being able to use heavy melee to cancel Uppercut's momentum
 
-@inline
+@inline svelte
 <AbilityHeading name="Hyperbeam" />
 @end
 
 - Hyperbeam is now very wide in the area right in front of the hero, then narrows into the current size a few meters away
 
-@inline
+@inline svelte
 <AbilityHeading name="Hyperbeam Spirit Power" />
 @end
 
 - Hyperbeam Spirit Power damage scaling increased from 1.96 to 2.2
 
-@inline
+@inline svelte
 <AbilityHeading name="Hyperbeam" />
 @end
 
 - Hyperbeam T2 increased from +120 to +140
 
-@inline
+@inline svelte
 <EntityHeading name="Dynamo" type="hero" />
 @end
 
 - Gun damage growth increased from 0.8 to 0.9
 
-@inline
+@inline svelte
 <AbilityHeading name="Kinetic Pulse" />
 @end
 
 - Kinetic Pulse spirit power scaling increased from 1.2 to 1.4
 
-@inline
+@inline svelte
 <AbilityHeading name="Singularity" />
 @end
 
 - Singularity duration reduced from 3 to 2.75
 
-@inline
+@inline svelte
 <EntityHeading name="Grey Talon" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Charged Shot" />
 @end
 
 - Charged Shot damage reduced from 115 to 105
 - Charged Shot spirit scaling increased from 1.3 to 1.6
 
-@inline
+@inline svelte
 <EntityHeading name="Haze" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Sleep Dagger" />
 @end
 
@@ -199,13 +199,13 @@ status: draft
 
 - Sleep Dagger wake-up time reduced from 0.15 to 0.1
 
-@inline
+@inline svelte
 <AbilityHeading name="Sleep Dagger" />
 @end
 
 - Sleep Dagger projectile size reduced by 10%
 
-@inline
+@inline svelte
 <AbilityHeading name="Fixation" />
 @end
 
@@ -215,13 +215,13 @@ status: draft
 - Bullet Dance fire rate increased from +20% to +25%
 - Bullet Dance radius increased from 14m to 15m
 
-@inline
+@inline svelte
 <EntityHeading name="Ivy" type="hero" />
 @end
 
 - Base damage reduced from 5.0 to 4.5
 
-@inline
+@inline svelte
 <AbilityHeading name="Kudzu Bomb DPS" />
 @end
 
@@ -229,11 +229,11 @@ status: draft
 
 - Watcher's Covenant replicated healing reduced from 35% to 30%
 
-@inline
+@inline svelte
 <EntityHeading name="Kelvin" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Frost Grenade" />
 @end
 
@@ -241,20 +241,20 @@ status: draft
 
 - Ice Path trail duration increased from 15s to 18s
 
-@inline
+@inline svelte
 <AbilityHeading name="Arctic Beam" />
 @end
 
 - Arctic Beam T3 now hits up to 2 additional targets
 
-@inline
+@inline svelte
 <EntityHeading name="Lady Geist" type="hero" />
 @end
 
 - Base bullet damage reduced from 28 to 25
 - Bullet damage growth increased from 1.84 to 2.1
 
-@inline
+@inline svelte
 <AbilityHeading name="Essence Bomb" />
 @end
 
@@ -264,13 +264,13 @@ status: draft
 - Life Drain self slow reduced from -40% to -25%
 - Soul Exchange can be cast on enemies that are lower health. It will always steal a minimum of 30% of their current health.
 
-@inline
+@inline svelte
 <EntityHeading name="Lash" type="hero" />
 @end
 
 - Grapple weapon damage is now added into the T2 instead of in the base
 
-@inline
+@inline svelte
 <AbilityHeading name="Ground Strike" />
 @end
 
@@ -280,17 +280,17 @@ status: draft
 - Death Slam cast range increased from 14m to 18m
 - Death Slam throw distance reduced from 20m to 12m
 
-@inline
+@inline svelte
 <AbilityHeading name="Death Slam" />
 @end
 
 - Death Slam T1 changed from +4m Cast Range to +8m Throw Distance
 
-@inline
+@inline svelte
 <EntityHeading name="McGinnis" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Spectral Wall" />
 @end
 
@@ -299,11 +299,11 @@ status: draft
 - Base melee damage reduced by 20%
 - Spectral Wall segments that are touching the Rejuv will be destroyed
 
-@inline
+@inline svelte
 <EntityHeading name="Paradox" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Time Wall" />
 @end
 
@@ -311,13 +311,13 @@ status: draft
 
 - Pulse Grenade amp duration increased from 6s to 8s
 
-@inline
+@inline svelte
 <AbilityHeading name="Paradoxical Swap" />
 @end
 
 - Paradoxical Swap projectile size reduced by 10%
 
-@inline
+@inline svelte
 <EntityHeading name="Pocket" type="hero" />
 @end
 
@@ -325,7 +325,7 @@ status: draft
 - Base gun damage reduced from 5.6 to 5.0
 - Gun damage growth increased from 0.35 to 0.4
 
-@inline
+@inline svelte
 <EntityHeading name="Seven" type="hero" />
 @end
 
@@ -333,7 +333,7 @@ status: draft
 - Base bullet resistance reduced from 20% to 8%
 - Now gains +1% Bullet Resistance per boon (happens 11 times)
 
-@inline
+@inline svelte
 <AbilityHeading name="Power Surge" />
 @end
 
@@ -341,169 +341,169 @@ status: draft
 
 * Item Changes
 
-@inline
+@inline svelte
 <SectionPreview type="item" names={["Active Reload", "Alchemical Fire", "Ammo Scavenger", "Berserker", "Bullet Lifesteal", "Burst Fire", "Debuff Reducer", "Divine Barrier", "Diviner's Kevlar", "Echo Shard", "Escalating Exposure", "Escalating Resilience", "Ethereal Shift", "Extra Health", "Extra Regen", "Extra Stamina", "Fleetfoot", "Fortitude", "Frenzy", "Headshot Booster", "Healbane", "Healing Rite", "Improved Spirit", "Infuser", "Kinetic Dash", "Knockdown", "Leech", "Lifestrike", "Majestic Leap", "Melee Lifesteal", "Mystic Reverb", "Mystic Shot", "Phantom Strike", "Point Blank", "Rapid Recharge", "Rescue Beam", "Restorative Shot", "Ricochet", "Shadow Weave", "Sharpshooter", "Silencer", "Siphon Bullets", "Slowing Hex", "Spirit Lifesteal", "Spirit Strike", "Superior Cooldown", "Surge of Power", "Titanic Magazine", "Torment Pulse", "Vampiric Burst", "Veil Walker"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Active Reload" type="item" />
 @end
 
 - Cooldown reduced from 21s to 17s
 - Initial grace period increased from 0.2s to 0.3s
 
-@inline
+@inline svelte
 <EntityHeading name="Alchemical Fire" type="item" />
 @end
 
 - Spirit Power increased from +5 to +7
 
-@inline
+@inline svelte
 <EntityHeading name="Ammo Scavenger" type="item" />
 @end
 
 - Spirit Power Per Soul reduced from 3 to 2
 
-@inline
+@inline svelte
 <EntityHeading name="Berserker" type="item" />
 @end
 
 - Bullet Resist reduced from 10% to 8%
 
-@inline
+@inline svelte
 <EntityHeading name="Bullet Lifesteal" type="item" />
 @end
 
 - Health increased from +50 to +75
 
-@inline
+@inline svelte
 <EntityHeading name="Burst Fire" type="item" />
 @end
 
 - Now gives +2 m/s Move Speed during the 3s active
 
-@inline
+@inline svelte
 <EntityHeading name="Debuff Reducer" type="item" />
 @end
 
 - Weapon Damage reduced from 10% to 6%
 
-@inline
+@inline svelte
 <EntityHeading name="Divine Barrier" type="item" />
 @end
 
 - Cast range increased from 25m to 30m
 
-@inline
+@inline svelte
 <EntityHeading name="Diviner's Kevlar" type="item" />
 @end
 
 - Cooldown reduction increased from +8% to +12%
 
-@inline
+@inline svelte
 <EntityHeading name="Echo Shard" type="item" />
 @end
 
 - Now grants +10% Bullet Resistance
 
-@inline
+@inline svelte
 <EntityHeading name="Escalating Exposure" type="item" />
 @end
 
 - Now grants +125 Health
 
-@inline
+@inline svelte
 <EntityHeading name="Escalating Resilience" type="item" />
 @end
 
 - No longer grants +14% Ammo
 - Stack duration increased from 14s to 20s
 
-@inline
+@inline svelte
 <EntityHeading name="Ethereal Shift" type="item" />
 @end
 
 - Fixed a bug that could prevent you from shooting when you came out
 
-@inline
+@inline svelte
 <EntityHeading name="Extra Health" type="item" />
 @end
 
 - Health increased from +150 to +160
 
-@inline
+@inline svelte
 <EntityHeading name="Extra Regen" type="item" />
 @end
 
 - Regen increased from 2.3 to 2.5
 
-@inline
+@inline svelte
 <EntityHeading name="Extra Stamina" type="item" />
 @end
 
 - Fire Rate reduced from 8% to 7%
 
-@inline
+@inline svelte
 <EntityHeading name="Fleetfoot" type="item" />
 @end
 
 - Now gives +25% Slide Distance
 
-@inline
+@inline svelte
 <EntityHeading name="Fortitude" type="item" />
 @end
 
 - Bonus health increased from +250 to +275
 
-@inline
+@inline svelte
 <EntityHeading name="Frenzy" type="item" />
 @end
 
 - Low Health Spirit Resist increased from 40% to 45%
 
-@inline
+@inline svelte
 <EntityHeading name="Headshot Booster" type="item" />
 @end
 
 - Fire Rate reduced from 6% to 5%
 
-@inline
+@inline svelte
 <EntityHeading name="Healbane" type="item" />
 @end
 
 - Heal on hero kill reduced from 400 to 350
 
-@inline
+@inline svelte
 <EntityHeading name="Healing Rite" type="item" />
 @end
 
 - Active now gives +2 Sprint
 
-@inline
+@inline svelte
 <EntityHeading name="Improved Spirit" type="item" />
 @end
 
 - Spirit Power increased from +18 to +21
 
-@inline
+@inline svelte
 <EntityHeading name="Infuser" type="item" />
 @end
 
 - Spirit Resistance reduced from 8% to 7%
 
-@inline
+@inline svelte
 <EntityHeading name="Kinetic Dash" type="item" />
 @end
 
 - Cooldown reduced from 12s to 10s
 
-@inline
+@inline svelte
 <EntityHeading name="Knockdown" type="item" />
 @end
 
 - Cast range reduced from 50m to 35m
 
-@inline
+@inline svelte
 <EntityHeading name="Leech" type="item" />
 @end
 
@@ -511,38 +511,38 @@ status: draft
 - Spirit Power increased from +10 to +12
 - Weapon Damage increased from +12% to +15%
 
-@inline
+@inline svelte
 <EntityHeading name="Lifestrike" type="item" />
 @end
 
 - Works against creeps for 25% effectiveness
 
-@inline
+@inline svelte
 <EntityHeading name="Majestic Leap" type="item" />
 @end
 
 - Health increased from +75 to +100
 
-@inline
+@inline svelte
 <EntityHeading name="Melee Lifesteal" type="item" />
 @end
 
 - Works against creeps for 25% effectiveness
 
-@inline
+@inline svelte
 <EntityHeading name="Mystic Reverb" type="item" />
 @end
 
 - Slow now applies in the radius around the target
 - Radius increased from 12m to 16m
 
-@inline
+@inline svelte
 <EntityHeading name="Mystic Shot" type="item" />
 @end
 
 - Now gives +4 Spirit
 
-@inline
+@inline svelte
 <EntityHeading name="Phantom Strike" type="item" />
 @end
 
@@ -552,114 +552,114 @@ status: draft
 - No longer grants Bullet Shield on teleport
 - Now disarms the enemy for the slow duration (3s)
 
-@inline
+@inline svelte
 <EntityHeading name="Point Blank" type="item" />
 @end
 
 - Bullet Shield Health increased from 225 to 250
 
-@inline
+@inline svelte
 <EntityHeading name="Rapid Recharge" type="item" />
 @end
 
 - Bonus Ability Charges increased from +2 to +3
 
-@inline
+@inline svelte
 <EntityHeading name="Rescue Beam" type="item" />
 @end
 
 - Cooldown reduced from 35s to 30s
 - Heal amount increased from 25% to 30%
 
-@inline
+@inline svelte
 <EntityHeading name="Restorative Shot" type="item" />
 @end
 
 - Bullet Resist reduced from 8% to 7%
 
-@inline
+@inline svelte
 <EntityHeading name="Ricochet" type="item" />
 @end
 
 - Now gives +100 Health
 
-@inline
+@inline svelte
 <EntityHeading name="Shadow Weave" type="item" />
 @end
 
 - Invis sprint speed reduced from +5 to +2
 
-@inline
+@inline svelte
 <EntityHeading name="Sharpshooter" type="item" />
 @end
 
 - Ammo increased from 15% to 20%
 
-@inline
+@inline svelte
 <EntityHeading name="Silencer" type="item" />
 @end
 
 - No longer provides +20% Ammo
 
-@inline
+@inline svelte
 <EntityHeading name="Siphon Bullets" type="item" />
 @end
 
 - Max frequency improved from 1s to 0.8s
 
-@inline
+@inline svelte
 <EntityHeading name="Slowing Hex" type="item" />
 @end
 
 - Sprint reduced from +2 to +1
 
-@inline
+@inline svelte
 <EntityHeading name="Spirit Lifesteal" type="item" />
 @end
 
 - No longer grants +8 Spirit Power
 - Now grants +75 Health
 
-@inline
+@inline svelte
 <EntityHeading name="Spirit Strike" type="item" />
 @end
 
 - Passive replaced. Now causes your melee against heroes to deal +30 Spirit damage and applies -10% Spirit Resist to the target for 8 seconds. Cooldown: 8
 
-@inline
+@inline svelte
 <EntityHeading name="Superior Cooldown" type="item" />
 @end
 
 - Imbued Cooldown Reduction increased from +30% to +32%
 - Non-Imbued Cooldown Reduction increased from +20% to +22%
 
-@inline
+@inline svelte
 <EntityHeading name="Surge of Power" type="item" />
 @end
 
 - Cooldown reduced from 12s to 10s
 
-@inline
+@inline svelte
 <EntityHeading name="Titanic Magazine" type="item" />
 @end
 
 - Ammo increased from 90% to 100%
 
-@inline
+@inline svelte
 <EntityHeading name="Torment Pulse" type="item" />
 @end
 
 - Target count increased from 1 to 2
 - Fixed sometimes waking up neutrals
 
-@inline
+@inline svelte
 <EntityHeading name="Vampiric Burst" type="item" />
 @end
 
 - Active now adds +50% to your clip one time on cast. If you are reloading, it interrupts that process and gives you +50% to your clip.
 - Cooldown increased from 24s to 35s
 
-@inline
+@inline svelte
 <EntityHeading name="Veil Walker" type="item" />
 @end
 

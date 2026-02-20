@@ -15,17 +15,17 @@ status: draft
 
 * Hero Changes
 
-@inline
+@inline svelte
 <SectionPreview type="hero" names={["Bebop", "Grey Talon", "Kelvin", "McGinnis", "Paradox", "Seven", "Shiv", "Yamato"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Bebop" type="hero" />
 @end
 
 - Sticky Bomb stacks no longer decrease on death
 
-@inline
+@inline svelte
 <AbilityHeading name="Sticky Bomb" />
 @end
 
@@ -35,61 +35,61 @@ status: draft
 - Sticky Bomb T1 improved from -7.5s to -8s
 - Sticky Bomb cooldown reduced from 19s to 18s
 
-@inline
+@inline svelte
 <EntityHeading name="Grey Talon" type="hero" />
 @end
 
 - Movespeed spirit scaling reduced from 0.04 to 0.032
 - Bullet damage spirit scaling reduced from 0.13 to 0.12
 
-@inline
+@inline svelte
 <EntityHeading name="Kelvin" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Ice Path" />
 @end
 
 - Ice Path cooldown increased from 38s to 42s
 
-@inline
+@inline svelte
 <EntityHeading name="McGinnis" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Mini Turrets Spirit Resist" />
 @end
 
 - Mini Turrets Spirit Resist reduced from 80% to 70%
 
-@inline
+@inline svelte
 <AbilityHeading name="Spectral Wall" />
 @end
 
 - Spectral Wall cooldown increased from 37s to 46s
 - Spectral Wall T2 cooldown improved from -14s to -23s
 
-@inline
+@inline svelte
 <EntityHeading name="Paradox" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Pulse Grenade" />
 @end
 
 - Pulse Grenade T3 reduced from +1m per Pulse to +0.75m
 
-@inline
+@inline svelte
 <EntityHeading name="Seven" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Storm Cloud DPS" />
 @end
 
 - Storm Cloud DPS increased from 110 to 120
 
-@inline
+@inline svelte
 <EntityHeading name="Shiv" type="hero" />
 @end
 
@@ -97,11 +97,11 @@ status: draft
 - Killing Blow rage per weapon damage increased from 0.015 to 0.017
 - Killing Blow drain rate reduced from 0.3 to 0.25
 
-@inline
+@inline svelte
 <EntityHeading name="Yamato" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Shadow Transformation" />
 @end
 
@@ -109,11 +109,11 @@ status: draft
 
 * Item Changes
 
-@inline
+@inline svelte
 <SectionPreview type="item" names={["Majestic Leap"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Majestic Leap" type="item" />
 @end
 

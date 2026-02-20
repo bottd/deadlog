@@ -46,104 +46,104 @@ status: draft
 
 * Hero Changes
 
-@inline
+@inline svelte
 <SectionPreview type="hero" names={["Abrams", "Bebop", "Dynamo", "Grey Talon", "Haze", "Infernus", "Kelvin", "Lady Geist", "Lash", "McGinnis", "Mo &amp; Krill", "Vindicta", "Yamato"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Abrams" type="hero" />
 @end
 
 - Base Health increased from 550 to 600
 
-@inline
+@inline svelte
 <AbilityHeading name="Siphon DPS" />
 @end
 
 - Siphon DPS increased from 24 to 35
 
-@inline
+@inline svelte
 <EntityHeading name="Bebop" type="hero" />
 @end
 
 - Weapon no longer has horizontal/vertical recoil
 
-@inline
+@inline svelte
 <EntityHeading name="Dynamo" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Singularity DPS" />
 @end
 
 - Singularity DPS increased from 48 to 60
 
-@inline
+@inline svelte
 <AbilityHeading name="Singularity" />
 @end
 
 - Singularity T3 Max HP DPS increased from 3.2% to 3.8%
 
-@inline
+@inline svelte
 <EntityHeading name="Grey Talon" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Charge Shot" />
 @end
 
 - Charge Shot damage increased from 95 to 105
 - Charge Shot T2 damage reduced from 80 to 70
 
-@inline
+@inline svelte
 <AbilityHeading name="Guided Owl" />
 @end
 
 - Guided Owl damage increased from 200 to 300
 
-@inline
+@inline svelte
 <EntityHeading name="Haze" type="hero" />
 @end
 
 - Bullet Dance bonus Fire Rate reduced from +30 to +20
 
-@inline
+@inline svelte
 <AbilityHeading name="Smoke Bomb" />
 @end
 
 - Smoke Bomb duration scaling from Spirit improved from 0.2 to 0.3
 
-@inline
+@inline svelte
 <EntityHeading name="Infernus" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Catalyst" />
 @end
 
 - Catalyst no longer slows Infernus to 1.3 m/s during the cast delay
 
-@inline
+@inline svelte
 <AbilityHeading name="Concussive Combustion" />
 @end
 
 - Concussive Combustion damage increased from 130 to 160
 
-@inline
+@inline svelte
 <EntityHeading name="Kelvin" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Frost Grenade" />
 @end
 
 - Frost Grenade T3 bonus damage increased from +100 to +175
 
-@inline
+@inline svelte
 <EntityHeading name="Lady Geist" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Blood Bomb" />
 @end
 
@@ -152,36 +152,36 @@ status: draft
 
 - Blood Bomb tooltip fixed to reference the correct self damage type and that it can be reduced with armor
 
-@inline
+@inline svelte
 <AbilityHeading name="Malice" />
 @end
 
 - Malice damage amp per shard increased from 10% to 15%
 
-@inline
+@inline svelte
 <EntityHeading name="Lash" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Grapple" />
 @end
 
 - Grapple cooldown reduced from 55 to 45
 
-@inline
+@inline svelte
 <AbilityHeading name="Flog Damage" />
 @end
 
 - Flog Damage increased from 55 to 65
 
-@inline
+@inline svelte
 <AbilityHeading name="Flog" />
 @end
 
 - Flog lifesteal from heroes increased from 70% to 80% of damage dealt
 - Flog lifesteal from non-heroes reduced from 35% to 30% of damage dealt
 
-@inline
+@inline svelte
 <AbilityHeading name="Death Slam" />
 @end
 
@@ -190,11 +190,11 @@ status: draft
 - Fixed Death Slam's targeting cone not finding enemies near the edges
 - Fixed Death Slam to only target enemies who stay in the targeting cone
 
-@inline
+@inline svelte
 <EntityHeading name="McGinnis" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Heavy Barrage" />
 @end
 
@@ -202,11 +202,11 @@ status: draft
 
 - Heavy Barrage camera interaction with Fleetfoot Boots has been fixed
 
-@inline
+@inline svelte
 <EntityHeading name="Mo &amp; Krill" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Sand Blast" />
 @end
 
@@ -214,14 +214,14 @@ status: draft
 - Sand Blast width increased from 3m to 5m
 - Sand Blast is now permissive with small obstructions in the way
 
-@inline
+@inline svelte
 <AbilityHeading name="Burrow" />
 @end
 
 - Burrow no longer loses its state as you change elevations
 - Burrow now knocks enemies up when you come up
 
-@inline
+@inline svelte
 <AbilityHeading name="Combo DPS" />
 @end
 
@@ -229,14 +229,14 @@ status: draft
 
 - No longer listed as a recommended new player hero
 
-@inline
+@inline svelte
 <EntityHeading name="Vindicta" type="hero" />
 @end
 
 - Base Bullet Damage reduced from 15 to 14
 - Bullet Damage gained per boon reduced from 0.88 to 0.7 (these are gained occasionally as you earn souls, up to 11 times)
 
-@inline
+@inline svelte
 <AbilityHeading name="Stake" />
 @end
 
@@ -244,11 +244,11 @@ status: draft
 
 - Is now a recommended hero for new players
 
-@inline
+@inline svelte
 <EntityHeading name="Yamato" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Crimson Slash" />
 @end
 
@@ -257,13 +257,13 @@ status: draft
 - Crimson Slash T2 changed from "-5s Cooldown" to "10% Max Health heal on hero hit"
 - Crimson Slash T3 changed from "12% Max Health heal on hero hit" to "-6s Cooldown"
 
-@inline
+@inline svelte
 <AbilityHeading name="Power Slash" />
 @end
 
 - Power Slash T1 Bullet Resist increased from 40% to 60%
 
-@inline
+@inline svelte
 <AbilityHeading name="Flying Strike" />
 @end
 
@@ -271,7 +271,7 @@ status: draft
 - Flying Strike T2 changed from "-15s Cooldown" to "+20 Cast Range"
 - Flying Strike range no longer scales with Spirit
 
-@inline
+@inline svelte
 <AbilityHeading name="Shadow Explosion" />
 @end
 

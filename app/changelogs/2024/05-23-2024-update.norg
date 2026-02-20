@@ -93,15 +93,15 @@ status: draft
 
 * Hero Changes
 
-@inline
+@inline svelte
 <SectionPreview type="hero" names={["Abrams", "Bebop", "Dynamo", "Grey Talon", "Haze", "Ivy", "Kelvin", "Lady Geist", "Lash", "McGinnis", "Mo &amp; Krill", "Paradox", "Pocket", "Vindicta", "Warden", "Wraith", "Yamato"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Abrams" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Siphon Life" />
 @end
 
@@ -109,11 +109,11 @@ status: draft
 
 - Shoulder charge now allows for a bit more steering control
 
-@inline
+@inline svelte
 <EntityHeading name="Bebop" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Sticky Bomb" />
 @end
 
@@ -121,52 +121,52 @@ status: draft
 
 - Improved Hook hitbox detection to not grab targets that are behind cover
 
-@inline
+@inline svelte
 <AbilityHeading name="Hyperbeam" />
 @end
 
 - Hyperbeam width increased from 2.5m to 2.7m
 
-@inline
+@inline svelte
 <EntityHeading name="Dynamo" type="hero" />
 @end
 
 - Base gun damage reduced from 18 to 15
 - Gun damage growth reduced from +1.1 to +0.8
 
-@inline
+@inline svelte
 <EntityHeading name="Grey Talon" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Guided Owl Spirit" />
 @end
 
 - Guided Owl Spirit scaling reduced from 2.2 to 1.2
 
-@inline
+@inline svelte
 <AbilityHeading name="Guided Owl" />
 @end
 
 - Guided Owl T3 changed from +200 damage to "Kills enemy heroes below 20%". Low health enemies are highlighted while guiding the owl.
 
-@inline
+@inline svelte
 <EntityHeading name="Haze" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Sleep Dagger" />
 @end
 
 - Sleep Dagger no longer breaks invisibility when cast (previously was part of the T3)
 
-@inline
+@inline svelte
 <AbilityHeading name="Sleep Dagger Spirit" />
 @end
 
 - Sleep Dagger Spirit scaling increased from 2.3 to 2.6
 
-@inline
+@inline svelte
 <AbilityHeading name="Sleep Dagger" />
 @end
 
@@ -176,40 +176,40 @@ status: draft
 - Bullet Dance cast time increased from 0.7s to 0.8s
 - Bullet Dance evasion from 70% to 50%
 
-@inline
+@inline svelte
 <EntityHeading name="Ivy" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Kudzu Bomb" />
 @end
 
 - Kudzu Bomb duration increased from 3.5s to 4s
 - Kudzu Bomb T2 duration increased from +1.5s to +2s
 
-@inline
+@inline svelte
 <AbilityHeading name="Watcher's Covenant Replicated Healing" />
 @end
 
 - Watcher's Covenant Replicated Healing increased from 50% to 65%
 
-@inline
+@inline svelte
 <AbilityHeading name="Watcher's Covenant Fire Rate" />
 @end
 
 - Watcher's Covenant Fire Rate reduced from 20% to 15%
 
-@inline
+@inline svelte
 <AbilityHeading name="Watcher's Covenant" />
 @end
 
 - Watcher's Covenant T1 changed to +15% Rate
 
-@inline
+@inline svelte
 <EntityHeading name="Kelvin" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Frost Grenade" />
 @end
 
@@ -218,20 +218,20 @@ status: draft
 - While Ice Pathing you no longer slow down when you shoot your gun
 - Arctic Beam Channel move speed increased from 4 to 6
 
-@inline
+@inline svelte
 <AbilityHeading name="Arctic Beam" />
 @end
 
 - Arctic Beam T1 changed from "+2 Channel Move Speed" to -8s Cooldown
 
-@inline
+@inline svelte
 <EntityHeading name="Lady Geist" type="hero" />
 @end
 
 - Soul Exchange cast time reduced from 0.65s to 0.5s
 - Fixed Malice clipping aggressively against map geometry edges
 
-@inline
+@inline svelte
 <EntityHeading name="Lash" type="hero" />
 @end
 
@@ -240,55 +240,55 @@ status: draft
 - Fixed some cases with Ground Strike not hitting units positioned just below the impact zone
 - Flog angle increased from 20 degrees to 30 degrees
 
-@inline
+@inline svelte
 <AbilityHeading name="Flog" />
 @end
 
 - Flog cooldown reduced from 35s to 30s
 
-@inline
+@inline svelte
 <EntityHeading name="McGinnis" type="hero" />
 @end
 
 - Fixed certain rooftops allowing turrets to be built on them
 
-@inline
+@inline svelte
 <EntityHeading name="Mo &amp; Krill" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Scorn" />
 @end
 
 - Scorn healing against non-heroes reduced from 1x to 0.7x
 
-@inline
+@inline svelte
 <AbilityHeading name="Sandblast" />
 @end
 
 - Sandblast no longer prevents enemies from reloading while disarmed
 
-@inline
+@inline svelte
 <EntityHeading name="Paradox" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Kinetic Carbine Max Damage Amp" />
 @end
 
 - Kinetic Carbine Max Damage Amp reduced from 125% to 100%
 
-@inline
+@inline svelte
 <AbilityHeading name="Paradoxical Swap" />
 @end
 
 - Paradoxical Swap range reduced from 45m to 40m
 
-@inline
+@inline svelte
 <EntityHeading name="Pocket" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Barrage" />
 @end
 
@@ -297,33 +297,33 @@ status: draft
 - Fixed some issues with Barrage projectiles getting caught on map geometry
 - Flying Cloak pathing improved, it will no longer bounce erratically off map geometry
 
-@inline
+@inline svelte
 <EntityHeading name="Vindicta" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Flight" />
 @end
 
 - Flight T3 reduced from +4m/s to +3m/s
 
-@inline
+@inline svelte
 <AbilityHeading name="Crow Familiar" />
 @end
 
 - Crow Familiar T3 improved from -30% Healing Suppression to -40%
 
-@inline
+@inline svelte
 <EntityHeading name="Warden" type="hero" />
 @end
 
 - Alchemical Flask travel speed increased from 800 to 1000
 
-@inline
+@inline svelte
 <EntityHeading name="Wraith" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Royal Flush" />
 @end
 
@@ -331,19 +331,19 @@ status: draft
 
 - Royal Flush time to spawn cards increased from 0.4s to 0.6s
 
-@inline
+@inline svelte
 <AbilityHeading name="Telekinesis" />
 @end
 
 - Telekinesis no longer allows the victim to shoot back
 
-@inline
+@inline svelte
 <EntityHeading name="Yamato" type="hero" />
 @end
 
 - Shadow Explosion renamed to Shadow Transformation and reworked into a new ability
 
-@inline
+@inline svelte
 <AbilityHeading name="Shadow Transformation" />
 @end
 
@@ -355,41 +355,41 @@ status: draft
 
 * Item Changes
 
-@inline
+@inline svelte
 <SectionPreview type="item" names={["Decay", "Escalating Resilience", "Frenzy", "Glass Cannon", "Headshot Booster", "Knockdown", "Leech", "Lifestrike", "Majestic Leap", "Mystic Burst", "Mystic Shot", "Phantom Strike", "Reactive Barrier", "Refresher", "Restorative Locket", "Silencer", "Slowing Hex", "Spirit Strike", "Superior Cooldown"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Decay" type="item" />
 @end
 
 - Cooldown increased from 22s to 27s
 
-@inline
+@inline svelte
 <EntityHeading name="Escalating Resilience" type="item" />
 @end
 
 - Max Bullet Resist increased from 30% to 36%
 
-@inline
+@inline svelte
 <EntityHeading name="Frenzy" type="item" />
 @end
 
 - When below 40% HP you now gain 25% Spirit Resist
 
-@inline
+@inline svelte
 <EntityHeading name="Glass Cannon" type="item" />
 @end
 
 - Fire Rate reduced from 15% to 10%
 
-@inline
+@inline svelte
 <EntityHeading name="Headshot Booster" type="item" />
 @end
 
 - Cooldown reduced from 14s to 9s
 
-@inline
+@inline svelte
 <EntityHeading name="Knockdown" type="item" />
 @end
 
@@ -397,26 +397,26 @@ status: draft
 - Now grants +2 Sprint
 - Stun duration starts after hitting the ground
 
-@inline
+@inline svelte
 <EntityHeading name="Leech" type="item" />
 @end
 
 - Spirit bonus reduced from 12 to 8
 
-@inline
+@inline svelte
 <EntityHeading name="Lifestrike" type="item" />
 @end
 
 - Flat portion of the lifesteal increased from 90 to 110
 
-@inline
+@inline svelte
 <EntityHeading name="Majestic Leap" type="item" />
 @end
 
 - Duration of no damage taken requirement reduced from 5s to 4s
 - Now gives +75 Health
 
-@inline
+@inline svelte
 <EntityHeading name="Mystic Burst" type="item" />
 @end
 
@@ -424,49 +424,49 @@ status: draft
 - Now grants +1 Sprint
 - Cooldown reduced from 8s to 6s
 
-@inline
+@inline svelte
 <EntityHeading name="Mystic Shot" type="item" />
 @end
 
 - Now requires that shotguns middle pellet hit the target
 
-@inline
+@inline svelte
 <EntityHeading name="Phantom Strike" type="item" />
 @end
 
 - Damage reduced from 200 to 150
 
-@inline
+@inline svelte
 <EntityHeading name="Reactive Barrier" type="item" />
 @end
 
 - Cooldown reduced from 40s to 35s
 
-@inline
+@inline svelte
 <EntityHeading name="Refresher" type="item" />
 @end
 
 - Now grants +10% Spirit Resist
 
-@inline
+@inline svelte
 <EntityHeading name="Restorative Locket" type="item" />
 @end
 
 - Now displays its current number of charges on its active icon
 
-@inline
+@inline svelte
 <EntityHeading name="Silencer" type="item" />
 @end
 
 - Now provides 15% Ammo
 
-@inline
+@inline svelte
 <EntityHeading name="Slowing Hex" type="item" />
 @end
 
 - Range increased from 30 to 35
 
-@inline
+@inline svelte
 <EntityHeading name="Spirit Strike" type="item" />
 @end
 
@@ -474,7 +474,7 @@ status: draft
 - Now grants +75 Spirit Shield
 - Now grants +0.7 HP regen
 
-@inline
+@inline svelte
 <EntityHeading name="Superior Cooldown" type="item" />
 @end
 

@@ -17,11 +17,11 @@ status: draft
 
 * Item Changes
 
-@inline
+@inline svelte
 <SectionPreview type="item" names={["Decay"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Decay" type="item" />
 @end
 

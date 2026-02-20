@@ -17,17 +17,17 @@ status: draft
 
 * Item Changes
 
-@inline
+@inline svelte
 <SectionPreview type="item" names={["Divine Barrier", "Restorative Locket"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Divine Barrier" type="item" />
 @end
 
 - Shields reduced from 260 to 230
 
-@inline
+@inline svelte
 <EntityHeading name="Restorative Locket" type="item" />
 @end
 

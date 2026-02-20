@@ -161,24 +161,24 @@ amber purple walker arena
 
 * Hero Changes
 
-@inline
+@inline svelte
 <SectionPreview type="hero" names={["Abrams", "Bebop", "Dynamo", "Grey Talon", "Haze", "Ivy", "Kelvin", "Lash", "McGinnis", "Mo &amp; Krill", "Paradox", "Pocket", "Seven", "Vindicta", "Viscous", "Warden", "Wraith", "Yamato"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Abrams" type="hero" />
 @end
 
 - Fixed Seismic Impact often not dragging enemies in the air along with you when you are slamming down
 - Fixed Shoulder Charge not always placing enemies in front of you
 
-@inline
+@inline svelte
 <AbilityHeading name="Seismic Impact" />
 @end
 
 - Seismic Impact damage reduced from 175 to 150
 
-@inline
+@inline svelte
 <EntityHeading name="Bebop" type="hero" />
 @end
 
@@ -188,14 +188,14 @@ amber purple walker arena
 - Base Bullet Resist increased from 0% to 10%
 - Bullet Resist per boon reduced from 2.5% to 1.6% (same overall bullet resist at max)
 
-@inline
+@inline svelte
 <AbilityHeading name="Hook" />
 @end
 
 - Hook range reduced from 40m to 35m
 - Hook T2 increased from +25m to +30m
 
-@inline
+@inline svelte
 <AbilityHeading name="Exploding Uppercut" />
 @end
 
@@ -205,7 +205,7 @@ amber purple walker arena
 
 - Fixed hooking through veils sometimes not working
 
-@inline
+@inline svelte
 <AbilityHeading name="Sticky Bomb" />
 @end
 
@@ -213,7 +213,7 @@ amber purple walker arena
 
 - Sticky Bomb can now be cast on self using alt cast hotkey
 
-@inline
+@inline svelte
 <AbilityHeading name="Hyper Beam" />
 @end
 
@@ -224,44 +224,44 @@ amber purple walker arena
 - Hyper Beam nearby radius increased from 4.5m to 5m
 - Hyper Beam nearby damage now does 25% less than the full amount
 
-@inline
+@inline svelte
 <EntityHeading name="Dynamo" type="hero" />
 @end
 
 - Rejuvenating Aurora can now be canceled by using stamina instead of needing to manually exit first (pre T3)
 - Fixed Kinetic Pulse sometimes getting caught on stairs
 
-@inline
+@inline svelte
 <AbilityHeading name="Singularity" />
 @end
 
 - Singularity now has a 0.1s cast point
 
-@inline
+@inline svelte
 <AbilityHeading name="Kinetic Pulse" />
 @end
 
 - Kinetic Pulse width increased from 4.5m to 5m
 - Kinetic Pulse T3 increased from +115 Damage to +125
 
-@inline
+@inline svelte
 <EntityHeading name="Grey Talon" type="hero" />
 @end
 
 - Charged Shot collision radius reduced by 10%
 - Fixed T3 Guided Owl not triggering correctly sometimes when the target has Spirit Armor
 
-@inline
+@inline svelte
 <EntityHeading name="Haze" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Sleep Dagger" />
 @end
 
 - Sleep Dagger now puts you in a brief drowsy state for 0.25s seconds where you move slowly before falling asleep (you still have the ability to shoot/cast/move/etc during this period)
 
-@inline
+@inline svelte
 <AbilityHeading name="Fixation" />
 @end
 
@@ -270,19 +270,19 @@ amber purple walker arena
 
 - Bullet Dance T1 increased from +6 to +7
 
-@inline
+@inline svelte
 <EntityHeading name="Ivy" type="hero" />
 @end
 
 - Fixed melee still going through when casting Stone Form after initiating a melee attack
 
-@inline
+@inline svelte
 <AbilityHeading name="Stone Form" />
 @end
 
 - Stone Form T2 stun reduced from 0.75s to 0.5s
 
-@inline
+@inline svelte
 <AbilityHeading name="Watcher's Covenant" />
 @end
 
@@ -290,11 +290,11 @@ amber purple walker arena
 
 - Now has a new ultimate ability, Air Drop. Take flight with an Ally (or self-cast to carry a bomb). You fly and drop the ally or bomb onto an area, dealing damage, slowing, and silencing enemies. Ivy and the ally gain a bullet shield when they are dropped. Allies can drop by themselves at any time. When using the ability without an ally (carrying a bomb), it has a 1 second cast time.
 
-@inline
+@inline svelte
 <EntityHeading name="Kelvin" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Arctic Beam" />
 @end
 
@@ -305,61 +305,61 @@ amber purple walker arena
 - Arctic Beam time to reach max slow increased from 1.2s to 2s
 - Frozen Shelter can now be cast while using Arctic Beam
 
-@inline
+@inline svelte
 <EntityHeading name="Lash" type="hero" />
 @end
 
 - Health per boon increased from 37 to 42
 - Base spirit resist increased from 8% to 15%
 
-@inline
+@inline svelte
 <AbilityHeading name="Flog" />
 @end
 
 - Flog cooldown reduced from 30s to 25s
 - Flog T3 now also reduces Fire Rate by 35%
 
-@inline
+@inline svelte
 <EntityHeading name="McGinnis" type="hero" />
 @end
 
 - Speed while shooting increased from 55% to 70%
 
-@inline
+@inline svelte
 <AbilityHeading name="Mini Turrets" />
 @end
 
 - Mini Turrets now prioritize any heroes McGinnis is shooting at
 
-@inline
+@inline svelte
 <AbilityHeading name="Medicinal Specter" />
 @end
 
 - Medicinal Specter duration Spirit Power scaling increased from 0.09 to 0.12
 
-@inline
+@inline svelte
 <AbilityHeading name="Heavy Barrage" />
 @end
 
 - Heavy Barrage T1 changed to Rockets apply 35% slow
 
-@inline
+@inline svelte
 <EntityHeading name="Mo &amp; Krill" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Scorn" />
 @end
 
 - Scorn T3 now affects all damage types
 
-@inline
+@inline svelte
 <EntityHeading name="Paradox" type="hero" />
 @end
 
 - Base ammo reduced from 45 to 40
 
-@inline
+@inline svelte
 <AbilityHeading name="Kinetic Carbine" />
 @end
 
@@ -370,23 +370,23 @@ amber purple walker arena
 - Kinetic Carbine T1 reduced from +0.75s Max Stop duration to +0.5s
 - Kinetic Carbine T2 cd reduction increased from -8s to -10s
 
-@inline
+@inline svelte
 <AbilityHeading name="Time Wall" />
 @end
 
 - Time Wall T3 silence duration reduced from 3.5s to 3s
 
-@inline
+@inline svelte
 <AbilityHeading name="Paradoxical Swap" />
 @end
 
 - Paradoxical Swap projectile size reduced by 10%
 
-@inline
+@inline svelte
 <EntityHeading name="Pocket" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Barrage" />
 @end
 
@@ -397,7 +397,7 @@ amber purple walker arena
 - Base Spirit Resist reduced from 0% to -15%
 - Barrage Amp per stack reduced from 10% to 8%
 
-@inline
+@inline svelte
 <AbilityHeading name="Barrage" />
 @end
 
@@ -405,37 +405,37 @@ amber purple walker arena
 
 - Fixed the camera moving too slowly after teleporting with Cloak
 
-@inline
+@inline svelte
 <EntityHeading name="Seven" type="hero" />
 @end
 
 - Fixed multiple instances of Static Charge not working correctly
 
-@inline
+@inline svelte
 <AbilityHeading name="Lightning Ball" />
 @end
 
 - Lightning Ball duration increased from 4s to 5s
 
-@inline
+@inline svelte
 <AbilityHeading name="Static Charge" />
 @end
 
 - Static Charge stun delay reduced from 4s to 3.5s
 
-@inline
+@inline svelte
 <EntityHeading name="Vindicta" type="hero" />
 @end
 
 - Stake base duration reduced from 2.5s to 2.25s
 
-@inline
+@inline svelte
 <AbilityHeading name="Stake" />
 @end
 
 - Stake T1 duration reduced from 1s to 0.75s
 
-@inline
+@inline svelte
 <EntityHeading name="Viscous" type="hero" />
 @end
 
@@ -443,25 +443,25 @@ amber purple walker arena
 - Fix Damage prevention after being hit by Viscous' Goo Ball being reduced by Debuff Reducer
 - The Cube cast range increased from 25m to 30m
 
-@inline
+@inline svelte
 <AbilityHeading name="The Cube" />
 @end
 
 - The Cube T2 cooldown reduced from -25s to -22s
 
-@inline
+@inline svelte
 <AbilityHeading name="Puddle Punch" />
 @end
 
 - Puddle Punch now deals light melee damage and is affected by melee items
 
-@inline
+@inline svelte
 <AbilityHeading name="Puddle Punch Charge Delay" />
 @end
 
 - Puddle Punch Charge Delay increased from 0.5s to 1.5s
 
-@inline
+@inline svelte
 <AbilityHeading name="Goo Ball" />
 @end
 
@@ -476,17 +476,17 @@ amber purple walker arena
 - Goo Ball acceleration lowered a bit
 - Stunning or immobilizing Viscous now stops the ball from moving, and prevents him from doing damage and stunning
 
-@inline
+@inline svelte
 <EntityHeading name="Warden" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Binding Word" />
 @end
 
 - Binding Word no longer drains 1 stamina
 
-@inline
+@inline svelte
 <AbilityHeading name="Alchemical Flask" />
 @end
 
@@ -496,29 +496,29 @@ amber purple walker arena
 
 - Binding Word immobilize duration reduced from 2s to 1.75
 
-@inline
+@inline svelte
 <AbilityHeading name="Binding Word" />
 @end
 
 - Binding Word now has a quick cast behavior (same as Static Charge)
 
-@inline
+@inline svelte
 <EntityHeading name="Wraith" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Card Trick" />
 @end
 
 - Card Trick now has 0.5s cd per cast
 
-@inline
+@inline svelte
 <AbilityHeading name="Telekinesis" />
 @end
 
 - Telekinesis T2 duration reduced from +0.75s to +0.5s
 
-@inline
+@inline svelte
 <AbilityHeading name="Full Auto" />
 @end
 
@@ -526,13 +526,13 @@ amber purple walker arena
 
 - Fixed being able to melee and parry while stunned by Wraith's Telekinesis
 
-@inline
+@inline svelte
 <EntityHeading name="Yamato" type="hero" />
 @end
 
 - Base melee damage increased by 10%
 
-@inline
+@inline svelte
 <AbilityHeading name="Flying Strike" />
 @end
 
@@ -540,56 +540,56 @@ amber purple walker arena
 
 * Item Changes
 
-@inline
+@inline svelte
 <SectionPreview type="item" names={["Active Reload", "Alchemical Fire", "Ammo Scavenger", "Berserker", "Bullet Lifesteal", "Cold Front", "Colossus", "Decay", "Divine Barrier", "Diviner's Kevlar", "Escalating Exposure", "Escalating Resilience", "Ethereal Shift", "Extra Regen", "Fortitude", "Glass Cannon", "Headshot Booster", "Healing Booster", "Healing Rite", "Heroic Aura", "Infuser", "Inhibitor", "Intensifying Magazine", "Kinetic Dash", "Lifestrike", "Long Range", "Majestic Leap", "Melee Lifesteal", "Metal Skin", "Monster Rounds", "Mystic Shot", "Mystic Slow", "Phantom Strike", "Point Blank", "Quicksilver Reload", "Refresher", "Rescue Beam", "Restorative Locket", "Restorative Shot", "Ricochet", "Sharpshooter", "Silencer", "Siphon Bullets", "Slowing Bullets", "Slowing Hex", "Soul Rebirth", "Spirit Strike", "Superior Cooldown", "Superior Duration", "Surge of Power", "Titanic Magazine", "Warp Stone"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Active Reload" type="item" />
 @end
 
 - Lifesteal reduced from 40% to 30%
 - Fire Rate reduced from 24% to 20%
 
-@inline
+@inline svelte
 <EntityHeading name="Alchemical Fire" type="item" />
 @end
 
 - Bullet Shield increased from 175 to 225
 
-@inline
+@inline svelte
 <EntityHeading name="Ammo Scavenger" type="item" />
 @end
 
 - Spirit Power Duration increased from 24s to 35s
 
-@inline
+@inline svelte
 <EntityHeading name="Berserker" type="item" />
 @end
 
 - Fixed gaining stacks much faster than intended when taking damage from troopers
 
-@inline
+@inline svelte
 <EntityHeading name="Bullet Lifesteal" type="item" />
 @end
 
 - Lifesteal increased from +26% to 28%
 
-@inline
+@inline svelte
 <EntityHeading name="Cold Front" type="item" />
 @end
 
 - Damage reduced from 100 to 75
 - Damage Spirit Power scaling increased from 1.25 to 1.5
 
-@inline
+@inline svelte
 <EntityHeading name="Colossus" type="item" />
 @end
 
 - Slow increased from 20% to 25%
 - Slow now affects stamina distances
 
-@inline
+@inline svelte
 <EntityHeading name="Decay" type="item" />
 @end
 
@@ -597,51 +597,51 @@ amber purple walker arena
 - Bleed increased from 2.8% to 3.1%
 - Cooldown increased from 25s to 30s
 
-@inline
+@inline svelte
 <EntityHeading name="Divine Barrier" type="item" />
 @end
 
 - Duration increased from 4s to 5s
 - Cooldown reduced from 30s to 28s
 
-@inline
+@inline svelte
 <EntityHeading name="Diviner's Kevlar" type="item" />
 @end
 
 - Cooldown increased from 30s to 60s
 
-@inline
+@inline svelte
 <EntityHeading name="Escalating Exposure" type="item" />
 @end
 
 - Max Interval improved from 1s to 0.7s
 
-@inline
+@inline svelte
 <EntityHeading name="Escalating Resilience" type="item" />
 @end
 
 - Max Bullet Resist increased from 30% to 36%
 
-@inline
+@inline svelte
 <EntityHeading name="Ethereal Shift" type="item" />
 @end
 
 - No longer provides +10% Fire Rate
 - Cooldown increased from 25s to 30s
 
-@inline
+@inline svelte
 <EntityHeading name="Extra Regen" type="item" />
 @end
 
 - Regen increased from 2.7 to 2.8
 
-@inline
+@inline svelte
 <EntityHeading name="Fortitude" type="item" />
 @end
 
 - Out of combat regen timer reduced from 13s to 12s
 
-@inline
+@inline svelte
 <EntityHeading name="Glass Cannon" type="item" />
 @end
 
@@ -651,186 +651,186 @@ amber purple walker arena
 - Now gives +10% Weapon Damage per kill (up to +50%)
 - When you die you lose a stack
 
-@inline
+@inline svelte
 <EntityHeading name="Headshot Booster" type="item" />
 @end
 
 - No longer has +40 Bonus Health
 - Now has +40 Bullet Shield
 
-@inline
+@inline svelte
 <EntityHeading name="Healing Booster" type="item" />
 @end
 
 - Spirit Resist reduced from +7% to +6%
 - Bullet Resist reduced from +7% to +6%
 
-@inline
+@inline svelte
 <EntityHeading name="Healing Rite" type="item" />
 @end
 
 - Cooldown reduced from 75s to 65s
 - Cast Range increased from 20m to 30m
 
-@inline
+@inline svelte
 <EntityHeading name="Heroic Aura" type="item" />
 @end
 
 - Lifesteal increased from 18% to 20%
 
-@inline
+@inline svelte
 <EntityHeading name="Infuser" type="item" />
 @end
 
 - No longer gives +7% Spirit Resist
 - Now gives +50 Health
 
-@inline
+@inline svelte
 <EntityHeading name="Inhibitor" type="item" />
 @end
 
 - Weapon Damage increased from 20% to 25%
 
-@inline
+@inline svelte
 <EntityHeading name="Intensifying Magazine" type="item" />
 @end
 
 - Time for Max Damage reduced from 3.5s to 3s (this is a buff)
 
-@inline
+@inline svelte
 <EntityHeading name="Kinetic Dash" type="item" />
 @end
 
 - HP regen increased from 1 to 1.5
 
-@inline
+@inline svelte
 <EntityHeading name="Lifestrike" type="item" />
 @end
 
 - Heal effectiveness vs non-heroes increased from 25% to 35%
 - Heal increased from 45% of melee damage to +55%
 
-@inline
+@inline svelte
 <EntityHeading name="Long Range" type="item" />
 @end
 
 - Min distance reduced from 18m to 15m
 
-@inline
+@inline svelte
 <EntityHeading name="Majestic Leap" type="item" />
 @end
 
 - Health increased from +100 to +125
 - Spirit Power increased from +8 to +10
 
-@inline
+@inline svelte
 <EntityHeading name="Melee Lifesteal" type="item" />
 @end
 
 - Heal effectiveness vs non-heroes increased from 25% to 35%
 - Health increased from +70 to +75
 
-@inline
+@inline svelte
 <EntityHeading name="Metal Skin" type="item" />
 @end
 
 - Cooldown reduced from 30s to 25s
 
-@inline
+@inline svelte
 <EntityHeading name="Monster Rounds" type="item" />
 @end
 
 - Health reduced from +65 to +50
 - Now grants +30% Bullet Resistance vs NPCs
 
-@inline
+@inline svelte
 <EntityHeading name="Mystic Shot" type="item" />
 @end
 
 - Cooldown increased from 5s to 6s
 
-@inline
+@inline svelte
 <EntityHeading name="Mystic Slow" type="item" />
 @end
 
 - Fire Rate reduction increased from -30% to -40%
 
-@inline
+@inline svelte
 <EntityHeading name="Phantom Strike" type="item" />
 @end
 
 - Cast range reduced from 35m to 30m
 
-@inline
+@inline svelte
 <EntityHeading name="Point Blank" type="item" />
 @end
 
 - No longer grants +300 Bullet Shield
 - Now grants +15% Bullet Armor
 
-@inline
+@inline svelte
 <EntityHeading name="Quicksilver Reload" type="item" />
 @end
 
 - Infused ability bonus damage increased from +30 to +50
 
-@inline
+@inline svelte
 <EntityHeading name="Refresher" type="item" />
 @end
 
 - Spirit Resist increased from 14% to 16%
 
-@inline
+@inline svelte
 <EntityHeading name="Rescue Beam" type="item" />
 @end
 
 - Cooldown reduced from 30s to 25s
 
-@inline
+@inline svelte
 <EntityHeading name="Restorative Locket" type="item" />
 @end
 
 - Max Stacks reduced from 20 to 15
 - Heal per stack increased from 30 to 40
 
-@inline
+@inline svelte
 <EntityHeading name="Restorative Shot" type="item" />
 @end
 
 - Weapon Damage increased from 6% to 8%
 
-@inline
+@inline svelte
 <EntityHeading name="Ricochet" type="item" />
 @end
 
 - Fire Rate increased from +8% to +12%
 - Health increased from +125 to +150
 
-@inline
+@inline svelte
 <EntityHeading name="Sharpshooter" type="item" />
 @end
 
 - Min distance reduced from 18m to 15m
 
-@inline
+@inline svelte
 <EntityHeading name="Silencer" type="item" />
 @end
 
 - Reduced active duration from 6s to 4s
 
-@inline
+@inline svelte
 <EntityHeading name="Siphon Bullets" type="item" />
 @end
 
 - You permanently steal 1 stack (45 HP) from the enemy if they die under the debuff. If an enemy you stole a stack from kills you, they regain 1 stack back.
 
-@inline
+@inline svelte
 <EntityHeading name="Slowing Bullets" type="item" />
 @end
 
 - Now grants +5 Spirit
 
-@inline
+@inline svelte
 <EntityHeading name="Slowing Hex" type="item" />
 @end
 
@@ -840,33 +840,33 @@ amber purple walker arena
 - Now also reduces stamina distance by 30%
 - Projectile speed increased from 1200 to 1350
 
-@inline
+@inline svelte
 <EntityHeading name="Soul Rebirth" type="item" />
 @end
 
 - Rebirth Health increased from 40% to 50%
 - Cooldown reduced from 240s to 200s
 
-@inline
+@inline svelte
 <EntityHeading name="Spirit Strike" type="item" />
 @end
 
 - Spirit damage increased from 40 to 50
 - Debuff increased from -10% Spirit Resist to -12%
 
-@inline
+@inline svelte
 <EntityHeading name="Superior Cooldown" type="item" />
 @end
 
 - Non-Imbued ability cd reduction increased from 22% to 24%
 
-@inline
+@inline svelte
 <EntityHeading name="Superior Duration" type="item" />
 @end
 
 - Now provides +15% Weapon Damage
 
-@inline
+@inline svelte
 <EntityHeading name="Surge of Power" type="item" />
 @end
 
@@ -874,14 +874,14 @@ amber purple walker arena
 - Imbued Spirit increased from +26 to +28
 - Now grants +75 Health
 
-@inline
+@inline svelte
 <EntityHeading name="Titanic Magazine" type="item" />
 @end
 
 - Weapon Damage increased from 16% to 18%
 - Bullet Resist increased from 8% to 10%
 
-@inline
+@inline svelte
 <EntityHeading name="Warp Stone" type="item" />
 @end
 

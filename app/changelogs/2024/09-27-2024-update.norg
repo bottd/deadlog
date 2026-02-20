@@ -12,17 +12,17 @@ status: draft
 
 * Hero Changes
 
-@inline
+@inline svelte
 <SectionPreview type="hero" names={["Mirage"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Mirage" type="hero" />
 @end
 
 - Tornado lift duration reduced from 1.5s to 1.2s
 
-@inline
+@inline svelte
 <AbilityHeading name="Tornado" />
 @end
 
@@ -30,7 +30,7 @@ status: draft
 
 - Tornado base bullet evasion reduced from 30% to 25%
 
-@inline
+@inline svelte
 <AbilityHeading name="Djinn's Mark" />
 @end
 

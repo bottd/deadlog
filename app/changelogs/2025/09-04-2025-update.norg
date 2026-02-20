@@ -20,57 +20,57 @@ status: draft
 
 * Hero Changes
 
-@inline
+@inline svelte
 <SectionPreview type="hero" names={["Abrams", "Bebop", "Billy", "Calico", "Drifter", "Grey Talon", "Holliday", "Infernus", "Kelvin", "Mina", "Mirage", "Mo &amp; Krill", "Paige", "Paradox", "Seven", "Shiv", "Sinclair", "Victor", "Vindicta", "Viscous", "Vyper", "Warden"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Abrams" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Infernal Resilience" />
 @end
 
 - Infernal Resilience damage regenerated increased from 12% to 13%
 
-@inline
+@inline svelte
 <EntityHeading name="Bebop" type="hero" />
 @end
 
 - Weapon Range growth per boon increased from 1.2 to 1.5
 - Bullet damage growth per boon increased from 0.13 to 0.14
 
-@inline
+@inline svelte
 <AbilityHeading name="Exploding Uppercut" />
 @end
 
 - Exploding Uppercut cooldown reduced from 21s to 19s
 - Exploding Uppercut T1 increased from -10.5s to -11s
 
-@inline
+@inline svelte
 <AbilityHeading name="Hyperbeam" />
 @end
 
 - Hyperbeam cooldown reduced from 120s to 105s
 
-@inline
+@inline svelte
 <EntityHeading name="Billy" type="hero" />
 @end
 
 - Base health from 730 to 740
 
-@inline
+@inline svelte
 <AbilityHeading name="Rising Ram" />
 @end
 
 - Rising Ram cooldown decreased from 33s to 30s
 
-@inline
+@inline svelte
 <EntityHeading name="Calico" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Gloom Bombs" />
 @end
 
@@ -78,13 +78,13 @@ status: draft
 
 - Leaping Slash melee damage scaling increased from 1.3 to 1.5
 
-@inline
+@inline svelte
 <AbilityHeading name="Leaping Slash" />
 @end
 
 - Leaping Slash heal spirit scaling increased from 1.2 to 1.4
 
-@inline
+@inline svelte
 <AbilityHeading name="Ava" />
 @end
 
@@ -93,7 +93,7 @@ status: draft
 
 - Return to Shadows cooldown reduced from 110s to 100s
 
-@inline
+@inline svelte
 <EntityHeading name="Drifter" type="hero" />
 @end
 
@@ -101,19 +101,19 @@ status: draft
 - Weapon falloff start distance reduced from 24m to 22m
 - Weapon damage gain per boon reduced from 0.55 to 0.52
 
-@inline
+@inline svelte
 <AbilityHeading name="Bloodscent" />
 @end
 
 - Bloodscent T3 Bonus amp damage reduced from +11% to +10%
 
-@inline
+@inline svelte
 <AbilityHeading name="Rend" />
 @end
 
 - Rend now causes you to briefly float in the air during the cast time
 
-@inline
+@inline svelte
 <EntityHeading name="Grey Talon" type="hero" />
 @end
 
@@ -122,7 +122,7 @@ status: draft
 - Spirit Snare T2 changed from "+0.75 Curse Duration" to "Applies -15% Bullet Resistance for 10s"
 - Spirit Snare T3 changed from "Grey Talon deals +30% more Bullet Damage to enemies hit by Spirit Snare for 10s" to "+1s Curse Duration and +1.5m Radius"
 
-@inline
+@inline svelte
 <EntityHeading name="Holliday" type="hero" />
 @end
 
@@ -130,7 +130,7 @@ status: draft
 - Bullet damage growth increased from 1.08 to 1.23
 - Powder Keg displacement duration reduced from 1s to 0.4s
 
-@inline
+@inline svelte
 <AbilityHeading name="Powder Keg" />
 @end
 
@@ -140,37 +140,37 @@ status: draft
 - Powder Keg T3 charges reduced from +3 to +2
 - Powder Keg T3 now also increases displacement duration by 0.4s
 
-@inline
+@inline svelte
 <EntityHeading name="Infernus" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Flame Dash DPS" />
 @end
 
 - Flame Dash DPS reduced from 33 to 30
 
-@inline
+@inline svelte
 <AbilityHeading name="Flame Dash" />
 @end
 
 - Flame Dash T2 reduced from +37 DPS to +35
 
-@inline
+@inline svelte
 <EntityHeading name="Kelvin" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Frost Grenade" />
 @end
 
 - Frost Grenade cooldown reduced from 22s to 20s
 
-@inline
+@inline svelte
 <EntityHeading name="Mina" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Rake" />
 @end
 
@@ -180,50 +180,50 @@ status: draft
 - Love Bites on proc damage increased from 45 to 55
 - Love Bites on proc damage spirit scaling increased from 1.5 to 1.7
 
-@inline
+@inline svelte
 <AbilityHeading name="Nox Nostra" />
 @end
 
 - Nox Nostra cooldown reduced from 130s to 115s
 
-@inline
+@inline svelte
 <EntityHeading name="Mirage" type="hero" />
 @end
 
 - Fire Scarabs T3 increased from +60 Max Health Steal to +70
 
-@inline
+@inline svelte
 <EntityHeading name="Mo &amp; Krill" type="hero" />
 @end
 
 - Combo cast range reduced from 5m to 4.75m
 
-@inline
+@inline svelte
 <EntityHeading name="Paige" type="hero" />
 @end
 
 - Defend and Fight! barrier spirit power scaling increased from 1.4 to 1.6
 
-@inline
+@inline svelte
 <EntityHeading name="Paradox" type="hero" />
 @end
 
 - Bullet damage growth reduced from 0.275 to 0.27
 
-@inline
+@inline svelte
 <EntityHeading name="Seven" type="hero" />
 @end
 
 - Move speed reduced from 6.9 to 6.8
 - Incoming crit resistance reduced from -35% to -25%
 
-@inline
+@inline svelte
 <AbilityHeading name="Power Surge" />
 @end
 
 - Power Surge T3 spirit power scaling reduced from 0.34 to 0.3
 
-@inline
+@inline svelte
 <AbilityHeading name="Storm Cloud DPS" />
 @end
 
@@ -231,11 +231,11 @@ status: draft
 
 - Storm Cloud initial radius reduced from 12m to 10m
 
-@inline
+@inline svelte
 <EntityHeading name="Shiv" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Serrated Knives" />
 @end
 
@@ -243,7 +243,7 @@ status: draft
 
 - Slice and Dice T3 Max cd reduction from -6s to -8s
 
-@inline
+@inline svelte
 <AbilityHeading name="Bloodletting" />
 @end
 
@@ -251,17 +251,17 @@ status: draft
 
 - Bloodletting incoming damage deferred increased from 25% to 30%
 
-@inline
+@inline svelte
 <AbilityHeading name="Bloodletting" />
 @end
 
 - Bloodletting T3 increased from +35% Damage Cleared to +45%
 
-@inline
+@inline svelte
 <EntityHeading name="Sinclair" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Vexing Bolt" />
 @end
 
@@ -269,27 +269,27 @@ status: draft
 
 - Spectral Assistant base damage reduced from 18 to 15
 
-@inline
+@inline svelte
 <AbilityHeading name="Spectral Assistant" />
 @end
 
 - Spectral Assistant spirit scaling increased from 0.28 to 0.36
 - Spectral Assistant T3 increased from +45% Fire Rate to +60%
 
-@inline
+@inline svelte
 <AbilityHeading name="Rabbit Hex" />
 @end
 
 - Rabbit Hex T3 increased from +5% Damage Amp to +7%
 
-@inline
+@inline svelte
 <AbilityHeading name="Audience Participation" />
 @end
 
 - Audience Participation cooldown reduced from 100s to 85s
 - Audience Participation duration increased from 10s to 12s
 
-@inline
+@inline svelte
 <EntityHeading name="Victor" type="hero" />
 @end
 
@@ -298,11 +298,11 @@ status: draft
 - Aura of Suffering reduced from 9m to 8m
 - Aura of Suffering cooldown increased from 1s to 2.5s
 
-@inline
+@inline svelte
 <EntityHeading name="Vindicta" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Stake" />
 @end
 
@@ -310,7 +310,7 @@ status: draft
 - Stake duration reduced from 2s to 1.75s
 - Stake slow increased from 30% to 40%
 
-@inline
+@inline svelte
 <AbilityHeading name="Flight" />
 @end
 
@@ -323,35 +323,35 @@ status: draft
 - Crow Familiar debuff duration spirit scaling reduced from 0.022 to 0.013
 - Crow Familiar bleed per second increased from 2.15% to 2.7%
 
-@inline
+@inline svelte
 <AbilityHeading name="Crow Familiar" />
 @end
 
 - Crow Familiar T2 reduced from -16s Cooldown to -12s
 
-@inline
+@inline svelte
 <EntityHeading name="Viscous" type="hero" />
 @end
 
 - Alt Fire base damage reduced from 63 to 48
 
-@inline
+@inline svelte
 <AbilityHeading name="Alt Fire" />
 @end
 
 - Alt Fire damage growth increased from 0.45 to 1.25
 
-@inline
+@inline svelte
 <EntityHeading name="Vyper" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Falloff" />
 @end
 
 - Falloff min range increased from 13m to 15m
 
-@inline
+@inline svelte
 <AbilityHeading name="Screwjab Dagger" />
 @end
 
@@ -359,38 +359,38 @@ status: draft
 
 - Screwjab dagger cooldown reduced from 10s to 9s
 
-@inline
+@inline svelte
 <AbilityHeading name="Screwjab Dagger" />
 @end
 
 - Screwjab Dagger T3 increased from +1s Slow Duration to +2s
 
-@inline
+@inline svelte
 <AbilityHeading name="Lethal Venom" />
 @end
 
 - Lethal Venom cooldown reduced from 26s to 20s
 
-@inline
+@inline svelte
 <AbilityHeading name="Petrifying Bola" />
 @end
 
 - Petrifying Bola range increased from 6m to 8m
 - Petrifying Bola cooldown reduced from 110s to 90s
 
-@inline
+@inline svelte
 <EntityHeading name="Warden" type="hero" />
 @end
 
 - Base Sprint speed reduced from 2.5 to 2
 
-@inline
+@inline svelte
 <AbilityHeading name="Alchemical Flask" />
 @end
 
 - Alchemical Flask T2 reduced from +45 to +40
 
-@inline
+@inline svelte
 <AbilityHeading name="Last Stand" />
 @end
 
@@ -398,184 +398,184 @@ status: draft
 
 * Item Changes
 
-@inline
+@inline svelte
 <SectionPreview type="item" names={["Backstabber", "Blood Tribute", "Bullet Resist Shredder", "Capacitor", "Cheat Death", "Cold Front", "Counterspell", "Crippling Headshot", "Decay", "Divine Barrier", "Escalating Exposure", "Focus Lens", "Guardian Ward", "Headhunter", "Healing Nova", "Inhibitor", "Long Range", "Magic Carpet", "Metal Skin", "Quicksilver Reload", "Rebuttal", "Restorative Locket", "Return Fire", "Ricochet", "Rusted Barrel", "Shadow Weave", "Sharpshooter", "Silence Wave", "Siphon Bullets", "Spellslinger", "Spirit Burn", "Spirit Sap", "Torment Pulse", "Trophy Collector", "Veil Walker", "Weakening Headshot", "Weapon Shielding", "Witchmail"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Backstabber" type="item" />
 @end
 
 - Cooldown increased from 4s to 5s
 - Damage per second reduced from 20 to 17
 
-@inline
+@inline svelte
 <EntityHeading name="Blood Tribute" type="item" />
 @end
 
 - Spirit Resistance increased from 8% to 10%
 - Active move speed increased from 2 to 2.25
 
-@inline
+@inline svelte
 <EntityHeading name="Bullet Resist Shredder" type="item" />
 @end
 
 - No longer grants +20% Melee Resistance
 - Now grants +7% Bullet Resistance
 
-@inline
+@inline svelte
 <EntityHeading name="Capacitor" type="item" />
 @end
 
 - Now grants +8% Fire Rate
 - Projectile speed increased by 20%
 
-@inline
+@inline svelte
 <EntityHeading name="Cheat Death" type="item" />
 @end
 
 - Cooldown reduced from 100s to 90s
 
-@inline
+@inline svelte
 <EntityHeading name="Cold Front" type="item" />
 @end
 
 - Damage reduced from 125 to 100
 
-@inline
+@inline svelte
 <EntityHeading name="Counterspell" type="item" />
 @end
 
 - Duration reduced from 1 to 0.9
 
-@inline
+@inline svelte
 <EntityHeading name="Crippling Headshot" type="item" />
 @end
 
 - Debuff duration increased from 8s to 12s
 
-@inline
+@inline svelte
 <EntityHeading name="Decay" type="item" />
 @end
 
 - Cooldown reduced from 36 to 32
 - Bleed Damage spirit scaling increased from 0.0038 to 0.0055
 
-@inline
+@inline svelte
 <EntityHeading name="Divine Barrier" type="item" />
 @end
 
 - Cast range increased from 35m to 40m
 
-@inline
+@inline svelte
 <EntityHeading name="Escalating Exposure" type="item" />
 @end
 
 - Spirit Resistance reduced from 20% to 17%
 
-@inline
+@inline svelte
 <EntityHeading name="Focus Lens" type="item" />
 @end
 
 - Now deals damage whenever the debuff is removed rather than only on expire
 
-@inline
+@inline svelte
 <EntityHeading name="Guardian Ward" type="item" />
 @end
 
 - Cast range increased from 35m to 40m
 
-@inline
+@inline svelte
 <EntityHeading name="Headhunter" type="item" />
 @end
 
 - Bonus Damage boon scaling increased from 3 to 4
 
-@inline
+@inline svelte
 <EntityHeading name="Healing Nova" type="item" />
 @end
 
 - Heal per boon increased from 4.4 to 6
 - Now grants +6% Ability Range
 
-@inline
+@inline svelte
 <EntityHeading name="Inhibitor" type="item" />
 @end
 
 - Healing Reduction increased from -30% to -35%
 - Debuff duration increased from 4s to 5s
 
-@inline
+@inline svelte
 <EntityHeading name="Long Range" type="item" />
 @end
 
 - Now grants +4% Fall Off Range
 
-@inline
+@inline svelte
 <EntityHeading name="Magic Carpet" type="item" />
 @end
 
 - Spirit Power increased from +10 to +14
 - Speed increased from 6 to 7
 
-@inline
+@inline svelte
 <EntityHeading name="Metal Skin" type="item" />
 @end
 
 - Duration increased from 4s to 5s
 
-@inline
+@inline svelte
 <EntityHeading name="Quicksilver Reload" type="item" />
 @end
 
 - Bonus damage reduced from 60 to 55
 
-@inline
+@inline svelte
 <EntityHeading name="Rebuttal" type="item" />
 @end
 
 - No longer grants +50% Melee Damage on successful parry
 - Now grants +30% Bonus Damage on successful parry (affects all damage, similar to the base parry amplification)
 
-@inline
+@inline svelte
 <EntityHeading name="Restorative Locket" type="item" />
 @end
 
 - No longer scales with Spirit Power (0.17)
 - Now scales with Boons (0.3)
 
-@inline
+@inline svelte
 <EntityHeading name="Return Fire" type="item" />
 @end
 
 - Bullet Resistance increased from 6% to 8%
 
-@inline
+@inline svelte
 <EntityHeading name="Ricochet" type="item" />
 @end
 
 - No longer targets zipline targets
 
-@inline
+@inline svelte
 <EntityHeading name="Rusted Barrel" type="item" />
 @end
 
 - Cast range increased from 23m to 28m
 - Bullet Resistance reduction increased from -5% to -6%
 
-@inline
+@inline svelte
 <EntityHeading name="Shadow Weave" type="item" />
 @end
 
 - Invis Sprint speed increased from +2 to +5
 
-@inline
+@inline svelte
 <EntityHeading name="Sharpshooter" type="item" />
 @end
 
 - Sprint increased from 1 to 1.5
 
-@inline
+@inline svelte
 <EntityHeading name="Silence Wave" type="item" />
 @end
 
@@ -583,7 +583,7 @@ status: draft
 - Silence duration reduced from 3.75 to 3.25
 - Width increased by 10%
 
-@inline
+@inline svelte
 <EntityHeading name="Siphon Bullets" type="item" />
 @end
 
@@ -591,59 +591,59 @@ status: draft
 - Max HP Steal now scales per Boon (0.8)
 - Duration reduced from 20s to 17s
 
-@inline
+@inline svelte
 <EntityHeading name="Spellslinger" type="item" />
 @end
 
 - Buff duration increased from 14 to 18
 
-@inline
+@inline svelte
 <EntityHeading name="Spirit Burn" type="item" />
 @end
 
 - Ability Range reduced from 10% to 8%
 - Proc damage reduced from 120 to 110
 
-@inline
+@inline svelte
 <EntityHeading name="Spirit Sap" type="item" />
 @end
 
 - Spirit Power Reduction increased from -18 to -24
 
-@inline
+@inline svelte
 <EntityHeading name="Torment Pulse" type="item" />
 @end
 
 - Cooldown reduced from 1.5 to 1.4
 
-@inline
+@inline svelte
 <EntityHeading name="Trophy Collector" type="item" />
 @end
 
 - Out of Combat regen increased from 3.5 to 4
 - Souls Per Minute increased from 23 to 25
 
-@inline
+@inline svelte
 <EntityHeading name="Veil Walker" type="item" />
 @end
 
 - Heal per boon increased from 3 to 4
 - Duration increased from 6s to 7s
 
-@inline
+@inline svelte
 <EntityHeading name="Weakening Headshot" type="item" />
 @end
 
 - Bullet resistance reduction increased from -12% to -13%
 - Debuff duration increased from 10s to 12s
 
-@inline
+@inline svelte
 <EntityHeading name="Weapon Shielding" type="item" />
 @end
 
 - Damage requirement reduced from 200 to 175
 
-@inline
+@inline svelte
 <EntityHeading name="Witchmail" type="item" />
 @end
 

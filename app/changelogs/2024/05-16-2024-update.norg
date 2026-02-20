@@ -62,15 +62,15 @@ status: draft
 
 * Hero Changes
 
-@inline
+@inline svelte
 <SectionPreview type="hero" names={["Bebop", "Grey Talon", "Haze", "Infernus", "Ivy", "Kelvin", "Lady Geist", "Lash", "McGinnis", "Mo &amp; Krill", "Paradox", "Vindicta", "Warden", "Yamato"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Bebop" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Sticky Bomb" />
 @end
 
@@ -78,27 +78,27 @@ status: draft
 - Sticky Bomb T3 silence duration reduced from 5s to 3.5s
 - Sticky Bomb now uses a new instant cast mechanism. When you are in range there is a valid target indicator.
 
-@inline
+@inline svelte
 <EntityHeading name="Grey Talon" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Charged Shot" />
 @end
 
 - Charged Shot cooldown reduced from 18s to 16s
 
-@inline
+@inline svelte
 <EntityHeading name="Haze" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Sleep Dagger" />
 @end
 
 - Sleep Dagger cooldown increased from 25s to 27s
 
-@inline
+@inline svelte
 <AbilityHeading name="Smoke Bomb" />
 @end
 
@@ -106,124 +106,124 @@ status: draft
 - Smoke Bomb T1 changed to +4 Invis Sprint
 - Smoke Bomb T2 is now -20s Cooldown
 
-@inline
+@inline svelte
 <EntityHeading name="Infernus" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Afterburn" />
 @end
 
 - Afterburn T2 now reduces enemy Spirit damage by 30%
 
-@inline
+@inline svelte
 <EntityHeading name="Ivy" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="True Form" />
 @end
 
 - True Form cooldown reduced from 50s to 40s
 
-@inline
+@inline svelte
 <EntityHeading name="Kelvin" type="hero" />
 @end
 
 - Now has +10% Base Spirit Resistance
 
-@inline
+@inline svelte
 <AbilityHeading name="Frozen Shelter" />
 @end
 
 - Frozen Shelter T1 increased from +35% to +40% Fire Rate Slow
 
-@inline
+@inline svelte
 <AbilityHeading name="Ice Path" />
 @end
 
 - Ice Path T3 Now gains 1 Spirit per meter of Ice Path trail created. Max of 40 Spirit.
 
-@inline
+@inline svelte
 <EntityHeading name="Lady Geist" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Soul Exchange" />
 @end
 
 - Soul Exchange now uses a new instant cast mechanism. When you are in range there is a valid target indicator.
 
-@inline
+@inline svelte
 <EntityHeading name="Lash" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Ground Strike Stomp Damage" />
 @end
 
 - Ground Strike Stomp Damage reduced from 125 to 110
 
-@inline
+@inline svelte
 <AbilityHeading name="Death Slam" />
 @end
 
 - Death Slam cooldown increased from 110s to 130s
 
-@inline
+@inline svelte
 <AbilityHeading name="Grapple Bullet Damage" />
 @end
 
 - Grapple Bullet Damage bonus increased from +4 to +6
 
-@inline
+@inline svelte
 <AbilityHeading name="Grapple" />
 @end
 
 - Grapple cooldown decreased from 45s to 40s
 
-@inline
+@inline svelte
 <EntityHeading name="McGinnis" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Mini Turret" />
 @end
 
 - Mini Turret T1 is now +1 Charge and +25% Movement Slow
 - Mini Turret T2 is now +10m Attack Range and +10% Fire Rate
 
-@inline
+@inline svelte
 <AbilityHeading name="Spectral Wall" />
 @end
 
 - Spectral Wall cooldown reduced from 40s to 35s
 
-@inline
+@inline svelte
 <EntityHeading name="Mo &amp; Krill" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Combo" />
 @end
 
 - Combo now uses a new instant cast mechanism. When you are in range there is a valid target indicator.
 
-@inline
+@inline svelte
 <EntityHeading name="Paradox" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Kinetic Carbine" />
 @end
 
 - Kinetic Carbine T3 reduced from +75% to +50%
 
-@inline
+@inline svelte
 <EntityHeading name="Vindicta" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Flight" />
 @end
 
@@ -231,21 +231,21 @@ status: draft
 - Flight spirit damage per bullet increased from 8 to 12
 - Flight T2 bonus spirit damage per bullet increased from 8 to 12
 
-@inline
+@inline svelte
 <EntityHeading name="Warden" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Last Stand" />
 @end
 
 - Last Stand no longer goes on cooldown when it is interrupted during its initial cast delay
 
-@inline
+@inline svelte
 <EntityHeading name="Yamato" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Shadow Explosion" />
 @end
 
@@ -253,11 +253,11 @@ status: draft
 
 * Item Changes
 
-@inline
+@inline svelte
 <SectionPreview type="item" names={["Alchemical Fire", "Berserker", "Close Quarters", "Decay", "Diviner's Kevlar", "Echo Shard", "Frenzy", "Headshot Booster", "Healing Rite", "Kinetic Dash", "Knockdown", "Lifestrike", "Majestic Leap", "Mystic Burst", "Mystic Reverb", "Mystic Shot", "Mystic Slow", "Reactive Barrier", "Restorative Locket", "Return Fire", "Warp Stone"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Alchemical Fire" type="item" />
 @end
 
@@ -266,99 +266,99 @@ status: draft
 - Now grants +12% Weapon Damage
 - Min/Max DPS increased from 40/80 to 45/85
 
-@inline
+@inline svelte
 <EntityHeading name="Berserker" type="item" />
 @end
 
 - Weapon Damage Per Stack increased from 5% to 6%
 
-@inline
+@inline svelte
 <EntityHeading name="Close Quarters" type="item" />
 @end
 
 - Bullet Shield increased from 70 to 85
 - Weapon Damage reduced from 30% to 25%
 
-@inline
+@inline svelte
 <EntityHeading name="Decay" type="item" />
 @end
 
 - Now does 2.2% Max HP DPS instead of flat DPS
 
-@inline
+@inline svelte
 <EntityHeading name="Diviner's Kevlar" type="item" />
 @end
 
 - Now triggers off of casting ultimates. Grants 700 bullet shield and 40 spirit for 10 seconds.
 
-@inline
+@inline svelte
 <EntityHeading name="Echo Shard" type="item" />
 @end
 
 - No longer gives +20 Spirit for the second cast
 
-@inline
+@inline svelte
 <EntityHeading name="Frenzy" type="item" />
 @end
 
 - Bonus health increased from +150 to +200
 
-@inline
+@inline svelte
 <EntityHeading name="Headshot Booster" type="item" />
 @end
 
 - Headshot damage increased from +30 to +50
 
-@inline
+@inline svelte
 <EntityHeading name="Healing Rite" type="item" />
 @end
 
 - Cooldown reduced from 90s to 80s
 
-@inline
+@inline svelte
 <EntityHeading name="Kinetic Dash" type="item" />
 @end
 
 - No longer gives +1 Stamina
 - Now causes your dash-jumps to only require 1 stamina
 
-@inline
+@inline svelte
 <EntityHeading name="Knockdown" type="item" />
 @end
 
 - Cast range increased from 40m to 50m
 
-@inline
+@inline svelte
 <EntityHeading name="Lifestrike" type="item" />
 @end
 
 - Cooldown reduced from 8s to 5s
 
-@inline
+@inline svelte
 <EntityHeading name="Majestic Leap" type="item" />
 @end
 
 - You can now use the active again while in the air to dive down faster
 
-@inline
+@inline svelte
 <EntityHeading name="Mystic Burst" type="item" />
 @end
 
 - Bonus damage reduced from +40 to +35
 
-@inline
+@inline svelte
 <EntityHeading name="Mystic Reverb" type="item" />
 @end
 
 - Extra damage on the reverb reduced from 40% to 35%
 
-@inline
+@inline svelte
 <EntityHeading name="Mystic Shot" type="item" />
 @end
 
 - Cooldown increased from 3s to 5s
 
-@inline
+@inline svelte
 <EntityHeading name="Mystic Slow" type="item" />
 @end
 
@@ -366,19 +366,19 @@ status: draft
 - Now provides +75 Health, +3 Regen and +6 spirit
 - Fire Rate slow increased from 20% to 35%
 
-@inline
+@inline svelte
 <EntityHeading name="Reactive Barrier" type="item" />
 @end
 
 - Now provides a Spirit Shield instead of a Bullet Shield
 
-@inline
+@inline svelte
 <EntityHeading name="Restorative Locket" type="item" />
 @end
 
 - Now gives +4 Spirit
 
-@inline
+@inline svelte
 <EntityHeading name="Return Fire" type="item" />
 @end
 
@@ -386,7 +386,7 @@ status: draft
 - Bullet damage returned reduced from 75% to 60%
 - Fixed not returning fire to McGinnis' sentries
 
-@inline
+@inline svelte
 <EntityHeading name="Warp Stone" type="item" />
 @end
 

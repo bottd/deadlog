@@ -12,15 +12,15 @@ status: draft
 
 * Hero Changes
 
-@inline
+@inline svelte
 <SectionPreview type="hero" names={["Infernus", "Kelvin", "Mirage", "Shiv", "Vindicta", "Warden", "Yamato"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Infernus" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Flame Dash" />
 @end
 
@@ -29,74 +29,74 @@ status: draft
 - Flame Dash T2 reduced from +45 to +40
 - Flame Dash T3 Charge Time increased from 18s to 20s
 
-@inline
+@inline svelte
 <EntityHeading name="Kelvin" type="hero" />
 @end
 
 - Base Spirit Resistance increased from 10% to 15%
 
-@inline
+@inline svelte
 <AbilityHeading name="Ice Path" />
 @end
 
 - Ice Path cooldown increased from 42s to 46s
 
-@inline
+@inline svelte
 <EntityHeading name="Mirage" type="hero" />
 @end
 
 - Fire Scarabs base damage reduced from 90 to 75
 
-@inline
+@inline svelte
 <EntityHeading name="Shiv" type="hero" />
 @end
 
 - Bullet growth reduced from +0.31 to +0.27
 
-@inline
+@inline svelte
 <AbilityHeading name="Serrated Knives" />
 @end
 
 - Serrated Knives T3 increased from +5 Bleed DPS to +7
 
-@inline
+@inline svelte
 <EntityHeading name="Vindicta" type="hero" />
 @end
 
 - Bullet Velocity reduced from 889 to 810
 
-@inline
+@inline svelte
 <AbilityHeading name="Assassinate" />
 @end
 
 - Assassinate T2 reduced from +130 to +120
 
-@inline
+@inline svelte
 <AbilityHeading name="Assassinate Charge Time" />
 @end
 
 - Assassinate Charge Time increased from 2s to 2.5s
 
-@inline
+@inline svelte
 <EntityHeading name="Warden" type="hero" />
 @end
 
 - Base bullet damage reduced from 19.8 to 19.5
 - Last Stand base DPS reduced from 100 to 90
 
-@inline
+@inline svelte
 <AbilityHeading name="Last Stand DPS" />
 @end
 
 - Last Stand DPS spirit power scaling increased from 1.2 to 1.4
 
-@inline
+@inline svelte
 <EntityHeading name="Yamato" type="hero" />
 @end
 
 - Bullet damage growth reduced from 0.35 to 0.33
 
-@inline
+@inline svelte
 <AbilityHeading name="Shadow Transformation" />
 @end
 
@@ -104,11 +104,11 @@ status: draft
 
 * Item Changes
 
-@inline
+@inline svelte
 <SectionPreview type="item" names={["Rapid Recharge"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Rapid Recharge" type="item" />
 @end
 

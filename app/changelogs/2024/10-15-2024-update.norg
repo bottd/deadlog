@@ -21,21 +21,21 @@ status: draft
 
 * Hero Changes
 
-@inline
+@inline svelte
 <SectionPreview type="hero" names={["Seven", "Shiv"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Seven" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Lightning Ball" />
 @end
 
 - Lightning Ball T3 reduced from +2m Radius to +1m
 
-@inline
+@inline svelte
 <EntityHeading name="Shiv" type="hero" />
 @end
 

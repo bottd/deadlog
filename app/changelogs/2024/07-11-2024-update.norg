@@ -99,15 +99,15 @@ status: draft
 
 * Hero Changes
 
-@inline
+@inline svelte
 <SectionPreview type="hero" names={["Abrams", "Dynamo", "Grey Talon", "Haze", "Ivy", "Lash", "McGinnis", "Mo &amp; Krill", "Paradox", "Pocket", "Seven", "Vindicta", "Warden", "Yamato"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Abrams" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Shoulder Charge" />
 @end
 
@@ -115,13 +115,13 @@ status: draft
 
 - Shoulder Charge distance increased by 15%
 
-@inline
+@inline svelte
 <AbilityHeading name="Shoulder Charge" />
 @end
 
 - Shoulder Charge now stuns enemies for 1s if it drags them into a wall
 
-@inline
+@inline svelte
 <AbilityHeading name="Infernal Resilience" />
 @end
 
@@ -131,19 +131,19 @@ status: draft
 
 - Fixed Siphon Life not healing you against shields
 
-@inline
+@inline svelte
 <EntityHeading name="Dynamo" type="hero" />
 @end
 
 - Quantum Entanglement ally radius increased from 8m to 9m
 
-@inline
+@inline svelte
 <EntityHeading name="Grey Talon" type="hero" />
 @end
 
 - Rain of Arrows flight duration reduced from 8s to 7s
 
-@inline
+@inline svelte
 <AbilityHeading name="Guided Owl" />
 @end
 
@@ -152,7 +152,7 @@ status: draft
 - Guided Owl base ability now stuns for 0.75s
 - Guided Owl base damage reduced from 300 to 250
 
-@inline
+@inline svelte
 <AbilityHeading name="Guided Owl" />
 @end
 
@@ -160,24 +160,24 @@ status: draft
 
 - Guided Owl collision size reduced
 
-@inline
+@inline svelte
 <EntityHeading name="Haze" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Ammo" />
 @end
 
 - Ammo scaling with spirit power reduced from 0.6 to 0.5
 
-@inline
+@inline svelte
 <EntityHeading name="Ivy" type="hero" />
 @end
 
 - Base damage growth increased from 0.35 to 0.55
 - Watcher's Covenant replicated healing reduced from 45% to 35%
 
-@inline
+@inline svelte
 <AbilityHeading name="Watcher's Covenant" />
 @end
 
@@ -187,7 +187,7 @@ status: draft
 
 - Fixed Kudzu Bomb not going where you had targeted if you moved quickly during the cast
 
-@inline
+@inline svelte
 <EntityHeading name="Lash" type="hero" />
 @end
 
@@ -195,14 +195,14 @@ status: draft
 - Bullet damage growth increased from 1 to 1.15
 - Now has +8% spirit resist
 
-@inline
+@inline svelte
 <AbilityHeading name="Ground Strike" />
 @end
 
 - Ground Strike damage per meter reduced from 6.75 to 6.3
 - Ground Strike damage per meter spirit power scaling increased from 0.04 to 0.05
 
-@inline
+@inline svelte
 <AbilityHeading name="Death Slam" />
 @end
 
@@ -213,33 +213,33 @@ status: draft
 - Death Slam cone increased from 60 degrees to 75
 - Death Slam grab time reduced from 0.9 to 0.8
 
-@inline
+@inline svelte
 <EntityHeading name="McGinnis" type="hero" />
 @end
 
 - Turrets receive full damage from enemy guns regardless of distance (fall off is not considered when taking damage)
 - Turrets outgoing damage fall off distance window (20m-35m) now scales with range upgrades
 
-@inline
+@inline svelte
 <AbilityHeading name="Turrets" />
 @end
 
 - Turrets duration reduced from 40s to 30s
 
-@inline
+@inline svelte
 <EntityHeading name="Mo &amp; Krill" type="hero" />
 @end
 
 - Fixed Scorn not healing you against shields
 - Sand Blast base duration reduced from 4s to 3.5s
 
-@inline
+@inline svelte
 <AbilityHeading name="Sand Blast" />
 @end
 
 - Sand Blast T1 reduced from +2s to +1.5s
 
-@inline
+@inline svelte
 <EntityHeading name="Paradox" type="hero" />
 @end
 
@@ -247,35 +247,35 @@ status: draft
 - Kinetic Carbine collision radius reduced by 10%
 - Fixed Pulse Grenade not going where you had targeted if you moved quickly during the cast
 
-@inline
+@inline svelte
 <EntityHeading name="Pocket" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Enchanter's Satchel" />
 @end
 
 - Enchanter's Satchel duration from 1.5s to 2s
 - Enchanter's Satchel T3 changed to 2.5s Disarm
 
-@inline
+@inline svelte
 <EntityHeading name="Seven" type="hero" />
 @end
 
 - Static Charge cast range scaling reduced from 0.1 to 0.07
 - Static Charge base radius reduced from 8m to 5m
 
-@inline
+@inline svelte
 <AbilityHeading name="Static Charge" />
 @end
 
 - Static Charge T2 changed to +5m radius
 
-@inline
+@inline svelte
 <EntityHeading name="Vindicta" type="hero" />
 @end
 
-@inline
+@inline svelte
 <AbilityHeading name="Crow Familiar" />
 @end
 
@@ -283,20 +283,20 @@ status: draft
 
 - Gun damage growth increased from 0.7 to 0.85
 
-@inline
+@inline svelte
 <EntityHeading name="Warden" type="hero" />
 @end
 
 - Reload time no longer scales with spirit power
 - Now innately gains additive fire rate from spirit power (scale factor is 0.015)
 
-@inline
+@inline svelte
 <EntityHeading name="Yamato" type="hero" />
 @end
 
 - Shadow Transformation incoming damage reduction reduced from 70% to 55%
 
-@inline
+@inline svelte
 <AbilityHeading name="Shadow Transformation" />
 @end
 
@@ -304,11 +304,11 @@ status: draft
 
 * Item Changes
 
-@inline
+@inline svelte
 <SectionPreview type="item" names={["Active Reload", "Ammo Scavenger", "Bullet Lifesteal", "Burst Fire", "Debuff Reducer", "Extra Charge", "Extra Regen", "Fortitude", "Frenzy", "Glass Cannon", "Headshot Booster", "Healing Rite", "Heroic Aura", "Kinetic Dash", "Leech", "Lifestrike", "Long Range", "Majestic Leap", "Melee Charge", "Melee Lifesteal", "Mystic Reverb", "Phantom Strike", "Restorative Shot", "Silencer", "Spirit Strike", "Surge of Power", "Titanic Magazine", "Unstoppable", "Vampiric Burst", "Veil Walker"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Active Reload" type="item" />
 @end
 
@@ -316,74 +316,74 @@ status: draft
 - Active fire rate increased from 18% to 24%
 - Cooldown reduced from 23s to 21s
 
-@inline
+@inline svelte
 <EntityHeading name="Ammo Scavenger" type="item" />
 @end
 
 - Ammo reduced from +20% to +15%
 
-@inline
+@inline svelte
 <EntityHeading name="Bullet Lifesteal" type="item" />
 @end
 
 - Lifesteal increased from 24% to 26%
 
-@inline
+@inline svelte
 <EntityHeading name="Burst Fire" type="item" />
 @end
 
 - Now innately gives +12% fire rate
 - Conditional fire rate now only triggers when you hit a hero, this bonus is reduced from 40% to 30%
 
-@inline
+@inline svelte
 <EntityHeading name="Debuff Reducer" type="item" />
 @end
 
 - Now a T2 Vitality item. Grants +30% debuff resist, +75 health and +10% weapon damage. No longer has an active.
 
-@inline
+@inline svelte
 <EntityHeading name="Extra Charge" type="item" />
 @end
 
 - Now grants +6% weapon damage
 
-@inline
+@inline svelte
 <EntityHeading name="Extra Regen" type="item" />
 @end
 
 - Health regen increased from 2 to 2.3
 
-@inline
+@inline svelte
 <EntityHeading name="Fortitude" type="item" />
 @end
 
 - Health increased from 225 to 250
 
-@inline
+@inline svelte
 <EntityHeading name="Frenzy" type="item" />
 @end
 
 - Active spirit resist increased from 30% to 40%
 
-@inline
+@inline svelte
 <EntityHeading name="Glass Cannon" type="item" />
 @end
 
 - Weapon damage increased from 65% to 70%
 
-@inline
+@inline svelte
 <EntityHeading name="Headshot Booster" type="item" />
 @end
 
 - Bonus health reduced from +50 to +40
 
-@inline
+@inline svelte
 <EntityHeading name="Healing Rite" type="item" />
 @end
 
 - Bonus health increased from 35 to 45
 
-@inline
+@inline svelte
 <EntityHeading name="Heroic Aura" type="item" />
 @end
 
@@ -392,69 +392,69 @@ status: draft
 - Active movement speed increased from 2 to 3
 - Active fire rate increased from 20% to 25%
 
-@inline
+@inline svelte
 <EntityHeading name="Kinetic Dash" type="item" />
 @end
 
 - Cooldown reduced from 14s to 12s
 
-@inline
+@inline svelte
 <EntityHeading name="Leech" type="item" />
 @end
 
 - Spirit Lifesteal increased from 33% to 35%
 - Bullet Lifesteal increased from 30% to 35%
 
-@inline
+@inline svelte
 <EntityHeading name="Lifestrike" type="item" />
 @end
 
 - Now grants +6% bullet resist
 
-@inline
+@inline svelte
 <EntityHeading name="Long Range" type="item" />
 @end
 
 - Min distance reduced from 20m to 18m
 
-@inline
+@inline svelte
 <EntityHeading name="Majestic Leap" type="item" />
 @end
 
 - Added a brief period before you can press the hotkey again to prevent accidental uses of drop down
 
-@inline
+@inline svelte
 <EntityHeading name="Melee Charge" type="item" />
 @end
 
 - Bonus health increased from 75 to 100
 
-@inline
+@inline svelte
 <EntityHeading name="Melee Lifesteal" type="item" />
 @end
 
 - Cooldown reduced from 8s to 7s
 
-@inline
+@inline svelte
 <EntityHeading name="Mystic Reverb" type="item" />
 @end
 
 - Cooldown reduced from 8s to 6s
 - Now gives +15% ability range
 
-@inline
+@inline svelte
 <EntityHeading name="Phantom Strike" type="item" />
 @end
 
 - Fixed it sometimes malfunctioning and not teleporting to the target
 
-@inline
+@inline svelte
 <EntityHeading name="Restorative Shot" type="item" />
 @end
 
 - Weapon damage reduced from +8% to +6%
 
-@inline
+@inline svelte
 <EntityHeading name="Silencer" type="item" />
 @end
 
@@ -463,25 +463,25 @@ status: draft
 - Active no longer applies 30% slow for 2s
 - Weapon damage reduced from 25% to 15%
 
-@inline
+@inline svelte
 <EntityHeading name="Spirit Strike" type="item" />
 @end
 
 - Spirit shield increased from +75 to +85
 
-@inline
+@inline svelte
 <EntityHeading name="Surge of Power" type="item" />
 @end
 
 - Active movement speed increased from 2 to 3
 
-@inline
+@inline svelte
 <EntityHeading name="Titanic Magazine" type="item" />
 @end
 
 - No longer has 10% reload penalty
 
-@inline
+@inline svelte
 <EntityHeading name="Unstoppable" type="item" />
 @end
 
@@ -491,13 +491,13 @@ status: draft
 - Now grants +12 spirit power
 - Now grants +1 m/s
 
-@inline
+@inline svelte
 <EntityHeading name="Vampiric Burst" type="item" />
 @end
 
 - Active lifesteal increased from 80% to 100%
 
-@inline
+@inline svelte
 <EntityHeading name="Veil Walker" type="item" />
 @end
 

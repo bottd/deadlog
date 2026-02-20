@@ -15,29 +15,29 @@ status: draft
 
 * Hero Changes
 
-@inline
+@inline svelte
 <SectionPreview type="hero" names={["Paradox", "Yamato"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Paradox" type="hero" />
 @end
 
 - Paradoxical Swap time increased by 0.1s (to help with camera)
 
-@inline
+@inline svelte
 <EntityHeading name="Yamato" type="hero" />
 @end
 
 - Shadow Transformation Bullet and Spirit Resist reduced from 60% to 50%
 
-@inline
+@inline svelte
 <AbilityHeading name="Shadow Transformation Heal" />
 @end
 
 - Shadow Transformation Heal reduced from 30% to 25%
 
-@inline
+@inline svelte
 <AbilityHeading name="Shadow Transformation" />
 @end
 

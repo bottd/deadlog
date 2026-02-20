@@ -18,11 +18,11 @@ status: draft
 
 * Hero Changes
 
-@inline
+@inline svelte
 <SectionPreview type="hero" names={["Viscous"]} />
 @end
 
-@inline
+@inline svelte
 <EntityHeading name="Viscous" type="hero" />
 @end
 
@@ -33,13 +33,13 @@ status: draft
 - Fixed Puddle Punch being able to target behind puddle
 - Fixed Puddle Punch using Guardians as a surface to punch from
 
-@inline
+@inline svelte
 <AbilityHeading name="Puddle Punch Range" />
 @end
 
 - Puddle Punch Range reduced from 70m to 60m
 
-@inline
+@inline svelte
 <AbilityHeading name="Splatter" />
 @end
 
