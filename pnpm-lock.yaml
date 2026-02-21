@@ -159,8 +159,8 @@ importers:
         specifier: 7.3.1
         version: 7.3.1(@types/node@24.10.9)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2)
       vite-plugin-norg:
-        specifier: file:../vite-plugin-norg
-        version: file:../vite-plugin-norg(react@19.2.4)(svelte@5.50.1)(vite@7.3.1(@types/node@24.10.9)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2))
+        specifier: 3.0.0
+        version: 3.0.0(react@19.2.4)(svelte@5.50.1)(vite@7.3.1(@types/node@24.10.9)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2))
       vite-tsconfig-paths:
         specifier: 6.1.0
         version: 6.1.0(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.9)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2))
@@ -3055,8 +3055,8 @@ packages:
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
-  vite-plugin-norg@file:../vite-plugin-norg:
-    resolution: {directory: ../vite-plugin-norg, type: directory}
+  vite-plugin-norg@3.0.0:
+    resolution: {integrity: sha512-DmHXTF+qbN47qbefEc1mPhWHIlq/eVuvoqfV7+j/7Qw4vXYRKq2LHexqzbWD+emMfhCtW/bpNBeFzajtizbrgg==}
     peerDependencies:
       react: '*'
       svelte: '*'
@@ -5723,7 +5723,7 @@ snapshots:
 
   util-deprecate@1.0.2: {}
 
-  vite-plugin-norg@file:../vite-plugin-norg(react@19.2.4)(svelte@5.50.1)(vite@7.3.1(@types/node@24.10.9)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2)):
+  vite-plugin-norg@3.0.0(react@19.2.4)(svelte@5.50.1)(vite@7.3.1(@types/node@24.10.9)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2)):
     dependencies:
       vite: 7.3.1(@types/node@24.10.9)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.21.0)(yaml@2.8.2)
     optionalDependencies:
