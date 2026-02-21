@@ -1,7 +1,3 @@
-/**
- * Converts a name to a URL-safe slug.
- * Example: "Lady Geist" -> "lady-geist"
- */
 export function toSlug(name: string): string {
 	return name
 		.toLowerCase()

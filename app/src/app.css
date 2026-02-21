@@ -4,7 +4,7 @@
 /* Fonts */
 @font-face {
 	font-family: 'Archivo';
-	src: url('/fonts/Archivo-VariableFont_wdth,wght.ttf') format('truetype');
+	src: url('/fonts/Archivo-VariableFont_wdth,wght.woff2') format('woff2');
 	font-weight: 100 900;
 	font-style: normal;
 	font-display: swap;
@@ -12,23 +12,15 @@
 
 @font-face {
 	font-family: 'Archivo';
-	src: url('/fonts/Archivo-Italic-VariableFont_wdth,wght.ttf') format('truetype');
+	src: url('/fonts/Archivo-Italic-VariableFont_wdth,wght.woff2') format('woff2');
 	font-weight: 100 900;
 	font-style: italic;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: 'Archivo Black';
-	src: url('/fonts/ArchivoBlack-Regular.ttf') format('truetype');
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
 	font-family: 'Orbitron';
-	src: url('/fonts/Orbitron-VariableFont_wght.ttf') format('truetype');
+	src: url('/fonts/Orbitron-VariableFont_wght.woff2') format('woff2');
 	font-weight: 400 900;
 	font-style: normal;
 	font-display: swap;
@@ -36,7 +28,7 @@
 
 @font-face {
 	font-family: 'JetBrains Mono';
-	src: url('/fonts/JetBrainsMono-VariableFont_wght.ttf') format('truetype');
+	src: url('/fonts/JetBrainsMono-VariableFont_wght.woff2') format('woff2');
 	font-weight: 100 800;
 	font-style: normal;
 	font-display: swap;
@@ -44,7 +36,7 @@
 
 @font-face {
 	font-family: 'JetBrains Mono';
-	src: url('/fonts/JetBrainsMono-Italic-VariableFont_wght.ttf') format('truetype');
+	src: url('/fonts/JetBrainsMono-Italic-VariableFont_wght.woff2') format('woff2');
 	font-weight: 100 800;
 	font-style: italic;
 	font-display: swap;
@@ -97,7 +89,6 @@
 	--border-subtle: var(--border-light);
 	--input: var(--border-default);
 	--ring: var(--accent-500);
-	--editorial-accent: var(--accent-500);
 	--editorial-divider: var(--border-default);
 
 	/* Hero Types */
@@ -167,7 +158,6 @@
 	--border-subtle: var(--border-light);
 	--input: var(--border-default);
 	--ring: var(--accent-500);
-	--editorial-accent: var(--accent-500);
 	--editorial-divider: var(--border-default);
 
 	/* Hero Types - enhanced chroma for dark mode */
@@ -198,7 +188,7 @@
 @theme inline {
 	/* Font families */
 	--font-sans: 'Archivo', ui-sans-serif, system-ui, sans-serif;
-	--font-display: 'Orbitron', 'Archivo Black', ui-sans-serif, system-ui, sans-serif;
+	--font-display: 'Archivo', ui-sans-serif, system-ui, sans-serif;
 	--font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
 	--radius-sm: calc(var(--radius) - 4px);
@@ -241,6 +231,9 @@
 @layer base {
 	* {
 		@apply border-border outline-ring/50;
+	}
+	html {
+		scroll-padding-top: 12rem;
 	}
 	html,
 	body {
@@ -308,6 +301,13 @@
 	);
 }
 
+a.clip-corner:focus-visible,
+a.clip-corner-sm:focus-visible,
+a.clip-corner-lg:focus-visible {
+	outline: none;
+	box-shadow: inset 0 0 0 2px var(--ring);
+}
+
 /* Shimmer loading effect */
 @keyframes shimmer {
 	0% {
@@ -340,21 +340,6 @@
 }
 .pulse-glow {
 	animation: pulse-glow 2s ease-in-out infinite;
-}
-
-.editorial-accent-line {
-	position: relative;
-}
-
-.editorial-accent-line::before {
-	content: '';
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 3px;
-	height: 100%;
-	background: var(--editorial-accent);
-	border-radius: 99px;
 }
 
 .editorial-divider {

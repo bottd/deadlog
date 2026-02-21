@@ -22,9 +22,6 @@ function getOrdinalSuffix(day: number): string {
 	}
 }
 
-/**
- * Formats a date with ordinal suffix (e.g., "January 1st, 2025")
- */
 export function formatDate(date: Date | string): string {
 	const d = toDate(date);
 	const month = d.toLocaleDateString('en-US', { month: 'long' });
@@ -33,9 +30,6 @@ export function formatDate(date: Date | string): string {
 	return `${month} ${day}${getOrdinalSuffix(day)}, ${year}`;
 }
 
-/**
- * Formats time only (e.g., "2:30 PM")
- */
 export function formatTime(date: Date | string): string {
 	return timeFormatter.format(toDate(date));
 }

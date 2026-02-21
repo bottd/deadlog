@@ -106,7 +106,7 @@ export const load: PageServerLoad = async ({ locals, url, parent }) => {
 		changelogs: enriched,
 		totalCount,
 		initialLoadCount: initialLoadLimit,
-		lastUpdate: (allChangelogs[0]?.date ?? new Date()).toISOString(),
+		lastUpdate: (enriched[0]?.date ?? new Date()).toISOString(),
 		latestPatchSummary,
 		title: pageMeta.title,
 		description: pageMeta.description,

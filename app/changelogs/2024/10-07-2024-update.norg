@@ -1,0 +1,42 @@
+@document.meta
+title: 10-07-2024 Update
+thread_id: 36441
+published: 2024-10-07T12:45:09-0700
+author: Yoshi
+author_image: https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630
+category: patch
+major_update: false
+status: draft
+@end
+
+* General Changes
+
+- Fixed various cases where you could target/select units behind walls with abilities (like Yamato's Flying Strike)
+
+* Hero Changes
+
+@inline svelte
+<SectionPreview type="hero" names={["Wraith"]} />
+@end
+
+@inline svelte
+<EntityHeading name="Wraith" type="hero" />
+@end
+
+@inline svelte
+<AbilityHeading name="Card Trick Spirit" />
+@end
+
+- Card Trick Spirit scaling reduced from 1.5 to 1.2
+
+* Item Changes
+
+@inline svelte
+<SectionPreview type="item" names={["Shadow Weave"]} />
+@end
+
+@inline svelte
+<EntityHeading name="Shadow Weave" type="item" />
+@end
+
+- Ambush Fire Rate reduced from +40% to +30%

@@ -1,0 +1,1010 @@
+@document.meta
+title: 11-21-2025 Update
+thread_id: 90383
+published: 2025-11-21T14:53:12-0800
+author: Yoshi
+author_image: https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630
+category: patch
+major_update: false
+status: draft
+@end
+
+* General Changes
+
+- Trooper bounty mechanics have been reworked. The first half of the souls still fly out as deniable orb, however rather than the other half being instantly given to nearby players it will fall to the ground as an orb that you need to get near to pick up. It has a 18m capture radius where it'll travel to you once you get within. Only one player needs to claim it, share rules remain the same as before.
+- They last for 18s on the ground. Duration increases by 2s per minute up to 40s after 10 minutes.
+- Enemy orbs are visible as faint colorless soul orbs to your team, but cannot be claimed.
+- Amount of souls in the flying orb that can be secured/denied reduced from 50% to 40%
+- Very small tweaks to the secure/deny lag calculation to improve it
+- Increased trooper range to be considered in range for souls to drop from 35m to 45m
+- Medic troopers no longer have a passive healing pulse ability
+- Medic troopers now drop a medic pack when you kill them. Has same pickup range/duration mechanics as the soul orbs on the ground. Heals everyone in a 30m radius for 10% of their missing health as well as 75 plus 2 per minute game time.
+- Starting souls count increased from 400 to 600
+- Trooper bounty values increased by 10%
+- Trooper bounty split ratios updated from 1/0.65/0.28/0.15/0.12/0.08 to 1/0.54/0.36/0.25/0.2/0.16
+- Reworked the position of your player camera and various details that affect visibility around your hero
+- Neutrals bounty increased by 10%
+- Neutrals HP increased by +15%
+- Small neutrals damage +15%
+- Small neutral camps respawn time 180s to 120s
+- Medium neutrals spirit resist from 30% to 40%
+- Medium neutrals damage increased by 25%
+- Hard neutrals spirit resist increased from 35% to 50%
+- Hard neutrals damage increased by 30%
+- Sinner's Sacrifice: Return damage increased from 60 to 80
+- Minimum unsecured gold to drop increased from 100 to 150
+- Sprint/Out of Combat regen timer against neutrals increased from 0.5s to 2.5s (takes longer to start sprinting/regening)
+- Reduced all AP damage upgrades by 10%
+- Base gun damage and gun damage growth increased by 10% (excluding Paige)
+- Headshot multiplier reduced from 1.8x to 1.65x
+- Weapon Investment Bonuses: Now grants an additional +20% Weapon Damage at 4800 souls spent
+- Vitality Investment Bonuses: Now grants an additional +12% Bonus Health at 4800 souls spent
+- Spirit Investment Bonuses: Now grants an additional +20 Spirit Power at 4800 souls spent
+- Added a UI highlight to 4800 reward row of the investment bonuses
+- Initial wall jump now costs 0.25 stamina
+- Stamina regen rate reduced by 5% (5s to 5.25s)
+- After 35 minutes all troopers gain +50% HP.
+- Guardians HP increased from 3500 to 4250 HP
+- Walker HP increased by 40%
+- Walker on the Side Lanes now have same HP as Midlane (rather than ~37% less)
+- Walker engagement ranges reduced (ranges for attacks, being attacked, stomps, etc)
+- Walker stomp cooldown reduced from 10s to 6s
+- Walker stomp damage increased from 350 + 10% Max HP to 350 + 15% Max HP
+- Walker fireballs radius from 5m to 6m
+- Walker fireballs debuff now lingers for 4s
+- Walker fireballs now reduce bullet and spirit resistance by 10%
+- Walker area in mid lane adjusted
+- Bullet Damage is no longer reduced by 35% of a Hero's Base Bullet damage against T1's
+- Guardians now start with 75% Damage Resist that decay's to -50% over the first 10 minutes of a match
+- Walkers now start with 75% Damage Resist that decay's to -50% over the first 20 minutes of a match
+- Note: The Walker resistance change used to be in the client a couple months ago, but it got bugged.
+- Base slot count increased from 8 to 9 and Flex slot count reduced from 4 to 3. One is given for each Walker killed. Previously the 4 were given for: "3 Guardians", "1 Walker", "3 Walkers", and "Set of Base Guardians"
+- Rejuv buff no longer grants +10% Max HP, +15% Fire Rate and +15% Spirit Damage Amp
+- Mid Boss base health increased from 13000 to 14000
+- Mid Boss health growth per minute increased from 200 to 230
+- Team that kills Mid Boss gets +2 permanent buffs for each player
+- Dropping / Throwing the Urn now causes Parry to go on CD
+- Soul Urn no longer grants +1 AP to the person dropping it off
+- Soul Urn now provides 4 Permanent Buffs to the person dropping it off
+- Added two levels at 47k and 49k to let you get all ability upgrades
+- Jump Pad stun window increased from 0.6s to 0.9s
+- When meleeing an enemy that is mantling and the mantle slow is applied, mantle sliding right after wards is no longer allowed
+- Subsequent CC reduction increased from 7%/21% to 8/24%
+- Survival Buff hp regen changed from 0.5->1.5% Max HP to 4->40 Fixed Regen
+- Gun Buff ammo increased from 20->60% to 35->70%
+- Gun Buff now reloads your ammo on pickup
+- Casting Buff spirit power increased from 15>40 to 15->65
+- Casting Buff cooldown reduction rescaled from 12->25% to 12->20%
+- Movement Buff stamina from 1->4 to 2->4
+- Added new trooper anti-stuck behavior to fix some places where you can move a trooper to get them stuck.
+- Fixed a bug where troopers could clip into the world while running up stairs and over obstacles
+- Golden Statue: Cooldown Reduction reduced from 0.75/1.0/1.5% to 0.5/0.75/1%
+- High Velocity Rounds: Bullet Velocity increased from +45% to +50% (affects upgrades)
+- Toxic Bullets duration increased from 3s to 4s
+- Curse: Now dispels buffs
+- Curse: Cooldown increased from 45s to 55s
+- Curse: Weapon Damage reduced from 20% to 15%
+- Doorman: Base regen from 2 to 1
+- Doorman: Bullet damage falloff and effectiveness now use the actual distance traveled, rather than the distance between the starting position and end position. This fixes shooting through portals not using the right distance for falloff.
+- Doorman: Call Bell explosion damage reduced from 60 to 55
+- Doorman: Call Bell T2 explosion damage reduced from +50 to +45
+- Doorman: Call Bell impact damage spirit scaling increased from 0.7 to 1.0
+
+* Hero Changes
+
+@inline svelte
+<SectionPreview type="hero" names={["Abrams", "Bebop", "Billy", "Calico", "Drifter", "Dynamo", "Holliday", "Infernus", "Ivy", "Kelvin", "Lady Geist", "Lash", "McGinnis", "Mina", "Mirage", "Mo &amp; Krill", "Paige", "Paradox", "Pocket", "Seven", "Shiv", "Sinclair", "Viscous", "Vyper", "Warden", "Wraith", "Yamato"]} />
+@end
+
+@inline svelte
+<EntityHeading name="Abrams" type="hero" />
+@end
+
+@inline svelte
+<AbilityHeading name="Shoulder Charge" />
+@end
+
+- Shoulder Charge cooldown reduced from 37s to 33s
+- Shoulder Charge T3 reduced from -22s Cooldown to -18s
+
+@inline svelte
+<AbilityHeading name="Seismic Impact" />
+@end
+
+- Seismic Impact T3 duration increased from 3s to 4s
+
+@inline svelte
+<EntityHeading name="Bebop" type="hero" />
+@end
+
+- Health growth reduced from 54 to 46
+
+@inline svelte
+<AbilityHeading name="Exploding Uppercut" />
+@end
+
+- Exploding Uppercut cooldown increased from 19s to 22s
+- Exploding Uppercut spirit scaling increased from 0.49 to 0.6
+
+@inline svelte
+<AbilityHeading name="Sticky Bomb" />
+@end
+
+- Sticky Bomb T3 changed from "On Attach: -30% Outgoing Damage for 5s" to "On Cast: +5 m/s for 3s". Multiple instances stack independently.
+
+@inline svelte
+<AbilityHeading name="Hyperbeam DPS" />
+@end
+
+- Hyperbeam DPS reduced from 190 to 160
+
+@inline svelte
+<AbilityHeading name="Hyperbeam" />
+@end
+
+- Hyperbeam T2 increased from +90 to +120
+
+@inline svelte
+<EntityHeading name="Billy" type="hero" />
+@end
+
+@inline svelte
+<AbilityHeading name="Rising Ram" />
+@end
+
+- Rising Ram T2 increased from +25% Weapon Damage to +35%
+- Rising Ram T3 increased from 6% Max Health as spirit damage to 6.5%
+
+@inline svelte
+<EntityHeading name="Calico" type="hero" />
+@end
+
+- Clip size increased from 10 to 12
+- Reload time increased from 2.5s to 2.6s
+
+@inline svelte
+<AbilityHeading name="Gloom Bombs" />
+@end
+
+- Gloom Bombs cooldown increased from 12s to 14s
+
+@inline svelte
+<AbilityHeading name="Return To Shadows" />
+@end
+
+- Return To Shadows T3 Damage Amp reduced from +24% to +18%
+- Return To Shadows T3 duration increased from 5s to 6s
+
+@inline svelte
+<EntityHeading name="Drifter" type="hero" />
+@end
+
+@inline svelte
+<AbilityHeading name="Rend" />
+@end
+
+- Rend cooldown reduced from 15s to 13s
+
+- Base regen increased from 2.5 to 3.5
+
+@inline svelte
+<EntityHeading name="Dynamo" type="hero" />
+@end
+
+- Base regen increased from 2 to 2.5
+
+@inline svelte
+<AbilityHeading name="Kinetic Pulse" />
+@end
+
+- Kinetic Pulse range increased from 15m to 20m
+- Kinetic Pulse cooldown reduced from 26s to 22s
+
+@inline svelte
+<EntityHeading name="Holliday" type="hero" />
+@end
+
+- Base regen reduced from 2.0 to 1.0
+- Base bullet growth reduced from 1.23 to 1.04
+- Base damage reduced from 22 to 18
+
+@inline svelte
+<AbilityHeading name="Bounce Pad" />
+@end
+
+- Bounce Pad damage reduced from 80 to 60
+
+- Fixed a bug where you could get extra speed/distance with dash jump/bounce pad timing
+
+@inline svelte
+<EntityHeading name="Infernus" type="hero" />
+@end
+
+- Afterburn buildup is now 10% slower on body shots
+
+@inline svelte
+<AbilityHeading name="Napalm" />
+@end
+
+- Napalm T3 damage amp reduced from +20% to +17%
+
+@inline svelte
+<EntityHeading name="Ivy" type="hero" />
+@end
+
+@inline svelte
+<AbilityHeading name="Kudzu Bomb" />
+@end
+
+- Kudzu Bomb damage reduced from 50 to 40
+- Kudzu Bomb spirit scaling increased from 0.56 to 0.65
+
+@inline svelte
+<AbilityHeading name="Stone Form" />
+@end
+
+- Stone Form cooldown reduced from 42s to 37s
+
+- Watcher’s Covenant bullet lifesteal increased from 10% to 15%
+
+@inline svelte
+<AbilityHeading name="Air Drop" />
+@end
+
+- Air Drop damage penalty for ally you are carrying reduced from -50% to -30%
+
+- Air Drop cast range increased from 12m to 14m
+
+@inline svelte
+<EntityHeading name="Kelvin" type="hero" />
+@end
+
+- Bullet Velocity reduced from 254 to 160
+- Frost Grenade base damage reduced from 74 to 60
+
+@inline svelte
+<AbilityHeading name="Frozen Shelter" />
+@end
+
+- Frozen Shelter T2 changed from "-45s Cooldown" to "+1s Duration"
+- Frozen Shelter duration reduced from 5.5s to 5s
+
+@inline svelte
+<EntityHeading name="Lady Geist" type="hero" />
+@end
+
+@inline svelte
+<AbilityHeading name="Soul Exchange" />
+@end
+
+- Soul Exchange T3 radius increased from 15m to 25m
+
+@inline svelte
+<EntityHeading name="Lash" type="hero" />
+@end
+
+@inline svelte
+<AbilityHeading name="Grapple" />
+@end
+
+- Grapple cooldown reduced from 42s to 35s
+
+@inline svelte
+<AbilityHeading name="Flog" />
+@end
+
+- Flog heal vs heroes increased from 50% to 60%
+- Flog damage increased from 60 to 65
+- Flog cooldown reduced from 26s to 24
+- Flog T2 increased from -14s to -12s
+
+@inline svelte
+<AbilityHeading name="Death Slam" />
+@end
+
+- Death Slam cooldown reduced from 155s to 145s
+
+@inline svelte
+<EntityHeading name="McGinnis" type="hero" />
+@end
+
+@inline svelte
+<AbilityHeading name="Mini Turrets" />
+@end
+
+- Mini Turrets health per boon increased from 10 to 13
+
+@inline svelte
+<AbilityHeading name="Spectral Wall" />
+@end
+
+- Spectral Wall speed increased by 10%
+
+@inline svelte
+<EntityHeading name="Mina" type="hero" />
+@end
+
+@inline svelte
+<AbilityHeading name="Sanguine Retreat" />
+@end
+
+- Sanguine Retreat cooldown increased from 30s to 32s
+- Sanguine Retreat no longer resets air jump and dash limits
+
+@inline svelte
+<AbilityHeading name="Love Bites" />
+@end
+
+- Love Bites cooldown increased from 7s to 8s
+- Love Bites T3 from -1 Stamina to -2
+
+@inline svelte
+<EntityHeading name="Mirage" type="hero" />
+@end
+
+- Fire Scarabs Max Health steal increased from 37 to 45
+- Traveler can now target friendly objectives
+
+@inline svelte
+<AbilityHeading name="Traveler" />
+@end
+
+- Traveler cooldown reduced from 160s to 145s
+- Traveler T1 now also reduces cooldown by 25s
+
+@inline svelte
+<EntityHeading name="Mo &amp; Krill" type="hero" />
+@end
+
+- Health Regen reduced from 3 to 1
+
+@inline svelte
+<EntityHeading name="Paige" type="hero" />
+@end
+
+- Bullet damage growth reduced from 0.66 to 0.52
+- Defend and Fight! barrier reduced from 200 to 150
+- Defend and Fight! duration reduced from 7s to 5s
+- Defend and Fight! T1 changed from +50 Barrier to +16% Fire Rate (with 0.15 Spirit Power scaling)
+- Defend and Fight! T2 changed from +25% Fire Rate to +100 Barrier
+- Defend and Fight! T2 now also grants +2s Duration
+
+@inline svelte
+<EntityHeading name="Paradox" type="hero" />
+@end
+
+- Base regen reduced from 2.0 to 1.0
+- Bullet damage growth reduced from 0.27 to 0.22
+- Base health reduced from 700 to 650
+- Health per boon reduced from 47 to 45
+
+@inline svelte
+<AbilityHeading name="Pulse Grenade" />
+@end
+
+- Pulse Grenade damage reduced from 40 to 35
+- Pulse Grenade spirit scaling increased from 0.43 to 0.55
+
+- Fixed a bug where you could airdash further then expected with Kinetic Carbine
+
+@inline svelte
+<EntityHeading name="Pocket" type="hero" />
+@end
+
+- Base regen reduced from 2 to 1
+
+@inline svelte
+<AbilityHeading name="Flying Cloak" />
+@end
+
+- Flying Cloak damage reduced from 85 to 70
+- Flying Cloak T2 increased from +75 to +85
+
+@inline svelte
+<EntityHeading name="Seven" type="hero" />
+@end
+
+@inline svelte
+<AbilityHeading name="Lightning Ball" />
+@end
+
+- Lightning Ball radius increased from 3.5m to 4.25m
+
+- Crit reduction increased from 25% to 35%
+
+@inline svelte
+<EntityHeading name="Shiv" type="hero" />
+@end
+
+- Alt fire knockback reduced by 10%
+- Alt fire ammo cost increased from 2 to 3
+- Killing Blow Rage Damage Bonus reduced from 17% to 15%
+
+@inline svelte
+<AbilityHeading name="Killing Blow" />
+@end
+
+- Killing Blow T2 Rage Damage bonus reduced from 8% to 6%
+
+- Killing Blow Rage state now causes your alt fire knockback to push you a little further
+- Fixed some bugs with Barriers and Spirit Damage Scaling (fixes other cases as well)
+
+@inline svelte
+<EntityHeading name="Sinclair" type="hero" />
+@end
+
+- Health reduced from 700 to 650
+- Regen reduced from 3 to 2
+- Spectral Assistant total swaps allowed increased from 1 to 2
+
+@inline svelte
+<AbilityHeading name="Audience Participation" />
+@end
+
+- Audience Participation cooldown reduced from 50% to 40%
+
+@inline svelte
+<EntityHeading name="Viscous" type="hero" />
+@end
+
+@inline svelte
+<AbilityHeading name="Splatter" />
+@end
+
+- Splatter cooldown increased from 21s to 30s
+- Splatter T1 changed from "-6s Cooldown" to "+40 Damage and +1m Radius"
+- Splatter T2 changed from "+45 Damage and +1m Radius" to "-12s Cooldown"
+- Splatter T3 now also increases spirit scaling by 0.4
+
+@inline svelte
+<AbilityHeading name="The Cube" />
+@end
+
+- The Cube duration reduced from 4s to 3s
+
+- The Cube regen increased from 30 to 40
+
+@inline svelte
+<AbilityHeading name="The Cube" />
+@end
+
+- The Cube T2 now also increases duration by +1s
+
+@inline svelte
+<EntityHeading name="Vyper" type="hero" />
+@end
+
+- Health per boon increased from 33 to 35
+
+@inline svelte
+<EntityHeading name="Warden" type="hero" />
+@end
+
+- Bullet damage increased from 16.2 to 16.6
+- Bullet damage growth increased from 0.44 to 0.48
+- Health regen reduced from 3 to 2
+
+@inline svelte
+<AbilityHeading name="Alchemical Flask" />
+@end
+
+- Alchemical Flask radius reduced from 6.5m to 5.5m
+- Alchemical Flask T2 now also grants +1m
+
+@inline svelte
+<EntityHeading name="Wraith" type="hero" />
+@end
+
+- Card Trick base damage increased from 55 to 60
+
+@inline svelte
+<AbilityHeading name="Project Mind" />
+@end
+
+- Project Mind cooldown reduced from 48s to 42s
+
+@inline svelte
+<EntityHeading name="Yamato" type="hero" />
+@end
+
+- Base regen reduced from 2.0 to 1.0
+- Power Slash low charge damage from 40% to 30%
+- Power Slash medium charge damage from 60% to 50%
+
+@inline svelte
+<AbilityHeading name="Crimson Slash" />
+@end
+
+- Crimson Slash cooldown increased from 11.5s to 15s
+- Crimson Slash T3 increased from -5.75s Cooldown to -9s
+
+* Item Changes
+
+@inline svelte
+<SectionPreview type="item" names={["Blood Tribute", "Bullet Resist Shredder", "Capacitor", "Cheat Death", "Compress Cooldown", "Crippling Headshot", "Cultist Sacrifice", "Decay", "Echo Shard", "Enchanter's Emblem", "Escalating Resilience", "Express Shot", "Focus Lens", "Glass Cannon", "Headshot Booster", "Inhibitor", "Lucky Shot", "Majestic Leap", "Mystic Shot", "Mystic Vulnerability", "Opening Rounds", "Reactive Barrier", "Scourge", "Shadow Weave", "Silence Wave", "Silencer", "Spellbreaker", "Spellslinger", "Spirit Sap", "Spirit Shielding", "Spirit Snatch", "Spiritual Overflow", "Split Shot", "Superior Cooldown", "Tesla Bullets", "Transcendent Cooldown", "Warp Stone", "Weapon Shielding", "Weighted Shots"]} />
+@end
+
+@inline svelte
+<EntityHeading name="Blood Tribute" type="item" />
+@end
+
+- Debuff Resistance reduced from +50% to +40%
+
+@inline svelte
+<EntityHeading name="Bullet Resist Shredder" type="item" />
+@end
+
+- Bullet Resist Reduction reduced from 13% to 12%
+
+@inline svelte
+<EntityHeading name="Capacitor" type="item" />
+@end
+
+- Shock damage reduced from 50 to 43
+- Shock damage spirit power growth increased from 0.14 to 0.19
+- No longer dispels buffs (moved to Curse)
+- Cooldown reduced from 60s to 50s
+- Slow duration reduced from 5s to 4s (75%->0%)
+- Slow debuff now prevents stamina usage and silences movement abilities
+
+@inline svelte
+<EntityHeading name="Cheat Death" type="item" />
+@end
+
+- Removes all non-stun debuffs on proc
+
+@inline svelte
+<EntityHeading name="Compress Cooldown" type="item" />
+@end
+
+- Cooldown Reduction reduced from +22% to +18%
+
+@inline svelte
+<EntityHeading name="Crippling Headshot" type="item" />
+@end
+
+- Healing Reduction increased from -30% to -35%
+
+@inline svelte
+<EntityHeading name="Cultist Sacrifice" type="item" />
+@end
+
+- Now provides Weapon Damage instead of Fire Rate
+
+@inline svelte
+<EntityHeading name="Decay" type="item" />
+@end
+
+- Healing Reduction increased from -40% to -45%
+
+@inline svelte
+<EntityHeading name="Echo Shard" type="item" />
+@end
+
+- No longer grants +5% Cooldown Reduction
+- Now grants +5% Ability Range (no longer has the +5% CD Reduction)
+
+@inline svelte
+<EntityHeading name="Enchanter's Emblem" type="item" />
+@end
+
+- Cooldown Reduction reduced from +7% to +5%
+
+@inline svelte
+<EntityHeading name="Escalating Resilience" type="item" />
+@end
+
+- Bonus Health reduced from 125 to 100
+
+@inline svelte
+<EntityHeading name="Express Shot" type="item" />
+@end
+
+- Weapon Damage now scales with boons (+2)
+- Weapon Damage reduced from 185% to 170%
+- Secondary Fire Weapon Damage now scales with boons (+1)
+- Secondary Fire Weapon Damage reduced from 75% to 45%
+- Ammo consumed increased from 30% to 40%
+
+@inline svelte
+<EntityHeading name="Focus Lens" type="item" />
+@end
+
+- Now builds from Spirit Sap
+- Now reduces Spirit Resistance by 12% and reduces Spirit Power by 30 for 12s
+- Fire Rate reduced from +16 to +13
+
+@inline svelte
+<EntityHeading name="Glass Cannon" type="item" />
+@end
+
+- Max Health reduced from -10% to -13%
+
+@inline svelte
+<EntityHeading name="Headshot Booster" type="item" />
+@end
+
+- Cooldown increased from 8 to 9
+
+@inline svelte
+<EntityHeading name="Inhibitor" type="item" />
+@end
+
+- Healing Reduction increased from -35% to -40%
+
+@inline svelte
+<EntityHeading name="Lucky Shot" type="item" />
+@end
+
+- Damage reduced from 125% to 110%
+
+@inline svelte
+<EntityHeading name="Majestic Leap" type="item" />
+@end
+
+- Cooldown increased from 32s to 34s
+
+@inline svelte
+<EntityHeading name="Mystic Shot" type="item" />
+@end
+
+- Proc damage reduced from 45 to 40
+- Spirit power scaling increased from 0.75 to 0.8
+
+@inline svelte
+<EntityHeading name="Mystic Vulnerability" type="item" />
+@end
+
+- Duration increased from 6s to 7s
+
+@inline svelte
+<EntityHeading name="Opening Rounds" type="item" />
+@end
+
+- Spirit Power increased from +7 to +8
+
+@inline svelte
+<EntityHeading name="Reactive Barrier" type="item" />
+@end
+
+- Cooldown increased from 26s to 40s
+- Duration reduced from 12s to 10s
+
+@inline svelte
+<EntityHeading name="Scourge" type="item" />
+@end
+
+- Cooldown Reduction reduced from +6% to +4%
+- Max Health damage per second increased from 3.25% to 3.5%
+- Cooldown reduced from 38s to 35s
+
+@inline svelte
+<EntityHeading name="Shadow Weave" type="item" />
+@end
+
+- Reveal distance reduced from 20m to 18m
+- Full invisibility distance reduced from 50m to 30m
+
+@inline svelte
+<EntityHeading name="Silence Wave" type="item" />
+@end
+
+- No longer upgrades from Spirit Sap
+- No longer reduces Spirit Resistance or Spirit Power
+- Now deals 100 Impact Damage (0.3 spirit power growth)
+
+@inline svelte
+<EntityHeading name="Silencer" type="item" />
+@end
+
+- Spirit Resist increased from 14% to 15%
+
+@inline svelte
+<EntityHeading name="Spellbreaker" type="item" />
+@end
+
+- Cooldown reduced from 10s to 9s
+
+@inline svelte
+<EntityHeading name="Spellslinger" type="item" />
+@end
+
+- Cooldown Reduction reduced from +12% to +6%
+- Fire Rate per stack increased from 10% to 12%
+
+@inline svelte
+<EntityHeading name="Spirit Sap" type="item" />
+@end
+
+- Cooldown reduced from 35s to 25s (matches Focus Lens)
+
+@inline svelte
+<EntityHeading name="Spirit Shielding" type="item" />
+@end
+
+- Cooldown increased from 35s to 45s
+- Damage threshold increased from 175 to 225
+- Duration reduced from 8s to 7s
+
+@inline svelte
+<EntityHeading name="Spirit Snatch" type="item" />
+@end
+
+- Instead of increasing CD to 2x on light melee hit, the effects of Spirit Snatch are reduced to 70% effectiveness (Damage, Spirit Power, Spirit Resist)
+
+@inline svelte
+<EntityHeading name="Spiritual Overflow" type="item" />
+@end
+
+- Cooldown Reduction reduced from +20% to +12%
+- Fire Rate increased from +30% to +35%
+
+@inline svelte
+<EntityHeading name="Split Shot" type="item" />
+@end
+
+- Cooldown increased from 14s to 32s
+
+@inline svelte
+<EntityHeading name="Superior Cooldown" type="item" />
+@end
+
+- Cooldown Reduction reduced from +25% to +20%
+
+@inline svelte
+<EntityHeading name="Tesla Bullets" type="item" />
+@end
+
+- Shock damage reduced from 40 to 33
+- Shock damage spirit power growth increased from 0.14 to 0.19
+
+@inline svelte
+<EntityHeading name="Transcendent Cooldown" type="item" />
+@end
+
+- Cooldown Reduction reduced from +30% to +25%
+
+@inline svelte
+<EntityHeading name="Warp Stone" type="item" />
+@end
+
+- Bullet Resist reduced from 35% to 30%
+
+@inline svelte
+<EntityHeading name="Weapon Shielding" type="item" />
+@end
+
+- Cooldown increased from 35s to 45s
+- Duration reduced from 8s to 7s
+
+@inline svelte
+<EntityHeading name="Weighted Shots" type="item" />
+@end
+
+- Weapon Damage increased from +30% to +35%
+
+@comment
+Poster reply 1 (2025-11-22T21:46:02-0800)
+Consider creating a separate file: 11-21-2025-update-reply-1.norg with parent_id in metadata
+@end
+
+* General Changes
+
+- Gun base damage reduced by 5% (not growth)
+- Medic Pack missing health % reduced from 10% to 8%
+- Stamina regen returned from 5.25s to 5s
+- Neutrals bounty increased by 5%
+
+* Hero Changes
+
+@inline svelte
+<SectionPreview type="hero" names={["Drifter", "Warden"]} />
+@end
+
+@inline svelte
+<EntityHeading name="Drifter" type="hero" />
+@end
+
+- Base health reduced from 750 to 675
+
+@inline svelte
+<EntityHeading name="Warden" type="hero" />
+@end
+
+- Bullet damage growth per boon reduced from 0.53 to 0.47
+
+@comment
+Poster reply 2 (2025-11-23T09:11:20-0800)
+Consider creating a separate file: 11-21-2025-update-reply-2.norg with parent_id in metadata
+@end
+
+* General Changes
+
+- Fixed a bug with falloff calculation that was often causing guns to do much more damage than intended. We'll be monitoring to do subsequent adjustments after this.
+
+@comment
+Poster reply 3 (2025-11-23T21:34:45-0800)
+Consider creating a separate file: 11-21-2025-update-reply-3.norg with parent_id in metadata
+@end
+
+* General Changes
+
+- Hero kill bounty split efficiency for 1/2/3/4/5/6 players changed from 100/100/90/84/65/72% to 100/100/85/70/55/50%
+- Guardians HP increased from 4250 to 5500
+- Guardians armor decay peak at 12m instead of 10m
+- Fixed Base Guardians HP not matching Lane Guardians (were 1000 less)
+- Hero base health increased by 50
+
+* Item Changes
+
+@inline svelte
+<SectionPreview type="item" names={["Focus Lens", "Trophy Collector"]} />
+@end
+
+@inline svelte
+<EntityHeading name="Focus Lens" type="item" />
+@end
+
+- Cooldown increased from 25s to 32s (Spirit Sap now matches this too)
+
+@inline svelte
+<EntityHeading name="Trophy Collector" type="item" />
+@end
+
+- Souls per minute reduced from 30 to 22
+- Health per stack reduced from 25 to 20
+
+@comment
+Poster reply 4 (2025-11-27T11:32:53-0800)
+Consider creating a separate file: 11-21-2025-update-reply-4.norg with parent_id in metadata
+@end
+
+* General Changes
+
+- Medic Pack now heal amounts increased by 2x
+- Medic Pack heal now splits its value evenly based on the number of nearby heroes (so 1 hero is 100%, 2 heroes is 50%, 3 heroes is 33%, etc. Other nearby units also get the reduced values.)
+- Medic Pack regen applied over 2s instead of 1s
+- Medic Pack ally search radius from 30 to 35
+- Medic Pack pickup range scales after 10 minutes (similar to the expiry duration), from 18m at 10 minutes scaling up by 1m per minute up to 26m range.
+- Walkers now have escalating health after each one dies. From a constant 12880 to 8000/11000/14000 (model scale slightly smaller for 1st and slightly bigger for last)
+
+* Item Changes
+
+@inline svelte
+<SectionPreview type="item" names={["Focus Lens"]} />
+@end
+
+@inline svelte
+<EntityHeading name="Focus Lens" type="item" />
+@end
+
+- Cooldown increased from 32s to 38s
+- Duration reduced from 4.25s to 4s
+
+@comment
+Poster reply 5 (2025-12-03T16:34:27-0800)
+Consider creating a separate file: 11-21-2025-update-reply-5.norg with parent_id in metadata
+@end
+
+* General Changes
+
+- Neutrals HP increases by 0.5% per minute
+- Neutrals damage increases by 0.5% per minute
+- Neutrals base damage reduced by 30%
+- Hard neutrals now take +20% more melee damage
+- Sprint/Out of Combat regen timer against neutrals increased from 2.5s to 4s (takes longer to start sprinting/regening)
+- Sprint ramp rate reduced from 1/sec to 0.75/sec (first +3 sprint is immediate, then it starts ramping)
+- Walkers and Mid Boss now have +15% Bullet Resistance and -15% HP
+- Walker ally aura (grants +15% Bullet and Spirit Resist) range reduced from 32m to 28m
+- Getting shot now slows your move speed by 10% for 0.7s
+- When using Spectate teammate buttons (F1-F5) your camera angles are no longer overridden by your teammates
+- Fix for FOV "pop" in Vindicta's Assassination
+
+* Hero Changes
+
+@inline svelte
+<SectionPreview type="hero" names={["Billy", "Drifter", "Dynamo", "Infernus", "Shiv", "Wraith"]} />
+@end
+
+@inline svelte
+<EntityHeading name="Billy" type="hero" />
+@end
+
+@inline svelte
+<AbilityHeading name="Blasted" />
+@end
+
+- Blasted no longer works against Sinner's Sacrifice
+
+- Blasted Max Health melee spirit scaling reduced from 0.78 to 0.7
+- Chain Gang will now break slightly faster when target is out of LOS
+- Chain Gang can no longer be broken by mantling
+
+@inline svelte
+<EntityHeading name="Drifter" type="hero" />
+@end
+
+- Base bullet damage reduced from 22.25 to 19.5
+
+@inline svelte
+<EntityHeading name="Dynamo" type="hero" />
+@end
+
+@inline svelte
+<AbilityHeading name="Kinetic Pulse" />
+@end
+
+- Kinetic Pulse range spirit scaling reduced from 0.256 to 0.2
+
+@inline svelte
+<EntityHeading name="Infernus" type="hero" />
+@end
+
+- Base bullet damage reduced from 6.2 to 5.5
+- Bullet falloff range from 20-58 to 18-55
+
+@inline svelte
+<AbilityHeading name="Afterburn" />
+@end
+
+- Afterburn now only adds 0.5s to the duration for each bullet that is hit after it procs, rather than fully refreshing the duration. Adds 1.0s for headshots.
+
+@inline svelte
+<EntityHeading name="Shiv" type="hero" />
+@end
+
+@inline svelte
+<AbilityHeading name="Rage" />
+@end
+
+- Rage now builds 8% slower
+
+@inline svelte
+<EntityHeading name="Wraith" type="hero" />
+@end
+
+@inline svelte
+<AbilityHeading name="Card Trick" />
+@end
+
+- Card Trick spirit scaling reduced from 1.2 to 1.0
+
+@inline svelte
+<AbilityHeading name="Card Toss" />
+@end
+
+- Card Toss T2 reduced from +40 Damage to +35
+
+* Item Changes
+
+@inline svelte
+<SectionPreview type="item" names={["Express Shot", "Fleetfoot", "Focus Lens", "Return Fire"]} />
+@end
+
+@inline svelte
+<EntityHeading name="Express Shot" type="item" />
+@end
+
+- No longer has a no shooting for 3s requirement
+- Now has a 8s cooldown
+- Primary fire damage reduced from 170% to 125%
+- Secondary fire damage reduced from 45% to 35%
+- Ammo drain reduced from 40% to 30%
+
+@inline svelte
+<EntityHeading name="Fleetfoot" type="item" />
+@end
+
+- Speed duration reduced from 6s to 5s
+
+@inline svelte
+<EntityHeading name="Focus Lens" type="item" />
+@end
+
+- Cooldown increased from 38s to 45s
+
+@inline svelte
+<EntityHeading name="Return Fire" type="item" />
+@end
+
+- Bullet damage returned increased from 50% to 60%

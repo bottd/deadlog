@@ -1,0 +1,24 @@
+@document.meta
+title: 06-01-2024 Update
+thread_id: 3004
+published: 2024-06-01T13:34:03-0700
+author: Yoshi
+author_image: https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630
+category: patch
+major_update: false
+status: draft
+@end
+
+
+* Item Changes
+
+@inline svelte
+<SectionPreview type="item" names={["Return Fire"]} />
+@end
+
+@inline svelte
+<EntityHeading name="Return Fire" type="item" />
+@end
+
+- No longer applies procs
+- Bullet damage return increased from 60% to 70%

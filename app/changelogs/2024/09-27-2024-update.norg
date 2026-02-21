@@ -1,0 +1,37 @@
+@document.meta
+title: 09-27-2024 Update
+thread_id: 33816
+published: 2024-09-27T17:33:18-0700
+author: Yoshi
+author_image: https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630
+category: patch
+major_update: false
+status: draft
+@end
+
+
+* Hero Changes
+
+@inline svelte
+<SectionPreview type="hero" names={["Mirage"]} />
+@end
+
+@inline svelte
+<EntityHeading name="Mirage" type="hero" />
+@end
+
+- Tornado lift duration reduced from 1.5s to 1.2s
+
+@inline svelte
+<AbilityHeading name="Tornado" />
+@end
+
+- Tornado T1 bonus lift duration reduced from +0.5s to +0.4s
+
+- Tornado base bullet evasion reduced from 30% to 25%
+
+@inline svelte
+<AbilityHeading name="Djinn's Mark" />
+@end
+
+- Djinn's Mark T3 now also reduces Multiplier Cooldown by 0.5s

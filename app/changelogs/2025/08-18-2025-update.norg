@@ -1,0 +1,199 @@
+@document.meta
+title: 08-18-2025 Update
+thread_id: 75046
+published: 2025-08-18T13:43:52-0700
+author: Yoshi
+author_image: https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630
+category: patch
+major_update: false
+status: draft
+@end
+
+* General Changes
+
+@image https://clan.akamai.steamstatic.com/images/45164767/256d6479251714acd1fa90b30b60a48b40e6352c.png
+store.steampowered
+@end
+@image https://store.steampowered.com/favicon.ico
+store.steampowered
+@end
+
+@comment
+Poster reply 1 (2025-08-22T19:02:06-0700)
+Consider creating a separate file: 08-18-2025-update-reply-1.norg with parent_id in metadata
+@end
+
+
+* Hero Changes
+
+@inline svelte
+<SectionPreview type="hero" names={["Billy"]} />
+@end
+
+@inline svelte
+<EntityHeading name="Billy" type="hero" />
+@end
+
+- Health regen increased from 2.5 to 3.0
+- Health per boon reduced from 44 to 43
+
+@inline svelte
+<AbilityHeading name="Blasted" />
+@end
+
+- Blasted bullet amp increased from 8% to 9%
+- Blasted increased base health boost from 75 to 80 and reduced T3 health boost from +65 to +50
+- Blasted reduced health boost spirit scaling from 0.9x to 0.8x
+
+- Blasted base duration reduced from 8.5s to 8.0s and duration on heavy melee reduced from 5.0s to 4.5s
+
+@inline svelte
+<AbilityHeading name="Blasted" />
+@end
+
+- Blasted cooldown reduced from 30s to 27s
+- Blasted no longer gives bonus health from objectives
+
+- Chain Gang time to break LOS increased by 0.1s
+
+@comment
+Poster reply 2 (2025-08-28T17:49:04-0700)
+Consider creating a separate file: 08-18-2025-update-reply-2.norg with parent_id in metadata
+@end
+
+* General Changes
+
+- Doorman: Call Bell cooldown increased from 16s to 18s
+- Doorman: Luggage Cart T3 stun reduced duration from 1.5s to 1.2s
+
+* Hero Changes
+
+@inline svelte
+<SectionPreview type="hero" names={["Billy", "Drifter", "Mina", "Paige"]} />
+@end
+
+@inline svelte
+<EntityHeading name="Billy" type="hero" />
+@end
+
+- Bashdown melee scaling increased from 1x to 1.1x
+
+@inline svelte
+<AbilityHeading name="Bashdown" />
+@end
+
+- Bashdown spirit damage reduced from 40 to 35 and scaling reduced from 1.2x to 1.1x
+
+- Bashdown impact center is now slightly closer to Billy
+- Chain Gang will snap slightly faster when target is out of LOS
+- Chain Gang pull consistency improved in complex terrain
+
+@inline svelte
+<EntityHeading name="Drifter" type="hero" />
+@end
+
+- Weapon damage per boon reduced from 0.693 to 0.55
+- Weapon base fire rate slowed by 5% (partial base damage compensation, but primarily an overall nerf)
+- Health per boon reduced from 43 to 41
+
+@inline svelte
+<AbilityHeading name="Rend" />
+@end
+
+- Rend T3 Bullet Lifesteal reduced from 55% to 45%
+
+@inline svelte
+<AbilityHeading name="Bloodscent" />
+@end
+
+- Bloodscent T3 Amplified damage reduced from +13% to +11%
+
+@inline svelte
+<EntityHeading name="Mina" type="hero" />
+@end
+
+@inline svelte
+<AbilityHeading name="Sanguine Retreat" />
+@end
+
+- Sanguine Retreat T3 increased from -7s cooldown to -12s Cooldown
+
+@inline svelte
+<AbilityHeading name="Love Bites" />
+@end
+
+- Love Bites cooldown reduced from 8s to 7s
+- Love Bites T3 changed from -3s cooldown to 1 Stamina Drain and 30% Slow for 3s
+
+@inline svelte
+<AbilityHeading name="Nox Nostra" />
+@end
+
+- Nox Nostra cooldown reduced from 150s to 130s
+- Nox Nostra silence duration increased from 1s to 1.25s
+
+@inline svelte
+<EntityHeading name="Paige" type="hero" />
+@end
+
+- Fixed some pathfinding issues with Conjure Dragon
+
+@comment
+Poster reply 3 (2025-08-29T17:36:28-0700)
+Consider creating a separate file: 08-18-2025-update-reply-3.norg with parent_id in metadata
+@end
+
+
+* Hero Changes
+
+@inline svelte
+<SectionPreview type="hero" names={["Drifter", "Victor"]} />
+@end
+
+@inline svelte
+<EntityHeading name="Drifter" type="hero" />
+@end
+
+@inline svelte
+<AbilityHeading name="Rend" />
+@end
+
+- Rend spirit scaling reduced from 1.5 to 1.4
+- Rend T1 reduced from +40 Damage to +35
+
+- Weapon damage at max range reduced from 80% to 60%
+
+@inline svelte
+<AbilityHeading name="Eternal Night" />
+@end
+
+- Eternal Night bonus spirit damage reduced from 9 to 7
+- Eternal Night bonus spirit damage scaling reduced from 0.25 to 0.2
+- Eternal Night T1 bonus spirit damage reduced from +11 to +7
+
+- Eternal Night attack damage no longer procs Lightning Scroll
+
+@inline svelte
+<EntityHeading name="Victor" type="hero" />
+@end
+
+- Base regen reduced from 3 to 1.5
+- Jumpstart regen spirit scaling reduced from 2 to 1.8
+
+@inline svelte
+<AbilityHeading name="Jumpstart" />
+@end
+
+- Jumpstart T3 reduced from -8s Cooldown to -4s
+
+- Aura of Suffering self damage increased from 80% to 100%
+- Shocking Reanimation rebirth health reduced from 100% to 60%
+
+@inline svelte
+<AbilityHeading name="Shocking Reanimation" />
+@end
+
+- Shocking Reanimation cooldown increased from 180s to 190s
+- Shocking Reanimation T2 changed from "-20s Cooldown" to "+40% Rebirth Health"
+
+- Shocking Reanimation attack damage no longer procs Lightning Scroll

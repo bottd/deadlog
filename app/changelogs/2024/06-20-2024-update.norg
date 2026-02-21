@@ -1,0 +1,529 @@
+@document.meta
+title: 06-20-2024 Update
+thread_id: 7003
+published: 2024-06-20T13:51:37-0700
+author: Yoshi
+author_image: https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630
+category: patch
+major_update: false
+status: draft
+@end
+
+* General Changes
+
+- Added EU servers and matchmaking region. EU testing times are Mon-Thur 5PM to 3AM and Fri-Sun 3PM to 3AM. Times listed are Central European Summer Time (GMT+2).
+- Removed the invite requirement of Steam friends having been on your list for a number of days (affected normal user cases often where friends weren't on the Steam list, and we have other metrics and tools on the backend now that we can use to filter for other cases)
+- Added search functionality to the shop. You can now search by item name or by individual stat such as 'Ammo', 'Lifesteal', or 'Spirit Power'.
+- The game will now let you know when it is safe to abandon (usually if one person has been disconnected for a while)
+- Your personal builds are now always sorted to the top of the in-game Builds dropdown
+- Various network related improvements when there is packet loss
+- Preferred heroes in your roster are now remember on the client across sessions
+- Fixed chat wheel not working during the post-game sequence
+- Updated the entrance to the underground tunnels from the outer lanes to look more like a subway entrance
+- Re-enabled ultra wide UI mode
+- Added street names and symbols to the Zipline UI
+- Updated Sleep Dagger and Silence Glyph tooltips to clarify that they do not cancel channeling abilities
+- Updated reload animations for Warden, Dynamo, and Ivy
+- Improved visibility of Inferno's Concussive Combustion
+- Fixed the unit target UI not showing up for instant-cast abilities (MoKrill ult, Lady Geist ult, Bebop bomb)
+- Fixed the unit target UI not showing the activation button hint
+- Added a Cosmic Veil to the hero demo map
+- Added Ethereal Shift sounds
+- Added wind sound when on the Zipline
+- Rejuv buff is now only granted to the players that are alive. Players that are dead will have their respawn times cut in half from their current values.
+- Footsteps are now quieter when obstructed by level geometry
+- Dash-Down is now double tap CTRL instead of CTRL+SHIFT
+- Vault bounty increased from 300 to 330
+- Fixed various bugs with Headshot Booster and Sharpshooter
+- Added another entrance/exit to the underground tunnels from the warehouse interiors
+- Enclosed the exterior Medium Neutral Camp with fencing in front of the Theater to match the Amber side Cab Stand
+- Added two more veils on each side:
+- Added a new T1 Spirit item, Infuser
+- Added a new T1 Weapon item, Ammo Scavenger
+- Added a new T2 Weapon item, Active Reload
+- 20% Reload Time
+- Added a new T2 Weapon item, Veil Walker
+- Passive: Walking through a Cosmic Veil causes you to become invisible with +3 m/s for 4 seconds and grants you +30% Fire Rate for your next magazine. Cosmic Veils regenerate any shields you have. Cooldown: 20s
+- Added a new T2 Weapon item, Melee Charge
+- Added a new T4 Vitality item, Colossus
+- Silence Glyph: Cooldown reduced from 35s to 30s
+- Superior Stamina: Stamina increased from +2 to +3
+- Superior Stamina: Fire Rate increased from +12% to +15%
+- Superior Stamina: Spirit Bonus after 2nd jump/dash increased from +20 to +25
+- Tesla: Bounce radius increased from 7m to 9m
+
+* Hero Changes
+
+@inline svelte
+<SectionPreview type="hero" names={["Abrams", "Bebop", "Dynamo", "Grey Talon", "Haze", "Infernus", "Ivy", "Kelvin", "Lady Geist", "Lash", "McGinnis", "Mo &amp; Krill", "Paradox", "Pocket", "Seven", "Vindicta", "Yamato"]} />
+@end
+
+@inline svelte
+<EntityHeading name="Abrams" type="hero" />
+@end
+
+- Improved misc issues with Seismic Impact collision
+- Seismic Impact can be held for up to 3 seconds. Press the ability again anytime to land.
+
+@inline svelte
+<EntityHeading name="Bebop" type="hero" />
+@end
+
+- Hook hitbox reduced from 36 inches to 33
+
+@inline svelte
+<AbilityHeading name="Hyper Beam" />
+@end
+
+- Hyper Beam cooldown increased from 100s to 110s
+
+@inline svelte
+<EntityHeading name="Dynamo" type="hero" />
+@end
+
+- Rejuvenating Aurora move speed increased from 3.8 to 4.2
+
+@inline svelte
+<AbilityHeading name="Singularity" />
+@end
+
+- Singularity T1 radius reduced from +3m to +2m
+
+- Singularity falls 70% slower when Majestic Leap down is used (similar to the hero falling slower normally when casting the ability from an elevation)
+
+@inline svelte
+<EntityHeading name="Grey Talon" type="hero" />
+@end
+
+- Fixed Charged Shot being evaded by Haze's Bullet Dance
+- Rain of Arrows cooldown increased from 30s to 33s
+- Guided Owl can now explode in the air by pressing the release key
+
+@inline svelte
+<EntityHeading name="Haze" type="hero" />
+@end
+
+@inline svelte
+<AbilityHeading name="Sleep Dagger" />
+@end
+
+- Sleep Dagger cooldown reduced from 29s to 27s
+- Sleep Dagger T2 cooldown changed from -15s to -13s
+
+@inline svelte
+<AbilityHeading name="Smoke Bomb" />
+@end
+
+- Smoke Bomb T2 changed to "Replenishes stamina on cast and grants +40% Stamina Regen"
+
+@inline svelte
+<AbilityHeading name="Fixation" />
+@end
+
+- Fixation bonus damage no longer ignores bullet falloff
+
+- Bullet Dance cast point reduced from 0.8s to 0.4s
+- Bullet Dance move speed increased from 3.5 to 4
+
+@inline svelte
+<EntityHeading name="Infernus" type="hero" />
+@end
+
+- Fixed Flame Dash duration not being affected by duration extender
+
+@inline svelte
+<EntityHeading name="Ivy" type="hero" />
+@end
+
+@inline svelte
+<AbilityHeading name="Kudzu Bomb" />
+@end
+
+- Kudzu Bomb now does 50% less damage to objectives
+
+@inline svelte
+<EntityHeading name="Kelvin" type="hero" />
+@end
+
+- Arctic Beam movespeed limit is now applied via a reduction rather than a speed cap (to allow items to be combined for faster movement like Surge of Power)
+
+@inline svelte
+<EntityHeading name="Lady Geist" type="hero" />
+@end
+
+@inline svelte
+<AbilityHeading name="Essence Bomb" />
+@end
+
+- Essence Bomb no longer starts decaying the arm time while in the air
+
+- Essence Bomb arm time reduced from 1s to 0.5s (this is a nerf for long distance bombs)
+
+@inline svelte
+<AbilityHeading name="Soul Exchange" />
+@end
+
+- Soul Exchange T3 changed to "After swap gain +40% Fire Rate and +40% Spirit Resistance for 8s"
+
+@inline svelte
+<EntityHeading name="Lash" type="hero" />
+@end
+
+- Fixed it being possible to lose your full lock on with Death Slam sometimes if you look away
+
+@inline svelte
+<EntityHeading name="McGinnis" type="hero" />
+@end
+
+@inline svelte
+<AbilityHeading name="Turret" />
+@end
+
+- Turret range reduced from 30m to 25m
+
+@inline svelte
+<AbilityHeading name="Turret HP" />
+@end
+
+- Turret HP scaling reduced from 40% to 30% (affects initial HP too)
+
+@inline svelte
+<AbilityHeading name="Turret" />
+@end
+
+- Turret cooldown reduced from 35s to 30s
+
+@inline svelte
+<AbilityHeading name="Turret Charge Time" />
+@end
+
+- Turret Charge Time reduced from 8s to 6s
+
+- Base Spirit Resist increased from 20% to 25%
+- Base Regen increased from 1 to 2
+
+@inline svelte
+<AbilityHeading name="Spectral Wall" />
+@end
+
+- Spectral Wall cooldown reduced from 35s to 30s
+
+@inline svelte
+<AbilityHeading name="Heavy Barrage" />
+@end
+
+- Heavy Barrage cooldown reduced from 110s to 100s
+
+@inline svelte
+<EntityHeading name="Mo &amp; Krill" type="hero" />
+@end
+
+- You can now cast items and Scorn while spinning out of Burrow
+
+@inline svelte
+<AbilityHeading name="Combo" />
+@end
+
+- Combo bonus health per kill increased from 25 to 30
+
+@inline svelte
+<EntityHeading name="Paradox" type="hero" />
+@end
+
+@inline svelte
+<AbilityHeading name="Kinetic Carbine" />
+@end
+
+- Kinetic Carbine cooldown increased from 22s to 24s
+
+@inline svelte
+<AbilityHeading name="Paradoxical Swap" />
+@end
+
+- Paradoxical Swap cooldown increased from 35s to 45s
+
+@inline svelte
+<EntityHeading name="Pocket" type="hero" />
+@end
+
+- Barrage base damage reduced from 40 to 35
+
+@inline svelte
+<AbilityHeading name="Barrage" />
+@end
+
+- Barrage T1 reduced from +20 to +15
+
+- Fixed a recent change causing Enchanter's Satchel to not play damage at the destination when teleporting with Flying Cloak
+
+@inline svelte
+<EntityHeading name="Seven" type="hero" />
+@end
+
+@inline svelte
+<AbilityHeading name="Static Charge" />
+@end
+
+- Static Charge now uses the new instant cast option that Bebop Bomb uses
+
+@inline svelte
+<AbilityHeading name="Power Surge" />
+@end
+
+- Power Surge spirit scaling increased from 0.1 to 0.2 (new total with T3 is now from 0.5 to 0.6)
+
+@inline svelte
+<EntityHeading name="Vindicta" type="hero" />
+@end
+
+- Crow Familiar debuff duration increased from 5s to 6s
+
+@inline svelte
+<AbilityHeading name="Assassinate" />
+@end
+
+- Assassinate bonus damage increased from 130 to 145
+
+@inline svelte
+<EntityHeading name="Yamato" type="hero" />
+@end
+
+@inline svelte
+<AbilityHeading name="Shadow Transformation" />
+@end
+
+- Shadow Transformation now provides 80% Damage Resistance and 80% Debuff Resistance instead of invulnerability during the post-channel buff
+- Shadow Transformation cooldown reduced from 110s to 100s
+- Shadow Transformation T3 increased from +1s to +1.5s
+
+* Item Changes
+
+@inline svelte
+<SectionPreview type="item" names={["Boundless Spirit", "Bullet Resist Shredder", "Burst Fire", "Crippling Headshot", "Decay", "Enduring Speed", "Ethereal Shift", "Extra Charge", "Extra Spirit", "Frenzy", "Healing Booster", "Healing Rite", "Improved Spirit", "Inhibitor", "Knockdown", "Leech", "Lifestrike", "Majestic Leap", "Metal Skin", "Mystic Reverb", "Mystic Shot", "Mystic Slow", "Rescue Beam", "Restorative Locket", "Return Fire", "Ricochet", "Shadow Weave", "Siphon Bullets", "Spiritual Overflow", "Suppressor", "Swift Striker", "Titanic Magazine", "Unstoppable", "Vampiric Burst"]} />
+@end
+
+@inline svelte
+<EntityHeading name="Boundless Spirit" type="item" />
+@end
+
+- Spirit Power increased from +55 to +60
+- Bonus Health increased from +175 to +200
+
+@inline svelte
+<EntityHeading name="Bullet Resist Shredder" type="item" />
+@end
+
+- Bullet Resist Reduction increased from -10% to -12%
+- Bullet Resist Reduction duration increased from 5s to 6s
+
+@inline svelte
+<EntityHeading name="Burst Fire" type="item" />
+@end
+
+- Now increases your slide distance and duration by 25%
+
+@inline svelte
+<EntityHeading name="Crippling Headshot" type="item" />
+@end
+
+- Bullet and Spirit Lifesteal reduced from 15% to 10%
+
+@inline svelte
+<EntityHeading name="Decay" type="item" />
+@end
+
+- Cooldown reduced from 27s to 25s
+
+@inline svelte
+<EntityHeading name="Enduring Speed" type="item" />
+@end
+
+- Slow resist increased from 35% to 40%
+- Now grants +1.5 HP Regen
+
+@inline svelte
+<EntityHeading name="Ethereal Shift" type="item" />
+@end
+
+- Cooldown reduced from 35s to 30s
+
+@inline svelte
+<EntityHeading name="Extra Charge" type="item" />
+@end
+
+- Now grants +7% Cooldown Reduction For Charged Abilities
+- No longer grants +6 Spirit to Charged Abilities
+
+@inline svelte
+<EntityHeading name="Extra Spirit" type="item" />
+@end
+
+- Spirit Power increased from +6 to +7
+
+@inline svelte
+<EntityHeading name="Frenzy" type="item" />
+@end
+
+- Low HP Spirit Resist increased from +25% to +30%
+- Fixed tooltip on Spirit Resist missing the %
+
+@inline svelte
+<EntityHeading name="Healing Booster" type="item" />
+@end
+
+- Spirit Resist reduced from 8% to 7%
+- Now provides +7% Bullet Resist
+
+@inline svelte
+<EntityHeading name="Healing Rite" type="item" />
+@end
+
+- Duration increased from 15s to 17s (total regen increased from 350 to 370)
+
+@inline svelte
+<EntityHeading name="Improved Spirit" type="item" />
+@end
+
+- Spirit Power increased from +15 to +18
+
+@inline svelte
+<EntityHeading name="Inhibitor" type="item" />
+@end
+
+- Moved from Weapon tree to Vitality
+- No longer requires the component Slowing Bullets
+- Now has +175 Health
+- Weapon Damage reduced from 30% to 20%
+
+@inline svelte
+<EntityHeading name="Knockdown" type="item" />
+@end
+
+- Cooldown reduced from 40s to 30s
+
+@inline svelte
+<EntityHeading name="Leech" type="item" />
+@end
+
+- Now grants +7 Spirit
+
+@inline svelte
+<EntityHeading name="Lifestrike" type="item" />
+@end
+
+- Slow duration increased from 1.5s to 2s
+- Heal increased from 40% of damage to 45%
+
+@inline svelte
+<EntityHeading name="Majestic Leap" type="item" />
+@end
+
+- Cooldown increased from 20s to 26s
+- Damage cooldown window increased from 4s to 5s
+- Fixed cooldown reduction affecting the damage cooldown
+
+@inline svelte
+<EntityHeading name="Metal Skin" type="item" />
+@end
+
+- Now prevents all weapon damage instead of blocking bullets (this allows procs to go through)
+
+@inline svelte
+<EntityHeading name="Mystic Reverb" type="item" />
+@end
+
+- Delayed damage increased from 30% to 40%
+
+@inline svelte
+<EntityHeading name="Mystic Shot" type="item" />
+@end
+
+- Spirit scaling increased from 0.45 to 0.6
+
+@inline svelte
+<EntityHeading name="Mystic Slow" type="item" />
+@end
+
+- Duration increased from 2s to 2.5s
+
+@inline svelte
+<EntityHeading name="Rescue Beam" type="item" />
+@end
+
+- Cast range increased from 40m to 45m
+- Cooldown reduced from 45s to 40s
+
+@inline svelte
+<EntityHeading name="Restorative Locket" type="item" />
+@end
+
+- Fixed the max stack limit not being followed
+- Max stacks increased from 15 to 18
+
+@inline svelte
+<EntityHeading name="Return Fire" type="item" />
+@end
+
+- Cooldown reduced from 30s to 24s
+
+@inline svelte
+<EntityHeading name="Ricochet" type="item" />
+@end
+
+- Ricochet Damage increased from 40% to 45%
+- Ammo increased from 30% to 35%
+
+@inline svelte
+<EntityHeading name="Shadow Weave" type="item" />
+@end
+
+- Now grants +30% Ammo
+- Ambush Fire Rate increased from +50% to +60%
+- Ambush Spirit Power increased from +40 to +55
+- Invisibility no longer plays footstep sounds (general change)
+- Casting the item immediately puts you into Sprint mode
+
+@inline svelte
+<EntityHeading name="Siphon Bullets" type="item" />
+@end
+
+- Max HP Steal increased from 40 to 45
+
+@inline svelte
+<EntityHeading name="Spiritual Overflow" type="item" />
+@end
+
+- Cooldown reduction increased from 10% to 15%
+- Bonus Spirit Power increased from +35 to +40
+
+@inline svelte
+<EntityHeading name="Suppressor" type="item" />
+@end
+
+- Duration reduced from 4s to 2.5s
+
+@inline svelte
+<EntityHeading name="Swift Striker" type="item" />
+@end
+
+- Negative bullet resist reduced from -6% to -5%
+
+@inline svelte
+<EntityHeading name="Titanic Magazine" type="item" />
+@end
+
+- Ammo increased from 65% to 75%
+
+@inline svelte
+<EntityHeading name="Unstoppable" type="item" />
+@end
+
+- Active Spirit Resistance reduced from 40% to 20%
+
+@inline svelte
+<EntityHeading name="Vampiric Burst" type="item" />
+@end
+
+- Now grants +150 Health
+- Weapon Damage increased from 20% to 25%
+- Can now be cast while busy (such as while you are shooting)

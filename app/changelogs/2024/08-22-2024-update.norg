@@ -1,0 +1,63 @@
+@document.meta
+title: 08-22-2024 Update
+thread_id: 19716
+published: 2024-08-22T18:55:55-0700
+author: Yoshi
+author_image: https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630
+category: patch
+major_update: false
+status: draft
+@end
+
+* General Changes
+
+- Fixed High-Velocity Mag affecting some abilities
+- Silence Glyph: Damage reduced from 150 to 100
+- Silence Glyph: Spirit damage scaling reduced from 1.5 to 1.0
+- Silence Glyph: Cast range reduced from 40m to 25m
+- Silence Glyph: Sprint reduced from 2 to 1
+- Silence Glyph: Spirit Shield reduced from +225 to +200
+- Dying with Siphon Bullets stacks will now cause you to lose 2 stacks no matter who killed you (rather than returning 1 only if the victim killed you back)
+- Fixed Siphon Bullets acting as spirit damage for procs
+- Fixed shotgun heroes applying buildup effects like toxic bullets instantly on ricocheted enemies
+- Parrying a Guardian now causes it to stop trying to repeatedly melee (and get parried over and over), and instead causes the boss to start shooting shortly there after
+
+* Hero Changes
+
+@inline svelte
+<SectionPreview type="hero" names={["Ivy", "Shiv"]} />
+@end
+
+@inline svelte
+<EntityHeading name="Ivy" type="hero" />
+@end
+
+@inline svelte
+<AbilityHeading name="Air Drop" />
+@end
+
+- Air Drop now silences the ally being carried until they are released
+
+@inline svelte
+<EntityHeading name="Shiv" type="hero" />
+@end
+
+- Bloodletting incoming damage deferred reduced from 40% to 35%
+
+* Item Changes
+
+@inline svelte
+<SectionPreview type="item" names={["Reactive Barrier", "Return Fire"]} />
+@end
+
+@inline svelte
+<EntityHeading name="Reactive Barrier" type="item" />
+@end
+
+- Cooldown increased from 20s to 30s
+
+@inline svelte
+<EntityHeading name="Return Fire" type="item" />
+@end
+
+- Bullet damage returned reduced form 80% to 70%

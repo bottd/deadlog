@@ -5,6 +5,7 @@
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
 	import Zap from '@lucide/svelte/icons/zap';
 	import Calendar from '@lucide/svelte/icons/calendar';
+	import { CornerAccents } from '$lib/components/ui/corner-accents';
 	import { scale, fly } from 'svelte/transition';
 	import { quintOut, backOut } from 'svelte/easing';
 
@@ -60,10 +61,14 @@
 			<div
 				class="from-primary/0 via-primary/8 to-primary/0 pointer-events-none absolute inset-0 bg-gradient-to-r opacity-0 transition-opacity duration-700 group-hover:opacity-100"
 			></div>
-			<div class="bg-primary absolute top-0 left-0 z-20 h-16 w-0.5"></div>
-			<div class="bg-primary absolute top-0 left-0 z-20 h-0.5 w-16"></div>
-			<div class="bg-primary/60 absolute right-0 bottom-0 z-20 h-12 w-0.5"></div>
-			<div class="bg-primary/60 absolute right-0 bottom-0 z-20 h-0.5 w-12"></div>
+			<CornerAccents
+				tlSize="4rem"
+				brSize="3rem"
+				tlColor="bg-primary"
+				brColor="bg-primary/60"
+				thickness="0.125rem"
+				class="z-20"
+			/>
 
 			<div class="relative z-10 flex flex-1 flex-col gap-5 p-6 md:p-8">
 				<div class="flex items-center gap-4">
@@ -104,7 +109,7 @@
 						{#each rows as row (row.type)}
 							<div class="flex items-center gap-3">
 								<span
-									class="text-muted-foreground w-14 font-mono text-[10px] tracking-wider uppercase"
+									class="text-muted-foreground w-14 font-mono text-xs tracking-wider uppercase"
 									>{row.label}</span
 								>
 								<div class="flex -space-x-2">
@@ -175,18 +180,13 @@
 		href="/change/{id}"
 		class="clip-corner-sm bg-card hover:bg-card-accent/30 border-border hover:border-primary/40 group relative flex min-h-[200px] flex-col overflow-hidden border transition-all duration-300 hover:shadow-xl"
 	>
-		<div
-			class="bg-primary/40 group-hover:bg-primary absolute top-0 left-0 h-6 w-0.5 transition-colors duration-300"
-		></div>
-		<div
-			class="bg-primary/40 group-hover:bg-primary absolute top-0 left-0 h-0.5 w-6 transition-colors duration-300"
-		></div>
-		<div
-			class="bg-primary/20 group-hover:bg-primary/60 absolute right-0 bottom-0 h-4 w-0.5 transition-colors duration-300"
-		></div>
-		<div
-			class="bg-primary/20 group-hover:bg-primary/60 absolute right-0 bottom-0 h-0.5 w-4 transition-colors duration-300"
-		></div>
+		<CornerAccents
+			tlSize="1.5rem"
+			brSize="1rem"
+			tlHover="group-hover:bg-primary"
+			brHover="group-hover:bg-primary/60"
+			thickness="0.125rem"
+		/>
 		<div
 			class="from-primary/0 group-hover:from-primary/5 pointer-events-none absolute inset-0 bg-gradient-to-br to-transparent transition-all duration-500"
 		></div>

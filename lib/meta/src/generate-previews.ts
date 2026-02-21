@@ -4,7 +4,6 @@ import {
 	getAllItems,
 	formatDate,
 	getChangelogIcons,
-	queryChangelogs,
 	type EnrichedHero,
 	type EnrichedItem
 } from '@deadlog/scraper';
@@ -28,9 +27,7 @@ const HERO_DIR = `${OUTPUT_DIR}/hero`;
 const ITEM_DIR = `${OUTPUT_DIR}/item`;
 
 async function convertImageUrl(url: string): Promise<string> {
-	// If already a data URI, return as-is
 	if (url.startsWith('data:')) return url;
-	// Fetch and convert to data URI
 	const dataUri = await fetchImageAsDataUri(url);
 	if (!dataUri) throw new Error(`Failed to fetch image: ${url}`);
 	return dataUri;
@@ -71,11 +68,10 @@ async function generateChangelogOG(
 		generalNotes: string[];
 	}
 ) {
-	// Convert all image URLs to data URIs
-	const authorIconDataUri = await convertImageUrl(data.authorIcon);
-	const itemIconsDataUris = await convertImageUrls(data.itemIcons);
+	const authorIcon = await convertImageUrl(data.authorIcon);
+	const itemIcons = await convertImageUrls(data.itemIcons);
 
-	const heroPreviewsDataUris = await Promise.all(
+	const heroPreviews = await Promise.all(
 		data.heroPreviews.map(async (hero) => ({
 			heroIcon: await convertImageUrl(hero.heroIcon),
 			abilityIcons: await convertImageUrls(hero.abilityIcons)
@@ -84,9 +80,9 @@ async function generateChangelogOG(
 
 	const element = React.createElement(ChangelogLayout, {
 		...data,
-		authorIcon: authorIconDataUri,
-		itemIcons: itemIconsDataUris,
-		heroPreviews: heroPreviewsDataUris
+		authorIcon,
+		itemIcons,
+		heroPreviews
 	});
 	await renderToFile(element, join(CHANGELOG_DIR, `${changeId}.png`));
 }
@@ -103,21 +99,16 @@ async function generateHomeOG(
 	const iconsMap = await getChangelogIcons(db, [latestChangelog.id]);
 	const icons = iconsMap[latestChangelog.id] ?? { heroes: [], items: [] };
 
-	// Convert all image URLs to data URIs
-	const authorImageDataUri = await convertImageUrl(latestChangelog.authorImage);
-	const heroIconsDataUris = await convertImageUrls(
-		icons.heroes.slice(0, 8).map((h) => h.src)
-	);
-	const itemIconsDataUris = await convertImageUrls(
-		icons.items.slice(0, 8).map((i) => i.src)
-	);
+	const authorImage = await convertImageUrl(latestChangelog.authorImage);
+	const heroIcons = await convertImageUrls(icons.heroes.slice(0, 8).map((h) => h.src));
+	const itemIcons = await convertImageUrls(icons.items.slice(0, 8).map((i) => i.src));
 
 	const element = React.createElement(HomeLayout, {
 		lastUpdated: formatDate(latestChangelog.pubDate),
 		author: latestChangelog.author,
-		authorImage: authorImageDataUri,
-		heroIcons: heroIconsDataUris,
-		itemIcons: itemIconsDataUris
+		authorImage,
+		heroIcons,
+		itemIcons
 	});
 
 	await renderToFile(element, join(OUTPUT_DIR, 'index.png'));
@@ -130,20 +121,14 @@ async function generateHeroOG(
 	const image = hero.images.card ?? hero.images.portrait ?? Object.values(hero.images)[0];
 	const slug = hero.name.toLowerCase().replace(/\s+/g, '-');
 
-	// Convert image URL to data URI
-	const imageDataUri = await convertImageUrl(image);
+	const imageUri = await convertImageUrl(image);
 
-	// Convert ability images in change preview if present
-	let changePreviewWithDataUris: HeroPreviewItem[] | null = null;
+	let preview: HeroPreviewItem[] | null = null;
 	if (changePreview) {
-		changePreviewWithDataUris = await Promise.all(
+		preview = await Promise.all(
 			changePreview.map(async (item): Promise<HeroPreviewItem> => {
 				if (item.type === 'ability' && item.image) {
-					const convertedImage = await convertImageUrl(item.image);
-					return {
-						...item,
-						image: convertedImage
-					};
+					return { ...item, image: await convertImageUrl(item.image) };
 				}
 				return item;
 			})
@@ -153,8 +138,8 @@ async function generateHeroOG(
 	const element = React.createElement(HeroLayout, {
 		name: hero.name,
 		heroType: hero.heroType,
-		image: imageDataUri,
-		changePreview: changePreviewWithDataUris
+		image: imageUri,
+		changePreview: preview
 	});
 
 	await renderToFile(element, join(HERO_DIR, `${slug}.png`));
@@ -167,13 +152,12 @@ async function generateItemOG(item: EnrichedItem, changePreview: string | null) 
 	}
 	const slug = item.name.toLowerCase().replace(/\s+/g, '-');
 
-	// Convert image URL to data URI
-	const imageDataUri = await convertImageUrl(image);
+	const imageUri = await convertImageUrl(image);
 
 	const element = React.createElement(ItemLayout, {
 		name: item.name,
 		type: item.type,
-		image: imageDataUri,
+		image: imageUri,
 		changePreview: changePreview ?? ''
 	});
 
@@ -219,41 +203,13 @@ async function main() {
 			const iconsMap = await getChangelogIcons(db, [changelog.id]);
 			const icons = iconsMap[changelog.id] ?? { heroes: [], items: [] };
 
-			// Extract heroes with their abilities
-			const heroPreviews: HeroPreview[] = [];
-			if (changelog.contentJson?.heroes) {
-				for (const [heroName, heroData] of Object.entries(changelog.contentJson.heroes)) {
-					const hero = heroes.find((h) => h.name === heroName);
-					if (hero) {
-						const heroIcon = Object.values(hero.images)[0];
-						const abilityIcons = (heroData.abilities || [])
-							.map((ability) => ability.abilityImage)
-							.filter((img): img is string => Boolean(img))
-							.slice(0, 6);
-
-						heroPreviews.push({ heroIcon, abilityIcons });
-					}
-				}
-			}
-
-			// Extract general notes
-			const generalNotes: string[] = [];
-			if (changelog.contentJson?.notes) {
-				for (const note of changelog.contentJson.notes) {
-					if (note.text.length <= 85) {
-						generalNotes.push(note.text);
-					}
-					if (generalNotes.length >= 8) break;
-				}
-			}
-
 			await generateChangelogOG(changelog.id, {
 				title: `${formatDate(changelog.pubDate)} Update`,
 				author: changelog.author,
 				authorIcon: changelog.authorImage,
-				heroPreviews: heroPreviews.slice(0, 6),
+				heroPreviews: [],
 				itemIcons: icons.items.slice(0, 6).map((i) => i.src),
-				generalNotes
+				generalNotes: []
 			});
 			changelogCount++;
 		}
@@ -267,46 +223,7 @@ async function main() {
 		let heroCount = 0;
 
 		for (const hero of heroes.filter((h) => h.isReleased)) {
-			const changelogs = await queryChangelogs(db, { heroIds: [hero.id] });
-
-			let previewData: HeroPreviewItem[] | null = null;
-			if (changelogs.length > 0) {
-				const latestChangelog = changelogs[0];
-				const heroChanges = latestChangelog.contentJson?.heroes?.[hero.name];
-				const items: HeroPreviewItem[] = [];
-
-				if (heroChanges?.abilities && heroChanges.abilities.length > 0) {
-					for (const ability of heroChanges.abilities.slice(0, 3)) {
-						if (ability.notes && ability.notes.length > 0) {
-							let noteText = ability.notes[0].text;
-							const abilityPrefix = `${ability.abilityName}:`;
-							if (noteText.startsWith(abilityPrefix)) {
-								noteText = noteText.slice(abilityPrefix.length).trim();
-							}
-
-							items.push({
-								type: 'ability',
-								name: ability.abilityName,
-								image: ability.abilityImage,
-								text: noteText
-							});
-						}
-					}
-				}
-
-				if (heroChanges?.notes && heroChanges.notes.length > 0) {
-					const remainingSpace = 3 - items.length;
-					for (const note of heroChanges.notes.slice(0, remainingSpace)) {
-						items.push({ type: 'text', text: note.text });
-					}
-				}
-
-				if (items.length > 0) {
-					previewData = items;
-				}
-			}
-
-			await generateHeroOG(hero, previewData);
+			await generateHeroOG(hero, null);
 			heroCount++;
 		}
 
@@ -321,29 +238,8 @@ async function main() {
 		for (const item of items) {
 			if (!item.image) continue;
 
-			const changelogs = await queryChangelogs(db, { itemIds: [item.id] });
-			if (changelogs.length > 0) {
-				let previewText: string | null = null;
-				const latestChangelog = changelogs[0];
-				const itemChanges = latestChangelog.contentJson?.items?.[item.name];
-				const lines: string[] = [];
-
-				if (itemChanges?.notes && itemChanges.notes.length > 0) {
-					for (const note of itemChanges.notes.slice(0, 4)) {
-						lines.push(`• ${note.text}`);
-					}
-				}
-
-				if (lines.length > 0) {
-					previewText = lines.join('\n');
-					if (previewText.length > 250) {
-						previewText = previewText.slice(0, 250) + '...';
-					}
-				}
-
-				await generateItemOG(item, previewText);
-				itemCount++;
-			}
+			await generateItemOG(item, null);
+			itemCount++;
 		}
 
 		console.log(`Generated ${itemCount} item images`);

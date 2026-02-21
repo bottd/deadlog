@@ -15,6 +15,7 @@
 		"skipDefaultLibCheck": true,
 		"baseUrl": ".",
 		"paths": {
+			"@deadlog/changelog": ["lib/changelog/src/index.ts"],
 			"@deadlog/scraper": ["lib/scraper/src/index.ts"],
 			"@deadlog/meta": ["lib/meta/src/index.ts"],
 			"@deadlog/db": ["lib/db/src/index.ts"],

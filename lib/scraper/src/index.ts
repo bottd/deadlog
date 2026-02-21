@@ -1,4 +1,3 @@
-// Export database query functions (but not getDb - that should come from @deadlog/db)
 export {
 	queryChangelogs,
 	getAllChangelogs,
@@ -18,15 +17,11 @@ export {
 	getAllItemSlugs,
 	getChangelogsByHeroId,
 	getChangelogsByItemId,
-	getChangelogIcons
-} from './static';
-
-// Note: extractIcons and parseHtmlToJson are only used server-side during database building
-// They are not exported to prevent happy-dom from being bundled in client builds
+	getChangelogIcons,
+	type ScrapedChangelog
+} from './queries';
 
 export { formatDate, formatTime } from '@deadlog/utils';
-
-export type { ScrapedChangelog } from './deadlock';
 export type {
 	HeroId,
 	ItemId,
@@ -34,5 +29,5 @@ export type {
 	EnrichedItem,
 	EntityType,
 	EntityIcon
-} from './types/assets';
-export { ENTITY_TYPES } from './types/assets';
+} from './types/deadlockApi';
+export { ENTITY_TYPES } from './types/deadlockApi';

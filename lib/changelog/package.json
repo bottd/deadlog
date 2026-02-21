@@ -1,0 +1,13 @@
+{
+	"name": "@deadlog/changelog",
+	"version": "1.0.0",
+	"type": "module",
+	"private": true,
+	"exports": {
+		".": "./src/index.ts"
+	},
+	"devDependencies": {
+		"@types/node": "24.10.9",
+		"zod": "4.3.6"
+	}
+}

@@ -1,0 +1,841 @@
+@document.meta
+title: 08-29-2024 Update
+thread_id: 22253
+published: 2024-08-29T14:28:47-0700
+author: Yoshi
+author_image: https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630
+category: patch
+major_update: false
+status: draft
+@end
+
+* General Changes
+
+- Added a new Profile page that displays a breakdown of recent matches and all-time player and hero statistics (Note: the newly added stats 'Souls Collected' and 'Healing' are starting at 0 for all players)
+- Added Report button to ESC menu player list to allow reporting of teammates in-game
+- Improved visibility of report button on post-game screen
+- You can now drag-and-drop items between categories in Builds
+- Added search to the Public Builds list, you can search by keyword within build names
+- Newly published hero builds now store the language of the build
+- Added 'Show All Languages' checkbox in Public Builds list, can be unchecked to only see builds in your language
+- Fixed issue with builds list not updating when changing between heroes in sandbox
+- Added localization support for German, Polish, and Korean.
+- Matchmaking window is now open 1 hour earlier on weekdays and weekends
+- Players can only pause once per game
+- A team can only pause at most 3 times in total amongst all the players
+- The game application now flashes when the game is unpaused
+- Various client and server performance improvements
+- Added streamer setting to the options panel. Causes player names in the game UI panels to be hidden.
+- Added a Melee Trainer bot in the 'gym' area of hero sandbox
+- Added new "Game out of Date" status message at the top of the hud, so you can quickly know when there is an update rather than finding out at queue time
+- Added a checkbox on the post game survey to make it not show again in the future
+- Items now show their spirit power impact when using alt
+- Fixed profile match history not remembering the history page you were on
+- Added Heal Amp and Debuff Resist to the Vitality stats in the shop
+- Hero details on the dashboard now show spirit information with alt, rather than requiring you to be in-game (this was added in a hotfix patch recently)
+- The game will now prevent any quick ability upgrades for 2 seconds after death, to help prevent against accidental upgrades
+- Can now reliably spectate a friend's game via the Friendlist
+- Miscellaneous fixes to friends and party menus
+- Added unavailable state to Zipline UI when zipline is on damage cooldown
+- Spectating controls now use Left/Right mouse buttons to switch between players on a team and space to switch teams. This now works with free cursor mode, and you can still click on portraits/minimap to spectate individual heroes.
+- Added new respawn countdown music 5 seconds before respawn
+- Added alternate shop music which plays in the neutral shop
+- Spectator count is now shown in-game
+- Player names are now shown to spectators
+- Added object motion blur
+- Optimized performance of distance field ambient occlusion
+- Fixed selling an item not removing charges correctly. Now you can't buy Extra Charge and immediately sell it and keep that readied charge.
+- Fixed some tooltips not showing golden statue bonuses if it wasn't the direct stat (i.e. you got fire rate but bullets per second didn't show the golden statue)
+- Fixed Sharpshooter showing up in stats for bullet velocity even though it doesn't increase your bullet velocity
+- Fixed a bug that caused items in the build page to not be dimmed when the shop was out of range
+- Fixed bug with Lash not hearing his own Ground Strike impact explosion sound
+- Added new effects for Withering Whip
+- Updated Ethereal Shift effects
+- Fixed the disarmed spinner not showing up on your crosshair when you get disarmed
+- Fixed parts of Shiv's coat being considered a headshot
+- Build list will now refresh if you change heroes in the sandbox
+- Fixed Zipline speed from Base Guardian killing and Zip booster ability not stacking properly
+- Fixed Base Guardian boost not properly doing its ramp up and instead instantly being fast
+- Added custom effects for Abram's Seismic Impact T3 buff
+- Fixed a bug where someone could be holding down M1 and still be attacking when the magic carpet arrives
+- Updated Lash Grapple cast sound
+- Added Decay impact sound
+- Removed wind and city ambient looping sounds
+- Volume and playback tweaks to one shot ambient sounds
+- Removed vent sounds in places where vents had been removed
+- Fixed some spectator music bugs
+- Updated negative feedback sound for clarity
+- Added hit confirm audio functionality to Warden's Alchemical Flask
+- Updated Majestic Leap sound
+- Updated bounce pad sound
+- Improved some Binding Word effects to be less noisy
+- Increased charged melee volume and falloff for victims
+- Reduced likelihood of irrelevant announcer and hero dialog lines playing during combat exchanges
+- Improved clarity of Dynamo Singularity sound for team and opponents
+- Updated Viscous primary fire sound
+- Soul jar return effect tinted red like minimap to make it more clear it's the return location
+- Player's low health screen effect more visible for longer if you're below 20% of your max HP
+- Teleporter model and effect updated
+- Updated Alchemical Flask projectile effect
+- Fixed Bebop being able to sprint while his gun is spun up
+- Added new voice content for Seven and Lash
+- Added Shadow Weave cast and ambush sounds
+- Fixed bullets hitting the world immediately when looking sharply upward
+- Fixed Sinner's Sacrifice not always correctly animating
+- Fixed an issue where some kill lines that were only intended for the killer were playing for the victim as well (killstreak taunts still play for everyone)
+- Some heroes can now comment on being alone in enemy territory, losing sight of an injured enemy, or leaving their teammates alone in a lane
+- Fixed a bunch of minor typos / grammar errors in various texts
+- Added 'Express' state to zipline indicators when speed had increased from defeating Enemy Base Guardians
+- Added wall jumping (does not consume stamina, requires input direction away from the wall, can be done once)
+- Moved a flex slot from "Set of enemy Base Guardians" to "All Enemy Lane Guardians"
+- Added ropes to some buildings to let you climb up (hold jump key to latch onto them). Can shoot while hanging on them.
+- A pair of teleporters has been added to the outer lanes at the midpoint (near the three red neutral creeps)
+- Four teleporters have changed locations
+- The upper floor teleporters have moved to the street level
+- The interior teleporters have moved to the Bodega building and the Theater
+- Teleporters are closed for the first 10 minutes (they look visually closed)
+@image https://project8-data.community.forum/attachments/13/13969-41bfe806f2a5904393285b5d54f572d5.jpg?hash=Z3N_uRZvPI
+teleporter locations screenshots update
+@end
+- Guardians no longer give 1 AP
+- AP is now added to the following Soul levels: 3500, 5200, 8000, 9700
+- Parry cooldown reduced from 6s to 5s
+- Urn delivery sprint bonus increased from +2 to +3
+- The minimum range the player must be to attack a walker is increased from 30m to 32m
+- Golden Statues drop rate increased by 6%
+- Replaced some bounce pads with ropes if the purpose was to go straight up
+- Added two bounce pads next to sidelane walkers at cultural center and courthouse
+- Added bounce pad from the Amber Orange/Sapphire Blue Walker walkway to the low roofs toward the Walker.
+@image https://project8-data.community.forum/attachments/13/13974-0eb337cb00c2bf930185cbf14508683c.jpg?hash=pr6BYtLXhU
+new bouncepad
+@end
+- Removed some rooftop zap volumes that damage players
+- Several buildings have been made taller to make their rooftops out of bounds
+- Several buildings have been made shorter to make them more accessible
+@image https://project8-data.community.forum/attachments/13/13984-5a1fedb7b5143f08f44bedc827e5b216.jpg?hash=sXLDC_xIMj
+valid rooftop locations
+@end
+- A few of the buildings have new passageways at higher floors that are along the way to the rooftop
+- Breakable containers have been added to the new playable rooftops
+- Juke closets have replaced the previous location of the upper floor teleporters
+- The half of the underground tunnel towards the outer lanes has been made wider
+- Tunnel walls now have the color of the lane that the exit is closest to
+- Removed the archway leading to the underground shop
+- Placed temporary signage for interior buildings and storefronts for future reference
+- Two upper floor juke spots have been converted to passages through buildings
+- Added a new upper floor juke spot to each side
+- Stairwell from Amber Orange/Sapphire Blue Walker catwalk to the courtyard now less cramped
+- Lowered the statue pedestals in the inner lanes outside of Mid
+- Hollow Point Rounds: Spirit Shield increased from +80 to +85
+- High-Velocity Mag: Bullet Velocity reduced from +35% to +30% (now has an upgrade)
+- Added new T3 Weapon Item, Headhunter: Requires High-Velocity Mag. Grants +50% Bullet Velocity, +15% Weapon Damage and +150 Bullet Shield. Passive cooldown: Landing a headshot on heroes deals bonus +140 Damage, heals you for +8% Max HP and grants +2 m/s for 3 seconds. Cooldown: 6 seconds.
+- Combat Barrier: Now also grants +8% Fire Rate while active
+- Enchanter's Barrer: Now also grants +8% Cooldown Reduction while active
+- Superior Stamina: Air Jump/Dash Distance reduced from +40% to +30%
+- Withering Whip: No longer grants +20% Ammo
+- Withering Whip: Now grants +8% Fire Rate
+- Withering Whip: Fire Rate slow reduced from -40% to -30%
+- Withering Whip: Cooldown reduced from 40s to 25s
+- Quicksilver: No longer has +10% Reload Time
+- Improved Cooldown: Cooldown Reduction increased from 15% to 16%
+- Silence Glyph: Duration reduced from 3.5s to 3s
+- Improved Reach: Spirit Resist increased from +10% to +12%
+- Curse: Duration reduced from 3.5 to 3.25
+
+* Hero Changes
+
+@inline svelte
+<SectionPreview type="hero" names={["Abrams", "Bebop", "Dynamo", "Grey Talon", "Haze", "Infernus", "Ivy", "Kelvin", "Lash", "Paradox", "Pocket", "Seven", "Shiv", "Vindicta", "Viscous", "Warden", "Yamato"]} />
+@end
+
+@inline svelte
+<EntityHeading name="Abrams" type="hero" />
+@end
+
+@inline svelte
+<AbilityHeading name="Infernal Resilience Regeneration Time" />
+@end
+
+- Infernal Resilience Regeneration Time increased from 16s to 18s (this is a nerf)
+
+- Now does pull ups on the zipline once again (this is a buff)
+- Fixed Shoulder Charge sometimes stunning enemies on stairs
+- Fixed Seismic Impact sometimes not going to the area selected
+
+@inline svelte
+<EntityHeading name="Bebop" type="hero" />
+@end
+
+- Gun range increased from 30m to 32m
+
+@inline svelte
+<AbilityHeading name="Hook" />
+@end
+
+- Hook now only targets enemies when used by default. If you use with alt cast (middle mouse) it will be ally only mode.
+
+- Hyper Beam can now be canceled by using Parry
+
+@inline svelte
+<EntityHeading name="Dynamo" type="hero" />
+@end
+
+- Rejuvenating Aurora can now be canceled by using Parry
+- Fixed Kinetic Pulse not traveling properly when cast near corners
+- Gun damage reduced from 15 to 13
+- Singularity cast time increased from 0.1 to 0.2
+
+@inline svelte
+<AbilityHeading name="Singularity" />
+@end
+
+- Singularity range reduced from 9m to 8m
+
+@inline svelte
+<EntityHeading name="Grey Talon" type="hero" />
+@end
+
+- Charged Shot collision size reduced by 8%
+- Charged Shot base damage reduced from 105 to 100
+
+@inline svelte
+<AbilityHeading name="Charged Shot" />
+@end
+
+- Charged Shot T2 reduced from +70 to +65
+
+- Fire Rate now scales with Spirit (0.25)
+
+@inline svelte
+<AbilityHeading name="Can" />
+@end
+
+- Can now use multiple air dashes while using Rain of Fire
+
+- Immobilizing Trap root duration reduced from 2s to 1.25s
+
+@inline svelte
+<AbilityHeading name="Immobilizing Trap" />
+@end
+
+- Immobilizing Trap now applies a 50% movement slow for 1 seconds after the root
+- Immobilizing Trap T2 changed from +1s Root to +2s Slow
+
+@inline svelte
+<EntityHeading name="Haze" type="hero" />
+@end
+
+- Base bullet damage increased from 5.3 to 5.6
+- Sleep Dagger impact damage happens immediately, rather than after the brief drowsy period
+- Sleep Dagger drowsy period before sleep kicks in increased from 0.25 to 0.35
+
+@inline svelte
+<AbilityHeading name="Sleep Dagger" />
+@end
+
+- Sleep Dagger cooldown reduced from 27s to 25s
+
+@inline svelte
+<AbilityHeading name="Smoke Bomb" />
+@end
+
+- Smoke Bomb radius reduced from 20m to 18m
+
+@inline svelte
+<AbilityHeading name="Fixation" />
+@end
+
+- Fixation T2 max stacks increased from +30 to +40
+
+- Bullet Dance now provides +2 Weapon Damage in the base ability (similar to the T1)
+
+@inline svelte
+<EntityHeading name="Infernus" type="hero" />
+@end
+
+- Reduced vertical reach on Flame Dash dps
+
+@inline svelte
+<AbilityHeading name="Flame Dash" />
+@end
+
+- Flame Dash speed is now affected by slows
+
+- Flame Dash trail now gets wider with Ability Range bonus
+
+@inline svelte
+<AbilityHeading name="Flame Dash" />
+@end
+
+- Flame Dash T1 duration reduced from 7s to 6s
+
+@inline svelte
+<AbilityHeading name="Catalyst Damage Amplification" />
+@end
+
+- Catalyst Damage Amplification reduced from 30% to 25%
+
+@inline svelte
+<AbilityHeading name="Catalyst" />
+@end
+
+- Catalyst T3 Damage Amplification increased from +10% to +15%
+- Catalyst T2 reduced from +20% Lifesteal to +15%
+
+@inline svelte
+<EntityHeading name="Ivy" type="hero" />
+@end
+
+- Bullet damage growth per boon reduced from 0.55 to 0.5
+- Health growth per boon reduced from +41 to +35
+
+@inline svelte
+<AbilityHeading name="Watcher's Covenant" />
+@end
+
+- Watcher's Covenant T2 reduced from +3 m/s to +2
+
+@inline svelte
+<AbilityHeading name="Air Drop" />
+@end
+
+- Air Drop no longer silences allies
+- Air Drop now causes allies to deal 50% less damage while being carried
+- Air Drop movement adjusted to be a little less frantic
+
+- Fixed Air Drop bomb disappearing if you cancel your ultimate after dropping it but before it lands
+- Air Drop self cast cast time increased from 1s to 2s
+
+@inline svelte
+<AbilityHeading name="Air Drop" />
+@end
+
+- Air Drop max move speed reduced from 20 to 18
+
+- During Air Drop flight you can pitch up and down with Dash/Crouch buttons
+- Fixed getting stuck under bridges and in buildings while Air Drop flying
+
+@inline svelte
+<EntityHeading name="Kelvin" type="hero" />
+@end
+
+- Bullet radius increased from 5 to 6
+- Base health growth per boon increased from +45 to +50
+
+@inline svelte
+<AbilityHeading name="Arctic Beam" />
+@end
+
+- Arctic Beam max slow increased from 60% to 80%
+- Arctic Beam now affects soul orbs (secures/denies them)
+- Arctic Beam T3 range reduced from 15m to 13m
+
+- Fixed Ice Path jitter
+
+@inline svelte
+<AbilityHeading name="Frost Grenade" />
+@end
+
+- Frost Grenade T2 Heal increased from 135 to 145
+
+@inline svelte
+<EntityHeading name="Lash" type="hero" />
+@end
+
+- Improved firing arm position to be a little bit more out of the way from the reticle
+
+@inline svelte
+<AbilityHeading name="Grapple" />
+@end
+
+- Grapple no longer gives a stamina charge on use
+
+@inline svelte
+<EntityHeading name="Paradox" type="hero" />
+@end
+
+- Fixed Paradoxical Swap still going through even if Paradox dies during it
+
+@inline svelte
+<EntityHeading name="Pocket" type="hero" />
+@end
+
+- Barrage amp reduced from 8% to 7% per stack
+- Fixed Barrage amp visual not showing properly
+
+@inline svelte
+<EntityHeading name="Seven" type="hero" />
+@end
+
+@inline svelte
+<AbilityHeading name="Static Charge" />
+@end
+
+- Static Charge radius increased from 5m to 6m
+- Static Charge T2 radius increased from +7m to +8m
+
+@inline svelte
+<AbilityHeading name="Storm Cloud" />
+@end
+
+- Storm Cloud spirit power scaling reduced from 1.1 to 0.8
+
+- Storm Cloud time to reach maximum radius reduced from 6s to 3s
+- Storm Cloud Now provides +20% Bullet Resistance in the base ability
+
+@inline svelte
+<EntityHeading name="Shiv" type="hero" />
+@end
+
+- Bullet damage growth per boon reduced from 0.5 to 0.4
+- Gun falloff range reduced by 10%
+- Health growth per boon reduced from +41 to +35
+- Slice and Dice T2 reduced from +100 to +85
+- Slice and Dice T3 now considers creeps for only half value
+- Bloodletting deferred damage reduced from 35% to 30%
+- The targeting UI for Shiv's Killing Blow is now more clear about when the target will be killed
+
+@inline svelte
+<EntityHeading name="Vindicta" type="hero" />
+@end
+
+@inline svelte
+<AbilityHeading name="Stake" />
+@end
+
+- Stake duration reduced from 2.25s to 2s
+
+@inline svelte
+<AbilityHeading name="Crow Familiar Spirit Power" />
+@end
+
+- Crow Familiar Spirit Power duration scaling reduced from 0.05 to 0.04
+
+- Fixed left clicks sometimes deselecting the ability when charges aren't ready
+
+@inline svelte
+<EntityHeading name="Viscous" type="hero" />
+@end
+
+- Primary Fire redesigned to make it more usable and have improved damage and scaling
+- Now has an Alt Fire that has limited range, but deals AOE damage that cannot headshot
+
+@inline svelte
+<AbilityHeading name="Splatter Spirit Scaling" />
+@end
+
+- Splatter Spirit Scaling increased from 1.4 to 1.5
+
+- Splatter Damage on 2nd and 3rd hit increased from 66% and 33% to 70% and 50%
+
+@inline svelte
+<AbilityHeading name="Puddle Punch" />
+@end
+
+- Puddle Punch damage increased from 100% to 110% of Light Melee
+- Puddle Punch T2 is now +50 damage and +20% movement slow (was -10s cooldown)
+- Puddle Punch T3 is now -12s cooldown (was +80 damage and +20% movement slow)
+
+- Puddle Punch: delay before punch increased from 0.25s to 0.35s
+
+@inline svelte
+<AbilityHeading name="Goo Ball Spirit Scaling" />
+@end
+
+- Goo Ball Spirit Scaling increased from 1.05 to 1.3
+
+- Goo Ball acceleration increased
+- Goo Ball base turn radius and turn radius after bouncing has been increased
+- Fixed a bug where Goo Ball would have the direction and trail particle stuck on
+
+@inline svelte
+<EntityHeading name="Warden" type="hero" />
+@end
+
+- Base movement speed reduced from 6.5 to 6
+- Fire Rate scaling with spirit reduced from 0.375 Fire Rate per Spirit to 0.3
+
+@inline svelte
+<EntityHeading name="Yamato" type="hero" />
+@end
+
+@inline svelte
+<AbilityHeading name="Power Slash" />
+@end
+
+- Power Slash max damage time requirement reduced from 1.5s to 1.4s
+
+- Power Slash collision radius reduced by 8%
+
+@inline svelte
+<AbilityHeading name="Crimson Slash" />
+@end
+
+- Crimson Slash radius increased from 12m to 13m
+
+- Fixed being able to die during Shadow Transformation if hit by Grey Talon's Owl
+- Fixed some cases where Flying Strike could get into a stuck state
+- Fixed some cases where Crimson Slash would appear to be cast when it wasn't
+
+* Item Changes
+
+@inline svelte
+<SectionPreview type="item" names={["Active Reload", "Alchemical Fire", "Ammo Scavenger", "Boundless Spirit", "Burst Fire", "Colossus", "Divine Barrier", "Duration Extender", "Echo Shard", "Escalating Exposure", "Escalating Resilience", "Extra Charge", "Extra Spirit", "Fortitude", "Frenzy", "Healing Booster", "Healing Rite", "Heroic Aura", "Improved Spirit", "Intensifying Magazine", "Kinetic Dash", "Knockdown", "Leech", "Lifestrike", "Long Range", "Lucky Shot", "Magic Carpet", "Majestic Leap", "Melee Charge", "Melee Lifesteal", "Metal Skin", "Monster Rounds", "Phantom Strike", "Rapid Recharge", "Reactive Barrier", "Refresher", "Rescue Beam", "Restorative Shot", "Ricochet", "Shadow Weave", "Sharpshooter", "Siphon Bullets", "Slowing Hex", "Soul Rebirth", "Spirit Strike", "Superior Duration", "Suppressor", "Surge of Power", "Swift Striker", "Titanic Magazine", "Torment Pulse", "Toxic Bullets", "Unstoppable", "Veil Walker", "Warp Stone"]} />
+@end
+
+@inline svelte
+<EntityHeading name="Active Reload" type="item" />
+@end
+
+- Lifesteal reduced from 30% to 22%
+- Buff duration reduced from 8s to 7s
+
+@inline svelte
+<EntityHeading name="Alchemical Fire" type="item" />
+@end
+
+- Cooldown reduced from 28s to 26s
+
+@inline svelte
+<EntityHeading name="Ammo Scavenger" type="item" />
+@end
+
+- Health increased from +50 to +60
+
+@inline svelte
+<EntityHeading name="Boundless Spirit" type="item" />
+@end
+
+- Sprint reduced from +4 to +3
+- Now grants +25% Weapon Damage
+
+@inline svelte
+<EntityHeading name="Burst Fire" type="item" />
+@end
+
+- Active duration increased from 3s to 4s
+
+@inline svelte
+<EntityHeading name="Colossus" type="item" />
+@end
+
+- Slow increased from 25% to 35%
+
+@inline svelte
+<EntityHeading name="Divine Barrier" type="item" />
+@end
+
+- No longer grants +7% Bullet Resist
+- No longer grants +1.5 Health Regen
+- Now grants +1 Sprint
+- Now grants +75 Health
+- Now grants +8% Ability Range
+
+@inline svelte
+<EntityHeading name="Duration Extender" type="item" />
+@end
+
+- Health regen increased from 1.5 to 1.75
+
+@inline svelte
+<EntityHeading name="Echo Shard" type="item" />
+@end
+
+- Now grants +8 Spirit Power
+
+@inline svelte
+<EntityHeading name="Escalating Exposure" type="item" />
+@end
+
+- Base Spirit Resist reduction increased from -12% to -15%
+
+@inline svelte
+<EntityHeading name="Escalating Resilience" type="item" />
+@end
+
+- Max Bullet Resist increased from 36% to 40%
+
+@inline svelte
+<EntityHeading name="Extra Charge" type="item" />
+@end
+
+- Cooldown reduction increased from +8% to +10%
+
+@inline svelte
+<EntityHeading name="Extra Spirit" type="item" />
+@end
+
+- Health increased from +25 to +35
+
+@inline svelte
+<EntityHeading name="Fortitude" type="item" />
+@end
+
+- Damage taken duration threshold reduced from 12s to 11s
+
+@inline svelte
+<EntityHeading name="Frenzy" type="item" />
+@end
+
+- Ammo increased from +9 to +12
+
+@inline svelte
+<EntityHeading name="Healing Booster" type="item" />
+@end
+
+- Now has also 15% Heal Reduction Resist (Leech no longer has it)
+- No longer has +6% Bullet Resist
+
+@inline svelte
+<EntityHeading name="Healing Rite" type="item" />
+@end
+
+- Cooldown reduced from 65s to 60s
+
+@inline svelte
+<EntityHeading name="Heroic Aura" type="item" />
+@end
+
+- Active duration increased from 5s to 6s
+
+@inline svelte
+<EntityHeading name="Improved Spirit" type="item" />
+@end
+
+- Health Regen increased from 2 to 3
+- Health increased from +75 to +100
+
+@inline svelte
+<EntityHeading name="Intensifying Magazine" type="item" />
+@end
+
+- Now steadily ramps back down to 0% when you stop shooting rather than instantly emptying
+
+@inline svelte
+<EntityHeading name="Kinetic Dash" type="item" />
+@end
+
+- Active Fire Rate reduced from 30% to 25%
+
+@inline svelte
+<EntityHeading name="Knockdown" type="item" />
+@end
+
+- Delay reduced from 3s to 2s
+- Stun reduced from 1.25s to 0.9s
+- Cast range increased from 35m to 45m
+
+@inline svelte
+<EntityHeading name="Leech" type="item" />
+@end
+
+- No longer has 30% Heal Reduction Resist
+
+@inline svelte
+<EntityHeading name="Lifestrike" type="item" />
+@end
+
+- Effectiveness vs non-heroes increased from 35% to 40%
+
+@inline svelte
+<EntityHeading name="Long Range" type="item" />
+@end
+
+- Now grants +90 Bullet Shield
+
+@inline svelte
+<EntityHeading name="Lucky Shot" type="item" />
+@end
+
+- Proc chance increased from 30% to 35%
+
+@inline svelte
+<EntityHeading name="Magic Carpet" type="item" />
+@end
+
+- You are now unslowable while on the Magic Carpet
+- Cooldown reduced from 40s to 30s
+- Barriers now last for 16s
+
+@inline svelte
+<EntityHeading name="Majestic Leap" type="item" />
+@end
+
+- Cooldown reduced from 26s to 24s
+
+@inline svelte
+<EntityHeading name="Melee Charge" type="item" />
+@end
+
+- Now grants +1 HP regen
+
+@inline svelte
+<EntityHeading name="Melee Lifesteal" type="item" />
+@end
+
+- Effectiveness vs non-heroes increased from 35% to 40%
+
+@inline svelte
+<EntityHeading name="Metal Skin" type="item" />
+@end
+
+- Cooldown reduced from 25s to 22s
+
+@inline svelte
+<EntityHeading name="Monster Rounds" type="item" />
+@end
+
+- Bullet Resist vs NPC increased from 30% to 35%
+
+@inline svelte
+<EntityHeading name="Phantom Strike" type="item" />
+@end
+
+- Cast range reduced from 30m to 25m
+
+@inline svelte
+<EntityHeading name="Rapid Recharge" type="item" />
+@end
+
+- Charge count reduced from +3 to +2
+- Faster Time Between Charges increased from +40% to +55%
+- Cooldown for charged abilities increased from +20% to +25%
+
+@inline svelte
+<EntityHeading name="Reactive Barrier" type="item" />
+@end
+
+- Duration reduced from 13s to 9s
+
+@inline svelte
+<EntityHeading name="Refresher" type="item" />
+@end
+
+- Now grants +8% Bullet Resist
+
+@inline svelte
+<EntityHeading name="Rescue Beam" type="item" />
+@end
+
+- Channel duration reduced from 3s to 2.5s
+
+@inline svelte
+<EntityHeading name="Restorative Shot" type="item" />
+@end
+
+- Heal from heroes increased from 30 to 35
+
+@inline svelte
+<EntityHeading name="Ricochet" type="item" />
+@end
+
+- Bounce damage increased from 50% to 60%
+- Fixed not applying spirit bonus damage from Vindicta and Wraith abilities
+
+@inline svelte
+<EntityHeading name="Shadow Weave" type="item" />
+@end
+
+- Spirit Shield health increased from +200 to +300
+- Spot radius reduced from 20m to 18m
+
+@inline svelte
+<EntityHeading name="Sharpshooter" type="item" />
+@end
+
+- Now grants +175 Bullet Shield
+- No longer provides bonus headshot damage
+- Weapon damage increased from 60% to 70%
+
+@inline svelte
+<EntityHeading name="Siphon Bullets" type="item" />
+@end
+
+- Weapon Damage reduced from 40% to 28%
+
+@inline svelte
+<EntityHeading name="Slowing Hex" type="item" />
+@end
+
+- Projectile speed increased by 30%
+- Cooldown reduced from 27s to 25s
+
+@inline svelte
+<EntityHeading name="Soul Rebirth" type="item" />
+@end
+
+- Cooldown reduction increased from +15% to +18%
+- Now grants +12 Spirit
+- Fixed being able to purchase globally during its brief respawn period
+- Fixed the camera moving away from the player if you will respawn, rather than following the ragdoll
+
+@inline svelte
+<EntityHeading name="Spirit Strike" type="item" />
+@end
+
+- Debuff duration increased from 8s to 13s
+- Spirit Shield increased from +85 to +100
+
+@inline svelte
+<EntityHeading name="Superior Duration" type="item" />
+@end
+
+- Non-Imbued duration increased from +24% to +26%
+
+@inline svelte
+<EntityHeading name="Suppressor" type="item" />
+@end
+
+- Health regen reduced from 3 to 2.5
+- Fire Rate reduction reduced from -30% to -25%
+
+@inline svelte
+<EntityHeading name="Surge of Power" type="item" />
+@end
+
+- Imbued Ability Spirit Power increased from +28 to +34
+
+@inline svelte
+<EntityHeading name="Swift Striker" type="item" />
+@end
+
+- Now grants +10% Ammo
+
+@inline svelte
+<EntityHeading name="Titanic Magazine" type="item" />
+@end
+
+- Bullet Armor increased from 10% to 15%
+
+@inline svelte
+<EntityHeading name="Torment Pulse" type="item" />
+@end
+
+- Spirit damage scaling increased from 0.2 to 0.24
+
+@inline svelte
+<EntityHeading name="Toxic Bullets" type="item" />
+@end
+
+- Heal Reduction increased from -55% to -65%
+- Bleed damage reduced from 6% to 5%
+- Now grants +100 Health
+
+@inline svelte
+<EntityHeading name="Unstoppable" type="item" />
+@end
+
+- Can now be cast while channeling
+- Cooldown reduced from 65s to 60s
+
+@inline svelte
+<EntityHeading name="Veil Walker" type="item" />
+@end
+
+- Cooldown reduced from 18s to 17s
+
+@inline svelte
+<EntityHeading name="Warp Stone" type="item" />
+@end
+
+- Active Bullet Resistance reduced from 40% to 30%

@@ -1,14 +1,25 @@
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vitest/config';
 import { sveltekit } from '@sveltejs/kit/vite';
+import { norgPlugin } from 'vite-plugin-norg';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import { playwright } from '@vitest/browser-playwright';
 import path from 'path';
+
+const changelogsDir = path.resolve(__dirname, 'changelogs');
 
 export default defineConfig({
 	plugins: [
 		tsconfigPaths({
 			projects: ['../../tsconfig.base.json']
+		}),
+		norgPlugin({
+			mode: 'svelte',
+			include: [`${changelogsDir}/**/*.norg`],
+			componentDir: '$lib/components/changelog',
+			arboriumConfig: {
+				themes: { light: 'github-light', dark: 'github-dark' }
+			}
 		}),
 		tailwindcss(),
 		sveltekit()
@@ -33,11 +44,13 @@ export default defineConfig({
 	},
 	resolve: {
 		alias: {
-			$lib: path.resolve(__dirname, './src/lib')
+			$lib: path.resolve(__dirname, './src/lib'),
+			$changelogs: changelogsDir
 		}
 	},
 	ssr: {
 		noExternal: [
+			'@deadlog/changelog',
 			'@deadlog/scraper',
 			'@deadlog/db',
 			'@deadlog/meta',

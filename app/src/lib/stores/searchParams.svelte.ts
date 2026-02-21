@@ -2,7 +2,6 @@ import { page } from '$app/state';
 import { goto } from '$app/navigation';
 import { building } from '$app/environment';
 import { getContext, hasContext, setContext } from 'svelte';
-import { z } from 'zod';
 
 const SEARCH_PARAMS_KEY = Symbol('searchParams');
 
@@ -15,31 +14,7 @@ function toCSV(arr: string[]): string {
 	return arr.join(',');
 }
 
-// Schema for server-side validation
-export const paramSchema = z.object({
-	hero: z.array(z.string()).default([]),
-	item: z.array(z.string()).default([]),
-	change: z.number().optional(),
-	q: z.string().default('')
-});
-
-export type SearchParams = z.infer<typeof paramSchema>;
-
-/** Parse URL search params on the server */
-export function parseSearchParams(url: URL): SearchParams {
-	return {
-		hero: parseCSV(url.searchParams.get('hero')),
-		item: parseCSV(url.searchParams.get('item')),
-		change: url.searchParams.get('change')
-			? Number(url.searchParams.get('change'))
-			: undefined,
-		q: url.searchParams.get('q') ?? ''
-	};
-}
-
-/** Check if we can safely access URL search params (not during prerendering) */
 function canAccessSearchParams(): boolean {
-	// During build/prerender, URL search params aren't available
 	if (building) return false;
 	return true;
 }

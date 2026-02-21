@@ -15,7 +15,6 @@ export const handle: Handle = async ({ event, resolve }) => {
 			'Cache-Control',
 			'public, max-age=0, s-maxage=3600, must-revalidate'
 		);
-		// Vary on query string
 		response.headers.set('Vary', 'Accept-Encoding');
 	}
 

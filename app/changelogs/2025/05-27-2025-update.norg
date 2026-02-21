@@ -1,0 +1,397 @@
+@document.meta
+title: 05-27-2025 Update
+thread_id: 66453
+published: 2025-05-27T16:47:06-0700
+author: Yoshi
+author_image: https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630
+category: patch
+major_update: false
+status: draft
+@end
+
+* General Changes
+
+- Breakable souls rescaled from 28.5 + 2.375/min to 23 + 2.6/min
+- Trooper resistance near base reduced from 40% to 35%
+- Fixed a bug where Urn can be invisibly carried on the hero by throwing it in certain areas like the air vents
+- Fixed Neutrals near the base gaining the "near base" trooper resist
+- Added news kiosk structure in between Mid Lane Walker and base entrance
+- Added wall partition structures outside of Outer Lane base entrances
+- Improved lighting in Mid Boss area
+
+* Hero Changes
+
+@inline svelte
+<SectionPreview type="hero" names={["Abrams", "Bebop", "Calico", "Grey Talon", "Holliday", "Infernus", "McGinnis", "Mo &amp; Krill", "Pocket", "Seven", "Shiv", "Sinclair", "Viscous", "Warden", "Wraith"]} />
+@end
+
+@inline svelte
+<EntityHeading name="Abrams" type="hero" />
+@end
+
+- Health growth per boon reduced from 81 to 78
+
+@inline svelte
+<AbilityHeading name="Infernal Resilience Damage Regenerated" />
+@end
+
+- Infernal Resilience Damage Regenerated increased from 10% to 12%
+
+@inline svelte
+<AbilityHeading name="Infernal Resilience" />
+@end
+
+- Infernal Resilience T3 increased from 5% to 6%
+
+- Various network related fixed for Shoulder Charge
+- Shoulder Charge wall stun from 0.85s to 0.6s
+
+@inline svelte
+<AbilityHeading name="Shoulder Charge" />
+@end
+
+- Shoulder Charge T2 changed from -12s Cooldown to +0.45s Wall Stun
+- Shoulder Charge T3 changed to -18s Cooldown
+
+@inline svelte
+<AbilityHeading name="Seismic Impact" />
+@end
+
+- Seismic Impact cooldown increased from 160s to 170s
+
+@inline svelte
+<EntityHeading name="Bebop" type="hero" />
+@end
+
+@inline svelte
+<AbilityHeading name="Hyperbeam" />
+@end
+
+- Hyperbeam cooldown reduced from 130s to 110s
+
+- Fixed some issues with lag compensation and Hook
+
+@inline svelte
+<EntityHeading name="Calico" type="hero" />
+@end
+
+@inline svelte
+<AbilityHeading name="Ammo" />
+@end
+
+- Ammo increased from 9 to 10
+
+- Ava self slow on damage duration increased from 1.5s to 2s
+- Ava self slow on damage increased from -50% to -65%
+
+@inline svelte
+<AbilityHeading name="Ava" />
+@end
+
+- Ava duration reduced from 15s to 14s
+- Ava T1 duration reduced from +20s to +14s
+
+- Ava recent damage window increased from 5s to 6s
+- Fixed Curse and stuns not interrupting Ava (similar to Ice Path and Flame Dash)
+
+@inline svelte
+<EntityHeading name="Grey Talon" type="hero" />
+@end
+
+- Spirit Snare radius increased from 6.2 to 6.5
+
+@inline svelte
+<AbilityHeading name="Guided Owl" />
+@end
+
+- Guided Owl duration increased from 14s to 16s
+- Guided Owl cooldown decreased from 127s to 125s
+- Guided Owl T2 cooldown improved from -47s to -50s
+
+@inline svelte
+<EntityHeading name="Holliday" type="hero" />
+@end
+
+- Fixed some issues with lag compensation and Lasso
+- Spirit Lasso cooldown increased from 100s to 105s
+- Spirit Lasso T3 improved from -30s Cooldown to -35s
+
+@inline svelte
+<EntityHeading name="Infernus" type="hero" />
+@end
+
+- Afterburn headshot buildup rate improved by 10%
+
+@inline svelte
+<EntityHeading name="McGinnis" type="hero" />
+@end
+
+- Fixed Turret bugs when thrown at the Patron Throne
+
+@inline svelte
+<EntityHeading name="Mo &amp; Krill" type="hero" />
+@end
+
+- Base gun damage increased from 2.6 to 2.7
+
+@inline svelte
+<AbilityHeading name="Scorn" />
+@end
+
+- Scorn spirit scaling increased from 0.39 to 0.42
+
+@inline svelte
+<AbilityHeading name="Combo" />
+@end
+
+- Combo cooldown increased from 75s to 80s
+
+@inline svelte
+<EntityHeading name="Pocket" type="hero" />
+@end
+
+@inline svelte
+<AbilityHeading name="Flying Cloak" />
+@end
+
+- Flying Cloak spirit damage scaling increased from 1.04 to 1.3
+
+@inline svelte
+<EntityHeading name="Seven" type="hero" />
+@end
+
+- Fixed Health Regen being 3 instead of 1.5
+
+@inline svelte
+<AbilityHeading name="Power Surge" />
+@end
+
+- Power Surge spirit scaling increased from 0.148 to 0.16
+
+@inline svelte
+<AbilityHeading name="Storm Cloud DPS" />
+@end
+
+- Storm Cloud DPS reduced from 120 to 115
+
+@inline svelte
+<AbilityHeading name="Storm Cloud" />
+@end
+
+- Storm Cloud T3 reduced from +75 to +70
+- Storm Cloud spirit scaling increased from 0.65 to 0.7
+- Storm Cloud cooldown increased from 148s to 155s
+
+@inline svelte
+<EntityHeading name="Shiv" type="hero" />
+@end
+
+- Alt Fire base damage reduced by 15%
+- Rage per weapon damage reduced by 10%
+
+@inline svelte
+<EntityHeading name="Sinclair" type="hero" />
+@end
+
+@inline svelte
+<AbilityHeading name="Vexing Bolt" />
+@end
+
+- Vexing Bolt radius increased from 3m to 3.5m
+- Vexing Bolt radius fixed to scale with radius increase now
+
+@inline svelte
+<AbilityHeading name="Spectral Assistant" />
+@end
+
+- Spectral Assistant T2 duration increased from +5s to +7s
+
+@inline svelte
+<AbilityHeading name="Rabbit Hex" />
+@end
+
+- Rabbit Hex cooldown reduced from 35s to 30s
+
+@inline svelte
+<EntityHeading name="Viscous" type="hero" />
+@end
+
+@inline svelte
+<AbilityHeading name="Goo Ball" />
+@end
+
+- Goo Ball duration reduced from 10s to 9s
+
+@inline svelte
+<EntityHeading name="Warden" type="hero" />
+@end
+
+- Bullet damage per boon reduced from 0.74 to 0.6
+- Last Stand interrupt cooldown increased from 20s to 30s
+
+@inline svelte
+<EntityHeading name="Wraith" type="hero" />
+@end
+
+@inline svelte
+<AbilityHeading name="Telekinesis" />
+@end
+
+- Telekinesis duration reduced from 3s to 2.75s
+
+* Item Changes
+
+@inline svelte
+<SectionPreview type="item" names={["Armor Piercing Rounds", "Blood Tribute", "Boundless Spirit", "Counterspell", "Crippling Headshot", "Crushing Fists", "Cultist Sacrifice", "Decay", "Express Shot", "Fleetfoot", "Headhunter", "Headshot Booster", "Healing Nova", "Lightning Scroll", "Melee Charge", "Mercurial Magnum", "Restorative Shot", "Siphon Bullets", "Spellbreaker", "Superior Cooldown", "Tankbuster", "Vortex Web"]} />
+@end
+
+@inline svelte
+<EntityHeading name="Armor Piercing Rounds" type="item" />
+@end
+
+- Bullet Velocity increased from 30% to 35% (to match the component)
+
+@inline svelte
+<EntityHeading name="Blood Tribute" type="item" />
+@end
+
+- Fire Rate increased from 35% to 40%
+
+@inline svelte
+<EntityHeading name="Boundless Spirit" type="item" />
+@end
+
+- Spirit % bonus increased from +10% to +13%
+
+@inline svelte
+<EntityHeading name="Counterspell" type="item" />
+@end
+
+- Duration increased from 0.8s to 1s
+
+@inline svelte
+<EntityHeading name="Crippling Headshot" type="item" />
+@end
+
+- No longer has a 3s cooldown
+- Debuff duration reduced from 10s to 8s
+
+@inline svelte
+<EntityHeading name="Crushing Fists" type="item" />
+@end
+
+- Fixed always giving 25% more damage against objectives
+
+@inline svelte
+<EntityHeading name="Cultist Sacrifice" type="item" />
+@end
+
+- Out of Combat Regen reduced from 4 to 2
+- Weapon Damage vs NPC reduced from 35% to 30%
+- Bullet Resist vs NPC reduced from 35% to 30%
+- Fire Rate reduced from 25% to 10%
+- Fire Rate now scales with Boons (1.25%)
+- Health Bonus reduced from 250 to 100
+- Health Bonus now scales with Boons (11)
+
+@inline svelte
+<EntityHeading name="Decay" type="item" />
+@end
+
+- Damage no longer procs item effects (like Affliction)
+
+@inline svelte
+<EntityHeading name="Express Shot" type="item" />
+@end
+
+- Fixed shotguns with express shot instantly applying buildups
+
+@inline svelte
+<EntityHeading name="Fleetfoot" type="item" />
+@end
+
+- Cooldown increased from 10s to 16s
+- Duration increased from 4s to 6s
+- No longer grants +125 Bonus Health
+- Now grants +10% Bullet Resistance
+- While active, you gain +40% Slow Resistance
+
+@inline svelte
+<EntityHeading name="Headhunter" type="item" />
+@end
+
+- Now requires the center pellet hit the head hitbox to count
+- Bonus Headshot Damage now scales with Boons rather than Spirit Power (5.0 per Boon)
+- Bonus Headshot Damage reduced from 100 to 75
+- Heal now scales with Boons rather than Spirit Power (0.1 per Boon)
+
+@inline svelte
+<EntityHeading name="Headshot Booster" type="item" />
+@end
+
+- Now requires the center pellet hit the head hitbox to count
+
+@inline svelte
+<EntityHeading name="Healing Nova" type="item" />
+@end
+
+- Now a T3 item
+- Base heal increased from 260 to 325
+- Heal now scales with Boons rather than Spirit Power (7 per Boon)
+- Now grants +8 Spirit Power
+- Cooldown reduced from 70s to 60s
+
+@inline svelte
+<EntityHeading name="Lightning Scroll" type="item" />
+@end
+
+- Fixed bugs when used with Refresher
+
+@inline svelte
+<EntityHeading name="Melee Charge" type="item" />
+@end
+
+- Fixed always giving 25% more damage against objectives
+
+@inline svelte
+<EntityHeading name="Mercurial Magnum" type="item" />
+@end
+
+- Fixed an interaction bug with Split Shot
+
+@inline svelte
+<EntityHeading name="Restorative Shot" type="item" />
+@end
+
+- Now only procs when the center pellet hits (in the case of shotguns, like how Mystic Shot works)
+
+@inline svelte
+<EntityHeading name="Siphon Bullets" type="item" />
+@end
+
+- Cooldown increased from 0.7s to 0.8s
+- Fixed various bugs with stat stealing and Capacitor/Debuff Remover
+
+@inline svelte
+<EntityHeading name="Spellbreaker" type="item" />
+@end
+
+- Fixed it affecting Lady Geist's Soul Exchange
+
+@inline svelte
+<EntityHeading name="Superior Cooldown" type="item" />
+@end
+
+- Cooldown Reduction reduced from 26% to 25%
+
+@inline svelte
+<EntityHeading name="Tankbuster" type="item" />
+@end
+
+- Fixed various bugs when multiple abilities hit on the same frame
+
+@inline svelte
+<EntityHeading name="Vortex Web" type="item" />
+@end
+
+- Adjusted cast arc to be more similar to other grenades
