@@ -34,11 +34,11 @@
 	@reference "../../../app.css";
 
 	.norg-content {
-		@apply max-w-none text-sm leading-relaxed;
+		@apply max-w-none text-[15px] leading-relaxed;
 
 		/* Section headings — editorial treatment */
 		:global(h1) {
-			@apply text-foreground font-display relative mt-10 mb-6 pt-6 text-xl tracking-tight first:mt-0 first:pt-0;
+			@apply text-foreground font-display relative mt-12 mb-6 pt-8 text-xl font-medium tracking-wide first:mt-0 first:pt-0;
 		}
 
 		:global(h1::before) {
@@ -51,12 +51,25 @@
 		}
 
 		:global(h2) {
-			@apply text-primary font-display mt-6 mb-4 text-lg tracking-tight;
+			@apply text-primary mt-6 mb-4 text-lg font-semibold tracking-tight;
 		}
 
 		/* Entity/ability heading styling */
+		:global(header.entity-heading) {
+			@apply mt-8;
+		}
+
+		/* Separator between entity sections (list → next entity heading) */
+		:global(ul:not(.section-preview) + header.entity-heading) {
+			@apply border-border/30 mt-8 border-t pt-6;
+		}
+
 		:global(header.entity-heading h3) {
 			@apply m-0 text-lg;
+		}
+
+		:global(header.ability-heading) {
+			@apply mt-4;
 		}
 
 		:global(header.ability-heading h4) {
@@ -65,40 +78,40 @@
 
 		/* Indent notes under entity/ability headings */
 		:global(header.entity-heading + ul) {
-			@apply ml-14 pl-2;
+			@apply border-border/40 ml-14 border-l pl-3;
 		}
 
 		:global(header.ability-heading + ul) {
 			@apply ml-9;
 		}
 
-		/* Section preview badges */
+		/* First entity after section preview — minimal gap */
 		:global(ul.section-preview + header.entity-heading) {
-			@apply mt-2;
+			@apply mt-2 border-t-0 pt-0;
 		}
 
 		/* Paragraphs */
 		:global(p) {
-			@apply text-foreground/85 my-3 leading-relaxed;
+			@apply text-foreground/90 my-3 leading-relaxed;
 		}
 
 		/* Lists */
 		:global(ul) {
-			@apply my-3 ml-5 list-none space-y-2;
+			@apply my-3 ml-5 list-none space-y-2.5;
 		}
 
 		:global(ol) {
-			@apply marker:text-primary/40 my-3 ml-5 list-decimal space-y-2;
+			@apply marker:text-primary/40 my-3 ml-5 list-decimal space-y-2.5;
 		}
 
 		:global(li) {
-			@apply text-foreground/85 relative leading-relaxed;
+			@apply text-foreground/90 relative leading-relaxed;
 		}
 
 		/* Custom bullet markers */
 		:global(ul > li::before) {
 			content: '';
-			@apply bg-primary/30 absolute top-[0.6em] -left-4 size-1 rounded-full;
+			@apply bg-primary/40 absolute top-[0.55em] -left-4 size-1.5 rounded-full;
 		}
 
 		/* Nested lists */
@@ -108,7 +121,7 @@
 		}
 
 		:global(li > ul > li::before) {
-			@apply bg-primary/15;
+			@apply bg-primary/20;
 		}
 
 		/* Links */

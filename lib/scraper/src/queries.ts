@@ -60,9 +60,7 @@ export async function queryChangelogs(
 	const hasSearchFilter = !!searchQuery?.trim();
 
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	let query: any = db
-		.selectDistinct({ changelogs: schema.changelogs })
-		.from(schema.changelogs);
+	let query: any = db.select({ changelogs: schema.changelogs }).from(schema.changelogs);
 
 	// Only return main changelogs (exclude child updates) for pagination to work correctly
 	const conditions = [isMainChangelog()];
@@ -71,19 +69,19 @@ export async function queryChangelogs(
 	}
 
 	if (hasHeroFilter) {
-		query = query.innerJoin(
-			schema.changelogHeroes,
-			eq(schema.changelogs.id, schema.changelogHeroes.changelogId)
-		);
-		conditions.push(inArray(schema.changelogHeroes.heroId, heroIds));
+		for (const heroId of heroIds) {
+			conditions.push(
+				sql`EXISTS (SELECT 1 FROM ${schema.changelogHeroes} WHERE ${schema.changelogHeroes.changelogId} = ${schema.changelogs.id} AND ${schema.changelogHeroes.heroId} = ${heroId})`
+			);
+		}
 	}
 
 	if (hasItemFilter) {
-		query = query.innerJoin(
-			schema.changelogItems,
-			eq(schema.changelogs.id, schema.changelogItems.changelogId)
-		);
-		conditions.push(inArray(schema.changelogItems.itemId, itemIds));
+		for (const itemId of itemIds) {
+			conditions.push(
+				sql`EXISTS (SELECT 1 FROM ${schema.changelogItems} WHERE ${schema.changelogItems.changelogId} = ${schema.changelogs.id} AND ${schema.changelogItems.itemId} = ${itemId})`
+			);
+		}
 	}
 
 	query = query.where(and(...conditions));

@@ -123,7 +123,7 @@
 			{/if}
 			<div class="flex flex-col justify-center gap-1.5">
 				<div class="flex items-center gap-2">
-					<p class="font-display text-foreground text-base tracking-tight">{name}</p>
+					<p class="text-foreground text-base font-semibold tracking-tight">{name}</p>
 					{#if badgeLabel}
 						<Badge variant={badgeVariant}>{badgeLabel}</Badge>
 					{/if}

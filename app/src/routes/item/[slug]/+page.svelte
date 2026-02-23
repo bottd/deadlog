@@ -252,7 +252,7 @@
 					</div>
 
 					<h1
-						class="text-foreground font-display mb-4 text-4xl tracking-tight md:text-5xl lg:text-6xl"
+						class="text-foreground font-display mb-4 text-4xl font-medium tracking-wide md:text-5xl lg:text-6xl"
 					>
 						{item.name}
 					</h1>
@@ -296,7 +296,7 @@
 			>
 				<div class="bg-border h-px flex-1"></div>
 				<h2
-					class="text-foreground font-display text-center text-xl tracking-tight md:text-2xl"
+					class="text-foreground font-display text-center text-xl font-medium tracking-wide md:text-2xl"
 				>
 					Change History
 				</h2>

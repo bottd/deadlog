@@ -86,7 +86,7 @@
 				</div>
 
 				<h3
-					class="font-display text-foreground group-hover:text-primary heading-glow text-3xl tracking-tight transition-colors duration-300 md:text-4xl"
+					class="font-display text-foreground group-hover:text-primary heading-glow text-3xl font-medium tracking-wide transition-colors duration-300 md:text-4xl"
 					in:fly={{ y: 20, duration: 400, delay: 100 }}
 				>
 					{formatDate(date)}
@@ -198,7 +198,7 @@
 						class="text-muted-foreground group-hover:text-primary size-3.5 shrink-0 transition-colors duration-300"
 					/>
 					<h3
-						class="text-foreground font-display group-hover:text-primary truncate text-base tracking-tight transition-colors duration-300"
+						class="text-foreground group-hover:text-primary truncate text-base font-semibold tracking-tight transition-colors duration-300"
 					>
 						{formatDate(date)}
 					</h3>

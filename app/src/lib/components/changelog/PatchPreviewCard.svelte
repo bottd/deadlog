@@ -48,7 +48,7 @@
 					class="text-muted-foreground group-hover:text-primary size-3.5 shrink-0 transition-colors duration-300"
 				/>
 				<time
-					class="text-foreground font-display group-hover:text-primary text-sm leading-tight tracking-tight transition-colors duration-300"
+					class="text-foreground group-hover:text-primary text-sm leading-tight font-semibold transition-colors duration-300"
 				>
 					{formatDate(date)}
 				</time>

@@ -57,7 +57,7 @@
 			class="border-border bg-card ml-3 size-10 rounded-lg border object-cover shadow-sm"
 		/>
 	{/if}
-	<h3 class="text-foreground font-display text-base tracking-tight">
+	<h3 class="text-foreground text-base font-semibold tracking-tight">
 		{name}
 	</h3>
 </header>

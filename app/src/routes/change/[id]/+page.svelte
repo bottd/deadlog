@@ -105,7 +105,7 @@
 							</div>
 
 							<h1
-								class="text-foreground font-display heading-glow text-3xl leading-tight tracking-tight"
+								class="text-foreground font-display heading-glow text-3xl leading-tight font-medium tracking-wide"
 							>
 								<time datetime={changelog.date.toISOString()}
 									>{formatDate(changelog.date)}</time
@@ -190,7 +190,7 @@
 	<Sheet.Root bind:open={tocOpen}>
 		<Sheet.Content side="bottom" class="max-h-[70vh]">
 			<Sheet.Header>
-				<Sheet.Title class="font-display text-sm tracking-tight">Contents</Sheet.Title>
+				<Sheet.Title class="text-sm font-semibold tracking-tight">Contents</Sheet.Title>
 			</Sheet.Header>
 			<div class="overflow-y-auto px-2 pb-6">
 				<ChangelogToc

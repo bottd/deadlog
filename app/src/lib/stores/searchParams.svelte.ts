@@ -2,23 +2,22 @@ import { page } from '$app/state';
 import { goto } from '$app/navigation';
 import { building } from '$app/environment';
 import { getContext, hasContext, setContext } from 'svelte';
+import { parseCSV, toCSV } from '$lib/utils/csv';
+
+export { parseCSV } from '$lib/utils/csv';
 
 const SEARCH_PARAMS_KEY = Symbol('searchParams');
-
-export function parseCSV(value: string | null): string[] {
-	if (!value) return [];
-	return value.split(',').filter(Boolean);
-}
-
-function toCSV(arr: string[]): string {
-	return arr.join(',');
-}
 
 function canAccessSearchParams() {
 	return !building;
 }
 
+type ParamValues = Partial<{ hero: string[]; item: string[]; change: number; q: string }>;
+
 class SearchParamsStore {
+	#pendingUpdate: ParamValues | null = null;
+	#pendingReset = false;
+
 	get hero(): string[] {
 		if (!canAccessSearchParams()) return [];
 		return parseCSV(page.url.searchParams.get('hero'));
@@ -67,8 +66,32 @@ class SearchParamsStore {
 		goto(url.toString(), { replaceState: false, keepFocus: true, noScroll: true });
 	}
 
-	update(values: Partial<{ hero: string[]; item: string[]; change: number; q: string }>) {
+	update(values: ParamValues) {
 		if (!canAccessSearchParams()) return;
+
+		// Merge into pending batch and flush once via microtask
+		if (this.#pendingUpdate) {
+			Object.assign(this.#pendingUpdate, values);
+			return;
+		}
+
+		this.#pendingReset = false;
+		this.#pendingUpdate = { ...values };
+		queueMicrotask(() => this.#flush());
+	}
+
+	#flush() {
+		if (this.#pendingReset) {
+			this.#pendingUpdate = null;
+			this.#pendingReset = false;
+			goto('?', { replaceState: false, keepFocus: true, noScroll: true });
+			return;
+		}
+
+		const values = this.#pendingUpdate;
+		this.#pendingUpdate = null;
+		if (!values) return;
+
 		const url = new URL(page.url);
 
 		if ('hero' in values) {
@@ -108,6 +131,14 @@ class SearchParamsStore {
 
 	reset() {
 		if (!canAccessSearchParams()) return;
+
+		// If there's a pending update, override it with reset
+		if (this.#pendingUpdate) {
+			this.#pendingReset = true;
+			this.#pendingUpdate = null;
+			return;
+		}
+
 		goto('?', { replaceState: false, keepFocus: true, noScroll: true });
 	}
 

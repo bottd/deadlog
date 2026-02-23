@@ -1,5 +1,13 @@
 import { describe, it, expect } from 'vitest';
-import { getAllChangelogs, getChangelogById, getMetadata, getDb } from './queries';
+import {
+	getAllChangelogs,
+	getChangelogById,
+	getMetadata,
+	getDb,
+	queryChangelogs,
+	getAllHeroes,
+	getAllItems
+} from './queries';
 import { existsSync } from 'fs';
 import { resolve } from 'path';
 
@@ -146,6 +154,81 @@ describe.skipIf(!existsSync(dbPath))('Database Static Reader', () => {
 				// Should be valid JSON
 				const parsed = JSON.parse(bigPatchDays);
 				expect(Array.isArray(parsed)).toBe(true);
+			}
+		});
+	});
+
+	describe('queryChangelogs', () => {
+		it('returns results for a single hero filter', async () => {
+			const db = getDb();
+			const heroes = await getAllHeroes(db);
+			const hero = heroes[0];
+			const results = await queryChangelogs(db, { heroIds: [hero.id], limit: 50 });
+			expect(results.length).toBeGreaterThan(0);
+			// Every result should be a main changelog (no parentChange)
+			for (const r of results) {
+				expect(!r.parentChange || r.parentChange === '').toBe(true);
+			}
+		});
+
+		it('returns fewer or equal results for two heroes AND than either alone', async () => {
+			const db = getDb();
+			const heroes = await getAllHeroes(db);
+			// Pick two heroes that are likely to have changelogs
+			const hero1 = heroes[0];
+			const hero2 = heroes[1];
+
+			const [resultsA, resultsB, resultsBoth] = await Promise.all([
+				queryChangelogs(db, { heroIds: [hero1.id], limit: 100 }),
+				queryChangelogs(db, { heroIds: [hero2.id], limit: 100 }),
+				queryChangelogs(db, { heroIds: [hero1.id, hero2.id], limit: 100 })
+			]);
+
+			// AND: both must match, so intersection <= either alone
+			expect(resultsBoth.length).toBeLessThanOrEqual(resultsA.length);
+			expect(resultsBoth.length).toBeLessThanOrEqual(resultsB.length);
+		});
+
+		it('returns intersection for hero + item AND filter', async () => {
+			const db = getDb();
+			const heroes = await getAllHeroes(db);
+			const items = await getAllItems(db);
+			const hero = heroes[0];
+			const item = items[0];
+
+			const [heroOnly, itemOnly, both] = await Promise.all([
+				queryChangelogs(db, { heroIds: [hero.id], limit: 100 }),
+				queryChangelogs(db, { itemIds: [item.id], limit: 100 }),
+				queryChangelogs(db, { heroIds: [hero.id], itemIds: [item.id], limit: 100 })
+			]);
+
+			expect(both.length).toBeLessThanOrEqual(heroOnly.length);
+			expect(both.length).toBeLessThanOrEqual(itemOnly.length);
+		});
+
+		it('returns empty for a non-existent heroId', async () => {
+			const db = getDb();
+			const results = await queryChangelogs(db, { heroIds: [999999] });
+			expect(results).toEqual([]);
+		});
+
+		it('returns unfiltered results when no filters provided', async () => {
+			const db = getDb();
+			const results = await queryChangelogs(db, { limit: 10 });
+			expect(results.length).toBeGreaterThan(0);
+			expect(results.length).toBeLessThanOrEqual(10);
+		});
+
+		it('respects pagination with limit and offset', async () => {
+			const db = getDb();
+			const page1 = await queryChangelogs(db, { limit: 3, offset: 0 });
+			const page2 = await queryChangelogs(db, { limit: 3, offset: 3 });
+			expect(page1).toHaveLength(3);
+			expect(page2).toHaveLength(3);
+			// Pages should not overlap
+			const ids1 = new Set(page1.map((r) => r.id));
+			for (const r of page2) {
+				expect(ids1.has(r.id)).toBe(false);
 			}
 		});
 	});

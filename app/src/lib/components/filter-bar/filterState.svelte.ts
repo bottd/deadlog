@@ -91,14 +91,16 @@ export class FilterState {
 	selectHero(heroId: number) {
 		const hero = this.#getHeroes().find((h) => h.id === heroId);
 		if (hero) {
-			this.#params.hero = toggleArray(this.#params.hero, hero.name);
+			this.inputValue = '';
+			this.#params.update({ hero: toggleArray(this.#params.hero, hero.name), q: '' });
 		}
 	}
 
 	selectItem(itemId: number) {
 		const item = this.#getItems().find((i) => i.id === itemId);
 		if (item) {
-			this.#params.item = toggleArray(this.#params.item, item.name);
+			this.inputValue = '';
+			this.#params.update({ item: toggleArray(this.#params.item, item.name), q: '' });
 		}
 	}
 

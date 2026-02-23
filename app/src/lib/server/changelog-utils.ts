@@ -5,7 +5,7 @@ import {
 } from '@deadlog/scraper';
 import type { DrizzleDB } from '@deadlog/db';
 import type { ChangelogEntry } from '$lib/types';
-import { parseCSV } from '$lib/stores/searchParams.svelte';
+import { parseCSV } from '$lib/utils/csv';
 
 export function resolveEntityIds(
 	names: string[],

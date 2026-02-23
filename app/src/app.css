@@ -19,9 +19,9 @@
 }
 
 @font-face {
-	font-family: 'Orbitron';
-	src: url('/fonts/Orbitron-VariableFont_wght.woff2') format('woff2');
-	font-weight: 400 900;
+	font-family: 'Oswald';
+	src: url('/fonts/Oswald-VariableFont_wght.woff2') format('woff2');
+	font-weight: 200 700;
 	font-style: normal;
 	font-display: swap;
 }
@@ -188,7 +188,7 @@
 @theme inline {
 	/* Font families */
 	--font-sans: 'Archivo', ui-sans-serif, system-ui, sans-serif;
-	--font-display: 'Archivo', ui-sans-serif, system-ui, sans-serif;
+	--font-display: 'Oswald', ui-sans-serif, sans-serif;
 	--font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
 	--radius-sm: calc(var(--radius) - 4px);
@@ -369,6 +369,55 @@ a.clip-corner-lg:focus-visible {
 /* Heading glow for dark mode */
 .dark .heading-glow {
 	text-shadow: 0 0 30px oklch(from var(--primary) l c h / 0.3);
+}
+
+/* Page entrance animations */
+@keyframes entrance-slide-down {
+	from {
+		opacity: 0;
+		transform: translateY(-8px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.animate-entrance-down {
+	animation: entrance-slide-down 0.5s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+@keyframes entrance-fade-up {
+	from {
+		opacity: 0;
+		transform: translateY(6px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.animate-entrance-up {
+	animation: entrance-fade-up 0.5s cubic-bezier(0.23, 1, 0.32, 1) 0.15s both;
+}
+
+/* Terminal text flicker */
+@keyframes terminal-flicker {
+	0%,
+	100% {
+		opacity: 0.35;
+	}
+	50% {
+		opacity: 0.55;
+	}
+	92% {
+		opacity: 0.3;
+	}
+}
+
+.terminal-flicker {
+	animation: terminal-flicker 4s ease-in-out infinite;
 }
 
 /* Accessibility: reduced motion style */

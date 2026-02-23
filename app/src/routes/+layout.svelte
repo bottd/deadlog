@@ -34,7 +34,9 @@
 
 			<Header />
 
-			{@render children?.()}
+			<div class="animate-entrance-up">
+				{@render children?.()}
+			</div>
 
 			<Footer />
 		</div>

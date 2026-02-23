@@ -4,7 +4,11 @@
 	"singleQuote": true,
 	"trailingComma": "none",
 	"printWidth": 90,
-	"plugins": ["prettier-plugin-svelte", "prettier-plugin-tailwindcss", "prettier-plugin-sql"],
+	"plugins": [
+		"prettier-plugin-svelte",
+		"prettier-plugin-tailwindcss",
+		"prettier-plugin-sql"
+	],
 	"overrides": [
 		{
 			"files": "*.svelte",

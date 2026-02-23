@@ -4,7 +4,7 @@
 </script>
 
 <nav
-	class="border-border bg-card/90 sticky z-50 border-b pb-5 backdrop-blur-xl transition-all duration-300"
+	class="animate-entrance-down border-border bg-card/90 sticky z-50 border-b pb-5 backdrop-blur-xl transition-all duration-300"
 >
 	<div class="container mx-auto px-4">
 		<div class="flex h-20 items-center justify-between">
@@ -35,7 +35,7 @@
 				<div class="flex flex-col">
 					<div class="flex items-baseline gap-2">
 						<span
-							class="font-display text-foreground heading-glow text-xl tracking-tight transition-colors duration-300 md:text-2xl"
+							class="font-display text-foreground heading-glow text-2xl font-medium tracking-wide transition-colors duration-300 md:text-3xl"
 						>
 							dead<span class="text-primary">log</span>
 						</span>

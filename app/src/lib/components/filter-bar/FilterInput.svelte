@@ -31,6 +31,15 @@
 	let open = $state(false);
 	let sheetOpen = $state(false);
 
+	const placeholder = $derived.by(() => {
+		const hasHeroes = selectedHeroObjects.length > 0;
+		const hasItems = selectedItemObjects.length > 0;
+		if (hasHeroes && hasItems) return 'Add more filters...';
+		if (hasHeroes) return 'Add items or more heroes...';
+		if (hasItems) return 'Add heroes or more items...';
+		return 'Search heroes, items, or keywords...';
+	});
+
 	function clearAll() {
 		open = false;
 		filterState.clearAll();
@@ -40,6 +49,15 @@
 		e.preventDefault();
 		filterState.updateSearch();
 		open = false;
+	}
+
+	function handleFocusOut(e: FocusEvent) {
+		const container = e.currentTarget as HTMLElement;
+		requestAnimationFrame(() => {
+			if (!container.contains(document.activeElement)) {
+				open = false;
+			}
+		});
 	}
 </script>
 
@@ -109,7 +127,7 @@
 {/snippet}
 
 <div class="sticky z-40 w-full" style="top: max(64px, env(safe-area-inset-top));">
-	<div class="relative">
+	<div class="relative" onfocusout={handleFocusOut}>
 		<form onsubmit={handleSubmit} class="filter-form">
 			<div class="flex min-w-0 flex-1 flex-wrap items-center gap-1.5">
 				{#each selectedHeroObjects as hero (hero.id)}
@@ -132,11 +150,18 @@
 				<!-- Desktop: show input that opens dropdown -->
 				<input
 					type="text"
-					placeholder="Add more filters or search..."
+					{placeholder}
 					class="placeholder:text-muted-foreground hidden min-w-0 flex-1 bg-transparent outline-none sm:block sm:min-w-[200px]"
 					bind:value={filterState.inputValue}
 					onfocus={() => (open = true)}
-					onkeydown={(e) => !open && e.key !== 'Escape' && (open = true)}
+					onkeydown={(e) => {
+						if (e.key === 'Escape') {
+							open = false;
+							(e.currentTarget as HTMLInputElement).blur();
+						} else if (!open) {
+							open = true;
+						}
+					}}
 				/>
 
 				<!-- Mobile: placeholder text -->
@@ -181,8 +206,25 @@
 					<div class="bg-muted mx-auto mb-4 h-1 w-12 rounded-full"></div>
 					<Sheet.Header>
 						<Sheet.Title>Filter changelog</Sheet.Title>
-						<Sheet.Description>Select heroes and items to filter by</Sheet.Description>
+						<Sheet.Description>Patches must match all selected filters</Sheet.Description>
 					</Sheet.Header>
+					<form
+						class="border-border flex items-center gap-2 border-b px-3 py-2"
+						onsubmit={(e) => {
+							e.preventDefault();
+							filterState.updateSearch();
+							sheetOpen = false;
+						}}
+					>
+						<SearchIcon class="text-muted-foreground size-4 shrink-0" />
+						<input
+							type="text"
+							placeholder="Search keywords..."
+							class="placeholder:text-muted-foreground min-w-0 flex-1 bg-transparent text-sm outline-none"
+							bind:value={filterState.inputValue}
+						/>
+						<Button type="submit" variant="ghost" size="sm">Search</Button>
+					</form>
 					{@render filterContent()}
 				</Sheet.Content>
 			</Sheet.Root>

@@ -28,6 +28,11 @@
 
 	// All filtering (text search, hero, item) is server-side — just flatten pages
 	const allChangelogs = $derived((query.data?.pages ?? []).flatMap((p) => p.changelogs));
+
+	const hasNextPage = $derived(query.hasNextPage);
+	const filterCount = $derived(
+		params.hero.length + params.item.length + (params.q.length > 0 ? 1 : 0)
+	);
 </script>
 
 <main class="container mx-auto mt-8 mb-24 px-4" aria-label="Changelog entries">
@@ -42,7 +47,7 @@
 			>
 				<AlertCircle class="text-destructive size-10" />
 			</div>
-			<h3 class="text-foreground font-display mb-3 text-2xl tracking-tight">
+			<h3 class="text-foreground font-display mb-3 text-2xl font-medium tracking-wide">
 				Connection Failed
 			</h3>
 			<p
@@ -86,7 +91,14 @@
 
 	{#if !query.isError && query.data}
 		{#if allChangelogs.length > 0}
-			{#if !isFiltered}
+			{#if isFiltered}
+				<p class="text-muted-foreground mb-4 font-mono text-xs tracking-wider uppercase">
+					&mdash; {allChangelogs.length}{hasNextPage ? '+' : ''} patch{allChangelogs.length ===
+						1 && !hasNextPage
+						? ''
+						: 'es'} matching all {filterCount} filter{filterCount === 1 ? '' : 's'}
+				</p>
+			{:else}
 				<div in:fly={{ y: 20, duration: 350, easing: quintOut }}>
 					<ChangelogCard {...allChangelogs[0]} isLatest={true} />
 				</div>
@@ -120,7 +132,7 @@
 				<p class="text-muted-foreground mb-2 font-mono text-xs tracking-wide uppercase">
 					No Results
 				</p>
-				<h3 class="text-foreground font-display mb-3 text-2xl tracking-tight">
+				<h3 class="text-foreground font-display mb-3 text-2xl font-medium tracking-wide">
 					No changes found
 				</h3>
 				<p class="text-muted-foreground mx-auto mb-8 max-w-md">
