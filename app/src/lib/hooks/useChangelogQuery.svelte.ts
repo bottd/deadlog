@@ -38,7 +38,6 @@ export function useChangelogQuery(options: UseChangelogQueryOptions) {
 			item: params.item,
 			q: params.q
 		}),
-		enabled: true,
 		initialData: {
 			pages: [
 				{

@@ -14,9 +14,8 @@ function toCSV(arr: string[]): string {
 	return arr.join(',');
 }
 
-function canAccessSearchParams(): boolean {
-	if (building) return false;
-	return true;
+function canAccessSearchParams() {
+	return !building;
 }
 
 class SearchParamsStore {

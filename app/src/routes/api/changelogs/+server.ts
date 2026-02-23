@@ -10,21 +10,13 @@ import {
 export const GET: RequestHandler = async ({ url, locals }) => {
 	const { limit, offset, hero, item, q } = parseApiParams(url);
 
-	const heroIdsParam = url.searchParams.get('heroIds');
-	const itemIdsParam = url.searchParams.get('itemIds');
+	const [heroes, items] = await Promise.all([
+		hero.length > 0 ? getAllHeroes(locals.db) : [],
+		item.length > 0 ? getAllItems(locals.db) : []
+	]);
 
-	let heroIds = heroIdsParam ? heroIdsParam.split(',').map(Number) : [];
-	let itemIds = itemIdsParam ? itemIdsParam.split(',').map(Number) : [];
-
-	if (hero.length > 0 && heroIds.length === 0) {
-		const heroes = await getAllHeroes(locals.db);
-		heroIds = resolveEntityIds(hero, heroes);
-	}
-
-	if (item.length > 0 && itemIds.length === 0) {
-		const items = await getAllItems(locals.db);
-		itemIds = resolveEntityIds(item, items);
-	}
+	const heroIds = resolveEntityIds(hero, heroes);
+	const itemIds = resolveEntityIds(item, items);
 
 	const changelogs = await queryChangelogs(locals.db, {
 		heroIds,
