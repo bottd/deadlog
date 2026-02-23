@@ -48,7 +48,7 @@
 					<span
 						class="text-muted-foreground hidden text-xs font-medium tracking-wide md:block"
 					>
-						Deadlock Patch Notes & Changes
+						Deadlock Changelog
 					</span>
 				</div>
 			</a>

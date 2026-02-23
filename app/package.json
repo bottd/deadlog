@@ -15,9 +15,7 @@
 	"dependencies": {
 		"@deadlog/db": "workspace:*",
 		"@deadlog/scraper": "workspace:*",
-		"@deadlog/utils": "workspace:*",
-		"@sveltejs/kit": "2.50.1",
-		"svelte": "5.48.0"
+		"@deadlog/utils": "workspace:*"
 	},
 	"devDependencies": {}
 }

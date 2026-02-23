@@ -42,12 +42,6 @@ export default defineConfig({
 			interval: 1000
 		}
 	},
-	resolve: {
-		alias: {
-			$lib: path.resolve(__dirname, './src/lib'),
-			$changelogs: changelogsDir
-		}
-	},
 	ssr: {
 		noExternal: [
 			'@deadlog/changelog',
