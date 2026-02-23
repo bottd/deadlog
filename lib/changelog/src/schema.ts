@@ -23,4 +23,5 @@ export interface ParsedChangelog {
 	slug: string;
 	metadata: ChangelogMetadata;
 	entities: ChangelogEntities;
+	plainText: string;
 }

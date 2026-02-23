@@ -1,6 +1,6 @@
 import { page } from '$app/state';
 import { getSearchParams } from '$lib/stores/searchParams.svelte';
-import type { EnrichedHero, EnrichedItem } from './types';
+import type { EnrichedHero, EnrichedItem } from '$lib/types';
 
 export function getSelectedHeroObjects(): EnrichedHero[] {
 	const params = getSearchParams();

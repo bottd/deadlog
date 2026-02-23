@@ -1,18 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { ChangelogCard } from './index';
-	import {
-		getVisibleHeroNames,
-		getVisibleItemNames,
-		shouldShowGeneralNotes,
-		type FilterState,
-		type FilteredChangelog
-	} from '$lib/utils/filterChanges';
 	import { getSearchParams } from '$lib/stores/searchParams.svelte';
-	import {
-		getSelectedHeroObjects,
-		getSelectedItemObjects
-	} from '$lib/utils/selectedEntities.svelte';
 	import { useChangelogQuery } from '$lib/hooks/useChangelogQuery.svelte';
 	import { CornerAccents } from '$lib/components/ui/corner-accents';
 	import AlertCircle from '@lucide/svelte/icons/alert-circle';
@@ -33,39 +22,12 @@
 
 	const query = $derived(queryState.query);
 
-	const filterState = $derived.by(
-		(): FilterState => ({
-			selectedHeroNames: new Set(getSelectedHeroObjects().map((h) => h.name)),
-			selectedItemNames: new Set(getSelectedItemObjects().map((i) => i.name)),
-			searchQuery: params.q || ''
-		})
-	);
-
 	const isFiltered = $derived(
-		filterState.selectedHeroNames.size > 0 ||
-			filterState.selectedItemNames.size > 0 ||
-			filterState.searchQuery.length > 0
+		params.hero.length > 0 || params.item.length > 0 || params.q.length > 0
 	);
 
-	const filteredChangelogs = $derived.by(() => {
-		const all = (query.data?.pages ?? []).flatMap((p) => p.changelogs);
-		if (!isFiltered) return all;
-		return all.filter((c: FilteredChangelog) => {
-			const heroes = getVisibleHeroNames(c, filterState);
-			const items = getVisibleItemNames(c, filterState);
-			if (
-				(heroes?.size ?? 0) > 0 ||
-				(items?.size ?? 0) > 0 ||
-				shouldShowGeneralNotes(c, filterState)
-			)
-				return true;
-			return (
-				c.updates?.some(
-					(u: FilteredChangelog) => (getVisibleItemNames(u, filterState)?.size ?? 0) > 0
-				) ?? false
-			);
-		});
-	});
+	// All filtering (text search, hero, item) is server-side — just flatten pages
+	const allChangelogs = $derived((query.data?.pages ?? []).flatMap((p) => p.changelogs));
 </script>
 
 <main class="container mx-auto mt-8 mb-24 px-4" aria-label="Changelog entries">
@@ -123,15 +85,15 @@
 	{/if}
 
 	{#if !query.isError && query.data}
-		{#if filteredChangelogs.length > 0}
+		{#if allChangelogs.length > 0}
 			{#if !isFiltered}
 				<div in:fly={{ y: 20, duration: 350, easing: quintOut }}>
-					<ChangelogCard {...filteredChangelogs[0]} isLatest={true} />
+					<ChangelogCard {...allChangelogs[0]} isLatest={true} />
 				</div>
 			{/if}
 
 			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-				{#each filteredChangelogs.slice(isFiltered ? 0 : 1) as entry, i (entry.id)}
+				{#each allChangelogs.slice(isFiltered ? 0 : 1) as entry, i (entry.id)}
 					<div
 						in:fly={{
 							y: 20,
@@ -173,32 +135,34 @@
 			</div>
 		{/if}
 
-		<div bind:this={queryState.trigger} class="flex flex-col items-center gap-4 py-12">
-			{#if query.isFetchingNextPage}
-				<div class="flex flex-col items-center gap-3">
-					<div
-						class="border-primary/30 size-10 animate-spin rounded-lg border-2 border-t-transparent"
-					></div>
-					<span class="text-muted-foreground font-mono text-xs tracking-wider uppercase"
-						>Loading...</span
+		{#if allChangelogs.length > 0}
+			<div bind:this={queryState.trigger} class="flex flex-col items-center gap-4 py-12">
+				{#if query.isFetchingNextPage}
+					<div class="flex flex-col items-center gap-3">
+						<div
+							class="border-primary/30 size-10 animate-spin rounded-lg border-2 border-t-transparent"
+						></div>
+						<span class="text-muted-foreground font-mono text-xs tracking-wider uppercase"
+							>Loading...</span
+						>
+					</div>
+				{:else if query.hasNextPage}
+					<button
+						onclick={() => query.fetchNextPage()}
+						class="clip-corner-sm bg-primary/10 text-primary hover:bg-primary/20 border-primary/30 group border px-8 py-3 font-mono text-sm font-semibold transition-all hover:scale-105 disabled:opacity-50"
 					>
-				</div>
-			{:else if query.hasNextPage}
-				<button
-					onclick={() => query.fetchNextPage()}
-					class="clip-corner-sm bg-primary/10 text-primary hover:bg-primary/20 border-primary/30 group border px-8 py-3 font-mono text-sm font-semibold transition-all hover:scale-105 disabled:opacity-50"
-				>
-					Load More
-				</button>
-			{:else if filteredChangelogs.length > 0}
-				<div class="flex items-center gap-4" in:fly={{ y: 10, duration: 400 }}>
-					<div class="bg-primary/30 h-px w-16"></div>
-					<p class="text-muted-foreground font-mono text-xs tracking-wider uppercase">
-						End of Log
-					</p>
-					<div class="bg-primary/30 h-px w-16"></div>
-				</div>
-			{/if}
-		</div>
+						Load More
+					</button>
+				{:else}
+					<div class="flex items-center gap-4" in:fly={{ y: 10, duration: 400 }}>
+						<div class="bg-primary/30 h-px w-16"></div>
+						<p class="text-muted-foreground font-mono text-xs tracking-wider uppercase">
+							End of Log
+						</p>
+						<div class="bg-primary/30 h-px w-16"></div>
+					</div>
+				{/if}
+			</div>
+		{/if}
 	{/if}
 </main>

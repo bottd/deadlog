@@ -1,11 +1,11 @@
 import { createInfiniteQuery } from '@tanstack/svelte-query';
 import { useIntersectionObserver } from 'runed';
-import type { FilteredChangelog } from '$lib/utils/filterChanges';
+import type { ChangelogEntry } from '$lib/types';
 import { getSearchParams } from '$lib/stores/searchParams.svelte';
 import { queryKeys } from '$lib/queries/keys';
 
 interface PageData {
-	changelogs: FilteredChangelog[];
+	changelogs: ChangelogEntry[];
 	hasMore: boolean;
 }
 
@@ -15,7 +15,7 @@ interface InfiniteData {
 }
 
 interface UseChangelogQueryOptions {
-	getInitialChangelogs: () => FilteredChangelog[];
+	getInitialChangelogs: () => ChangelogEntry[];
 	getInitialLoadCount: () => number;
 	getTotalCount: () => number;
 }

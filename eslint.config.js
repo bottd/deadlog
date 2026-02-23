@@ -54,6 +54,8 @@ export default ts.config(
 			'app/.svelte-kit/**',
 			'package-lock.json',
 			'app/vitest-setup-client.ts',
+			'app/e2e/**',
+			'app/playwright.config.ts',
 			'lib/*/vite.config.ts',
 			'lib/*/tsconfig.json',
 			'lib/*/project.json'

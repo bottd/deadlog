@@ -10,8 +10,7 @@ import { toSlug } from '@deadlog/utils';
 import type { PageServerLoad } from './$types';
 import {
 	enrichChangelogs,
-	resolveHeroIds,
-	resolveItemIds,
+	resolveEntityIds,
 	parseApiParams
 } from '$lib/server/changelog-utils';
 
@@ -23,8 +22,8 @@ export const load: PageServerLoad = async ({ locals, url, parent }) => {
 	// Get heroes and items from layout data
 	const { heroes, items } = await parent();
 
-	const heroIds = resolveHeroIds(hero, heroes);
-	const itemIds = resolveItemIds(item, items);
+	const heroIds = resolveEntityIds(hero, heroes);
+	const itemIds = resolveEntityIds(item, items);
 
 	let initialLoadLimit = 15;
 	if (change) {

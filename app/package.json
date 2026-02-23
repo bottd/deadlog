@@ -10,6 +10,7 @@
 		"prepare": "svelte-kit sync",
 		"check": "svelte-check --tsconfig tsconfig.json",
 		"test": "vitest run",
+		"test:e2e": "playwright test --config playwright.config.ts",
 		"lint": "eslint ."
 	},
 	"dependencies": {

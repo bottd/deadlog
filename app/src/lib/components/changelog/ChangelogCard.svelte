@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { EntityIcon } from '$lib/utils/types';
+	import type { EntityIcon } from '$lib/types';
 	import * as Avatar from '$lib/components/ui/avatar';
 	import { formatDate } from '@deadlog/utils';
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';

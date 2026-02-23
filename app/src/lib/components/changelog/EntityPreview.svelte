@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { EntityIcon } from '$lib/utils/types';
+	import type { EntityIcon } from '$lib/types';
 	import { getSearchParams } from '$lib/stores/searchParams.svelte';
 	import EntityTooltip from './EntityTooltip.svelte';
 

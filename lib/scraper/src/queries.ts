@@ -9,7 +9,8 @@ import {
 	isNull,
 	isNotNull,
 	count,
-	inArray
+	inArray,
+	type SQL
 } from 'drizzle-orm';
 import type { EnrichedHero, EnrichedItem, EntityIcon } from './types/deadlockApi';
 import { getLibsqlDb, type DrizzleDB, type SelectChangelog, schema } from '@deadlog/db';
@@ -25,9 +26,9 @@ function isMainChangelog() {
 	);
 }
 
-function buildTextSearchCondition(searchQuery: string) {
+function buildTextSearchCondition(searchQuery: string): SQL {
 	const pattern = `%${searchQuery}%`;
-	return sql`LOWER(${schema.changelogs.title}) LIKE LOWER(${pattern})`;
+	return sql`(LOWER(${schema.changelogs.title}) LIKE LOWER(${pattern}) OR LOWER(${schema.changelogs.contentText}) LIKE LOWER(${pattern}))`;
 }
 
 export async function getAllChangelogs(db: DrizzleDB) {

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { EntityIcon } from '$lib/utils/types';
+	import type { EntityIcon } from '$lib/types';
 
 	interface Props {
 		heroes: EntityIcon[];

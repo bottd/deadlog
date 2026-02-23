@@ -3,8 +3,7 @@ import type { RequestHandler } from './$types';
 import { queryChangelogs, getAllHeroes, getAllItems } from '@deadlog/scraper';
 import {
 	enrichChangelogs,
-	resolveHeroIds,
-	resolveItemIds,
+	resolveEntityIds,
 	parseApiParams
 } from '$lib/server/changelog-utils';
 
@@ -19,12 +18,12 @@ export const GET: RequestHandler = async ({ url, locals }) => {
 
 	if (hero.length > 0 && heroIds.length === 0) {
 		const heroes = await getAllHeroes(locals.db);
-		heroIds = resolveHeroIds(hero, heroes);
+		heroIds = resolveEntityIds(hero, heroes);
 	}
 
 	if (item.length > 0 && itemIds.length === 0) {
 		const items = await getAllItems(locals.db);
-		itemIds = resolveItemIds(item, items);
+		itemIds = resolveEntityIds(item, items);
 	}
 
 	const changelogs = await queryChangelogs(locals.db, {

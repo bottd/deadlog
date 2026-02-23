@@ -431,6 +431,26 @@ function generateStructuredContent(grouped: GroupedContent): string {
 	return out.join('\n');
 }
 
+function collectPlainText(grouped: GroupedContent): string {
+	const parts: string[] = [];
+
+	for (const note of grouped.general) {
+		if (!note.startsWith('@image ')) {
+			parts.push(note);
+		}
+	}
+	for (const [name, notes] of grouped.heroes) {
+		parts.push(name);
+		parts.push(...notes);
+	}
+	for (const [name, notes] of grouped.items) {
+		parts.push(name);
+		parts.push(...notes);
+	}
+
+	return parts.join(' ');
+}
+
 function generateChangelog(
 	content: PostContentResult,
 	threadId: string,
@@ -443,6 +463,7 @@ function generateChangelog(
 	const rawContent = extractContent(content.content);
 	const grouped = parseAndGroupContent(rawContent, entities);
 	const structuredContent = generateStructuredContent(grouped);
+	const contentText = collectPlainText(grouped);
 
 	const out: string[] = [
 		'@document.meta',
@@ -460,6 +481,7 @@ function generateChangelog(
 		'category: patch',
 		'major_update: false',
 		'status: draft',
+		`content_text: ${escapeMetaValue(contentText)}`,
 		'@end',
 		'',
 		structuredContent ||

@@ -1,51 +1,25 @@
 import {
 	getChangelogIcons,
 	getUpdatesForChangelogs,
-	type ScrapedChangelog,
-	type EntityIcon
+	type ScrapedChangelog
 } from '@deadlog/scraper';
 import type { DrizzleDB } from '@deadlog/db';
+import type { ChangelogEntry } from '$lib/types';
 import { parseCSV } from '$lib/stores/searchParams.svelte';
 
-export interface ChangelogWithIcons extends ScrapedChangelog {
-	icons: {
-		heroes: EntityIcon[];
-		items: EntityIcon[];
-	};
-	date: Date;
-	updates?: ChangelogWithIcons[];
-}
-
-export function resolveHeroIds(
-	heroNames: string[],
-	heroes: { id: number; name: string }[]
+export function resolveEntityIds(
+	names: string[],
+	entities: { id: number; name: string }[]
 ): number[] {
-	return heroNames
-		.map((heroName) => {
-			const heroData = heroes.find(
-				(h) => h.name.toLowerCase() === heroName.toLowerCase()
-			);
-			return heroData?.id;
-		})
-		.filter((id): id is number => id !== undefined);
-}
-
-export function resolveItemIds(
-	itemNames: string[],
-	items: { id: number; name: string }[]
-): number[] {
-	return itemNames
-		.map((itemName) => {
-			const itemData = items.find((i) => i.name.toLowerCase() === itemName.toLowerCase());
-			return itemData?.id;
-		})
+	return names
+		.map((name) => entities.find((e) => e.name.toLowerCase() === name.toLowerCase())?.id)
 		.filter((id): id is number => id !== undefined);
 }
 
 export async function enrichChangelogs(
 	db: DrizzleDB,
 	changelogs: ScrapedChangelog[]
-): Promise<ChangelogWithIcons[]> {
+): Promise<ChangelogEntry[]> {
 	const parentIds = changelogs.map((c) => c.id);
 	const updates = await getUpdatesForChangelogs(db, parentIds);
 
@@ -68,7 +42,7 @@ export async function enrichChangelogs(
 		const icons = iconsByChangelog[entry.id] ?? { heroes: [], items: [] };
 
 		const entryUpdates = updatesMap.get(entry.id) ?? [];
-		const enrichedUpdates: ChangelogWithIcons[] = entryUpdates
+		const enrichedUpdates: ChangelogEntry[] = entryUpdates
 			.sort((a, b) => new Date(a.pubDate).getTime() - new Date(b.pubDate).getTime())
 			.map((update) => ({
 				...update,

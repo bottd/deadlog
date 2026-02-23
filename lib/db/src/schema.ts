@@ -11,7 +11,8 @@ export const changelogs = sqliteTable('changelogs', {
 	category: text('category'),
 	pubDate: text('pub_date').notNull(),
 	majorUpdate: integer('major_update', { mode: 'boolean' }).notNull().default(false),
-	parentChange: text('parent_change')
+	parentChange: text('parent_change'),
+	contentText: text('content_text')
 });
 
 export type InsertChangelog = z.infer<typeof insertChangelogSchema>;

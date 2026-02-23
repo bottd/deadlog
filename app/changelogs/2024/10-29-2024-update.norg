@@ -7,6 +7,7 @@ author_image: https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630
 category: patch
 major_update: false
 status: draft
+content_text: Added a notes system for Experimental Heroes in Hero Labs. Updates to those heroes will now be displayed in-game, rather than this subforum, whenever there are changes.
 @end
 
 * General Changes

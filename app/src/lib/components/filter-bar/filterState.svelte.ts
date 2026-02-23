@@ -1,5 +1,5 @@
 import { getSearchParams } from '$lib/stores/searchParams.svelte';
-import type { EnrichedHero, EnrichedItem } from '$lib/utils/types';
+import type { EnrichedHero, EnrichedItem } from '$lib/types';
 import { toggleArray } from '$lib/utils/toggle';
 
 export type FilterMode = 'all' | 'heroes' | 'items';

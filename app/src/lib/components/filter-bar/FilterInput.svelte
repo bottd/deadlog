@@ -9,7 +9,7 @@
 	import { Button } from '$lib/components/ui/button';
 	import FilterBadge from './FilterBadge.svelte';
 	import EntityItem from './EntityItem.svelte';
-	import type { EnrichedHero, EnrichedItem } from '$lib/utils/types';
+	import type { EnrichedHero, EnrichedItem } from '$lib/types';
 	import { getSearchParams } from '$lib/stores/searchParams.svelte';
 	import {
 		getSelectedHeroObjects,

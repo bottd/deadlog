@@ -7,6 +7,7 @@ author_image: https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630
 category: patch
 major_update: false
 status: draft
+content_text: Fixed various cases where you could target/select units behind walls with abilities (like Yamato's Flying Strike) Wraith Card Trick Spirit scaling reduced from 1.5 to 1.2 Shadow Weave Ambush Fire Rate reduced from +40% to +30%
 @end
 
 * General Changes

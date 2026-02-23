@@ -134,7 +134,7 @@ export async function buildDatabaseFromNorg(
 	let heroMatches = 0;
 	let itemMatches = 0;
 
-	for (const { metadata, entities, slug } of changelogs) {
+	for (const { metadata, entities, slug, plainText } of changelogs) {
 		const dateOnly = metadata.published.split('T')[0];
 		const isMajorUpdate = bigDayDates.has(dateOnly) || metadata.major_update;
 
@@ -149,7 +149,8 @@ export async function buildDatabaseFromNorg(
 				category: metadata.category,
 				pubDate: metadata.published,
 				majorUpdate: isMajorUpdate,
-				parentChange: metadata.parent_id ?? null
+				parentChange: metadata.parent_id ?? null,
+				contentText: plainText
 			})
 			.onConflictDoNothing();
 
@@ -249,7 +250,8 @@ async function createTables(db: ReturnType<typeof drizzle>) {
 			category TEXT,
 			pub_date TEXT NOT NULL,
 			major_update INTEGER NOT NULL DEFAULT 0,
-			parent_change TEXT
+			parent_change TEXT,
+			content_text TEXT
 		)
 	`);
 

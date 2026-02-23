@@ -94,8 +94,10 @@ export async function loadAllChangelogs(
 			const entities = extractEntities(toc, content);
 			const relativePath = relative(changelogsDir, filepath);
 			const slug = relativePath.replace(/\.norg$/, '');
+			const plainText =
+				typeof rawMetadata.content_text === 'string' ? rawMetadata.content_text : '';
 
-			changelogs.push({ filepath, slug, metadata, entities });
+			changelogs.push({ filepath, slug, metadata, entities, plainText });
 		} catch (error) {
 			console.warn(`Failed to parse: ${filepath}`, error);
 		}
