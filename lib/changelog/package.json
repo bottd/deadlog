@@ -7,7 +7,7 @@
 		".": "./src/index.ts"
 	},
 	"devDependencies": {
-		"@types/node": "24.10.9",
+		"@types/node": "24.10.13",
 		"zod": "4.3.6"
 	}
 }
