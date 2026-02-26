@@ -11,7 +11,7 @@
 		"drizzle-orm": "0.45.1"
 	},
 	"devDependencies": {
-		"@types/node": "24.10.13",
+		"@types/node": "24.10.14",
 		"drizzle-kit": "0.31.9"
 	}
 }
