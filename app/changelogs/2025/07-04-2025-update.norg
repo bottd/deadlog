@@ -53,52 +53,52 @@ content_text: "Bullet Cycle Time for all heroes increased by 5% (effectively red
 
 * Hero Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="hero" names={["Abrams", "Infernus", "Ivy", "Kelvin", "Lady Geist", "Lash", "McGinnis", "Mirage", "Paradox", "Pocket", "Seven", "Sinclair", "Warden", "Wraith"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Abrams" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Shoulder Charge" />
 @end
 
 - Shoulder Charge T3 increased from -18s to -22s
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Infernal Resilience" />
 @end
 
 - Infernal Resilience T3 increased from +6% to +7%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Infernus" type="hero" />
 @end
 
 - Bullet damage growth per boon reduced from 0.16 to 0.12
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Afterburn DPS" />
 @end
 
 - Afterburn DPS reduced by 13% (still affected by the global base reductions as well, so the total amount is larger than this. This applies to all other patch note lines that reduces damage as well)
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Afterburn" />
 @end
 
 - Afterburn spirit scaling increased from 0.56 to 0.66
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Flame Dash" />
 @end
 
 - Flame Dash T2 DPS reduced by 10%
 - Flame Dash spirit power scaling increased from 0.7 to 0.8
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Ivy" type="hero" />
 @end
 
@@ -106,24 +106,24 @@ content_text: "Bullet Cycle Time for all heroes increased by 5% (effectively red
 - No longer ignores shooting speed penalty
 - Watcher’s Covenant now grants the shooting speed benefit to you and your tethered ally
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Kelvin" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Frozen Shelter" />
 @end
 
 - Frozen Shelter now freezes Urn (like it does other objectives)
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Lady Geist" type="hero" />
 @end
 
 - Base bullet damage reduced from 23 to 21
 - Essence Bomb arming time increased from 0.5s to 0.65s
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Malice" />
 @end
 
@@ -133,29 +133,29 @@ content_text: "Bullet Cycle Time for all heroes increased by 5% (effectively red
 
 - Soul Exchange cast range reduced from 6m to 5.5m
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Lash" type="hero" />
 @end
 
 - Flog cast range reduced from 25m to 20m
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Ground Strike" />
 @end
 
 - Ground Strike damage height reduced from 3.3m to 3m
 
-@inline svelte
+@embed svelte
 <EntityHeading name="McGinnis" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Medicinal Specter" />
 @end
 
 - Medicinal Specter now comes out faster and has a better visual que
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Heavy Barrage DPS" />
 @end
 
@@ -165,11 +165,11 @@ content_text: "Bullet Cycle Time for all heroes increased by 5% (effectively red
 - Fixed Mini Turrets not targeting Phase 1 of the Patron after shields are down
 - Health per boon increased from 52 to 56
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Mirage" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Djinn's Mark" />
 @end
 
@@ -177,13 +177,13 @@ content_text: "Bullet Cycle Time for all heroes increased by 5% (effectively red
 
 - Fixed Cases where Mirage's Tornado would get Stuck and/or Go through Walls
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Paradox" type="hero" />
 @end
 
 - Gun recoil adjustments to make it smoother
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Pocket" type="hero" />
 @end
 
@@ -191,17 +191,17 @@ content_text: "Bullet Cycle Time for all heroes increased by 5% (effectively red
 - Fixed Cloak sometimes getting stuck on the lip of a corner
 - Fixed Cloak issue where you would teleport far shoter than expected
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Seven" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Storm Cloud DPS" />
 @end
 
 - Storm Cloud DPS reduced by 10%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Sinclair" type="hero" />
 @end
 
@@ -211,23 +211,23 @@ content_text: "Bullet Cycle Time for all heroes increased by 5% (effectively red
 - Rabbit Hex detonation delay increased from 0.7 to 0.9
 - Rabbit Hex move speed increased from 22% to 36%
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Can" />
 @end
 
 - Can no longer teleport back to assistant while silenced or cursed
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Warden" type="hero" />
 @end
 
 - Base bullet damage reduced from 17.6 to 17
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Wraith" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Card Trick" />
 @end
 
@@ -238,11 +238,11 @@ content_text: "Bullet Cycle Time for all heroes increased by 5% (effectively red
 
 * Item Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="item" names={["Blood Tribute", "Boundless Spirit", "Cheat Death", "Counterspell", "Disarming Hex", "Divine Barrier", "Ethereal Shift", "Express Shot", "Fortitude", "Guardian Ward", "Inhibitor", "Knockdown", "Lifestrike", "Melee Lifesteal", "Rapid Recharge", "Reactive Barrier", "Rebuttal", "Restorative Shot", "Ricochet", "Rusted Barrel", "Shadow Weave", "Siphon Bullets", "Slowing Hex", "Spellslinger", "Spirit Sap", "Spirit Shielding", "Spirit Snatch", "Spirit Strike", "Split Shot", "Superior Cooldown", "Swift Striker", "Toxic Bullets", "Trophy Collector", "Unstoppable", "Vortex Web", "Weakening Headshot", "Weapon Shielding", "Witchmail"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Blood Tribute" type="item" />
 @end
 
@@ -250,20 +250,20 @@ content_text: "Bullet Cycle Time for all heroes increased by 5% (effectively red
 - No longer grants +125 Bonus Health
 - Now grants +8% Spirit Resist
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Boundless Spirit" type="item" />
 @end
 
 - Percentage spirit bonus increased from 13% to 15%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Cheat Death" type="item" />
 @end
 
 - Now grants Bullet Resistance instead of Spirit Resistance
 - Cooldown reduced from 120s to 100s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Counterspell" type="item" />
 @end
 
@@ -271,104 +271,104 @@ content_text: "Bullet Cycle Time for all heroes increased by 5% (effectively red
 - Now also grants +100 Health and +8 Spirit Power
 - Successful parry now provides +150 Heal
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Disarming Hex" type="item" />
 @end
 
 - Cooldown reduced from 30s to 25s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Divine Barrier" type="item" />
 @end
 
 - Buff duration increased from 5s to 6s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Ethereal Shift" type="item" />
 @end
 
 - Cooldown reduced from 22s to 20s
 - Move Speed while channeling increased from 3.5 to 4
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Express Shot" type="item" />
 @end
 
 - Weapon Damage increased from 150% to 165%
 - Fixed Kinetic Carbine using the primary values rather than secondary values on the item
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Fortitude" type="item" />
 @end
 
 - Regen reduced from 3% to 2%
 - No longer grants +22% Weapon Damage
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Guardian Ward" type="item" />
 @end
 
 - Buff duration increased from 5s to 6s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Inhibitor" type="item" />
 @end
 
 - Now uses the buildup proc mechanic
 - Debuff duration increased from 3s to 4s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Knockdown" type="item" />
 @end
 
 - Now provides +6% Ability Range
 - Cooldown reduced from 40s to 35s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Lifestrike" type="item" />
 @end
 
 - Now has double cooldown when triggered via light melee.
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Melee Lifesteal" type="item" />
 @end
 
 - Now has double cooldown when triggered via light melee
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Rapid Recharge" type="item" />
 @end
 
 - Spirit Power for charged abilities increased from +16 to +20
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Reactive Barrier" type="item" />
 @end
 
 - Spirit Resist increased from +5% to +6%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Rebuttal" type="item" />
 @end
 
 - Bonus Health increased from +50 to +75
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Restorative Shot" type="item" />
 @end
 
 - Heal from heroes increased from 40 to 50
 - Heal from NPCs/Orbs increased from 15 to 20
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Ricochet" type="item" />
 @end
 
 - Fire Rate reduced from 25% to 20%
 - No longer bounces off objectives
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Rusted Barrel" type="item" />
 @end
 
@@ -376,114 +376,114 @@ content_text: "Bullet Cycle Time for all heroes increased by 5% (effectively red
 - Now provides +0.5 Sprint
 - Cooldown reduced from 30s to 25s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Shadow Weave" type="item" />
 @end
 
 - Ambush Fire Rate increased from +30% to +35%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Siphon Bullets" type="item" />
 @end
 
 - Now grants Bullet Resistance instead of Spirit Resistance
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Slowing Hex" type="item" />
 @end
 
 - Now provides +0.5 Sprint
 - Debuff effects stays on for longer so it's easier to see
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Spellslinger" type="item" />
 @end
 
 - Now only activates while in combat
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Spirit Sap" type="item" />
 @end
 
 - Spirit Power reduction increased from -12 to -15
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Spirit Shielding" type="item" />
 @end
 
 - Move Speed bonus increased from 1 to 1.5
 - Cooldown reduced from 40s to 35s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Spirit Snatch" type="item" />
 @end
 
 - Now has double cooldown when triggered via light melee.
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Spirit Strike" type="item" />
 @end
 
 - Now has double cooldown when triggered via light melee.
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Split Shot" type="item" />
 @end
 
 - Duration increased from 4.5s to 5s
 - Cooldown reduced from 16s to 14s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Superior Cooldown" type="item" />
 @end
 
 - Ability Cooldown Reduction increased from 24% to 25%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Swift Striker" type="item" />
 @end
 
 - Fire Rate reduced from 20% to 18%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Toxic Bullets" type="item" />
 @end
 
 - Buildup is now 15% harder
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Trophy Collector" type="item" />
 @end
 
 - Souls per minute increased from 20 to 23
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Unstoppable" type="item" />
 @end
 
 - Fixed Silencer’s passive interaction during this state
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Vortex Web" type="item" />
 @end
 
 - Now provides +1 Sprint
 - Capture Radius increased from 11m to 12m
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Weakening Headshot" type="item" />
 @end
 
 - No longer has a 3s cooldown
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Weapon Shielding" type="item" />
 @end
 
 - Move Speed bonus increased from 1 to 1.5
 - Cooldown reduced from 40s to 35s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Witchmail" type="item" />
 @end
 

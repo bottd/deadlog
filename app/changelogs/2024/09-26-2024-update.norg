@@ -170,22 +170,22 @@ subway entrance connection
 
 * Hero Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="hero" names={["Abrams", "Bebop", "Dynamo", "Grey Talon", "Haze", "Ivy", "Kelvin", "Lady Geist", "McGinnis", "Mo &amp; Krill", "Paradox", "Pocket", "Seven", "Shiv", "Vindicta", "Viscous", "Warden", "Yamato"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Abrams" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Infernal Resilience" />
 @end
 
 - Infernal Resilience reduced from 16% to 15%
 - Infernal Resilience T3 reduced from 9% to 8%
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Siphon Life" />
 @end
 
@@ -193,33 +193,33 @@ subway entrance connection
 
 - Fixed Cases where Shoulder Charge was unexpectedly 'slamming' in to walls and stairs
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Bebop" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Hook" />
 @end
 
 - Hook range reduced from 30m to 25m
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Hyper Beam" />
 @end
 
 - Hyper Beam duration spirit scaling reduced from 0.08 to 0.06
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Dynamo" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Singularity" />
 @end
 
 - Singularity radius reduced from 8m to 7m
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Grey Talon" type="hero" />
 @end
 
@@ -227,7 +227,7 @@ subway entrance connection
 - Rain of Arrows can be alternate-casted to remain near the ground
 - Fixed air dash during Rain of Arrows going half the distance
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Guided Owl" />
 @end
 
@@ -235,13 +235,13 @@ subway entrance connection
 
 - Guided Owl: very slight turn rate improvements
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Guided Owl" />
 @end
 
 - Guided Owl radius increased from 12m to 13m
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Haze" type="hero" />
 @end
 
@@ -254,17 +254,17 @@ subway entrance connection
 - Bullet Dance evasion reduced from 50% to 25%
 - Bullet Dance fire rate reduced from 25% to 15%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Ivy" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Stone Form" />
 @end
 
 - Stone Form now works against airborne targets
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Kudzu Bomb" />
 @end
 
@@ -274,11 +274,11 @@ subway entrance connection
 - Fixed clicking noise when flying while disarmed
 - Fixed being able to Stone Form during the Take Flight animation to circumvent the vulnerable cast period
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Kelvin" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Headshot" />
 @end
 
@@ -286,7 +286,7 @@ subway entrance connection
 
 - Bullet damage growth reduced from 1.2 to 0.9
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Arctic Beam" />
 @end
 
@@ -294,17 +294,17 @@ subway entrance connection
 
 - Moving through breakables while on Ice Path now destroys them
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Lady Geist" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Life Drain" />
 @end
 
 - Life Drain cooldown reduced from 42s to 30s
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Malice" />
 @end
 
@@ -313,19 +313,19 @@ subway entrance connection
 
 - Fixed Life Drain not healing extra based on amplifications (like Soul Shredder and Malice stacks)
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Sprint" />
 @end
 
 - Sprint increased from 1 to 1.5
 
-@inline svelte
+@embed svelte
 <EntityHeading name="McGinnis" type="hero" />
 @end
 
 - Fixed looking up circumventing the min range on Wall and Barrage
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Can" />
 @end
 
@@ -333,11 +333,11 @@ subway entrance connection
 
 - Fixed various issues with Spectral Wall indoors and near walls spawning the wrong number of segments
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Mo &amp; Krill" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Combo" />
 @end
 
@@ -346,7 +346,7 @@ subway entrance connection
 
 - Combo kill trigger now has a 3s buffer window to get credit
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Sand Blast" />
 @end
 
@@ -355,17 +355,17 @@ subway entrance connection
 
 - Burrow base speed increased from 3 to 4
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Burrow" />
 @end
 
 - Burrow T3 speed reduced from +3 to +2
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Paradox" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Pulse Grenade" />
 @end
 
@@ -373,27 +373,27 @@ subway entrance connection
 
 - Fixed being unable to be damaged by multiple Time Walls
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Pocket" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Affliction" />
 @end
 
 - Affliction no longer goes through walls, now respects line of sight
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Barrage" />
 @end
 
 - Barrage T3 reduced from +5% to +4%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Seven" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Static Charge" />
 @end
 
@@ -403,19 +403,19 @@ subway entrance connection
 
 - Static Charge can now be alternate-casted on self (does not stun you)
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Static Charge" />
 @end
 
 - Static Charge now respects line of sight
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Lightning Ball" />
 @end
 
 - Lightning Ball T3 now also gives +1m Radius
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Shiv" type="hero" />
 @end
 
@@ -423,19 +423,19 @@ subway entrance connection
 - Killing Blow Rage buildup per spirit damage reduced from 0.02 to 0.013
 - Killing Blow Rage drain rate increased from 0.3 to 0.35
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Killing Blow Full Rage Bonus Damage" />
 @end
 
 - Killing Blow Full Rage Bonus Damage reduced from 20% to 15%
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Killing Blow" />
 @end
 
 - Killing Blow T2 increased from 5% to 10%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Vindicta" type="hero" />
 @end
 
@@ -445,7 +445,7 @@ subway entrance connection
 - Fixed Flight ending if you touch the ground
 - Low HP indication now also shows up while unscoped
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Assassinate Base" />
 @end
 
@@ -453,13 +453,13 @@ subway entrance connection
 
 - Assassinate zoom level reduced a little bit
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Flight" />
 @end
 
 - Flight duration spirit scaling reduced from 0.2 to 0.15
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Viscous" type="hero" />
 @end
 
@@ -467,7 +467,7 @@ subway entrance connection
 - Puddle Punch enemy warning time increased from 0.35s to 0.45s
 - Bullet Damage reduced from 13 to 12
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Can" />
 @end
 
@@ -476,25 +476,25 @@ subway entrance connection
 - Fixed Phantom Strike not positioning you correctly when using it with your Goo Ball
 - Splatter post cast delay reduced from 0.5s to 0.2s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Warden" type="hero" />
 @end
 
 - Binding Word escape range and escape time increased by 15%
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Last Stand" />
 @end
 
 - Last Stand spirit scaling increased from 0.9 to 1.2
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Yamato" type="hero" />
 @end
 
 - Bullet damage growth reduced from 0.5 to 0.45
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Crimson Slash" />
 @end
 
@@ -502,7 +502,7 @@ subway entrance connection
 
 - Fixed various issues with Flying Strike pathing
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Shadow Transformation" />
 @end
 
@@ -512,11 +512,11 @@ subway entrance connection
 
 * Item Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="item" names={["Ammo Scavenger", "Berserker", "Bullet Armor", "Colossus", "Decay", "Divine Barrier", "Echo Shard", "Escalating Exposure", "Escalating Resilience", "Extra Stamina", "Fortitude", "Frenzy", "Headhunter", "Headshot Booster", "Improved Spirit", "Intensifying Magazine", "Kinetic Dash", "Knockdown", "Lifestrike", "Magic Carpet", "Melee Charge", "Melee Lifesteal", "Monster Rounds", "Mystic Shot", "Quicksilver Reload", "Rapid Recharge", "Refresher", "Restorative Locket", "Restorative Shot", "Return Fire", "Ricochet", "Shadow Weave", "Sharpshooter", "Silencer", "Siphon Bullets", "Soul Rebirth", "Spirit Strike", "Spiritual Overflow", "Titanic Magazine", "Torment Pulse", "Unstoppable", "Vampiric Burst", "Veil Walker", "Warp Stone"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Ammo Scavenger" type="item" />
 @end
 
@@ -525,74 +525,74 @@ subway entrance connection
 - Duration reduced from 35s to 30s
 - Max stacks reduced from 12 to 10
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Berserker" type="item" />
 @end
 
 - Damage required per stack reduced from 110 to 100
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Bullet Armor" type="item" />
 @end
 
 - Bullet Resist increased from 20% to 25%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Colossus" type="item" />
 @end
 
 - Slow radius increased from 12m to 14m
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Decay" type="item" />
 @end
 
 - Cooldown increased from 32s to 45s
 - Cast range scaling reduced from 0.2 to 0.16
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Divine Barrier" type="item" />
 @end
 
 - Bonus Health reduced from 75 to 50
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Echo Shard" type="item" />
 @end
 
 - Now has a 0.3s cast delay (like Refresher)
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Escalating Exposure" type="item" />
 @end
 
 - Fixed the bonus damage being reduced twice by resistance
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Escalating Resilience" type="item" />
 @end
 
 - Fire Rate reduced from 14% to 12%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Extra Stamina" type="item" />
 @end
 
 - Stamina Recovery increased from 10% to 14%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Fortitude" type="item" />
 @end
 
 - Bonus Health increased from 275 to 300
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Frenzy" type="item" />
 @end
 
 - Low HP Spirit Resist changed to Bullet Resist
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Headhunter" type="item" />
 @end
 
@@ -601,109 +601,109 @@ subway entrance connection
 - Now grants +5% Fire Rate
 - Fixed not being affected by cooldown reduction
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Headshot Booster" type="item" />
 @end
 
 - Fire Rate reduced from +5% to +4%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Improved Spirit" type="item" />
 @end
 
 - Spirit Power increased from +21 to +23
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Intensifying Magazine" type="item" />
 @end
 
 - Max Weapon Damage reduced from 75% to 60%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Kinetic Dash" type="item" />
 @end
 
 - Fire Rate reduced from 25% to 20%
 - Fire Rate max duration reduced from 8s to 7s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Knockdown" type="item" />
 @end
 
 - Now causes enemies to fall down faster
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Lifestrike" type="item" />
 @end
 
 - Cooldown reduced from 5.25s to 5s
 - Fixed proccing heal more than once when hitting multiple targets
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Magic Carpet" type="item" />
 @end
 
 - Fixed it consuming stamina when jumping off
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Melee Charge" type="item" />
 @end
 
 - Impact now increases your ammo for that mag instead of reloading (so if your ammo is 2/8, it becomes 10/8). Reloads you instantly if in the middle of a reload.
 - Cooldown increased from 8.5s to 10s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Melee Lifesteal" type="item" />
 @end
 
 - Melee Damage reduced from 13% to 12%
 - Heal vs non-heroes reduced from 40% to 30%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Monster Rounds" type="item" />
 @end
 
 - Bullet Resist vs NPCs reduced from 35% to 30%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Mystic Shot" type="item" />
 @end
 
 - Damage spirit scaling increased from 0.6 to 0.8
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Quicksilver Reload" type="item" />
 @end
 
 - No longer triggers if your ammo is at max value already
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Rapid Recharge" type="item" />
 @end
 
 - Faster Time Between Charges increased from +55% to +65%
 - Cooldown Reduction For Charged Abilities increased from +25% to 30%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Refresher" type="item" />
 @end
 
 - Bullet Resist increased from 8% to 16%
 - Spirit Resist reduced from 16% to 8%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Restorative Locket" type="item" />
 @end
 
 - No longer requires max stacks to restore a stamina point
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Restorative Shot" type="item" />
 @end
 
 - Cooldown reduced from 6.2s to 5.5s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Return Fire" type="item" />
 @end
 
@@ -713,32 +713,32 @@ subway entrance connection
 - Spirit Power increased from +7 to +9
 - Fixed Ricochet'd bullets not returning the right amount of damage
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Ricochet" type="item" />
 @end
 
 - Fire Rate reduced from 12% to 10%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Shadow Weave" type="item" />
 @end
 
 - Now a T4 Weapon Item
 - Moved to T4 Weapon
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Sharpshooter" type="item" />
 @end
 
 - Fixed falloff reduction not working properly
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Silencer" type="item" />
 @end
 
 - Now grants +12 Spirit
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Siphon Bullets" type="item" />
 @end
 
@@ -747,56 +747,56 @@ subway entrance connection
 - No longer grants +28% Weapon Damage
 - Now grants +18% Bullet Resistance
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Soul Rebirth" type="item" />
 @end
 
 - Increases base respawn rate by +15s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Spirit Strike" type="item" />
 @end
 
 - No longer grants +0.8 Health Regen
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Spiritual Overflow" type="item" />
 @end
 
 - Now grants +250 Bullet Shield
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Titanic Magazine" type="item" />
 @end
 
 - Ammo increased from 100% to 120%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Torment Pulse" type="item" />
 @end
 
 - Health Bonus increased from 140 to 160
 - Spirit Power damage scaling increased from 0.25 to 0.33
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Unstoppable" type="item" />
 @end
 
 - Can no longer be cast during channels
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Vampiric Burst" type="item" />
 @end
 
 - Fixed casting it interrupting sliding
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Veil Walker" type="item" />
 @end
 
 - No longer grants +20% Fire Rate
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Warp Stone" type="item" />
 @end
 

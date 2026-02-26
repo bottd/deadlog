@@ -20,17 +20,17 @@ content_text: Fixed spectating ending 1 minute before the game ended Fixed Hero 
 
 * Hero Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="hero" names={["Ivy", "Shiv"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Ivy" type="hero" />
 @end
 
 - Restored previous audio processing
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Air Drop" />
 @end
 
@@ -40,7 +40,7 @@ content_text: Fixed spectating ending 1 minute before the game ended Fixed Hero 
 - Air Drop bomb no longer silences in the base (now part of t3)
 - Air Drop bomb slow duration increased from 3s to 4.5s
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Air Drop" />
 @end
 
@@ -49,14 +49,14 @@ content_text: Fixed spectating ending 1 minute before the game ended Fixed Hero 
 - Air Drop T3 no longer extends debuff duration by +2s
 - Air Drop T3 silences enemies for 4.5s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Shiv" type="hero" />
 @end
 
 - Gun base damage reduced from 6.3 to 5.7
 - Serrated Knives collision size reduced by 10%
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Serrated Knives" />
 @end
 
@@ -64,19 +64,19 @@ content_text: Fixed spectating ending 1 minute before the game ended Fixed Hero 
 
 - Serrated Knives base damage reduced from 75 to 35
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Serrated Knives" />
 @end
 
 - Serrated Knives spirit scaling reduced from 1 to 0.6
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Serrated Knives DPS" />
 @end
 
 - Serrated Knives DPS spirit scaling reduced from 0.2 to 0.16
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Serrated Knives" />
 @end
 

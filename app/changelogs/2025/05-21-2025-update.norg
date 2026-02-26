@@ -29,11 +29,11 @@ content_text: "Troopers will now only flinch from player damage if it is a heads
 
 * Item Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="item" names={["Decay", "Express Shot", "Frenzy", "Headhunter", "Headshot Booster", "Siphon Bullets", "Spirit Rend", "Superior Cooldown"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Decay" type="item" />
 @end
 
@@ -43,20 +43,20 @@ content_text: "Troopers will now only flinch from player damage if it is a heads
 - Cooldown increased from 30s to 36s
 - Healing Reduction increased from -35% to -40%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Express Shot" type="item" />
 @end
 
 - Weapon Damage increased from 125% to 150%
 - Now does reduced damage for non-primary gun damage (alt fires, carbine), 150% to 75%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Frenzy" type="item" />
 @end
 
 - Active Spirit Resistance reduced from 40% to 30%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Headhunter" type="item" />
 @end
 
@@ -65,13 +65,13 @@ content_text: "Troopers will now only flinch from player damage if it is a heads
 - Bonus damage reduced from 120 to 100
 - Bonus damage now scales with spirit power (0.3)
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Headshot Booster" type="item" />
 @end
 
 - Health reduced from 65 to 40
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Siphon Bullets" type="item" />
 @end
 
@@ -79,13 +79,13 @@ content_text: "Troopers will now only flinch from player damage if it is a heads
 - Spirit Resistance reduced from 12% to 10%
 - Fixed the cooldown not being consumed when blocked by Plated Armor
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Spirit Rend" type="item" />
 @end
 
 - Fixed being able to get 2 stacks without using the cooldown
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Superior Cooldown" type="item" />
 @end
 

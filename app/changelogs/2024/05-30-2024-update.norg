@@ -83,26 +83,26 @@ content_text: "Bots will now replace a human player if the player has been disco
 
 * Hero Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="hero" names={["Abrams", "Bebop", "Dynamo", "Grey Talon", "Haze", "Infernus", "Ivy", "Kelvin", "Lady Geist", "McGinnis", "Mo &amp; Krill", "Paradox", "Pocket", "Vindicta", "Warden", "Wraith", "Yamato"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Abrams" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Seismic Impact" />
 @end
 
 - Seismic Impact is now faster to play out
 - Seismic Impact now has a very brief busy state upon landing
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Bebop" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Hyperbeam" />
 @end
 
@@ -110,33 +110,33 @@ content_text: "Bots will now replace a human player if the player has been disco
 
 - Base bullet armor increased from 20% to 24%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Dynamo" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Quantum Entanglement" />
 @end
 
 - Quantum Entanglement fire rate bonus reduced from 35% to 30%
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Singularity" />
 @end
 
 - Singularity T1 range increased from +2m to +3m
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Grey Talon" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Charge Shot" />
 @end
 
 - Charge Shot spirit scaling improved from 1 to 1.3
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Guided Owl" />
 @end
 
@@ -145,35 +145,35 @@ content_text: "Bots will now replace a human player if the player has been disco
 
 - Guided Owl player collision sized increased to regular sizes for these kind of projectiles
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Haze" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Sleep Dagger" />
 @end
 
 - Sleep Dagger cooldown increased from 27 to 29
 - Sleep Dagger spirit scaling increased from 2.2 to 2.5
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Smoke Bomb" />
 @end
 
 - Smoke Bomb T2 and T3 swapped
 - Smoke Bomb T3 cooldown improved from -20s to -25s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Infernus" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Afterburn" />
 @end
 
 - Afterburn T3 reduced from +40 dps to +35
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Flame Dash" />
 @end
 
@@ -182,23 +182,23 @@ content_text: "Bots will now replace a human player if the player has been disco
 - Flame Dash T2 increased from +40 DPS to +45
 - Flame Dash T3 increased from -15s to -20s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Ivy" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Kudzu Bomb" />
 @end
 
 - Kudzu Bomb T3 improved from +50 DPS to +60
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Kelvin" type="hero" />
 @end
 
 - Base health increased from 550 to 600
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Frost Grenade" />
 @end
 
@@ -207,53 +207,53 @@ content_text: "Bots will now replace a human player if the player has been disco
 - Frost Grenade charge time reduced from 10s to 8s
 - Players can now slide down the Ice Path
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Ice Path" />
 @end
 
 - Ice Path slow resistance increased from 50% to 60%
 - Ice Path T3 max spirit increased from 40 to 55
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Lady Geist" type="hero" />
 @end
 
 - Soul Exchange cast time reduced from 0.5 to 0.2
 
-@inline svelte
+@embed svelte
 <EntityHeading name="McGinnis" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Rocket Barrage" />
 @end
 
 - Rocket Barrage now does less damage to objectives similar to other ability damage
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Mo &amp; Krill" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Sand Blast" />
 @end
 
 - Sand Blast no longer affects bosses
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Paradox" type="hero" />
 @end
 
 - Bullet base damage reduced from 8 to 7.2 (indirectly affects Kinetic Carbine)
 - Bullet growth reduced from 0.48 to 0.42 (indirectly affects Kinetic Carbine)
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Kinetic Carbine" />
 @end
 
 - Kinetic Carbine damage reduced from +100% to +85%
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Paradoxical Swap" />
 @end
 
@@ -261,11 +261,11 @@ content_text: "Bots will now replace a human player if the player has been disco
 
 - Fixed Paradoxical Swap being able to grab multiple heroes if they were really close to each other
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Pocket" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Barrage" />
 @end
 
@@ -273,20 +273,20 @@ content_text: "Bots will now replace a human player if the player has been disco
 - Barrage cooldown reduced from 35 to 30
 - Barrage T3 increased from 100% to 150%
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Flying Cloak" />
 @end
 
 - Flying Cloak speed increased by 7%
 - Flying Cloak T3 increased from +5 damage to +7
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Vindicta" type="hero" />
 @end
 
 - Now has -10% Base Bullet Resist
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Flight" />
 @end
 
@@ -295,37 +295,37 @@ content_text: "Bots will now replace a human player if the player has been disco
 - Flight falloff damage increase reduced from +20% to +10%
 - Fixed flight spirit damage being able to pierce Metal Skin
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Warden" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Willpower" />
 @end
 
 - Willpower T1 improved from +15% to +20%
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Last Stand" />
 @end
 
 - Last Stand duration increased from 5s to 6s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Wraith" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Project Mind" />
 @end
 
 - Project Mind cooldown reduced from 50s to 45s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Yamato" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Power Slash" />
 @end
 
@@ -338,11 +338,11 @@ content_text: "Bots will now replace a human player if the player has been disco
 
 * Item Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="item" names={["Alchemical Fire", "Boundless Spirit", "Decay", "Enduring Speed", "Enduring Spirit", "Glass Cannon", "Headshot Booster", "Knockdown", "Leech", "Lifestrike", "Mystic Reverb", "Refresher", "Restorative Locket", "Shadow Weave", "Silencer", "Slowing Hex", "Spirit Strike", "Spiritual Overflow", "Suppressor", "Swift Striker", "Toxic Bullets", "Vampiric Burst"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Alchemical Fire" type="item" />
 @end
 
@@ -350,128 +350,128 @@ content_text: "Bots will now replace a human player if the player has been disco
 - Bullet Shield Health increased from +150 to +175
 - Cooldown reduced from 37 to 34
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Boundless Spirit" type="item" />
 @end
 
 - Spirit increased from +40 to +45
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Decay" type="item" />
 @end
 
 - Cast range now scales with Spirit (0.2 factor)
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Enduring Speed" type="item" />
 @end
 
 - Move Speed increased from +1.25 to +1.4
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Enduring Spirit" type="item" />
 @end
 
 - No longer provides +1 Sprint
 - +10% Spirit Lifesteal
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Glass Cannon" type="item" />
 @end
 
 - Weapon Damage reduced from +70% to +65%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Headshot Booster" type="item" />
 @end
 
 - Cooldown reduced from 9s to 5s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Knockdown" type="item" />
 @end
 
 - Cooldown reduced from 50s to 40s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Leech" type="item" />
 @end
 
 - No longer gives +8 Spirit
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Lifestrike" type="item" />
 @end
 
 - Melee damage increased from +35% to +40%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Mystic Reverb" type="item" />
 @end
 
 - No longer stops the echo if the target dies
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Refresher" type="item" />
 @end
 
 - Spirit Resist increased from +10% to +12%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Restorative Locket" type="item" />
 @end
 
 - Spirit increased from +4 to +5
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Shadow Weave" type="item" />
 @end
 
 - Invis Sprint increased from +3 to +5
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Silencer" type="item" />
 @end
 
 - Ammo increased from +15% to +20%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Slowing Hex" type="item" />
 @end
 
 - Cooldown increased from 25 to 27
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Spirit Strike" type="item" />
 @end
 
 - Health Regen increased from 0.7 to 1
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Spiritual Overflow" type="item" />
 @end
 
 - Spirit bonus increased from 30 to 35
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Suppressor" type="item" />
 @end
 
 - Fire rate slow increased from 30% to 35%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Swift Striker" type="item" />
 @end
 
 - Bullet Resist penalty reduced from -8% to -7%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Toxic Bullets" type="item" />
 @end
 
 - Now deals half damage against troopers and neutrals
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Vampiric Burst" type="item" />
 @end
 

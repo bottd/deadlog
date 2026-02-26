@@ -19,11 +19,11 @@ content_text: Replaced the recent soul duplication hotfix with new behavior. Pre
 
 * Item Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="item" names={["Veil Walker"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Veil Walker" type="item" />
 @end
 

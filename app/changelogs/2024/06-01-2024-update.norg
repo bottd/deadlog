@@ -13,11 +13,11 @@ content_text: Return Fire No longer applies procs Bullet damage return increased
 
 * Item Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="item" names={["Return Fire"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Return Fire" type="item" />
 @end
 

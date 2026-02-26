@@ -22,21 +22,21 @@ content_text: Urn now reveals you after 20s from initial pickup Urn sprint chang
 
 * Hero Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="hero" names={["Seven", "Shiv"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Seven" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Lightning Ball" />
 @end
 
 - Lightning Ball T3 reduced from +2m Radius to +1m
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Shiv" type="hero" />
 @end
 

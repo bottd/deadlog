@@ -13,17 +13,17 @@ content_text: Mirage Tornado lift duration reduced from 1.5s to 1.2s Tornado T1 
 
 * Hero Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="hero" names={["Mirage"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Mirage" type="hero" />
 @end
 
 - Tornado lift duration reduced from 1.5s to 1.2s
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Tornado" />
 @end
 
@@ -31,7 +31,7 @@ content_text: Mirage Tornado lift duration reduced from 1.5s to 1.2s Tornado T1 
 
 - Tornado base bullet evasion reduced from 30% to 25%
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Djinn's Mark" />
 @end
 

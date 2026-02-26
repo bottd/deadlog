@@ -20,15 +20,15 @@ content_text: Torment Pulse now scales with cooldown again Torment Pulse Spirit 
 
 * Hero Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="hero" names={["Bebop", "Vindicta"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Bebop" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Sticky Bomb" />
 @end
 
@@ -39,19 +39,19 @@ content_text: Torment Pulse now scales with cooldown again Torment Pulse Spirit 
 - Fixed some hook bugs causing it to sometimes not grab heroes near cover but still in collision range
 - Hook collision against troopers reduced to 12 (default is 33)
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Hook" />
 @end
 
 - Hook no longer kills troopers (so you can bomb/uppercut/melee them)
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Hyper Beam" />
 @end
 
 - Hyper Beam duration increased from 10s to 11s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Vindicta" type="hero" />
 @end
 

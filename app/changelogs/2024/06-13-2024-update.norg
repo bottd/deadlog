@@ -88,36 +88,36 @@ content_text: "Voice/Text chat is now opt-in. There is a prompt pre-match for jo
 
 * Hero Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="hero" names={["Abrams", "Bebop", "Dynamo", "Grey Talon", "Haze", "Ivy", "Kelvin", "Lash", "McGinnis", "Mo &amp; Krill", "Seven", "Yamato"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Abrams" type="hero" />
 @end
 
 - Base health regen reduced from 2 to 1
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Infernal Resilience" />
 @end
 
 - Infernal Resilience T1 reduced from +2 HP Regen to +1.5
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Bebop" type="hero" />
 @end
 
 - Sticky Bomb base damage reduced from 130 to 120
 - Hook grab radius reduced from 40 inches to 36
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Hyper Beam" />
 @end
 
 - Hyper Beam movement and dash slow increased from 30% to 40%
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Hyper Beam DPS" />
 @end
 
@@ -125,38 +125,38 @@ content_text: "Voice/Text chat is now opt-in. There is a prompt pre-match for jo
 
 - Hyper Beam tracking speed increased by 10%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Dynamo" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Singularity" />
 @end
 
 - Singularity radius reduced from 10m to 9m
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Grey Talon" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Guided Owl" />
 @end
 
 - Guided Owl cooldown reduced from 130s to 120s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Haze" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Sleep Dagger" />
 @end
 
 - Sleep Dagger damage Spirit growth increased from 2.5 to 2.8
 - Sleep Dagger T3 is now -12% Bullet Resistance for 6 seconds
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Smoke Bomb" />
 @end
 
@@ -164,96 +164,96 @@ content_text: "Voice/Text chat is now opt-in. There is a prompt pre-match for jo
 
 - Smoke Bomb causes your footsteps to be silent
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Ivy" type="hero" />
 @end
 
 - Watcher's Covenant replicated healing reduced from 55% to 45%
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Watcher's Covenant" />
 @end
 
 - Watcher's Covenant no longer provides +2 m/s in the base ability
 - Watcher's Covenant T2 movement bonus increased from +2 m/s to +3
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Kelvin" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Frozen Shelter" />
 @end
 
 - Frozen Shelter movement speed slow increased from 25% to 35%
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Can" />
 @end
 
 - Can now dismiss Frozen Shelter while channeling other abilities (Arctic Beam)
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Lash" type="hero" />
 @end
 
 - Ground Strike base damage reduced from 110 to 90
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Ground Strike" />
 @end
 
 - Ground Strike damage per meter increased from 6 to 6.75
 - Ground Strike now reduced scaling after 25m height to 4.5
 
-@inline svelte
+@embed svelte
 <EntityHeading name="McGinnis" type="hero" />
 @end
 
 - Mini Turret charge delay reduced from 10s to 8s
 - Fixed Echo Shard to be compatible with Spectral Wall again (Activating echo shard resets the ability so you can cast it again and not have to cancel your first one. After casting the 2nd, using cancel will remove the first wall first)
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Can" />
 @end
 
 - Can now dismiss Spectral Wall while channeling other abilities (Heavy Barrage)
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Mo &amp; Krill" type="hero" />
 @end
 
 - HP Growth per boon reduced from 48 to 42
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Combo" />
 @end
 
 - Combo now grants 25 max hp each time a target dies during it
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Seven" type="hero" />
 @end
 
 - Storm Cloud initial radius increased from 10m to 12m
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Storm Cloud" />
 @end
 
 - Storm Cloud T2 bonus radius reduced from 12m to 10m
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Yamato" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Power Slash" />
 @end
 
 - Power Slash T3 bonus damage reduced from +210 to +200
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Shadow Transformation" />
 @end
 
@@ -261,48 +261,48 @@ content_text: "Voice/Text chat is now opt-in. There is a prompt pre-match for jo
 
 * Item Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="item" names={["Alchemical Fire", "Boundless Spirit", "Bullet Resist Shredder", "Burst Fire", "Cold Front", "Crippling Headshot", "Divine Barrier", "Escalating Resilience", "Extra Health", "Fleetfoot", "Headshot Booster", "Healbane", "Healing Booster", "Majestic Leap", "Mystic Burst", "Mystic Slow", "Reactive Barrier", "Refresher", "Rescue Beam", "Swift Striker", "Tesla Bullets", "Vampiric Burst", "Warp Stone"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Alchemical Fire" type="item" />
 @end
 
 - Cooldown reduced from 34s to 30s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Boundless Spirit" type="item" />
 @end
 
 - Spirit Power increased from +50 to +55
 - Now grants +175 Health
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Bullet Resist Shredder" type="item" />
 @end
 
 - Debuff duration increased from 4s to 5s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Burst Fire" type="item" />
 @end
 
 - Cooldown reduced from 10s to 9s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Cold Front" type="item" />
 @end
 
 - Time to expand reduced from 1.5s to 0.75s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Crippling Headshot" type="item" />
 @end
 
 - Bullet and Spirit resistance reduction reduced from 35% to 30%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Divine Barrier" type="item" />
 @end
 
@@ -311,7 +311,7 @@ content_text: "Voice/Text chat is now opt-in. There is a prompt pre-match for jo
 - Cooldown increased from 20 to 30
 - Active Move Speed reduced from 3 to 2
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Escalating Resilience" type="item" />
 @end
 
@@ -319,45 +319,45 @@ content_text: "Voice/Text chat is now opt-in. There is a prompt pre-match for jo
 - Duration reduced from 15s to 10s
 - Max resistance reduced from 36% to 30%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Extra Health" type="item" />
 @end
 
 - Health increased from 125 to 135
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Fleetfoot" type="item" />
 @end
 
 - Cooldown increased from 20s to 22s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Headshot Booster" type="item" />
 @end
 
 - Bonus headshot damage reduced from 50 to 45
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Healbane" type="item" />
 @end
 
 - Bonus HP increased from 50 to 75
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Healing Booster" type="item" />
 @end
 
 - No longer grants +50 HP
 - Now grants +8% Spirit Resist
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Majestic Leap" type="item" />
 @end
 
 - Cooldown increased from 15s to 20s
 - Drop down speed reduced from 51 to 36
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Mystic Burst" type="item" />
 @end
 
@@ -366,50 +366,50 @@ content_text: "Voice/Text chat is now opt-in. There is a prompt pre-match for jo
 - Now grants +40 Spirit Shield
 - Now grants +6% Weapon Power
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Mystic Slow" type="item" />
 @end
 
 - Bonus HP increased from +75 to +100
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Reactive Barrier" type="item" />
 @end
 
 - Cooldown reduced from 25s to 20s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Refresher" type="item" />
 @end
 
 - Now has a 0.3s cast time
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Rescue Beam" type="item" />
 @end
 
 - No longer grants movement speed
 - Active has been reworked. Now channels for 3 seconds, healing you and the target for up to 25% of Max HP. If you click the ally again during that time, you will pull them to you. Has 40m cast range and 45s cooldown. Can be self cast.
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Swift Striker" type="item" />
 @end
 
 - Armor penalty reduced from -7% to -6%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Tesla Bullets" type="item" />
 @end
 
 - Internal cooldown reduced from 0.4s to 0.35s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Vampiric Burst" type="item" />
 @end
 
 - Lifesteal increased from 70% to 80%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Warp Stone" type="item" />
 @end
 

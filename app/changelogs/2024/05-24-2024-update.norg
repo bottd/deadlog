@@ -18,11 +18,11 @@ content_text: "Withering Whip: No longer has +1 Stamina Withering Whip: Duration
 
 * Item Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="item" names={["Decay"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Decay" type="item" />
 @end
 

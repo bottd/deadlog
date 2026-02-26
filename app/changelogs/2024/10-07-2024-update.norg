@@ -16,15 +16,15 @@ content_text: Fixed various cases where you could target/select units behind wal
 
 * Hero Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="hero" names={["Wraith"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Wraith" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Card Trick Spirit" />
 @end
 
@@ -32,11 +32,11 @@ content_text: Fixed various cases where you could target/select units behind wal
 
 * Item Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="item" names={["Shadow Weave"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Shadow Weave" type="item" />
 @end
 

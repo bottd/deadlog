@@ -19,11 +19,11 @@ content_text: "Various adjustments to orb spawning behavior (a bit less horizont
 
 * Hero Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="hero" names={["Viscous"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Viscous" type="hero" />
 @end
 
@@ -34,13 +34,13 @@ content_text: "Various adjustments to orb spawning behavior (a bit less horizont
 - Fixed Puddle Punch being able to target behind puddle
 - Fixed Puddle Punch using Guardians as a surface to punch from
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Puddle Punch Range" />
 @end
 
 - Puddle Punch Range reduced from 70m to 60m
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Splatter" />
 @end
 

@@ -13,11 +13,11 @@ content_text: Restorative Locket Spirit Resist reduced from 10% to 8% Cooldown i
 
 * Item Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="item" names={["Restorative Locket"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Restorative Locket" type="item" />
 @end
 

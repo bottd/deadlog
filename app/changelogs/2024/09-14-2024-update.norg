@@ -13,15 +13,15 @@ content_text: Bebop Hyper Beam cooldown increased from 117 to 130 Hyper Beam T1 
 
 * Hero Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="hero" names={["Bebop", "McGinnis"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Bebop" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Hyper Beam" />
 @end
 
@@ -30,24 +30,24 @@ content_text: Bebop Hyper Beam cooldown increased from 117 to 130 Hyper Beam T1 
 
 - Hyper Beam end radius reduced from 5m to 4m
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Hyper Beam" />
 @end
 
 - Hyper Beam slow reduced from 40% to 30%
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Hyper Beam DPS" />
 @end
 
 - Hyper Beam DPS reduced from 220 to 205
 - Hyper Beam DPS spirit scaling reduced from 3 to 2.7
 
-@inline svelte
+@embed svelte
 <EntityHeading name="McGinnis" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Medicinal Specter" />
 @end
 
@@ -55,11 +55,11 @@ content_text: Bebop Hyper Beam cooldown increased from 117 to 130 Hyper Beam T1 
 
 * Item Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="item" names={["Ammo Scavenger"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Ammo Scavenger" type="item" />
 @end
 

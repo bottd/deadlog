@@ -156,40 +156,40 @@ dynamo 04
 
 * Hero Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="hero" names={["Abrams", "Bebop", "Dynamo", "Grey Talon", "Haze", "Infernus", "Ivy", "Kelvin", "Lady Geist", "Lash", "McGinnis", "Mo &amp; Krill", "Paradox", "Pocket", "Seven", "Shiv", "Vindicta", "Viscous", "Warden", "Wraith", "Yamato"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Abrams" type="hero" />
 @end
 
 - Fixed Seismic Impact getting stuck on ceilings like in the mid boss room
 - Shoulder Charge turn rate reduced a bit
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Infernal Resilience" />
 @end
 
 - Infernal Resilience reduced from 17% to 16%
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Shoulder Charge" />
 @end
 
 - Shoulder Charge stun time reduced from 1s to 0.85s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Bebop" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Uppercut" />
 @end
 
 - Uppercut no longer roots your hero during cast time
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Can" />
 @end
 
@@ -197,42 +197,42 @@ dynamo 04
 
 - Reverted recent change to make hook have an alternate cast mode to pierce through allies/enemies
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Hook" />
 @end
 
 - Hook range reduced from 35m to 30m
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Hyper Beam" />
 @end
 
 - Hyper Beam now does splash damage around a 5m area the beam connects to on the ground (can be used to fish heroes out of cover in some areas)
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Dynamo" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Rejuvenating Aurora" />
 @end
 
 - Rejuvenating Aurora no longer gets canceled when stamina is used
 - Rejuvenating Aurora T3 reduced from 4% to 3.8%
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Kinetic Pulse" />
 @end
 
 - Kinetic Pulse T1 reduced from 40% slow to 35%
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Quantum Entanglement" />
 @end
 
 - Quantum Entanglement cooldown increased from 11s to 12s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Grey Talon" type="hero" />
 @end
 
@@ -242,47 +242,47 @@ dynamo 04
 - Rain of Arrows T2 Weapon Damage reduced from +7 to +5
 - Bullet damage growth per boon increased from +1.46 to +1.8
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Guided Owl" />
 @end
 
 - Guided Owl cooldown increased from 110s to 120s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Haze" type="hero" />
 @end
 
 - Fixed issues with Sleep Dagger hitting targets behind walls
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Infernus" type="hero" />
 @end
 
 - Base health reduced from 625 to 600
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Flame Dash" />
 @end
 
 - Flame Dash slow resistance increased from 30% to 50%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Ivy" type="hero" />
 @end
 
 - Fixed some control issues when flying near a wall
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Air Drop" />
 @end
 
 - Air Drop silence and slow debuff duration reduced from 4.5s to 4s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Kelvin" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Arctic Beam" />
 @end
 
@@ -292,11 +292,11 @@ dynamo 04
 - Objectives and Rejuvenator are now frozen and invulnerable when under frozen shelter
 - Ice Path and Arctic Beam can now also be cancelled by hitting the ability key again
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Lady Geist" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Essence Bomb" />
 @end
 
@@ -305,17 +305,17 @@ dynamo 04
 
 - Fixed a recent bug with Malice that caused multiple blood shards to be absorbed by 1 hero rather than pass through and hit others (it didn't stack that way in any case)
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Self Damage" />
 @end
 
 - Self Damage no longer consumes shields (general change)
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Lash" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Ground Slam" />
 @end
 
@@ -323,81 +323,81 @@ dynamo 04
 
 - Bullet growth from 1.15 to 0.9
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Ground Strike Damage" />
 @end
 
 - Ground Strike Damage spirit scaling increased from 0.78 to 0.85
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Ground Strike Damage Per Meter Spirit" />
 @end
 
 - Ground Strike Damage Per Meter Spirit scaling increased from 0.045 to 0.05
 
-@inline svelte
+@embed svelte
 <EntityHeading name="McGinnis" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Medicinal Spectre" />
 @end
 
 - Medicinal Spectre radius reduced from 6m to 5m
 - Medicinal Spectre radius now grows with Spirit Power (0.07)
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Can" />
 @end
 
 - Can no longer wall jump from Spectral Wall
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Spectral Wall" />
 @end
 
 - Spectral Wall min range reduced from 7m to 6m
 - Spectral Wall duration reduced from 6s to 5s
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Heavy Barrage" />
 @end
 
 - Heavy Barrage spirit scaling increased from 0.3 to 0.35
 - Heavy Barrage min range reduced from 7m to 6m
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Mini Turrets" />
 @end
 
 - Mini Turrets bullet travel speed increased
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Mo &amp; Krill" type="hero" />
 @end
 
 - Camera zooms out a little bit more when un-burrowing
 - Can cast Scorn while using Combo
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Combo" />
 @end
 
 - Combo T2 reduced from +1s to +0.75s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Paradox" type="hero" />
 @end
 
 - Fixed issues with Paradoxical Swap hitting targets behind walls
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Pocket" type="hero" />
 @end
 
 - Barrage amp per stack reduced from 7% to 6%
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Bararge" />
 @end
 
@@ -405,7 +405,7 @@ dynamo 04
 
 - Added a brief lockout period on Flying Cloak to prevent accidental double clicks
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Seven" type="hero" />
 @end
 
@@ -413,7 +413,7 @@ dynamo 04
 - Bullet resist no longer scales with Boons
 - Headshot reduction increased from 25% to 35%
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Storm Cloud" />
 @end
 
@@ -423,14 +423,14 @@ dynamo 04
 
 - Storm Cloud audio is now a little clearer when it's cast
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Shiv" type="hero" />
 @end
 
 - Fixed issues with Serrated Knives hitting targets behind walls
 - Slice and Dice damage reduced from 125 to 105
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Bloodletting Deferred Damage Cleared" />
 @end
 
@@ -438,31 +438,31 @@ dynamo 04
 
 - Killing Blow Bonus Damage from Full Rage reduced from +25% to +20%
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Killing Blow" />
 @end
 
 - Killing Blow T2 now also increases Rage Amp by +5%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Vindicta" type="hero" />
 @end
 
 - Base bullet damage reduced from 14 to 13
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Stake" />
 @end
 
 - Stake T1 duration reduced from +0.75s to +0.5s
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Assassinate" />
 @end
 
 - Assassinate bonus gold is now shared with assisters
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Crow Familiar" />
 @end
 
@@ -471,7 +471,7 @@ dynamo 04
 - Crow Familiar impact damage reduced from 50 to 40
 - Crow Familiar impact damage spirit scaling reduced from 1 to 0.8
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Crow Familiar" />
 @end
 
@@ -480,7 +480,7 @@ dynamo 04
 - You can now use stamina while flying to get an impulse in the facing direction
 - Space bar no longer exists the ability, you have to press the key again
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Assassinate" />
 @end
 
@@ -488,11 +488,11 @@ dynamo 04
 
 - Assassinate scope ends when you are stunned
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Viscous" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Puddle Punch" />
 @end
 
@@ -502,7 +502,7 @@ dynamo 04
 - Puddle punch now telegraphs an effect before it forms
 - Base bullet damage reduced from 14 to 13
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Splatter" />
 @end
 
@@ -510,7 +510,7 @@ dynamo 04
 
 - Goo Ball turn rate improved a bit
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Goo Ball" />
 @end
 
@@ -518,14 +518,14 @@ dynamo 04
 
 - Fixed Puddle Punch piercing Unstoppable
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Warden" type="hero" />
 @end
 
 - Bullet growth reduced from 1.31 to 1.2
 - Alchemical Flask debuff duration reduced from 7s to 6s
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Alchemical Flask" />
 @end
 
@@ -533,11 +533,11 @@ dynamo 04
 
 - You gain 50% bullet resistance during the 2s ult channel
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Wraith" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Card Trick" />
 @end
 
@@ -546,17 +546,17 @@ dynamo 04
 
 - Card Trick card projectiles spawn above the reticle rather than on the left side
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Yamato" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Ammo" />
 @end
 
 - Ammo now scales with Spirit Power (0.15)
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Power Slash" />
 @end
 
@@ -565,13 +565,13 @@ dynamo 04
 - Grapple post cast duration reduced from 0.5 to 0.2
 - Alt fire now fixed to work with conditional damage sources (point blank, pristine emblem, etc)
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Shadow Transformation" />
 @end
 
 - Shadow Transformation bullet and spirit resistance reduced from 55% to 40%
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Can" />
 @end
 
@@ -579,80 +579,80 @@ dynamo 04
 
 * Item Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="item" names={["Active Reload", "Alchemical Fire", "Ammo Scavenger", "Berserker", "Burst Fire", "Colossus", "Crippling Headshot", "Divine Barrier", "Echo Shard", "Enduring Spirit", "Extra Spirit", "Fleetfoot", "Fortitude", "Frenzy", "Glass Cannon", "Headshot Booster", "Healing Rite", "Heroic Aura", "Hunter's Aura", "Inhibitor", "Lifestrike", "Long Range", "Lucky Shot", "Majestic Leap", "Melee Charge", "Melee Lifesteal", "Metal Skin", "Mystic Shot", "Phantom Strike", "Quicksilver Reload", "Rapid Recharge", "Rapid Rounds", "Rescue Beam", "Restorative Shot", "Sharpshooter", "Silencer", "Slowing Hex", "Soul Rebirth", "Spirit Strike", "Surge of Power", "Titanic Magazine", "Torment Pulse", "Unstoppable"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Active Reload" type="item" />
 @end
 
 - Lifesteal reduced from 22% to 20%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Alchemical Fire" type="item" />
 @end
 
 - Spirit Power increased from +7 to +11
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Ammo Scavenger" type="item" />
 @end
 
 - Neutral kills now count as a soul capture
 - Buff duration increased from 35s to 40s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Berserker" type="item" />
 @end
 
 - Bullet Resist reduced from 8% to 7%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Burst Fire" type="item" />
 @end
 
 - Now provides +70 Health
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Colossus" type="item" />
 @end
 
 - Radius increased from 10m to 12m
 - Cooldown reduced from 45s to 35s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Crippling Headshot" type="item" />
 @end
 
 - Debuff duration reduced from 5s to 4s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Divine Barrier" type="item" />
 @end
 
 - Bullet Shield shield reduced from 300 to 260
 - Spirit Shield shield reduced from 300 to 260
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Echo Shard" type="item" />
 @end
 
 - Spirit Power increased from +8 to +12
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Enduring Spirit" type="item" />
 @end
 
 - Spirit Lifesteal increased from 8% to 10%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Extra Spirit" type="item" />
 @end
 
 - Spirit increased from 8 to 9
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Fleetfoot" type="item" />
 @end
 
@@ -660,79 +660,79 @@ dynamo 04
 - Cooldown reduced from 22s to 18s
 - Health increased from +75 to +90
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Fortitude" type="item" />
 @end
 
 - Lane troopers do not reset the passive regen timer
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Frenzy" type="item" />
 @end
 
 - Linger duration increased from 4s to 6s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Glass Cannon" type="item" />
 @end
 
 - Max stacks increased from 5 to 7
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Headshot Booster" type="item" />
 @end
 
 - Bonus damage reduced from 45 to 40
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Healing Rite" type="item" />
 @end
 
 - Now grants +3 Spirit Power
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Heroic Aura" type="item" />
 @end
 
 - Active movement speed bonus reduced from 3 to 2
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Hunter's Aura" type="item" />
 @end
 
 - Bullet Resist reduction reduced from -10% to -9%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Inhibitor" type="item" />
 @end
 
 - Fixed damage reduction on bullets not being reduced by a percentage properly
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Lifestrike" type="item" />
 @end
 
 - Melee damage reduced from 40% to 35%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Long Range" type="item" />
 @end
 
 - Bullet Shield increased from +90 to +140
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Lucky Shot" type="item" />
 @end
 
 - Bonus Damage increased from 80% to 90%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Majestic Leap" type="item" />
 @end
 
 - Cooldown reduced from 24s to 22s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Melee Charge" type="item" />
 @end
 
@@ -741,52 +741,52 @@ dynamo 04
 - When passive triggers, you deal bonus +20% Melee Damage
 - Now gives a UI indication when reload procs
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Melee Lifesteal" type="item" />
 @end
 
 - Melee damage reduced from 15% to 13%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Metal Skin" type="item" />
 @end
 
 - Cooldown reduced from 22s to 20s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Mystic Shot" type="item" />
 @end
 
 - Spirit damage now considers bullet falloff
 - Cooldown reduced from 6s to 5s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Phantom Strike" type="item" />
 @end
 
 - Damage reduced from 150 to 75
 - Spirit Power scaling reduced from 2 to 1
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Quicksilver Reload" type="item" />
 @end
 
 - Damage increased from 50 to 65
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Rapid Recharge" type="item" />
 @end
 
 - Now gains +12% Weapon Damage (T1 Extra Charge gives +6%)
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Rapid Rounds" type="item" />
 @end
 
 - Fire Rate reduced from 12% to 9%
 - No longer provides -50 Max Health
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Rescue Beam" type="item" />
 @end
 
@@ -794,39 +794,39 @@ dynamo 04
 - Cast range reduced from 45m to 36m
 - No longer requires Healing Rite
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Restorative Shot" type="item" />
 @end
 
 - Healing from heroes increased from 35 to 40
 - Healing from troopers increased from 10 to 15
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Sharpshooter" type="item" />
 @end
 
 - Bullet Health increased from +175 to +200
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Silencer" type="item" />
 @end
 
 - Damage increased from 15% to 20%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Slowing Hex" type="item" />
 @end
 
 - Projectile speed increased by 20%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Soul Rebirth" type="item" />
 @end
 
 - No longer grants 20% Weapon Damage
 - Cooldown Reduction reduced from 18% to 15%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Spirit Strike" type="item" />
 @end
 
@@ -835,25 +835,25 @@ dynamo 04
 - Spirit Shield reduced from 100 to 80
 - Regen reduced from 1 to 0.8
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Surge of Power" type="item" />
 @end
 
 - Imbued ability now grants +10% Fire Rate when used (same 6s duration as the movespeed buff)
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Titanic Magazine" type="item" />
 @end
 
 - Bullet Resist increased from 15% to 18%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Torment Pulse" type="item" />
 @end
 
 - Health increased from +125 to +140
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Unstoppable" type="item" />
 @end
 

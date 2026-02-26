@@ -63,15 +63,15 @@ content_text: "Playtesting times are now starting 1 hour earlier. Weekdays are 6
 
 * Hero Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="hero" names={["Bebop", "Grey Talon", "Haze", "Infernus", "Ivy", "Kelvin", "Lady Geist", "Lash", "McGinnis", "Mo &amp; Krill", "Paradox", "Vindicta", "Warden", "Yamato"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Bebop" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Sticky Bomb" />
 @end
 
@@ -79,27 +79,27 @@ content_text: "Playtesting times are now starting 1 hour earlier. Weekdays are 6
 - Sticky Bomb T3 silence duration reduced from 5s to 3.5s
 - Sticky Bomb now uses a new instant cast mechanism. When you are in range there is a valid target indicator.
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Grey Talon" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Charged Shot" />
 @end
 
 - Charged Shot cooldown reduced from 18s to 16s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Haze" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Sleep Dagger" />
 @end
 
 - Sleep Dagger cooldown increased from 25s to 27s
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Smoke Bomb" />
 @end
 
@@ -107,124 +107,124 @@ content_text: "Playtesting times are now starting 1 hour earlier. Weekdays are 6
 - Smoke Bomb T1 changed to +4 Invis Sprint
 - Smoke Bomb T2 is now -20s Cooldown
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Infernus" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Afterburn" />
 @end
 
 - Afterburn T2 now reduces enemy Spirit damage by 30%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Ivy" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="True Form" />
 @end
 
 - True Form cooldown reduced from 50s to 40s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Kelvin" type="hero" />
 @end
 
 - Now has +10% Base Spirit Resistance
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Frozen Shelter" />
 @end
 
 - Frozen Shelter T1 increased from +35% to +40% Fire Rate Slow
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Ice Path" />
 @end
 
 - Ice Path T3 Now gains 1 Spirit per meter of Ice Path trail created. Max of 40 Spirit.
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Lady Geist" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Soul Exchange" />
 @end
 
 - Soul Exchange now uses a new instant cast mechanism. When you are in range there is a valid target indicator.
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Lash" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Ground Strike Stomp Damage" />
 @end
 
 - Ground Strike Stomp Damage reduced from 125 to 110
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Death Slam" />
 @end
 
 - Death Slam cooldown increased from 110s to 130s
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Grapple Bullet Damage" />
 @end
 
 - Grapple Bullet Damage bonus increased from +4 to +6
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Grapple" />
 @end
 
 - Grapple cooldown decreased from 45s to 40s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="McGinnis" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Mini Turret" />
 @end
 
 - Mini Turret T1 is now +1 Charge and +25% Movement Slow
 - Mini Turret T2 is now +10m Attack Range and +10% Fire Rate
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Spectral Wall" />
 @end
 
 - Spectral Wall cooldown reduced from 40s to 35s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Mo &amp; Krill" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Combo" />
 @end
 
 - Combo now uses a new instant cast mechanism. When you are in range there is a valid target indicator.
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Paradox" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Kinetic Carbine" />
 @end
 
 - Kinetic Carbine T3 reduced from +75% to +50%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Vindicta" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Flight" />
 @end
 
@@ -232,21 +232,21 @@ content_text: "Playtesting times are now starting 1 hour earlier. Weekdays are 6
 - Flight spirit damage per bullet increased from 8 to 12
 - Flight T2 bonus spirit damage per bullet increased from 8 to 12
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Warden" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Last Stand" />
 @end
 
 - Last Stand no longer goes on cooldown when it is interrupted during its initial cast delay
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Yamato" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Shadow Explosion" />
 @end
 
@@ -254,11 +254,11 @@ content_text: "Playtesting times are now starting 1 hour earlier. Weekdays are 6
 
 * Item Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="item" names={["Alchemical Fire", "Berserker", "Close Quarters", "Decay", "Diviner's Kevlar", "Echo Shard", "Frenzy", "Headshot Booster", "Healing Rite", "Kinetic Dash", "Knockdown", "Lifestrike", "Majestic Leap", "Mystic Burst", "Mystic Reverb", "Mystic Shot", "Mystic Slow", "Reactive Barrier", "Restorative Locket", "Return Fire", "Warp Stone"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Alchemical Fire" type="item" />
 @end
 
@@ -267,99 +267,99 @@ content_text: "Playtesting times are now starting 1 hour earlier. Weekdays are 6
 - Now grants +12% Weapon Damage
 - Min/Max DPS increased from 40/80 to 45/85
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Berserker" type="item" />
 @end
 
 - Weapon Damage Per Stack increased from 5% to 6%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Close Quarters" type="item" />
 @end
 
 - Bullet Shield increased from 70 to 85
 - Weapon Damage reduced from 30% to 25%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Decay" type="item" />
 @end
 
 - Now does 2.2% Max HP DPS instead of flat DPS
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Diviner's Kevlar" type="item" />
 @end
 
 - Now triggers off of casting ultimates. Grants 700 bullet shield and 40 spirit for 10 seconds.
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Echo Shard" type="item" />
 @end
 
 - No longer gives +20 Spirit for the second cast
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Frenzy" type="item" />
 @end
 
 - Bonus health increased from +150 to +200
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Headshot Booster" type="item" />
 @end
 
 - Headshot damage increased from +30 to +50
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Healing Rite" type="item" />
 @end
 
 - Cooldown reduced from 90s to 80s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Kinetic Dash" type="item" />
 @end
 
 - No longer gives +1 Stamina
 - Now causes your dash-jumps to only require 1 stamina
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Knockdown" type="item" />
 @end
 
 - Cast range increased from 40m to 50m
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Lifestrike" type="item" />
 @end
 
 - Cooldown reduced from 8s to 5s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Majestic Leap" type="item" />
 @end
 
 - You can now use the active again while in the air to dive down faster
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Mystic Burst" type="item" />
 @end
 
 - Bonus damage reduced from +40 to +35
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Mystic Reverb" type="item" />
 @end
 
 - Extra damage on the reverb reduced from 40% to 35%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Mystic Shot" type="item" />
 @end
 
 - Cooldown increased from 3s to 5s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Mystic Slow" type="item" />
 @end
 
@@ -367,19 +367,19 @@ content_text: "Playtesting times are now starting 1 hour earlier. Weekdays are 6
 - Now provides +75 Health, +3 Regen and +6 spirit
 - Fire Rate slow increased from 20% to 35%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Reactive Barrier" type="item" />
 @end
 
 - Now provides a Spirit Shield instead of a Bullet Shield
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Restorative Locket" type="item" />
 @end
 
 - Now gives +4 Spirit
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Return Fire" type="item" />
 @end
 
@@ -387,7 +387,7 @@ content_text: "Playtesting times are now starting 1 hour earlier. Weekdays are 6
 - Bullet damage returned reduced from 75% to 60%
 - Fixed not returning fire to McGinnis' sentries
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Warp Stone" type="item" />
 @end
 

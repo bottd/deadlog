@@ -13,15 +13,15 @@ content_text: Calico Leaping Slash T2 damage decreased from +75 to +60 Return to
 
 * Hero Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="hero" names={["Calico", "Holliday", "Sinclair", "Wraith"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Calico" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Leaping Slash" />
 @end
 
@@ -31,30 +31,30 @@ content_text: Calico Leaping Slash T2 damage decreased from +75 to +60 Return to
 - Return to Shadows speed reduced from +50% to +30%
 - Return to Shadows T2 now also grants +20% speed
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Holliday" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Powder Keg" />
 @end
 
 - Powder Keg cooldown between charges increased from 2s to 3.5s
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Bounce Pad" />
 @end
 
 - Bounce Pad T2 damage reduced from +100 to +80
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Sinclair" type="hero" />
 @end
 
 - Bullet Damage reduced by 15%
 - Bullet velocity increased from 86 to 340
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Spectral Assistant" />
 @end
 
@@ -62,13 +62,13 @@ content_text: Calico Leaping Slash T2 damage decreased from +75 to +60 Return to
 
 - Rabbit Hex targeting mechanism has been reworked. It is now an AoE target ability in the base. It has a 0.7s delay before the area is affected. Cast range increased from 20m to 30m, Movespeed reduced from 35% to 15% and cooldown reduced from 45s to 35s.
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Rabbit Hex" />
 @end
 
 - Rabbit Hex now has new VFX
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Audience Participation" />
 @end
 
@@ -77,7 +77,7 @@ content_text: Calico Leaping Slash T2 damage decreased from +75 to +60 Return to
 - Audience Participation copy duration decreased from 20s to 10s
 - Various new and improved SFX
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Wraith" type="hero" />
 @end
 
@@ -86,24 +86,24 @@ content_text: Calico Leaping Slash T2 damage decreased from +75 to +60 Return to
 
 * Item Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="item" names={["Ammo Scavenger", "Extra Stamina", "Restorative Shot"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Ammo Scavenger" type="item" />
 @end
 
 - Max Stacks reduced from 20 to 18
 - No longer grants +40 health
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Extra Stamina" type="item" />
 @end
 
 - No longer grants +4% Fire Rate
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Restorative Shot" type="item" />
 @end
 

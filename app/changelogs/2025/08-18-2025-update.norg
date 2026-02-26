@@ -27,18 +27,18 @@ Consider creating a separate file: 08-18-2025-update-reply-1.norg with parent_id
 
 * Hero Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="hero" names={["Billy"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Billy" type="hero" />
 @end
 
 - Health regen increased from 2.5 to 3.0
 - Health per boon reduced from 44 to 43
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Blasted" />
 @end
 
@@ -48,7 +48,7 @@ Consider creating a separate file: 08-18-2025-update-reply-1.norg with parent_id
 
 - Blasted base duration reduced from 8.5s to 8.0s and duration on heavy melee reduced from 5.0s to 4.5s
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Blasted" />
 @end
 
@@ -69,17 +69,17 @@ Consider creating a separate file: 08-18-2025-update-reply-2.norg with parent_id
 
 * Hero Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="hero" names={["Billy", "Drifter", "Mina", "Paige"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Billy" type="hero" />
 @end
 
 - Bashdown melee scaling increased from 1x to 1.1x
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Bashdown" />
 @end
 
@@ -89,7 +89,7 @@ Consider creating a separate file: 08-18-2025-update-reply-2.norg with parent_id
 - Chain Gang will snap slightly faster when target is out of LOS
 - Chain Gang pull consistency improved in complex terrain
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Drifter" type="hero" />
 @end
 
@@ -97,43 +97,43 @@ Consider creating a separate file: 08-18-2025-update-reply-2.norg with parent_id
 - Weapon base fire rate slowed by 5% (partial base damage compensation, but primarily an overall nerf)
 - Health per boon reduced from 43 to 41
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Rend" />
 @end
 
 - Rend T3 Bullet Lifesteal reduced from 55% to 45%
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Bloodscent" />
 @end
 
 - Bloodscent T3 Amplified damage reduced from +13% to +11%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Mina" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Sanguine Retreat" />
 @end
 
 - Sanguine Retreat T3 increased from -7s cooldown to -12s Cooldown
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Love Bites" />
 @end
 
 - Love Bites cooldown reduced from 8s to 7s
 - Love Bites T3 changed from -3s cooldown to 1 Stamina Drain and 30% Slow for 3s
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Nox Nostra" />
 @end
 
 - Nox Nostra cooldown reduced from 150s to 130s
 - Nox Nostra silence duration increased from 1s to 1.25s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Paige" type="hero" />
 @end
 
@@ -147,15 +147,15 @@ Consider creating a separate file: 08-18-2025-update-reply-3.norg with parent_id
 
 * Hero Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="hero" names={["Drifter", "Victor"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Drifter" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Rend" />
 @end
 
@@ -164,7 +164,7 @@ Consider creating a separate file: 08-18-2025-update-reply-3.norg with parent_id
 
 - Weapon damage at max range reduced from 80% to 60%
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Eternal Night" />
 @end
 
@@ -174,14 +174,14 @@ Consider creating a separate file: 08-18-2025-update-reply-3.norg with parent_id
 
 - Eternal Night attack damage no longer procs Lightning Scroll
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Victor" type="hero" />
 @end
 
 - Base regen reduced from 3 to 1.5
 - Jumpstart regen spirit scaling reduced from 2 to 1.8
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Jumpstart" />
 @end
 
@@ -190,7 +190,7 @@ Consider creating a separate file: 08-18-2025-update-reply-3.norg with parent_id
 - Aura of Suffering self damage increased from 80% to 100%
 - Shocking Reanimation rebirth health reduced from 100% to 60%
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Shocking Reanimation" />
 @end
 

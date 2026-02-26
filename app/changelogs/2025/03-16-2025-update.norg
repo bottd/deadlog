@@ -18,17 +18,17 @@ content_text: Neutral bounty increased by 5% Sinner's Sacrifice initial spawn ti
 
 * Item Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="item" names={["Divine Barrier", "Restorative Locket"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Divine Barrier" type="item" />
 @end
 
 - Shields reduced from 260 to 230
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Restorative Locket" type="item" />
 @end
 

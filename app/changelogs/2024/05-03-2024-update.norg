@@ -47,104 +47,104 @@ content_text: "Added a Recommend A Friend button to the dashboard that you can u
 
 * Hero Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="hero" names={["Abrams", "Bebop", "Dynamo", "Grey Talon", "Haze", "Infernus", "Kelvin", "Lady Geist", "Lash", "McGinnis", "Mo &amp; Krill", "Vindicta", "Yamato"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Abrams" type="hero" />
 @end
 
 - Base Health increased from 550 to 600
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Siphon DPS" />
 @end
 
 - Siphon DPS increased from 24 to 35
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Bebop" type="hero" />
 @end
 
 - Weapon no longer has horizontal/vertical recoil
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Dynamo" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Singularity DPS" />
 @end
 
 - Singularity DPS increased from 48 to 60
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Singularity" />
 @end
 
 - Singularity T3 Max HP DPS increased from 3.2% to 3.8%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Grey Talon" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Charge Shot" />
 @end
 
 - Charge Shot damage increased from 95 to 105
 - Charge Shot T2 damage reduced from 80 to 70
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Guided Owl" />
 @end
 
 - Guided Owl damage increased from 200 to 300
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Haze" type="hero" />
 @end
 
 - Bullet Dance bonus Fire Rate reduced from +30 to +20
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Smoke Bomb" />
 @end
 
 - Smoke Bomb duration scaling from Spirit improved from 0.2 to 0.3
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Infernus" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Catalyst" />
 @end
 
 - Catalyst no longer slows Infernus to 1.3 m/s during the cast delay
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Concussive Combustion" />
 @end
 
 - Concussive Combustion damage increased from 130 to 160
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Kelvin" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Frost Grenade" />
 @end
 
 - Frost Grenade T3 bonus damage increased from +100 to +175
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Lady Geist" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Blood Bomb" />
 @end
 
@@ -153,36 +153,36 @@ content_text: "Added a Recommend A Friend button to the dashboard that you can u
 
 - Blood Bomb tooltip fixed to reference the correct self damage type and that it can be reduced with armor
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Malice" />
 @end
 
 - Malice damage amp per shard increased from 10% to 15%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Lash" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Grapple" />
 @end
 
 - Grapple cooldown reduced from 55 to 45
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Flog Damage" />
 @end
 
 - Flog Damage increased from 55 to 65
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Flog" />
 @end
 
 - Flog lifesteal from heroes increased from 70% to 80% of damage dealt
 - Flog lifesteal from non-heroes reduced from 35% to 30% of damage dealt
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Death Slam" />
 @end
 
@@ -191,11 +191,11 @@ content_text: "Added a Recommend A Friend button to the dashboard that you can u
 - Fixed Death Slam's targeting cone not finding enemies near the edges
 - Fixed Death Slam to only target enemies who stay in the targeting cone
 
-@inline svelte
+@embed svelte
 <EntityHeading name="McGinnis" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Heavy Barrage" />
 @end
 
@@ -203,11 +203,11 @@ content_text: "Added a Recommend A Friend button to the dashboard that you can u
 
 - Heavy Barrage camera interaction with Fleetfoot Boots has been fixed
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Mo &amp; Krill" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Sand Blast" />
 @end
 
@@ -215,14 +215,14 @@ content_text: "Added a Recommend A Friend button to the dashboard that you can u
 - Sand Blast width increased from 3m to 5m
 - Sand Blast is now permissive with small obstructions in the way
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Burrow" />
 @end
 
 - Burrow no longer loses its state as you change elevations
 - Burrow now knocks enemies up when you come up
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Combo DPS" />
 @end
 
@@ -230,14 +230,14 @@ content_text: "Added a Recommend A Friend button to the dashboard that you can u
 
 - No longer listed as a recommended new player hero
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Vindicta" type="hero" />
 @end
 
 - Base Bullet Damage reduced from 15 to 14
 - Bullet Damage gained per boon reduced from 0.88 to 0.7 (these are gained occasionally as you earn souls, up to 11 times)
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Stake" />
 @end
 
@@ -245,11 +245,11 @@ content_text: "Added a Recommend A Friend button to the dashboard that you can u
 
 - Is now a recommended hero for new players
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Yamato" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Crimson Slash" />
 @end
 
@@ -258,13 +258,13 @@ content_text: "Added a Recommend A Friend button to the dashboard that you can u
 - Crimson Slash T2 changed from "-5s Cooldown" to "10% Max Health heal on hero hit"
 - Crimson Slash T3 changed from "12% Max Health heal on hero hit" to "-6s Cooldown"
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Power Slash" />
 @end
 
 - Power Slash T1 Bullet Resist increased from 40% to 60%
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Flying Strike" />
 @end
 
@@ -272,7 +272,7 @@ content_text: "Added a Recommend A Friend button to the dashboard that you can u
 - Flying Strike T2 changed from "-15s Cooldown" to "+20 Cast Range"
 - Flying Strike range no longer scales with Spirit
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Shadow Explosion" />
 @end
 

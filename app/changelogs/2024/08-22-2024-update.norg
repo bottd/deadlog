@@ -25,21 +25,21 @@ content_text: "Fixed High-Velocity Mag affecting some abilities Silence Glyph: D
 
 * Hero Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="hero" names={["Ivy", "Shiv"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Ivy" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Air Drop" />
 @end
 
 - Air Drop now silences the ally being carried until they are released
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Shiv" type="hero" />
 @end
 
@@ -47,17 +47,17 @@ content_text: "Fixed High-Velocity Mag affecting some abilities Silence Glyph: D
 
 * Item Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="item" names={["Reactive Barrier", "Return Fire"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Reactive Barrier" type="item" />
 @end
 
 - Cooldown increased from 20s to 30s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Return Fire" type="item" />
 @end
 

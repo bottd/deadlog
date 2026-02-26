@@ -21,49 +21,49 @@ content_text: Troopers now do 20% more damage to each other Soul Sharing ratios 
 
 * Hero Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="hero" names={["Haze", "Paradox", "Vindicta", "Yamato"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Haze" type="hero" />
 @end
 
 - Bullet Dance bonus bullet damage increased from +2 to +5
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Paradox" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Time Wall Time Stop" />
 @end
 
 - Time Wall Time Stop duration reduced from 0.7s to 0.6s
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Time Wall" />
 @end
 
 - Time Wall duration reduced from 7s to 6s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Vindicta" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Assassinate" />
 @end
 
 - Assassinate damage reduced by 5%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Yamato" type="hero" />
 @end
 
 - Shadow Transformation Bullet and Spirit resist reduced from 50% to 45%
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Shadow Transformation" />
 @end
 

@@ -30,50 +30,50 @@ content_text: Increased horizontal soul orb movement a bit Soul Orb spawn delay 
 
 * Hero Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="hero" names={["Haze", "Holliday", "Sinclair"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Haze" type="hero" />
 @end
 
 - Bullet Dance bonus damage is now weapon damage instead of spirit
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Holliday" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Powder Keg" />
 @end
 
 - Powder Keg T2 decreased from +120 to +100
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Bounce Pad" />
 @end
 
 - Bounce Pad cooldown increased from 37s to 41s
 - Bounce Pad T1 is now T2
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Bounce Pad New" />
 @end
 
 - Bounce Pad New T1 is -10s cooldown
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Bounce Pad" />
 @end
 
 - Bounce Pad T2 is now T3. Removed T3 Stun
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Sinclair" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Assistant" />
 @end
 
@@ -83,11 +83,11 @@ content_text: Increased horizontal soul orb movement a bit Soul Orb spawn delay 
 
 * Item Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="item" names={["Cold Front"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Cold Front" type="item" />
 @end
 

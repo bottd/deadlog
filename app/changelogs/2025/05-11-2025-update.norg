@@ -20,15 +20,15 @@ content_text: "Weapon tree investment bonus increased by 6-12% (from 6/8/12/18/2
 
 * Hero Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="hero" names={["Lady Geist", "Pocket", "Shiv", "Vyper"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Lady Geist" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Malice" />
 @end
 
@@ -38,34 +38,34 @@ content_text: "Weapon tree investment bonus increased by 6-12% (from 6/8/12/18/2
 
 - T2 Malice reduced from 40 to 30
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Pocket" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Affliction" />
 @end
 
 - Affliction duration reduced from 14s to 12s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Shiv" type="hero" />
 @end
 
 - Slice and Dice damage reduced from 100 to 80
 - Bullet damage growth reduced from 0.246 to 0.22
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Vyper" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Lethal Venom" />
 @end
 
 - Lethal Venom T2 reduced from -60% Healing Reduction to -40%
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Slither" />
 @end
 
@@ -73,35 +73,35 @@ content_text: "Weapon tree investment bonus increased by 6-12% (from 6/8/12/18/2
 
 * Item Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="item" names={["Active Reload", "Boundless Spirit", "Capacitor", "Cultist Sacrifice", "Decay", "Divine Barrier", "Fleetfoot", "Headhunter", "Inhibitor", "Mercurial Magnum", "Silence Wave", "Spirit Burn", "Spirit Rend", "Split Shot", "Tankbuster"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Active Reload" type="item" />
 @end
 
 - Cooldown reduced from 14s to 12s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Boundless Spirit" type="item" />
 @end
 
 - Heal reduced from 100 to 75
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Capacitor" type="item" />
 @end
 
 - Cooldown increased from 30s to 40s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Cultist Sacrifice" type="item" />
 @end
 
 - Health reduced from 350 to 300
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Decay" type="item" />
 @end
 
@@ -109,62 +109,62 @@ content_text: "Weapon tree investment bonus increased by 6-12% (from 6/8/12/18/2
 - Cooldown increased from 22s to 24s
 - Cast range spirit scaling reduced from 0.16 to 0.14
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Divine Barrier" type="item" />
 @end
 
 - Cooldown increased from 36s to 45s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Fleetfoot" type="item" />
 @end
 
 - Cooldown reduced from 12s to 11s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Headhunter" type="item" />
 @end
 
 - Bonus Headshot damage reduced from 150 to 120
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Inhibitor" type="item" />
 @end
 
 - Duration increased from 2.5s to 3s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Mercurial Magnum" type="item" />
 @end
 
 - Fire Rate bonus reduced from +30% to +25%
 - Spirit Power scaling reduced from 0.6 to 0.5
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Silence Wave" type="item" />
 @end
 
 - Cooldown increased from 24s to 28s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Spirit Burn" type="item" />
 @end
 
 - Healing Reduction reduced from -80% to -70%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Spirit Rend" type="item" />
 @end
 
 - Cooldown increased from 2s to 2.5s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Split Shot" type="item" />
 @end
 
 - Shot count increased from 4 to 5
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Tankbuster" type="item" />
 @end
 

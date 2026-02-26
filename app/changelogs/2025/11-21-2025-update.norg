@@ -93,94 +93,94 @@ content_text: "Trooper bounty mechanics have been reworked. The first half of th
 
 * Hero Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="hero" names={["Abrams", "Bebop", "Billy", "Calico", "Drifter", "Dynamo", "Holliday", "Infernus", "Ivy", "Kelvin", "Lady Geist", "Lash", "McGinnis", "Mina", "Mirage", "Mo &amp; Krill", "Paige", "Paradox", "Pocket", "Seven", "Shiv", "Sinclair", "Viscous", "Vyper", "Warden", "Wraith", "Yamato"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Abrams" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Shoulder Charge" />
 @end
 
 - Shoulder Charge cooldown reduced from 37s to 33s
 - Shoulder Charge T3 reduced from -22s Cooldown to -18s
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Seismic Impact" />
 @end
 
 - Seismic Impact T3 duration increased from 3s to 4s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Bebop" type="hero" />
 @end
 
 - Health growth reduced from 54 to 46
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Exploding Uppercut" />
 @end
 
 - Exploding Uppercut cooldown increased from 19s to 22s
 - Exploding Uppercut spirit scaling increased from 0.49 to 0.6
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Sticky Bomb" />
 @end
 
 - Sticky Bomb T3 changed from "On Attach: -30% Outgoing Damage for 5s" to "On Cast: +5 m/s for 3s". Multiple instances stack independently.
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Hyperbeam DPS" />
 @end
 
 - Hyperbeam DPS reduced from 190 to 160
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Hyperbeam" />
 @end
 
 - Hyperbeam T2 increased from +90 to +120
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Billy" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Rising Ram" />
 @end
 
 - Rising Ram T2 increased from +25% Weapon Damage to +35%
 - Rising Ram T3 increased from 6% Max Health as spirit damage to 6.5%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Calico" type="hero" />
 @end
 
 - Clip size increased from 10 to 12
 - Reload time increased from 2.5s to 2.6s
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Gloom Bombs" />
 @end
 
 - Gloom Bombs cooldown increased from 12s to 14s
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Return To Shadows" />
 @end
 
 - Return To Shadows T3 Damage Amp reduced from +24% to +18%
 - Return To Shadows T3 duration increased from 5s to 6s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Drifter" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Rend" />
 @end
 
@@ -188,20 +188,20 @@ content_text: "Trooper bounty mechanics have been reworked. The first half of th
 
 - Base regen increased from 2.5 to 3.5
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Dynamo" type="hero" />
 @end
 
 - Base regen increased from 2 to 2.5
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Kinetic Pulse" />
 @end
 
 - Kinetic Pulse range increased from 15m to 20m
 - Kinetic Pulse cooldown reduced from 26s to 22s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Holliday" type="hero" />
 @end
 
@@ -209,7 +209,7 @@ content_text: "Trooper bounty mechanics have been reworked. The first half of th
 - Base bullet growth reduced from 1.23 to 1.04
 - Base damage reduced from 22 to 18
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Bounce Pad" />
 @end
 
@@ -217,30 +217,30 @@ content_text: "Trooper bounty mechanics have been reworked. The first half of th
 
 - Fixed a bug where you could get extra speed/distance with dash jump/bounce pad timing
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Infernus" type="hero" />
 @end
 
 - Afterburn buildup is now 10% slower on body shots
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Napalm" />
 @end
 
 - Napalm T3 damage amp reduced from +20% to +17%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Ivy" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Kudzu Bomb" />
 @end
 
 - Kudzu Bomb damage reduced from 50 to 40
 - Kudzu Bomb spirit scaling increased from 0.56 to 0.65
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Stone Form" />
 @end
 
@@ -248,7 +248,7 @@ content_text: "Trooper bounty mechanics have been reworked. The first half of th
 
 - Watcher’s Covenant bullet lifesteal increased from 10% to 15%
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Air Drop" />
 @end
 
@@ -256,41 +256,41 @@ content_text: "Trooper bounty mechanics have been reworked. The first half of th
 
 - Air Drop cast range increased from 12m to 14m
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Kelvin" type="hero" />
 @end
 
 - Bullet Velocity reduced from 254 to 160
 - Frost Grenade base damage reduced from 74 to 60
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Frozen Shelter" />
 @end
 
 - Frozen Shelter T2 changed from "-45s Cooldown" to "+1s Duration"
 - Frozen Shelter duration reduced from 5.5s to 5s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Lady Geist" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Soul Exchange" />
 @end
 
 - Soul Exchange T3 radius increased from 15m to 25m
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Lash" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Grapple" />
 @end
 
 - Grapple cooldown reduced from 42s to 35s
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Flog" />
 @end
 
@@ -299,67 +299,67 @@ content_text: "Trooper bounty mechanics have been reworked. The first half of th
 - Flog cooldown reduced from 26s to 24
 - Flog T2 increased from -14s to -12s
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Death Slam" />
 @end
 
 - Death Slam cooldown reduced from 155s to 145s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="McGinnis" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Mini Turrets" />
 @end
 
 - Mini Turrets health per boon increased from 10 to 13
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Spectral Wall" />
 @end
 
 - Spectral Wall speed increased by 10%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Mina" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Sanguine Retreat" />
 @end
 
 - Sanguine Retreat cooldown increased from 30s to 32s
 - Sanguine Retreat no longer resets air jump and dash limits
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Love Bites" />
 @end
 
 - Love Bites cooldown increased from 7s to 8s
 - Love Bites T3 from -1 Stamina to -2
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Mirage" type="hero" />
 @end
 
 - Fire Scarabs Max Health steal increased from 37 to 45
 - Traveler can now target friendly objectives
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Traveler" />
 @end
 
 - Traveler cooldown reduced from 160s to 145s
 - Traveler T1 now also reduces cooldown by 25s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Mo &amp; Krill" type="hero" />
 @end
 
 - Health Regen reduced from 3 to 1
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Paige" type="hero" />
 @end
 
@@ -370,7 +370,7 @@ content_text: "Trooper bounty mechanics have been reworked. The first half of th
 - Defend and Fight! T2 changed from +25% Fire Rate to +100 Barrier
 - Defend and Fight! T2 now also grants +2s Duration
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Paradox" type="hero" />
 @end
 
@@ -379,7 +379,7 @@ content_text: "Trooper bounty mechanics have been reworked. The first half of th
 - Base health reduced from 700 to 650
 - Health per boon reduced from 47 to 45
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Pulse Grenade" />
 @end
 
@@ -388,24 +388,24 @@ content_text: "Trooper bounty mechanics have been reworked. The first half of th
 
 - Fixed a bug where you could airdash further then expected with Kinetic Carbine
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Pocket" type="hero" />
 @end
 
 - Base regen reduced from 2 to 1
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Flying Cloak" />
 @end
 
 - Flying Cloak damage reduced from 85 to 70
 - Flying Cloak T2 increased from +75 to +85
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Seven" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Lightning Ball" />
 @end
 
@@ -413,7 +413,7 @@ content_text: "Trooper bounty mechanics have been reworked. The first half of th
 
 - Crit reduction increased from 25% to 35%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Shiv" type="hero" />
 @end
 
@@ -421,7 +421,7 @@ content_text: "Trooper bounty mechanics have been reworked. The first half of th
 - Alt fire ammo cost increased from 2 to 3
 - Killing Blow Rage Damage Bonus reduced from 17% to 15%
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Killing Blow" />
 @end
 
@@ -430,7 +430,7 @@ content_text: "Trooper bounty mechanics have been reworked. The first half of th
 - Killing Blow Rage state now causes your alt fire knockback to push you a little further
 - Fixed some bugs with Barriers and Spirit Damage Scaling (fixes other cases as well)
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Sinclair" type="hero" />
 @end
 
@@ -438,17 +438,17 @@ content_text: "Trooper bounty mechanics have been reworked. The first half of th
 - Regen reduced from 3 to 2
 - Spectral Assistant total swaps allowed increased from 1 to 2
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Audience Participation" />
 @end
 
 - Audience Participation cooldown reduced from 50% to 40%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Viscous" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Splatter" />
 @end
 
@@ -457,7 +457,7 @@ content_text: "Trooper bounty mechanics have been reworked. The first half of th
 - Splatter T2 changed from "+45 Damage and +1m Radius" to "-12s Cooldown"
 - Splatter T3 now also increases spirit scaling by 0.4
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="The Cube" />
 @end
 
@@ -465,19 +465,19 @@ content_text: "Trooper bounty mechanics have been reworked. The first half of th
 
 - The Cube regen increased from 30 to 40
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="The Cube" />
 @end
 
 - The Cube T2 now also increases duration by +1s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Vyper" type="hero" />
 @end
 
 - Health per boon increased from 33 to 35
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Warden" type="hero" />
 @end
 
@@ -485,26 +485,26 @@ content_text: "Trooper bounty mechanics have been reworked. The first half of th
 - Bullet damage growth increased from 0.44 to 0.48
 - Health regen reduced from 3 to 2
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Alchemical Flask" />
 @end
 
 - Alchemical Flask radius reduced from 6.5m to 5.5m
 - Alchemical Flask T2 now also grants +1m
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Wraith" type="hero" />
 @end
 
 - Card Trick base damage increased from 55 to 60
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Project Mind" />
 @end
 
 - Project Mind cooldown reduced from 48s to 42s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Yamato" type="hero" />
 @end
 
@@ -512,7 +512,7 @@ content_text: "Trooper bounty mechanics have been reworked. The first half of th
 - Power Slash low charge damage from 40% to 30%
 - Power Slash medium charge damage from 60% to 50%
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Crimson Slash" />
 @end
 
@@ -521,23 +521,23 @@ content_text: "Trooper bounty mechanics have been reworked. The first half of th
 
 * Item Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="item" names={["Blood Tribute", "Bullet Resist Shredder", "Capacitor", "Cheat Death", "Compress Cooldown", "Crippling Headshot", "Cultist Sacrifice", "Decay", "Echo Shard", "Enchanter's Emblem", "Escalating Resilience", "Express Shot", "Focus Lens", "Glass Cannon", "Headshot Booster", "Inhibitor", "Lucky Shot", "Majestic Leap", "Mystic Shot", "Mystic Vulnerability", "Opening Rounds", "Reactive Barrier", "Scourge", "Shadow Weave", "Silence Wave", "Silencer", "Spellbreaker", "Spellslinger", "Spirit Sap", "Spirit Shielding", "Spirit Snatch", "Spiritual Overflow", "Split Shot", "Superior Cooldown", "Tesla Bullets", "Transcendent Cooldown", "Warp Stone", "Weapon Shielding", "Weighted Shots"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Blood Tribute" type="item" />
 @end
 
 - Debuff Resistance reduced from +50% to +40%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Bullet Resist Shredder" type="item" />
 @end
 
 - Bullet Resist Reduction reduced from 13% to 12%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Capacitor" type="item" />
 @end
 
@@ -548,56 +548,56 @@ content_text: "Trooper bounty mechanics have been reworked. The first half of th
 - Slow duration reduced from 5s to 4s (75%->0%)
 - Slow debuff now prevents stamina usage and silences movement abilities
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Cheat Death" type="item" />
 @end
 
 - Removes all non-stun debuffs on proc
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Compress Cooldown" type="item" />
 @end
 
 - Cooldown Reduction reduced from +22% to +18%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Crippling Headshot" type="item" />
 @end
 
 - Healing Reduction increased from -30% to -35%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Cultist Sacrifice" type="item" />
 @end
 
 - Now provides Weapon Damage instead of Fire Rate
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Decay" type="item" />
 @end
 
 - Healing Reduction increased from -40% to -45%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Echo Shard" type="item" />
 @end
 
 - No longer grants +5% Cooldown Reduction
 - Now grants +5% Ability Range (no longer has the +5% CD Reduction)
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Enchanter's Emblem" type="item" />
 @end
 
 - Cooldown Reduction reduced from +7% to +5%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Escalating Resilience" type="item" />
 @end
 
 - Bonus Health reduced from 125 to 100
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Express Shot" type="item" />
 @end
 
@@ -607,7 +607,7 @@ content_text: "Trooper bounty mechanics have been reworked. The first half of th
 - Secondary Fire Weapon Damage reduced from 75% to 45%
 - Ammo consumed increased from 30% to 40%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Focus Lens" type="item" />
 @end
 
@@ -615,63 +615,63 @@ content_text: "Trooper bounty mechanics have been reworked. The first half of th
 - Now reduces Spirit Resistance by 12% and reduces Spirit Power by 30 for 12s
 - Fire Rate reduced from +16 to +13
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Glass Cannon" type="item" />
 @end
 
 - Max Health reduced from -10% to -13%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Headshot Booster" type="item" />
 @end
 
 - Cooldown increased from 8 to 9
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Inhibitor" type="item" />
 @end
 
 - Healing Reduction increased from -35% to -40%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Lucky Shot" type="item" />
 @end
 
 - Damage reduced from 125% to 110%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Majestic Leap" type="item" />
 @end
 
 - Cooldown increased from 32s to 34s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Mystic Shot" type="item" />
 @end
 
 - Proc damage reduced from 45 to 40
 - Spirit power scaling increased from 0.75 to 0.8
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Mystic Vulnerability" type="item" />
 @end
 
 - Duration increased from 6s to 7s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Opening Rounds" type="item" />
 @end
 
 - Spirit Power increased from +7 to +8
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Reactive Barrier" type="item" />
 @end
 
 - Cooldown increased from 26s to 40s
 - Duration reduced from 12s to 10s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Scourge" type="item" />
 @end
 
@@ -679,14 +679,14 @@ content_text: "Trooper bounty mechanics have been reworked. The first half of th
 - Max Health damage per second increased from 3.25% to 3.5%
 - Cooldown reduced from 38s to 35s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Shadow Weave" type="item" />
 @end
 
 - Reveal distance reduced from 20m to 18m
 - Full invisibility distance reduced from 50m to 30m
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Silence Wave" type="item" />
 @end
 
@@ -694,32 +694,32 @@ content_text: "Trooper bounty mechanics have been reworked. The first half of th
 - No longer reduces Spirit Resistance or Spirit Power
 - Now deals 100 Impact Damage (0.3 spirit power growth)
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Silencer" type="item" />
 @end
 
 - Spirit Resist increased from 14% to 15%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Spellbreaker" type="item" />
 @end
 
 - Cooldown reduced from 10s to 9s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Spellslinger" type="item" />
 @end
 
 - Cooldown Reduction reduced from +12% to +6%
 - Fire Rate per stack increased from 10% to 12%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Spirit Sap" type="item" />
 @end
 
 - Cooldown reduced from 35s to 25s (matches Focus Lens)
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Spirit Shielding" type="item" />
 @end
 
@@ -727,58 +727,58 @@ content_text: "Trooper bounty mechanics have been reworked. The first half of th
 - Damage threshold increased from 175 to 225
 - Duration reduced from 8s to 7s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Spirit Snatch" type="item" />
 @end
 
 - Instead of increasing CD to 2x on light melee hit, the effects of Spirit Snatch are reduced to 70% effectiveness (Damage, Spirit Power, Spirit Resist)
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Spiritual Overflow" type="item" />
 @end
 
 - Cooldown Reduction reduced from +20% to +12%
 - Fire Rate increased from +30% to +35%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Split Shot" type="item" />
 @end
 
 - Cooldown increased from 14s to 32s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Superior Cooldown" type="item" />
 @end
 
 - Cooldown Reduction reduced from +25% to +20%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Tesla Bullets" type="item" />
 @end
 
 - Shock damage reduced from 40 to 33
 - Shock damage spirit power growth increased from 0.14 to 0.19
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Transcendent Cooldown" type="item" />
 @end
 
 - Cooldown Reduction reduced from +30% to +25%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Warp Stone" type="item" />
 @end
 
 - Bullet Resist reduced from 35% to 30%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Weapon Shielding" type="item" />
 @end
 
 - Cooldown increased from 35s to 45s
 - Duration reduced from 8s to 7s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Weighted Shots" type="item" />
 @end
 
@@ -798,17 +798,17 @@ Consider creating a separate file: 11-21-2025-update-reply-1.norg with parent_id
 
 * Hero Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="hero" names={["Drifter", "Warden"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Drifter" type="hero" />
 @end
 
 - Base health reduced from 750 to 675
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Warden" type="hero" />
 @end
 
@@ -838,17 +838,17 @@ Consider creating a separate file: 11-21-2025-update-reply-3.norg with parent_id
 
 * Item Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="item" names={["Focus Lens", "Trophy Collector"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Focus Lens" type="item" />
 @end
 
 - Cooldown increased from 25s to 32s (Spirit Sap now matches this too)
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Trophy Collector" type="item" />
 @end
 
@@ -871,11 +871,11 @@ Consider creating a separate file: 11-21-2025-update-reply-4.norg with parent_id
 
 * Item Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="item" names={["Focus Lens"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Focus Lens" type="item" />
 @end
 
@@ -903,15 +903,15 @@ Consider creating a separate file: 11-21-2025-update-reply-5.norg with parent_id
 
 * Hero Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="hero" names={["Billy", "Drifter", "Dynamo", "Infernus", "Shiv", "Wraith"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Billy" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Blasted" />
 @end
 
@@ -921,56 +921,56 @@ Consider creating a separate file: 11-21-2025-update-reply-5.norg with parent_id
 - Chain Gang will now break slightly faster when target is out of LOS
 - Chain Gang can no longer be broken by mantling
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Drifter" type="hero" />
 @end
 
 - Base bullet damage reduced from 22.25 to 19.5
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Dynamo" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Kinetic Pulse" />
 @end
 
 - Kinetic Pulse range spirit scaling reduced from 0.256 to 0.2
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Infernus" type="hero" />
 @end
 
 - Base bullet damage reduced from 6.2 to 5.5
 - Bullet falloff range from 20-58 to 18-55
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Afterburn" />
 @end
 
 - Afterburn now only adds 0.5s to the duration for each bullet that is hit after it procs, rather than fully refreshing the duration. Adds 1.0s for headshots.
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Shiv" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Rage" />
 @end
 
 - Rage now builds 8% slower
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Wraith" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Card Trick" />
 @end
 
 - Card Trick spirit scaling reduced from 1.2 to 1.0
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Card Toss" />
 @end
 
@@ -978,11 +978,11 @@ Consider creating a separate file: 11-21-2025-update-reply-5.norg with parent_id
 
 * Item Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="item" names={["Express Shot", "Fleetfoot", "Focus Lens", "Return Fire"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Express Shot" type="item" />
 @end
 
@@ -992,19 +992,19 @@ Consider creating a separate file: 11-21-2025-update-reply-5.norg with parent_id
 - Secondary fire damage reduced from 45% to 35%
 - Ammo drain reduced from 40% to 30%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Fleetfoot" type="item" />
 @end
 
 - Speed duration reduced from 6s to 5s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Focus Lens" type="item" />
 @end
 
 - Cooldown increased from 38s to 45s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Return Fire" type="item" />
 @end
 

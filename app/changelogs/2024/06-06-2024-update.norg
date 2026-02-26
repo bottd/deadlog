@@ -107,17 +107,17 @@ content_text: "Reworked how friend invites work inside the client. You must now 
 
 * Hero Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="hero" names={["Abrams", "Bebop", "Dynamo", "Haze", "Infernus", "Ivy", "Kelvin", "McGinnis", "Pocket", "Seven", "Vindicta", "Warden"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Abrams" type="hero" />
 @end
 
 - Base HP growth reduced from 36 to 32
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Infernal Resilience" />
 @end
 
@@ -125,23 +125,23 @@ content_text: "Reworked how friend invites work inside the client. You must now 
 
 - Seismic Impact personal brief busy state upon landing increased from 0.2s to 0.3s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Bebop" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Hyper Beam" />
 @end
 
 - Hyper Beam slow now affects stamina dashes
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Dynamo" type="hero" />
 @end
 
 - Base HP growth reduced from 48 to 44
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Quantum Entanglement" />
 @end
 
@@ -149,11 +149,11 @@ content_text: "Reworked how friend invites work inside the client. You must now 
 
 - Singularity base radius increased from 8m to 10m
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Haze" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Sleep Dagger" />
 @end
 
@@ -164,34 +164,34 @@ content_text: "Reworked how friend invites work inside the client. You must now 
 - Bullet Dance T2 changed to -40s Cooldown
 - Bullet Dance T3 changed to +1 Targets Hit Per Shot
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Infernus" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Flame Dash" />
 @end
 
 - Flame Dash cooldown increased from 30s to 38s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Ivy" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Watcher's Covenant" />
 @end
 
 - Watcher's Covenant heal sharing reduced from 65% to 55%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Kelvin" type="hero" />
 @end
 
 - Ice Path sprint speed increased from +1 to +2
 - Ice Path trail duration increased from 12s to 15s
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Frozen Shelter" />
 @end
 
@@ -200,17 +200,17 @@ content_text: "Reworked how friend invites work inside the client. You must now 
 
 - Frozen Shelter can now be dismissed early
 
-@inline svelte
+@embed svelte
 <EntityHeading name="McGinnis" type="hero" />
 @end
 
 - Spectral Wall can now be dismissed early
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Pocket" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Barrage" />
 @end
 
@@ -219,21 +219,21 @@ content_text: "Reworked how friend invites work inside the client. You must now 
 
 - Enchanted Satchel cast time reduced from 0.25s to 0.15s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Seven" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Storm Cloud" />
 @end
 
 - Storm Cloud T1 increased from +30% to +35% Bullet Resist
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Vindicta" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Flight" />
 @end
 
@@ -243,13 +243,13 @@ content_text: "Reworked how friend invites work inside the client. You must now 
 - Flight T2 changed from +12 Spirit Damage to -15s Cooldown
 - Flight T3 changed from +3 m/s Bonus Air Speed to +12 Spirit Damage
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Can" />
 @end
 
 - Can no longer melee while flying for extra movement
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Assassinate" />
 @end
 
@@ -257,19 +257,19 @@ content_text: "Reworked how friend invites work inside the client. You must now 
 
 - Fixed being unable to move while scoped in with Assassinate
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Warden" type="hero" />
 @end
 
 - Base ammo increased from 14 to 16
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Alchemical Flask" />
 @end
 
 - Alchemical Flask T3 increased from +25% Fire Rate Slow to +35%
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Willpower" />
 @end
 
@@ -277,97 +277,97 @@ content_text: "Reworked how friend invites work inside the client. You must now 
 
 * Item Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="item" names={["Boundless Spirit", "Cold Front", "Enduring Spirit", "Extra Regen", "Intensifying Magazine", "Knockdown", "Leech", "Majestic Leap", "Mystic Reverb", "Reactive Barrier", "Refresher", "Sharpshooter", "Spirit Lifesteal", "Spiritual Overflow", "Torment Pulse"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Boundless Spirit" type="item" />
 @end
 
 - Spirit increased from 45 to 50
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Cold Front" type="item" />
 @end
 
 - cooldown reduced from 40s to 32s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Enduring Spirit" type="item" />
 @end
 
 - Spirit Lifesteal reduced from +10% to +8%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Extra Regen" type="item" />
 @end
 
 - Regen increased from 1.75 to 2
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Intensifying Magazine" type="item" />
 @end
 
 - Time for Max Damage reduced from 4s to 3.5s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Knockdown" type="item" />
 @end
 
 - No longer provides +2 Sprint
 - Now provides +1 Stamina
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Leech" type="item" />
 @end
 
 - Spirit Lifesteal reduced from +35% to +33%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Majestic Leap" type="item" />
 @end
 
 - Velocity increased from 22.5 to 27
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Mystic Reverb" type="item" />
 @end
 
 - Fixed the damage being reduced by armor twice
 - Damage reduced from 35% to 30%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Reactive Barrier" type="item" />
 @end
 
 - Cooldown reduced from 35s to 25s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Refresher" type="item" />
 @end
 
 - No longer has cast time (was 1s)
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Sharpshooter" type="item" />
 @end
 
 - Damage falloff bonus reduced from 20% to 15%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Spirit Lifesteal" type="item" />
 @end
 
 - Reduced from +25% to +23%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Spiritual Overflow" type="item" />
 @end
 
 - Spirit duration increased from 14s to 18s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Torment Pulse" type="item" />
 @end
 

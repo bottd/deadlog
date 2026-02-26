@@ -67,75 +67,75 @@ content_text: "Added a hero based mmr system, so when you join a match with a sp
 
 * Hero Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="hero" names={["Dynamo", "Haze", "Infernus", "Kelvin", "Lash", "McGinnis", "Mo &amp; Krill", "Paradox", "Pocket", "Seven", "Vindicta", "Warden", "Wraith", "Yamato"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Dynamo" type="hero" />
 @end
 
 - Quantum Entanglement is prevented from being cast when Dynamo is rooted or movement-silenced (such as by Slowing Hex)
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Rejuvenating Aurora" />
 @end
 
 - Rejuvenating Aurora T3 reduced from +5% to +4%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Haze" type="hero" />
 @end
 
 - Bullet Dance T1 increased from +5 Weapon Damage to +6
 - Fixed various bugs with the fire rate on Bullet Dance (net effect of the bugs was that it often fired a little faster than it was intended to)
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Infernus" type="hero" />
 @end
 
 - Afterburn base dps reduced from 20 to 18
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Afterburn" />
 @end
 
 - Afterburn T3 reduced from +35 to +33
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Kelvin" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Arctic Beam" />
 @end
 
 - Arctic Beam spirit scaling increased from 0.7 to 0.9
 - Arctic Beam cooldown reduced from 25 to 23
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Lash" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Ground Strike" />
 @end
 
 - Ground Strike radius reduced from 14m to 13m
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Death Slam" />
 @end
 
 - Death Slam radius reduced from 20m to 19m
 
-@inline svelte
+@embed svelte
 <EntityHeading name="McGinnis" type="hero" />
 @end
 
 - Fixed her gun having a recent regression that caused it to not have any spread
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Mini Turret" />
 @end
 
@@ -143,7 +143,7 @@ content_text: "Added a hero based mmr system, so when you join a match with a sp
 
 - Mini Turret deploy time reduced from 2s to 1s
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Mini Turret" />
 @end
 
@@ -151,7 +151,7 @@ content_text: "Added a hero based mmr system, so when you join a match with a sp
 
 - Medicinal Spectre can no longer be attacked
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Spectral Wall" />
 @end
 
@@ -160,13 +160,13 @@ content_text: "Added a hero based mmr system, so when you join a match with a sp
 
 - Fixed a bug with Spectral Wall that caused the Rejuvenator to instantly drop
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Mo &amp; Krill" type="hero" />
 @end
 
 - Base HP regen increased from 2.5 to 3
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Scorn" />
 @end
 
@@ -174,7 +174,7 @@ content_text: "Added a hero based mmr system, so when you join a match with a sp
 
 - Fixed Scorn not healing for more with things like Mystic Burst
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Burrow" />
 @end
 
@@ -183,14 +183,14 @@ content_text: "Added a hero based mmr system, so when you join a match with a sp
 - Fixed Healing Booster not applying to Scorn's 2x heal multiplier on heroes
 - Added a bonus counter to show how much health has been earned by getting a kill during Combo
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Paradox" type="hero" />
 @end
 
 - Base movement speed reduced from 7 to 6.5
 - Kinetic Carbine impact radius reduced by 15%
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Kinetic Carbine Max Stop Duration" />
 @end
 
@@ -198,26 +198,26 @@ content_text: "Added a hero based mmr system, so when you join a match with a sp
 
 - Kinetic Carbine buff duration reduced from 6 to 4
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Kinetic Carbine" />
 @end
 
 - Kinetic Carbine T1 increased from +0.5s Max Stop Duration to +0.75
 - Kinetic Carbine T2 now also increases buff by +2s
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Paradoxical Swap" />
 @end
 
 - Paradoxical Swap range reduced from 35m to 30m
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Pocket" type="hero" />
 @end
 
 - Enchanter's Satchel can now be canceled by shooting
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Seven" type="hero" />
 @end
 
@@ -226,13 +226,13 @@ content_text: "Added a hero based mmr system, so when you join a match with a sp
 - Now has base +20% Bullet Resistance
 - Base health regen reduced from 2 to 1
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Static Charge" />
 @end
 
 - Static Charge T1 improved from -15s Cooldown to -20s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Vindicta" type="hero" />
 @end
 
@@ -240,40 +240,40 @@ content_text: "Added a hero based mmr system, so when you join a match with a sp
 - Fixed Crow Familiar T1 only bouncing to 1 additional target instead of 2
 - Assassinate zoom level is reduced a bit
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Warden" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Willpower" />
 @end
 
 - Willpower no longer loses movement speed when the shield is depleted
 - Willpower duration reduced from 8s to 7s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Wraith" type="hero" />
 @end
 
 - The Royal Flush ability has been replaced with Card Trick.  Card Trick enables Wraith's weapon damage to summon playing cards.  Activating the ability throws one of the cards, which will fly towards the enemy or point under the crosshair and explode on impact.
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Yamato" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Power Slash" />
 @end
 
 - Power Slash damage reduced from 175 to 170
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Can" />
 @end
 
 - Can now cancel Flying Strike
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Shadow Transformation" />
 @end
 
@@ -282,11 +282,11 @@ content_text: "Added a hero based mmr system, so when you join a match with a sp
 
 * Item Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="item" names={["Active Reload", "Alchemical Fire", "Ammo Scavenger", "Bullet Lifesteal", "Burst Fire", "Crippling Headshot", "Decay", "Duration Extender", "Escalating Resilience", "Ethereal Shift", "Extra Charge", "Extra Health", "Extra Spirit", "Frenzy", "Healing Rite", "Heroic Aura", "Infuser", "Leech", "Lifestrike", "Long Range", "Melee Charge", "Mystic Reverb", "Mystic Slow", "Point Blank", "Reactive Barrier", "Restorative Locket", "Siphon Bullets", "Spiritual Overflow", "Superior Duration", "Suppressor", "Surge of Power", "Swift Striker", "Titanic Magazine", "Vampiric Burst", "Warp Stone"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Active Reload" type="item" />
 @end
 
@@ -295,7 +295,7 @@ content_text: "Added a hero based mmr system, so when you join a match with a sp
 - Duration increased from 6s to 8s
 - Weapon Damage increased from 8% to 10%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Alchemical Fire" type="item" />
 @end
 
@@ -303,7 +303,7 @@ content_text: "Added a hero based mmr system, so when you join a match with a sp
 - Cooldown reduced from 30s to 28s
 - Weapon Damage increased from +12% to +14%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Ammo Scavenger" type="item" />
 @end
 
@@ -311,85 +311,85 @@ content_text: "Added a hero based mmr system, so when you join a match with a sp
 - No longer grants +20% Fire Rate for 4s on Soul Secure/Deny
 - Now grants +3 Spirit for 18s on Soul Secure/Deny. Multiple instances stack and refresh the duration. Max 12 stacks.
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Bullet Lifesteal" type="item" />
 @end
 
 - Increased from 20% to 22%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Burst Fire" type="item" />
 @end
 
 - Cooldown reduced from 9s to 8s
 - Slide Distance increased from 25% to 35%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Crippling Headshot" type="item" />
 @end
 
 - Weapon Damage reduced from 25% to 20%
 - Debuff duration reduced from 8s to 5s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Decay" type="item" />
 @end
 
 - Healing Reduction improved from -65% to -70%
 - Bleed increased from 2.4% to 2.6%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Duration Extender" type="item" />
 @end
 
 - Health increased from +50 to +75
 - Ability Duration reduced from 18% to 16%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Escalating Resilience" type="item" />
 @end
 
 - Stack duration increased from 10s to 14s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Ethereal Shift" type="item" />
 @end
 
 - Duration increased from 3s to 3.5s
 - Post-cast bonus is now still granted when ending the buff early
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Extra Charge" type="item" />
 @end
 
 - CD reduction increased from +7% to +8%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Extra Health" type="item" />
 @end
 
 - Health increased from +135 to +140
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Extra Spirit" type="item" />
 @end
 
 - Spirit bonus increased from +7 to +8
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Frenzy" type="item" />
 @end
 
 - Whenever you go back above 40%, the buff lingers for 4s
 - Ammo increased from +7 to +9
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Healing Rite" type="item" />
 @end
 
 - Cooldown reduced from 80s to 75s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Heroic Aura" type="item" />
 @end
 
@@ -397,119 +397,119 @@ content_text: "Added a hero based mmr system, so when you join a match with a sp
 - No longer grants a 10% Fire Rate Aura
 - Active now grants +20% Fire Rate instead of Bullet Lifesteal
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Infuser" type="item" />
 @end
 
 - Active Spirit Power increased from +12 to +18
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Leech" type="item" />
 @end
 
 - Now grants +8% Weapon Damage
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Lifestrike" type="item" />
 @end
 
 - Slow duration increased from 2s to 2.5s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Long Range" type="item" />
 @end
 
 - Ammo increased from +15% to +20%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Melee Charge" type="item" />
 @end
 
 - Weapon Damage increased from 10% to 15%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Mystic Reverb" type="item" />
 @end
 
 - Radius increased from 10m to 12m
 - Cooldown reduced from 12s to 8s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Mystic Slow" type="item" />
 @end
 
 - Fire Rate reduction reduced from -35% to -30%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Point Blank" type="item" />
 @end
 
 - Bullet Shield health increased from +200 to +225
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Reactive Barrier" type="item" />
 @end
 
 - Spirit Shield Health reduced from +500 to +200
 - Now grants +400 Bullet Shield Health
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Restorative Locket" type="item" />
 @end
 
 - Max stacks increased from 18 to 20
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Siphon Bullets" type="item" />
 @end
 
 - Max HP Steal duration increased from 12s to 15s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Spiritual Overflow" type="item" />
 @end
 
 - Bonus spirit increased from +40 to +45
 - Fire Rate increased from +15% to +20%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Superior Duration" type="item" />
 @end
 
 - Health increased from +100 to +125
 - Now grants +4 Health Regen
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Suppressor" type="item" />
 @end
 
 - Fire Rate reduction reduced from -35% to -30%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Surge of Power" type="item" />
 @end
 
 - Imbued Ability Spirit Power increased from +20 to +24
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Swift Striker" type="item" />
 @end
 
 - Fire Rate increased from +20% to +22%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Titanic Magazine" type="item" />
 @end
 
 - Ammo increased from +75% to +90%
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Vampiric Burst" type="item" />
 @end
 
 - Cooldown reduced from 30s to 24s
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Warp Stone" type="item" />
 @end
 

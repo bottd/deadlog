@@ -18,39 +18,39 @@ content_text: "Rope climb speed increased from 11 to 13 Rope activation range in
 
 * Hero Changes
 
-@inline svelte
+@embed svelte
 <SectionPreview type="hero" names={["Infernus", "Ivy", "Seven", "Viscous"]} />
 @end
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Infernus" type="hero" />
 @end
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Flame Dash" />
 @end
 
 - Flame Dash now has 30% Slow Resistance
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Ivy" type="hero" />
 @end
 
 - Air Drop self cast time reduced from 2 to 1.3
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Seven" type="hero" />
 @end
 
 - Storm Cloud: Spirit Power DPS scaling reduced from 0.8 to 0.7
 
-@inline svelte
+@embed svelte
 <EntityHeading name="Viscous" type="hero" />
 @end
 
 - Puddle Punch base cast range from 60m to 40m
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Puddle Punch" />
 @end
 
@@ -58,7 +58,7 @@ content_text: "Rope climb speed increased from 11 to 13 Rope activation range in
 
 - Puddle Punch base cooldown increased from 24 to 28
 
-@inline svelte
+@embed svelte
 <AbilityHeading name="Puddle Punch" />
 @end
 
