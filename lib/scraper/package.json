@@ -14,6 +14,6 @@
 	},
 	"devDependencies": {
 		"@types/node": "24.11.0",
-		"happy-dom": "20.7.0"
+		"happy-dom": "20.8.3"
 	}
 }
