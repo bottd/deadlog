@@ -18,8 +18,8 @@
 		"build:meta": "DATABASE_URL=file:app/static/deadlog.db tsx --tsconfig=tsconfig.base.json lib/meta/src/generate-previews.ts"
 	},
 	"devDependencies": {
-		"@cloudflare/workers-types": "4.20260305.1",
-		"@eslint/js": "9.39.3",
+		"@cloudflare/workers-types": "4.20260307.1",
+		"@eslint/js": "9.39.4",
 		"@libsql/client": "0.17.0",
 		"@lucide/svelte": "0.577.0",
 		"@internationalized/date": "3.12.0",
@@ -45,7 +45,7 @@
 		"drizzle-kit": "0.31.9",
 		"drizzle-orm": "0.45.1",
 		"drizzle-zod": "0.8.3",
-		"eslint": "9.39.3",
+		"eslint": "9.39.4",
 		"eslint-config-prettier": "10.1.8",
 		"eslint-plugin-svelte": "3.15.0",
 		"globals": "17.4.0",
@@ -71,7 +71,7 @@
 		"typescript": "5.9.3",
 		"typescript-eslint": "8.56.1",
 		"vite": "7.3.1",
-		"vite-plugin-norg": "3.0.6",
+		"vite-plugin-norg": "3.0.7",
 		"vite-tsconfig-paths": "6.1.1",
 		"@vitest/browser": "4.0.18",
 		"@vitest/browser-playwright": "4.0.18",
