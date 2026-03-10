@@ -3,7 +3,7 @@ import {
 	itemsApiResponseSchema,
 	type HeroesApiResponse,
 	type ItemsApiResponse
-} from './types/deadlockApi';
+} from '../types/deadlockApi';
 import { z } from 'zod';
 
 const ASSETS_API_BASE = 'https://assets.deadlock-api.com/v2';

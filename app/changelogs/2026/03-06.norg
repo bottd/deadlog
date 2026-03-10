@@ -1,0 +1,2414 @@
+@document.meta
+title: 03-06-2026 Update
+thread_id: 114328
+steam_gid: 1826362059925616
+published: 2026-03-06T13:37:48-0800
+author: Yoshi
+author_image: https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630
+category: patch
+major_update: false
+status: draft
+content_text: "Can now jump during slide Dash jump grants a very brief period with increased air control (30% for 0.25s) Shrine is now easier to kill for the first one and harder for the second. HP from 8100 to 5000/10000 (HP updates after the first one dies, like Walkers) Shrines attack no longer hits heroes under the shrine Super troopers bonus DPS increased from +40% to +60% (the upgraded troopers when Shrine dies) Middle Lane troopers now gets upgraded when either of the shrines die, rather than only when both die Killing a pair of base guardians now spawns a zipline boosted trooper wave to reinforce your push Medic Troopers DPS grows by 3% per minute Troopers now gain 7 HP regen when out of combat Trooper wave interval increased from every 25s to every 20s starting at 35 minutes Guardians bounty increased from 1000 to 1500 Walkers bounty increased from 3500 to 4000 Walkers Health rescaled from 6800/9350/11900 to 6000/9000/12000 Walkers armor decay rescaled from \"+75% -> -50%\" to \"+65% -> -65%\", from over 20min to over 18min Base Guardians bounty from 750 to 1000 Shrines bounty increased from 0 to 2000 Mid Boss base bounty increased from 2000 to 3000 Mid Boss base HP increased from 11900 to 13000 Mid Boss global announcement health threshold reduced from 70% to 50% Mid Boss now has 35% Debuff Resistance Rejuv drop duration reduced from 7s to 6s Rejuv duration no longer refreshes when hitting a crystal later Minimap now indicates if the Urn is a favored, neutral or unfavored Added a neutral camp (2 Normal, 3 Weak) at Hidden King Park Walker Added a neutral camp (2 Normal, 3 Weak) at Archmother York Walker Added \"0 Way\" veils underneath the Shrine platforms in each base Moved the mid lane bridge above the Hidden King Base entrance more to the middle of the two edges Subsequent CC reduction increased from 8%/24% to 10/30% (window from 7s to 8s) Move speed diminishing ramp now occurs around 11m rather than 10m Fixed melee abilities not using conditional damage based on enemy state (close quarters, point blank, opening rounds) Street Brawl: Removed item slot limit (don't need to sell items in the final round sometimes) Added new T1 Spirit Item: Golden Goose Egg Backstabber: Renamed to Stalker Doorman: Gun now pierces through targets at 50% reduced damage Doorman: Call Bell time between charges increased from 4s to 6s Doorman: Call Bell no longer has Impact Damage (was 40 with 1.0 scaling) Doorman: Call Bell explosion damage increased from 55 to 85 Doorman: Call Bell explosion damage spirit scaling reduced from 1.7 to 1.4 Doorman: Call Bell T1 increased from +2m to +2.5m Doorman: Call Bell T2 no longer has Impact Damage Doorman: Call Bell T2 Explosion Damage increased from 40 to 75 Doorman: Call Bell T2 now increases spirit scaling by +0.6 Doorman: Call Bell T3 changed from \"Impact causes half radius explosions\" to \"+1 Charge and +22s Lifetime. Causes the radius to continuously apply it's slow\" Doorman: Doorway now has a timer icon above the ability Doorman: Doorway T1 duration increased from +10s to +15s Doorman: Doorway T2 barrier duration increased from 8s to 12s Doorman: Doorway T3 doorway distance now also scales with Spirit Power (0.25) Doorman: Luggage Cart is now 20% larger (20% wider hitbox as well) Doorman: Luggage Cart T1 changed from \"-8s Cooldown\" to \"+60 Damage\" Doorman: Luggage Cart T2 increased from +15m Cast Range to +20m Doorman: Luggage Cart T3 changed from \"+45 Cart Damage and 117 Wall Damage and 1.2s Wall Stun\" to \"+1.5s Wall Stun and -15s Cooldown\" Doorman: Fixed issues where the cart would hit a target coming out of the hotel before they were supposed to be allowed to be hit, causing the cart to not properly drag the target Doorman: Hotel Guest cast range increased from 6m to 7m Doorman: Hotel Guest no longer goes on cooldown if the target dies during the cast Doorman: Hotel Guest fixed enemies not always landing in the correct spot on return Doorman: Hotel Guest now supports instant cast settings Doorman: Hotel Guest returning guest now has a 100% time slow that decays to 0% over 1s Doorman: Hotel Guest cost of stay damage reduced from 150 to 75 Doorman: Hotel Guest failure to check-out damage reduced from 250 to 125 Doorman: Hotel Guest T1 changed from \"+2m Cast Range\" to \"-1 Stamina and -25s Cooldown\" Doorman: Hotel Guest T2 changed from \"Unstoppable while channeling\" to \"+1.5s Stun On Failure To Checkout and 150 Damage\" Doorman: Hotel Guest T3 changed from \"-50s Cooldown\" to \"Unstoppable while Hotel is occupied. 10s Cooldown on Failure to Check Out\" Vindcita: Ammo reduced from 22 to 19 Vindcita: Crow Familiar cooldown increased from 28s to 32s Card Types: Spades: +70% Damage Diamond: Cuts enemy resistances by -8% for 5s. Does not stack. Hearts: Heals you for 75 HP (1.25 spirit scaling, half heal on non-heroes) Clubs: 30% Slow for 3s Joker: Has all of the above effects and bounces to an additional enemy within 20m. (Has 1/9th chance) Golden Egg Goose: Souls Per Minute increased from 75 to 90 Doorman: Hotel Guest T3 late checkout cooldown increased from 10s to 13s Abrams Bullet damage reduced from 3.86+0.13/boon to 3.6+0.1/boon Siphon Life DPS reduced from 29 to 22 Siphon Life range reduced from 10m to 7.5m Siphon Life is now circular rather than just in front of him Siphon Life range no longer increases with Spirit Power Siphon Life visual range FX fixed to show larger than default radius values Siphon Life Lifesteal against heroes increased from 66% to 80% Siphon Life Lifesteal against non-heroes increased from 33% to 40% Siphon Life DPS spirit scaling increased from 0.5 to 0.6 Siphon Life T1 increased from -19s to -20s Siphon Life T3 now also increases radius by +3.5m Siphon Life T3 DPS reduced from 20 to 18 Shoulder Charge damage reduced from 37 to 30 Shoulder Charge wall stun duration reduced from 0.6s to 0.3s Should Charge spirit scaling reduced from 1.9 to 1.4 Shoulder Charge T1 changed from \"+2.2 Weapon Damage for 8s\" to \"+40% Slow for 3s\" Shoulder Charge T2 wall stun duration increased from 0.45s to 0.8s Shoulder Charge T3 cooldown increased from -18s to -20s Shoulder Charge T3 now also grants +1.5 Weapon Damage for 6s Infernal Resilience T2 increased from +150 Health to +200 Infernal Resilience T3 now also grants +20% Debuff Resistance Seismic Impact is a little faster to target the location when rising Seismic Impact damage increase from 75 to 100 Seismic Impact now allows you to use items during it Seismic Impact radius reduced from 10.5m to 9m Seismic Impact T2 changed from \"Per Hero Hit: +100 HP and +14% Fire Rate\" to \"+0.6s Stun Duration\" Seismic Impact T3 now also increases radius by 6m Apollo Fixed Riposte not leaving the ground when started on the ground Riposte no longer triggers from trooper or neutral damage Flawless Advance T2 no longer increases Apollo's lunge speed Flawless Advance now gets interrupted by stun and sleep Itani Lo Sahn base damage reduced from 225 to 190 and spirit scaling increased from 1.6 to 2.3 Itani Lo Sahn's hit width no longer scales with radius increases Bebop Hook can now be canceled Billy Bashdown radius reduced from 4.5m to 4m Bashdown T2 changed from \"+1.3m Radius\" to \"+1 Charge and +2m Radius\" Bashdown T3 now also reduces charge time by 2s Rising Ram damage reduced from 55 to 40 Rising Ram damage spirit scaling increased from 1.7 to 1.9 Rising Ram cooldown reduced by 50% on impact Rising Ram charge duration reduced from 0.51s to 0.3s Rising Ram T1 changed from \"On Impact: -50% Cooldown\" to \"On Impact: +25% Weapon Damage for 5s\" Rising Ram T2 changed from \"On Impact: +35% Weapon Damage for 5s\" to \"+0.3s Charge Duration\" Rising Ram T3 increased from 6.5% Max Health to 8% Blasted spirit scaling reduced from 0.8 to 0.6 Blasted active duration no longer slows down the decay when doing bullet damage (melee still extends it though) Blasted passive no longer reduces enemy fire rate by -14% Blasted tooltip simplified Blasted T3 now also increases spirit scaling by +0.6 Chain Gang radius reduced from 13m to 12m Chain Gang no longer grants +15% Spirit and Bullet Resist Chain Gang cooldown increased from 125s to 150s Chain Gang T1 changed from \"-25s Cooldown\" to \"+40% Spirit and Bullet Resist\" Chain Gang T2 changed from \"+15% Spirit and Bullet Resist\" to \"-50s Cooldown\" Chain Gang T3 changed from 2s Unstoppable to +1.3s Unstoppable for each hero pulled in Chain Gang T3 no longer grants +90 damage Chain Gang T3 now also increases the radius by +5m Calico Bullets no longer have gravity Now fires an additional pellet right down the center (DPS is the same). The center pellet is now considered the primary pellet for headshots. Gloom Bombs changed so the first grenade always lands in the middle Gloom Bombs projectile sticky radius increased from 10 to 15 Gloom Bombs cast delay reduced from 0.15s to 0.1s Gloom Bombs T2 changed from +16.2 damage to +75 bonus damage vs barriers Leaping Slash improved targeting of dash to end early if near enemy heroes Leaping Slash can now dash vertically, even while on the ground Leaping Slash T2 changed from +40 damage to +300 souls on hero kill Leaping Slash T3 changed from -50% CDR on hit to -50% CDR and +60 damage Leaping Slash radius reduced from 4.5m to 4m Ava can no longer manipulate movement if meleeing while midair Ava now uses healthbar modifier style for duration Ava fixed camera not being centered around Ava Ava melee attack delay reduced from 0.4s to 0.0s Ava melee attack cooldown increased from 0.75 to 0.85 Ava melee attack now goes the way you are looking Ava now starts at a minimum speed, and increases to maximum speed over time, resetting on taking damage Ava now gradually recovers speed over time after taking damage, rather than being slowed for the entire duration Ava cooldown reduced from 45s to 30s Ava duration reduced from 16s to 15s Ava T1 duration increased from +14s to 15s Ava T2 changed from +45% Speed to +45% Speed and +15 Health Regen Ava T3 changed from -20s Cooldown and +35 Health Regen to a growing damage amp the longer you are transformed, up to 20% for 6s Return To Shadows now allows for some vertical flight movement during channel Return To Shadows now has new channel bar Return to Shadows T2 reduced from 67.5 Damage to 65 Return to Shadows T3 no longer grants +18% Damage Amp for 6s, but grants 350 healing instead Celeste Gravity reduced from -20% to -28% (less gravity) Air Control/Acceleration reduced from +50/18% to +38/12% (less air control and acceleration) Shining Wonder bounce range reduced from 17m to 15m Shining Wonder linger duration reduced from 4.5s to 3.25s Drifter Rend damage range reduced from 18m to 16m Rend cooldown increased from 13s to 16s Rend damage spirit scaling increased from 1.4 to 1.8 Rend \"bonus\" damage is now the melee range at close range (so you only do melee damage at close range and spirit is the default) Rend T1 bonus damage increased from +32 to +40 Rend T3 changed from \"Gain 45% Bullet Lifesteal against affected enemies for 4s\" to \"Close range attack now silences enemies for 2.3s\" Stalker's Mark duration reduced from 6s to 5s Stalker's Mark T1 changed from \"+1% Bleed\" to \"-8% Bullet Resist\" Stalker's Mark T2 changed from \"+22% Fire Rate for 6s after ambush\" to \"+3s Duration and -8s Cooldown\" Stalker's Mark T3 changed from \"Enables 2 Charges and +2s Duration\" to \"+2% Bleed and -40% Healing\" Bloodscent now grants Drifter the same amount of permanent bonus weapon damage when an isolated hero dies nearby, whether Drifter gets the assist or the kill Bloodscent permanent bonus weapon damage gained per isolated hero death reduced from 4% to 3% Bloodscent T2 changed from \"Isolated kill reduces cooldowns by 15s and restores 3 stamina\" to \"Isolated death restores 18% Missing Health and restores 2 stamina\" Eternal Night now makes the targets be considered as isolated Eternal Night Sprint reduced from +3m to +2m Eternal Night no longer has 7 spirit damage proc Eternal Night cooldown increased from 120s to 125s Eternal Night duration reduced from 7s to 6.5s Eternal Night T1 changed from \"+6.3 Spirit Damage Proc\" to \"+10m Sprint\" (kicks in immediately) Eternal Night T2 changed from \"-30s Cooldown and +3m/s Sprint\" to \"-45s Cooldown\" Eternal Night T3 increased from \"+2s Duration and +1 Max Target\" to \"+2.5s Duration and +1 Max Target\" Dynamo Bullet damage increased from 12.2+0.44 to 12.6+0.5 Kinetic Pulse cooldown increased from 22s to 26s Kinetic Pulse damage increased from 90 to 115 Kinetic Pulse range reduced from 20m to 16m Kinetic Pulse range no longer increases with spirit scaling Kinetic Pulse spirit scaling increased from 1.7 to 2.1 Kinetic Pulse T1 changed from \"35% Move Slow and -30% Fire Rate\" to \"+1 Charge\" Kinetic Pulse T2 changed from \"+30% Bullet Damage for 8s\" to \"Reduces enemy Bullet Resistance by -18% and Move Speed by -30% for 4s\" Kinetic Pulse T3 changed from \"+104 Damage and +1 Charge\" to \"+135 Damage and +16m Cast Range\" Quantum Entanglement no longer grants +26% Fire Rate Quantum Entanglement no longer reloads ammo Quantum Entanglement base ability now restores 1 stamina Quantum Entanglement ally distance increased from 10m to 13m Quantum Entanglement range increased from 9m to 10m Quantum Entanglement T1 increased from +4m Range to +6m Quantum Entanglement T2 changed from \"+22% Fire Rate\" to \"-6s Cooldown\" Quantum Entanglement T3 changed from \"-5s Cooldown and +120% Ammo\" to \"Dispells non-ult debuffs for you and your allies\" Rejuvenating Aurora cooldown increased from 45s to 48s Rejuvenating Aurora now has a 1s linger on allies Rejuvenating Aurora now lets you jump while using it Rejuvenating Aurora T1 changed from \"+4 Move Speed for 8s after full channel\" to \"Aura provides +4 Move Speed during channel\" Rejuvenating Aurora T2 cooldown from -14s to -20s Rejuvenating Aurora T2 now also increases duration by 1s Singularity no longer does 1.5% Max Health DPS Singularity DPS increased from 40 to 75 Singularity DPS spirit scaling increased from 0.19 to 0.28 Singularity T3 increased from 4% Max Health DPS to 5.5% Graves Grasping Hands is now set up to work through proper alternate cast methods and be more responsive Grasping Hands Immobilize duration reduced from 1.5s to 1.25s Grasping Hands cooldown reduced from 38s to 34s Grasping Hands T2 changed from \"+0.75s Immobilize Duration\" to \"+90 Damage and +10m Wall Length\" Grasping Hands T3 changed from \"+15m Wall Length and -10s Cooldown\" to \"+1s Immobilize Duration and -12s Cooldown\" Haze Spirit per boon reduced from 1.1 to 0.5 Sleep Dagger Sleep move speed reduced from 2m/s to 1.5m/s Sleep Dagger Wake Up delay no longer increases with spirit scaling Sleep Dagger cooldown increased from 26s to 30s Sleep Dagger Sleep duration reduced from 3s to 2.75s Sleep Dagger T1 changed from \"Removes 1 Stamina\" to \"-8% Bullet Resist Reduction for 6s\" Sleep Dagger T2 changed from \"-12s Cooldown and -60% Stamina for 6s\" to \"-15s Cooldown\" Sleep Dagger T3 changed from \"-12% Bullet Resist and -35% Fire Rate for 6s on wakeup\" to \"+0.75s Sleep Duration. -50% Move and Dash Slow for 2.5s on wakeup\" Smoke Bomb cooldown increased from 30s to 33s Smoke Bomb duration spirit scaling reduced from 0.18 to 0.08 Smoke Bomb no longer has base +2m Invis Sprint Speed Smoke Bomb T1 increased from +5m Invis Sprint Speed to +7m Smoke Bomb T2 changed from \"+10% Bullet Lifesteal\" to \"Enables 2 Ability Charges\" Smoke Bomb T3 changed from \"Enable 2 Charges and Grants +0.5s of Invincibility\" to \"Dispels non-ult debuffs and grants 30% Lifesteal for 5s\" Fixation reduced from +0.2 Weapon Damage per stack to +0.18 Fixation T1 spirit scaling increased from 0.37 to 0.8 Fixation T1 reduced from +50 Spirit Damage to +40 Fixation T3 increased from +0.12 Weapon Damage to +0.14 Bullet Dance Fire Rate bonus reduced from 30% to 20% Bullet Dance base ability now has 60% Evasion Bullet Dance duration spirit scaling increased from 0.06 to 0.08 Bullet Dance Bonus Bullet Damage reduced from 10 to 7 Bullet Dance T1 increased from +4 Bullet Damage to +7 Bullet Dance T2 now also increases Fire Rate by +10% Bullet Dance T3 no longer adds 60% Bullet Evasion Bullet Dance T3 now also fires at an additional target Infernus Napalm damage reduced from 46 to 40 Napalm damage spirit scaling increased from 0.3 to 0.6 Napalm amplified damage taken reduced from 20% to 16% Napalm T2 lifesteal increased from 10% to 15% Flame Dash DPS spirit scaling increased from 0.8 to 1.0 Flame Dash T1 changed from \"-25% Fire Rate\" to \"-12s Cooldown\" Flame Dash T2 DPS reduced from +27 to +20 Flame Dash T2 DPS now also increases trail duration by 1s Flame Dash T3 no longer reduces cooldown by 15s Flame Dash T3 now also grants +1 Charge Flame Dash T3 time between charges reduced from 20s to 14s Melee can now buildup afterburn (20% for light melee, 35% for heavy) Afterburn T1 changed from \"-20% Spirit Damage\" to \"+14 DPS\" Afterburn T2 changed from +1s Burn Duration to -35% Spirit Damage Afterburn T3 changed from \"+23 DPS\" to \"+3s Max Burn Duration\" (Base duration is the same, but can buildup after igniting to grow to max burn duration, abilities only refresh up to the base) Concussive Combustion cast now causes camera to move back a bit Concussive Combustion delay increased from 3s to 3.25s Concussive Combustion radius reduced from 13m to 12m Concussive Combustion cooldown increased from 140s to 165s Concussive Combustion damage reduced from 150 to 125 Concussive Combustion T1 changed from \"-35s Cooldown\" to \"+100 Damage\" Concussive Combustion T2 changed from \"+0.5s Stun and +3m Radius\" to \"-65s Cooldown and +65% Explosion Heal\" Concussive Combustion T3 changed from \"+94 Damage and Heal for 70% damage\" to \"+0.75s Stun and +10m Radius\" Ivy Now has -10% Gravity Bullet damage reduced from 4.59+0.12/boon to 4.45+0.06/boon Kudzu Bomb renamed to Entangling Thorns Entangling Thorns Recharge Time reduced from 8s to 5s Entangling Thorns spirit scaling reduced from 0.65 to 0.55 Entangling Thorns T2 changed from \"+2s Duration\" to \"+2m Radius and increases spirit scaling by +0.5\" Entangling Thorns T3 changed from \"+36 DPS and +2m Radius\" to \"Entangles enemies that remain in it for 2s. Lasts 1.6s\" Watcher's Covenant renamed to Kudzu Connection Kudzu Connection Fire Rate spirit scaling reduced from 0.25 to 0.18 Kudzu Connection Bullet Lifesteal spirit scaling reduced from 0.19 to 0.15 Kudzu Connection T1 changed from \"+8% Fire Rate\" to \"+2m Move Speed bonus\" Kudzu Connection T2 changed from \"+2m Move Speed Bonus\" to \"+8% Fire Rate and +8% Bullet Lifesteal\" Kudzu Connection T3 changed from \"+1 Tether Count\" to \"Ability is now always active\" Stone Form cooldown increased from 37s to 40s Stone Form damage spirit scaling reduced from 1.5 to 0.8 Stone Form T1 changed from \"-19s cooldown\" to \"+7% Max Health Heal\" Stone Form T2 changed from \"+68 Damage and +0.5s Stun\" to \"-25s Cooldown\" Stone Form T3 changed from \"+13% Max Health Heal\" to \"+1s Stun and Increased Spirit Scaling (2.0)\" Air Drop cast time removed. Instead, if you take damage the ability will be unable to be used for 3.5s Air Drop spirit damage scaling reduced from 2.3 to 1.0 Air Drop Cooldown reduced from 100s to 65s Air Drop duration increased from 16s to 21s Air Drop base/max speed increased from 11/18m to 10/22m Air Drop bomb radius increased from 14m to 20m Air Drop buff duration reduced from 12s to 8s Air Drop ally cast range increased from 14m to 18m Air Drop now grants you and your ally +20% Outgoing Damage after dropping Air Drop bomb no longer has a fast explode expanding behavior Air Drop bomb no longer causes a knockup Air Drop bomb no longer slows on explode by default Air Drop bomb no longer provides barrier by default Air Drop T1 changed from \"-20% Bullet Resist on enemies hit for 8s\" to \"Grants you and ally 300 Barrier (+1.0 Spirit Scaling)\" Lasts 12s. Air Drop T2 changed from \"+200 Barrier and +5m Explode Radius\" to \"Explode applies 50% Slow for 3s\" Air Drop T3 now also increases damage scaling by +1.5 and barrier scaling by +1.0 Entangling Thorns spirit scaling reduced from 0.55 to 0.45 Kelvin Frost Grenade now impacts on Ice Path Frost Grenade radius reduced from 6.5m to 6m Frost Grenade cooldown increased from 20s to 30s Frost Grenade now comes with 2 charges Frost Grenade now heals in the base ability (60 + 0.9 Spirit Scaling) Frost Grenade no longer has -40% Stamina regen reduction Frost Grenade T1 changed from \"+1 Charge\" to \"Increases damage and heal by +30\" Frost Grenade T2 changed from \"Provides healing 80+1.5\" to \"Freezes stamina regen and -10s Cooldown\" Frost Grenade T3 changed from \"+144 Damage and -30% Stamina Regen\" to \"Increases damage and heal spirit scaling by 1.0 and Radius by +2m\" Ice Path is now cancelled on Ability Button Press instead of Space Ice Path cooldown increased from 46s to 50s Ice Path incline/decline speed increased Ice Path T1 changed from \"+4 Sprint\" to \"+2 Move Speed and +35% Bullet Resistance on Ice Path\" Ice Path T2 increased from -17s Cooldown to -20s Ice Path T3 now grants you +35% Spirit Power while on Ice Path Arctic Beam visual clarity on VFX improved Arctic Beam now lets you cast Frost Grenade and items while using it Arctic Beam Max Fire Rate Reduction reduced from -35% to -20% Arctic Beam Max Slow reduced from -40% to -20% Arctic Beam spirit scaling reduced from 0.8 to 0.5 Arctic Beam cooldown increased from 25s to 28s Arctic Beam T1 changed from \"-7s Cooldown\" to \"Increases Move Slow and Fire Rate Reduction by -25%\" Arctic Beam T2 changed from \"+33 DPS\" to \"+20 DPS and +0.6 Spirit Scaling\" Arctic Beam T3 now also reduces cooldown by 13s Frozen Shelter can now be canceled first without canceling Ice Beam Frozen Shelter is now 8m unit target, creates the dome around the center of both heroes. Can be self casted to create it around yourself. Frozen Shelter duration reduced from 5.25s to 5s Frozen Shelter T1 changed from \"-35% Enemy Fire Rate\" to \"-25s Cooldown\" Frozen Shelter T2 increased from +1s to +1.5s Frozen Shelter T3 now also dispels non-ult debuffs on cast (affects you and allies) Lady Geist Essence Bomb self damage changed from 30 + 1.8 scaling to 30% of the damage (base is 90 + 1.2 scaling) Essence Bomb radius reduced from 9m to 7m Essence Bomb cooldown reduced from 14.5s to 14s Essence Bomb T1 increased from -4s to -5s Essence Bomb T2 also increases radius by +2m Life Drain cooldown increased from 30s to 34s Life Drain break range reduced from 30m to 28m Life Drain T1 DPS increased from +16.2 to +18 Life Drain T2 duration increased from +2s to +2.5s Life Drain T3 charges increased from +1 to +2 Life Drain T3 now also increases spirit scaling by +0.3 Soul Exchange cast time reduced from 0.2s to 0.1s Soul Exchange post cast hold time reduced from 0.7s to 0.2s Soul Exchange T1 cooldown increased from -35s to -60s Soul Exchange T2 changed from \"On Cast: +35% Fire Rate for 8s\" to \"Silences enemies within 25m for 3s\" Soul Exchange T3 changed from \"Silences enemies within 25m for 3s\" to \"On Cast: +60 Spirit Power, +40% Fire Rate and +50% Spirit Resistance for 8s\" Lash Increased Sparkles Fixed Ground Strike against players brought down from mid air not doing damage Grapple T2 weapon damage increased from +6 to +7 Grapple T3 changed from \"+20% Fire Rate\" to \"+60% Air Control and +1 Stamina on Usage\" Flog cooldown increased from 24s to 26s Flog Attack Angle no longer increases with Spirit Power Flog heal vs heroes reduced from 60% to 50% Flog T2 increased from -12s Cooldown to -16s Flog T2 now also reduces Fire Rate by 30% Flog T3 no longer reduces Fire Rate Flog T3 damage reduced from +86 to +80 Flog T3 now also increases Attack Angle by 40 and Heal by +20% Fixed Death Slam camera sometimes being obstructed Death Slam throw distance no longer scales with Spirit Power (was 0.3) Death Slam cooldown increased from 145s to 150s Death Slam T1 throw distance increased from +8m to +12m Death Slam T2 cooldown increased from -25s to -40s Death Slam T3 now also increases cast range by +10m McGinnis Stamina speed bucket 3 to 2 Bullet damage reduced from 6.72 + 0.2/boon to 6.0 + 0.16/boon Mini Turret duration increased from 24s to 35s Mini Turret base health and health growth reduced by 40% Mini Turrets initial fading resist start value increased from 60% to 80% Mini Turrets now have 35% melee resist Mini Turret tracking, angle and projectile speeds significantly improved Mini Turret on the minimap now flash/turn red when they are attacking Mini Turret T1 changed from \"Turrets apply 25% slow\" to \"+10m Attack Range and +10 DPS\" Mini Turret T2 changed from \"+10m Attack Range and + 10% Fire Rate\" to \"+2 Charges\" Mini Turret T3 changed from \"+38 Turret DPS and +14s Turret Lifetime\" to \"+30% Turret Fire Rate and +12s Turret Lifetime\" Medicinal Specter duration no longer scales with spirit power Medicinal Specter radius no longer scales with spirit power Medicinal Specter regen now scales with spirit power (+0.3) Medicinal Specter cooldown increased from 48s to 50s Medicinal Specter no longer provides +15% Stamina Recovery Medicinal Specter T1 changed from \"+30% Fire Rate\" to \"+40% Spirit Resistance\" Medicinal Specter T2 increased from -17s Cooldown to -20s Medicinal Specter T2 now also increases Stamina Recovery by +100% Medicinal Specter T3 regen reduced from 2.5% Max HP to 2% Medicinal Specter T3 now also increases radius by 3m Medicinal Specter T3 now also increases duration by 1s Spectral Wall that is midcast will now fire when you are interrupted, rather than continue to expand outward Spectral Wall segments can now be destroyed with 2 heavy melee hits (destroys an individual segment) Spectral Wall min range reduced from 6m to 5m Spectral Wall applies it's slow to enemies it passes through while being summoned Spectral Wall T1 no longer drains 1 stamina Spectral Wall T1 Damage Amp increased from 15% to 20% Spectral Wall T2 also increases wall duration by +2s Spectral Wall T3 changed from \"0.75s Stun on Impact\" to \"Creates 2 Turrets for 8s and increases slow by 30%\" (creates them on the side facing you spread along the wall) Heavy Barrage duration reduced from 13s to 8s Heavy Barrage minimum range reduced from 9m to 8.5m Heavy Barrage T1 tooltip updated to clarify that it also reduces dash distance Heavy Barrage T1 move slow reduced from 40% to 30% Heavy Barrage T1 dash slow increased from 20% to 30% Heavy Barrage T1 slow duration reduced from 2s to 1.5s Heavy Barrage T2 cooldown reduction increased from -45s to -55s Heavy Barrage T2 now also increases duration by 6s Heavy Barrage T3 damage increased from +21 to +25 Heavy Barrage T3 spirit scaling from +0.2 to +0.25 Heavy Barrage T3 now also increases explosion radius by 2m Mina Stamina cooldown increased from 3.9s to 4.2s Rake cooldown increased from 10s to 16s Rake hero hit missing health as damage increased from 3% to 5% Rake heal per kill reduced from 30 to 25 Rake heal per kill spirit scaling reduced from 0.43 to 0.3 Rake T1 changed from \"+20 Heal Per Kill\" to \"+60 Damage\" Rake T2 changed from \"+54 Damage and +1.0 Heal Per Kill spirit scaling\" to \"+30 Heal Per Kill and -8s Cooldown\" Rake T3 now also provides +1.2 Heal Per Kill spirit scaling Sanguine Retreat cast range reduced 10m to 9m Sanguine Retreat recast window increased from 3s to 3.5s Sanguine Retreat T1 changed from \"+3m Cast Range\" to \"+20% Fire Rate and 8 Bullets\" Sanguine Retreat T2 changed from \"+25% Fire Rate and 8 Bullets\" to \"-10s Cooldown\" Sanguine Retreat T3 changed from \"-12s Cooldown\" to \"+1 Recast\" Love Bites Cooldown increased from 8s to 10s Love Bites damage reduced from 6 to 4 Love Bites damage spirit scaling increased from 0.06 to 0.09 Love Bites bonus damage reduced from 55 to 45 Love Bites bonus damage spirit scaling increased from 1.6 to 1.85 Love Bites T1 changed from \"On Proc: +4 m/s Move Speed for 3s\" to \"On Proc: 30% Slow for 3s\" Love Bites T2 Damage/Bonus reduced from 3.6/50 to 3/45 Love Bites T3 changed from \"On Proc: -1 Stamina and 30% slow for 3s\" to \"-4s Cooldown and On Proc +25% Fire Rate for 5s\" Nox Nostra cooldown increased from 115s to 130s Nox Nostra damage reduced from 6 to 5.6 Nox Nostra T1 increased from +1.8 to +2.2 Nox Nostra T2 cooldown increased from -40s to -55s Mirage Bullet damage reduced from 15.2+0.5 to 14.8+0.3 Fire Scarabs no longer have a limited duration to launch each one. Functions as a normal charged ability. Fire Scarabs collision and model size increased a bit Fire Scarabs base charges reduced from 4 to 2 Fire Scarabs spirit scaling reduced from 1.0 to 0.8 Fire Scarabs now immediately steal the health from the target Fire Scarabs Max Health steal increased from 45 to 70 Fire Scarabs changed from -8% Bullet Resist to +10% Damage Amp on that target from any damage you deal Fire Scarabs cooldown increased from 40s to 45s Fire Scarabs T1 changed from \"-15s Cooldown\" to \"+50 Max Health Steal\" Fire Scarabs T2 changed from \"-8% Bullet Resist\" to \"+2 Charges\" Fire Scarabs T3 changed from \"+63 Max Health Steal\" to \"+10% Damage Amp and +1.2 Spirit Scaling\" Fire Scarabs no longer has a reduced effect against non-heroes Tornado renamed to Dust Devil Dust Devil lift duration reduced from 1.0s to 0.4s Dust Devil spirit scaling reduced from 0.7 to 0.3 Dust Devil now slows affected enemies by 30% for 3s Dust Devil bullet evasion duration increased from 3.5s to 4s Dust Devil bullet evasion increased from 25% to 30% Dust Devil T1 changed from \"+0.4s Lift Duration\" to \"+60 Damage\" Dust Devil T2 changed from \"-14s Cooldown\" to \"-8s Cooldown and +30% Evasion\" Dust Devil T3 changed from \"+20% Bullet\" to \"Can Recast within 5s. Increases spirit scaling by 1.0\" Djinn's Mark cooldown increased from 2.6s to 3s Djinn's Mark multiplier duration increased from 4.5s to 5s Djinn's Mark reveal duration increased from 3s to 6s Djinn's Mark tooltip rewritten to be based on a \"per stack\" basis. A stack increases the damage by 200%. (this is just a tooltip change) Djinn's Mark T1 changed from \"60% slow for 0.5s on 2x stack\" to \"Fading 60% slow for 0.5s\" Djinn's Mark T2 increased from +8.1 Damage to +20 Djinn's Mark T3 cooldown increased from -0.75s to -1s Djinn's Mark T3 now also stuns for 0.5s at max stacks Traveler cooldown reduced from 155s to 145s Traveler can now be cast while on the zipline Traveler no longer channels. It now has a 3s delay before teleporting. Taking damage interrupts the ability and puts it on cooldown for 6s. Traveler now targets a location on the minimap rather than units. Places you at the ground level of that location. Traveler no longer grants +2m Move Speed and +26% Fire Rate Traveler T1 changed from \"+2m Move Speed and -35s Cooldown\" to \"3m Move Speed for 12s\" Traveler T2 changed from \"Grants Traveler Buffs to Ally\" to \"400 Barrier with spirit scaling for 12s\" Traveler T3 \"Unstoppable for 3s\" to \"-80s Cooldown\" Mo & Krill Scorn damage reduced from 56 to 50 Scorn radius reduced from 10m to 9m Scorn spirit scaling increased from 0.42 to 0.75 Scorn T1 changed from \"-3.75s Cooldown\" to \"+35 Damage\" Scorn T2 changed from \"+21 Damage\" to \"-5s Cooldown and +1m Radius\" Burrow now lets you enter the tunnels Burrow cooldown increased from 37s to 40s Burrow T1 changed from \"+3s Duration\" to \"+50 Spin DPS\" Burrow T2 changed from \"+68 Spin DPS and +2 Radius\" to \"+2 Spin Radius and +4s Burrow Time\" Burrow T3 increased from +2 m/s Move Speed to +4 Burrow T3 increased from -19s Cooldown to -20s Sand Blast cooldown reduced from 42s to 40s Sand Blast duration reduced from 3s to 2.5s Sand Blast range reduced from 35m to 25m Sand Blast T1 changed from \"+1s\" to \"+50 Damage and +5m Range\" Sand Blast T2 changed from \"-23s Cooldown\" to \"Slows targets Move Speed and Dash Distance by -25%\" Sand Blast T3 changed from \"Slows targets Move Speed and Dash Distance by -40%\" to \"+1s Duration and -20s Cooldown\" Combo cooldown increased from 90s to 150s Combo DPS increased from 35 to 60 Combo T1 changed \"+30% Bullet Resist During Combo\" to \"+100% Lifesteal\" Combo T2 changed from \"+0.7s Duration\" to \"+60 DPS and +50% Bullet Resist\" Combo T3 changed from \"+32 DPS and 80% Lifesteal\" to \"+0.7s Duration and -60s Cooldown\" Paige Conjure Dragon renamed to Bookwyrm Bookwyrm fixed initial location not starting where you click it Bookwyrm cooldown increased from 30s to 33s Bookwyrm T1 changed from \"-5s Cooldown\" to \"+2s Trail Duration and +1m Width\" Bookwyrm T2 changed from \"+2s Trail Duration\" to \"-8s Cooldown and +10m Travel Range\" Bookwyrm T3 Damage/DPS rescaled from 104/27 to 100/30 Bookwyrm T3 now also grants +1 Charge Defend and Fight! renamed to Plot Armor Plot Armor barrier spirit scaling reduced from 1.6 to 1.3 Plot Armor T3 now also increases spirit scaling (+0.3) Captivating Read height area no longer increases with range bonuses Captivating Read cooldown increased from 25s to 30s Captivating Read immobilize duration reduced from 1.25s to 1s Captivating Read T1 cooldown increased from -6s to -11s Captivating Read T2 immobilize duration increased from 0.75s to 1s Captivating Read T3 now also increases radius by 1m Rallying Charge T2 now also reduces cooldown by 30s Rallying Charge T3 now also increases Max Amp from +100% to +150% Paradox Pulse Grenade radius reduced from 6m to 5.5m Pulse Grenade radius increases by +1m per Pulse Pulse Grenade Amp Per Stack reduced from 6% to 4% Pulse Grenade cooldown increased from 28s to 32s Pulse Grenade spirit scaling reduced from 0.6 to 0.4 Pulse Grenade changed from -30% Move Speed for 2s to -20% Time Slow for 0.2s Pulse Grenade T1 changed from +0.8s Duration to -12s Cooldown Pulse Grenade T2 changed from \"-8s Cooldown\" to \"+20 Pulse Damage and +0.5 Spirit Scaling\" Pulse Grenade T3 changed from \"+36 Pulse Damage and +0.8m Radius per Pulse\" to \"+4% Damage Amp Per Stack and +1.6s Duration\" Time Wall duration reduced from 6s to 5.5 Time Wall no longer damages enemies going through it Time Wall now increases allied bullet speeds going through it by 100% Time Wall now increases adds +30% Weapon Damage to allied bullet damage (affects Carbine) Time Wall T1 increased from +2m Width to +3m Time Wall T2 changed from \"+9% Max Health Damage\" to \"+2.5s Duration and +30% Weapon Damage\" Time Wall T3 changed from silencing enemies to Allowing Charges and Granting +1 Charge (4s Charge Time) Kinetic Carbine cooldown increased from 27s to 30s Kinetic Carbine speed spirit scaling increased from 0.09 to 0.13 Kinetic Carbine base damage scale increased from 100% to 125% Kinetic Carbine T2 changed from \"-8s Cooldown and +2s Charge Hold\" to \"-12s Cooldown\" Kinetic Carbine T3 now also increases charge hold by 2s Paradoxical Swap cooldown increased from 75s to 95s Paradoxical Swap no longer has 80% Spirit Lifesteal Paradoxical Swap damage changed from 115 (0.6 spirit scaling) to 10% Current Health Paradoxical Swap T1 changed from \"-15s Cooldown\" to \"+200 Barrier (1.5 Spirit Scaling)\" Paradoxical Swap T2 changed from \"+81 Damage\" to \"+13m Cast Range and -35s Cooldown\" Paradoxical Swap T3 changed from \"+15m Cast Range\" to \"Swaps additional enemies in 7m radius and +10% Current Health Damage\" Pulse Grenade spirit scaling reduced from 0.4 to 0.3 Time Wall slow duration increased from 1.25s to 2s Time Wall T1 now also increases duration by +2.5s Time Wall T2 no longer increases duration by +2.5s Time Wall T2 now also silences enemies for 2.3s Paradoxical Swap damage changed from 10% Current Health to 125 with 1.1 spirit scaling Paradoxical Swap T3 changed from 10% Current Health to 10% Max Health Paradoxical Swap can now be alt casted to swap only a single target with the T3 Pocket Barrage projectile speed increased by 15% Barrage now lets you use stamina during the ability Barrage now lets you use Flying Cloak during the ability Barrage T1 increased from +12.6 Damage Per Projectile to +16 Barrage T2 cooldown increased from -14s to -16s Barrage T3 increased from +2m Radius to +3m Flying Cloak cooldown reduced from 32s to 26s Flying Cloak damage reduced from 70 to 60 Flying Cloak duration increased from 3.4s to 3.8s (travels slower, same total distance) Flying Cloak T1 changed from \"-14s Cooldown\" to \"+70 Damage\" Flying Cloak T2 changed from \"+76 Damage\" to \"+5 Weapon Damage upon cast for 8s\" Flying Cloak T3 changed from \"+7 Weapon Damage after teleporting for 10s\" to \"+1.6s Travel Time and -14s Cooldown\" Enchanter's Satchel spirit scaling increased from 0.61 to 0.9 Enchanter's Satchel T3 now also reduces movement speed by 40% Enchanter's Satchel T3 Fire Rate slow increased from 35% to 40% Enchanter's Satchel T3 Escape duration increased from +0.5s to +1.5s Enchanter's Satchel T3 now also increases radius by 4m Affliction no longer applies 12% Current Health Damage Affliction DPS increased from 28 to 32 Affliction spirit scaling increased from 0.17 to 0.2 Affliction cooldown increased from 140s to 150s Affliction T1 increased from -25s Cooldown to -40s Cooldown Affliction T2 no longer reduces healing by 40% Affliction T2 now also increases radius by 4m Affliction T3 no longer increases radius by 6m Affliction T3 now prevents all healing on targets Affliction T3 increases spirit scaling by +0.1 Rem Lil Helpers trooper base healing changed from 10/s to 8/s. The delay between heals has been reduced so the frequency of healing is more constant. (overall reduction) Lil Helpers trooper healing spirit scaling increased from 0.125 to 0.14 Naptime sleep move speed reduced from 2m/s to 1.5m/s Naptime sleep duration decreased from 4.25s to 4s Naptime radius decreased from 20m to 17.0m Naptime T2 changed from \"unstoppable and -35% Damage resist while channeling\" to \"+0.5s Sleep Duration and +3m Radius\" Naptime T3 now also grants +50% damage resist while channeling Seven Move Speed no longer scales with spirit power Sprint speed increased from 0.6m to 1.8m Lightning Ball slows down less vs non-heroes (previously was 2m/s for all, now 3.5m/s for non-heroes) Lightning Ball fixed now doing damage if another ball was already hitting a target Lightning Ball T2 now also increases lifetime by 1s Static Charge damage reduced from 38 to 35 Static Charge cast range reduced from 16m to 15m Static Charge cast range no longer increases with spirit power Static Charge T1 increased from -19s Cooldown to -20s Static Charge T2 now also increases cast range by +5m Static Charge T3 now also increases damage by +160 Power Surge duration no longer scales with spirit power Power Surge cooldown increased from 48s to 50s Power Surge max jumps increased from 3 to 4 Power Surge T1 increased from -15s to -18s Power Surge T2 changed from \"-10% Spirit Resist for 6s\" to \"+3m Move Speed, +8 Damage and increased Spirit Scaling (+0.23)\" Power Surge T3 changed from \"+11 Shock Damage, scaling and +3 max jumps\" to \"-15% Spirit Resist for 8s and +12s Duration\" Storm Cloud allows movement in the base ability (1.5m) Storm Cloud bullet resistance reduced from 20% to 0% Storm Cloud T1 bullet resist increased from 35% to 55% Storm Cloud T3 increases move speed by +3m (was +3.8m before) Shiv Stamina reduced from 3 to 2 Stamina movement speed reduced from 6.7 to 6.5 Bullet damage growth increased from 0.154 to 0.165 Serrated Knives no longer has impact damage Serrated Knives Bleed DPS per knife increased from 4 to 10 Serrated Knives Bleed DPS spirit scaling increased from 0.13 to 0.15 Serrated Knives T1 changed from \"+1 Charge\" to \"+2s Duration\" Serrated Knives T2 changed from \"+2s Duration\" to \"+2 Charges\" Serrated Knives T3 no longer has +30 Impact Damage Serrated Knives T3 DPS increased from +5.5 to +12 Serrated Knives T3 increases spirit scaling by +0.10 Slice and Dice cooldown increased from 15s to 16s Slice and Dice Impact damage reduced from 75 to 60 Slice and Dice reduces Spirit Resistance by 6% for 16s. Multiple instances stack. Slice and Dice T1 increased from -3s Cooldown to -6s Cooldown Slice and Dice T2 changed from \"+50 Impact Damage\" to \"-8% Spirit Resistance and +2m Dash Range\" Slice and Dice T3 now also grants +50 Impact Damage Killing Blow is no longer unit targeted, you jump in the direction forward with some small control Killing Blow Damage Amp reduced from 15% to 14% Killing Blow T2 changed from \"+5% Enemy Health Threshold and +6% Damage Amp\" to \"+8% Damage Amp\" Killing Blow T3 now grants you 20s to recast the ultimate, rather than removing the cooldown Killing Blow T3 now also increases enemy health threshold by +5% Silver Mauling Leap damage scaling reduced from 1.9 to 1.5 Fixed Tail Whack being considered a movement ability Tail Whack disarm duration reduced from 2.5s to 2s Tail Whack slow duration increased from 1.5s to 2s Tail Whack T3 changed from \"+1s Disarm Duration\" to \"1.5s Debuff Duration\" Lycan Curse cooldown increased from 35s to 50s Lycan Curse base health bonus reduced from 100 to 75 Lycan Curse no longer grants +14% Bullet and Spirit Resistance Lycan Curse no longer grants +2m Move Speed Lycan Curse T1 resist increased from +14% to +15% Lycan Curse T2 bonus health increased from 125 to 150 Lycan Curse base health bonus increased from +75 to +125 Lycan Curse T2 increased from +3m to +4m Victor Bullet damage increased from 12.3 to 12.5 Pain Battery now starts charged Pain Battery range increased from 20m to 28m Pain Battery reduced randomness on the projectile paths Pain Battery bolt count from 5 to 7 Pain Battery T2 increased from +36 to +50 Pain Battery T3 now also increases spirit scaling by +0.6 Jumpstart cooldown increased from 23s to 30s Jumpstart Move Speed reduced from 4m to 3m Jumpstart spirit scaling reduced from 1.8 to 1.2 Jumpstart T1 increased from +1.5m to +3m Move Speed Jumpstart T2 now also reduces cooldown by -8s Jumpstart T3 now also provides +1 Charge Jumpstart T3 no longer reduces cooldown Jumpstart T3 now also increases spirit scaling by 0.8 Aura of Suffering time to max DPS reduced from 10s to 6s Aura of Suffering radius increased from 7.7m to 10m Aura of Suffering toggle cooldown reduced from 2.5s to 2s Aura of Suffering Min DPS reduced from 16 to 12 Aura of Suffering Min DPS spirit scaling reduced from 0.18 to 0.135 Aura of Suffering Max DPS reduced from 70 to 54 Aura of Suffering Max DPS spirit scaling reduced from 0.9 to 0.67 Aura of Suffering T2 Min/Max DPS reduced from 8/36 to 6/26 Aura of Suffering Text Progress bar indicates time to Max DPS Aura of Suffering T3 reduced from +13% Damage to +15% Shocking Reanimation radius reduced from 13m to 12m Shocking Reanimation rebirth health reduced from 60% to 50% Shocking Reanimation T1 changed from \"+3m Radius and +90 Damage\" to \"While on Cooldown: +15% Fire Rate and +6 Spirit Damage Per Bullet (0.06 scaling)\" Shocking Reanimation T2 rebirth health increased from 40% to 50% Shocking Reanimation T3 changed from \"While on Cooldown: +18% Fire Rate and +9 Spirit Damage Per Bullet (0.06 scaling)\" to \"+6m Radius, +1s Stun and -50s Cooldown\" Vindicta Fire Rate no longer scales with Spirit Power Bullet damage now scales with spirit power (0.022) Bullet Velocity increased from 557 to 660 Stake damage reduced from 55 to 40 Stake damage spirit scaling increased from 0.37 to 0.5 Stake projectile speed increased from 20m/s to 25m/s Stake T1 changed from \"-35% Fire Rate\" to \"+65 Damage\" Stake T3 Tether Duration increased from +0.5s to +0.75s Stake T3 capture radius increased from +1m to +2m Flight now allows you to use melee Flight now allows parry to be used Flight now grants you +50% Item Cast Range Flight spirit damage scaling reduced from 0.22 to 0.18 Flight duration reduced from 15s to 13s Flight T2 duration increased from +8s to +10s Flight T3 Spirit Damage Per Bullet reduced from 12.6 to 10 Flight T3 now increases spirit scaling by 0.1 Flight T3 now also refreshes duration on hero kill Crow Familiar now releases a swarm of crows in a cone forward, hitting all enemies along the path Crow Familiar debuff duration no longer scales with spirit power Crow Familiar debuff duration increased from 4s to 5s Crow Familiar bleed damage reduced from 2.7% to 2.2% Crow Familiar damage increased from 37 to 40 Crow Familiar T1 changed from \"Ricochet up to 2 times\" to \"Reduces healing by -35%\" Crow Familiar T2 now also increase bleed damage by +0.5% Crow Familiar T3 now also increases debuff duration by 2s Assassinate while scoped no longer un-scopes when using items Assassinate now has a 4s buffer on impact for bonus credit Assassinate while scoped now plays a sound for you when the it is fully charged Assassinate weapon damage bonus increased from 5% to 6% Viscous Splatter bounces once by default Splatter cooldown reduced from 30s to 26 Splatter spirit scaling reduced from 1.77 to 0.8 Splatter ground effect now increases slide distance by 60% for you and your allies Splatter multiple hit damage value reduced from 50% to 50/38/26% Splatter T1 radius increased from +1m to +2m Splatter T2 cooldown increased from -12s to -14s Splatter T3 spirit scaling increased from +0.4 to +1.3 Splatter T3 still adds 2 bounces The Cube now has a very brief period where allies cannot cancel to prevent accidental cancels The Cube healing spirit scaling increased from 0.14 to 0.3 The Cube T3 increased from -21s Cooldown to -25s Puddle Punch now grants +30% Air Control when affecting yourself or allies Puddle Punch Charge Time increased from 1.5s to 1.7s Puddle Punch Slow increased from 15% to 20% Puddle Punch now acts as if its close range with respect to item procs (like Point Blank) Puddle Punch radius reduced from 4.5m to 4m Puddle Punch T2 changed from \"+27 Damage and -15% Move Slow\" to \"+1.5m Radius and +30 Damage\" Goo Ball no longer can carry Urn Goo Ball turn rate improved a bit Goo Ball can now use abilities and items (rather than being locked behind T3) Goo Ball cooldown increased from 115s to 130s Goo Ball duration increased from 9s to 10s Goo Ball Bullet and Spirit resist reduced from 60% to 35% Goo Ball T1 changed from \"+5s Duration\" to \"-30s Cooldown\" Goo Ball T2 reduced from +72 Damage to +70 Goo Ball T3 changed from \"Can now use abilities and items\" to \"+6s duration and +0.3s Stun Duration\" Splatter T3 spirit scaling reduced from 1.3 to 1.1 Puddle Punch scaling reduced from 1.1 to 1.0 Warden Bullet growth per boon reduced from 0.44 to 0.38 Alchemical Flask Weapon Damage reduction reduced from -30% to -25% Alchemical Flask T2 damage increased from +36 to +40 Alchemical Flask T2 now also increases Weapon Damage Reduction by -20% Alchemical Flask T2 no longer increases radius by 1m Alchemical Flask T3 cooldown increased from -6.5s to -7s Alchemical Flask T3 now also increases radius by 2m Willpower duration reduced from 7s to 5s Willpower cooldown reduced from 42s to 40 Willpower barrier now scales with spirit power in the base ability (+0.5) Willpower T2 cooldown from -19s to -22s Willpower T2 now also increases duration by +2s Willpower T3 changed from \"+150 Barrier Health and improved scaling (3.7)\" to \"+40% Debuff Resistance and improved scaling (2.5)\" Binding Word cast range reduced from 20m to 15m Binding Word cooldown decreased from 37s to 34s Binding Word T1 changed from \"+1s Immobilize Duration\" to \"+20% Bullet Damage to Trapped heroes for 5s\" Binding Word T2 changed from \"-19s Cooldown\" to \"+0.75s Duration and +12m Cast Range\" Binding Word T2 now increases trap duration by 0.75s Binding Word T3 changed from \"+20% Bullet Damage\" to \"-18s Cooldown and Silences enemies until they escape or are trapped\" Last Stand Channeling bullet and spirit resist increased from 30% to 60% Last Stand radius reduced from 13m to 12m Last Stand T1 increased from +3m Radius to +4m Last Stand T3 no longer grants +50% Bullet and Spirit Resist Last Stand T3 duration increased from +2.5s to +3s Last Stand T3 now also grants you Unstoppable while channeling Wraith Card Trick cards now have specific suites with special bonuses. Card Trick base charge count increased from 1 to 2 Card Trick base damage reduced from 60 to 45 Card Trick spirit scaling reduced from 1.0 to 0.55 Card Trick buildup now takes 20% longer Card Trick cooldown reduced from 0.75s to 0.5s Card Trick post cast time reduced from 0.2s to 0.1 Card Trick now highlights the card that will be throw next. Card Trick now has unique sounds for each card suite that is summoned. Card Trick T1 increased from \"+1 Charges\" to \"+2 Charges\" Card Trick T2 changed from \"+35 Damage\" to \"+40 Damage and increased spirit scaling (+0.4)\" Card Trick T2 changed from \"+50% Card Summon Rate and 30% slow for 1s\" to \"Improves Card Suites and increased joker chances\" (new totals are Spades: 2.5x, Diamond: -13%, Heal: 150/2.0, Clubs: 50%, Joker: 1/5th chance) Fixed Project Mind interaction with stuns Full Auto no longer affects allies (previously gave half fire rate to allies) Full Auto duration no longer scales with Spirit Power Full Auto cooldown reduced from 48s to 45s Full Auto base ability now deals +2 Spirit Damage Per Bullet (0.03 Spirit Scaling) Full Auto T1 increased from -14s Cooldown to -20s Full Auto T2 changed from \"2.52 Spirit Damage per Bullet\" to \"+10% Fire Rate and +3s Duration\" Full Auto T3 changed from \"+15% Bullet and Spirit Lifesteal and increased spirit scaling\" to \"Unlimited Ammo and increased spirit scaling (+0.06)\" Telekinesis cooldown increased from 110s to 120s Telekinesis cast range reduced from 20m to 14m Telekinesis cast time increased from 0.1s to 0.3s Telekinesis no longer has a projectile, it now instantly lifts the target for 0.75s and gives you a location target on the ground. After the 0.75s is over, it'll throw the hero towards that location up to 15m away. The target will take 100 Damage, 40% move slow and prevent stamina/movement-item and ability usage for 3s. Telekinesis T1 changed from \"-25s Cooldown\" to \"+100 Damage\" Telekinesis T2 changed from \"+0.75s Silence and Disarm Duration\" to \"-50s Cooldown\" Telekinesis T3 changed from \"Bounces to nearby target\" to \"+1.5s Debuff duration and +6m Throw and Cast Range Card Trick Spade reduced from +70% to +60% Card Trick Heart scaling reduced from 1.25 to 1.0 Card Trick T3 Heart scaling increased from 0.5 to 0.75 Fixed Card Trick Heart heal doing full value for non-heroes (instead of half) Telekinesis debuff duration reduced from 3s to 2.75s Yamato Power Slash being held down no longer automatically fires it You can now cast Parry directly while channeling Power Slash to fire the Power Slash and parry Power Slash base ability now has +60% Bullet Resist while channeling Power Slash cooldown increased from 10.5s to 12s Power Slash Slash Length reduced from 25m to 22m Power Slash T1 changed from \"+60% Bullet Resist while channeling\" to \"40% Slow for 3s\" Power Slash T2 changed from \"-2s Cooldown and 40% slow for 3s\" to \"-4s Cooldown\" Power Slash T3 now also grants +8m Range Flying Strike renamed to Flying Slash Flying Slash is now light melee damage rather than spirit Flying Slash slow increased from -30% to -50% Flying Slash cooldown increased from 21s to 36s Flying Slash range increased from 20m to 25m Flying Slash T1 changed from \"25% Slow\" to \"-18s Cooldown\" Flying Slash T2 changed from \"+20m Cast Range\" to \"+20m Cast Range and gain +40 Spirit for 6s\" Flying Slash T3 changed from \"Can Grapple to ally heroes and +6 Weapon Damage for 10s\" to \"Can Grapple to ally heroes. Becomes Charged and grants +2 charges (3s between charges).\" Fixed Flying Slash T3 ally cast stopping too soon before reaching the player Crimson Slash cooldown increased from 15s to 16s Crimson Slash Fire Rate reduction increased from -18% to -30% Crimson Slash T1 changed from \"-26% Fire Rate\" to \"On Hit: +30% Melee Damage for 4s\" Crimson Slash T3 increased from -9s Cooldown to -10s Crimson Slash T3 now also increases spirit scaling (+0.6) Shadow Transformation cooldown increased from 110s to 130s Shadow Transformation Bullet and Spirit Resist reduced from 40% to 30% Shadow Transformation T1 changed from \"+14% Fire Rate\" to \"+5 Weapon Damage\" Shadow Transformation T2 now also reduces cooldown by 25s Shadow Transformation T3 increased from +20% Bullet and Spirit Resist to +30% Extended Magazine Weapon Damage increased from +6% to +8% High-Velocity Rounds No longer grants +5% Fire Rate Now grants +8% Weapon Damage Bullet Velocity increased from +50% to +60% (these changes affect upgrades) Long Range Fall-off Range increased from +4% to +8% Active Reload You can now reload while already full when carrying this item Opening Rounds Spirit Power increased from +8 to +10 Weapon Damage increased from +40% to +45% Swift Striker Fire Rate increased from 18% to 20% Mystic Shot Damage spirit scaling increased from 0.8 to 1.0 Split Shot Cooldown reduced from 32s to 24s Now supports custom count and angles per hero Enabled for Celeste (3 at 70 degrees) Stalker No longer procs based on angles of attack, but instead based on doing bullet or melee damage within 8m of a hero target No longer has a proximity requirement for the overtime bonuses (beyond the 8m proc proximity) Melee Charge Heavy Melee Bonus damage now works with heavy melee abilities Spirit Shredder Bullets Spirit Lifesteal increased from 8% to 12% Weakening Headshot Bonus health increased from +50 to +60 Ballistic Enchantment Weapon damage per stack increased from 18% to 20% Range reduced from 30% to 25% Non-hero weapon damage increased from 4% to 5% Hunter's Aura Solo hero multiplier reduced from 3x to 2x Bullet Resist Reduction increased from -8% to -10% Fire Rate Reduction increased from -11% to -14% Weighted Shots Now builds from Slowing Bullets. Has Slowing Bullets passive No longer grants +16% Spirit Resist Now grants -0.5m Move Speed No longer grants -30% Bullet Velocity Debuff Resist increased from 16% to 18% Weapon Damage increased from 35% to 40% Stamina Reduction reduced from -20% to -14% Express Shot Ammo consumed changed from -30% to 2 Ammo Blood Tribute No longer has healing reduction Self damage increased from 40 to 50 Spirit Rend Cooldown reduced from 2.2s to 2s Spirit Lifesteal increased from 8% to 12% Crushing Fists Heavy Melee Bonus damage now works with heavy melee abilities Frenzy Base Fire Rate increased from 8% to 10% Base Spirit Resist increased from 10% to 15% Conditional Fire Rate reduced from 28% to 25% Conditional Spirit Resist reduced from 30% to 20% Spiritual Overflow Spirit Power increased from 30 to 40 Now grants +20% Duration instead of +12% CD Reduction Extra Health Increased from 185 to 210 Enduring Speed Fixed slow resistance interaction with dash slows Restorative Locket Range increased from 30m to 35m Max stamina regen increased from 3 to 4 Now always restores at least 1 stamina Return Fire Returning damage now always hits the target's body (some amount would naturally miss before, and some would be headshots) Bullet Damage Returned reduced from 60% to 50% Weapon Shielding Damage threshold increased from 150 to 250 Cooldown reduced from 45s to 35s Bullet Resilience Low Health threshold increased from 40% to 50% Low Health resistance reduced from 22% to 15% Spirit Resilience Low Health threshold increased from 40% to 50% Low Health resistance reduced from 22% to 15% Lifestrike Heal on melee hit reduced from 160 to 100 + 1.5/boon Heal on melee hit percentage reduced from 50% to 30% + 0.5%/boon Majestic Leap Barrier increased from 140 to 200 Trophy Collector Souls per minute increased from 22 to 25 Dispel Magic Cooldown reduced from 50s to 40s Fortitude Time to regen reduced from 13s to 10s Spellbreaker High instant damage reduction reduced from -75% to -65% Diviner's Kevlar Cooldown reduced from 64s to 40s Inhibitor Damage Penalty reduced from -35% to -30% Weapon Damage bonus increased from +22% to +25% Cheat Death No longer reduces movement speed by -2m during the death immunity phase Colossus Active now grants you an additional +30% Melee Damage Siphon Bullets Now steals 2.5% of enemy max HP per bullet instead of a fixed amount Mystic Regeneration Health bonus increased from +40 to +50 Duration increased from 5s to 6s Rusted Barrel Cooldown reduced from 20s to 16s Arcane Surge Spirit Power increased from +15 to +20 Slowing Hex Now sets the gravity of an enemy to a fixed +20% (heavier) regardless of their own base values Projectile speed increased from 53m/s to 80m/s Cooldown reduced from 30s to 27s Suppressor Debuff duration increased from 4s to 5s Spirit Sap Spirit Power loss increased from -24 to -30 Cooldown reduced from 32s to 18s Decay Healing Reduction increased from -45% to -50% Silence Wave Damage spirit scaling increased from 0.6 to 1.0 Cooldown reduced from 35s to 30s Knockdown Gravity increased from +50% to +100% when the stun hits the target (causes airborne targets to fall faster) Radiant Regeneration Health bonus increased from +65 to +90 Duration increased from 5s to 6s Healing on Ability Cast boon scaling increased from 1.5 to 2.0 Tankbuster Current Health Bonus Damage increased from 7.5% to 8% Torment Pulse Damage spirit scaling reduced from 0.28 to 0.25 No longer hits sleeping enemies to avoid waking them up Pulse Damage reduced from 27+0.25 to 25+0.23 Disarming Hex Cooldown reduced from 20s to 16s Magic Carpet Duration increased from 8s to 12s Bonus health increased from 75 to 125 Ethereal Shift Cooldown reduced from 45s to 35s Cursed Relic Damage penalty increased from -8% to -10% Vortex Web Now has a unit target option where it will vacuum enemies around that target"
+@end
+
+* General Changes
+
+- Can now jump during slide
+- Dash jump grants a very brief period with increased air control (30% for 0.25s)
+- Shrine is now easier to kill for the first one and harder for the second. HP from 8100 to 5000/10000 (HP updates after the first one dies, like Walkers)
+- Shrines attack no longer hits heroes under the shrine
+- Super troopers bonus DPS increased from +40% to +60% (the upgraded troopers when Shrine dies)
+- Middle Lane troopers now gets upgraded when either of the shrines die, rather than only when both die
+- Killing a pair of base guardians now spawns a zipline boosted trooper wave to reinforce your push
+- Medic Troopers DPS grows by 3% per minute
+- Troopers now gain 7 HP regen when out of combat
+- Trooper wave interval increased from every 25s to every 20s starting at 35 minutes
+- Guardians bounty increased from 1000 to 1500
+- Walkers bounty increased from 3500 to 4000
+- Walkers Health rescaled from 6800/9350/11900 to 6000/9000/12000
+- Walkers armor decay rescaled from "+75% -> -50%" to "+65% -> -65%", from over 20min to over 18min
+- Base Guardians bounty from 750 to 1000
+- Shrines bounty increased from 0 to 2000
+- Mid Boss base bounty increased from 2000 to 3000
+- Mid Boss base HP increased from 11900 to 13000
+- Mid Boss global announcement health threshold reduced from 70% to 50%
+- Mid Boss now has 35% Debuff Resistance
+- Rejuv drop duration reduced from 7s to 6s
+- Rejuv duration no longer refreshes when hitting a crystal later
+- Minimap now indicates if the Urn is a favored, neutral or unfavored
+- Added a neutral camp (2 Normal, 3 Weak) at Hidden King Park Walker
+- Added a neutral camp (2 Normal, 3 Weak) at Archmother York Walker
+- Added "0 Way" veils underneath the Shrine platforms in each base
+- Moved the mid lane bridge above the Hidden King Base entrance more to the middle of the two edges
+- Subsequent CC reduction increased from 8%/24% to 10/30% (window from 7s to 8s)
+- Move speed diminishing ramp now occurs around 11m rather than 10m
+- Fixed melee abilities not using conditional damage based on enemy state (close quarters, point blank, opening rounds)
+- Street Brawl: Removed item slot limit (don't need to sell items in the final round sometimes)
+- Added new T1 Spirit Item: Golden Goose Egg
+- Backstabber: Renamed to Stalker
+- Doorman: Gun now pierces through targets at 50% reduced damage
+- Doorman: Call Bell time between charges increased from 4s to 6s
+- Doorman: Call Bell no longer has Impact Damage (was 40 with 1.0 scaling)
+- Doorman: Call Bell explosion damage increased from 55 to 85
+- Doorman: Call Bell explosion damage spirit scaling reduced from 1.7 to 1.4
+- Doorman: Call Bell T1 increased from +2m to +2.5m
+- Doorman: Call Bell T2 no longer has Impact Damage
+- Doorman: Call Bell T2 Explosion Damage increased from 40 to 75
+- Doorman: Call Bell T2 now increases spirit scaling by +0.6
+- Doorman: Call Bell T3 changed from "Impact causes half radius explosions" to "+1 Charge and +22s Lifetime. Causes the radius to continuously apply it's slow"
+- Doorman: Doorway now has a timer icon above the ability
+- Doorman: Doorway T1 duration increased from +10s to +15s
+- Doorman: Doorway T2 barrier duration increased from 8s to 12s
+- Doorman: Doorway T3 doorway distance now also scales with Spirit Power (0.25)
+- Doorman: Luggage Cart is now 20% larger (20% wider hitbox as well)
+- Doorman: Luggage Cart T1 changed from "-8s Cooldown" to "+60 Damage"
+- Doorman: Luggage Cart T2 increased from +15m Cast Range to +20m
+- Doorman: Luggage Cart T3 changed from "+45 Cart Damage and 117 Wall Damage and 1.2s Wall Stun" to "+1.5s Wall Stun and -15s Cooldown"
+- Doorman: Fixed issues where the cart would hit a target coming out of the hotel before they were supposed to be allowed to be hit, causing the cart to not properly drag the target
+- Doorman: Hotel Guest cast range increased from 6m to 7m
+- Doorman: Hotel Guest no longer goes on cooldown if the target dies during the cast
+- Doorman: Hotel Guest fixed enemies not always landing in the correct spot on return
+- Doorman: Hotel Guest now supports instant cast settings
+- Doorman: Hotel Guest returning guest now has a 100% time slow that decays to 0% over 1s
+- Doorman: Hotel Guest cost of stay damage reduced from 150 to 75
+- Doorman: Hotel Guest failure to check-out damage reduced from 250 to 125
+- Doorman: Hotel Guest T1 changed from "+2m Cast Range" to "-1 Stamina and -25s Cooldown"
+- Doorman: Hotel Guest T2 changed from "Unstoppable while channeling" to "+1.5s Stun On Failure To Checkout and 150 Damage"
+- Doorman: Hotel Guest T3 changed from "-50s Cooldown" to "Unstoppable while Hotel is occupied. 10s Cooldown on Failure to Check Out"
+- Vindcita: Ammo reduced from 22 to 19
+- Vindcita: Crow Familiar cooldown increased from 28s to 32s
+- Card Types:
+- Spades: +70% Damage
+- Diamond: Cuts enemy resistances by -8% for 5s. Does not stack.
+- Hearts: Heals you for 75 HP (1.25 spirit scaling, half heal on non-heroes)
+- Clubs: 30% Slow for 3s
+- Joker: Has all of the above effects and bounces to an additional enemy within 20m. (Has 1/9th chance)
+- Golden Egg Goose: Souls Per Minute increased from 75 to 90
+- Doorman: Hotel Guest T3 late checkout cooldown increased from 10s to 13s
+
+* Hero Changes
+
+@embed svelte
+<SectionPreview type="hero" names={["Abrams", "Apollo", "Bebop", "Billy", "Calico", "Celeste", "Drifter", "Dynamo", "Graves", "Haze", "Infernus", "Ivy", "Kelvin", "Lady Geist", "Lash", "McGinnis", "Mina", "Mirage", "Mo &amp; Krill", "Paige", "Paradox", "Pocket", "Rem", "Seven", "Shiv", "Silver", "Victor", "Vindicta", "Viscous", "Warden", "Wraith", "Yamato"]} />
+@end
+
+@embed svelte
+<EntityHeading name="Abrams" type="hero" />
+@end
+
+- Bullet damage reduced from 3.86+0.13/boon to 3.6+0.1/boon
+
+@embed svelte
+<AbilityHeading name="Siphon Life DPS" />
+@end
+
+- Siphon Life DPS reduced from 29 to 22
+
+@embed svelte
+<AbilityHeading name="Siphon Life" />
+@end
+
+- Siphon Life range reduced from 10m to 7.5m
+- Siphon Life is now circular rather than just in front of him
+- Siphon Life range no longer increases with Spirit Power
+
+- Siphon Life visual range FX fixed to show larger than default radius values
+- Siphon Life Lifesteal against heroes increased from 66% to 80%
+- Siphon Life Lifesteal against non-heroes increased from 33% to 40%
+
+@embed svelte
+<AbilityHeading name="Siphon Life DPS" />
+@end
+
+- Siphon Life DPS spirit scaling increased from 0.5 to 0.6
+
+@embed svelte
+<AbilityHeading name="Siphon Life" />
+@end
+
+- Siphon Life T1 increased from -19s to -20s
+- Siphon Life T3 now also increases radius by +3.5m
+- Siphon Life T3 DPS reduced from 20 to 18
+
+@embed svelte
+<AbilityHeading name="Shoulder Charge" />
+@end
+
+- Shoulder Charge damage reduced from 37 to 30
+
+- Shoulder Charge wall stun duration reduced from 0.6s to 0.3s
+
+@embed svelte
+<AbilityHeading name="Should Charge" />
+@end
+
+- Should Charge spirit scaling reduced from 1.9 to 1.4
+
+@embed svelte
+<AbilityHeading name="Shoulder Charge" />
+@end
+
+- Shoulder Charge T1 changed from "+2.2 Weapon Damage for 8s" to "+40% Slow for 3s"
+- Shoulder Charge T2 wall stun duration increased from 0.45s to 0.8s
+- Shoulder Charge T3 cooldown increased from -18s to -20s
+- Shoulder Charge T3 now also grants +1.5 Weapon Damage for 6s
+
+@embed svelte
+<AbilityHeading name="Infernal Resilience" />
+@end
+
+- Infernal Resilience T2 increased from +150 Health to +200
+- Infernal Resilience T3 now also grants +20% Debuff Resistance
+
+- Seismic Impact is a little faster to target the location when rising
+
+@embed svelte
+<AbilityHeading name="Seismic Impact" />
+@end
+
+- Seismic Impact damage increase from 75 to 100
+- Seismic Impact now allows you to use items during it
+- Seismic Impact radius reduced from 10.5m to 9m
+- Seismic Impact T2 changed from "Per Hero Hit: +100 HP and +14% Fire Rate" to "+0.6s Stun Duration"
+- Seismic Impact T3 now also increases radius by 6m
+
+@embed svelte
+<EntityHeading name="Apollo" type="hero" />
+@end
+
+- Fixed Riposte not leaving the ground when started on the ground
+
+@embed svelte
+<AbilityHeading name="Riposte" />
+@end
+
+- Riposte no longer triggers from trooper or neutral damage
+
+@embed svelte
+<AbilityHeading name="Flawless Advance" />
+@end
+
+- Flawless Advance T2 no longer increases Apollo's lunge speed
+- Flawless Advance now gets interrupted by stun and sleep
+
+- Itani Lo Sahn base damage reduced from 225 to 190 and spirit scaling increased from 1.6 to 2.3
+- Itani Lo Sahn's hit width no longer scales with radius increases
+
+@embed svelte
+<EntityHeading name="Bebop" type="hero" />
+@end
+
+- Hook can now be canceled
+
+@embed svelte
+<EntityHeading name="Billy" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Bashdown" />
+@end
+
+- Bashdown radius reduced from 4.5m to 4m
+- Bashdown T2 changed from "+1.3m Radius" to "+1 Charge and +2m Radius"
+- Bashdown T3 now also reduces charge time by 2s
+
+@embed svelte
+<AbilityHeading name="Rising Ram" />
+@end
+
+- Rising Ram damage reduced from 55 to 40
+- Rising Ram damage spirit scaling increased from 1.7 to 1.9
+- Rising Ram cooldown reduced by 50% on impact
+
+- Rising Ram charge duration reduced from 0.51s to 0.3s
+
+@embed svelte
+<AbilityHeading name="Rising Ram" />
+@end
+
+- Rising Ram T1 changed from "On Impact: -50% Cooldown" to "On Impact: +25% Weapon Damage for 5s"
+- Rising Ram T2 changed from "On Impact: +35% Weapon Damage for 5s" to "+0.3s Charge Duration"
+- Rising Ram T3 increased from 6.5% Max Health to 8%
+
+@embed svelte
+<AbilityHeading name="Blasted" />
+@end
+
+- Blasted spirit scaling reduced from 0.8 to 0.6
+
+- Blasted active duration no longer slows down the decay when doing bullet damage (melee still extends it though)
+- Blasted passive no longer reduces enemy fire rate by -14%
+- Blasted tooltip simplified
+
+@embed svelte
+<AbilityHeading name="Blasted" />
+@end
+
+- Blasted T3 now also increases spirit scaling by +0.6
+
+@embed svelte
+<AbilityHeading name="Chain Gang" />
+@end
+
+- Chain Gang radius reduced from 13m to 12m
+- Chain Gang no longer grants +15% Spirit and Bullet Resist
+- Chain Gang cooldown increased from 125s to 150s
+- Chain Gang T1 changed from "-25s Cooldown" to "+40% Spirit and Bullet Resist"
+- Chain Gang T2 changed from "+15% Spirit and Bullet Resist" to "-50s Cooldown"
+- Chain Gang T3 changed from 2s Unstoppable to +1.3s Unstoppable for each hero pulled in
+- Chain Gang T3 no longer grants +90 damage
+- Chain Gang T3 now also increases the radius by +5m
+
+@embed svelte
+<EntityHeading name="Calico" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Bullets" />
+@end
+
+- Bullets no longer have gravity
+
+- Now fires an additional pellet right down the center (DPS is the same). The center pellet is now considered the primary pellet for headshots.
+
+@embed svelte
+<AbilityHeading name="Gloom Bombs" />
+@end
+
+- Gloom Bombs changed so the first grenade always lands in the middle
+- Gloom Bombs projectile sticky radius increased from 10 to 15
+
+- Gloom Bombs cast delay reduced from 0.15s to 0.1s
+
+@embed svelte
+<AbilityHeading name="Gloom Bombs" />
+@end
+
+- Gloom Bombs T2 changed from +16.2 damage to +75 bonus damage vs barriers
+
+- Leaping Slash improved targeting of dash to end early if near enemy heroes
+- Leaping Slash can now dash vertically, even while on the ground
+
+@embed svelte
+<AbilityHeading name="Leaping Slash" />
+@end
+
+- Leaping Slash T2 changed from +40 damage to +300 souls on hero kill
+- Leaping Slash T3 changed from -50% CDR on hit to -50% CDR and +60 damage
+- Leaping Slash radius reduced from 4.5m to 4m
+
+- Ava can no longer manipulate movement if meleeing while midair
+
+@embed svelte
+<AbilityHeading name="Ava" />
+@end
+
+- Ava now uses healthbar modifier style for duration
+
+- Ava fixed camera not being centered around Ava
+- Ava melee attack delay reduced from 0.4s to 0.0s
+- Ava melee attack cooldown increased from 0.75 to 0.85
+- Ava melee attack now goes the way you are looking
+
+@embed svelte
+<AbilityHeading name="Ava" />
+@end
+
+- Ava now starts at a minimum speed, and increases to maximum speed over time, resetting on taking damage
+- Ava now gradually recovers speed over time after taking damage, rather than being slowed for the entire duration
+- Ava cooldown reduced from 45s to 30s
+- Ava duration reduced from 16s to 15s
+- Ava T1 duration increased from +14s to 15s
+- Ava T2 changed from +45% Speed to +45% Speed and +15 Health Regen
+- Ava T3 changed from -20s Cooldown and +35 Health Regen to a growing damage amp the longer you are transformed, up to 20% for 6s
+
+@embed svelte
+<AbilityHeading name="Return To Shadows" />
+@end
+
+- Return To Shadows now allows for some vertical flight movement during channel
+- Return To Shadows now has new channel bar
+
+- Return to Shadows T2 reduced from 67.5 Damage to 65
+- Return to Shadows T3 no longer grants +18% Damage Amp for 6s, but grants 350 healing instead
+
+@embed svelte
+<EntityHeading name="Celeste" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Gravity" />
+@end
+
+- Gravity reduced from -20% to -28% (less gravity)
+
+- Air Control/Acceleration reduced from +50/18% to +38/12% (less air control and acceleration)
+- Shining Wonder bounce range reduced from 17m to 15m
+- Shining Wonder linger duration reduced from 4.5s to 3.25s
+
+@embed svelte
+<EntityHeading name="Drifter" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Rend" />
+@end
+
+- Rend damage range reduced from 18m to 16m
+- Rend cooldown increased from 13s to 16s
+- Rend damage spirit scaling increased from 1.4 to 1.8
+
+- Rend "bonus" damage is now the melee range at close range (so you only do melee damage at close range and spirit is the default)
+
+@embed svelte
+<AbilityHeading name="Rend" />
+@end
+
+- Rend T1 bonus damage increased from +32 to +40
+- Rend T3 changed from "Gain 45% Bullet Lifesteal against affected enemies for 4s" to "Close range attack now silences enemies for 2.3s"
+
+@embed svelte
+<AbilityHeading name="Stalker's Mark" />
+@end
+
+- Stalker's Mark duration reduced from 6s to 5s
+- Stalker's Mark T1 changed from "+1% Bleed" to "-8% Bullet Resist"
+- Stalker's Mark T2 changed from "+22% Fire Rate for 6s after ambush" to "+3s Duration and -8s Cooldown"
+- Stalker's Mark T3 changed from "Enables 2 Charges and +2s Duration" to "+2% Bleed and -40% Healing"
+
+@embed svelte
+<AbilityHeading name="Bloodscent" />
+@end
+
+- Bloodscent now grants Drifter the same amount of permanent bonus weapon damage when an isolated hero dies nearby, whether Drifter gets the assist or the kill
+
+- Bloodscent permanent bonus weapon damage gained per isolated hero death reduced from 4% to 3%
+
+@embed svelte
+<AbilityHeading name="Bloodscent" />
+@end
+
+- Bloodscent T2 changed from "Isolated kill reduces cooldowns by 15s and restores 3 stamina" to "Isolated death restores 18% Missing Health and restores 2 stamina"
+
+@embed svelte
+<AbilityHeading name="Eternal Night" />
+@end
+
+- Eternal Night now makes the targets be considered as isolated
+
+@embed svelte
+<AbilityHeading name="Eternal Night Sprint" />
+@end
+
+- Eternal Night Sprint reduced from +3m to +2m
+
+@embed svelte
+<AbilityHeading name="Eternal Night" />
+@end
+
+- Eternal Night no longer has 7 spirit damage proc
+- Eternal Night cooldown increased from 120s to 125s
+- Eternal Night duration reduced from 7s to 6.5s
+- Eternal Night T1 changed from "+6.3 Spirit Damage Proc" to "+10m Sprint" (kicks in immediately)
+- Eternal Night T2 changed from "-30s Cooldown and +3m/s Sprint" to "-45s Cooldown"
+- Eternal Night T3 increased from "+2s Duration and +1 Max Target" to "+2.5s Duration and +1 Max Target"
+
+@embed svelte
+<EntityHeading name="Dynamo" type="hero" />
+@end
+
+- Bullet damage increased from 12.2+0.44 to 12.6+0.5
+
+@embed svelte
+<AbilityHeading name="Kinetic Pulse" />
+@end
+
+- Kinetic Pulse cooldown increased from 22s to 26s
+- Kinetic Pulse damage increased from 90 to 115
+- Kinetic Pulse range reduced from 20m to 16m
+- Kinetic Pulse range no longer increases with spirit scaling
+- Kinetic Pulse spirit scaling increased from 1.7 to 2.1
+- Kinetic Pulse T1 changed from "35% Move Slow and -30% Fire Rate" to "+1 Charge"
+- Kinetic Pulse T2 changed from "+30% Bullet Damage for 8s" to "Reduces enemy Bullet Resistance by -18% and Move Speed by -30% for 4s"
+- Kinetic Pulse T3 changed from "+104 Damage and +1 Charge" to "+135 Damage and +16m Cast Range"
+
+@embed svelte
+<AbilityHeading name="Quantum Entanglement" />
+@end
+
+- Quantum Entanglement no longer grants +26% Fire Rate
+- Quantum Entanglement no longer reloads ammo
+
+- Quantum Entanglement base ability now restores 1 stamina
+- Quantum Entanglement ally distance increased from 10m to 13m
+
+@embed svelte
+<AbilityHeading name="Quantum Entanglement" />
+@end
+
+- Quantum Entanglement range increased from 9m to 10m
+- Quantum Entanglement T1 increased from +4m Range to +6m
+- Quantum Entanglement T2 changed from "+22% Fire Rate" to "-6s Cooldown"
+- Quantum Entanglement T3 changed from "-5s Cooldown and +120% Ammo" to "Dispells non-ult debuffs for you and your allies"
+
+@embed svelte
+<AbilityHeading name="Rejuvenating Aurora" />
+@end
+
+- Rejuvenating Aurora cooldown increased from 45s to 48s
+- Rejuvenating Aurora now has a 1s linger on allies
+- Rejuvenating Aurora now lets you jump while using it
+- Rejuvenating Aurora T1 changed from "+4 Move Speed for 8s after full channel" to "Aura provides +4 Move Speed during channel"
+- Rejuvenating Aurora T2 cooldown from -14s to -20s
+- Rejuvenating Aurora T2 now also increases duration by 1s
+
+@embed svelte
+<AbilityHeading name="Singularity" />
+@end
+
+- Singularity no longer does 1.5% Max Health DPS
+
+@embed svelte
+<AbilityHeading name="Singularity DPS" />
+@end
+
+- Singularity DPS increased from 40 to 75
+- Singularity DPS spirit scaling increased from 0.19 to 0.28
+
+@embed svelte
+<AbilityHeading name="Singularity" />
+@end
+
+- Singularity T3 increased from 4% Max Health DPS to 5.5%
+
+@embed svelte
+<EntityHeading name="Graves" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Grasping Hands" />
+@end
+
+- Grasping Hands is now set up to work through proper alternate cast methods and be more responsive
+
+@embed svelte
+<AbilityHeading name="Grasping Hands Immobilize" />
+@end
+
+- Grasping Hands Immobilize duration reduced from 1.5s to 1.25s
+
+@embed svelte
+<AbilityHeading name="Grasping Hands" />
+@end
+
+- Grasping Hands cooldown reduced from 38s to 34s
+- Grasping Hands T2 changed from "+0.75s Immobilize Duration" to "+90 Damage and +10m Wall Length"
+- Grasping Hands T3 changed from "+15m Wall Length and -10s Cooldown" to "+1s Immobilize Duration and -12s Cooldown"
+
+@embed svelte
+<EntityHeading name="Haze" type="hero" />
+@end
+
+- Spirit per boon reduced from 1.1 to 0.5
+- Sleep Dagger Sleep move speed reduced from 2m/s to 1.5m/s
+
+@embed svelte
+<AbilityHeading name="Sleep Dagger Wake Up" />
+@end
+
+- Sleep Dagger Wake Up delay no longer increases with spirit scaling
+
+@embed svelte
+<AbilityHeading name="Sleep Dagger" />
+@end
+
+- Sleep Dagger cooldown increased from 26s to 30s
+
+@embed svelte
+<AbilityHeading name="Sleep Dagger Sleep" />
+@end
+
+- Sleep Dagger Sleep duration reduced from 3s to 2.75s
+
+@embed svelte
+<AbilityHeading name="Sleep Dagger" />
+@end
+
+- Sleep Dagger T1 changed from "Removes 1 Stamina" to "-8% Bullet Resist Reduction for 6s"
+- Sleep Dagger T2 changed from "-12s Cooldown and -60% Stamina for 6s" to "-15s Cooldown"
+- Sleep Dagger T3 changed from "-12% Bullet Resist and -35% Fire Rate for 6s on wakeup" to "+0.75s Sleep Duration. -50% Move and Dash Slow for 2.5s on wakeup"
+
+@embed svelte
+<AbilityHeading name="Smoke Bomb" />
+@end
+
+- Smoke Bomb cooldown increased from 30s to 33s
+- Smoke Bomb duration spirit scaling reduced from 0.18 to 0.08
+- Smoke Bomb no longer has base +2m Invis Sprint Speed
+- Smoke Bomb T1 increased from +5m Invis Sprint Speed to +7m
+- Smoke Bomb T2 changed from "+10% Bullet Lifesteal" to "Enables 2 Ability Charges"
+- Smoke Bomb T3 changed from "Enable 2 Charges and Grants +0.5s of Invincibility" to "Dispels non-ult debuffs and grants 30% Lifesteal for 5s"
+
+@embed svelte
+<AbilityHeading name="Fixation" />
+@end
+
+- Fixation reduced from +0.2 Weapon Damage per stack to +0.18
+- Fixation T1 spirit scaling increased from 0.37 to 0.8
+- Fixation T1 reduced from +50 Spirit Damage to +40
+- Fixation T3 increased from +0.12 Weapon Damage to +0.14
+
+- Bullet Dance Fire Rate bonus reduced from 30% to 20%
+- Bullet Dance base ability now has 60% Evasion
+- Bullet Dance duration spirit scaling increased from 0.06 to 0.08
+- Bullet Dance Bonus Bullet Damage reduced from 10 to 7
+- Bullet Dance T1 increased from +4 Bullet Damage to +7
+- Bullet Dance T2 now also increases Fire Rate by +10%
+- Bullet Dance T3 no longer adds 60% Bullet Evasion
+- Bullet Dance T3 now also fires at an additional target
+
+@embed svelte
+<EntityHeading name="Infernus" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Napalm" />
+@end
+
+- Napalm damage reduced from 46 to 40
+- Napalm damage spirit scaling increased from 0.3 to 0.6
+
+- Napalm amplified damage taken reduced from 20% to 16%
+
+@embed svelte
+<AbilityHeading name="Napalm" />
+@end
+
+- Napalm T2 lifesteal increased from 10% to 15%
+
+@embed svelte
+<AbilityHeading name="Flame Dash DPS" />
+@end
+
+- Flame Dash DPS spirit scaling increased from 0.8 to 1.0
+
+@embed svelte
+<AbilityHeading name="Flame Dash" />
+@end
+
+- Flame Dash T1 changed from "-25% Fire Rate" to "-12s Cooldown"
+- Flame Dash T2 DPS reduced from +27 to +20
+- Flame Dash T2 DPS now also increases trail duration by 1s
+- Flame Dash T3 no longer reduces cooldown by 15s
+- Flame Dash T3 now also grants +1 Charge
+- Flame Dash T3 time between charges reduced from 20s to 14s
+
+- Melee can now buildup afterburn (20% for light melee, 35% for heavy)
+
+@embed svelte
+<AbilityHeading name="Afterburn" />
+@end
+
+- Afterburn T1 changed from "-20% Spirit Damage" to "+14 DPS"
+- Afterburn T2 changed from +1s Burn Duration to -35% Spirit Damage
+- Afterburn T3 changed from "+23 DPS" to "+3s Max Burn Duration" (Base duration is the same, but can buildup after igniting to grow to max burn duration, abilities only refresh up to the base)
+
+- Concussive Combustion cast now causes camera to move back a bit
+
+@embed svelte
+<AbilityHeading name="Concussive Combustion" />
+@end
+
+- Concussive Combustion delay increased from 3s to 3.25s
+- Concussive Combustion radius reduced from 13m to 12m
+- Concussive Combustion cooldown increased from 140s to 165s
+- Concussive Combustion damage reduced from 150 to 125
+- Concussive Combustion T1 changed from "-35s Cooldown" to "+100 Damage"
+- Concussive Combustion T2 changed from "+0.5s Stun and +3m Radius" to "-65s Cooldown and +65% Explosion Heal"
+- Concussive Combustion T3 changed from "+94 Damage and Heal for 70% damage" to "+0.75s Stun and +10m Radius"
+
+@embed svelte
+<EntityHeading name="Ivy" type="hero" />
+@end
+
+- Now has -10% Gravity
+- Bullet damage reduced from 4.59+0.12/boon to 4.45+0.06/boon
+- Kudzu Bomb renamed to Entangling Thorns
+
+@embed svelte
+<AbilityHeading name="Entangling Thorns Recharge Time" />
+@end
+
+- Entangling Thorns Recharge Time reduced from 8s to 5s
+
+@embed svelte
+<AbilityHeading name="Entangling Thorns" />
+@end
+
+- Entangling Thorns spirit scaling reduced from 0.65 to 0.55
+- Entangling Thorns T2 changed from "+2s Duration" to "+2m Radius and increases spirit scaling by +0.5"
+- Entangling Thorns T3 changed from "+36 DPS and +2m Radius" to "Entangles enemies that remain in it for 2s. Lasts 1.6s"
+
+- Watcher's Covenant renamed to Kudzu Connection
+
+@embed svelte
+<AbilityHeading name="Kudzu Connection Fire Rate" />
+@end
+
+- Kudzu Connection Fire Rate spirit scaling reduced from 0.25 to 0.18
+
+@embed svelte
+<AbilityHeading name="Kudzu Connection Bullet Lifesteal" />
+@end
+
+- Kudzu Connection Bullet Lifesteal spirit scaling reduced from 0.19 to 0.15
+
+@embed svelte
+<AbilityHeading name="Kudzu Connection" />
+@end
+
+- Kudzu Connection T1 changed from "+8% Fire Rate" to "+2m Move Speed bonus"
+- Kudzu Connection T2 changed from "+2m Move Speed Bonus" to "+8% Fire Rate and +8% Bullet Lifesteal"
+- Kudzu Connection T3 changed from "+1 Tether Count" to "Ability is now always active"
+
+@embed svelte
+<AbilityHeading name="Stone Form" />
+@end
+
+- Stone Form cooldown increased from 37s to 40s
+- Stone Form damage spirit scaling reduced from 1.5 to 0.8
+- Stone Form T1 changed from "-19s cooldown" to "+7% Max Health Heal"
+- Stone Form T2 changed from "+68 Damage and +0.5s Stun" to "-25s Cooldown"
+- Stone Form T3 changed from "+13% Max Health Heal" to "+1s Stun and Increased Spirit Scaling (2.0)"
+
+- Air Drop cast time removed. Instead, if you take damage the ability will be unable to be used for 3.5s
+
+@embed svelte
+<AbilityHeading name="Air Drop" />
+@end
+
+- Air Drop spirit damage scaling reduced from 2.3 to 1.0
+
+@embed svelte
+<AbilityHeading name="Air Drop Cooldown" />
+@end
+
+- Air Drop Cooldown reduced from 100s to 65s
+
+@embed svelte
+<AbilityHeading name="Air Drop" />
+@end
+
+- Air Drop duration increased from 16s to 21s
+
+- Air Drop base/max speed increased from 11/18m to 10/22m
+- Air Drop bomb radius increased from 14m to 20m
+- Air Drop buff duration reduced from 12s to 8s
+- Air Drop ally cast range increased from 14m to 18m
+
+@embed svelte
+<AbilityHeading name="Air Drop" />
+@end
+
+- Air Drop now grants you and your ally +20% Outgoing Damage after dropping
+
+- Air Drop bomb no longer has a fast explode expanding behavior
+- Air Drop bomb no longer causes a knockup
+- Air Drop bomb no longer slows on explode by default
+- Air Drop bomb no longer provides barrier by default
+
+@embed svelte
+<AbilityHeading name="Air Drop" />
+@end
+
+- Air Drop T1 changed from "-20% Bullet Resist on enemies hit for 8s" to "Grants you and ally 300 Barrier (+1.0 Spirit Scaling)" Lasts 12s.
+- Air Drop T2 changed from "+200 Barrier and +5m Explode Radius" to "Explode applies 50% Slow for 3s"
+- Air Drop T3 now also increases damage scaling by +1.5 and barrier scaling by +1.0
+
+@embed svelte
+<AbilityHeading name="Entangling Thorns" />
+@end
+
+- Entangling Thorns spirit scaling reduced from 0.55 to 0.45
+
+@embed svelte
+<EntityHeading name="Kelvin" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Frost Grenade" />
+@end
+
+- Frost Grenade now impacts on Ice Path
+- Frost Grenade radius reduced from 6.5m to 6m
+- Frost Grenade cooldown increased from 20s to 30s
+- Frost Grenade now comes with 2 charges
+- Frost Grenade now heals in the base ability (60 + 0.9 Spirit Scaling)
+- Frost Grenade no longer has -40% Stamina regen reduction
+- Frost Grenade T1 changed from "+1 Charge" to "Increases damage and heal by +30"
+- Frost Grenade T2 changed from "Provides healing 80+1.5" to "Freezes stamina regen and -10s Cooldown"
+- Frost Grenade T3 changed from "+144 Damage and -30% Stamina Regen" to "Increases damage and heal spirit scaling by 1.0 and Radius by +2m"
+
+@embed svelte
+<AbilityHeading name="Ice Path" />
+@end
+
+- Ice Path is now cancelled on Ability Button Press instead of Space
+- Ice Path cooldown increased from 46s to 50s
+
+- Ice Path incline/decline speed increased
+
+@embed svelte
+<AbilityHeading name="Ice Path" />
+@end
+
+- Ice Path T1 changed from "+4 Sprint" to "+2 Move Speed and +35% Bullet Resistance on Ice Path"
+- Ice Path T2 increased from -17s Cooldown to -20s
+- Ice Path T3 now grants you +35% Spirit Power while on Ice Path
+
+- Arctic Beam visual clarity on VFX improved
+
+@embed svelte
+<AbilityHeading name="Arctic Beam" />
+@end
+
+- Arctic Beam now lets you cast Frost Grenade and items while using it
+
+@embed svelte
+<AbilityHeading name="Arctic Beam Max Fire Rate Reduction" />
+@end
+
+- Arctic Beam Max Fire Rate Reduction reduced from -35% to -20%
+
+@embed svelte
+<AbilityHeading name="Arctic Beam Max Slow" />
+@end
+
+- Arctic Beam Max Slow reduced from -40% to -20%
+
+@embed svelte
+<AbilityHeading name="Arctic Beam" />
+@end
+
+- Arctic Beam spirit scaling reduced from 0.8 to 0.5
+- Arctic Beam cooldown increased from 25s to 28s
+- Arctic Beam T1 changed from "-7s Cooldown" to "Increases Move Slow and Fire Rate Reduction by -25%"
+- Arctic Beam T2 changed from "+33 DPS" to "+20 DPS and +0.6 Spirit Scaling"
+- Arctic Beam T3 now also reduces cooldown by 13s
+
+- Frozen Shelter can now be canceled first without canceling Ice Beam
+
+@embed svelte
+<AbilityHeading name="Frozen Shelter" />
+@end
+
+- Frozen Shelter is now 8m unit target, creates the dome around the center of both heroes. Can be self casted to create it around yourself.
+- Frozen Shelter duration reduced from 5.25s to 5s
+- Frozen Shelter T1 changed from "-35% Enemy Fire Rate" to "-25s Cooldown"
+- Frozen Shelter T2 increased from +1s to +1.5s
+- Frozen Shelter T3 now also dispels non-ult debuffs on cast (affects you and allies)
+
+@embed svelte
+<EntityHeading name="Lady Geist" type="hero" />
+@end
+
+- Essence Bomb self damage changed from 30 + 1.8 scaling to 30% of the damage (base is 90 + 1.2 scaling)
+
+@embed svelte
+<AbilityHeading name="Essence Bomb" />
+@end
+
+- Essence Bomb radius reduced from 9m to 7m
+- Essence Bomb cooldown reduced from 14.5s to 14s
+- Essence Bomb T1 increased from -4s to -5s
+- Essence Bomb T2 also increases radius by +2m
+
+@embed svelte
+<AbilityHeading name="Life Drain" />
+@end
+
+- Life Drain cooldown increased from 30s to 34s
+
+- Life Drain break range reduced from 30m to 28m
+
+@embed svelte
+<AbilityHeading name="Life Drain" />
+@end
+
+- Life Drain T1 DPS increased from +16.2 to +18
+- Life Drain T2 duration increased from +2s to +2.5s
+- Life Drain T3 charges increased from +1 to +2
+- Life Drain T3 now also increases spirit scaling by +0.3
+
+- Soul Exchange cast time reduced from 0.2s to 0.1s
+- Soul Exchange post cast hold time reduced from 0.7s to 0.2s
+
+@embed svelte
+<AbilityHeading name="Soul Exchange" />
+@end
+
+- Soul Exchange T1 cooldown increased from -35s to -60s
+- Soul Exchange T2 changed from "On Cast: +35% Fire Rate for 8s" to "Silences enemies within 25m for 3s"
+- Soul Exchange T3 changed from "Silences enemies within 25m for 3s" to "On Cast: +60 Spirit Power, +40% Fire Rate and +50% Spirit Resistance for 8s"
+
+@embed svelte
+<EntityHeading name="Lash" type="hero" />
+@end
+
+- Increased Sparkles
+- Fixed Ground Strike against players brought down from mid air not doing damage
+
+@embed svelte
+<AbilityHeading name="Grapple" />
+@end
+
+- Grapple T2 weapon damage increased from +6 to +7
+- Grapple T3 changed from "+20% Fire Rate" to "+60% Air Control and +1 Stamina on Usage"
+
+@embed svelte
+<AbilityHeading name="Flog" />
+@end
+
+- Flog cooldown increased from 24s to 26s
+
+@embed svelte
+<AbilityHeading name="Flog Attack Angle" />
+@end
+
+- Flog Attack Angle no longer increases with Spirit Power
+
+@embed svelte
+<AbilityHeading name="Flog" />
+@end
+
+- Flog heal vs heroes reduced from 60% to 50%
+- Flog T2 increased from -12s Cooldown to -16s
+- Flog T2 now also reduces Fire Rate by 30%
+- Flog T3 no longer reduces Fire Rate
+- Flog T3 damage reduced from +86 to +80
+- Flog T3 now also increases Attack Angle by 40 and Heal by +20%
+
+- Fixed Death Slam camera sometimes being obstructed
+- Death Slam throw distance no longer scales with Spirit Power (was 0.3)
+
+@embed svelte
+<AbilityHeading name="Death Slam" />
+@end
+
+- Death Slam cooldown increased from 145s to 150s
+- Death Slam T1 throw distance increased from +8m to +12m
+- Death Slam T2 cooldown increased from -25s to -40s
+- Death Slam T3 now also increases cast range by +10m
+
+@embed svelte
+<EntityHeading name="McGinnis" type="hero" />
+@end
+
+- Stamina speed bucket 3 to 2
+- Bullet damage reduced from 6.72 + 0.2/boon to 6.0 + 0.16/boon
+
+@embed svelte
+<AbilityHeading name="Mini Turret" />
+@end
+
+- Mini Turret duration increased from 24s to 35s
+
+- Mini Turret base health and health growth reduced by 40%
+- Mini Turrets initial fading resist start value increased from 60% to 80%
+
+@embed svelte
+<AbilityHeading name="Mini Turrets" />
+@end
+
+- Mini Turrets now have 35% melee resist
+
+- Mini Turret tracking, angle and projectile speeds significantly improved
+- Mini Turret on the minimap now flash/turn red when they are attacking
+
+@embed svelte
+<AbilityHeading name="Mini Turret" />
+@end
+
+- Mini Turret T1 changed from "Turrets apply 25% slow" to "+10m Attack Range and +10 DPS"
+- Mini Turret T2 changed from "+10m Attack Range and + 10% Fire Rate" to "+2 Charges"
+- Mini Turret T3 changed from "+38 Turret DPS and +14s Turret Lifetime" to "+30% Turret Fire Rate and +12s Turret Lifetime"
+
+@embed svelte
+<AbilityHeading name="Medicinal Specter" />
+@end
+
+- Medicinal Specter duration no longer scales with spirit power
+- Medicinal Specter radius no longer scales with spirit power
+
+- Medicinal Specter regen now scales with spirit power (+0.3)
+
+@embed svelte
+<AbilityHeading name="Medicinal Specter" />
+@end
+
+- Medicinal Specter cooldown increased from 48s to 50s
+- Medicinal Specter no longer provides +15% Stamina Recovery
+- Medicinal Specter T1 changed from "+30% Fire Rate" to "+40% Spirit Resistance"
+- Medicinal Specter T2 increased from -17s Cooldown to -20s
+- Medicinal Specter T2 now also increases Stamina Recovery by +100%
+- Medicinal Specter T3 regen reduced from 2.5% Max HP to 2%
+- Medicinal Specter T3 now also increases radius by 3m
+- Medicinal Specter T3 now also increases duration by 1s
+
+- Spectral Wall that is midcast will now fire when you are interrupted, rather than continue to expand outward
+- Spectral Wall segments can now be destroyed with 2 heavy melee hits (destroys an individual segment)
+
+@embed svelte
+<AbilityHeading name="Spectral Wall" />
+@end
+
+- Spectral Wall min range reduced from 6m to 5m
+
+- Spectral Wall applies it's slow to enemies it passes through while being summoned
+
+@embed svelte
+<AbilityHeading name="Spectral Wall" />
+@end
+
+- Spectral Wall T1 no longer drains 1 stamina
+- Spectral Wall T1 Damage Amp increased from 15% to 20%
+- Spectral Wall T2 also increases wall duration by +2s
+- Spectral Wall T3 changed from "0.75s Stun on Impact" to "Creates 2 Turrets for 8s and increases slow by 30%" (creates them on the side facing you spread along the wall)
+
+@embed svelte
+<AbilityHeading name="Heavy Barrage" />
+@end
+
+- Heavy Barrage duration reduced from 13s to 8s
+
+- Heavy Barrage minimum range reduced from 9m to 8.5m
+
+@embed svelte
+<AbilityHeading name="Heavy Barrage" />
+@end
+
+- Heavy Barrage T1 tooltip updated to clarify that it also reduces dash distance
+- Heavy Barrage T1 move slow reduced from 40% to 30%
+- Heavy Barrage T1 dash slow increased from 20% to 30%
+- Heavy Barrage T1 slow duration reduced from 2s to 1.5s
+- Heavy Barrage T2 cooldown reduction increased from -45s to -55s
+- Heavy Barrage T2 now also increases duration by 6s
+- Heavy Barrage T3 damage increased from +21 to +25
+- Heavy Barrage T3 spirit scaling from +0.2 to +0.25
+- Heavy Barrage T3 now also increases explosion radius by 2m
+
+@embed svelte
+<EntityHeading name="Mina" type="hero" />
+@end
+
+- Stamina cooldown increased from 3.9s to 4.2s
+
+@embed svelte
+<AbilityHeading name="Rake" />
+@end
+
+- Rake cooldown increased from 10s to 16s
+
+- Rake hero hit missing health as damage increased from 3% to 5%
+
+@embed svelte
+<AbilityHeading name="Rake" />
+@end
+
+- Rake heal per kill reduced from 30 to 25
+- Rake heal per kill spirit scaling reduced from 0.43 to 0.3
+- Rake T1 changed from "+20 Heal Per Kill" to "+60 Damage"
+- Rake T2 changed from "+54 Damage and +1.0 Heal Per Kill spirit scaling" to "+30 Heal Per Kill and -8s Cooldown"
+- Rake T3 now also provides +1.2 Heal Per Kill spirit scaling
+
+- Sanguine Retreat cast range reduced 10m to 9m
+- Sanguine Retreat recast window increased from 3s to 3.5s
+
+@embed svelte
+<AbilityHeading name="Sanguine Retreat" />
+@end
+
+- Sanguine Retreat T1 changed from "+3m Cast Range" to "+20% Fire Rate and 8 Bullets"
+- Sanguine Retreat T2 changed from "+25% Fire Rate and 8 Bullets" to "-10s Cooldown"
+- Sanguine Retreat T3 changed from "-12s Cooldown" to "+1 Recast"
+
+@embed svelte
+<AbilityHeading name="Love Bites Cooldown" />
+@end
+
+- Love Bites Cooldown increased from 8s to 10s
+
+@embed svelte
+<AbilityHeading name="Love Bites" />
+@end
+
+- Love Bites damage reduced from 6 to 4
+- Love Bites damage spirit scaling increased from 0.06 to 0.09
+- Love Bites bonus damage reduced from 55 to 45
+- Love Bites bonus damage spirit scaling increased from 1.6 to 1.85
+- Love Bites T1 changed from "On Proc: +4 m/s Move Speed for 3s" to "On Proc: 30% Slow for 3s"
+- Love Bites T2 Damage/Bonus reduced from 3.6/50 to 3/45
+- Love Bites T3 changed from "On Proc: -1 Stamina and 30% slow for 3s" to "-4s Cooldown and On Proc +25% Fire Rate for 5s"
+
+@embed svelte
+<AbilityHeading name="Nox Nostra" />
+@end
+
+- Nox Nostra cooldown increased from 115s to 130s
+- Nox Nostra damage reduced from 6 to 5.6
+- Nox Nostra T1 increased from +1.8 to +2.2
+- Nox Nostra T2 cooldown increased from -40s to -55s
+
+@embed svelte
+<EntityHeading name="Mirage" type="hero" />
+@end
+
+- Bullet damage reduced from 15.2+0.5 to 14.8+0.3
+- Fire Scarabs no longer have a limited duration to launch each one. Functions as a normal charged ability.
+- Fire Scarabs collision and model size increased a bit
+- Fire Scarabs base charges reduced from 4 to 2
+- Fire Scarabs spirit scaling reduced from 1.0 to 0.8
+- Fire Scarabs now immediately steal the health from the target
+- Fire Scarabs Max Health steal increased from 45 to 70
+- Fire Scarabs changed from -8% Bullet Resist to +10% Damage Amp on that target from any damage you deal
+- Fire Scarabs cooldown increased from 40s to 45s
+- Fire Scarabs T1 changed from "-15s Cooldown" to "+50 Max Health Steal"
+- Fire Scarabs T2 changed from "-8% Bullet Resist" to "+2 Charges"
+- Fire Scarabs T3 changed from "+63 Max Health Steal" to "+10% Damage Amp and +1.2 Spirit Scaling"
+- Fire Scarabs no longer has a reduced effect against non-heroes
+- Tornado renamed to Dust Devil
+- Dust Devil lift duration reduced from 1.0s to 0.4s
+
+@embed svelte
+<AbilityHeading name="Dust Devil" />
+@end
+
+- Dust Devil spirit scaling reduced from 0.7 to 0.3
+- Dust Devil now slows affected enemies by 30% for 3s
+- Dust Devil bullet evasion duration increased from 3.5s to 4s
+- Dust Devil bullet evasion increased from 25% to 30%
+- Dust Devil T1 changed from "+0.4s Lift Duration" to "+60 Damage"
+- Dust Devil T2 changed from "-14s Cooldown" to "-8s Cooldown and +30% Evasion"
+- Dust Devil T3 changed from "+20% Bullet" to "Can Recast within 5s. Increases spirit scaling by 1.0"
+
+@embed svelte
+<AbilityHeading name="Djinn's Mark" />
+@end
+
+- Djinn's Mark cooldown increased from 2.6s to 3s
+
+- Djinn's Mark multiplier duration increased from 4.5s to 5s
+- Djinn's Mark reveal duration increased from 3s to 6s
+- Djinn's Mark tooltip rewritten to be based on a "per stack" basis. A stack increases the damage by 200%. (this is just a tooltip change)
+
+@embed svelte
+<AbilityHeading name="Djinn's Mark" />
+@end
+
+- Djinn's Mark T1 changed from "60% slow for 0.5s on 2x stack" to "Fading 60% slow for 0.5s"
+- Djinn's Mark T2 increased from +8.1 Damage to +20
+- Djinn's Mark T3 cooldown increased from -0.75s to -1s
+- Djinn's Mark T3 now also stuns for 0.5s at max stacks
+
+@embed svelte
+<AbilityHeading name="Traveler" />
+@end
+
+- Traveler cooldown reduced from 155s to 145s
+
+- Traveler can now be cast while on the zipline
+
+@embed svelte
+<AbilityHeading name="Traveler" />
+@end
+
+- Traveler no longer channels. It now has a 3s delay before teleporting. Taking damage interrupts the ability and puts it on cooldown for 6s.
+- Traveler now targets a location on the minimap rather than units. Places you at the ground level of that location.
+- Traveler no longer grants +2m Move Speed and +26% Fire Rate
+- Traveler T1 changed from "+2m Move Speed and -35s Cooldown" to "3m Move Speed for 12s"
+- Traveler T2 changed from "Grants Traveler Buffs to Ally" to "400 Barrier with spirit scaling for 12s"
+- Traveler T3 "Unstoppable for 3s" to "-80s Cooldown"
+
+@embed svelte
+<EntityHeading name="Mo &amp; Krill" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Scorn" />
+@end
+
+- Scorn damage reduced from 56 to 50
+- Scorn radius reduced from 10m to 9m
+- Scorn spirit scaling increased from 0.42 to 0.75
+- Scorn T1 changed from "-3.75s Cooldown" to "+35 Damage"
+- Scorn T2 changed from "+21 Damage" to "-5s Cooldown and +1m Radius"
+
+@embed svelte
+<AbilityHeading name="Burrow" />
+@end
+
+- Burrow now lets you enter the tunnels
+- Burrow cooldown increased from 37s to 40s
+- Burrow T1 changed from "+3s Duration" to "+50 Spin DPS"
+- Burrow T2 changed from "+68 Spin DPS and +2 Radius" to "+2 Spin Radius and +4s Burrow Time"
+- Burrow T3 increased from +2 m/s Move Speed to +4
+- Burrow T3 increased from -19s Cooldown to -20s
+
+@embed svelte
+<AbilityHeading name="Sand Blast" />
+@end
+
+- Sand Blast cooldown reduced from 42s to 40s
+- Sand Blast duration reduced from 3s to 2.5s
+- Sand Blast range reduced from 35m to 25m
+- Sand Blast T1 changed from "+1s" to "+50 Damage and +5m Range"
+- Sand Blast T2 changed from "-23s Cooldown" to "Slows targets Move Speed and Dash Distance by -25%"
+- Sand Blast T3 changed from "Slows targets Move Speed and Dash Distance by -40%" to "+1s Duration and -20s Cooldown"
+
+@embed svelte
+<AbilityHeading name="Combo" />
+@end
+
+- Combo cooldown increased from 90s to 150s
+
+@embed svelte
+<AbilityHeading name="Combo DPS" />
+@end
+
+- Combo DPS increased from 35 to 60
+
+@embed svelte
+<AbilityHeading name="Combo" />
+@end
+
+- Combo T1 changed "+30% Bullet Resist During Combo" to "+100% Lifesteal"
+- Combo T2 changed from "+0.7s Duration" to "+60 DPS and +50% Bullet Resist"
+- Combo T3 changed from "+32 DPS and 80% Lifesteal" to "+0.7s Duration and -60s Cooldown"
+
+@embed svelte
+<EntityHeading name="Paige" type="hero" />
+@end
+
+- Conjure Dragon renamed to Bookwyrm
+- Bookwyrm fixed initial location not starting where you click it
+
+@embed svelte
+<AbilityHeading name="Bookwyrm" />
+@end
+
+- Bookwyrm cooldown increased from 30s to 33s
+- Bookwyrm T1 changed from "-5s Cooldown" to "+2s Trail Duration and +1m Width"
+- Bookwyrm T2 changed from "+2s Trail Duration" to "-8s Cooldown and +10m Travel Range"
+- Bookwyrm T3 Damage/DPS rescaled from 104/27 to 100/30
+- Bookwyrm T3 now also grants +1 Charge
+
+- Defend and Fight! renamed to Plot Armor
+- Plot Armor barrier spirit scaling reduced from 1.6 to 1.3
+
+@embed svelte
+<AbilityHeading name="Plot Armor" />
+@end
+
+- Plot Armor T3 now also increases spirit scaling (+0.3)
+
+@embed svelte
+<AbilityHeading name="Captivating Read" />
+@end
+
+- Captivating Read height area no longer increases with range bonuses
+- Captivating Read cooldown increased from 25s to 30s
+
+- Captivating Read immobilize duration reduced from 1.25s to 1s
+
+@embed svelte
+<AbilityHeading name="Captivating Read" />
+@end
+
+- Captivating Read T1 cooldown increased from -6s to -11s
+- Captivating Read T2 immobilize duration increased from 0.75s to 1s
+- Captivating Read T3 now also increases radius by 1m
+
+@embed svelte
+<AbilityHeading name="Rallying Charge" />
+@end
+
+- Rallying Charge T2 now also reduces cooldown by 30s
+- Rallying Charge T3 now also increases Max Amp from +100% to +150%
+
+@embed svelte
+<EntityHeading name="Paradox" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Pulse Grenade" />
+@end
+
+- Pulse Grenade radius reduced from 6m to 5.5m
+- Pulse Grenade radius increases by +1m per Pulse
+
+@embed svelte
+<AbilityHeading name="Pulse Grenade Amp Per Stack" />
+@end
+
+- Pulse Grenade Amp Per Stack reduced from 6% to 4%
+
+@embed svelte
+<AbilityHeading name="Pulse Grenade" />
+@end
+
+- Pulse Grenade cooldown increased from 28s to 32s
+- Pulse Grenade spirit scaling reduced from 0.6 to 0.4
+- Pulse Grenade changed from -30% Move Speed for 2s to -20% Time Slow for 0.2s
+- Pulse Grenade T1 changed from +0.8s Duration to -12s Cooldown
+- Pulse Grenade T2 changed from "-8s Cooldown" to "+20 Pulse Damage and +0.5 Spirit Scaling"
+- Pulse Grenade T3 changed from "+36 Pulse Damage and +0.8m Radius per Pulse" to "+4% Damage Amp Per Stack and +1.6s Duration"
+
+@embed svelte
+<AbilityHeading name="Time Wall" />
+@end
+
+- Time Wall duration reduced from 6s to 5.5
+- Time Wall no longer damages enemies going through it
+- Time Wall now increases allied bullet speeds going through it by 100%
+- Time Wall now increases adds +30% Weapon Damage to allied bullet damage (affects Carbine)
+- Time Wall T1 increased from +2m Width to +3m
+- Time Wall T2 changed from "+9% Max Health Damage" to "+2.5s Duration and +30% Weapon Damage"
+- Time Wall T3 changed from silencing enemies to Allowing Charges and Granting +1 Charge (4s Charge Time)
+
+@embed svelte
+<AbilityHeading name="Kinetic Carbine" />
+@end
+
+- Kinetic Carbine cooldown increased from 27s to 30s
+- Kinetic Carbine speed spirit scaling increased from 0.09 to 0.13
+
+- Kinetic Carbine base damage scale increased from 100% to 125%
+
+@embed svelte
+<AbilityHeading name="Kinetic Carbine" />
+@end
+
+- Kinetic Carbine T2 changed from "-8s Cooldown and +2s Charge Hold" to "-12s Cooldown"
+- Kinetic Carbine T3 now also increases charge hold by 2s
+
+@embed svelte
+<AbilityHeading name="Paradoxical Swap" />
+@end
+
+- Paradoxical Swap cooldown increased from 75s to 95s
+- Paradoxical Swap no longer has 80% Spirit Lifesteal
+- Paradoxical Swap damage changed from 115 (0.6 spirit scaling) to 10% Current Health
+- Paradoxical Swap T1 changed from "-15s Cooldown" to "+200 Barrier (1.5 Spirit Scaling)"
+- Paradoxical Swap T2 changed from "+81 Damage" to "+13m Cast Range and -35s Cooldown"
+- Paradoxical Swap T3 changed from "+15m Cast Range" to "Swaps additional enemies in 7m radius and +10% Current Health Damage"
+
+@embed svelte
+<AbilityHeading name="Pulse Grenade" />
+@end
+
+- Pulse Grenade spirit scaling reduced from 0.4 to 0.3
+
+@embed svelte
+<AbilityHeading name="Time Wall" />
+@end
+
+- Time Wall slow duration increased from 1.25s to 2s
+- Time Wall T1 now also increases duration by +2.5s
+- Time Wall T2 no longer increases duration by +2.5s
+- Time Wall T2 now also silences enemies for 2.3s
+
+@embed svelte
+<AbilityHeading name="Paradoxical Swap" />
+@end
+
+- Paradoxical Swap damage changed from 10% Current Health to 125 with 1.1 spirit scaling
+- Paradoxical Swap T3 changed from 10% Current Health to 10% Max Health
+
+- Paradoxical Swap can now be alt casted to swap only a single target with the T3
+
+@embed svelte
+<EntityHeading name="Pocket" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Barrage" />
+@end
+
+- Barrage projectile speed increased by 15%
+- Barrage now lets you use stamina during the ability
+- Barrage now lets you use Flying Cloak during the ability
+- Barrage T1 increased from +12.6 Damage Per Projectile to +16
+- Barrage T2 cooldown increased from -14s to -16s
+- Barrage T3 increased from +2m Radius to +3m
+
+@embed svelte
+<AbilityHeading name="Flying Cloak" />
+@end
+
+- Flying Cloak cooldown reduced from 32s to 26s
+- Flying Cloak damage reduced from 70 to 60
+- Flying Cloak duration increased from 3.4s to 3.8s (travels slower, same total distance)
+- Flying Cloak T1 changed from "-14s Cooldown" to "+70 Damage"
+- Flying Cloak T2 changed from "+76 Damage" to "+5 Weapon Damage upon cast for 8s"
+- Flying Cloak T3 changed from "+7 Weapon Damage after teleporting for 10s" to "+1.6s Travel Time and -14s Cooldown"
+
+@embed svelte
+<AbilityHeading name="Enchanter's Satchel" />
+@end
+
+- Enchanter's Satchel spirit scaling increased from 0.61 to 0.9
+- Enchanter's Satchel T3 now also reduces movement speed by 40%
+- Enchanter's Satchel T3 Fire Rate slow increased from 35% to 40%
+- Enchanter's Satchel T3 Escape duration increased from +0.5s to +1.5s
+- Enchanter's Satchel T3 now also increases radius by 4m
+
+@embed svelte
+<AbilityHeading name="Affliction" />
+@end
+
+- Affliction no longer applies 12% Current Health Damage
+
+@embed svelte
+<AbilityHeading name="Affliction DPS" />
+@end
+
+- Affliction DPS increased from 28 to 32
+
+@embed svelte
+<AbilityHeading name="Affliction" />
+@end
+
+- Affliction spirit scaling increased from 0.17 to 0.2
+- Affliction cooldown increased from 140s to 150s
+- Affliction T1 increased from -25s Cooldown to -40s Cooldown
+- Affliction T2 no longer reduces healing by 40%
+- Affliction T2 now also increases radius by 4m
+- Affliction T3 no longer increases radius by 6m
+- Affliction T3 now prevents all healing on targets
+- Affliction T3 increases spirit scaling by +0.1
+
+@embed svelte
+<EntityHeading name="Rem" type="hero" />
+@end
+
+- Lil Helpers trooper base healing changed from 10/s to 8/s. The delay between heals has been reduced so the frequency of healing is more constant. (overall reduction)
+- Lil Helpers trooper healing spirit scaling increased from 0.125 to 0.14
+- Naptime sleep move speed reduced from 2m/s to 1.5m/s
+- Naptime sleep duration decreased from 4.25s to 4s
+
+@embed svelte
+<AbilityHeading name="Naptime" />
+@end
+
+- Naptime radius decreased from 20m to 17.0m
+- Naptime T2 changed from "unstoppable and -35% Damage resist while channeling" to "+0.5s Sleep Duration and +3m Radius"
+- Naptime T3 now also grants +50% damage resist while channeling
+
+@embed svelte
+<EntityHeading name="Seven" type="hero" />
+@end
+
+- Move Speed no longer scales with spirit power
+
+@embed svelte
+<AbilityHeading name="Sprint" />
+@end
+
+- Sprint speed increased from 0.6m to 1.8m
+
+@embed svelte
+<AbilityHeading name="Lightning Ball" />
+@end
+
+- Lightning Ball slows down less vs non-heroes (previously was 2m/s for all, now 3.5m/s for non-heroes)
+
+- Lightning Ball fixed now doing damage if another ball was already hitting a target
+
+@embed svelte
+<AbilityHeading name="Lightning Ball" />
+@end
+
+- Lightning Ball T2 now also increases lifetime by 1s
+
+@embed svelte
+<AbilityHeading name="Static Charge" />
+@end
+
+- Static Charge damage reduced from 38 to 35
+
+- Static Charge cast range reduced from 16m to 15m
+- Static Charge cast range no longer increases with spirit power
+
+@embed svelte
+<AbilityHeading name="Static Charge" />
+@end
+
+- Static Charge T1 increased from -19s Cooldown to -20s
+- Static Charge T2 now also increases cast range by +5m
+- Static Charge T3 now also increases damage by +160
+
+@embed svelte
+<AbilityHeading name="Power Surge" />
+@end
+
+- Power Surge duration no longer scales with spirit power
+- Power Surge cooldown increased from 48s to 50s
+- Power Surge max jumps increased from 3 to 4
+- Power Surge T1 increased from -15s to -18s
+- Power Surge T2 changed from "-10% Spirit Resist for 6s" to "+3m Move Speed, +8 Damage and increased Spirit Scaling (+0.23)"
+- Power Surge T3 changed from "+11 Shock Damage, scaling and +3 max jumps" to "-15% Spirit Resist for 8s and +12s Duration"
+
+- Storm Cloud allows movement in the base ability (1.5m)
+
+@embed svelte
+<AbilityHeading name="Storm Cloud" />
+@end
+
+- Storm Cloud bullet resistance reduced from 20% to 0%
+- Storm Cloud T1 bullet resist increased from 35% to 55%
+- Storm Cloud T3 increases move speed by +3m (was +3.8m before)
+
+@embed svelte
+<EntityHeading name="Shiv" type="hero" />
+@end
+
+- Stamina reduced from 3 to 2
+- Stamina movement speed reduced from 6.7 to 6.5
+- Bullet damage growth increased from 0.154 to 0.165
+
+@embed svelte
+<AbilityHeading name="Serrated Knives" />
+@end
+
+- Serrated Knives no longer has impact damage
+
+- Serrated Knives Bleed DPS per knife increased from 4 to 10
+
+@embed svelte
+<AbilityHeading name="Serrated Knives Bleed DPS" />
+@end
+
+- Serrated Knives Bleed DPS spirit scaling increased from 0.13 to 0.15
+
+@embed svelte
+<AbilityHeading name="Serrated Knives" />
+@end
+
+- Serrated Knives T1 changed from "+1 Charge" to "+2s Duration"
+- Serrated Knives T2 changed from "+2s Duration" to "+2 Charges"
+- Serrated Knives T3 no longer has +30 Impact Damage
+- Serrated Knives T3 DPS increased from +5.5 to +12
+- Serrated Knives T3 increases spirit scaling by +0.10
+
+- Slice and Dice cooldown increased from 15s to 16s
+- Slice and Dice Impact damage reduced from 75 to 60
+- Slice and Dice reduces Spirit Resistance by 6% for 16s. Multiple instances stack.
+- Slice and Dice T1 increased from -3s Cooldown to -6s Cooldown
+- Slice and Dice T2 changed from "+50 Impact Damage" to "-8% Spirit Resistance and +2m Dash Range"
+- Slice and Dice T3 now also grants +50 Impact Damage
+- Killing Blow is no longer unit targeted, you jump in the direction forward with some small control
+
+@embed svelte
+<AbilityHeading name="Killing Blow Damage Amp" />
+@end
+
+- Killing Blow Damage Amp reduced from 15% to 14%
+
+@embed svelte
+<AbilityHeading name="Killing Blow" />
+@end
+
+- Killing Blow T2 changed from "+5% Enemy Health Threshold and +6% Damage Amp" to "+8% Damage Amp"
+- Killing Blow T3 now grants you 20s to recast the ultimate, rather than removing the cooldown
+- Killing Blow T3 now also increases enemy health threshold by +5%
+
+@embed svelte
+<EntityHeading name="Silver" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Mauling Leap" />
+@end
+
+- Mauling Leap damage scaling reduced from 1.9 to 1.5
+
+- Fixed Tail Whack being considered a movement ability
+- Tail Whack disarm duration reduced from 2.5s to 2s
+
+@embed svelte
+<AbilityHeading name="Tail Whack" />
+@end
+
+- Tail Whack slow duration increased from 1.5s to 2s
+- Tail Whack T3 changed from "+1s Disarm Duration" to "1.5s Debuff Duration"
+
+@embed svelte
+<AbilityHeading name="Lycan Curse" />
+@end
+
+- Lycan Curse cooldown increased from 35s to 50s
+
+- Lycan Curse base health bonus reduced from 100 to 75
+
+@embed svelte
+<AbilityHeading name="Lycan Curse" />
+@end
+
+- Lycan Curse no longer grants +14% Bullet and Spirit Resistance
+- Lycan Curse no longer grants +2m Move Speed
+- Lycan Curse T1 resist increased from +14% to +15%
+- Lycan Curse T2 bonus health increased from 125 to 150
+
+- Lycan Curse base health bonus increased from +75 to +125
+
+@embed svelte
+<AbilityHeading name="Lycan Curse" />
+@end
+
+- Lycan Curse T2 increased from +3m to +4m
+
+@embed svelte
+<EntityHeading name="Victor" type="hero" />
+@end
+
+- Bullet damage increased from 12.3 to 12.5
+
+@embed svelte
+<AbilityHeading name="Pain Battery" />
+@end
+
+- Pain Battery now starts charged
+- Pain Battery range increased from 20m to 28m
+- Pain Battery reduced randomness on the projectile paths
+
+- Pain Battery bolt count from 5 to 7
+
+@embed svelte
+<AbilityHeading name="Pain Battery" />
+@end
+
+- Pain Battery T2 increased from +36 to +50
+- Pain Battery T3 now also increases spirit scaling by +0.6
+
+@embed svelte
+<AbilityHeading name="Jumpstart" />
+@end
+
+- Jumpstart cooldown increased from 23s to 30s
+
+@embed svelte
+<AbilityHeading name="Jumpstart Move Speed" />
+@end
+
+- Jumpstart Move Speed reduced from 4m to 3m
+
+@embed svelte
+<AbilityHeading name="Jumpstart" />
+@end
+
+- Jumpstart spirit scaling reduced from 1.8 to 1.2
+- Jumpstart T1 increased from +1.5m to +3m Move Speed
+- Jumpstart T2 now also reduces cooldown by -8s
+- Jumpstart T3 now also provides +1 Charge
+- Jumpstart T3 no longer reduces cooldown
+- Jumpstart T3 now also increases spirit scaling by 0.8
+
+- Aura of Suffering time to max DPS reduced from 10s to 6s
+- Aura of Suffering radius increased from 7.7m to 10m
+- Aura of Suffering toggle cooldown reduced from 2.5s to 2s
+- Aura of Suffering Min DPS reduced from 16 to 12
+- Aura of Suffering Min DPS spirit scaling reduced from 0.18 to 0.135
+- Aura of Suffering Max DPS reduced from 70 to 54
+- Aura of Suffering Max DPS spirit scaling reduced from 0.9 to 0.67
+- Aura of Suffering T2 Min/Max DPS reduced from 8/36 to 6/26
+- Aura of Suffering Text Progress bar indicates time to Max DPS
+- Aura of Suffering T3 reduced from +13% Damage to +15%
+
+@embed svelte
+<AbilityHeading name="Shocking Reanimation" />
+@end
+
+- Shocking Reanimation radius reduced from 13m to 12m
+
+- Shocking Reanimation rebirth health reduced from 60% to 50%
+
+@embed svelte
+<AbilityHeading name="Shocking Reanimation" />
+@end
+
+- Shocking Reanimation T1 changed from "+3m Radius and +90 Damage" to "While on Cooldown: +15% Fire Rate and +6 Spirit Damage Per Bullet (0.06 scaling)"
+- Shocking Reanimation T2 rebirth health increased from 40% to 50%
+- Shocking Reanimation T3 changed from "While on Cooldown: +18% Fire Rate and +9 Spirit Damage Per Bullet (0.06 scaling)" to "+6m Radius, +1s Stun and -50s Cooldown"
+
+@embed svelte
+<EntityHeading name="Vindicta" type="hero" />
+@end
+
+- Fire Rate no longer scales with Spirit Power
+- Bullet damage now scales with spirit power (0.022)
+- Bullet Velocity increased from 557 to 660
+
+@embed svelte
+<AbilityHeading name="Stake" />
+@end
+
+- Stake damage reduced from 55 to 40
+- Stake damage spirit scaling increased from 0.37 to 0.5
+- Stake projectile speed increased from 20m/s to 25m/s
+- Stake T1 changed from "-35% Fire Rate" to "+65 Damage"
+- Stake T3 Tether Duration increased from +0.5s to +0.75s
+- Stake T3 capture radius increased from +1m to +2m
+
+@embed svelte
+<AbilityHeading name="Flight" />
+@end
+
+- Flight now allows you to use melee
+- Flight now allows parry to be used
+- Flight now grants you +50% Item Cast Range
+- Flight spirit damage scaling reduced from 0.22 to 0.18
+- Flight duration reduced from 15s to 13s
+- Flight T2 duration increased from +8s to +10s
+- Flight T3 Spirit Damage Per Bullet reduced from 12.6 to 10
+- Flight T3 now increases spirit scaling by 0.1
+- Flight T3 now also refreshes duration on hero kill
+
+@embed svelte
+<AbilityHeading name="Crow Familiar" />
+@end
+
+- Crow Familiar now releases a swarm of crows in a cone forward, hitting all enemies along the path
+
+- Crow Familiar debuff duration no longer scales with spirit power
+- Crow Familiar debuff duration increased from 4s to 5s
+- Crow Familiar bleed damage reduced from 2.7% to 2.2%
+
+@embed svelte
+<AbilityHeading name="Crow Familiar" />
+@end
+
+- Crow Familiar damage increased from 37 to 40
+- Crow Familiar T1 changed from "Ricochet up to 2 times" to "Reduces healing by -35%"
+- Crow Familiar T2 now also increase bleed damage by +0.5%
+- Crow Familiar T3 now also increases debuff duration by 2s
+
+- Assassinate while scoped no longer un-scopes when using items
+
+@embed svelte
+<AbilityHeading name="Assassinate" />
+@end
+
+- Assassinate now has a 4s buffer on impact for bonus credit
+
+- Assassinate while scoped now plays a sound for you when the it is fully charged
+- Assassinate weapon damage bonus increased from 5% to 6%
+
+@embed svelte
+<EntityHeading name="Viscous" type="hero" />
+@end
+
+- Splatter bounces once by default
+
+@embed svelte
+<AbilityHeading name="Splatter" />
+@end
+
+- Splatter cooldown reduced from 30s to 26
+- Splatter spirit scaling reduced from 1.77 to 0.8
+
+- Splatter ground effect now increases slide distance by 60% for you and your allies
+- Splatter multiple hit damage value reduced from 50% to 50/38/26%
+
+@embed svelte
+<AbilityHeading name="Splatter" />
+@end
+
+- Splatter T1 radius increased from +1m to +2m
+- Splatter T2 cooldown increased from -12s to -14s
+- Splatter T3 spirit scaling increased from +0.4 to +1.3
+- Splatter T3 still adds 2 bounces
+
+@embed svelte
+<AbilityHeading name="The Cube" />
+@end
+
+- The Cube now has a very brief period where allies cannot cancel to prevent accidental cancels
+- The Cube healing spirit scaling increased from 0.14 to 0.3
+- The Cube T3 increased from -21s Cooldown to -25s
+
+@embed svelte
+<AbilityHeading name="Puddle Punch" />
+@end
+
+- Puddle Punch now grants +30% Air Control when affecting yourself or allies
+
+@embed svelte
+<AbilityHeading name="Puddle Punch Charge Time" />
+@end
+
+- Puddle Punch Charge Time increased from 1.5s to 1.7s
+
+@embed svelte
+<AbilityHeading name="Puddle Punch Slow" />
+@end
+
+- Puddle Punch Slow increased from 15% to 20%
+
+@embed svelte
+<AbilityHeading name="Puddle Punch" />
+@end
+
+- Puddle Punch now acts as if its close range with respect to item procs (like Point Blank)
+- Puddle Punch radius reduced from 4.5m to 4m
+- Puddle Punch T2 changed from "+27 Damage and -15% Move Slow" to "+1.5m Radius and +30 Damage"
+
+@embed svelte
+<AbilityHeading name="Goo Ball" />
+@end
+
+- Goo Ball no longer can carry Urn
+
+- Goo Ball turn rate improved a bit
+- Goo Ball can now use abilities and items (rather than being locked behind T3)
+
+@embed svelte
+<AbilityHeading name="Goo Ball" />
+@end
+
+- Goo Ball cooldown increased from 115s to 130s
+- Goo Ball duration increased from 9s to 10s
+
+- Goo Ball Bullet and Spirit resist reduced from 60% to 35%
+
+@embed svelte
+<AbilityHeading name="Goo Ball" />
+@end
+
+- Goo Ball T1 changed from "+5s Duration" to "-30s Cooldown"
+- Goo Ball T2 reduced from +72 Damage to +70
+- Goo Ball T3 changed from "Can now use abilities and items" to "+6s duration and +0.3s Stun Duration"
+
+@embed svelte
+<AbilityHeading name="Splatter" />
+@end
+
+- Splatter T3 spirit scaling reduced from 1.3 to 1.1
+
+@embed svelte
+<AbilityHeading name="Puddle Punch" />
+@end
+
+- Puddle Punch scaling reduced from 1.1 to 1.0
+
+@embed svelte
+<EntityHeading name="Warden" type="hero" />
+@end
+
+- Bullet growth per boon reduced from 0.44 to 0.38
+- Alchemical Flask Weapon Damage reduction reduced from -30% to -25%
+
+@embed svelte
+<AbilityHeading name="Alchemical Flask" />
+@end
+
+- Alchemical Flask T2 damage increased from +36 to +40
+- Alchemical Flask T2 now also increases Weapon Damage Reduction by -20%
+- Alchemical Flask T2 no longer increases radius by 1m
+- Alchemical Flask T3 cooldown increased from -6.5s to -7s
+- Alchemical Flask T3 now also increases radius by 2m
+
+@embed svelte
+<AbilityHeading name="Willpower" />
+@end
+
+- Willpower duration reduced from 7s to 5s
+- Willpower cooldown reduced from 42s to 40
+
+- Willpower barrier now scales with spirit power in the base ability (+0.5)
+
+@embed svelte
+<AbilityHeading name="Willpower" />
+@end
+
+- Willpower T2 cooldown from -19s to -22s
+- Willpower T2 now also increases duration by +2s
+- Willpower T3 changed from "+150 Barrier Health and improved scaling (3.7)" to "+40% Debuff Resistance and improved scaling (2.5)"
+
+- Binding Word cast range reduced from 20m to 15m
+
+@embed svelte
+<AbilityHeading name="Binding Word" />
+@end
+
+- Binding Word cooldown decreased from 37s to 34s
+- Binding Word T1 changed from "+1s Immobilize Duration" to "+20% Bullet Damage to Trapped heroes for 5s"
+- Binding Word T2 changed from "-19s Cooldown" to "+0.75s Duration and +12m Cast Range"
+- Binding Word T2 now increases trap duration by 0.75s
+- Binding Word T3 changed from "+20% Bullet Damage" to "-18s Cooldown and Silences enemies until they escape or are trapped"
+
+@embed svelte
+<AbilityHeading name="Last Stand Channeling" />
+@end
+
+- Last Stand Channeling bullet and spirit resist increased from 30% to 60%
+
+@embed svelte
+<AbilityHeading name="Last Stand" />
+@end
+
+- Last Stand radius reduced from 13m to 12m
+- Last Stand T1 increased from +3m Radius to +4m
+- Last Stand T3 no longer grants +50% Bullet and Spirit Resist
+- Last Stand T3 duration increased from +2.5s to +3s
+- Last Stand T3 now also grants you Unstoppable while channeling
+
+@embed svelte
+<EntityHeading name="Wraith" type="hero" />
+@end
+
+- Card Trick cards now have specific suites with special bonuses.
+- Card Trick base charge count increased from 1 to 2
+- Card Trick base damage reduced from 60 to 45
+
+@embed svelte
+<AbilityHeading name="Card Trick" />
+@end
+
+- Card Trick spirit scaling reduced from 1.0 to 0.55
+
+- Card Trick buildup now takes 20% longer
+
+@embed svelte
+<AbilityHeading name="Card Trick" />
+@end
+
+- Card Trick cooldown reduced from 0.75s to 0.5s
+
+- Card Trick post cast time reduced from 0.2s to 0.1
+
+@embed svelte
+<AbilityHeading name="Card Trick" />
+@end
+
+- Card Trick now highlights the card that will be throw next.
+- Card Trick now has unique sounds for each card suite that is summoned.
+- Card Trick T1 increased from "+1 Charges" to "+2 Charges"
+- Card Trick T2 changed from "+35 Damage" to "+40 Damage and increased spirit scaling (+0.4)"
+- Card Trick T2 changed from "+50% Card Summon Rate and 30% slow for 1s" to "Improves Card Suites and increased joker chances" (new totals are Spades: 2.5x, Diamond: -13%, Heal: 150/2.0, Clubs: 50%, Joker: 1/5th chance)
+
+- Fixed Project Mind interaction with stuns
+
+@embed svelte
+<AbilityHeading name="Full Auto" />
+@end
+
+- Full Auto no longer affects allies (previously gave half fire rate to allies)
+- Full Auto duration no longer scales with Spirit Power
+- Full Auto cooldown reduced from 48s to 45s
+
+- Full Auto base ability now deals +2 Spirit Damage Per Bullet (0.03 Spirit Scaling)
+
+@embed svelte
+<AbilityHeading name="Full Auto" />
+@end
+
+- Full Auto T1 increased from -14s Cooldown to -20s
+- Full Auto T2 changed from "2.52 Spirit Damage per Bullet" to "+10% Fire Rate and +3s Duration"
+- Full Auto T3 changed from "+15% Bullet and Spirit Lifesteal and increased spirit scaling" to "Unlimited Ammo and increased spirit scaling (+0.06)"
+
+@embed svelte
+<AbilityHeading name="Telekinesis" />
+@end
+
+- Telekinesis cooldown increased from 110s to 120s
+
+- Telekinesis cast range reduced from 20m to 14m
+- Telekinesis cast time increased from 0.1s to 0.3s
+
+@embed svelte
+<AbilityHeading name="Telekinesis" />
+@end
+
+- Telekinesis no longer has a projectile, it now instantly lifts the target for 0.75s and gives you a location target on the ground. After the 0.75s is over, it'll throw the hero towards that location up to 15m away. The target will take 100 Damage, 40% move slow and prevent stamina/movement-item and ability usage for 3s.
+- Telekinesis T1 changed from "-25s Cooldown" to "+100 Damage"
+- Telekinesis T2 changed from "+0.75s Silence and Disarm Duration" to "-50s Cooldown"
+- Telekinesis T3 changed from "Bounces to nearby target" to "+1.5s Debuff duration and +6m Throw and Cast Range
+
+@embed svelte
+<AbilityHeading name="Card Trick Spade" />
+@end
+
+- Card Trick Spade reduced from +70% to +60%
+
+@embed svelte
+<AbilityHeading name="Card Trick Heart" />
+@end
+
+- Card Trick Heart scaling reduced from 1.25 to 1.0
+
+@embed svelte
+<AbilityHeading name="Card Trick" />
+@end
+
+- Card Trick T3 Heart scaling increased from 0.5 to 0.75
+
+- Fixed Card Trick Heart heal doing full value for non-heroes (instead of half)
+- Telekinesis debuff duration reduced from 3s to 2.75s
+
+@embed svelte
+<EntityHeading name="Yamato" type="hero" />
+@end
+
+- Power Slash being held down no longer automatically fires it
+- You can now cast Parry directly while channeling Power Slash to fire the Power Slash and parry
+- Power Slash base ability now has +60% Bullet Resist while channeling
+
+@embed svelte
+<AbilityHeading name="Power Slash" />
+@end
+
+- Power Slash cooldown increased from 10.5s to 12s
+
+@embed svelte
+<AbilityHeading name="Power Slash Slash Length" />
+@end
+
+- Power Slash Slash Length reduced from 25m to 22m
+
+@embed svelte
+<AbilityHeading name="Power Slash" />
+@end
+
+- Power Slash T1 changed from "+60% Bullet Resist while channeling" to "40% Slow for 3s"
+- Power Slash T2 changed from "-2s Cooldown and 40% slow for 3s" to "-4s Cooldown"
+- Power Slash T3 now also grants +8m Range
+
+- Flying Strike renamed to Flying Slash
+
+@embed svelte
+<AbilityHeading name="Flying Slash" />
+@end
+
+- Flying Slash is now light melee damage rather than spirit
+- Flying Slash slow increased from -30% to -50%
+- Flying Slash cooldown increased from 21s to 36s
+- Flying Slash range increased from 20m to 25m
+- Flying Slash T1 changed from "25% Slow" to "-18s Cooldown"
+- Flying Slash T2 changed from "+20m Cast Range" to "+20m Cast Range and gain +40 Spirit for 6s"
+- Flying Slash T3 changed from "Can Grapple to ally heroes and +6 Weapon Damage for 10s" to "Can Grapple to ally heroes. Becomes Charged and grants +2 charges (3s between charges)."
+
+- Fixed Flying Slash T3 ally cast stopping too soon before reaching the player
+
+@embed svelte
+<AbilityHeading name="Crimson Slash" />
+@end
+
+- Crimson Slash cooldown increased from 15s to 16s
+
+- Crimson Slash Fire Rate reduction increased from -18% to -30%
+
+@embed svelte
+<AbilityHeading name="Crimson Slash" />
+@end
+
+- Crimson Slash T1 changed from "-26% Fire Rate" to "On Hit: +30% Melee Damage for 4s"
+- Crimson Slash T3 increased from -9s Cooldown to -10s
+- Crimson Slash T3 now also increases spirit scaling (+0.6)
+
+@embed svelte
+<AbilityHeading name="Shadow Transformation" />
+@end
+
+- Shadow Transformation cooldown increased from 110s to 130s
+
+- Shadow Transformation Bullet and Spirit Resist reduced from 40% to 30%
+
+@embed svelte
+<AbilityHeading name="Shadow Transformation" />
+@end
+
+- Shadow Transformation T1 changed from "+14% Fire Rate" to "+5 Weapon Damage"
+- Shadow Transformation T2 now also reduces cooldown by 25s
+- Shadow Transformation T3 increased from +20% Bullet and Spirit Resist to +30%
+
+* Item Changes
+
+@embed svelte
+<SectionPreview type="item" names={["Active Reload", "Arcane Surge", "Ballistic Enchantment", "Blood Tribute", "Bullet Resilience", "Cheat Death", "Colossus", "Crushing Fists", "Cursed Relic", "Decay", "Disarming Hex", "Dispel Magic", "Diviner's Kevlar", "Enduring Speed", "Ethereal Shift", "Express Shot", "Extended Magazine", "Extra Health", "Fortitude", "Frenzy", "High-Velocity Rounds", "Hunter's Aura", "Inhibitor", "Knockdown", "Lifestrike", "Long Range", "Magic Carpet", "Majestic Leap", "Melee Charge", "Mystic Regeneration", "Mystic Shot", "Opening Rounds", "Radiant Regeneration", "Restorative Locket", "Return Fire", "Rusted Barrel", "Silence Wave", "Siphon Bullets", "Slowing Hex", "Spellbreaker", "Spirit Rend", "Spirit Resilience", "Spirit Sap", "Spirit Shredder Bullets", "Spiritual Overflow", "Split Shot", "Stalker", "Suppressor", "Swift Striker", "Tankbuster", "Torment Pulse", "Trophy Collector", "Vortex Web", "Weakening Headshot", "Weapon Shielding", "Weighted Shots"]} />
+@end
+
+@embed svelte
+<EntityHeading name="Active Reload" type="item" />
+@end
+
+- You can now reload while already full when carrying this item
+
+@embed svelte
+<EntityHeading name="Arcane Surge" type="item" />
+@end
+
+- Spirit Power increased from +15 to +20
+
+@embed svelte
+<EntityHeading name="Ballistic Enchantment" type="item" />
+@end
+
+- Weapon damage per stack increased from 18% to 20%
+- Range reduced from 30% to 25%
+- Non-hero weapon damage increased from 4% to 5%
+
+@embed svelte
+<EntityHeading name="Blood Tribute" type="item" />
+@end
+
+- No longer has healing reduction
+- Self damage increased from 40 to 50
+
+@embed svelte
+<EntityHeading name="Bullet Resilience" type="item" />
+@end
+
+- Low Health threshold increased from 40% to 50%
+- Low Health resistance reduced from 22% to 15%
+
+@embed svelte
+<EntityHeading name="Cheat Death" type="item" />
+@end
+
+- No longer reduces movement speed by -2m during the death immunity phase
+
+@embed svelte
+<EntityHeading name="Colossus" type="item" />
+@end
+
+- Active now grants you an additional +30% Melee Damage
+
+@embed svelte
+<EntityHeading name="Crushing Fists" type="item" />
+@end
+
+- Heavy Melee Bonus damage now works with heavy melee abilities
+
+@embed svelte
+<EntityHeading name="Cursed Relic" type="item" />
+@end
+
+- Damage penalty increased from -8% to -10%
+
+@embed svelte
+<EntityHeading name="Decay" type="item" />
+@end
+
+- Healing Reduction increased from -45% to -50%
+
+@embed svelte
+<EntityHeading name="Disarming Hex" type="item" />
+@end
+
+- Cooldown reduced from 20s to 16s
+
+@embed svelte
+<EntityHeading name="Dispel Magic" type="item" />
+@end
+
+- Cooldown reduced from 50s to 40s
+
+@embed svelte
+<EntityHeading name="Diviner's Kevlar" type="item" />
+@end
+
+- Cooldown reduced from 64s to 40s
+
+@embed svelte
+<EntityHeading name="Enduring Speed" type="item" />
+@end
+
+- Fixed slow resistance interaction with dash slows
+
+@embed svelte
+<EntityHeading name="Ethereal Shift" type="item" />
+@end
+
+- Cooldown reduced from 45s to 35s
+
+@embed svelte
+<EntityHeading name="Express Shot" type="item" />
+@end
+
+- Ammo consumed changed from -30% to 2 Ammo
+
+@embed svelte
+<EntityHeading name="Extended Magazine" type="item" />
+@end
+
+- Weapon Damage increased from +6% to +8%
+
+@embed svelte
+<EntityHeading name="Extra Health" type="item" />
+@end
+
+- Increased from 185 to 210
+
+@embed svelte
+<EntityHeading name="Fortitude" type="item" />
+@end
+
+- Time to regen reduced from 13s to 10s
+
+@embed svelte
+<EntityHeading name="Frenzy" type="item" />
+@end
+
+- Base Fire Rate increased from 8% to 10%
+- Base Spirit Resist increased from 10% to 15%
+- Conditional Fire Rate reduced from 28% to 25%
+- Conditional Spirit Resist reduced from 30% to 20%
+
+@embed svelte
+<EntityHeading name="High-Velocity Rounds" type="item" />
+@end
+
+- No longer grants +5% Fire Rate
+- Now grants +8% Weapon Damage
+- Bullet Velocity increased from +50% to +60% (these changes affect upgrades)
+
+@embed svelte
+<EntityHeading name="Hunter's Aura" type="item" />
+@end
+
+- Solo hero multiplier reduced from 3x to 2x
+- Bullet Resist Reduction increased from -8% to -10%
+- Fire Rate Reduction increased from -11% to -14%
+
+@embed svelte
+<EntityHeading name="Inhibitor" type="item" />
+@end
+
+- Damage Penalty reduced from -35% to -30%
+- Weapon Damage bonus increased from +22% to +25%
+
+@embed svelte
+<EntityHeading name="Knockdown" type="item" />
+@end
+
+- Gravity increased from +50% to +100% when the stun hits the target (causes airborne targets to fall faster)
+
+@embed svelte
+<EntityHeading name="Lifestrike" type="item" />
+@end
+
+- Heal on melee hit reduced from 160 to 100 + 1.5/boon
+- Heal on melee hit percentage reduced from 50% to 30% + 0.5%/boon
+
+@embed svelte
+<EntityHeading name="Long Range" type="item" />
+@end
+
+- Fall-off Range increased from +4% to +8%
+
+@embed svelte
+<EntityHeading name="Magic Carpet" type="item" />
+@end
+
+- Duration increased from 8s to 12s
+- Bonus health increased from 75 to 125
+
+@embed svelte
+<EntityHeading name="Majestic Leap" type="item" />
+@end
+
+- Barrier increased from 140 to 200
+
+@embed svelte
+<EntityHeading name="Melee Charge" type="item" />
+@end
+
+- Heavy Melee Bonus damage now works with heavy melee abilities
+
+@embed svelte
+<EntityHeading name="Mystic Regeneration" type="item" />
+@end
+
+- Health bonus increased from +40 to +50
+- Duration increased from 5s to 6s
+
+@embed svelte
+<EntityHeading name="Mystic Shot" type="item" />
+@end
+
+- Damage spirit scaling increased from 0.8 to 1.0
+
+@embed svelte
+<EntityHeading name="Opening Rounds" type="item" />
+@end
+
+- Spirit Power increased from +8 to +10
+- Weapon Damage increased from +40% to +45%
+
+@embed svelte
+<EntityHeading name="Radiant Regeneration" type="item" />
+@end
+
+- Health bonus increased from +65 to +90
+- Duration increased from 5s to 6s
+- Healing on Ability Cast boon scaling increased from 1.5 to 2.0
+
+@embed svelte
+<EntityHeading name="Restorative Locket" type="item" />
+@end
+
+- Range increased from 30m to 35m
+- Max stamina regen increased from 3 to 4
+- Now always restores at least 1 stamina
+
+@embed svelte
+<EntityHeading name="Return Fire" type="item" />
+@end
+
+- Returning damage now always hits the target's body (some amount would naturally miss before, and some would be headshots)
+- Bullet Damage Returned reduced from 60% to 50%
+
+@embed svelte
+<EntityHeading name="Rusted Barrel" type="item" />
+@end
+
+- Cooldown reduced from 20s to 16s
+
+@embed svelte
+<EntityHeading name="Silence Wave" type="item" />
+@end
+
+- Damage spirit scaling increased from 0.6 to 1.0
+- Cooldown reduced from 35s to 30s
+
+@embed svelte
+<EntityHeading name="Siphon Bullets" type="item" />
+@end
+
+- Now steals 2.5% of enemy max HP per bullet instead of a fixed amount
+
+@embed svelte
+<EntityHeading name="Slowing Hex" type="item" />
+@end
+
+- Now sets the gravity of an enemy to a fixed +20% (heavier) regardless of their own base values
+- Projectile speed increased from 53m/s to 80m/s
+- Cooldown reduced from 30s to 27s
+
+@embed svelte
+<EntityHeading name="Spellbreaker" type="item" />
+@end
+
+- High instant damage reduction reduced from -75% to -65%
+
+@embed svelte
+<EntityHeading name="Spirit Rend" type="item" />
+@end
+
+- Cooldown reduced from 2.2s to 2s
+- Spirit Lifesteal increased from 8% to 12%
+
+@embed svelte
+<EntityHeading name="Spirit Resilience" type="item" />
+@end
+
+- Low Health threshold increased from 40% to 50%
+- Low Health resistance reduced from 22% to 15%
+
+@embed svelte
+<EntityHeading name="Spirit Sap" type="item" />
+@end
+
+- Spirit Power loss increased from -24 to -30
+- Cooldown reduced from 32s to 18s
+
+@embed svelte
+<EntityHeading name="Spirit Shredder Bullets" type="item" />
+@end
+
+- Spirit Lifesteal increased from 8% to 12%
+
+@embed svelte
+<EntityHeading name="Spiritual Overflow" type="item" />
+@end
+
+- Spirit Power increased from 30 to 40
+- Now grants +20% Duration instead of +12% CD Reduction
+
+@embed svelte
+<EntityHeading name="Split Shot" type="item" />
+@end
+
+- Cooldown reduced from 32s to 24s
+- Now supports custom count and angles per hero
+- Enabled for Celeste (3 at 70 degrees)
+
+@embed svelte
+<EntityHeading name="Stalker" type="item" />
+@end
+
+- No longer procs based on angles of attack, but instead based on doing bullet or melee damage within 8m of a hero target
+- No longer has a proximity requirement for the overtime bonuses (beyond the 8m proc proximity)
+
+@embed svelte
+<EntityHeading name="Suppressor" type="item" />
+@end
+
+- Debuff duration increased from 4s to 5s
+
+@embed svelte
+<EntityHeading name="Swift Striker" type="item" />
+@end
+
+- Fire Rate increased from 18% to 20%
+
+@embed svelte
+<EntityHeading name="Tankbuster" type="item" />
+@end
+
+- Current Health Bonus Damage increased from 7.5% to 8%
+
+@embed svelte
+<EntityHeading name="Torment Pulse" type="item" />
+@end
+
+- Damage spirit scaling reduced from 0.28 to 0.25
+- No longer hits sleeping enemies to avoid waking them up
+- Pulse Damage reduced from 27+0.25 to 25+0.23
+
+@embed svelte
+<EntityHeading name="Trophy Collector" type="item" />
+@end
+
+- Souls per minute increased from 22 to 25
+
+@embed svelte
+<EntityHeading name="Vortex Web" type="item" />
+@end
+
+- Now has a unit target option where it will vacuum enemies around that target
+
+@embed svelte
+<EntityHeading name="Weakening Headshot" type="item" />
+@end
+
+- Bonus health increased from +50 to +60
+
+@embed svelte
+<EntityHeading name="Weapon Shielding" type="item" />
+@end
+
+- Damage threshold increased from 150 to 250
+- Cooldown reduced from 45s to 35s
+
+@embed svelte
+<EntityHeading name="Weighted Shots" type="item" />
+@end
+
+- Now builds from Slowing Bullets. Has Slowing Bullets passive
+- No longer grants +16% Spirit Resist
+- Now grants -0.5m Move Speed
+- No longer grants -30% Bullet Velocity
+- Debuff Resist increased from 16% to 18%
+- Weapon Damage increased from 35% to 40%
+- Stamina Reduction reduced from -20% to -14%

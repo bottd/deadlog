@@ -5,7 +5,7 @@ import { mkdir, unlink } from 'fs/promises';
 import { existsSync } from 'fs';
 import path from 'path';
 import { sql } from 'drizzle-orm';
-import { fetchHeroes, fetchItems } from './deadlockApi';
+import { fetchHeroes, fetchItems } from './api';
 import {
 	schema,
 	insertHeroSchema,
@@ -137,11 +137,12 @@ export async function buildDatabaseFromNorg(
 	for (const { metadata, entities, slug, plainText } of changelogs) {
 		const dateOnly = metadata.published.split('T')[0];
 		const isMajorUpdate = bigDayDates.has(dateOnly) || metadata.major_update;
+		const changelogId = metadata.thread_id ?? metadata.steam_gid ?? slug;
 
 		await db
 			.insert(schema.changelogs)
 			.values({
-				id: metadata.thread_id,
+				id: changelogId,
 				title: metadata.title,
 				slug,
 				author: metadata.author,
@@ -161,7 +162,7 @@ export async function buildDatabaseFromNorg(
 					.insert(schema.changelogHeroes)
 					.values(
 						insertChangelogHeroSchema.parse({
-							changelogId: metadata.thread_id,
+							changelogId,
 							heroId
 						})
 					)
@@ -177,7 +178,7 @@ export async function buildDatabaseFromNorg(
 					.insert(schema.changelogItems)
 					.values(
 						insertChangelogItemSchema.parse({
-							changelogId: metadata.thread_id,
+							changelogId,
 							itemId
 						})
 					)
