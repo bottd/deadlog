@@ -13,7 +13,11 @@ import {
 	insertChangelogHeroSchema,
 	insertChangelogItemSchema
 } from '@deadlog/db';
-import { loadAllChangelogs, normalizeEntityName } from '@deadlog/changelog';
+import {
+	loadAllChangelogs,
+	normalizeEntityName,
+	entityNameAliases
+} from '@deadlog/changelog';
 import { toSlug } from '@deadlog/utils';
 
 interface BuildOptions {
@@ -34,9 +38,7 @@ export async function buildDatabaseFromNorg(
 	const outputDir = options.outputDir || './dist/data';
 	const changelogsDir = options.changelogsDir || './app/changelogs';
 
-	if (!existsSync(outputDir)) {
-		await mkdir(outputDir, { recursive: true });
-	}
+	await mkdir(outputDir, { recursive: true });
 
 	const dbPath = path.join(outputDir, 'deadlog.db');
 
@@ -123,8 +125,16 @@ export async function buildDatabaseFromNorg(
 	}
 	console.log(`  ✅ Inserted ${itemsToInsert.length} items`);
 
-	const heroMap = new Map(heroes.map((h) => [normalizeEntityName(h.name), h.id]));
-	const itemMap = new Map(itemsToInsert.map((i) => [normalizeEntityName(i.name), i.id]));
+	const heroMap = new Map(
+		heroes.flatMap((h) =>
+			entityNameAliases(h.name).map((a): [string, number] => [a, h.id])
+		)
+	);
+	const itemMap = new Map(
+		itemsToInsert.flatMap((i) =>
+			entityNameAliases(i.name).map((a): [string, number] => [a, i.id])
+		)
+	);
 
 	console.log(`📂 Loading changelogs from ${changelogsDir}...`);
 	const changelogs = await loadAllChangelogs(changelogsDir, { curatedOnly: false });

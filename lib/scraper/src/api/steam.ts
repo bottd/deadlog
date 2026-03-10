@@ -53,10 +53,10 @@ export function extractDateFromTitle(title: string): string | null {
 function bbcodeToText(bbcode: string): string {
 	let text = bbcode;
 
-	// Convert [p]...[/p] to lines
-	text = text.replace(/\[\/p\]\[p\]/g, '\n');
-	text = text.replace(/\[p\]/g, '');
-	text = text.replace(/\[\/p\]/g, '\n');
+	// Convert [p]...[/p] to lines ([/p][p] → single newline, standalone tags → newline or empty)
+	text = text
+		.replace(/\[\/p\]\[p\]/g, '\n')
+		.replace(/\[\/?p\]/g, (m) => (m === '[p]' ? '' : '\n'));
 
 	// Convert section headers: [u][b]\[ General ][/b][/u] -> section markers
 	text = text.replace(

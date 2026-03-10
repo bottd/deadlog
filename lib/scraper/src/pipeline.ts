@@ -16,6 +16,8 @@ import {
 import { parseAuthorName } from './authorParser';
 import { extractContent, deduplicateLines, type EntityLists } from './content/parser';
 import { generateChangelog, type ChangelogSource } from './content/generator';
+import { toSlug } from '@deadlog/utils';
+import { entityNameAliases } from '@deadlog/changelog';
 
 const CHANGELOGS_DIR = process.env.CHANGELOGS_DIR || 'app/changelogs';
 
@@ -23,15 +25,11 @@ interface ScrapeOptions {
 	overwrite?: boolean;
 }
 
-// --- File helpers ---
+// --- Helpers ---
 
 function slugify(title: string): string {
-	return title
-		.toLowerCase()
-		.replace(/\b\d{4}\b/g, '')
-		.replace(/\bupdate\b/g, '')
-		.replace(/[^a-z0-9]+/g, '-')
-		.replace(/^-+|-+$/g, '');
+	const cleaned = title.replace(/\b\d{4}\b/g, '').replace(/\bupdate\b/gi, '');
+	return toSlug(cleaned);
 }
 
 function fileStatus(filepath: string): 'missing' | 'curated' | 'draft' {
@@ -139,8 +137,8 @@ export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<voi
 	const [heroes, items] = await Promise.all([fetchHeroes(), fetchItems()]);
 
 	const entities: EntityLists = {
-		heroes: new Set(heroes.map((h) => h.name.toLowerCase())),
-		items: new Set(items.map((i) => i.name.toLowerCase()))
+		heroes: new Set(heroes.flatMap((h) => entityNameAliases(h.name))),
+		items: new Set(items.flatMap((i) => entityNameAliases(i.name)))
 	};
 	console.log(`   Found ${entities.heroes.size} heroes, ${entities.items.size} items`);
 

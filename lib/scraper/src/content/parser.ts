@@ -175,39 +175,45 @@ export function extractContent(html: string): string {
 	window.document.write(html);
 
 	const bbWrapper = window.document.querySelector('.bbWrapper');
-	if (bbWrapper) {
-		let text = bbWrapper.innerHTML;
-		text = text.replace(/<br\s*\/?>/gi, '\n');
-		text = text.replace(/&amp;/g, '&');
-		text = text.replace(/&lt;/g, '<');
-		text = text.replace(/&gt;/g, '>');
-		text = text.replace(/&nbsp;/g, ' ');
-		text = text.replace(/<a\s[^>]*href="([^"]*)"[^>]*>[^<]*<\/a>/gi, '$1');
-		text = text.replace(
-			/<img\s+[^>]*src="([^"]*)"[^>]*alt="([^"]*)"[^>]*>/gi,
-			(_, src, alt) => {
-				const proxyMatch = src.match(/\/proxy\.php\?image=([^&]+)/);
-				const url = proxyMatch ? decodeURIComponent(proxyMatch[1]) : src;
-				const label = alt.replace(/\.[^.]+$/, '').replace(/[-_]/g, ' ');
-				return `\n@image ${url}\n${label}\n@end\n`;
-			}
-		);
-		text = text.replace(/<[^>]+>/g, '');
-		text = text.replace(/\n{2,}/g, '\n');
+	if (!bbWrapper) {
 		window.close();
-		return text.trim();
+		return html;
 	}
 
+	// Convert <br> to newlines before extracting text
+	for (const br of [...bbWrapper.querySelectorAll('br')]) {
+		br.replaceWith('\n');
+	}
+
+	// Convert <img> to @image blocks, replacing parent <a> if wrapped in a link
+	for (const img of [...bbWrapper.querySelectorAll('img')]) {
+		const src = img.getAttribute('src') || '';
+		const alt = img.getAttribute('alt') || '';
+		const proxyMatch = src.match(/\/proxy\.php\?image=([^&]+)/);
+		const url = proxyMatch ? decodeURIComponent(proxyMatch[1]) : src;
+		const label = alt.replace(/\.[^.]+$/, '').replace(/[-_]/g, ' ');
+		const imageBlock = `\n@image ${url}\n${label}\n@end\n`;
+		const parent = img.parentElement;
+		if (parent?.tagName === 'A') {
+			parent.replaceWith(imageBlock);
+		} else {
+			img.replaceWith(imageBlock);
+		}
+	}
+
+	// Strip <a> tags — keep href only if it's a real URL, otherwise just unwrap
+	for (const a of [...bbWrapper.querySelectorAll('a')]) {
+		const href = a.getAttribute('href') || '';
+		a.replaceWith(href.startsWith('http') ? href : a.textContent || '');
+	}
+
+	// textContent handles entity decoding natively
+	const text = (bbWrapper.textContent || '').replace(/\n{2,}/g, '\n');
 	window.close();
-	return html;
+	return text.trim();
 }
 
-function parseChangelogLine(line: string, entities: EntityLists): ParsedNote {
-	const text = line.replace(/^[-•]\s*/, '').trim();
-	if (!text) {
-		return { entityName: null, entityType: 'general', text: line };
-	}
-
+function parseChangelogLine(text: string, entities: EntityLists): ParsedNote {
 	const colonMatch = text.match(/^([^:]+):\s*(.+)$/);
 	if (colonMatch) {
 		const entity = colonMatch[1].trim();
@@ -257,16 +263,16 @@ export function parseAndGroupContent(
 		if (!trimmed || !trimmed.startsWith('-')) continue;
 
 		const stripped = trimmed.replace(/^[-•]+\s*/, '').trim();
-		if (!stripped || stripped === '-') continue;
+		if (!stripped) continue;
 
-		const parsed = parseChangelogLine(trimmed, entities);
+		const parsed = parseChangelogLine(stripped, entities);
 
 		if (parsed.entityType === 'hero' && parsed.entityName) {
-			const existing = result.heroes.get(parsed.entityName) || [];
+			const existing = result.heroes.get(parsed.entityName) ?? [];
 			existing.push(parsed.text);
 			result.heroes.set(parsed.entityName, existing);
 		} else if (parsed.entityType === 'item' && parsed.entityName) {
-			const existing = result.items.get(parsed.entityName) || [];
+			const existing = result.items.get(parsed.entityName) ?? [];
 			existing.push(parsed.text);
 			result.items.set(parsed.entityName, existing);
 		} else {

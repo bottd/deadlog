@@ -7,8 +7,8 @@ export interface TocEntry {
 }
 
 export function extractEntities(toc: TocEntry[], content?: string): ChangelogEntities {
-	const heroes: string[] = [];
-	const items: string[] = [];
+	const heroSet = new Set<string>();
+	const itemSet = new Set<string>();
 
 	let currentSection: 'heroes' | 'items' | null = null;
 
@@ -26,11 +26,7 @@ export function extractEntities(toc: TocEntry[], content?: string): ChangelogEnt
 			if (entry.title === 'Raw Content' || entry.title.startsWith('Reply ')) {
 				continue;
 			}
-			if (currentSection === 'heroes') {
-				heroes.push(entry.title);
-			} else {
-				items.push(entry.title);
-			}
+			(currentSection === 'heroes' ? heroSet : itemSet).add(entry.title);
 		}
 	}
 
@@ -39,18 +35,21 @@ export function extractEntities(toc: TocEntry[], content?: string): ChangelogEnt
 		let match;
 		while ((match = re.exec(content)) !== null) {
 			const name = match[1].replace(/&amp;/g, '&').replace(/&quot;/g, '"');
-			const type = match[2];
-			if (type === 'hero' && !heroes.includes(name)) {
-				heroes.push(name);
-			} else if (type === 'item' && !items.includes(name)) {
-				items.push(name);
-			}
+			(match[2] === 'hero' ? heroSet : itemSet).add(name);
 		}
 	}
 
-	return { heroes, items };
+	return { heroes: [...heroSet], items: [...itemSet] };
 }
 
 export function normalizeEntityName(name: string): string {
 	return name.toLowerCase().trim();
+}
+
+const ARTICLE_RE = /^(the|a|an)\s+/;
+
+export function entityNameAliases(name: string): string[] {
+	const normalized = normalizeEntityName(name);
+	const withoutArticle = normalized.replace(ARTICLE_RE, '');
+	return withoutArticle !== normalized ? [normalized, withoutArticle] : [normalized];
 }

@@ -4,15 +4,15 @@ import path from 'path';
 import { z } from 'zod';
 import { Window } from 'happy-dom';
 
-const SELECTORS = {
-	CONTENT: ['.bbWrapper', '.message-content'],
-	AVATAR: ['.message-avatar img'],
-	TITLE: ['h1.p-title-value', 'h1'],
-	AUTHOR: ['.message-name .username', '.username'],
-	DATE: ['time[datetime]', 'time'],
-	THREAD: ['.structItem'],
-	THREAD_TITLE: ['.structItem-title a'],
-	NEXT_PAGE: ['.pageNav-jump--next', 'a[rel="next"]']
+const S = {
+	CONTENT: '.bbWrapper, .message-content',
+	AVATAR: '.message-avatar img',
+	TITLE: 'h1.p-title-value, h1',
+	AUTHOR: '.message-name .username, .username',
+	DATE: 'time[datetime], time',
+	THREAD: '.structItem',
+	THREAD_TITLE: '.structItem-title a',
+	NEXT_PAGE: '.pageNav-jump--next, a[rel="next"]'
 } as const;
 
 export interface ChangelogPost {
@@ -85,10 +85,18 @@ async function fetchHtml(url: string, opts: Required<ScraperOptions>): Promise<s
 	return response.text();
 }
 
-function parseDocument(html: string, url: string): Document {
+interface ParsedDocument {
+	document: Document;
+	close: () => void;
+}
+
+function parseDocument(html: string, url: string): ParsedDocument {
 	const window = new Window({ url });
 	window.document.write(html);
-	return window.document as unknown as Document;
+	return {
+		document: window.document as unknown as Document,
+		close: () => window.close()
+	};
 }
 
 const KEEP_ATTRS: Record<string, string[]> = {
@@ -124,21 +132,19 @@ function extractPostContent(document: Document): PostContentResult | null {
 	const firstPost = document.querySelector('.message');
 	if (!firstPost) return null;
 
-	const titleElement = document.querySelector(SELECTORS.TITLE.join(', '));
+	const titleElement = document.querySelector(S.TITLE);
 	const title = titleElement?.textContent?.trim() || '';
 
-	const contentElement = firstPost.querySelector(SELECTORS.CONTENT.join(', '));
+	const contentElement = firstPost.querySelector(S.CONTENT);
 	const content = cleanHtml(contentElement?.innerHTML || '');
 
-	const authorElement = firstPost.querySelector(SELECTORS.AUTHOR.join(', '));
+	const authorElement = firstPost.querySelector(S.AUTHOR);
 	const author = authorElement?.textContent?.trim() || '';
 
-	const avatarElement = firstPost.querySelector(
-		SELECTORS.AVATAR.join(', ')
-	) as HTMLImageElement | null;
+	const avatarElement = firstPost.querySelector(S.AVATAR) as HTMLImageElement | null;
 	const authorImage = avatarElement?.src || undefined;
 
-	const dateElement = firstPost.querySelector(SELECTORS.DATE.join(', '));
+	const dateElement = firstPost.querySelector(S.DATE);
 	const pubDate =
 		dateElement?.getAttribute('datetime') || dateElement?.textContent?.trim();
 
@@ -154,14 +160,11 @@ function extractPostContent(document: Document): PostContentResult | null {
 
 	for (let i = 1; i < allPosts.length; i++) {
 		const post = allPosts[i];
-		const postAuthor = post
-			.querySelector(SELECTORS.AUTHOR.join(', '))
-			?.textContent?.trim()
-			.toLowerCase();
+		const postAuthor = post.querySelector(S.AUTHOR)?.textContent?.trim().toLowerCase();
 
 		if (postAuthor === authorLower) {
-			const replyContent = post.querySelector(SELECTORS.CONTENT.join(', '));
-			const replyDateElement = post.querySelector(SELECTORS.DATE.join(', '));
+			const replyContent = post.querySelector(S.CONTENT);
+			const replyDateElement = post.querySelector(S.DATE);
 			const replyTimestamp =
 				replyDateElement?.getAttribute('datetime') ||
 				replyDateElement?.textContent?.trim();
@@ -186,19 +189,19 @@ function extractThreadList(document: Document): {
 } {
 	const posts: ChangelogPost[] = [];
 
-	const threads = document.querySelectorAll(SELECTORS.THREAD.join(', '));
+	const threads = document.querySelectorAll(S.THREAD);
 
 	for (const thread of threads) {
-		const titleElement = thread.querySelector(SELECTORS.THREAD_TITLE.join(', '));
+		const titleElement = thread.querySelector(S.THREAD_TITLE);
 		const title = titleElement?.textContent?.trim() || '';
 
 		if (title.toLowerCase().includes('feedback')) continue;
 
 		const url = (titleElement as HTMLAnchorElement)?.href || '';
-		const authorElement = thread.querySelector(SELECTORS.AUTHOR.join(', '));
+		const authorElement = thread.querySelector(S.AUTHOR);
 		const author = authorElement?.textContent?.trim() || '';
 
-		const dateElement = thread.querySelector(SELECTORS.DATE.join(', '));
+		const dateElement = thread.querySelector(S.DATE);
 		const pubDate =
 			dateElement?.getAttribute('datetime') || dateElement?.textContent?.trim();
 
@@ -210,7 +213,7 @@ function extractThreadList(document: Document): {
 		}
 	}
 
-	const nextButton = document.querySelector(SELECTORS.NEXT_PAGE.join(', '));
+	const nextButton = document.querySelector(S.NEXT_PAGE);
 	const hasNextPage =
 		nextButton !== null && !nextButton.classList.contains('is-disabled');
 
@@ -233,8 +236,9 @@ export async function scrapeChangelogPage(
 		console.log(`  📄 Page ${currentPage}: ${pageUrl}`);
 
 		const html = await fetchHtml(pageUrl, opts);
-		const document = parseDocument(html, pageUrl);
+		const { document, close } = parseDocument(html, pageUrl);
 		const { posts, hasNextPage } = extractThreadList(document);
+		close();
 
 		allPosts.push(...posts);
 		console.log(`    ✅ Found ${posts.length} posts on page ${currentPage}`);
@@ -256,8 +260,9 @@ async function scrapePost(
 	opts: Required<ScraperOptions>
 ): Promise<PostContentResult> {
 	const html = await fetchHtml(url, opts);
-	const document = parseDocument(html, url);
+	const { document, close } = parseDocument(html, url);
 	const data = extractPostContent(document);
+	close();
 
 	if (!data || !data.content) {
 		throw new Error(`No content found for URL: ${url}`);
@@ -272,9 +277,7 @@ async function writeToCache(
 	data: PostContentResult
 ): Promise<void> {
 	try {
-		if (!existsSync(cacheDir)) {
-			await mkdir(cacheDir, { recursive: true });
-		}
+		await mkdir(cacheDir, { recursive: true });
 		await writeFile(
 			path.join(cacheDir, `post-${postId}.json`),
 			JSON.stringify(data, null, 2)
