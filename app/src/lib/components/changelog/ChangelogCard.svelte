@@ -56,10 +56,10 @@
 {#if isLatest}
 	<a href="/change/{id}" class="group relative col-span-full mb-8 block">
 		<div
-			class="clip-corner-lg border-primary/40 hover:border-primary/70 bg-card card-glow relative flex flex-col overflow-hidden border-2 transition-all duration-500 hover:shadow-2xl md:flex-row md:items-stretch"
+			class="clip-corner-lg border-primary/40 hover:border-primary/70 bg-card card-glow relative flex flex-col overflow-hidden border-2 transition-all duration-200 hover:shadow-2xl active:scale-[0.99] md:flex-row md:items-stretch"
 		>
 			<div
-				class="from-primary/0 via-primary/8 to-primary/0 pointer-events-none absolute inset-0 bg-gradient-to-r opacity-0 transition-opacity duration-700 group-hover:opacity-100"
+				class="from-primary/0 via-primary/8 to-primary/0 pointer-events-none absolute inset-0 bg-gradient-to-r opacity-0 transition-opacity duration-200 group-hover:opacity-100"
 			></div>
 			<CornerAccents
 				tlSize="4rem"
@@ -178,7 +178,7 @@
 {:else}
 	<a
 		href="/change/{id}"
-		class="clip-corner-sm bg-card hover:bg-card-accent/30 border-border hover:border-primary/40 group relative flex min-h-[200px] flex-col overflow-hidden border transition-all duration-300 hover:shadow-xl"
+		class="clip-corner-sm bg-card hover:bg-card-accent/30 border-border hover:border-primary/40 group relative flex min-h-[200px] flex-col overflow-hidden border transition-all duration-200 hover:shadow-xl active:scale-[0.98]"
 	>
 		<CornerAccents
 			tlSize="1.5rem"
@@ -188,7 +188,7 @@
 			thickness="0.125rem"
 		/>
 		<div
-			class="from-primary/0 group-hover:from-primary/5 pointer-events-none absolute inset-0 bg-gradient-to-br to-transparent transition-all duration-500"
+			class="from-primary/0 group-hover:from-primary/5 pointer-events-none absolute inset-0 bg-gradient-to-br to-transparent transition-all duration-200"
 		></div>
 
 		<div class="relative z-10 flex flex-1 flex-col gap-3 p-4">
