@@ -15,7 +15,7 @@ runs:
         github_access_token: ${{ inputs.github-token }}
 
     - name: Setup Cachix
-      uses: cachix/cachix-action@v16
+      uses: cachix/cachix-action@v17
       with:
         name: deadlog
 
