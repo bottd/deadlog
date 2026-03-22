@@ -7,11 +7,11 @@
 		".": "./src/index.ts"
 	},
 	"dependencies": {
-		"@libsql/client": "0.17.0",
+		"@libsql/client": "0.17.2",
 		"drizzle-orm": "0.45.1"
 	},
 	"devDependencies": {
 		"@types/node": "24.12.0",
-		"drizzle-kit": "0.31.9"
+		"drizzle-kit": "0.31.10"
 	}
 }
