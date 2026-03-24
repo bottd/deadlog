@@ -4,7 +4,6 @@
 	"version": "1.0.0",
 	"type": "module",
 	"scripts": {
-		"postinstall": "cd node_modules/deadlock-api-client && npm run build",
 		"dev": "pnpm --filter 'deadlog-web' dev",
 		"build": "pnpm --filter 'deadlog-web' build",
 		"preview": "pnpm --filter 'deadlog-web' preview",
