@@ -3,4 +3,7 @@ packages:
   - lib/*
 
 onlyBuiltDependencies:
+  - esbuild
   - msw
+  - sharp
+  - workerd
