@@ -1,0 +1,260 @@
+@document.meta
+title: 03-25-2026 Update
+thread_id: 121766
+published: 2026-03-25T17:36:42-0700
+author: Yoshi
+author_image: https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630
+category: patch
+major_update: false
+status: draft
+content_text: "Street Brawl: You now have all AP unlocked by round 5 Bebop Base health regen increased from 1.5 to 2.5 Calico Leaping Slash base damage increased from 50 to 60 Celeste Base regen reduced from 2 to 1 Dazzling Trick T3 silence duration reduced from +2s to +1.5s Doorman Call Bell slow increased from 30% to 35% Call Bell radius increased from 5m to 6m Doorway Distance increased from 60m to 70m Luggage Cart T2 now deals 75 bonus damage (0.6 spirit scaling) when hitting a wall Luggage Cart T3 stun duration reduced from 1.5s to 1.25s Graves Grasping Hands spirit damage scaling reduced from 1.9 to 1.6 Grasping Hands T3 reduced from 2 Ghouls Summoned to 1 Grasping Hands T3 now also reduces cooldown by 10s Borrowed Decree Ghoul HP reduced from 200 + 12/boon to 180 + 8/boon Borrowed Decree Ghouls damage reduced from 150 to 135 Jar of Dead T2 no longer grants +4s Duration Jar of Dead T3 changed from \"+2 Deadheads and Deadheads apply Essence Theft\" to \"+2 Deadheads and +4s Duration\" Essence Theft T3 changed from \"+1 tether and improved targeting angle\" to \"Your summons now apply Essence Theft\" Holliday Bounce Pad now provides allies with air control and stomp damage Crackshot T3 increased from -4s/-2s for hero/npc headshots to -6s/-3s Infernus Afterburn DPS increased from 12 to 14 Afterburn T1 DPS increased from +14 to +16 Concussive Combustion T2 increased from +85% Explosion Lifesteal to +100% Concussive Combustion T2 increased from -65s Cooldown to -75s Kelvin Frost Grenade damage spirit scaling reduced from 0.8 to 0.7 Frost Grenade T3 damage spirit scaling reduced from 0.9 to 0.8 Lady Geist Gun Falloff reduced from 20->52 to 17->48 Life Drain spirit scaling reduced from 0.536 to 0.43 Life Drain T3 spirit scaling increased from +0.3 to +0.4 McGinnis Medicinal Specter T3 duration increased from +1s to +1.5s Spectral Wall duration increased from 5s to 5.5s Mirage Fire Scarabs Health Steal Per Sec reduced from 10 to 9 Fire Scarabs T1 reduced from +8 Health Steal Per Sec to +7 Fire Scarabs T3 spirit scaling reduced from +0.23 to +0.17 Dust Devil cooldown increased from 32s to 36s Dust Devil T2 cooldown increased from -8s to -12s Dust Devil T3 now also increases lift duration by 0.3s Djinn's Mark spirit scaling reduced from 0.44 to 0.38 Rem Naptime T3 now also provides unstoppable while channeling Silver Bullet damage rescaled from 5.5+0.1206 to 5.4+0.124 Slam Fire cooldown increased from 22s to 25s Slam Fire T2 cooldown increased from -7s to -10s Venator Consecrating Grenade impact damage scaling reduced from 1.2 to 1.0 Gut Shot wall stun reduced from 0.65s to 0.6s Gut Shot damage scaling reduced from 1 to 0.8 Victor Restored health per boon back to 46 No longer has -30% Lifesteal Effectiveness Jumpstart T3 no longer purges non-ult debuffs Jumpstart T3 now adds +50% Debuff Resistance and cuts existing debuff durations by 50% Aura of Suffering radius reduced from 9.5m to 9m"
+@end
+
+* General Changes
+
+- Street Brawl: You now have all AP unlocked by round 5
+
+* Hero Changes
+
+@embed svelte
+<SectionPreview type="hero" names={["Bebop", "Calico", "Celeste", "Doorman", "Graves", "Holliday", "Infernus", "Kelvin", "Lady Geist", "McGinnis", "Mirage", "Rem", "Silver", "Venator", "Victor"]} />
+@end
+
+@embed svelte
+<EntityHeading name="Bebop" type="hero" />
+@end
+
+- Base health regen increased from 1.5 to 2.5
+
+@embed svelte
+<EntityHeading name="Calico" type="hero" />
+@end
+
+- Leaping Slash base damage increased from 50 to 60
+
+@embed svelte
+<EntityHeading name="Celeste" type="hero" />
+@end
+
+- Base regen reduced from 2 to 1
+
+@embed svelte
+<AbilityHeading name="Dazzling Trick" />
+@end
+
+- Dazzling Trick T3 silence duration reduced from +2s to +1.5s
+
+@embed svelte
+<EntityHeading name="Doorman" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Call Bell" />
+@end
+
+- Call Bell slow increased from 30% to 35%
+- Call Bell radius increased from 5m to 6m
+
+@embed svelte
+<AbilityHeading name="Doorway Distance" />
+@end
+
+- Doorway Distance increased from 60m to 70m
+
+@embed svelte
+<AbilityHeading name="Luggage Cart" />
+@end
+
+- Luggage Cart T2 now deals 75 bonus damage (0.6 spirit scaling) when hitting a wall
+- Luggage Cart T3 stun duration reduced from 1.5s to 1.25s
+
+@embed svelte
+<EntityHeading name="Graves" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Grasping Hands" />
+@end
+
+- Grasping Hands spirit damage scaling reduced from 1.9 to 1.6
+- Grasping Hands T3 reduced from 2 Ghouls Summoned to 1
+- Grasping Hands T3 now also reduces cooldown by 10s
+
+@embed svelte
+<AbilityHeading name="Borrowed Decree Ghoul HP" />
+@end
+
+- Borrowed Decree Ghoul HP reduced from 200 + 12/boon to 180 + 8/boon
+
+@embed svelte
+<AbilityHeading name="Borrowed Decree Ghouls" />
+@end
+
+- Borrowed Decree Ghouls damage reduced from 150 to 135
+
+- Jar of Dead T2 no longer grants +4s Duration
+- Jar of Dead T3 changed from "+2 Deadheads and Deadheads apply Essence Theft" to "+2 Deadheads and +4s Duration"
+
+@embed svelte
+<AbilityHeading name="Essence Theft" />
+@end
+
+- Essence Theft T3 changed from "+1 tether and improved targeting angle" to "Your summons now apply Essence Theft"
+
+@embed svelte
+<EntityHeading name="Holliday" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Bounce Pad" />
+@end
+
+- Bounce Pad now provides allies with air control and stomp damage
+
+@embed svelte
+<AbilityHeading name="Crackshot" />
+@end
+
+- Crackshot T3 increased from -4s/-2s for hero/npc headshots to -6s/-3s
+
+@embed svelte
+<EntityHeading name="Infernus" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Afterburn DPS" />
+@end
+
+- Afterburn DPS increased from 12 to 14
+
+@embed svelte
+<AbilityHeading name="Afterburn" />
+@end
+
+- Afterburn T1 DPS increased from +14 to +16
+
+@embed svelte
+<AbilityHeading name="Concussive Combustion" />
+@end
+
+- Concussive Combustion T2 increased from +85% Explosion Lifesteal to +100%
+- Concussive Combustion T2 increased from -65s Cooldown to -75s
+
+@embed svelte
+<EntityHeading name="Kelvin" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Frost Grenade" />
+@end
+
+- Frost Grenade damage spirit scaling reduced from 0.8 to 0.7
+- Frost Grenade T3 damage spirit scaling reduced from 0.9 to 0.8
+
+@embed svelte
+<EntityHeading name="Lady Geist" type="hero" />
+@end
+
+- Gun Falloff reduced from 20->52 to 17->48
+
+@embed svelte
+<AbilityHeading name="Life Drain" />
+@end
+
+- Life Drain spirit scaling reduced from 0.536 to 0.43
+- Life Drain T3 spirit scaling increased from +0.3 to +0.4
+
+@embed svelte
+<EntityHeading name="McGinnis" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Medicinal Specter" />
+@end
+
+- Medicinal Specter T3 duration increased from +1s to +1.5s
+
+@embed svelte
+<AbilityHeading name="Spectral Wall" />
+@end
+
+- Spectral Wall duration increased from 5s to 5.5s
+
+@embed svelte
+<EntityHeading name="Mirage" type="hero" />
+@end
+
+- Fire Scarabs Health Steal Per Sec reduced from 10 to 9
+- Fire Scarabs T1 reduced from +8 Health Steal Per Sec to +7
+- Fire Scarabs T3 spirit scaling reduced from +0.23 to +0.17
+
+@embed svelte
+<AbilityHeading name="Dust Devil" />
+@end
+
+- Dust Devil cooldown increased from 32s to 36s
+- Dust Devil T2 cooldown increased from -8s to -12s
+- Dust Devil T3 now also increases lift duration by 0.3s
+
+@embed svelte
+<AbilityHeading name="Djinn's Mark" />
+@end
+
+- Djinn's Mark spirit scaling reduced from 0.44 to 0.38
+
+@embed svelte
+<EntityHeading name="Rem" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Naptime" />
+@end
+
+- Naptime T3 now also provides unstoppable while channeling
+
+@embed svelte
+<EntityHeading name="Silver" type="hero" />
+@end
+
+- Bullet damage rescaled from 5.5+0.1206 to 5.4+0.124
+
+@embed svelte
+<AbilityHeading name="Slam Fire" />
+@end
+
+- Slam Fire cooldown increased from 22s to 25s
+- Slam Fire T2 cooldown increased from -7s to -10s
+
+@embed svelte
+<EntityHeading name="Venator" type="hero" />
+@end
+
+- Consecrating Grenade impact damage scaling reduced from 1.2 to 1.0
+- Gut Shot wall stun reduced from 0.65s to 0.6s
+
+@embed svelte
+<AbilityHeading name="Gut Shot" />
+@end
+
+- Gut Shot damage scaling reduced from 1 to 0.8
+
+@embed svelte
+<EntityHeading name="Victor" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Restored" />
+@end
+
+- Restored health per boon back to 46
+
+- No longer has -30% Lifesteal Effectiveness
+
+@embed svelte
+<AbilityHeading name="Jumpstart" />
+@end
+
+- Jumpstart T3 no longer purges non-ult debuffs
+- Jumpstart T3 now adds +50% Debuff Resistance and cuts existing debuff durations by 50%
+
+- Aura of Suffering radius reduced from 9.5m to 9m
