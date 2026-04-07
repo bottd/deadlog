@@ -3,7 +3,7 @@ packages:
   - lib/*
 
 onlyBuiltDependencies:
-  - deadlock-api-client
+  - deadlock_api_client
   - esbuild
   - msw
   - sharp
