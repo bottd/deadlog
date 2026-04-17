@@ -10,7 +10,7 @@ runs:
   using: composite
   steps:
     - name: Install Nix
-      uses: cachix/install-nix-action@v31
+      uses: cachix/install-nix-action@v31.10.4
       with:
         github_access_token: ${{ inputs.github-token }}
 
@@ -20,7 +20,7 @@ runs:
         name: deadlog
 
     - name: Setup Nix dev environment
-      uses: nicknovitski/nix-develop@v1
+      uses: nicknovitski/nix-develop@v1.2.1
 
     - name: Install dependencies
       shell: bash
