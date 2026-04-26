@@ -13,7 +13,7 @@
 		"deadlock-api-client": "github:deadlock-api/openapi-clients#path:typescript/api"
 	},
 	"devDependencies": {
-		"@types/node": "24.12.0",
-		"happy-dom": "20.8.4"
+		"@types/node": "24.12.2",
+		"happy-dom": "20.9.0"
 	}
 }
