@@ -3,6 +3,11 @@ node_modules
 .direnv
 .pre-commit-config.yaml
 
+.env
+.env.*
+!.env.development
+!.env.production
+
 # SQLite databases
 *.db
 *.db-journal

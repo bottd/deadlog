@@ -2,17 +2,16 @@ import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vitest/config';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { norgPlugin } from 'vite-plugin-norg';
-import tsconfigPaths from 'vite-tsconfig-paths';
 import { playwright } from '@vitest/browser-playwright';
 import path from 'path';
 
 const changelogsDir = path.resolve(__dirname, 'changelogs');
 
 export default defineConfig({
+	resolve: {
+		tsconfigPaths: true
+	},
 	plugins: [
-		tsconfigPaths({
-			projects: ['../../tsconfig.base.json']
-		}),
 		norgPlugin({
 			mode: 'svelte',
 			include: [`${changelogsDir}/**/*.norg`],
@@ -65,7 +64,6 @@ export default defineConfig({
 		ui: false,
 		projects: [
 			{
-				plugins: [tsconfigPaths({ projects: ['../../tsconfig.base.json'] })],
 				test: {
 					name: 'client',
 					browser: {
@@ -80,7 +78,6 @@ export default defineConfig({
 				}
 			},
 			{
-				plugins: [tsconfigPaths({ projects: ['../../tsconfig.base.json'] })],
 				test: {
 					name: 'server',
 					environment: 'node',
