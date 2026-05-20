@@ -5,6 +5,7 @@ import {
 	getChangelogIcons
 } from '@deadlog/scraper';
 import { error } from '@sveltejs/kit';
+import { getHeroCardImage } from '$lib/utils/entityImages';
 import type { PageServerLoad, EntryGenerator } from './$types';
 
 export const prerender = true;
@@ -34,18 +35,10 @@ export const load: PageServerLoad = async ({ params, locals }) => {
 		icons: iconsMap[changelog.id] || { heroes: [], items: [] }
 	}));
 
-	const heroImage =
-		hero.images.icon_hero_card_webp ||
-		hero.images.icon_hero_card ||
-		hero.images.icon_image_small_webp ||
-		hero.images.icon_image_small ||
-		Object.values(hero.images)[0] ||
-		'';
-
 	return {
 		hero: {
 			...hero,
-			image: heroImage
+			image: getHeroCardImage(hero)
 		},
 		changelogs: enrichedChangelogs,
 		title: `${hero.name} Changelog - Deadlog`,

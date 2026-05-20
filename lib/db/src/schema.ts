@@ -26,7 +26,7 @@ export const heroes = sqliteTable('heroes', {
 	name: text('name').notNull(),
 	slug: text('slug').notNull().unique(),
 	className: text('class_name').notNull(),
-	heroType: text('hero_type'),
+	heroType: text('hero_type', { enum: ['marksman', 'mystic', 'brawler'] }),
 	images: text('images', { mode: 'json' }).notNull().$type<Record<string, string>>(),
 	isReleased: integer('is_released', { mode: 'boolean' }).notNull().default(true)
 });

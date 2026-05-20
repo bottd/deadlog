@@ -5,8 +5,6 @@
 	import type { Snippet } from 'svelte';
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
 	import { toSlug } from '@deadlog/utils';
-	import { useQueryClient } from '@tanstack/svelte-query';
-	import { queryKeys } from '$lib/queries/keys';
 
 	interface Props {
 		name: string;
@@ -28,43 +26,7 @@
 		children
 	}: Props = $props();
 
-	const queryClient = useQueryClient();
-	const slug = $derived(toSlug(name));
-	const entityUrl = $derived(`/${type}/${slug}`);
-
-	let prefetchedSlug = $state('');
-	let timer: ReturnType<typeof setTimeout>;
-
-	function attemptPrefetch() {
-		if (prefetchedSlug === slug) return;
-
-		const queryKey = type === 'hero' ? queryKeys.hero(slug) : queryKeys.item(slug);
-
-		const state = queryClient.getQueryState(queryKey);
-		if (state?.data && state.dataUpdatedAt > Date.now() - 1000 * 60 * 60) {
-			prefetchedSlug = slug;
-			return;
-		}
-
-		const apiUrl = `/api/${type}/${slug}`;
-
-		queryClient.prefetchQuery({
-			queryKey,
-			queryFn: () => fetch(apiUrl).then((r) => r.json()),
-			staleTime: 60 * 60 * 1000 // 1 hour - matches QueryClient default
-		});
-
-		prefetchedSlug = slug;
-	}
-
-	function handleInteraction() {
-		clearTimeout(timer);
-		timer = setTimeout(attemptPrefetch, 200);
-	}
-
-	function handleLeave() {
-		clearTimeout(timer);
-	}
+	const entityUrl = $derived(`/${type}/${toSlug(name)}`);
 
 	const badgeVariant = $derived.by((): BadgeVariant => {
 		if (type === 'hero' && heroType) {
@@ -100,10 +62,6 @@
 <HoverCard.Root>
 	<HoverCard.Trigger
 		onclick={onSelect}
-		onmouseenter={handleInteraction}
-		onfocus={handleInteraction}
-		onmouseleave={handleLeave}
-		onblur={handleLeave}
 		class="cursor-pointer transition-all duration-200 hover:scale-105"
 		aria-label="Filter by {name}"
 	>

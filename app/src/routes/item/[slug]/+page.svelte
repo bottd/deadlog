@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { page } from '$app/state';
-	import { browser } from '$app/environment';
 	import { PatchPreviewCard, PatchTimeline } from '$lib/components/changelog';
 	import { Badge } from '$lib/components/ui/badge';
 	import ArrowLeft from '@lucide/svelte/icons/arrow-left';
@@ -8,57 +6,16 @@
 	import { MetaTags } from 'svelte-meta-tags';
 	import { fly, scale, blur } from 'svelte/transition';
 	import { elasticOut, quintOut, expoOut } from 'svelte/easing';
-	import { createQuery } from '@tanstack/svelte-query';
-	import { queryKeys } from '$lib/queries/keys';
-	import { toast } from 'svelte-sonner';
+	import { prefersReducedMotion } from 'svelte/motion';
+	import type { PageProps } from './$types';
 
-	const { item, changelogs: initialChangelogs, title, description, image } = page.data;
+	let { data }: PageProps = $props();
 
-	interface ItemQueryData {
-		item: typeof item;
-		changelogs: typeof initialChangelogs;
-	}
-
-	const query = createQuery<ItemQueryData>(() => ({
-		queryKey: queryKeys.item(item.slug),
-		queryFn: async () => {
-			const res = await fetch(`/api/item/${item.slug}`);
-			if (!res.ok) throw new Error('Failed to fetch item data');
-			return res.json();
-		},
-		initialData: { item, changelogs: initialChangelogs },
-		staleTime: 60 * 60 * 1000
-	}));
-
-	$effect(() => {
-		if (query.isError && browser) {
-			toast.error('Failed to refresh data', {
-				description: 'Showing cached data. Try refreshing the page.'
-			});
-		}
-	});
-
-	const changelogs = $derived(
-		(query.data?.changelogs ?? initialChangelogs).map(
-			(c: (typeof initialChangelogs)[number]) => ({
-				...c,
-				date: typeof c.date === 'string' ? new Date(c.date) : c.date
-			})
-		)
-	);
-
-	let reducedMotion = $state(false);
-	$effect(() => {
-		if (browser) {
-			const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-			reducedMotion = mediaQuery.matches;
-			const handler = (e: MediaQueryListEvent) => {
-				reducedMotion = e.matches;
-			};
-			mediaQuery.addEventListener('change', handler);
-			return () => mediaQuery.removeEventListener('change', handler);
-		}
-	});
+	const item = $derived(data.item);
+	const changelogs = $derived(data.changelogs);
+	const title = $derived(data.title);
+	const description = $derived(data.description);
+	const image = $derived(data.image);
 
 	const typeLabels: Record<string, string> = {
 		weapon: 'Weapon Item',
@@ -117,7 +74,7 @@
 	);
 
 	const transitionConfig = $derived(
-		reducedMotion
+		prefersReducedMotion.current
 			? { duration: 0 }
 			: {
 					duration: 400,
@@ -126,7 +83,7 @@
 	);
 
 	const cardTransitionConfig = $derived((i: number) =>
-		reducedMotion
+		prefersReducedMotion.current
 			? { duration: 0 }
 			: {
 					delay: Math.min(i, 12) * 40,
@@ -276,10 +233,7 @@
 					{#if changelogs.length > 1}
 						<div class="inline-block" in:fly={{ y: 10, duration: 400, delay: 200 }}>
 							<PatchTimeline
-								patches={changelogs.map((c: { id: string; date: Date }) => ({
-									id: c.id,
-									date: c.date
-								}))}
+								patches={changelogs.map((c) => ({ id: c.id, date: c.date }))}
 								class="max-w-md"
 							/>
 						</div>

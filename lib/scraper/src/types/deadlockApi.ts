@@ -112,13 +112,16 @@ export type ItemsApiResponse = z.infer<typeof itemsApiResponseSchema>;
 interface EntityDb {
 	id: number;
 	name: string;
+	slug: string;
 	className: string;
 	images: string;
 	isReleased: number;
 }
 
+export type HeroType = 'marksman' | 'mystic' | 'brawler';
+
 export interface HeroDb extends EntityDb {
-	heroType: string | null;
+	heroType: HeroType | null;
 }
 
 export interface ItemDb extends EntityDb {
