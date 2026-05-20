@@ -70,7 +70,7 @@ const heroSchema = z.object({
 	recommended_ability_order: z.array(z.string()).optional(),
 	cost_bonuses: z.record(z.string(), z.array(costBonusSchema)).optional(),
 	physics: z.record(z.string(), z.number()).optional(),
-	colors: z.record(z.string(), z.array(z.number())).optional(),
+	colors: z.record(z.string(), z.union([z.array(z.number()), z.string()])).optional(),
 	player_selectable: z.boolean().optional(),
 	disabled: z.boolean().optional(),
 	in_development: z.boolean().optional()
