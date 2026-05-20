@@ -1,3 +1,32 @@
+<script module lang="ts">
+	const ITEM_STYLE = {
+		weapon: {
+			label: 'Weapon Item',
+			badgeVariant: 'weapon',
+			color: 'var(--item-weapon)',
+			gradient: 'from-orange-500/10 via-amber-500/5 to-transparent',
+			borderGlow: 'shadow-orange-500/20',
+			cornerText: 'text-amber-500'
+		},
+		ability: {
+			label: 'Vitality Item',
+			badgeVariant: 'vitality',
+			color: 'var(--item-vitality)',
+			gradient: 'from-emerald-500/10 via-green-500/5 to-transparent',
+			borderGlow: 'shadow-emerald-500/20',
+			cornerText: 'text-emerald-500'
+		},
+		upgrade: {
+			label: 'Spirit Item',
+			badgeVariant: 'spirit',
+			color: 'var(--item-spirit)',
+			gradient: 'from-blue-500/10 via-indigo-500/5 to-transparent',
+			borderGlow: 'shadow-blue-500/20',
+			cornerText: 'text-blue-500'
+		}
+	} as const;
+</script>
+
 <script lang="ts">
 	import { PatchPreviewCard, PatchTimeline } from '$lib/components/changelog';
 	import { Badge } from '$lib/components/ui/badge';
@@ -17,61 +46,7 @@
 	const description = $derived(data.description);
 	const image = $derived(data.image);
 
-	const typeLabels: Record<string, string> = {
-		weapon: 'Weapon Item',
-		ability: 'Vitality Item',
-		upgrade: 'Spirit Item'
-	};
-
-	const typeBadgeVariants: Record<string, 'weapon' | 'vitality' | 'spirit'> = {
-		weapon: 'weapon',
-		ability: 'vitality',
-		upgrade: 'spirit'
-	};
-
-	const typeColors = $derived(
-		(() => {
-			const colors: Record<string, string> = {
-				weapon: 'var(--item-weapon)',
-				ability: 'var(--item-vitality)',
-				upgrade: 'var(--item-spirit)'
-			};
-			return colors[item.type] || '';
-		})()
-	);
-
-	const typeGradients = $derived(
-		(() => {
-			const gradients: Record<string, string> = {
-				weapon: 'from-orange-500/10 via-amber-500/5 to-transparent',
-				ability: 'from-emerald-500/10 via-green-500/5 to-transparent',
-				upgrade: 'from-blue-500/10 via-indigo-500/5 to-transparent'
-			};
-			return gradients[item.type] || '';
-		})()
-	);
-
-	const typeBorderGlow = $derived(
-		(() => {
-			const glows: Record<string, string> = {
-				weapon: 'shadow-orange-500/20',
-				ability: 'shadow-emerald-500/20',
-				upgrade: 'shadow-blue-500/20'
-			};
-			return glows[item.type] || '';
-		})()
-	);
-
-	const typeSolidColor = $derived(
-		(() => {
-			const colors: Record<string, string> = {
-				weapon: 'oklch(0.65 0.2 40)',
-				ability: 'oklch(0.65 0.2 140)',
-				upgrade: 'oklch(0.65 0.2 290)'
-			};
-			return colors[item.type] || '';
-		})()
-	);
+	const style = $derived(ITEM_STYLE[item.type]);
 
 	const transitionConfig = $derived(
 		prefersReducedMotion.current
@@ -118,7 +93,7 @@
 		class="pointer-events-none fixed inset-0 -z-10"
 		in:blur={{ duration: 800, easing: expoOut }}
 	>
-		<div class="bg-gradient-to-b {typeGradients} absolute inset-0"></div>
+		<div class="bg-gradient-to-b {style.gradient} absolute inset-0"></div>
 		<!-- Dot grid pattern -->
 		<div
 			class="absolute inset-0"
@@ -141,21 +116,19 @@
 		<!-- Item Card - distinct treatment from hero -->
 		<header
 			class="bg-card relative overflow-hidden rounded-xl border-2 p-8 md:p-10"
-			style:border-color={typeColors}
-			style:box-shadow="{typeBorderGlow} 0 0 40px -10px"
+			style:border-color={style.color}
+			style:box-shadow="{style.borderGlow} 0 0 40px -10px"
 			in:fly={{ y: -20, ...transitionConfig }}
 		>
 			<!-- Decorative side stripe -->
 			<div
 				class="absolute top-0 left-0 h-full w-1.5"
-				style:background-color={typeSolidColor}
+				style:background-color={style.color}
 			></div>
 
 			<!-- Corner decoration -->
 			<div
-				class="absolute right-6 bottom-6 text-amber-500 opacity-10"
-				class:text-emerald-500={item.type === 'ability'}
-				class:text-blue-500={item.type === 'upgrade'}
+				class="absolute right-6 bottom-6 opacity-10 {style.cornerText}"
 				in:fly={{ x: 20, duration: 600, easing: elasticOut }}
 			>
 				<Package class="size-24" />
@@ -170,19 +143,19 @@
 						<!-- Background glow -->
 						<div
 							class="absolute inset-0 -z-10 rounded-lg blur-xl"
-							style:background-color={typeColors}
+							style:background-color={style.color}
 							style:opacity="0.25"
 							in:scale={{ duration: 600, easing: expoOut }}
 						></div>
 						<!-- Inner glow ring -->
 						<div
 							class="absolute inset-0 -z-10 scale-110 rounded-lg"
-							style:box-shadow="0 0 20px {typeColors}"
+							style:box-shadow="0 0 20px {style.color}"
 						></div>
 						<!-- Main item card -->
 						<div
 							class="border-primary/30 flex size-24 items-center justify-center rounded-lg border-2 bg-black/40 p-2 backdrop-blur-sm md:size-32"
-							style:border-color={typeColors}
+							style:border-color={style.color}
 						>
 							<img
 								src={item.image}
@@ -217,8 +190,8 @@
 					<div
 						class="mb-5 flex flex-wrap items-center justify-center gap-3 md:justify-start"
 					>
-						<Badge variant={typeBadgeVariants[item.type]} class="px-3 py-1 text-sm">
-							{typeLabels[item.type] || item.type}
+						<Badge variant={style.badgeVariant} class="px-3 py-1 text-sm">
+							{style.label}
 						</Badge>
 						<div class="bg-muted/50 flex items-center gap-2 rounded-md px-3 py-1">
 							<span class="text-foreground text-sm font-semibold"

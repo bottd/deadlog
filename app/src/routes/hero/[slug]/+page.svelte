@@ -1,3 +1,37 @@
+<script module lang="ts">
+	const HERO_STYLE = {
+		marksman: {
+			gradient: 'from-amber-500/20 via-yellow-500/10 to-amber-500/5',
+			patternColor: 'var(--type-marksman)',
+			borderColor: 'border-amber-500/30',
+			accentColor: '#f59e0b',
+			borderVar: 'var(--type-marksman)'
+		},
+		mystic: {
+			gradient: 'from-purple-500/20 via-fuchsia-500/10 to-purple-500/5',
+			patternColor: 'var(--type-mystic)',
+			borderColor: 'border-purple-500/30',
+			accentColor: '#a855f7',
+			borderVar: 'var(--type-mystic)'
+		},
+		brawler: {
+			gradient: 'from-red-500/20 via-orange-500/10 to-red-500/5',
+			patternColor: 'var(--type-brawler)',
+			borderColor: 'border-red-500/30',
+			accentColor: '#ef4444',
+			borderVar: 'var(--type-brawler)'
+		}
+	} as const;
+
+	const DEFAULT_STYLE = {
+		gradient: '',
+		patternColor: '',
+		borderColor: 'border-border',
+		accentColor: '',
+		borderVar: ''
+	} as const;
+</script>
+
 <script lang="ts">
 	import { PatchPreviewCard, PatchTimeline } from '$lib/components/changelog';
 	import { Badge } from '$lib/components/ui/badge';
@@ -36,50 +70,7 @@
 				}
 	);
 
-	const typeGradient = $derived.by(() => {
-		if (!hero.heroType) return '';
-		const colors: Record<string, string> = {
-			marksman: 'from-amber-500/20 via-yellow-500/10 to-amber-500/5',
-			mystic: 'from-purple-500/20 via-fuchsia-500/10 to-purple-500/5',
-			brawler: 'from-red-500/20 via-orange-500/10 to-red-500/5'
-		};
-		return colors[hero.heroType] || '';
-	});
-
-	const typePatternColor = $derived.by(() => {
-		if (!hero.heroType) return '';
-		const colors: Record<string, string> = {
-			marksman: 'oklch(0.75 0.15 55)',
-			mystic: 'oklch(0.65 0.2 300)',
-			brawler: 'oklch(0.6 0.2 25)'
-		};
-		return colors[hero.heroType] || '';
-	});
-
-	const typeBorderColor = $derived.by(() => {
-		if (!hero.heroType) return 'border-border';
-		const borderColors: Record<string, string> = {
-			marksman: 'border-amber-500/30',
-			mystic: 'border-purple-500/30',
-			brawler: 'border-red-500/30'
-		};
-		return borderColors[hero.heroType] || 'border-border';
-	});
-
-	const typeAccentColor = $derived.by(() => {
-		if (!hero.heroType) return '';
-		const colors: Record<string, string> = {
-			marksman: '#f59e0b',
-			mystic: '#a855f7',
-			brawler: '#ef4444'
-		};
-		return colors[hero.heroType] || '';
-	});
-
-	const typeBorderVar = $derived.by(() => {
-		if (!hero.heroType) return '';
-		return `var(--type-${hero.heroType})`;
-	});
+	const style = $derived(hero.heroType ? HERO_STYLE[hero.heroType] : DEFAULT_STYLE);
 
 	let rotation = $state(0);
 	let rotationFrame: number;
@@ -121,14 +112,15 @@
 			class="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
 			in:blur={{ duration: 800, easing: expoOut }}
 		>
-			<div class="bg-gradient-to-br {typeGradient} absolute inset-0"></div>
+			<div class="bg-gradient-to-br {style.gradient} absolute inset-0"></div>
 			<!-- Diagonal slash pattern -->
 			<div
 				class="absolute inset-0"
 				style:opacity="0.03"
 				style:background-image="
-				linear-gradient(45deg, transparent 48%, {typePatternColor} 48%, {typePatternColor} 52%,
-				transparent 52%), linear-gradient(-45deg, transparent 48%, {typePatternColor} 48%, {typePatternColor}
+				linear-gradient(45deg, transparent 48%, {style.patternColor} 48%, {style.patternColor}
+				52%, transparent 52%), linear-gradient(-45deg, transparent 48%, {style.patternColor}
+				48%, {style.patternColor}
 				52%, transparent 52%)
 				"
 				style:background-size="60px 60px"
@@ -148,7 +140,7 @@
 
 		<!-- Hero Header -->
 		<header
-			class="relative overflow-hidden rounded-xl border-2 {typeBorderColor} bg-gradient-to-br {typeGradient} p-8 md:p-12"
+			class="relative overflow-hidden rounded-xl border-2 {style.borderColor} bg-gradient-to-br {style.gradient} p-8 md:p-12"
 			in:fly={{ y: -20, ...transitionConfig }}
 		>
 			<!-- Decorative corner accent -->
@@ -159,11 +151,11 @@
 				>
 					<div
 						class="absolute top-0 right-0 h-16 w-1"
-						style:background-color={typeAccentColor}
+						style:background-color={style.accentColor}
 					></div>
 					<div
 						class="absolute top-0 right-0 h-1 w-16"
-						style:background-color={typeAccentColor}
+						style:background-color={style.accentColor}
 					></div>
 				</div>
 			{/if}
@@ -178,7 +170,7 @@
 						{#if hero.heroType}
 							<div
 								class="absolute inset-0 -z-10 rounded-xl blur-2xl"
-								style:background-color={typeBorderVar}
+								style:background-color={style.borderVar}
 								style:opacity="0.3"
 								in:scale={{ duration: 600, easing: expoOut }}
 							></div>
@@ -186,7 +178,7 @@
 							<div class="absolute inset-0 -z-10 rounded-xl p-1">
 								<div
 									class="h-full w-full rounded-xl border-2 border-dashed"
-									style:border-color={typeBorderVar}
+									style:border-color={style.borderVar}
 									style:opacity="0.4"
 									style:transform="rotate({rotation}deg)"
 								></div>
@@ -197,7 +189,7 @@
 							src={hero.image}
 							alt={hero.name}
 							class="size-32 rounded-xl border-[3px] object-cover shadow-2xl md:size-40"
-							style:border-color={hero.heroType ? typeBorderVar : undefined}
+							style:border-color={hero.heroType ? style.borderVar : undefined}
 							in:scale={{ start: 0.9, duration: 500, easing: elasticOut }}
 						/>
 					</div>

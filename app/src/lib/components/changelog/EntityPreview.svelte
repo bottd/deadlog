@@ -22,9 +22,9 @@
 	function handleSelect(entity: EntityIcon) {
 		const name = entity.alt;
 		if (entity.type === 'hero') {
-			params.hero = [...new Set([...params.hero, name])];
+			params.update({ hero: [...new Set([...params.hero, name])] });
 		} else {
-			params.item = [...new Set([...params.item, name])];
+			params.update({ item: [...new Set([...params.item, name])] });
 		}
 	}
 </script>

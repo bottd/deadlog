@@ -55,44 +55,49 @@ export async function queryChangelogs(
 ): Promise<ScrapedChangelog[]> {
 	const { heroIds = [], itemIds = [], searchQuery, limit = 5, offset = 0 } = options;
 
-	const hasHeroFilter = heroIds.length > 0;
-	const hasItemFilter = itemIds.length > 0;
-	const hasSearchFilter = !!searchQuery?.trim();
-
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	let query: any = db.select({ changelogs: schema.changelogs }).from(schema.changelogs);
-
 	// Only return main changelogs (exclude child updates) for pagination to work correctly
 	const conditions = [isMainChangelog()];
-	if (hasSearchFilter && searchQuery) {
+
+	if (searchQuery?.trim()) {
 		conditions.push(buildTextSearchCondition(searchQuery));
 	}
 
-	if (hasHeroFilter) {
-		for (const heroId of heroIds) {
-			conditions.push(
-				sql`EXISTS (SELECT 1 FROM ${schema.changelogHeroes} WHERE ${schema.changelogHeroes.changelogId} = ${schema.changelogs.id} AND ${schema.changelogHeroes.heroId} = ${heroId})`
-			);
-		}
+	// PK on (changelog_id, hero_id) guarantees uniqueness within a group,
+	// so COUNT(*) suffices — no DISTINCT needed.
+	if (heroIds.length > 0) {
+		conditions.push(
+			sql`EXISTS (
+				SELECT 1 FROM ${schema.changelogHeroes}
+				WHERE ${schema.changelogHeroes.changelogId} = ${schema.changelogs.id}
+				AND ${inArray(schema.changelogHeroes.heroId, heroIds)}
+				GROUP BY ${schema.changelogHeroes.changelogId}
+				HAVING COUNT(*) = ${heroIds.length}
+			)`
+		);
 	}
 
-	if (hasItemFilter) {
-		for (const itemId of itemIds) {
-			conditions.push(
-				sql`EXISTS (SELECT 1 FROM ${schema.changelogItems} WHERE ${schema.changelogItems.changelogId} = ${schema.changelogs.id} AND ${schema.changelogItems.itemId} = ${itemId})`
-			);
-		}
+	if (itemIds.length > 0) {
+		conditions.push(
+			sql`EXISTS (
+				SELECT 1 FROM ${schema.changelogItems}
+				WHERE ${schema.changelogItems.changelogId} = ${schema.changelogs.id}
+				AND ${inArray(schema.changelogItems.itemId, itemIds)}
+				GROUP BY ${schema.changelogItems.changelogId}
+				HAVING COUNT(*) = ${itemIds.length}
+			)`
+		);
 	}
 
-	query = query.where(and(...conditions));
-
-	const results = await query
+	const results = await db
+		.select({ changelogs: schema.changelogs })
+		.from(schema.changelogs)
+		.where(and(...conditions))
 		.orderBy(desc(schema.changelogs.pubDate))
 		.limit(limit)
 		.offset(offset)
 		.all();
 
-	return results.map((r: { changelogs: ScrapedChangelog }) => r.changelogs);
+	return results.map((r) => r.changelogs);
 }
 
 export async function getChangelogsCount(db: DrizzleDB): Promise<number> {

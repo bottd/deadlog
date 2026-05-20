@@ -7,147 +7,64 @@ import { parseCSV, toCSV } from '$lib/utils/csv';
 export { parseCSV } from '$lib/utils/csv';
 
 const SEARCH_PARAMS_KEY = Symbol('searchParams');
-
-function canAccessSearchParams() {
-	return !building;
-}
+const GOTO_OPTS = { replaceState: false, keepFocus: true, noScroll: true } as const;
 
 type ParamValues = Partial<{ hero: string[]; item: string[]; change: number; q: string }>;
+type ParamValue = ParamValues[keyof ParamValues];
+
+function serialize(value: ParamValue): string | null {
+	if (value === undefined || value === '') return null;
+	if (Array.isArray(value)) return value.length > 0 ? toCSV(value) : null;
+	return String(value);
+}
 
 class SearchParamsStore {
-	#pendingUpdate: ParamValues | null = null;
-	#pendingReset = false;
-
 	get hero(): string[] {
-		if (!canAccessSearchParams()) return [];
-		return parseCSV(page.url.searchParams.get('hero'));
-	}
-
-	set hero(value: string[]) {
-		this.#updateParam('hero', value.length > 0 ? toCSV(value) : null);
+		return building ? [] : parseCSV(page.url.searchParams.get('hero'));
 	}
 
 	get item(): string[] {
-		if (!canAccessSearchParams()) return [];
-		return parseCSV(page.url.searchParams.get('item'));
-	}
-
-	set item(value: string[]) {
-		this.#updateParam('item', value.length > 0 ? toCSV(value) : null);
+		return building ? [] : parseCSV(page.url.searchParams.get('item'));
 	}
 
 	get change(): number | undefined {
-		if (!canAccessSearchParams()) return undefined;
+		if (building) return undefined;
 		const val = page.url.searchParams.get('change');
 		return val ? Number(val) : undefined;
 	}
 
-	set change(value: number | undefined) {
-		this.#updateParam('change', value !== undefined ? String(value) : null);
-	}
-
 	get q(): string {
-		if (!canAccessSearchParams()) return '';
-		return page.url.searchParams.get('q') ?? '';
-	}
-
-	set q(value: string) {
-		this.#updateParam('q', value || null);
-	}
-
-	#updateParam(key: string, value: string | null) {
-		if (!canAccessSearchParams()) return;
-		const url = new URL(page.url);
-		if (value === null) {
-			url.searchParams.delete(key);
-		} else {
-			url.searchParams.set(key, value);
-		}
-		goto(url.toString(), { replaceState: false, keepFocus: true, noScroll: true });
+		return building ? '' : (page.url.searchParams.get('q') ?? '');
 	}
 
 	update(values: ParamValues) {
-		if (!canAccessSearchParams()) return;
-
-		// Merge into pending batch and flush once via microtask
-		if (this.#pendingUpdate) {
-			Object.assign(this.#pendingUpdate, values);
-			return;
-		}
-
-		this.#pendingReset = false;
-		this.#pendingUpdate = { ...values };
-		queueMicrotask(() => this.#flush());
-	}
-
-	#flush() {
-		if (this.#pendingReset) {
-			this.#pendingUpdate = null;
-			this.#pendingReset = false;
-			goto('?', { replaceState: false, keepFocus: true, noScroll: true });
-			return;
-		}
-
-		const values = this.#pendingUpdate;
-		this.#pendingUpdate = null;
-		if (!values) return;
-
+		if (building) return;
 		const url = new URL(page.url);
-
-		if ('hero' in values) {
-			if (values.hero && values.hero.length > 0) {
-				url.searchParams.set('hero', toCSV(values.hero));
-			} else {
-				url.searchParams.delete('hero');
-			}
+		for (const [key, value] of Object.entries(values)) {
+			const s = serialize(value as ParamValue);
+			if (s === null) url.searchParams.delete(key);
+			else url.searchParams.set(key, s);
 		}
-
-		if ('item' in values) {
-			if (values.item && values.item.length > 0) {
-				url.searchParams.set('item', toCSV(values.item));
-			} else {
-				url.searchParams.delete('item');
-			}
-		}
-
-		if ('change' in values) {
-			if (values.change !== undefined) {
-				url.searchParams.set('change', String(values.change));
-			} else {
-				url.searchParams.delete('change');
-			}
-		}
-
-		if ('q' in values) {
-			if (values.q) {
-				url.searchParams.set('q', values.q);
-			} else {
-				url.searchParams.delete('q');
-			}
-		}
-
-		goto(url.toString(), { replaceState: false, keepFocus: true, noScroll: true });
+		goto(url.toString(), GOTO_OPTS);
 	}
 
 	reset() {
-		if (!canAccessSearchParams()) return;
-
-		// If there's a pending update, override it with reset
-		if (this.#pendingUpdate) {
-			this.#pendingReset = true;
-			this.#pendingUpdate = null;
-			return;
-		}
-
-		goto('?', { replaceState: false, keepFocus: true, noScroll: true });
+		if (building) return;
+		goto('?', GOTO_OPTS);
 	}
 
 	toURLSearchParams(): URLSearchParams {
 		const params = new URLSearchParams();
-		if (this.hero.length > 0) params.set('hero', toCSV(this.hero));
-		if (this.item.length > 0) params.set('item', toCSV(this.item));
-		if (this.change !== undefined) params.set('change', String(this.change));
-		if (this.q) params.set('q', this.q);
+		const all: ParamValues = {
+			hero: this.hero,
+			item: this.item,
+			change: this.change,
+			q: this.q
+		};
+		for (const [key, value] of Object.entries(all)) {
+			const s = serialize(value as ParamValue);
+			if (s !== null) params.set(key, s);
+		}
 		return params;
 	}
 }
