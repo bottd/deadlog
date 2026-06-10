@@ -56,7 +56,7 @@
 		"runed": "0.37.1",
 		"svelte": "5.55.8",
 		"svelte-check": "4.4.8",
-		"svelte-meta-tags": "4.7.0",
+		"svelte-meta-tags": "5.0.0",
 		"svelte-sonner": "1.1.1",
 		"tailwind-merge": "3.6.0",
 		"tailwind-variants": "3.2.2",
