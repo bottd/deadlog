@@ -20,6 +20,13 @@
 			borderColor: 'border-red-500/30',
 			accentColor: '#ef4444',
 			borderVar: 'var(--type-brawler)'
+		},
+		assassin: {
+			gradient: 'from-emerald-500/20 via-green-500/10 to-emerald-500/5',
+			patternColor: 'var(--type-assassin)',
+			borderColor: 'border-emerald-500/30',
+			accentColor: '#10b981',
+			borderVar: 'var(--type-assassin)'
 		}
 	} as const;
 

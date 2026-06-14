@@ -95,6 +95,7 @@
 	--type-marksman: oklch(0.75 0.15 55);
 	--type-mystic: oklch(0.65 0.2 300);
 	--type-brawler: oklch(0.6 0.2 25);
+	--type-assassin: oklch(0.7 0.15 160);
 
 	/* Item Categories */
 	--item-weapon: oklch(0.65 0.2 40);
@@ -164,6 +165,7 @@
 	--type-marksman: oklch(0.78 0.18 55);
 	--type-mystic: oklch(0.68 0.23 300);
 	--type-brawler: oklch(0.63 0.23 25);
+	--type-assassin: oklch(0.73 0.18 160);
 
 	/* Item Categories - enhanced chroma for dark mode */
 	--item-weapon: oklch(0.68 0.23 40);

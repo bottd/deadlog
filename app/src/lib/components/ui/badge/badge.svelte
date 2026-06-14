@@ -18,6 +18,8 @@
 					'bg-[var(--type-mystic)] border-transparent text-white [a&]:hover:opacity-90',
 				brawler:
 					'bg-[var(--type-brawler)] border-transparent text-white [a&]:hover:opacity-90',
+				assassin:
+					'bg-[var(--type-assassin)] border-transparent text-white [a&]:hover:opacity-90',
 				weapon:
 					'bg-[var(--item-weapon)] border-transparent text-white [a&]:hover:opacity-90',
 				vitality:

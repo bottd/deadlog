@@ -118,7 +118,7 @@ interface EntityDb {
 	isReleased: number;
 }
 
-export type HeroType = 'marksman' | 'mystic' | 'brawler';
+export type HeroType = 'marksman' | 'mystic' | 'brawler' | 'assassin';
 
 export interface HeroDb extends EntityDb {
 	heroType: HeroType | null;

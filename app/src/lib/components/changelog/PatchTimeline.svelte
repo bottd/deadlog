@@ -12,7 +12,7 @@
 	interface Props {
 		patches: Patch[];
 		class?: string;
-		timelineColor?: 'marksman' | 'mystic' | 'brawler' | null;
+		timelineColor?: 'marksman' | 'mystic' | 'brawler' | 'assassin' | null;
 	}
 
 	let { patches, class: className = '', timelineColor = null }: Props = $props();
@@ -37,7 +37,8 @@
 		const colors: Record<string, string> = {
 			marksman: 'bg-amber-500',
 			mystic: 'bg-purple-500',
-			brawler: 'bg-red-500'
+			brawler: 'bg-red-500',
+			assassin: 'bg-emerald-500'
 		};
 		return colors[timelineColor] || 'bg-primary';
 	});
@@ -47,7 +48,8 @@
 		const colors: Record<string, string> = {
 			marksman: 'group-hover:bg-amber-500/80',
 			mystic: 'group-hover:bg-purple-500/80',
-			brawler: 'group-hover:bg-red-500/80'
+			brawler: 'group-hover:bg-red-500/80',
+			assassin: 'group-hover:bg-emerald-500/80'
 		};
 		return colors[timelineColor] || 'group-hover:bg-primary/80';
 	});
@@ -57,7 +59,8 @@
 		const colors: Record<string, string> = {
 			marksman: 'bg-amber-500/20',
 			mystic: 'bg-purple-500/20',
-			brawler: 'bg-red-500/20'
+			brawler: 'bg-red-500/20',
+			assassin: 'bg-emerald-500/20'
 		};
 		return colors[timelineColor] || 'bg-primary/20';
 	});

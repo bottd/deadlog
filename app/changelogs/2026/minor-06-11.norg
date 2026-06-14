@@ -1,0 +1,362 @@
+@document.meta
+title: Minor Update - 06-11-2026
+steam_gid: 1835236783562074
+published: 2026-06-12T00:59:18.000Z
+author: IceFrog
+category: patch
+major_update: false
+status: draft
+content_text: "Urn give up time reduced from 75s to 60s Urn bounty reduced by 10% (unreduced for trailing team) Breakables health permanent bonus reduced from 15/25/35 to 15/20/30 for level 1/2/3 Kill comeback bounty values increased by 8% Street Brawl: All ability and item range/radius values are reduced by 10% Apollo Disengaging Sigil velocity increased by 50% Disengaging Sigil velocity's vertical:horizontal ratio changed from 1.5:1 to 1:1 Disengaging Sigil now allows input to alter the direction apollo launches himself (A/D biases to the left/right and W/S affect how much backwards motion is applied Disengaging Sigil T1 changed from \"+30 Damage\" to \"Gain +25% Fire Rate and Bullet Speed for 8s\" Disengaging Sigil T2 changed from \"Gain +30% Fire Rate and +50% Bullet Speed for 10s\" to \"On Player Hit: +1 Stamina restored and resets Air Jump/Dash limit\" Disengaging Sigil T3 changed from \"On Player Hit: +2 stamina restored and reset Air Jump/Dash limit\" to \"Recast within 4s\" Flawless Advance now allows Apollo to parry during it Bebop Exploding Uppercut T3 increased from +17% Missing Health to +18% Fixed Sticky Bomb T3 duration ending once the bomb went off rather than the 5s duration Sticky Bomb T3 changed from \"On Cast: +5m Move Speed and +20% Fire Rate for 5s\" to \"On Cast: +5m Move Speed and +25% Debuff Resistance for 6s\" (applies retroactively) Calico Gloom Bombs melee resist debuff now stacks additively Gloom Bombs T2 increased from -5% Melee Resist for 5s to -6% for 6s Gloom Bombs melee resist now applies on impact rather than explosion Return to Shadows damage increased from 140 to 150 Return to Shadows T2 damage increased from +65 to +75 Return to Shadows T3 heal increased from 350 to 450 Doorman Call Bell explosion damage spirit scaling reduced from 1.3 to 1.2 Call Bell T3 spirit scaling reduced from 0.4 to 0.35 Graves Jar of Dead collection rate reduced by 20% (takes longer to gain a charge) Jar of Dead damage reduced from 17+0.27 to 16+0.25 Jar of Dead bounty increased from 5+0.25/boon to 7+0.5/boon Grasping Hands T3 Immobilize duration reduced from +1s to +0.75s Grey Talon Gun cycle time increased from 0.5775 to 0.6 (~4% DPS nerf) Bullet damage growth reduced from +1.0 to +0.85 Rain of Arrows cooldown increased from 22s to 23s Rain of Arrows T2 reduced from -13s Cooldown to -12s Holliday Powder Keg now has an alt cast behavior to place the barrel at her feet Powder Keg various improvements to the launch angles, velocities and feel of casting Powder Keg now starts with 2 charges Powder Keg Charge Time increased from 3.5s to 7s Powder Keg spirit scaling reduced from 1.6 to 1.4 Powder Keg T2 changed from \"+58 Damage\" to \"+1 Charge\" Powder Keg T3 changed from \"+2 Charges and +0.4s Displacement\" to \"+100 Damage, +0.5 Spirit Scaling and -5s Charge Time\" Fixed various issues with placing bounce pad on elevated areas Bounce Pad landing radius reduced from 12m to 9m Bounce Pad T3 changed from \"+68 Stomp Damage and Improved Spirit Scaling\" to \"+0.7s Stomp Stun\" (only triggers from Holliday) Infernus Fixed Afterburn Max duration refreshing not properly accounting for both Debuff Resist and +Ability Duration Fixed Concussive Combustion cooldown not updating when getting the T2 or other CD reducing items when the ability is on cooldown Ivy Fixed a bug where Stone Form could sometimes do significantly more damage than intended McGinnis Mini Turret DPS rescaled from 30+0.39 to 24+0.42 (break even at 200 spirit power) Mini Turrets T3 Fire Rate reduced from +30% to +25% Fixed some rare cases where Heavy Barrage would stop working Heavy Barrage DPS reduced from 22.5 to 21 Paige Rallying Charge distance for max amp reduced from 350m to 250m Rallying Charge T2 increased from -30s Cooldown to -50s Plot Armor barrier spirit scaling increased from 1.3 to 1.5 Plot Armor T3 barrier spirit scaling increased from +0.3 to +0.5 Pocket Bullet damage growth reduced from +0.2 to +0.16 Flying Cloak T3 reduced from -13s Cooldown to -12s Affliction now does half damage on objectives Seven Bullet damage growth reduced from 0.337 to 0.24 Power Surge T3 reduced from +12s Duration to +10s Storm Cloud now hits breakables Shiv Killing Blow now has +30% more cooldown whenever it does not impact a player Silver Lycan Curse cooldown increased from 40s to 70s Lycan Curse T3 no longer heals Viscous Puddle Punch T2 increased from +40% Lifesteal to +60% Goo Ball T2 now also increases Bullet and Spirit Resist by +10% Victor Aura of Suffering radius reduced from 9m to 8m Aura of Suffering T3 now also increases radius by +1m Fixed some client performance issues when using Aura of Suffering Shocking Reanimation cooldown increased from 230s to 240s Shocking Reanimation T3 reduced from -120s Cooldown to -110s Shocking Reanimation T3 increased from +150 Damage to +175 Vindicta Assassinate Max Bonus Damage spirit scaling increased from 1.7 to 2.0 Warden Bullet falloff reduced from 20m->58m to 18m->47m Alchemical Flask spirit scaling reduced from 0.73 to 0.63 Alchemical Flask T2 reduced from +40 Damage to +35 Alchemical Flask T2 increased from -20% Weapon Damage to -25% Willpower spirit scaling increased from +0.5 to +0.8 Binding Word T3 reduced from -18s Cooldown to -14s Last Stand lifesteal increased from 65% to 75% Last Stand T2 increased from -30s Cooldown to -35s Last Stand T3 increased from +3s Duration to +4s Opening Rounds Conditional Weapon Damage bonus reduced from 30% to 25% Spirit Power increased from +4 to +7 Arcane Surge Fixed various cases with the bonuses not working"
+@end
+
+* General Changes
+
+- Urn give up time reduced from 75s to 60s
+- Urn bounty reduced by 10% (unreduced for trailing team)
+- Breakables health permanent bonus reduced from 15/25/35 to 15/20/30 for level 1/2/3
+- Kill comeback bounty values increased by 8%
+- Street Brawl: All ability and item range/radius values are reduced by 10%
+
+* Hero Changes
+
+@embed svelte
+<SectionPreview type="hero" names={["Apollo", "Bebop", "Calico", "Doorman", "Graves", "Grey Talon", "Holliday", "Infernus", "Ivy", "McGinnis", "Paige", "Pocket", "Seven", "Shiv", "Silver", "Victor", "Vindicta", "Viscous", "Warden"]} />
+@end
+
+@embed svelte
+<EntityHeading name="Apollo" type="hero" />
+@end
+
+- Disengaging Sigil velocity increased by 50%
+- Disengaging Sigil velocity's vertical:horizontal ratio changed from 1.5:1 to 1:1
+
+@embed svelte
+<AbilityHeading name="Disengaging Sigil" />
+@end
+
+- Disengaging Sigil now allows input to alter the direction apollo launches himself (A/D biases to the left/right and W/S affect how much backwards motion is applied
+- Disengaging Sigil T1 changed from "+30 Damage" to "Gain +25% Fire Rate and Bullet Speed for 8s"
+- Disengaging Sigil T2 changed from "Gain +30% Fire Rate and +50% Bullet Speed for 10s" to "On Player Hit: +1 Stamina restored and resets Air Jump/Dash limit"
+- Disengaging Sigil T3 changed from "On Player Hit: +2 stamina restored and reset Air Jump/Dash limit" to "Recast within 4s"
+
+@embed svelte
+<AbilityHeading name="Flawless Advance" />
+@end
+
+- Flawless Advance now allows Apollo to parry during it
+
+@embed svelte
+<EntityHeading name="Bebop" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Exploding Uppercut" />
+@end
+
+- Exploding Uppercut T3 increased from +17% Missing Health to +18%
+
+- Fixed Sticky Bomb T3 duration ending once the bomb went off rather than the 5s duration
+
+@embed svelte
+<AbilityHeading name="Sticky Bomb" />
+@end
+
+- Sticky Bomb T3 changed from "On Cast: +5m Move Speed and +20% Fire Rate for 5s" to "On Cast: +5m Move Speed and +25% Debuff Resistance for 6s" (applies retroactively)
+
+@embed svelte
+<EntityHeading name="Calico" type="hero" />
+@end
+
+- Gloom Bombs melee resist debuff now stacks additively
+
+@embed svelte
+<AbilityHeading name="Gloom Bombs" />
+@end
+
+- Gloom Bombs T2 increased from -5% Melee Resist for 5s to -6% for 6s
+
+- Gloom Bombs melee resist now applies on impact rather than explosion
+- Return to Shadows damage increased from 140 to 150
+- Return to Shadows T2 damage increased from +65 to +75
+- Return to Shadows T3 heal increased from 350 to 450
+
+@embed svelte
+<EntityHeading name="Doorman" type="hero" />
+@end
+
+- Call Bell explosion damage spirit scaling reduced from 1.3 to 1.2
+
+@embed svelte
+<AbilityHeading name="Call Bell" />
+@end
+
+- Call Bell T3 spirit scaling reduced from 0.4 to 0.35
+
+@embed svelte
+<EntityHeading name="Graves" type="hero" />
+@end
+
+- Jar of Dead collection rate reduced by 20% (takes longer to gain a charge)
+- Jar of Dead damage reduced from 17+0.27 to 16+0.25
+- Jar of Dead bounty increased from 5+0.25/boon to 7+0.5/boon
+
+@embed svelte
+<AbilityHeading name="Grasping Hands" />
+@end
+
+- Grasping Hands T3 Immobilize duration reduced from +1s to +0.75s
+
+@embed svelte
+<EntityHeading name="Grey Talon" type="hero" />
+@end
+
+- Gun cycle time increased from 0.5775 to 0.6 (~4% DPS nerf)
+- Bullet damage growth reduced from +1.0 to +0.85
+- Rain of Arrows cooldown increased from 22s to 23s
+- Rain of Arrows T2 reduced from -13s Cooldown to -12s
+
+@embed svelte
+<EntityHeading name="Holliday" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Powder Keg" />
+@end
+
+- Powder Keg now has an alt cast behavior to place the barrel at her feet
+
+- Powder Keg various improvements to the launch angles, velocities and feel of casting
+
+@embed svelte
+<AbilityHeading name="Powder Keg" />
+@end
+
+- Powder Keg now starts with 2 charges
+
+@embed svelte
+<AbilityHeading name="Powder Keg Charge Time" />
+@end
+
+- Powder Keg Charge Time increased from 3.5s to 7s
+
+@embed svelte
+<AbilityHeading name="Powder Keg" />
+@end
+
+- Powder Keg spirit scaling reduced from 1.6 to 1.4
+- Powder Keg T2 changed from "+58 Damage" to "+1 Charge"
+- Powder Keg T3 changed from "+2 Charges and +0.4s Displacement" to "+100 Damage, +0.5 Spirit Scaling and -5s Charge Time"
+
+- Fixed various issues with placing bounce pad on elevated areas
+- Bounce Pad landing radius reduced from 12m to 9m
+
+@embed svelte
+<AbilityHeading name="Bounce Pad" />
+@end
+
+- Bounce Pad T3 changed from "+68 Stomp Damage and Improved Spirit Scaling" to "+0.7s Stomp Stun" (only triggers from Holliday)
+
+@embed svelte
+<EntityHeading name="Infernus" type="hero" />
+@end
+
+- Fixed Afterburn Max duration refreshing not properly accounting for both Debuff Resist and +Ability Duration
+- Fixed Concussive Combustion cooldown not updating when getting the T2 or other CD reducing items when the ability is on cooldown
+
+@embed svelte
+<EntityHeading name="Ivy" type="hero" />
+@end
+
+- Fixed a bug where Stone Form could sometimes do significantly more damage than intended
+
+@embed svelte
+<EntityHeading name="McGinnis" type="hero" />
+@end
+
+- Mini Turret DPS rescaled from 30+0.39 to 24+0.42 (break even at 200 spirit power)
+
+@embed svelte
+<AbilityHeading name="Mini Turrets" />
+@end
+
+- Mini Turrets T3 Fire Rate reduced from +30% to +25%
+
+- Fixed some rare cases where Heavy Barrage would stop working
+
+@embed svelte
+<AbilityHeading name="Heavy Barrage DPS" />
+@end
+
+- Heavy Barrage DPS reduced from 22.5 to 21
+
+@embed svelte
+<EntityHeading name="Paige" type="hero" />
+@end
+
+- Rallying Charge distance for max amp reduced from 350m to 250m
+
+@embed svelte
+<AbilityHeading name="Rallying Charge" />
+@end
+
+- Rallying Charge T2 increased from -30s Cooldown to -50s
+
+- Plot Armor barrier spirit scaling increased from 1.3 to 1.5
+
+@embed svelte
+<AbilityHeading name="Plot Armor" />
+@end
+
+- Plot Armor T3 barrier spirit scaling increased from +0.3 to +0.5
+
+@embed svelte
+<EntityHeading name="Pocket" type="hero" />
+@end
+
+- Bullet damage growth reduced from +0.2 to +0.16
+
+@embed svelte
+<AbilityHeading name="Flying Cloak" />
+@end
+
+- Flying Cloak T3 reduced from -13s Cooldown to -12s
+
+@embed svelte
+<AbilityHeading name="Affliction" />
+@end
+
+- Affliction now does half damage on objectives
+
+@embed svelte
+<EntityHeading name="Seven" type="hero" />
+@end
+
+- Bullet damage growth reduced from 0.337 to 0.24
+
+@embed svelte
+<AbilityHeading name="Power Surge" />
+@end
+
+- Power Surge T3 reduced from +12s Duration to +10s
+
+@embed svelte
+<AbilityHeading name="Storm Cloud" />
+@end
+
+- Storm Cloud now hits breakables
+
+@embed svelte
+<EntityHeading name="Shiv" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Killing Blow" />
+@end
+
+- Killing Blow now has +30% more cooldown whenever it does not impact a player
+
+@embed svelte
+<EntityHeading name="Silver" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Lycan Curse" />
+@end
+
+- Lycan Curse cooldown increased from 40s to 70s
+- Lycan Curse T3 no longer heals
+
+@embed svelte
+<EntityHeading name="Victor" type="hero" />
+@end
+
+- Aura of Suffering radius reduced from 9m to 8m
+- Aura of Suffering T3 now also increases radius by +1m
+- Fixed some client performance issues when using Aura of Suffering
+
+@embed svelte
+<AbilityHeading name="Shocking Reanimation" />
+@end
+
+- Shocking Reanimation cooldown increased from 230s to 240s
+- Shocking Reanimation T3 reduced from -120s Cooldown to -110s
+- Shocking Reanimation T3 increased from +150 Damage to +175
+
+@embed svelte
+<EntityHeading name="Vindicta" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Assassinate Max Bonus Damage" />
+@end
+
+- Assassinate Max Bonus Damage spirit scaling increased from 1.7 to 2.0
+
+@embed svelte
+<EntityHeading name="Viscous" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Puddle Punch" />
+@end
+
+- Puddle Punch T2 increased from +40% Lifesteal to +60%
+
+@embed svelte
+<AbilityHeading name="Goo Ball" />
+@end
+
+- Goo Ball T2 now also increases Bullet and Spirit Resist by +10%
+
+@embed svelte
+<EntityHeading name="Warden" type="hero" />
+@end
+
+- Bullet falloff reduced from 20m->58m to 18m->47m
+
+@embed svelte
+<AbilityHeading name="Alchemical Flask" />
+@end
+
+- Alchemical Flask spirit scaling reduced from 0.73 to 0.63
+- Alchemical Flask T2 reduced from +40 Damage to +35
+- Alchemical Flask T2 increased from -20% Weapon Damage to -25%
+
+@embed svelte
+<AbilityHeading name="Willpower" />
+@end
+
+- Willpower spirit scaling increased from +0.5 to +0.8
+
+@embed svelte
+<AbilityHeading name="Binding Word" />
+@end
+
+- Binding Word T3 reduced from -18s Cooldown to -14s
+
+@embed svelte
+<AbilityHeading name="Last Stand" />
+@end
+
+- Last Stand lifesteal increased from 65% to 75%
+- Last Stand T2 increased from -30s Cooldown to -35s
+- Last Stand T3 increased from +3s Duration to +4s
+
+* Item Changes
+
+@embed svelte
+<SectionPreview type="item" names={["Arcane Surge", "Opening Rounds"]} />
+@end
+
+@embed svelte
+<EntityHeading name="Arcane Surge" type="item" />
+@end
+
+- Fixed various cases with the bonuses not working
+
+@embed svelte
+<EntityHeading name="Opening Rounds" type="item" />
+@end
+
+- Conditional Weapon Damage bonus reduced from 30% to 25%
+- Spirit Power increased from +4 to +7
