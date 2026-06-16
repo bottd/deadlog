@@ -99,9 +99,6 @@
 								>
 									{changelog.category ?? 'patch'}
 								</span>
-								<span class="text-muted-foreground font-mono text-[10px] tracking-wider">
-									ID:{changelog.id}
-								</span>
 							</div>
 
 							<h1

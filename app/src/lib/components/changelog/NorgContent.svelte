@@ -92,7 +92,7 @@
 
 		/* Paragraphs */
 		:global(p) {
-			@apply text-foreground/90 my-3 leading-relaxed;
+			@apply text-foreground/90 my-3 max-w-[68ch] leading-relaxed;
 		}
 
 		/* Lists */
@@ -105,7 +105,7 @@
 		}
 
 		:global(li) {
-			@apply text-foreground/90 relative leading-relaxed;
+			@apply text-foreground/90 relative max-w-[68ch] leading-relaxed;
 		}
 
 		/* Custom bullet markers */

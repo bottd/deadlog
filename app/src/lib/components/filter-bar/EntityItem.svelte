@@ -12,9 +12,9 @@
 
 	let { name, imageSrc, isSelected, colorClass, onSelect }: Props = $props();
 
-	const bgClass = $derived(colorClass === 'hero' ? 'bg-primary/10' : 'bg-blue-500/10');
-	const textClass = $derived(colorClass === 'hero' ? 'text-primary' : 'text-blue-500');
-	const dotClass = $derived(colorClass === 'hero' ? 'bg-primary' : 'bg-blue-500');
+	const bgClass = $derived(colorClass === 'hero' ? 'bg-primary/10' : 'bg-primary/5');
+	const textClass = 'text-primary';
+	const dotClass = 'bg-primary';
 </script>
 
 <Command.Item

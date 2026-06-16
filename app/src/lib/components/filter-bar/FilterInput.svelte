@@ -164,12 +164,17 @@
 					}}
 				/>
 
-				<!-- Mobile: placeholder text -->
-				<span class="text-muted-foreground flex-1 sm:hidden">
+				<!-- Mobile: tapping the bar opens the filter sheet -->
+				<button
+					type="button"
+					aria-label="Open filters"
+					onclick={() => (sheetOpen = true)}
+					class="text-muted-foreground min-h-[44px] flex-1 text-left sm:hidden"
+				>
 					{selectedHeroObjects.length || selectedItemObjects.length
 						? ''
 						: 'Tap filter to add...'}
-				</span>
+				</button>
 			</div>
 
 			{#if selectedHeroObjects.length || selectedItemObjects.length || params.q}
@@ -179,7 +184,7 @@
 						e.stopPropagation();
 						clearAll();
 					}}
-					class="hover:bg-secondary shrink-0 rounded-sm p-1 transition-colors"
+					class="hover:bg-secondary flex size-8 shrink-0 items-center justify-center rounded-sm transition-colors"
 					aria-label="Clear all filters"
 				>
 					<XIcon class="text-muted-foreground size-4" />
@@ -193,7 +198,7 @@
 						<Button
 							{...props}
 							variant="ghost"
-							size="icon-sm"
+							size="icon"
 							class="text-muted-foreground sm:hidden"
 							aria-label="Open filters"
 						>

@@ -54,9 +54,9 @@
 </script>
 
 {#if isLatest}
-	<a href="/change/{id}" class="group relative col-span-full mb-8 block">
+	<a href="/change/{id}" class="clip-corner-lg group relative col-span-full mb-8 block">
 		<div
-			class="clip-corner-lg border-primary/40 hover:border-primary/70 bg-card card-glow relative flex flex-col overflow-hidden border-2 transition-all duration-200 hover:shadow-2xl active:scale-[0.99] md:flex-row md:items-stretch"
+			class="border-primary/40 hover:border-primary/70 bg-card card-glow relative flex flex-col overflow-hidden border-2 transition-all duration-200 hover:shadow-2xl active:scale-[0.99] md:flex-row md:items-stretch"
 		>
 			<div
 				class="from-primary/0 via-primary/8 to-primary/0 pointer-events-none absolute inset-0 bg-gradient-to-r opacity-0 transition-opacity duration-200 group-hover:opacity-100"
