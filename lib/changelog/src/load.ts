@@ -1,7 +1,7 @@
 import { readFileSync, existsSync, readdirSync, statSync } from 'fs';
 import { join, relative } from 'path';
 import { ChangelogMetadataSchema, type ParsedChangelog } from './schema';
-import { extractEntities, type TocEntry } from './extract';
+import { extractEntities, extractEntityChanges, type TocEntry } from './extract';
 
 function findNorgFiles(dir: string): string[] {
 	const files: string[] = [];
@@ -92,12 +92,13 @@ export async function loadAllChangelogs(
 			const { metadata: rawMetadata, toc } = parseNorgContent(content);
 			const metadata = ChangelogMetadataSchema.parse(rawMetadata);
 			const entities = extractEntities(toc, content);
+			const entityChanges = extractEntityChanges(content);
 			const relativePath = relative(changelogsDir, filepath);
 			const slug = relativePath.replace(/\.norg$/, '');
 			const plainText =
 				typeof rawMetadata.content_text === 'string' ? rawMetadata.content_text : '';
 
-			changelogs.push({ filepath, slug, metadata, entities, plainText });
+			changelogs.push({ filepath, slug, metadata, entities, entityChanges, plainText });
 		} catch (error) {
 			console.warn(`Failed to parse: ${filepath}`, error);
 		}

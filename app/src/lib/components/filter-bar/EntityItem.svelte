@@ -21,7 +21,7 @@
 	value={name}
 	{onSelect}
 	class={cn(
-		'hover:bg-secondary aria-selected:bg-secondary flex cursor-pointer items-center gap-3 rounded-sm px-3 py-2 transition-colors',
+		'hover:bg-secondary aria-selected:bg-primary/10 aria-selected:ring-primary/50 flex cursor-pointer items-center gap-3 rounded-sm px-3 py-2 ring-inset transition-colors aria-selected:ring-1',
 		isSelected && bgClass
 	)}
 >

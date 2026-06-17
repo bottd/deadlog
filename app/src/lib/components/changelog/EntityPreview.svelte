@@ -46,13 +46,15 @@
 				height="36"
 				loading="lazy"
 				decoding="async"
-				class="border-border bg-card size-9 rounded-full border-2 object-cover transition-transform hover:z-10 hover:scale-110"
+				class="border-border bg-card size-9 rounded-md border-2 object-cover transition-transform hover:z-10 hover:scale-110"
 				style="margin-left:{i === 0 ? 0 : overlap}px"
 			/>
 		</EntityTooltip>
 	{/each}
 	{#if entities.length > maxIconsPerRow}
-		<span class="ellipse" style="margin-left:{overlap}px"> ... </span>
+		<span class="ellipse" style="margin-left:{overlap}px"
+			>+{entities.length - maxIconsPerRow}</span
+		>
 	{/if}
 </div>
 

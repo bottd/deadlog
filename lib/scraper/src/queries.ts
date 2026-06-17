@@ -19,6 +19,9 @@ export { getLibsqlDb as getDb };
 
 export type ScrapedChangelog = SelectChangelog;
 
+/** A changelog plus the number of change bullets recorded for a specific entity. */
+export type ChangelogWithCount = ScrapedChangelog & { changeCount: number };
+
 function isMainChangelog() {
 	return or(
 		isNull(schema.changelogs.parentChange),
@@ -229,9 +232,12 @@ export async function getChangelogsByHeroId(
 	db: DrizzleDB,
 	heroId: number,
 	limit = 50
-): Promise<ScrapedChangelog[]> {
+): Promise<ChangelogWithCount[]> {
 	const results = await db
-		.selectDistinct({ changelogs: schema.changelogs })
+		.selectDistinct({
+			changelog: schema.changelogs,
+			changeCount: schema.changelogHeroes.changeCount
+		})
 		.from(schema.changelogs)
 		.innerJoin(
 			schema.changelogHeroes,
@@ -242,16 +248,19 @@ export async function getChangelogsByHeroId(
 		.limit(limit)
 		.all();
 
-	return results.map((r) => r.changelogs);
+	return results.map((r) => ({ ...r.changelog, changeCount: r.changeCount }));
 }
 
 export async function getChangelogsByItemId(
 	db: DrizzleDB,
 	itemId: number,
 	limit = 50
-): Promise<ScrapedChangelog[]> {
+): Promise<ChangelogWithCount[]> {
 	const results = await db
-		.selectDistinct({ changelogs: schema.changelogs })
+		.selectDistinct({
+			changelog: schema.changelogs,
+			changeCount: schema.changelogItems.changeCount
+		})
 		.from(schema.changelogs)
 		.innerJoin(
 			schema.changelogItems,
@@ -262,7 +271,7 @@ export async function getChangelogsByItemId(
 		.limit(limit)
 		.all();
 
-	return results.map((r) => r.changelogs);
+	return results.map((r) => ({ ...r.changelog, changeCount: r.changeCount }));
 }
 
 interface ChangelogIcons {

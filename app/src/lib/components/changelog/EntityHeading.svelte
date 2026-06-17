@@ -54,7 +54,7 @@
 			height="40"
 			loading="lazy"
 			decoding="async"
-			class="border-border bg-card ml-3 size-10 rounded-lg border object-cover shadow-sm"
+			class="border-border bg-card ml-3 size-10 rounded-md border object-cover shadow-sm"
 		/>
 	{/if}
 	<h3 class="text-foreground text-base font-semibold tracking-tight">

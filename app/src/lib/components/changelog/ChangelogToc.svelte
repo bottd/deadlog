@@ -6,14 +6,17 @@
 		items: EntityIcon[];
 		onnavigate?: () => void;
 		size?: 'sm' | 'lg';
+		/** id of the section/entity currently in view (for active-section highlight). */
+		activeId?: string;
 	}
 
-	let { heroes, items, onnavigate, size = 'sm' }: Props = $props();
+	let { heroes, items, onnavigate, size = 'sm', activeId = '' }: Props = $props();
 
+	// Must match the id scheme used by EntityHeading/section anchors (no article stripping)
+	// so jump-links resolve and the active-section highlight lines up.
 	function slugify(name: string): string {
 		return name
 			.toLowerCase()
-			.replace(/^(the|a|an)\s+/, '')
 			.replace(/[^a-z0-9]+/g, '-')
 			.replace(/^-+|-+$/g, '');
 	}
@@ -21,7 +24,12 @@
 
 {#snippet tocGroup(href: string, label: string, count: number, entities: EntityIcon[])}
 	<div class={size === 'lg' ? 'pt-3' : 'pt-2'}>
-		<a {href} class="toc-section" onclick={onnavigate}>
+		<a
+			{href}
+			class="toc-section"
+			aria-current={href === `#${activeId}` ? 'location' : undefined}
+			onclick={onnavigate}
+		>
 			<span class="toc-marker" aria-hidden="true"></span>
 			{label}
 			<span
@@ -33,7 +41,12 @@
 		<ul class={size === 'lg' ? 'mt-1 space-y-0.5' : 'mt-0.5 space-y-px'}>
 			{#each entities as entity (entity.id)}
 				<li>
-					<a href="#{slugify(entity.alt)}" class="toc-entity" onclick={onnavigate}>
+					<a
+						href="#{slugify(entity.alt)}"
+						class="toc-entity"
+						aria-current={slugify(entity.alt) === activeId ? 'location' : undefined}
+						onclick={onnavigate}
+					>
 						<img
 							src={entity.src}
 							alt=""
@@ -42,8 +55,8 @@
 							loading="lazy"
 							decoding="async"
 							class={size === 'lg'
-								? 'size-7 rounded object-cover'
-								: 'size-4 rounded object-cover'}
+								? 'size-7 rounded-md object-cover'
+								: 'size-4 rounded-md object-cover'}
 						/>
 						<span class="truncate">{entity.alt}</span>
 					</a>
@@ -57,11 +70,11 @@
 	{#if size === 'sm'}
 		<div class="bg-primary/40 mb-4 h-px w-8" aria-hidden="true"></div>
 
-		<h2
+		<p
 			class="text-muted-foreground mb-4 font-mono text-[10px] font-bold tracking-[0.2em] uppercase"
 		>
 			Contents
-		</h2>
+		</p>
 	{/if}
 
 	<div
@@ -69,7 +82,12 @@
 			? 'border-border/60 space-y-1.5 border-l-2'
 			: 'border-border/60 space-y-1 border-l'}
 	>
-		<a href="#general-changes" class="toc-section" onclick={onnavigate}>
+		<a
+			href="#general-changes"
+			class="toc-section"
+			aria-current={activeId === 'general-changes' ? 'location' : undefined}
+			onclick={onnavigate}
+		>
 			<span class="toc-marker" aria-hidden="true"></span>
 			General
 		</a>
@@ -95,12 +113,21 @@
 		@apply bg-primary/0 absolute top-1/2 left-[-0.5px] h-3 w-px -translate-y-1/2 transition-all duration-200;
 	}
 
-	.toc-section:hover .toc-marker {
+	.toc-section:hover .toc-marker,
+	.toc-section[aria-current] .toc-marker {
 		@apply bg-primary h-4;
+	}
+
+	.toc-section[aria-current] {
+		@apply text-primary;
 	}
 
 	.toc-entity {
 		@apply text-muted-foreground hover:text-foreground hover:bg-muted/50 flex items-center gap-1.5 rounded-sm py-0.5 pl-6 text-xs transition-colors;
+	}
+
+	.toc-entity[aria-current] {
+		@apply text-foreground bg-primary/10;
 	}
 
 	.toc ul {

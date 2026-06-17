@@ -19,10 +19,19 @@ export interface ChangelogEntities {
 	items: string[];
 }
 
+/** A single entity's section within a changelog, with the number of change bullets it contains. */
+export interface EntityChange {
+	name: string;
+	type: 'hero' | 'item';
+	count: number;
+}
+
 export interface ParsedChangelog {
 	filepath: string;
 	slug: string;
 	metadata: ChangelogMetadata;
 	entities: ChangelogEntities;
+	/** Per-entity change-bullet counts derived from the entity sections. */
+	entityChanges: EntityChange[];
 	plainText: string;
 }

@@ -144,10 +144,19 @@ export async function buildDatabaseFromNorg(
 	let heroMatches = 0;
 	let itemMatches = 0;
 
-	for (const { metadata, entities, slug, plainText } of changelogs) {
+	for (const { metadata, entities, entityChanges, slug, plainText } of changelogs) {
 		const dateOnly = metadata.published.split('T')[0];
 		const isMajorUpdate = bigDayDates.has(dateOnly) || metadata.major_update;
 		const changelogId = metadata.thread_id ?? metadata.steam_gid ?? slug;
+
+		// Per-entity change-bullet counts, keyed by normalized name.
+		const heroCounts = new Map<string, number>();
+		const itemCounts = new Map<string, number>();
+		for (const ec of entityChanges) {
+			const target = ec.type === 'hero' ? heroCounts : itemCounts;
+			const key = normalizeEntityName(ec.name);
+			target.set(key, (target.get(key) ?? 0) + ec.count);
+		}
 
 		await db
 			.insert(schema.changelogs)
@@ -173,7 +182,8 @@ export async function buildDatabaseFromNorg(
 					.values(
 						insertChangelogHeroSchema.parse({
 							changelogId,
-							heroId
+							heroId,
+							changeCount: heroCounts.get(normalizeEntityName(heroName)) ?? 1
 						})
 					)
 					.onConflictDoNothing();
@@ -189,7 +199,8 @@ export async function buildDatabaseFromNorg(
 					.values(
 						insertChangelogItemSchema.parse({
 							changelogId,
-							itemId
+							itemId,
+							changeCount: itemCounts.get(normalizeEntityName(itemName)) ?? 1
 						})
 					)
 					.onConflictDoNothing();
@@ -301,6 +312,7 @@ async function createTables(db: ReturnType<typeof drizzle>) {
 		CREATE TABLE IF NOT EXISTS changelog_heroes (
 			changelog_id TEXT NOT NULL REFERENCES changelogs(id),
 			hero_id INTEGER NOT NULL REFERENCES heroes(id),
+			change_count INTEGER NOT NULL DEFAULT 0,
 			PRIMARY KEY (changelog_id, hero_id)
 		)
 	`);
@@ -309,6 +321,7 @@ async function createTables(db: ReturnType<typeof drizzle>) {
 		CREATE TABLE IF NOT EXISTS changelog_items (
 			changelog_id TEXT NOT NULL REFERENCES changelogs(id),
 			item_id INTEGER NOT NULL REFERENCES items(id),
+			change_count INTEGER NOT NULL DEFAULT 0,
 			PRIMARY KEY (changelog_id, item_id)
 		)
 	`);

@@ -8,6 +8,9 @@
 	import { CornerAccents } from '$lib/components/ui/corner-accents';
 	import { scale, fly } from 'svelte/transition';
 	import { quintOut, backOut } from 'svelte/easing';
+	import SlidersHorizontal from '@lucide/svelte/icons/sliders-horizontal';
+	import EntityTooltip from './EntityTooltip.svelte';
+	import { getSearchParams } from '$lib/stores/searchParams.svelte';
 
 	interface Props {
 		id: string;
@@ -51,12 +54,21 @@
 	);
 
 	const initials = $derived(author.slice(0, 2).toUpperCase());
+
+	const params = getSearchParams();
+	function filterByEntity(icon: EntityIcon) {
+		if (icon.type === 'hero') {
+			params.update({ hero: [...new Set([...params.hero, icon.alt])] });
+		} else {
+			params.update({ item: [...new Set([...params.item, icon.alt])] });
+		}
+	}
 </script>
 
 {#if isLatest}
 	<a href="/change/{id}" class="clip-corner-lg group relative col-span-full mb-8 block">
 		<div
-			class="border-primary/40 hover:border-primary/70 bg-card card-glow relative flex flex-col overflow-hidden border-2 transition-all duration-200 hover:shadow-2xl active:scale-[0.99] md:flex-row md:items-stretch"
+			class="border-primary/40 hover:border-primary/70 bg-card card-glow relative flex flex-col overflow-hidden border-2 transition-all duration-200 hover:shadow-2xl active:scale-[0.99]"
 		>
 			<div
 				class="from-primary/0 via-primary/8 to-primary/0 pointer-events-none absolute inset-0 bg-gradient-to-r opacity-0 transition-opacity duration-200 group-hover:opacity-100"
@@ -85,12 +97,12 @@
 					<div class="bg-primary/20 h-px flex-1"></div>
 				</div>
 
-				<h3
+				<h2
 					class="font-display text-foreground group-hover:text-primary heading-glow text-3xl font-medium tracking-wide transition-colors duration-300 md:text-4xl"
 					in:fly={{ y: 20, duration: 400, delay: 100 }}
 				>
 					{formatDate(date)}
-				</h3>
+				</h2>
 
 				<div class="flex items-center gap-3">
 					<Avatar.Root
@@ -109,26 +121,37 @@
 						{#each rows as row (row.type)}
 							<div class="flex items-center gap-3">
 								<span
-									class="text-muted-foreground w-14 font-mono text-xs tracking-wider uppercase"
+									class="text-muted-foreground w-14 shrink-0 font-mono text-xs tracking-wider uppercase"
 									>{row.label}</span
 								>
-								<div class="flex -space-x-2">
+								<div
+									class="flex flex-wrap items-center gap-x-1 gap-y-1.5 sm:flex-nowrap sm:gap-0 sm:-space-x-2"
+								>
 									{#each row.list as icon, i (icon.id)}
-										<img
-											src={icon.src}
-											alt={icon.alt}
-											width="40"
-											height="40"
-											loading="lazy"
-											decoding="async"
-											class="border-primary/20 bg-card hover:border-primary size-9 rounded-lg border-2 object-cover shadow-md transition-all duration-300 hover:z-20 hover:-translate-y-1 hover:scale-110"
-											in:scale={{
-												start: 0,
-												duration: 400,
-												delay: 100 + (row.offset + i) * 40,
-												easing: backOut
-											}}
-										/>
+										<EntityTooltip
+											name={icon.alt}
+											imageSrc={icon.src}
+											type={icon.type}
+											heroType={icon.heroType}
+											itemCategory={icon.itemCategory}
+											onSelect={() => filterByEntity(icon)}
+										>
+											<img
+												src={icon.src}
+												alt={icon.alt}
+												width="40"
+												height="40"
+												loading="lazy"
+												decoding="async"
+												class="border-primary/20 bg-card hover:border-primary size-9 rounded-md border-2 object-cover shadow-md transition-all duration-300 hover:z-20 hover:-translate-y-1 hover:scale-110"
+												in:scale={{
+													start: 0,
+													duration: 400,
+													delay: 100 + (row.offset + i) * 40,
+													easing: backOut
+												}}
+											/>
+										</EntityTooltip>
 									{/each}
 								</div>
 								{#if row.extra > 0}
@@ -152,11 +175,11 @@
 			</div>
 
 			<div
-				class="bg-primary/5 group-hover:bg-primary/10 border-primary/20 relative z-10 flex shrink-0 items-center justify-center border-t p-6 transition-colors duration-300 md:w-56 md:border-t-0 md:border-l md:p-8"
+				class="bg-primary/5 group-hover:bg-primary/10 border-primary/20 relative z-10 flex shrink-0 items-center justify-center border-t p-4 transition-colors duration-300"
 			>
-				<div class="flex flex-col items-center gap-3 text-center">
+				<div class="flex flex-row items-center justify-center gap-3 text-center">
 					<div
-						class="bg-primary text-primary-foreground pulse-glow flex size-14 items-center justify-center rounded-xl transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl"
+						class="bg-primary text-primary-foreground flex size-11 items-center justify-center rounded-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl"
 					>
 						<ArrowRight
 							class="size-6 transition-transform duration-300 group-hover:translate-x-1"
@@ -197,11 +220,11 @@
 					<Calendar
 						class="text-muted-foreground group-hover:text-primary size-3.5 shrink-0 transition-colors duration-300"
 					/>
-					<h3
+					<h2
 						class="text-foreground group-hover:text-primary truncate text-base font-semibold tracking-tight transition-colors duration-300"
 					>
 						{formatDate(date)}
-					</h3>
+					</h2>
 				</div>
 				<div class="text-muted-foreground flex items-center gap-2 text-xs">
 					<Avatar.Root
@@ -220,21 +243,30 @@
 				<div class="flex items-center gap-1.5">
 					<div class="flex -space-x-1.5">
 						{#each row.list as icon, i (icon.id)}
-							<img
-								src={icon.src}
-								alt={icon.alt}
-								width="28"
-								height="28"
-								loading="lazy"
-								decoding="async"
-								class="border-border/80 bg-card hover:border-primary/50 size-7 rounded-md border object-cover shadow-sm transition-all duration-200 hover:z-20 hover:-translate-y-0.5 hover:scale-110"
-								in:scale={{
-									start: 0,
-									duration: 250,
-									delay: 100 + (row.offset + i) * 40,
-									easing: quintOut
-								}}
-							/>
+							<EntityTooltip
+								name={icon.alt}
+								imageSrc={icon.src}
+								type={icon.type}
+								heroType={icon.heroType}
+								itemCategory={icon.itemCategory}
+								onSelect={() => filterByEntity(icon)}
+							>
+								<img
+									src={icon.src}
+									alt={icon.alt}
+									width="28"
+									height="28"
+									loading="lazy"
+									decoding="async"
+									class="border-border/80 bg-card hover:border-primary/50 size-7 rounded-md border object-cover shadow-sm transition-all duration-200 hover:z-20 hover:-translate-y-0.5 hover:scale-110"
+									in:scale={{
+										start: 0,
+										duration: 250,
+										delay: 100 + (row.offset + i) * 40,
+										easing: quintOut
+									}}
+								/>
+							</EntityTooltip>
 						{/each}
 					</div>
 					{#if row.extra > 0}
@@ -245,6 +277,13 @@
 					{/if}
 				</div>
 			{/each}
+
+			{#if rows.length === 0}
+				<div class="text-muted-foreground flex items-center gap-2 text-xs">
+					<SlidersHorizontal class="size-3.5 shrink-0" />
+					<span>General &amp; systemic changes</span>
+				</div>
+			{/if}
 
 			<div class="border-border/50 mt-auto flex items-center gap-3 border-t pt-3 text-xs">
 				{#each counts as c (c.s)}

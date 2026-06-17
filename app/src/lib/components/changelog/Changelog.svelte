@@ -36,6 +36,7 @@
 </script>
 
 <main class="container mx-auto mt-8 mb-24 px-4" aria-label="Changelog entries">
+	<h1 class="sr-only">Deadlock patch notes &amp; balance changelog</h1>
 	{#if query.isError}
 		<div
 			class="clip-corner bg-card border-destructive/30 relative overflow-hidden border-2 p-12 text-center"
@@ -47,9 +48,9 @@
 			>
 				<AlertCircle class="text-destructive size-10" />
 			</div>
-			<h3 class="text-foreground font-display mb-3 text-2xl font-medium tracking-wide">
+			<h2 class="text-foreground font-display mb-3 text-2xl font-medium tracking-wide">
 				Connection Failed
-			</h3>
+			</h2>
 			<p
 				class="text-muted-foreground mx-auto mb-2 font-mono text-xs tracking-wide uppercase"
 			>
@@ -132,17 +133,18 @@
 				<p class="text-muted-foreground mb-2 font-mono text-xs tracking-wide uppercase">
 					No Results
 				</p>
-				<h3 class="text-foreground font-display mb-3 text-2xl font-medium tracking-wide">
-					No changes found
-				</h3>
+				<h2 class="text-foreground font-display mb-3 text-2xl font-medium tracking-wide">
+					No patches match those filters
+				</h2>
 				<p class="text-muted-foreground mx-auto mb-8 max-w-md">
-					No changelog entries match your filters.
+					Try a different hero, item, or keyword — or clear your filters to see
+					everything.
 				</p>
 				<button
 					onclick={() => params.reset()}
 					class="clip-corner-sm bg-primary/10 text-primary hover:bg-primary/20 border-primary/30 border px-6 py-3 font-mono text-sm font-semibold transition-all hover:scale-105"
 				>
-					Clear Filters
+					Clear all filters
 				</button>
 			</div>
 		{/if}

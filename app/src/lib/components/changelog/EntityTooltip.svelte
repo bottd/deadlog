@@ -4,6 +4,7 @@
 	import type { BadgeVariant } from '$lib/components/ui/badge/badge.svelte';
 	import type { Snippet } from 'svelte';
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
+	import FilterIcon from '@lucide/svelte/icons/filter';
 	import { toSlug } from '@deadlog/utils';
 
 	interface Props {
@@ -60,12 +61,17 @@
 </script>
 
 <HoverCard.Root>
-	<HoverCard.Trigger
-		onclick={onSelect}
-		class="cursor-pointer transition-all duration-200 hover:scale-105"
-		aria-label="Filter by {name}"
-	>
-		{@render children()}
+	<HoverCard.Trigger>
+		{#snippet child({ props })}
+			<!-- Rendered as a span (not the default anchor) so it is valid when nested
+			     inside a clickable card link; hover still opens the preview. -->
+			<span
+				{...props}
+				class="inline-flex cursor-pointer align-middle transition-transform duration-200 hover:scale-105"
+			>
+				{@render children()}
+			</span>
+		{/snippet}
 	</HoverCard.Trigger>
 	<HoverCard.Content class="border-border/60 shadow-primary/5 w-72 shadow-xl">
 		<div class="flex gap-4">
@@ -74,8 +80,8 @@
 					<div class="bg-primary/10 absolute inset-0 rounded-lg blur-sm"></div>
 					<img
 						src={imageSrc}
-						alt={name}
-						class="border-primary/30 bg-card hover:border-primary/50 relative size-14 rounded-lg border-2 object-cover shadow-md transition-all duration-300 hover:scale-105"
+						alt=""
+						class="border-primary/30 bg-card relative size-14 rounded-md border-2 object-cover shadow-md"
 					/>
 				</div>
 			{/if}
@@ -86,9 +92,6 @@
 						<Badge variant={badgeVariant}>{badgeLabel}</Badge>
 					{/if}
 				</div>
-				<p class="text-muted-foreground text-xs tracking-tight">
-					Click to filter by {type}
-				</p>
 				<a
 					href={entityUrl}
 					class="text-primary hover:text-primary/80 mt-1 flex items-center gap-1 text-xs font-medium transition-colors"
@@ -96,6 +99,16 @@
 					View all changes
 					<ArrowRight class="size-3" />
 				</a>
+				{#if onSelect}
+					<button
+						type="button"
+						onclick={onSelect}
+						class="text-muted-foreground hover:text-foreground hover:border-primary/40 border-border/60 mt-0.5 flex w-fit items-center gap-1.5 rounded-sm border px-2 py-1 text-xs font-medium transition-colors"
+					>
+						<FilterIcon class="size-3" />
+						Filter by {name}
+					</button>
+				{/if}
 			</div>
 		</div>
 	</HoverCard.Content>

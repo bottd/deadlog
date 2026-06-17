@@ -384,9 +384,10 @@ a.clip-corner-lg:focus-visible::after {
 		0 0 50px -15px oklch(from var(--primary) l c h / 0.15);
 }
 
-/* Heading glow for dark mode */
+/* Heading glow for dark mode — defaults to the primary accent, but callers can
+   override the hue (e.g. per-archetype entity pages) via --heading-glow-color. */
 .dark .heading-glow {
-	text-shadow: 0 0 30px oklch(from var(--primary) l c h / 0.3);
+	text-shadow: 0 0 30px oklch(from var(--heading-glow-color, var(--primary)) l c h / 0.3);
 }
 
 /* Page entrance animations */

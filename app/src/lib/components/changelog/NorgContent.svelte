@@ -14,14 +14,70 @@
 
 	untrack(() => setEntityMaps({ heroMap, itemMap, abilityMap }));
 
+	function slugify(text: string): string {
+		return text
+			.toLowerCase()
+			.replace(/[^a-z0-9]+/g, '-')
+			.replace(/^-+|-+$/g, '');
+	}
+
+	// A numeric value token: optional sign, leading digit, then digits/units/slashes.
+	const VALUE = String.raw`[+\-]?\d[\w%./-]*`;
+	const DELTA_RE = new RegExp(`\\bfrom:?\\s+(${VALUE})\\s+to\\s+(${VALUE})`, 'gi');
+
+	function escapeHtml(s: string): string {
+		return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+	}
+
+	function numberOf(token: string): number | null {
+		if (token.includes('/')) return null; // arrays like 20/15/10 — ambiguous
+		const m = token.match(/-?\d+(?:\.\d+)?/);
+		if (!m) return null;
+		const n = /^\+/.test(token) ? Math.abs(parseFloat(m[0])) : parseFloat(m[0]);
+		return Number.isNaN(n) ? null : n;
+	}
+
+	function unitOf(token: string): string {
+		const m = token.match(/[%a-zA-Z]+$/);
+		return m ? m[0].toLowerCase() : '';
+	}
+
+	// Direction of the numeric change. Only colour when both sides share a unit
+	// and parse cleanly; otherwise stay neutral (graceful degrade on ambiguous lines).
+	function directionClass(a: string, b: string): string {
+		const na = numberOf(a);
+		const nb = numberOf(b);
+		if (na === null || nb === null || unitOf(a) !== unitOf(b)) return 'nd-flat';
+		if (nb > na) return 'nd-up';
+		if (nb < na) return 'nd-down';
+		return 'nd-flat';
+	}
+
+	function styleDeltas(text: string): string | null {
+		let changed = false;
+		const html = escapeHtml(text).replace(DELTA_RE, (_full, a: string, b: string) => {
+			changed = true;
+			const dir = directionClass(a, b);
+			return `from <span class="norg-delta ${dir}"><span class="nd-from">${a}</span><span class="nd-arrow" aria-hidden="true">→</span><span class="sr-only"> to </span><span class="nd-to">${b}</span></span>`;
+		});
+		return changed ? html : null;
+	}
+
 	function enhanceContent(node: HTMLElement) {
+		// Section headings (norg '*' compiles to <h1>): give an anchor id and
+		// re-level to 2 for the document outline (the page <h1> is the patch date).
 		for (const heading of node.querySelectorAll('h1, h2')) {
-			if (!heading.id && heading.textContent) {
-				heading.id = heading.textContent
-					.toLowerCase()
-					.replace(/[^a-z0-9]+/g, '-')
-					.replace(/^-+|-+$/g, '');
+			if (!heading.id && heading.textContent) heading.id = slugify(heading.textContent);
+			if (heading.tagName === 'H1') {
+				heading.setAttribute('role', 'heading');
+				heading.setAttribute('aria-level', '2');
 			}
+		}
+		// Emphasise "from A to B" balance deltas on plain-text bullets (buffs vs nerfs).
+		for (const li of node.querySelectorAll('li')) {
+			if (li.children.length > 0) continue; // skip bullets with inline markup/links
+			const styled = styleDeltas(li.textContent ?? '');
+			if (styled !== null) li.innerHTML = styled;
 		}
 	}
 </script>
@@ -106,6 +162,27 @@
 
 		:global(li) {
 			@apply text-foreground/90 relative max-w-[68ch] leading-relaxed;
+		}
+
+		/* Balance deltas — "from A to B" gets mono tabular figures with a
+		   direction-coded delta (value up = green, value down = red). */
+		:global(.norg-delta) {
+			@apply font-mono tabular-nums;
+		}
+		:global(.norg-delta .nd-from) {
+			@apply text-muted-foreground font-normal;
+		}
+		:global(.norg-delta .nd-arrow) {
+			@apply mx-1;
+		}
+		:global(.norg-delta .nd-to) {
+			@apply font-semibold;
+		}
+		:global(.norg-delta.nd-up) {
+			color: var(--item-vitality);
+		}
+		:global(.norg-delta.nd-down) {
+			color: var(--destructive);
 		}
 
 		/* Custom bullet markers */

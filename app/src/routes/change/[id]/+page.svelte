@@ -33,6 +33,32 @@
 
 	const heroCount = $derived(changelog.icons?.heroes.length ?? 0);
 	const itemCount = $derived(changelog.icons?.items.length ?? 0);
+
+	// Highlight the table-of-contents entry for the section currently in view.
+	let activeId = $state('');
+
+	function scrollSpy(node: HTMLElement) {
+		let observer: IntersectionObserver | undefined;
+		const frame = requestAnimationFrame(() => {
+			const targets = node.querySelectorAll('h1[id], h2[id], header.entity-heading[id]');
+			if (targets.length === 0) return;
+			observer = new IntersectionObserver(
+				(entries) => {
+					for (const entry of entries) {
+						if (entry.isIntersecting) activeId = (entry.target as HTMLElement).id;
+					}
+				},
+				{ rootMargin: '-15% 0px -75% 0px' }
+			);
+			for (const target of targets) observer.observe(target);
+		});
+		return {
+			destroy() {
+				cancelAnimationFrame(frame);
+				observer?.disconnect();
+			}
+		};
+	}
 </script>
 
 {#snippet stat(count: number, label: string)}
@@ -75,13 +101,18 @@
 		{#if NorgComponent && changelog.icons}
 			<aside class="hidden w-56 shrink-0 xl:block">
 				<div class="sticky top-[12rem]">
-					<ChangelogToc heroes={changelog.icons.heroes} items={changelog.icons.items} />
+					<ChangelogToc
+						heroes={changelog.icons.heroes}
+						items={changelog.icons.items}
+						{activeId}
+					/>
 				</div>
 			</aside>
 		{/if}
 
 		<article
 			class="clip-corner bg-card border-border relative min-w-0 flex-1 overflow-hidden border"
+			use:scrollSpy
 		>
 			<CornerAccents tlSize="2rem" brSize="1.25rem" />
 			<div
@@ -195,6 +226,7 @@
 					items={changelog.icons.items}
 					onnavigate={() => (tocOpen = false)}
 					size="lg"
+					{activeId}
 				/>
 			</div>
 		</Sheet.Content>
