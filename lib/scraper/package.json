@@ -10,7 +10,7 @@
 		"@deadlog/changelog": "workspace:*",
 		"@deadlog/db": "workspace:*",
 		"@deadlog/utils": "workspace:*",
-		"deadlock-api-client": "github:deadlock-api/openapi-clients#path:typescript/api"
+		"deadlock-api-client": "github:deadlock-api/openapi-clients#path:typescript"
 	},
 	"devDependencies": {
 		"@types/node": "24.12.0",
