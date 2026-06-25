@@ -6,7 +6,6 @@
 	import * as Tooltip from '$lib/components/ui/tooltip';
 	import { QueryClient, QueryClientProvider } from '@tanstack/svelte-query';
 	import { browser } from '$app/environment';
-	import { setSearchParams } from '$lib/stores/searchParams.svelte';
 
 	const queryClient = new QueryClient({
 		defaultOptions: {
@@ -21,8 +20,6 @@
 			}
 		}
 	});
-
-	setSearchParams();
 
 	let { children } = $props();
 </script>

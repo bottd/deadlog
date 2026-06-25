@@ -8,25 +8,90 @@
 		heroMap?: EntityMaps['heroMap'];
 		itemMap?: EntityMaps['itemMap'];
 		abilityMap?: EntityMaps['abilityMap'];
+		filter?: { heroes: string[]; items: string[] };
 	}
 
-	let { content: Content, heroMap = {}, itemMap = {}, abilityMap = {} }: Props = $props();
+	let {
+		content: Content,
+		heroMap = {},
+		itemMap = {},
+		abilityMap = {},
+		filter
+	}: Props = $props();
 
 	untrack(() => setEntityMaps({ heroMap, itemMap, abilityMap }));
+
+	let sectionEl = $state<HTMLElement>();
+
+	function slug(name: string): string {
+		return name
+			.toLowerCase()
+			.replace(/[^a-z0-9]+/g, '-')
+			.replace(/^-+|-+$/g, '');
+	}
+
+	const selectedSlugs = $derived(
+		new Set([...(filter?.heroes ?? []), ...(filter?.items ?? [])].map(slug))
+	);
+
+	// the patch body is a prerendered component — filter by toggling block display
+	$effect(() => {
+		if (sectionEl) applyEntityFilter(sectionEl, selectedSlugs);
+	});
 
 	function enhanceContent(node: HTMLElement) {
 		for (const heading of node.querySelectorAll('h1, h2')) {
 			if (!heading.id && heading.textContent) {
-				heading.id = heading.textContent
-					.toLowerCase()
-					.replace(/[^a-z0-9]+/g, '-')
-					.replace(/^-+|-+$/g, '');
+				heading.id = slug(heading.textContent);
+			}
+		}
+	}
+
+	function sectionOf(h1: HTMLElement): 'general' | 'hero' | 'item' {
+		const id = h1.id || slug(h1.textContent ?? '');
+		if (id.includes('hero')) return 'hero';
+		if (id.includes('item')) return 'item';
+		return 'general';
+	}
+
+	function applyEntityFilter(root: HTMLElement, selected: Set<string>) {
+		const children = Array.from(root.children) as HTMLElement[];
+		for (const el of children) el.style.removeProperty('display');
+		if (selected.size === 0) return;
+
+		// which top-level sections contain at least one selected entity
+		const matched: Record<string, boolean> = {};
+		let sec: 'general' | 'hero' | 'item' = 'general';
+		for (const el of children) {
+			if (el.tagName === 'H1') sec = sectionOf(el);
+			else if (el.classList.contains('entity-heading') && selected.has(el.id))
+				matched[sec] = true;
+		}
+
+		// a heading owns its siblings until the next heading; hide general changes,
+		// empty sections, and non-selected entities
+		let mode: 'show' | 'hide' = 'hide';
+		for (const el of children) {
+			if (el.tagName === 'H1') {
+				sec = sectionOf(el);
+				el.style.display = sec !== 'general' && matched[sec] ? '' : 'none';
+				mode = 'hide';
+			} else if (el.classList.contains('entity-heading')) {
+				mode = selected.has(el.id) ? 'show' : 'hide';
+				el.style.display = mode === 'show' ? '' : 'none';
+			} else {
+				el.style.display = mode === 'show' ? '' : 'none';
 			}
 		}
 	}
 </script>
 
-<section class="norg-content" aria-label="Changelog details" use:enhanceContent>
+<section
+	class="norg-content"
+	aria-label="Changelog details"
+	bind:this={sectionEl}
+	use:enhanceContent
+>
 	<Content />
 </section>
 

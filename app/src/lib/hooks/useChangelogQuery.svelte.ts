@@ -1,7 +1,7 @@
 import { createInfiniteQuery } from '@tanstack/svelte-query';
 import { useIntersectionObserver } from 'runed';
 import type { ChangelogEntry } from '$lib/types';
-import { getSearchParams } from '$lib/stores/searchParams.svelte';
+import { searchParams as params } from '$lib/stores/searchParams.svelte';
 import { queryKeys } from '$lib/queries/keys';
 
 interface PageData {
@@ -23,7 +23,6 @@ interface UseChangelogQueryOptions {
 const PAGE_SIZE = 12;
 
 export function useChangelogQuery(options: UseChangelogQueryOptions) {
-	const params = getSearchParams();
 	let trigger = $state<HTMLDivElement | null>(null);
 
 	const query = createInfiniteQuery<

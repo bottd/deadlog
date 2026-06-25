@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { EntityIcon } from '$lib/types';
-	import { getSearchParams } from '$lib/stores/searchParams.svelte';
+	import { searchParams as params } from '$lib/stores/searchParams.svelte';
 	import EntityTooltip from './EntityTooltip.svelte';
 
 	interface Props {
@@ -8,7 +8,6 @@
 	}
 
 	let { entities }: Props = $props();
-	const params = getSearchParams();
 	const maxIconsPerRow = 9;
 
 	const overlap = $derived.by(() => {

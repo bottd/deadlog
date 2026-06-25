@@ -1,5 +1,5 @@
 import { sqliteTable, text, integer, primaryKey, index } from 'drizzle-orm/sqlite-core';
-import { createInsertSchema, createSelectSchema } from 'drizzle-zod';
+import { createInsertSchema } from 'drizzle-zod';
 import { z } from 'zod';
 
 export const changelogs = sqliteTable('changelogs', {
@@ -15,11 +15,7 @@ export const changelogs = sqliteTable('changelogs', {
 	contentText: text('content_text')
 });
 
-export type InsertChangelog = z.infer<typeof insertChangelogSchema>;
-export const insertChangelogSchema = createInsertSchema(changelogs);
-
-export type SelectChangelog = z.infer<typeof selectChangelogSchema>;
-export const selectChangelogSchema = createSelectSchema(changelogs);
+export type SelectChangelog = typeof changelogs.$inferSelect;
 
 export const heroes = sqliteTable('heroes', {
 	id: integer('id').primaryKey(),
@@ -31,13 +27,7 @@ export const heroes = sqliteTable('heroes', {
 	isReleased: integer('is_released', { mode: 'boolean' }).notNull().default(true)
 });
 
-export type InsertHero = z.infer<typeof insertHeroSchema>;
 export const insertHeroSchema = createInsertSchema(heroes, {
-	images: z.record(z.string(), z.string())
-});
-
-export type SelectHero = z.infer<typeof selectHeroSchema>;
-export const selectHeroSchema = createSelectSchema(heroes, {
 	images: z.record(z.string(), z.string())
 });
 
@@ -51,15 +41,8 @@ export const items = sqliteTable('items', {
 	isReleased: integer('is_released', { mode: 'boolean' }).notNull().default(false)
 });
 
-export type InsertItem = z.infer<typeof insertItemSchema>;
 export const insertItemSchema = createInsertSchema(items, {
 	image: z.string().min(1, 'Image URL must be provided'),
-	type: z.enum(['weapon', 'ability', 'upgrade'])
-});
-
-export type SelectItem = z.infer<typeof selectItemSchema>;
-export const selectItemSchema = createSelectSchema(items, {
-	image: z.string(),
 	type: z.enum(['weapon', 'ability', 'upgrade'])
 });
 
@@ -67,12 +50,6 @@ export const metadata = sqliteTable('metadata', {
 	key: text('key').primaryKey(),
 	value: text('value')
 });
-
-export type InsertMetadata = z.infer<typeof insertMetadataSchema>;
-export const insertMetadataSchema = createInsertSchema(metadata);
-
-export type SelectMetadata = z.infer<typeof selectMetadataSchema>;
-export const selectMetadataSchema = createSelectSchema(metadata);
 
 export const changelogHeroes = sqliteTable(
 	'changelog_heroes',
@@ -91,9 +68,6 @@ export const changelogHeroes = sqliteTable(
 );
 
 export const insertChangelogHeroSchema = createInsertSchema(changelogHeroes);
-export const selectChangelogHeroSchema = createSelectSchema(changelogHeroes);
-export type InsertChangelogHero = z.infer<typeof insertChangelogHeroSchema>;
-export type SelectChangelogHero = z.infer<typeof selectChangelogHeroSchema>;
 
 export const changelogItems = sqliteTable(
 	'changelog_items',
@@ -112,6 +86,3 @@ export const changelogItems = sqliteTable(
 );
 
 export const insertChangelogItemSchema = createInsertSchema(changelogItems);
-export const selectChangelogItemSchema = createSelectSchema(changelogItems);
-export type InsertChangelogItem = z.infer<typeof insertChangelogItemSchema>;
-export type SelectChangelogItem = z.infer<typeof selectChangelogItemSchema>;

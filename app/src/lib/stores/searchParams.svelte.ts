@@ -1,12 +1,8 @@
 import { page } from '$app/state';
 import { goto } from '$app/navigation';
 import { building } from '$app/environment';
-import { getContext, hasContext, setContext } from 'svelte';
 import { parseCSV, toCSV } from '$lib/utils/csv';
 
-export { parseCSV } from '$lib/utils/csv';
-
-const SEARCH_PARAMS_KEY = Symbol('searchParams');
 const GOTO_OPTS = { replaceState: false, keepFocus: true, noScroll: true } as const;
 
 type ParamValues = Partial<{ hero: string[]; item: string[]; change: number; q: string }>;
@@ -69,17 +65,6 @@ class SearchParamsStore {
 	}
 }
 
-export function setSearchParams() {
-	const instance = new SearchParamsStore();
-	setContext(SEARCH_PARAMS_KEY, instance);
-	return instance;
-}
-
-export function getSearchParams(): SearchParamsStore {
-	if (!hasContext(SEARCH_PARAMS_KEY)) {
-		throw new Error(
-			'Search params not initialized. Call setSearchParams() in a parent component.'
-		);
-	}
-	return getContext(SEARCH_PARAMS_KEY);
-}
+// Stateless singleton — every getter reads the reactive page.url, so no per-tree
+// context is needed. Import { searchParams } anywhere.
+export const searchParams = new SearchParamsStore();

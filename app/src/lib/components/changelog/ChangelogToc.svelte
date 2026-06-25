@@ -6,9 +6,10 @@
 		items: EntityIcon[];
 		onnavigate?: () => void;
 		size?: 'sm' | 'lg';
+		hideGeneral?: boolean;
 	}
 
-	let { heroes, items, onnavigate, size = 'sm' }: Props = $props();
+	let { heroes, items, onnavigate, size = 'sm', hideGeneral = false }: Props = $props();
 
 	function slugify(name: string): string {
 		return name
@@ -69,10 +70,12 @@
 			? 'border-border/60 space-y-1.5 border-l-2'
 			: 'border-border/60 space-y-1 border-l'}
 	>
-		<a href="#general-changes" class="toc-section" onclick={onnavigate}>
-			<span class="toc-marker" aria-hidden="true"></span>
-			General
-		</a>
+		{#if !hideGeneral}
+			<a href="#general-changes" class="toc-section" onclick={onnavigate}>
+				<span class="toc-marker" aria-hidden="true"></span>
+				General
+			</a>
+		{/if}
 
 		{#if heroes.length > 0}
 			{@render tocGroup('#hero-changes', 'Heroes', heroes.length, heroes)}

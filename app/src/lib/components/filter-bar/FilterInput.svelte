@@ -10,15 +10,13 @@
 	import FilterBadge from './FilterBadge.svelte';
 	import EntityItem from './EntityItem.svelte';
 	import type { EnrichedHero, EnrichedItem } from '$lib/types';
-	import { getSearchParams } from '$lib/stores/searchParams.svelte';
+	import { searchParams as params } from '$lib/stores/searchParams.svelte';
 	import {
 		getSelectedHeroObjects,
 		getSelectedItemObjects
 	} from '$lib/utils/selectedEntities.svelte';
 	import { getHeroImage, getItemImage } from '$lib/utils/entityImages';
 	import { FilterState } from './filterState.svelte';
-
-	const params = getSearchParams();
 
 	const selectedHeroObjects = $derived(getSelectedHeroObjects());
 	const selectedItemObjects = $derived(getSelectedItemObjects());
