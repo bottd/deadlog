@@ -8,9 +8,17 @@
 		size?: 'sm' | 'lg';
 		/** id of the section/entity currently in view (for active-section highlight). */
 		activeId?: string;
+		hideGeneral?: boolean;
 	}
 
-	let { heroes, items, onnavigate, size = 'sm', activeId = '' }: Props = $props();
+	let {
+		heroes,
+		items,
+		onnavigate,
+		size = 'sm',
+		activeId = '',
+		hideGeneral = false
+	}: Props = $props();
 
 	// Must match the id scheme used by EntityHeading/section anchors (no article stripping)
 	// so jump-links resolve and the active-section highlight lines up.
@@ -82,15 +90,17 @@
 			? 'border-border/60 space-y-1.5 border-l-2'
 			: 'border-border/60 space-y-1 border-l'}
 	>
-		<a
-			href="#general-changes"
-			class="toc-section"
-			aria-current={activeId === 'general-changes' ? 'location' : undefined}
-			onclick={onnavigate}
-		>
-			<span class="toc-marker" aria-hidden="true"></span>
-			General
-		</a>
+		{#if !hideGeneral}
+			<a
+				href="#general-changes"
+				class="toc-section"
+				aria-current={activeId === 'general-changes' ? 'location' : undefined}
+				onclick={onnavigate}
+			>
+				<span class="toc-marker" aria-hidden="true"></span>
+				General
+			</a>
+		{/if}
 
 		{#if heroes.length > 0}
 			{@render tocGroup('#hero-changes', 'Heroes', heroes.length, heroes)}

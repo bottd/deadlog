@@ -1,4 +1,4 @@
-import { getSearchParams } from '$lib/stores/searchParams.svelte';
+import { searchParams } from '$lib/stores/searchParams.svelte';
 import type { EnrichedHero, EnrichedItem } from '$lib/types';
 import { toggleArray } from '$lib/utils/toggle';
 
@@ -12,7 +12,7 @@ export class FilterState {
 	filterMode = $state<FilterMode>('all');
 	inputValue = $state('');
 
-	#params = getSearchParams();
+	#params = searchParams;
 	#getHeroes: () => EnrichedHero[];
 	#getItems: () => EnrichedItem[];
 

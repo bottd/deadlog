@@ -16,6 +16,7 @@ export interface ChangelogEntry {
 	date: Date;
 	author: string;
 	authorImage?: string;
+	summary?: string;
 	icons?: {
 		heroes: EntityIcon[];
 		items: EntityIcon[];

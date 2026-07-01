@@ -6,11 +6,11 @@
 	import Zap from '@lucide/svelte/icons/zap';
 	import Calendar from '@lucide/svelte/icons/calendar';
 	import { CornerAccents } from '$lib/components/ui/corner-accents';
+	import { searchParams as params } from '$lib/stores/searchParams.svelte';
 	import { scale, fly } from 'svelte/transition';
 	import { quintOut, backOut } from 'svelte/easing';
 	import SlidersHorizontal from '@lucide/svelte/icons/sliders-horizontal';
 	import EntityTooltip from './EntityTooltip.svelte';
-	import { getSearchParams } from '$lib/stores/searchParams.svelte';
 
 	interface Props {
 		id: string;
@@ -18,10 +18,28 @@
 		author: string;
 		authorImage?: string;
 		icons?: { heroes: EntityIcon[]; items: EntityIcon[] };
+		summary?: string;
+		majorUpdate?: boolean;
+		isNew?: boolean;
 		isLatest?: boolean;
 	}
 
-	let { id, date, author, authorImage, icons, isLatest = false }: Props = $props();
+	let {
+		id,
+		date,
+		author,
+		authorImage,
+		icons,
+		summary,
+		majorUpdate = false,
+		isNew = false,
+		isLatest = false
+	}: Props = $props();
+
+	const href = $derived.by(() => {
+		const qs = params.toURLSearchParams().toString();
+		return qs ? `/change/${id}?${qs}` : `/change/${id}`;
+	});
 
 	const max = $derived(isLatest ? 14 : 6);
 	const heroes = $derived(icons?.heroes ?? []);
@@ -55,7 +73,6 @@
 
 	const initials = $derived(author.slice(0, 2).toUpperCase());
 
-	const params = getSearchParams();
 	function filterByEntity(icon: EntityIcon) {
 		if (icon.type === 'hero') {
 			params.update({ hero: [...new Set([...params.hero, icon.alt])] });
@@ -63,10 +80,14 @@
 			params.update({ item: [...new Set([...params.item, icon.alt])] });
 		}
 	}
+
+	// ponytail: MAJOR is the only reliable tier — `category` is uniformly "patch"
+	// and entity count is a poor signal for "small patch", so no HOTFIX tier.
+	const isMajor = $derived(majorUpdate);
 </script>
 
 {#if isLatest}
-	<a href="/change/{id}" class="clip-corner-lg group relative col-span-full mb-8 block">
+	<a {href} class="clip-corner-lg group relative col-span-full mb-8 block">
 		<div
 			class="border-primary/40 hover:border-primary/70 bg-card card-glow relative flex flex-col overflow-hidden border-2 transition-all duration-200 hover:shadow-2xl active:scale-[0.99]"
 		>
@@ -115,6 +136,12 @@
 					</Avatar.Root>
 					<span class="text-foreground text-sm font-medium">{author}</span>
 				</div>
+
+				{#if summary}
+					<p class="text-muted-foreground max-w-2xl text-sm leading-relaxed">
+						{summary}
+					</p>
+				{/if}
 
 				{#if rows.length > 0}
 					<div class="mt-2 flex flex-col gap-3">
@@ -200,16 +227,26 @@
 	</a>
 {:else}
 	<a
-		href="/change/{id}"
-		class="clip-corner-sm bg-card hover:bg-card-accent/30 border-border hover:border-primary/40 group relative flex min-h-[200px] flex-col overflow-hidden border transition-all duration-200 hover:shadow-xl active:scale-[0.98]"
+		{href}
+		class="clip-corner-sm bg-card hover:bg-card-accent/30 group relative flex min-h-[200px] flex-col overflow-hidden border transition-all duration-200 hover:shadow-xl active:scale-[0.98] {isMajor
+			? 'border-primary/50 hover:border-primary/80'
+			: 'border-border hover:border-primary/40'}"
 	>
 		<CornerAccents
 			tlSize="1.5rem"
 			brSize="1rem"
-			tlHover="group-hover:bg-primary"
+			tlColor={isMajor ? 'bg-primary' : 'bg-primary/40'}
+			tlHover={isMajor ? '' : 'group-hover:bg-primary'}
 			brHover="group-hover:bg-primary/60"
 			thickness="0.125rem"
 		/>
+		{#if isNew}
+			<span
+				class="bg-primary text-primary-foreground absolute top-0 right-0 z-20 px-1.5 py-0.5 font-mono text-[9px] font-bold tracking-widest uppercase"
+			>
+				New
+			</span>
+		{/if}
 		<div
 			class="from-primary/0 group-hover:from-primary/5 pointer-events-none absolute inset-0 bg-gradient-to-br to-transparent transition-all duration-200"
 		></div>
@@ -221,10 +258,17 @@
 						class="text-muted-foreground group-hover:text-primary size-3.5 shrink-0 transition-colors duration-300"
 					/>
 					<h2
-						class="text-foreground group-hover:text-primary truncate text-base font-semibold tracking-tight transition-colors duration-300"
+						class="text-foreground group-hover:text-primary min-w-0 truncate text-base font-semibold tracking-tight transition-colors duration-300"
 					>
 						{formatDate(date)}
 					</h2>
+					{#if isMajor}
+						<span
+							class="bg-primary/15 border-primary/40 text-primary clip-corner-sm ml-auto shrink-0 border px-1.5 py-0.5 font-mono text-[9px] font-bold tracking-widest uppercase"
+						>
+							Major
+						</span>
+					{/if}
 				</div>
 				<div class="text-muted-foreground flex items-center gap-2 text-xs">
 					<Avatar.Root
@@ -238,6 +282,12 @@
 					<span class="truncate">{author}</span>
 				</div>
 			</div>
+
+			{#if summary}
+				<p class="text-muted-foreground line-clamp-2 text-xs leading-snug">
+					{summary}
+				</p>
+			{/if}
 
 			{#each rows as row (row.type)}
 				<div class="flex items-center gap-1.5">

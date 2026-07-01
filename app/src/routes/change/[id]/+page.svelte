@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { resolve } from '$app/paths';
 	import { ChangelogToc, EntityPreview, NorgContent } from '$lib/components/changelog';
+	import { searchParams } from '$lib/stores/searchParams.svelte';
+	import type { EntityIcon } from '$lib/types';
 	import * as Avatar from '$lib/components/ui/avatar';
 	import * as Sheet from '$lib/components/ui/sheet';
 	import { Button } from '$lib/components/ui/button';
@@ -31,8 +32,35 @@
 		toast.success('Copied to clipboard');
 	}
 
-	const heroCount = $derived(changelog.icons?.heroes.length ?? 0);
-	const itemCount = $derived(changelog.icons?.items.length ?? 0);
+	// carry the list-view filter and show only the selected entities' notes
+	const selHeroes = $derived(searchParams.hero);
+	const selItems = $derived(searchParams.item);
+	const allHeroes = $derived<EntityIcon[]>(changelog.icons?.heroes ?? []);
+	const allItems = $derived<EntityIcon[]>(changelog.icons?.items ?? []);
+
+	const has = (names: string[], name: string) =>
+		names.some((n) => n.toLowerCase() === name.toLowerCase());
+	const matchedHeroes = $derived(allHeroes.filter((h) => has(selHeroes, h.alt)));
+	const matchedItems = $derived(allItems.filter((i) => has(selItems, i.alt)));
+
+	const filterActive = $derived(selHeroes.length + selItems.length > 0);
+	// undefined unless at least one selected entity actually changed in this patch
+	const norgFilter = $derived(
+		matchedHeroes.length + matchedItems.length > 0
+			? { heroes: matchedHeroes.map((h) => h.alt), items: matchedItems.map((i) => i.alt) }
+			: undefined
+	);
+
+	const tocHeroes = $derived(norgFilter ? matchedHeroes : allHeroes);
+	const tocItems = $derived(norgFilter ? matchedItems : allItems);
+	const matchedLabel = $derived(
+		[...matchedHeroes, ...matchedItems].map((e) => e.alt).join(', ')
+	);
+	const selectedLabel = $derived([...selHeroes, ...selItems].join(', '));
+	const backHref = $derived('/' + page.url.search);
+
+	const heroCount = $derived(tocHeroes.length);
+	const itemCount = $derived(tocItems.length);
 
 	// Highlight the table-of-contents entry for the section currently in view.
 	let activeId = $state('');
@@ -89,7 +117,7 @@
 
 <main class="container mx-auto mt-8 mb-24 max-w-4xl px-4 xl:max-w-6xl">
 	<a
-		href={resolve('/', {})}
+		href={backHref}
 		data-sveltekit-reload
 		class="text-muted-foreground hover:text-primary mb-8 inline-flex items-center gap-2 text-sm transition-colors"
 	>
@@ -97,13 +125,40 @@
 		Back to all changes
 	</a>
 
+	{#if filterActive}
+		<div
+			class="clip-corner-sm border-primary/30 bg-primary/5 mb-6 flex flex-wrap items-center gap-x-3 gap-y-1 border px-4 py-2.5 text-sm"
+		>
+			{#if norgFilter}
+				<span
+					class="text-muted-foreground font-mono text-[10px] tracking-widest uppercase"
+				>
+					Filtered to
+				</span>
+				<span class="text-foreground font-medium">{matchedLabel}</span>
+			{:else}
+				<span class="text-muted-foreground">
+					No changes for <span class="text-foreground font-medium">{selectedLabel}</span> in
+					this patch.
+				</span>
+			{/if}
+			<a
+				href="/change/{changelog.id}"
+				class="text-primary ml-auto font-mono text-xs font-semibold hover:underline"
+			>
+				Show all changes
+			</a>
+		</div>
+	{/if}
+
 	<div class="flex gap-8">
 		{#if NorgComponent && changelog.icons}
 			<aside class="hidden w-56 shrink-0 xl:block">
 				<div class="sticky top-[12rem]">
 					<ChangelogToc
-						heroes={changelog.icons.heroes}
-						items={changelog.icons.items}
+						heroes={tocHeroes}
+						items={tocItems}
+						hideGeneral={!!norgFilter}
 						{activeId}
 					/>
 				</div>
@@ -199,7 +254,13 @@
 				</header>
 
 				{#if NorgComponent}
-					<NorgContent content={NorgComponent} {heroMap} {itemMap} {abilityMap} />
+					<NorgContent
+						content={NorgComponent}
+						{heroMap}
+						{itemMap}
+						{abilityMap}
+						filter={norgFilter}
+					/>
 				{/if}
 			</div>
 		</article>
@@ -222,8 +283,9 @@
 			</Sheet.Header>
 			<div class="overflow-y-auto px-2 pb-6">
 				<ChangelogToc
-					heroes={changelog.icons.heroes}
-					items={changelog.icons.items}
+					heroes={tocHeroes}
+					items={tocItems}
+					hideGeneral={!!norgFilter}
 					onnavigate={() => (tocOpen = false)}
 					size="lg"
 					{activeId}

@@ -2,6 +2,16 @@ packages:
   - app
   - lib/*
 
+allowBuilds:
+  esbuild: true
+  msw: true
+  sharp: true
+  workerd: true
+
+minimumReleaseAgeExclude:
+  - '@cloudflare/workers-types@4.20260624.1'
+  - svelte-check@4.7.1
+
 onlyBuiltDependencies:
   - deadlock_api_client
   - esbuild

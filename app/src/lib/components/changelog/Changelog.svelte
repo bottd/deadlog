@@ -1,15 +1,17 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import { onMount } from 'svelte';
 	import { ChangelogCard } from './index';
-	import { getSearchParams } from '$lib/stores/searchParams.svelte';
+	import { HeroRail } from '$lib/components/filter-bar';
+	import { searchParams as params } from '$lib/stores/searchParams.svelte';
 	import { useChangelogQuery } from '$lib/hooks/useChangelogQuery.svelte';
 	import { CornerAccents } from '$lib/components/ui/corner-accents';
 	import AlertCircle from '@lucide/svelte/icons/alert-circle';
 	import Frown from '@lucide/svelte/icons/frown';
 	import { scale, fly } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
+	import type { ChangelogEntry } from '$lib/types';
 
-	const params = getSearchParams();
 	const changelogs = $derived(page.data.changelogs ?? []);
 	const initialLoadCount = $derived(page.data.initialLoadCount ?? 12);
 	const totalCount = $derived(page.data.totalCount ?? 0);
@@ -33,10 +35,32 @@
 	const filterCount = $derived(
 		params.hero.length + params.item.length + (params.q.length > 0 ? 1 : 0)
 	);
+
+	// "new since last visit": client-only high-water mark, null until a prior visit exists
+	let lastVisit = $state<number | null>(null);
+	onMount(() => {
+		const KEY = 'deadlog:lastVisited';
+		const prev = localStorage.getItem(KEY);
+		lastVisit = prev ? Number(prev) : null;
+		localStorage.setItem(KEY, String(Date.now()));
+	});
+	const isNew = (entry: ChangelogEntry) =>
+		lastVisit !== null && new Date(entry.date).getTime() > lastVisit;
+
+	const gridEntries = $derived(allChangelogs.slice(isFiltered ? 0 : 1));
+	const newCount = $derived(
+		lastVisit === null || isFiltered ? 0 : allChangelogs.filter(isNew).length
+	);
+	// boundary between new and already-seen cards within the grid (-1 = none)
+	const firstSeenIdx = $derived(
+		lastVisit === null || isFiltered ? -1 : gridEntries.findIndex((e) => !isNew(e))
+	);
 </script>
 
 <main class="container mx-auto mt-8 mb-24 px-4" aria-label="Changelog entries">
 	<h1 class="sr-only">Deadlock patch notes &amp; balance changelog</h1>
+	<HeroRail />
+
 	{#if query.isError}
 		<div
 			class="clip-corner bg-card border-destructive/30 relative overflow-hidden border-2 p-12 text-center"
@@ -106,7 +130,18 @@
 			{/if}
 
 			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-				{#each allChangelogs.slice(isFiltered ? 0 : 1) as entry, i (entry.id)}
+				{#each gridEntries as entry, i (entry.id)}
+					{#if i === firstSeenIdx && firstSeenIdx > 0}
+						<div class="col-span-full my-1 flex items-center gap-4">
+							<div class="bg-primary/30 h-px flex-1"></div>
+							<span
+								class="text-primary font-mono text-[10px] font-bold tracking-widest uppercase"
+							>
+								{newCount} new since your last visit
+							</span>
+							<div class="bg-primary/30 h-px flex-1"></div>
+						</div>
+					{/if}
 					<div
 						in:fly={{
 							y: 20,
@@ -115,7 +150,7 @@
 							easing: quintOut
 						}}
 					>
-						<ChangelogCard {...entry} isLatest={false} />
+						<ChangelogCard {...entry} isLatest={false} isNew={isNew(entry)} />
 					</div>
 				{/each}
 			</div>

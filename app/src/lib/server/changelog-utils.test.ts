@@ -1,6 +1,26 @@
 import { describe, it, expect } from 'vitest';
-import { resolveEntityIds, parseApiParams } from './changelog-utils';
+import { resolveEntityIds, parseApiParams, makeSummary } from './changelog-utils';
 import { parseCSV } from '$lib/utils/csv';
+
+describe('makeSummary', () => {
+	it('returns empty string for null/empty', () => {
+		expect(makeSummary(null)).toBe('');
+		expect(makeSummary('')).toBe('');
+	});
+
+	it('returns short text unchanged and collapses whitespace', () => {
+		expect(makeSummary('Urn  bounty\n reduced')).toBe('Urn bounty reduced');
+	});
+
+	it('clamps long text at a word boundary with an ellipsis', () => {
+		const text = 'Apollo Disengaging Sigil velocity increased and the cooldown lowered';
+		const out = makeSummary(text, 20);
+		expect(out.endsWith('…')).toBe(true);
+		expect(out.length).toBeLessThanOrEqual(21); // <= max + ellipsis
+		expect(out).not.toContain('  ');
+		expect(text.startsWith(out.slice(0, -1))).toBe(true); // prefix of the source
+	});
+});
 
 describe('parseCSV', () => {
 	it('returns empty array for null', () => {

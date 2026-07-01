@@ -35,14 +35,14 @@ libs/
 direnv allow
 
 # Install dependencies
-npm install
+pnpm install
 
 # Run local dev server
-nx dev web
+pnpm dev
 
 # Format
 nix fmt
 
 # Check
-nx check
+pnpm check
 ```

@@ -7,6 +7,17 @@ import type { DrizzleDB } from '@deadlog/db';
 import type { ChangelogEntry } from '$lib/types';
 import { parseCSV } from '$lib/utils/csv';
 
+// ponytail: crude teaser, not a curated summary — content_text has no extractable
+// lead, so just clamp at a word boundary. An LLM `summary` column would do better.
+export function makeSummary(text: string | null | undefined, max = 140): string {
+	if (!text) return '';
+	const clean = text.replace(/\s+/g, ' ').trim();
+	if (clean.length <= max) return clean;
+	const cut = clean.slice(0, max);
+	const lastSpace = cut.lastIndexOf(' ');
+	return (lastSpace > max * 0.6 ? cut.slice(0, lastSpace) : cut).trimEnd() + '…';
+}
+
 export function resolveEntityIds(
 	names: string[],
 	entities: { id: number; name: string }[]
@@ -47,12 +58,14 @@ export async function enrichChangelogs(
 			.map((update) => ({
 				...update,
 				date: new Date(update.pubDate),
+				summary: makeSummary(update.contentText),
 				icons: iconsByChangelog[update.id] ?? { heroes: [], items: [] }
 			}));
 
 		return {
 			...entry,
 			date: new Date(entry.pubDate),
+			summary: makeSummary(entry.contentText),
 			icons,
 			updates: enrichedUpdates
 		};

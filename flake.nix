@@ -2,7 +2,7 @@
   description = "deadlog.io flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     flake-utils.url = "github:numtide/flake-utils";
     treefmt-nix.url = "github:numtide/treefmt-nix";
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
@@ -21,13 +21,18 @@
       system:
       let
         overlay = final: prev: {
-          inherit (playwright.packages.${system}) playwright-test playwright-driver;
+          inherit (playwright.packages.${system}) playwright-driver;
         };
         pkgs = import nixpkgs {
           inherit system;
           overlays = [ overlay ];
         };
 
+        # chromium only — playwright.config.ts has no firefox/webkit projects
+        playwright-browsers = pkgs.playwright-driver.browsers.override {
+          withFirefox = false;
+          withWebkit = false;
+        };
 
         treefmtEval = treefmt-nix.lib.evalModule pkgs {
           projectRootFile = "flake.nix";
@@ -58,7 +63,7 @@
               ];
             };
             eslint = {
-              command = "${pkgs.nodePackages.eslint}/bin/eslint";
+              command = "${pkgs.eslint}/bin/eslint";
               options = [
                 "--fix"
               ];
@@ -99,13 +104,12 @@
               nodejs_24
               pnpm
               treefmtEval.config.build.wrapper
-              playwright-test
               sqlite
             ];
 
             shellHook = ''
               export PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
-              export PLAYWRIGHT_BROWSERS_PATH="${pkgs.playwright-driver.browsers}"
+              export PLAYWRIGHT_BROWSERS_PATH="${playwright-browsers}"
 
               # Make CLIs from NPM available
               export PATH="$PWD/node_modules/.bin:$PATH"
