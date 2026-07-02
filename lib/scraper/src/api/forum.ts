@@ -128,6 +128,42 @@ function cleanHtml(html: string): string {
 	return result;
 }
 
+function extractPosterReplies(
+	document: Document,
+	authorLower: string,
+	startIndex: number
+): PosterReply[] {
+	const posterReplies: PosterReply[] = [];
+	const allPosts = document.querySelectorAll('.message');
+
+	for (let i = startIndex; i < allPosts.length; i++) {
+		const post = allPosts[i];
+		const postAuthor = post.querySelector(S.AUTHOR)?.textContent?.trim().toLowerCase();
+
+		if (postAuthor === authorLower) {
+			const replyContent = post.querySelector(S.CONTENT);
+			const replyDateElement = post.querySelector(S.DATE);
+			const replyTimestamp =
+				replyDateElement?.getAttribute('datetime') ||
+				replyDateElement?.textContent?.trim();
+
+			if (replyContent && replyTimestamp) {
+				posterReplies.push({
+					content: cleanHtml(replyContent.innerHTML),
+					timestamp: replyTimestamp
+				});
+			}
+		}
+	}
+
+	return posterReplies;
+}
+
+function hasNextPage(document: Document): boolean {
+	const nextButton = document.querySelector(S.NEXT_PAGE);
+	return nextButton !== null && !nextButton.classList.contains('is-disabled');
+}
+
 function extractPostContent(document: Document): PostContentResult | null {
 	const firstPost = document.querySelector('.message');
 	if (!firstPost) return null;
@@ -153,30 +189,8 @@ function extractPostContent(document: Document): PostContentResult | null {
 		firstPost.getAttribute('id')?.replace(/\D/g, '') ||
 		'';
 
-	// Find replies from the same author
-	const posterReplies: PosterReply[] = [];
-	const allPosts = document.querySelectorAll('.message');
-	const authorLower = author.toLowerCase();
-
-	for (let i = 1; i < allPosts.length; i++) {
-		const post = allPosts[i];
-		const postAuthor = post.querySelector(S.AUTHOR)?.textContent?.trim().toLowerCase();
-
-		if (postAuthor === authorLower) {
-			const replyContent = post.querySelector(S.CONTENT);
-			const replyDateElement = post.querySelector(S.DATE);
-			const replyTimestamp =
-				replyDateElement?.getAttribute('datetime') ||
-				replyDateElement?.textContent?.trim();
-
-			if (replyContent && replyTimestamp) {
-				posterReplies.push({
-					content: cleanHtml(replyContent.innerHTML),
-					timestamp: replyTimestamp
-				});
-			}
-		}
-	}
+	// Find replies from the same author (skip the OP itself)
+	const posterReplies = extractPosterReplies(document, author.toLowerCase(), 1);
 
 	if (!pubDate) return null;
 
@@ -213,11 +227,7 @@ function extractThreadList(document: Document): {
 		}
 	}
 
-	const nextButton = document.querySelector(S.NEXT_PAGE);
-	const hasNextPage =
-		nextButton !== null && !nextButton.classList.contains('is-disabled');
-
-	return { posts, hasNextPage };
+	return { posts, hasNextPage: hasNextPage(document) };
 }
 
 export async function scrapeChangelogPage(
@@ -255,6 +265,9 @@ export async function scrapeChangelogPage(
 	return allPosts;
 }
 
+// XenForo paginates threads (~20 posts/page); cap follow-up fetches to stay bounded
+const MAX_POST_PAGES = 10;
+
 async function scrapePost(
 	url: string,
 	opts: Required<ScraperOptions>
@@ -262,10 +275,22 @@ async function scrapePost(
 	const html = await fetchHtml(url, opts);
 	const { document, close } = parseDocument(html, url);
 	const data = extractPostContent(document);
+	let morePages = hasNextPage(document);
 	close();
 
 	if (!data || !data.content) {
 		throw new Error(`No content found for URL: ${url}`);
+	}
+
+	// Collect OP replies from subsequent pages (hotfix notes often land on page 2+)
+	const authorLower = data.author.toLowerCase();
+	for (let page = 2; morePages && page <= MAX_POST_PAGES; page++) {
+		const pageUrl = url.endsWith('/') ? `${url}page-${page}` : `${url}/page-${page}`;
+		const pageHtml = await fetchHtml(pageUrl, opts);
+		const { document: pageDocument, close: closePage } = parseDocument(pageHtml, pageUrl);
+		data.posterReplies.push(...extractPosterReplies(pageDocument, authorLower, 0));
+		morePages = hasNextPage(pageDocument);
+		closePage();
 	}
 
 	return data;
@@ -309,7 +334,9 @@ export async function scrapeMultipleChangelogPosts(
 			if (existsSync(cacheFile)) {
 				try {
 					const cached = await readFile(cacheFile, 'utf-8');
-					cachedPosts.push(postContentResultSchema.parse(JSON.parse(cached)));
+					const parsed = postContentResultSchema.parse(JSON.parse(cached));
+					// Older cache files carry the message id; key results by the thread post id
+					cachedPosts.push({ ...parsed, postId: post.postId });
 				} catch {
 					postsToScrape.push(post);
 				}
@@ -339,7 +366,8 @@ export async function scrapeMultipleChangelogPosts(
 		const batchResults = await Promise.all(
 			batch.map(async (post) => {
 				try {
-					const data = await scrapePost(post.url, opts);
+					// Carry the thread post id so callers can match results back to posts
+					const data = { ...(await scrapePost(post.url, opts)), postId: post.postId };
 					if (opts.useCache) await writeToCache(opts.cacheDir, post.postId, data);
 					return data;
 				} catch (error) {

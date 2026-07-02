@@ -35,7 +35,7 @@
 					aria-label={hero.name}
 					aria-pressed={selected}
 					class="clip-corner-sm relative size-9 overflow-hidden border transition-all duration-200 hover:z-10 hover:-translate-y-0.5 hover:scale-110 {selected
-						? 'border-primary ring-primary/50 ring-2'
+						? 'border-primary ring-primary/70 ring-2 ring-inset'
 						: 'border-border hover:border-primary/50 opacity-70 hover:opacity-100'}"
 				>
 					<img

@@ -28,7 +28,9 @@ export const heroes = sqliteTable('heroes', {
 });
 
 export const insertHeroSchema = createInsertSchema(heroes, {
-	images: z.record(z.string(), z.string())
+	images: z.record(z.string(), z.string()),
+	// Unknown hero types from the API coerce to null instead of aborting the build
+	heroType: z.enum(['marksman', 'mystic', 'brawler', 'assassin']).nullable().catch(null)
 });
 
 export const items = sqliteTable('items', {

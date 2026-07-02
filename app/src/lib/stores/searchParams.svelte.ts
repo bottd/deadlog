@@ -25,28 +25,42 @@ class SearchParamsStore {
 
 	get change(): number | undefined {
 		if (building) return undefined;
-		const val = page.url.searchParams.get('change');
-		return val ? Number(val) : undefined;
+		const val = Number(page.url.searchParams.get('change'));
+		return Number.isFinite(val) && val !== 0 ? val : undefined;
 	}
 
 	get q(): string {
 		return building ? '' : (page.url.searchParams.get('q') ?? '');
 	}
 
+	// page.url only reflects an update() once its goto's server load finishes, so a
+	// second rapid update (e.g. two quick HeroRail toggles) would read-modify-write
+	// the stale URL and drop the first one. Track the in-flight target instead.
+	#pending: URL | null = null;
+
 	update(values: ParamValues) {
 		if (building) return;
-		const url = new URL(page.url);
+		const url = new URL(this.#pending ?? page.url);
 		for (const [key, value] of Object.entries(values)) {
 			const s = serialize(value as ParamValue);
 			if (s === null) url.searchParams.delete(key);
 			else url.searchParams.set(key, s);
 		}
-		goto(url.toString(), GOTO_OPTS);
+		this.#navigate(url);
 	}
 
 	reset() {
 		if (building) return;
-		goto('?', GOTO_OPTS);
+		const url = new URL(page.url);
+		url.search = '';
+		this.#navigate(url);
+	}
+
+	#navigate(url: URL) {
+		this.#pending = url;
+		goto(url.toString(), GOTO_OPTS).finally(() => {
+			if (this.#pending === url) this.#pending = null;
+		});
 	}
 
 	toURLSearchParams(): URLSearchParams {

@@ -32,7 +32,7 @@
 					rel="noopener noreferrer">Deadlock API</a
 				>
 			</p>
-			<p class="text-muted-foreground/80 font-mono text-[10px] tracking-wider uppercase">
+			<p class="text-muted-foreground font-mono text-[10px] tracking-wider uppercase">
 				Deadlock is a trademark of Valve Corporation
 			</p>
 		</div>

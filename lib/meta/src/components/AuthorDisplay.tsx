@@ -15,15 +15,18 @@ export function AuthorDisplay({ author, authorIcon }: AuthorDisplayProps) {
 				gap: Theme.spacing.md
 			}}
 		>
-			<img
-				src={authorIcon}
-				style={{
-					width: '48px',
-					height: '48px',
-					borderRadius: Theme.borderRadius.full,
-					border: `2px solid ${Theme.colors.primary}`
-				}}
-			/>
+			{/* !! so a missing icon yields false, not '' — takumi rejects string children here */}
+			{!!authorIcon && (
+				<img
+					src={authorIcon}
+					style={{
+						width: '48px',
+						height: '48px',
+						borderRadius: Theme.borderRadius.full,
+						border: `2px solid ${Theme.colors.primary}`
+					}}
+				/>
+			)}
 			<div
 				style={{
 					fontSize: Theme.font.xs,

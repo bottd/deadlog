@@ -14,16 +14,16 @@
 	import { toast } from 'svelte-sonner';
 	import { MetaTags } from 'svelte-meta-tags';
 
-	const {
-		changelog,
-		heroMap,
-		itemMap,
-		abilityMap,
-		title,
-		description,
-		image,
-		NorgComponent
-	} = page.data;
+	// page.data must be read reactively — plain destructuring would keep rendering
+	// the previous patch after any client-side navigation to another change
+	const changelog = $derived(page.data.changelog);
+	const heroMap = $derived(page.data.heroMap);
+	const itemMap = $derived(page.data.itemMap);
+	const abilityMap = $derived(page.data.abilityMap);
+	const title = $derived(page.data.title);
+	const description = $derived(page.data.description);
+	const image = $derived(page.data.image);
+	const NorgComponent = $derived(page.data.NorgComponent);
 
 	let tocOpen = $state(false);
 
@@ -195,7 +195,7 @@
 								>
 							</h1>
 
-							<div class="flex items-center gap-4">
+							<div class="flex flex-wrap items-center gap-x-4 gap-y-2">
 								<div class="text-muted-foreground flex items-center gap-2.5 text-sm">
 									<Avatar.Root
 										class="border-primary/30 ring-primary/10 size-7 border ring-2"

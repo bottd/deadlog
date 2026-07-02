@@ -22,9 +22,11 @@ export function resolveEntityIds(
 	names: string[],
 	entities: { id: number; name: string }[]
 ): number[] {
-	return names
-		.map((name) => entities.find((e) => e.name.toLowerCase() === name.toLowerCase())?.id)
-		.filter((id): id is number => id !== undefined);
+	// unknown names resolve to an impossible id so the filter matches nothing,
+	// instead of silently dropping out and returning the unfiltered feed
+	return names.map(
+		(name) => entities.find((e) => e.name.toLowerCase() === name.toLowerCase())?.id ?? -1
+	);
 }
 
 export async function enrichChangelogs(

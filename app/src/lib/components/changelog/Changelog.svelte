@@ -61,7 +61,7 @@
 	<h1 class="sr-only">Deadlock patch notes &amp; balance changelog</h1>
 	<HeroRail />
 
-	{#if query.isError}
+	{#if query.isError && allChangelogs.length === 0}
 		<div
 			class="clip-corner bg-card border-destructive/30 relative overflow-hidden border-2 p-12 text-center"
 			in:scale={{ start: 0.9, duration: 400 }}
@@ -114,7 +114,7 @@
 		</div>
 	{/if}
 
-	{#if !query.isError && query.data}
+	{#if query.data && (!query.isError || allChangelogs.length > 0)}
 		{#if allChangelogs.length > 0}
 			{#if isFiltered}
 				<p class="text-muted-foreground mb-4 font-mono text-xs tracking-wider uppercase">
@@ -186,7 +186,17 @@
 
 		{#if allChangelogs.length > 0}
 			<div bind:this={queryState.trigger} class="flex flex-col items-center gap-4 py-12">
-				{#if query.isFetchingNextPage}
+				{#if query.isError}
+					<p class="text-destructive font-mono text-xs tracking-wider uppercase">
+						Failed to load more
+					</p>
+					<button
+						onclick={() => query.fetchNextPage()}
+						class="clip-corner-sm bg-destructive/10 text-destructive hover:bg-destructive/20 border-destructive/30 border px-6 py-3 font-mono text-sm font-semibold transition-all hover:scale-105"
+					>
+						Retry
+					</button>
+				{:else if query.isFetchingNextPage}
 					<div class="flex flex-col items-center gap-3">
 						<div
 							class="border-primary/30 size-10 animate-spin rounded-lg border-2 border-t-transparent"

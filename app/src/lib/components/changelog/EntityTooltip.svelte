@@ -64,10 +64,14 @@
 	<HoverCard.Trigger>
 		{#snippet child({ props })}
 			<!-- Rendered as a span (not the default anchor) so it is valid when nested
-			     inside a clickable card link; hover still opens the preview. -->
+			     inside a clickable card link; hover still opens the preview. tabindex
+			     makes it focusable so keyboard users can reach the card's links too. -->
 			<span
 				{...props}
-				class="inline-flex cursor-pointer align-middle transition-transform duration-200 hover:scale-105"
+				role="button"
+				tabindex="0"
+				aria-label="{name} details"
+				class="focus-visible:ring-ring inline-flex cursor-pointer rounded-md align-middle transition-transform duration-200 outline-none hover:scale-105 focus-visible:ring-2"
 			>
 				{@render children()}
 			</span>

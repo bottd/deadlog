@@ -16,7 +16,7 @@
 		getSelectedItemObjects
 	} from '$lib/utils/selectedEntities.svelte';
 	import { getHeroImage, getItemImage } from '$lib/utils/entityImages';
-	import { FilterState } from './filterState.svelte';
+	import { FilterState, type FilterMode } from './filterState.svelte';
 
 	const selectedHeroObjects = $derived(getSelectedHeroObjects());
 	const selectedItemObjects = $derived(getSelectedItemObjects());
@@ -61,7 +61,14 @@
 
 {#snippet filterContent()}
 	<div class="border-border flex border-b p-2">
-		<ToggleGroup.Root type="single" bind:value={filterState.filterMode} class="w-full">
+		<ToggleGroup.Root
+			type="single"
+			bind:value={
+				() => filterState.filterMode,
+				(v) => (filterState.filterMode = (v as FilterMode) || 'all')
+			}
+			class="w-full"
+		>
 			<ToggleGroup.Item value="all" class="flex-1 text-xs">All</ToggleGroup.Item>
 			<ToggleGroup.Item value="heroes" class="flex-1 text-xs">Heroes</ToggleGroup.Item>
 			<ToggleGroup.Item value="items" class="flex-1 text-xs">Items</ToggleGroup.Item>
@@ -147,6 +154,7 @@
 
 				<!-- Desktop: show input that opens dropdown -->
 				<input
+					id="filter-input"
 					type="text"
 					{placeholder}
 					class="placeholder:text-muted-foreground hidden min-w-0 flex-1 bg-transparent outline-none sm:block sm:min-w-[200px]"

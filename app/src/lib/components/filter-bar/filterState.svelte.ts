@@ -19,7 +19,11 @@ export class FilterState {
 	constructor(getHeroes: () => EnrichedHero[], getItems: () => EnrichedItem[]) {
 		this.#getHeroes = getHeroes;
 		this.#getItems = getItems;
-		this.inputValue = this.#params.q;
+		// keep the input in sync with the URL (back/forward navigation changes q
+		// without going through updateSearch)
+		$effect(() => {
+			this.inputValue = this.#params.q;
+		});
 	}
 
 	filteredHeroes = $derived.by(() => {

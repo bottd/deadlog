@@ -42,19 +42,8 @@ export async function buildDatabaseFromNorg(
 
 	const dbPath = path.join(outputDir, 'deadlog.db');
 
-	if (existsSync(dbPath)) {
-		console.log('🗑️  Removing existing database...');
-		await unlink(dbPath);
-	}
-
-	console.log(`📁 Database path: ${dbPath}`);
-
-	const client = createClient({ url: `file:${dbPath}` });
-	const db = drizzle(client, { schema });
-
-	console.log('📊 Creating tables...');
-	await createTables(db);
-
+	// Fetch all remote data before touching the existing database file,
+	// so a network failure never leaves us without a database.
 	console.log('🌐 Fetching data from Deadlock API...');
 	const patchesApi = new PatchesApi(
 		new Configuration({ basePath: 'https://api.deadlock-api.com' })
@@ -69,6 +58,19 @@ export async function buildDatabaseFromNorg(
 	const bigDayDates = new Set(
 		(bigDaysResponse.data as string[]).map((d) => d.split('T')[0])
 	);
+
+	if (existsSync(dbPath)) {
+		console.log('🗑️  Removing existing database...');
+		await unlink(dbPath);
+	}
+
+	console.log(`📁 Database path: ${dbPath}`);
+
+	const client = createClient({ url: `file:${dbPath}` });
+	const db = drizzle(client, { schema });
+
+	console.log('📊 Creating tables...');
+	await createTables(db);
 
 	console.log(`📅 Found ${bigDayDates.size} big patch days`);
 	console.log(`🦸 Found ${heroes.length} heroes`);
@@ -167,7 +169,9 @@ export async function buildDatabaseFromNorg(
 				author: metadata.author,
 				authorImage: metadata.author_image ?? '',
 				category: metadata.category,
-				pubDate: metadata.published,
+				// Normalize mixed source formats (-0700/-0800/.000Z) so lexicographic
+				// ordering on pub_date matches chronological ordering
+				pubDate: new Date(metadata.published).toISOString(),
 				majorUpdate: isMajorUpdate,
 				parentChange: metadata.parent_id ?? null,
 				contentText: plainText

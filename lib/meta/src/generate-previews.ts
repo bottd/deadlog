@@ -8,6 +8,7 @@ import {
 	type EnrichedItem
 } from '@deadlog/scraper';
 import { getLibsqlDb as getDb } from '@deadlog/db';
+import { toSlug } from '@deadlog/utils';
 import { fromJsx } from '@takumi-rs/helpers/jsx';
 import { mkdir, writeFile } from 'fs/promises';
 import { join } from 'path';
@@ -27,6 +28,8 @@ const HERO_DIR = `${OUTPUT_DIR}/hero`;
 const ITEM_DIR = `${OUTPUT_DIR}/item`;
 
 async function convertImageUrl(url: string): Promise<string> {
+	// Steam-only changelogs have no author image; render without an avatar
+	if (!url) return '';
 	if (url.startsWith('data:')) return url;
 	const dataUri = await fetchImageAsDataUri(url);
 	if (!dataUri) throw new Error(`Failed to fetch image: ${url}`);
@@ -39,7 +42,9 @@ async function convertImageUrls(urls: readonly string[]): Promise<string[]> {
 
 async function renderToFile(element: React.ReactElement, outputPath: string) {
 	const renderer = await getRenderer();
-	const node = await fromJsx(element);
+	// fromJsx returns a { node, stylesheets } wrapper since takumi 1.8 — render()
+	// wants the node itself
+	const { node } = await fromJsx(element);
 	const { width, height } = Theme.size;
 
 	try {
@@ -119,7 +124,7 @@ async function generateHeroOG(
 	changePreview: HeroPreviewItem[] | null
 ) {
 	const image = hero.images.card ?? hero.images.portrait ?? Object.values(hero.images)[0];
-	const slug = hero.name.toLowerCase().replace(/\s+/g, '-');
+	const slug = toSlug(hero.name);
 
 	const imageUri = await convertImageUrl(image);
 
@@ -150,7 +155,7 @@ async function generateItemOG(item: EnrichedItem, changePreview: string | null) 
 	if (!image) {
 		throw new Error(`Item ${item.name} has no images`);
 	}
-	const slug = item.name.toLowerCase().replace(/\s+/g, '-');
+	const slug = toSlug(item.name);
 
 	const imageUri = await convertImageUrl(image);
 
@@ -200,18 +205,24 @@ async function main() {
 
 		let changelogCount = 0;
 		for (const changelog of allChangelogs) {
-			const iconsMap = await getChangelogIcons(db, [changelog.id]);
-			const icons = iconsMap[changelog.id] ?? { heroes: [], items: [] };
+			try {
+				const iconsMap = await getChangelogIcons(db, [changelog.id]);
+				const icons = iconsMap[changelog.id] ?? { heroes: [], items: [] };
 
-			await generateChangelogOG(changelog.id, {
-				title: `${formatDate(changelog.pubDate)} Update`,
-				author: changelog.author,
-				authorIcon: changelog.authorImage,
-				heroPreviews: [],
-				itemIcons: icons.items.slice(0, 6).map((i) => i.src),
-				generalNotes: []
-			});
-			changelogCount++;
+				await generateChangelogOG(changelog.id, {
+					title: `${formatDate(changelog.pubDate)} Update`,
+					author: changelog.author,
+					authorIcon: changelog.authorImage,
+					heroPreviews: [],
+					itemIcons: icons.items.slice(0, 6).map((i) => i.src),
+					generalNotes: []
+				});
+				changelogCount++;
+			} catch (error) {
+				// One bad changelog shouldn't kill the remaining previews
+				console.error(`Failed to generate changelog preview ${changelog.id}:`, error);
+				process.exitCode = 1;
+			}
 		}
 
 		console.log(`Generated ${changelogCount} changelog images`);
@@ -223,8 +234,14 @@ async function main() {
 		let heroCount = 0;
 
 		for (const hero of heroes.filter((h) => h.isReleased)) {
-			await generateHeroOG(hero, null);
-			heroCount++;
+			try {
+				await generateHeroOG(hero, null);
+				heroCount++;
+			} catch (error) {
+				// One bad hero (e.g. upstream image 404) shouldn't kill the rest
+				console.error(`Failed to generate hero preview ${hero.name}:`, error);
+				process.exitCode = 1;
+			}
 		}
 
 		console.log(`Generated ${heroCount} hero images`);
@@ -238,8 +255,14 @@ async function main() {
 		for (const item of items) {
 			if (!item.image) continue;
 
-			await generateItemOG(item, null);
-			itemCount++;
+			try {
+				await generateItemOG(item, null);
+				itemCount++;
+			} catch (error) {
+				// One bad item (e.g. upstream image 404) shouldn't kill the rest
+				console.error(`Failed to generate item preview ${item.name}:`, error);
+				process.exitCode = 1;
+			}
 		}
 
 		console.log(`Generated ${itemCount} item images`);
@@ -249,4 +272,7 @@ async function main() {
 	console.log(`✅ Total: ${totalCount} images generated`);
 }
 
-main().catch(console.error);
+main().catch((error) => {
+	console.error(error);
+	process.exitCode = 1;
+});

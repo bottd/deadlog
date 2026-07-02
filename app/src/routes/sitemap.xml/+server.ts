@@ -1,10 +1,11 @@
 import { getAllChangelogs } from '@deadlog/scraper';
 import type { RequestHandler } from './$types';
 
-const site = 'https://deadlock.drake.dev';
+const site = 'https://deadlog.io';
 
 export const GET: RequestHandler = async ({ locals }) => {
-	const changelogs = await getAllChangelogs(locals.db);
+	// child updates render inside their parent's page — only list parents
+	const changelogs = (await getAllChangelogs(locals.db)).filter((c) => !c.parentChange);
 
 	const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -17,7 +18,7 @@ export const GET: RequestHandler = async ({ locals }) => {
 		.map(
 			(entry) => `
   <url>
-    <loc>${site}/?change=${encodeURIComponent(entry.id)}</loc>
+    <loc>${site}/change/${encodeURIComponent(entry.id)}</loc>
     <lastmod>${new Date(entry.pubDate).toISOString()}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

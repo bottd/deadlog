@@ -30,8 +30,10 @@ function isMainChangelog() {
 }
 
 function buildTextSearchCondition(searchQuery: string): SQL {
-	const pattern = `%${searchQuery}%`;
-	return sql`(LOWER(${schema.changelogs.title}) LIKE LOWER(${pattern}) OR LOWER(${schema.changelogs.contentText}) LIKE LOWER(${pattern}))`;
+	// Escape LIKE wildcards so user input matches literally
+	const escaped = searchQuery.replace(/[\\%_]/g, '\\$&');
+	const pattern = `%${escaped}%`;
+	return sql`(LOWER(${schema.changelogs.title}) LIKE LOWER(${pattern}) ESCAPE '\\' OR LOWER(${schema.changelogs.contentText}) LIKE LOWER(${pattern}) ESCAPE '\\')`;
 }
 
 export async function getAllChangelogs(db: DrizzleDB) {
@@ -153,7 +155,12 @@ export async function getChangelogPosition(
 }
 
 export async function getChangelogById(db: DrizzleDB, id: string) {
-	return db.select().from(schema.changelogs).where(eq(schema.changelogs.id, id)).get();
+	const row = await db
+		.select()
+		.from(schema.changelogs)
+		.where(eq(schema.changelogs.id, id))
+		.get();
+	return row ?? null;
 }
 
 export async function getMetadata(db: DrizzleDB, key: string) {

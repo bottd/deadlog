@@ -43,7 +43,7 @@
 			<span
 				class={size === 'lg'
 					? 'bg-primary/10 text-primary ml-auto rounded-full px-2 py-0.5 font-mono text-xs font-medium'
-					: 'text-primary/50 ml-auto font-mono text-[10px]'}>{count}</span
+					: 'text-primary/80 ml-auto font-mono text-[10px]'}>{count}</span
 			>
 		</a>
 		<ul class={size === 'lg' ? 'mt-1 space-y-0.5' : 'mt-0.5 space-y-px'}>

@@ -32,10 +32,14 @@ export function useChangelogQuery(options: UseChangelogQueryOptions) {
 		ReturnType<typeof queryKeys.changelogsList>,
 		number
 	>(() => ({
+		// count is part of the key: the offset math below depends on it, so cached
+		// pages from a ?change= deep link (larger initial load) must not be reused
+		// after navigating to the plain feed.
 		queryKey: queryKeys.changelogsList({
 			hero: params.hero,
 			item: params.item,
-			q: params.q
+			q: params.q,
+			count: options.getInitialLoadCount()
 		}),
 		initialData: {
 			pages: [
@@ -50,9 +54,14 @@ export function useChangelogQuery(options: UseChangelogQueryOptions) {
 			pageParams: [0]
 		},
 		queryFn: async ({ pageParam }) => {
-			const offset = options.getInitialLoadCount() + (pageParam - 1) * PAGE_SIZE;
+			// Page 0 normally comes from SSR initialData, but TanStack re-runs it on
+			// refetch/invalidate — it must re-request the same window, not a PAGE_SIZE
+			// slice at a negative offset.
+			const initial = options.getInitialLoadCount();
+			const limit = pageParam === 0 ? initial : PAGE_SIZE;
+			const offset = pageParam === 0 ? 0 : initial + (pageParam - 1) * PAGE_SIZE;
 			const searchParams = params.toURLSearchParams();
-			searchParams.set('limit', String(PAGE_SIZE));
+			searchParams.set('limit', String(limit));
 			searchParams.set('offset', String(offset));
 
 			const response = await fetch(`/api/changelogs?${searchParams.toString()}`);

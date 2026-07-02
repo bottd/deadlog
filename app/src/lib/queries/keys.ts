@@ -2,6 +2,8 @@ export interface ChangelogFilters {
 	hero?: string[];
 	item?: string[];
 	q?: string;
+	/** initial page size — pagination offsets are derived from it */
+	count?: number;
 }
 
 export const queryKeys = {

@@ -90,7 +90,7 @@
 			{/if}
 
 			<!-- Secondary, honest context: the wider patch scope. -->
-			<p class="text-muted-foreground/70 mt-1.5 font-mono text-[10px] tracking-wider">
+			<p class="text-muted-foreground mt-1.5 font-mono text-[10px] tracking-wider">
 				in a patch of {heroCount} hero{heroCount !== 1 ? 'es' : ''} · {itemCount} item{itemCount !==
 				1
 					? 's'

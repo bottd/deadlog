@@ -59,16 +59,16 @@ describe('resolveEntityIds', () => {
 		expect(resolveEntityIds(['bebop', 'ABRAMS'], entities)).toEqual([1, 2]);
 	});
 
-	it('skips names that do not match any entity', () => {
-		expect(resolveEntityIds(['Bebop', 'NonExistent'], entities)).toEqual([1]);
+	it('maps unknown names to the impossible id so the filter matches nothing', () => {
+		expect(resolveEntityIds(['Bebop', 'NonExistent'], entities)).toEqual([1, -1]);
 	});
 
 	it('returns empty array for empty input', () => {
 		expect(resolveEntityIds([], entities)).toEqual([]);
 	});
 
-	it('returns empty array when no names match', () => {
-		expect(resolveEntityIds(['Foo', 'Bar'], entities)).toEqual([]);
+	it('maps all-unknown names to impossible ids', () => {
+		expect(resolveEntityIds(['Foo', 'Bar'], entities)).toEqual([-1, -1]);
 	});
 });
 

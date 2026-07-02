@@ -21,7 +21,7 @@
 
 <header
 	id={slug}
-	class="ability-heading relative mb-2 flex scroll-mt-20 items-center gap-2.5 py-1 pl-3"
+	class="ability-heading relative mb-2 flex items-center gap-2.5 py-1 pl-3"
 >
 	<div
 		class="bg-primary/15 absolute top-1/2 left-0 h-3 w-px -translate-y-1/2"

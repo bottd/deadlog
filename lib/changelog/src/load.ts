@@ -41,10 +41,11 @@ function parseNorgContent(content: string): {
 			} else if (value === 'false') {
 				metadata[key] = false;
 			} else {
-				if (
-					(value.startsWith('"') && value.endsWith('"')) ||
-					(value.startsWith("'") && value.endsWith("'"))
-				) {
+				if (value.startsWith('"') && value.endsWith('"')) {
+					// Reverse generator.ts escaping: it wraps in double quotes
+					// and escapes `"` as `\"` (backslashes are not escaped)
+					value = value.slice(1, -1).replace(/\\"/g, '"');
+				} else if (value.startsWith("'") && value.endsWith("'")) {
 					value = value.slice(1, -1);
 				}
 				metadata[key] = value;
@@ -100,7 +101,8 @@ export async function loadAllChangelogs(
 
 			changelogs.push({ filepath, slug, metadata, entities, entityChanges, plainText });
 		} catch (error) {
-			console.warn(`Failed to parse: ${filepath}`, error);
+			// Fail loud: a silently skipped file would drop a patch from the site
+			throw new Error(`Failed to parse changelog: ${filepath}`, { cause: error });
 		}
 	}
 

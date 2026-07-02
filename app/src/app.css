@@ -237,6 +237,8 @@
 	}
 	html {
 		scroll-padding-top: 12rem;
+		/* dark-only site — keep native scrollbars/form controls dark too */
+		color-scheme: dark;
 	}
 	html,
 	body {
@@ -304,9 +306,9 @@
 	);
 }
 
-a.clip-corner:focus-visible,
-a.clip-corner-sm:focus-visible,
-a.clip-corner-lg:focus-visible {
+:is(a, button).clip-corner:focus-visible,
+:is(a, button).clip-corner-sm:focus-visible,
+:is(a, button).clip-corner-lg:focus-visible {
 	position: relative;
 	outline: none;
 }
@@ -314,9 +316,9 @@ a.clip-corner-lg:focus-visible {
 /* Focus ring painted on top of the card content and clipped to the corner-cut
    silhouette, so it stays visible regardless of child backgrounds or the
    element's own box-shadow utilities (card-glow, hover:shadow-*). */
-a.clip-corner:focus-visible::after,
-a.clip-corner-sm:focus-visible::after,
-a.clip-corner-lg:focus-visible::after {
+:is(a, button).clip-corner:focus-visible::after,
+:is(a, button).clip-corner-sm:focus-visible::after,
+:is(a, button).clip-corner-lg:focus-visible::after {
 	content: '';
 	position: absolute;
 	inset: 0;

@@ -37,10 +37,7 @@
 	});
 </script>
 
-<header
-	id={slug}
-	class="entity-heading group relative mb-4 flex scroll-mt-20 items-center gap-4 py-2"
->
+<header id={slug} class="entity-heading group relative mb-4 flex items-center gap-4 py-2">
 	<div
 		class="bg-primary/25 group-hover:bg-primary/50 absolute inset-y-0 left-0 w-px transition-colors duration-200"
 		aria-hidden="true"

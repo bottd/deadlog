@@ -242,7 +242,7 @@
 		/>
 		{#if isNew}
 			<span
-				class="bg-primary text-primary-foreground absolute top-0 right-0 z-20 px-1.5 py-0.5 font-mono text-[9px] font-bold tracking-widest uppercase"
+				class="bg-primary text-primary-foreground absolute top-1.5 right-1.5 z-20 px-1.5 py-0.5 font-mono text-[9px] font-bold tracking-widest uppercase"
 			>
 				New
 			</span>

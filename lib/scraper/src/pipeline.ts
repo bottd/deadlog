@@ -117,15 +117,34 @@ function buildSteamChangelogSource(steamNote: SteamPatchNote): ChangelogSource {
 	};
 }
 
-function buildSteamLookup(steamNotes: SteamPatchNote[]): Map<string, SteamPatchNote> {
-	const lookup = new Map<string, SteamPatchNote>();
+function buildSteamLookup(steamNotes: SteamPatchNote[]): Map<string, SteamPatchNote[]> {
+	const lookup = new Map<string, SteamPatchNote[]>();
 	for (const note of steamNotes) {
 		const dateKey = extractDateFromTitle(note.title);
 		if (dateKey) {
-			lookup.set(dateKey, note);
+			const notes = lookup.get(dateKey) ?? [];
+			notes.push(note);
+			lookup.set(dateKey, notes);
 		}
 	}
 	return lookup;
+}
+
+function matchSteamNote(
+	lookup: Map<string, SteamPatchNote[]>,
+	title: string
+): SteamPatchNote | undefined {
+	const dateKey = extractDateFromTitle(title);
+	if (!dateKey) return undefined;
+
+	const notes = lookup.get(dateKey);
+	if (!notes) return undefined;
+	if (notes.length === 1) return notes[0];
+
+	// Multiple notes on the same day (e.g. "10-18-2024 Update" and
+	// "10-18-2024 Update 2"): only match on the full title to avoid
+	// attaching one patch's Steam notes to the other
+	return notes.find((n) => toSlug(n.title) === toSlug(title));
 }
 
 // --- Main orchestration ---
@@ -222,12 +241,12 @@ export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<voi
 			delayMs: 500
 		});
 
-		const contentMap = new Map(contents.map((c) => [c.title, c]));
+		const contentMap = new Map(contents.map((c) => [c.postId, c]));
 
 		console.log('\n📝 Writing changelogs...');
 
 		for (const post of newPosts) {
-			const content = contentMap.get(post.title);
+			const content = contentMap.get(post.postId);
 			if (!content) {
 				console.warn(`   ⚠️  No content for: ${post.title}`);
 				continue;
@@ -235,8 +254,7 @@ export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<voi
 
 			const { filepath } = resolveFilepath(post.title, post.pubDate);
 
-			const dateKey = extractDateFromTitle(post.title);
-			const steamNote = dateKey ? steamLookup.get(dateKey) : undefined;
+			const steamNote = matchSteamNote(steamLookup, post.title);
 
 			if (steamNote) {
 				console.log(`   🔗 Matched Steam content for: ${post.title}`);
