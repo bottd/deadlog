@@ -1,10 +1,18 @@
 <script lang="ts">
+	import { page } from '$app/state';
 	import { FilterInput } from '$lib/components/filter-bar';
 	import Crosshair from '@lucide/svelte/icons/crosshair';
+
+	const showFilter = $derived(
+		page.url.pathname === '/' || page.url.pathname.startsWith('/change/')
+	);
 </script>
 
 <nav
-	class="animate-entrance-down border-border bg-card/90 sticky z-50 border-b pb-5 backdrop-blur-xl transition-all duration-300"
+	aria-label="Primary navigation"
+	class="animate-entrance-down border-signal/15 bg-card/90 sticky z-50 border-b backdrop-blur-xl transition-all duration-300 {showFilter
+		? 'pb-5'
+		: ''}"
 >
 	<div class="container mx-auto px-4">
 		<div class="flex h-20 items-center justify-between">
@@ -27,7 +35,7 @@
 						class="bg-primary absolute -top-0.5 -left-0.5 size-1.5 opacity-60 transition-all duration-300 group-hover:opacity-100"
 					></div>
 					<div
-						class="bg-primary absolute -right-0.5 -bottom-0.5 size-1.5 opacity-60 transition-all duration-300 group-hover:opacity-100"
+						class="bg-signal absolute -right-0.5 -bottom-0.5 size-1.5 opacity-70 transition-all duration-300 group-hover:opacity-100"
 					></div>
 				</div>
 
@@ -52,17 +60,34 @@
 					</span>
 				</div>
 			</a>
+
+			<div class="flex items-center gap-1 sm:gap-2">
+				<a
+					href="/heroes"
+					class="text-muted-foreground hover:bg-signal/10 hover:text-signal rounded px-2.5 py-2 font-mono text-[10px] font-semibold tracking-wider uppercase transition-colors sm:px-3 sm:text-xs"
+				>
+					Heroes
+				</a>
+				<a
+					href="/items"
+					class="text-muted-foreground hover:bg-signal/10 hover:text-signal rounded px-2.5 py-2 font-mono text-[10px] font-semibold tracking-wider uppercase transition-colors sm:px-3 sm:text-xs"
+				>
+					Items
+				</a>
+			</div>
 		</div>
-		<div class="flex flex-col gap-2">
-			<label
-				for="filter-input"
-				class="text-muted-foreground flex items-center gap-2 font-mono text-xs font-medium tracking-widest uppercase"
-			>
-				<span class="bg-primary/40 h-px w-3"></span>
-				Filter by hero, item, or keyword
-			</label>
-			<FilterInput />
-		</div>
+		{#if showFilter}
+			<div class="flex flex-col gap-2">
+				<label
+					for="filter-input"
+					class="text-signal/80 flex items-center gap-2 font-mono text-xs font-medium tracking-widest uppercase"
+				>
+					<span class="bg-signal/60 h-px w-3"></span>
+					Search the archive by hero, item, or keyword
+				</label>
+				<FilterInput />
+			</div>
+		{/if}
 	</div>
 </nav>
 

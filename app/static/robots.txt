@@ -1,5 +1,6 @@
 # deadlog.io - the deadlock changelog
 User-agent: *
 Allow: /
+Disallow: /api/
 
-Sitemap: https://deadlock.drake.dev/sitemap.xml
+Sitemap: https://deadlog.io/sitemap.xml

@@ -3,7 +3,7 @@ import { goto } from '$app/navigation';
 import { building } from '$app/environment';
 import { parseCSV, toCSV } from '$lib/utils/csv';
 
-const GOTO_OPTS = { replaceState: false, keepFocus: true, noScroll: true } as const;
+const GOTO_OPTS = { replaceState: false, keepFocus: true, noScroll: false } as const;
 
 type ParamValues = Partial<{ hero: string[]; item: string[]; change: number; q: string }>;
 type ParamValue = ParamValues[keyof ParamValues];
@@ -15,38 +15,57 @@ function serialize(value: ParamValue): string | null {
 }
 
 class SearchParamsStore {
+	#pendingParams = $state<URLSearchParams | null>(null);
+	#navigationId = 0;
+
+	#getParams(): URLSearchParams {
+		if (this.#pendingParams) return this.#pendingParams;
+		return building ? new URLSearchParams() : page.url.searchParams;
+	}
+
 	get hero(): string[] {
-		return building ? [] : parseCSV(page.url.searchParams.get('hero'));
+		return parseCSV(this.#getParams().get('hero'));
 	}
 
 	get item(): string[] {
-		return building ? [] : parseCSV(page.url.searchParams.get('item'));
+		return parseCSV(this.#getParams().get('item'));
 	}
 
 	get change(): number | undefined {
-		if (building) return undefined;
-		const val = page.url.searchParams.get('change');
+		const val = this.#getParams().get('change');
 		return val ? Number(val) : undefined;
 	}
 
 	get q(): string {
-		return building ? '' : (page.url.searchParams.get('q') ?? '');
+		return this.#getParams().get('q') ?? '';
 	}
 
 	update(values: ParamValues) {
 		if (building) return;
-		const url = new URL(page.url);
+		const nextParams = new URLSearchParams(this.#getParams());
 		for (const [key, value] of Object.entries(values)) {
 			const s = serialize(value as ParamValue);
-			if (s === null) url.searchParams.delete(key);
-			else url.searchParams.set(key, s);
+			if (s === null) nextParams.delete(key);
+			else nextParams.set(key, s);
 		}
-		goto(url.toString(), GOTO_OPTS);
+		this.#navigate(nextParams);
 	}
 
 	reset() {
 		if (building) return;
-		goto('?', GOTO_OPTS);
+		this.#navigate(new URLSearchParams());
+	}
+
+	#navigate(nextParams: URLSearchParams) {
+		this.#pendingParams = nextParams;
+		const navigationId = ++this.#navigationId;
+		const query = nextParams.toString();
+
+		const finish = () => {
+			if (navigationId === this.#navigationId) this.#pendingParams = null;
+		};
+
+		void goto(query ? `/?${query}` : '/', GOTO_OPTS).then(finish, finish);
 	}
 
 	toURLSearchParams(): URLSearchParams {
@@ -65,6 +84,6 @@ class SearchParamsStore {
 	}
 }
 
-// Stateless singleton — every getter reads the reactive page.url, so no per-tree
-// context is needed. Import { searchParams } anywhere.
+// Shared singleton; URL reads stay reactive and pending navigation state prevents
+// rapid updates from being based on an older page.url.
 export const searchParams = new SearchParamsStore();

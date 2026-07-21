@@ -49,6 +49,7 @@
 				list: heroes.slice(0, max),
 				label: 'Heroes',
 				type: 'heroes',
+				tone: 'text-primary',
 				extra: heroes.length - Math.min(heroes.length, max),
 				offset: 0
 			},
@@ -56,6 +57,7 @@
 				list: items.slice(0, max),
 				label: 'Items',
 				type: 'items',
+				tone: 'text-signal',
 				extra: items.length - Math.min(items.length, max),
 				offset: heroes.slice(0, max).length
 			}
@@ -64,8 +66,8 @@
 
 	const counts = $derived(
 		[
-			{ n: heroes.length, s: 'hero', p: 'heroes' },
-			{ n: items.length, s: 'item', p: 'items' }
+			{ n: heroes.length, s: 'hero', p: 'heroes', tone: 'text-primary' },
+			{ n: items.length, s: 'item', p: 'items', tone: 'text-signal' }
 		].filter((c) => c.n > 0)
 	);
 
@@ -82,13 +84,13 @@
 			class="clip-corner-lg border-primary/40 hover:border-primary/70 bg-card card-glow relative flex flex-col overflow-hidden border-2 transition-all duration-200 hover:shadow-2xl active:scale-[0.99] md:flex-row md:items-stretch"
 		>
 			<div
-				class="from-primary/0 via-primary/8 to-primary/0 pointer-events-none absolute inset-0 bg-gradient-to-r opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+				class="from-primary/0 via-signal/5 to-signal/10 pointer-events-none absolute inset-0 bg-gradient-to-r opacity-0 transition-opacity duration-200 group-hover:opacity-100"
 			></div>
 			<CornerAccents
 				tlSize="4rem"
 				brSize="3rem"
 				tlColor="bg-primary"
-				brColor="bg-primary/60"
+				brColor="bg-signal/70"
 				thickness="0.125rem"
 				class="z-20"
 			/>
@@ -105,7 +107,7 @@
 							>Latest Patch</span
 						>
 					</div>
-					<div class="bg-primary/20 h-px flex-1"></div>
+					<div class="bg-signal/30 h-px flex-1"></div>
 				</div>
 
 				<h3
@@ -137,8 +139,7 @@
 					<div class="mt-2 flex flex-col gap-3">
 						{#each rows as row (row.type)}
 							<div class="flex items-center gap-3">
-								<span
-									class="text-muted-foreground w-14 font-mono text-xs tracking-wider uppercase"
+								<span class="w-14 font-mono text-xs tracking-wider uppercase {row.tone}"
 									>{row.label}</span
 								>
 								<div class="flex -space-x-2">
@@ -161,9 +162,7 @@
 									{/each}
 								</div>
 								{#if row.extra > 0}
-									<span class="text-primary font-mono text-sm font-bold"
-										>+{row.extra}</span
-									>
+									<span class="font-mono text-sm font-bold {row.tone}">+{row.extra}</span>
 								{/if}
 							</div>
 						{/each}
@@ -173,7 +172,7 @@
 				<div class="border-border/50 mt-auto flex items-center gap-6 border-t pt-4">
 					{#each counts as c (c.s)}
 						<span class="flex items-baseline gap-1.5">
-							<span class="text-primary font-mono text-2xl font-bold">{c.n}</span>
+							<span class="font-mono text-2xl font-bold {c.tone}">{c.n}</span>
 							<span class="text-muted-foreground text-sm">{c.n === 1 ? c.s : c.p}</span>
 						</span>
 					{/each}
@@ -181,7 +180,7 @@
 			</div>
 
 			<div
-				class="bg-primary/5 group-hover:bg-primary/10 border-primary/20 relative z-10 flex shrink-0 items-center justify-center border-t p-6 transition-colors duration-300 md:w-56 md:border-t-0 md:border-l md:p-8"
+				class="from-signal/5 to-primary/5 group-hover:from-signal/10 group-hover:to-primary/10 border-signal/20 relative z-10 flex shrink-0 items-center justify-center border-t bg-gradient-to-r p-6 transition-colors duration-300 md:w-56 md:border-t-0 md:border-l md:p-8"
 			>
 				<div class="flex flex-col items-center gap-3 text-center">
 					<div
@@ -197,7 +196,7 @@
 		</div>
 
 		<div class="mt-2 flex items-center gap-4 px-4">
-			<div class="bg-primary/30 h-px flex-1"></div>
+			<div class="bg-signal/35 h-px flex-1"></div>
 			<span class="text-muted-foreground font-mono text-[10px] tracking-widest uppercase"
 				>Previous Updates</span
 			>
@@ -209,14 +208,15 @@
 		{href}
 		class="clip-corner-sm bg-card hover:bg-card-accent/30 group relative flex min-h-[200px] flex-col overflow-hidden border transition-all duration-200 hover:shadow-xl active:scale-[0.98] {isMajor
 			? 'border-primary/50 hover:border-primary/80'
-			: 'border-border hover:border-primary/40'}"
+			: 'border-border hover:border-signal/45'}"
 	>
 		<CornerAccents
 			tlSize="1.5rem"
 			brSize="1rem"
-			tlColor={isMajor ? 'bg-primary' : 'bg-primary/40'}
-			tlHover={isMajor ? '' : 'group-hover:bg-primary'}
-			brHover="group-hover:bg-primary/60"
+			tlColor={isMajor ? 'bg-primary' : 'bg-signal/45'}
+			brColor={isMajor ? 'bg-primary/30' : 'bg-signal/20'}
+			tlHover={isMajor ? '' : 'group-hover:bg-signal'}
+			brHover={isMajor ? 'group-hover:bg-primary/60' : 'group-hover:bg-signal/60'}
 			thickness="0.125rem"
 		/>
 		{#if isNew}
@@ -279,7 +279,10 @@
 								height="28"
 								loading="lazy"
 								decoding="async"
-								class="border-border/80 bg-card hover:border-primary/50 size-7 rounded-md border object-cover shadow-sm transition-all duration-200 hover:z-20 hover:-translate-y-0.5 hover:scale-110"
+								class="border-border/80 bg-card size-7 rounded-md border object-cover shadow-sm transition-all duration-200 hover:z-20 hover:-translate-y-0.5 hover:scale-110 {row.type ===
+								'items'
+									? 'hover:border-signal/60'
+									: 'hover:border-primary/50'}"
 								in:scale={{
 									start: 0,
 									duration: 250,
@@ -291,7 +294,10 @@
 					</div>
 					{#if row.extra > 0}
 						<span
-							class="bg-muted/80 text-muted-foreground group-hover:bg-primary/15 group-hover:text-primary flex size-7 items-center justify-center rounded-md font-mono text-[10px] font-semibold transition-all duration-300"
+							class="bg-muted/80 text-muted-foreground flex size-7 items-center justify-center rounded-md font-mono text-[10px] font-semibold transition-all duration-300 {row.type ===
+							'items'
+								? 'group-hover:bg-signal/15 group-hover:text-signal'
+								: 'group-hover:bg-primary/15 group-hover:text-primary'}"
 							>+{row.extra}</span
 						>
 					{/if}
@@ -301,12 +307,12 @@
 			<div class="border-border/50 mt-auto flex items-center gap-3 border-t pt-3 text-xs">
 				{#each counts as c (c.s)}
 					<span class="flex items-baseline gap-1">
-						<span class="text-primary font-mono font-bold">{c.n}</span>
+						<span class="font-mono font-bold {c.tone}">{c.n}</span>
 						<span class="text-muted-foreground">{c.n === 1 ? c.s : c.p}</span>
 					</span>
 				{/each}
 				<ArrowRight
-					class="text-primary ml-auto size-3.5 -translate-x-1 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100"
+					class="text-signal ml-auto size-3.5 -translate-x-1 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100"
 				/>
 			</div>
 		</div>

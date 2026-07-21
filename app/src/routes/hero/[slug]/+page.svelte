@@ -44,11 +44,12 @@
 	import { Badge } from '$lib/components/ui/badge';
 	import ArrowLeft from '@lucide/svelte/icons/arrow-left';
 	import Activity from '@lucide/svelte/icons/activity';
-	import { MetaTags } from 'svelte-meta-tags';
+	import { JsonLd, MetaTags } from 'svelte-meta-tags';
 	import { fly, scale, blur } from 'svelte/transition';
 	import { elasticOut, quintOut, expoOut } from 'svelte/easing';
 	import { prefersReducedMotion } from 'svelte/motion';
 	import type { PageProps } from './$types';
+	import { absoluteUrl, breadcrumbList, SITE_NAME, SITE_URL } from '$lib/seo';
 
 	let { data }: PageProps = $props();
 
@@ -57,6 +58,42 @@
 	const title = $derived(data.title);
 	const description = $derived(data.description);
 	const image = $derived(data.image);
+	const canonical = $derived(absoluteUrl(`/hero/${hero.slug}`));
+	const isIndexable = $derived(hero.isReleased && changelogs.length > 0);
+	const structuredData = $derived.by(() => ({
+		'@graph': [
+			{
+				'@type': 'CollectionPage',
+				'@id': `${canonical}#webpage`,
+				url: canonical,
+				name: title,
+				description,
+				image,
+				dateModified: changelogs[0]?.date.toISOString(),
+				inLanguage: 'en-US',
+				isPartOf: { '@id': `${SITE_URL}/#website` },
+				about: [
+					{ '@type': 'VideoGame', name: 'Deadlock' },
+					{ '@type': 'Thing', name: hero.name, image: hero.image }
+				],
+				mainEntity: {
+					'@type': 'ItemList',
+					numberOfItems: changelogs.length,
+					itemListElement: changelogs.map((changelog, index) => ({
+						'@type': 'ListItem',
+						position: index + 1,
+						name: changelog.title,
+						url: absoluteUrl(`/change/${changelog.id}`)
+					}))
+				}
+			},
+			breadcrumbList([
+				{ name: SITE_NAME, path: '/' },
+				{ name: 'Heroes', path: '/heroes' },
+				{ name: hero.name, path: `/hero/${hero.slug}` }
+			])
+		]
+	}));
 
 	const transitionConfig = $derived(
 		prefersReducedMotion.current
@@ -96,21 +133,34 @@
 <MetaTags
 	{title}
 	{description}
-	canonical={`https://deadlog.io/hero/${hero.slug}`}
+	{canonical}
+	robots={isIndexable ? 'index,follow' : 'noindex,follow'}
+	additionalRobotsProps={{
+		maxImagePreview: 'large',
+		maxSnippet: -1,
+		maxVideoPreview: -1
+	}}
 	openGraph={{
-		type: 'profile',
+		type: 'website',
 		title,
 		description,
-		url: `https://deadlog.io/hero/${hero.slug}`,
-		images: [{ url: image, width: 1200, height: 630, alt: title }]
+		url: canonical,
+		siteName: SITE_NAME,
+		locale: 'en_US',
+		images: [{ url: image, width: 1200, height: 630, type: 'image/png', alt: title }]
 	}}
 	twitter={{
 		cardType: 'summary_large_image',
 		title,
 		description,
-		image
+		image,
+		imageAlt: title
 	}}
 />
+
+{#if isIndexable}
+	<JsonLd schema={structuredData} />
+{/if}
 
 <main class="min-h-screen">
 	<!-- Dynamic background based on hero type -->
@@ -194,7 +244,10 @@
 						<!-- Main portrait -->
 						<img
 							src={hero.image}
-							alt={hero.name}
+							alt="{hero.name} in Deadlock"
+							width="160"
+							height="160"
+							fetchpriority="high"
 							class="size-32 rounded-xl border-[3px] object-cover shadow-2xl md:size-40"
 							style:border-color={hero.heroType ? style.borderVar : undefined}
 							in:scale={{ start: 0.9, duration: 500, easing: elasticOut }}

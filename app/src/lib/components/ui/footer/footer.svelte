@@ -9,9 +9,9 @@
 		<!-- Brand mark -->
 		<a href="/" class="group flex items-center gap-3 transition-opacity hover:opacity-80">
 			<div
-				class="bg-primary/10 group-hover:bg-primary/15 flex size-7 items-center justify-center rounded-md transition-colors"
+				class="bg-signal/10 group-hover:bg-signal/15 flex size-7 items-center justify-center rounded-md transition-colors"
 			>
-				<Crosshair class="text-primary size-3.5" />
+				<Crosshair class="text-signal size-3.5" />
 			</div>
 			<span
 				class="font-display text-muted-foreground text-sm font-semibold tracking-wide transition-colors"
@@ -27,7 +27,7 @@
 			<p class="text-muted-foreground font-mono text-[10px] tracking-wider uppercase">
 				Data provided by <a
 					href="https://deadlock-api.com"
-					class="text-primary transition-colors hover:opacity-80"
+					class="text-signal transition-colors hover:opacity-80"
 					target="_blank"
 					rel="noopener noreferrer">Deadlock API</a
 				>
@@ -39,13 +39,13 @@
 
 		<!-- Terminal closer -->
 		<div class="flex items-center gap-4">
-			<div class="bg-primary/15 h-px w-10"></div>
+			<div class="bg-signal/20 h-px w-10"></div>
 			<span
 				class="terminal-flicker text-muted-foreground/40 font-mono text-[9px] tracking-[0.25em] uppercase"
 			>
 				// end transmission
 			</span>
-			<div class="bg-primary/15 h-px w-10"></div>
+			<div class="bg-signal/20 h-px w-10"></div>
 		</div>
 	</div>
 </footer>

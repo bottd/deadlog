@@ -7,6 +7,7 @@
 			variant: {
 				default:
 					'bg-primary text-primary-foreground [a&]:hover:bg-primary/90 border-transparent',
+				signal: 'bg-signal/15 text-signal border-signal/25 [a&]:hover:bg-signal/25',
 				secondary:
 					'bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90 border-transparent',
 				destructive:

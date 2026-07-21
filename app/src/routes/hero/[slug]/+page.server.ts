@@ -6,6 +6,7 @@ import {
 } from '@deadlog/scraper';
 import { error } from '@sveltejs/kit';
 import { getHeroCardImage } from '$lib/utils/entityImages';
+import { absoluteUrl } from '$lib/seo';
 import type { PageServerLoad, EntryGenerator } from './$types';
 
 export const prerender = true;
@@ -41,8 +42,8 @@ export const load: PageServerLoad = async ({ params, locals }) => {
 			image: getHeroCardImage(hero)
 		},
 		changelogs: enrichedChangelogs,
-		title: `${hero.name} Changelog - Deadlog`,
-		description: `View all ${hero.name} balance changes and updates in Deadlock`,
-		image: `https://deadlog.io/assets/meta/hero/${params.slug}.png`
+		title: `${hero.name} Deadlock Changes: Buffs & Nerfs | Deadlog`,
+		description: `Track every ${hero.name} buff, nerf, and balance change across Deadlock patch notes in chronological order.`,
+		image: absoluteUrl(`/assets/meta/hero/${params.slug}.png`)
 	};
 };

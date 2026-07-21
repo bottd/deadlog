@@ -19,10 +19,17 @@ export interface ChangelogEntities {
 	items: string[];
 }
 
+export interface EntityChange {
+	name: string;
+	type: 'hero' | 'item';
+	count: number;
+}
+
 export interface ParsedChangelog {
 	filepath: string;
 	slug: string;
 	metadata: ChangelogMetadata;
 	entities: ChangelogEntities;
+	entityChanges: EntityChange[];
 	plainText: string;
 }

@@ -58,6 +58,23 @@
 </script>
 
 <main class="container mx-auto mt-8 mb-24 px-4" aria-label="Changelog entries">
+	<header class="mb-8 max-w-3xl">
+		<p
+			class="text-signal mb-2 font-mono text-[10px] font-bold tracking-[0.2em] uppercase"
+		>
+			Live patch archive
+		</p>
+		<h1
+			class="text-foreground font-display heading-glow text-3xl leading-tight font-medium tracking-wide md:text-5xl"
+		>
+			Deadlock Patch Notes &amp; Changelog
+		</h1>
+		<p class="text-muted-foreground mt-3 max-w-2xl text-sm leading-relaxed md:text-base">
+			Track the latest Deadlock updates, hero buffs and nerfs, item changes, and gameplay
+			balance patches in one searchable archive.
+		</p>
+	</header>
+
 	<HeroRail />
 
 	{#if query.isError}
@@ -132,9 +149,9 @@
 				{#each gridEntries as entry, i (entry.id)}
 					{#if i === firstSeenIdx && firstSeenIdx > 0}
 						<div class="col-span-full my-1 flex items-center gap-4">
-							<div class="bg-primary/30 h-px flex-1"></div>
+							<div class="bg-signal/35 h-px flex-1"></div>
 							<span
-								class="text-primary font-mono text-[10px] font-bold tracking-widest uppercase"
+								class="text-signal font-mono text-[10px] font-bold tracking-widest uppercase"
 							>
 								{newCount} new since your last visit
 							</span>

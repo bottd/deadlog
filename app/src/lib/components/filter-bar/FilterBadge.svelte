@@ -10,26 +10,38 @@
 	}
 
 	let { name, icon, onRemove, badgeColor = 'hero' }: Props = $props();
+	const typeLabel = $derived(badgeColor === 'hero' ? 'Hero' : 'Item');
 </script>
 
-<Badge
-	variant={badgeColor === 'hero' ? 'default' : 'secondary'}
+<button
+	type="button"
 	onclick={onRemove}
-	class="group/badge hover:shadow-primary/10 cursor-pointer transition-all duration-200 hover:scale-105 hover:pr-2 hover:shadow-md"
+	onkeydown={(event) => event.stopPropagation()}
+	class="group/badge rounded-md transition-transform hover:scale-105 focus-visible:outline-none"
+	aria-label="Remove {typeLabel} filter: {name}"
 >
-	{#if icon}
-		<img
-			src={icon}
-			alt={name}
-			width="18"
-			height="18"
-			loading="lazy"
-			decoding="async"
-			class="size-[18px] rounded object-cover transition-all duration-200 group-hover/badge:scale-110"
+	<Badge
+		variant={badgeColor === 'hero' ? 'default' : 'signal'}
+		class="hover:shadow-primary/10 cursor-pointer transition-all duration-200 group-focus-visible/badge:ring-signal/50 group-focus-visible/badge:ring-2 group-hover/badge:pr-2 group-hover/badge:shadow-md"
+	>
+		{#if icon}
+			<img
+				src={icon}
+				alt=""
+				width="18"
+				height="18"
+				loading="lazy"
+				decoding="async"
+				class="size-[18px] rounded object-cover transition-all duration-200 group-hover/badge:scale-110"
+			/>
+		{/if}
+		<span class="font-mono text-[9px] tracking-wider uppercase opacity-75"
+			>{typeLabel}</span
+		>
+		<span aria-hidden="true" class="opacity-50">/</span>
+		<span class="text-xs font-medium tracking-tight">{name}</span>
+		<XIcon
+			class="size-3 opacity-60 transition-all duration-200 group-hover/badge:scale-110 group-hover/badge:opacity-100"
 		/>
-	{/if}
-	<span class="text-xs font-medium tracking-tight">{name}</span>
-	<XIcon
-		class="size-3 opacity-60 transition-all duration-200 group-hover/badge:scale-110 group-hover/badge:opacity-100"
-	/>
-</Badge>
+	</Badge>
+</button>

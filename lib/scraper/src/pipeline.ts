@@ -117,15 +117,79 @@ function buildSteamChangelogSource(steamNote: SteamPatchNote): ChangelogSource {
 	};
 }
 
-function buildSteamLookup(steamNotes: SteamPatchNote[]): Map<string, SteamPatchNote> {
-	const lookup = new Map<string, SteamPatchNote>();
+function steamNoteIdentity(note: SteamPatchNote): string {
+	return note.gid ? `gid:${note.gid}` : `title:${toSlug(note.title)}:${note.date}`;
+}
+
+export function matchSteamNotesToForumPosts(
+	posts: ChangelogPost[],
+	steamNotes: SteamPatchNote[]
+): {
+	steamByForumPostId: Map<string, SteamPatchNote>;
+	unmatchedSteamNotes: SteamPatchNote[];
+} {
+	const forumPostsByDate = new Map<string, ChangelogPost[]>();
+	const steamNotesByDate = new Map<string, SteamPatchNote[]>();
+
+	for (const post of posts) {
+		const dateKey = extractDateFromTitle(post.title);
+		if (!dateKey) continue;
+		const datePosts = forumPostsByDate.get(dateKey) ?? [];
+		datePosts.push(post);
+		forumPostsByDate.set(dateKey, datePosts);
+	}
+
 	for (const note of steamNotes) {
 		const dateKey = extractDateFromTitle(note.title);
-		if (dateKey) {
-			lookup.set(dateKey, note);
+		if (!dateKey) continue;
+		const dateNotes = steamNotesByDate.get(dateKey) ?? [];
+		dateNotes.push(note);
+		steamNotesByDate.set(dateKey, dateNotes);
+	}
+
+	const steamByForumPostId = new Map<string, SteamPatchNote>();
+	const consumedSteamNotes = new Set<string>();
+
+	for (const [dateKey, datePosts] of forumPostsByDate) {
+		const dateNotes = steamNotesByDate.get(dateKey) ?? [];
+
+		// Match normalized full titles first so ordering cannot swap same-day notes.
+		for (const post of datePosts) {
+			const titleIdentity = toSlug(post.title);
+			const note = dateNotes.find(
+				(candidate) =>
+					!consumedSteamNotes.has(steamNoteIdentity(candidate)) &&
+					toSlug(candidate.title) === titleIdentity
+			);
+
+			if (note) {
+				steamByForumPostId.set(post.postId, note);
+				consumedSteamNotes.add(steamNoteIdentity(note));
+			}
+		}
+
+		const unmatchedPosts = datePosts.filter(
+			(post) => !steamByForumPostId.has(post.postId)
+		);
+		const unmatchedNotes = dateNotes.filter(
+			(note) => !consumedSteamNotes.has(steamNoteIdentity(note))
+		);
+
+		// A lone pair can safely tolerate source-specific title wording.
+		if (unmatchedPosts.length === 1 && unmatchedNotes.length === 1) {
+			const [post] = unmatchedPosts;
+			const [note] = unmatchedNotes;
+			steamByForumPostId.set(post.postId, note);
+			consumedSteamNotes.add(steamNoteIdentity(note));
 		}
 	}
-	return lookup;
+
+	return {
+		steamByForumPostId,
+		unmatchedSteamNotes: steamNotes.filter(
+			(note) => !consumedSteamNotes.has(steamNoteIdentity(note))
+		)
+	};
 }
 
 // --- Main orchestration ---
@@ -155,17 +219,16 @@ export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<voi
 		`📋 Found ${posts.length} forum posts, ${steamNotes.length} Steam patch notes`
 	);
 
-	const steamLookup = buildSteamLookup(steamNotes);
-	const forumDateKeys = new Set<string>();
+	const { steamByForumPostId, unmatchedSteamNotes } = matchSteamNotesToForumPosts(
+		posts,
+		steamNotes
+	);
 
 	const newPosts: ChangelogPost[] = [];
 	const skipped: { title: string; reason: string }[] = [];
 
 	for (const post of posts) {
 		const { filepath } = resolveFilepath(post.title, post.pubDate);
-
-		const dateKey = extractDateFromTitle(post.title);
-		if (dateKey) forumDateKeys.add(dateKey);
 
 		const reason = skipReason(filepath, overwrite);
 		if (reason) {
@@ -177,10 +240,9 @@ export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<voi
 	}
 
 	const steamOnlyNotes: SteamPatchNote[] = [];
-	for (const note of steamNotes) {
+	for (const note of unmatchedSteamNotes) {
 		const dateKey = extractDateFromTitle(note.title);
 		if (!dateKey) continue;
-		if (forumDateKeys.has(dateKey)) continue;
 
 		const { filepath } = resolveFilepath(note.title, note.date);
 
@@ -222,12 +284,12 @@ export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<voi
 			delayMs: 500
 		});
 
-		const contentMap = new Map(contents.map((c) => [c.title, c]));
+		const contentMap = new Map(contents.map((c) => [c.postId, c]));
 
 		console.log('\n📝 Writing changelogs...');
 
 		for (const post of newPosts) {
-			const content = contentMap.get(post.title);
+			const content = contentMap.get(post.postId);
 			if (!content) {
 				console.warn(`   ⚠️  No content for: ${post.title}`);
 				continue;
@@ -235,8 +297,7 @@ export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<voi
 
 			const { filepath } = resolveFilepath(post.title, post.pubDate);
 
-			const dateKey = extractDateFromTitle(post.title);
-			const steamNote = dateKey ? steamLookup.get(dateKey) : undefined;
+			const steamNote = steamByForumPostId.get(post.postId);
 
 			if (steamNote) {
 				console.log(`   🔗 Matched Steam content for: ${post.title}`);

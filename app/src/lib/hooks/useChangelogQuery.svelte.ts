@@ -1,8 +1,9 @@
 import { createInfiniteQuery } from '@tanstack/svelte-query';
 import { useIntersectionObserver } from 'runed';
+import { page } from '$app/state';
 import type { ChangelogEntry } from '$lib/types';
-import { searchParams as params } from '$lib/stores/searchParams.svelte';
 import { queryKeys } from '$lib/queries/keys';
+import { parseCSV, toCSV } from '$lib/utils/csv';
 
 interface PageData {
 	changelogs: ChangelogEntry[];
@@ -31,41 +32,47 @@ export function useChangelogQuery(options: UseChangelogQueryOptions) {
 		InfiniteData,
 		ReturnType<typeof queryKeys.changelogsList>,
 		number
-	>(() => ({
-		queryKey: queryKeys.changelogsList({
-			hero: params.hero,
-			item: params.item,
-			q: params.q
-		}),
-		initialData: {
-			pages: [
-				{
-					changelogs: options.getInitialChangelogs(),
-					hasMore:
-						options.getTotalCount() > 0
-							? options.getTotalCount() > options.getInitialLoadCount()
-							: options.getInitialChangelogs().length === options.getInitialLoadCount()
+	>(() => {
+		const initialChangelogs = options.getInitialChangelogs();
+		const initialCount = options.getInitialLoadCount();
+		const hero = parseCSV(page.url.searchParams.get('hero'));
+		const item = parseCSV(page.url.searchParams.get('item'));
+		const q = page.url.searchParams.get('q') ?? '';
+
+		return {
+			queryKey: queryKeys.changelogsList({ hero, item, q, initialCount }),
+			initialData: {
+				pages: [
+					{
+						changelogs: initialChangelogs,
+						hasMore: options.getTotalCount() > initialChangelogs.length
+					}
+				],
+				pageParams: [0]
+			},
+			queryFn: async ({ pageParam }) => {
+				const limit = pageParam === 0 ? initialCount : PAGE_SIZE;
+				const offset = pageParam === 0 ? 0 : initialCount + (pageParam - 1) * PAGE_SIZE;
+				const searchParams = new URLSearchParams();
+				if (hero.length > 0) searchParams.set('hero', toCSV(hero));
+				if (item.length > 0) searchParams.set('item', toCSV(item));
+				if (q) searchParams.set('q', q);
+				searchParams.set('limit', String(limit));
+				searchParams.set('offset', String(offset));
+
+				const response = await fetch(`/api/changelogs?${searchParams.toString()}`);
+
+				if (!response.ok) {
+					throw new Error(`Failed to fetch changelogs: ${response.statusText}`);
 				}
-			],
-			pageParams: [0]
-		},
-		queryFn: async ({ pageParam }) => {
-			const offset = options.getInitialLoadCount() + (pageParam - 1) * PAGE_SIZE;
-			const searchParams = params.toURLSearchParams();
-			searchParams.set('limit', String(PAGE_SIZE));
-			searchParams.set('offset', String(offset));
 
-			const response = await fetch(`/api/changelogs?${searchParams.toString()}`);
-
-			if (!response.ok) {
-				throw new Error(`Failed to fetch changelogs: ${response.statusText}`);
-			}
-
-			return (await response.json()) as PageData;
-		},
-		getNextPageParam: (lastPage, pages) => (lastPage.hasMore ? pages.length : undefined),
-		initialPageParam: 0
-	}));
+				return (await response.json()) as PageData;
+			},
+			getNextPageParam: (lastPage, _pages, lastPageParam) =>
+				lastPage.hasMore ? lastPageParam + 1 : undefined,
+			initialPageParam: 0
+		};
+	});
 
 	useIntersectionObserver(
 		() => trigger,

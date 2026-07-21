@@ -1,7 +1,7 @@
 {
 	"name": "deadlog.io",
 	"short_name": "deadlog.io",
-	"description": "Deadlock changelog viewer",
+	"description": "Searchable Deadlock patch notes, hero buffs and nerfs, item changes, and balance updates.",
 	"icons": [
 		{
 			"src": "/android-chrome-192x192.png",

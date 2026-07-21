@@ -6,6 +6,7 @@ import {
 } from '@deadlog/scraper';
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad, EntryGenerator } from './$types';
+import { absoluteUrl } from '$lib/seo';
 
 export const prerender = true;
 
@@ -37,8 +38,8 @@ export const load: PageServerLoad = async ({ params, locals }) => {
 	return {
 		item,
 		changelogs: enrichedChangelogs,
-		title: `${item.name} Changes - Deadlog`,
-		description: `View all ${item.name} balance changes and updates in Deadlock`,
-		image: `https://deadlog.io/assets/meta/item/${params.slug}.png`
+		title: `${item.name} Deadlock Changes: Buffs & Nerfs | Deadlog`,
+		description: `Track every ${item.name} buff, nerf, and balance change across Deadlock patch notes in chronological order.`,
+		image: absoluteUrl(`/assets/meta/item/${params.slug}.png`)
 	};
 };

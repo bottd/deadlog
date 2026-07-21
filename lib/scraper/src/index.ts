@@ -18,7 +18,9 @@ export {
 	getChangelogsByHeroId,
 	getChangelogsByItemId,
 	getChangelogIcons,
-	type ScrapedChangelog
+	type ScrapedChangelog,
+	type ChangelogWithCount,
+	type ScrapedItem
 } from './queries';
 
 export { formatDate, formatTime } from '@deadlog/utils';

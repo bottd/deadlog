@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import { building } from '$app/environment';
 	import { ChangelogToc, EntityPreview, NorgContent } from '$lib/components/changelog';
 	import { searchParams } from '$lib/stores/searchParams.svelte';
 	import type { EntityIcon } from '$lib/types';
@@ -12,7 +13,8 @@
 	import Link from '@lucide/svelte/icons/link';
 	import ListIcon from '@lucide/svelte/icons/list';
 	import { toast } from 'svelte-sonner';
-	import { MetaTags } from 'svelte-meta-tags';
+	import { JsonLd, MetaTags } from 'svelte-meta-tags';
+	import { absoluteUrl, breadcrumbList, SITE_NAME, SITE_URL } from '$lib/seo';
 
 	const {
 		changelog,
@@ -22,6 +24,7 @@
 		title,
 		description,
 		image,
+		isIndexable,
 		NorgComponent
 	} = page.data;
 
@@ -57,15 +60,66 @@
 		[...matchedHeroes, ...matchedItems].map((e) => e.alt).join(', ')
 	);
 	const selectedLabel = $derived([...selHeroes, ...selItems].join(', '));
-	const backHref = $derived('/' + page.url.search);
+	const backHref = $derived(building ? '/' : '/' + page.url.search);
 
 	const heroCount = $derived(tocHeroes.length);
 	const itemCount = $derived(tocItems.length);
+	const canonical = absoluteUrl(`/change/${encodeURIComponent(changelog.id)}`);
+	const publishedTime = changelog.date.toISOString();
+	const structuredData = $derived.by(() => {
+		const entities = [...allHeroes, ...allItems].map((entity) => ({
+			'@type': 'Thing',
+			name: entity.alt
+		}));
+
+		return {
+			'@graph': [
+				{
+					'@type': 'Article',
+					'@id': `${canonical}#article`,
+					headline: changelog.title,
+					name: title,
+					description,
+					url: canonical,
+					mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+					datePublished: publishedTime,
+					dateModified: publishedTime,
+					image: {
+						'@type': 'ImageObject',
+						url: image,
+						width: 1200,
+						height: 630
+					},
+					author: { '@type': 'Person', name: changelog.author },
+					publisher: {
+						'@type': 'Organization',
+						name: SITE_NAME,
+						url: SITE_URL,
+						logo: {
+							'@type': 'ImageObject',
+							url: absoluteUrl('/android-chrome-512x512.png'),
+							width: 512,
+							height: 512
+						}
+					},
+					articleSection: 'Deadlock Patch Notes',
+					isAccessibleForFree: true,
+					inLanguage: 'en-US',
+					about: entities
+				},
+				breadcrumbList([
+					{ name: 'Deadlog', path: '/' },
+					{ name: 'Patch Notes', path: '/' },
+					{ name: changelog.title, path: `/change/${changelog.id}` }
+				])
+			]
+		};
+	});
 </script>
 
-{#snippet stat(count: number, label: string)}
+{#snippet stat(count: number, label: string, tone: string)}
 	<span class="flex items-baseline gap-1">
-		<span class="text-primary font-mono font-bold">{count}</span>
+		<span class="font-mono font-bold {tone}">{count}</span>
 		<span class="text-muted-foreground">{label}</span>
 	</span>
 {/snippet}
@@ -73,27 +127,46 @@
 <MetaTags
 	{title}
 	{description}
-	canonical={`https://deadlog.io/change/${changelog.id}`}
+	{canonical}
+	robots={isIndexable ? 'index,follow' : 'noindex,follow'}
+	additionalRobotsProps={{
+		maxImagePreview: 'large',
+		maxSnippet: -1,
+		maxVideoPreview: -1
+	}}
 	openGraph={{
 		type: 'article',
 		title,
 		description,
-		url: `https://deadlog.io/change/${changelog.id}`,
-		images: [{ url: image, width: 1200, height: 630, alt: title }]
+		url: canonical,
+		siteName: SITE_NAME,
+		locale: 'en_US',
+		article: {
+			publishedTime,
+			modifiedTime: publishedTime,
+			section: 'Deadlock Patch Notes',
+			tags: [...allHeroes, ...allItems].map((entity) => entity.alt)
+		},
+		images: [{ url: image, width: 1200, height: 630, type: 'image/png', alt: title }]
 	}}
 	twitter={{
 		cardType: 'summary_large_image',
 		title,
 		description,
-		image
+		image,
+		imageAlt: title
 	}}
 />
+
+{#if isIndexable}
+	<JsonLd schema={structuredData} />
+{/if}
 
 <main class="container mx-auto mt-8 mb-24 max-w-4xl px-4 xl:max-w-6xl">
 	<a
 		href={backHref}
 		data-sveltekit-reload
-		class="text-muted-foreground hover:text-primary mb-8 inline-flex items-center gap-2 text-sm transition-colors"
+		class="text-muted-foreground hover:text-signal mb-8 inline-flex items-center gap-2 text-sm transition-colors"
 	>
 		<ArrowLeft class="size-4" />
 		Back to all changes
@@ -101,7 +174,7 @@
 
 	{#if filterActive}
 		<div
-			class="clip-corner-sm border-primary/30 bg-primary/5 mb-6 flex flex-wrap items-center gap-x-3 gap-y-1 border px-4 py-2.5 text-sm"
+			class="clip-corner-sm border-signal/30 bg-signal/5 mb-6 flex flex-wrap items-center gap-x-3 gap-y-1 border px-4 py-2.5 text-sm"
 		>
 			{#if norgFilter}
 				<span
@@ -118,7 +191,7 @@
 			{/if}
 			<a
 				href="/change/{changelog.id}"
-				class="text-primary ml-auto font-mono text-xs font-semibold hover:underline"
+				class="text-signal ml-auto font-mono text-xs font-semibold hover:underline"
 			>
 				Show all changes
 			</a>
@@ -139,7 +212,7 @@
 		>
 			<CornerAccents tlSize="2rem" brSize="1.25rem" />
 			<div
-				class="from-primary/60 via-primary/20 absolute inset-x-0 top-0 h-px bg-gradient-to-r to-transparent"
+				class="from-primary/60 via-signal/35 absolute inset-x-0 top-0 h-px bg-gradient-to-r to-transparent"
 				aria-hidden="true"
 			></div>
 
@@ -189,10 +262,18 @@
 									<div class="bg-border h-4 w-px" aria-hidden="true"></div>
 									<div class="flex items-center gap-3 text-xs">
 										{#if heroCount > 0}
-											{@render stat(heroCount, heroCount !== 1 ? 'heroes' : 'hero')}
+											{@render stat(
+												heroCount,
+												heroCount !== 1 ? 'heroes' : 'hero',
+												'text-primary'
+											)}
 										{/if}
 										{#if itemCount > 0}
-											{@render stat(itemCount, itemCount !== 1 ? 'items' : 'item')}
+											{@render stat(
+												itemCount,
+												itemCount !== 1 ? 'items' : 'item',
+												'text-signal'
+											)}
 										{/if}
 									</div>
 								{/if}
@@ -203,7 +284,7 @@
 							variant="ghost"
 							size="icon"
 							onclick={copyLink}
-							class="text-muted-foreground hover:bg-primary/10 hover:text-primary"
+							class="text-muted-foreground hover:bg-signal/10 hover:text-signal"
 							aria-label="Copy link to clipboard"
 						>
 							<Link class="size-4" />
