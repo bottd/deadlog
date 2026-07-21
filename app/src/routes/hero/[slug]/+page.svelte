@@ -1,55 +1,12 @@
-<script module lang="ts">
-	const HERO_STYLE = {
-		marksman: {
-			gradient: 'from-amber-500/20 via-yellow-500/10 to-amber-500/5',
-			patternColor: 'var(--type-marksman)',
-			borderColor: 'border-amber-500/30',
-			accentColor: '#f59e0b',
-			borderVar: 'var(--type-marksman)'
-		},
-		mystic: {
-			gradient: 'from-purple-500/20 via-fuchsia-500/10 to-purple-500/5',
-			patternColor: 'var(--type-mystic)',
-			borderColor: 'border-purple-500/30',
-			accentColor: '#a855f7',
-			borderVar: 'var(--type-mystic)'
-		},
-		brawler: {
-			gradient: 'from-red-500/20 via-orange-500/10 to-red-500/5',
-			patternColor: 'var(--type-brawler)',
-			borderColor: 'border-red-500/30',
-			accentColor: '#ef4444',
-			borderVar: 'var(--type-brawler)'
-		},
-		assassin: {
-			gradient: 'from-emerald-500/20 via-green-500/10 to-emerald-500/5',
-			patternColor: 'var(--type-assassin)',
-			borderColor: 'border-emerald-500/30',
-			accentColor: '#10b981',
-			borderVar: 'var(--type-assassin)'
-		}
-	} as const;
-
-	const DEFAULT_STYLE = {
-		gradient: '',
-		patternColor: '',
-		borderColor: 'border-border',
-		accentColor: '',
-		borderVar: ''
-	} as const;
-</script>
-
 <script lang="ts">
 	import { PatchPreviewCard, PatchTimeline } from '$lib/components/changelog';
-	import { Badge } from '$lib/components/ui/badge';
-	import ArrowLeft from '@lucide/svelte/icons/arrow-left';
-	import Activity from '@lucide/svelte/icons/activity';
-	import { JsonLd, MetaTags } from 'svelte-meta-tags';
-	import { fly, scale, blur } from 'svelte/transition';
-	import { elasticOut, quintOut, expoOut } from 'svelte/easing';
-	import { prefersReducedMotion } from 'svelte/motion';
-	import type { PageProps } from './$types';
+	import { CornerAccents } from '$lib/components/ui/corner-accents';
 	import { absoluteUrl, breadcrumbList, SITE_NAME, SITE_URL } from '$lib/seo';
+	import { formatDate } from '@deadlog/utils';
+	import Activity from '@lucide/svelte/icons/activity';
+	import ArrowLeft from '@lucide/svelte/icons/arrow-left';
+	import { JsonLd, MetaTags } from 'svelte-meta-tags';
+	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
 
@@ -60,6 +17,32 @@
 	const image = $derived(data.image);
 	const canonical = $derived(absoluteUrl(`/hero/${hero.slug}`));
 	const isIndexable = $derived(hero.isReleased && changelogs.length > 0);
+	const accent = $derived(
+		hero.heroType ? `var(--type-${hero.heroType})` : 'var(--signal)'
+	);
+	const entity = $derived({ type: 'hero' as const, name: hero.name, image: hero.image });
+	const countedPatches = $derived(
+		changelogs.filter((changelog) => changelog.changeCount !== null).length
+	);
+	const unknownPatches = $derived(changelogs.length - countedPatches);
+	const totalChanges = $derived(
+		changelogs.reduce((total, changelog) => total + (changelog.changeCount ?? 0), 0)
+	);
+	const changeValue = $derived(
+		unknownPatches === 0
+			? String(totalChanges)
+			: countedPatches > 0
+				? `${totalChanges}+`
+				: 'N/A'
+	);
+	const oldestPatch = $derived(changelogs.at(-1));
+	const timelinePatches = $derived(
+		changelogs.map((changelog) => ({
+			id: changelog.id,
+			date: changelog.date,
+			changeCount: changelog.changeCount
+		}))
+	);
 	const structuredData = $derived.by(() => ({
 		'@graph': [
 			{
@@ -94,40 +77,6 @@
 			])
 		]
 	}));
-
-	const transitionConfig = $derived(
-		prefersReducedMotion.current
-			? { duration: 0 }
-			: {
-					duration: 400,
-					easing: quintOut
-				}
-	);
-
-	const cardTransitionConfig = $derived((i: number) =>
-		prefersReducedMotion.current
-			? { duration: 0 }
-			: {
-					delay: Math.min(i, 12) * 40,
-					duration: 400,
-					easing: quintOut
-				}
-	);
-
-	const style = $derived(hero.heroType ? HERO_STYLE[hero.heroType] : DEFAULT_STYLE);
-
-	let rotation = $state(0);
-	let rotationFrame: number;
-
-	$effect(() => {
-		if (prefersReducedMotion.current) return;
-		const animateRotation = () => {
-			rotation = (rotation + 0.05) % 360;
-			rotationFrame = requestAnimationFrame(animateRotation);
-		};
-		rotationFrame = requestAnimationFrame(animateRotation);
-		return () => cancelAnimationFrame(rotationFrame);
-	});
 </script>
 
 <MetaTags
@@ -162,196 +111,194 @@
 	<JsonLd schema={structuredData} />
 {/if}
 
-<main class="min-h-screen">
-	<!-- Dynamic background based on hero type -->
-	{#if hero.heroType}
-		<div
-			class="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
-			in:blur={{ duration: 800, easing: expoOut }}
-		>
-			<div class="bg-gradient-to-br {style.gradient} absolute inset-0"></div>
-			<!-- Diagonal slash pattern -->
-			<div
-				class="absolute inset-0"
-				style:opacity="0.03"
-				style:background-image="
-				linear-gradient(45deg, transparent 48%, {style.patternColor} 48%, {style.patternColor}
-				52%, transparent 52%), linear-gradient(-45deg, transparent 48%, {style.patternColor}
-				48%, {style.patternColor}
-				52%, transparent 52%)
-				"
-				style:background-size="60px 60px"
-			></div>
-		</div>
-	{/if}
-
-	<div class="container mx-auto mt-8 mb-24 max-w-6xl px-4">
+<main class="bg-wire-grid min-h-screen">
+	<div class="container mx-auto mt-6 mb-24 max-w-6xl px-3 sm:mt-8 sm:px-4">
 		<a
 			href="/"
 			data-sveltekit-reload
-			class="text-muted-foreground hover:text-foreground mb-8 inline-flex items-center gap-2 text-sm transition-all hover:gap-3"
+			class="text-muted-foreground hover:text-signal mb-6 inline-flex min-h-6 items-center gap-2 text-sm transition-colors sm:mb-8"
 		>
 			<ArrowLeft class="size-4" />
 			<span>Back to all changes</span>
 		</a>
 
-		<!-- Hero Header -->
 		<header
-			class="relative overflow-hidden rounded-xl border-2 {style.borderColor} bg-gradient-to-br {style.gradient} p-8 md:p-12"
-			in:fly={{ y: -20, ...transitionConfig }}
+			class="clip-corner-lg bg-card relative mb-10 overflow-hidden border-2 p-5 sm:p-8 lg:p-10"
+			style:border-color="color-mix(in oklab, {accent} 42%, var(--border))"
 		>
-			<!-- Decorative corner accent -->
-			{#if hero.heroType}
-				<div
-					class="absolute top-0 right-0 h-32 w-32 opacity-20"
-					in:fly={{ x: 20, duration: 600, easing: elasticOut }}
-				>
-					<div
-						class="absolute top-0 right-0 h-16 w-1"
-						style:background-color={style.accentColor}
-					></div>
-					<div
-						class="absolute top-0 right-0 h-1 w-16"
-						style:background-color={style.accentColor}
-					></div>
-				</div>
-			{/if}
+			<CornerAccents
+				tlSize="4rem"
+				brSize="3rem"
+				thickness="2px"
+				tlColor="bg-signal/60"
+				brColor="bg-primary/35"
+			/>
+			<div
+				class="pointer-events-none absolute inset-0"
+				style:background="radial-gradient(circle at 12% 20%, color-mix(in oklab, {accent} 18%,
+				transparent), transparent 42%)"
+				aria-hidden="true"
+			></div>
+			<div
+				class="pointer-events-none absolute inset-x-0 top-0 h-px"
+				style:background="linear-gradient(to right, {accent}, var(--signal), transparent
+				78%)"
+				aria-hidden="true"
+			></div>
 
 			<div
-				class="relative z-10 flex flex-col items-center gap-8 md:flex-row md:items-start"
+				class="relative z-10 grid gap-7 md:grid-cols-[auto_minmax(0,1fr)] md:items-center"
 			>
-				<!-- Hero portrait with enhanced treatment -->
 				{#if hero.image}
-					<div class="relative shrink-0">
-						<!-- Glowing background -->
-						{#if hero.heroType}
-							<div
-								class="absolute inset-0 -z-10 rounded-xl blur-2xl"
-								style:background-color={style.borderVar}
-								style:opacity="0.3"
-								in:scale={{ duration: 600, easing: expoOut }}
-							></div>
-							<!-- Rotating dashed border ring using Svelte motion -->
-							<div class="absolute inset-0 -z-10 rounded-xl p-1">
-								<div
-									class="h-full w-full rounded-xl border-2 border-dashed"
-									style:border-color={style.borderVar}
-									style:opacity="0.4"
-									style:transform="rotate({rotation}deg)"
-								></div>
-							</div>
-						{/if}
-						<!-- Main portrait -->
-						<img
-							src={hero.image}
-							alt="{hero.name} in Deadlock"
-							width="160"
-							height="160"
-							fetchpriority="high"
-							class="size-32 rounded-xl border-[3px] object-cover shadow-2xl md:size-40"
-							style:border-color={hero.heroType ? style.borderVar : undefined}
-							in:scale={{ start: 0.9, duration: 500, easing: elasticOut }}
-						/>
+					<div class="relative mx-auto shrink-0 md:mx-0">
+						<div
+							class="absolute inset-2 -z-10 blur-2xl"
+							style:background-color={accent}
+							style:opacity="0.24"
+							aria-hidden="true"
+						></div>
+						<div
+							class="clip-corner-sm bg-muted/30 relative border-2 p-1.5"
+							style:border-color={accent}
+						>
+							<img
+								src={hero.image}
+								alt="{hero.name} in Deadlock"
+								width="160"
+								height="160"
+								fetchpriority="high"
+								class="clip-corner-sm size-28 object-cover sm:size-36 lg:size-40"
+							/>
+						</div>
 					</div>
 				{/if}
 
-				<!-- Hero info -->
-				<div
-					class="flex-1 text-center md:text-left"
-					in:blur={{ duration: 600, delay: 100 }}
-				>
-					<div
-						class="border-primary/20 bg-primary/5 mb-3 inline-flex items-center gap-2 rounded-full border px-3 py-1"
-					>
-						<Activity class="text-primary size-3.5" />
-						<span class="text-primary text-xs font-semibold tracking-wider uppercase"
-							>Hero Profile</span
+				<div class="min-w-0 text-center md:text-left">
+					<div class="mb-3 flex items-center justify-center gap-2 md:justify-start">
+						<span class="h-px w-7" style:background-color={accent} aria-hidden="true"
+						></span>
+						<span
+							class="font-mono text-[10px] font-bold tracking-[0.22em] uppercase"
+							style:color={accent}
 						>
+							{hero.heroType ? `${hero.heroType} hero` : 'Hero profile'}
+						</span>
 					</div>
-
 					<h1
-						class="text-foreground font-display mb-4 text-4xl font-medium tracking-wide md:text-5xl lg:text-6xl"
+						class="text-foreground font-display heading-glow break-words text-4xl leading-none font-medium tracking-wide sm:text-5xl lg:text-6xl"
 					>
 						{hero.name}
 					</h1>
+					<p class="text-muted-foreground mt-3 max-w-2xl text-sm leading-relaxed">
+						Canonical patch history for {hero.name}, with entity-specific changes
+						separated from the rest of each update.
+					</p>
 
-					<div
-						class="mb-5 flex flex-wrap items-center justify-center gap-3 md:justify-start"
-					>
-						{#if hero.heroType}
-							<Badge variant={hero.heroType} class="px-3 py-1 text-sm">
-								<span class="capitalize">{hero.heroType}</span>
-							</Badge>
-						{/if}
-						<div class="bg-muted/50 flex items-center gap-2 rounded-md px-3 py-1">
-							<span class="text-foreground text-sm font-semibold"
-								>{changelogs.length}</span
+					<dl class="mt-6 grid grid-cols-2 gap-px overflow-hidden border sm:grid-cols-3">
+						<div class="bg-muted/30 p-3 text-left">
+							<dt
+								class="text-muted-foreground font-mono text-[9px] tracking-widest uppercase"
 							>
-							<span class="text-muted-foreground text-sm"
-								>change{changelogs.length !== 1 ? 's' : ''}</span
+								Patches
+							</dt>
+							<dd class="text-foreground mt-1 font-mono text-xl font-bold">
+								{changelogs.length}
+							</dd>
+						</div>
+						<div class="bg-muted/30 p-3 text-left">
+							<dt
+								class="text-muted-foreground font-mono text-[9px] tracking-widest uppercase"
 							>
+								Changes
+							</dt>
+							<dd class="mt-1 font-mono text-xl font-bold" style:color={accent}>
+								{changeValue}
+							</dd>
 						</div>
-					</div>
-
-					{#if changelogs.length > 1}
-						<div class="inline-block" in:fly={{ y: 10, duration: 400, delay: 200 }}>
-							<PatchTimeline
-								patches={changelogs.map((c) => ({ id: c.id, date: c.date }))}
-								class="max-w-md"
-								timelineColor={hero.heroType}
-							/>
+						<div class="bg-muted/30 col-span-2 p-3 text-left sm:col-span-1">
+							<dt
+								class="text-muted-foreground font-mono text-[9px] tracking-widest uppercase"
+							>
+								Tracked since
+							</dt>
+							<dd class="text-foreground mt-1 text-sm font-semibold">
+								{oldestPatch ? formatDate(oldestPatch.date) : 'No patches yet'}
+							</dd>
 						</div>
+					</dl>
+					{#if unknownPatches > 0}
+						<p
+							class="text-muted-foreground mt-2 font-mono text-[9px] tracking-wide uppercase"
+						>
+							{unknownPatches} patch{unknownPatches === 1 ? '' : 'es'} awaiting a reliable count
+						</p>
 					{/if}
 				</div>
 			</div>
+
+			{#if timelinePatches.length > 1}
+				<div class="border-border/60 relative z-10 mt-7 border-t pt-5">
+					<div class="mb-2 flex items-center justify-between gap-3">
+						<span
+							class="text-muted-foreground font-mono text-[9px] font-bold tracking-widest uppercase"
+						>
+							Patch cadence
+						</span>
+						<span class="text-muted-foreground font-mono text-[9px]">
+							{timelinePatches.length} points
+						</span>
+					</div>
+					<PatchTimeline patches={timelinePatches} {entity} {accent} />
+				</div>
+			{/if}
 		</header>
 
-		<!-- Changes Section -->
-		<section>
-			<div
-				class="mb-6 flex items-center gap-3"
-				in:fly={{ y: -10, duration: 400, delay: 100 }}
-			>
-				<div class="bg-border h-px flex-1"></div>
-				<h2
-					class="text-foreground font-display text-center text-xl font-medium tracking-wide md:text-2xl"
-				>
-					Change History
-				</h2>
-				<div class="bg-border h-px flex-1"></div>
+		<section aria-labelledby="history-heading">
+			<div class="mb-6 flex items-end justify-between gap-4">
+				<div>
+					<p
+						class="text-signal font-mono text-[10px] font-bold tracking-[0.2em] uppercase"
+					>
+						Entity log
+					</p>
+					<h2
+						id="history-heading"
+						class="text-foreground font-display mt-1 text-2xl font-medium tracking-wide sm:text-3xl"
+					>
+						Change History
+					</h2>
+				</div>
+				<span class="text-muted-foreground font-mono text-xs">
+					{changelogs.length} patch{changelogs.length === 1 ? '' : 'es'}
+				</span>
 			</div>
 
 			{#if changelogs.length > 0}
-				<div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-					{#each changelogs as changelog, i (changelog.id)}
-						<div in:fly={{ y: 30, ...cardTransitionConfig(i) }}>
+				<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+					{#each changelogs as changelog (changelog.id)}
+						<div>
 							<PatchPreviewCard
 								id={changelog.id}
 								date={changelog.date}
 								author={changelog.author}
 								authorImage={changelog.authorImage}
-								icons={changelog.icons}
+								changeCount={changelog.changeCount}
+								{entity}
+								{accent}
 							/>
 						</div>
 					{/each}
 				</div>
 			{:else}
 				<div
-					class="bg-card border-border relative overflow-hidden rounded-xl border p-12 text-center"
-					in:scale={{ start: 0.95, duration: 400 }}
+					class="clip-corner bg-card border-border relative overflow-hidden border-2 p-8 text-center sm:p-12"
 				>
-					<div
-						class="text-muted-foreground/30 bg-muted mx-auto mb-4 flex size-20 items-center justify-center rounded-full"
-					>
-						<Activity class="size-8" />
-					</div>
-					<p class="text-muted-foreground text-lg">
-						No changes recorded for <span class="text-foreground font-medium"
-							>{hero.name}</span
-						>
-						yet.
+					<CornerAccents tlSize="2rem" tlColor="bg-signal/50" />
+					<Activity class="text-signal/60 mx-auto mb-4 size-8" />
+					<p class="text-muted-foreground font-mono text-xs tracking-wide uppercase">
+						No log entries
 					</p>
-					<p class="text-muted-foreground mt-2 text-sm">Check back soon for updates.</p>
+					<p class="text-foreground mt-2 text-lg">No recorded changes for {hero.name}.</p>
 				</div>
 			{/if}
 		</section>

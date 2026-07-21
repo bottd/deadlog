@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { untrack } from 'svelte';
 	import type { Component } from 'svelte';
-	import { setEntityMaps, type EntityMaps } from './entityContext';
+	import { entityFragmentId, setEntityMaps, type EntityMaps } from './entityContext';
 
 	interface Props {
 		content: Component;
@@ -23,15 +23,8 @@
 
 	let sectionEl = $state<HTMLElement>();
 
-	function slug(name: string): string {
-		return name
-			.toLowerCase()
-			.replace(/[^a-z0-9]+/g, '-')
-			.replace(/^-+|-+$/g, '');
-	}
-
 	const selectedSlugs = $derived(
-		new Set([...(filter?.heroes ?? []), ...(filter?.items ?? [])].map(slug))
+		new Set([...(filter?.heroes ?? []), ...(filter?.items ?? [])].map(entityFragmentId))
 	);
 
 	// the patch body is a prerendered component — filter by toggling block display
@@ -42,13 +35,13 @@
 	function enhanceContent(node: HTMLElement) {
 		for (const heading of node.querySelectorAll('h1, h2')) {
 			if (!heading.id && heading.textContent) {
-				heading.id = slug(heading.textContent);
+				heading.id = entityFragmentId(heading.textContent);
 			}
 		}
 	}
 
 	function sectionOf(h1: HTMLElement): 'general' | 'hero' | 'item' {
-		const id = h1.id || slug(h1.textContent ?? '');
+		const id = h1.id || entityFragmentId(h1.textContent ?? '');
 		if (id.includes('hero')) return 'hero';
 		if (id.includes('item')) return 'item';
 		return 'general';

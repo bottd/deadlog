@@ -1,10 +1,5 @@
-import {
-	getAllItemSlugs,
-	getItemBySlug,
-	getChangelogsByItemId,
-	getChangelogIcons
-} from '@deadlog/scraper';
-import { error } from '@sveltejs/kit';
+import { getAllItemSlugs, getItemBySlug, getChangelogsByItemId } from '@deadlog/scraper';
+import { error, redirect } from '@sveltejs/kit';
 import type { PageServerLoad, EntryGenerator } from './$types';
 import { absoluteUrl } from '$lib/seo';
 
@@ -23,16 +18,13 @@ export const load: PageServerLoad = async ({ params, locals }) => {
 	if (!item) {
 		throw error(404, 'Item not found');
 	}
+	if (item.slug !== params.slug) redirect(308, `/item/${item.slug}`);
 
 	const changelogs = await getChangelogsByItemId(locals.db, item.id);
 
-	const changelogIds = changelogs.map((c) => c.id);
-	const iconsMap = await getChangelogIcons(locals.db, changelogIds);
-
 	const enrichedChangelogs = changelogs.map((changelog) => ({
 		...changelog,
-		date: new Date(changelog.pubDate),
-		icons: iconsMap[changelog.id] || { heroes: [], items: [] }
+		date: new Date(changelog.pubDate)
 	}));
 
 	return {

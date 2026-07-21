@@ -1,18 +1,11 @@
 <script lang="ts">
-	import { page } from '$app/state';
 	import { FilterInput } from '$lib/components/filter-bar';
 	import Crosshair from '@lucide/svelte/icons/crosshair';
-
-	const showFilter = $derived(
-		page.url.pathname === '/' || page.url.pathname.startsWith('/change/')
-	);
 </script>
 
 <nav
 	aria-label="Primary navigation"
-	class="animate-entrance-down border-signal/15 bg-card/90 sticky z-50 border-b backdrop-blur-xl transition-all duration-300 {showFilter
-		? 'pb-5'
-		: ''}"
+	class="animate-entrance-down border-signal/15 bg-card/90 sticky z-50 border-b pb-5 backdrop-blur-xl transition-all duration-300"
 >
 	<div class="container mx-auto px-4">
 		<div class="flex h-20 items-center justify-between">
@@ -76,18 +69,16 @@
 				</a>
 			</div>
 		</div>
-		{#if showFilter}
-			<div class="flex flex-col gap-2">
-				<label
-					for="filter-input"
-					class="text-signal/80 flex items-center gap-2 font-mono text-xs font-medium tracking-widest uppercase"
-				>
-					<span class="bg-signal/60 h-px w-3"></span>
-					Search the archive by hero, item, or keyword
-				</label>
-				<FilterInput />
-			</div>
-		{/if}
+		<div class="flex flex-col gap-2">
+			<label
+				for="filter-input"
+				class="text-signal/80 flex items-center gap-2 font-mono text-xs font-medium tracking-widest uppercase"
+			>
+				<span class="bg-signal/60 h-px w-3"></span>
+				Search the archive by hero, item, or keyword
+			</label>
+			<FilterInput />
+		</div>
 	</div>
 </nav>
 

@@ -54,7 +54,7 @@
 	});
 
 	$effect(() => {
-		filterState.syncSearch(params.q);
+		filterState.syncSearch(page.url.searchParams.get('q') ?? '');
 	});
 
 	function getOptionId(prefix: 'desktop' | 'mobile', value: string) {
@@ -132,15 +132,13 @@
 {/snippet}
 
 {#snippet filterContent(listId: string, optionPrefix: 'desktop' | 'mobile')}
-	<div
-		class="border-border flex border-b p-2"
-		onkeydown={(event) => event.stopPropagation()}
-	>
+	<div class="border-border flex border-b p-2">
 		<ToggleGroup.Root
 			type="single"
 			bind:value={filterState.filterMode}
 			class="w-full"
 			aria-label="Filter entity type"
+			onkeydown={(event) => event.stopPropagation()}
 		>
 			<ToggleGroup.Item value="all" class="flex-1 text-xs">All</ToggleGroup.Item>
 			<ToggleGroup.Item value="heroes" class="flex-1 text-xs">Heroes</ToggleGroup.Item>
@@ -233,7 +231,7 @@
 				shouldFilter={false}
 				loop
 				label="Search the archive by hero, item, or keyword"
-				class="h-auto overflow-visible rounded-none bg-transparent"
+				class="relative z-50 h-auto overflow-visible rounded-none bg-transparent"
 			>
 				<form onsubmit={handleSubmit} class="filter-form">
 					<div class="flex min-w-0 flex-1 flex-wrap items-center gap-1.5">

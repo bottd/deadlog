@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { EntityIcon } from '$lib/types';
+	import { entityFragmentId } from './entityContext';
 
 	interface Props {
 		heroes: EntityIcon[];
@@ -10,14 +11,6 @@
 	}
 
 	let { heroes, items, onnavigate, size = 'sm', hideGeneral = false }: Props = $props();
-
-	function slugify(name: string): string {
-		return name
-			.toLowerCase()
-			.replace(/^(the|a|an)\s+/, '')
-			.replace(/[^a-z0-9]+/g, '-')
-			.replace(/^-+|-+$/g, '');
-	}
 </script>
 
 {#snippet tocGroup(href: string, label: string, count: number, entities: EntityIcon[])}
@@ -34,7 +27,11 @@
 		<ul class={size === 'lg' ? 'mt-1 space-y-0.5' : 'mt-0.5 space-y-px'}>
 			{#each entities as entity (entity.id)}
 				<li>
-					<a href="#{slugify(entity.alt)}" class="toc-entity" onclick={onnavigate}>
+					<a
+						href="#{entityFragmentId(entity.alt)}"
+						class="toc-entity"
+						onclick={onnavigate}
+					>
 						<img
 							src={entity.src}
 							alt=""

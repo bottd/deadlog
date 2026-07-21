@@ -5,6 +5,7 @@ import { schema, type DrizzleDB } from '@deadlog/db';
 import {
 	getChangelogsByHeroId,
 	getChangelogsByItemId,
+	getChangelogIcons,
 	getHeroByName,
 	getHeroBySlug
 } from './queries';
@@ -122,6 +123,11 @@ describe('entity history queries', () => {
 		const history = await getChangelogsByItemId(db, 1);
 		expect(history).toHaveLength(1);
 		expect(history[0].changeCount).toBe(2);
+	});
+
+	it('translates the stored shop taxonomy for existing icon consumers', async () => {
+		const icons = await getChangelogIcons(db, ['new']);
+		expect(icons.new.items[0].itemCategory).toBe('weapon');
 	});
 
 	it('resolves article aliases to the canonical hero row', async () => {

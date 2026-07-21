@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { getEntityMaps, resolveEntity } from './entityContext';
+	import { entityFragmentId, getEntityMaps, resolveEntity } from './entityContext';
 
 	interface Props {
 		name: string;
@@ -11,14 +11,8 @@
 	const maps = getEntityMaps();
 	const entity = $derived(resolveEntity(maps, type, name));
 
-	const slug = $derived(
-		(entity?.slug ?? name)
-			.toLowerCase()
-			.replace(/[^a-z0-9]+/g, '-')
-			.replace(/^-+|-+$/g, '')
-	);
-
 	const displayName = $derived(entity?.name ?? name);
+	const slug = $derived(entityFragmentId(displayName));
 </script>
 
 <header

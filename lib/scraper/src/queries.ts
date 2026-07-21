@@ -317,6 +317,17 @@ interface ChangelogIcons {
 	items: EntityIcon[];
 }
 
+function toEntityIconItemCategory(
+	category: ScrapedItem['category']
+): EntityIcon['itemCategory'] {
+	// EntityIcon retains the deployed technical enum; translate the real shop taxonomy
+	// until its external consumers can migrate to weapon/vitality/spirit directly.
+	if (category === 'weapon') return 'weapon';
+	if (category === 'vitality') return 'ability';
+	if (category === 'spirit') return 'upgrade';
+	return undefined;
+}
+
 export async function getChangelogIcons(
 	db: DrizzleDB,
 	changelogIds: string[]
@@ -360,7 +371,7 @@ export async function getChangelogIcons(
 			src: r.items.image,
 			alt: r.items.name,
 			type: 'item',
-			itemCategory: r.items.type
+			itemCategory: toEntityIconItemCategory(r.items.category)
 		});
 	}
 

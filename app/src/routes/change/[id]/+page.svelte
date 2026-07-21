@@ -25,7 +25,8 @@
 		description,
 		image,
 		isIndexable,
-		NorgComponent
+		NorgComponent,
+		norgSections
 	} = page.data;
 
 	let tocOpen = $state(false);
@@ -64,6 +65,7 @@
 
 	const heroCount = $derived(tocHeroes.length);
 	const itemCount = $derived(tocItems.length);
+	const hideGeneral = $derived(!!norgFilter || !norgSections.includes('general-changes'));
 	const canonical = absoluteUrl(`/change/${encodeURIComponent(changelog.id)}`);
 	const publishedTime = changelog.date.toISOString();
 	const structuredData = $derived.by(() => {
@@ -202,7 +204,7 @@
 		{#if NorgComponent && changelog.icons}
 			<aside class="hidden w-56 shrink-0 xl:block">
 				<div class="sticky top-[12rem]">
-					<ChangelogToc heroes={tocHeroes} items={tocItems} hideGeneral={!!norgFilter} />
+					<ChangelogToc heroes={tocHeroes} items={tocItems} {hideGeneral} />
 				</div>
 			</aside>
 		{/if}
@@ -337,7 +339,7 @@
 				<ChangelogToc
 					heroes={tocHeroes}
 					items={tocItems}
-					hideGeneral={!!norgFilter}
+					{hideGeneral}
 					onnavigate={() => (tocOpen = false)}
 					size="lg"
 				/>

@@ -373,7 +373,7 @@ content_text: "Bots will now replace a human player if the player has been disco
 @end
 
 - No longer provides +1 Sprint
-- +10% Spirit Lifesteal
+- Spirit Lifesteal increased by 10%
 
 @embed svelte
 <EntityHeading name="Glass Cannon" type="item" />

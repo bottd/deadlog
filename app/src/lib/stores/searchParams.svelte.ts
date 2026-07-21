@@ -17,10 +17,18 @@ function serialize(value: ParamValue): string | null {
 class SearchParamsStore {
 	#pendingParams = $state<URLSearchParams | null>(null);
 	#navigationId = 0;
+	#pendingTarget = '';
+	#hasReachedTarget = false;
 
 	#getParams(): URLSearchParams {
-		if (this.#pendingParams) return this.#pendingParams;
-		return building ? new URLSearchParams() : page.url.searchParams;
+		if (building) return new URLSearchParams();
+		if (!this.#pendingParams) return page.url.searchParams;
+
+		const current = `${page.url.pathname}${page.url.search}`;
+		if (current === this.#pendingTarget) this.#hasReachedTarget = true;
+		return this.#hasReachedTarget && current !== this.#pendingTarget
+			? page.url.searchParams
+			: this.#pendingParams;
 	}
 
 	get hero(): string[] {
@@ -60,12 +68,14 @@ class SearchParamsStore {
 		this.#pendingParams = nextParams;
 		const navigationId = ++this.#navigationId;
 		const query = nextParams.toString();
+		this.#pendingTarget = query ? `/?${query}` : '/';
+		this.#hasReachedTarget = false;
 
 		const finish = () => {
 			if (navigationId === this.#navigationId) this.#pendingParams = null;
 		};
 
-		void goto(query ? `/?${query}` : '/', GOTO_OPTS).then(finish, finish);
+		void goto(this.#pendingTarget, GOTO_OPTS).then(finish, finish);
 	}
 
 	toURLSearchParams(): URLSearchParams {

@@ -43,6 +43,13 @@ function nameAliases(name: string): string[] {
 	return withoutArticle === normalized ? [normalized] : [normalized, withoutArticle];
 }
 
+export function entityFragmentId(name: string): string {
+	return normalizeName(name)
+		.replace(/^(the|a|an)\s+/, '')
+		.replace(/[^a-z0-9]+/g, '-')
+		.replace(/^-+|-+$/g, '');
+}
+
 export function resolveEntity(
 	maps: EntityMaps,
 	type: 'hero' | 'item',
