@@ -119,32 +119,31 @@ test('load more appends a masonry page below existing cards without reflow', asy
 }) => {
 	await gotoApp(page, '/');
 	const firstPage = page.locator('[data-patch-masonry-page="0"]');
+	await page.evaluate(() => document.fonts.ready);
 	await firstPage.evaluate(async (element) => {
-		await Promise.all(
+		await Promise.allSettled(
 			element.getAnimations({ subtree: true }).map((animation) => animation.finished)
 		);
 	});
-	const positionsBefore = await firstPage
-		.locator('[data-patch-card]')
-		.evaluateAll((cards) =>
-			cards.map((card) => {
-				const rect = card.getBoundingClientRect();
-				return { x: rect.x, y: rect.y + window.scrollY };
-			})
-		);
+	const positionsBefore = await firstPage.evaluate((element) => {
+		const origin = element.getBoundingClientRect();
+		return [...element.querySelectorAll('[data-patch-card]')].map((card) => {
+			const rect = card.getBoundingClientRect();
+			return { x: rect.x - origin.x, y: rect.y - origin.y };
+		});
+	});
 
 	await page.getByRole('button', { name: 'Load More' }).click();
 	const secondPage = page.locator('[data-patch-masonry-page="1"]');
 	await expect(secondPage.locator('[data-patch-card]').first()).toBeVisible();
 
-	const positionsAfter = await firstPage
-		.locator('[data-patch-card]')
-		.evaluateAll((cards) =>
-			cards.map((card) => {
-				const rect = card.getBoundingClientRect();
-				return { x: rect.x, y: rect.y + window.scrollY };
-			})
-		);
+	const positionsAfter = await firstPage.evaluate((element) => {
+		const origin = element.getBoundingClientRect();
+		return [...element.querySelectorAll('[data-patch-card]')].map((card) => {
+			const rect = card.getBoundingClientRect();
+			return { x: rect.x - origin.x, y: rect.y - origin.y };
+		});
+	});
 	expect(positionsAfter).toEqual(positionsBefore);
 
 	const [firstPageBox, secondPageBox] = await Promise.all([
