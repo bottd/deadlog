@@ -42,7 +42,7 @@ jobs:
 
       - name: Run browser tests
         if: matrix.task == 'e2e'
-        run: pnpm run build:db && pnpm run test:e2e
+        run: pnpm run build:db && pnpm run build && pnpm run test:e2e
         env:
           NODE_ENV: test
 

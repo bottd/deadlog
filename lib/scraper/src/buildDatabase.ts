@@ -20,6 +20,7 @@ import {
 import { toSlug } from '@deadlog/utils';
 
 const ITEMS_API_URL = 'https://assets.deadlock-api.com/v2/items';
+const ITEMS_API_TIMEOUT_MS = 30_000;
 
 type ItemCategory = 'weapon' | 'vitality' | 'spirit';
 
@@ -60,7 +61,9 @@ export function parseItemTaxonomy(payload: unknown): Map<number, ItemTaxonomy> {
 				? item.item_slot_type
 				: null;
 		const tier =
-			typeof item.item_tier === 'number' && Number.isInteger(item.item_tier)
+			typeof item.item_tier === 'number' &&
+			Number.isInteger(item.item_tier) &&
+			item.item_tier > 0
 				? item.item_tier
 				: null;
 
@@ -76,7 +79,14 @@ export function parseItemTaxonomy(payload: unknown): Map<number, ItemTaxonomy> {
 }
 
 async function fetchItemTaxonomy(): Promise<Map<number, ItemTaxonomy>> {
-	const response = await fetch(ITEMS_API_URL);
+	let response: Response;
+	try {
+		response = await fetch(ITEMS_API_URL, {
+			signal: AbortSignal.timeout(ITEMS_API_TIMEOUT_MS)
+		});
+	} catch (error) {
+		throw new Error('Failed to fetch item taxonomy within 30 seconds', { cause: error });
+	}
 	if (!response.ok) {
 		throw new Error(`Failed to fetch item taxonomy: ${response.statusText}`);
 	}

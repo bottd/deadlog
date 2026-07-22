@@ -7,7 +7,7 @@
 	import * as Avatar from '$lib/components/ui/avatar';
 	import * as Sheet from '$lib/components/ui/sheet';
 	import { Button } from '$lib/components/ui/button';
-	import { formatDate, formatTime } from '@deadlog/utils';
+	import { entityNamesMatch, formatDate, formatTime } from '@deadlog/utils';
 	import { CornerAccents } from '$lib/components/ui/corner-accents';
 	import ArrowLeft from '@lucide/svelte/icons/arrow-left';
 	import Link from '@lucide/svelte/icons/link';
@@ -48,7 +48,7 @@
 	const allItems = $derived<EntityIcon[]>(changelog.icons?.items ?? []);
 
 	const has = (names: string[], name: string) =>
-		names.some((n) => n.toLowerCase() === name.toLowerCase());
+		names.some((n) => entityNamesMatch(n, name));
 	const matchedHeroes = $derived(allHeroes.filter((h) => has(selHeroes, h.alt)));
 	const matchedItems = $derived(allItems.filter((i) => has(selItems, i.alt)));
 
@@ -328,6 +328,7 @@
 
 {#if NorgComponent && changelog.icons}
 	<button
+		type="button"
 		onclick={() => (tocOpen = true)}
 		class="bg-primary text-primary-foreground fixed right-8 bottom-8 z-50 flex size-12 items-center justify-center rounded-full shadow-lg transition-all hover:scale-110 hover:opacity-80 xl:hidden"
 		aria-label="Open table of contents"

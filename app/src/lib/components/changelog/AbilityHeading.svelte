@@ -31,7 +31,7 @@
 	{#if abilityData?.image}
 		<img
 			src={abilityData.image}
-			alt={name}
+			alt=""
 			width="20"
 			height="20"
 			loading="lazy"

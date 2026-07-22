@@ -10,6 +10,7 @@ export {
 	extractEntityChanges,
 	normalizeEntityName,
 	entityNameAliases,
+	entityNamesMatch,
 	type TocEntry
 } from './extract';
 export { extractPreviewImage, loadAllChangelogs } from './load';

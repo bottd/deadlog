@@ -293,7 +293,11 @@
 			oklch(from var(--grid-color) l c h / var(--grid-opacity)) 1px,
 			transparent 1px
 		);
-	background-size: var(--grid-size) var(--grid-size);
+	background-size:
+		auto,
+		auto,
+		var(--grid-size) var(--grid-size),
+		var(--grid-size) var(--grid-size);
 }
 
 /* Corner cut clip-paths */

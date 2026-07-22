@@ -1,5 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { entityNameAliases, extractEntities, extractEntityChanges } from './extract';
+import {
+	entityNameAliases,
+	entityNamesMatch,
+	extractEntities,
+	extractEntityChanges
+} from './extract';
 
 describe('extractEntityChanges', () => {
 	it('counts every bullet in an entity section across ability headings', () => {
@@ -73,5 +78,9 @@ describe('entity identity extraction', () => {
 	it('exposes canonical article aliases', () => {
 		expect(entityNameAliases(' The Doorman ')).toEqual(['the doorman', 'doorman']);
 		expect(entityNameAliases('Doorman')).toEqual(['doorman']);
+	});
+
+	it('matches names with optional articles', () => {
+		expect(entityNamesMatch('The Doorman', 'Doorman')).toBe(true);
 	});
 });

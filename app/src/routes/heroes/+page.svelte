@@ -179,7 +179,7 @@
 							/>
 							<img
 								src={getHeroCardImage(hero)}
-								alt="{hero.name} Deadlock hero"
+								alt=""
 								width="56"
 								height="56"
 								loading={index < 10 ? 'eager' : 'lazy'}

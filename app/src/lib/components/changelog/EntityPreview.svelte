@@ -40,7 +40,7 @@
 		>
 			<img
 				src={entity.src}
-				alt={entity.alt}
+				alt=""
 				width="36"
 				height="36"
 				loading="lazy"

@@ -121,12 +121,12 @@
 					<div class="bg-signal/30 h-px flex-1"></div>
 				</div>
 
-				<h3
+				<h2
 					class="font-display text-foreground group-hover:text-primary heading-glow text-3xl font-medium tracking-wide transition-colors duration-300 md:text-4xl"
 					in:fly={{ y: 20, duration: 400, delay: 100 }}
 				>
 					{formatDate(date)}
-				</h3>
+				</h2>
 
 				<div class="flex items-center gap-3">
 					<Avatar.Root
@@ -283,11 +283,11 @@
 					<Calendar
 						class="text-muted-foreground group-hover:text-primary size-3.5 shrink-0 transition-colors duration-300"
 					/>
-					<h3
+					<h2
 						class="text-foreground group-hover:text-primary min-w-0 truncate text-base font-semibold tracking-tight transition-colors duration-300"
 					>
 						{formatDate(date)}
-					</h3>
+					</h2>
 					{#if isMajor}
 						<span
 							class="bg-primary/15 border-primary/40 text-primary clip-corner-sm ml-auto shrink-0 border px-1.5 py-0.5 font-mono text-[9px] font-bold tracking-widest uppercase"

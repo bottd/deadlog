@@ -9,6 +9,9 @@
 	"exports": {
 		".": "./src/index.ts"
 	},
+	"dependencies": {
+		"@deadlog/utils": "workspace:*"
+	},
 	"devDependencies": {
 		"@types/node": "24.12.0",
 		"zod": "4.3.6"

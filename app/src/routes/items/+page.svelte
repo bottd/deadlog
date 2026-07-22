@@ -187,7 +187,7 @@
 							>
 								<img
 									src={getItemImage(item)}
-									alt="{item.name} Deadlock item"
+									alt=""
 									width="48"
 									height="48"
 									loading={index < 10 ? 'eager' : 'lazy'}

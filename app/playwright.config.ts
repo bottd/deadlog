@@ -22,7 +22,8 @@ export default defineConfig({
 		}
 	],
 	webServer: {
-		command: 'DATABASE_URL=file:static/deadlog.db vite dev --host 127.0.0.1 --port 4173',
+		command:
+			'DATABASE_URL=file:static/deadlog.db vite preview --host 127.0.0.1 --port 4173',
 		url: 'http://localhost:4173',
 		reuseExistingServer: !process.env.CI,
 		timeout: 60_000

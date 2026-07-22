@@ -109,6 +109,7 @@
 	<Tooltip.Provider>
 		<div
 			class="flex w-full flex-col gap-2 {className}"
+			role="group"
 			aria-label="Patch timeline for {entity.name}"
 		>
 			<div class="sm:hidden">{@render timelineRow(mobileSlice)}</div>

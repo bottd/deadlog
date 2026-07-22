@@ -23,8 +23,14 @@ describe('parseItemTaxonomy', () => {
 
 	it('uses a neutral category when upstream does not classify the record', () => {
 		const taxonomy = parseItemTaxonomy([
-			{ id: 2, item_slot_type: 'unknown', shopable: false, disabled: true }
+			{
+				id: 2,
+				item_slot_type: 'unknown',
+				item_tier: 0,
+				shopable: false,
+				disabled: true
+			}
 		]);
-		expect(taxonomy.get(2)?.category).toBeNull();
+		expect(taxonomy.get(2)).toMatchObject({ category: null, tier: null });
 	});
 });

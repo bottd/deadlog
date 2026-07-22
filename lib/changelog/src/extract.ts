@@ -1,4 +1,5 @@
 import type { ChangelogEntities, EntityChange } from './schema';
+import { decodeEntityName, entityNameAliases } from '@deadlog/utils';
 
 export interface TocEntry {
 	level: number;
@@ -6,15 +7,7 @@ export interface TocEntry {
 	id: string;
 }
 
-const ARTICLE_RE = /^(the|a|an)\s+/;
 const ENTITY_HEADING_RE = /<EntityHeading\b([^>]*)\/?\s*>/;
-
-function unescapeEntityName(name: string): string {
-	return name
-		.replace(/&amp;/g, '&')
-		.replace(/&quot;/g, '"')
-		.replace(/&apos;|&#39;/g, "'");
-}
 
 function parseEntityHeading(source: string): Omit<EntityChange, 'count'> | null {
 	const tag = source.match(ENTITY_HEADING_RE);
@@ -26,7 +19,7 @@ function parseEntityHeading(source: string): Omit<EntityChange, 'count'> | null 
 	const type = typeMatch?.[1] ?? typeMatch?.[2];
 
 	if (!name || (type !== 'hero' && type !== 'item')) return null;
-	return { name: unescapeEntityName(name), type };
+	return { name: decodeEntityName(name), type };
 }
 
 export function extractEntityChanges(content: string): EntityChange[] {
@@ -100,12 +93,4 @@ export function extractEntities(toc: TocEntry[], content?: string): ChangelogEnt
 	return { heroes: [...heroSet], items: [...itemSet] };
 }
 
-export function normalizeEntityName(name: string): string {
-	return unescapeEntityName(name).toLowerCase().trim().replace(/\s+/g, ' ');
-}
-
-export function entityNameAliases(name: string): string[] {
-	const normalized = normalizeEntityName(name);
-	const withoutArticle = normalized.replace(ARTICLE_RE, '');
-	return withoutArticle !== normalized ? [normalized, withoutArticle] : [normalized];
-}
+export { entityNameAliases, entityNamesMatch, normalizeEntityName } from '@deadlog/utils';

@@ -1,4 +1,5 @@
 import { getContext, setContext } from 'svelte';
+import { entityNameAliases, entityNamesMatch } from '@deadlog/utils';
 
 export interface EntityMaps {
 	heroMap: Record<number, { name: string; slug: string; images: Record<string, string> }>;
@@ -27,25 +28,8 @@ export function getEntityMaps(): EntityMaps {
 	return getContext<EntityMaps>(ENTITY_MAPS_KEY);
 }
 
-function normalizeName(name: string): string {
-	return name
-		.replace(/&amp;/g, '&')
-		.replace(/&quot;/g, '"')
-		.replace(/&apos;|&#39;/g, "'")
-		.toLowerCase()
-		.trim()
-		.replace(/\s+/g, ' ');
-}
-
-function nameAliases(name: string): string[] {
-	const normalized = normalizeName(name);
-	const withoutArticle = normalized.replace(/^(the|a|an)\s+/, '');
-	return withoutArticle === normalized ? [normalized] : [normalized, withoutArticle];
-}
-
 export function entityFragmentId(name: string): string {
-	return normalizeName(name)
-		.replace(/^(the|a|an)\s+/, '')
+	return (entityNameAliases(name).at(-1) ?? '')
 		.replace(/[^a-z0-9]+/g, '-')
 		.replace(/^-+|-+$/g, '');
 }
@@ -55,11 +39,10 @@ export function resolveEntity(
 	type: 'hero' | 'item',
 	name: string
 ): ResolvedEntity | undefined {
-	const requestedAliases = new Set(nameAliases(name));
 	const entries = type === 'hero' ? maps.heroMap : maps.itemMap;
 
 	for (const [id, entity] of Object.entries(entries)) {
-		if (!nameAliases(entity.name).some((alias) => requestedAliases.has(alias))) continue;
+		if (!entityNamesMatch(entity.name, name)) continue;
 
 		const image =
 			type === 'hero'

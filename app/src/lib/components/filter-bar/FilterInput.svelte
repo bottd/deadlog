@@ -233,6 +233,7 @@
 						<input
 							id="filter-input"
 							type="text"
+							aria-label="Search by hero, item, or keyword"
 							role="combobox"
 							aria-autocomplete="list"
 							aria-haspopup="listbox"

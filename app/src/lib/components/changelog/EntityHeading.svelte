@@ -29,7 +29,7 @@
 	{#if entity?.image}
 		<img
 			src={entity.image}
-			alt={displayName}
+			alt=""
 			width="40"
 			height="40"
 			loading="lazy"

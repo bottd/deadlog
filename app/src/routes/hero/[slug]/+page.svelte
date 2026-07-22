@@ -273,9 +273,9 @@
 			</div>
 
 			{#if changelogs.length > 0}
-				<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+				<ol class="grid list-none grid-cols-1 gap-4 p-0 sm:grid-cols-2 lg:grid-cols-3">
 					{#each changelogs as changelog (changelog.id)}
-						<div>
+						<li>
 							<PatchPreviewCard
 								id={changelog.id}
 								date={changelog.date}
@@ -285,9 +285,9 @@
 								{entity}
 								{accent}
 							/>
-						</div>
+						</li>
 					{/each}
-				</div>
+				</ol>
 			{:else}
 				<div
 					class="clip-corner bg-card border-border relative overflow-hidden border-2 p-8 text-center sm:p-12"

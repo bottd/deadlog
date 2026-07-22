@@ -14,7 +14,7 @@ import {
 } from 'drizzle-orm';
 import type { EnrichedHero, EntityIcon } from './types/deadlockApi';
 import { getLibsqlDb, type DrizzleDB, type SelectChangelog, schema } from '@deadlog/db';
-import { entityNameAliases } from '@deadlog/changelog';
+import { entityNamesMatch } from '@deadlog/changelog';
 
 export { getLibsqlDb as getDb };
 
@@ -180,11 +180,6 @@ export async function getAllItems(db: DrizzleDB): Promise<ScrapedItem[]> {
 	return db.select().from(schema.items).all();
 }
 
-function hasMatchingNameAlias(candidate: string, requested: string): boolean {
-	const requestedAliases = new Set(entityNameAliases(requested));
-	return entityNameAliases(candidate).some((alias) => requestedAliases.has(alias));
-}
-
 function canonicalSlug(slug: string): string {
 	return slug
 		.toLowerCase()
@@ -203,7 +198,7 @@ export async function getHeroByName(
 		.get();
 	if (exact) return exact;
 	const candidates = await db.select().from(schema.heroes).all();
-	return candidates.find((hero) => hasMatchingNameAlias(hero.name, name)) ?? null;
+	return candidates.find((hero) => entityNamesMatch(hero.name, name)) ?? null;
 }
 
 export async function getHeroBySlug(
@@ -242,7 +237,7 @@ export async function getItemByName(
 		.get();
 	if (exact) return exact;
 	const candidates = await db.select().from(schema.items).all();
-	return candidates.find((item) => hasMatchingNameAlias(item.name, name)) ?? null;
+	return candidates.find((item) => entityNamesMatch(item.name, name)) ?? null;
 }
 
 export async function getItemBySlug(

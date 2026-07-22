@@ -24,6 +24,7 @@ export {
 } from './queries';
 
 export { formatDate, formatTime } from '@deadlog/utils';
+export { entityNameAliases, entityNamesMatch } from '@deadlog/changelog';
 export type {
 	HeroId,
 	ItemId,

@@ -8,6 +8,13 @@ export function toSlug(name: string): string {
 		.replace(/^-|-$/g, '');
 }
 
+export {
+	decodeEntityName,
+	entityNameAliases,
+	entityNamesMatch,
+	normalizeEntityName
+} from './entityNames';
+
 function toDate(date: Date | string): Date {
 	return date instanceof Date ? date : new Date(date);
 }

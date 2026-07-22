@@ -65,6 +65,10 @@ describe('resolveEntityIds', () => {
 		expect(resolveEntityIds(['bebop', 'ABRAMS'], entities)).toEqual([1, 2]);
 	});
 
+	it('resolves names with optional articles', () => {
+		expect(resolveEntityIds(['The Bebop'], entities)).toEqual([1]);
+	});
+
 	it('uses a non-matching id when any requested name is unknown', () => {
 		expect(resolveEntityIds(['Bebop', 'NonExistent'], entities)).toEqual([
 			1,

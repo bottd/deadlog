@@ -5,6 +5,7 @@ import {
 } from '@deadlog/scraper';
 import type { DrizzleDB } from '@deadlog/db';
 import type { ChangelogEntry } from '$lib/types';
+import { entityNameAliases } from '@deadlog/utils';
 import { parseCSV } from '$lib/utils/csv';
 
 export const NO_MATCH_ENTITY_ID = -1;
@@ -24,12 +25,20 @@ export function resolveEntityIds(
 	names: string[],
 	entities: { id: number; name: string }[]
 ): number[] {
-	const idsByName = new Map(
-		entities.map((entity) => [entity.name.toLowerCase(), entity.id])
-	);
+	const idsByName = new Map<string, number>();
+	for (const entity of entities) {
+		for (const alias of entityNameAliases(entity.name)) {
+			if (!idsByName.has(alias)) idsByName.set(alias, entity.id);
+		}
+	}
 	return [
 		...new Set(
-			names.map((name) => idsByName.get(name.toLowerCase()) ?? NO_MATCH_ENTITY_ID)
+			names.map(
+				(name) =>
+					entityNameAliases(name)
+						.map((alias) => idsByName.get(alias))
+						.find((id) => id !== undefined) ?? NO_MATCH_ENTITY_ID
+			)
 		)
 	];
 }

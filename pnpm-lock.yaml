@@ -187,6 +187,10 @@ importers:
         version: link:../lib/utils
 
   lib/changelog:
+    dependencies:
+      '@deadlog/utils':
+        specifier: workspace:*
+        version: link:../utils
     devDependencies:
       '@types/node':
         specifier: 24.12.0

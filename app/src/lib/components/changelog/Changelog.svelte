@@ -69,7 +69,7 @@
 	);
 </script>
 
-<main class="container mx-auto mt-8 mb-24 px-4" aria-label="Changelog entries">
+<main class="container mx-auto mt-8 mb-24 px-4">
 	<header class="mb-8 max-w-3xl">
 		<p
 			class="text-signal mb-2 font-mono text-[10px] font-bold tracking-[0.2em] uppercase"
@@ -110,6 +110,7 @@
 				Error: {query.error?.message || 'FETCH_FAILED'}
 			</p>
 			<button
+				type="button"
 				onclick={() => query.refetch()}
 				class="clip-corner-sm bg-destructive/10 text-destructive hover:bg-destructive/20 border-destructive/30 mt-6 border px-6 py-3 font-mono text-sm font-semibold transition-all hover:scale-105"
 			>
@@ -163,17 +164,22 @@
 			{/if}
 
 			{#each gridBatches as batch, batchIndex (batchIndex)}
-				<div
+				<ol
 					data-patch-masonry
 					data-patch-masonry-page={batchIndex}
-					class="columns-1 gap-4 sm:columns-2 lg:columns-3 xl:columns-4 {batchIndex > 0
+					class="columns-1 list-none gap-4 p-0 sm:columns-2 lg:columns-3 xl:columns-4 {batchIndex >
+					0
 						? 'mt-4'
 						: ''}"
 				>
 					{#each batch.entries as entry, i (entry.id)}
 						{@const gridIndex = batch.startIndex + i}
 						{#if gridIndex === firstSeenIdx && firstSeenIdx > 0}
-							<div class="my-1 mb-4 flex items-center gap-4 [column-span:all]">
+							<li
+								role="presentation"
+								aria-hidden="true"
+								class="my-1 mb-4 flex items-center gap-4 [column-span:all]"
+							>
 								<div class="bg-signal/35 h-px flex-1"></div>
 								<span
 									class="text-signal font-mono text-[10px] font-bold tracking-widest uppercase"
@@ -181,9 +187,9 @@
 									{newCount} new since your last visit
 								</span>
 								<div class="bg-primary/30 h-px flex-1"></div>
-							</div>
+							</li>
 						{/if}
-						<div
+						<li
 							data-patch-card
 							class="mb-4 break-inside-avoid"
 							in:fly={{
@@ -194,9 +200,9 @@
 							}}
 						>
 							<ChangelogCard {...entry} isLatest={false} isNew={isNew(entry)} />
-						</div>
+						</li>
 					{/each}
-				</div>
+				</ol>
 			{/each}
 		{:else}
 			<div
@@ -220,6 +226,7 @@
 					No changelog entries match your filters.
 				</p>
 				<button
+					type="button"
 					onclick={() => params.reset()}
 					class="clip-corner-sm bg-primary/10 text-primary hover:bg-primary/20 border-primary/30 border px-6 py-3 font-mono text-sm font-semibold transition-all hover:scale-105"
 				>
@@ -240,6 +247,7 @@
 							Failed to load more patches.
 						</p>
 						<button
+							type="button"
 							onclick={() => query.fetchNextPage()}
 							class="border-destructive/30 text-destructive hover:bg-destructive/10 border px-5 py-2 font-mono text-xs font-semibold"
 						>
@@ -257,6 +265,7 @@
 					</div>
 				{:else if query.hasNextPage}
 					<button
+						type="button"
 						onclick={() => query.fetchNextPage()}
 						disabled={query.isFetchingNextPage}
 						class="clip-corner-sm bg-primary/10 text-primary hover:bg-primary/20 border-primary/30 group border px-8 py-3 font-mono text-sm font-semibold transition-all hover:scale-105 disabled:opacity-50"
