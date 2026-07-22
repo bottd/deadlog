@@ -235,7 +235,7 @@
 	<a
 		{href}
 		aria-label={accessibleLabel}
-		class="clip-corner-sm bg-card hover:bg-card-accent/30 group relative flex h-full min-h-[200px] flex-col overflow-hidden border transition-all duration-200 hover:shadow-xl active:scale-[0.98] {isMajor
+		class="clip-corner-sm bg-card hover:bg-card-accent/30 group relative flex min-h-[200px] flex-col overflow-hidden border transition-all duration-200 hover:shadow-xl active:scale-[0.98] {isMajor
 			? 'border-primary/50 hover:border-primary/80'
 			: 'border-border hover:border-signal/45'}"
 	>

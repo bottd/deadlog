@@ -49,6 +49,17 @@
 		lastVisit !== null && new Date(entry.date).getTime() > lastVisit;
 
 	const gridEntries = $derived(allChangelogs.slice(isFiltered ? 0 : 1));
+	const gridBatches = $derived.by(() => {
+		let startIndex = 0;
+		return (query.data?.pages ?? [])
+			.map((pageData, pageIndex) => {
+				const entries = pageData.changelogs.slice(!isFiltered && pageIndex === 0 ? 1 : 0);
+				const batch = { entries, startIndex };
+				startIndex += entries.length;
+				return batch;
+			})
+			.filter((batch) => batch.entries.length > 0);
+	});
 	const newCount = $derived(
 		lastVisit === null || isFiltered ? 0 : allChangelogs.filter(isNew).length
 	);
@@ -151,31 +162,42 @@
 				</div>
 			{/if}
 
-			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-				{#each gridEntries as entry, i (entry.id)}
-					{#if i === firstSeenIdx && firstSeenIdx > 0}
-						<div class="col-span-full my-1 flex items-center gap-4">
-							<div class="bg-signal/35 h-px flex-1"></div>
-							<span
-								class="text-signal font-mono text-[10px] font-bold tracking-widest uppercase"
-							>
-								{newCount} new since your last visit
-							</span>
-							<div class="bg-primary/30 h-px flex-1"></div>
+			{#each gridBatches as batch, batchIndex (batchIndex)}
+				<div
+					data-patch-masonry
+					data-patch-masonry-page={batchIndex}
+					class="columns-1 gap-4 sm:columns-2 lg:columns-3 xl:columns-4 {batchIndex > 0
+						? 'mt-4'
+						: ''}"
+				>
+					{#each batch.entries as entry, i (entry.id)}
+						{@const gridIndex = batch.startIndex + i}
+						{#if gridIndex === firstSeenIdx && firstSeenIdx > 0}
+							<div class="my-1 mb-4 flex items-center gap-4 [column-span:all]">
+								<div class="bg-signal/35 h-px flex-1"></div>
+								<span
+									class="text-signal font-mono text-[10px] font-bold tracking-widest uppercase"
+								>
+									{newCount} new since your last visit
+								</span>
+								<div class="bg-primary/30 h-px flex-1"></div>
+							</div>
+						{/if}
+						<div
+							data-patch-card
+							class="mb-4 break-inside-avoid"
+							in:fly={{
+								y: 20,
+								delay: Math.min(i, 8) * 30,
+								duration: 350,
+								easing: quintOut
+							}}
+						>
+							<ChangelogCard {...entry} isLatest={false} isNew={isNew(entry)} />
 						</div>
-					{/if}
-					<div
-						in:fly={{
-							y: 20,
-							delay: Math.min(i, 8) * 30,
-							duration: 350,
-							easing: quintOut
-						}}
-					>
-						<ChangelogCard {...entry} isLatest={false} isNew={isNew(entry)} />
-					</div>
-				{/each}
-			</div>
+					{/each}
+				</div>
+			{/each}
 		{:else}
 			<div
 				class="clip-corner bg-card border-border/50 relative overflow-hidden border-2 p-12 text-center"

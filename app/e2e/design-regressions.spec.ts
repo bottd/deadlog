@@ -104,6 +104,58 @@ test('patch cards show preserved post image previews', async ({ page }) => {
 	);
 });
 
+test('patch cards use responsive masonry columns', async ({ page }, testInfo) => {
+	await gotoApp(page, '/');
+	const masonry = page.locator('[data-patch-masonry]').first();
+	await expect(masonry.locator('[data-patch-card]').first()).toBeVisible();
+	const columnCount = await masonry.evaluate((element) =>
+		Number.parseInt(getComputedStyle(element).columnCount, 10)
+	);
+	expect(columnCount).toBe(testInfo.project.name === 'mobile-chromium' ? 1 : 4);
+});
+
+test('load more appends a masonry page below existing cards without reflow', async ({
+	page
+}) => {
+	await gotoApp(page, '/');
+	const firstPage = page.locator('[data-patch-masonry-page="0"]');
+	await firstPage.evaluate(async (element) => {
+		await Promise.all(
+			element.getAnimations({ subtree: true }).map((animation) => animation.finished)
+		);
+	});
+	const positionsBefore = await firstPage
+		.locator('[data-patch-card]')
+		.evaluateAll((cards) =>
+			cards.map((card) => {
+				const rect = card.getBoundingClientRect();
+				return { x: rect.x, y: rect.y + window.scrollY };
+			})
+		);
+
+	await page.getByRole('button', { name: 'Load More' }).click();
+	const secondPage = page.locator('[data-patch-masonry-page="1"]');
+	await expect(secondPage.locator('[data-patch-card]').first()).toBeVisible();
+
+	const positionsAfter = await firstPage
+		.locator('[data-patch-card]')
+		.evaluateAll((cards) =>
+			cards.map((card) => {
+				const rect = card.getBoundingClientRect();
+				return { x: rect.x, y: rect.y + window.scrollY };
+			})
+		);
+	expect(positionsAfter).toEqual(positionsBefore);
+
+	const [firstPageBox, secondPageBox] = await Promise.all([
+		firstPage.boundingBox(),
+		secondPage.boundingBox()
+	]);
+	expect(firstPageBox).not.toBeNull();
+	expect(secondPageBox).not.toBeNull();
+	expect(secondPageBox!.y).toBeGreaterThanOrEqual(firstPageBox!.y + firstPageBox!.height);
+});
+
 test('reduced motion removes route delay and timeline targets remain usable', async ({
 	page
 }) => {
