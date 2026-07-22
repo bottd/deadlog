@@ -11,12 +11,19 @@
 
 	let { name, icon, onRemove, badgeColor = 'hero' }: Props = $props();
 	const typeLabel = $derived(badgeColor === 'hero' ? 'Hero' : 'Item');
+
+	function handleKeydown(event: KeyboardEvent) {
+		event.stopPropagation();
+		if (event.key !== 'Enter' && event.key !== ' ') return;
+		event.preventDefault();
+		onRemove();
+	}
 </script>
 
 <button
 	type="button"
 	onclick={onRemove}
-	onkeydown={(event) => event.stopPropagation()}
+	onkeydown={handleKeydown}
 	class="group/badge rounded-md transition-transform hover:scale-105 focus-visible:outline-none"
 	aria-label="Remove {typeLabel} filter: {name}"
 >

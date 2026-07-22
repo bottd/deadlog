@@ -30,8 +30,8 @@ function isMainChangelog() {
 }
 
 function buildTextSearchCondition(searchQuery: string): SQL {
-	const pattern = `%${searchQuery}%`;
-	return sql`(LOWER(${schema.changelogs.title}) LIKE LOWER(${pattern}) OR LOWER(${schema.changelogs.contentText}) LIKE LOWER(${pattern}))`;
+	const pattern = `%${searchQuery.replace(/[!%_]/g, '!$&')}%`;
+	return sql`(LOWER(${schema.changelogs.title}) LIKE LOWER(${pattern}) ESCAPE '!' OR LOWER(${schema.changelogs.contentText}) LIKE LOWER(${pattern}) ESCAPE '!')`;
 }
 
 export async function getAllChangelogs(db: DrizzleDB) {
@@ -222,8 +222,12 @@ export async function getHeroBySlug(
 	);
 }
 
-export async function getAllHeroSlugs(db: DrizzleDB): Promise<string[]> {
-	const results = await db.select({ slug: schema.heroes.slug }).from(schema.heroes).all();
+export async function getReleasedHeroSlugs(db: DrizzleDB): Promise<string[]> {
+	const results = await db
+		.select({ slug: schema.heroes.slug })
+		.from(schema.heroes)
+		.where(eq(schema.heroes.isReleased, true))
+		.all();
 	return results.map((r) => r.slug);
 }
 
@@ -257,11 +261,17 @@ export async function getItemBySlug(
 	);
 }
 
-export async function getAllItemSlugs(db: DrizzleDB): Promise<string[]> {
+export async function getReleasedItemSlugs(db: DrizzleDB): Promise<string[]> {
 	const results = await db
 		.select({ slug: schema.items.slug })
 		.from(schema.items)
-		.where(and(isNotNull(schema.items.slug), ne(schema.items.slug, '')))
+		.where(
+			and(
+				eq(schema.items.isReleased, true),
+				isNotNull(schema.items.slug),
+				ne(schema.items.slug, '')
+			)
+		)
 		.all();
 	return results.map((r) => r.slug);
 }

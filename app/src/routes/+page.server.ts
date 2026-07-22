@@ -102,6 +102,7 @@ export const load: PageServerLoad = async ({ locals, url, parent }) => {
 
 	return {
 		changelogs: enriched,
+		filters: { hero, item, q },
 		totalCount,
 		initialLoadCount: initialLoadLimit,
 		lastUpdate: (enriched[0]?.date ?? new Date()).toISOString(),

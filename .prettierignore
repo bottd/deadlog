@@ -2,6 +2,9 @@
 node_modules
 /build
 /.svelte-kit
+/app/.wrangler/
+/app/playwright-report/
+/app/test-results/
 /package
 .env
 .env.*

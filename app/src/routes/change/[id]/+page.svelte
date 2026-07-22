@@ -15,25 +15,30 @@
 	import { toast } from 'svelte-sonner';
 	import { JsonLd, MetaTags } from 'svelte-meta-tags';
 	import { absoluteUrl, breadcrumbList, SITE_NAME, SITE_URL } from '$lib/seo';
+	import type { PageProps } from './$types';
 
-	const {
-		changelog,
-		heroMap,
-		itemMap,
-		abilityMap,
-		title,
-		description,
-		image,
-		isIndexable,
-		NorgComponent,
-		norgSections
-	} = page.data;
+	let { data }: PageProps = $props();
+
+	const changelog = $derived(data.changelog);
+	const heroMap = $derived(data.heroMap);
+	const itemMap = $derived(data.itemMap);
+	const abilityMap = $derived(data.abilityMap);
+	const title = $derived(data.title);
+	const description = $derived(data.description);
+	const image = $derived(data.image);
+	const isIndexable = $derived(data.isIndexable);
+	const NorgComponent = $derived(data.NorgComponent);
+	const norgSections = $derived(data.norgSections ?? []);
 
 	let tocOpen = $state(false);
 
 	async function copyLink() {
-		await navigator.clipboard.writeText(window.location.href);
-		toast.success('Copied to clipboard');
+		try {
+			await navigator.clipboard.writeText(window.location.href);
+			toast.success('Copied to clipboard');
+		} catch {
+			toast.error('Could not copy this link');
+		}
 	}
 
 	// carry the list-view filter and show only the selected entities' notes
@@ -66,8 +71,8 @@
 	const heroCount = $derived(tocHeroes.length);
 	const itemCount = $derived(tocItems.length);
 	const hideGeneral = $derived(!!norgFilter || !norgSections.includes('general-changes'));
-	const canonical = absoluteUrl(`/change/${encodeURIComponent(changelog.id)}`);
-	const publishedTime = changelog.date.toISOString();
+	const canonical = $derived(absoluteUrl(`/change/${encodeURIComponent(changelog.id)}`));
+	const publishedTime = $derived(changelog.date.toISOString());
 	const structuredData = $derived.by(() => {
 		const entities = [...allHeroes, ...allItems].map((entity) => ({
 			'@type': 'Thing',

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import { afterNavigate } from '$app/navigation';
 	import SearchIcon from '@lucide/svelte/icons/search';
 	import XIcon from '@lucide/svelte/icons/x';
 	import FilterIcon from '@lucide/svelte/icons/filter';
@@ -53,8 +54,8 @@
 		return filterState.filteredHeroes.length + filterState.filteredItems.length;
 	});
 
-	$effect(() => {
-		filterState.syncSearch(page.url.searchParams.get('q') ?? '');
+	afterNavigate(({ to }) => {
+		filterState.syncSearch(to?.url.searchParams.get('q') ?? '');
 	});
 
 	function getOptionId(prefix: 'desktop' | 'mobile', value: string) {
@@ -102,13 +103,6 @@
 			event.stopPropagation();
 			submitSearch(mobile);
 		}
-	}
-
-	function handleFocusOut(event: FocusEvent) {
-		const container = event.currentTarget as HTMLElement;
-		requestAnimationFrame(() => {
-			if (!container.contains(document.activeElement)) open = false;
-		});
 	}
 </script>
 
@@ -225,7 +219,7 @@
 <div class="sticky z-40 w-full" style="top: max(64px, env(safe-area-inset-top));">
 	<div class="relative">
 		<!-- Desktop combobox -->
-		<div class="hidden sm:block" onfocusout={handleFocusOut}>
+		<div class="hidden sm:block">
 			<Command.Root
 				bind:value={desktopCommandValue}
 				shouldFilter={false}
@@ -233,7 +227,7 @@
 				label="Search the archive by hero, item, or keyword"
 				class="relative z-50 h-auto overflow-visible rounded-none bg-transparent"
 			>
-				<form onsubmit={handleSubmit} class="filter-form">
+				<form onsubmit={handleSubmit} class="filter-form flex">
 					<div class="flex min-w-0 flex-1 flex-wrap items-center gap-1.5">
 						{@render selectedFilters()}
 						<input
@@ -252,6 +246,7 @@
 							class="placeholder:text-muted-foreground min-w-[200px] flex-1 bg-transparent outline-none"
 							bind:value={filterState.inputValue}
 							onfocus={() => (open = true)}
+							oninput={() => (open = true)}
 							onkeydown={(event) => handleComboboxKeydown(event)}
 						/>
 					</div>
@@ -298,7 +293,7 @@
 		</div>
 
 		<!-- Mobile filter summary and dialog trigger -->
-		<div class="filter-form sm:hidden">
+		<div class="filter-form flex sm:hidden">
 			<div class="flex min-w-0 flex-1 flex-wrap items-center gap-1.5">
 				{@render selectedFilters()}
 				{#if selectedHeroObjects.length === 0 && selectedItemObjects.length === 0}
@@ -338,7 +333,11 @@
 					{/snippet}
 				</Sheet.Trigger>
 
-				<Sheet.Content side="bottom" class="pb-safe max-h-[85vh] rounded-t-xl">
+				<Sheet.Content
+					side="bottom"
+					class="max-h-[85vh] rounded-t-xl"
+					style="padding-bottom: max(1.5rem, var(--safe-area-inset-bottom));"
+				>
 					<div
 						class="bg-muted mx-auto mb-4 h-1 w-12 rounded-full"
 						aria-hidden="true"
@@ -406,7 +405,7 @@
 	@reference "../../../app.css";
 
 	.filter-form {
-		@apply flex min-h-[44px] w-full items-center gap-2 rounded-md border-2 px-3 py-2 text-sm transition-colors;
+		@apply min-h-[44px] w-full items-center gap-2 rounded-md border-2 px-3 py-2 text-sm transition-colors;
 		@apply border-border bg-card/80 text-foreground backdrop-blur-sm;
 		@apply focus-within:border-signal focus-within:ring-signal/20 focus-within:ring-1;
 	}

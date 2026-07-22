@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        task: [check, lint, test, build]
+        task: [check, lint, test, build, e2e]
 
     steps:
       - name: Checkout code
@@ -36,9 +36,15 @@ jobs:
 
       - name: Build web
         if: matrix.task == 'build'
-        run: pnpm run build:scraper && pnpm run build
+        run: pnpm run build:db && pnpm run build
         env:
           NODE_ENV: production
+
+      - name: Run browser tests
+        if: matrix.task == 'e2e'
+        run: pnpm run build:db && pnpm run test:e2e
+        env:
+          NODE_ENV: test
 
   auto-merge:
     needs: pull-request

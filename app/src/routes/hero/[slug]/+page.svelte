@@ -114,12 +114,11 @@
 <main class="bg-wire-grid min-h-screen">
 	<div class="container mx-auto mt-6 mb-24 max-w-6xl px-3 sm:mt-8 sm:px-4">
 		<a
-			href="/"
-			data-sveltekit-reload
+			href="/heroes"
 			class="text-muted-foreground hover:text-signal mb-6 inline-flex min-h-6 items-center gap-2 text-sm transition-colors sm:mb-8"
 		>
 			<ArrowLeft class="size-4" />
-			<span>Back to all changes</span>
+			<span>Back to heroes</span>
 		</a>
 
 		<header

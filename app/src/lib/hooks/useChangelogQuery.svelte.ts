@@ -1,9 +1,7 @@
-import { createInfiniteQuery } from '@tanstack/svelte-query';
-import { useIntersectionObserver } from 'runed';
-import { page } from '$app/state';
+import { createInfiniteQuery, useQueryClient } from '@tanstack/svelte-query';
 import type { ChangelogEntry } from '$lib/types';
 import { queryKeys } from '$lib/queries/keys';
-import { parseCSV, toCSV } from '$lib/utils/csv';
+import { toCSV } from '$lib/utils/csv';
 
 interface PageData {
 	changelogs: ChangelogEntry[];
@@ -19,12 +17,31 @@ interface UseChangelogQueryOptions {
 	getInitialChangelogs: () => ChangelogEntry[];
 	getInitialLoadCount: () => number;
 	getTotalCount: () => number;
+	getFilters: () => { hero: string[]; item: string[]; q: string };
 }
 
 const PAGE_SIZE = 12;
 
 export function useChangelogQuery(options: UseChangelogQueryOptions) {
-	let trigger = $state<HTMLDivElement | null>(null);
+	const queryClient = useQueryClient();
+
+	$effect(() => {
+		const changelogs = options.getInitialChangelogs();
+		const initialCount = options.getInitialLoadCount();
+		const filters = options.getFilters();
+		queryClient.setQueryData<InfiniteData>(
+			queryKeys.changelogsList({ ...filters, initialCount }),
+			{
+				pages: [
+					{
+						changelogs,
+						hasMore: options.getTotalCount() > changelogs.length
+					}
+				],
+				pageParams: [0]
+			}
+		);
+	});
 
 	const query = createInfiniteQuery<
 		PageData,
@@ -35,9 +52,7 @@ export function useChangelogQuery(options: UseChangelogQueryOptions) {
 	>(() => {
 		const initialChangelogs = options.getInitialChangelogs();
 		const initialCount = options.getInitialLoadCount();
-		const hero = parseCSV(page.url.searchParams.get('hero'));
-		const item = parseCSV(page.url.searchParams.get('item'));
-		const q = page.url.searchParams.get('q') ?? '';
+		const { hero, item, q } = options.getFilters();
 
 		return {
 			queryKey: queryKeys.changelogsList({ hero, item, q, initialCount }),
@@ -74,32 +89,9 @@ export function useChangelogQuery(options: UseChangelogQueryOptions) {
 		};
 	});
 
-	useIntersectionObserver(
-		() => trigger,
-		(entries) => {
-			const entry = entries[0];
-			if (
-				entry?.isIntersecting &&
-				query.hasNextPage &&
-				!query.isFetchingNextPage &&
-				!query.isFetching &&
-				query.status !== 'error'
-			) {
-				query.fetchNextPage();
-			}
-		},
-		{ threshold: 0.1 }
-	);
-
 	return {
 		get query() {
 			return query;
-		},
-		get trigger() {
-			return trigger;
-		},
-		set trigger(el: HTMLDivElement | null) {
-			trigger = el;
 		}
 	};
 }

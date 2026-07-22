@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { untrack } from 'svelte';
 	import type { Component } from 'svelte';
 	import { entityFragmentId, setEntityMaps, type EntityMaps } from './entityContext';
 
@@ -19,7 +18,17 @@
 		filter
 	}: Props = $props();
 
-	untrack(() => setEntityMaps({ heroMap, itemMap, abilityMap }));
+	setEntityMaps({
+		get heroMap() {
+			return heroMap;
+		},
+		get itemMap() {
+			return itemMap;
+		},
+		get abilityMap() {
+			return abilityMap;
+		}
+	});
 
 	let sectionEl = $state<HTMLElement>();
 

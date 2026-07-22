@@ -72,6 +72,15 @@
 	);
 
 	const initials = $derived(author.slice(0, 2).toUpperCase());
+	const accessibleLabel = $derived.by(() => {
+		const scope = [
+			heroes.length ? `${heroes.length} hero${heroes.length === 1 ? '' : 'es'}` : '',
+			items.length ? `${items.length} item${items.length === 1 ? '' : 's'}` : ''
+		]
+			.filter(Boolean)
+			.join(' and ');
+		return `${isLatest ? 'Latest patch, ' : ''}${formatDate(date)}, by ${author}${scope ? `, affecting ${scope}` : ''}. View full patch.`;
+	});
 
 	// ponytail: MAJOR is the only reliable tier — `category` is uniformly "patch"
 	// and entity count is a poor signal for "small patch", so no HOTFIX tier.
@@ -79,7 +88,7 @@
 </script>
 
 {#if isLatest}
-	<a {href} class="group relative col-span-full mb-8 block">
+	<a {href} aria-label={accessibleLabel} class="group relative col-span-full mb-8 block">
 		<div
 			class="clip-corner-lg border-primary/40 hover:border-primary/70 bg-card card-glow relative flex flex-col overflow-hidden border-2 transition-all duration-200 hover:shadow-2xl active:scale-[0.99] md:flex-row md:items-stretch"
 		>
@@ -121,7 +130,7 @@
 					<Avatar.Root
 						class="border-primary/30 group-hover:border-primary size-8 border-2 transition-all duration-300"
 					>
-						<Avatar.Image src={authorImage} alt={author} />
+						<Avatar.Image src={authorImage} alt="" />
 						<Avatar.Fallback class="bg-muted text-xs font-medium"
 							>{initials}</Avatar.Fallback
 						>
@@ -146,7 +155,7 @@
 									{#each row.list as icon, i (icon.id)}
 										<img
 											src={icon.src}
-											alt={icon.alt}
+											alt=""
 											width="40"
 											height="40"
 											loading="lazy"
@@ -206,6 +215,7 @@
 {:else}
 	<a
 		{href}
+		aria-label={accessibleLabel}
 		class="clip-corner-sm bg-card hover:bg-card-accent/30 group relative flex min-h-[200px] flex-col overflow-hidden border transition-all duration-200 hover:shadow-xl active:scale-[0.98] {isMajor
 			? 'border-primary/50 hover:border-primary/80'
 			: 'border-border hover:border-signal/45'}"
@@ -253,7 +263,7 @@
 					<Avatar.Root
 						class="border-primary/20 group-hover:border-primary/50 size-5 border transition-all duration-300"
 					>
-						<Avatar.Image src={authorImage} alt={author} />
+						<Avatar.Image src={authorImage} alt="" />
 						<Avatar.Fallback class="bg-muted text-[9px] font-medium"
 							>{initials}</Avatar.Fallback
 						>
@@ -274,7 +284,7 @@
 						{#each row.list as icon, i (icon.id)}
 							<img
 								src={icon.src}
-								alt={icon.alt}
+								alt=""
 								width="28"
 								height="28"
 								loading="lazy"

@@ -79,19 +79,22 @@
 			{/if}
 			<Tooltip.Root>
 				<Tooltip.Trigger>
-					<a
-						href={entityPatchHref(patch.id, entity)}
-						class="focus-visible:ring-ring relative z-10 flex size-6 shrink-0 items-center justify-center rounded-full transition-transform hover:scale-110 focus-visible:ring-2 focus-visible:outline-none"
-						aria-label="View {entity.name} in the {formatDate(
-							patch.date
-						)} patch, {countLabel(patch.changeCount)}"
-					>
-						<span
-							class="size-2.5 rounded-full border"
-							style:background-color={accent}
-							style:border-color="color-mix(in oklab, {accent} 65%, var(--card))"
-						></span>
-					</a>
+					{#snippet child({ props })}
+						<a
+							{...props}
+							href={entityPatchHref(patch.id, entity)}
+							class="focus-visible:ring-ring relative z-10 flex size-6 shrink-0 items-center justify-center rounded-full transition-transform hover:scale-110 focus-visible:ring-2 focus-visible:outline-none"
+							aria-label="View {entity.name} in the {formatDate(
+								patch.date
+							)} patch, {countLabel(patch.changeCount)}"
+						>
+							<span
+								class="size-2.5 rounded-full border"
+								style:background-color={accent}
+								style:border-color="color-mix(in oklab, {accent} 65%, var(--card))"
+							></span>
+						</a>
+					{/snippet}
 				</Tooltip.Trigger>
 				<Tooltip.Content side="top" class="text-xs">
 					<p class="text-sm font-medium">{formatDate(patch.date)}</p>

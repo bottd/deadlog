@@ -1,6 +1,7 @@
 <script lang="ts">
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
 	import Package from '@lucide/svelte/icons/package';
+	import Search from '@lucide/svelte/icons/search';
 	import { JsonLd, MetaTags } from 'svelte-meta-tags';
 	import { CornerAccents } from '$lib/components/ui/corner-accents';
 	import { getItemImage } from '$lib/utils/entityImages';
@@ -14,6 +15,7 @@
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
+	let directoryQuery = $state('');
 
 	const title = 'Deadlock Items: Balance Change History | Deadlog';
 	const description =
@@ -24,6 +26,12 @@
 			.filter((item) => item.isReleased)
 			.sort((a, b) => a.name.localeCompare(b.name))
 	);
+	const filteredItems = $derived.by(() => {
+		const query = directoryQuery.trim().toLowerCase();
+		return query
+			? items.filter((item) => item.name.toLowerCase().includes(query))
+			: items;
+	});
 	const structuredData = $derived.by(() => ({
 		'@graph': [
 			{
@@ -137,45 +145,72 @@
 					Item Directory
 				</h2>
 			</div>
-			<span class="text-signal font-mono text-xs font-bold">{items.length} ITEMS</span>
+			<span id="item-directory-count" class="text-signal font-mono text-xs font-bold">
+				{filteredItems.length}{directoryQuery ? ` / ${items.length}` : ''} ITEMS
+			</span>
 		</div>
 
-		<ul class="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-			{#each items as item, index (item.id)}
-				<li>
-					<a
-						href="/item/{item.slug}"
-						class="clip-corner-sm bg-card border-border hover:border-signal/55 group relative flex h-full min-h-20 items-center gap-3 overflow-hidden border p-3 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
-					>
-						<CornerAccents
-							tlSize="1rem"
-							tlColor="bg-signal/35"
-							tlHover="group-hover:bg-signal"
-						/>
-						<div
-							class="border-border bg-background flex size-12 shrink-0 items-center justify-center rounded-md border p-1.5"
+		<label for="item-directory-search" class="sr-only">Filter items by name</label>
+		<div
+			class="border-border bg-card focus-within:border-signal relative mb-5 max-w-md border"
+		>
+			<Search
+				class="text-muted-foreground pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2"
+			/>
+			<input
+				id="item-directory-search"
+				type="search"
+				bind:value={directoryQuery}
+				aria-describedby="item-directory-count"
+				placeholder="Filter items..."
+				class="placeholder:text-muted-foreground w-full bg-transparent py-3 pr-3 pl-10 text-sm outline-none"
+			/>
+		</div>
+
+		{#if filteredItems.length > 0}
+			<ul
+				class="grid grid-cols-1 gap-3 min-[360px]:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
+			>
+				{#each filteredItems as item, index (item.id)}
+					<li>
+						<a
+							href="/item/{item.slug}"
+							class="clip-corner-sm bg-card border-border hover:border-signal/55 group relative flex h-full min-h-20 items-center gap-3 overflow-hidden border p-3 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
 						>
-							<img
-								src={getItemImage(item)}
-								alt="{item.name} Deadlock item"
-								width="48"
-								height="48"
-								loading={index < 10 ? 'eager' : 'lazy'}
-								decoding="async"
-								class="max-h-full max-w-full object-contain"
+							<CornerAccents
+								tlSize="1rem"
+								tlColor="bg-signal/35"
+								tlHover="group-hover:bg-signal"
 							/>
-						</div>
-						<h3
-							class="text-foreground min-w-0 flex-1 text-sm leading-tight font-semibold"
-						>
-							{item.name}
-						</h3>
-						<ArrowRight
-							class="text-signal size-3.5 shrink-0 -translate-x-1 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100"
-						/>
-					</a>
-				</li>
-			{/each}
-		</ul>
+							<div
+								class="border-border bg-background flex size-12 shrink-0 items-center justify-center rounded-md border p-1.5"
+							>
+								<img
+									src={getItemImage(item)}
+									alt="{item.name} Deadlock item"
+									width="48"
+									height="48"
+									loading={index < 10 ? 'eager' : 'lazy'}
+									decoding="async"
+									class="max-h-full max-w-full object-contain"
+								/>
+							</div>
+							<h3
+								class="text-foreground min-w-0 flex-1 text-sm leading-tight font-semibold"
+							>
+								{item.name}
+							</h3>
+							<ArrowRight
+								class="text-signal size-3.5 shrink-0 -translate-x-1 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100"
+							/>
+						</a>
+					</li>
+				{/each}
+			</ul>
+		{:else}
+			<p class="border-border bg-card text-muted-foreground border p-8 text-center">
+				No items match "{directoryQuery}".
+			</p>
+		{/if}
 	</section>
 </main>

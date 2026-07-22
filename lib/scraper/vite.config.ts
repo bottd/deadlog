@@ -1,13 +1,14 @@
 import { defineConfig } from 'vitest/config';
-import tsconfigPaths from 'vite-tsconfig-paths';
 import { resolve } from 'path';
 
 export default defineConfig({
-	plugins: [
-		tsconfigPaths({
-			projects: ['../../tsconfig.base.json']
-		})
-	],
+	resolve: {
+		alias: {
+			'@deadlog/changelog': resolve(__dirname, '../changelog/src/index.ts'),
+			'@deadlog/db': resolve(__dirname, '../db/src/index.ts'),
+			'@deadlog/utils': resolve(__dirname, '../utils/src/index.ts')
+		}
+	},
 	build: {
 		lib: {
 			entry: resolve(__dirname, 'src/compile.ts'),

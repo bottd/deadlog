@@ -1,5 +1,6 @@
 <script lang="ts">
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
+	import Search from '@lucide/svelte/icons/search';
 	import Users from '@lucide/svelte/icons/users';
 	import { JsonLd, MetaTags } from 'svelte-meta-tags';
 	import { CornerAccents } from '$lib/components/ui/corner-accents';
@@ -14,6 +15,7 @@
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
+	let directoryQuery = $state('');
 
 	const title = 'Deadlock Heroes: Balance Change History | Deadlog';
 	const description =
@@ -24,6 +26,12 @@
 			.filter((hero) => hero.isReleased)
 			.sort((a, b) => a.name.localeCompare(b.name))
 	);
+	const filteredHeroes = $derived.by(() => {
+		const query = directoryQuery.trim().toLowerCase();
+		return query
+			? heroes.filter((hero) => hero.name.toLowerCase().includes(query))
+			: heroes;
+	});
 	const structuredData = $derived.by(() => ({
 		'@graph': [
 			{
@@ -132,46 +140,75 @@
 					Hero Directory
 				</h2>
 			</div>
-			<span class="text-primary font-mono text-xs font-bold">{heroes.length} HEROES</span>
+			<span id="hero-directory-count" class="text-primary font-mono text-xs font-bold">
+				{filteredHeroes.length}{directoryQuery ? ` / ${heroes.length}` : ''} HEROES
+			</span>
 		</div>
 
-		<ul class="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-			{#each heroes as hero, index (hero.id)}
-				<li>
-					<a
-						href="/hero/{hero.slug}"
-						class="clip-corner-sm bg-card border-border hover:border-primary/50 group relative flex h-full items-center gap-3 overflow-hidden border p-3 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
-					>
-						<CornerAccents
-							tlSize="1rem"
-							tlColor="bg-primary/30"
-							tlHover="group-hover:bg-primary"
-						/>
-						<img
-							src={getHeroCardImage(hero)}
-							alt="{hero.name} Deadlock hero"
-							width="56"
-							height="56"
-							loading={index < 10 ? 'eager' : 'lazy'}
-							decoding="async"
-							class="border-border bg-background size-14 shrink-0 rounded-md border object-cover"
-						/>
-						<div class="min-w-0 flex-1">
-							<h3 class="text-foreground truncate text-sm font-semibold">{hero.name}</h3>
-							{#if hero.heroType}
-								<p
-									class="text-muted-foreground mt-0.5 font-mono text-[9px] tracking-wider uppercase"
-								>
-									{hero.heroType}
-								</p>
-							{/if}
-						</div>
-						<ArrowRight
-							class="text-primary size-3.5 shrink-0 -translate-x-1 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100"
-						/>
-					</a>
-				</li>
-			{/each}
-		</ul>
+		<label for="hero-directory-search" class="sr-only">Filter heroes by name</label>
+		<div
+			class="border-border bg-card focus-within:border-primary relative mb-5 max-w-md border"
+		>
+			<Search
+				class="text-muted-foreground pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2"
+			/>
+			<input
+				id="hero-directory-search"
+				type="search"
+				bind:value={directoryQuery}
+				aria-describedby="hero-directory-count"
+				placeholder="Filter heroes..."
+				class="placeholder:text-muted-foreground w-full bg-transparent py-3 pr-3 pl-10 text-sm outline-none"
+			/>
+		</div>
+
+		{#if filteredHeroes.length > 0}
+			<ul
+				class="grid grid-cols-1 gap-3 min-[360px]:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
+			>
+				{#each filteredHeroes as hero, index (hero.id)}
+					<li>
+						<a
+							href="/hero/{hero.slug}"
+							class="clip-corner-sm bg-card border-border hover:border-primary/50 group relative flex h-full items-center gap-3 overflow-hidden border p-3 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+						>
+							<CornerAccents
+								tlSize="1rem"
+								tlColor="bg-primary/30"
+								tlHover="group-hover:bg-primary"
+							/>
+							<img
+								src={getHeroCardImage(hero)}
+								alt="{hero.name} Deadlock hero"
+								width="56"
+								height="56"
+								loading={index < 10 ? 'eager' : 'lazy'}
+								decoding="async"
+								class="border-border bg-background size-14 shrink-0 rounded-md border object-cover"
+							/>
+							<div class="min-w-0 flex-1">
+								<h3 class="text-foreground truncate text-sm font-semibold">
+									{hero.name}
+								</h3>
+								{#if hero.heroType}
+									<p
+										class="text-muted-foreground mt-0.5 font-mono text-[9px] tracking-wider uppercase"
+									>
+										{hero.heroType}
+									</p>
+								{/if}
+							</div>
+							<ArrowRight
+								class="text-primary size-3.5 shrink-0 -translate-x-1 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100"
+							/>
+						</a>
+					</li>
+				{/each}
+			</ul>
+		{:else}
+			<p class="border-border bg-card text-muted-foreground border p-8 text-center">
+				No heroes match "{directoryQuery}".
+			</p>
+		{/if}
 	</section>
 </main>

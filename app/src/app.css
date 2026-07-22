@@ -333,7 +333,10 @@
 
 a.clip-corner:focus-visible,
 a.clip-corner-sm:focus-visible,
-a.clip-corner-lg:focus-visible {
+a.clip-corner-lg:focus-visible,
+button.clip-corner:focus-visible,
+button.clip-corner-sm:focus-visible,
+button.clip-corner-lg:focus-visible {
 	outline: none;
 	box-shadow: inset 0 0 0 2px var(--ring);
 }
@@ -423,16 +426,14 @@ a.clip-corner-lg:focus-visible {
 @keyframes entrance-fade-up {
 	from {
 		opacity: 0;
-		transform: translateY(6px);
 	}
 	to {
 		opacity: 1;
-		transform: translateY(0);
 	}
 }
 
 .animate-entrance-up {
-	animation: entrance-fade-up 0.5s cubic-bezier(0.23, 1, 0.32, 1) 0.15s both;
+	animation: entrance-fade-up 0.5s cubic-bezier(0.23, 1, 0.32, 1) 0.15s backwards;
 }
 
 /* Terminal text flicker */
@@ -459,6 +460,7 @@ a.clip-corner-lg:focus-visible {
 	*::before,
 	*::after {
 		animation-duration: 0.01ms !important;
+		animation-delay: 0ms !important;
 		animation-iteration-count: 1 !important;
 		transition-duration: 0.01ms !important;
 		scroll-behavior: auto !important;

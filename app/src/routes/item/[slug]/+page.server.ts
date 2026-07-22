@@ -1,4 +1,8 @@
-import { getAllItemSlugs, getItemBySlug, getChangelogsByItemId } from '@deadlog/scraper';
+import {
+	getReleasedItemSlugs,
+	getItemBySlug,
+	getChangelogsByItemId
+} from '@deadlog/scraper';
 import { error, redirect } from '@sveltejs/kit';
 import type { PageServerLoad, EntryGenerator } from './$types';
 import { absoluteUrl } from '$lib/seo';
@@ -8,7 +12,7 @@ export const prerender = true;
 export const entries: EntryGenerator = async () => {
 	const { getLibsqlDb } = await import('@deadlog/db');
 	const db = getLibsqlDb();
-	const slugs = await getAllItemSlugs(db);
+	const slugs = await getReleasedItemSlugs(db);
 	return slugs.map((slug) => ({ slug }));
 };
 

@@ -19,7 +19,8 @@
 	const queryState = useChangelogQuery({
 		getInitialChangelogs: () => changelogs,
 		getInitialLoadCount: () => initialLoadCount,
-		getTotalCount: () => totalCount
+		getTotalCount: () => totalCount,
+		getFilters: () => page.data.filters ?? { hero: [], item: [], q: '' }
 	});
 
 	const query = $derived(queryState.query);
@@ -77,10 +78,11 @@
 
 	<HeroRail />
 
-	{#if query.isError}
+	{#if query.isError && !query.data}
 		<div
 			class="clip-corner bg-card border-destructive/30 relative overflow-hidden border-2 p-12 text-center"
 			in:scale={{ start: 0.9, duration: 400 }}
+			role="alert"
 		>
 			<CornerAccents tlSize="2rem" tlColor="bg-destructive/50" />
 			<div
@@ -130,10 +132,14 @@
 		</div>
 	{/if}
 
-	{#if !query.isError && query.data}
+	{#if query.data}
 		{#if allChangelogs.length > 0}
 			{#if isFiltered}
-				<p class="text-muted-foreground mb-4 font-mono text-xs tracking-wider uppercase">
+				<p
+					class="text-muted-foreground mb-4 font-mono text-xs tracking-wider uppercase"
+					role="status"
+					aria-live="polite"
+				>
 					&mdash; {allChangelogs.length}{hasNextPage ? '+' : ''} patch{allChangelogs.length ===
 						1 && !hasNextPage
 						? ''
@@ -174,6 +180,7 @@
 			<div
 				class="clip-corner bg-card border-border/50 relative overflow-hidden border-2 p-12 text-center"
 				in:scale={{ start: 0.95, duration: 400 }}
+				role="status"
 			>
 				<CornerAccents tlSize="2rem" tlColor="bg-muted-foreground/30" />
 				<div
@@ -200,9 +207,25 @@
 		{/if}
 
 		{#if allChangelogs.length > 0}
-			<div bind:this={queryState.trigger} class="flex flex-col items-center gap-4 py-12">
-				{#if query.isFetchingNextPage}
-					<div class="flex flex-col items-center gap-3">
+			<div
+				class="flex flex-col items-center gap-4 py-12"
+				aria-live="polite"
+				aria-busy={query.isFetchingNextPage}
+			>
+				{#if query.isFetchNextPageError}
+					<div class="flex flex-col items-center gap-3 text-center" role="alert">
+						<p class="text-destructive text-sm font-medium">
+							Failed to load more patches.
+						</p>
+						<button
+							onclick={() => query.fetchNextPage()}
+							class="border-destructive/30 text-destructive hover:bg-destructive/10 border px-5 py-2 font-mono text-xs font-semibold"
+						>
+							Retry
+						</button>
+					</div>
+				{:else if query.isFetchingNextPage}
+					<div class="flex flex-col items-center gap-3" role="status">
 						<div
 							class="border-primary/30 size-10 animate-spin rounded-lg border-2 border-t-transparent"
 						></div>
@@ -213,6 +236,7 @@
 				{:else if query.hasNextPage}
 					<button
 						onclick={() => query.fetchNextPage()}
+						disabled={query.isFetchingNextPage}
 						class="clip-corner-sm bg-primary/10 text-primary hover:bg-primary/20 border-primary/30 group border px-8 py-3 font-mono text-sm font-semibold transition-all hover:scale-105 disabled:opacity-50"
 					>
 						Load More

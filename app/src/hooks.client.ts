@@ -1,12 +1,13 @@
-import {
-	PUBLIC_COUNTERSCALE_SITE_ID,
-	PUBLIC_COUNTERSCALE_REPORTER_URL
-} from '$env/static/public';
+import { env } from '$env/dynamic/public';
 
 export async function init() {
+	const siteId = env.PUBLIC_COUNTERSCALE_SITE_ID;
+	const reporterUrl = env.PUBLIC_COUNTERSCALE_REPORTER_URL;
+	if (!siteId || !reporterUrl) return;
+
 	const { init: counterscaleInit } = await import('@counterscale/tracker');
 	counterscaleInit({
-		siteId: PUBLIC_COUNTERSCALE_SITE_ID,
-		reporterUrl: PUBLIC_COUNTERSCALE_REPORTER_URL
+		siteId,
+		reporterUrl
 	});
 }

@@ -13,14 +13,18 @@ export default defineConfig({
 	},
 	projects: [
 		{
-			name: 'chromium',
+			name: 'desktop-chromium',
 			use: { ...devices['Desktop Chrome'] }
+		},
+		{
+			name: 'mobile-chromium',
+			use: { ...devices['Pixel 7'] }
 		}
 	],
 	webServer: {
-		command: 'DATABASE_URL=file:static/deadlog.db pnpm preview',
+		command: 'DATABASE_URL=file:static/deadlog.db vite dev --host 127.0.0.1 --port 4173',
 		url: 'http://localhost:4173',
 		reuseExistingServer: !process.env.CI,
-		timeout: 30_000
+		timeout: 60_000
 	}
 });

@@ -1,14 +1,18 @@
 <script lang="ts">
+	import { page } from '$app/state';
 	import { FilterInput } from '$lib/components/filter-bar';
 	import Crosshair from '@lucide/svelte/icons/crosshair';
+
+	const heroesActive = $derived(page.url.pathname.startsWith('/hero'));
+	const itemsActive = $derived(page.url.pathname.startsWith('/item'));
 </script>
 
 <nav
 	aria-label="Primary navigation"
-	class="animate-entrance-down border-signal/15 bg-card/90 sticky z-50 border-b pb-5 backdrop-blur-xl transition-all duration-300"
+	class="animate-entrance-down border-signal/15 bg-card/90 sticky z-50 border-b pb-4 backdrop-blur-xl transition-all duration-300 md:pb-5"
 >
 	<div class="container mx-auto px-4">
-		<div class="flex h-20 items-center justify-between">
+		<div class="flex h-16 items-center justify-between md:h-20">
 			<a
 				href="/"
 				aria-label="deadlog.io - Home"
@@ -57,13 +61,19 @@
 			<div class="flex items-center gap-1 sm:gap-2">
 				<a
 					href="/heroes"
-					class="text-muted-foreground hover:bg-signal/10 hover:text-signal rounded px-2.5 py-2 font-mono text-[10px] font-semibold tracking-wider uppercase transition-colors sm:px-3 sm:text-xs"
+					aria-current={heroesActive ? 'page' : undefined}
+					class="rounded px-2.5 py-2 font-mono text-[10px] font-semibold tracking-wider uppercase transition-colors sm:px-3 sm:text-xs {heroesActive
+						? 'bg-signal/10 text-signal'
+						: 'text-muted-foreground hover:bg-signal/10 hover:text-signal'}"
 				>
 					Heroes
 				</a>
 				<a
 					href="/items"
-					class="text-muted-foreground hover:bg-signal/10 hover:text-signal rounded px-2.5 py-2 font-mono text-[10px] font-semibold tracking-wider uppercase transition-colors sm:px-3 sm:text-xs"
+					aria-current={itemsActive ? 'page' : undefined}
+					class="rounded px-2.5 py-2 font-mono text-[10px] font-semibold tracking-wider uppercase transition-colors sm:px-3 sm:text-xs {itemsActive
+						? 'bg-signal/10 text-signal'
+						: 'text-muted-foreground hover:bg-signal/10 hover:text-signal'}"
 				>
 					Items
 				</a>

@@ -1,8 +1,7 @@
 import { createClient } from '@libsql/client';
 import { drizzle } from 'drizzle-orm/libsql';
 import { PatchesApi, Configuration } from 'deadlock-api-client';
-import { mkdir, unlink } from 'fs/promises';
-import { existsSync } from 'fs';
+import { mkdir, rename, rm } from 'fs/promises';
 import path from 'path';
 import { sql } from 'drizzle-orm';
 import { fetchHeroes, fetchItems } from './api';
@@ -138,7 +137,8 @@ export async function buildDatabaseFromNorg(
 
 	await mkdir(outputDir, { recursive: true });
 
-	const dbPath = path.join(outputDir, 'deadlog.db');
+	const targetDbPath = path.join(outputDir, 'deadlog.db');
+	const dbPath = `${targetDbPath}.building`;
 
 	console.log('🌐 Fetching data from Deadlock API...');
 	const patchesApi = new PatchesApi(
@@ -156,10 +156,9 @@ export async function buildDatabaseFromNorg(
 		(bigDaysResponse.data as string[]).map((d) => d.split('T')[0])
 	);
 
-	if (existsSync(dbPath)) {
-		console.log('🗑️  Removing existing database...');
-		await unlink(dbPath);
-	}
+	// Build alongside the live database so parse or insertion failures cannot
+	// destroy the last known-good artifact. rename() is atomic on the target FS.
+	await rm(dbPath, { force: true });
 
 	console.log(`📁 Database path: ${dbPath}`);
 
@@ -340,12 +339,13 @@ export async function buildDatabaseFromNorg(
 	);
 
 	client.close();
+	await rename(dbPath, targetDbPath);
 
 	console.log(`\n✨ Database built successfully!`);
-	console.log(`📦 File: ${dbPath}`);
+	console.log(`📦 File: ${targetDbPath}`);
 	console.log(`📊 Changelogs: ${changelogs.length}`);
 
-	return { path: dbPath, patchCount: changelogs.length, heroMatches, itemMatches };
+	return { path: targetDbPath, patchCount: changelogs.length, heroMatches, itemMatches };
 }
 
 async function createTables(db: ReturnType<typeof drizzle>) {

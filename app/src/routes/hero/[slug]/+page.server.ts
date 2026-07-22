@@ -1,4 +1,8 @@
-import { getAllHeroSlugs, getHeroBySlug, getChangelogsByHeroId } from '@deadlog/scraper';
+import {
+	getReleasedHeroSlugs,
+	getHeroBySlug,
+	getChangelogsByHeroId
+} from '@deadlog/scraper';
 import { error, redirect } from '@sveltejs/kit';
 import { getHeroCardImage } from '$lib/utils/entityImages';
 import { absoluteUrl } from '$lib/seo';
@@ -9,7 +13,7 @@ export const prerender = true;
 export const entries: EntryGenerator = async () => {
 	const { getLibsqlDb } = await import('@deadlog/db');
 	const db = getLibsqlDb();
-	const slugs = await getAllHeroSlugs(db);
+	const slugs = await getReleasedHeroSlugs(db);
 	return slugs.map((slug) => ({ slug }));
 };
 
