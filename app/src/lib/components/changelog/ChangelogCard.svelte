@@ -15,6 +15,7 @@
 		date: Date;
 		author: string;
 		authorImage?: string;
+		previewImage?: string | null;
 		icons?: { heroes: EntityIcon[]; items: EntityIcon[] };
 		summary?: string;
 		majorUpdate?: boolean;
@@ -27,6 +28,7 @@
 		date,
 		author,
 		authorImage,
+		previewImage,
 		icons,
 		summary,
 		majorUpdate = false,
@@ -189,11 +191,28 @@
 			</div>
 
 			<div
-				class="from-signal/5 to-primary/5 group-hover:from-signal/10 group-hover:to-primary/10 border-signal/20 relative z-10 flex shrink-0 items-center justify-center border-t bg-gradient-to-r p-6 transition-colors duration-300 md:w-56 md:border-t-0 md:border-l md:p-8"
+				class="from-signal/5 to-primary/5 group-hover:from-signal/10 group-hover:to-primary/10 border-signal/20 relative z-10 flex min-h-44 shrink-0 items-center justify-center overflow-hidden border-t bg-gradient-to-r p-6 transition-colors duration-300 md:min-h-0 md:border-t-0 md:border-l md:p-8 {previewImage
+					? 'md:w-80'
+					: 'md:w-56'}"
 			>
-				<div class="flex flex-col items-center gap-3 text-center">
+				{#if previewImage}
+					<img
+						data-patch-preview
+						src={previewImage}
+						alt=""
+						width="640"
+						height="360"
+						decoding="async"
+						class="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-105"
+					/>
 					<div
-						class="bg-primary text-primary-foreground pulse-glow flex size-14 items-center justify-center rounded-xl transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl"
+						class="from-card/10 via-card/55 to-card/95 absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r"
+						aria-hidden="true"
+					></div>
+				{/if}
+				<div class="relative z-10 flex flex-col items-center gap-3 text-center">
+					<div
+						class="bg-primary text-primary-foreground pulse-glow flex size-14 items-center justify-center rounded-xl shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl"
 					>
 						<ArrowRight
 							class="size-6 transition-transform duration-300 group-hover:translate-x-1"
@@ -216,7 +235,7 @@
 	<a
 		{href}
 		aria-label={accessibleLabel}
-		class="clip-corner-sm bg-card hover:bg-card-accent/30 group relative flex min-h-[200px] flex-col overflow-hidden border transition-all duration-200 hover:shadow-xl active:scale-[0.98] {isMajor
+		class="clip-corner-sm bg-card hover:bg-card-accent/30 group relative flex h-full min-h-[200px] flex-col overflow-hidden border transition-all duration-200 hover:shadow-xl active:scale-[0.98] {isMajor
 			? 'border-primary/50 hover:border-primary/80'
 			: 'border-border hover:border-signal/45'}"
 	>
@@ -235,6 +254,24 @@
 			>
 				New
 			</span>
+		{/if}
+		{#if previewImage}
+			<div class="border-border/70 relative h-28 shrink-0 overflow-hidden border-b">
+				<img
+					data-patch-preview
+					src={previewImage}
+					alt=""
+					width="640"
+					height="360"
+					loading="lazy"
+					decoding="async"
+					class="size-full object-cover transition-transform duration-500 group-hover:scale-105"
+				/>
+				<div
+					class="from-card/0 via-card/10 to-card/55 pointer-events-none absolute inset-0 bg-gradient-to-b"
+					aria-hidden="true"
+				></div>
+			</div>
 		{/if}
 		<div
 			class="from-primary/0 group-hover:from-primary/5 pointer-events-none absolute inset-0 bg-gradient-to-br to-transparent transition-all duration-200"

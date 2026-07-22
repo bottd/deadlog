@@ -8,6 +8,7 @@ export const changelogs = sqliteTable('changelogs', {
 	slug: text('slug'), // Path to .norg file (e.g., "2025/01-23-update")
 	author: text('author').notNull(),
 	authorImage: text('author_image').notNull(),
+	previewImage: text('preview_image'),
 	category: text('category'),
 	pubDate: text('pub_date').notNull(),
 	majorUpdate: integer('major_update', { mode: 'boolean' }).notNull().default(false),

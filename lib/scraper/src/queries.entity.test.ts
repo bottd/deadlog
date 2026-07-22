@@ -27,6 +27,7 @@ describe('entity history queries', () => {
 				slug TEXT,
 				author TEXT NOT NULL,
 				author_image TEXT NOT NULL,
+				preview_image TEXT,
 				category TEXT,
 				pub_date TEXT NOT NULL,
 				major_update INTEGER NOT NULL DEFAULT 0,

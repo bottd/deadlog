@@ -255,7 +255,14 @@ export async function buildDatabaseFromNorg(
 	let heroMatches = 0;
 	let itemMatches = 0;
 
-	for (const { metadata, entities, entityChanges, slug, plainText } of changelogs) {
+	for (const {
+		metadata,
+		entities,
+		entityChanges,
+		slug,
+		plainText,
+		previewImage
+	} of changelogs) {
 		const dateOnly = metadata.published.split('T')[0];
 		const isMajorUpdate = bigDayDates.has(dateOnly) || metadata.major_update;
 		const changelogId = metadata.thread_id ?? metadata.steam_gid ?? slug;
@@ -280,6 +287,7 @@ export async function buildDatabaseFromNorg(
 				slug,
 				author: metadata.author,
 				authorImage: metadata.author_image ?? '',
+				previewImage: previewImage ?? null,
 				category: metadata.category,
 				pubDate: new Date(metadata.published).toISOString(),
 				majorUpdate: isMajorUpdate,
@@ -356,6 +364,7 @@ async function createTables(db: ReturnType<typeof drizzle>) {
 			slug TEXT,
 			author TEXT NOT NULL,
 			author_image TEXT NOT NULL,
+			preview_image TEXT,
 			category TEXT,
 			pub_date TEXT NOT NULL,
 			major_update INTEGER NOT NULL DEFAULT 0,

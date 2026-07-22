@@ -72,6 +72,23 @@ function parseNorgContent(content: string): {
 	return { metadata, toc };
 }
 
+export function extractPreviewImage(content: string): string | undefined {
+	for (const match of content.matchAll(/^@image\s+(\S+)\s*$/gm)) {
+		try {
+			const url = new URL(match[1]);
+			if (!['http:', 'https:'].includes(url.protocol)) continue;
+			if (url.pathname.toLowerCase().endsWith('.ico') || /favicon/i.test(url.pathname)) {
+				continue;
+			}
+			return match[1];
+		} catch {
+			continue;
+		}
+	}
+
+	return undefined;
+}
+
 export async function loadAllChangelogs(
 	changelogsDir: string,
 	options: { curatedOnly?: boolean } = {}
@@ -96,8 +113,17 @@ export async function loadAllChangelogs(
 			const slug = relativePath.replace(/\.norg$/, '');
 			const plainText =
 				typeof rawMetadata.content_text === 'string' ? rawMetadata.content_text : '';
+			const previewImage = metadata.preview_image ?? extractPreviewImage(content);
 
-			changelogs.push({ filepath, slug, metadata, entities, entityChanges, plainText });
+			changelogs.push({
+				filepath,
+				slug,
+				metadata,
+				entities,
+				entityChanges,
+				plainText,
+				previewImage
+			});
 		} catch (error) {
 			throw new Error(`Failed to parse changelog: ${filepath}`, { cause: error });
 		}

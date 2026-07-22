@@ -85,7 +85,7 @@
 				class="text-signal/80 flex items-center gap-2 font-mono text-xs font-medium tracking-widest uppercase"
 			>
 				<span class="bg-signal/60 h-px w-3"></span>
-				Search the archive by hero, item, or keyword
+				Search by hero, item, or keyword
 			</label>
 			<FilterInput />
 		</div>

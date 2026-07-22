@@ -14,7 +14,7 @@ async function openEntityFilter(page: import('playwright/test').Page, mobile: bo
 	}
 
 	return page.getByRole('combobox', {
-		name: 'Search the archive by hero, item, or keyword'
+		name: 'Search by hero, item, or keyword'
 	});
 }
 
@@ -92,6 +92,16 @@ test('cards do not nest interactive controls', async ({ page }) => {
 		await gotoApp(page, path);
 		await expect(page.locator('a button, a [role="button"], button a')).toHaveCount(0);
 	}
+});
+
+test('patch cards show preserved post image previews', async ({ page }) => {
+	await gotoApp(page, '/');
+	const preview = page.locator('a[href^="/change/135477"] img[data-patch-preview]');
+	await expect(preview).toBeVisible();
+	await expect(preview).toHaveAttribute(
+		'src',
+		/686d522ba79a25d36cf53ef92f7b0499501f7d2f/
+	);
 });
 
 test('reduced motion removes route delay and timeline targets remain usable', async ({

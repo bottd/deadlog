@@ -7,6 +7,7 @@ export const ChangelogMetadataSchema = z.object({
 	published: z.string(), // ISO 8601 timestamp
 	author: z.string(),
 	author_image: z.string().optional(),
+	preview_image: z.string().url().optional(),
 	category: z.enum(['patch', 'hotfix', 'major']).default('patch'),
 	major_update: z.coerce.boolean().default(false),
 	parent_id: z.coerce.string().optional() // For reply posts
@@ -32,4 +33,5 @@ export interface ParsedChangelog {
 	entities: ChangelogEntities;
 	entityChanges: EntityChange[];
 	plainText: string;
+	previewImage?: string;
 }

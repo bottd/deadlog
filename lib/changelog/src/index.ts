@@ -12,4 +12,4 @@ export {
 	entityNameAliases,
 	type TocEntry
 } from './extract';
-export { loadAllChangelogs } from './load';
+export { extractPreviewImage, loadAllChangelogs } from './load';

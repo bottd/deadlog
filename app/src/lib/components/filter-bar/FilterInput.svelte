@@ -224,7 +224,7 @@
 				bind:value={desktopCommandValue}
 				shouldFilter={false}
 				loop
-				label="Search the archive by hero, item, or keyword"
+				label="Search by hero, item, or keyword"
 				class="relative z-50 h-auto overflow-visible rounded-none bg-transparent"
 			>
 				<form onsubmit={handleSubmit} class="filter-form flex">
@@ -353,7 +353,7 @@
 						bind:value={mobileCommandValue}
 						shouldFilter={false}
 						loop
-						label="Search the archive by hero, item, or keyword"
+						label="Search by hero, item, or keyword"
 						class="mt-4 h-auto bg-transparent"
 					>
 						<form onsubmit={(event) => handleSubmit(event, true)}>
