@@ -15,7 +15,7 @@ const config = {
 		adapter,
 		prerender: {
 			handleHttpError: 'fail',
-			handleMissingId: 'fail'
+			handleMissingId: 'warn'
 		},
 		alias: {
 			'@deadlog/changelog': '../lib/changelog/src/index.ts',

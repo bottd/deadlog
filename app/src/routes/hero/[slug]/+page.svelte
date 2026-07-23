@@ -184,7 +184,7 @@
 						</span>
 					</div>
 					<h1
-						class="text-foreground font-display heading-glow break-words text-4xl leading-none font-medium tracking-wide sm:text-5xl lg:text-6xl"
+						class="text-foreground font-display heading-glow text-4xl leading-none font-medium tracking-wide break-words sm:text-5xl lg:text-6xl"
 					>
 						{hero.name}
 					</h1>

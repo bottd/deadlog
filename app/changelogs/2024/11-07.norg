@@ -64,7 +64,7 @@ content_text: "Added Trapper to Hero Labs. Added support for Hero Labs in Privat
 - Improved Glyph Swapping behavior when mixing controller and keyboard inputs​.
 - Added Controller tab to house Controller specific options.​
 - Added a Steam Input Configurator launch button.​
-- Added Glyph Locking options: { Automatic | Keyboard & Mouse Only | Game Pad Only }​.
+- Added Glyph Locking options: \{ Automatic | Keyboard & Mouse Only | Game Pad Only \}.
 - Fixed crash in spectator mode when querying controller button state​.
 - Fixed Controller not working until loading a level​.
 - Official Steam Input configs for SteamDeck and DualSense have been updated​.

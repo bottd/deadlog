@@ -167,7 +167,7 @@
 				<ol
 					data-patch-masonry
 					data-patch-masonry-page={batchIndex}
-					class="columns-1 list-none gap-4 p-0 sm:columns-2 lg:columns-3 xl:columns-4 {batchIndex >
+					class="list-none columns-1 gap-4 p-0 sm:columns-2 lg:columns-3 xl:columns-4 {batchIndex >
 					0
 						? 'mt-4'
 						: ''}"
