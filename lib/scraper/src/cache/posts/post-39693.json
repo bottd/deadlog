@@ -1,9 +1,12 @@
 {
-	"postId": "73947",
-	"title": "10-18-2024 Update 2",
-	"author": "Yoshi",
-	"authorImage": "https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630",
-	"pubDate": "2024-10-18T16:30:16-0700",
-	"content": "<div class=\"message-userContent lbContainer js-lbContainer \">\n\n\t\t\n\t\t\t\n\n\t\n\t\t\n\t\n\n\t\t\n\n\t\t<article>\n\t\t\t\n\t\t\t\t\n\t\t\t\n\n\t\t\t<div>\n\t\t\t\t\n\t\t\t\t\t<div class=\"bbWrapper\">- Ranked now has weekend specific hours (starts 5 hours earlier)<br>\n- Fixed some regions (South America, Oceania, Asia) that were off by 1-2 hours from their intended times</div>\n\t\t\t\t\n\t\t\t</div>\n\n\t\t\t<div class=\"js-selectToQuoteEnd\">&nbsp;</div>\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t</article>\n\n\t\t\n\t\t\t\n\n\t\n\t\t\n\t\n\n\t\t\n\n\t\t\n\t</div>",
-	"posterReplies": []
+	"version": 2,
+	"data": {
+		"postId": "39693",
+		"title": "10-18-2024 Update 2",
+		"author": "Yoshi",
+		"authorImage": "https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630",
+		"pubDate": "2024-10-18T16:30:16-0700",
+		"content": "<div class=\"message-userContent lbContainer js-lbContainer \">\n\n\t\t\n\t\t\t\n\n\t\n\t\t\n\t\n\n\t\t\n\n\t\t<article>\n\t\t\t\n\t\t\t\t\n\t\t\t\n\n\t\t\t<div>\n\t\t\t\t\n\t\t\t\t\t<div class=\"bbWrapper\">- Ranked now has weekend specific hours (starts 5 hours earlier)<br>\n- Fixed some regions (South America, Oceania, Asia) that were off by 1-2 hours from their intended times</div>\n\t\t\t\t\n\t\t\t</div>\n\n\t\t\t<div class=\"js-selectToQuoteEnd\">&nbsp;</div>\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t</article>\n\n\t\t\n\t\t\t\n\n\t\n\t\t\n\t\n\n\t\t\n\n\t\t\n\t</div>",
+		"posterReplies": []
+	}
 }

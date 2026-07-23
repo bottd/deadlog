@@ -1,0 +1,261 @@
+@document.meta
+title: Minor Update - 07-09-2026
+steam_gid: 1836506165584438
+published: 2026-07-09T19:26:55.000Z
+author: IceFrog
+category: patch
+major_update: false
+status: draft
+content_text: "Urn Runner sprint bonus reduced from +2m to 0 (trailing bonus reduced from +7m to +5m) Urn Runner move speed bonus reduced from +3.5m to +2m Urn Runner Stamina Recovery increased from +15% to +25% Urn talking frequency increased from every 8s to every 6s Urn talking sound distance increased (easier to hear a nearby Urn Runner) Unstable Rift warning time reduced from 25s to 20s Rift Troopers now have Spirit Resist (30/35/40/45%) Rift Troopers now have Melee Resistance (25%) Rift Troopers spawn interval increased from every 0.3s to 0.5s (spawns slightly more staggered) Unstable Rift comeback resist aura radius increased from 20m to 35m Rift Troopers max comeback count increased from 12 to 14 Objectives bounty split for nearby heroes reduced from 40% to 30% (this means slightly more portion of the bounty is split team wide rather than towards an individual player) Billy Rising Ram T3 spirit scaling reduced from 0.035 to 0.03 Doorman Bullet damage rescaled from 29.26 + 1.1/boon to 26 + 1.19 Crit scaling reduced from -25% to -30% Hotel Guest T3 increased from 13s Cooldown on Failure to Check Out to 15s Drifter Bullet damage per boon reduced from +0.616 to +0.49 Bloodscent T3 reduced from +12% to +11% Stalker's Mark cooldown increased from 20s to 24s Stalker's Mark T2 increased from -8s Cooldown to -12s Stalker's Mark T3 reduced from +2% Bleed to +1.5% Graves Jar of Dead T1 heal spirit scaling increased from 0.1 to 0.16 Jar of Dead now build up faster from neutral creeps Grasping Hands immobilize duration reduced from 1.25s to 1s Grasping Hands T3 cooldown increased from -10s to -14s Essence Theft now procs from melee hits Essence Theft T3 now also increases Max Steal Targets from 3 to 4 Borrowed Decree T1 changed from \"-15s Cooldown\" to \"-15s Cooldown and +25% Ghoul Speed\" Borrowed Decree T2 changed from \"+25% Ghoul Speed and +10s Duration\" to \"-0.3s Time to Spawn and +10s Duration\" Haze Sleep Dagger T2 now also applies 15 Fixation Stacks Sleep Dagger T2 reduced from -18s Cooldown to -17s Holliday Powder Keg spirit scaling reduced from 1.2 to 1.05 Mirage Fire Scarabs T3 spirit scaling reduced from +0.17 to +0.13 Dust Devil T3 spirit scaling reduced from +1 to +0.6 Djinn's Mark cooldown reduced from 3s to 2.75 Djinn's Mark T3 cooldown reduced from -1s Cooldown to -0.75s Traveler T3 increased from -70s Cooldown to -90s Pocket Affliction duration reduced from 11s to 10s Shiv Serrated Knives T3 spirit scaling reduced from +0.09 to +0.07 Slice and Dice spirit scaling reduced from 1.44 to 1.2 Slice and Dice T2 reduced from -6% Spirit Resist to -4% Bloodletting cooldown increased from 20s to 25s Bloodletting T1 increased from -10s Cooldown to -15s Bloodletting Damage Cleared reduced from 35% to 30% Bloodletting T2 Damage Cleared increased from 35% to 40% Killing Blow Health Threshold reduced from 20% to 18% Killing Blow T3 Health Threshold increased from +8% to +10% Silver Lycan Curse cooldown reduced from 80s to 60s Victor Shocking Reanimation cooldown reduced from 275s to 240s Viscous Splatter T3 spirit scaling reduced from +1.0 to +0.9 Yamato Flying Slash range reduced from 28m to 26m Flying Slash T3 Charge Delay increased from 3s to 4s Flying Slash T3 Ally Targeting now requires alt cast input Scourge Max Health Per Second reduced from 2.6% to 2.5%"
+@end
+
+* General Changes
+
+- Urn Runner sprint bonus reduced from +2m to 0 (trailing bonus reduced from +7m to +5m)
+- Urn Runner move speed bonus reduced from +3.5m to +2m
+- Urn Runner Stamina Recovery increased from +15% to +25%
+- Urn talking frequency increased from every 8s to every 6s
+- Urn talking sound distance increased (easier to hear a nearby Urn Runner)
+- Unstable Rift warning time reduced from 25s to 20s
+- Rift Troopers now have Spirit Resist (30/35/40/45%)
+- Rift Troopers now have Melee Resistance (25%)
+- Rift Troopers spawn interval increased from every 0.3s to 0.5s (spawns slightly more staggered)
+- Unstable Rift comeback resist aura radius increased from 20m to 35m
+- Rift Troopers max comeback count increased from 12 to 14
+- Objectives bounty split for nearby heroes reduced from 40% to 30% (this means slightly more portion of the bounty is split team wide rather than towards an individual player)
+
+* Hero Changes
+
+@embed svelte
+<SectionPreview type="hero" names={["Billy", "Doorman", "Drifter", "Graves", "Haze", "Holliday", "Mirage", "Pocket", "Shiv", "Silver", "Victor", "Viscous", "Yamato"]} />
+@end
+
+@embed svelte
+<EntityHeading name="Billy" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Rising Ram" />
+@end
+
+- Rising Ram T3 spirit scaling reduced from 0.035 to 0.03
+
+@embed svelte
+<EntityHeading name="Doorman" type="hero" />
+@end
+
+- Bullet damage rescaled from 29.26 + 1.1/boon to 26 + 1.19
+
+@embed svelte
+<AbilityHeading name="Crit" />
+@end
+
+- Crit scaling reduced from -25% to -30%
+
+@embed svelte
+<AbilityHeading name="Hotel Guest" />
+@end
+
+- Hotel Guest T3 increased from 13s Cooldown on Failure to Check Out to 15s
+
+@embed svelte
+<EntityHeading name="Drifter" type="hero" />
+@end
+
+- Bullet damage per boon reduced from +0.616 to +0.49
+
+@embed svelte
+<AbilityHeading name="Bloodscent" />
+@end
+
+- Bloodscent T3 reduced from +12% to +11%
+
+@embed svelte
+<AbilityHeading name="Stalker's Mark" />
+@end
+
+- Stalker's Mark cooldown increased from 20s to 24s
+- Stalker's Mark T2 increased from -8s Cooldown to -12s
+- Stalker's Mark T3 reduced from +2% Bleed to +1.5%
+
+@embed svelte
+<EntityHeading name="Graves" type="hero" />
+@end
+
+- Jar of Dead T1 heal spirit scaling increased from 0.1 to 0.16
+- Jar of Dead now build up faster from neutral creeps
+- Grasping Hands immobilize duration reduced from 1.25s to 1s
+
+@embed svelte
+<AbilityHeading name="Grasping Hands" />
+@end
+
+- Grasping Hands T3 cooldown increased from -10s to -14s
+
+@embed svelte
+<AbilityHeading name="Essence Theft" />
+@end
+
+- Essence Theft now procs from melee hits
+- Essence Theft T3 now also increases Max Steal Targets from 3 to 4
+
+@embed svelte
+<AbilityHeading name="Borrowed Decree" />
+@end
+
+- Borrowed Decree T1 changed from "-15s Cooldown" to "-15s Cooldown and +25% Ghoul Speed"
+- Borrowed Decree T2 changed from "+25% Ghoul Speed and +10s Duration" to "-0.3s Time to Spawn and +10s Duration"
+
+@embed svelte
+<EntityHeading name="Haze" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Sleep Dagger" />
+@end
+
+- Sleep Dagger T2 now also applies 15 Fixation Stacks
+- Sleep Dagger T2 reduced from -18s Cooldown to -17s
+
+@embed svelte
+<EntityHeading name="Holliday" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Powder Keg" />
+@end
+
+- Powder Keg spirit scaling reduced from 1.2 to 1.05
+
+@embed svelte
+<EntityHeading name="Mirage" type="hero" />
+@end
+
+- Fire Scarabs T3 spirit scaling reduced from +0.17 to +0.13
+
+@embed svelte
+<AbilityHeading name="Dust Devil" />
+@end
+
+- Dust Devil T3 spirit scaling reduced from +1 to +0.6
+
+@embed svelte
+<AbilityHeading name="Djinn's Mark" />
+@end
+
+- Djinn's Mark cooldown reduced from 3s to 2.75
+- Djinn's Mark T3 cooldown reduced from -1s Cooldown to -0.75s
+
+@embed svelte
+<AbilityHeading name="Traveler" />
+@end
+
+- Traveler T3 increased from -70s Cooldown to -90s
+
+@embed svelte
+<EntityHeading name="Pocket" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Affliction" />
+@end
+
+- Affliction duration reduced from 11s to 10s
+
+@embed svelte
+<EntityHeading name="Shiv" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Serrated Knives" />
+@end
+
+- Serrated Knives T3 spirit scaling reduced from +0.09 to +0.07
+
+- Slice and Dice spirit scaling reduced from 1.44 to 1.2
+- Slice and Dice T2 reduced from -6% Spirit Resist to -4%
+
+@embed svelte
+<AbilityHeading name="Bloodletting" />
+@end
+
+- Bloodletting cooldown increased from 20s to 25s
+- Bloodletting T1 increased from -10s Cooldown to -15s
+
+@embed svelte
+<AbilityHeading name="Bloodletting Damage Cleared" />
+@end
+
+- Bloodletting Damage Cleared reduced from 35% to 30%
+
+@embed svelte
+<AbilityHeading name="Bloodletting" />
+@end
+
+- Bloodletting T2 Damage Cleared increased from 35% to 40%
+
+@embed svelte
+<AbilityHeading name="Killing Blow Health Threshold" />
+@end
+
+- Killing Blow Health Threshold reduced from 20% to 18%
+
+@embed svelte
+<AbilityHeading name="Killing Blow" />
+@end
+
+- Killing Blow T3 Health Threshold increased from +8% to +10%
+
+@embed svelte
+<EntityHeading name="Silver" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Lycan Curse" />
+@end
+
+- Lycan Curse cooldown reduced from 80s to 60s
+
+@embed svelte
+<EntityHeading name="Victor" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Shocking Reanimation" />
+@end
+
+- Shocking Reanimation cooldown reduced from 275s to 240s
+
+@embed svelte
+<EntityHeading name="Viscous" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Splatter" />
+@end
+
+- Splatter T3 spirit scaling reduced from +1.0 to +0.9
+
+@embed svelte
+<EntityHeading name="Yamato" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Flying Slash" />
+@end
+
+- Flying Slash range reduced from 28m to 26m
+- Flying Slash T3 Charge Delay increased from 3s to 4s
+- Flying Slash T3 Ally Targeting now requires alt cast input
+
+* Item Changes
+
+@embed svelte
+<SectionPreview type="item" names={["Scourge"]} />
+@end
+
+@embed svelte
+<EntityHeading name="Scourge" type="item" />
+@end
+
+- Max Health Per Second reduced from 2.6% to 2.5%

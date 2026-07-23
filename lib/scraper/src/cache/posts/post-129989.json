@@ -1,14 +1,17 @@
 {
-	"postId": "245702",
-	"title": "04-30-2026 Update",
-	"author": "Yoshi",
-	"authorImage": "https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630",
-	"pubDate": "2026-04-30T16:46:20-0700",
-	"content": "<div class=\"message-userContent lbContainer js-lbContainer \">\n\n\t\t\n\t\t\t\n\n\t\n\t\t\n\t\n\n\t\t\n\n\t\t<article>\n\t\t\t\n\t\t\t\t\n\t\t\t\n\n\t\t\t<div>\n\t\t\t\t\n\t\t\t\t\t<div class=\"bbWrapper\"><div class=\"bbCodeBlock bbCodeBlock--unfurl    js-unfurl fauxBlockLink\">\n\t\t<div class=\"contentRow\">\n\t\t\t\n\t\t\t\t<div class=\"contentRow-figure contentRow-figure--fixedSmall js-unfurl-figure\">\n\t\t\t\t\t\n\t\t\t\t\t\t<img src=\"/proxy.php?image=https%3A%2F%2Fclan.akamai.steamstatic.com%2Fimages%2F45164767%2F686d522ba79a25d36cf53ef92f7b0499501f7d2f.png&amp;hash=d4b788be7e06d6c935254e43746e6752&amp;return_error=1\" alt=\"store.steampowered.com\">\n\t\t\t\t\t\n\t\t\t\t</div>\n\t\t\t\n\t\t\t<div class=\"contentRow-main\">\n\t\t\t\t<h3>\n\t\t\t\t\t<a href=\"https://store.steampowered.com/news/app/1422450/view/664986477286916766\">\n\t\t\t\t\t\tDeadlock -  Gameplay Update - 04-30-2026 - Steam News\n\t\t\t\t\t</a>\n\t\t\t\t</h3>\n\n\t\t\t\t<div class=\"contentRow-snippet js-unfurl-desc\">[ General ] - Base health per boon reduced by 7 - Vitality Investment bonus increased from 8/10/13/17/34/39/44/48/52/56% to 9/12/15/20/38/42/46/50/56/62% - Weapon Investments bonus rescaled from 7/9/13/20/49/60/80/95/115/135% to 9/12/15/18/46/55/70/85/100/115% - Reduced bullet damage growth by...</div>\n\n\t\t\t\t<div class=\"contentRow-minor contentRow-minor--hideLinks\">\n\t\t\t\t\t<span>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t<img src=\"/proxy.php?image=https%3A%2F%2Fstore.steampowered.com%2Ffavicon.ico&amp;hash=5eabc98d81e5d6120e5713935d83d77c&amp;return_error=1\" alt=\"store.steampowered.com\">\n\t\t\t\t\t\t\n\t\t\t\t\t</span>\n\t\t\t\t\tstore.steampowered.com\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div></div>\n\t\t\t\t\n\t\t\t</div>\n\n\t\t\t<div class=\"js-selectToQuoteEnd\">&nbsp;</div>\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t</article>\n\n\t\t\n\t\t\t\n\n\t\n\t\t\n\t\n\n\t\t\n\n\t\t\n\t</div>",
-	"posterReplies": [
-		{
-			"content": "<div class=\"message-userContent lbContainer js-lbContainer \">\n\n\t\t\n\n\t\t<article>\n\t\t\t\n\t\t\t\t\n\t\t\t\n\n\t\t\t<div>\n\t\t\t\t\n\t\t\t\t\t<div class=\"bbWrapper\">- Trophy Collector: Now has -15% Weapon Damage vs NPCs</div>\n\t\t\t\t\n\t\t\t</div>\n\n\t\t\t<div class=\"js-selectToQuoteEnd\">&nbsp;</div>\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t</article>\n\n\t\t\n\n\t\t\n\t</div>",
-			"timestamp": "2026-05-01T16:49:47-0700"
-		}
-	]
+	"version": 2,
+	"data": {
+		"postId": "129989",
+		"title": "04-30-2026 Update",
+		"author": "Yoshi",
+		"authorImage": "https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630",
+		"pubDate": "2026-04-30T16:46:20-0700",
+		"content": "<div class=\"message-userContent lbContainer js-lbContainer \">\n\n\t\t\n\t\t\t\n\n\t\n\t\t\n\t\n\n\t\t\n\n\t\t<article>\n\t\t\t\n\t\t\t\t\n\t\t\t\n\n\t\t\t<div>\n\t\t\t\t\n\t\t\t\t\t<div class=\"bbWrapper\"><div class=\"bbCodeBlock bbCodeBlock--unfurl    js-unfurl fauxBlockLink\">\n\t\t<div class=\"contentRow\">\n\t\t\t\n\t\t\t\t<div class=\"contentRow-figure contentRow-figure--fixedSmall js-unfurl-figure\">\n\t\t\t\t\t\n\t\t\t\t\t\t<img src=\"/proxy.php?image=https%3A%2F%2Fclan.akamai.steamstatic.com%2Fimages%2F45164767%2F2f1e2c67cde9458bbf49114f0059f3fbf9bca89a.png&amp;hash=4e1ffc84690b29ed4ad758812039f59b&amp;return_error=1\" alt=\"store.steampowered.com\">\n\t\t\t\t\t\n\t\t\t\t</div>\n\t\t\t\n\t\t\t<div class=\"contentRow-main\">\n\t\t\t\t<h3>\n\t\t\t\t\t<a href=\"https://store.steampowered.com/news/app/1422450/view/664986477286916766\">\n\t\t\t\t\t\tDeadlock - Gameplay Update - 04-30-2026 - Steam News\n\t\t\t\t\t</a>\n\t\t\t\t</h3>\n\n\t\t\t\t<div class=\"contentRow-snippet js-unfurl-desc\">[ General ] - Base health per boon reduced by 7 - Vitality Investment bonus increased from 8/10/13/17/34/39/44/48/52/56% to 9/12/15/20/38/42/46/50/56/62% - Weapon Investments bonus rescaled from 7/9/13/20/49/60/80/95/115/135% to 9/12/15/18/46/55/70/85/100/115% - Reduced bullet damage growth by...</div>\n\n\t\t\t\t<div class=\"contentRow-minor contentRow-minor--hideLinks\">\n\t\t\t\t\t<span>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t<img src=\"/proxy.php?image=https%3A%2F%2Fstore.steampowered.com%2Ffavicon.ico&amp;hash=5eabc98d81e5d6120e5713935d83d77c&amp;return_error=1\" alt=\"store.steampowered.com\">\n\t\t\t\t\t\t\n\t\t\t\t\t</span>\n\t\t\t\t\tstore.steampowered.com\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div></div>\n\t\t\t\t\n\t\t\t</div>\n\n\t\t\t<div class=\"js-selectToQuoteEnd\">&nbsp;</div>\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t</article>\n\n\t\t\n\t\t\t\n\n\t\n\t\t\n\t\n\n\t\t\n\n\t\t\n\t</div>",
+		"posterReplies": [
+			{
+				"content": "<div class=\"message-userContent lbContainer js-lbContainer \">\n\n\t\t\n\n\t\t<article>\n\t\t\t\n\t\t\t\t\n\t\t\t\n\n\t\t\t<div>\n\t\t\t\t\n\t\t\t\t\t<div class=\"bbWrapper\">- Trophy Collector: Now has -15% Weapon Damage vs NPCs</div>\n\t\t\t\t\n\t\t\t</div>\n\n\t\t\t<div class=\"js-selectToQuoteEnd\">&nbsp;</div>\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t</article>\n\n\t\t\n\n\t\t\n\t</div>",
+				"timestamp": "2026-05-01T16:49:47-0700"
+			}
+		]
+	}
 }

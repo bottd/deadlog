@@ -60,7 +60,7 @@ content_text: "Added a new hero, Raven, to Hero Labs Added park theming to purpl
 - Added new Learn to Play tutorial images in collaboration with Toastyghostey (https://www.instagram.com/toastyghostey/)
 - Steam Input Support:
 - Added support for new Crouch Toggle button
-- Added 3 new Official Control Schemes: (Standard | Gyro | FlickStick). Thanks to @FlickStickVids for consultation.
+- Added 3 new Official Control Schemes: { Standard | Gyro | FlickStick }. Thanks to @FlickStickVids for consultation.
 - Added versioning system to Configs, so that outdated configs are unloaded
 - Added an Extra Competitive option to allow players to control what type of players are placed on their team. If you prefer to play with higher levels of coordination, communication, and competitiveness, then you can use this option to tell the matchmaker to build your team with like-minded allies. This option will sometimes be inactive in scenarios where the pool is very shallow (large portions of Eternus, off peak hours like 5am, extremely long queue, etc.), but otherwise in most normal scenarios the matchmaker will attempt to find you similar players.
 - The new Extra Competitive option, Incoming Chat, and Lane Preference (party only) settings are now collected within a 'Queue Options' button on the dashboard below the profile area

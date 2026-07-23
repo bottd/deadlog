@@ -1,9 +1,12 @@
 {
-	"postId": "10065",
-	"title": "06-14-2024 Update",
-	"author": "Yoshi",
-	"authorImage": "https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630",
-	"pubDate": "2024-06-14T15:18:12-0700",
-	"content": "<div class=\"message-userContent lbContainer js-lbContainer \">\n\n\t\t\n\t\t\t\n\n\t\n\t\t\n\t\n\n\t\t\n\n\t\t<article>\n\t\t\t\n\t\t\t\t\n\t\t\t\n\n\t\t\t<div>\n\t\t\t\t\n\t\t\t\t\t<div class=\"bbWrapper\">This update reverts the communication changes from yesterday. Thanks for sharing all your thoughts on the topic, we'll think about better ways to work on this in the future.</div>\n\t\t\t\t\n\t\t\t</div>\n\n\t\t\t<div class=\"js-selectToQuoteEnd\">&nbsp;</div>\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t</article>\n\n\t\t\n\t\t\t\n\n\t\n\t\t\n\t\n\n\t\t\n\n\t\t\n\t</div>",
-	"posterReplies": []
+	"version": 2,
+	"data": {
+		"postId": "6080",
+		"title": "06-14-2024 Update",
+		"author": "Yoshi",
+		"authorImage": "https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630",
+		"pubDate": "2024-06-14T15:18:12-0700",
+		"content": "<div class=\"message-userContent lbContainer js-lbContainer \">\n\n\t\t\n\t\t\t\n\n\t\n\t\t\n\t\n\n\t\t\n\n\t\t<article>\n\t\t\t\n\t\t\t\t\n\t\t\t\n\n\t\t\t<div>\n\t\t\t\t\n\t\t\t\t\t<div class=\"bbWrapper\">This update reverts the communication changes from yesterday. Thanks for sharing all your thoughts on the topic, we'll think about better ways to work on this in the future.</div>\n\t\t\t\t\n\t\t\t</div>\n\n\t\t\t<div class=\"js-selectToQuoteEnd\">&nbsp;</div>\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t</article>\n\n\t\t\n\t\t\t\n\n\t\n\t\t\n\t\n\n\t\t\n\n\t\t\n\t</div>",
+		"posterReplies": []
+	}
 }
