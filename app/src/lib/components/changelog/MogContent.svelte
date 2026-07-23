@@ -64,8 +64,6 @@
 </section>
 
 <style lang="postcss">
-	@reference "../../../app.css";
-
 	.mog-content {
 		@apply max-w-none text-base leading-relaxed;
 

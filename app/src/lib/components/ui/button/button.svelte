@@ -1,27 +1,25 @@
 <script lang="ts" module>
 	import { cn, type WithElementRef } from '$lib/utils.js';
 	import type { HTMLAnchorAttributes, HTMLButtonAttributes } from 'svelte/elements';
-	import { type VariantProps, tv } from 'tailwind-variants';
+	type ButtonVariant = 'ghost';
+	type ButtonSize = 'sm' | 'icon';
 
-	export const buttonVariants = tv({
-		base: "focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium outline-none transition-all active:scale-[0.97] focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0",
-		variants: {
-			variant: {
-				ghost: 'hover:bg-accent hover:text-accent-foreground'
-			},
-			size: {
-				sm: 'h-8 gap-1.5 rounded-md px-3 has-[>svg]:px-2.5',
-				icon: 'size-9'
-			}
-		},
-		defaultVariants: {
-			variant: 'ghost',
-			size: 'sm'
-		}
-	});
+	const buttonBase =
+		'focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium outline-none transition-all active:scale-[0.97] focus-visible:ring-3 disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg:not([class*=size-])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0';
+	const buttonVariantClasses = {
+		ghost: 'hover:bg-accent hover:text-accent-foreground'
+	} satisfies Record<ButtonVariant, string>;
+	const buttonSizeClasses = {
+		sm: 'h-8 gap-1.5 rounded-md px-3 has-[>svg]:px-2.5',
+		icon: 'size-9'
+	} satisfies Record<ButtonSize, string>;
 
-	export type ButtonVariant = VariantProps<typeof buttonVariants>['variant'];
-	export type ButtonSize = VariantProps<typeof buttonVariants>['size'];
+	export function buttonVariants({
+		variant = 'ghost',
+		size = 'sm'
+	}: { variant?: ButtonVariant; size?: ButtonSize } = {}) {
+		return cn(buttonBase, buttonVariantClasses[variant], buttonSizeClasses[size]);
+	}
 
 	export type ButtonProps = WithElementRef<HTMLButtonAttributes> &
 		WithElementRef<HTMLAnchorAttributes> & {

@@ -199,8 +199,6 @@
 </nav>
 
 <style lang="postcss">
-	@reference "../../../app.css";
-
 	.toc-section {
 		@apply text-foreground/80 hover:text-signal relative flex items-center gap-2 py-1 pl-3 text-xs font-semibold tracking-tight transition-colors;
 	}

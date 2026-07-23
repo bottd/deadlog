@@ -10,7 +10,7 @@
 		subtitle?: string | null;
 	}
 
-	// Tailwind only sees literal class strings, so each kind spells its classes out.
+	// The class scanner only sees literal class strings, so each kind spells its classes out.
 	const KINDS = {
 		hero: {
 			icon: Users,

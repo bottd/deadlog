@@ -1,4 +1,5 @@
 <script lang="ts">
+	import 'virtual:uno.css';
 	import '../app.css';
 	import Header from '$lib/components/header/Header.svelte';
 	import { Toaster } from 'svelte-sonner';

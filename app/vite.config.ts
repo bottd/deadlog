@@ -1,4 +1,4 @@
-import tailwindcss from '@tailwindcss/vite';
+import UnoCSS from 'unocss/vite';
 import { defineConfig, type Plugin } from 'vitest/config';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { mogPlugin } from 'vite-plugin-mog';
@@ -35,7 +35,7 @@ export default defineConfig({
 			theme: { light: 'github-light', dark: 'github-dark' }
 		}),
 		failOnMogDiagnostics,
-		tailwindcss(),
+		UnoCSS(),
 		sveltekit()
 	],
 	server: {
