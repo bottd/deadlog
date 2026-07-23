@@ -117,7 +117,7 @@
 			<div class="text-signal mb-3 flex items-center gap-2">
 				<Package class="size-4" />
 				<span class="font-mono text-[10px] font-bold tracking-[0.2em] uppercase"
-					>Equipment archive</span
+					>Item catalog</span
 				>
 			</div>
 			<h1

@@ -6,7 +6,7 @@
 	} as const;
 
 	const UNCLASSIFIED_ITEM_META = {
-		label: 'Item archive',
+		label: 'Item',
 		accent: 'var(--signal)'
 	} as const;
 </script>

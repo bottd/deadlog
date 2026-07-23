@@ -74,7 +74,7 @@
 		<p
 			class="text-signal mb-2 font-mono text-[10px] font-bold tracking-[0.2em] uppercase"
 		>
-			Live patch archive
+			Deadlock changelog
 		</p>
 		<h1
 			class="text-foreground font-display heading-glow text-3xl leading-tight font-medium tracking-wide md:text-5xl"
@@ -83,7 +83,7 @@
 		</h1>
 		<p class="text-muted-foreground mt-3 max-w-2xl text-sm leading-relaxed md:text-base">
 			Track the latest Deadlock updates, hero buffs and nerfs, item changes, and gameplay
-			balance patches in one searchable archive.
+			balance patches in one searchable changelog.
 		</p>
 	</header>
 

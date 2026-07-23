@@ -112,7 +112,7 @@
 			<div class="text-primary mb-3 flex items-center gap-2">
 				<Users class="size-4" />
 				<span class="font-mono text-[10px] font-bold tracking-[0.2em] uppercase"
-					>Roster archive</span
+					>Hero roster</span
 				>
 			</div>
 			<h1

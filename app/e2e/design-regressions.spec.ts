@@ -18,7 +18,7 @@ async function openEntityFilter(page: import('playwright/test').Page, mobile: bo
 	});
 }
 
-test('the global archive filter navigates from a directory', async ({
+test('the global changelog filter navigates from a directory', async ({
 	page
 }, testInfo) => {
 	await gotoApp(page, '/heroes');

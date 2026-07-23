@@ -148,7 +148,7 @@
 	>
 		{#if availableOptionCount === 0}
 			<Command.Empty class="text-muted-foreground py-6 text-center text-sm">
-				No entity matches. Submit to search the patch archive for this keyword.
+				No entity matches. Submit to search the changelog for this keyword.
 			</Command.Empty>
 		{:else if filterState.filterMode === 'all'}
 			<Command.Group heading="Heroes and items">
@@ -258,7 +258,7 @@
 							onclick={clearAll}
 							onkeydown={(event) => event.stopPropagation()}
 							class="hover:bg-secondary shrink-0 rounded-sm p-1 transition-colors"
-							aria-label="Clear all archive filters"
+							aria-label="Clear all filters"
 						>
 							<XIcon class="text-muted-foreground size-4" />
 						</button>
@@ -268,8 +268,8 @@
 						type="submit"
 						onkeydown={(event) => event.stopPropagation()}
 						class="bg-primary -my-[10px] -mr-[13px] flex shrink-0 items-center self-stretch rounded-r px-3 transition-colors hover:opacity-80"
-						aria-label="Search patch archive"
-						title="Search patch archive"
+						aria-label="Search changelog"
+						title="Search changelog"
 					>
 						<SearchIcon class="text-primary-foreground size-5 stroke-[2.5]" />
 					</button>
@@ -298,7 +298,7 @@
 			<div class="flex min-w-0 flex-1 flex-wrap items-center gap-1.5">
 				{@render selectedFilters()}
 				{#if selectedHeroObjects.length === 0 && selectedItemObjects.length === 0}
-					<span class="text-muted-foreground flex-1">Search the patch archive</span>
+					<span class="text-muted-foreground flex-1">Search the changelog</span>
 				{/if}
 			</div>
 
@@ -307,7 +307,7 @@
 					type="button"
 					onclick={clearAll}
 					class="hover:bg-secondary shrink-0 rounded-sm p-1 transition-colors"
-					aria-label="Clear all archive filters"
+					aria-label="Clear all filters"
 				>
 					<XIcon class="text-muted-foreground size-4" />
 				</button>
@@ -344,7 +344,7 @@
 						aria-hidden="true"
 					></div>
 					<Sheet.Header>
-						<Sheet.Title>Search the patch archive</Sheet.Title>
+						<Sheet.Title>Search the changelog</Sheet.Title>
 						<Sheet.Description>
 							Patches must match every selected hero, item, and keyword.
 						</Sheet.Description>
