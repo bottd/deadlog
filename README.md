@@ -5,7 +5,7 @@ A changelog site for Deadlock
 ## Tech Stack
 
 - SvelteKit
-- Tailwind CSS
+- UnoCSS
 - TypeScript
 - Drizzle ORM
   - SQLite (`@libsql/client`)

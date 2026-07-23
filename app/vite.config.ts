@@ -1,4 +1,4 @@
-import tailwindcss from '@tailwindcss/vite';
+import UnoCSS from 'unocss/vite';
 import { defineConfig } from 'vitest/config';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { norgPlugin } from 'vite-plugin-norg';
@@ -20,7 +20,7 @@ export default defineConfig({
 				themes: { light: 'github-light', dark: 'github-dark' }
 			}
 		}),
-		tailwindcss(),
+		UnoCSS(),
 		sveltekit()
 	],
 	server: {

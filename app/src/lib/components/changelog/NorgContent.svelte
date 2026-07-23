@@ -98,8 +98,6 @@
 </section>
 
 <style lang="postcss">
-	@reference "../../../app.css";
-
 	.norg-content {
 		@apply max-w-none text-[15px] leading-relaxed;
 

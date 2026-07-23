@@ -1,23 +1,21 @@
 <script lang="ts" module>
-	import { tv, type VariantProps } from 'tailwind-variants';
-	export const sheetVariants = tv({
-		base: 'bg-background data-[state=open]:animate-in data-[state=closed]:animate-out fixed z-50 flex flex-col gap-4 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500',
-		variants: {
-			side: {
-				top: 'data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top inset-x-0 top-0 h-auto border-b',
-				bottom:
-					'data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom inset-x-0 bottom-0 h-auto border-t',
-				left: 'data-[state=closed]:slide-out-to-start data-[state=open]:slide-in-from-start inset-y-0 start-0 h-full w-3/4 border-e sm:max-w-sm',
-				right:
-					'data-[state=closed]:slide-out-to-end data-[state=open]:slide-in-from-end inset-y-0 end-0 h-full w-3/4 border-s sm:max-w-sm'
-			}
-		},
-		defaultVariants: {
-			side: 'right'
-		}
-	});
+	import { cn } from '$lib/utils.js';
+	type Side = 'top' | 'bottom' | 'left' | 'right';
 
-	export type Side = VariantProps<typeof sheetVariants>['side'];
+	const sheetBase =
+		'bg-background data-[state=open]:animate-in data-[state=closed]:animate-out fixed z-50 flex flex-col gap-4 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500';
+	const sheetSideClasses = {
+		top: 'data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top inset-x-0 top-0 h-auto border-b',
+		bottom:
+			'data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom inset-x-0 bottom-0 h-auto border-t',
+		left: 'data-[state=closed]:slide-out-to-start data-[state=open]:slide-in-from-start inset-y-0 start-0 h-full w-3/4 border-e sm:max-w-sm',
+		right:
+			'data-[state=closed]:slide-out-to-end data-[state=open]:slide-in-from-end inset-y-0 end-0 h-full w-3/4 border-s sm:max-w-sm'
+	} satisfies Record<Side, string>;
+
+	export function sheetVariants({ side = 'right' }: { side?: Side } = {}) {
+		return cn(sheetBase, sheetSideClasses[side]);
+	}
 </script>
 
 <script lang="ts">
@@ -26,7 +24,7 @@
 	import type { Snippet } from 'svelte';
 	import SheetPortal from './sheet-portal.svelte';
 	import SheetOverlay from './sheet-overlay.svelte';
-	import { cn, type WithoutChildrenOrChild } from '$lib/utils.js';
+	import { type WithoutChildrenOrChild } from '$lib/utils.js';
 	import type { ComponentProps } from 'svelte';
 
 	let {

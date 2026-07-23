@@ -403,8 +403,6 @@
 </div>
 
 <style lang="postcss">
-	@reference "../../../app.css";
-
 	.filter-form {
 		@apply min-h-[44px] w-full items-center gap-2 rounded-md border-2 px-3 py-2 text-sm transition-colors;
 		@apply border-border bg-card/80 text-foreground backdrop-blur-sm;

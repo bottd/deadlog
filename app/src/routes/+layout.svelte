@@ -1,4 +1,5 @@
 <script lang="ts">
+	import 'virtual:uno.css';
 	import '../app.css';
 	import { Header } from '$lib/components/header';
 	import { Toaster } from '$lib/components/ui/sonner';

@@ -56,8 +56,6 @@
 </div>
 
 <style lang="postcss">
-	@reference "../../../app.css";
-
 	.ellipse {
 		@apply border-primary/30 bg-card text-primary flex size-9 items-center justify-center rounded-md border-2 text-xs font-semibold;
 	}
