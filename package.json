@@ -19,7 +19,7 @@
 		"build:meta": "DATABASE_URL=file:app/static/deadlog.db tsx --tsconfig=tsconfig.base.json lib/meta/src/generate-previews.ts"
 	},
 	"devDependencies": {
-		"@cloudflare/workers-types": "4.20260624.1",
+		"@cloudflare/workers-types": "5.20260723.1",
 		"@counterscale/tracker": "3.4.1",
 		"@eslint/js": "10.0.1",
 		"@libsql/client": "0.17.4",
