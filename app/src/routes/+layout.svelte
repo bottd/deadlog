@@ -6,6 +6,7 @@
 	import * as Tooltip from '$lib/components/ui/tooltip';
 	import { QueryClient, QueryClientProvider } from '@tanstack/svelte-query';
 	import { browser } from '$app/environment';
+	import { onMount } from 'svelte';
 
 	const queryClient = new QueryClient({
 		defaultOptions: {
@@ -22,16 +23,27 @@
 	});
 
 	let { children } = $props();
+	let appReady = $state(false);
+
+	onMount(() => {
+		appReady = true;
+	});
 </script>
 
 <QueryClientProvider client={queryClient}>
 	<Tooltip.Provider>
-		<div class="bg-background bg-wire-grid min-h-screen">
+		<div class="bg-background bg-wire-grid min-h-screen" data-app-ready={appReady}>
+			<a
+				href="#main-content"
+				class="focus:bg-primary focus:text-primary-foreground sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:font-mono focus:text-xs focus:font-bold focus:tracking-wider focus:uppercase"
+			>
+				Skip to content
+			</a>
 			<Toaster />
 
 			<Header />
 
-			<div class="animate-entrance-up">
+			<div id="main-content" tabindex="-1" class="animate-entrance-up outline-none">
 				{@render children?.()}
 			</div>
 

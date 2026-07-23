@@ -12,7 +12,7 @@
 	"overrides": [
 		{
 			"files": "*.svelte",
-			"options": { "parser": "svelte", "svelteBracketNewLine": false }
+			"options": { "parser": "svelte" }
 		}
 	]
 }

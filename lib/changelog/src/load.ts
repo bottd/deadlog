@@ -1,7 +1,7 @@
 import { readFileSync, existsSync, readdirSync, statSync } from 'fs';
 import { join, relative } from 'path';
 import { ChangelogMetadataSchema, type ParsedChangelog } from './schema';
-import { extractEntities, type TocEntry } from './extract';
+import { extractEntities, extractEntityChanges, type TocEntry } from './extract';
 
 function findNorgFiles(dir: string): string[] {
 	const files: string[] = [];
@@ -41,10 +41,9 @@ function parseNorgContent(content: string): {
 			} else if (value === 'false') {
 				metadata[key] = false;
 			} else {
-				if (
-					(value.startsWith('"') && value.endsWith('"')) ||
-					(value.startsWith("'") && value.endsWith("'"))
-				) {
+				if (value.startsWith('"') && value.endsWith('"')) {
+					value = value.slice(1, -1).replace(/\\"/g, '"');
+				} else if (value.startsWith("'") && value.endsWith("'")) {
 					value = value.slice(1, -1);
 				}
 				metadata[key] = value;
@@ -73,6 +72,23 @@ function parseNorgContent(content: string): {
 	return { metadata, toc };
 }
 
+export function extractPreviewImage(content: string): string | undefined {
+	for (const match of content.matchAll(/^@image\s+(\S+)\s*$/gm)) {
+		try {
+			const url = new URL(match[1]);
+			if (!['http:', 'https:'].includes(url.protocol)) continue;
+			if (url.pathname.toLowerCase().endsWith('.ico') || /favicon/i.test(url.pathname)) {
+				continue;
+			}
+			return match[1];
+		} catch {
+			continue;
+		}
+	}
+
+	return undefined;
+}
+
 export async function loadAllChangelogs(
 	changelogsDir: string,
 	options: { curatedOnly?: boolean } = {}
@@ -92,14 +108,24 @@ export async function loadAllChangelogs(
 			const { metadata: rawMetadata, toc } = parseNorgContent(content);
 			const metadata = ChangelogMetadataSchema.parse(rawMetadata);
 			const entities = extractEntities(toc, content);
+			const entityChanges = extractEntityChanges(content);
 			const relativePath = relative(changelogsDir, filepath);
 			const slug = relativePath.replace(/\.norg$/, '');
 			const plainText =
 				typeof rawMetadata.content_text === 'string' ? rawMetadata.content_text : '';
+			const previewImage = metadata.preview_image ?? extractPreviewImage(content);
 
-			changelogs.push({ filepath, slug, metadata, entities, plainText });
+			changelogs.push({
+				filepath,
+				slug,
+				metadata,
+				entities,
+				entityChanges,
+				plainText,
+				previewImage
+			});
 		} catch (error) {
-			console.warn(`Failed to parse: ${filepath}`, error);
+			throw new Error(`Failed to parse changelog: ${filepath}`, { cause: error });
 		}
 	}
 

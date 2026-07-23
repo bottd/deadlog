@@ -2,6 +2,7 @@ export interface ChangelogFilters {
 	hero?: string[];
 	item?: string[];
 	q?: string;
+	initialCount?: number;
 }
 
 export const queryKeys = {

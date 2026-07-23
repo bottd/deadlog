@@ -7,13 +7,15 @@
 		"dev": "pnpm --filter 'deadlog-web' dev",
 		"build": "pnpm --filter 'deadlog-web' build",
 		"preview": "pnpm --filter 'deadlog-web' preview",
-		"test": "pnpm --filter 'deadlog-web' test",
-		"test:all": "pnpm -r --filter './app' --filter './lib/**' run test",
+		"test": "pnpm run test:all",
+		"test:all": "pnpm -r --if-present run test",
+		"test:e2e": "pnpm --filter 'deadlog-web' test:e2e",
 		"check": "pnpm --filter 'deadlog-web' check",
 		"lint": "pnpm --filter 'deadlog-web' lint",
 		"format": "prettier --write .",
 		"fmt:check": "prettier --check .",
 		"build:scraper": "tsx --tsconfig=tsconfig.base.json lib/scraper/src/cli.ts",
+		"build:db": "tsx --tsconfig=tsconfig.base.json lib/scraper/src/build-db.ts",
 		"build:meta": "DATABASE_URL=file:app/static/deadlog.db tsx --tsconfig=tsconfig.base.json lib/meta/src/generate-previews.ts"
 	},
 	"devDependencies": {

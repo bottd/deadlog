@@ -5,6 +5,7 @@ const norgModules = import.meta.glob('../../../../changelogs/**/*.norg');
 
 export const load: PageLoad = async ({ data }) => {
 	let NorgComponent: Component | null = null;
+	let norgSections: string[] = [];
 
 	if (data.changelog.slug) {
 		const key = `../../../../changelogs/${data.changelog.slug}.norg`;
@@ -12,8 +13,12 @@ export const load: PageLoad = async ({ data }) => {
 
 		if (loader) {
 			try {
-				const module = await loader();
-				NorgComponent = (module as Record<string, Component>).default;
+				const module = (await loader()) as {
+					default: Component;
+					toc?: { id: string }[];
+				};
+				NorgComponent = module.default;
+				norgSections = module.toc?.map((section) => section.id) ?? [];
 			} catch (e) {
 				console.warn(`Failed to load .norg file for ${data.changelog.slug}:`, e);
 			}
@@ -22,6 +27,7 @@ export const load: PageLoad = async ({ data }) => {
 
 	return {
 		...data,
-		NorgComponent
+		NorgComponent,
+		norgSections
 	};
 };

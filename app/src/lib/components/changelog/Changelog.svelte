@@ -19,7 +19,8 @@
 	const queryState = useChangelogQuery({
 		getInitialChangelogs: () => changelogs,
 		getInitialLoadCount: () => initialLoadCount,
-		getTotalCount: () => totalCount
+		getTotalCount: () => totalCount,
+		getFilters: () => page.data.filters ?? { hero: [], item: [], q: '' }
 	});
 
 	const query = $derived(queryState.query);
@@ -48,6 +49,17 @@
 		lastVisit !== null && new Date(entry.date).getTime() > lastVisit;
 
 	const gridEntries = $derived(allChangelogs.slice(isFiltered ? 0 : 1));
+	const gridBatches = $derived.by(() => {
+		let startIndex = 0;
+		return (query.data?.pages ?? [])
+			.map((pageData, pageIndex) => {
+				const entries = pageData.changelogs.slice(!isFiltered && pageIndex === 0 ? 1 : 0);
+				const batch = { entries, startIndex };
+				startIndex += entries.length;
+				return batch;
+			})
+			.filter((batch) => batch.entries.length > 0);
+	});
 	const newCount = $derived(
 		lastVisit === null || isFiltered ? 0 : allChangelogs.filter(isNew).length
 	);
@@ -57,13 +69,31 @@
 	);
 </script>
 
-<main class="container mx-auto mt-8 mb-24 px-4" aria-label="Changelog entries">
+<main class="container mx-auto mt-8 mb-24 px-4">
+	<header class="mb-8 max-w-3xl">
+		<p
+			class="text-signal mb-2 font-mono text-[10px] font-bold tracking-[0.2em] uppercase"
+		>
+			Deadlock changelog
+		</p>
+		<h1
+			class="text-foreground font-display heading-glow text-3xl leading-tight font-medium tracking-wide md:text-5xl"
+		>
+			Deadlock Patch Notes &amp; Changelog
+		</h1>
+		<p class="text-muted-foreground mt-3 max-w-2xl text-sm leading-relaxed md:text-base">
+			Track the latest Deadlock updates, hero buffs and nerfs, item changes, and gameplay
+			balance patches in one searchable changelog.
+		</p>
+	</header>
+
 	<HeroRail />
 
-	{#if query.isError}
+	{#if query.isError && !query.data}
 		<div
 			class="clip-corner bg-card border-destructive/30 relative overflow-hidden border-2 p-12 text-center"
 			in:scale={{ start: 0.9, duration: 400 }}
+			role="alert"
 		>
 			<CornerAccents tlSize="2rem" tlColor="bg-destructive/50" />
 			<div
@@ -80,6 +110,7 @@
 				Error: {query.error?.message || 'FETCH_FAILED'}
 			</p>
 			<button
+				type="button"
 				onclick={() => query.refetch()}
 				class="clip-corner-sm bg-destructive/10 text-destructive hover:bg-destructive/20 border-destructive/30 mt-6 border px-6 py-3 font-mono text-sm font-semibold transition-all hover:scale-105"
 			>
@@ -113,10 +144,14 @@
 		</div>
 	{/if}
 
-	{#if !query.isError && query.data}
+	{#if query.data}
 		{#if allChangelogs.length > 0}
 			{#if isFiltered}
-				<p class="text-muted-foreground mb-4 font-mono text-xs tracking-wider uppercase">
+				<p
+					class="text-muted-foreground mb-4 font-mono text-xs tracking-wider uppercase"
+					role="status"
+					aria-live="polite"
+				>
 					&mdash; {allChangelogs.length}{hasNextPage ? '+' : ''} patch{allChangelogs.length ===
 						1 && !hasNextPage
 						? ''
@@ -128,35 +163,52 @@
 				</div>
 			{/if}
 
-			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-				{#each gridEntries as entry, i (entry.id)}
-					{#if i === firstSeenIdx && firstSeenIdx > 0}
-						<div class="col-span-full my-1 flex items-center gap-4">
-							<div class="bg-primary/30 h-px flex-1"></div>
-							<span
-								class="text-primary font-mono text-[10px] font-bold tracking-widest uppercase"
+			{#each gridBatches as batch, batchIndex (batchIndex)}
+				<ol
+					data-patch-masonry
+					data-patch-masonry-page={batchIndex}
+					class="columns-1 list-none gap-4 p-0 sm:columns-2 lg:columns-3 xl:columns-4 {batchIndex >
+					0
+						? 'mt-4'
+						: ''}"
+				>
+					{#each batch.entries as entry, i (entry.id)}
+						{@const gridIndex = batch.startIndex + i}
+						{#if gridIndex === firstSeenIdx && firstSeenIdx > 0}
+							<li
+								role="presentation"
+								aria-hidden="true"
+								class="my-1 mb-4 flex items-center gap-4 [column-span:all]"
 							>
-								{newCount} new since your last visit
-							</span>
-							<div class="bg-primary/30 h-px flex-1"></div>
-						</div>
-					{/if}
-					<div
-						in:fly={{
-							y: 20,
-							delay: Math.min(i, 8) * 30,
-							duration: 350,
-							easing: quintOut
-						}}
-					>
-						<ChangelogCard {...entry} isLatest={false} isNew={isNew(entry)} />
-					</div>
-				{/each}
-			</div>
+								<div class="bg-signal/35 h-px flex-1"></div>
+								<span
+									class="text-signal font-mono text-[10px] font-bold tracking-widest uppercase"
+								>
+									{newCount} new since your last visit
+								</span>
+								<div class="bg-primary/30 h-px flex-1"></div>
+							</li>
+						{/if}
+						<li
+							data-patch-card
+							class="mb-4 break-inside-avoid"
+							in:fly={{
+								y: 20,
+								delay: Math.min(i, 8) * 30,
+								duration: 350,
+								easing: quintOut
+							}}
+						>
+							<ChangelogCard {...entry} isLatest={false} isNew={isNew(entry)} />
+						</li>
+					{/each}
+				</ol>
+			{/each}
 		{:else}
 			<div
 				class="clip-corner bg-card border-border/50 relative overflow-hidden border-2 p-12 text-center"
 				in:scale={{ start: 0.95, duration: 400 }}
+				role="status"
 			>
 				<CornerAccents tlSize="2rem" tlColor="bg-muted-foreground/30" />
 				<div
@@ -174,6 +226,7 @@
 					No changelog entries match your filters.
 				</p>
 				<button
+					type="button"
 					onclick={() => params.reset()}
 					class="clip-corner-sm bg-primary/10 text-primary hover:bg-primary/20 border-primary/30 border px-6 py-3 font-mono text-sm font-semibold transition-all hover:scale-105"
 				>
@@ -183,9 +236,26 @@
 		{/if}
 
 		{#if allChangelogs.length > 0}
-			<div bind:this={queryState.trigger} class="flex flex-col items-center gap-4 py-12">
-				{#if query.isFetchingNextPage}
-					<div class="flex flex-col items-center gap-3">
+			<div
+				class="flex flex-col items-center gap-4 py-12"
+				aria-live="polite"
+				aria-busy={query.isFetchingNextPage}
+			>
+				{#if query.isFetchNextPageError}
+					<div class="flex flex-col items-center gap-3 text-center" role="alert">
+						<p class="text-destructive text-sm font-medium">
+							Failed to load more patches.
+						</p>
+						<button
+							type="button"
+							onclick={() => query.fetchNextPage()}
+							class="border-destructive/30 text-destructive hover:bg-destructive/10 border px-5 py-2 font-mono text-xs font-semibold"
+						>
+							Retry
+						</button>
+					</div>
+				{:else if query.isFetchingNextPage}
+					<div class="flex flex-col items-center gap-3" role="status">
 						<div
 							class="border-primary/30 size-10 animate-spin rounded-lg border-2 border-t-transparent"
 						></div>
@@ -195,7 +265,9 @@
 					</div>
 				{:else if query.hasNextPage}
 					<button
+						type="button"
 						onclick={() => query.fetchNextPage()}
+						disabled={query.isFetchingNextPage}
 						class="clip-corner-sm bg-primary/10 text-primary hover:bg-primary/20 border-primary/30 group border px-8 py-3 font-mono text-sm font-semibold transition-all hover:scale-105 disabled:opacity-50"
 					>
 						Load More

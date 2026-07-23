@@ -11,17 +11,20 @@ export {
 	getAllItems,
 	getHeroByName,
 	getHeroBySlug,
-	getAllHeroSlugs,
+	getReleasedHeroSlugs,
 	getItemByName,
 	getItemBySlug,
-	getAllItemSlugs,
+	getReleasedItemSlugs,
 	getChangelogsByHeroId,
 	getChangelogsByItemId,
 	getChangelogIcons,
-	type ScrapedChangelog
+	type ScrapedChangelog,
+	type ChangelogWithCount,
+	type ScrapedItem
 } from './queries';
 
 export { formatDate, formatTime } from '@deadlog/utils';
+export { entityNameAliases, entityNamesMatch } from '@deadlog/changelog';
 export type {
 	HeroId,
 	ItemId,

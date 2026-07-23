@@ -1,5 +1,11 @@
 import { describe, it, expect } from 'vitest';
-import { resolveEntityIds, parseApiParams, makeSummary } from './changelog-utils';
+import {
+	NO_MATCH_ENTITY_ID,
+	resolveEntityIds,
+	parseApiParams,
+	makeSummary,
+	splitPage
+} from './changelog-utils';
 import { parseCSV } from '$lib/utils/csv';
 
 describe('makeSummary', () => {
@@ -59,16 +65,37 @@ describe('resolveEntityIds', () => {
 		expect(resolveEntityIds(['bebop', 'ABRAMS'], entities)).toEqual([1, 2]);
 	});
 
-	it('skips names that do not match any entity', () => {
-		expect(resolveEntityIds(['Bebop', 'NonExistent'], entities)).toEqual([1]);
+	it('resolves names with optional articles', () => {
+		expect(resolveEntityIds(['The Bebop'], entities)).toEqual([1]);
+	});
+
+	it('uses a non-matching id when any requested name is unknown', () => {
+		expect(resolveEntityIds(['Bebop', 'NonExistent'], entities)).toEqual([
+			1,
+			NO_MATCH_ENTITY_ID
+		]);
 	});
 
 	it('returns empty array for empty input', () => {
 		expect(resolveEntityIds([], entities)).toEqual([]);
 	});
 
-	it('returns empty array when no names match', () => {
-		expect(resolveEntityIds(['Foo', 'Bar'], entities)).toEqual([]);
+	it('makes an entirely unknown filter impossible to match', () => {
+		expect(resolveEntityIds(['Foo', 'Bar'], entities)).toEqual([NO_MATCH_ENTITY_ID]);
+	});
+
+	it('deduplicates repeated names', () => {
+		expect(resolveEntityIds(['Bebop', 'bebop'], entities)).toEqual([1]);
+	});
+});
+
+describe('splitPage', () => {
+	it('does not report more rows for an exactly full page', () => {
+		expect(splitPage([1, 2, 3], 3)).toEqual({ rows: [1, 2, 3], hasMore: false });
+	});
+
+	it('removes the lookahead row and reports more data', () => {
+		expect(splitPage([1, 2, 3, 4], 3)).toEqual({ rows: [1, 2, 3], hasMore: true });
 	});
 });
 

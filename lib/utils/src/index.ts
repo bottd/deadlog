@@ -8,6 +8,13 @@ export function toSlug(name: string): string {
 		.replace(/^-|-$/g, '');
 }
 
+export {
+	decodeEntityName,
+	entityNameAliases,
+	entityNamesMatch,
+	normalizeEntityName
+} from './entityNames';
+
 function toDate(date: Date | string): Date {
 	return date instanceof Date ? date : new Date(date);
 }
@@ -26,15 +33,25 @@ function getOrdinalSuffix(day: number): string {
 	}
 }
 
+export const DISPLAY_TIME_ZONE = 'America/Los_Angeles';
+
+const dateFormatter = new Intl.DateTimeFormat('en-US', {
+	timeZone: DISPLAY_TIME_ZONE,
+	month: 'long',
+	day: 'numeric',
+	year: 'numeric'
+});
+
 export function formatDate(date: Date | string): string {
-	const d = toDate(date);
-	const month = d.toLocaleDateString('en-US', { month: 'long' });
-	const day = d.getDate();
-	const year = d.getFullYear();
-	return `${month} ${day}${getOrdinalSuffix(day)}, ${year}`;
+	const parts = dateFormatter.formatToParts(toDate(date));
+	const value = (type: Intl.DateTimeFormatPartTypes) =>
+		parts.find((part) => part.type === type)?.value ?? '';
+	const day = Number(value('day'));
+	return `${value('month')} ${day}${getOrdinalSuffix(day)}, ${value('year')}`;
 }
 
 const timeFormatter = new Intl.DateTimeFormat('en-US', {
+	timeZone: DISPLAY_TIME_ZONE,
 	hour: 'numeric',
 	minute: '2-digit',
 	hour12: true

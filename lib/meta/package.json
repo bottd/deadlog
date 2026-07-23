@@ -3,6 +3,9 @@
 	"version": "1.0.0",
 	"type": "module",
 	"private": true,
+	"scripts": {
+		"test": "vitest run --config vite.config.ts"
+	},
 	"exports": {
 		".": "./src/index.ts"
 	},

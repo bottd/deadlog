@@ -1,23 +1,32 @@
 import {
 	queryChangelogs,
 	getChangelogsCount,
-	getChangelogPosition,
 	getHeroByName,
-	getItemByName,
-	formatDate
+	getItemByName
 } from '@deadlog/scraper';
-import { toSlug } from '@deadlog/utils';
+import { redirect } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
+import { absoluteUrl, DEFAULT_SOCIAL_IMAGE, SITE_DESCRIPTION } from '$lib/seo';
 import {
 	enrichChangelogs,
 	resolveEntityIds,
-	parseApiParams
+	parseApiParams,
+	splitPage
 } from '$lib/server/changelog-utils';
 
 export const prerender = false;
 
 export const load: PageServerLoad = async ({ locals, url, parent }) => {
 	const { hero, item, q, change } = parseApiParams(url);
+	if (change) {
+		const searchParams = new URLSearchParams(url.searchParams);
+		searchParams.delete('change');
+		const query = searchParams.toString();
+		throw redirect(
+			308,
+			`/change/${encodeURIComponent(change)}${query ? `?${query}` : ''}`
+		);
+	}
 
 	// Get heroes and items from layout data
 	const { heroes, items } = await parent();
@@ -25,24 +34,26 @@ export const load: PageServerLoad = async ({ locals, url, parent }) => {
 	const heroIds = resolveEntityIds(hero, heroes);
 	const itemIds = resolveEntityIds(item, items);
 
-	let initialLoadLimit = 15;
-	if (change) {
-		const position = await getChangelogPosition(locals.db, String(change));
-		initialLoadLimit = position + 1 + 5;
-	}
+	const initialLoadLimit = 15;
 
-	const allChangelogs = await queryChangelogs(locals.db, {
+	const queriedChangelogs = await queryChangelogs(locals.db, {
 		heroIds,
 		itemIds,
 		searchQuery: q,
-		limit: initialLoadLimit,
+		limit: initialLoadLimit + 1,
 		offset: 0
 	});
+	const { rows: allChangelogs, hasMore: initialHasMore } = splitPage(
+		queriedChangelogs,
+		initialLoadLimit
+	);
 
 	const totalCount =
-		heroIds.length === 0 && itemIds.length === 0 && !q
+		hero.length === 0 && item.length === 0 && !q
 			? await getChangelogsCount(locals.db)
-			: 0;
+			: initialHasMore
+				? initialLoadLimit + 1
+				: allChangelogs.length;
 
 	const enriched = await enrichChangelogs(locals.db, allChangelogs);
 
@@ -53,39 +64,27 @@ export const load: PageServerLoad = async ({ locals, url, parent }) => {
 	}
 
 	let pageMeta: PageMeta = {
-		title: 'deadlog.io - deadlock changelog',
-		description:
-			'Stay updated with the latest Deadlock game changelog, updates, and balance changes',
-		image: 'https://deadlog.io/assets/meta/index.png'
+		title: 'Deadlock Patch Notes & Changelog | Deadlog',
+		description: SITE_DESCRIPTION,
+		image: DEFAULT_SOCIAL_IMAGE
 	};
 
-	if (change) {
-		const changelog = enriched.find((c) => c.id === String(change));
-		pageMeta = {
-			title: changelog
-				? `${formatDate(changelog.date)} Update - Deadlog`
-				: pageMeta.title,
-			description: changelog
-				? `View the ${formatDate(changelog.date)} Deadlock changelog`
-				: pageMeta.description,
-			image: `https://deadlog.io/assets/meta/change/${change}.png`
-		};
-	} else if (hero[0]) {
+	if (hero[0]) {
 		const data = await getHeroByName(locals.db, hero[0]);
 		if (data) {
 			pageMeta = {
-				title: `${data.name} Changelog - Deadlog`,
-				description: `View all ${data.name} balance changes and updates in Deadlock`,
-				image: `https://deadlog.io/assets/meta/hero/${toSlug(data.name)}.png`
+				title: `${data.name} Deadlock Changes: Buffs & Nerfs | Deadlog`,
+				description: `Track every ${data.name} buff, nerf, and balance change across Deadlock patch notes.`,
+				image: absoluteUrl(`/assets/meta/hero/${data.slug}.png`)
 			};
 		}
 	} else if (item[0]) {
 		const data = await getItemByName(locals.db, item[0]);
 		if (data) {
 			pageMeta = {
-				title: `${data.name} Changes - Deadlog`,
-				description: `View all ${data.name} balance changes and updates in Deadlock`,
-				image: `https://deadlog.io/assets/meta/item/${toSlug(data.name)}.png`
+				title: `${data.name} Deadlock Changes: Buffs & Nerfs | Deadlog`,
+				description: `Track every ${data.name} buff, nerf, and balance change across Deadlock patch notes.`,
+				image: absoluteUrl(`/assets/meta/item/${data.slug}.png`)
 			};
 		}
 	}
@@ -103,6 +102,7 @@ export const load: PageServerLoad = async ({ locals, url, parent }) => {
 
 	return {
 		changelogs: enriched,
+		filters: { hero, item, q },
 		totalCount,
 		initialLoadCount: initialLoadLimit,
 		lastUpdate: (enriched[0]?.date ?? new Date()).toISOString(),

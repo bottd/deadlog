@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { EntityIcon } from '$lib/types';
+	import { entityFragmentId } from './entityContext';
 
 	interface Props {
 		heroes: EntityIcon[];
@@ -10,14 +11,6 @@
 	}
 
 	let { heroes, items, onnavigate, size = 'sm', hideGeneral = false }: Props = $props();
-
-	function slugify(name: string): string {
-		return name
-			.toLowerCase()
-			.replace(/^(the|a|an)\s+/, '')
-			.replace(/[^a-z0-9]+/g, '-')
-			.replace(/^-+|-+$/g, '');
-	}
 </script>
 
 {#snippet tocGroup(href: string, label: string, count: number, entities: EntityIcon[])}
@@ -27,14 +20,18 @@
 			{label}
 			<span
 				class={size === 'lg'
-					? 'bg-primary/10 text-primary ml-auto rounded-full px-2 py-0.5 font-mono text-xs font-medium'
-					: 'text-primary/50 ml-auto font-mono text-[10px]'}>{count}</span
+					? 'bg-signal/10 text-signal ml-auto rounded-full px-2 py-0.5 font-mono text-xs font-medium'
+					: 'text-signal/50 ml-auto font-mono text-[10px]'}>{count}</span
 			>
 		</a>
 		<ul class={size === 'lg' ? 'mt-1 space-y-0.5' : 'mt-0.5 space-y-px'}>
 			{#each entities as entity (entity.id)}
 				<li>
-					<a href="#{slugify(entity.alt)}" class="toc-entity" onclick={onnavigate}>
+					<a
+						href="#{entityFragmentId(entity.alt)}"
+						class="toc-entity"
+						onclick={onnavigate}
+					>
 						<img
 							src={entity.src}
 							alt=""
@@ -56,7 +53,7 @@
 
 <nav class="toc {size}" aria-label="Table of contents">
 	{#if size === 'sm'}
-		<div class="bg-primary/40 mb-4 h-px w-8" aria-hidden="true"></div>
+		<div class="bg-signal/50 mb-4 h-px w-8" aria-hidden="true"></div>
 
 		<h2
 			class="text-muted-foreground mb-4 font-mono text-[10px] font-bold tracking-[0.2em] uppercase"
@@ -91,15 +88,15 @@
 	@reference "../../../app.css";
 
 	.toc-section {
-		@apply text-foreground/70 hover:text-primary relative flex items-center gap-2 py-1 pl-3 text-xs font-semibold tracking-tight transition-colors;
+		@apply text-foreground/70 hover:text-signal relative flex items-center gap-2 py-1 pl-3 text-xs font-semibold tracking-tight transition-colors;
 	}
 
 	.toc-marker {
-		@apply bg-primary/0 absolute top-1/2 left-[-0.5px] h-3 w-px -translate-y-1/2 transition-all duration-200;
+		@apply bg-signal/0 absolute top-1/2 left-[-0.5px] h-3 w-px -translate-y-1/2 transition-all duration-200;
 	}
 
 	.toc-section:hover .toc-marker {
-		@apply bg-primary h-4;
+		@apply bg-signal h-4;
 	}
 
 	.toc-entity {

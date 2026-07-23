@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { getEntityMaps } from './entityContext';
+	import { entityFragmentId, getEntityMaps, resolveEntity } from './entityContext';
 
 	interface Props {
 		name: string;
@@ -9,36 +9,16 @@
 	let { name, type }: Props = $props();
 
 	const maps = getEntityMaps();
+	const entity = $derived(resolveEntity(maps, type, name));
 
-	const slug = $derived(
-		name
-			.toLowerCase()
-			.replace(/[^a-z0-9]+/g, '-')
-			.replace(/^-+|-+$/g, '')
-	);
-
-	const image = $derived.by(() => {
-		if (type === 'hero') {
-			const hero = Object.values(maps.heroMap).find(
-				(h) => h.name.toLowerCase() === name.toLowerCase()
-			);
-			if (!hero) return undefined;
-			return (
-				hero.images.icon_image_small_webp ||
-				hero.images.icon_image_small ||
-				Object.values(hero.images)[0]
-			);
-		} else {
-			const item = Object.values(maps.itemMap).find(
-				(i) => i.name.toLowerCase() === name.toLowerCase()
-			);
-			return item?.image;
-		}
-	});
+	const displayName = $derived(entity?.name ?? name);
+	const slug = $derived(entityFragmentId(displayName));
 </script>
 
 <header
 	id={slug}
+	data-entity-name={displayName}
+	data-entity-slug={entity?.slug}
 	class="entity-heading group relative mb-4 flex scroll-mt-20 items-center gap-4 py-2"
 >
 	<div
@@ -46,10 +26,10 @@
 		aria-hidden="true"
 	></div>
 
-	{#if image}
+	{#if entity?.image}
 		<img
-			src={image}
-			alt={name}
+			src={entity.image}
+			alt=""
 			width="40"
 			height="40"
 			loading="lazy"
@@ -58,6 +38,12 @@
 		/>
 	{/if}
 	<h3 class="text-foreground text-base font-semibold tracking-tight">
-		{name}
+		{#if entity}
+			<a href="/{type}/{entity.slug}" class="hover:text-signal transition-colors"
+				>{displayName}</a
+			>
+		{:else}
+			{displayName}
+		{/if}
 	</h3>
 </header>

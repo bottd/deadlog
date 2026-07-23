@@ -6,6 +6,8 @@ import {
 } from '@deadlog/scraper';
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad, EntryGenerator } from './$types';
+import { makeSummary } from '$lib/server/changelog-utils';
+import { absoluteUrl } from '$lib/seo';
 
 export const prerender = true;
 
@@ -30,17 +32,24 @@ export const load: PageServerLoad = async ({ params, locals, parent }) => {
 
 	const icons = iconsMap[changelog.id] ?? { heroes: [], items: [] };
 	const date = new Date(changelog.pubDate);
+	const formattedDate = formatDate(date);
+	const description =
+		makeSummary(changelog.contentText, 155) ||
+		`Read the ${formattedDate} Deadlock patch notes, including hero, item, and gameplay balance changes.`;
 
-	const heroMap: Record<number, { name: string; images: Record<string, string> }> = {};
+	const heroMap: Record<
+		number,
+		{ name: string; slug: string; images: Record<string, string> }
+	> = {};
 	for (const hero of heroes) {
-		heroMap[hero.id] = { name: hero.name, images: hero.images };
+		heroMap[hero.id] = { name: hero.name, slug: hero.slug, images: hero.images };
 	}
 
-	const itemMap: Record<number, { name: string; image: string }> = {};
+	const itemMap: Record<number, { name: string; slug: string; image: string }> = {};
 	const abilityMap: Record<string, { name: string; image: string; heroName: string }> =
 		{};
 	for (const item of items) {
-		itemMap[item.id] = { name: item.name, image: item.image };
+		itemMap[item.id] = { name: item.name, slug: item.slug, image: item.image };
 		if (item.type === 'ability') {
 			abilityMap[item.name.toLowerCase()] = {
 				name: item.name,
@@ -59,8 +68,9 @@ export const load: PageServerLoad = async ({ params, locals, parent }) => {
 		heroMap,
 		itemMap,
 		abilityMap,
-		title: `${formatDate(date)} Update - Deadlog`,
-		description: `View the ${formatDate(date)} Deadlock changelog`,
-		image: `https://deadlog.io/assets/meta/change/${params.id}.png`
+		title: `${changelog.title} | Deadlock Patch Notes | Deadlog`,
+		description,
+		image: absoluteUrl(`/assets/meta/change/${params.id}.png`),
+		isIndexable: Boolean(changelog.contentText?.trim())
 	};
 };

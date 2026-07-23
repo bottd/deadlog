@@ -3,8 +3,14 @@
 	"version": "1.0.0",
 	"type": "module",
 	"private": true,
+	"scripts": {
+		"test": "vitest run --config vite.config.ts"
+	},
 	"exports": {
 		".": "./src/index.ts"
+	},
+	"dependencies": {
+		"@deadlog/utils": "workspace:*"
 	},
 	"devDependencies": {
 		"@types/node": "24.12.0",

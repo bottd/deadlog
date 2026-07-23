@@ -12,12 +12,15 @@ import {
 	inArray,
 	type SQL
 } from 'drizzle-orm';
-import type { EnrichedHero, EnrichedItem, EntityIcon } from './types/deadlockApi';
+import type { EnrichedHero, EntityIcon } from './types/deadlockApi';
 import { getLibsqlDb, type DrizzleDB, type SelectChangelog, schema } from '@deadlog/db';
+import { entityNamesMatch } from '@deadlog/changelog';
 
 export { getLibsqlDb as getDb };
 
 export type ScrapedChangelog = SelectChangelog;
+export type ChangelogWithCount = ScrapedChangelog & { changeCount: number | null };
+export type ScrapedItem = typeof schema.items.$inferSelect;
 
 function isMainChangelog() {
 	return or(
@@ -27,8 +30,8 @@ function isMainChangelog() {
 }
 
 function buildTextSearchCondition(searchQuery: string): SQL {
-	const pattern = `%${searchQuery}%`;
-	return sql`(LOWER(${schema.changelogs.title}) LIKE LOWER(${pattern}) OR LOWER(${schema.changelogs.contentText}) LIKE LOWER(${pattern}))`;
+	const pattern = `%${searchQuery.replace(/[!%_]/g, '!$&')}%`;
+	return sql`(LOWER(${schema.changelogs.title}) LIKE LOWER(${pattern}) ESCAPE '!' OR LOWER(${schema.changelogs.contentText}) LIKE LOWER(${pattern}) ESCAPE '!')`;
 }
 
 export async function getAllChangelogs(db: DrizzleDB) {
@@ -150,7 +153,13 @@ export async function getChangelogPosition(
 }
 
 export async function getChangelogById(db: DrizzleDB, id: string) {
-	return db.select().from(schema.changelogs).where(eq(schema.changelogs.id, id)).get();
+	return (
+		(await db
+			.select()
+			.from(schema.changelogs)
+			.where(eq(schema.changelogs.id, id))
+			.get()) ?? null
+	);
 }
 
 export async function getMetadata(db: DrizzleDB, key: string) {
@@ -167,60 +176,97 @@ export async function getAllHeroes(db: DrizzleDB): Promise<EnrichedHero[]> {
 	return db.select().from(schema.heroes).all();
 }
 
-export async function getAllItems(db: DrizzleDB): Promise<EnrichedItem[]> {
+export async function getAllItems(db: DrizzleDB): Promise<ScrapedItem[]> {
 	return db.select().from(schema.items).all();
+}
+
+function canonicalSlug(slug: string): string {
+	return slug
+		.toLowerCase()
+		.trim()
+		.replace(/^(the|a|an)-/, '');
 }
 
 export async function getHeroByName(
 	db: DrizzleDB,
 	name: string
 ): Promise<EnrichedHero | null> {
-	return (
-		(await db.select().from(schema.heroes).where(eq(schema.heroes.name, name)).get()) ??
-		null
-	);
+	const exact = await db
+		.select()
+		.from(schema.heroes)
+		.where(eq(schema.heroes.name, name))
+		.get();
+	if (exact) return exact;
+	const candidates = await db.select().from(schema.heroes).all();
+	return candidates.find((hero) => entityNamesMatch(hero.name, name)) ?? null;
 }
 
 export async function getHeroBySlug(
 	db: DrizzleDB,
 	slug: string
 ): Promise<EnrichedHero | null> {
+	const exact = await db
+		.select()
+		.from(schema.heroes)
+		.where(eq(schema.heroes.slug, slug))
+		.get();
+	if (exact) return exact;
+	const candidates = await db.select().from(schema.heroes).all();
 	return (
-		(await db.select().from(schema.heroes).where(eq(schema.heroes.slug, slug)).get()) ??
-		null
+		candidates.find((hero) => canonicalSlug(hero.slug) === canonicalSlug(slug)) ?? null
 	);
 }
 
-export async function getAllHeroSlugs(db: DrizzleDB): Promise<string[]> {
-	const results = await db.select({ slug: schema.heroes.slug }).from(schema.heroes).all();
+export async function getReleasedHeroSlugs(db: DrizzleDB): Promise<string[]> {
+	const results = await db
+		.select({ slug: schema.heroes.slug })
+		.from(schema.heroes)
+		.where(eq(schema.heroes.isReleased, true))
+		.all();
 	return results.map((r) => r.slug);
 }
 
 export async function getItemByName(
 	db: DrizzleDB,
 	name: string
-): Promise<EnrichedItem | null> {
-	return (
-		(await db.select().from(schema.items).where(eq(schema.items.name, name)).get()) ??
-		null
-	);
+): Promise<ScrapedItem | null> {
+	const exact = await db
+		.select()
+		.from(schema.items)
+		.where(eq(schema.items.name, name))
+		.get();
+	if (exact) return exact;
+	const candidates = await db.select().from(schema.items).all();
+	return candidates.find((item) => entityNamesMatch(item.name, name)) ?? null;
 }
 
 export async function getItemBySlug(
 	db: DrizzleDB,
 	slug: string
-): Promise<EnrichedItem | null> {
+): Promise<ScrapedItem | null> {
+	const exact = await db
+		.select()
+		.from(schema.items)
+		.where(eq(schema.items.slug, slug))
+		.get();
+	if (exact) return exact;
+	const candidates = await db.select().from(schema.items).all();
 	return (
-		(await db.select().from(schema.items).where(eq(schema.items.slug, slug)).get()) ??
-		null
+		candidates.find((item) => canonicalSlug(item.slug) === canonicalSlug(slug)) ?? null
 	);
 }
 
-export async function getAllItemSlugs(db: DrizzleDB): Promise<string[]> {
+export async function getReleasedItemSlugs(db: DrizzleDB): Promise<string[]> {
 	const results = await db
 		.select({ slug: schema.items.slug })
 		.from(schema.items)
-		.where(and(isNotNull(schema.items.slug), ne(schema.items.slug, '')))
+		.where(
+			and(
+				eq(schema.items.isReleased, true),
+				isNotNull(schema.items.slug),
+				ne(schema.items.slug, '')
+			)
+		)
 		.all();
 	return results.map((r) => r.slug);
 }
@@ -229,9 +275,12 @@ export async function getChangelogsByHeroId(
 	db: DrizzleDB,
 	heroId: number,
 	limit = 50
-): Promise<ScrapedChangelog[]> {
+): Promise<ChangelogWithCount[]> {
 	const results = await db
-		.selectDistinct({ changelogs: schema.changelogs })
+		.selectDistinct({
+			changelog: schema.changelogs,
+			changeCount: schema.changelogHeroes.changeCount
+		})
 		.from(schema.changelogs)
 		.innerJoin(
 			schema.changelogHeroes,
@@ -242,16 +291,19 @@ export async function getChangelogsByHeroId(
 		.limit(limit)
 		.all();
 
-	return results.map((r) => r.changelogs);
+	return results.map((r) => ({ ...r.changelog, changeCount: r.changeCount }));
 }
 
 export async function getChangelogsByItemId(
 	db: DrizzleDB,
 	itemId: number,
 	limit = 50
-): Promise<ScrapedChangelog[]> {
+): Promise<ChangelogWithCount[]> {
 	const results = await db
-		.selectDistinct({ changelogs: schema.changelogs })
+		.selectDistinct({
+			changelog: schema.changelogs,
+			changeCount: schema.changelogItems.changeCount
+		})
 		.from(schema.changelogs)
 		.innerJoin(
 			schema.changelogItems,
@@ -262,12 +314,23 @@ export async function getChangelogsByItemId(
 		.limit(limit)
 		.all();
 
-	return results.map((r) => r.changelogs);
+	return results.map((r) => ({ ...r.changelog, changeCount: r.changeCount }));
 }
 
 interface ChangelogIcons {
 	heroes: EntityIcon[];
 	items: EntityIcon[];
+}
+
+function toEntityIconItemCategory(
+	category: ScrapedItem['category']
+): EntityIcon['itemCategory'] {
+	// EntityIcon retains the deployed technical enum; translate the real shop taxonomy
+	// until its external consumers can migrate to weapon/vitality/spirit directly.
+	if (category === 'weapon') return 'weapon';
+	if (category === 'vitality') return 'ability';
+	if (category === 'spirit') return 'upgrade';
+	return undefined;
 }
 
 export async function getChangelogIcons(
@@ -313,7 +376,7 @@ export async function getChangelogIcons(
 			src: r.items.image,
 			alt: r.items.name,
 			type: 'item',
-			itemCategory: r.items.type
+			itemCategory: toEntityIconItemCategory(r.items.category)
 		});
 	}
 

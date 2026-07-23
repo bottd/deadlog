@@ -14,8 +14,8 @@ const config = {
 	kit: {
 		adapter,
 		prerender: {
-			handleHttpError: 'warn',
-			handleMissingId: 'warn'
+			handleHttpError: 'fail',
+			handleMissingId: 'fail'
 		},
 		alias: {
 			'@deadlog/changelog': '../lib/changelog/src/index.ts',

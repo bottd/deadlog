@@ -1,9 +1,12 @@
 {
-	"postId": "12848",
-	"title": "06-23-2024 Update",
-	"author": "Yoshi",
-	"authorImage": "https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630",
-	"pubDate": "2024-06-23T16:23:36-0700",
-	"content": "<div class=\"message-userContent lbContainer js-lbContainer \">\n\n\t\t\n\t\t\t\n\n\t\n\t\t\n\t\n\n\t\t\n\n\t\t<article>\n\t\t\t\n\t\t\t\t\n\t\t\t\n\n\t\t\t<div>\n\t\t\t\t\n\t\t\t\t\t<div class=\"bbWrapper\">- Spirit Strike: Melee damage reduced from 20% to 15%<br>\n- Melee Charge: No longer grants +15% Melee Damage<br>\n- Veil Walker: Bullet Shield reduced from +200 to +150<br>\n- Veil Walker: Shield restore now takes 5s to fully regen<br>\n- Veil Walker: Cooldown increased from 20s to 25s<br>\n- Yamato: Shadow Transformation now causes you to be unable to die during the buff<br>\n- There is no longer a reinforcement trooper wave after Guardians and Walkers die</div>\n\t\t\t\t\n\t\t\t</div>\n\n\t\t\t<div class=\"js-selectToQuoteEnd\">&nbsp;</div>\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t</article>\n\n\t\t\n\t\t\t\n\n\t\n\t\t\n\t\n\n\t\t\n\n\t\t\n\t</div>",
-	"posterReplies": []
+	"version": 2,
+	"data": {
+		"postId": "7705",
+		"title": "06-23-2024 Update",
+		"author": "Yoshi",
+		"authorImage": "https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630",
+		"pubDate": "2024-06-23T16:23:36-0700",
+		"content": "<div class=\"message-userContent lbContainer js-lbContainer \">\n\n\t\t\n\t\t\t\n\n\t\n\t\t\n\t\n\n\t\t\n\n\t\t<article>\n\t\t\t\n\t\t\t\t\n\t\t\t\n\n\t\t\t<div>\n\t\t\t\t\n\t\t\t\t\t<div class=\"bbWrapper\">- Spirit Strike: Melee damage reduced from 20% to 15%<br>\n- Melee Charge: No longer grants +15% Melee Damage<br>\n- Veil Walker: Bullet Shield reduced from +200 to +150<br>\n- Veil Walker: Shield restore now takes 5s to fully regen<br>\n- Veil Walker: Cooldown increased from 20s to 25s<br>\n- Yamato: Shadow Transformation now causes you to be unable to die during the buff<br>\n- There is no longer a reinforcement trooper wave after Guardians and Walkers die</div>\n\t\t\t\t\n\t\t\t</div>\n\n\t\t\t<div class=\"js-selectToQuoteEnd\">&nbsp;</div>\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t</article>\n\n\t\t\n\t\t\t\n\n\t\n\t\t\n\t\n\n\t\t\n\n\t\t\n\t</div>",
+		"posterReplies": []
+	}
 }

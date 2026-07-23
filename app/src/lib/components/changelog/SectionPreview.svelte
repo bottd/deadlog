@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { getEntityMaps } from './entityContext';
+	import { entityFragmentId, getEntityMaps, resolveEntity } from './entityContext';
 
 	interface Props {
 		type: 'hero' | 'item';
@@ -13,29 +13,13 @@
 	const icons = $derived.by(() => {
 		return names
 			.map((name) => {
-				const nameLower = name.toLowerCase();
-				let image: string | undefined;
-				if (type === 'hero') {
-					const hero = Object.values(maps.heroMap).find(
-						(h) => h.name.toLowerCase() === nameLower
-					);
-					if (hero) {
-						image =
-							hero.images.icon_image_small_webp ||
-							hero.images.icon_image_small ||
-							Object.values(hero.images)[0];
-					}
-				} else {
-					const item = Object.values(maps.itemMap).find(
-						(i) => i.name.toLowerCase() === nameLower
-					);
-					image = item?.image;
-				}
-				const slug = name
-					.toLowerCase()
-					.replace(/[^a-z0-9]+/g, '-')
-					.replace(/^-+|-+$/g, '');
-				return { name, image, slug };
+				const entity = resolveEntity(maps, type, name);
+				const displayName = entity?.name ?? name;
+				return {
+					name: displayName,
+					image: entity?.image,
+					slug: entityFragmentId(displayName)
+				};
 			})
 			.filter((e) => e.image);
 	});

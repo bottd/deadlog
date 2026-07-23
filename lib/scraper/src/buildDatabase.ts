@@ -1,8 +1,7 @@
 import { createClient } from '@libsql/client';
 import { drizzle } from 'drizzle-orm/libsql';
 import { PatchesApi, Configuration } from 'deadlock-api-client';
-import { mkdir, unlink } from 'fs/promises';
-import { existsSync } from 'fs';
+import { mkdir, rename, rm } from 'fs/promises';
 import path from 'path';
 import { sql } from 'drizzle-orm';
 import { fetchHeroes, fetchItems } from './api';
@@ -15,10 +14,22 @@ import {
 } from '@deadlog/db';
 import {
 	loadAllChangelogs,
-	normalizeEntityName,
-	entityNameAliases
+	entityNameAliases,
+	type EntityChange
 } from '@deadlog/changelog';
 import { toSlug } from '@deadlog/utils';
+
+const ITEMS_API_URL = 'https://assets.deadlock-api.com/v2/items';
+const ITEMS_API_TIMEOUT_MS = 30_000;
+
+type ItemCategory = 'weapon' | 'vitality' | 'spirit';
+
+interface ItemTaxonomy {
+	category: ItemCategory | null;
+	tier: number | null;
+	shopable: boolean;
+	disabled: boolean;
+}
 
 interface BuildOptions {
 	outputDir?: string;
@@ -32,6 +43,102 @@ interface BuildResult {
 	itemMatches: number;
 }
 
+function isRecord(value: unknown): value is Record<string, unknown> {
+	return typeof value === 'object' && value !== null;
+}
+
+export function parseItemTaxonomy(payload: unknown): Map<number, ItemTaxonomy> {
+	if (!Array.isArray(payload)) throw new Error('Invalid item taxonomy response');
+
+	const result = new Map<number, ItemTaxonomy>();
+	for (const item of payload) {
+		if (!isRecord(item) || typeof item.id !== 'number') continue;
+
+		const category =
+			item.item_slot_type === 'weapon' ||
+			item.item_slot_type === 'vitality' ||
+			item.item_slot_type === 'spirit'
+				? item.item_slot_type
+				: null;
+		const tier =
+			typeof item.item_tier === 'number' &&
+			Number.isInteger(item.item_tier) &&
+			item.item_tier > 0
+				? item.item_tier
+				: null;
+
+		result.set(item.id, {
+			category,
+			tier,
+			shopable: item.shopable === true,
+			disabled: item.disabled === true
+		});
+	}
+
+	return result;
+}
+
+async function fetchItemTaxonomy(): Promise<Map<number, ItemTaxonomy>> {
+	let response: Response;
+	try {
+		response = await fetch(ITEMS_API_URL, {
+			signal: AbortSignal.timeout(ITEMS_API_TIMEOUT_MS)
+		});
+	} catch (error) {
+		throw new Error('Failed to fetch item taxonomy within 30 seconds', { cause: error });
+	}
+	if (!response.ok) {
+		throw new Error(`Failed to fetch item taxonomy: ${response.statusText}`);
+	}
+	return parseItemTaxonomy(await response.json());
+}
+
+function createEntityIdMap(
+	entities: { id: number; name: string }[]
+): Map<string, number> {
+	const result = new Map<string, number>();
+	for (const entity of entities) {
+		for (const alias of entityNameAliases(entity.name)) {
+			if (!result.has(alias)) result.set(alias, entity.id);
+		}
+	}
+	return result;
+}
+
+function resolveEntityId(
+	entityMap: Map<string, number>,
+	name: string
+): number | undefined {
+	for (const alias of entityNameAliases(name)) {
+		const id = entityMap.get(alias);
+		if (id !== undefined) return id;
+	}
+	return undefined;
+}
+
+function collectEntityMatches(
+	names: string[],
+	changes: EntityChange[],
+	type: 'hero' | 'item',
+	entityMap: Map<string, number>
+): Map<number, number | null> {
+	const matches = new Map<number, number | null>();
+
+	for (const name of names) {
+		const id = resolveEntityId(entityMap, name);
+		if (id !== undefined && !matches.has(id)) matches.set(id, null);
+	}
+
+	for (const change of changes) {
+		if (change.type !== type) continue;
+		const id = resolveEntityId(entityMap, change.name);
+		if (id === undefined) continue;
+		matches.set(id, (matches.get(id) ?? 0) + change.count);
+	}
+
+	return matches;
+}
+
 export async function buildDatabaseFromNorg(
 	options: BuildOptions = {}
 ): Promise<BuildResult> {
@@ -40,12 +147,28 @@ export async function buildDatabaseFromNorg(
 
 	await mkdir(outputDir, { recursive: true });
 
-	const dbPath = path.join(outputDir, 'deadlog.db');
+	const targetDbPath = path.join(outputDir, 'deadlog.db');
+	const dbPath = `${targetDbPath}.building`;
 
-	if (existsSync(dbPath)) {
-		console.log('🗑️  Removing existing database...');
-		await unlink(dbPath);
-	}
+	console.log('🌐 Fetching data from Deadlock API...');
+	const patchesApi = new PatchesApi(
+		new Configuration({ basePath: 'https://api.deadlock-api.com' })
+	);
+
+	const [bigDaysResponse, heroes, items, itemTaxonomy] = await Promise.all([
+		patchesApi.bigPatchDays(),
+		fetchHeroes(),
+		fetchItems(),
+		fetchItemTaxonomy()
+	]);
+
+	const bigDayDates = new Set(
+		(bigDaysResponse.data as string[]).map((d) => d.split('T')[0])
+	);
+
+	// Build alongside the live database so parse or insertion failures cannot
+	// destroy the last known-good artifact. rename() is atomic on the target FS.
+	await rm(dbPath, { force: true });
 
 	console.log(`📁 Database path: ${dbPath}`);
 
@@ -54,21 +177,6 @@ export async function buildDatabaseFromNorg(
 
 	console.log('📊 Creating tables...');
 	await createTables(db);
-
-	console.log('🌐 Fetching data from Deadlock API...');
-	const patchesApi = new PatchesApi(
-		new Configuration({ basePath: 'https://api.deadlock-api.com' })
-	);
-
-	const [bigDaysResponse, heroes, items] = await Promise.all([
-		patchesApi.bigPatchDays(),
-		fetchHeroes(),
-		fetchItems()
-	]);
-
-	const bigDayDates = new Set(
-		(bigDaysResponse.data as string[]).map((d) => d.split('T')[0])
-	);
 
 	console.log(`📅 Found ${bigDayDates.size} big patch days`);
 	console.log(`🦸 Found ${heroes.length} heroes`);
@@ -86,7 +194,10 @@ export async function buildDatabaseFromNorg(
 					className: hero.class_name,
 					heroType: hero.hero_type ?? null,
 					images: hero.images,
-					isReleased: false
+					isReleased:
+						hero.player_selectable === true &&
+						hero.disabled !== true &&
+						hero.in_development !== true
 				})
 			)
 			.onConflictDoNothing();
@@ -94,15 +205,28 @@ export async function buildDatabaseFromNorg(
 	console.log(`  ✅ Inserted ${heroes.length} heroes`);
 
 	console.log('💾 Inserting items...');
-	const seenItems = new Set<string>();
-	const itemsToInsert = items.filter((item) => {
-		const key = `${item.name}|${item.type}`;
-		if (seenItems.has(key)) return false;
-		seenItems.add(key);
-		return item.shop_image || item.shop_image_webp || item.image || item.image_webp;
-	});
+	const seenItemSlugs = new Set<string>();
+	const itemsToInsert = [...items]
+		.filter(
+			(item) => item.shop_image || item.shop_image_webp || item.image || item.image_webp
+		)
+		.sort((a, b) => {
+			const priority = (type: string, taxonomy?: ItemTaxonomy) =>
+				taxonomy?.shopable && !taxonomy.disabled ? 3 : type === 'upgrade' ? 2 : 1;
+			return (
+				priority(b.type, itemTaxonomy.get(b.id)) -
+				priority(a.type, itemTaxonomy.get(a.id))
+			);
+		})
+		.filter((item) => {
+			const slug = toSlug(item.name);
+			if (seenItemSlugs.has(slug)) return false;
+			seenItemSlugs.add(slug);
+			return true;
+		});
 
 	for (const item of itemsToInsert) {
+		const taxonomy = itemTaxonomy.get(item.id);
 		await db
 			.insert(schema.items)
 			.values(
@@ -112,28 +236,25 @@ export async function buildDatabaseFromNorg(
 					slug: toSlug(item.name),
 					className: item.class_name,
 					type: item.type,
+					category: taxonomy?.category ?? null,
+					tier: taxonomy?.tier ?? null,
 					image:
 						item.shop_image_webp ||
 						item.shop_image ||
 						item.image_webp ||
 						item.image ||
 						'',
-					isReleased: false
+					isReleased:
+						taxonomy?.category != null && taxonomy.shopable && !taxonomy.disabled
 				})
 			)
 			.onConflictDoNothing();
 	}
 	console.log(`  ✅ Inserted ${itemsToInsert.length} items`);
 
-	const heroMap = new Map(
-		heroes.flatMap((h) =>
-			entityNameAliases(h.name).map((a): [string, number] => [a, h.id])
-		)
-	);
-	const itemMap = new Map(
-		itemsToInsert.flatMap((i) =>
-			entityNameAliases(i.name).map((a): [string, number] => [a, i.id])
-		)
+	const heroMap = createEntityIdMap(heroes);
+	const itemMap = createEntityIdMap(
+		itemsToInsert.filter((item) => item.type === 'upgrade')
 	);
 
 	console.log(`📂 Loading changelogs from ${changelogsDir}...`);
@@ -144,10 +265,29 @@ export async function buildDatabaseFromNorg(
 	let heroMatches = 0;
 	let itemMatches = 0;
 
-	for (const { metadata, entities, slug, plainText } of changelogs) {
+	for (const {
+		metadata,
+		entities,
+		entityChanges,
+		slug,
+		plainText,
+		previewImage
+	} of changelogs) {
 		const dateOnly = metadata.published.split('T')[0];
 		const isMajorUpdate = bigDayDates.has(dateOnly) || metadata.major_update;
 		const changelogId = metadata.thread_id ?? metadata.steam_gid ?? slug;
+		const heroMatchesForPatch = collectEntityMatches(
+			entities.heroes,
+			entityChanges,
+			'hero',
+			heroMap
+		);
+		const itemMatchesForPatch = collectEntityMatches(
+			entities.items,
+			entityChanges,
+			'item',
+			itemMap
+		);
 
 		await db
 			.insert(schema.changelogs)
@@ -157,60 +297,35 @@ export async function buildDatabaseFromNorg(
 				slug,
 				author: metadata.author,
 				authorImage: metadata.author_image ?? '',
+				previewImage: previewImage ?? null,
 				category: metadata.category,
-				pubDate: metadata.published,
+				pubDate: new Date(metadata.published).toISOString(),
 				majorUpdate: isMajorUpdate,
 				parentChange: metadata.parent_id ?? null,
 				contentText: plainText
 			})
 			.onConflictDoNothing();
 
-		for (const heroName of entities.heroes) {
-			const heroId = heroMap.get(normalizeEntityName(heroName));
-			if (heroId) {
-				await db
-					.insert(schema.changelogHeroes)
-					.values(
-						insertChangelogHeroSchema.parse({
-							changelogId,
-							heroId
-						})
-					)
-					.onConflictDoNothing();
-				heroMatches++;
-			}
+		for (const [heroId, changeCount] of heroMatchesForPatch) {
+			await db
+				.insert(schema.changelogHeroes)
+				.values(insertChangelogHeroSchema.parse({ changelogId, heroId, changeCount }))
+				.onConflictDoNothing();
+			heroMatches++;
 		}
 
-		for (const itemName of entities.items) {
-			const itemId = itemMap.get(normalizeEntityName(itemName));
-			if (itemId) {
-				await db
-					.insert(schema.changelogItems)
-					.values(
-						insertChangelogItemSchema.parse({
-							changelogId,
-							itemId
-						})
-					)
-					.onConflictDoNothing();
-				itemMatches++;
-			}
+		for (const [itemId, changeCount] of itemMatchesForPatch) {
+			await db
+				.insert(schema.changelogItems)
+				.values(insertChangelogItemSchema.parse({ changelogId, itemId, changeCount }))
+				.onConflictDoNothing();
+			itemMatches++;
 		}
 	}
 
 	console.log(`  ✅ Inserted ${changelogs.length} changelogs`);
 	console.log(`  🦸 ${heroMatches} hero references`);
 	console.log(`  ⚔️  ${itemMatches} item references`);
-
-	console.log('🔄 Updating released status...');
-	await db.run(sql`
-		UPDATE heroes SET is_released = 1
-		WHERE id IN (SELECT DISTINCT hero_id FROM changelog_heroes)
-	`);
-	await db.run(sql`
-		UPDATE items SET is_released = 1
-		WHERE id IN (SELECT DISTINCT item_id FROM changelog_items)
-	`);
 
 	console.log('📋 Adding metadata...');
 	const builtAt = new Date().toISOString();
@@ -242,12 +357,13 @@ export async function buildDatabaseFromNorg(
 	);
 
 	client.close();
+	await rename(dbPath, targetDbPath);
 
 	console.log(`\n✨ Database built successfully!`);
-	console.log(`📦 File: ${dbPath}`);
+	console.log(`📦 File: ${targetDbPath}`);
 	console.log(`📊 Changelogs: ${changelogs.length}`);
 
-	return { path: dbPath, patchCount: changelogs.length, heroMatches, itemMatches };
+	return { path: targetDbPath, patchCount: changelogs.length, heroMatches, itemMatches };
 }
 
 async function createTables(db: ReturnType<typeof drizzle>) {
@@ -258,6 +374,7 @@ async function createTables(db: ReturnType<typeof drizzle>) {
 			slug TEXT,
 			author TEXT NOT NULL,
 			author_image TEXT NOT NULL,
+			preview_image TEXT,
 			category TEXT,
 			pub_date TEXT NOT NULL,
 			major_update INTEGER NOT NULL DEFAULT 0,
@@ -285,6 +402,8 @@ async function createTables(db: ReturnType<typeof drizzle>) {
 			slug TEXT NOT NULL UNIQUE,
 			class_name TEXT NOT NULL,
 			type TEXT NOT NULL,
+			category TEXT,
+			tier INTEGER,
 			image TEXT NOT NULL,
 			is_released INTEGER NOT NULL DEFAULT 0
 		)
@@ -301,6 +420,7 @@ async function createTables(db: ReturnType<typeof drizzle>) {
 		CREATE TABLE IF NOT EXISTS changelog_heroes (
 			changelog_id TEXT NOT NULL REFERENCES changelogs(id),
 			hero_id INTEGER NOT NULL REFERENCES heroes(id),
+			change_count INTEGER,
 			PRIMARY KEY (changelog_id, hero_id)
 		)
 	`);
@@ -309,6 +429,7 @@ async function createTables(db: ReturnType<typeof drizzle>) {
 		CREATE TABLE IF NOT EXISTS changelog_items (
 			changelog_id TEXT NOT NULL REFERENCES changelogs(id),
 			item_id INTEGER NOT NULL REFERENCES items(id),
+			change_count INTEGER,
 			PRIMARY KEY (changelog_id, item_id)
 		)
 	`);

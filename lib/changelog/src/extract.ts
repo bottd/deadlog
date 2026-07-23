@@ -1,9 +1,58 @@
-import type { ChangelogEntities } from './schema';
+import type { ChangelogEntities, EntityChange } from './schema';
+import { decodeEntityName, entityNameAliases } from '@deadlog/utils';
 
 export interface TocEntry {
 	level: number;
 	title: string;
 	id: string;
+}
+
+const ENTITY_HEADING_RE = /<EntityHeading\b([^>]*)\/?\s*>/;
+
+function parseEntityHeading(source: string): Omit<EntityChange, 'count'> | null {
+	const tag = source.match(ENTITY_HEADING_RE);
+	if (!tag) return null;
+
+	const nameMatch = tag[1].match(/\bname\s*=\s*(?:"([^"]*)"|'([^']*)')/);
+	const typeMatch = tag[1].match(/\btype\s*=\s*(?:"(hero|item)"|'(hero|item)')/);
+	const name = nameMatch?.[1] ?? nameMatch?.[2];
+	const type = typeMatch?.[1] ?? typeMatch?.[2];
+
+	if (!name || (type !== 'hero' && type !== 'item')) return null;
+	return { name: decodeEntityName(name), type };
+}
+
+export function extractEntityChanges(content: string): EntityChange[] {
+	const changes = new Map<string, EntityChange>();
+	let currentKey: string | null = null;
+
+	for (const rawLine of content.split('\n')) {
+		const line = rawLine.trim();
+
+		if (/^\*\s+/.test(line)) {
+			currentKey = null;
+			continue;
+		}
+
+		if (line.includes('<EntityHeading')) {
+			const heading = parseEntityHeading(line);
+			currentKey = null;
+			if (!heading) continue;
+
+			const key = `${heading.type}:${entityNameAliases(heading.name).at(-1)}`;
+			const existing = changes.get(key);
+			if (!existing) changes.set(key, { ...heading, count: 0 });
+			currentKey = key;
+			continue;
+		}
+
+		if (currentKey && /^-\s+\S/.test(line)) {
+			const current = changes.get(currentKey);
+			if (current) current.count++;
+		}
+	}
+
+	return [...changes.values()];
 }
 
 export function extractEntities(toc: TocEntry[], content?: string): ChangelogEntities {
@@ -31,25 +80,17 @@ export function extractEntities(toc: TocEntry[], content?: string): ChangelogEnt
 	}
 
 	if (content) {
-		const re = /<EntityHeading\s+name="([^"]+)"\s+type="(hero|item)"\s*\/>/g;
+		const re = /<EntityHeading\b[^>]*\/?\s*>/g;
 		let match;
 		while ((match = re.exec(content)) !== null) {
-			const name = match[1].replace(/&amp;/g, '&').replace(/&quot;/g, '"');
-			(match[2] === 'hero' ? heroSet : itemSet).add(name);
+			const heading = parseEntityHeading(match[0]);
+			if (heading) {
+				(heading.type === 'hero' ? heroSet : itemSet).add(heading.name);
+			}
 		}
 	}
 
 	return { heroes: [...heroSet], items: [...itemSet] };
 }
 
-export function normalizeEntityName(name: string): string {
-	return name.toLowerCase().trim();
-}
-
-const ARTICLE_RE = /^(the|a|an)\s+/;
-
-export function entityNameAliases(name: string): string[] {
-	const normalized = normalizeEntityName(name);
-	const withoutArticle = normalized.replace(ARTICLE_RE, '');
-	return withoutArticle !== normalized ? [normalized, withoutArticle] : [normalized];
-}
+export { entityNameAliases, entityNamesMatch, normalizeEntityName } from '@deadlog/utils';

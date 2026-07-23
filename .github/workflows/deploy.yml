@@ -37,6 +37,11 @@ jobs:
         env:
           DATABASE_URL: file:app/static/deadlog.db
 
+      - name: Generate social preview images
+        run: pnpm run build:meta
+        env:
+          DATABASE_URL: file:app/static/deadlog.db
+
       - name: Export database to SQL
         run: |
           sqlite3 app/static/deadlog.db .dump > deadlog.sql

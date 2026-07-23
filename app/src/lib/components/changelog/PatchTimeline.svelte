@@ -1,116 +1,127 @@
 <script lang="ts">
-	import { formatDate } from '@deadlog/utils';
 	import * as Tooltip from '$lib/components/ui/tooltip';
-	import { scale, fly } from 'svelte/transition';
-	import { quintOut } from 'svelte/easing';
+	import { entityPatchHref, type EntityFilterContext } from './entityContext';
+	import { formatDate } from '@deadlog/utils';
 
 	interface Patch {
 		id: string;
 		date: Date;
+		changeCount: number | null;
+	}
+
+	interface TimelineSlice {
+		patches: Patch[];
+		hiddenCount: number;
 	}
 
 	interface Props {
 		patches: Patch[];
+		entity: EntityFilterContext;
 		class?: string;
-		timelineColor?: 'marksman' | 'mystic' | 'brawler' | 'assassin' | null;
+		accent?: string;
 	}
 
-	let { patches, class: className = '', timelineColor = null }: Props = $props();
+	let {
+		patches,
+		entity,
+		class: className = '',
+		accent = 'var(--signal)'
+	}: Props = $props();
 
-	// Sort patches by date (oldest first for timeline display)
 	const sortedPatches = $derived(
-		[...patches].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+		[...patches].sort((a, b) => a.date.getTime() - b.date.getTime())
 	);
-
 	const firstDate = $derived(sortedPatches[0]?.date);
-	const lastDate = $derived(sortedPatches[sortedPatches.length - 1]?.date);
+	const lastDate = $derived(sortedPatches.at(-1)?.date);
+	const mobileSlice = $derived(aggregatePatches(sortedPatches, 6));
+	const desktopSlice = $derived(aggregatePatches(sortedPatches, 12));
+	const trackColor = $derived(`color-mix(in oklab, ${accent} 28%, transparent)`);
 
-	const formatMonth = (date: Date) => {
-		return new Intl.DateTimeFormat('en-US', { month: 'short', year: 'numeric' }).format(
-			new Date(date)
-		);
-	};
-
-	// Type-specific styles using Svelte $derived
-	const colorClass = $derived(() => {
-		if (!timelineColor) return 'bg-primary';
-		const colors: Record<string, string> = {
-			marksman: 'bg-amber-500',
-			mystic: 'bg-purple-500',
-			brawler: 'bg-red-500',
-			assassin: 'bg-emerald-500'
+	function aggregatePatches(allPatches: Patch[], limit: number): TimelineSlice {
+		if (allPatches.length <= limit) return { patches: allPatches, hiddenCount: 0 };
+		return {
+			patches: [allPatches[0], ...allPatches.slice(-(limit - 1))],
+			hiddenCount: allPatches.length - limit
 		};
-		return colors[timelineColor] || 'bg-primary';
-	});
+	}
 
-	const colorHoverClass = $derived(() => {
-		if (!timelineColor) return 'group-hover:bg-primary/80';
-		const colors: Record<string, string> = {
-			marksman: 'group-hover:bg-amber-500/80',
-			mystic: 'group-hover:bg-purple-500/80',
-			brawler: 'group-hover:bg-red-500/80',
-			assassin: 'group-hover:bg-emerald-500/80'
-		};
-		return colors[timelineColor] || 'group-hover:bg-primary/80';
-	});
+	function formatMonth(date: Date): string {
+		const match = formatDate(date).match(/^(\S+)\s+.+,\s+(\d{4})$/);
+		return match ? `${match[1].slice(0, 3)} ${match[2]}` : formatDate(date);
+	}
 
-	const barColor = $derived(() => {
-		if (!timelineColor) return 'bg-primary/20';
-		const colors: Record<string, string> = {
-			marksman: 'bg-amber-500/20',
-			mystic: 'bg-purple-500/20',
-			brawler: 'bg-red-500/20',
-			assassin: 'bg-emerald-500/20'
-		};
-		return colors[timelineColor] || 'bg-primary/20';
-	});
+	function countLabel(count: number | null): string {
+		if (count === null) return 'change count unavailable';
+		return `${count} change${count === 1 ? '' : 's'}`;
+	}
 </script>
 
-{#if sortedPatches.length > 1}
-	<div
-		class="flex flex-col gap-3 {className}"
-		in:scale={{ start: 0.95, duration: 400, easing: quintOut }}
-	>
-		<div class="group flex items-center gap-1.5">
-			{#each sortedPatches as patch, i (patch.id)}
-				<Tooltip.Provider>
-					<Tooltip.Root>
-						<Tooltip.Trigger>
-							<a
-								href="/change/{patch.id}"
-								class="relative flex items-center justify-center"
-								aria-label="View patch from {formatDate(patch.date)}"
-							>
-								<div
-									class="{colorClass} {colorHoverClass} focus-visible:ring-ring relative z-10 size-3 rounded-full transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
-								></div>
-							</a>
-						</Tooltip.Trigger>
-						<Tooltip.Content side="top" class="text-xs">
-							<p class="text-sm font-medium">{formatDate(patch.date)}</p>
-						</Tooltip.Content>
-					</Tooltip.Root>
-				</Tooltip.Provider>
-				{#if i < sortedPatches.length - 1}
-					<div
-						class="{barColor} h-0.5 flex-1 rounded-full transition-all group-hover:h-1"
-					></div>
-				{/if}
-			{/each}
-		</div>
+{#snippet timelineRow(slice: TimelineSlice)}
+	<div class="relative flex min-h-6 items-center justify-between">
 		<div
-			class="text-muted-foreground flex justify-between text-xs font-medium tracking-wide"
-		>
-			{#if firstDate && lastDate}
-				<span class="flex items-center gap-1" in:fly={{ x: -5, duration: 400 }}>
-					<span class="bg-border inline-block size-1 rounded-full"></span>
-					{formatMonth(firstDate)}
-				</span>
-				<span class="flex items-center gap-1" in:fly={{ x: 5, duration: 400 }}>
-					{formatMonth(lastDate)}
-					<span class="bg-border inline-block size-1 rounded-full"></span>
+			class="absolute inset-x-3 top-1/2 h-px -translate-y-1/2"
+			style:background-color={trackColor}
+			aria-hidden="true"
+		></div>
+		{#each slice.patches as patch, index (patch.id)}
+			{#if slice.hiddenCount > 0 && index === 1}
+				<span
+					class="bg-card text-muted-foreground relative z-10 flex min-h-6 min-w-6 items-center justify-center px-1.5 font-mono text-[10px] font-semibold"
+					aria-label="{slice.hiddenCount} intermediate patch{slice.hiddenCount === 1
+						? ''
+						: 'es'} not shown"
+					title="{slice.hiddenCount} intermediate patch{slice.hiddenCount === 1
+						? ''
+						: 'es'} not shown"
+				>
+					+{slice.hiddenCount}
 				</span>
 			{/if}
-		</div>
+			<Tooltip.Root>
+				<Tooltip.Trigger>
+					{#snippet child({ props })}
+						<a
+							{...props}
+							href={entityPatchHref(patch.id, entity)}
+							class="focus-visible:ring-ring relative z-10 flex size-6 shrink-0 items-center justify-center rounded-full transition-transform hover:scale-110 focus-visible:ring-2 focus-visible:outline-none"
+							aria-label="View {entity.name} in the {formatDate(
+								patch.date
+							)} patch, {countLabel(patch.changeCount)}"
+						>
+							<span
+								class="size-2.5 rounded-full border"
+								style:background-color={accent}
+								style:border-color="color-mix(in oklab, {accent} 65%, var(--card))"
+							></span>
+						</a>
+					{/snippet}
+				</Tooltip.Trigger>
+				<Tooltip.Content side="top" class="text-xs">
+					<p class="text-sm font-medium">{formatDate(patch.date)}</p>
+					<p class="text-muted-foreground">{countLabel(patch.changeCount)}</p>
+				</Tooltip.Content>
+			</Tooltip.Root>
+		{/each}
 	</div>
+{/snippet}
+
+{#if sortedPatches.length > 1}
+	<Tooltip.Provider>
+		<div
+			class="flex w-full flex-col gap-2 {className}"
+			role="group"
+			aria-label="Patch timeline for {entity.name}"
+		>
+			<div class="sm:hidden">{@render timelineRow(mobileSlice)}</div>
+			<div class="hidden sm:block">{@render timelineRow(desktopSlice)}</div>
+			<div
+				class="text-muted-foreground flex justify-between font-mono text-[10px] tracking-wide"
+			>
+				{#if firstDate && lastDate}
+					<span>{formatMonth(firstDate)}</span>
+					<span>{formatMonth(lastDate)}</span>
+				{/if}
+			</div>
+		</div>
+	</Tooltip.Provider>
 {/if}

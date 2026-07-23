@@ -1,41 +1,24 @@
 <script module lang="ts">
-	const ITEM_STYLE = {
-		weapon: {
-			label: 'Weapon Item',
-			badgeVariant: 'weapon',
-			color: 'var(--item-weapon)',
-			gradient: 'from-orange-500/10 via-amber-500/5 to-transparent',
-			borderGlow: 'shadow-orange-500/20',
-			cornerText: 'text-amber-500'
-		},
-		ability: {
-			label: 'Vitality Item',
-			badgeVariant: 'vitality',
-			color: 'var(--item-vitality)',
-			gradient: 'from-emerald-500/10 via-green-500/5 to-transparent',
-			borderGlow: 'shadow-emerald-500/20',
-			cornerText: 'text-emerald-500'
-		},
-		upgrade: {
-			label: 'Spirit Item',
-			badgeVariant: 'spirit',
-			color: 'var(--item-spirit)',
-			gradient: 'from-blue-500/10 via-indigo-500/5 to-transparent',
-			borderGlow: 'shadow-blue-500/20',
-			cornerText: 'text-blue-500'
-		}
+	const ITEM_CATEGORY_META = {
+		weapon: { label: 'Weapon item', accent: 'var(--item-weapon)' },
+		vitality: { label: 'Vitality item', accent: 'var(--item-vitality)' },
+		spirit: { label: 'Spirit item', accent: 'var(--item-spirit)' }
+	} as const;
+
+	const UNCLASSIFIED_ITEM_META = {
+		label: 'Item',
+		accent: 'var(--signal)'
 	} as const;
 </script>
 
 <script lang="ts">
 	import { PatchPreviewCard, PatchTimeline } from '$lib/components/changelog';
-	import { Badge } from '$lib/components/ui/badge';
+	import { CornerAccents } from '$lib/components/ui/corner-accents';
+	import { absoluteUrl, breadcrumbList, SITE_NAME, SITE_URL } from '$lib/seo';
+	import { formatDate } from '@deadlog/utils';
 	import ArrowLeft from '@lucide/svelte/icons/arrow-left';
 	import Package from '@lucide/svelte/icons/package';
-	import { MetaTags } from 'svelte-meta-tags';
-	import { fly, scale, blur } from 'svelte/transition';
-	import { elasticOut, quintOut, expoOut } from 'svelte/easing';
-	import { prefersReducedMotion } from 'svelte/motion';
+	import { JsonLd, MetaTags } from 'svelte-meta-tags';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
@@ -45,222 +28,299 @@
 	const title = $derived(data.title);
 	const description = $derived(data.description);
 	const image = $derived(data.image);
-
-	const style = $derived(ITEM_STYLE[item.type]);
-
-	const transitionConfig = $derived(
-		prefersReducedMotion.current
-			? { duration: 0 }
-			: {
-					duration: 400,
-					easing: quintOut
-				}
+	const canonical = $derived(absoluteUrl(`/item/${item.slug}`));
+	const isIndexable = $derived(item.isReleased && changelogs.length > 0);
+	const categoryMeta = $derived(
+		item.category ? ITEM_CATEGORY_META[item.category] : UNCLASSIFIED_ITEM_META
 	);
-
-	const cardTransitionConfig = $derived((i: number) =>
-		prefersReducedMotion.current
-			? { duration: 0 }
-			: {
-					delay: Math.min(i, 12) * 40,
-					duration: 400,
-					easing: quintOut
-				}
+	const accent = $derived(categoryMeta.accent);
+	const entity = $derived({ type: 'item' as const, name: item.name, image: item.image });
+	const countedPatches = $derived(
+		changelogs.filter((changelog) => changelog.changeCount !== null).length
 	);
+	const unknownPatches = $derived(changelogs.length - countedPatches);
+	const totalChanges = $derived(
+		changelogs.reduce((total, changelog) => total + (changelog.changeCount ?? 0), 0)
+	);
+	const changeValue = $derived(
+		unknownPatches === 0
+			? String(totalChanges)
+			: countedPatches > 0
+				? `${totalChanges}+`
+				: 'N/A'
+	);
+	const oldestPatch = $derived(changelogs.at(-1));
+	const timelinePatches = $derived(
+		changelogs.map((changelog) => ({
+			id: changelog.id,
+			date: changelog.date,
+			changeCount: changelog.changeCount
+		}))
+	);
+	const structuredData = $derived.by(() => ({
+		'@graph': [
+			{
+				'@type': 'CollectionPage',
+				'@id': `${canonical}#webpage`,
+				url: canonical,
+				name: title,
+				description,
+				image,
+				dateModified: changelogs[0]?.date.toISOString(),
+				inLanguage: 'en-US',
+				isPartOf: { '@id': `${SITE_URL}/#website` },
+				about: [
+					{ '@type': 'VideoGame', name: 'Deadlock' },
+					{ '@type': 'Thing', name: item.name, image: item.image }
+				],
+				mainEntity: {
+					'@type': 'ItemList',
+					numberOfItems: changelogs.length,
+					itemListElement: changelogs.map((changelog, index) => ({
+						'@type': 'ListItem',
+						position: index + 1,
+						name: changelog.title,
+						url: absoluteUrl(`/change/${changelog.id}`)
+					}))
+				}
+			},
+			breadcrumbList([
+				{ name: SITE_NAME, path: '/' },
+				{ name: 'Items', path: '/items' },
+				{ name: item.name, path: `/item/${item.slug}` }
+			])
+		]
+	}));
 </script>
 
 <MetaTags
 	{title}
 	{description}
-	canonical={`https://deadlog.io/item/${item.slug}`}
+	{canonical}
+	robots={isIndexable ? 'index,follow' : 'noindex,follow'}
+	additionalRobotsProps={{
+		maxImagePreview: 'large',
+		maxSnippet: -1,
+		maxVideoPreview: -1
+	}}
 	openGraph={{
 		type: 'website',
 		title,
 		description,
-		url: `https://deadlog.io/item/${item.slug}`,
-		images: [{ url: image, width: 1200, height: 630, alt: title }]
+		url: canonical,
+		siteName: SITE_NAME,
+		locale: 'en_US',
+		images: [{ url: image, width: 1200, height: 630, type: 'image/png', alt: title }]
 	}}
 	twitter={{
 		cardType: 'summary_large_image',
 		title,
 		description,
-		image
+		image,
+		imageAlt: title
 	}}
 />
 
-<main class="min-h-screen">
-	<!-- Subtle background pattern -->
-	<div
-		class="pointer-events-none fixed inset-0 -z-10"
-		in:blur={{ duration: 800, easing: expoOut }}
-	>
-		<div class="bg-gradient-to-b {style.gradient} absolute inset-0"></div>
-		<!-- Dot grid pattern -->
-		<div
-			class="absolute inset-0"
-			style:opacity="0.02"
-			style:background-image="radial-gradient(circle, currentColor 1px, transparent 1px)"
-			style:background-size="24px 24px"
-		></div>
-	</div>
+{#if isIndexable}
+	<JsonLd schema={structuredData} />
+{/if}
 
-	<div class="container mx-auto mt-8 mb-24 max-w-6xl px-4">
+<main class="bg-wire-grid min-h-screen">
+	<div class="container mx-auto mt-6 mb-24 max-w-6xl px-3 sm:mt-8 sm:px-4">
 		<a
-			href="/"
-			data-sveltekit-reload
-			class="text-muted-foreground hover:text-foreground mb-8 inline-flex items-center gap-2 text-sm transition-all hover:gap-3"
+			href="/items"
+			class="text-muted-foreground hover:text-signal mb-6 inline-flex min-h-6 items-center gap-2 text-sm transition-colors sm:mb-8"
 		>
 			<ArrowLeft class="size-4" />
-			<span>Back to all changes</span>
+			<span>Back to items</span>
 		</a>
 
-		<!-- Item Card - distinct treatment from hero -->
 		<header
-			class="bg-card relative overflow-hidden rounded-xl border-2 p-8 md:p-10"
-			style:border-color={style.color}
-			style:box-shadow="{style.borderGlow} 0 0 40px -10px"
-			in:fly={{ y: -20, ...transitionConfig }}
+			class="clip-corner-lg bg-card relative mb-10 overflow-hidden border-2 p-5 sm:p-8 lg:p-10"
+			style:border-color="color-mix(in oklab, {accent} 42%, var(--border))"
 		>
-			<!-- Decorative side stripe -->
+			<CornerAccents
+				tlSize="4rem"
+				brSize="3rem"
+				thickness="2px"
+				tlColor="bg-signal/60"
+				brColor="bg-primary/35"
+			/>
 			<div
-				class="absolute top-0 left-0 h-full w-1.5"
-				style:background-color={style.color}
+				class="pointer-events-none absolute inset-0"
+				style:background="radial-gradient(circle at 12% 20%, color-mix(in oklab, {accent} 18%,
+				transparent), transparent 42%)"
+				aria-hidden="true"
+			></div>
+			<div
+				class="pointer-events-none absolute inset-x-0 top-0 h-px"
+				style:background="linear-gradient(to right, {accent}, var(--signal), transparent
+				78%)"
+				aria-hidden="true"
 			></div>
 
-			<!-- Corner decoration -->
 			<div
-				class="absolute right-6 bottom-6 opacity-10 {style.cornerText}"
-				in:fly={{ x: 20, duration: 600, easing: elasticOut }}
+				class="relative z-10 grid gap-7 md:grid-cols-[auto_minmax(0,1fr)] md:items-center"
 			>
-				<Package class="size-24" />
-			</div>
-
-			<div
-				class="relative z-10 flex flex-col items-center gap-8 md:flex-row md:items-start"
-			>
-				<!-- Item icon with card-style treatment -->
 				{#if item.image}
-					<div class="relative shrink-0">
-						<!-- Background glow -->
+					<div class="relative mx-auto shrink-0 md:mx-0">
 						<div
-							class="absolute inset-0 -z-10 rounded-lg blur-xl"
-							style:background-color={style.color}
-							style:opacity="0.25"
-							in:scale={{ duration: 600, easing: expoOut }}
+							class="absolute inset-2 -z-10 blur-2xl"
+							style:background-color={accent}
+							style:opacity="0.22"
+							aria-hidden="true"
 						></div>
-						<!-- Inner glow ring -->
 						<div
-							class="absolute inset-0 -z-10 scale-110 rounded-lg"
-							style:box-shadow="0 0 20px {style.color}"
-						></div>
-						<!-- Main item card -->
-						<div
-							class="border-primary/30 flex size-24 items-center justify-center rounded-lg border-2 bg-black/40 p-2 backdrop-blur-sm md:size-32"
-							style:border-color={style.color}
+							class="clip-corner-sm bg-muted/30 flex size-32 items-center justify-center border-2 p-3 sm:size-40 lg:size-44"
+							style:border-color={accent}
 						>
 							<img
 								src={item.image}
-								alt={item.name}
+								alt="{item.name} in Deadlock"
+								width="176"
+								height="176"
+								fetchpriority="high"
 								class="max-h-full max-w-full object-contain drop-shadow-lg"
-								in:scale={{ start: 0.85, duration: 500, easing: elasticOut }}
 							/>
 						</div>
 					</div>
 				{/if}
 
-				<!-- Item info -->
-				<div
-					class="flex-1 text-center md:text-left"
-					in:blur={{ duration: 600, delay: 100 }}
-				>
+				<div class="min-w-0 text-center md:text-left">
 					<div
-						class="border-primary/20 bg-primary/5 mb-3 inline-flex items-center gap-2 rounded-full border px-3 py-1"
+						class="mb-3 flex flex-wrap items-center justify-center gap-2 md:justify-start"
 					>
-						<Package class="text-primary size-3.5" />
-						<span class="text-primary text-xs font-semibold tracking-wider uppercase"
-							>Item</span
+						<span class="h-px w-7" style:background-color={accent} aria-hidden="true"
+						></span>
+						<span
+							class="font-mono text-[10px] font-bold tracking-[0.22em] uppercase"
+							style:color={accent}
 						>
+							{categoryMeta.label}
+						</span>
+						{#if item.tier}
+							<span
+								class="text-muted-foreground font-mono text-[9px] tracking-widest uppercase"
+							>
+								/ Tier {item.tier}
+							</span>
+						{/if}
 					</div>
-
 					<h1
-						class="text-foreground font-display mb-4 text-4xl font-medium tracking-wide md:text-5xl lg:text-6xl"
+						class="text-foreground font-display heading-glow break-words text-4xl leading-none font-medium tracking-wide sm:text-5xl lg:text-6xl"
 					>
 						{item.name}
 					</h1>
+					<p class="text-muted-foreground mt-3 max-w-2xl text-sm leading-relaxed">
+						{item.isReleased ? 'Current catalog item.' : 'Historical item record.'} Entity-specific
+						changes are separated from the rest of each update.
+					</p>
 
-					<div
-						class="mb-5 flex flex-wrap items-center justify-center gap-3 md:justify-start"
-					>
-						<Badge variant={style.badgeVariant} class="px-3 py-1 text-sm">
-							{style.label}
-						</Badge>
-						<div class="bg-muted/50 flex items-center gap-2 rounded-md px-3 py-1">
-							<span class="text-foreground text-sm font-semibold"
-								>{changelogs.length}</span
+					<dl class="mt-6 grid grid-cols-2 gap-px overflow-hidden border sm:grid-cols-3">
+						<div class="bg-muted/30 p-3 text-left">
+							<dt
+								class="text-muted-foreground font-mono text-[9px] tracking-widest uppercase"
 							>
-							<span class="text-muted-foreground text-sm"
-								>change{changelogs.length !== 1 ? 's' : ''}</span
+								Patches
+							</dt>
+							<dd class="text-foreground mt-1 font-mono text-xl font-bold">
+								{changelogs.length}
+							</dd>
+						</div>
+						<div class="bg-muted/30 p-3 text-left">
+							<dt
+								class="text-muted-foreground font-mono text-[9px] tracking-widest uppercase"
 							>
+								Changes
+							</dt>
+							<dd class="mt-1 font-mono text-xl font-bold" style:color={accent}>
+								{changeValue}
+							</dd>
 						</div>
-					</div>
-
-					{#if changelogs.length > 1}
-						<div class="inline-block" in:fly={{ y: 10, duration: 400, delay: 200 }}>
-							<PatchTimeline
-								patches={changelogs.map((c) => ({ id: c.id, date: c.date }))}
-								class="max-w-md"
-							/>
+						<div class="bg-muted/30 col-span-2 p-3 text-left sm:col-span-1">
+							<dt
+								class="text-muted-foreground font-mono text-[9px] tracking-widest uppercase"
+							>
+								Tracked since
+							</dt>
+							<dd class="text-foreground mt-1 text-sm font-semibold">
+								{oldestPatch ? formatDate(oldestPatch.date) : 'No patches yet'}
+							</dd>
 						</div>
+					</dl>
+					{#if unknownPatches > 0}
+						<p
+							class="text-muted-foreground mt-2 font-mono text-[9px] tracking-wide uppercase"
+						>
+							{unknownPatches} patch{unknownPatches === 1 ? '' : 'es'} awaiting a reliable count
+						</p>
 					{/if}
 				</div>
 			</div>
+
+			{#if timelinePatches.length > 1}
+				<div class="border-border/60 relative z-10 mt-7 border-t pt-5">
+					<div class="mb-2 flex items-center justify-between gap-3">
+						<span
+							class="text-muted-foreground font-mono text-[9px] font-bold tracking-widest uppercase"
+						>
+							Patch cadence
+						</span>
+						<span class="text-muted-foreground font-mono text-[9px]">
+							{timelinePatches.length} points
+						</span>
+					</div>
+					<PatchTimeline patches={timelinePatches} {entity} {accent} />
+				</div>
+			{/if}
 		</header>
 
-		<!-- Changes Section -->
-		<section>
-			<div
-				class="mb-6 flex items-center gap-3"
-				in:fly={{ y: -10, duration: 400, delay: 100 }}
-			>
-				<div class="bg-border h-px flex-1"></div>
-				<h2
-					class="text-foreground font-display text-center text-xl font-medium tracking-wide md:text-2xl"
-				>
-					Change History
-				</h2>
-				<div class="bg-border h-px flex-1"></div>
+		<section aria-labelledby="history-heading">
+			<div class="mb-6 flex items-end justify-between gap-4">
+				<div>
+					<p
+						class="text-signal font-mono text-[10px] font-bold tracking-[0.2em] uppercase"
+					>
+						Entity log
+					</p>
+					<h2
+						id="history-heading"
+						class="text-foreground font-display mt-1 text-2xl font-medium tracking-wide sm:text-3xl"
+					>
+						Change History
+					</h2>
+				</div>
+				<span class="text-muted-foreground font-mono text-xs">
+					{changelogs.length} patch{changelogs.length === 1 ? '' : 'es'}
+				</span>
 			</div>
 
 			{#if changelogs.length > 0}
-				<div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-					{#each changelogs as changelog, i (changelog.id)}
-						<div in:fly={{ y: 30, ...cardTransitionConfig(i) }}>
+				<ol class="grid list-none grid-cols-1 gap-4 p-0 sm:grid-cols-2 lg:grid-cols-3">
+					{#each changelogs as changelog (changelog.id)}
+						<li>
 							<PatchPreviewCard
 								id={changelog.id}
 								date={changelog.date}
 								author={changelog.author}
 								authorImage={changelog.authorImage}
-								icons={changelog.icons}
+								changeCount={changelog.changeCount}
+								{entity}
+								{accent}
 							/>
-						</div>
+						</li>
 					{/each}
-				</div>
+				</ol>
 			{:else}
 				<div
-					class="bg-card border-border relative overflow-hidden rounded-xl border p-12 text-center"
-					in:scale={{ start: 0.95, duration: 400 }}
+					class="clip-corner bg-card border-border relative overflow-hidden border-2 p-8 text-center sm:p-12"
 				>
-					<div
-						class="text-muted-foreground/30 bg-muted mx-auto mb-4 flex size-20 items-center justify-center rounded-full"
-					>
-						<Package class="size-8" />
-					</div>
-					<p class="text-muted-foreground text-lg">
-						No changes recorded for <span class="text-foreground font-medium"
-							>{item.name}</span
-						>
-						yet.
+					<CornerAccents tlSize="2rem" tlColor="bg-signal/50" />
+					<Package class="text-signal/60 mx-auto mb-4 size-8" />
+					<p class="text-muted-foreground font-mono text-xs tracking-wide uppercase">
+						No log entries
 					</p>
-					<p class="text-muted-foreground mt-2 text-sm">Check back soon for updates.</p>
+					<p class="text-foreground mt-2 text-lg">No recorded changes for {item.name}.</p>
 				</div>
 			{/if}
 		</section>

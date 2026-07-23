@@ -10,7 +10,8 @@ import {
 import { getLibsqlDb as getDb } from '@deadlog/db';
 import { fromJsx } from '@takumi-rs/helpers/jsx';
 import { mkdir, writeFile } from 'fs/promises';
-import { join } from 'path';
+import { join, resolve } from 'path';
+import { fileURLToPath } from 'url';
 import React from 'react';
 
 import { getRenderer, fetchImageAsDataUri } from './renderer';
@@ -22,11 +23,9 @@ import { ItemLayout } from './layouts/ItemLayout';
 import type { HeroPreview } from './components/HeroPreview';
 
 const OUTPUT_DIR = 'app/static/assets/meta';
-const CHANGELOG_DIR = `${OUTPUT_DIR}/change`;
-const HERO_DIR = `${OUTPUT_DIR}/hero`;
-const ITEM_DIR = `${OUTPUT_DIR}/item`;
 
-async function convertImageUrl(url: string): Promise<string> {
+export async function convertImageUrl(url?: string | null): Promise<string> {
+	if (!url) return '';
 	if (url.startsWith('data:')) return url;
 	const dataUri = await fetchImageAsDataUri(url);
 	if (!dataUri) throw new Error(`Failed to fetch image: ${url}`);
@@ -37,16 +36,16 @@ async function convertImageUrls(urls: readonly string[]): Promise<string[]> {
 	return await Promise.all(urls.map((url) => convertImageUrl(url)));
 }
 
-async function renderToFile(element: React.ReactElement, outputPath: string) {
-	const renderer = await getRenderer();
-	const node = await fromJsx(element);
-	const { width, height } = Theme.size;
-
+export async function renderToFile(element: React.ReactElement, outputPath: string) {
 	try {
+		const renderer = await getRenderer();
+		const { node, stylesheets } = await fromJsx(element);
+		const { width, height } = Theme.size;
 		const imageBuffer = await renderer.render(node, {
 			width,
 			height,
-			format: 'png'
+			format: 'png',
+			stylesheets
 		});
 
 		await mkdir(join(outputPath, '..'), { recursive: true });
@@ -66,7 +65,8 @@ async function generateChangelogOG(
 		heroPreviews: HeroPreview[];
 		itemIcons: string[];
 		generalNotes: string[];
-	}
+	},
+	outputDir = OUTPUT_DIR
 ) {
 	const authorIcon = await convertImageUrl(data.authorIcon);
 	const itemIcons = await convertImageUrls(data.itemIcons);
@@ -84,7 +84,7 @@ async function generateChangelogOG(
 		itemIcons,
 		heroPreviews
 	});
-	await renderToFile(element, join(CHANGELOG_DIR, `${changeId}.png`));
+	await renderToFile(element, join(outputDir, 'change', `${changeId}.png`));
 }
 
 async function generateHomeOG(
@@ -92,9 +92,10 @@ async function generateHomeOG(
 		id: string;
 		pubDate: string;
 		author: string;
-		authorImage: string;
+		authorImage?: string | null;
 	},
-	db: ReturnType<typeof getDb>
+	db: ReturnType<typeof getDb>,
+	outputDir = OUTPUT_DIR
 ) {
 	const iconsMap = await getChangelogIcons(db, [latestChangelog.id]);
 	const icons = iconsMap[latestChangelog.id] ?? { heroes: [], items: [] };
@@ -111,15 +112,18 @@ async function generateHomeOG(
 		itemIcons
 	});
 
-	await renderToFile(element, join(OUTPUT_DIR, 'index.png'));
+	await renderToFile(element, join(outputDir, 'index.png'));
 }
 
 async function generateHeroOG(
 	hero: EnrichedHero,
-	changePreview: HeroPreviewItem[] | null
+	changePreview: HeroPreviewItem[] | null,
+	outputDir = OUTPUT_DIR
 ) {
 	const image = hero.images.card ?? hero.images.portrait ?? Object.values(hero.images)[0];
-	const slug = hero.name.toLowerCase().replace(/\s+/g, '-');
+	if (!image) {
+		throw new Error(`Hero ${hero.name} has no images`);
+	}
 
 	const imageUri = await convertImageUrl(image);
 
@@ -142,15 +146,18 @@ async function generateHeroOG(
 		changePreview: preview
 	});
 
-	await renderToFile(element, join(HERO_DIR, `${slug}.png`));
+	await renderToFile(element, join(outputDir, 'hero', `${hero.slug}.png`));
 }
 
-async function generateItemOG(item: EnrichedItem, changePreview: string | null) {
+async function generateItemOG(
+	item: EnrichedItem,
+	changePreview: string | null,
+	outputDir = OUTPUT_DIR
+) {
 	const image = item.image;
 	if (!image) {
 		throw new Error(`Item ${item.name} has no images`);
 	}
-	const slug = item.name.toLowerCase().replace(/\s+/g, '-');
 
 	const imageUri = await convertImageUrl(image);
 
@@ -161,92 +168,165 @@ async function generateItemOG(item: EnrichedItem, changePreview: string | null) 
 		changePreview: changePreview ?? ''
 	});
 
-	await renderToFile(element, join(ITEM_DIR, `${slug}.png`));
+	await renderToFile(element, join(outputDir, 'item', `${item.slug}.png`));
 }
 
-async function main() {
-	const args = process.argv.slice(2);
+export interface GeneratePreviewsOptions {
+	args?: string[];
+	outputDir?: string;
+}
+
+export interface GeneratePreviewsResult {
+	totalCount: number;
+	failures: string[];
+}
+
+async function generateOne(
+	label: string,
+	failures: string[],
+	generate: () => Promise<void>
+): Promise<boolean> {
+	try {
+		await generate();
+		return true;
+	} catch (error) {
+		console.error(`Failed to generate ${label}:`, error);
+		failures.push(label);
+		return false;
+	}
+}
+
+export async function generatePreviews(
+	options: GeneratePreviewsOptions = {}
+): Promise<GeneratePreviewsResult> {
+	const args = options.args ?? process.argv.slice(2);
+	const outputDir = options.outputDir ?? OUTPUT_DIR;
 	const changelogOnly = args.includes('--changelog-only');
 	const heroesOnly = args.includes('--heroes-only');
 	const itemsOnly = args.includes('--items-only');
+	const includeChangelogs = !heroesOnly && !itemsOnly;
+	const includeHeroes = !changelogOnly && !itemsOnly;
+	const includeItems = !changelogOnly && !heroesOnly;
 
 	const db = getDb();
 	const [allChangelogs, heroes, items] = await Promise.all([
-		getAllChangelogs(db),
-		getAllHeroes(db),
-		getAllItems(db)
+		includeChangelogs ? getAllChangelogs(db) : Promise.resolve([]),
+		includeHeroes ? getAllHeroes(db) : Promise.resolve([]),
+		includeItems ? getAllItems(db) : Promise.resolve([])
 	]);
 
 	let totalCount = 0;
+	const failures: string[] = [];
 
 	// Generate changelog OG images
-	if (!heroesOnly && !itemsOnly) {
+	if (includeChangelogs) {
 		if (allChangelogs.length > 0) {
 			const latest = allChangelogs.reduce((mostRecent, current) => {
 				return current.pubDate > mostRecent.pubDate ? current : mostRecent;
 			}, allChangelogs[0]);
 
-			await generateHomeOG(
-				{
-					id: latest.id,
-					pubDate: latest.pubDate,
-					author: latest.author,
-					authorImage: latest.authorImage
-				},
-				db
-			);
-			totalCount++;
+			if (
+				await generateOne('home preview', failures, () =>
+					generateHomeOG(
+						{
+							id: latest.id,
+							pubDate: latest.pubDate,
+							author: latest.author,
+							authorImage: latest.authorImage
+						},
+						db,
+						outputDir
+					)
+				)
+			) {
+				totalCount++;
+			}
 		}
 
 		let changelogCount = 0;
 		for (const changelog of allChangelogs) {
-			const iconsMap = await getChangelogIcons(db, [changelog.id]);
-			const icons = iconsMap[changelog.id] ?? { heroes: [], items: [] };
+			if (
+				await generateOne(`changelog preview ${changelog.id}`, failures, async () => {
+					const iconsMap = await getChangelogIcons(db, [changelog.id]);
+					const icons = iconsMap[changelog.id] ?? { heroes: [], items: [] };
 
-			await generateChangelogOG(changelog.id, {
-				title: `${formatDate(changelog.pubDate)} Update`,
-				author: changelog.author,
-				authorIcon: changelog.authorImage,
-				heroPreviews: [],
-				itemIcons: icons.items.slice(0, 6).map((i) => i.src),
-				generalNotes: []
-			});
-			changelogCount++;
+					await generateChangelogOG(
+						changelog.id,
+						{
+							title: `${formatDate(changelog.pubDate)} Update`,
+							author: changelog.author,
+							authorIcon: changelog.authorImage,
+							heroPreviews: [],
+							itemIcons: icons.items.slice(0, 6).map((i) => i.src),
+							generalNotes: []
+						},
+						outputDir
+					);
+				})
+			) {
+				changelogCount++;
+				totalCount++;
+			}
 		}
 
 		console.log(`Generated ${changelogCount} changelog images`);
-		totalCount += changelogCount;
 	}
 
 	// Generate hero OG images
-	if (!changelogOnly && !itemsOnly) {
+	if (includeHeroes) {
 		let heroCount = 0;
 
 		for (const hero of heroes.filter((h) => h.isReleased)) {
-			await generateHeroOG(hero, null);
-			heroCount++;
+			if (
+				await generateOne(`hero preview ${hero.name}`, failures, () =>
+					generateHeroOG(hero, null, outputDir)
+				)
+			) {
+				heroCount++;
+				totalCount++;
+			}
 		}
 
 		console.log(`Generated ${heroCount} hero images`);
-		totalCount += heroCount;
 	}
 
 	// Generate item OG images
-	if (!changelogOnly && !heroesOnly) {
+	if (includeItems) {
 		let itemCount = 0;
 
-		for (const item of items) {
-			if (!item.image) continue;
-
-			await generateItemOG(item, null);
-			itemCount++;
+		for (const item of items.filter((item) => item.isReleased)) {
+			if (
+				await generateOne(`item preview ${item.name}`, failures, () =>
+					generateItemOG(item, null, outputDir)
+				)
+			) {
+				itemCount++;
+				totalCount++;
+			}
 		}
 
 		console.log(`Generated ${itemCount} item images`);
-		totalCount += itemCount;
 	}
 
 	console.log(`✅ Total: ${totalCount} images generated`);
+	return { totalCount, failures };
 }
 
-main().catch(console.error);
+export async function runPreviewGenerator(
+	options: GeneratePreviewsOptions = {}
+): Promise<GeneratePreviewsResult | undefined> {
+	try {
+		const result = await generatePreviews(options);
+		if (result.failures.length > 0) process.exitCode = 1;
+		return result;
+	} catch (error) {
+		console.error('Preview generation failed:', error);
+		process.exitCode = 1;
+		return undefined;
+	}
+}
+
+const entryPoint = process.argv[1];
+if (entryPoint && resolve(entryPoint) === fileURLToPath(import.meta.url)) {
+	void runPreviewGenerator();
+}

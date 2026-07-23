@@ -5,7 +5,10 @@ import {
 } from '@deadlog/scraper';
 import type { DrizzleDB } from '@deadlog/db';
 import type { ChangelogEntry } from '$lib/types';
+import { entityNameAliases } from '@deadlog/utils';
 import { parseCSV } from '$lib/utils/csv';
+
+export const NO_MATCH_ENTITY_ID = -1;
 
 // ponytail: crude teaser, not a curated summary — content_text has no extractable
 // lead, so just clamp at a word boundary. An LLM `summary` column would do better.
@@ -22,9 +25,29 @@ export function resolveEntityIds(
 	names: string[],
 	entities: { id: number; name: string }[]
 ): number[] {
-	return names
-		.map((name) => entities.find((e) => e.name.toLowerCase() === name.toLowerCase())?.id)
-		.filter((id): id is number => id !== undefined);
+	const idsByName = new Map<string, number>();
+	for (const entity of entities) {
+		for (const alias of entityNameAliases(entity.name)) {
+			if (!idsByName.has(alias)) idsByName.set(alias, entity.id);
+		}
+	}
+	return [
+		...new Set(
+			names.map(
+				(name) =>
+					entityNameAliases(name)
+						.map((alias) => idsByName.get(alias))
+						.find((id) => id !== undefined) ?? NO_MATCH_ENTITY_ID
+			)
+		)
+	];
+}
+
+export function splitPage<T>(rows: T[], limit: number) {
+	return {
+		rows: rows.slice(0, limit),
+		hasMore: rows.length > limit
+	};
 }
 
 export async function enrichChangelogs(

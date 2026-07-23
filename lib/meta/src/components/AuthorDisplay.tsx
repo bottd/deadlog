@@ -3,7 +3,7 @@ import { Theme } from '../theme';
 
 interface AuthorDisplayProps {
 	author: string;
-	authorIcon: string;
+	authorIcon?: string | null;
 }
 
 export function AuthorDisplay({ author, authorIcon }: AuthorDisplayProps) {
@@ -15,15 +15,17 @@ export function AuthorDisplay({ author, authorIcon }: AuthorDisplayProps) {
 				gap: Theme.spacing.md
 			}}
 		>
-			<img
-				src={authorIcon}
-				style={{
-					width: '48px',
-					height: '48px',
-					borderRadius: Theme.borderRadius.full,
-					border: `2px solid ${Theme.colors.primary}`
-				}}
-			/>
+			{authorIcon ? (
+				<img
+					src={authorIcon}
+					style={{
+						width: '48px',
+						height: '48px',
+						borderRadius: Theme.borderRadius.full,
+						border: `2px solid ${Theme.colors.primary}`
+					}}
+				/>
+			) : null}
 			<div
 				style={{
 					fontSize: Theme.font.xs,

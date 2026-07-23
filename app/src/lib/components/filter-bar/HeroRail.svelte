@@ -23,32 +23,34 @@
 		<span
 			class="text-muted-foreground mb-2 block font-mono text-[10px] tracking-widest uppercase"
 		>
-			&mdash; Jump to hero
+			&mdash; Filter by hero
 		</span>
-		<div class="flex flex-wrap gap-1.5">
-			{#each heroes as hero (hero.id)}
-				{@const selected = params.hero.includes(hero.name)}
-				<button
-					type="button"
-					onclick={() => toggle(hero.name)}
-					title={hero.name}
-					aria-label={hero.name}
-					aria-pressed={selected}
-					class="clip-corner-sm relative size-9 overflow-hidden border transition-all duration-200 hover:z-10 hover:-translate-y-0.5 hover:scale-110 {selected
-						? 'border-primary ring-primary/50 ring-2'
-						: 'border-border hover:border-primary/50 opacity-70 hover:opacity-100'}"
-				>
-					<img
-						src={getHeroCardImage(hero)}
-						alt={hero.name}
-						width="36"
-						height="36"
-						loading="lazy"
-						decoding="async"
-						class="size-full object-cover"
-					/>
-				</button>
-			{/each}
+		<div class="-mx-4 overflow-x-auto px-4 pb-1 sm:mx-0 sm:overflow-visible sm:px-0">
+			<div class="flex w-max gap-1.5 sm:w-auto sm:flex-wrap">
+				{#each heroes as hero (hero.id)}
+					{@const selected = params.hero.includes(hero.name)}
+					<button
+						type="button"
+						onclick={() => toggle(hero.name)}
+						title={hero.name}
+						aria-label={hero.name}
+						aria-pressed={selected}
+						class="clip-corner-sm relative size-9 overflow-hidden border transition-all duration-200 hover:z-10 hover:-translate-y-0.5 hover:scale-110 {selected
+							? 'border-signal ring-signal/45 ring-2'
+							: 'border-border hover:border-signal/55 opacity-70 hover:opacity-100'}"
+					>
+						<img
+							src={getHeroCardImage(hero)}
+							alt={hero.name}
+							width="36"
+							height="36"
+							loading="lazy"
+							decoding="async"
+							class="size-full object-cover"
+						/>
+					</button>
+				{/each}
+			</div>
 		</div>
 	</div>
 {/if}

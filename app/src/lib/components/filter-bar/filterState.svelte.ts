@@ -109,6 +109,10 @@ export class FilterState {
 		this.#params.reset();
 	}
 
+	syncSearch(value: string) {
+		this.inputValue = value;
+	}
+
 	updateSearch() {
 		this.#params.update({ q: this.inputValue });
 	}
