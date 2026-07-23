@@ -22,7 +22,10 @@
 	}: ToggleVariants = {}) {
 		return cn(toggleBase, toggleVariantClasses[variant], toggleSizeClasses[size]);
 	}
-	export type ToggleVariants = { variant?: ToggleVariant; size?: ToggleSize };
+	export interface ToggleVariants {
+		variant?: ToggleVariant;
+		size?: ToggleSize;
+	}
 </script>
 
 <script lang="ts">
