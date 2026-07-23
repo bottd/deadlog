@@ -117,7 +117,7 @@
 				breadcrumbList([
 					{ name: 'Deadlog', path: '/' },
 					{ name: 'Patch Notes', path: '/' },
-					{ name: changelog.title, path: `/change/${changelog.id}` }
+					{ name: changelog.title, path: `/change/${encodeURIComponent(changelog.id)}` }
 				])
 			]
 		};
@@ -197,7 +197,7 @@
 				</span>
 			{/if}
 			<a
-				href="/change/{changelog.id}"
+				href="/change/{encodeURIComponent(changelog.id)}"
 				class="text-signal ml-auto font-mono text-xs font-semibold hover:underline"
 			>
 				Show all changes

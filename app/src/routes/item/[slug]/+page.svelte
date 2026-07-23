@@ -80,7 +80,7 @@
 						'@type': 'ListItem',
 						position: index + 1,
 						name: changelog.title,
-						url: absoluteUrl(`/change/${changelog.id}`)
+						url: absoluteUrl(`/change/${encodeURIComponent(changelog.id)}`)
 					}))
 				}
 			},

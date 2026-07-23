@@ -38,7 +38,7 @@
 
 	const href = $derived.by(() => {
 		const qs = params.toURLSearchParams().toString();
-		return qs ? `/change/${id}?${qs}` : `/change/${id}`;
+		return qs ? `/change/${encodeURIComponent(id)}?${qs}` : `/change/${encodeURIComponent(id)}`;
 	});
 
 	const max = $derived(isLatest ? 14 : 6);
