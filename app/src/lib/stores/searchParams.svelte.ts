@@ -68,7 +68,8 @@ class SearchParamsStore {
 		this.#pendingParams = nextParams;
 		const navigationId = ++this.#navigationId;
 		const query = nextParams.toString();
-		this.#pendingTarget = query ? `/?${query}` : '/';
+		const path = page.url.pathname;
+		this.#pendingTarget = query ? `${path}?${query}` : path;
 		this.#hasReachedTarget = false;
 
 		const finish = () => {

@@ -104,21 +104,25 @@ test('patch cards show preserved post image previews', async ({ page }) => {
 	);
 });
 
-test('patch cards use responsive masonry columns', async ({ page }, testInfo) => {
+test('patch cards use responsive grid columns', async ({ page }, testInfo) => {
 	await gotoApp(page, '/');
-	const masonry = page.locator('[data-patch-masonry]').first();
-	await expect(masonry.locator('[data-patch-card]').first()).toBeVisible();
-	const columnCount = await masonry.evaluate((element) =>
-		Number.parseInt(getComputedStyle(element).columnCount, 10)
-	);
-	expect(columnCount).toBe(testInfo.project.name === 'mobile-chromium' ? 1 : 4);
+	const grid = page.locator('[data-patch-grid]').first();
+	await expect(grid.locator('[data-patch-card]').first()).toBeVisible();
+
+	const expectedColumns = testInfo.project.name === 'mobile-chromium' ? 1 : 4;
+	const cards = await grid.locator('[data-patch-card]').all();
+	expect(cards.length).toBeGreaterThanOrEqual(expectedColumns);
+
+	const gridStyle = await grid.evaluate((el) => getComputedStyle(el).gridTemplateColumns);
+	const columnCount = gridStyle.split(' ').length;
+	expect(columnCount).toBe(expectedColumns);
 });
 
-test('load more appends a masonry page below existing cards without reflow', async ({
+test('load more appends a grid page below existing cards without reflow', async ({
 	page
 }) => {
 	await gotoApp(page, '/');
-	const firstPage = page.locator('[data-patch-masonry-page="0"]');
+	const firstPage = page.locator('[data-patch-grid-page="0"]');
 	await page.evaluate(() => document.fonts.ready);
 	await firstPage.evaluate(async (element) => {
 		await Promise.allSettled(
@@ -134,7 +138,7 @@ test('load more appends a masonry page below existing cards without reflow', asy
 	});
 
 	await page.getByRole('button', { name: 'Load More' }).click();
-	const secondPage = page.locator('[data-patch-masonry-page="1"]');
+	const secondPage = page.locator('[data-patch-grid-page="1"]');
 	await expect(secondPage.locator('[data-patch-card]').first()).toBeVisible();
 
 	const positionsAfter = await firstPage.evaluate((element) => {

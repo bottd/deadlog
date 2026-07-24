@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { EntityIcon } from '$lib/types';
 	import * as Avatar from '$lib/components/ui/avatar';
+	import { goto } from '$app/navigation';
 	import { formatDate } from '@deadlog/utils';
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
 	import Zap from '@lucide/svelte/icons/zap';
@@ -9,6 +10,7 @@
 	import { searchParams as params } from '$lib/stores/searchParams.svelte';
 	import { scale, fly } from 'svelte/transition';
 	import { quintOut, backOut } from 'svelte/easing';
+	import { entityFragmentId } from './entityContext';
 
 	interface Props {
 		id: string;
@@ -46,6 +48,18 @@
 	const max = $derived(isLatest ? 14 : 6);
 	const heroes = $derived(icons?.heroes ?? []);
 	const items = $derived(icons?.items ?? []);
+
+	function gotoEntity(name: string, event: MouseEvent) {
+		event.stopPropagation();
+		goto(`${href}#${entityFragmentId(name)}`, { replaceState: false });
+	}
+
+	function onCardKeydown(event: KeyboardEvent) {
+		if (event.key === 'Enter') {
+			event.preventDefault();
+			goto(href);
+		}
+	}
 
 	const rows = $derived(
 		[
@@ -92,7 +106,14 @@
 </script>
 
 {#if isLatest}
-	<a {href} aria-label={accessibleLabel} class="group relative col-span-full mb-8 block">
+	<div
+		role="link"
+		tabindex="0"
+		aria-label={accessibleLabel}
+		class="group relative col-span-full mb-8 block cursor-pointer"
+		onclick={() => goto(href)}
+		onkeydown={onCardKeydown}
+	>
 		<div
 			class="clip-corner-lg border-primary/40 hover:border-primary/70 bg-card card-glow relative flex flex-col overflow-hidden border-2 transition-all duration-200 hover:shadow-2xl active:scale-[0.99] md:flex-row md:items-stretch"
 		>
@@ -157,21 +178,29 @@
 								>
 								<div class="flex -space-x-2">
 									{#each row.list as icon, i (icon.id)}
-										<img
-											src={icon.src}
-											alt=""
-											width="40"
-											height="40"
-											loading="lazy"
-											decoding="async"
-											class="border-primary/20 bg-card hover:border-primary size-9 rounded-lg border-2 object-cover shadow-md transition-all duration-300 hover:z-20 hover:-translate-y-1 hover:scale-110"
-											in:scale={{
-												start: 0,
-												duration: 400,
-												delay: 100 + (row.offset + i) * 40,
-												easing: backOut
-											}}
-										/>
+										<button
+											type="button"
+											role="link"
+											onclick={(e) => gotoEntity(icon.alt, e)}
+											aria-label="Jump to {icon.alt} in this patch"
+											class="focus-visible:outline-primary cursor-pointer rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2"
+										>
+											<img
+												src={icon.src}
+												alt=""
+												width="40"
+												height="40"
+												loading="lazy"
+												decoding="async"
+												class="border-primary/20 bg-card hover:border-primary size-9 rounded-lg border-2 object-cover shadow-md transition-all duration-300 hover:z-20 hover:-translate-y-1 hover:scale-110"
+												in:scale={{
+													start: 0,
+													duration: 400,
+													delay: 100 + (row.offset + i) * 40,
+													easing: backOut
+												}}
+											/>
+										</button>
 									{/each}
 								</div>
 								{#if row.extra > 0}
@@ -211,6 +240,18 @@
 						class="from-card/10 via-card/55 to-card/95 absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r"
 						aria-hidden="true"
 					></div>
+				{:else}
+					<img
+						src={isMajor
+							? 'https://clan.akamai.steamstatic.com/images/45164767/686d522ba79a25d36cf53ef92f7b0499501f7d2f.png'
+							: 'https://clan.akamai.steamstatic.com/images/45164767/568ff640318c8a81e2b5b4a22bf29e100ee144d9.png'}
+						alt=""
+						width="640"
+						height="360"
+						loading="lazy"
+						decoding="async"
+						class="absolute inset-0 size-full object-cover opacity-25"
+					/>
 				{/if}
 				<div class="relative z-10 flex flex-col items-center gap-3 text-center">
 					<div
@@ -232,14 +273,17 @@
 			>
 			<div class="bg-primary/30 h-px flex-1"></div>
 		</div>
-	</a>
+	</div>
 {:else}
-	<a
-		{href}
+	<div
+		role="link"
+		tabindex="0"
 		aria-label={accessibleLabel}
-		class="clip-corner-sm bg-card hover:bg-card-accent/30 group relative flex min-h-[200px] flex-col overflow-hidden border transition-all duration-200 hover:shadow-xl active:scale-[0.98] {isMajor
+		class="clip-corner-sm bg-card hover:bg-card-accent/30 group relative flex h-full min-h-[200px] cursor-pointer flex-col overflow-hidden border transition-all duration-200 hover:shadow-xl active:scale-[0.98] {isMajor
 			? 'border-primary/50 hover:border-primary/80'
 			: 'border-border hover:border-signal/45'}"
+		onclick={() => goto(href)}
+		onkeydown={onCardKeydown}
 	>
 		<CornerAccents
 			tlSize="1.5rem"
@@ -273,6 +317,20 @@
 					class="from-card/0 via-card/10 to-card/55 pointer-events-none absolute inset-0 bg-gradient-to-b"
 					aria-hidden="true"
 				></div>
+			</div>
+		{:else}
+			<div class="border-border/70 relative h-28 shrink-0 overflow-hidden border-b">
+				<img
+					src={isMajor
+						? 'https://clan.akamai.steamstatic.com/images/45164767/686d522ba79a25d36cf53ef92f7b0499501f7d2f.png'
+						: 'https://clan.akamai.steamstatic.com/images/45164767/568ff640318c8a81e2b5b4a22bf29e100ee144d9.png'}
+					alt=""
+					width="640"
+					height="360"
+					loading="lazy"
+					decoding="async"
+					class="size-full object-cover opacity-25"
+				/>
 			</div>
 		{/if}
 		<div
@@ -321,24 +379,32 @@
 				<div class="flex items-center gap-1.5">
 					<div class="flex -space-x-1.5">
 						{#each row.list as icon, i (icon.id)}
-							<img
-								src={icon.src}
-								alt=""
-								width="28"
-								height="28"
-								loading="lazy"
-								decoding="async"
-								class="border-border/80 bg-card size-7 rounded-md border object-cover shadow-sm transition-all duration-200 hover:z-20 hover:-translate-y-0.5 hover:scale-110 {row.type ===
-								'items'
-									? 'hover:border-signal/60'
-									: 'hover:border-primary/50'}"
-								in:scale={{
-									start: 0,
-									duration: 250,
-									delay: 100 + (row.offset + i) * 40,
-									easing: quintOut
-								}}
-							/>
+							<button
+								type="button"
+								role="link"
+								onclick={(e) => gotoEntity(icon.alt, e)}
+								aria-label="Jump to {icon.alt} in this patch"
+								class="focus-visible:outline-primary cursor-pointer rounded-md focus-visible:outline-2 focus-visible:outline-offset-2"
+							>
+								<img
+									src={icon.src}
+									alt=""
+									width="28"
+									height="28"
+									loading="lazy"
+									decoding="async"
+									class="border-border/80 bg-card size-7 rounded-md border object-cover shadow-sm transition-all duration-200 hover:z-20 hover:-translate-y-0.5 hover:scale-110 {row.type ===
+									'items'
+										? 'hover:border-signal/60'
+										: 'hover:border-primary/50'}"
+									in:scale={{
+										start: 0,
+										duration: 250,
+										delay: 100 + (row.offset + i) * 40,
+										easing: quintOut
+									}}
+								/>
+							</button>
 						{/each}
 					</div>
 					{#if row.extra > 0}
@@ -365,5 +431,5 @@
 				/>
 			</div>
 		</div>
-	</a>
+	</div>
 {/if}

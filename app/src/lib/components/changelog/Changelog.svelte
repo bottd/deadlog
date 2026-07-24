@@ -70,23 +70,6 @@
 </script>
 
 <main class="container mx-auto mt-8 mb-24 px-4">
-	<header class="mb-8 max-w-3xl">
-		<p
-			class="text-signal mb-2 font-mono text-[10px] font-bold tracking-[0.2em] uppercase"
-		>
-			Deadlock changelog
-		</p>
-		<h1
-			class="text-foreground font-display heading-glow text-3xl leading-tight font-medium tracking-wide md:text-5xl"
-		>
-			Deadlock Patch Notes &amp; Changelog
-		</h1>
-		<p class="text-muted-foreground mt-3 max-w-2xl text-sm leading-relaxed md:text-base">
-			Track the latest Deadlock updates, hero buffs and nerfs, item changes, and gameplay
-			balance patches in one searchable changelog.
-		</p>
-	</header>
-
 	<HeroRail />
 
 	{#if query.isError && !query.data}
@@ -164,10 +147,10 @@
 			{/if}
 
 			{#each gridBatches as batch, batchIndex (batchIndex)}
-				<ol
-					data-patch-masonry
-					data-patch-masonry-page={batchIndex}
-					class="list-none columns-1 gap-4 p-0 sm:columns-2 lg:columns-3 xl:columns-4 {batchIndex >
+				<div
+					data-patch-grid
+					data-patch-grid-page={batchIndex}
+					class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 {batchIndex >
 					0
 						? 'mt-4'
 						: ''}"
@@ -175,10 +158,10 @@
 					{#each batch.entries as entry, i (entry.id)}
 						{@const gridIndex = batch.startIndex + i}
 						{#if gridIndex === firstSeenIdx && firstSeenIdx > 0}
-							<li
+							<div
 								role="presentation"
 								aria-hidden="true"
-								class="my-1 mb-4 flex items-center gap-4 [column-span:all]"
+								class="col-span-full my-1 mb-4 flex items-center gap-4"
 							>
 								<div class="bg-signal/35 h-px flex-1"></div>
 								<span
@@ -187,11 +170,11 @@
 									{newCount} new since your last visit
 								</span>
 								<div class="bg-primary/30 h-px flex-1"></div>
-							</li>
+							</div>
 						{/if}
-						<li
+						<div
 							data-patch-card
-							class="mb-4 break-inside-avoid"
+							class="h-full"
 							in:fly={{
 								y: 20,
 								delay: Math.min(i, 8) * 30,
@@ -200,9 +183,9 @@
 							}}
 						>
 							<ChangelogCard {...entry} isLatest={false} isNew={isNew(entry)} />
-						</li>
+						</div>
 					{/each}
-				</ol>
+				</div>
 			{/each}
 		{:else}
 			<div
