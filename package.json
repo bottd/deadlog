@@ -19,19 +19,19 @@
 		"build:meta": "DATABASE_URL=file:app/static/deadlog.db tsx --tsconfig=tsconfig.base.json lib/meta/src/generate-previews.ts"
 	},
 	"devDependencies": {
-		"@cloudflare/workers-types": "5.20260722.1",
+		"@cloudflare/workers-types": "5.20260724.1",
 		"@counterscale/tracker": "3.4.1",
 		"@eslint/js": "10.0.1",
 		"@internationalized/date": "3.12.2",
 		"@libsql/client": "0.17.4",
-		"@lucide/svelte": "1.25.0",
+		"@lucide/svelte": "1.26.0",
 		"@sveltejs/adapter-cloudflare": "7.2.9",
 		"@sveltejs/adapter-node": "5.5.7",
 		"@sveltejs/kit": "2.70.1",
 		"@sveltejs/vite-plugin-svelte": "7.2.0",
 		"@tailwindcss/vite": "4.3.3",
-		"@takumi-rs/core": "2.4.1",
-		"@takumi-rs/helpers": "2.4.1",
+		"@takumi-rs/core": "2.4.2",
+		"@takumi-rs/helpers": "2.4.2",
 		"@tanstack/svelte-query": "6.1.38",
 		"@testing-library/jest-dom": "7.0.0",
 		"@types/node": "26.1.1",
@@ -72,7 +72,7 @@
 		"vite": "8.1.5",
 		"vite-plugin-norg": "4.0.16",
 		"vitest": "4.1.10",
-		"wrangler": "4.113.0",
+		"wrangler": "4.114.0",
 		"zod": "4.4.3"
 	}
 }
