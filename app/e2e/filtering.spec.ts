@@ -83,14 +83,16 @@ test.describe('Changelog filtering', () => {
 	});
 
 	test('multiple heroes AND returns subset of single hero', async ({ page }) => {
+		// Count cards, not links: each card also deep-links every entity it touches,
+		// so a link tally grows with patch scope rather than with result count.
 		await gotoApp(page, '/?hero=Bebop');
-		const cards = page.locator('a[href^="/change/"]');
+		const cards = page.locator('[data-patch-card]');
 		await expect(cards.first()).toBeVisible();
 		const singleCount = await cards.count();
 
 		await gotoApp(page, '/?hero=Bebop,Abrams');
 		// AND filter: must match BOTH heroes, so results <= single hero
-		const multiCards = page.locator('a[href^="/change/"]');
+		const multiCards = page.locator('[data-patch-card]');
 		// Either fewer results or empty state
 		const multiCount = await multiCards.count();
 		expect(multiCount).toBeLessThanOrEqual(singleCount);

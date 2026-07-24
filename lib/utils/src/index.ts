@@ -15,6 +15,17 @@ export {
 	normalizeEntityName
 } from './entityNames';
 
+// ponytail: crude teaser, not a curated summary — just clamp at a word boundary.
+// An LLM `summary` column would do better.
+export function makeSummary(text: string | null | undefined, max = 140): string {
+	if (!text) return '';
+	const clean = text.replace(/\s+/g, ' ').trim();
+	if (clean.length <= max) return clean;
+	const cut = clean.slice(0, max);
+	const lastSpace = cut.lastIndexOf(' ');
+	return (lastSpace > max * 0.6 ? cut.slice(0, lastSpace) : cut).trimEnd() + '…';
+}
+
 function toDate(date: Date | string): Date {
 	return date instanceof Date ? date : new Date(date);
 }

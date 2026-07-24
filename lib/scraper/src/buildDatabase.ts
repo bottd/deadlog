@@ -116,24 +116,36 @@ function resolveEntityId(
 	return undefined;
 }
 
+interface EntityMatch {
+	changeCount: number | null;
+	changeSummary: string | null;
+}
+
 function collectEntityMatches(
 	names: string[],
 	changes: EntityChange[],
 	type: 'hero' | 'item',
 	entityMap: Map<string, number>
-): Map<number, number | null> {
-	const matches = new Map<number, number | null>();
+): Map<number, EntityMatch> {
+	const matches = new Map<number, EntityMatch>();
 
 	for (const name of names) {
 		const id = resolveEntityId(entityMap, name);
-		if (id !== undefined && !matches.has(id)) matches.set(id, null);
+		if (id !== undefined && !matches.has(id)) {
+			matches.set(id, { changeCount: null, changeSummary: null });
+		}
 	}
 
 	for (const change of changes) {
 		if (change.type !== type) continue;
 		const id = resolveEntityId(entityMap, change.name);
 		if (id === undefined) continue;
-		matches.set(id, (matches.get(id) ?? 0) + change.count);
+		const existing = matches.get(id);
+		matches.set(id, {
+			changeCount: (existing?.changeCount ?? 0) + change.count,
+			// An entity can head more than one section in a patch; keep the first teaser.
+			changeSummary: existing?.changeSummary || change.summary || null
+		});
 	}
 
 	return matches;
@@ -306,18 +318,32 @@ export async function buildDatabaseFromNorg(
 			})
 			.onConflictDoNothing();
 
-		for (const [heroId, changeCount] of heroMatchesForPatch) {
+		for (const [heroId, { changeCount, changeSummary }] of heroMatchesForPatch) {
 			await db
 				.insert(schema.changelogHeroes)
-				.values(insertChangelogHeroSchema.parse({ changelogId, heroId, changeCount }))
+				.values(
+					insertChangelogHeroSchema.parse({
+						changelogId,
+						heroId,
+						changeCount,
+						changeSummary
+					})
+				)
 				.onConflictDoNothing();
 			heroMatches++;
 		}
 
-		for (const [itemId, changeCount] of itemMatchesForPatch) {
+		for (const [itemId, { changeCount, changeSummary }] of itemMatchesForPatch) {
 			await db
 				.insert(schema.changelogItems)
-				.values(insertChangelogItemSchema.parse({ changelogId, itemId, changeCount }))
+				.values(
+					insertChangelogItemSchema.parse({
+						changelogId,
+						itemId,
+						changeCount,
+						changeSummary
+					})
+				)
 				.onConflictDoNothing();
 			itemMatches++;
 		}
@@ -421,6 +447,7 @@ async function createTables(db: ReturnType<typeof drizzle>) {
 			changelog_id TEXT NOT NULL REFERENCES changelogs(id),
 			hero_id INTEGER NOT NULL REFERENCES heroes(id),
 			change_count INTEGER,
+			change_summary TEXT,
 			PRIMARY KEY (changelog_id, hero_id)
 		)
 	`);
@@ -430,6 +457,7 @@ async function createTables(db: ReturnType<typeof drizzle>) {
 			changelog_id TEXT NOT NULL REFERENCES changelogs(id),
 			item_id INTEGER NOT NULL REFERENCES items(id),
 			change_count INTEGER,
+			change_summary TEXT,
 			PRIMARY KEY (changelog_id, item_id)
 		)
 	`);

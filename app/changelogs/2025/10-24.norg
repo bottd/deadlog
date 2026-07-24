@@ -7,9 +7,282 @@ author_image: https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630
 category: patch
 major_update: false
 status: draft
-content_text: 
+content_text: "Getting damaged during the initial launch window (0.6s) after using a Jump Pad will cause you to be stunned (similar to ziplines having an initial knockoff period). When you are stunned, you will lose control and continue towards the landing destination. The stun will wear off 0.2s after landing, and then a 30% slow for 2s will apply. Damage over time does not trigger this (same damage rules as ziplines). Curse: Cooldown reduced from 50s to 45s Calico Gloom Bombs cooldown increased from 10s to 12s Gloom Bombs base damage from 55 to 45 Gloom Bombs spirit scaling reduced from 0.74 to 0.64 Gloom Bombs multi bomb damage ratio increased from 50% to 65% Ava no longer replenishes stamina on usage Doorman Bullet damage growth per boon reduced from 1.15 to 1.0 Outgoing headshot damage multiplier reduced by 25% Call Bell explosion damage spirit scaling increased from 1.5 to 1.7 Drifter Bloodscent isolated kill bonus reduced from 5% to 4% Base bullet damage increased from 20.9 to 21.3 Bullet damage growth increased from 0.52 to 0.56 Dynamo Quantum Entanglement Fire Rate increased from +25% to +30% Rejuvenating Aurora cooldown reduced from 48s to 45s Infernus Bullet damage growth per boon reduced from 0.12 to 0.08 Flame Dash T2 reduced from +35 to +30 Afterburn T1 reduced from -25% Spirit Damage to -20% Afterburn T3 reduced from +28 DPS to +26 Kelvin Base regen reduced from 2 to 1 Headshot reduction reduced from -20% to -25% Frozen Shelter cooldown increased from 150s to 170s McGinnis Medicinal Specter now has a 1s linger time Paradox Base bullet damage reduced from 6.48 to 6.15 Paradoxical Swap cooldown increased from 70s to 75s Seven Lightning Ball spirit scaling increased from 0.43 to 0.55 Shiv Alt fire knockback reduced by 10% Victor Pain Battery T1 and T2 swapped Aura of Suffering max damage reduced from 80 to 70 Aura of Suffering T2 reduced from +10/50 to +8/40 Vyper Screwjab Dagger spirit scaling increased from 0.65/0.33 to 0.8/0.4 Warden Base bullet damage increased from 15 to 16.2 Binding Word range increased from 19m to 20m Mystic Shot Base damage reduced from 55 to 45 Spirit scaling increased from 0.65 to 0.75 Warp Stone Bullet Resist reduced from 40% to 35% Capacitor Fire Rate reduced from 8% to 5% Cooldown increased from 40s to 60s Guardian Ward Cooldown increased from 40s to 45s Reactive Barrier Cooldown increased from 24s to 26s Spirit Shielding Barrier reduced from 325 to 300 Barrier boon scaling increased from 4 to 5 Weapon Shielding Barrier reduced from 325 to 300 Barrier boon scaling increased from 4 to 5 Fortitude Damage taken duration to regen reduced from 14s to 13s Trophy Collector Souls per Minute increased from 25 to 30 Majestic Leap Cooldown increased from 28s to 32s Divine Barrier Cooldown increased from 40s to 45s Rusted Barrel Bonus health increased from 60 to 70 Silence Wave Cooldown increased from 30s to 35s (affects component) Spirit Snatch Duration reduced from 14s to 10s Bonus damage reduced from 75 to 50 Ethereal Shift Cooldown increased from 20s to 45s Movespeed during phase reduced from 4m to 3m Can no longer target an ethereal shifted ally with things like Rescue Beam, Viscous Cube, etc"
 @end
 
-* Changelog
+* General Changes
 
-No structured changes were parsed for this update.
+- Getting damaged during the initial launch window (0.6s) after using a Jump Pad will cause you to be stunned (similar to ziplines having an initial knockoff period). When you are stunned, you will lose control and continue towards the landing destination. The stun will wear off 0.2s after landing, and then a 30% slow for 2s will apply. Damage over time does not trigger this (same damage rules as ziplines).
+- Curse: Cooldown reduced from 50s to 45s
+
+* Hero Changes
+
+@embed svelte
+<SectionPreview type="hero" names={["Calico", "Doorman", "Drifter", "Dynamo", "Infernus", "Kelvin", "McGinnis", "Paradox", "Seven", "Shiv", "Victor", "Vyper", "Warden"]} />
+@end
+
+@embed svelte
+<EntityHeading name="Calico" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Gloom Bombs" />
+@end
+
+- Gloom Bombs cooldown increased from 10s to 12s
+
+- Gloom Bombs base damage from 55 to 45
+
+@embed svelte
+<AbilityHeading name="Gloom Bombs" />
+@end
+
+- Gloom Bombs spirit scaling reduced from 0.74 to 0.64
+
+- Gloom Bombs multi bomb damage ratio increased from 50% to 65%
+
+@embed svelte
+<AbilityHeading name="Ava" />
+@end
+
+- Ava no longer replenishes stamina on usage
+
+@embed svelte
+<EntityHeading name="Doorman" type="hero" />
+@end
+
+- Bullet damage growth per boon reduced from 1.15 to 1.0
+- Outgoing headshot damage multiplier reduced by 25%
+- Call Bell explosion damage spirit scaling increased from 1.5 to 1.7
+
+@embed svelte
+<EntityHeading name="Drifter" type="hero" />
+@end
+
+- Bloodscent isolated kill bonus reduced from 5% to 4%
+- Base bullet damage increased from 20.9 to 21.3
+- Bullet damage growth increased from 0.52 to 0.56
+
+@embed svelte
+<EntityHeading name="Dynamo" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Quantum Entanglement Fire Rate" />
+@end
+
+- Quantum Entanglement Fire Rate increased from +25% to +30%
+
+@embed svelte
+<AbilityHeading name="Rejuvenating Aurora" />
+@end
+
+- Rejuvenating Aurora cooldown reduced from 48s to 45s
+
+@embed svelte
+<EntityHeading name="Infernus" type="hero" />
+@end
+
+- Bullet damage growth per boon reduced from 0.12 to 0.08
+
+@embed svelte
+<AbilityHeading name="Flame Dash" />
+@end
+
+- Flame Dash T2 reduced from +35 to +30
+
+@embed svelte
+<AbilityHeading name="Afterburn" />
+@end
+
+- Afterburn T1 reduced from -25% Spirit Damage to -20%
+- Afterburn T3 reduced from +28 DPS to +26
+
+@embed svelte
+<EntityHeading name="Kelvin" type="hero" />
+@end
+
+- Base regen reduced from 2 to 1
+- Headshot reduction reduced from -20% to -25%
+
+@embed svelte
+<AbilityHeading name="Frozen Shelter" />
+@end
+
+- Frozen Shelter cooldown increased from 150s to 170s
+
+@embed svelte
+<EntityHeading name="McGinnis" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Medicinal Specter" />
+@end
+
+- Medicinal Specter now has a 1s linger time
+
+@embed svelte
+<EntityHeading name="Paradox" type="hero" />
+@end
+
+- Base bullet damage reduced from 6.48 to 6.15
+
+@embed svelte
+<AbilityHeading name="Paradoxical Swap" />
+@end
+
+- Paradoxical Swap cooldown increased from 70s to 75s
+
+@embed svelte
+<EntityHeading name="Seven" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Lightning Ball" />
+@end
+
+- Lightning Ball spirit scaling increased from 0.43 to 0.55
+
+@embed svelte
+<EntityHeading name="Shiv" type="hero" />
+@end
+
+- Alt fire knockback reduced by 10%
+
+@embed svelte
+<EntityHeading name="Victor" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Pain Battery" />
+@end
+
+- Pain Battery T1 and T2 swapped
+
+- Aura of Suffering max damage reduced from 80 to 70
+- Aura of Suffering T2 reduced from +10/50 to +8/40
+
+@embed svelte
+<EntityHeading name="Vyper" type="hero" />
+@end
+
+@embed svelte
+<AbilityHeading name="Screwjab Dagger" />
+@end
+
+- Screwjab Dagger spirit scaling increased from 0.65/0.33 to 0.8/0.4
+
+@embed svelte
+<EntityHeading name="Warden" type="hero" />
+@end
+
+- Base bullet damage increased from 15 to 16.2
+
+@embed svelte
+<AbilityHeading name="Binding Word" />
+@end
+
+- Binding Word range increased from 19m to 20m
+
+* Item Changes
+
+@embed svelte
+<SectionPreview type="item" names={["Capacitor", "Divine Barrier", "Ethereal Shift", "Fortitude", "Guardian Ward", "Majestic Leap", "Mystic Shot", "Reactive Barrier", "Rusted Barrel", "Silence Wave", "Spirit Shielding", "Spirit Snatch", "Trophy Collector", "Warp Stone", "Weapon Shielding"]} />
+@end
+
+@embed svelte
+<EntityHeading name="Capacitor" type="item" />
+@end
+
+- Fire Rate reduced from 8% to 5%
+- Cooldown increased from 40s to 60s
+
+@embed svelte
+<EntityHeading name="Divine Barrier" type="item" />
+@end
+
+- Cooldown increased from 40s to 45s
+
+@embed svelte
+<EntityHeading name="Ethereal Shift" type="item" />
+@end
+
+- Cooldown increased from 20s to 45s
+- Movespeed during phase reduced from 4m to 3m
+- Can no longer target an ethereal shifted ally with things like Rescue Beam, Viscous Cube, etc
+
+@embed svelte
+<EntityHeading name="Fortitude" type="item" />
+@end
+
+- Damage taken duration to regen reduced from 14s to 13s
+
+@embed svelte
+<EntityHeading name="Guardian Ward" type="item" />
+@end
+
+- Cooldown increased from 40s to 45s
+
+@embed svelte
+<EntityHeading name="Majestic Leap" type="item" />
+@end
+
+- Cooldown increased from 28s to 32s
+
+@embed svelte
+<EntityHeading name="Mystic Shot" type="item" />
+@end
+
+- Base damage reduced from 55 to 45
+- Spirit scaling increased from 0.65 to 0.75
+
+@embed svelte
+<EntityHeading name="Reactive Barrier" type="item" />
+@end
+
+- Cooldown increased from 24s to 26s
+
+@embed svelte
+<EntityHeading name="Rusted Barrel" type="item" />
+@end
+
+- Bonus health increased from 60 to 70
+
+@embed svelte
+<EntityHeading name="Silence Wave" type="item" />
+@end
+
+- Cooldown increased from 30s to 35s (affects component)
+
+@embed svelte
+<EntityHeading name="Spirit Shielding" type="item" />
+@end
+
+- Barrier reduced from 325 to 300
+- Barrier boon scaling increased from 4 to 5
+
+@embed svelte
+<EntityHeading name="Spirit Snatch" type="item" />
+@end
+
+- Duration reduced from 14s to 10s
+- Bonus damage reduced from 75 to 50
+
+@embed svelte
+<EntityHeading name="Trophy Collector" type="item" />
+@end
+
+- Souls per Minute increased from 25 to 30
+
+@embed svelte
+<EntityHeading name="Warp Stone" type="item" />
+@end
+
+- Bullet Resist reduced from 40% to 35%
+
+@embed svelte
+<EntityHeading name="Weapon Shielding" type="item" />
+@end
+
+- Barrier reduced from 325 to 300
+- Barrier boon scaling increased from 4 to 5

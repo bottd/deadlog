@@ -5,21 +5,12 @@ import {
 } from '@deadlog/scraper';
 import type { DrizzleDB } from '@deadlog/db';
 import type { ChangelogEntry } from '$lib/types';
-import { entityNameAliases } from '@deadlog/utils';
+import { entityNameAliases, makeSummary } from '@deadlog/utils';
 import { parseCSV } from '$lib/utils/csv';
 
 export const NO_MATCH_ENTITY_ID = -1;
 
-// ponytail: crude teaser, not a curated summary — content_text has no extractable
-// lead, so just clamp at a word boundary. An LLM `summary` column would do better.
-export function makeSummary(text: string | null | undefined, max = 140): string {
-	if (!text) return '';
-	const clean = text.replace(/\s+/g, ' ').trim();
-	if (clean.length <= max) return clean;
-	const cut = clean.slice(0, max);
-	const lastSpace = cut.lastIndexOf(' ');
-	return (lastSpace > max * 0.6 ? cut.slice(0, lastSpace) : cut).trimEnd() + '…';
-}
+export { makeSummary };
 
 export function resolveEntityIds(
 	names: string[],

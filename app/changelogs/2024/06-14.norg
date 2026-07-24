@@ -7,9 +7,9 @@ author_image: https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630
 category: patch
 major_update: false
 status: draft
-content_text: 
+content_text: This update reverts the communication changes from yesterday. Thanks for sharing all your thoughts on the topic, we'll think about better ways to work on this in the future.
 @end
 
-* Changelog
+* General Changes
 
-No structured changes were parsed for this update.
+- This update reverts the communication changes from yesterday. Thanks for sharing all your thoughts on the topic, we'll think about better ways to work on this in the future.

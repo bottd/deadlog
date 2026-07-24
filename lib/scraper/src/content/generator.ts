@@ -42,13 +42,23 @@ function abilityHeadingBlock(name: string): string {
 @end`;
 }
 
+/**
+ * Norg bodies compile through Svelte, so a literal "{" in patch prose is read as the
+ * start of an expression and breaks the build — this previously needed hand-patching
+ * (see the Glyph Locking line in 2024/11-07). Applies to note text only; the
+ * @embed svelte blocks above rely on real braces.
+ */
+function escapeNoteBraces(note: string): string {
+	return note.replace(/(?<!\\)([{}])/g, '\\$1');
+}
+
 export function generateStructuredContent(grouped: GroupedContent): string {
 	const out: string[] = [];
 
 	if (grouped.general.length > 0) {
 		out.push('* General Changes', '');
 		for (const note of grouped.general) {
-			out.push(note.startsWith('@image ') ? note : `- ${note}`);
+			out.push(note.startsWith('@image ') ? note : `- ${escapeNoteBraces(note)}`);
 		}
 	}
 
@@ -77,7 +87,7 @@ export function generateStructuredContent(grouped: GroupedContent): string {
 					out.push(abilityHeadingBlock(group.abilityName), '');
 				}
 				for (const note of group.notes) {
-					out.push(`- ${note}`);
+					out.push(`- ${escapeNoteBraces(note)}`);
 				}
 				if (gi < abilityGroups.length - 1) {
 					out.push('');
@@ -104,7 +114,7 @@ export function generateStructuredContent(grouped: GroupedContent): string {
 		for (const [itemName, notes] of sortedItems) {
 			out.push('', entityHeadingBlock(itemName, 'item'), '');
 			for (const note of notes) {
-				out.push(`- ${note}`);
+				out.push(`- ${escapeNoteBraces(note)}`);
 			}
 		}
 	}

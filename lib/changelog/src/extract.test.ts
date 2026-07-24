@@ -26,9 +26,36 @@ describe('extractEntityChanges', () => {
 `;
 
 		expect(extractEntityChanges(content)).toEqual([
-			{ name: 'Doorman', type: 'hero', count: 3 },
-			{ name: 'Tesla Bullets', type: 'item', count: 1 }
+			{
+				name: 'Doorman',
+				type: 'hero',
+				count: 3,
+				summary:
+					'Base damage increased · Call Bell: Cooldown reduced · Call Bell: Radius increased'
+			},
+			{
+				name: 'Tesla Bullets',
+				type: 'item',
+				count: 1,
+				summary: 'Proc chance increased'
+			}
 		]);
+	});
+
+	it('clamps a long summary at a word boundary', () => {
+		const bullet = 'Cooldown reduced from 40s to 32s and radius increased by 15%';
+		const content = `
+<EntityHeading name="Abrams" type="hero" />
+- ${bullet}
+- ${bullet}
+- ${bullet}
+`;
+
+		const [change] = extractEntityChanges(content);
+		expect(change.count).toBe(3);
+		expect(change.summary.length).toBeLessThanOrEqual(161);
+		expect(change.summary.endsWith('…')).toBe(true);
+		expect(change.summary.startsWith(bullet)).toBe(true);
 	});
 
 	it('merges repeated article aliases and decodes entity names', () => {
@@ -42,8 +69,13 @@ describe('extractEntityChanges', () => {
 `;
 
 		expect(extractEntityChanges(content)).toEqual([
-			{ name: 'The Doorman', type: 'hero', count: 2 },
-			{ name: 'Mo & Krill', type: 'hero', count: 1 }
+			{
+				name: 'The Doorman',
+				type: 'hero',
+				count: 2,
+				summary: 'First change · Second change'
+			},
+			{ name: 'Mo & Krill', type: 'hero', count: 1, summary: 'Third change' }
 		]);
 	});
 
@@ -58,13 +90,13 @@ describe('extractEntityChanges', () => {
 `;
 
 		expect(extractEntityChanges(content)).toEqual([
-			{ name: 'Abrams', type: 'hero', count: 1 }
+			{ name: 'Abrams', type: 'hero', count: 1, summary: 'Counted' }
 		]);
 	});
 
 	it('keeps an explicit zero instead of inventing a change', () => {
 		expect(extractEntityChanges('<EntityHeading name="Abrams" type="hero" />')).toEqual([
-			{ name: 'Abrams', type: 'hero', count: 0 }
+			{ name: 'Abrams', type: 'hero', count: 0, summary: '' }
 		]);
 	});
 });

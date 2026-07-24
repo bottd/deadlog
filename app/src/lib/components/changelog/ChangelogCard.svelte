@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type { EntityIcon } from '$lib/types';
 	import * as Avatar from '$lib/components/ui/avatar';
-	import { goto } from '$app/navigation';
 	import { formatDate } from '@deadlog/utils';
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
 	import Zap from '@lucide/svelte/icons/zap';
@@ -49,17 +48,7 @@
 	const heroes = $derived(icons?.heroes ?? []);
 	const items = $derived(icons?.items ?? []);
 
-	function gotoEntity(name: string, event: MouseEvent) {
-		event.stopPropagation();
-		goto(`${href}#${entityFragmentId(name)}`, { replaceState: false });
-	}
-
-	function onCardKeydown(event: KeyboardEvent) {
-		if (event.key === 'Enter') {
-			event.preventDefault();
-			goto(href);
-		}
-	}
+	const entityHref = (name: string) => `${href}#${entityFragmentId(name)}`;
 
 	const rows = $derived(
 		[
@@ -106,14 +95,7 @@
 </script>
 
 {#if isLatest}
-	<div
-		role="link"
-		tabindex="0"
-		aria-label={accessibleLabel}
-		class="group relative col-span-full mb-8 block cursor-pointer"
-		onclick={() => goto(href)}
-		onkeydown={onCardKeydown}
-	>
+	<div class="group relative col-span-full mb-8 block">
 		<div
 			class="clip-corner-lg border-primary/40 hover:border-primary/70 bg-card card-glow relative flex flex-col overflow-hidden border-2 transition-all duration-200 hover:shadow-2xl active:scale-[0.99] md:flex-row md:items-stretch"
 		>
@@ -129,7 +111,7 @@
 				class="z-20"
 			/>
 
-			<div class="relative z-10 flex flex-1 flex-col gap-5 p-6 md:p-8">
+			<div class="z-10 flex flex-1 flex-col gap-5 p-6 md:p-8">
 				<div class="flex items-center gap-4">
 					<div
 						class="pulse-glow bg-primary/15 border-primary/30 clip-corner-sm inline-flex items-center gap-2 border px-4 py-1.5"
@@ -148,7 +130,15 @@
 					class="font-display text-foreground group-hover:text-primary heading-glow text-3xl font-medium tracking-wide transition-colors duration-300 md:text-4xl"
 					in:fly={{ y: 20, duration: 400, delay: 100 }}
 				>
-					{formatDate(date)}
+					<!-- Stretched link: the whole card is clickable, but crawlers and
+					     middle-click still get a real href. -->
+					<a
+						{href}
+						aria-label={accessibleLabel}
+						class="focus-visible:outline-primary after:absolute after:inset-0 focus-visible:outline-2 focus-visible:outline-offset-2"
+					>
+						{formatDate(date)}
+					</a>
 				</h2>
 
 				<div class="flex items-center gap-3">
@@ -178,12 +168,10 @@
 								>
 								<div class="flex -space-x-2">
 									{#each row.list as icon, i (icon.id)}
-										<button
-											type="button"
-											role="link"
-											onclick={(e) => gotoEntity(icon.alt, e)}
+										<a
+											href={entityHref(icon.alt)}
 											aria-label="Jump to {icon.alt} in this patch"
-											class="focus-visible:outline-primary cursor-pointer rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2"
+											class="focus-visible:outline-primary relative z-10 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2"
 										>
 											<img
 												src={icon.src}
@@ -200,7 +188,7 @@
 													easing: backOut
 												}}
 											/>
-										</button>
+										</a>
 									{/each}
 								</div>
 								{#if row.extra > 0}
@@ -276,14 +264,9 @@
 	</div>
 {:else}
 	<div
-		role="link"
-		tabindex="0"
-		aria-label={accessibleLabel}
-		class="clip-corner-sm bg-card hover:bg-card-accent/30 group relative flex h-full min-h-[200px] cursor-pointer flex-col overflow-hidden border transition-all duration-200 hover:shadow-xl active:scale-[0.98] {isMajor
+		class="clip-corner-sm bg-card hover:bg-card-accent/30 group relative flex h-full min-h-[200px] flex-col overflow-hidden border transition-all duration-200 hover:shadow-xl active:scale-[0.98] {isMajor
 			? 'border-primary/50 hover:border-primary/80'
 			: 'border-border hover:border-signal/45'}"
-		onclick={() => goto(href)}
-		onkeydown={onCardKeydown}
 	>
 		<CornerAccents
 			tlSize="1.5rem"
@@ -337,7 +320,7 @@
 			class="from-primary/0 group-hover:from-primary/5 pointer-events-none absolute inset-0 bg-gradient-to-br to-transparent transition-all duration-200"
 		></div>
 
-		<div class="relative z-10 flex flex-1 flex-col gap-3 p-4">
+		<div class="z-10 flex flex-1 flex-col gap-3 p-4">
 			<div>
 				<div class="mb-1.5 flex items-center gap-2">
 					<Calendar
@@ -346,7 +329,14 @@
 					<h2
 						class="text-foreground group-hover:text-primary min-w-0 truncate text-base font-semibold tracking-tight transition-colors duration-300"
 					>
-						{formatDate(date)}
+						<!-- Stretched link — see the featured card above. -->
+						<a
+							{href}
+							aria-label={accessibleLabel}
+							class="focus-visible:outline-primary after:absolute after:inset-0 focus-visible:outline-2 focus-visible:outline-offset-2"
+						>
+							{formatDate(date)}
+						</a>
 					</h2>
 					{#if isMajor}
 						<span
@@ -379,12 +369,10 @@
 				<div class="flex items-center gap-1.5">
 					<div class="flex -space-x-1.5">
 						{#each row.list as icon, i (icon.id)}
-							<button
-								type="button"
-								role="link"
-								onclick={(e) => gotoEntity(icon.alt, e)}
+							<a
+								href={entityHref(icon.alt)}
 								aria-label="Jump to {icon.alt} in this patch"
-								class="focus-visible:outline-primary cursor-pointer rounded-md focus-visible:outline-2 focus-visible:outline-offset-2"
+								class="focus-visible:outline-primary relative z-10 rounded-md focus-visible:outline-2 focus-visible:outline-offset-2"
 							>
 								<img
 									src={icon.src}
@@ -404,7 +392,7 @@
 										easing: quintOut
 									}}
 								/>
-							</button>
+							</a>
 						{/each}
 					</div>
 					{#if row.extra > 0}

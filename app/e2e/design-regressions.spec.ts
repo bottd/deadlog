@@ -26,7 +26,10 @@ test('the global changelog filter navigates from a directory', async ({
 	await input.fill('Bebop');
 	await page.getByRole('option', { name: /Bebop, Hero, not selected/ }).click();
 
-	await expect(page).toHaveURL(/\/?\?hero=Bebop$/);
+	// Anchored to the root path on purpose: "/?hero=Bebop" and "/heroes?hero=Bebop"
+	// both satisfied a "/?" optional-slash pattern, hiding the fact that filtering
+	// from a directory stayed on a page that ignores the param.
+	await expect(page).toHaveURL(/\/\?hero=Bebop$/);
 	await expect(page.getByText(/patches? matching all 1 filter/i)).toBeVisible();
 });
 
@@ -96,7 +99,12 @@ test('cards do not nest interactive controls', async ({ page }) => {
 
 test('patch cards show preserved post image previews', async ({ page }) => {
 	await gotoApp(page, '/');
-	const preview = page.locator('a[href^="/change/135477"] img[data-patch-preview]');
+	// The card's link is a stretched anchor around the heading, so the preview image
+	// is a sibling of it rather than a descendant — scope to the card instead.
+	const preview = page
+		.locator('[data-patch-card]')
+		.filter({ has: page.locator('a[href^="/change/135477"]') })
+		.locator('img[data-patch-preview]');
 	await expect(preview).toBeVisible();
 	await expect(preview).toHaveAttribute(
 		'src',

@@ -207,7 +207,10 @@ export function extractContent(html: string): string {
 		a.replaceWith(href.startsWith('http') ? href : a.textContent || '');
 	}
 
-	// textContent handles entity decoding natively
+	// textContent handles entity decoding natively.
+	// Zero-width characters are deliberately left alone: the forum uses them as the
+	// only separator between bullets crammed onto one line (see 2025/12-16), so
+	// stripping them runs "0.75" straight into the next "- Backstabber:".
 	const text = (bbWrapper.textContent || '').replace(/\n{2,}/g, '\n');
 	window.close();
 	return text.trim();
@@ -231,6 +234,13 @@ function parseChangelogLine(text: string, entities: EntityLists): ParsedNote {
 	return { entityName: null, entityType: 'general', text };
 }
 
+// Valve's forum posts mix markers: most patches use "-", but plenty use "*" or "•".
+// Accepting only "-" silently discards a whole patch (see 10-02-2025, 194 bullets).
+// "-"/"•" keep their original space-optional form ("-20% Reload Time" is a bullet);
+// "*" requires a space so emphasis and stray asterisks aren't swallowed.
+const BULLET_MARKER_RE = /^(?:[-•]|\*\s)/;
+const BULLET_PREFIX_RE = /^[-*•]+\s*/;
+
 export function parseAndGroupContent(
 	rawContent: string,
 	entities: EntityLists
@@ -242,6 +252,7 @@ export function parseAndGroupContent(
 	};
 
 	const lines = rawContent.split('\n');
+	const prose: string[] = [];
 
 	for (let i = 0; i < lines.length; i++) {
 		const trimmed = lines[i].trim();
@@ -260,9 +271,14 @@ export function parseAndGroupContent(
 			continue;
 		}
 
-		if (!trimmed || !trimmed.startsWith('-')) continue;
+		if (!trimmed) continue;
 
-		const stripped = trimmed.replace(/^[-•]+\s*/, '').trim();
+		if (!BULLET_MARKER_RE.test(trimmed)) {
+			prose.push(trimmed);
+			continue;
+		}
+
+		const stripped = trimmed.replace(BULLET_PREFIX_RE, '').trim();
 		if (!stripped) continue;
 
 		const parsed = parseChangelogLine(stripped, entities);
@@ -280,6 +296,14 @@ export function parseAndGroupContent(
 		}
 	}
 
+	// Some "updates" are prose announcements with no bullets at all. Keeping their
+	// text beats emitting an empty changelog, but never let prose outrank real bullets.
+	const hasNotes =
+		result.heroes.size > 0 ||
+		result.items.size > 0 ||
+		result.general.some((note) => !note.startsWith('@image '));
+	if (!hasNotes) result.general.push(...prose);
+
 	return result;
 }
 
@@ -290,6 +314,8 @@ export function deduplicateLines(text: string): string {
 
 	for (const line of lines) {
 		const trimmed = line.trim();
+		// Deliberately "-" only: "*" lines repeat legitimately (the same stat tweak
+		// listed under two items), and deduping them drops real changes.
 		if (trimmed.startsWith('-')) {
 			if (seen.has(trimmed)) continue;
 			seen.add(trimmed);

@@ -19,7 +19,7 @@ export {
 	getChangelogsByItemId,
 	getChangelogIcons,
 	type ScrapedChangelog,
-	type ChangelogWithCount,
+	type EntityChangelog,
 	type ScrapedItem
 } from './queries';
 

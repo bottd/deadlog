@@ -7,6 +7,7 @@ import {
 	fetchItems,
 	fetchSteamPatchNotes,
 	isSteamUnfurl,
+	extractSteamGidFromUnfurl,
 	parseSteamContent,
 	extractDateFromTitle,
 	type ChangelogPost,
@@ -272,6 +273,8 @@ export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<voi
 
 	let created = 0;
 	let updated = 0;
+	// Notes claimed late (by gid) must not also be written as standalone changelogs.
+	const gidMatchedSteamNotes = new Set<string>();
 
 	if (newPosts.length > 0) {
 		console.log(`\n🕷️  Scraping ${newPosts.length} forum posts...`);
@@ -285,6 +288,7 @@ export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<voi
 		});
 
 		const contentMap = new Map(contents.map((c) => [c.postId, c]));
+		const steamNotesByGid = new Map(steamNotes.map((note) => [note.gid, note]));
 
 		console.log('\n📝 Writing changelogs...');
 
@@ -297,7 +301,18 @@ export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<voi
 
 			const { filepath } = resolveFilepath(post.title, post.pubDate);
 
-			const steamNote = steamByForumPostId.get(post.postId);
+			// Title-date matching runs before bodies are fetched, so a Steam note whose
+			// title carries no date can only be found here, via the unfurl's gid.
+			let steamNote = steamByForumPostId.get(post.postId);
+			if (!steamNote) {
+				const gid = extractSteamGidFromUnfurl(content.content);
+				const byGid = gid ? steamNotesByGid.get(gid) : undefined;
+				if (byGid) {
+					steamNote = byGid;
+					gidMatchedSteamNotes.add(steamNoteIdentity(byGid));
+					console.log(`   🔗 Matched Steam content by gid for: ${post.title}`);
+				}
+			}
 
 			if (steamNote) {
 				console.log(`   🔗 Matched Steam content for: ${post.title}`);
@@ -315,10 +330,14 @@ export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<voi
 		}
 	}
 
-	if (steamOnlyNotes.length > 0) {
-		console.log(`\n🎮 Writing ${steamOnlyNotes.length} Steam-only patch notes...`);
+	const unclaimedSteamNotes = steamOnlyNotes.filter(
+		(note) => !gidMatchedSteamNotes.has(steamNoteIdentity(note))
+	);
 
-		for (const note of steamOnlyNotes) {
+	if (unclaimedSteamNotes.length > 0) {
+		console.log(`\n🎮 Writing ${unclaimedSteamNotes.length} Steam-only patch notes...`);
+
+		for (const note of unclaimedSteamNotes) {
 			const { filepath } = resolveFilepath(note.title, note.date);
 
 			const source = buildSteamChangelogSource(note);

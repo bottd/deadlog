@@ -282,6 +282,7 @@
 								author={changelog.author}
 								authorImage={changelog.authorImage}
 								changeCount={changelog.changeCount}
+								changeSummary={changelog.changeSummary}
 								{entity}
 								{accent}
 							/>

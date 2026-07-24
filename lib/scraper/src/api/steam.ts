@@ -166,6 +166,18 @@ export function extractSteamUrlFromUnfurl(html: string): string | null {
 }
 
 /**
+ * Pull the Steam news gid out of a forum post's unfurl block.
+ *
+ * Steam titles the same patch differently from the forum ("Map Rework Update" vs
+ * "02-25-2025 Update"), and date-keyed matching needs a date in *both* titles — so
+ * these posts never matched and lost their notes entirely. The unfurl names the gid.
+ */
+export function extractSteamGidFromUnfurl(html: string): string | null {
+	const url = extractSteamUrlFromUnfurl(html);
+	return url?.match(/\/view\/(\d+)$/)?.[1] ?? null;
+}
+
+/**
  * Check if forum post content is primarily a Steam unfurl (link preview)
  * with no substantial patch note content.
  */

@@ -58,12 +58,14 @@ describe('entity history queries', () => {
 				changelog_id TEXT NOT NULL,
 				hero_id INTEGER NOT NULL,
 				change_count INTEGER,
+				change_summary TEXT,
 				PRIMARY KEY (changelog_id, hero_id)
 			);
 			CREATE TABLE changelog_items (
 				changelog_id TEXT NOT NULL,
 				item_id INTEGER NOT NULL,
 				change_count INTEGER,
+				change_summary TEXT,
 				PRIMARY KEY (changelog_id, item_id)
 			);
 		`);
@@ -127,12 +129,20 @@ describe('entity history queries', () => {
 			}
 		]);
 		await db.insert(schema.changelogHeroes).values([
-			{ changelogId: 'new', heroId: 69, changeCount: 4 },
-			{ changelogId: 'old', heroId: 69, changeCount: null }
+			{
+				changelogId: 'new',
+				heroId: 69,
+				changeCount: 4,
+				changeSummary: 'Doorway: Cooldown reduced from 40s to 32s'
+			},
+			{ changelogId: 'old', heroId: 69, changeCount: null, changeSummary: null }
 		]);
-		await db
-			.insert(schema.changelogItems)
-			.values({ changelogId: 'new', itemId: 1, changeCount: 2 });
+		await db.insert(schema.changelogItems).values({
+			changelogId: 'new',
+			itemId: 1,
+			changeCount: 2,
+			changeSummary: 'Proc chance increased'
+		});
 	});
 
 	afterEach(() => client.close());
@@ -149,6 +159,20 @@ describe('entity history queries', () => {
 		const history = await getChangelogsByItemId(db, 1);
 		expect(history).toHaveLength(1);
 		expect(history[0].changeCount).toBe(2);
+	});
+
+	it('carries the entity-specific teaser instead of the whole patch body', async () => {
+		const [hero] = await getChangelogsByHeroId(db, 69);
+		const [item] = await getChangelogsByItemId(db, 1);
+
+		expect(hero.changeSummary).toBe('Doorway: Cooldown reduced from 40s to 32s');
+		expect(item.changeSummary).toBe('Proc chance increased');
+
+		// Entity history pages prerender ~200 pages; shipping contentText put the full
+		// prose of every patch into each one. Keep it out of this query.
+		for (const row of [hero, item]) {
+			expect(row).not.toHaveProperty('contentText');
+		}
 	});
 
 	it('translates the stored shop taxonomy for existing icon consumers', async () => {

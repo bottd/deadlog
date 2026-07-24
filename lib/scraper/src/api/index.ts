@@ -13,6 +13,7 @@ export {
 	parseSteamContent,
 	extractDateFromTitle,
 	extractSteamUrlFromUnfurl,
+	extractSteamGidFromUnfurl,
 	type SteamNewsItem,
 	type SteamPatchNote
 } from './steam';

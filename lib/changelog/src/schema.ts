@@ -24,6 +24,8 @@ export interface EntityChange {
 	name: string;
 	type: 'hero' | 'item';
 	count: number;
+	/** Teaser built from this entity's own bullets, for entity-page patch cards. */
+	summary: string;
 }
 
 export interface ParsedChangelog {

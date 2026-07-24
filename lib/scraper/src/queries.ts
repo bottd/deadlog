@@ -19,8 +19,27 @@ import { entityNamesMatch } from '@deadlog/changelog';
 export { getLibsqlDb as getDb };
 
 export type ScrapedChangelog = SelectChangelog;
-export type ChangelogWithCount = ScrapedChangelog & { changeCount: number | null };
 export type ScrapedItem = typeof schema.items.$inferSelect;
+
+/**
+ * Entity history cards render a date, an author and a teaser — never the patch body.
+ * Selecting `contentText` here put the full prose of every patch into the prerendered
+ * HTML of all ~200 hero/item pages, so the column list is deliberate.
+ */
+const ENTITY_HISTORY_COLUMNS = {
+	id: schema.changelogs.id,
+	title: schema.changelogs.title,
+	pubDate: schema.changelogs.pubDate,
+	author: schema.changelogs.author,
+	authorImage: schema.changelogs.authorImage
+} as const;
+
+export type EntityChangelog = {
+	[K in keyof typeof ENTITY_HISTORY_COLUMNS]: SelectChangelog[K];
+} & {
+	changeCount: number | null;
+	changeSummary: string | null;
+};
 
 function isMainChangelog() {
 	return or(
@@ -275,11 +294,12 @@ export async function getChangelogsByHeroId(
 	db: DrizzleDB,
 	heroId: number,
 	limit = 50
-): Promise<ChangelogWithCount[]> {
-	const results = await db
-		.selectDistinct({
-			changelog: schema.changelogs,
-			changeCount: schema.changelogHeroes.changeCount
+): Promise<EntityChangelog[]> {
+	return db
+		.select({
+			...ENTITY_HISTORY_COLUMNS,
+			changeCount: schema.changelogHeroes.changeCount,
+			changeSummary: schema.changelogHeroes.changeSummary
 		})
 		.from(schema.changelogs)
 		.innerJoin(
@@ -290,19 +310,18 @@ export async function getChangelogsByHeroId(
 		.orderBy(desc(schema.changelogs.pubDate))
 		.limit(limit)
 		.all();
-
-	return results.map((r) => ({ ...r.changelog, changeCount: r.changeCount }));
 }
 
 export async function getChangelogsByItemId(
 	db: DrizzleDB,
 	itemId: number,
 	limit = 50
-): Promise<ChangelogWithCount[]> {
-	const results = await db
-		.selectDistinct({
-			changelog: schema.changelogs,
-			changeCount: schema.changelogItems.changeCount
+): Promise<EntityChangelog[]> {
+	return db
+		.select({
+			...ENTITY_HISTORY_COLUMNS,
+			changeCount: schema.changelogItems.changeCount,
+			changeSummary: schema.changelogItems.changeSummary
 		})
 		.from(schema.changelogs)
 		.innerJoin(
@@ -313,8 +332,6 @@ export async function getChangelogsByItemId(
 		.orderBy(desc(schema.changelogs.pubDate))
 		.limit(limit)
 		.all();
-
-	return results.map((r) => ({ ...r.changelog, changeCount: r.changeCount }));
 }
 
 interface ChangelogIcons {

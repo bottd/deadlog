@@ -13,6 +13,7 @@
 		authorImage?: string;
 		entity: EntityFilterContext & { image?: string };
 		changeCount: number | null;
+		changeSummary?: string | null;
 		accent?: string;
 	}
 
@@ -23,6 +24,7 @@
 		authorImage,
 		entity,
 		changeCount,
+		changeSummary,
 		accent = 'var(--signal)'
 	}: Props = $props();
 
@@ -32,6 +34,7 @@
 			? 'change count unavailable'
 			: `${changeCount} change${changeCount === 1 ? '' : 's'}`
 	);
+	const teaser = $derived(changeSummary?.trim() ?? '');
 </script>
 
 <a
@@ -109,6 +112,12 @@
 				{/if}
 			</div>
 		</div>
+
+		{#if teaser}
+			<p class="text-muted-foreground line-clamp-2 text-xs leading-relaxed">
+				{teaser}
+			</p>
+		{/if}
 
 		<div
 			class="text-muted-foreground group-hover:text-signal mt-auto flex items-center justify-between gap-3 text-xs font-medium transition-colors"

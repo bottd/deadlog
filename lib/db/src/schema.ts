@@ -66,7 +66,8 @@ export const changelogHeroes = sqliteTable(
 		heroId: integer('hero_id')
 			.notNull()
 			.references(() => heroes.id),
-		changeCount: integer('change_count')
+		changeCount: integer('change_count'),
+		changeSummary: text('change_summary')
 	},
 	(table) => ({
 		pk: primaryKey({ columns: [table.changelogId, table.heroId] }),
@@ -85,7 +86,8 @@ export const changelogItems = sqliteTable(
 		itemId: integer('item_id')
 			.notNull()
 			.references(() => items.id),
-		changeCount: integer('change_count')
+		changeCount: integer('change_count'),
+		changeSummary: text('change_summary')
 	},
 	(table) => ({
 		pk: primaryKey({ columns: [table.changelogId, table.itemId] }),
