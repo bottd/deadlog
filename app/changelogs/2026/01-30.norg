@@ -119,7 +119,7 @@ content_text: "Added hero banning to Standard Mode and Street Brawl. You can now
 - Flawless Advance Perfect Damage spirit scaling reduced from 1.65 to 1.55
 
 @embed svelte
-<AbilityHeading name="Flawless Advance" />
+<AbilityHeading name="Flawless Advance" id="flawless-advance-1" />
 @end
 
 - Flawless Advance T3 reduced from +75 Perfect Damage to +65
@@ -136,7 +136,7 @@ content_text: "Added hero banning to Standard Mode and Street Brawl. You can now
 - Itani Lo Sahn base damage reduced from 250 to 225
 
 @embed svelte
-<AbilityHeading name="Itani Lo Sahn" />
+<AbilityHeading name="Itani Lo Sahn" id="itani-lo-sahn-1" />
 @end
 
 - Itani Lo Sahn spirit scaling reduced from 1.75 to 1.6
@@ -164,7 +164,7 @@ content_text: "Added hero banning to Standard Mode and Street Brawl. You can now
 - Sticky Bomb can no longer be selfcast
 
 @embed svelte
-<AbilityHeading name="Sticky Bomb" />
+<AbilityHeading name="Sticky Bomb" id="sticky-bomb-1" />
 @end
 
 - Sticky Bomb T2 increased from +70 Damage to +75
@@ -178,7 +178,7 @@ content_text: "Added hero banning to Standard Mode and Street Brawl. You can now
 - Sticky Bomb on hit/kill spirit scaling reduced from 0.0025/0.015 to 0.002/0.012
 
 @embed svelte
-<AbilityHeading name="Sticky Bomb" />
+<AbilityHeading name="Sticky Bomb" id="sticky-bomb-2" />
 @end
 
 - Sticky Bomb T3 duration increased from 3s to 5s
@@ -193,7 +193,7 @@ content_text: "Added hero banning to Standard Mode and Street Brawl. You can now
 - Sticky Bomb fuse timer increased from 3.0 to 3.5
 
 @embed svelte
-<AbilityHeading name="Sticky Bomb" />
+<AbilityHeading name="Sticky Bomb" id="sticky-bomb-3" />
 @end
 
 - Sticky Bomb radius reduced from 12m to 10m
@@ -276,7 +276,7 @@ content_text: "Added hero banning to Standard Mode and Street Brawl. You can now
 - Bullet damage rescaled from 25 + 0.4/boon to 18 + 0.6/boon
 
 @embed svelte
-<AbilityHeading name="Light Eater" />
+<AbilityHeading name="Light Eater" id="light-eater-1" />
 @end
 
 - Light Eater T1 and T2 swapped the Lifesteal and Cooldown Reduction
@@ -317,7 +317,7 @@ content_text: "Added hero banning to Standard Mode and Street Brawl. You can now
 - Eternal Night cooldown reduced from 130s to 120s
 
 @embed svelte
-<AbilityHeading name="Bloodscent Isolation Range" />
+<AbilityHeading name="Bloodscent Isolation Range" id="bloodscent-isolation-range-1" />
 @end
 
 - Bloodscent Isolation Range reduced from 20m to 10m
@@ -354,7 +354,7 @@ content_text: "Added hero banning to Standard Mode and Street Brawl. You can now
 - Jar of Dead deadheads now die a little faster to damage
 
 @embed svelte
-<AbilityHeading name="Borrowed Decree" />
+<AbilityHeading name="Borrowed Decree" id="borrowed-decree-1" />
 @end
 
 - Borrowed Decree T3 changed from 5% Max HP to 5% Current HP
@@ -369,7 +369,7 @@ content_text: "Added hero banning to Standard Mode and Street Brawl. You can now
 - Borrowed Decree ghouls are now slowed by 20% for 0.5s when taking bullet damage
 
 @embed svelte
-<AbilityHeading name="Borrowed Decree" />
+<AbilityHeading name="Borrowed Decree" id="borrowed-decree-2" />
 @end
 
 - Borrowed Decree cooldown increased from 110s to 120s
@@ -390,7 +390,7 @@ content_text: "Added hero banning to Standard Mode and Street Brawl. You can now
 - Borrowed Decree spawn interval improved from every 5s to every 4s (same total ghouls over the duration)
 
 @embed svelte
-<AbilityHeading name="Borrowed Decree" />
+<AbilityHeading name="Borrowed Decree" id="borrowed-decree-3" />
 @end
 
 - Borrowed Decree duration reduced from 20s to 16s (spirit scaling from 0.05 to 0.04)
@@ -583,7 +583,7 @@ content_text: "Added hero banning to Standard Mode and Street Brawl. You can now
 - Lil Helpers trooper resistance reduced from 35% to 30%
 
 @embed svelte
-<AbilityHeading name="Lil Helpers" />
+<AbilityHeading name="Lil Helpers" id="lil-helpers-1" />
 @end
 
 - Lil Helpers T3 increased from +15% Resistance to +20%
@@ -591,7 +591,7 @@ content_text: "Added hero banning to Standard Mode and Street Brawl. You can now
 - Enemies attacking a Sinner's Sacrifice while your helpers are on it will now cause them to get scared and go back to you
 
 @embed svelte
-<AbilityHeading name="Naptime" />
+<AbilityHeading name="Naptime" id="naptime-1" />
 @end
 
 - Naptime T3 increased from -55s Cooldown to -65s
@@ -680,13 +680,13 @@ content_text: "Added hero banning to Standard Mode and Street Brawl. You can now
 - Ammo increased from 6 to 7
 
 @embed svelte
-<AbilityHeading name="Boot Kick" />
+<AbilityHeading name="Boot Kick" id="boot-kick-1" />
 @end
 
 - Boot Kick spirit scaling increased from 1 to 2
 
 @embed svelte
-<AbilityHeading name="Entangling Bola" />
+<AbilityHeading name="Entangling Bola" id="entangling-bola-1" />
 @end
 
 - Entangling Bola spirit scaling increased from 1 to 1.6
@@ -722,7 +722,7 @@ content_text: "Added hero banning to Standard Mode and Street Brawl. You can now
 - Gutshot fixed wall stun distance not scaling with ability range
 
 @embed svelte
-<AbilityHeading name="Gutshot" />
+<AbilityHeading name="Gutshot" id="gutshot-1" />
 @end
 
 - Gutshot increased wall stun distance from 6.5m to 7m
@@ -730,7 +730,7 @@ content_text: "Added hero banning to Standard Mode and Street Brawl. You can now
 - Gutshot on wall hit bonus damage scaling increased from 0.4 to 0.9
 
 @embed svelte
-<AbilityHeading name="Gutshot" />
+<AbilityHeading name="Gutshot" id="gutshot-2" />
 @end
 
 - Gutshot T2 changed from -8s cooldown and 2.5m range to -10s cooldown and +0.4s stun duration

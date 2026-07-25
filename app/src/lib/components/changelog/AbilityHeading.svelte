@@ -1,20 +1,18 @@
 <script lang="ts">
+	import { abilityFragmentId } from '@deadlog/utils';
 	import { getEntityMaps } from './entityContext';
 
 	interface Props {
 		name: string;
+		/** Set by the generator only when this ability heads more than one group. */
+		id?: string;
 	}
 
-	let { name }: Props = $props();
+	let { name, id }: Props = $props();
 
 	const maps = getEntityMaps();
 
-	const slug = $derived(
-		name
-			.toLowerCase()
-			.replace(/[^a-z0-9]+/g, '-')
-			.replace(/^-+|-+$/g, '')
-	);
+	const slug = $derived(id ?? abilityFragmentId(name));
 
 	const abilityData = $derived(maps.abilityMap[name.toLowerCase()]);
 </script>

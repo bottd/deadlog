@@ -16,7 +16,9 @@
 	const description = $derived(data.description);
 	const image = $derived(data.image);
 	const canonical = $derived(absoluteUrl(`/hero/${hero.slug}`));
-	const isIndexable = $derived(hero.isReleased && changelogs.length > 0);
+	// Deliberately not gated on patch count: the sitemap lists every released hero, and
+	// a newly released one has no patches yet — exactly when its page matters most.
+	const isIndexable = $derived(hero.isReleased);
 	const accent = $derived(
 		hero.heroType ? `var(--type-${hero.heroType})` : 'var(--signal)'
 	);

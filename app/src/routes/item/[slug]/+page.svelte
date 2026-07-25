@@ -29,7 +29,9 @@
 	const description = $derived(data.description);
 	const image = $derived(data.image);
 	const canonical = $derived(absoluteUrl(`/item/${item.slug}`));
-	const isIndexable = $derived(item.isReleased && changelogs.length > 0);
+	// See the hero page: the sitemap lists every released item, so the page must not
+	// exclude itself just because no patch has touched it yet.
+	const isIndexable = $derived(item.isReleased);
 	const categoryMeta = $derived(
 		item.category ? ITEM_CATEGORY_META[item.category] : UNCLASSIFIED_ITEM_META
 	);

@@ -1,5 +1,6 @@
 import { schema } from '@deadlog/db';
 import { eq } from 'drizzle-orm';
+import { pickHeroImages } from '$lib/utils/entityImages';
 import type { LayoutServerLoad } from './$types';
 
 export const load: LayoutServerLoad = async ({ locals, route }) => {
@@ -15,7 +16,9 @@ export const load: LayoutServerLoad = async ({ locals, route }) => {
 	]);
 
 	return {
-		heroes,
+		// This payload is serialized into every page for the header's filter, so the
+		// unused image keys were pure weight on all ~200 prerendered pages.
+		heroes: heroes.map((hero) => ({ ...hero, images: pickHeroImages(hero.images) })),
 		items
 	};
 };

@@ -114,9 +114,10 @@
 					inLanguage: 'en-US',
 					about: entities
 				},
+				// One entry per URL: "Deadlog" and "Patch Notes" both pointed at "/", which
+				// Google's structured-data validator flags as a duplicate ListItem.
 				breadcrumbList([
-					{ name: 'Deadlog', path: '/' },
-					{ name: 'Patch Notes', path: '/' },
+					{ name: SITE_NAME, path: '/' },
 					{ name: changelog.title, path: `/change/${encodeURIComponent(changelog.id)}` }
 				])
 			]

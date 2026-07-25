@@ -162,8 +162,8 @@ importers:
         specifier: 8.1.5
         version: 8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1)
       vite-plugin-norg:
-        specifier: 4.0.16
-        version: 4.0.16(react@19.2.8)(svelte@5.56.7(@typescript-eslint/types@8.65.0))(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1))
+        specifier: 4.0.17
+        version: 4.0.17(react@19.2.8)(svelte@5.56.7(@typescript-eslint/types@8.65.0))(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1))
       vitest:
         specifier: 4.1.10
         version: 4.1.10(@types/node@26.1.1)(@vitest/browser-playwright@4.1.10)(happy-dom@20.11.1)(msw@2.15.0(@types/node@26.1.1)(typescript@6.0.3))(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1))
@@ -3290,8 +3290,8 @@ packages:
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
-  vite-plugin-norg@4.0.16:
-    resolution: {integrity: sha512-BrnKxNuvAkMSq/1ocobtTO6DVpIAZDZjmhYJQUqzix7ER/dlLGoazdwDGTU9nVe42VA/hy3Z9UU/29+HvYs86A==}
+  vite-plugin-norg@4.0.17:
+    resolution: {integrity: sha512-+dkcyRrCCc12S/wDa9hi5z7vVN/rJmEx2DhJZyQ7i31QHB61uEYbVMwXEsTqa+huUl4tplim9FqwoKA8osT4PA==}
     peerDependencies:
       react: ^19.0.0
       svelte: ^5.0.0
@@ -6039,11 +6039,10 @@ snapshots:
 
   util-deprecate@1.0.2: {}
 
-  vite-plugin-norg@4.0.16(react@19.2.8)(svelte@5.56.7(@typescript-eslint/types@8.65.0))(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1)):
+  vite-plugin-norg@4.0.17(react@19.2.8)(svelte@5.56.7(@typescript-eslint/types@8.65.0))(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1)):
     dependencies:
       dedent: 1.7.2
       vite: 8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1)
-      zod: 4.4.3
     optionalDependencies:
       react: 19.2.8
       svelte: 5.56.7(@typescript-eslint/types@8.65.0)

@@ -168,7 +168,7 @@ content_text: "Playtesting times are now starting 1 hour earlier. Weekdays are 5
 - Sleep Dagger Spirit scaling increased from 2.3 to 2.6
 
 @embed svelte
-<AbilityHeading name="Sleep Dagger" />
+<AbilityHeading name="Sleep Dagger" id="sleep-dagger-1" />
 @end
 
 - Sleep Dagger no longer gets +140 damage with the T3

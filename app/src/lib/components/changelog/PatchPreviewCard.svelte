@@ -34,7 +34,6 @@
 			? 'change count unavailable'
 			: `${changeCount} change${changeCount === 1 ? '' : 's'}`
 	);
-	const teaser = $derived(changeSummary?.trim() ?? '');
 </script>
 
 <a
@@ -113,9 +112,9 @@
 			</div>
 		</div>
 
-		{#if teaser}
+		{#if changeSummary}
 			<p class="text-muted-foreground line-clamp-2 text-xs leading-relaxed">
-				{teaser}
+				{changeSummary}
 			</p>
 		{/if}
 

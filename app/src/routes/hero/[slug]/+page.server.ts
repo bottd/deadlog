@@ -33,8 +33,14 @@ export const load: PageServerLoad = async ({ params, locals }) => {
 	}));
 
 	return {
+		// Explicit field list: `images` is resolved to one URL here and never read by
+		// the page, so the 15-key blob stays out of every prerendered hero page.
 		hero: {
-			...hero,
+			id: hero.id,
+			name: hero.name,
+			slug: hero.slug,
+			heroType: hero.heroType,
+			isReleased: hero.isReleased,
 			image: getHeroCardImage(hero)
 		},
 		changelogs: enrichedChangelogs,

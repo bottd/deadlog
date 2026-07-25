@@ -144,7 +144,7 @@ content_text: "Added a hero based mmr system, so when you join a match with a sp
 - Mini Turret deploy time reduced from 2s to 1s
 
 @embed svelte
-<AbilityHeading name="Mini Turret" />
+<AbilityHeading name="Mini Turret" id="mini-turret-1" />
 @end
 
 - Mini Turret now shows up on the minimap

@@ -34,7 +34,7 @@ content_text: "Getting damaged during the initial launch window (0.6s) after usi
 - Gloom Bombs base damage from 55 to 45
 
 @embed svelte
-<AbilityHeading name="Gloom Bombs" />
+<AbilityHeading name="Gloom Bombs" id="gloom-bombs-1" />
 @end
 
 - Gloom Bombs spirit scaling reduced from 0.74 to 0.64

@@ -154,7 +154,7 @@ content_text: "Accounts that are banned for cheating will now have all their inv
 - Hyperbeam Spirit Power damage scaling increased from 1.96 to 2.2
 
 @embed svelte
-<AbilityHeading name="Hyperbeam" />
+<AbilityHeading name="Hyperbeam" id="hyperbeam-1" />
 @end
 
 - Hyperbeam T2 increased from +120 to +140
@@ -201,7 +201,7 @@ content_text: "Accounts that are banned for cheating will now have all their inv
 - Sleep Dagger wake-up time reduced from 0.15 to 0.1
 
 @embed svelte
-<AbilityHeading name="Sleep Dagger" />
+<AbilityHeading name="Sleep Dagger" id="sleep-dagger-1" />
 @end
 
 - Sleep Dagger projectile size reduced by 10%

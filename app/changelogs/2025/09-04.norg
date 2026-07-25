@@ -265,7 +265,7 @@ content_text: "Rejuv only heals the person hitting the crystal Dying to a non-pl
 - Bloodletting incoming damage deferred increased from 25% to 30%
 
 @embed svelte
-<AbilityHeading name="Bloodletting" />
+<AbilityHeading name="Bloodletting" id="bloodletting-1" />
 @end
 
 - Bloodletting T3 increased from +35% Damage Cleared to +45%
@@ -373,7 +373,7 @@ content_text: "Rejuv only heals the person hitting the crystal Dying to a non-pl
 - Screwjab dagger cooldown reduced from 10s to 9s
 
 @embed svelte
-<AbilityHeading name="Screwjab Dagger" />
+<AbilityHeading name="Screwjab Dagger" id="screwjab-dagger-1" />
 @end
 
 - Screwjab Dagger T3 increased from +1s Slow Duration to +2s

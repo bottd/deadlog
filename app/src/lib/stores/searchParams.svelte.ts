@@ -64,19 +64,15 @@ class SearchParamsStore {
 		this.#navigate(new URLSearchParams());
 	}
 
-	// Only the changelog list and a single patch page read these params. On the
-	// directories and entity profiles they are inert, so filtering from there means
-	// "show me this in the changelog" rather than "?hero=… on a page that ignores it".
-	#targetPath(): string {
-		const path = page.url.pathname;
-		return path === '/' || path.startsWith('/change/') ? path : '/';
-	}
-
 	#navigate(nextParams: URLSearchParams) {
 		this.#pendingParams = nextParams;
 		const navigationId = ++this.#navigationId;
 		const query = nextParams.toString();
-		const path = this.#targetPath();
+		// Only the changelog list and a single patch page read these params. On the
+		// directories and entity profiles they are inert, so filtering from there means
+		// "show me this in the changelog" rather than "?hero=… on a page that ignores it".
+		const { pathname } = page.url;
+		const path = pathname === '/' || pathname.startsWith('/change/') ? pathname : '/';
 		this.#pendingTarget = query ? `${path}?${query}` : path;
 		this.#hasReachedTarget = false;
 

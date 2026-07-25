@@ -14,7 +14,13 @@ content_text: "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows ran
 
 - Added Ranked mode
 - Added a 3rd casting mode, Quick Cast (shows range/radius/etc on key down, then on key up acts like Instant Cast). The three casting modes are now Instant Cast, Quick Cast, and Confirm Cast.
+@embed svelte
+<VideoLink src="https://forums.playdeadlock.com/attachments/quick_cast_modes-mp4.23110/" label="View attachment quick_cast_modes.mp4" />
+@end
 - Added input buffering for ability usage (so if you cast an ability and then quickly cast another ability during its cast time, the next one will fire instead of the input being dropped)
+@embed svelte
+<VideoLink src="https://forums.playdeadlock.com/attachments/input_buffering-mp4.23111/" label="View attachment input_buffering.mp4" />
+@end
 - Now displaying a unique ID for builds in the description section of the build browser.  You can click on it to copy the Build ID to the clipboard to share specific builds with friends.
 - If you enter a Build ID in the search box of the build browser, it will show all of the builds for the current hero by the author of that build.
 - For private lobbies, added the ability to swap players on both teams with a button press. In addition players can be randomly shuffled across the two teams, and if lanes are being assigned, can be shuffled within the teams.
@@ -422,7 +428,7 @@ mid channel 01
 - Pulse Grenade Damage Amp per Stack increased from 5% to 6%
 
 @embed svelte
-<AbilityHeading name="Pulse Grenade" />
+<AbilityHeading name="Pulse Grenade" id="pulse-grenade-1" />
 @end
 
 - Pulse Grenade T3 no longer increases Damage Amp by 2%
@@ -525,7 +531,7 @@ mid channel 01
 - Fixed Superior Stamina dash count not working with Goo Ball
 
 @embed svelte
-<AbilityHeading name="Goo Ball" />
+<AbilityHeading name="Goo Ball" id="goo-ball-1" />
 @end
 
 - Goo Ball stun duration reduced from 1s to 0.7s

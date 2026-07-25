@@ -10,6 +10,13 @@ status: draft
 content_text: 
 @end
 
+@comment
+No change list here on purpose. The forum post is only a Steam unfurl card, and the
+Steam API serves just the ~16 most recent notes, so this body can no longer be
+refetched. Regenerating from the post cache would fill it with the unfurl blurb
+("store.steampowered.com"), which is why regenerate-from-cache.ts skips it.
+@end
+
 * General Changes
 
 @image https://clan.akamai.steamstatic.com/images/45164767/27bbee6ce3031dc70be354316a8f3290c3e5c20a.png

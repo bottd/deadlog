@@ -90,6 +90,9 @@ content_text: "Added a new Profile page that displays a breakdown of recent matc
 - Added wall jumping (does not consume stamina, requires input direction away from the wall, can be done once)
 - Moved a flex slot from "Set of enemy Base Guardians" to "All Enemy Lane Guardians"
 - Added ropes to some buildings to let you climb up (hold jump key to latch onto them). Can shoot while hanging on them.
+@embed svelte
+<VideoLink src="https://forums.playdeadlock.com/attachments/deadlock_ropes-mp4.13983/" label="View attachment Deadlock_Ropes.mp4" />
+@end
 - A pair of teleporters has been added to the outer lanes at the midpoint (near the three red neutral creeps)
 - Four teleporters have changed locations
 - The upper floor teleporters have moved to the street level
@@ -117,6 +120,9 @@ new bouncepad
 valid rooftop locations
 @end
 - A few of the buildings have new passageways at higher floors that are along the way to the rooftop
+@embed svelte
+<VideoLink src="https://forums.playdeadlock.com/attachments/ropes_passages-mp4.13956/" label="View attachment ropes_passages.mp4" />
+@end
 - Breakable containers have been added to the new playable rooftops
 - Juke closets have replaced the previous location of the upper floor teleporters
 - The half of the underground tunnel towards the outer lanes has been made wider
@@ -265,7 +271,7 @@ valid rooftop locations
 - Flame Dash trail now gets wider with Ability Range bonus
 
 @embed svelte
-<AbilityHeading name="Flame Dash" />
+<AbilityHeading name="Flame Dash" id="flame-dash-1" />
 @end
 
 - Flame Dash T1 duration reduced from 7s to 6s
@@ -308,7 +314,7 @@ valid rooftop locations
 - Air Drop self cast cast time increased from 1s to 2s
 
 @embed svelte
-<AbilityHeading name="Air Drop" />
+<AbilityHeading name="Air Drop" id="air-drop-1" />
 @end
 
 - Air Drop max move speed reduced from 20 to 18

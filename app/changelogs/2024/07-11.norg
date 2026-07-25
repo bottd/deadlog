@@ -117,7 +117,7 @@ content_text: "Testing schedule now starts 1 hour earlier for all regions EU mat
 - Shoulder Charge distance increased by 15%
 
 @embed svelte
-<AbilityHeading name="Shoulder Charge" />
+<AbilityHeading name="Shoulder Charge" id="shoulder-charge-1" />
 @end
 
 - Shoulder Charge now stuns enemies for 1s if it drags them into a wall
@@ -154,7 +154,7 @@ content_text: "Testing schedule now starts 1 hour earlier for all regions EU mat
 - Guided Owl base damage reduced from 300 to 250
 
 @embed svelte
-<AbilityHeading name="Guided Owl" />
+<AbilityHeading name="Guided Owl" id="guided-owl-1" />
 @end
 
 - Guided Owl T1 is now +100 damage

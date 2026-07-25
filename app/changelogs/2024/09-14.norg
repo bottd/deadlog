@@ -31,7 +31,7 @@ content_text: Bebop Hyper Beam cooldown increased from 117 to 130 Hyper Beam T1 
 - Hyper Beam end radius reduced from 5m to 4m
 
 @embed svelte
-<AbilityHeading name="Hyper Beam" />
+<AbilityHeading name="Hyper Beam" id="hyper-beam-1" />
 @end
 
 - Hyper Beam slow reduced from 40% to 30%

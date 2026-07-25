@@ -118,7 +118,7 @@ content_text: "Removed the Arch Monument. Removed the rope entrances to Mid Boss
 - Last Stand DPS reduced from 90 to 80
 
 @embed svelte
-<AbilityHeading name="Last Stand" />
+<AbilityHeading name="Last Stand" id="last-stand-1" />
 @end
 
 - Last Stand T2 DPS reduced from +60 to +50

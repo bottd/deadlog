@@ -347,7 +347,7 @@ dynamo 04
 - Medicinal Spectre radius now grows with Spirit Power (0.07)
 
 @embed svelte
-<AbilityHeading name="Can" />
+<AbilityHeading name="Can" id="can-1" />
 @end
 
 - Can no longer wall jump from Spectral Wall
@@ -472,7 +472,7 @@ dynamo 04
 - Crow Familiar impact damage spirit scaling reduced from 1 to 0.8
 
 @embed svelte
-<AbilityHeading name="Crow Familiar" />
+<AbilityHeading name="Crow Familiar" id="crow-familiar-1" />
 @end
 
 - Crow Familiar spirit power duration scaling reduced from 0.04 to 0.03
@@ -481,7 +481,7 @@ dynamo 04
 - Space bar no longer exists the ability, you have to press the key again
 
 @embed svelte
-<AbilityHeading name="Assassinate" />
+<AbilityHeading name="Assassinate" id="assassinate-1" />
 @end
 
 - Assassinate now does 20% more damage when getting a headshot
@@ -572,7 +572,7 @@ dynamo 04
 - Shadow Transformation bullet and spirit resistance reduced from 55% to 40%
 
 @embed svelte
-<AbilityHeading name="Can" />
+<AbilityHeading name="Can" id="can-2" />
 @end
 
 - Can now interrupt Power Slash with parry

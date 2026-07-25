@@ -123,7 +123,7 @@
 			<h1
 				class="text-foreground font-display heading-glow text-4xl leading-tight font-medium tracking-wide md:text-6xl"
 			>
-				Deadlock Items
+				Items
 			</h1>
 			<p class="text-muted-foreground mt-4 max-w-2xl leading-relaxed">
 				Browse every released item, then open a chronological record of its buffs, nerfs,

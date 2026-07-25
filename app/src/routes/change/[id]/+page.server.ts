@@ -6,7 +6,7 @@ import {
 } from '@deadlog/scraper';
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad, EntryGenerator } from './$types';
-import { makeSummary } from '$lib/server/changelog-utils';
+import { makeSummary } from '@deadlog/utils';
 import { absoluteUrl } from '$lib/seo';
 
 export const prerender = true;

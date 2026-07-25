@@ -163,7 +163,7 @@ content_text: "Parrying is now allowed while ground dashing in order to bring it
 - Sleep Dagger Wake Up delay now has spirit scaling (0.003)
 
 @embed svelte
-<AbilityHeading name="Sleep Dagger" />
+<AbilityHeading name="Sleep Dagger" id="sleep-dagger-1" />
 @end
 
 - Sleep Dagger spirit scaling increased from 2.6 to 2.8

@@ -10,8 +10,6 @@ import { parseCSV } from '$lib/utils/csv';
 
 export const NO_MATCH_ENTITY_ID = -1;
 
-export { makeSummary };
-
 export function resolveEntityIds(
 	names: string[],
 	entities: { id: number; name: string }[]

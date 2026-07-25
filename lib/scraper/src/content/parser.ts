@@ -1,4 +1,5 @@
 import { Window } from 'happy-dom';
+import { isNorgLinkOnly } from '@deadlog/utils';
 
 export interface EntityLists {
 	heroes: Set<string>;
@@ -170,6 +171,29 @@ export function groupNotesByAbility(
 	return groups;
 }
 
+/** Norg link targets and labels are brace/bracket delimited, so neither may contain them. */
+const SAFE_HREF_RE = /^https?:\/\/[^\s{}[\]]+$/i;
+
+// The forum names a video attachment "<name>-mp4.<id>"; a plain ".mp4" covers anywhere
+// else a clip is linked directly.
+const VIDEO_HREF_RE = /(?:-|\.)(?:mp4|webm|m4v)(?:\.|$|\/)/i;
+const LINK_PARTS_RE = /^\{([^{}]+)\}\[([^\]]*)\]$/;
+
+/**
+ * Marks a clip so it renders as a labelled link rather than a bare URL. The forum serves
+ * no embeddable video, so this stays a link out — no poster, no player chrome that
+ * cannot actually play.
+ */
+function videoBlock(src: string, label: string): string {
+	return ['@video', `src ${src}`, `label ${label}`, '@end'].join('\n');
+}
+
+function linkMarkup(href: string, text: string): string {
+	const label = text.replace(/[{}[\]]/g, '').trim();
+	if (!SAFE_HREF_RE.test(href)) return label;
+	return `{${href}}[${label || href}]`;
+}
+
 export function extractContent(html: string): string {
 	const window = new Window();
 	window.document.write(html);
@@ -201,10 +225,11 @@ export function extractContent(html: string): string {
 		}
 	}
 
-	// Strip <a> tags — keep href only if it's a real URL, otherwise just unwrap
+	// Anchors become real Norg links. This is scraped from a user-editable forum, so
+	// only http(s) is passed through — the renderer drops unsafe schemes as well, but
+	// the allowlist is ours to own rather than the plugin's.
 	for (const a of [...bbWrapper.querySelectorAll('a')]) {
-		const href = a.getAttribute('href') || '';
-		a.replaceWith(href.startsWith('http') ? href : a.textContent || '');
+		a.replaceWith(linkMarkup(a.getAttribute('href') || '', a.textContent || ''));
 	}
 
 	// textContent handles entity decoding natively.
@@ -253,6 +278,7 @@ export function parseAndGroupContent(
 
 	const lines = rawContent.split('\n');
 	const prose: string[] = [];
+	let sawBullet = false;
 
 	for (let i = 0; i < lines.length; i++) {
 		const trimmed = lines[i].trim();
@@ -274,13 +300,24 @@ export function parseAndGroupContent(
 		if (!trimmed) continue;
 
 		if (!BULLET_MARKER_RE.test(trimmed)) {
-			prose.push(trimmed);
+			// Valve posts demo clips on their own line beside the screenshots. Such a line
+			// carries no bullet marker, so without this it lands in `prose` and is dropped
+			// from every post that also has bullets — which is all of them.
+			const link = isNorgLinkOnly(trimmed) ? trimmed.match(LINK_PARTS_RE) : null;
+			if (link && VIDEO_HREF_RE.test(link[1])) {
+				result.general.push(videoBlock(link[1], link[2]));
+			} else if (link) {
+				result.general.push(trimmed);
+			} else {
+				prose.push(trimmed);
+			}
 			continue;
 		}
 
 		const stripped = trimmed.replace(BULLET_PREFIX_RE, '').trim();
 		if (!stripped) continue;
 
+		sawBullet = true;
 		const parsed = parseChangelogLine(stripped, entities);
 
 		if (parsed.entityType === 'hero' && parsed.entityName) {
@@ -298,11 +335,7 @@ export function parseAndGroupContent(
 
 	// Some "updates" are prose announcements with no bullets at all. Keeping their
 	// text beats emitting an empty changelog, but never let prose outrank real bullets.
-	const hasNotes =
-		result.heroes.size > 0 ||
-		result.items.size > 0 ||
-		result.general.some((note) => !note.startsWith('@image '));
-	if (!hasNotes) result.general.push(...prose);
+	if (!sawBullet) result.general.push(...prose);
 
 	return result;
 }

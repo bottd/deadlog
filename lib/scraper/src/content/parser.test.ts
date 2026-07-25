@@ -1,5 +1,31 @@
 import { describe, expect, it } from 'vitest';
-import { deduplicateLines, parseAndGroupContent, type EntityLists } from './parser';
+import {
+	deduplicateLines,
+	extractContent,
+	parseAndGroupContent,
+	type EntityLists
+} from './parser';
+
+const wrap = (inner: string) => `<div class="bbWrapper">${inner}</div>`;
+
+describe('extractContent links', () => {
+	it('keeps an http link as norg markup instead of discarding it', () => {
+		const html = wrap('<a href="https://x.example/a">View attachment clip.mp4</a>');
+		expect(extractContent(html)).toBe('{https://x.example/a}[View attachment clip.mp4]');
+	});
+
+	it('falls back to the url when the anchor has no text', () => {
+		expect(extractContent(wrap('<a href="https://x.example/a"></a>'))).toBe(
+			'{https://x.example/a}[https://x.example/a]'
+		);
+	});
+
+	it('unwraps anything that is not http(s) — the forum is user-editable', () => {
+		for (const href of ['javascript:alert(1)', 'data:text/html,x', '/relative']) {
+			expect(extractContent(wrap(`<a href="${href}">click</a>`))).toBe('click');
+		}
+	});
+});
 
 const entities: EntityLists = {
 	heroes: new Set(['abrams']),
@@ -7,6 +33,66 @@ const entities: EntityLists = {
 };
 
 describe('parseAndGroupContent', () => {
+	it('marks a clip as a video block and leaves the adjacent still alone', () => {
+		const grouped = parseAndGroupContent(
+			[
+				'- Added Bounce Pads',
+				'@image https://cdn.example/still.jpg',
+				'bounce pad locations',
+				'@end',
+				'{https://forum.example/attachments/bounce_update-mp4.10434/}[View attachment bounce_update.mp4]'
+			].join('\n'),
+			entities
+		);
+		// the screenshot keeps rendering as an image; the clip is a link beside it
+		expect(grouped.general).toEqual([
+			'Added Bounce Pads',
+			'@image https://cdn.example/still.jpg\nbounce pad locations\n@end',
+			[
+				'@video',
+				'src https://forum.example/attachments/bounce_update-mp4.10434/',
+				'label View attachment bounce_update.mp4',
+				'@end'
+			].join('\n')
+		]);
+	});
+
+	it('never emits a poster — the forum serves no embeddable video', () => {
+		const grouped = parseAndGroupContent(
+			[
+				'@image https://cdn.example/still.jpg',
+				'a caption',
+				'@end',
+				'{https://forum.example/attachments/clip-mp4.1/}[View attachment clip.mp4]'
+			].join('\n'),
+			entities
+		);
+		expect(grouped.general.join('\n')).not.toContain('poster');
+	});
+
+	it('leaves a non-video link as an ordinary bullet', () => {
+		const grouped = parseAndGroupContent(
+			'{https://store.example/news/1}[Patch notes on Steam]',
+			entities
+		);
+		expect(grouped.general).toEqual([
+			'{https://store.example/news/1}[Patch notes on Steam]'
+		]);
+	});
+
+	it('keeps a bare attachment link that carries no bullet marker', () => {
+		const grouped = parseAndGroupContent(
+			['- Widened the street', '{https://x.example/a}[View attachment clip.mp4]'].join(
+				'\n'
+			),
+			entities
+		);
+		expect(grouped.general).toEqual([
+			'Widened the street',
+			'{https://x.example/a}[View attachment clip.mp4]'
+		]);
+	});
+
 	it('accepts the bullet markers Valve actually posts with', () => {
 		for (const marker of ['-', '*', '•']) {
 			const grouped = parseAndGroupContent(

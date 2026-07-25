@@ -41,14 +41,6 @@
 		if (sectionEl) applyEntityFilter(sectionEl, selectedSlugs);
 	});
 
-	function enhanceContent(node: HTMLElement) {
-		for (const heading of node.querySelectorAll('h1, h2')) {
-			if (!heading.id && heading.textContent) {
-				heading.id = entityFragmentId(heading.textContent);
-			}
-		}
-	}
-
 	function sectionOf(h1: HTMLElement): 'general' | 'hero' | 'item' {
 		const id = h1.id || entityFragmentId(h1.textContent ?? '');
 		if (id.includes('hero')) return 'hero';
@@ -88,12 +80,7 @@
 	}
 </script>
 
-<section
-	class="norg-content"
-	aria-label="Changelog details"
-	bind:this={sectionEl}
-	use:enhanceContent
->
+<section class="norg-content" aria-label="Changelog details" bind:this={sectionEl}>
 	<Content />
 </section>
 
@@ -191,8 +178,8 @@
 			@apply bg-primary/20;
 		}
 
-		/* Links */
-		:global(a) {
+		/* Links — but not the video cards, which are blocks, not body copy */
+		:global(a:not(.video-link)) {
 			@apply text-primary font-medium underline-offset-2 transition-all duration-200 hover:underline hover:opacity-80;
 		}
 

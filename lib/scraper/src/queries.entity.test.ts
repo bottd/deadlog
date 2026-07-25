@@ -8,6 +8,8 @@ import {
 	getChangelogIcons,
 	getHeroByName,
 	getHeroBySlug,
+	getHeroLastModified,
+	getItemLastModified,
 	getReleasedHeroSlugs,
 	getReleasedItemSlugs,
 	queryChangelogs
@@ -178,6 +180,35 @@ describe('entity history queries', () => {
 	it('translates the stored shop taxonomy for existing icon consumers', async () => {
 		const icons = await getChangelogIcons(db, ['new']);
 		expect(icons.new.items[0].itemCategory).toBe('weapon');
+	});
+
+	it('reports the newest patch date per entity for the sitemap', async () => {
+		const heroes = await getHeroLastModified(db);
+		const items = await getItemLastModified(db);
+
+		// 'new' is 2026-02-02, 'old' is 2026-01-01 — the hero touched both must report
+		// the newer one, or the sitemap tells crawlers the page is staler than it is.
+		expect(heroes.get(69)).toBe('2026-02-02T20:00:00.000Z');
+		expect(items.get(1)).toBe('2026-02-02T20:00:00.000Z');
+		expect(heroes.get(70)).toBeUndefined();
+	});
+
+	it('resolves article aliases without scanning the table', async () => {
+		// Both directions: bare slug -> "the-" row, and an unknown slug -> null.
+		await expect(getHeroBySlug(db, 'doorman')).resolves.toMatchObject({
+			slug: 'the-doorman'
+		});
+		await expect(getHeroBySlug(db, 'the-doorman')).resolves.toMatchObject({
+			slug: 'the-doorman'
+		});
+		await expect(getHeroBySlug(db, 'not-a-hero')).resolves.toBeNull();
+	});
+
+	it('returns an entity history uncapped so the header stats stay honest', async () => {
+		const history = await getChangelogsByHeroId(db, 69);
+		expect(history).toHaveLength(2);
+		// oldest last — the page reads .at(-1) for "Tracked since"
+		expect(history.at(-1)?.id).toBe('old');
 	});
 
 	it('resolves article aliases to the canonical hero row', async () => {

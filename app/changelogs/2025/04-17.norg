@@ -255,7 +255,7 @@ content_text: "Soul Orbs no longer have special duplication rules before 8 minut
 - Rabbit Hex Move Speed increased from 15% to 22%
 
 @embed svelte
-<AbilityHeading name="Rabbit Hex" />
+<AbilityHeading name="Rabbit Hex" id="rabbit-hex-1" />
 @end
 
 - Rabbit Hex no longer deals 80 damage

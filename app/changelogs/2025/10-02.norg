@@ -280,7 +280,7 @@ content_text: "Weapon Investment bonus increased from 7/9/13/20/29/40/58/72/83/9
 - Captivating Read moved the UI element to the bottom of the screen so it's more noticeable when you get hit
 
 @embed svelte
-<AbilityHeading name="Captivating Read" />
+<AbilityHeading name="Captivating Read" id="captivating-read-1" />
 @end
 
 - Captivating Read radius increased from 7m to 7.5m
@@ -301,7 +301,7 @@ content_text: "Weapon Investment bonus increased from 7/9/13/20/29/40/58/72/83/9
 - Rallying Charge both damage & healing now grows as the horses travel, up to a max +100% of both at 350m
 
 @embed svelte
-<AbilityHeading name="Rallying Charge" />
+<AbilityHeading name="Rallying Charge" id="rallying-charge-1" />
 @end
 
 - Rallying Charge increased horse speed from 1700 to 2000
@@ -357,7 +357,7 @@ content_text: "Weapon Investment bonus increased from 7/9/13/20/29/40/58/72/83/9
 - Fixed Shocking Reanimation sometimes not hitting targets that are in the Z axis
 
 @embed svelte
-<AbilityHeading name="Pain Battery" />
+<AbilityHeading name="Pain Battery" id="pain-battery-1" />
 @end
 
 - Pain Battery T3 heal reduced from 20% to 18%
@@ -375,13 +375,13 @@ content_text: "Weapon Investment bonus increased from 7/9/13/20/29/40/58/72/83/9
 - Aura of Suffering MinDPS, MaxDPS and spirit scaling increased by ~5-6%
 
 @embed svelte
-<AbilityHeading name="Jumpstart" />
+<AbilityHeading name="Jumpstart" id="jumpstart-1" />
 @end
 
 - Jumpstart duration increased from 4s to 4.5s
 
 @embed svelte
-<AbilityHeading name="Shocking Reanimation" />
+<AbilityHeading name="Shocking Reanimation" id="shocking-reanimation-1" />
 @end
 
 - Shocking Reanimation radius increased from 12m to 13m
@@ -438,7 +438,7 @@ content_text: "Weapon Investment bonus increased from 7/9/13/20/29/40/58/72/83/9
 - Screwjab Dagger has a max stack of 3 (shows in overhead)
 
 @embed svelte
-<AbilityHeading name="Screwjab Dagger" />
+<AbilityHeading name="Screwjab Dagger" id="screwjab-dagger-1" />
 @end
 
 - Screwjab Dagger slow changed from 50% to 35% + 15% per stack

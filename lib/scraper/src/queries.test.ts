@@ -11,10 +11,16 @@ import {
 import { existsSync } from 'fs';
 import { resolve } from 'path';
 
-// Standard database path from repo root
-const dbPath = resolve(process.cwd(), 'dist/data/deadlog.db');
+// These run against the database the repo actually builds. The previous path
+// ("dist/data/deadlog.db", resolved against lib/scraper's cwd) never existed, so the
+// whole suite reported as skipped rather than failed — silently, in CI and locally.
+const dbUrl =
+	process.env.DATABASE_URL ??
+	`file:${resolve(process.cwd(), '../../app/static/deadlog.db')}`;
+process.env.DATABASE_URL = dbUrl;
+const dbPath = dbUrl.replace(/^file:/, '');
 
-// Skip tests if database doesn't exist (e.g., in CI before build)
+// Still skipped when no database has been built yet (run `pnpm run build:db`).
 describe.skipIf(!existsSync(dbPath))('Database Static Reader', () => {
 	describe('getAllChangelogs', () => {
 		it('should return an array of patches', async () => {

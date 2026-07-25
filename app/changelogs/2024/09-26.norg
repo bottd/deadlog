@@ -236,7 +236,7 @@ subway entrance connection
 - Guided Owl: very slight turn rate improvements
 
 @embed svelte
-<AbilityHeading name="Guided Owl" />
+<AbilityHeading name="Guided Owl" id="guided-owl-1" />
 @end
 
 - Guided Owl radius increased from 12m to 13m
@@ -404,7 +404,7 @@ subway entrance connection
 - Static Charge can now be alternate-casted on self (does not stun you)
 
 @embed svelte
-<AbilityHeading name="Static Charge" />
+<AbilityHeading name="Static Charge" id="static-charge-1" />
 @end
 
 - Static Charge now respects line of sight
@@ -468,7 +468,7 @@ subway entrance connection
 - Bullet Damage reduced from 13 to 12
 
 @embed svelte
-<AbilityHeading name="Can" />
+<AbilityHeading name="Can" id="can-1" />
 @end
 
 - Can now use down dash during Goo Ball

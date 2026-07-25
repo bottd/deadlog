@@ -166,7 +166,7 @@ content_text: "Sandbox mode now supports entering it with your party Sandbox mod
 - Ground Strike's ground preview now lines up under Lash when cast on the ground
 
 @embed svelte
-<AbilityHeading name="Ground Strike" />
+<AbilityHeading name="Ground Strike" id="ground-strike-1" />
 @end
 
 - Ground Strike T3 reduced from +100% to +85%
@@ -293,7 +293,7 @@ content_text: "Sandbox mode now supports entering it with your party Sandbox mod
 - Shadow Explosion Fire Rate and Spirit buff duration increased from 15s to 20s
 
 @embed svelte
-<AbilityHeading name="Shadow Explosion" />
+<AbilityHeading name="Shadow Explosion" id="shadow-explosion-1" />
 @end
 
 - Shadow Explosion T3 Spirit bonus increased from +10% to +15%

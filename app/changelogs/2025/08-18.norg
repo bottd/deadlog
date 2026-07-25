@@ -15,6 +15,7 @@ content_text: "Billy Health regen increased from 2.5 to 3.0 Health per boon redu
 @image https://clan.akamai.steamstatic.com/images/45164767/256d6479251714acd1fa90b30b60a48b40e6352c.png
 store.steampowered
 @end
+- {https://store.steampowered.com/news/app/1422450/view/669466707009471267}[Deadlock - Six New Heroes - Steam News]
 @image https://store.steampowered.com/favicon.ico
 store.steampowered
 @end
@@ -43,7 +44,7 @@ store.steampowered
 - Blasted base duration reduced from 8.5s to 8.0s and duration on heavy melee reduced from 5.0s to 4.5s
 
 @embed svelte
-<AbilityHeading name="Blasted" />
+<AbilityHeading name="Blasted" id="blasted-1" />
 @end
 
 - Blasted cooldown reduced from 30s to 27s
@@ -99,7 +100,7 @@ store.steampowered
 - Bloodscent T3 Amplified damage reduced from +13% to +11%
 
 @embed svelte
-<AbilityHeading name="Rend" />
+<AbilityHeading name="Rend" id="rend-1" />
 @end
 
 - Rend spirit scaling reduced from 1.5 to 1.4

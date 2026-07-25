@@ -139,19 +139,34 @@ content_text: "This update includes a new version of the matchmaker. The matchma
 rooftop neutral camp 112124
 @end
 - Added a truck to climb up into the interior bridge area at the Port Authority and Jazz Club buildings
+@embed svelte
+<VideoLink src="https://forums.playdeadlock.com/attachments/truck_update-mp4.30135/" label="View attachment truck_update.mp4" />
+@end
 - Moved stairs up from the central canal to the Radio Station interior closer to the inner lanes
 - Removed stairs up to the Radio Station interior from the underground Teleport Station
 - Redesigned Radio Station interior to be more open
+@embed svelte
+<VideoLink src="https://forums.playdeadlock.com/attachments/canal_update-mp4.30136/" label="View attachment canal_update.mp4" />
+@end
 @image https://project8-data.community.forum/attachments/30/30153-16e7f9c01ad0338e6c831c6ae344b06f.jpg?hash=vUQDhBS3u7
 canal update 112124
 @end
 - Moved connection corridor between Inner and Outer lanes (Amber Yellow and Sapphire Purple) to be farther from the base entrances
 - Removed the cosmic veils from the entrances of the connection corridor
+@embed svelte
+<VideoLink src="https://forums.playdeadlock.com/attachments/connection_update-mp4.30134/" label="View attachment connection_update.mp4" />
+@end
 - Changed entrance to the Armory/Warehouse from the inner lane to be more direct (not a hallway)
+@embed svelte
+<VideoLink src="https://forums.playdeadlock.com/attachments/armory_update-mp4.30138/" label="View attachment armory_update.mp4" />
+@end
 @image https://project8-data.community.forum/attachments/30/30155-4b7fd9a547dceedf8f5fb08037d66a9c.jpg?hash=61ONTc41sT
 armory entrance 112124
 @end
 - Moved the side lane teleporters to the crawl space under the Hard camp
+@embed svelte
+<VideoLink src="https://forums.playdeadlock.com/attachments/teleporter_update-mp4.30142/" label="View attachment teleporter_update.mp4" />
+@end
 - Removed bookshelf model inside the upper floor of the Police Station/Garment Building to see the corridor behind it
 - Removed Rope inside the Police Station/Garment Building
 @image https://project8-data.community.forum/attachments/30/30156-a8c2716fc1d7559cda993e3443effa05.jpg?hash=kVX3m19afn
@@ -183,7 +198,7 @@ new drugstore 112124
 - Silence Glyph: No longer a tracking projectile using a unit target, releases an aim-based projectile that silences on impact
 - Silence Glyph: Cooldown reduced from 32s to 24s
 - Knock Down: Cast range now ignores the Z height (similar to Lash's Death Slam)
-- New T3 Spirit Item, Spirit Snatch: Requires Spirit Strike. Causes your melee attacks to steal 12% Spirit Resist and 26 Spirit Power for 16s. Cooldown 6s. Buff you receive stacks if you hit different heroes. Grants +15% Melee Damage, +8% Spirit Resist,  +125 Health  and +1 Sprint. (Thanks to https://forums.playdeadlock.com/threads/spirt-snatch-3k-soul-spirit-strike-upgrade.46932/ )
+- New T3 Spirit Item, Spirit Snatch: Requires Spirit Strike. Causes your melee attacks to steal 12% Spirit Resist and 26 Spirit Power for 16s. Cooldown 6s. Buff you receive stacks if you hit different heroes. Grants +15% Melee Damage, +8% Spirit Resist,  +125 Health  and +1 Sprint. (Thanks to {https://forums.playdeadlock.com/threads/spirt-snatch-3k-soul-spirit-strike-upgrade.46932/}[https://forums.playdeadlock.com/threads/spirt-snatch-3k-soul-spirit-strike-upgrade.46932/] )
 - New T3 Spirit Item, Arcane Surge: Requires Kinetic Dash. After successful Dash Jump, the next ability you use will also have +20% Range, +20% Duration and +20 Spirit Power. Grants +100 Health, +1 Stamina and +15% Slow Resist.
 
 * Hero Changes
@@ -258,7 +273,7 @@ new drugstore 112124
 - Kinetic Pulse now slides around geometry when it hits an obstruction
 
 @embed svelte
-<AbilityHeading name="Rejuvenating Aurora" />
+<AbilityHeading name="Rejuvenating Aurora" id="rejuvenating-aurora-1" />
 @end
 
 - Rejuvenating Aurora now allows you to reload during it (currently only allows you to continue reloading if cast before)
@@ -274,14 +289,14 @@ new drugstore 112124
 - Quantum Entanglement ally range increased from 9m to 10m
 
 @embed svelte
-<AbilityHeading name="Quantum Entanglement" />
+<AbilityHeading name="Quantum Entanglement" id="quantum-entanglement-1" />
 @end
 
 - Quantum Entanglement cooldown increased from 15s to 16s
 - Quantum Entanglement T3 cooldown reduction improved from -4s to -5s
 
 @embed svelte
-<AbilityHeading name="Rejuvenating Aurora" />
+<AbilityHeading name="Rejuvenating Aurora" id="rejuvenating-aurora-2" />
 @end
 
 - Rejuvenating Aurora now allows you to use melee before T3 upgrade
@@ -303,7 +318,7 @@ new drugstore 112124
 - Immobilizing Trap tether duration increased 1.25s to 1.5s
 
 @embed svelte
-<AbilityHeading name="Immobilizing Trap" />
+<AbilityHeading name="Immobilizing Trap" id="immobilizing-trap-1" />
 @end
 
 - Immobilizing Trap no longer applies 50% slow for 1s
@@ -359,7 +374,7 @@ new drugstore 112124
 - Afterburn buildup decay time is now 15% slower
 
 @embed svelte
-<AbilityHeading name="Concussive Combustion" />
+<AbilityHeading name="Concussive Combustion" id="concussive-combustion-1" />
 @end
 
 - Concussive Combustion radius increased from 12m to 13m
@@ -474,7 +489,7 @@ new drugstore 112124
 - Mini Turrets base health increased from 75 to 150 (roughly same overall health as previous start of game)
 
 @embed svelte
-<AbilityHeading name="Mini Turrets" />
+<AbilityHeading name="Mini Turrets" id="mini-turrets-1" />
 @end
 
 - Mini Turrets now gain +20 Health per Boon
@@ -484,7 +499,7 @@ new drugstore 112124
 - Mini Turrets cycle time reduced from 0.5 to 0.25 (DPS unchanged)
 
 @embed svelte
-<AbilityHeading name="Mini Turrets" />
+<AbilityHeading name="Mini Turrets" id="mini-turrets-2" />
 @end
 
 - Mini Turrets bullet velocity increased from 406 to 500
@@ -613,7 +628,7 @@ new drugstore 112124
 - Killing Blow Full Rage Damage Bonus increased from 15% to 17%
 
 @embed svelte
-<AbilityHeading name="Killing Blow" />
+<AbilityHeading name="Killing Blow" id="killing-blow-1" />
 @end
 
 - Killing Blow T2 reduced from +10% Full Rage Bonus Damage to +8%

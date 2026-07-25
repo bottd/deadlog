@@ -13,13 +13,16 @@
 
 	const queryString = $derived(params.toURLSearchParams().toString());
 	const hasFilters = $derived(queryString !== '');
+	// Also the canonical. Pairing noindex with a canonical pointing at a *different*
+	// URL hands Google two contradictory instructions; noindex alone already keeps
+	// filtered views out of the index.
 	const shareUrl = $derived(queryString ? `${SITE_URL}/?${queryString}` : SITE_URL);
 </script>
 
 <MetaTags
 	{title}
 	{description}
-	canonical={SITE_URL}
+	canonical={shareUrl}
 	robots={hasFilters ? 'noindex,follow' : 'index,follow'}
 	additionalRobotsProps={{
 		maxImagePreview: 'large',

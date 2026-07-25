@@ -30,7 +30,7 @@ jobs:
 
       - name: Run tests
         if: matrix.task == 'test'
-        run: pnpm run test
+        run: pnpm run build:db && pnpm run test
         env:
           NODE_ENV: test
 

@@ -189,7 +189,7 @@ content_text: "Added EU servers and matchmaking region. EU testing times are Mon
 - Turret HP scaling reduced from 40% to 30% (affects initial HP too)
 
 @embed svelte
-<AbilityHeading name="Turret" />
+<AbilityHeading name="Turret" id="turret-1" />
 @end
 
 - Turret cooldown reduced from 35s to 30s

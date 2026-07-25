@@ -204,7 +204,7 @@ content_text: "Mid Boss HP is now fixed at the spawn time. Base HP increased fro
 - Storm Cloud DPS reduced from 95 to 90
 
 @embed svelte
-<AbilityHeading name="Storm Cloud" />
+<AbilityHeading name="Storm Cloud" id="storm-cloud-1" />
 @end
 
 - Storm Cloud T3 reduced from +65 to +60

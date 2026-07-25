@@ -12,6 +12,7 @@ import {
 	inArray,
 	type SQL
 } from 'drizzle-orm';
+import type { SQLiteColumn } from 'drizzle-orm/sqlite-core';
 import type { EnrichedHero, EntityIcon } from './types/deadlockApi';
 import { getLibsqlDb, type DrizzleDB, type SelectChangelog, schema } from '@deadlog/db';
 import { entityNamesMatch } from '@deadlog/changelog';
@@ -34,9 +35,10 @@ const ENTITY_HISTORY_COLUMNS = {
 	authorImage: schema.changelogs.authorImage
 } as const;
 
-export type EntityChangelog = {
-	[K in keyof typeof ENTITY_HISTORY_COLUMNS]: SelectChangelog[K];
-} & {
+export type EntityChangelog = Pick<
+	SelectChangelog,
+	keyof typeof ENTITY_HISTORY_COLUMNS
+> & {
 	changeCount: number | null;
 	changeSummary: string | null;
 };
@@ -199,11 +201,23 @@ export async function getAllItems(db: DrizzleDB): Promise<ScrapedItem[]> {
 	return db.select().from(schema.items).all();
 }
 
+const SLUG_ARTICLES = ['the', 'a', 'an'] as const;
+const SLUG_ARTICLE_RE = new RegExp(`^(${SLUG_ARTICLES.join('|')})-`);
+
 function canonicalSlug(slug: string): string {
-	return slug
-		.toLowerCase()
-		.trim()
-		.replace(/^(the|a|an)-/, '');
+	return slug.toLowerCase().trim().replace(SLUG_ARTICLE_RE, '');
+}
+
+/**
+ * Every slug that could canonicalise to the same entity, so an alias lookup stays an
+ * indexed query. Slug misses are mostly bots and typos; scanning the table for each
+ * one made a 404 the most expensive request on the site.
+ */
+function slugCandidates(slug: string): string[] {
+	const canonical = canonicalSlug(slug);
+	return [
+		...new Set([slug, canonical, ...SLUG_ARTICLES.map((a) => `${a}-${canonical}`)])
+	];
 }
 
 export async function getHeroByName(
@@ -224,16 +238,15 @@ export async function getHeroBySlug(
 	db: DrizzleDB,
 	slug: string
 ): Promise<EnrichedHero | null> {
-	const exact = await db
+	const matches = await db
 		.select()
 		.from(schema.heroes)
-		.where(eq(schema.heroes.slug, slug))
-		.get();
-	if (exact) return exact;
-	const candidates = await db.select().from(schema.heroes).all();
-	return (
-		candidates.find((hero) => canonicalSlug(hero.slug) === canonicalSlug(slug)) ?? null
-	);
+		.where(inArray(schema.heroes.slug, slugCandidates(slug)))
+		.all();
+
+	// Every candidate shares one canonical form, so any match is a valid alias —
+	// prefer the exact slug so a real row always beats its own article variant.
+	return matches.find((hero) => hero.slug === slug) ?? matches[0] ?? null;
 }
 
 export async function getReleasedHeroSlugs(db: DrizzleDB): Promise<string[]> {
@@ -263,16 +276,14 @@ export async function getItemBySlug(
 	db: DrizzleDB,
 	slug: string
 ): Promise<ScrapedItem | null> {
-	const exact = await db
+	const matches = await db
 		.select()
 		.from(schema.items)
-		.where(eq(schema.items.slug, slug))
-		.get();
-	if (exact) return exact;
-	const candidates = await db.select().from(schema.items).all();
-	return (
-		candidates.find((item) => canonicalSlug(item.slug) === canonicalSlug(slug)) ?? null
-	);
+		.where(inArray(schema.items.slug, slugCandidates(slug)))
+		.all();
+
+	// See getHeroBySlug.
+	return matches.find((item) => item.slug === slug) ?? matches[0] ?? null;
 }
 
 export async function getReleasedItemSlugs(db: DrizzleDB): Promise<string[]> {
@@ -290,10 +301,14 @@ export async function getReleasedItemSlugs(db: DrizzleDB): Promise<string[]> {
 	return results.map((r) => r.slug);
 }
 
+/**
+ * No limit by design: the page bills itself as the canonical history and derives
+ * "Patches" and "Tracked since" from these rows, so a cap silently reported the
+ * oldest of the newest N as the first-ever patch. Bounded by the changelog count.
+ */
 export async function getChangelogsByHeroId(
 	db: DrizzleDB,
-	heroId: number,
-	limit = 50
+	heroId: number
 ): Promise<EntityChangelog[]> {
 	return db
 		.select({
@@ -308,14 +323,13 @@ export async function getChangelogsByHeroId(
 		)
 		.where(eq(schema.changelogHeroes.heroId, heroId))
 		.orderBy(desc(schema.changelogs.pubDate))
-		.limit(limit)
 		.all();
 }
 
+/** See getChangelogsByHeroId — deliberately uncapped for the same reason. */
 export async function getChangelogsByItemId(
 	db: DrizzleDB,
-	itemId: number,
-	limit = 50
+	itemId: number
 ): Promise<EntityChangelog[]> {
 	return db
 		.select({
@@ -330,8 +344,37 @@ export async function getChangelogsByItemId(
 		)
 		.where(eq(schema.changelogItems.itemId, itemId))
 		.orderBy(desc(schema.changelogs.pubDate))
-		.limit(limit)
 		.all();
+}
+
+/**
+ * Newest patch date per entity, keyed by id. The sitemap's whole job is telling
+ * crawlers a hero page changed after a patch touched that hero, so these URLs
+ * shipping without <lastmod> wasted the one signal that matters here.
+ */
+async function lastModifiedByEntity(
+	db: DrizzleDB,
+	link: typeof schema.changelogHeroes | typeof schema.changelogItems,
+	entityId: SQLiteColumn
+): Promise<Map<number, string>> {
+	const rows = await db
+		.select({
+			id: entityId,
+			lastModified: sql<string>`MAX(${schema.changelogs.pubDate})`
+		})
+		.from(link)
+		.innerJoin(schema.changelogs, eq(schema.changelogs.id, link.changelogId))
+		.groupBy(entityId)
+		.all();
+	return new Map(rows.map((row) => [row.id, row.lastModified]));
+}
+
+export function getHeroLastModified(db: DrizzleDB): Promise<Map<number, string>> {
+	return lastModifiedByEntity(db, schema.changelogHeroes, schema.changelogHeroes.heroId);
+}
+
+export function getItemLastModified(db: DrizzleDB): Promise<Map<number, string>> {
+	return lastModifiedByEntity(db, schema.changelogItems, schema.changelogItems.itemId);
 }
 
 interface ChangelogIcons {

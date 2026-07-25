@@ -64,7 +64,7 @@ content_text: Increased horizontal soul orb movement a bit Soul Orb spawn delay 
 - Bounce Pad New T1 is -10s cooldown
 
 @embed svelte
-<AbilityHeading name="Bounce Pad" />
+<AbilityHeading name="Bounce Pad" id="bounce-pad-1" />
 @end
 
 - Bounce Pad T2 is now T3. Removed T3 Stun

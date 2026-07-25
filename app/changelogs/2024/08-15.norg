@@ -90,10 +90,16 @@ content_text: "Added a new hero, Shiv Games can now be watched by an unlimited n
 @image https://project8-data.community.forum/attachments/10/10426-255433f613d4aef9b85be903d8999953.jpg?hash=jqLV72_mck
 bounce pad locations
 @end
+@embed svelte
+<VideoLink src="https://forums.playdeadlock.com/attachments/bounce_update-mp4.10434/" label="View attachment bounce_update.mp4" />
+@end
 - Added one-way defender exits beside each outer lane entrance
 - Added Speed Boost Volumes in the defender passages on the outsides of the base
 @image https://project8-data.community.forum/attachments/10/10444-75cc741c53122763a7a48f9839eed303.jpg?hash=JvPor2GyaR
 base speed boost
+@end
+@embed svelte
+<VideoLink src="https://forums.playdeadlock.com/attachments/speed_boost_update-mp4.10433/" label="View attachment speed_boost_update.mp4" />
 @end
 - Firehouse (building next to Sapphire Yellow Guardian) has been reworked to match the layout of the Chapel
 - Low roof buildings beside Amber Purple Guardian and Sapphire Yellow Guardian are now valid play spaces
@@ -107,12 +113,18 @@ base speed boost
 @image https://project8-data.community.forum/attachments/10/10430-f72af25a6d7d29a25a4d111251c64b7c.jpg?hash=XlgYymrk1u
 rooftop locations large
 @end
+@embed svelte
+<VideoLink src="https://forums.playdeadlock.com/attachments/rooftop_update-mp4.10417/" label="View attachment rooftop_update.mp4" />
+@end
 - Walker Arena - Amber Yellow/Sapphire Purple:
 - Added catwalks from high ground defender area to building across the street
 - Added passage through building and stairs up to a peek spot toward the Guardian
 - Replaced upper floor juke spot with a connection through building across from new peek spot
 @image https://project8-data.community.forum/attachments/10/10432-d718486425f9de7051a49f8d42c194a1.jpg?hash=IgJnWMJNZG
 amber yellow walker arena
+@end
+@embed svelte
+<VideoLink src="https://forums.playdeadlock.com/attachments/yellow_update-mp4.10421/" label="View attachment yellow_update.mp4" />
 @end
 - Walker Arena - Amber Orange/Sapphire Blue:
 - Added catwalk from the low roof building to the building across the street
@@ -124,6 +136,9 @@ amber yellow walker arena
 @image https://project8-data.community.forum/attachments/10/10434-50c695d943074b2c2f750bdb4221ea2e.jpg?hash=WdF_JkaGYI
 amber orange walker arena
 @end
+@embed svelte
+<VideoLink src="https://forums.playdeadlock.com/attachments/orange_update-mp4.10423/" label="View attachment orange_update.mp4" />
+@end
 - Walker Arena - Amber Blue/Sapphire Orange:
 - Added interior shaft with Bounce Pad to an upper level balcony from defender side to face the Guardian
 - Added a Bounce Pad on the ground floor of the Police Station/Garment Building to the upper floor
@@ -132,11 +147,17 @@ amber orange walker arena
 @image https://project8-data.community.forum/attachments/10/10436-d9fac3d3741dbeef70155f7de243a14d.jpg?hash=U3L4JG5Hk2
 amber blue walker arena
 @end
+@embed svelte
+<VideoLink src="https://forums.playdeadlock.com/attachments/blue_update-mp4.10425/" label="View attachment blue_update.mp4" />
+@end
 - Walker Arena - Amber Purple/Sapphire Yellow:
 - Added an interior corridor through the building between the base and the Walker
 - Added a balcony that borders the arena on the back side of the Walker
 @image https://project8-data.community.forum/attachments/10/10438-7f748d681e68886ae3ac4cc5c7acbe0c.jpg?hash=uWC1vvRBxt
 amber purple walker arena
+@end
+@embed svelte
+<VideoLink src="https://forums.playdeadlock.com/attachments/purple_update-mp4.10427/" label="View attachment purple_update.mp4" />
 @end
 - Soul Shredder Bullets: Now grants +6% Weapon Damage
 - Soul Shredder Bullets:  Debuff duration increased from 5s to 6s
@@ -398,7 +419,7 @@ amber purple walker arena
 - Barrage Amp per stack reduced from 10% to 8%
 
 @embed svelte
-<AbilityHeading name="Barrage" />
+<AbilityHeading name="Barrage" id="barrage-1" />
 @end
 
 - Barrage T3 changed to +5% Amp Per Stack
@@ -497,7 +518,7 @@ amber purple walker arena
 - Binding Word immobilize duration reduced from 2s to 1.75
 
 @embed svelte
-<AbilityHeading name="Binding Word" />
+<AbilityHeading name="Binding Word" id="binding-word-1" />
 @end
 
 - Binding Word now has a quick cast behavior (same as Static Charge)

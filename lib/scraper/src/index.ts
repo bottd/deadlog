@@ -17,6 +17,8 @@ export {
 	getReleasedItemSlugs,
 	getChangelogsByHeroId,
 	getChangelogsByItemId,
+	getHeroLastModified,
+	getItemLastModified,
 	getChangelogIcons,
 	type ScrapedChangelog,
 	type EntityChangelog,

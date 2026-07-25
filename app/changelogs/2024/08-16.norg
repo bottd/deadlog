@@ -41,7 +41,7 @@ content_text: Fixed spectating ending 1 minute before the game ended Fixed Hero 
 - Air Drop bomb slow duration increased from 3s to 4.5s
 
 @embed svelte
-<AbilityHeading name="Air Drop" />
+<AbilityHeading name="Air Drop" id="air-drop-1" />
 @end
 
 - Air Drop T2 now also has +5m radius
@@ -65,7 +65,7 @@ content_text: Fixed spectating ending 1 minute before the game ended Fixed Hero 
 - Serrated Knives base damage reduced from 75 to 35
 
 @embed svelte
-<AbilityHeading name="Serrated Knives" />
+<AbilityHeading name="Serrated Knives" id="serrated-knives-1" />
 @end
 
 - Serrated Knives spirit scaling reduced from 1 to 0.6
@@ -77,7 +77,7 @@ content_text: Fixed spectating ending 1 minute before the game ended Fixed Hero 
 - Serrated Knives DPS spirit scaling reduced from 0.2 to 0.16
 
 @embed svelte
-<AbilityHeading name="Serrated Knives" />
+<AbilityHeading name="Serrated Knives" id="serrated-knives-2" />
 @end
 
 - Serrated Knives T3 reduced from +75 Damage and +5 Bleed to +40 Damage and +5 Bleed

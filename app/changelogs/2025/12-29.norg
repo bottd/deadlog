@@ -59,7 +59,7 @@ content_text: Respawn time at 19 minutes reduced from 35s to 30s Respawn time at
 - Sticky Bomb base damage increased from 70 to 80
 
 @embed svelte
-<AbilityHeading name="Sticky Bomb" />
+<AbilityHeading name="Sticky Bomb" id="sticky-bomb-1" />
 @end
 
 - Sticky Bomb T2 increased from +60 to +70
@@ -174,7 +174,7 @@ content_text: Respawn time at 19 minutes reduced from 35s to 30s Respawn time at
 - Sand Blast can now be casted while Burrowed
 
 @embed svelte
-<AbilityHeading name="Sand Blast" />
+<AbilityHeading name="Sand Blast" id="sand-blast-1" />
 @end
 
 - Sand Blast T2 increased from -19s Cooldown to -23s

@@ -1,5 +1,10 @@
 import type { ChangelogEntities, EntityChange } from './schema';
-import { decodeEntityName, entityNameAliases, makeSummary } from '@deadlog/utils';
+import {
+	decodeEntityName,
+	entityNameAliases,
+	makeSummary,
+	stripNorgLinks
+} from '@deadlog/utils';
 
 export interface TocEntry {
 	level: number;
@@ -37,8 +42,10 @@ function parseAbilityName(source: string): string | null {
 	return name ? decodeEntityName(name) : null;
 }
 
+type EntityBullets = Omit<EntityChange, 'count' | 'summary'> & { bullets: string[] };
+
 export function extractEntityChanges(content: string): EntityChange[] {
-	const changes = new Map<string, EntityChange & { bullets: string[] }>();
+	const changes = new Map<string, EntityBullets>();
 	let currentKey: string | null = null;
 	let currentAbility: string | null = null;
 
@@ -58,9 +65,7 @@ export function extractEntityChanges(content: string): EntityChange[] {
 			if (!heading) continue;
 
 			const key = `${heading.type}:${entityNameAliases(heading.name).at(-1)}`;
-			if (!changes.get(key)) {
-				changes.set(key, { ...heading, count: 0, summary: '', bullets: [] });
-			}
+			if (!changes.has(key)) changes.set(key, { ...heading, bullets: [] });
 			currentKey = key;
 			continue;
 		}
@@ -75,8 +80,16 @@ export function extractEntityChanges(content: string): EntityChange[] {
 		if (currentKey && /^-\s+\S/.test(line)) {
 			const current = changes.get(currentKey);
 			if (!current) continue;
-			current.count++;
-			const text = decodeEntityName(line.replace(/^-\s+/, '').trim());
+			// .norg carries escaped braces and {target}[label] links; a summary wants
+			// neither the backslashes nor the markup.
+			const text = stripNorgLinks(
+				decodeEntityName(
+					line
+						.replace(/^-\s+/, '')
+						.replace(/\\([{}])/g, '$1')
+						.trim()
+				)
+			);
 			// Most bullets already lead with the ability name; only prefix the ones that don't.
 			const needsPrefix =
 				currentAbility !== null &&
@@ -87,6 +100,7 @@ export function extractEntityChanges(content: string): EntityChange[] {
 
 	return [...changes.values()].map(({ bullets, ...change }) => ({
 		...change,
+		count: bullets.length,
 		summary: makeSummary(bullets.join(' · '), SUMMARY_MAX)
 	}));
 }
@@ -116,7 +130,7 @@ export function extractEntities(toc: TocEntry[], content?: string): ChangelogEnt
 	}
 
 	if (content) {
-		const re = /<EntityHeading\b[^>]*\/?\s*>/g;
+		const re = new RegExp(ENTITY_HEADING_RE.source, 'g');
 		let match;
 		while ((match = re.exec(content)) !== null) {
 			const heading = parseEntityHeading(match[0]);

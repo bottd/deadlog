@@ -214,7 +214,7 @@ content_text: "Voice/Text chat is now opt-in. There is a prompt pre-match for jo
 - Fixed Echo Shard to be compatible with Spectral Wall again (Activating echo shard resets the ability so you can cast it again and not have to cancel your first one. After casting the 2nd, using cancel will remove the first wall first)
 
 @embed svelte
-<AbilityHeading name="Can" />
+<AbilityHeading name="Can" id="can-1" />
 @end
 
 - Can now dismiss Spectral Wall while channeling other abilities (Heavy Barrage)

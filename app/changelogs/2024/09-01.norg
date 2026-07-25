@@ -59,7 +59,7 @@ content_text: "Rope climb speed increased from 11 to 13 Rope activation range in
 - Puddle Punch base cooldown increased from 24 to 28
 
 @embed svelte
-<AbilityHeading name="Puddle Punch" />
+<AbilityHeading name="Puddle Punch" id="puddle-punch-1" />
 @end
 
 - Puddle Punch now knocks people less high into the air

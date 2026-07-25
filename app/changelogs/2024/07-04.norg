@@ -181,7 +181,7 @@ content_text: "Added Asia servers and matchmaking region. Testing times for this
 - Mini Turret falloff damage increased from -30% to -35%
 
 @embed svelte
-<AbilityHeading name="Mini Turret" />
+<AbilityHeading name="Mini Turret" id="mini-turret-1" />
 @end
 
 - Mini Turret cooldown reduced from 30s to 28s

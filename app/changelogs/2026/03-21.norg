@@ -146,7 +146,7 @@ content_text: "Vitality investment tree bonus reverted back to % base hp increas
 - Call Bell explosion damage spirit scaling reduced from 1.7 to 1.4
 
 @embed svelte
-<AbilityHeading name="Call Bell" />
+<AbilityHeading name="Call Bell" id="call-bell-1" />
 @end
 
 - Call Bell T1 changed from "+3m Radius" to "+1 Charge"
@@ -358,7 +358,7 @@ content_text: "Vitality investment tree bonus reverted back to % base hp increas
 - Djinn's Mark debuff visuals improved
 
 @embed svelte
-<AbilityHeading name="Djinn's Mark" />
+<AbilityHeading name="Djinn's Mark" id="djinn-s-mark-1" />
 @end
 
 - Djinn's Mark T1 slow duration increased from 0.5s to 0.8s
@@ -374,7 +374,7 @@ content_text: "Vitality investment tree bonus reverted back to % base hp increas
 - Traveler interrupt cooldown reduced from 6s to 4s
 
 @embed svelte
-<AbilityHeading name="Traveler" />
+<AbilityHeading name="Traveler" id="traveler-1" />
 @end
 
 - Traveler cooldown reduced from 145s to 120s
@@ -400,7 +400,7 @@ content_text: "Vitality investment tree bonus reverted back to % base hp increas
 - Combo DPS spirit scaling reduced from 1.2 to 0.6
 
 @embed svelte
-<AbilityHeading name="Combo" />
+<AbilityHeading name="Combo" id="combo-1" />
 @end
 
 - Combo cooldown reduced from 140s to 130s
@@ -503,7 +503,7 @@ content_text: "Vitality investment tree bonus reverted back to % base hp increas
 - Goo Ball lockout period from being affected again increased from 1.25s to 1.35s
 
 @embed svelte
-<AbilityHeading name="Goo Ball" />
+<AbilityHeading name="Goo Ball" id="goo-ball-1" />
 @end
 
 - Goo Ball duration increased from 10s to 11s
