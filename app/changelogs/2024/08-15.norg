@@ -91,7 +91,7 @@ content_text: "Added a new hero, Shiv Games can now be watched by an unlimited n
 bounce pad locations
 @end
 @embed svelte
-<VideoLink src="https://forums.playdeadlock.com/attachments/bounce_update-mp4.10434/" label="View attachment bounce_update.mp4" />
+<VideoLink src="https://forums.playdeadlock.com/attachments/bounce_update-mp4.10434/" label="bounce update" />
 @end
 - Added one-way defender exits beside each outer lane entrance
 - Added Speed Boost Volumes in the defender passages on the outsides of the base
@@ -99,7 +99,7 @@ bounce pad locations
 base speed boost
 @end
 @embed svelte
-<VideoLink src="https://forums.playdeadlock.com/attachments/speed_boost_update-mp4.10433/" label="View attachment speed_boost_update.mp4" />
+<VideoLink src="https://forums.playdeadlock.com/attachments/speed_boost_update-mp4.10433/" label="speed boost update" />
 @end
 - Firehouse (building next to Sapphire Yellow Guardian) has been reworked to match the layout of the Chapel
 - Low roof buildings beside Amber Purple Guardian and Sapphire Yellow Guardian are now valid play spaces
@@ -114,7 +114,7 @@ base speed boost
 rooftop locations large
 @end
 @embed svelte
-<VideoLink src="https://forums.playdeadlock.com/attachments/rooftop_update-mp4.10417/" label="View attachment rooftop_update.mp4" />
+<VideoLink src="https://forums.playdeadlock.com/attachments/rooftop_update-mp4.10417/" label="rooftop update" />
 @end
 - Walker Arena - Amber Yellow/Sapphire Purple:
 - Added catwalks from high ground defender area to building across the street
@@ -124,7 +124,7 @@ rooftop locations large
 amber yellow walker arena
 @end
 @embed svelte
-<VideoLink src="https://forums.playdeadlock.com/attachments/yellow_update-mp4.10421/" label="View attachment yellow_update.mp4" />
+<VideoLink src="https://forums.playdeadlock.com/attachments/yellow_update-mp4.10421/" label="yellow update" />
 @end
 - Walker Arena - Amber Orange/Sapphire Blue:
 - Added catwalk from the low roof building to the building across the street
@@ -137,7 +137,7 @@ amber yellow walker arena
 amber orange walker arena
 @end
 @embed svelte
-<VideoLink src="https://forums.playdeadlock.com/attachments/orange_update-mp4.10423/" label="View attachment orange_update.mp4" />
+<VideoLink src="https://forums.playdeadlock.com/attachments/orange_update-mp4.10423/" label="orange update" />
 @end
 - Walker Arena - Amber Blue/Sapphire Orange:
 - Added interior shaft with Bounce Pad to an upper level balcony from defender side to face the Guardian
@@ -148,7 +148,7 @@ amber orange walker arena
 amber blue walker arena
 @end
 @embed svelte
-<VideoLink src="https://forums.playdeadlock.com/attachments/blue_update-mp4.10425/" label="View attachment blue_update.mp4" />
+<VideoLink src="https://forums.playdeadlock.com/attachments/blue_update-mp4.10425/" label="blue update" />
 @end
 - Walker Arena - Amber Purple/Sapphire Yellow:
 - Added an interior corridor through the building between the base and the Walker
@@ -157,7 +157,7 @@ amber blue walker arena
 amber purple walker arena
 @end
 @embed svelte
-<VideoLink src="https://forums.playdeadlock.com/attachments/purple_update-mp4.10427/" label="View attachment purple_update.mp4" />
+<VideoLink src="https://forums.playdeadlock.com/attachments/purple_update-mp4.10427/" label="purple update" />
 @end
 - Soul Shredder Bullets: Now grants +6% Weapon Damage
 - Soul Shredder Bullets:  Debuff duration increased from 5s to 6s

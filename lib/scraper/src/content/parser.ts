@@ -1,5 +1,5 @@
 import { Window } from 'happy-dom';
-import { isNorgLinkOnly } from '@deadlog/utils';
+import { parseNorgLink } from '@deadlog/utils';
 
 export interface EntityLists {
 	heroes: Set<string>;
@@ -174,20 +174,6 @@ export function groupNotesByAbility(
 /** Norg link targets and labels are brace/bracket delimited, so neither may contain them. */
 const SAFE_HREF_RE = /^https?:\/\/[^\s{}[\]]+$/i;
 
-// The forum names a video attachment "<name>-mp4.<id>"; a plain ".mp4" covers anywhere
-// else a clip is linked directly.
-const VIDEO_HREF_RE = /(?:-|\.)(?:mp4|webm|m4v)(?:\.|$|\/)/i;
-const LINK_PARTS_RE = /^\{([^{}]+)\}\[([^\]]*)\]$/;
-
-/**
- * Marks a clip so it renders as a labelled link rather than a bare URL. The forum serves
- * no embeddable video, so this stays a link out — no poster, no player chrome that
- * cannot actually play.
- */
-function videoBlock(src: string, label: string): string {
-	return ['@video', `src ${src}`, `label ${label}`, '@end'].join('\n');
-}
-
 function linkMarkup(href: string, text: string): string {
 	const label = text.replace(/[{}[\]]/g, '').trim();
 	if (!SAFE_HREF_RE.test(href)) return label;
@@ -303,14 +289,8 @@ export function parseAndGroupContent(
 			// Valve posts demo clips on their own line beside the screenshots. Such a line
 			// carries no bullet marker, so without this it lands in `prose` and is dropped
 			// from every post that also has bullets — which is all of them.
-			const link = isNorgLinkOnly(trimmed) ? trimmed.match(LINK_PARTS_RE) : null;
-			if (link && VIDEO_HREF_RE.test(link[1])) {
-				result.general.push(videoBlock(link[1], link[2]));
-			} else if (link) {
-				result.general.push(trimmed);
-			} else {
-				prose.push(trimmed);
-			}
+			if (parseNorgLink(trimmed)) result.general.push(trimmed);
+			else prose.push(trimmed);
 			continue;
 		}
 

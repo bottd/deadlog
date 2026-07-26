@@ -49,10 +49,13 @@ const postContentResultSchema = z.object({
 });
 
 const POST_CACHE_VERSION = 2;
-const cachedPostSchema = z.object({
+export const cachedPostSchema = z.object({
 	version: z.literal(POST_CACHE_VERSION),
 	data: postContentResultSchema
 });
+
+/** Where scraped post bodies land. Exported so readers cannot drift from the writer. */
+export const POST_CACHE_DIR = 'lib/scraper/src/cache/posts';
 
 export interface ScraperOptions {
 	timeout?: number;
@@ -68,7 +71,7 @@ const DEFAULT_OPTIONS = {
 	userAgent:
 		'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
 	useCache: false,
-	cacheDir: './lib/scraper/src/cache',
+	cacheDir: POST_CACHE_DIR,
 	maxPagesToScrape: 100,
 	maxThreadPages: 10
 } satisfies Required<ScraperOptions>;

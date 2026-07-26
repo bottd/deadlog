@@ -2,6 +2,8 @@ export { fetchHeroes, fetchItems } from './deadlock';
 export {
 	scrapeChangelogPage,
 	scrapeMultipleChangelogPosts,
+	cachedPostSchema,
+	POST_CACHE_DIR,
 	type ChangelogPost,
 	type PosterReply,
 	type PostContentResult,

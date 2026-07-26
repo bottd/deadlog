@@ -1,8 +1,13 @@
 <script lang="ts">
 	import * as Avatar from '$lib/components/ui/avatar';
 	import { CornerAccents } from '$lib/components/ui/corner-accents';
-	import { entityPatchHref, type EntityFilterContext } from './entityContext';
-	import { formatDate } from '@deadlog/utils';
+	import {
+		changeCountLabel,
+		entityPatchHref,
+		type EntityFilterContext
+	} from './entityContext';
+	import { authorInitials } from './patchCard';
+	import { formatDate, plural } from '@deadlog/utils';
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
 	import Calendar from '@lucide/svelte/icons/calendar';
 
@@ -29,11 +34,7 @@
 	}: Props = $props();
 
 	const href = $derived(entityPatchHref(id, entity));
-	const countSummary = $derived(
-		changeCount === null
-			? 'change count unavailable'
-			: `${changeCount} change${changeCount === 1 ? '' : 's'}`
-	);
+	const countSummary = $derived(changeCountLabel(changeCount));
 </script>
 
 <a
@@ -70,7 +71,7 @@
 			<Avatar.Root class="border-signal/25 size-6 shrink-0 border">
 				<Avatar.Image src={authorImage} alt={author} />
 				<Avatar.Fallback class="bg-muted text-[9px] font-medium">
-					{author.slice(0, 2).toUpperCase()}
+					{authorInitials(author)}
 				</Avatar.Fallback>
 			</Avatar.Root>
 		</div>
@@ -104,7 +105,7 @@
 							{changeCount}
 						</span>
 						<span class="text-muted-foreground text-sm">
-							change{changeCount === 1 ? '' : 's'}
+							{plural(changeCount, 'change')}
 						</span>
 					</div>
 					<p class="text-muted-foreground mt-1 truncate text-xs">to {entity.name}</p>

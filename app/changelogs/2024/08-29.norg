@@ -91,7 +91,7 @@ content_text: "Added a new Profile page that displays a breakdown of recent matc
 - Moved a flex slot from "Set of enemy Base Guardians" to "All Enemy Lane Guardians"
 - Added ropes to some buildings to let you climb up (hold jump key to latch onto them). Can shoot while hanging on them.
 @embed svelte
-<VideoLink src="https://forums.playdeadlock.com/attachments/deadlock_ropes-mp4.13983/" label="View attachment Deadlock_Ropes.mp4" />
+<VideoLink src="https://forums.playdeadlock.com/attachments/deadlock_ropes-mp4.13983/" label="Deadlock Ropes" />
 @end
 - A pair of teleporters has been added to the outer lanes at the midpoint (near the three red neutral creeps)
 - Four teleporters have changed locations
@@ -121,7 +121,7 @@ valid rooftop locations
 @end
 - A few of the buildings have new passageways at higher floors that are along the way to the rooftop
 @embed svelte
-<VideoLink src="https://forums.playdeadlock.com/attachments/ropes_passages-mp4.13956/" label="View attachment ropes_passages.mp4" />
+<VideoLink src="https://forums.playdeadlock.com/attachments/ropes_passages-mp4.13956/" label="ropes passages" />
 @end
 - Breakable containers have been added to the new playable rooftops
 - Juke closets have replaced the previous location of the upper floor teleporters

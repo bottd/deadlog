@@ -25,6 +25,8 @@ export function getHeroImage(hero: EnrichedHero): string {
 }
 
 export function getHeroCardImage(hero: EnrichedHero): string {
+	// Via pickHeroImages so the preference order and the no-expected-keys fallback stay
+	// defined once; insertion order survives Object.fromEntries.
 	return Object.values(pickHeroImages(hero.images))[0] ?? '';
 }
 

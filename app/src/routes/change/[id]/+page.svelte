@@ -14,7 +14,7 @@
 	import ListIcon from '@lucide/svelte/icons/list';
 	import { toast } from 'svelte-sonner';
 	import { JsonLd, MetaTags } from 'svelte-meta-tags';
-	import { absoluteUrl, breadcrumbList, SITE_NAME, SITE_URL } from '$lib/seo';
+	import { absoluteUrl, breadcrumbList, pageMeta, SITE_NAME, SITE_URL } from '$lib/seo';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
@@ -133,37 +133,22 @@
 {/snippet}
 
 <MetaTags
-	{title}
-	{description}
-	{canonical}
-	robots={isIndexable ? 'index,follow' : 'noindex,follow'}
-	additionalRobotsProps={{
-		maxImagePreview: 'large',
-		maxSnippet: -1,
-		maxVideoPreview: -1
-	}}
-	openGraph={{
-		type: 'article',
+	{...pageMeta({
 		title,
 		description,
-		url: canonical,
-		siteName: SITE_NAME,
-		locale: 'en_US',
-		article: {
-			publishedTime,
-			modifiedTime: publishedTime,
-			section: 'Deadlock Patch Notes',
-			tags: [...allHeroes, ...allItems].map((entity) => entity.alt)
-		},
-		images: [{ url: image, width: 1200, height: 630, type: 'image/png', alt: title }]
-	}}
-	twitter={{
-		cardType: 'summary_large_image',
-		title,
-		description,
+		canonical,
 		image,
-		imageAlt: title
-	}}
+		indexable: isIndexable,
+		openGraph: {
+			type: 'article',
+			article: {
+				publishedTime,
+				modifiedTime: publishedTime,
+				section: 'Deadlock Patch Notes',
+				tags: [...allHeroes, ...allItems].map((entity) => entity.alt)
+			}
+		}
+	})}
 />
 
 {#if isIndexable}

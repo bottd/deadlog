@@ -153,7 +153,9 @@
 	--card: var(--base-900);
 	--card-foreground: var(--base-10);
 	--card-accent: var(--base-25);
-	--popover: var(--base-900);
+	/* One step above --card, so anything floating reads as elevated rather than as a
+	   smudge on the surface underneath it. */
+	--popover: var(--base-25);
 	--popover-foreground: var(--base-10);
 	--primary: var(--accent-500);
 	--primary-foreground: var(--base-950);

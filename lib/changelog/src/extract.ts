@@ -3,7 +3,8 @@ import {
 	decodeEntityName,
 	entityNameAliases,
 	makeSummary,
-	stripNorgLinks
+	stripNorgLinks,
+	unescapeNorgBraces
 } from '@deadlog/utils';
 
 export interface TocEntry {
@@ -83,12 +84,7 @@ export function extractEntityChanges(content: string): EntityChange[] {
 			// .norg carries escaped braces and {target}[label] links; a summary wants
 			// neither the backslashes nor the markup.
 			const text = stripNorgLinks(
-				decodeEntityName(
-					line
-						.replace(/^-\s+/, '')
-						.replace(/\\([{}])/g, '$1')
-						.trim()
-				)
+				decodeEntityName(unescapeNorgBraces(line.replace(/^-\s+/, '').trim()))
 			);
 			// Most bullets already lead with the ability name; only prefix the ones that don't.
 			const needsPrefix =

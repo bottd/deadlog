@@ -4,7 +4,7 @@
 	import { ScrollToTop } from '$lib/components/scroll-to-top';
 	import type { PageData } from './$types';
 	import { searchParams as params } from '$lib/stores/searchParams.svelte';
-	import { DEFAULT_SOCIAL_IMAGE, SITE_NAME, SITE_URL } from '$lib/seo';
+	import { DEFAULT_SOCIAL_IMAGE, pageMeta, SITE_NAME, SITE_URL } from '$lib/seo';
 
 	let { data }: { data: PageData } = $props();
 	const title = $derived(data.title);
@@ -20,39 +20,13 @@
 </script>
 
 <MetaTags
-	{title}
-	{description}
-	canonical={shareUrl}
-	robots={hasFilters ? 'noindex,follow' : 'index,follow'}
-	additionalRobotsProps={{
-		maxImagePreview: 'large',
-		maxSnippet: -1,
-		maxVideoPreview: -1
-	}}
-	openGraph={{
-		type: 'website',
-		url: shareUrl,
+	{...pageMeta({
 		title,
 		description,
-		siteName: SITE_NAME,
-		locale: 'en_US',
-		images: [
-			{
-				url: image,
-				width: 1200,
-				height: 630,
-				type: 'image/png',
-				alt: title
-			}
-		]
-	}}
-	twitter={{
-		cardType: 'summary_large_image',
-		title,
-		description,
+		canonical: shareUrl,
 		image,
-		imageAlt: title
-	}}
+		indexable: !hasFilters
+	})}
 />
 
 {#if !hasFilters}

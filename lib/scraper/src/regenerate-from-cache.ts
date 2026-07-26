@@ -10,19 +10,20 @@
  * Posts whose body originally came from Steam cannot be reproduced (there is no Steam
  * cache), so they simply fail to match and are reported — never silently rewritten.
  *
- *   HEROES_JSON=… ITEMS_JSON=… OUT_DIR=… tsx lib/scraper/src/regenerate-from-cache.ts
+ *   HEROES_JSON=… ITEMS_JSON=… tsx lib/scraper/src/regenerate-from-cache.ts
+ *
+ * Writes in place. Set OUT_DIR to send the rewrites somewhere else instead — the
+ * comparison still reads the real changelogs, so a prospective regeneration can be
+ * diffed without dirtying the tree.
  */
-import { readFileSync, readdirSync, writeFileSync, mkdirSync, existsSync } from 'fs';
+import { readFileSync, readdirSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { dirname, join } from 'path';
-import { parseAuthorName } from './authorParser';
-import { extractContent, deduplicateLines, type EntityLists } from './content/parser';
-import { generateChangelog, type ChangelogSource } from './content/generator';
-import { toSlug, entityNameAliases } from '@deadlog/utils';
+import { cachedPostSchema, POST_CACHE_DIR } from './api';
+import { buildChangelogSource, resolveFilepath } from './pipeline';
+import { type EntityLists } from './content/parser';
+import { generateChangelog } from './content/generator';
+import { entityNameAliases } from '@deadlog/utils';
 
-const CACHE_DIR = 'lib/scraper/src/cache/posts';
-const SRC_DIR = process.env.SRC_DIR || 'app/changelogs';
-// Point OUT_DIR elsewhere to diff a prospective regeneration without touching the tree.
-const OUT_DIR = process.env.OUT_DIR || SRC_DIR;
 /**
  * Only files listed here are rewritten. Produce it by running this script against
  * unmodified code and recording everything that came back byte-identical (RECORD=path):
@@ -30,16 +31,8 @@ const OUT_DIR = process.env.OUT_DIR || SRC_DIR;
  */
 const ALLOWLIST = process.env.ALLOWLIST;
 const RECORD = process.env.RECORD;
-
-interface CachedPost {
-	postId: string;
-	title: string;
-	author: string;
-	authorImage?: string;
-	pubDate: string;
-	content: string;
-	posterReplies?: { content: string }[];
-}
+/** Write target only; the comparison always reads the real changelogs. */
+const OUT_DIR = process.env.OUT_DIR;
 
 function loadNames(envVar: string): string[] {
 	const path = process.env[envVar];
@@ -47,32 +40,6 @@ function loadNames(envVar: string): string[] {
 	return (JSON.parse(readFileSync(path, 'utf-8')) as { name: string }[]).map(
 		(r) => r.name
 	);
-}
-
-/** Mirrors pipeline.ts resolveFilepath/slugify — the output path must match exactly. */
-function relativePath(title: string, date: string): string {
-	const cleaned = title.replace(/\b\d{4}\b/g, '').replace(/\bupdate\b/gi, '');
-	const year = new Date(date).getFullYear();
-	return join(String(year), `${toSlug(cleaned)}.norg`);
-}
-
-/** Mirrors pipeline.ts buildChangelogSource, minus the Steam branch. */
-function buildSource(post: CachedPost): ChangelogSource {
-	const contentParts = [extractContent(post.content)];
-
-	for (const reply of post.posterReplies ?? []) {
-		const replyRaw = extractContent(reply.content);
-		if (replyRaw.trim()) contentParts.push(replyRaw);
-	}
-
-	return {
-		title: post.title,
-		published: post.pubDate,
-		author: parseAuthorName(post.author),
-		authorImage: post.authorImage,
-		threadId: post.postId,
-		rawContent: deduplicateLines(contentParts.join('\n'))
-	};
 }
 
 function main() {
@@ -85,38 +52,40 @@ function main() {
 		? new Set(readFileSync(ALLOWLIST, 'utf-8').split('\n').filter(Boolean))
 		: null;
 
-	const files = readdirSync(CACHE_DIR).filter((f) => f.endsWith('.json'));
+	const files = readdirSync(POST_CACHE_DIR).filter((f) => f.endsWith('.json'));
 	const reproduced: string[] = [];
 	let written = 0;
-	let unchanged = 0;
 	const missing: string[] = [];
 	const blocked: string[] = [];
 
 	for (const file of files) {
-		const { data: post } = JSON.parse(readFileSync(join(CACHE_DIR, file), 'utf-8')) as {
-			data: CachedPost;
-		};
+		// Validated, so a cache-format bump fails here rather than silently rewriting
+		// every changelog from a misread body.
+		const { data: post } = cachedPostSchema.parse(
+			JSON.parse(readFileSync(join(POST_CACHE_DIR, file), 'utf-8'))
+		);
 
-		const relative = relativePath(post.title, post.pubDate);
-		const source = join(SRC_DIR, relative);
-		if (!existsSync(source)) {
-			missing.push(`${file} -> ${relative}`);
+		const { filepath } = resolveFilepath(post.title, post.pubDate);
+		if (!existsSync(filepath)) {
+			missing.push(`${file} -> ${filepath}`);
 			continue;
 		}
 
-		const generated = generateChangelog(buildSource(post), entities);
-		if (readFileSync(source, 'utf-8') === generated) {
-			reproduced.push(relative);
-			unchanged++;
+		// No steamContent: the Steam body cannot be refetched, so those files never match
+		// and are reported rather than rewritten.
+		const source = buildChangelogSource(post, post.postId, entities);
+		const generated = generateChangelog(source, entities);
+		if (readFileSync(filepath, 'utf-8') === generated) {
+			reproduced.push(filepath);
 			continue;
 		}
 
-		if (allowed && !allowed.has(relative)) {
-			blocked.push(relative);
+		if (allowed && !allowed.has(filepath)) {
+			blocked.push(filepath);
 			continue;
 		}
 
-		const target = join(OUT_DIR, relative);
+		const target = OUT_DIR ? join(OUT_DIR, filepath) : filepath;
 		mkdirSync(dirname(target), { recursive: true });
 		writeFileSync(target, generated, 'utf-8');
 		written++;
@@ -125,7 +94,7 @@ function main() {
 	if (RECORD) writeFileSync(RECORD, reproduced.sort().join('\n'), 'utf-8');
 
 	console.log(`cached posts: ${files.length}`);
-	console.log(`  byte-identical: ${unchanged}`);
+	console.log(`  byte-identical: ${reproduced.length}`);
 	console.log(`  rewritten:      ${written}`);
 	if (blocked.length) {
 		console.log(`  skipped (not reproducible, left as-is): ${blocked.length}`);

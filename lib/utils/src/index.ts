@@ -26,18 +26,30 @@ export function abilityFragmentId(name: string): string {
 		.replace(/^-+|-+$/g, '');
 }
 
-/** Norg's inline link: `{target}[label]`. */
-const NORG_LINK_RE = /\{([^{}]*)\}\[([^\]]*)\]/g;
-const NORG_LINK_ONLY_RE = /^\{[^{}]+\}\[[^\]]*\]$/;
+/** Norg's inline link: `{target}[label]`. Written once — the three uses below had
+ * already drifted on whether an empty target counts. */
+const NORG_LINK_SOURCE = String.raw`\{([^{}]*)\}\[([^\]]*)\]`;
+const NORG_LINK_RE = new RegExp(NORG_LINK_SOURCE, 'g');
+const NORG_LINK_ONLY_RE = new RegExp(`^${NORG_LINK_SOURCE}$`);
+const NORG_LOOSE_BRACE_RE = new RegExp(`${NORG_LINK_SOURCE}|(?<!\\\\)([{}])`, 'g');
 
-/** A note that is nothing but a link — an attachment or source, not prose. */
-export function isNorgLinkOnly(text: string): boolean {
-	return NORG_LINK_ONLY_RE.test(text.trim());
+/**
+ * Splits a note that is nothing but a link — an attachment or a source, not prose.
+ * The one place the link grammar is decoded, so callers never re-encode it.
+ */
+export function parseNorgLink(text: string): { target: string; label: string } | null {
+	const match = text.trim().match(NORG_LINK_ONLY_RE);
+	return match ? { target: match[1], label: match[2] } : null;
 }
 
 /** Reduces a norg link to the text a reader sees — for plaintext (search, meta, summaries). */
 export function stripNorgLinks(text: string): string {
 	return text.replace(NORG_LINK_RE, '$2');
+}
+
+/** Inverse of {@link escapeNorgBraces} — lives beside it so the pair cannot drift. */
+export function unescapeNorgBraces(text: string): string {
+	return text.replace(/\\([{}])/g, '$1');
 }
 
 /**
@@ -46,14 +58,11 @@ export function stripNorgLinks(text: string): string {
  * otherwise render as <a href=" Standard | Gyro ">.
  */
 export function escapeNorgBraces(text: string): string {
-	const escape = (s: string) => s.replace(/(?<!\\)([{}])/g, '\\$1');
-	let out = '';
-	let last = 0;
-	for (const match of text.matchAll(NORG_LINK_RE)) {
-		out += escape(text.slice(last, match.index)) + match[0];
-		last = match.index + match[0].length;
-	}
-	return out + escape(text.slice(last));
+	// Link branch first, so a brace inside {target}[label] is returned untouched. The
+	// link alternative captures target/label, so the loose brace is the third group.
+	return text.replace(NORG_LOOSE_BRACE_RE, (match, _target, _label, brace) =>
+		brace ? `\\${brace}` : match
+	);
 }
 
 // ponytail: crude teaser, not a curated summary — just clamp at a word boundary.
@@ -83,6 +92,11 @@ function getOrdinalSuffix(day: number): string {
 		default:
 			return 'th';
 	}
+}
+
+/** Word only, so callers keep control of the count's own markup. */
+export function plural(count: number, one: string, many = `${one}s`): string {
+	return count === 1 ? one : many;
 }
 
 export const DISPLAY_TIME_ZONE = 'America/Los_Angeles';

@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { onMount } from 'svelte';
-	import { ChangelogCard } from './index';
+	import { plural } from '@deadlog/utils';
+	import { FeaturedPatchCard, PatchCard } from './index';
 	import { HeroRail } from '$lib/components/filter-bar';
 	import { searchParams as params } from '$lib/stores/searchParams.svelte';
 	import { useChangelogQuery } from '$lib/hooks/useChangelogQuery.svelte';
@@ -48,7 +49,7 @@
 	const isNew = (entry: ChangelogEntry) =>
 		lastVisit !== null && new Date(entry.date).getTime() > lastVisit;
 
-	const gridEntries = $derived(allChangelogs.slice(isFiltered ? 0 : 1));
+	// One grid per fetched page so appended results never reflow the ones above them.
 	const gridBatches = $derived.by(() => {
 		let startIndex = 0;
 		return (query.data?.pages ?? [])
@@ -60,6 +61,7 @@
 			})
 			.filter((batch) => batch.entries.length > 0);
 	});
+	const gridEntries = $derived(gridBatches.flatMap((batch) => batch.entries));
 	const newCount = $derived(
 		lastVisit === null || isFiltered ? 0 : allChangelogs.filter(isNew).length
 	);
@@ -135,14 +137,15 @@
 					role="status"
 					aria-live="polite"
 				>
-					&mdash; {allChangelogs.length}{hasNextPage ? '+' : ''} patch{allChangelogs.length ===
-						1 && !hasNextPage
-						? ''
-						: 'es'} matching all {filterCount} filter{filterCount === 1 ? '' : 's'}
+					&mdash; {allChangelogs.length}{hasNextPage ? '+' : ''}
+					{hasNextPage ? 'patches' : plural(allChangelogs.length, 'patch', 'patches')} matching
+					all
+					{filterCount}
+					{plural(filterCount, 'filter')}
 				</p>
 			{:else}
 				<div in:fly={{ y: 20, duration: 350, easing: quintOut }}>
-					<ChangelogCard {...allChangelogs[0]} isLatest={true} />
+					<FeaturedPatchCard {...allChangelogs[0]} />
 				</div>
 			{/if}
 
@@ -182,7 +185,7 @@
 								easing: quintOut
 							}}
 						>
-							<ChangelogCard {...entry} isLatest={false} isNew={isNew(entry)} />
+							<PatchCard {...entry} isNew={isNew(entry)} />
 						</div>
 					{/each}
 				</div>

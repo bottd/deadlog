@@ -1,5 +1,10 @@
 import { getContext, setContext } from 'svelte';
-import { entityNameAliases, entityNamesMatch } from '@deadlog/utils';
+import {
+	abilityFragmentId,
+	entityNameAliases,
+	entityNamesMatch,
+	plural
+} from '@deadlog/utils';
 
 export interface EntityMaps {
 	heroMap: Record<number, { name: string; slug: string; images: Record<string, string> }>;
@@ -29,9 +34,9 @@ export function getEntityMaps(): EntityMaps {
 }
 
 export function entityFragmentId(name: string): string {
-	return (entityNameAliases(name).at(-1) ?? '')
-		.replace(/[^a-z0-9]+/g, '-')
-		.replace(/^-+|-+$/g, '');
+	// Same slug rule the generator uses for ability anchors — one definition, so entity
+	// and ability ids cannot drift apart.
+	return abilityFragmentId(entityNameAliases(name).at(-1) ?? '');
 }
 
 export function resolveEntity(
@@ -64,4 +69,11 @@ export function resolveEntity(
 export function entityPatchHref(patchId: string, entity: EntityFilterContext): string {
 	const search = new URLSearchParams({ [entity.type]: entity.name });
 	return `/change/${encodeURIComponent(patchId)}?${search.toString()}`;
+}
+
+/** One wording for a patch's per-entity change count, shared by the card and the timeline. */
+export function changeCountLabel(count: number | null): string {
+	return count === null
+		? 'change count unavailable'
+		: `${count} ${plural(count, 'change')}`;
 }

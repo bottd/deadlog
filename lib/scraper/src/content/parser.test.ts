@@ -44,16 +44,12 @@ describe('parseAndGroupContent', () => {
 			].join('\n'),
 			entities
 		);
-		// the screenshot keeps rendering as an image; the clip is a link beside it
+		// the screenshot keeps rendering as an image; the clip stays a plain norg link
+		// beside it, and the generator decides how to render it
 		expect(grouped.general).toEqual([
 			'Added Bounce Pads',
 			'@image https://cdn.example/still.jpg\nbounce pad locations\n@end',
-			[
-				'@video',
-				'src https://forum.example/attachments/bounce_update-mp4.10434/',
-				'label View attachment bounce_update.mp4',
-				'@end'
-			].join('\n')
+			'{https://forum.example/attachments/bounce_update-mp4.10434/}[View attachment bounce_update.mp4]'
 		]);
 	});
 

@@ -140,13 +140,13 @@ rooftop neutral camp 112124
 @end
 - Added a truck to climb up into the interior bridge area at the Port Authority and Jazz Club buildings
 @embed svelte
-<VideoLink src="https://forums.playdeadlock.com/attachments/truck_update-mp4.30135/" label="View attachment truck_update.mp4" />
+<VideoLink src="https://forums.playdeadlock.com/attachments/truck_update-mp4.30135/" label="truck update" />
 @end
 - Moved stairs up from the central canal to the Radio Station interior closer to the inner lanes
 - Removed stairs up to the Radio Station interior from the underground Teleport Station
 - Redesigned Radio Station interior to be more open
 @embed svelte
-<VideoLink src="https://forums.playdeadlock.com/attachments/canal_update-mp4.30136/" label="View attachment canal_update.mp4" />
+<VideoLink src="https://forums.playdeadlock.com/attachments/canal_update-mp4.30136/" label="canal update" />
 @end
 @image https://project8-data.community.forum/attachments/30/30153-16e7f9c01ad0338e6c831c6ae344b06f.jpg?hash=vUQDhBS3u7
 canal update 112124
@@ -154,18 +154,18 @@ canal update 112124
 - Moved connection corridor between Inner and Outer lanes (Amber Yellow and Sapphire Purple) to be farther from the base entrances
 - Removed the cosmic veils from the entrances of the connection corridor
 @embed svelte
-<VideoLink src="https://forums.playdeadlock.com/attachments/connection_update-mp4.30134/" label="View attachment connection_update.mp4" />
+<VideoLink src="https://forums.playdeadlock.com/attachments/connection_update-mp4.30134/" label="connection update" />
 @end
 - Changed entrance to the Armory/Warehouse from the inner lane to be more direct (not a hallway)
 @embed svelte
-<VideoLink src="https://forums.playdeadlock.com/attachments/armory_update-mp4.30138/" label="View attachment armory_update.mp4" />
+<VideoLink src="https://forums.playdeadlock.com/attachments/armory_update-mp4.30138/" label="armory update" />
 @end
 @image https://project8-data.community.forum/attachments/30/30155-4b7fd9a547dceedf8f5fb08037d66a9c.jpg?hash=61ONTc41sT
 armory entrance 112124
 @end
 - Moved the side lane teleporters to the crawl space under the Hard camp
 @embed svelte
-<VideoLink src="https://forums.playdeadlock.com/attachments/teleporter_update-mp4.30142/" label="View attachment teleporter_update.mp4" />
+<VideoLink src="https://forums.playdeadlock.com/attachments/teleporter_update-mp4.30142/" label="teleporter update" />
 @end
 - Removed bookshelf model inside the upper floor of the Police Station/Garment Building to see the corridor behind it
 - Removed Rope inside the Police Station/Garment Building

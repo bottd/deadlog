@@ -52,38 +52,42 @@ describe('ability heading ids', () => {
 });
 
 describe('video blocks', () => {
-	it('emits a VideoLink embed', () => {
-		const out = generateStructuredContent(
-			grouped({
-				general: [
-					[
-						'@video',
-						'src https://f.example/c-mp4.1/',
-						'label View attachment c.mp4',
-						'@end'
-					].join('\n')
-				]
-			})
-		);
+	// A clip is an ordinary norg link; the generator recognises the href and strips the
+	// forum's "View attachment …mp4" chrome when it renders the card.
+	const videoNote =
+		'{https://f.example/bounce_update-mp4.1/}[View attachment bounce_update.mp4]';
+
+	it('renders a video link as a VideoLink embed with a cleaned label', () => {
+		const out = generateStructuredContent(grouped({ general: [videoNote] }));
 		expect(out).toContain(
-			'<VideoLink src="https://f.example/c-mp4.1/" label="View attachment c.mp4" />'
+			'<VideoLink src="https://f.example/bounce_update-mp4.1/" label="bounce update" />'
 		);
 		// a block, not a bullet — and never brace-escaped
-		expect(out).not.toContain('- @video');
+		expect(out).not.toContain('- {https://');
 		expect(out).not.toContain('poster');
+	});
+
+	it('leaves a non-video link as an ordinary bullet', () => {
+		const out = generateStructuredContent(
+			grouped({ general: ['{https://store.example/news/1}[Patch notes on Steam]'] })
+		);
+		expect(out).toContain('- {https://store.example/news/1}[Patch notes on Steam]');
+		expect(out).not.toContain('VideoLink');
+	});
+
+	it('falls back to a generic label when nothing survives cleaning', () => {
+		const out = generateStructuredContent(
+			grouped({ general: ['{https://f.example/a-mp4.1/}[View attachment .mp4]'] })
+		);
+		expect(out).toContain('label="clip"');
 	});
 
 	it('keeps an adjacent @image rendering as an image', () => {
 		const out = generateStructuredContent(
-			grouped({
-				general: [
-					'@image https://cdn.example/s.jpg\ncaption\n@end',
-					['@video', 'src https://f.example/c-mp4.1/', 'label c.mp4', '@end'].join('\n')
-				]
-			})
+			grouped({ general: ['@image https://cdn.example/s.jpg\ncaption\n@end', videoNote] })
 		);
 		expect(out).toContain('@image https://cdn.example/s.jpg');
-		expect(out).toContain('<VideoLink src="https://f.example/c-mp4.1/" label="c.mp4" />');
+		expect(out).toContain('<VideoLink src="https://f.example/bounce_update-mp4.1/"');
 	});
 });
 

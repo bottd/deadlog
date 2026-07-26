@@ -4,10 +4,27 @@ import {
 	type EntityLists,
 	type GroupedContent
 } from './parser';
+
+// The forum names a video attachment "<name>-mp4.<id>"; a plain ".mp4" covers anywhere
+// else a clip is linked directly. It serves no embeddable video, so a clip renders as a
+// labelled card rather than a bare URL.
+const VIDEO_EXT = 'mp4|webm|m4v';
+const VIDEO_HREF_RE = new RegExp(`(?:-|\\.)(?:${VIDEO_EXT})(?:\\.|$|/)`, 'i');
+const VIDEO_EXT_RE = new RegExp(`\\.(?:${VIDEO_EXT})$`, 'i');
+
+/** "View attachment bounce_update.mp4" is XenForo chrome; the filename is the content. */
+function cleanVideoLabel(label: string): string {
+	const cleaned = label
+		.replace(/^view attachment\s+/i, '')
+		.replace(VIDEO_EXT_RE, '')
+		.replace(/[-_]+/g, ' ')
+		.trim();
+	return cleaned || 'clip';
+}
 import {
 	abilityFragmentId,
 	escapeNorgBraces,
-	isNorgLinkOnly,
+	parseNorgLink,
 	stripNorgLinks
 } from '@deadlog/utils';
 
@@ -64,13 +81,10 @@ function abilityHeadingBlock(name: string, usedIds: Set<string>): string {
  * The forum serves no embeddable video URL, so a clip stays a link out. Swapping to a
  * real <video> once the files are hosted somewhere is a change inside VideoLink.
  */
-function videoEmbedBlock(note: string): string {
-	const field = (key: string) =>
-		escapeInlineAttr(note.match(new RegExp(`^${key} (.+)$`, 'm'))?.[1]?.trim() ?? '');
-
+function videoEmbedBlock(link: { target: string; label: string }): string {
 	return `\
 @embed svelte
-<VideoLink src="${field('src')}" label="${field('label')}" />
+<VideoLink src="${escapeInlineAttr(link.target)}" label="${escapeInlineAttr(cleanVideoLabel(link.label))}" />
 @end`;
 }
 
@@ -91,8 +105,9 @@ export function generateStructuredContent(grouped: GroupedContent): string {
 	if (grouped.general.length > 0) {
 		out.push('* General Changes', '');
 		for (const note of grouped.general) {
+			const link = parseNorgLink(note);
 			if (note.startsWith('@image ')) out.push(note);
-			else if (note.startsWith('@video\n')) out.push(videoEmbedBlock(note));
+			else if (link && VIDEO_HREF_RE.test(link.target)) out.push(videoEmbedBlock(link));
 			else out.push(bulletLine(note));
 		}
 	}
@@ -163,11 +178,7 @@ function collectPlainText(grouped: GroupedContent): string {
 	for (const note of grouped.general) {
 		// Media and bare source links are navigation, not patch content — keeping their
 		// labels would put "View attachment clip.mp4" into search and meta descriptions.
-		if (
-			!note.startsWith('@image ') &&
-			!note.startsWith('@video\n') &&
-			!isNorgLinkOnly(note)
-		) {
+		if (!note.startsWith('@image ') && !parseNorgLink(note)) {
 			parts.push(note);
 		}
 	}

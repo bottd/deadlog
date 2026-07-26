@@ -10,6 +10,7 @@ import {
 	extractSteamGidFromUnfurl,
 	parseSteamContent,
 	extractDateFromTitle,
+	POST_CACHE_DIR,
 	type ChangelogPost,
 	type PostContentResult,
 	type SteamPatchNote
@@ -20,7 +21,7 @@ import { generateChangelog, type ChangelogSource } from './content/generator';
 import { toSlug } from '@deadlog/utils';
 import { entityNameAliases } from '@deadlog/changelog';
 
-const CHANGELOGS_DIR = process.env.CHANGELOGS_DIR || 'app/changelogs';
+export const CHANGELOGS_DIR = process.env.CHANGELOGS_DIR || 'app/changelogs';
 
 interface ScrapeOptions {
 	overwrite?: boolean;
@@ -39,7 +40,7 @@ function fileStatus(filepath: string): 'missing' | 'curated' | 'draft' {
 	return content.includes('status: published') ? 'curated' : 'draft';
 }
 
-function resolveFilepath(title: string, date: string) {
+export function resolveFilepath(title: string, date: string) {
 	const year = new Date(date).getFullYear();
 	const slug = slugify(title);
 	const dir = join(CHANGELOGS_DIR, String(year));
@@ -63,7 +64,7 @@ function writeNorgFile(filepath: string, content: string): 'created' | 'updated'
 
 // --- Source builders ---
 
-function buildChangelogSource(
+export function buildChangelogSource(
 	content: PostContentResult,
 	threadId: string,
 	entities: EntityLists,
@@ -282,7 +283,7 @@ export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<voi
 		const contents = await scrapeMultipleChangelogPosts(newPosts, {
 			timeout: 30000,
 			useCache: true,
-			cacheDir: 'lib/scraper/src/cache/posts',
+			cacheDir: POST_CACHE_DIR,
 			concurrency: 5,
 			delayMs: 500
 		});

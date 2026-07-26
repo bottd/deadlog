@@ -1,7 +1,11 @@
 <script lang="ts">
 	import * as Tooltip from '$lib/components/ui/tooltip';
-	import { entityPatchHref, type EntityFilterContext } from './entityContext';
-	import { formatDate } from '@deadlog/utils';
+	import {
+		changeCountLabel,
+		entityPatchHref,
+		type EntityFilterContext
+	} from './entityContext';
+	import { formatDate, plural } from '@deadlog/utils';
 
 	interface Patch {
 		id: string;
@@ -50,10 +54,8 @@
 		return match ? `${match[1].slice(0, 3)} ${match[2]}` : formatDate(date);
 	}
 
-	function countLabel(count: number | null): string {
-		if (count === null) return 'change count unavailable';
-		return `${count} change${count === 1 ? '' : 's'}`;
-	}
+	const hiddenLabel = (count: number) =>
+		`${count} intermediate ${plural(count, 'patch', 'patches')} not shown`;
 </script>
 
 {#snippet timelineRow(slice: TimelineSlice)}
@@ -65,14 +67,12 @@
 		></div>
 		{#each slice.patches as patch, index (patch.id)}
 			{#if slice.hiddenCount > 0 && index === 1}
+				<!-- Sits on the track, so it needs its own surface to break the line cleanly:
+				     bg-card matched the card exactly and read as a smudge rather than a chip. -->
 				<span
-					class="bg-card text-muted-foreground relative z-10 flex min-h-6 min-w-6 items-center justify-center px-1.5 font-mono text-[10px] font-semibold"
-					aria-label="{slice.hiddenCount} intermediate patch{slice.hiddenCount === 1
-						? ''
-						: 'es'} not shown"
-					title="{slice.hiddenCount} intermediate patch{slice.hiddenCount === 1
-						? ''
-						: 'es'} not shown"
+					class="bg-popover text-muted-foreground border-border/60 relative z-10 flex min-h-6 min-w-6 items-center justify-center rounded-full border px-1.5 font-mono text-[10px] font-semibold"
+					aria-label={hiddenLabel(slice.hiddenCount)}
+					title={hiddenLabel(slice.hiddenCount)}
 				>
 					+{slice.hiddenCount}
 				</span>
@@ -86,7 +86,7 @@
 							class="focus-visible:ring-ring relative z-10 flex size-6 shrink-0 items-center justify-center rounded-full transition-transform hover:scale-110 focus-visible:ring-2 focus-visible:outline-none"
 							aria-label="View {entity.name} in the {formatDate(
 								patch.date
-							)} patch, {countLabel(patch.changeCount)}"
+							)} patch, {changeCountLabel(patch.changeCount)}"
 						>
 							<span
 								class="size-2.5 rounded-full border"
@@ -98,7 +98,7 @@
 				</Tooltip.Trigger>
 				<Tooltip.Content side="top" class="text-xs">
 					<p class="text-sm font-medium">{formatDate(patch.date)}</p>
-					<p class="text-muted-foreground">{countLabel(patch.changeCount)}</p>
+					<p class="text-muted-foreground">{changeCountLabel(patch.changeCount)}</p>
 				</Tooltip.Content>
 			</Tooltip.Root>
 		{/each}

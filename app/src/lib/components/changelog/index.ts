@@ -1,6 +1,7 @@
 export { default as AbilityHeading } from './AbilityHeading.svelte';
 export { default as Changelog } from './Changelog.svelte';
-export { default as ChangelogCard } from './ChangelogCard.svelte';
+export { default as FeaturedPatchCard } from './FeaturedPatchCard.svelte';
+export { default as PatchCard } from './PatchCard.svelte';
 export { default as ChangelogToc } from './ChangelogToc.svelte';
 export { default as EntityHeading } from './EntityHeading.svelte';
 export { default as EntityPreview } from './EntityPreview.svelte';

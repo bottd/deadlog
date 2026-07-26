@@ -42,6 +42,7 @@ export const load: PageServerLoad = async ({ params, locals, parent }) => {
 		{ name: string; slug: string; images: Record<string, string> }
 	> = {};
 	for (const hero of heroes) {
+		// `heroes` comes from the layout load, which already trimmed images.
 		heroMap[hero.id] = { name: hero.name, slug: hero.slug, images: hero.images };
 	}
 
