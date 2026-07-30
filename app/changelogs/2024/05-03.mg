@@ -51,230 +51,156 @@ content_text "Added a Recommend A Friend button to the dashboard that you can us
 <SectionPreview type="hero" names={["Abrams", "Bebop", "Dynamo", "Grey Talon", "Haze", "Infernus", "Kelvin", "Lady Geist", "Lash", "McGinnis", "Mo &amp; Krill", "Vindicta", "Yamato"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Abrams" type="hero" />
-``
+##hero:abrams: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams
 
 - Base Health increased from 550 to 600
 
-``embed:svelte:
-<AbilityHeading name="Siphon DPS" />
-``
+###ability: Siphon DPS
 
 - Siphon DPS increased from 24 to 35
 
-``embed:svelte:
-<EntityHeading name="Bebop" type="hero" />
-``
+##hero:bebop: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop
 
 - Weapon no longer has horizontal/vertical recoil
 
-``embed:svelte:
-<EntityHeading name="Dynamo" type="hero" />
-``
+##hero:dynamo: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo
 
-``embed:svelte:
-<AbilityHeading name="Singularity DPS" />
-``
+###ability: Singularity DPS
 
 - Singularity DPS increased from 48 to 60
 
-``embed:svelte:
-<AbilityHeading name="Singularity" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_vacuum.webp]] Singularity
 
 - Singularity T3 Max HP DPS increased from 3.2% to 3.8%
 
-``embed:svelte:
-<EntityHeading name="Grey Talon" type="hero" />
-``
+##hero:grey-talon: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon
 
-``embed:svelte:
-<AbilityHeading name="Charge Shot" />
-``
+###ability: Charge Shot
 
 - Charge Shot damage increased from 95 to 105
 - Charge Shot T2 damage reduced from 80 to 70
 
-``embed:svelte:
-<AbilityHeading name="Guided Owl" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_guided_arrow.webp]] Guided Owl
 
 - Guided Owl damage increased from 200 to 300
 
-``embed:svelte:
-<EntityHeading name="Haze" type="hero" />
-``
+##hero:haze: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze
 
 - Bullet Dance bonus Fire Rate reduced from +30 to +20
 
-``embed:svelte:
-<AbilityHeading name="Smoke Bomb" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_smoke_bomb.webp]] Smoke Bomb
 
 - Smoke Bomb duration scaling from Spirit improved from 0.2 to 0.3
 
-``embed:svelte:
-<EntityHeading name="Infernus" type="hero" />
-``
+##hero:infernus: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus
 
-``embed:svelte:
-<AbilityHeading name="Catalyst" />
-``
+###ability: Catalyst
 
 - Catalyst no longer slows Infernus to 1.3 m/s during the cast delay
 
-``embed:svelte:
-<AbilityHeading name="Concussive Combustion" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_bomb.webp]] Concussive Combustion
 
 - Concussive Combustion damage increased from 130 to 160
 
-``embed:svelte:
-<EntityHeading name="Kelvin" type="hero" />
-``
+##hero:kelvin: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin
 
-``embed:svelte:
-<AbilityHeading name="Frost Grenade" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/freezing_grenade.webp]] Frost Grenade
 
 - Frost Grenade T3 bonus damage increased from +100 to +175
 
-``embed:svelte:
-<EntityHeading name="Lady Geist" type="hero" />
-``
+##hero:lady-geist: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]] Lady Geist
 
-``embed:svelte:
-<AbilityHeading name="Blood Bomb" />
-``
+###ability: Blood Bomb
 
 - Blood Bomb damage increased from 80 to 100
 - Blood Bomb T2 damage increased from +65 to +70
 
 - Blood Bomb tooltip fixed to reference the correct self damage type and that it can be reduced with armor
 
-``embed:svelte:
-<AbilityHeading name="Malice" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/geist_dagger.webp]] Malice
 
 - Malice damage amp per shard increased from 10% to 15%
 
-``embed:svelte:
-<EntityHeading name="Lash" type="hero" />
-``
+##hero:lash: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp]] Lash
 
-``embed:svelte:
-<AbilityHeading name="Grapple" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_lash.webp]] Grapple
 
 - Grapple cooldown reduced from 55 to 45
 
-``embed:svelte:
-<AbilityHeading name="Flog Damage" />
-``
+###ability: Flog Damage
 
 - Flog Damage increased from 55 to 65
 
-``embed:svelte:
-<AbilityHeading name="Flog" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_flog.webp]] Flog
 
 - Flog lifesteal from heroes increased from 70% to 80% of damage dealt
 - Flog lifesteal from non-heroes reduced from 35% to 30% of damage dealt
 
-``embed:svelte:
-<AbilityHeading name="Death Slam" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_counter_lash.webp]] Death Slam
 
 - Death Slam T1 from +3m to +5m
 
 - Fixed Death Slam's targeting cone not finding enemies near the edges
 - Fixed Death Slam to only target enemies who stay in the targeting cone
 
-``embed:svelte:
-<EntityHeading name="McGinnis" type="hero" />
-``
+##hero:mcginnis: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis
 
-``embed:svelte:
-<AbilityHeading name="Heavy Barrage" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_rockets.webp]] Heavy Barrage
 
 - Heavy Barrage now reduces your speed rather than setting it to a low cap (by itself this change isn't a buff or a nerf, but it allows you to buy items to move faster during the ultimate)
 
 - Heavy Barrage camera interaction with Fleetfoot Boots has been fixed
 
-``embed:svelte:
-<EntityHeading name="Mo &amp; Krill" type="hero" />
-``
+##hero:mo-krill: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]] Mo & Krill
 
-``embed:svelte:
-<AbilityHeading name="Sand Blast" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_throw_sand.webp]] Sand Blast
 
 - Sand Blast range increased from 25m to 30m
 - Sand Blast width increased from 3m to 5m
 - Sand Blast is now permissive with small obstructions in the way
 
-``embed:svelte:
-<AbilityHeading name="Burrow" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_spin.webp]] Burrow
 
 - Burrow no longer loses its state as you change elevations
 - Burrow now knocks enemies up when you come up
 
-``embed:svelte:
-<AbilityHeading name="Combo DPS" />
-``
+###ability: Combo DPS
 
 - Combo DPS increased from 50 to 60
 
 - No longer listed as a recommended new player hero
 
-``embed:svelte:
-<EntityHeading name="Vindicta" type="hero" />
-``
+##hero:vindicta: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta
 
 - Base Bullet Damage reduced from 15 to 14
 - Bullet Damage gained per boon reduced from 0.88 to 0.7 (these are gained occasionally as you earn souls, up to 11 times)
 
-``embed:svelte:
-<AbilityHeading name="Stake" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_stake.webp]] Stake
 
 - Stake T1 bonus duration reduced from +1.5s to +1.0s
 
 - Is now a recommended hero for new players
 
-``embed:svelte:
-<EntityHeading name="Yamato" type="hero" />
-``
+##hero:yamato: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato
 
-``embed:svelte:
-<AbilityHeading name="Crimson Slash" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_crimson_slash.webp]] Crimson Slash
 
 - Crimson Slash radius increased from 11m to 12m
 - Crimson Slash fire rate debuff duration increased from 3s to 4s
 - Crimson Slash T2 changed from "-5s Cooldown" to "10% Max Health heal on hero hit"
 - Crimson Slash T3 changed from "12% Max Health heal on hero hit" to "-6s Cooldown"
 
-``embed:svelte:
-<AbilityHeading name="Power Slash" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_power_slash.webp]] Power Slash
 
 - Power Slash T1 Bullet Resist increased from 40% to 60%
 
-``embed:svelte:
-<AbilityHeading name="Flying Strike" />
-``
+###ability: Flying Strike
 
 - Flying Strike cooldown reduced from 35 to 20
 - Flying Strike T2 changed from "-15s Cooldown" to "+20 Cast Range"
 - Flying Strike range no longer scales with Spirit
 
-``embed:svelte:
-<AbilityHeading name="Shadow Explosion" />
-``
+###ability: Shadow Explosion
 
 - Shadow Explosion bonus Spirit per victim increased from 10 to 15
 - Shadow Explosion bonus Fire Rate per victim increased from 5 to 10

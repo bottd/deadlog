@@ -17,9 +17,7 @@ content_text "Restorative Locket Spirit Resist reduced from 10% to 8% Cooldown i
 <SectionPreview type="item" names={["Restorative Locket"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Restorative Locket" type="item" />
-``
+##item:restorative-locket: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/restorative_locket.webp]] Restorative Locket
 
 - Spirit Resist reduced from 10% to 8%
 - Cooldown increased from 24s to 28s

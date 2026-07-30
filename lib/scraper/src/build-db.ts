@@ -1,7 +1,7 @@
-import { buildDatabaseFromNorg } from './buildDatabase';
+import { buildDatabaseFromMog } from './buildDatabase';
 
 async function main() {
-	const result = await buildDatabaseFromNorg({
+	const result = await buildDatabaseFromMog({
 		outputDir: process.env.OUTPUT_DIR || './app/static',
 		changelogsDir: process.env.CHANGELOGS_DIR || './app/changelogs'
 	});

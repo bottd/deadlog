@@ -17,7 +17,11 @@ import {
 } from './api';
 import { parseAuthorName } from './authorParser';
 import { extractContent, deduplicateLines, type EntityLists } from './content/parser';
-import { generateChangelog, type ChangelogSource } from './content/generator';
+import {
+	buildEntityIcons,
+	generateChangelog,
+	type ChangelogSource
+} from './content/generator';
 import { toSlug } from '@deadlog/utils';
 import { entityNameAliases } from '@deadlog/changelog';
 
@@ -37,14 +41,14 @@ function slugify(title: string): string {
 function fileStatus(filepath: string): 'missing' | 'curated' | 'draft' {
 	if (!existsSync(filepath)) return 'missing';
 	const content = readFileSync(filepath, 'utf-8');
-	return content.includes('status: published') ? 'curated' : 'draft';
+	return content.includes('status "published"') ? 'curated' : 'draft';
 }
 
 export function resolveFilepath(title: string, date: string) {
 	const year = new Date(date).getFullYear();
 	const slug = slugify(title);
 	const dir = join(CHANGELOGS_DIR, String(year));
-	const filepath = join(dir, `${slug}.norg`);
+	const filepath = join(dir, `${slug}.mg`);
 	return { year, slug, dir, filepath };
 }
 
@@ -55,7 +59,7 @@ function skipReason(filepath: string, overwrite: boolean): string | null {
 	return null;
 }
 
-function writeNorgFile(filepath: string, content: string): 'created' | 'updated' {
+function writeMogFile(filepath: string, content: string): 'created' | 'updated' {
 	mkdirSync(dirname(filepath), { recursive: true });
 	const isUpdate = existsSync(filepath);
 	writeFileSync(filepath, content, 'utf-8');
@@ -201,6 +205,7 @@ export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<voi
 
 	console.log('🌐 Fetching hero and item lists...');
 	const [heroes, items] = await Promise.all([fetchHeroes(), fetchItems()]);
+	const icons = buildEntityIcons(heroes, items);
 
 	const entities: EntityLists = {
 		heroes: new Set(heroes.flatMap((h) => entityNameAliases(h.name))),
@@ -320,8 +325,8 @@ export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<voi
 			}
 
 			const source = buildChangelogSource(content, post.postId, entities, steamNote);
-			const changelog = generateChangelog(source, entities);
-			const result = writeNorgFile(filepath, changelog);
+			const changelog = generateChangelog(source, entities, icons);
+			const result = writeMogFile(filepath, changelog);
 
 			console.log(
 				`   ${result === 'created' ? '✨ Created' : '📄 Updated'}: ${filepath}`
@@ -342,8 +347,8 @@ export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<voi
 			const { filepath } = resolveFilepath(note.title, note.date);
 
 			const source = buildSteamChangelogSource(note);
-			const changelog = generateChangelog(source, entities);
-			const result = writeNorgFile(filepath, changelog);
+			const changelog = generateChangelog(source, entities, icons);
+			const result = writeMogFile(filepath, changelog);
 
 			console.log(
 				`   ${result === 'created' ? '✨ Created' : '📄 Updated'}: ${filepath}`

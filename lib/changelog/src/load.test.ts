@@ -4,13 +4,9 @@ import { extractPreviewImage } from './load';
 describe('extractPreviewImage', () => {
 	it('returns the first non-favicon image embed', () => {
 		const content = `
-@image https://store.steampowered.com/favicon.ico
-Steam
-@end
+[[!:https://store.steampowered.com/favicon.ico]]((Steam))
 
-@image https://cdn.example.com/patch-header.jpg?version=2
-Patch header
-@end
+[[!:https://cdn.example.com/patch-header.jpg?version=2]]((Patch header))
 `;
 
 		expect(extractPreviewImage(content)).toBe(
@@ -20,13 +16,9 @@ Patch header
 
 	it('ignores malformed and non-http image sources', () => {
 		const content = `
-@image /local/header.jpg
-Local image
-@end
+[[!:/local/header.jpg]]((Local image))
 
-@image javascript:alert(1)
-Invalid image
-@end
+[[!:javascript:alert(1)]]((Invalid image))
 `;
 
 		expect(extractPreviewImage(content)).toBeUndefined();

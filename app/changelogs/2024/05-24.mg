@@ -22,8 +22,6 @@ content_text "Withering Whip: No longer has +1 Stamina Withering Whip: Duration 
 <SectionPreview type="item" names={["Decay"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Decay" type="item" />
-``
+##item:decay: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/decay.webp]] Decay
 
 - Cast range reduced from 30m to 15m

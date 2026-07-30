@@ -20,15 +20,11 @@ content_text "Unstoppable state no longer blocks anti-heal effects Yamato Bullet
 <SectionPreview type="hero" names={["Yamato"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Yamato" type="hero" />
-``
+##hero:yamato: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato
 
 - Bullet damage growth reduced from 0.33 to 0.27
 
-``embed:svelte:
-<AbilityHeading name="Shadow Transformation" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]] Shadow Transformation
 
 - Shadow Transformation T1 reduced from +20% Fire Rate to +15%
 
@@ -38,30 +34,22 @@ content_text "Unstoppable state no longer blocks anti-heal effects Yamato Bullet
 <SectionPreview type="item" names={["Alchemical Fire", "Berserker", "Frenzy", "Restorative Shot"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Alchemical Fire" type="item" />
-``
+##item:alchemical-fire: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/alchemical_fire.webp]] Alchemical Fire
 
 - Effectiveness reduction (40%) vs buildings/midboss now affects the Weapon Damage bonus too (instead of just DPS)
 
-``embed:svelte:
-<EntityHeading name="Berserker" type="item" />
-``
+##item:berserker: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/berserker.webp]] Berserker
 
 - Weapon Damage per Stack reduced from 6% to 5%
 - Bullet Resistance reduced from 9% to 8%
 
-``embed:svelte:
-<EntityHeading name="Frenzy" type="item" />
-``
+##item:frenzy: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/frenzy.webp]] Frenzy
 
 - Weapon Damage per Stack reduced from 8% to 7%
 - Bullet Resistance reduced from 10% to 8%
 - Fire Rate reduced from 40% to 35%
 - Low Health Bullet Resistance reduced from 55% to 50%
 
-``embed:svelte:
-<EntityHeading name="Restorative Shot" type="item" />
-``
+##item:restorative-shot: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/restorative_shot.webp]] Restorative Shot
 
 - Cooldown increased from 7s to 9s

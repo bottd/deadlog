@@ -20,15 +20,11 @@ content_text "Urn NW lead requirement increased from 8% to 10% Shiv Killing Blow
 <SectionPreview type="hero" names={["Bebop", "Grey Talon", "Kelvin", "McGinnis", "Paradox", "Seven", "Shiv", "Yamato"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Bebop" type="hero" />
-``
+##hero:bebop: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop
 
 - Sticky Bomb stacks no longer decrease on death
 
-``embed:svelte:
-<AbilityHeading name="Sticky Bomb" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_sticky_bomb.webp]] Sticky Bomb
 
 - Sticky Bomb now gives stacks based on dying heroes hurt by Sticky Bomb damage with a 12 second buffer (previously anyone hit by the bomb would automatically grant stacks)
 - Sticky Bomb damage per stack increased from 3% to 5%
@@ -36,75 +32,49 @@ content_text "Urn NW lead requirement increased from 8% to 10% Shiv Killing Blow
 - Sticky Bomb T1 improved from -7.5s to -8s
 - Sticky Bomb cooldown reduced from 19s to 18s
 
-``embed:svelte:
-<EntityHeading name="Grey Talon" type="hero" />
-``
+##hero:grey-talon: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon
 
 - Movespeed spirit scaling reduced from 0.04 to 0.032
 - Bullet damage spirit scaling reduced from 0.13 to 0.12
 
-``embed:svelte:
-<EntityHeading name="Kelvin" type="hero" />
-``
+##hero:kelvin: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin
 
-``embed:svelte:
-<AbilityHeading name="Ice Path" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_path.webp]] Ice Path
 
 - Ice Path cooldown increased from 38s to 42s
 
-``embed:svelte:
-<EntityHeading name="McGinnis" type="hero" />
-``
+##hero:mcginnis: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis
 
-``embed:svelte:
-<AbilityHeading name="Mini Turrets Spirit Resist" />
-``
+###ability: Mini Turrets Spirit Resist
 
 - Mini Turrets Spirit Resist reduced from 80% to 70%
 
-``embed:svelte:
-<AbilityHeading name="Spectral Wall" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_fissure_2.webp]] Spectral Wall
 
 - Spectral Wall cooldown increased from 37s to 46s
 - Spectral Wall T2 cooldown improved from -14s to -23s
 
-``embed:svelte:
-<EntityHeading name="Paradox" type="hero" />
-``
+##hero:paradox: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox
 
-``embed:svelte:
-<AbilityHeading name="Pulse Grenade" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_bomb.webp]] Pulse Grenade
 
 - Pulse Grenade T3 reduced from +1m per Pulse to +0.75m
 
-``embed:svelte:
-<EntityHeading name="Seven" type="hero" />
-``
+##hero:seven: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven
 
-``embed:svelte:
-<AbilityHeading name="Storm Cloud DPS" />
-``
+###ability: Storm Cloud DPS
 
 - Storm Cloud DPS increased from 110 to 120
 
-``embed:svelte:
-<EntityHeading name="Shiv" type="hero" />
-``
+##hero:shiv: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv
 
 - Killing Blow cast range increased from 13m to 14m
 - Killing Blow rage per weapon damage increased from 0.015 to 0.017
 - Killing Blow drain rate reduced from 0.3 to 0.25
 
-``embed:svelte:
-<EntityHeading name="Yamato" type="hero" />
-``
+##hero:yamato: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato
 
-``embed:svelte:
-<AbilityHeading name="Shadow Transformation" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]] Shadow Transformation
 
 - Shadow Transformation cooldown reduced from 90s to 85s
 
@@ -114,8 +84,6 @@ content_text "Urn NW lead requirement increased from 8% to 10% Shiv Killing Blow
 <SectionPreview type="item" names={["Majestic Leap"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Majestic Leap" type="item" />
-``
+##item:majestic-leap: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/majestic_leap.webp]] Majestic Leap
 
 - Cooldown reduced from 45s to 40s

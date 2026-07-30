@@ -57,75 +57,51 @@ content_text "Bullet Cycle Time for all heroes increased by 5% (effectively redu
 <SectionPreview type="hero" names={["Abrams", "Infernus", "Ivy", "Kelvin", "Lady Geist", "Lash", "McGinnis", "Mirage", "Paradox", "Pocket", "Seven", "Sinclair", "Warden", "Wraith"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Abrams" type="hero" />
-``
+##hero:abrams: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams
 
-``embed:svelte:
-<AbilityHeading name="Shoulder Charge" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_charge.webp]] Shoulder Charge
 
 - Shoulder Charge T3 increased from -18s to -22s
 
-``embed:svelte:
-<AbilityHeading name="Infernal Resilience" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_beef.webp]] Infernal Resilience
 
 - Infernal Resilience T3 increased from +6% to +7%
 
-``embed:svelte:
-<EntityHeading name="Infernus" type="hero" />
-``
+##hero:infernus: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus
 
 - Bullet damage growth per boon reduced from 0.16 to 0.12
 
-``embed:svelte:
-<AbilityHeading name="Afterburn DPS" />
-``
+###ability: Afterburn DPS
 
 - Afterburn DPS reduced by 13% (still affected by the global base reductions as well, so the total amount is larger than this. This applies to all other patch note lines that reduces damage as well)
 
-``embed:svelte:
-<AbilityHeading name="Afterburn" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_deflect.webp]] Afterburn
 
 - Afterburn spirit scaling increased from 0.56 to 0.66
 
-``embed:svelte:
-<AbilityHeading name="Flame Dash" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_dash.webp]] Flame Dash
 
 - Flame Dash T2 DPS reduced by 10%
 - Flame Dash spirit power scaling increased from 0.7 to 0.8
 
-``embed:svelte:
-<EntityHeading name="Ivy" type="hero" />
-``
+##hero:ivy: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy
 
 - Bullet growth reduced from 0.16 to 0.15
 - No longer ignores shooting speed penalty
 - Watcher’s Covenant now grants the shooting speed benefit to you and your tethered ally
 
-``embed:svelte:
-<EntityHeading name="Kelvin" type="hero" />
-``
+##hero:kelvin: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin
 
-``embed:svelte:
-<AbilityHeading name="Frozen Shelter" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/frozen_shelter.webp]] Frozen Shelter
 
 - Frozen Shelter now freezes Urn (like it does other objectives)
 
-``embed:svelte:
-<EntityHeading name="Lady Geist" type="hero" />
-``
+##hero:lady-geist: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]] Lady Geist
 
 - Base bullet damage reduced from 23 to 21
 - Essence Bomb arming time increased from 0.5s to 0.65s
 
-``embed:svelte:
-<AbilityHeading name="Malice" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/geist_dagger.webp]] Malice
 
 - Malice health cost increased from 6% to 7%
 - Malice T2 changed from "+30 Damage and 7% Damage Amp” to “+30 Damage and +4 Blood Shards”
@@ -133,31 +109,21 @@ content_text "Bullet Cycle Time for all heroes increased by 5% (effectively redu
 
 - Soul Exchange cast range reduced from 6m to 5.5m
 
-``embed:svelte:
-<EntityHeading name="Lash" type="hero" />
-``
+##hero:lash: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp]] Lash
 
 - Flog cast range reduced from 25m to 20m
 
-``embed:svelte:
-<AbilityHeading name="Ground Strike" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_death_slam.webp]] Ground Strike
 
 - Ground Strike damage height reduced from 3.3m to 3m
 
-``embed:svelte:
-<EntityHeading name="McGinnis" type="hero" />
-``
+##hero:mcginnis: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis
 
-``embed:svelte:
-<AbilityHeading name="Medicinal Specter" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_resupply.webp]] Medicinal Specter
 
 - Medicinal Specter now comes out faster and has a better visual que
 
-``embed:svelte:
-<AbilityHeading name="Heavy Barrage DPS" />
-``
+###ability: Heavy Barrage DPS
 
 - Heavy Barrage DPS increased by 6%
 
@@ -165,45 +131,31 @@ content_text "Bullet Cycle Time for all heroes increased by 5% (effectively redu
 - Fixed Mini Turrets not targeting Phase 1 of the Patron after shields are down
 - Health per boon increased from 52 to 56
 
-``embed:svelte:
-<EntityHeading name="Mirage" type="hero" />
-``
+##hero:mirage: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage
 
-``embed:svelte:
-<AbilityHeading name="Djinn's Mark" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_sand_phantom.webp]] Djinn's Mark
 
 - Djinn's Mark now has a range limit on application (45m)
 
 - Fixed Cases where Mirage's Tornado would get Stuck and/or Go through Walls
 
-``embed:svelte:
-<EntityHeading name="Paradox" type="hero" />
-``
+##hero:paradox: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox
 
 - Gun recoil adjustments to make it smoother
 
-``embed:svelte:
-<EntityHeading name="Pocket" type="hero" />
-``
+##hero:pocket: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket
 
 - Fixed Cloak sliding up walls very quickly
 - Fixed Cloak sometimes getting stuck on the lip of a corner
 - Fixed Cloak issue where you would teleport far shoter than expected
 
-``embed:svelte:
-<EntityHeading name="Seven" type="hero" />
-``
+##hero:seven: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven
 
-``embed:svelte:
-<AbilityHeading name="Storm Cloud DPS" />
-``
+###ability: Storm Cloud DPS
 
 - Storm Cloud DPS reduced by 10%
 
-``embed:svelte:
-<EntityHeading name="Sinclair" type="hero" />
-``
+##hero:sinclair: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/magician_sm.webp]] Sinclair
 
 - Base bullet damage reduced from 20 to 17
 - Bullet velocity reduced from 340 to 300
@@ -211,25 +163,17 @@ content_text "Bullet Cycle Time for all heroes increased by 5% (effectively redu
 - Rabbit Hex detonation delay increased from 0.7 to 0.9
 - Rabbit Hex move speed increased from 22% to 36%
 
-``embed:svelte:
-<AbilityHeading name="Can" />
-``
+###ability: Can
 
 - Can no longer teleport back to assistant while silenced or cursed
 
-``embed:svelte:
-<EntityHeading name="Warden" type="hero" />
-``
+##hero:warden: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden
 
 - Base bullet damage reduced from 17.6 to 17
 
-``embed:svelte:
-<EntityHeading name="Wraith" type="hero" />
-``
+##hero:wraith: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp]] Wraith
 
-``embed:svelte:
-<AbilityHeading name="Card Trick" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_card_trick.webp]] Card Trick
 
 - Card Trick T3 slow increased from 25% to 30%
 - Card Trick spirit scaling increased from 1.1 to 1.2
@@ -242,249 +186,173 @@ content_text "Bullet Cycle Time for all heroes increased by 5% (effectively redu
 <SectionPreview type="item" names={["Blood Tribute", "Boundless Spirit", "Cheat Death", "Counterspell", "Disarming Hex", "Divine Barrier", "Ethereal Shift", "Express Shot", "Fortitude", "Guardian Ward", "Inhibitor", "Knockdown", "Lifestrike", "Melee Lifesteal", "Rapid Recharge", "Reactive Barrier", "Rebuttal", "Restorative Shot", "Ricochet", "Rusted Barrel", "Shadow Weave", "Siphon Bullets", "Slowing Hex", "Spellslinger", "Spirit Sap", "Spirit Shielding", "Spirit Snatch", "Spirit Strike", "Split Shot", "Superior Cooldown", "Swift Striker", "Toxic Bullets", "Trophy Collector", "Unstoppable", "Vortex Web", "Weakening Headshot", "Weapon Shielding", "Witchmail"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Blood Tribute" type="item" />
-``
+##item:blood-tribute: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/blood_tribute.webp]] Blood Tribute
 
 - Health Drain reduced from 50 to 40
 - No longer grants +125 Bonus Health
 - Now grants +8% Spirit Resist
 
-``embed:svelte:
-<EntityHeading name="Boundless Spirit" type="item" />
-``
+##item:boundless-spirit: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/boundless_spirit.webp]] Boundless Spirit
 
 - Percentage spirit bonus increased from 13% to 15%
 
-``embed:svelte:
-<EntityHeading name="Cheat Death" type="item" />
-``
+##item:cheat-death: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/cheat_death.webp]] Cheat Death
 
 - Now grants Bullet Resistance instead of Spirit Resistance
 - Cooldown reduced from 120s to 100s
 
-``embed:svelte:
-<EntityHeading name="Counterspell" type="item" />
-``
+##item:counterspell: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/counterspell.webp]] Counterspell
 
 - Cooldown reduced from 25s to 20s
 - Now also grants +100 Health and +8 Spirit Power
 - Successful parry now provides +150 Heal
 
-``embed:svelte:
-<EntityHeading name="Disarming Hex" type="item" />
-``
+##item:disarming-hex: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/disarming_hex.webp]] Disarming Hex
 
 - Cooldown reduced from 30s to 25s
 
-``embed:svelte:
-<EntityHeading name="Divine Barrier" type="item" />
-``
+##item:divine-barrier: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/divine_barrier.webp]] Divine Barrier
 
 - Buff duration increased from 5s to 6s
 
-``embed:svelte:
-<EntityHeading name="Ethereal Shift" type="item" />
-``
+##item:ethereal-shift: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/ethereal_shift.webp]] Ethereal Shift
 
 - Cooldown reduced from 22s to 20s
 - Move Speed while channeling increased from 3.5 to 4
 
-``embed:svelte:
-<EntityHeading name="Express Shot" type="item" />
-``
+##item:express-shot: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/express_shot.webp]] Express Shot
 
 - Weapon Damage increased from 150% to 165%
 - Fixed Kinetic Carbine using the primary values rather than secondary values on the item
 
-``embed:svelte:
-<EntityHeading name="Fortitude" type="item" />
-``
+##item:fortitude: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/fortitude.webp]] Fortitude
 
 - Regen reduced from 3% to 2%
 - No longer grants +22% Weapon Damage
 
-``embed:svelte:
-<EntityHeading name="Guardian Ward" type="item" />
-``
+##item:guardian-ward: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/guardian_ward.webp]] Guardian Ward
 
 - Buff duration increased from 5s to 6s
 
-``embed:svelte:
-<EntityHeading name="Inhibitor" type="item" />
-``
+##item:inhibitor: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/inhibitor.webp]] Inhibitor
 
 - Now uses the buildup proc mechanic
 - Debuff duration increased from 3s to 4s
 
-``embed:svelte:
-<EntityHeading name="Knockdown" type="item" />
-``
+##item:knockdown: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/knockdown.webp]] Knockdown
 
 - Now provides +6% Ability Range
 - Cooldown reduced from 40s to 35s
 
-``embed:svelte:
-<EntityHeading name="Lifestrike" type="item" />
-``
+##item:lifestrike: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/lifestrike.webp]] Lifestrike
 
 - Now has double cooldown when triggered via light melee.
 
-``embed:svelte:
-<EntityHeading name="Melee Lifesteal" type="item" />
-``
+##item:melee-lifesteal: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/melee_lifesteal.webp]] Melee Lifesteal
 
 - Now has double cooldown when triggered via light melee
 
-``embed:svelte:
-<EntityHeading name="Rapid Recharge" type="item" />
-``
+##item:rapid-recharge: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/rapid_recharge.webp]] Rapid Recharge
 
 - Spirit Power for charged abilities increased from +16 to +20
 
-``embed:svelte:
-<EntityHeading name="Reactive Barrier" type="item" />
-``
+##item:reactive-barrier: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/reactive_barrier.webp]] Reactive Barrier
 
 - Spirit Resist increased from +5% to +6%
 
-``embed:svelte:
-<EntityHeading name="Rebuttal" type="item" />
-``
+##item:rebuttal: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/rebuttal.webp]] Rebuttal
 
 - Bonus Health increased from +50 to +75
 
-``embed:svelte:
-<EntityHeading name="Restorative Shot" type="item" />
-``
+##item:restorative-shot: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/restorative_shot.webp]] Restorative Shot
 
 - Heal from heroes increased from 40 to 50
 - Heal from NPCs/Orbs increased from 15 to 20
 
-``embed:svelte:
-<EntityHeading name="Ricochet" type="item" />
-``
+##item:ricochet: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/ricochet.webp]] Ricochet
 
 - Fire Rate reduced from 25% to 20%
 - No longer bounces off objectives
 
-``embed:svelte:
-<EntityHeading name="Rusted Barrel" type="item" />
-``
+##item:rusted-barrel: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/rusted_barrel.webp]] Rusted Barrel
 
 - Health increased from +50 to +60
 - Now provides +0.5 Sprint
 - Cooldown reduced from 30s to 25s
 
-``embed:svelte:
-<EntityHeading name="Shadow Weave" type="item" />
-``
+##item:shadow-weave: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/shadow_weave.webp]] Shadow Weave
 
 - Ambush Fire Rate increased from +30% to +35%
 
-``embed:svelte:
-<EntityHeading name="Siphon Bullets" type="item" />
-``
+##item:siphon-bullets: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/siphon_bullets.webp]] Siphon Bullets
 
 - Now grants Bullet Resistance instead of Spirit Resistance
 
-``embed:svelte:
-<EntityHeading name="Slowing Hex" type="item" />
-``
+##item:slowing-hex: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/slowing_hex.webp]] Slowing Hex
 
 - Now provides +0.5 Sprint
 - Debuff effects stays on for longer so it's easier to see
 
-``embed:svelte:
-<EntityHeading name="Spellslinger" type="item" />
-``
+##item:spellslinger: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/spell_slinger.webp]] Spellslinger
 
 - Now only activates while in combat
 
-``embed:svelte:
-<EntityHeading name="Spirit Sap" type="item" />
-``
+##item:spirit-sap: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/spirit_sap.webp]] Spirit Sap
 
 - Spirit Power reduction increased from -12 to -15
 
-``embed:svelte:
-<EntityHeading name="Spirit Shielding" type="item" />
-``
+##item:spirit-shielding: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/spirit_shielding.webp]] Spirit Shielding
 
 - Move Speed bonus increased from 1 to 1.5
 - Cooldown reduced from 40s to 35s
 
-``embed:svelte:
-<EntityHeading name="Spirit Snatch" type="item" />
-``
+##item:spirit-snatch: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/spirit_snatch.webp]] Spirit Snatch
 
 - Now has double cooldown when triggered via light melee.
 
-``embed:svelte:
-<EntityHeading name="Spirit Strike" type="item" />
-``
+##item:spirit-strike: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/spirit_strike.webp]] Spirit Strike
 
 - Now has double cooldown when triggered via light melee.
 
-``embed:svelte:
-<EntityHeading name="Split Shot" type="item" />
-``
+##item:split-shot: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/split_shot.webp]] Split Shot
 
 - Duration increased from 4.5s to 5s
 - Cooldown reduced from 16s to 14s
 
-``embed:svelte:
-<EntityHeading name="Superior Cooldown" type="item" />
-``
+##item:superior-cooldown: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/superior_cooldown.webp]] Superior Cooldown
 
 - Ability Cooldown Reduction increased from 24% to 25%
 
-``embed:svelte:
-<EntityHeading name="Swift Striker" type="item" />
-``
+##item:swift-striker: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/swift_striker.webp]] Swift Striker
 
 - Fire Rate reduced from 20% to 18%
 
-``embed:svelte:
-<EntityHeading name="Toxic Bullets" type="item" />
-``
+##item:toxic-bullets: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/toxic_bullets.webp]] Toxic Bullets
 
 - Buildup is now 15% harder
 
-``embed:svelte:
-<EntityHeading name="Trophy Collector" type="item" />
-``
+##item:trophy-collector: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/trophy_collector.webp]] Trophy Collector
 
 - Souls per minute increased from 20 to 23
 
-``embed:svelte:
-<EntityHeading name="Unstoppable" type="item" />
-``
+##item:unstoppable: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/unstoppable.webp]] Unstoppable
 
 - Fixed Silencer’s passive interaction during this state
 
-``embed:svelte:
-<EntityHeading name="Vortex Web" type="item" />
-``
+##item:vortex-web: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/vortex_web.webp]] Vortex Web
 
 - Now provides +1 Sprint
 - Capture Radius increased from 11m to 12m
 
-``embed:svelte:
-<EntityHeading name="Weakening Headshot" type="item" />
-``
+##item:weakening-headshot: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/weakening_headshot.webp]] Weakening Headshot
 
 - No longer has a 3s cooldown
 
-``embed:svelte:
-<EntityHeading name="Weapon Shielding" type="item" />
-``
+##item:weapon-shielding: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/weapon_shielding.webp]] Weapon Shielding
 
 - Move Speed bonus increased from 1 to 1.5
 - Cooldown reduced from 40s to 35s
 
-``embed:svelte:
-<EntityHeading name="Witchmail" type="item" />
-``
+##item:witchmail: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/witchmail.webp]] Witchmail
 
 - Cooldown reduction per hit increased from 3s to 4s

@@ -31,24 +31,18 @@ content_text "Respawn time at 19 minutes reduced from 35s to 30s Respawn time at
 <SectionPreview type="hero" names={["Bebop", "Billy", "Grey Talon", "Holliday", "Ivy", "Kelvin", "Lady Geist", "McGinnis", "Mo &amp; Krill", "Paradox", "Seven", "Sinclair", "Yamato"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Bebop" type="hero" />
-``
+##hero:bebop: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop
 
 - Stamina increased from 2 to 3
 - Stamina regeneration cooldown increased from 4.55s to 6s
 - Bebop Health per boon increased from +46 to +52
 - Sticky Bomb base damage reduced from 100 to 75
 
-``embed:svelte:
-<AbilityHeading name="Sticky Bomb" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_sticky_bomb.webp]] Sticky Bomb
 
 - Sticky Bomb T2 damage reduced from 63 to 60
 
-``embed:svelte:
-<AbilityHeading name="Sticky Bomb Spirit Scaling" />
-``
+###ability: Sticky Bomb Spirit Scaling
 
 - Sticky Bomb Spirit Scaling increased from 1.1 to 1.5
 
@@ -58,209 +52,143 @@ content_text "Respawn time at 19 minutes reduced from 35s to 30s Respawn time at
 - Sticky Bomb stacks now count for half for each stack after a certain threshold (100 on hit and 10 on kill)
 - Sticky Bomb base damage increased from 70 to 80
 
-``embed:svelte:
-<AbilityHeading name="Sticky Bomb" id="sticky-bomb-1" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_sticky_bomb.webp]] Sticky Bomb
 
 - Sticky Bomb T2 increased from +60 to +70
 
-``embed:svelte:
-<EntityHeading name="Billy" type="hero" />
-``
+##hero:billy: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/punkgoat_sm.webp]] Billy
 
 - Base bullet damage reduced from 6.79 to 6.3
 
-``embed:svelte:
-<EntityHeading name="Grey Talon" type="hero" />
-``
+##hero:grey-talon: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon
 
 - Rain of Arrows cooldown reduced from 35s to 30s
 - Rain of Arrows T3 now also grants +30% Bullet Evasion
 
-``embed:svelte:
-<AbilityHeading name="Guided Owl" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_guided_arrow.webp]] Guided Owl
 
 - Guided Owl duration increased from 16s to 18s
 - Guided Owl T1 damage increased from +81 to +85
 
 - Guided Owl Spirit Power per kill increased from 5 to 8
 
-``embed:svelte:
-<EntityHeading name="Holliday" type="hero" />
-``
+##hero:holliday: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]] Holliday
 
-``embed:svelte:
-<AbilityHeading name="Powder Keg" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_powder_keg.webp]] Powder Keg
 
 - Powder Keg cooldown reduced from 32s to 28s
 
 - Fixed Lasso being removed by Divine Barrier
 
-``embed:svelte:
-<EntityHeading name="Ivy" type="hero" />
-``
+##hero:ivy: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy
 
-``embed:svelte:
-<AbilityHeading name="Watcher's Covenant Replicated Healing" />
-``
+###ability: Watcher's Covenant Replicated Healing
 
 - Watcher's Covenant Replicated Healing increased from 25% to 35%
 - Watcher's Covenant Replicated Healing now scales with boons (0.5)
 
 - Air Drop ally damage penalty reduced from -30% to -20%
 
-``embed:svelte:
-<EntityHeading name="Kelvin" type="hero" />
-``
+##hero:kelvin: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin
 
-``embed:svelte:
-<AbilityHeading name="Frost Grenade" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/freezing_grenade.webp]] Frost Grenade
 
 - Frost Grenade T3 now also reduces stamina regen by -30%
 
-``embed:svelte:
-<AbilityHeading name="Ice Path" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_path.webp]] Ice Path
 
 - Ice Path T3 Max Spirit Power increased from 55 to 75
 - Ice Path T3 Spirit Power linger duration increased from 6s to 8s
 
-``embed:svelte:
-<EntityHeading name="Lady Geist" type="hero" />
-``
+##hero:lady-geist: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]] Lady Geist
 
-``embed:svelte:
-<AbilityHeading name="Ammo" />
-``
+###ability: Ammo
 
 - Ammo reduced from 10 to 9
 
 - Bullet Falloff from 58m to 52m
 
-``embed:svelte:
-<EntityHeading name="McGinnis" type="hero" />
-``
+##hero:mcginnis: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis
 
-``embed:svelte:
-<AbilityHeading name="Medicinal Specter" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_resupply.webp]] Medicinal Specter
 
 - Medicinal Specter radius spirit scaling reduced from 0.0456 to 0.03
 - Medicinal Specter duration spirit scaling reduced from 0.11 to 0.05
 - Medicinal Specter T3 reduced from 3% Max Health to 2.5%
 
-``embed:svelte:
-<AbilityHeading name="Heavy Barrage" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_rockets.webp]] Heavy Barrage
 
 - Heavy Barrage T1 slow increased from 30% to 40% (and 20% dash slow)
 - Heavy Barrage T3 spirit scaling increased from +0.1 to +0.2
 
-``embed:svelte:
-<EntityHeading name="Mo &amp; Krill" type="hero" />
-``
+##hero:mo-krill: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]] Mo & Krill
 
 - Burrow initial knockup vertical area detection improved
 
-``embed:svelte:
-<AbilityHeading name="Sand Blast" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_throw_sand.webp]] Sand Blast
 
 - Sand Blast now deals a fixed 40 damage
 
 - Sand Blast can now be casted while Burrowed
 
-``embed:svelte:
-<AbilityHeading name="Sand Blast" id="sand-blast-1" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_throw_sand.webp]] Sand Blast
 
 - Sand Blast T2 increased from -19s Cooldown to -23s
 - Sand Blast T3 now also slows dash distance by 40%
 
-``embed:svelte:
-<EntityHeading name="Paradox" type="hero" />
-``
+##hero:paradox: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox
 
-``embed:svelte:
-<AbilityHeading name="Kinetic Carbine" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/duo/duo_attack.webp]] Kinetic Carbine
 
 - Kinetic Carbine cooldown reduced from 30s to 27s
 
-``embed:svelte:
-<AbilityHeading name="Time Wall Width" />
-``
+###ability: Time Wall Width
 
 - Time Wall Width increased from 7m to 7.5m
 
-``embed:svelte:
-<EntityHeading name="Seven" type="hero" />
-``
+##hero:seven: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven
 
-``embed:svelte:
-<AbilityHeading name="Lightning Ball" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_ball.webp]] Lightning Ball
 
 - Lightning Ball T3 increased from +1m to +1.5m
 
-``embed:svelte:
-<AbilityHeading name="Power Surge" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_chain.webp]] Power Surge
 
 - Power Surge T2 reduced from -15% Spirit Resist for 8s to -10% for 6s
 
-``embed:svelte:
-<AbilityHeading name="Storm Cloud DPS" />
-``
+###ability: Storm Cloud DPS
 
 - Storm Cloud DPS increased from 90 to 95
 
-``embed:svelte:
-<AbilityHeading name="Storm Cloud" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_storm.webp]] Storm Cloud
 
 - Storm Cloud T3 increased from +54 DPS to 65
 - Storm Cloud T3 move speed increased from 2.5 to 3.8
 
-``embed:svelte:
-<EntityHeading name="Sinclair" type="hero" />
-``
+##hero:sinclair: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/magician_sm.webp]] Sinclair
 
 - Spirit power growth increased from 1.1 to 1.3
 - Vexing Bolt initial velocity reduced from 1000 to 800
 
-``embed:svelte:
-<AbilityHeading name="Vexing Bolt" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_magicbolt.webp]] Vexing Bolt
 
 - Vexing Bolt now only snaps to heroes
 - Vexing Bolt max duration increased from 3s to 4s (max damage is still at 2s)
 - Vexing Bolt now shows the target to redirect to (similar to Wraith's Cards)
 
-``embed:svelte:
-<AbilityHeading name="Rabbit Hex" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_animalcurse.webp]] Rabbit Hex
 
 - Rabbit Hex cooldown reduced from 30s to 26s
 - Rabbit Hex radius increased from 6m to 6.5m
 
-``embed:svelte:
-<EntityHeading name="Yamato" type="hero" />
-``
+##hero:yamato: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato
 
-``embed:svelte:
-<AbilityHeading name="Power Slash" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_power_slash.webp]] Power Slash
 
 - Power Slash T3 bonus damage reduced from +166 to +150
 - Power Slash T3 now also increases spirit power scaling by 0.5
 
-``embed:svelte:
-<AbilityHeading name="Shadow Transformation" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]] Shadow Transformation
 
 - Shadow Transformation heal on kill increased from 12% to 15%
 
@@ -270,15 +198,11 @@ content_text "Respawn time at 19 minutes reduced from 35s to 30s Respawn time at
 <SectionPreview type="item" names={["Kinetic Dash", "Toxic Bullets"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Kinetic Dash" type="item" />
-``
+##item:kinetic-dash: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/kinetic_dash.webp]] Kinetic Dash
 
 - Ammo count reduced from +8 to +6
 
-``embed:svelte:
-<EntityHeading name="Toxic Bullets" type="item" />
-``
+##item:toxic-bullets: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/toxic_bullets.webp]] Toxic Bullets
 
 - Bleed damage reduced from 2.2% to 2%
 - Buildup is 10% harder

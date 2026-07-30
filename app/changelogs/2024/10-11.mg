@@ -24,13 +24,9 @@ content_text "Torment Pulse now scales with cooldown again Torment Pulse Spirit 
 <SectionPreview type="hero" names={["Bebop", "Vindicta"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Bebop" type="hero" />
-``
+##hero:bebop: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop
 
-``embed:svelte:
-<AbilityHeading name="Sticky Bomb" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_sticky_bomb.webp]] Sticky Bomb
 
 - Sticky Bomb no longer has a cap (was 15 stacks)
 - Sticky Bomb scaling per hero reduced from 4% to 3% (previous uncapped was 2.5%)
@@ -39,20 +35,14 @@ content_text "Torment Pulse now scales with cooldown again Torment Pulse Spirit 
 - Fixed some hook bugs causing it to sometimes not grab heroes near cover but still in collision range
 - Hook collision against troopers reduced to 12 (default is 33)
 
-``embed:svelte:
-<AbilityHeading name="Hook" />
-``
+###ability: Hook
 
 - Hook no longer kills troopers (so you can bomb/uppercut/melee them)
 
-``embed:svelte:
-<AbilityHeading name="Hyper Beam" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hyper_beam.webp]] Hyper Beam
 
 - Hyper Beam duration increased from 10s to 11s
 
-``embed:svelte:
-<EntityHeading name="Vindicta" type="hero" />
-``
+##hero:vindicta: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta
 
 - Movespeed increased from 8.3 to 9

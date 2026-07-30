@@ -3,45 +3,43 @@ import {
 	decodeEntityName,
 	entityNameAliases,
 	makeSummary,
-	stripNorgLinks,
-	unescapeNorgBraces
+	stripMogLinks,
+	unescapeMogDelimiters
 } from '@deadlog/utils';
 
+/** Only what `extractEntities` needs. Heading anchors come from the renderer's own toc
+ * (see the `.mg` module's `toc` export), so deriving ids here would be a second rule. */
 export interface TocEntry {
 	level: number;
 	title: string;
-	id: string;
+	/** Attribute chain on the marker, e.g. `['hero', 'abrams']`. */
+	attrs: string[];
 }
 
-const ENTITY_HEADING_RE = /<EntityHeading\b([^>]*)\/?\s*>/;
-const ABILITY_HEADING_RE = /<AbilityHeading\b([^>]*)\/?\s*>/;
-const NAME_ATTR_RE = /\bname\s*=\s*(?:"([^"]*)"|'([^']*)')/;
+/**
+ * A heading with its attribute chain: `##hero:abrams: [[!:…]] Abrams`. The chain abuts
+ * the marker, so a space after it means the colon is ordinary text — `# Foo: Bar` keeps
+ * its title intact, exactly as the renderer reads it.
+ */
+const HEADING_RE = /^(#+)((?:[^\s:]+:)*)[ \t]*(.*)$/;
+/** The baked portrait leads the title; the name is what follows it. */
+const LEADING_IMAGE_RE = /^\[\[!:[^\]]*\]\](?:\(\([^)]*\)\))?\s*/;
+
+/** Shared with the changelog loader so the toc and the entity walk read alike. */
+export function parseHeading(line: string): TocEntry | null {
+	const match = line.match(HEADING_RE);
+	if (!match) return null;
+	const title = decodeEntityName(match[3].replace(LEADING_IMAGE_RE, '').trim());
+	if (!title) return null;
+	return {
+		level: match[1].length,
+		attrs: match[2].split(':').filter(Boolean),
+		title
+	};
+}
 
 /** Roughly two card lines — see PatchPreviewCard's line-clamp-2. */
 const SUMMARY_MAX = 160;
-
-function parseEntityHeading(
-	source: string
-): Omit<EntityChange, 'count' | 'summary'> | null {
-	const tag = source.match(ENTITY_HEADING_RE);
-	if (!tag) return null;
-
-	const nameMatch = tag[1].match(NAME_ATTR_RE);
-	const typeMatch = tag[1].match(/\btype\s*=\s*(?:"(hero|item)"|'(hero|item)')/);
-	const name = nameMatch?.[1] ?? nameMatch?.[2];
-	const type = typeMatch?.[1] ?? typeMatch?.[2];
-
-	if (!name || (type !== 'hero' && type !== 'item')) return null;
-	return { name: decodeEntityName(name), type };
-}
-
-function parseAbilityName(source: string): string | null {
-	const tag = source.match(ABILITY_HEADING_RE);
-	if (!tag) return null;
-	const nameMatch = tag[1].match(NAME_ATTR_RE);
-	const name = nameMatch?.[1] ?? nameMatch?.[2];
-	return name ? decodeEntityName(name) : null;
-}
 
 type EntityBullets = Omit<EntityChange, 'count' | 'summary'> & { bullets: string[] };
 
@@ -52,39 +50,36 @@ export function extractEntityChanges(content: string): EntityChange[] {
 
 	for (const rawLine of content.split('\n')) {
 		const line = rawLine.trim();
+		const heading = parseHeading(line);
 
-		if (/^\*\s+/.test(line)) {
-			currentKey = null;
-			currentAbility = null;
-			continue;
-		}
+		if (heading) {
+			const [kind] = heading.attrs;
 
-		if (line.includes('<EntityHeading')) {
-			const heading = parseEntityHeading(line);
-			currentKey = null;
-			currentAbility = null;
-			if (!heading) continue;
-
-			const key = `${heading.type}:${entityNameAliases(heading.name).at(-1)}`;
-			if (!changes.has(key)) changes.set(key, { ...heading, bullets: [] });
-			currentKey = key;
-			continue;
-		}
-
-		// Ability bullets still belong to the hero, but a bare "Cooldown reduced to 32s"
-		// is meaningless without knowing which ability it came from.
-		if (line.includes('<AbilityHeading')) {
-			currentAbility = parseAbilityName(line);
+			if (kind === 'hero' || kind === 'item') {
+				const key = `${kind}:${entityNameAliases(heading.title).at(-1)}`;
+				if (!changes.has(key))
+					changes.set(key, { name: heading.title, type: kind, bullets: [] });
+				currentKey = key;
+				currentAbility = null;
+			} else if (kind === 'ability') {
+				// Ability bullets still belong to the hero, but a bare "Cooldown reduced to
+				// 32s" is meaningless without knowing which ability it came from.
+				currentAbility = heading.title;
+			} else {
+				// A section heading — anything below it belongs to no entity yet.
+				currentKey = null;
+				currentAbility = null;
+			}
 			continue;
 		}
 
 		if (currentKey && /^-\s+\S/.test(line)) {
 			const current = changes.get(currentKey);
 			if (!current) continue;
-			// .norg carries escaped braces and {target}[label] links; a summary wants
-			// neither the backslashes nor the markup.
-			const text = stripNorgLinks(
-				decodeEntityName(unescapeNorgBraces(line.replace(/^-\s+/, '').trim()))
+			// .mg carries escaped delimiters and [[target]]((label)) links; a summary
+			// wants neither the backslashes nor the markup.
+			const text = stripMogLinks(
+				decodeEntityName(unescapeMogDelimiters(line.replace(/^-\s+/, '').trim()))
 			);
 			// Most bullets already lead with the ability name; only prefix the ones that don't.
 			const needsPrefix =
@@ -101,42 +96,19 @@ export function extractEntityChanges(content: string): EntityChange[] {
 	}));
 }
 
-export function extractEntities(toc: TocEntry[], content?: string): ChangelogEntities {
-	const heroSet = new Set<string>();
-	const itemSet = new Set<string>();
+export function extractEntities(toc: TocEntry[]): ChangelogEntities {
+	const heroes = new Set<string>();
+	const items = new Set<string>();
 
-	let currentSection: 'heroes' | 'items' | null = null;
-
+	// An entity is a heading that says it is one, so section order no longer has to be
+	// inferred and stray headings cannot be mistaken for entities.
 	for (const entry of toc) {
-		if (entry.level === 1) {
-			const title = entry.title.toLowerCase();
-			if (title.includes('hero')) {
-				currentSection = 'heroes';
-			} else if (title.includes('item')) {
-				currentSection = 'items';
-			} else {
-				currentSection = null;
-			}
-		} else if (entry.level === 2 && currentSection) {
-			if (entry.title === 'Raw Content' || entry.title.startsWith('Reply ')) {
-				continue;
-			}
-			(currentSection === 'heroes' ? heroSet : itemSet).add(entry.title);
-		}
+		const [kind] = entry.attrs;
+		if (kind === 'hero') heroes.add(entry.title);
+		else if (kind === 'item') items.add(entry.title);
 	}
 
-	if (content) {
-		const re = new RegExp(ENTITY_HEADING_RE.source, 'g');
-		let match;
-		while ((match = re.exec(content)) !== null) {
-			const heading = parseEntityHeading(match[0]);
-			if (heading) {
-				(heading.type === 'hero' ? heroSet : itemSet).add(heading.name);
-			}
-		}
-	}
-
-	return { heroes: [...heroSet], items: [...itemSet] };
+	return { heroes: [...heroes], items: [...items] };
 }
 
 export { entityNameAliases, entityNamesMatch, normalizeEntityName } from '@deadlog/utils';

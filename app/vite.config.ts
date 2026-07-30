@@ -1,24 +1,24 @@
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig, type Plugin } from 'vitest/config';
 import { sveltekit } from '@sveltejs/kit/vite';
-import { norgPlugin } from 'vite-plugin-norg';
+import { mogPlugin } from 'vite-plugin-mog';
 import { playwright } from '@vitest/browser-playwright';
 import path from 'path';
 
 const changelogsDir = path.resolve(__dirname, 'changelogs');
 
 /**
- * The Norg parser reports malformed markup as a plugin warning — a dropped unsafe link,
+ * The Mog parser reports malformed markup as a plugin warning — a dropped unsafe link,
  * an unclosed block. In a build that prints a hundred lines of chunk sizes those scroll
  * straight past while the page quietly loses content, so fail instead. Build only: in
  * dev the warning is visible next to the edit that caused it.
  */
-const failOnNorgDiagnostics: Plugin = {
-	name: 'fail-on-norg-diagnostics',
+const failOnMogDiagnostics: Plugin = {
+	name: 'fail-on-mog-diagnostics',
 	apply: 'build',
 	onLog(level, log) {
-		if (level === 'warn' && log.plugin === 'vite-plugin-norg') {
-			this.error(`[norg] ${log.id ?? ''}: ${log.message}`.trim());
+		if (level === 'warn' && log.plugin === 'vite-plugin-mog') {
+			this.error(`[mog] ${log.id ?? ''}: ${log.message}`.trim());
 		}
 	}
 };
@@ -28,15 +28,13 @@ export default defineConfig({
 		tsconfigPaths: true
 	},
 	plugins: [
-		norgPlugin({
+		mogPlugin({
 			mode: 'svelte',
-			include: [`${changelogsDir}/**/*.norg`],
+			include: [`${changelogsDir}/**/*.mg`],
 			componentDir: path.resolve(__dirname, 'src/lib/components/changelog'),
-			arboriumConfig: {
-				themes: { light: 'github-light', dark: 'github-dark' }
-			}
+			theme: { light: 'github-light', dark: 'github-dark' }
 		}),
-		failOnNorgDiagnostics,
+		failOnMogDiagnostics,
 		tailwindcss(),
 		sveltekit()
 	],

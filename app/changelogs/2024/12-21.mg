@@ -29,55 +29,37 @@ content_text "Fixed some cases where slows could cause your speed to fall below 
 <SectionPreview type="hero" names={["Infernus", "Mirage", "Vindicta", "Warden", "Yamato"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Infernus" type="hero" />
-``
+##hero:infernus: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus
 
-``embed:svelte:
-<AbilityHeading name="Flame Dash" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_dash.webp]] Flame Dash
 
 - Flame Dash T3 changed Charge Time increased from 15s to 18s
 
-``embed:svelte:
-<EntityHeading name="Mirage" type="hero" />
-``
+##hero:mirage: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage
 
 - Fire Scarabs T2 reduced from -10% Bullet Resist to -8%
 
-``embed:svelte:
-<EntityHeading name="Vindicta" type="hero" />
-``
+##hero:vindicta: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta
 
 - Assassinate base damage reduced from 120 to 100
 
-``embed:svelte:
-<AbilityHeading name="Assassinate" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_assassinate.webp]] Assassinate
 
 - Assassinate bonus damage reduced from 120 to 100
 
-``embed:svelte:
-<EntityHeading name="Warden" type="hero" />
-``
+##hero:warden: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden
 
 - Bullet damage growth reduced from 0.94 to 0.9
 
-``embed:svelte:
-<AbilityHeading name="Last Stand" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_riot_protocol.webp]] Last Stand
 
 - Last Stand now does 40% less damage to objectives (similar to various other abilities)
 
-``embed:svelte:
-<EntityHeading name="Yamato" type="hero" />
-``
+##hero:yamato: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato
 
 - Shadow Transformation Bullet and Spirit Resist reduced from 45% to 40%
 
-``embed:svelte:
-<AbilityHeading name="Shadow Transformation" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]] Shadow Transformation
 
 - Shadow Transformation T3 increased from 15% to 20% Resist
 
@@ -87,27 +69,19 @@ content_text "Fixed some cases where slows could cause your speed to fall below 
 <SectionPreview type="item" names={["Alchemical Fire", "Knockdown", "Restorative Shot", "Veil Walker"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Alchemical Fire" type="item" />
-``
+##item:alchemical-fire: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/alchemical_fire.webp]] Alchemical Fire
 
 - Base DPS reduced from 55 to 50
 
-``embed:svelte:
-<EntityHeading name="Knockdown" type="item" />
-``
+##item:knockdown: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/knockdown.webp]] Knockdown
 
 - Stun duration reduced form 0.75s to 0.5s for ground targets (airborne values adjusted to be similar to before)
 
-``embed:svelte:
-<EntityHeading name="Restorative Shot" type="item" />
-``
+##item:restorative-shot: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/restorative_shot.webp]] Restorative Shot
 
 - Cooldown increased from 6s to 7s
 
-``embed:svelte:
-<EntityHeading name="Veil Walker" type="item" />
-``
+##item:veil-walker: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/veil_walker.webp]] Veil Walker
 
 - Now a T4 item
 - Shields increased from 250 to 300

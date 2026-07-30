@@ -24,29 +24,19 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 <SectionPreview type="hero" names={["Abrams", "Bebop", "Calico", "Dynamo", "Grey Talon", "Haze", "Holliday", "Kelvin", "Seven", "Shiv", "Sinclair", "Vindicta", "Viscous", "Vyper"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Abrams" type="hero" />
-``
+##hero:abrams: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams
 
-``embed:svelte:
-<AbilityHeading name="Infernal Resilience" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_beef.webp]] Infernal Resilience
 
 - Infernal Resilience increased from 11% to 12%
 
-``embed:svelte:
-<EntityHeading name="Bebop" type="hero" />
-``
+##hero:bebop: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop
 
 - Uppercut air control lockout period reduced from 0.5s to 0.3s
 
-``embed:svelte:
-<EntityHeading name="Calico" type="hero" />
-``
+##hero:calico: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp]] Calico
 
-``embed:svelte:
-<AbilityHeading name="Gloom Bombs" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_clustergrenade.webp]] Gloom Bombs
 
 - Gloom Bombs now has updated impact SFX
 - Gloom Bombs now has an arming effect for when they are about to detonate
@@ -56,9 +46,7 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 - Leaping Slash updated to break breakables in the area
 - Leaping Slash fixed a bug where calico's slash would deal no damage near walls
 
-``embed:svelte:
-<AbilityHeading name="Ava" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_catform.webp]] Ava
 
 - Ava duration reduced from 20s to 15s
 - Ava cooldown reduced from 50s to 45s
@@ -70,49 +58,35 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 - Return to Shadows cooldown increased from 80s to 90s
 - Fixed Leaping Slash doing bonus damage from Melee Charge
 
-``embed:svelte:
-<EntityHeading name="Dynamo" type="hero" />
-``
+##hero:dynamo: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo
 
-``embed:svelte:
-<AbilityHeading name="Kinetic Pulse" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_stomp.webp]] Kinetic Pulse
 
 - Kinetic Pulse damage spirit scaling increased from 1.4 to 1.8
 - Kinetic Pulse T3 now also adds +1 Charge
 
-``embed:svelte:
-<EntityHeading name="Grey Talon" type="hero" />
-``
+##hero:grey-talon: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon
 
 - Spirit Snare cooldown reduced from 37s to 34s
 - Spirit Snare T2 increased from +0.5s to +0.75s
 
-``embed:svelte:
-<EntityHeading name="Haze" type="hero" />
-``
+##hero:haze: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze
 
 - Bullet Dance T3 increased from +40% Evasion to +60%
 - Bullet Dance T3 increased from +2 Dance Move Speed to +3
 
-``embed:svelte:
-<EntityHeading name="Holliday" type="hero" />
-``
+##hero:holliday: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]] Holliday
 
 - Powder Keg will no longer arm instantly if the player has the Bounce Pad modifier
 
-``embed:svelte:
-<AbilityHeading name="Powder Keg Charge Time" />
-``
+###ability: Powder Keg Charge Time
 
 - Powder Keg Charge Time increased from 1s to 2s
 
 - Powder Keg knock up time reduced by 15%
 - Bounce Pad no will no longer expire after 5 seconds in the air
 
-``embed:svelte:
-<AbilityHeading name="Bounce Pad" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_bounce_pad.webp]] Bounce Pad
 
 - Bounce Pad spirit scaling reduced from 0.9 to 0.4
 
@@ -123,41 +97,27 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 - Spirit Lasso duration now lasts 1.5s longer when using Bounce Pad
 - Spirit Lasso Fixed an issue where the lasso animation would get stuck on sometimes
 
-``embed:svelte:
-<EntityHeading name="Kelvin" type="hero" />
-``
+##hero:kelvin: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin
 
-``embed:svelte:
-<AbilityHeading name="Arctic Beam" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_beam.webp]] Arctic Beam
 
 - Arctic Beam now also slows roll distances by 20%
 
-``embed:svelte:
-<EntityHeading name="Seven" type="hero" />
-``
+##hero:seven: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven
 
 - Storm Cloud secondary ability delay reduced from 2s to 0.25s
 
-``embed:svelte:
-<EntityHeading name="Shiv" type="hero" />
-``
+##hero:shiv: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv
 
-``embed:svelte:
-<AbilityHeading name="Serrated Knives" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_toss.webp]] Serrated Knives
 
 - Serrated Knives no longer stops after hitting a Soul Orb
 
-``embed:svelte:
-<EntityHeading name="Sinclair" type="hero" />
-``
+##hero:sinclair: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/magician_sm.webp]] Sinclair
 
 - No longer has -35% Headshot Damage Reduction
 
-``embed:svelte:
-<AbilityHeading name="Vexing Bolt" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_magicbolt.webp]] Vexing Bolt
 
 - Vexing Bolt damage mechanics reworked, increases damage as the bolt travels, various values adjusted (150 max damage, 75 min damage, 2s time for max damage, assistant does 50% damage. T3 is now +150 max damage, +50% assistant damage)
 - Vexing Bolt T2 updated to remove base fire rate debuff, add as t2 upgrade, remove spirit shred t2
@@ -165,17 +125,13 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 - Vexing Bolt allow for retarget to try to find targets through walls and to bend around corners
 - Rabbit can now use jump
 
-``embed:svelte:
-<AbilityHeading name="Rabbit Hex" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_animalcurse.webp]] Rabbit Hex
 
 - Rabbit Hex projectile updated to better track targets that have recently changes models
 
 - Spectral Assistant update VFX radius & lifetimes to scale off of clone damage
 
-``embed:svelte:
-<AbilityHeading name="Audience Participation" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_copyult.webp]] Audience Participation
 
 - Audience Participation cooldown with successful usage reduced from 100% to 50%
 
@@ -183,39 +139,27 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 - Audience Participation VFX updated steal effect to feel snappier
 - Audience Participation fixed a typo in the ability description
 
-``embed:svelte:
-<EntityHeading name="Vindicta" type="hero" />
-``
+##hero:vindicta: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta
 
 - Bullet damage reduced from 11.7 to 11.4
 
-``embed:svelte:
-<AbilityHeading name="Crow" />
-``
+###ability: Crow
 
 - Crow projectile speed reduced from 4750 to 4250
 
-``embed:svelte:
-<AbilityHeading name="Assassinate" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_assassinate.webp]] Assassinate
 
 - Assassinate T2 reduced from +120 to +110
 
-``embed:svelte:
-<EntityHeading name="Viscous" type="hero" />
-``
+##hero:viscous: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous
 
 - Goo Ball turn rate improved by 10%
 
-``embed:svelte:
-<EntityHeading name="Vyper" type="hero" />
-``
+##hero:vyper: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kali_sm.webp]] Vyper
 
 - Bullet damage growth increased from 0.32 to 0.36
 
-``embed:svelte:
-<AbilityHeading name="Petrifying Bola" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viper/viper_petrifybola.webp]] Petrifying Bola
 
 - Petrifying Bola changed the petrify to no longer be breakable
 
@@ -228,38 +172,26 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 <SectionPreview type="item" names={["Alchemical Fire", "Ammo Scavenger", "Berserker", "Bullet Lifesteal", "Heroic Aura", "Swift Striker"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Alchemical Fire" type="item" />
-``
+##item:alchemical-fire: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/alchemical_fire.webp]] Alchemical Fire
 
 - Base damage reduced from 50 to 45
 
-``embed:svelte:
-<EntityHeading name="Ammo Scavenger" type="item" />
-``
+##item:ammo-scavenger: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/mods_weapon/ammo_scavenger.webp]] Ammo Scavenger
 
 - Ammo reduced from 15% to 10%
 
-``embed:svelte:
-<EntityHeading name="Berserker" type="item" />
-``
+##item:berserker: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/berserker.webp]] Berserker
 
 - Damage to gain stack increased from 100 to 120
 
-``embed:svelte:
-<EntityHeading name="Bullet Lifesteal" type="item" />
-``
+##item:bullet-lifesteal: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/bullet_lifesteal.webp]] Bullet Lifesteal
 
 - Lifesteal reduced from 26% to 24%
 
-``embed:svelte:
-<EntityHeading name="Heroic Aura" type="item" />
-``
+##item:heroic-aura: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/heroic_aura.webp]] Heroic Aura
 
 - Lifesteal reduced from 18% to 16%
 
-``embed:svelte:
-<EntityHeading name="Swift Striker" type="item" />
-``
+##item:swift-striker: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/swift_striker.webp]] Swift Striker
 
 - Fire Rate reduced from 22% to 20%

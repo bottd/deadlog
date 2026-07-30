@@ -41,6 +41,9 @@
 		if (sectionEl) applyEntityFilter(sectionEl, selectedSlugs);
 	});
 
+	const isEntity = (el: HTMLElement) =>
+		el.classList.contains('hero') || el.classList.contains('item');
+
 	function sectionOf(h1: HTMLElement): 'general' | 'hero' | 'item' {
 		const id = h1.id || entityFragmentId(h1.textContent ?? '');
 		if (id.includes('hero')) return 'hero';
@@ -58,8 +61,7 @@
 		let sec: 'general' | 'hero' | 'item' = 'general';
 		for (const el of children) {
 			if (el.tagName === 'H1') sec = sectionOf(el);
-			else if (el.classList.contains('entity-heading') && selected.has(el.id))
-				matched[sec] = true;
+			else if (isEntity(el) && selected.has(el.id)) matched[sec] = true;
 		}
 
 		// a heading owns its siblings until the next heading; hide general changes,
@@ -70,7 +72,7 @@
 				sec = sectionOf(el);
 				el.style.display = sec !== 'general' && matched[sec] ? '' : 'none';
 				mode = 'hide';
-			} else if (el.classList.contains('entity-heading')) {
+			} else if (isEntity(el)) {
 				mode = selected.has(el.id) ? 'show' : 'hide';
 				el.style.display = mode === 'show' ? '' : 'none';
 			} else {
@@ -80,14 +82,14 @@
 	}
 </script>
 
-<section class="norg-content" aria-label="Changelog details" bind:this={sectionEl}>
+<section class="mog-content" aria-label="Changelog details" bind:this={sectionEl}>
 	<Content />
 </section>
 
 <style lang="postcss">
 	@reference "../../../app.css";
 
-	.norg-content {
+	.mog-content {
 		@apply max-w-none text-[15px] leading-relaxed;
 
 		/* Section headings — editorial treatment */
@@ -108,39 +110,46 @@
 			@apply text-primary mt-6 mb-4 text-lg font-semibold tracking-tight;
 		}
 
-		/* Entity/ability heading styling */
-		:global(header.entity-heading) {
-			@apply mt-8;
+		/* Entity and ability headings carry their own classification and portrait —
+		   `##hero:abrams: [[!:…]] Abrams` — so the layout that used to live in
+		   EntityHeading.svelte is applied to the generated heading instead. */
+		:global(h2.hero),
+		:global(h2.item) {
+			@apply text-foreground relative mt-8 mb-4 flex scroll-mt-20 items-center gap-4 py-2 text-lg font-semibold tracking-tight;
+		}
+
+		:global(h3.ability) {
+			@apply text-foreground relative mt-4 mb-2 flex scroll-mt-20 items-center gap-2.5 py-1 pl-3 text-sm font-semibold;
+		}
+
+		:global(h2.hero img),
+		:global(h2.item img) {
+			@apply border-border bg-card ml-3 size-10 rounded-lg border object-cover shadow-sm;
+		}
+
+		:global(h3.ability img) {
+			@apply size-6 rounded object-cover;
 		}
 
 		/* Separator between entity sections (list → next entity heading) */
-		:global(ul:not(.section-preview) + header.entity-heading) {
-			@apply border-border/30 mt-8 border-t pt-6;
-		}
-
-		:global(header.entity-heading h3) {
-			@apply m-0 text-lg;
-		}
-
-		:global(header.ability-heading) {
-			@apply mt-4;
-		}
-
-		:global(header.ability-heading h4) {
-			@apply m-0 text-sm;
+		:global(ul:not(.section-preview) + h2.hero),
+		:global(ul:not(.section-preview) + h2.item) {
+			@apply border-border/30 border-t pt-6;
 		}
 
 		/* Indent notes under entity/ability headings */
-		:global(header.entity-heading + ul) {
+		:global(h2.hero + ul),
+		:global(h2.item + ul) {
 			@apply border-border/40 ml-14 border-l pl-3;
 		}
 
-		:global(header.ability-heading + ul) {
+		:global(h3.ability + ul) {
 			@apply ml-9;
 		}
 
 		/* First entity after section preview — minimal gap */
-		:global(ul.section-preview + header.entity-heading) {
+		:global(ul.section-preview + h2.hero),
+		:global(ul.section-preview + h2.item) {
 			@apply mt-2 border-t-0 pt-0;
 		}
 

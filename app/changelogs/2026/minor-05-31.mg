@@ -16,114 +16,76 @@ content_text "Apollo Disengaging Sigil T2 increased from +20% Fire Rate to +30% 
 <SectionPreview type="hero" names={["Apollo", "Graves", "McGinnis", "Pocket", "Silver", "Victor", "Yamato"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Apollo" type="hero" />
-``
+##hero:apollo: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/fencer_sm.webp]] Apollo
 
-``embed:svelte:
-<AbilityHeading name="Disengaging Sigil" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/fencer/fencer_sigil.webp]] Disengaging Sigil
 
 - Disengaging Sigil T2 increased from +20% Fire Rate to +30%
 
-``embed:svelte:
-<AbilityHeading name="Flawless Advance" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/fencer/fencer_lungingstab.webp]] Flawless Advance
 
 - Flawless Advance T1 heal from 30+0.75 to 35+1.0
 - Flawless Advance T2 increased from -10s Cooldown to -12s
 
-``embed:svelte:
-<AbilityHeading name="Itani Lo Sahn" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/fencer/fencer_ult.webp]] Itani Lo Sahn
 
 - Itani Lo Sahn damage increased from 190 to 200
 - Itani Lo Sahn spirit scaling increased from 2.3 to 2.6
 
-``embed:svelte:
-<EntityHeading name="Graves" type="hero" />
-``
+##hero:graves: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/necro_sm.webp]] Graves
 
 - Jar of Dead damage reduced from 20 + 0.31/spirit to 17 + 0.27/spirit
 
-``embed:svelte:
-<AbilityHeading name="Ghouls" />
-``
+###ability: Ghouls
 
 - Ghouls damage reduced by 15%
 
 - Ghouls bounty increased from 25+1/min to 35+2/min
 
-``embed:svelte:
-<EntityHeading name="McGinnis" type="hero" />
-``
+##hero:mcginnis: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis
 
-``embed:svelte:
-<AbilityHeading name="Heavy Barrage" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_rockets.webp]] Heavy Barrage
 
 - Heavy Barrage range reduced from 50m to 36m
 - Heavy Barrage T1 Dash Slow reduced from 30% to 18% (regular slow still 30%)
 - Heavy Barrage T3 Damage Per Rocket reduced from +18 to +15
 
-``embed:svelte:
-<EntityHeading name="Pocket" type="hero" />
-``
+##hero:pocket: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket
 
-``embed:svelte:
-<AbilityHeading name="Flying Cloak" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_plasma_flux.webp]] Flying Cloak
 
 - Flying Cloak T3 reduced from -14s Cooldown to -13s
 
-``embed:svelte:
-<AbilityHeading name="Affliction" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_affliction.webp]] Affliction
 
 - Affliction T3 reduced from +18 DPS to +14
 
-``embed:svelte:
-<EntityHeading name="Silver" type="hero" />
-``
+##hero:silver: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/werewolf_sm.webp]] Silver
 
 - Slam Fire Current Health as Damage reduced from 3% to 2.5%
 
-``embed:svelte:
-<AbilityHeading name="Slam Fire" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/werewolf/werewolf_slamfire.webp]] Slam Fire
 
 - Slam Fire T3 reduced from 8% Current Health as Damage to 7%
 
-``embed:svelte:
-<AbilityHeading name="Entangling Bola" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/werewolf/werewolf_bola.webp]] Entangling Bola
 
 - Entangling Bola cooldown increased from 20s to 23s
 - Entangling Bola T2 increased from -5s Cooldown to -8s
 
-``embed:svelte:
-<AbilityHeading name="Lycan Curse Fire Rate" />
-``
+###ability: Lycan Curse Fire Rate
 
 - Lycan Curse Fire Rate reduced from 65% to 60%
 
-``embed:svelte:
-<EntityHeading name="Victor" type="hero" />
-``
+##hero:victor: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/frank_sm.webp]] Victor
 
-``embed:svelte:
-<AbilityHeading name="Shocking Reanimation" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_shocking_reanimation.webp]] Shocking Reanimation
 
 - Shocking Reanimation T3 reduced from -130s Cooldown to -120s
 
-``embed:svelte:
-<EntityHeading name="Yamato" type="hero" />
-``
+##hero:yamato: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato
 
-``embed:svelte:
-<AbilityHeading name="Power Slash" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_power_slash.webp]] Power Slash
 
 - Power Slash spirit scaling reduced from 2.1 to 1.85
 

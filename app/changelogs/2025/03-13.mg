@@ -34,48 +34,32 @@ content_text "Increased horizontal soul orb movement a bit Soul Orb spawn delay 
 <SectionPreview type="hero" names={["Haze", "Holliday", "Sinclair"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Haze" type="hero" />
-``
+##hero:haze: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze
 
 - Bullet Dance bonus damage is now weapon damage instead of spirit
 
-``embed:svelte:
-<EntityHeading name="Holliday" type="hero" />
-``
+##hero:holliday: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]] Holliday
 
-``embed:svelte:
-<AbilityHeading name="Powder Keg" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_powder_keg.webp]] Powder Keg
 
 - Powder Keg T2 decreased from +120 to +100
 
-``embed:svelte:
-<AbilityHeading name="Bounce Pad" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_bounce_pad.webp]] Bounce Pad
 
 - Bounce Pad cooldown increased from 37s to 41s
 - Bounce Pad T1 is now T2
 
-``embed:svelte:
-<AbilityHeading name="Bounce Pad New" />
-``
+###ability: Bounce Pad New
 
 - Bounce Pad New T1 is -10s cooldown
 
-``embed:svelte:
-<AbilityHeading name="Bounce Pad" id="bounce-pad-1" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_bounce_pad.webp]] Bounce Pad
 
 - Bounce Pad T2 is now T3. Removed T3 Stun
 
-``embed:svelte:
-<EntityHeading name="Sinclair" type="hero" />
-``
+##hero:sinclair: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/magician_sm.webp]] Sinclair
 
-``embed:svelte:
-<AbilityHeading name="Assistant" />
-``
+###ability: Assistant
 
 - Assistant damage now follows his gun's falloff range
 
@@ -87,8 +71,6 @@ content_text "Increased horizontal soul orb movement a bit Soul Orb spawn delay 
 <SectionPreview type="item" names={["Cold Front"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Cold Front" type="item" />
-``
+##item:cold-front: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/cold_front.webp]] Cold Front
 
 - No longer does double damage to creeps

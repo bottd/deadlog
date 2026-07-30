@@ -1,5 +1,5 @@
 import { Window } from 'happy-dom';
-import { parseNorgLink } from '@deadlog/utils';
+import { MOG_IMAGE_PREFIX, mogImage, mogLink, parseMogLink } from '@deadlog/utils';
 
 export interface EntityLists {
 	heroes: Set<string>;
@@ -171,13 +171,26 @@ export function groupNotesByAbility(
 	return groups;
 }
 
-/** Norg link targets and labels are brace/bracket delimited, so neither may contain them. */
-const SAFE_HREF_RE = /^https?:\/\/[^\s{}[\]]+$/i;
+/** Mog link targets and labels are bracket/paren delimited, so neither may contain them. */
+const SAFE_HREF_RE = /^https?:\/\/[^\s[\]()]+$/i;
+
+const safeLabel = (text: string) => text.replace(/[[\]()]/g, '').trim();
 
 function linkMarkup(href: string, text: string): string {
-	const label = text.replace(/[{}[\]]/g, '').trim();
+	const label = safeLabel(text);
 	if (!SAFE_HREF_RE.test(href)) return label;
-	return `{${href}}[${label || href}]`;
+	return mogLink(href, label || href);
+}
+
+/**
+ * An image goes through the same allowlist as a link. Under Norg an `@image` block was
+ * line-oriented, so a stray bracket in a forum-supplied src was inert; Mog's transclusion
+ * is inline grammar, where one unbalanced `((` swallows the rest of the block.
+ */
+function imageMarkup(src: string, alt: string): string {
+	const label = safeLabel(alt);
+	if (!SAFE_HREF_RE.test(src)) return label;
+	return mogImage(src, label);
 }
 
 export function extractContent(html: string): string {
@@ -195,14 +208,14 @@ export function extractContent(html: string): string {
 		br.replaceWith('\n');
 	}
 
-	// Convert <img> to @image blocks, replacing parent <a> if wrapped in a link
+	// Convert <img> to media transclusions, replacing parent <a> if wrapped in a link
 	for (const img of [...bbWrapper.querySelectorAll('img')]) {
 		const src = img.getAttribute('src') || '';
 		const alt = img.getAttribute('alt') || '';
 		const proxyMatch = src.match(/\/proxy\.php\?image=([^&]+)/);
 		const url = proxyMatch ? decodeURIComponent(proxyMatch[1]) : src;
 		const label = alt.replace(/\.[^.]+$/, '').replace(/[-_]/g, ' ');
-		const imageBlock = `\n@image ${url}\n${label}\n@end\n`;
+		const imageBlock = `\n${imageMarkup(url, label)}\n`;
 		const parent = img.parentElement;
 		if (parent?.tagName === 'A') {
 			parent.replaceWith(imageBlock);
@@ -211,7 +224,7 @@ export function extractContent(html: string): string {
 		}
 	}
 
-	// Anchors become real Norg links. This is scraped from a user-editable forum, so
+	// Anchors become real Mog links. This is scraped from a user-editable forum, so
 	// only http(s) is passed through — the renderer drops unsafe schemes as well, but
 	// the allowlist is ours to own rather than the plugin's.
 	for (const a of [...bbWrapper.querySelectorAll('a')]) {
@@ -266,20 +279,11 @@ export function parseAndGroupContent(
 	const prose: string[] = [];
 	let sawBullet = false;
 
-	for (let i = 0; i < lines.length; i++) {
-		const trimmed = lines[i].trim();
+	for (const line of lines) {
+		const trimmed = line.trim();
 
-		if (trimmed.startsWith('@image ')) {
-			const blockLines = [trimmed];
-			while (i + 1 < lines.length && lines[i + 1].trim() !== '@end') {
-				i++;
-				blockLines.push(lines[i]);
-			}
-			if (i + 1 < lines.length) {
-				i++;
-				blockLines.push(lines[i]);
-			}
-			result.general.push(blockLines.join('\n'));
+		if (trimmed.startsWith(MOG_IMAGE_PREFIX)) {
+			result.general.push(trimmed);
 			continue;
 		}
 
@@ -289,7 +293,7 @@ export function parseAndGroupContent(
 			// Valve posts demo clips on their own line beside the screenshots. Such a line
 			// carries no bullet marker, so without this it lands in `prose` and is dropped
 			// from every post that also has bullets — which is all of them.
-			if (parseNorgLink(trimmed)) result.general.push(trimmed);
+			if (parseMogLink(trimmed)) result.general.push(trimmed);
 			else prose.push(trimmed);
 			continue;
 		}

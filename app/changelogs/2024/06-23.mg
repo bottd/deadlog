@@ -20,13 +20,9 @@ content_text "There is no longer a reinforcement trooper wave after Guardians an
 <SectionPreview type="hero" names={["Yamato"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Yamato" type="hero" />
-``
+##hero:yamato: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato
 
-``embed:svelte:
-<AbilityHeading name="Shadow Transformation" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]] Shadow Transformation
 
 - Shadow Transformation now causes you to be unable to die during the buff
 
@@ -36,21 +32,15 @@ content_text "There is no longer a reinforcement trooper wave after Guardians an
 <SectionPreview type="item" names={["Melee Charge", "Spirit Strike", "Veil Walker"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Melee Charge" type="item" />
-``
+##item:melee-charge: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/melee_charge.webp]] Melee Charge
 
 - No longer grants +15% Melee Damage
 
-``embed:svelte:
-<EntityHeading name="Spirit Strike" type="item" />
-``
+##item:spirit-strike: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/spirit_strike.webp]] Spirit Strike
 
 - Melee damage reduced from 20% to 15%
 
-``embed:svelte:
-<EntityHeading name="Veil Walker" type="item" />
-``
+##item:veil-walker: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/veil_walker.webp]] Veil Walker
 
 - Bullet Shield reduced from +200 to +150
 - Shield restore now takes 5s to fully regen

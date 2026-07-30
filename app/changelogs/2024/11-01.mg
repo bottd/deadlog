@@ -20,42 +20,28 @@ content_text "Improved Burst: Damage threshold requirement reduced from 200 to 1
 <SectionPreview type="hero" names={["Bebop", "Grey Talon", "Mirage", "Paradox"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Bebop" type="hero" />
-``
+##hero:bebop: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop
 
-``embed:svelte:
-<AbilityHeading name="Sticky Bomb" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_sticky_bomb.webp]] Sticky Bomb
 
 - Sticky Bomb now gains 1% stack on attach (still gains 5% on target death)
 
-``embed:svelte:
-<EntityHeading name="Grey Talon" type="hero" />
-``
+##hero:grey-talon: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon
 
 - Base bullet damage reduced from 30 to 27
 
-``embed:svelte:
-<AbilityHeading name="Movement" />
-``
+###ability: Movement
 
 - Movement speed scaling from Spirit Power reduced from 0.032 to 0.025
 
-``embed:svelte:
-<EntityHeading name="Mirage" type="hero" />
-``
+##hero:mirage: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage
 
 - Fire Scarabs cooldown increased from 32s to 40s
 - HP per boon reduced from 41 to 37
 
-``embed:svelte:
-<EntityHeading name="Paradox" type="hero" />
-``
+##hero:paradox: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox
 
-``embed:svelte:
-<AbilityHeading name="Time Wall" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_wall.webp]] Time Wall
 
 - Time Wall T3 silence duration reduced from 3s to 2.5s
 
@@ -65,14 +51,10 @@ content_text "Improved Burst: Damage threshold requirement reduced from 200 to 1
 <SectionPreview type="item" names={["Metal Skin", "Siphon Bullets"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Metal Skin" type="item" />
-``
+##item:metal-skin: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/metal_skin.webp]] Metal Skin
 
 - Cooldown increased from 21s to 28s
 
-``embed:svelte:
-<EntityHeading name="Siphon Bullets" type="item" />
-``
+##item:siphon-bullets: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/siphon_bullets.webp]] Siphon Bullets
 
 - Max HP Steal is now affected by falloff

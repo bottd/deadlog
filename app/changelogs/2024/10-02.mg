@@ -22,13 +22,9 @@ content_text "Respawn time at 20min reduced from 50s to 45s (was 40s previous pa
 <SectionPreview type="hero" names={["Ivy", "Mirage", "Pocket"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Ivy" type="hero" />
-``
+##hero:ivy: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy
 
-``embed:svelte:
-<AbilityHeading name="Kudzu Bomb" />
-``
+###ability: Kudzu Bomb
 
 - Kudzu Bomb damage spirit scaling reduced from 0.7 to 0.6
 - Kudzu Bomb T3 damage reduced from +60 to +50
@@ -36,26 +32,20 @@ content_text "Respawn time at 20min reduced from 50s to 45s (was 40s previous pa
 - Kudzu Bomb vertical radius is now a fixed 2m pancake shape instead of the full radius of the ability
 - Air Drop explosion now respects line of sight
 
-``embed:svelte:
-<EntityHeading name="Mirage" type="hero" />
-``
+##hero:mirage: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage
 
 - Bullet radius reduced from 8 to 6
 - Tornado time for victims to reach max height reduced from 0.3s to 0.2s
 - Tornado lift duration reduced from 1.2s to 1.1s
 - Fixed Tornado being castable while busy (such as while channeling Traveler)
 
-``embed:svelte:
-<AbilityHeading name="Djinn's Mark" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_sand_phantom.webp]] Djinn's Mark
 
 - Djinn's Mark T1 now only applies the slow when the multiplier is 2x or higher
 - Djinn's Mark damage is now treated as a DoT in terms of zipline rules (doesn't prevent ziplining or knock you off)
 
 - Fixed Djinn's Mark applying bullet procs with Return Fire
 
-``embed:svelte:
-<EntityHeading name="Pocket" type="hero" />
-``
+##hero:pocket: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket
 
 - Fixed Mystic Reverb causing Affliction damage be lethal

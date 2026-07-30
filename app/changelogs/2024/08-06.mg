@@ -23,9 +23,7 @@ content_text "Various adjustments to orb spawning behavior (a bit less horizonta
 <SectionPreview type="hero" names={["Viscous"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Viscous" type="hero" />
-``
+##hero:viscous: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous
 
 - Added a directional arrow particle effect to Goo Ball for Viscous
 - Added additional particles while using Goo Ball
@@ -34,15 +32,11 @@ content_text "Various adjustments to orb spawning behavior (a bit less horizonta
 - Fixed Puddle Punch being able to target behind puddle
 - Fixed Puddle Punch using Guardians as a surface to punch from
 
-``embed:svelte:
-<AbilityHeading name="Puddle Punch Range" />
-``
+###ability: Puddle Punch Range
 
 - Puddle Punch Range reduced from 70m to 60m
 
-``embed:svelte:
-<AbilityHeading name="Splatter" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_ball.webp]] Splatter
 
 - Splatter now deals less damage if it hits the same target multiple times. 66% damage for the second hit, 33% damage for the third hit.
 

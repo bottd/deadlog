@@ -54,13 +54,9 @@ content_text "Removed the Arch Monument. Removed the rope entrances to Mid Boss.
 <SectionPreview type="hero" names={["Calico", "Kelvin", "Lady Geist", "Viscous", "Warden", "Wraith"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Calico" type="hero" />
-``
+##hero:calico: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp]] Calico
 
-``embed:svelte:
-<AbilityHeading name="Ava" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_catform.webp]] Ava
 
 - Ava no longer automatically breaks boxes, instead you can use the melee hotkey to do a pounce attack to break them
 
@@ -69,79 +65,55 @@ content_text "Removed the Arch Monument. Removed the rope entrances to Mid Boss.
 - Leaping Slash melee multiplier has been reduced from 1.6 to 1.3
 - Return to Shadows T3 reduced from +30% Amp to +24%
 
-``embed:svelte:
-<EntityHeading name="Kelvin" type="hero" />
-``
+##hero:kelvin: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin
 
-``embed:svelte:
-<AbilityHeading name="Arctic Beam" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_beam.webp]] Arctic Beam
 
 - Arctic Beam T1 reduced from -7.5s Cooldown to -7s
 - Arctic Beam T3 range reduced from 13m to 10m
 
-``embed:svelte:
-<EntityHeading name="Lady Geist" type="hero" />
-``
+##hero:lady-geist: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]] Lady Geist
 
 - Base bullet damage reduced from 26 to 23
 - Life Drain self slow increased from 25% to 40%
 - Soul Exchange cast range reduced from 7m to 6m
 
-``embed:svelte:
-<EntityHeading name="Viscous" type="hero" />
-``
+##hero:viscous: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous
 
 - Goo Ball hitbox size increased a bit (easier to hit him)
 - Splatter second bounce damage has been reduced from 70% damage to 50% damage. Damage is now 100%, 50%, 50% for first, second and third hit.
 
-``embed:svelte:
-<AbilityHeading name="Goo Ball" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_sphere.webp]] Goo Ball
 
 - Goo Ball damage reduced from 140 to 120
 
-``embed:svelte:
-<EntityHeading name="Warden" type="hero" />
-``
+##hero:warden: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden
 
-``embed:svelte:
-<AbilityHeading name="Last Stand" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_riot_protocol.webp]] Last Stand
 
 - Last Stand no longer gets reduced cooldown when interrupted
 
-``embed:svelte:
-<AbilityHeading name="Last Stand DPS" />
-``
+###ability: Last Stand DPS
 
 - Last Stand DPS reduced from 90 to 80
 
-``embed:svelte:
-<AbilityHeading name="Last Stand" id="last-stand-1" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_riot_protocol.webp]] Last Stand
 
 - Last Stand T2 DPS reduced from +60 to +50
 - Last Stand spirit scaling increased from 1.4 to 1.6
 
-``embed:svelte:
-<EntityHeading name="Wraith" type="hero" />
-``
+##hero:wraith: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp]] Wraith
 
 - Base health reduced from 700 to 650
 - Bullet damage growth reduced by 18%
 
-``embed:svelte:
-<AbilityHeading name="Card Trick" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_card_trick.webp]] Card Trick
 
 - Card Trick damage reduced from 70 to 60
 - Card Trick spirit scaling increased from 0.84 to 1.1
 - Card Trick T3 now also applies a 25% Slow for 1s
 
-``embed:svelte:
-<AbilityHeading name="Full Auto" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_aura.webp]] Full Auto
 
 - Full Auto T2 reduced from 4 Spirit Damage to 3
 
@@ -153,64 +125,44 @@ content_text "Removed the Arch Monument. Removed the rope entrances to Mid Boss.
 <SectionPreview type="item" names={["Bullet Resilience", "Enchanter's Emblem", "Extra Regen", "Fortitude", "Healing Booster", "Opening Rounds", "Radiant Regeneration", "Rescue Beam", "Spirit Resilience", "Superior Cooldown"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Bullet Resilience" type="item" />
-``
+##item:bullet-resilience: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/bullet_resilience.webp]] Bullet Resilience
 
 - Health threshold for bonus resistance reduced from 35% to 30%
 
-``embed:svelte:
-<EntityHeading name="Enchanter's Emblem" type="item" />
-``
+##item:enchanter-s-emblem: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/enchanters_emblem.webp]] Enchanter's Emblem
 
 - Spirit Resistance reduced from 18% to 15%
 
-``embed:svelte:
-<EntityHeading name="Extra Regen" type="item" />
-``
+##item:extra-regen: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_regen.webp]] Extra Regen
 
 - Regen reduced from 3.5 to 3
 
-``embed:svelte:
-<EntityHeading name="Fortitude" type="item" />
-``
+##item:fortitude: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/fortitude.webp]] Fortitude
 
 - Damage taken cooldown increased from 12s to 14s
 
-``embed:svelte:
-<EntityHeading name="Healing Booster" type="item" />
-``
+##item:healing-booster: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healing_booster.webp]] Healing Booster
 
 - Regen reduced from 3.5 to 3
 
-``embed:svelte:
-<EntityHeading name="Opening Rounds" type="item" />
-``
+##item:opening-rounds: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/opening_rounds.webp]] Opening Rounds
 
 - No longer works against objectives
 
-``embed:svelte:
-<EntityHeading name="Radiant Regeneration" type="item" />
-``
+##item:radiant-regeneration: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/radiant_regeneration.webp]] Radiant Regeneration
 
 - Regen reduced from 5 HP to 4
 - Healing on ability cast reduced from 100 to 70
 - Healing on ability cast now scales with Boons (1.5)
 
-``embed:svelte:
-<EntityHeading name="Rescue Beam" type="item" />
-``
+##item:rescue-beam: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/rescue_beam.webp]] Rescue Beam
 
 - Cooldown increased from 30s to 60s
 
-``embed:svelte:
-<EntityHeading name="Spirit Resilience" type="item" />
-``
+##item:spirit-resilience: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/spirit_resilience.webp]] Spirit Resilience
 
 - Health threshold for bonus resistance reduced from 35% to 30%
 
-``embed:svelte:
-<EntityHeading name="Superior Cooldown" type="item" />
-``
+##item:superior-cooldown: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/superior_cooldown.webp]] Superior Cooldown
 
 - Cooldown Reduction reduced from 25% to 24%

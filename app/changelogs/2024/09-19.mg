@@ -23,8 +23,6 @@ content_text "Replaced the recent soul duplication hotfix with new behavior. Pre
 <SectionPreview type="item" names={["Veil Walker"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Veil Walker" type="item" />
-``
+##item:veil-walker: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/veil_walker.webp]] Veil Walker
 
 - Fire Rate reduced from 30% to 20%

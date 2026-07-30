@@ -26,19 +26,13 @@ content_text "Urn now reveals you after 20s from initial pickup Urn sprint chang
 <SectionPreview type="hero" names={["Seven", "Shiv"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Seven" type="hero" />
-``
+##hero:seven: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven
 
-``embed:svelte:
-<AbilityHeading name="Lightning Ball" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_ball.webp]] Lightning Ball
 
 - Lightning Ball T3 reduced from +2m Radius to +1m
 
-``embed:svelte:
-<EntityHeading name="Shiv" type="hero" />
-``
+##hero:shiv: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv
 
 - Rage decay rate increased from 0.25 to 0.3
 - Rage buffer duration reduced from 12s to 10s

@@ -20,239 +20,161 @@ content_text "Street Brawl: You now have all AP unlocked by round 5 Bebop Base h
 <SectionPreview type="hero" names={["Bebop", "Calico", "Celeste", "Doorman", "Graves", "Holliday", "Infernus", "Kelvin", "Lady Geist", "McGinnis", "Mirage", "Rem", "Silver", "Venator", "Victor"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Bebop" type="hero" />
-``
+##hero:bebop: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop
 
 - Base health regen increased from 1.5 to 2.5
 
-``embed:svelte:
-<EntityHeading name="Calico" type="hero" />
-``
+##hero:calico: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp]] Calico
 
 - Leaping Slash base damage increased from 50 to 60
 
-``embed:svelte:
-<EntityHeading name="Celeste" type="hero" />
-``
+##hero:celeste: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/unicorn_sm.webp]] Celeste
 
 - Base regen reduced from 2 to 1
 
-``embed:svelte:
-<AbilityHeading name="Dazzling Trick" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_shield.webp]] Dazzling Trick
 
 - Dazzling Trick T3 silence duration reduced from +2s to +1.5s
 
-``embed:svelte:
-<EntityHeading name="Doorman" type="hero" />
-``
+##hero:doorman: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/doorman_sm.webp]] Doorman
 
-``embed:svelte:
-<AbilityHeading name="Call Bell" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_bell.webp]] Call Bell
 
 - Call Bell slow increased from 30% to 35%
 - Call Bell radius increased from 5m to 6m
 
-``embed:svelte:
-<AbilityHeading name="Doorway Distance" />
-``
+###ability: Doorway Distance
 
 - Doorway Distance increased from 60m to 70m
 
-``embed:svelte:
-<AbilityHeading name="Luggage Cart" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_luggagetrolley.webp]] Luggage Cart
 
 - Luggage Cart T2 now deals 75 bonus damage (0.6 spirit scaling) when hitting a wall
 - Luggage Cart T3 stun duration reduced from 1.5s to 1.25s
 
-``embed:svelte:
-<EntityHeading name="Graves" type="hero" />
-``
+##hero:graves: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/necro_sm.webp]] Graves
 
-``embed:svelte:
-<AbilityHeading name="Grasping Hands" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/necro/necro_hands.webp]] Grasping Hands
 
 - Grasping Hands spirit damage scaling reduced from 1.9 to 1.6
 - Grasping Hands T3 reduced from 2 Ghouls Summoned to 1
 - Grasping Hands T3 now also reduces cooldown by 10s
 
-``embed:svelte:
-<AbilityHeading name="Borrowed Decree Ghoul HP" />
-``
+###ability: Borrowed Decree Ghoul HP
 
 - Borrowed Decree Ghoul HP reduced from 200 + 12/boon to 180 + 8/boon
 
-``embed:svelte:
-<AbilityHeading name="Borrowed Decree Ghouls" />
-``
+###ability: Borrowed Decree Ghouls
 
 - Borrowed Decree Ghouls damage reduced from 150 to 135
 
 - Jar of Dead T2 no longer grants +4s Duration
 - Jar of Dead T3 changed from "+2 Deadheads and Deadheads apply Essence Theft" to "+2 Deadheads and +4s Duration"
 
-``embed:svelte:
-<AbilityHeading name="Essence Theft" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/necro/necro_siphon.webp]] Essence Theft
 
 - Essence Theft T3 changed from "+1 tether and improved targeting angle" to "Your summons now apply Essence Theft"
 
-``embed:svelte:
-<EntityHeading name="Holliday" type="hero" />
-``
+##hero:holliday: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]] Holliday
 
-``embed:svelte:
-<AbilityHeading name="Bounce Pad" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_bounce_pad.webp]] Bounce Pad
 
 - Bounce Pad now provides allies with air control and stomp damage
 
-``embed:svelte:
-<AbilityHeading name="Crackshot" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_crackshot.webp]] Crackshot
 
 - Crackshot T3 increased from -4s/-2s for hero/npc headshots to -6s/-3s
 
-``embed:svelte:
-<EntityHeading name="Infernus" type="hero" />
-``
+##hero:infernus: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus
 
-``embed:svelte:
-<AbilityHeading name="Afterburn DPS" />
-``
+###ability: Afterburn DPS
 
 - Afterburn DPS increased from 12 to 14
 
-``embed:svelte:
-<AbilityHeading name="Afterburn" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_deflect.webp]] Afterburn
 
 - Afterburn T1 DPS increased from +14 to +16
 
-``embed:svelte:
-<AbilityHeading name="Concussive Combustion" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_bomb.webp]] Concussive Combustion
 
 - Concussive Combustion T2 increased from +85% Explosion Lifesteal to +100%
 - Concussive Combustion T2 increased from -65s Cooldown to -75s
 
-``embed:svelte:
-<EntityHeading name="Kelvin" type="hero" />
-``
+##hero:kelvin: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin
 
-``embed:svelte:
-<AbilityHeading name="Frost Grenade" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/freezing_grenade.webp]] Frost Grenade
 
 - Frost Grenade damage spirit scaling reduced from 0.8 to 0.7
 - Frost Grenade T3 damage spirit scaling reduced from 0.9 to 0.8
 
-``embed:svelte:
-<EntityHeading name="Lady Geist" type="hero" />
-``
+##hero:lady-geist: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]] Lady Geist
 
 - Gun Falloff reduced from 20->52 to 17->48
 
-``embed:svelte:
-<AbilityHeading name="Life Drain" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/life_drain.webp]] Life Drain
 
 - Life Drain spirit scaling reduced from 0.536 to 0.43
 - Life Drain T3 spirit scaling increased from +0.3 to +0.4
 
-``embed:svelte:
-<EntityHeading name="McGinnis" type="hero" />
-``
+##hero:mcginnis: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis
 
-``embed:svelte:
-<AbilityHeading name="Medicinal Specter" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_resupply.webp]] Medicinal Specter
 
 - Medicinal Specter T3 duration increased from +1s to +1.5s
 
-``embed:svelte:
-<AbilityHeading name="Spectral Wall" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_fissure_2.webp]] Spectral Wall
 
 - Spectral Wall duration increased from 5s to 5.5s
 
-``embed:svelte:
-<EntityHeading name="Mirage" type="hero" />
-``
+##hero:mirage: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage
 
 - Fire Scarabs Health Steal Per Sec reduced from 10 to 9
 - Fire Scarabs T1 reduced from +8 Health Steal Per Sec to +7
 - Fire Scarabs T3 spirit scaling reduced from +0.23 to +0.17
 
-``embed:svelte:
-<AbilityHeading name="Dust Devil" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_tornado.webp]] Dust Devil
 
 - Dust Devil cooldown increased from 32s to 36s
 - Dust Devil T2 cooldown increased from -8s to -12s
 - Dust Devil T3 now also increases lift duration by 0.3s
 
-``embed:svelte:
-<AbilityHeading name="Djinn's Mark" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_sand_phantom.webp]] Djinn's Mark
 
 - Djinn's Mark spirit scaling reduced from 0.44 to 0.38
 
-``embed:svelte:
-<EntityHeading name="Rem" type="hero" />
-``
+##hero:rem: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/familiar_sm.webp]] Rem
 
-``embed:svelte:
-<AbilityHeading name="Naptime" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/familiar/familiar_sleep.webp]] Naptime
 
 - Naptime T3 now also provides unstoppable while channeling
 
-``embed:svelte:
-<EntityHeading name="Silver" type="hero" />
-``
+##hero:silver: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/werewolf_sm.webp]] Silver
 
 - Bullet damage rescaled from 5.5+0.1206 to 5.4+0.124
 
-``embed:svelte:
-<AbilityHeading name="Slam Fire" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/werewolf/werewolf_slamfire.webp]] Slam Fire
 
 - Slam Fire cooldown increased from 22s to 25s
 - Slam Fire T2 cooldown increased from -7s to -10s
 
-``embed:svelte:
-<EntityHeading name="Venator" type="hero" />
-``
+##hero:venator: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/priest_sm.webp]] Venator
 
 - Consecrating Grenade impact damage scaling reduced from 1.2 to 1.0
 - Gut Shot wall stun reduced from 0.65s to 0.6s
 
-``embed:svelte:
-<AbilityHeading name="Gut Shot" />
-``
+###ability: Gut Shot
 
 - Gut Shot damage scaling reduced from 1 to 0.8
 
-``embed:svelte:
-<EntityHeading name="Victor" type="hero" />
-``
+##hero:victor: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/frank_sm.webp]] Victor
 
-``embed:svelte:
-<AbilityHeading name="Restored" />
-``
+###ability: Restored
 
 - Restored health per boon back to 46
 
 - No longer has -30% Lifesteal Effectiveness
 
-``embed:svelte:
-<AbilityHeading name="Jumpstart" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_jump_start.webp]] Jumpstart
 
 - Jumpstart T3 no longer purges non-ult debuffs
 - Jumpstart T3 now adds +50% Debuff Resistance and cuts existing debuff durations by 50%

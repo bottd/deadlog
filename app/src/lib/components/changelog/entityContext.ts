@@ -1,10 +1,8 @@
 import { getContext, setContext } from 'svelte';
-import {
-	abilityFragmentId,
-	entityNameAliases,
-	entityNamesMatch,
-	plural
-} from '@deadlog/utils';
+import { entityNamesMatch, plural } from '@deadlog/utils';
+
+/** Re-exported so changelog components keep one import site for entity helpers. */
+export { entityFragmentId } from '@deadlog/utils';
 
 export interface EntityMaps {
 	heroMap: Record<number, { name: string; slug: string; images: Record<string, string> }>;
@@ -31,12 +29,6 @@ export function setEntityMaps(maps: EntityMaps): void {
 
 export function getEntityMaps(): EntityMaps {
 	return getContext<EntityMaps>(ENTITY_MAPS_KEY);
-}
-
-export function entityFragmentId(name: string): string {
-	// Same slug rule the generator uses for ability anchors — one definition, so entity
-	// and ability ids cannot drift apart.
-	return abilityFragmentId(entityNameAliases(name).at(-1) ?? '');
 }
 
 export function resolveEntity(

@@ -22,14 +22,10 @@ content_text "Neutral bounty increased by 5% Sinner's Sacrifice initial spawn ti
 <SectionPreview type="item" names={["Divine Barrier", "Restorative Locket"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Divine Barrier" type="item" />
-``
+##item:divine-barrier: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/divine_barrier.webp]] Divine Barrier
 
 - Shields reduced from 260 to 230
 
-``embed:svelte:
-<EntityHeading name="Restorative Locket" type="item" />
-``
+##item:restorative-locket: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/restorative_locket.webp]] Restorative Locket
 
 - No longer grants +10% Spirit Resist

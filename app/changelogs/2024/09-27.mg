@@ -17,22 +17,16 @@ content_text "Mirage Tornado lift duration reduced from 1.5s to 1.2s Tornado T1 
 <SectionPreview type="hero" names={["Mirage"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Mirage" type="hero" />
-``
+##hero:mirage: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage
 
 - Tornado lift duration reduced from 1.5s to 1.2s
 
-``embed:svelte:
-<AbilityHeading name="Tornado" />
-``
+###ability: Tornado
 
 - Tornado T1 bonus lift duration reduced from +0.5s to +0.4s
 
 - Tornado base bullet evasion reduced from 30% to 25%
 
-``embed:svelte:
-<AbilityHeading name="Djinn's Mark" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_sand_phantom.webp]] Djinn's Mark
 
 - Djinn's Mark T3 now also reduces Multiplier Cooldown by 0.5s

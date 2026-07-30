@@ -33,9 +33,7 @@ content_text "Troopers will now only flinch from player damage if it is a headsh
 <SectionPreview type="item" names={["Decay", "Express Shot", "Frenzy", "Headhunter", "Headshot Booster", "Siphon Bullets", "Spirit Rend", "Superior Cooldown"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Decay" type="item" />
-``
+##item:decay: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/decay.webp]] Decay
 
 - Cast range spirit scaling reduced from 0.13 to 0.1
 - Damage reduced from 2.5% to 2.4%
@@ -43,50 +41,36 @@ content_text "Troopers will now only flinch from player damage if it is a headsh
 - Cooldown increased from 30s to 36s
 - Healing Reduction increased from -35% to -40%
 
-``embed:svelte:
-<EntityHeading name="Express Shot" type="item" />
-``
+##item:express-shot: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/express_shot.webp]] Express Shot
 
 - Weapon Damage increased from 125% to 150%
 - Now does reduced damage for non-primary gun damage (alt fires, carbine), 150% to 75%
 
-``embed:svelte:
-<EntityHeading name="Frenzy" type="item" />
-``
+##item:frenzy: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/frenzy.webp]] Frenzy
 
 - Active Spirit Resistance reduced from 40% to 30%
 
-``embed:svelte:
-<EntityHeading name="Headhunter" type="item" />
-``
+##item:headhunter: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/headhunter.webp]] Headhunter
 
 - Heal reduced from 6% to 4%
 - Heal now scales with spirit power (0.014)
 - Bonus damage reduced from 120 to 100
 - Bonus damage now scales with spirit power (0.3)
 
-``embed:svelte:
-<EntityHeading name="Headshot Booster" type="item" />
-``
+##item:headshot-booster: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/headshot_booster.webp]] Headshot Booster
 
 - Health reduced from 65 to 40
 
-``embed:svelte:
-<EntityHeading name="Siphon Bullets" type="item" />
-``
+##item:siphon-bullets: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/siphon_bullets.webp]] Siphon Bullets
 
 - Steal per hit reduced from 65 to 55
 - Spirit Resistance reduced from 12% to 10%
 - Fixed the cooldown not being consumed when blocked by Plated Armor
 
-``embed:svelte:
-<EntityHeading name="Spirit Rend" type="item" />
-``
+##item:spirit-rend: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/spellslinger_headshots.webp]] Spirit Rend
 
 - Fixed being able to get 2 stacks without using the cooldown
 
-``embed:svelte:
-<EntityHeading name="Superior Cooldown" type="item" />
-``
+##item:superior-cooldown: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/superior_cooldown.webp]] Superior Cooldown
 
 - Cooldown Reduction reduced from 27% to 26%

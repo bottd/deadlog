@@ -2,46 +2,58 @@ import { describe, expect, it } from 'vitest';
 import {
 	DISPLAY_TIME_ZONE,
 	abilityFragmentId,
-	escapeNorgBraces,
+	escapeMogDelimiters,
 	formatDate,
 	formatTime,
 	makeSummary,
-	stripNorgLinks
+	stripMogLinks,
+	unescapeMogDelimiters
 } from './index';
 
-describe('escapeNorgBraces', () => {
-	it('escapes prose braces that would otherwise open a link', () => {
-		expect(escapeNorgBraces('Schemes: { Standard | Gyro }.')).toBe(
-			'Schemes: \\{ Standard | Gyro \\}.'
+describe('escapeMogDelimiters', () => {
+	it('escapes prose that would otherwise open a delimiter', () => {
+		expect(escapeMogDelimiters('Approx ~~5s~~ and a || pipe.')).toBe(
+			'Approx \\~~5s\\~~ and a \\|| pipe.'
+		);
+	});
+
+	it('escapes both halves so the partner cannot pair with later text', () => {
+		expect(escapeMogDelimiters('[[a]] and ((b)) and {{c}}')).toBe(
+			'\\[[a\\]] and \\((b\\)) and \\{{c\\}}'
 		);
 	});
 
 	it('leaves a real link untouched', () => {
-		expect(escapeNorgBraces('see {https://a.example/b}[the FAQ] now')).toBe(
-			'see {https://a.example/b}[the FAQ] now'
+		expect(escapeMogDelimiters('see [[https://a.example/b]]((the FAQ)) now')).toBe(
+			'see [[https://a.example/b]]((the FAQ)) now'
 		);
 	});
 
-	it('escapes prose braces on both sides of a link', () => {
-		expect(escapeNorgBraces('{a} {https://x.example}[y] {b}')).toBe(
-			'\\{a\\} {https://x.example}[y] \\{b\\}'
+	it('escapes prose delimiters on both sides of a link', () => {
+		expect(escapeMogDelimiters('**a** [[https://x.example]]((y)) __b__')).toBe(
+			'\\**a\\** [[https://x.example]]((y)) \\__b\\__'
 		);
 	});
 
 	it('does not double-escape', () => {
-		expect(escapeNorgBraces('already \\{ escaped')).toBe('already \\{ escaped');
+		expect(escapeMogDelimiters('already \\** escaped')).toBe('already \\** escaped');
+	});
+
+	it('round-trips through unescapeMogDelimiters', () => {
+		const prose = 'Approx ~~5s~~ and **stars** and a || pipe.';
+		expect(unescapeMogDelimiters(escapeMogDelimiters(prose))).toBe(prose);
 	});
 });
 
-describe('stripNorgLinks', () => {
+describe('stripMogLinks', () => {
 	it('reduces a link to its label', () => {
-		expect(stripNorgLinks('see {https://a.example}[the FAQ] now')).toBe(
+		expect(stripMogLinks('see [[https://a.example]]((the FAQ)) now')).toBe(
 			'see the FAQ now'
 		);
 	});
 
 	it('leaves link-free text alone', () => {
-		expect(stripNorgLinks('Cooldown reduced from 8s to 6s')).toBe(
+		expect(stripMogLinks('Cooldown reduced from 8s to 6s')).toBe(
 			'Cooldown reduced from 8s to 6s'
 		);
 	});

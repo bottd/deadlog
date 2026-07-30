@@ -26,68 +26,48 @@ content_text "Breakable souls rescaled from 28.5 + 2.375/min to 23 + 2.6/min Tro
 <SectionPreview type="hero" names={["Abrams", "Bebop", "Calico", "Grey Talon", "Holliday", "Infernus", "McGinnis", "Mo &amp; Krill", "Pocket", "Seven", "Shiv", "Sinclair", "Viscous", "Warden", "Wraith"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Abrams" type="hero" />
-``
+##hero:abrams: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams
 
 - Health growth per boon reduced from 81 to 78
 
-``embed:svelte:
-<AbilityHeading name="Infernal Resilience Damage Regenerated" />
-``
+###ability: Infernal Resilience Damage Regenerated
 
 - Infernal Resilience Damage Regenerated increased from 10% to 12%
 
-``embed:svelte:
-<AbilityHeading name="Infernal Resilience" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_beef.webp]] Infernal Resilience
 
 - Infernal Resilience T3 increased from 5% to 6%
 
 - Various network related fixed for Shoulder Charge
 - Shoulder Charge wall stun from 0.85s to 0.6s
 
-``embed:svelte:
-<AbilityHeading name="Shoulder Charge" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_charge.webp]] Shoulder Charge
 
 - Shoulder Charge T2 changed from -12s Cooldown to +0.45s Wall Stun
 - Shoulder Charge T3 changed to -18s Cooldown
 
-``embed:svelte:
-<AbilityHeading name="Seismic Impact" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_jump.webp]] Seismic Impact
 
 - Seismic Impact cooldown increased from 160s to 170s
 
-``embed:svelte:
-<EntityHeading name="Bebop" type="hero" />
-``
+##hero:bebop: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop
 
-``embed:svelte:
-<AbilityHeading name="Hyperbeam" />
-``
+###ability: Hyperbeam
 
 - Hyperbeam cooldown reduced from 130s to 110s
 
 - Fixed some issues with lag compensation and Hook
 
-``embed:svelte:
-<EntityHeading name="Calico" type="hero" />
-``
+##hero:calico: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp]] Calico
 
-``embed:svelte:
-<AbilityHeading name="Ammo" />
-``
+###ability: Ammo
 
 - Ammo increased from 9 to 10
 
 - Ava self slow on damage duration increased from 1.5s to 2s
 - Ava self slow on damage increased from -50% to -65%
 
-``embed:svelte:
-<AbilityHeading name="Ava" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_catform.webp]] Ava
 
 - Ava duration reduced from 15s to 14s
 - Ava T1 duration reduced from +20s to +14s
@@ -95,148 +75,100 @@ content_text "Breakable souls rescaled from 28.5 + 2.375/min to 23 + 2.6/min Tro
 - Ava recent damage window increased from 5s to 6s
 - Fixed Curse and stuns not interrupting Ava (similar to Ice Path and Flame Dash)
 
-``embed:svelte:
-<EntityHeading name="Grey Talon" type="hero" />
-``
+##hero:grey-talon: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon
 
 - Spirit Snare radius increased from 6.2 to 6.5
 
-``embed:svelte:
-<AbilityHeading name="Guided Owl" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_guided_arrow.webp]] Guided Owl
 
 - Guided Owl duration increased from 14s to 16s
 - Guided Owl cooldown decreased from 127s to 125s
 - Guided Owl T2 cooldown improved from -47s to -50s
 
-``embed:svelte:
-<EntityHeading name="Holliday" type="hero" />
-``
+##hero:holliday: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]] Holliday
 
 - Fixed some issues with lag compensation and Lasso
 - Spirit Lasso cooldown increased from 100s to 105s
 - Spirit Lasso T3 improved from -30s Cooldown to -35s
 
-``embed:svelte:
-<EntityHeading name="Infernus" type="hero" />
-``
+##hero:infernus: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus
 
 - Afterburn headshot buildup rate improved by 10%
 
-``embed:svelte:
-<EntityHeading name="McGinnis" type="hero" />
-``
+##hero:mcginnis: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis
 
 - Fixed Turret bugs when thrown at the Patron Throne
 
-``embed:svelte:
-<EntityHeading name="Mo &amp; Krill" type="hero" />
-``
+##hero:mo-krill: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]] Mo & Krill
 
 - Base gun damage increased from 2.6 to 2.7
 
-``embed:svelte:
-<AbilityHeading name="Scorn" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_regen.webp]] Scorn
 
 - Scorn spirit scaling increased from 0.39 to 0.42
 
-``embed:svelte:
-<AbilityHeading name="Combo" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo
 
 - Combo cooldown increased from 75s to 80s
 
-``embed:svelte:
-<EntityHeading name="Pocket" type="hero" />
-``
+##hero:pocket: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket
 
-``embed:svelte:
-<AbilityHeading name="Flying Cloak" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_plasma_flux.webp]] Flying Cloak
 
 - Flying Cloak spirit damage scaling increased from 1.04 to 1.3
 
-``embed:svelte:
-<EntityHeading name="Seven" type="hero" />
-``
+##hero:seven: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven
 
 - Fixed Health Regen being 3 instead of 1.5
 
-``embed:svelte:
-<AbilityHeading name="Power Surge" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_chain.webp]] Power Surge
 
 - Power Surge spirit scaling increased from 0.148 to 0.16
 
-``embed:svelte:
-<AbilityHeading name="Storm Cloud DPS" />
-``
+###ability: Storm Cloud DPS
 
 - Storm Cloud DPS reduced from 120 to 115
 
-``embed:svelte:
-<AbilityHeading name="Storm Cloud" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_storm.webp]] Storm Cloud
 
 - Storm Cloud T3 reduced from +75 to +70
 - Storm Cloud spirit scaling increased from 0.65 to 0.7
 - Storm Cloud cooldown increased from 148s to 155s
 
-``embed:svelte:
-<EntityHeading name="Shiv" type="hero" />
-``
+##hero:shiv: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv
 
 - Alt Fire base damage reduced by 15%
 - Rage per weapon damage reduced by 10%
 
-``embed:svelte:
-<EntityHeading name="Sinclair" type="hero" />
-``
+##hero:sinclair: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/magician_sm.webp]] Sinclair
 
-``embed:svelte:
-<AbilityHeading name="Vexing Bolt" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_magicbolt.webp]] Vexing Bolt
 
 - Vexing Bolt radius increased from 3m to 3.5m
 - Vexing Bolt radius fixed to scale with radius increase now
 
-``embed:svelte:
-<AbilityHeading name="Spectral Assistant" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_cloneturret.webp]] Spectral Assistant
 
 - Spectral Assistant T2 duration increased from +5s to +7s
 
-``embed:svelte:
-<AbilityHeading name="Rabbit Hex" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_animalcurse.webp]] Rabbit Hex
 
 - Rabbit Hex cooldown reduced from 35s to 30s
 
-``embed:svelte:
-<EntityHeading name="Viscous" type="hero" />
-``
+##hero:viscous: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous
 
-``embed:svelte:
-<AbilityHeading name="Goo Ball" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_sphere.webp]] Goo Ball
 
 - Goo Ball duration reduced from 10s to 9s
 
-``embed:svelte:
-<EntityHeading name="Warden" type="hero" />
-``
+##hero:warden: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden
 
 - Bullet damage per boon reduced from 0.74 to 0.6
 - Last Stand interrupt cooldown increased from 20s to 30s
 
-``embed:svelte:
-<EntityHeading name="Wraith" type="hero" />
-``
+##hero:wraith: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp]] Wraith
 
-``embed:svelte:
-<AbilityHeading name="Telekinesis" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_lift.webp]] Telekinesis
 
 - Telekinesis duration reduced from 3s to 2.75s
 
@@ -246,46 +178,32 @@ content_text "Breakable souls rescaled from 28.5 + 2.375/min to 23 + 2.6/min Tro
 <SectionPreview type="item" names={["Armor Piercing Rounds", "Blood Tribute", "Boundless Spirit", "Counterspell", "Crippling Headshot", "Crushing Fists", "Cultist Sacrifice", "Decay", "Express Shot", "Fleetfoot", "Headhunter", "Headshot Booster", "Healing Nova", "Lightning Scroll", "Melee Charge", "Mercurial Magnum", "Restorative Shot", "Siphon Bullets", "Spellbreaker", "Superior Cooldown", "Tankbuster", "Vortex Web"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Armor Piercing Rounds" type="item" />
-``
+##item:armor-piercing-rounds: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/armor_piercing_rounds.webp]] Armor Piercing Rounds
 
 - Bullet Velocity increased from 30% to 35% (to match the component)
 
-``embed:svelte:
-<EntityHeading name="Blood Tribute" type="item" />
-``
+##item:blood-tribute: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/blood_tribute.webp]] Blood Tribute
 
 - Fire Rate increased from 35% to 40%
 
-``embed:svelte:
-<EntityHeading name="Boundless Spirit" type="item" />
-``
+##item:boundless-spirit: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/boundless_spirit.webp]] Boundless Spirit
 
 - Spirit % bonus increased from +10% to +13%
 
-``embed:svelte:
-<EntityHeading name="Counterspell" type="item" />
-``
+##item:counterspell: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/counterspell.webp]] Counterspell
 
 - Duration increased from 0.8s to 1s
 
-``embed:svelte:
-<EntityHeading name="Crippling Headshot" type="item" />
-``
+##item:crippling-headshot: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/crippling_headshot.webp]] Crippling Headshot
 
 - No longer has a 3s cooldown
 - Debuff duration reduced from 10s to 8s
 
-``embed:svelte:
-<EntityHeading name="Crushing Fists" type="item" />
-``
+##item:crushing-fists: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/crushing_fists.webp]] Crushing Fists
 
 - Fixed always giving 25% more damage against objectives
 
-``embed:svelte:
-<EntityHeading name="Cultist Sacrifice" type="item" />
-``
+##item:cultist-sacrifice: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/cultist_sacrifice.webp]] Cultist Sacrifice
 
 - Out of Combat Regen reduced from 4 to 2
 - Weapon Damage vs NPC reduced from 35% to 30%
@@ -295,21 +213,15 @@ content_text "Breakable souls rescaled from 28.5 + 2.375/min to 23 + 2.6/min Tro
 - Health Bonus reduced from 250 to 100
 - Health Bonus now scales with Boons (11)
 
-``embed:svelte:
-<EntityHeading name="Decay" type="item" />
-``
+##item:decay: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/decay.webp]] Decay
 
 - Damage no longer procs item effects (like Affliction)
 
-``embed:svelte:
-<EntityHeading name="Express Shot" type="item" />
-``
+##item:express-shot: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/express_shot.webp]] Express Shot
 
 - Fixed shotguns with express shot instantly applying buildups
 
-``embed:svelte:
-<EntityHeading name="Fleetfoot" type="item" />
-``
+##item:fleetfoot: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/fleetfoot.webp]] Fleetfoot
 
 - Cooldown increased from 10s to 16s
 - Duration increased from 4s to 6s
@@ -317,24 +229,18 @@ content_text "Breakable souls rescaled from 28.5 + 2.375/min to 23 + 2.6/min Tro
 - Now grants +10% Bullet Resistance
 - While active, you gain +40% Slow Resistance
 
-``embed:svelte:
-<EntityHeading name="Headhunter" type="item" />
-``
+##item:headhunter: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/headhunter.webp]] Headhunter
 
 - Now requires the center pellet hit the head hitbox to count
 - Bonus Headshot Damage now scales with Boons rather than Spirit Power (5.0 per Boon)
 - Bonus Headshot Damage reduced from 100 to 75
 - Heal now scales with Boons rather than Spirit Power (0.1 per Boon)
 
-``embed:svelte:
-<EntityHeading name="Headshot Booster" type="item" />
-``
+##item:headshot-booster: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/headshot_booster.webp]] Headshot Booster
 
 - Now requires the center pellet hit the head hitbox to count
 
-``embed:svelte:
-<EntityHeading name="Healing Nova" type="item" />
-``
+##item:healing-nova: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healing_nova.webp]] Healing Nova
 
 - Now a T3 item
 - Base heal increased from 260 to 325
@@ -342,57 +248,39 @@ content_text "Breakable souls rescaled from 28.5 + 2.375/min to 23 + 2.6/min Tro
 - Now grants +8 Spirit Power
 - Cooldown reduced from 70s to 60s
 
-``embed:svelte:
-<EntityHeading name="Lightning Scroll" type="item" />
-``
+##item:lightning-scroll: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/lightning_scroll.webp]] Lightning Scroll
 
 - Fixed bugs when used with Refresher
 
-``embed:svelte:
-<EntityHeading name="Melee Charge" type="item" />
-``
+##item:melee-charge: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/melee_charge.webp]] Melee Charge
 
 - Fixed always giving 25% more damage against objectives
 
-``embed:svelte:
-<EntityHeading name="Mercurial Magnum" type="item" />
-``
+##item:mercurial-magnum: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mercurial_magnum.webp]] Mercurial Magnum
 
 - Fixed an interaction bug with Split Shot
 
-``embed:svelte:
-<EntityHeading name="Restorative Shot" type="item" />
-``
+##item:restorative-shot: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/restorative_shot.webp]] Restorative Shot
 
 - Now only procs when the center pellet hits (in the case of shotguns, like how Mystic Shot works)
 
-``embed:svelte:
-<EntityHeading name="Siphon Bullets" type="item" />
-``
+##item:siphon-bullets: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/siphon_bullets.webp]] Siphon Bullets
 
 - Cooldown increased from 0.7s to 0.8s
 - Fixed various bugs with stat stealing and Capacitor/Debuff Remover
 
-``embed:svelte:
-<EntityHeading name="Spellbreaker" type="item" />
-``
+##item:spellbreaker: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/spellbreaker.webp]] Spellbreaker
 
 - Fixed it affecting Lady Geist's Soul Exchange
 
-``embed:svelte:
-<EntityHeading name="Superior Cooldown" type="item" />
-``
+##item:superior-cooldown: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/superior_cooldown.webp]] Superior Cooldown
 
 - Cooldown Reduction reduced from 26% to 25%
 
-``embed:svelte:
-<EntityHeading name="Tankbuster" type="item" />
-``
+##item:tankbuster: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/tankbuster.webp]] Tankbuster
 
 - Fixed various bugs when multiple abilities hit on the same frame
 
-``embed:svelte:
-<EntityHeading name="Vortex Web" type="item" />
-``
+##item:vortex-web: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/vortex_web.webp]] Vortex Web
 
 - Adjusted cast arc to be more similar to other grenades

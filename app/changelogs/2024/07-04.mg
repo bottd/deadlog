@@ -82,42 +82,28 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 <SectionPreview type="hero" names={["Abrams", "Bebop", "Grey Talon", "Haze", "Infernus", "Ivy", "Kelvin", "Lash", "McGinnis", "Mo &amp; Krill", "Seven", "Vindicta", "Warden", "Wraith"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Abrams" type="hero" />
-``
+##hero:abrams: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams
 
-``embed:svelte:
-<AbilityHeading name="Seismic Impact" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_jump.webp]] Seismic Impact
 
 - Seismic Impact T3 is now Gain +100 Max HP and +15% Fire Rate per enemy hero hit for 25s
 
-``embed:svelte:
-<EntityHeading name="Bebop" type="hero" />
-``
+##hero:bebop: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop
 
 - Base HP regen reduced from 2 to 1
 - Hyper Beam cast range increased from 60m to 70m
 
-``embed:svelte:
-<EntityHeading name="Grey Talon" type="hero" />
-``
+##hero:grey-talon: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon
 
-``embed:svelte:
-<AbilityHeading name="Guided Owl" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_guided_arrow.webp]] Guided Owl
 
 - Guided Owl now grants +4 permanent Spirit Power for each hero killed with it
 
 - Fixed Charged Shot not piercing if it collides with a Mini Turret
 
-``embed:svelte:
-<EntityHeading name="Haze" type="hero" />
-``
+##hero:haze: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze
 
-``embed:svelte:
-<AbilityHeading name="Smoke Bomb" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_smoke_bomb.webp]] Smoke Bomb
 
 - Smoke Bomb no longer instantly grants sprint
 - Smoke Bomb duration increased from 6s to 8s
@@ -125,119 +111,81 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 - Smoke Bomb T2 is now +6 Invis Sprint
 - Smoke Bomb T3 is now Gain +30% Bullet Lifesteal for 8s
 
-``embed:svelte:
-<AbilityHeading name="Sleep Dagger" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger
 
 - Sleep Dagger T1 changed from +1s Sleep Duration to Drains 1 Stamina
 
-``embed:svelte:
-<EntityHeading name="Infernus" type="hero" />
-``
+##hero:infernus: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus
 
-``embed:svelte:
-<AbilityHeading name="Flame Dash" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_dash.webp]] Flame Dash
 
 - Flame Dash dps linger duration increased from 0.4s to 1s
 
-``embed:svelte:
-<EntityHeading name="Ivy" type="hero" />
-``
+##hero:ivy: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy
 
 - Fixed some bugs with Watcher's Covenant that caused it to sometimes disconnect/reconnect unintentionally
 - Watcher's Covenant distance threshold to pick a new target increased from 2.5m to 6m
 - Watcher's Covenant can now be cast again on an ally while the buff is active to make it prioritize that hero when possible
 
-``embed:svelte:
-<EntityHeading name="Kelvin" type="hero" />
-``
+##hero:kelvin: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin
 
 - Fixed Frost Grenade not going where you had targeted if you moved quickly during the cast
 
-``embed:svelte:
-<AbilityHeading name="Ice Path" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_path.webp]] Ice Path
 
 - Ice Path T3 bonus now lingers for 6s extra
 
-``embed:svelte:
-<EntityHeading name="Lash" type="hero" />
-``
+##hero:lash: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp]] Lash
 
 - Death Slam time to lock on increased from 0.8s to 0.9s
 
-``embed:svelte:
-<EntityHeading name="McGinnis" type="hero" />
-``
+##hero:mcginnis: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis
 
-``embed:svelte:
-<AbilityHeading name="Mini Turret" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turret
 
 - Mini Turret damage reduction against troopers/neutrals increased from -30% to -40%
 - Mini Turret damage reduction against objectives increased from -50% to -60%
 
 - Mini Turret falloff damage increased from -30% to -35%
 
-``embed:svelte:
-<AbilityHeading name="Mini Turret" id="mini-turret-1" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turret
 
 - Mini Turret cooldown reduced from 30s to 28s
 
 - Mini Turret recharge time reduced from 6s to 5s
 
-``embed:svelte:
-<AbilityHeading name="Spectral Wall" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_fissure_2.webp]] Spectral Wall
 
 - Spectral Wall T1 and T2 swapped
 - Spectral Wall T1 stamina drain reduced from 2 to 1
 
-``embed:svelte:
-<EntityHeading name="Mo &amp; Krill" type="hero" />
-``
+##hero:mo-krill: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]] Mo & Krill
 
 - Fixed Combo not gaining bonus HP when enemies died during it unless you got the killing blow
 - Health growth per boon reduced from 47 to 44
 - While burrowed you have the same cast rules as the unborrow phase (i.e. can cast items and Scorn)
 
-``embed:svelte:
-<EntityHeading name="Seven" type="hero" />
-``
+##hero:seven: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven
 
 - Static Charge cast range now scales with Spirit (0.1)
 
-``embed:svelte:
-<EntityHeading name="Vindicta" type="hero" />
-``
+##hero:vindicta: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta
 
-``embed:svelte:
-<AbilityHeading name="Flight" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_flight.webp]] Flight
 
 - Flight cooldown reduced from 50s to 45s
 
 - Flight up and down speed improved a bit
 
-``embed:svelte:
-<EntityHeading name="Warden" type="hero" />
-``
+##hero:warden: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden
 
-``embed:svelte:
-<AbilityHeading name="Binding Word" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_lock_down.webp]] Binding Word
 
 - Binding Word now drains 1 stamina from the target on cast
 
-``embed:svelte:
-<EntityHeading name="Wraith" type="hero" />
-``
+##hero:wraith: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp]] Wraith
 
-``embed:svelte:
-<AbilityHeading name="Project Mind" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_teleport.webp]] Project Mind
 
 - Project Mind T3 cooldown reduced from -35s to -30s
 
@@ -247,330 +195,230 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 <SectionPreview type="item" names={["Active Reload", "Berserker", "Boundless Spirit", "Bullet Lifesteal", "Bullet Resist Shredder", "Burst Fire", "Colossus", "Crippling Headshot", "Debuff Reducer", "Decay", "Diviner's Kevlar", "Duration Extender", "Enduring Speed", "Escalating Resilience", "Ethereal Shift", "Extra Health", "Extra Spirit", "Extra Stamina", "Fortitude", "Headshot Booster", "Healbane", "Hunter's Aura", "Improved Spirit", "Infuser", "Inhibitor", "Intensifying Magazine", "Knockdown", "Leech", "Lucky Shot", "Majestic Leap", "Monster Rounds", "Mystic Reverb", "Mystic Slow", "Point Blank", "Quicksilver Reload", "Reactive Barrier", "Rescue Beam", "Restorative Locket", "Restorative Shot", "Return Fire", "Ricochet", "Shadow Weave", "Silencer", "Siphon Bullets", "Sprint Boots", "Superior Duration", "Suppressor", "Tesla Bullets", "Titanic Magazine", "Unstoppable"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Active Reload" type="item" />
-``
+##item:active-reload: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/active_reload.webp]] Active Reload
 
 - Cooldown reduced from 25s to 23s
 - Active fire rate bonus increased from 15% to 18%
 
-``embed:svelte:
-<EntityHeading name="Berserker" type="item" />
-``
+##item:berserker: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/berserker.webp]] Berserker
 
 - Weapon Damage per stack reduced from +6% to +5%
 
-``embed:svelte:
-<EntityHeading name="Boundless Spirit" type="item" />
-``
+##item:boundless-spirit: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/boundless_spirit.webp]] Boundless Spirit
 
 - Health Regen increased from +10 to +15
 - Bonus Health increased from +200 to +300
 
-``embed:svelte:
-<EntityHeading name="Bullet Lifesteal" type="item" />
-``
+##item:bullet-lifesteal: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/bullet_lifesteal.webp]] Bullet Lifesteal
 
 - Increased from 22% to 24%
 
-``embed:svelte:
-<EntityHeading name="Bullet Resist Shredder" type="item" />
-``
+##item:bullet-resist-shredder: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/bullet_resist_shredder.webp]] Bullet Resist Shredder
 
 - Debuff duration increased from 6s to 8s
 - Now gives +5% Bullet Armor
 
-``embed:svelte:
-<EntityHeading name="Burst Fire" type="item" />
-``
+##item:burst-fire: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/burst_fire.webp]] Burst Fire
 
 - Slide distance increased from +35% to +50%
 
-``embed:svelte:
-<EntityHeading name="Colossus" type="item" />
-``
+##item:colossus: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/colossus.webp]] Colossus
 
 - Cooldown reduced from 65s to 45s
 - Model size increase from 10% to 20%
 
-``embed:svelte:
-<EntityHeading name="Crippling Headshot" type="item" />
-``
+##item:crippling-headshot: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/crippling_headshot.webp]] Crippling Headshot
 
 - Bullet and Spirit Resist reductions reduced from -30% to -24%
 
-``embed:svelte:
-<EntityHeading name="Debuff Reducer" type="item" />
-``
+##item:debuff-reducer: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/debuff_reducer.webp]] Debuff Reducer
 
 - The active now reduces the duration of existing debuffs by 80% of their current values. Grants +2m/s for 3s if a debuff was reduced.
 - Passive debuff resistance increased from 30% to 35%
 - Now gives +125 Health
 - Cooldown reduced from 45s to 25s
 
-``embed:svelte:
-<EntityHeading name="Decay" type="item" />
-``
+##item:decay: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/decay.webp]] Decay
 
 - Bleed damage increased from 2.6% of current HP to 2.8%
 - Spirit bonus increased from +5 to +7
 
-``embed:svelte:
-<EntityHeading name="Diviner's Kevlar" type="item" />
-``
+##item:diviner-s-kevlar: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/diviners_kevlar.webp]] Diviner's Kevlar
 
 - Now provides +8% Cooldown Reduction
 - Fixed the duration missing in the tooltip
 - Buff duration increased from 10s to 12s
 - Now grants +700 Spirit Shield and +700 Bullet Shield
 
-``embed:svelte:
-<EntityHeading name="Duration Extender" type="item" />
-``
+##item:duration-extender: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/duration_extender.webp]] Duration Extender
 
 - Now grants +1.5 hp regen
 
-``embed:svelte:
-<EntityHeading name="Enduring Speed" type="item" />
-``
+##item:enduring-speed: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/enduring_speed.webp]] Enduring Speed
 
 - Now requires Sprint Boots
 - Now grants +2 Sprint
 
-``embed:svelte:
-<EntityHeading name="Escalating Resilience" type="item" />
-``
+##item:escalating-resilience: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/escalating_resilience.webp]] Escalating Resilience
 
 - Now gives +14% Ammo
 
-``embed:svelte:
-<EntityHeading name="Ethereal Shift" type="item" />
-``
+##item:ethereal-shift: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/ethereal_shift.webp]] Ethereal Shift
 
 - Cooldown reduced from 30s to 25s
 
-``embed:svelte:
-<EntityHeading name="Extra Health" type="item" />
-``
+##item:extra-health: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_health.webp]] Extra Health
 
 - Increased from +140 to +150
 
-``embed:svelte:
-<EntityHeading name="Extra Spirit" type="item" />
-``
+##item:extra-spirit: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/extra_spirit.webp]] Extra Spirit
 
 - Now gives +25 Health
 
-``embed:svelte:
-<EntityHeading name="Extra Stamina" type="item" />
-``
+##item:extra-stamina: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_stamina.webp]] Extra Stamina
 
 - Now provides +10% Stamina Recovery
 
-``embed:svelte:
-<EntityHeading name="Fortitude" type="item" />
-``
+##item:fortitude: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/fortitude.webp]] Fortitude
 
 - Duration required to start regenerating reduced from 14s to 13s
 
-``embed:svelte:
-<EntityHeading name="Headshot Booster" type="item" />
-``
+##item:headshot-booster: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/headshot_booster.webp]] Headshot Booster
 
 - Cooldown increased from 5s to 7s
 - Fixed the item not visually going on cooldown when it procs
 
-``embed:svelte:
-<EntityHeading name="Healbane" type="item" />
-``
+##item:healbane: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healbane.webp]] Healbane
 
 - Debuff duration reduced from 7s to 6s
 
-``embed:svelte:
-<EntityHeading name="Hunter's Aura" type="item" />
-``
+##item:hunter-s-aura: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/hunters_aura.webp]] Hunter's Aura
 
 - Bullet Resist reduction reduced from -15% to -10%
 - Fire Rate slow reduced from -15% to -10%
 - Solo enemy hero case increased from 2x to 3x
 
-``embed:svelte:
-<EntityHeading name="Improved Spirit" type="item" />
-``
+##item:improved-spirit: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/improved_spirit.webp]] Improved Spirit
 
 - Now grants +75 Health
 
-``embed:svelte:
-<EntityHeading name="Infuser" type="item" />
-``
+##item:infuser: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/infuser.webp]] Infuser
 
 - Spirit Power reduced from +18 to +16
 
-``embed:svelte:
-<EntityHeading name="Inhibitor" type="item" />
-``
+##item:inhibitor: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/inhibitor.webp]] Inhibitor
 
 - No longer grants +10% Fire Rate
 - Slow reduced from 35% to 25%
 
-``embed:svelte:
-<EntityHeading name="Intensifying Magazine" type="item" />
-``
+##item:intensifying-magazine: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/intensifying_magazine.webp]] Intensifying Magazine
 
 - Ammo reduced from 30% to 25%
 
-``embed:svelte:
-<EntityHeading name="Knockdown" type="item" />
-``
+##item:knockdown: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/knockdown.webp]] Knockdown
 
 - Cooldown increased from 30s to 45s
 
-``embed:svelte:
-<EntityHeading name="Leech" type="item" />
-``
+##item:leech: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/leech.webp]] Leech
 
 - Spirit Power increased from +7 to +10
 - Weapon Damage increased from +8% to +12%
 - Bonus Health increased from +125 to +150
 
-``embed:svelte:
-<EntityHeading name="Lucky Shot" type="item" />
-``
+##item:lucky-shot: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/lucky_shot.webp]] Lucky Shot
 
 - Slow duration reduced from 2s to 1.5s
 - No longer provides +20% Weapon Damage
 
-``embed:svelte:
-<EntityHeading name="Majestic Leap" type="item" />
-``
+##item:majestic-leap: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/majestic_leap.webp]] Majestic Leap
 
 - Shields no longer prevent the item from being disabled
 
-``embed:svelte:
-<EntityHeading name="Monster Rounds" type="item" />
-``
+##item:monster-rounds: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/monster_rounds.webp]] Monster Rounds
 
 - Damage vs NPCs increased from +30% to +35%
 
-``embed:svelte:
-<EntityHeading name="Mystic Reverb" type="item" />
-``
+##item:mystic-reverb: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mystic_reverb.webp]] Mystic Reverb
 
 - The target is now slowed by 50% during the 3s delay
 
-``embed:svelte:
-<EntityHeading name="Mystic Slow" type="item" />
-``
+##item:mystic-slow: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mystic_slow.webp]] Mystic Slow
 
 - Duration reduced from 2.5s to 2s
 
-``embed:svelte:
-<EntityHeading name="Point Blank" type="item" />
-``
+##item:point-blank: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/point_blank.webp]] Point Blank
 
 - Now gives +1 Stamina
 
-``embed:svelte:
-<EntityHeading name="Quicksilver Reload" type="item" />
-``
+##item:quicksilver-reload: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/quicksilver_reload.webp]] Quicksilver Reload
 
 - Cooldown increased from 5s to 12s
 
-``embed:svelte:
-<EntityHeading name="Reactive Barrier" type="item" />
-``
+##item:reactive-barrier: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/reactive_barrier.webp]] Reactive Barrier
 
 - Now procs on displacement abilities (e.g. Hook, Paradoxical Swap, Upper Cut)
 
-``embed:svelte:
-<EntityHeading name="Rescue Beam" type="item" />
-``
+##item:rescue-beam: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/rescue_beam.webp]] Rescue Beam
 
 - Cooldown reduced from 40s to 35s
 
-``embed:svelte:
-<EntityHeading name="Restorative Locket" type="item" />
-``
+##item:restorative-locket: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/restorative_locket.webp]] Restorative Locket
 
 - Can now be cast on allies (30m cast range)
 - Radius on gaining charges increased from 40m to 50m
 - Cooldown increased from 18s to 24s
 
-``embed:svelte:
-<EntityHeading name="Restorative Shot" type="item" />
-``
+##item:restorative-shot: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/restorative_shot.webp]] Restorative Shot
 
 - Cooldown increased from 4s to 6s
 
-``embed:svelte:
-<EntityHeading name="Return Fire" type="item" />
-``
+##item:return-fire: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/return_fire.webp]] Return Fire
 
 - Health bonus increased from +75 to +100
 - Fixed spirit damage returned counting as bullet damage
 
-``embed:svelte:
-<EntityHeading name="Ricochet" type="item" />
-``
+##item:ricochet: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/ricochet.webp]] Ricochet
 
 - Ricochet damage increased from 45% to 50%
 
-``embed:svelte:
-<EntityHeading name="Shadow Weave" type="item" />
-``
+##item:shadow-weave: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/shadow_weave.webp]] Shadow Weave
 
 - Ambush Fire Rate reduced from +60% to +40%
 - Cooldown increased from 35s to 45s
 - No longer instantly grants sprint
 
-``embed:svelte:
-<EntityHeading name="Silencer" type="item" />
-``
+##item:silencer: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/silencer.webp]] Silencer
 
 - Debuff duration reduced from 3s to 2s
 
-``embed:svelte:
-<EntityHeading name="Siphon Bullets" type="item" />
-``
+##item:siphon-bullets: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/siphon_bullets.webp]] Siphon Bullets
 
 - Steal duration increased from 15s to 20s
 
-``embed:svelte:
-<EntityHeading name="Sprint Boots" type="item" />
-``
+##item:sprint-boots: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/sprint_boots.webp]] Sprint Boots
 
 - Sprint Speed reduced from +3 to +2
 - Now a component of Enduring Speed
 
-``embed:svelte:
-<EntityHeading name="Superior Duration" type="item" />
-``
+##item:superior-duration: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/superior_duration.webp]] Superior Duration
 
 - Imbued duration increased from +30% to +32%
 - Non-imbued duration increased from +22% to +24%
 
-``embed:svelte:
-<EntityHeading name="Suppressor" type="item" />
-``
+##item:suppressor: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/suppressor.webp]] Suppressor
 
 - Duration reduced from 2.5s to 2s
 
-``embed:svelte:
-<EntityHeading name="Tesla Bullets" type="item" />
-``
+##item:tesla-bullets: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/tesla_bullets.webp]] Tesla Bullets
 
 - Damage is now affected by falloff
 - Proc chance reduced from 30% to 25%
 - Jump radius reduced from 9m to 8m
 
-``embed:svelte:
-<EntityHeading name="Titanic Magazine" type="item" />
-``
+##item:titanic-magazine: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/titanic_magazine.webp]] Titanic Magazine
 
 - Reload penalty reduced from -15% to -10%
 
-``embed:svelte:
-<EntityHeading name="Unstoppable" type="item" />
-``
+##item:unstoppable: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/unstoppable.webp]] Unstoppable
 
 - No longer has components (loses slow resist and movespeed bonus)

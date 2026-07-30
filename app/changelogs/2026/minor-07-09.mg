@@ -30,219 +30,145 @@ content_text "Urn Runner sprint bonus reduced from +2m to 0 (trailing bonus redu
 <SectionPreview type="hero" names={["Billy", "Doorman", "Drifter", "Graves", "Haze", "Holliday", "Mirage", "Pocket", "Shiv", "Silver", "Victor", "Viscous", "Yamato"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Billy" type="hero" />
-``
+##hero:billy: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/punkgoat_sm.webp]] Billy
 
-``embed:svelte:
-<AbilityHeading name="Rising Ram" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/punkgoat/goat_risingram.webp]] Rising Ram
 
 - Rising Ram T3 spirit scaling reduced from 0.035 to 0.03
 
-``embed:svelte:
-<EntityHeading name="Doorman" type="hero" />
-``
+##hero:doorman: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/doorman_sm.webp]] Doorman
 
 - Bullet damage rescaled from 29.26 + 1.1/boon to 26 + 1.19
 
-``embed:svelte:
-<AbilityHeading name="Crit" />
-``
+###ability: Crit
 
 - Crit scaling reduced from -25% to -30%
 
-``embed:svelte:
-<AbilityHeading name="Hotel Guest" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_elevator.webp]] Hotel Guest
 
 - Hotel Guest T3 increased from 13s Cooldown on Failure to Check Out to 15s
 
-``embed:svelte:
-<EntityHeading name="Drifter" type="hero" />
-``
+##hero:drifter: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/drifter_sm.webp]] Drifter
 
 - Bullet damage per boon reduced from +0.616 to +0.49
 
-``embed:svelte:
-<AbilityHeading name="Bloodscent" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/drifter/drifter_thehunger.webp]] Bloodscent
 
 - Bloodscent T3 reduced from +12% to +11%
 
-``embed:svelte:
-<AbilityHeading name="Stalker's Mark" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/drifter/drifter_stalkersmark.webp]] Stalker's Mark
 
 - Stalker's Mark cooldown increased from 20s to 24s
 - Stalker's Mark T2 increased from -8s Cooldown to -12s
 - Stalker's Mark T3 reduced from +2% Bleed to +1.5%
 
-``embed:svelte:
-<EntityHeading name="Graves" type="hero" />
-``
+##hero:graves: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/necro_sm.webp]] Graves
 
 - Jar of Dead T1 heal spirit scaling increased from 0.1 to 0.16
 - Jar of Dead now build up faster from neutral creeps
 - Grasping Hands immobilize duration reduced from 1.25s to 1s
 
-``embed:svelte:
-<AbilityHeading name="Grasping Hands" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/necro/necro_hands.webp]] Grasping Hands
 
 - Grasping Hands T3 cooldown increased from -10s to -14s
 
-``embed:svelte:
-<AbilityHeading name="Essence Theft" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/necro/necro_siphon.webp]] Essence Theft
 
 - Essence Theft now procs from melee hits
 - Essence Theft T3 now also increases Max Steal Targets from 3 to 4
 
-``embed:svelte:
-<AbilityHeading name="Borrowed Decree" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/necro/necro_gravestone.webp]] Borrowed Decree
 
 - Borrowed Decree T1 changed from "-15s Cooldown" to "-15s Cooldown and +25% Ghoul Speed"
 - Borrowed Decree T2 changed from "+25% Ghoul Speed and +10s Duration" to "-0.3s Time to Spawn and +10s Duration"
 
-``embed:svelte:
-<EntityHeading name="Haze" type="hero" />
-``
+##hero:haze: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze
 
-``embed:svelte:
-<AbilityHeading name="Sleep Dagger" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger
 
 - Sleep Dagger T2 now also applies 15 Fixation Stacks
 - Sleep Dagger T2 reduced from -18s Cooldown to -17s
 
-``embed:svelte:
-<EntityHeading name="Holliday" type="hero" />
-``
+##hero:holliday: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]] Holliday
 
-``embed:svelte:
-<AbilityHeading name="Powder Keg" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_powder_keg.webp]] Powder Keg
 
 - Powder Keg spirit scaling reduced from 1.2 to 1.05
 
-``embed:svelte:
-<EntityHeading name="Mirage" type="hero" />
-``
+##hero:mirage: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage
 
 - Fire Scarabs T3 spirit scaling reduced from +0.17 to +0.13
 
-``embed:svelte:
-<AbilityHeading name="Dust Devil" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_tornado.webp]] Dust Devil
 
 - Dust Devil T3 spirit scaling reduced from +1 to +0.6
 
-``embed:svelte:
-<AbilityHeading name="Djinn's Mark" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_sand_phantom.webp]] Djinn's Mark
 
 - Djinn's Mark cooldown reduced from 3s to 2.75
 - Djinn's Mark T3 cooldown reduced from -1s Cooldown to -0.75s
 
-``embed:svelte:
-<AbilityHeading name="Traveler" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_teleport.webp]] Traveler
 
 - Traveler T3 increased from -70s Cooldown to -90s
 
-``embed:svelte:
-<EntityHeading name="Pocket" type="hero" />
-``
+##hero:pocket: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket
 
-``embed:svelte:
-<AbilityHeading name="Affliction" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_affliction.webp]] Affliction
 
 - Affliction duration reduced from 11s to 10s
 
-``embed:svelte:
-<EntityHeading name="Shiv" type="hero" />
-``
+##hero:shiv: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv
 
-``embed:svelte:
-<AbilityHeading name="Serrated Knives" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_toss.webp]] Serrated Knives
 
 - Serrated Knives T3 spirit scaling reduced from +0.09 to +0.07
 
 - Slice and Dice spirit scaling reduced from 1.44 to 1.2
 - Slice and Dice T2 reduced from -6% Spirit Resist to -4%
 
-``embed:svelte:
-<AbilityHeading name="Bloodletting" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_bloodletting.webp]] Bloodletting
 
 - Bloodletting cooldown increased from 20s to 25s
 - Bloodletting T1 increased from -10s Cooldown to -15s
 
-``embed:svelte:
-<AbilityHeading name="Bloodletting Damage Cleared" />
-``
+###ability: Bloodletting Damage Cleared
 
 - Bloodletting Damage Cleared reduced from 35% to 30%
 
-``embed:svelte:
-<AbilityHeading name="Bloodletting" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_bloodletting.webp]] Bloodletting
 
 - Bloodletting T2 Damage Cleared increased from 35% to 40%
 
-``embed:svelte:
-<AbilityHeading name="Killing Blow Health Threshold" />
-``
+###ability: Killing Blow Health Threshold
 
 - Killing Blow Health Threshold reduced from 20% to 18%
 
-``embed:svelte:
-<AbilityHeading name="Killing Blow" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp]] Killing Blow
 
 - Killing Blow T3 Health Threshold increased from +8% to +10%
 
-``embed:svelte:
-<EntityHeading name="Silver" type="hero" />
-``
+##hero:silver: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/werewolf_sm.webp]] Silver
 
-``embed:svelte:
-<AbilityHeading name="Lycan Curse" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/werewolf/werewolf_lycancurse.webp]] Lycan Curse
 
 - Lycan Curse cooldown reduced from 80s to 60s
 
-``embed:svelte:
-<EntityHeading name="Victor" type="hero" />
-``
+##hero:victor: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/frank_sm.webp]] Victor
 
-``embed:svelte:
-<AbilityHeading name="Shocking Reanimation" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_shocking_reanimation.webp]] Shocking Reanimation
 
 - Shocking Reanimation cooldown reduced from 275s to 240s
 
-``embed:svelte:
-<EntityHeading name="Viscous" type="hero" />
-``
+##hero:viscous: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous
 
-``embed:svelte:
-<AbilityHeading name="Splatter" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_ball.webp]] Splatter
 
 - Splatter T3 spirit scaling reduced from +1.0 to +0.9
 
-``embed:svelte:
-<EntityHeading name="Yamato" type="hero" />
-``
+##hero:yamato: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato
 
-``embed:svelte:
-<AbilityHeading name="Flying Slash" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_flying_strike.webp]] Flying Slash
 
 - Flying Slash range reduced from 28m to 26m
 - Flying Slash T3 Charge Delay increased from 3s to 4s
@@ -254,8 +180,6 @@ content_text "Urn Runner sprint bonus reduced from +2m to 0 (trailing bonus redu
 <SectionPreview type="item" names={["Scourge"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Scourge" type="item" />
-``
+##item:scourge: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/scourge.webp]] Scourge
 
 - Max Health Per Second reduced from 2.6% to 2.5%

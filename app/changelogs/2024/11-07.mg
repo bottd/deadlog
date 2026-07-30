@@ -118,47 +118,33 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 <SectionPreview type="hero" names={["Abrams", "Bebop", "Dynamo", "Grey Talon", "Haze", "Infernus", "Ivy", "Lash", "McGinnis", "Mirage", "Paradox", "Pocket", "Vindicta", "Viscous", "Warden", "Wraith", "Yamato"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Abrams" type="hero" />
-``
+##hero:abrams: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams
 
 - Reverted Melee attack speed reduction.
 - Shoulder Charge can now again use left/right strafe to slightly change direction.
 
-``embed:svelte:
-<AbilityHeading name="Shoulder Charge" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_charge.webp]] Shoulder Charge
 
 - Shoulder Charge now carries momentum at the end of the charge.
 
-``embed:svelte:
-<AbilityHeading name="Siphon Life" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_drain.webp]] Siphon Life
 
 - Siphon Life spirit scaling increased from 0.3 to 0.36.
 
-``embed:svelte:
-<AbilityHeading name="Infernal Resilience Damage Regen" />
-``
+###ability: Infernal Resilience Damage Regen
 
 - Infernal Resilience Damage Regen reduced from 15% to 14%.
 - Infernal Resilience Damage Regen duration increased from 18s to 20s.
 
-``embed:svelte:
-<AbilityHeading name="Infernal Resilience" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_beef.webp]] Infernal Resilience
 
 - Infernal Resilience T3 reduced from +8% to +7%.
 
 - Fixed an issue where Seismic impact would travel more downwards instead of the facing direction.
 
-``embed:svelte:
-<EntityHeading name="Bebop" type="hero" />
-``
+##hero:bebop: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop
 
-``embed:svelte:
-<AbilityHeading name="Sticky Bomb" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_sticky_bomb.webp]] Sticky Bomb
 
 - Sticky Bomb damage gained per hero impact increased from 1% to 1.5%.
 - Sticky Bomb damage gained per hero kill reduced from 5% to 4%.
@@ -166,210 +152,146 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 - Sticky Bomb now calculates its damage at detonation time rather than cast time (affects item combinations).
 - Sticky Bomb now has 2x cast range when used on allies.
 
-``embed:svelte:
-<AbilityHeading name="Hook" />
-``
+###ability: Hook
 
 - Hook damage reduced from 40 to 10.
 - Hook damage now has spirit scaling of 2x.
 
-``embed:svelte:
-<AbilityHeading name="Hyper Beam" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hyper_beam.webp]] Hyper Beam
 
 - Hyper Beam now goes on cooldown for 3 seconds when canceled during precast.
 
-``embed:svelte:
-<EntityHeading name="Dynamo" type="hero" />
-``
+##hero:dynamo: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo
 
 - Now gains 1% Bullet Resist per Boon (0->14%).
 - Fixed Quantum Entanglement sometimes not moving you to the destination properly.
 
-``embed:svelte:
-<AbilityHeading name="Singularity" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_vacuum.webp]] Singularity
 
 - Singularity now deals 1.5% Max HP in the base ability.
 - Singularity T3 increased from 3.8% to 4%.
 
-``embed:svelte:
-<AbilityHeading name="Singularity Base DPS" />
-``
+###ability: Singularity Base DPS
 
 - Singularity Base DPS reduced from 60 to 45.
 
-``embed:svelte:
-<EntityHeading name="Grey Talon" type="hero" />
-``
+##hero:grey-talon: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon
 
 - Base bullet damage reduced from 27 to 24.
 - Bullet damage growth per boon increased from 1.41 to 1.62 (same total damage later on).
 
-``embed:svelte:
-<AbilityHeading name="Falloff" />
-``
+###ability: Falloff
 
 - Falloff range rescaled from 22m->58m to 18m->54m.
 
 - Rain of Arrows strafe distance with stamina reduced by 30%.
 - Charged Shot hitbox size reduced by 20%.
 
-``embed:svelte:
-<EntityHeading name="Haze" type="hero" />
-``
+##hero:haze: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze
 
 - Bullet Dance no longer hits 2 targets.
 - Bullet Dance now grants +30% Fire Rate.
 - Bullet Dance now allows you to use items during it.
 
-``embed:svelte:
-<AbilityHeading name="Sleep Dagger" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger
 
 - Sleep Dagger T3 now also causes targets to wake up with -40% Fire Rate.
 
-``embed:svelte:
-<EntityHeading name="Infernus" type="hero" />
-``
+##hero:infernus: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus
 
-``embed:svelte:
-<AbilityHeading name="Catalyst" />
-``
+###ability: Catalyst
 
 - Catalyst slow reduced from 40% to 35%.
 
 - Afterburn buildup per bullet/headshot reduced from 10%/16% to 9%/14%.
 
-``embed:svelte:
-<EntityHeading name="Ivy" type="hero" />
-``
+##hero:ivy: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy
 
-``embed:svelte:
-<AbilityHeading name="Watcher's Covenant Fire Rate" />
-``
+###ability: Watcher's Covenant Fire Rate
 
 - Watcher's Covenant Fire Rate spirit scaling increased from 0.2 to 0.3.
 
-``embed:svelte:
-<AbilityHeading name="Watcher's Covenant Bullet Lifesteal" />
-``
+###ability: Watcher's Covenant Bullet Lifesteal
 
 - Watcher's Covenant Bullet Lifesteal spirit scaling increased from 0.2 to 0.3.
 
-``embed:svelte:
-<EntityHeading name="Lash" type="hero" />
-``
+##hero:lash: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp]] Lash
 
 - Ground Strike can now be cast while on the zipline.
 - Fixed interaction between Mirage's tornado and Death Slam.
 
-``embed:svelte:
-<AbilityHeading name="Ground Strike" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_death_slam.webp]] Ground Strike
 
 - Ground Strike now pulls enemies to the ground with you (similar to Stone Form recently).
 
-``embed:svelte:
-<EntityHeading name="McGinnis" type="hero" />
-``
+##hero:mcginnis: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis
 
-``embed:svelte:
-<AbilityHeading name="Mini Turrets DPS" />
-``
+###ability: Mini Turrets DPS
 
 - Mini Turrets DPS reduced from 60 to 40.
 
-``embed:svelte:
-<AbilityHeading name="Mini Turrets" />
-``
+###ability: Mini Turrets
 
 - Mini Turrets health reduced from 20% max HP to 15%.
 
-``embed:svelte:
-<EntityHeading name="Mirage" type="hero" />
-``
+##hero:mirage: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage
 
 - Bullet size reduced from 6 to 5.
 
-``embed:svelte:
-<AbilityHeading name="Tornado" />
-``
+###ability: Tornado
 
 - Tornado speed reduced from 20m to 18m.
 
-``embed:svelte:
-<AbilityHeading name="Tornado Lift Duration" />
-``
+###ability: Tornado Lift Duration
 
 - Tornado Lift Duration reduced from 1.1s to 1s.
 
 - Fire Scarabs T2 reduced from -15% Bullet Resist to -10%.
 
-``embed:svelte:
-<EntityHeading name="Paradox" type="hero" />
-``
+##hero:paradox: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox
 
 - Bullet velocity increased from 411 to 525.
 
-``embed:svelte:
-<AbilityHeading name="Time Wall" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_wall.webp]] Time Wall
 
 - Time Wall no longer has charges.
 - Time Wall no longer deals 10% Max Health Damage.
 - Time Wall cooldown reduced from 37s to 25s.
 - Time Wall T2 is now Deals 10% Max Health Damage.
 
-``embed:svelte:
-<AbilityHeading name="Kinetic Carbine Max Damage Amp" />
-``
+###ability: Kinetic Carbine Max Damage Amp
 
 - Kinetic Carbine Max Damage Amp increased from 85% to 100%.
 
 - Paradoxical Swap time to complete the swap reduced from 0.5-1.5 to 0.3-0.6 (variable based on distance).
 
-``embed:svelte:
-<EntityHeading name="Pocket" type="hero" />
-``
+##hero:pocket: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket
 
-``embed:svelte:
-<AbilityHeading name="Barrage" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_barrage.webp]] Barrage
 
 - Barrage spirit scaling increased from 0.4 to 0.5.
 
 - Light melee damage increased from 63 to 75.
 
-``embed:svelte:
-<EntityHeading name="Vindicta" type="hero" />
-``
+##hero:vindicta: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta
 
 - Base bullet damage reduced from 15 to 13.
 - Bullet damage growth per boon increased from 0.65 to 0.8 (same total damage later on).
 
-``embed:svelte:
-<AbilityHeading name="Stake" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_stake.webp]] Stake
 
 - Stake duration increased from 1.75s to 2s.
 
-``embed:svelte:
-<AbilityHeading name="Flight" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_flight.webp]] Flight
 
 - Flight T2 reduced from +8s to +6s.
 
 - Crow Familiar tick rate changed from every 0.5s to every 1s.
 - Assassinate starts at 25% power instead of 50% power.
 
-``embed:svelte:
-<EntityHeading name="Viscous" type="hero" />
-``
+##hero:viscous: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous
 
-``embed:svelte:
-<AbilityHeading name="The Cube" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_restorative_goo.webp]] The Cube
 
 - The Cube health regen now scales with spirit at 0.2.
 
@@ -377,40 +299,28 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 - Goo Ball size now increases with range upgrades (doesn't affect collision with world).
 - Fixed some hit detection issues with Goo Ball.
 
-``embed:svelte:
-<EntityHeading name="Warden" type="hero" />
-``
+##hero:warden: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden
 
 - Now has +1 Sprint.
 - Bullet Velocity increased from 213 to 290.
 
-``embed:svelte:
-<AbilityHeading name="Last Stand" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_riot_protocol.webp]] Last Stand
 
 - Last Stand now goes on cooldown if you die or the ability is interrupted while cast.
 - Last Stand T3 no longer grants unstoppable during channel.
 - Last Stand now grants +50% Spirit Resist during channel.
 
-``embed:svelte:
-<EntityHeading name="Wraith" type="hero" />
-``
+##hero:wraith: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp]] Wraith
 
 - Telekinesis cast time increased from 0.6 to 0.7.
 
-``embed:svelte:
-<AbilityHeading name="Telekinesis" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_lift.webp]] Telekinesis
 
 - Telekinesis damage reduced from 200 to 175.
 
-``embed:svelte:
-<EntityHeading name="Yamato" type="hero" />
-``
+##hero:yamato: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato
 
-``embed:svelte:
-<AbilityHeading name="Shadow Transformation" />
-``
+###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]] Shadow Transformation
 
 - Shadow Transformation now affects the grapple time speed.
 - Shadow Transformation duration increased from 4s to 6s.
@@ -425,52 +335,36 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 <SectionPreview type="item" names={["Active Reload", "Alchemical Fire", "Ammo Scavenger", "Berserker", "Bullet Armor", "Close Quarters", "Debuff Reducer", "Decay", "Divine Barrier", "Extra Health", "Fortitude", "Frenzy", "Glass Cannon", "Healbane", "Healing Nova", "Healing Rite", "Heroic Aura", "Inhibitor", "Intensifying Magazine", "Lifestrike", "Long Range", "Lucky Shot", "Magic Carpet", "Melee Charge", "Metal Skin", "Mystic Burst", "Phantom Strike", "Reactive Barrier", "Restorative Locket", "Restorative Shot", "Return Fire", "Shadow Weave", "Sharpshooter", "Silencer", "Siphon Bullets", "Slowing Bullets", "Slowing Hex", "Soul Rebirth", "Spirit Armor", "Superior Cooldown", "Toxic Bullets", "Vampiric Burst", "Veil Walker"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Active Reload" type="item" />
-``
+##item:active-reload: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/active_reload.webp]] Active Reload
 
 - Now grants +50 Health.
 
-``embed:svelte:
-<EntityHeading name="Alchemical Fire" type="item" />
-``
+##item:alchemical-fire: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/alchemical_fire.webp]] Alchemical Fire
 
 - Now grants +1 Sprint.
 
-``embed:svelte:
-<EntityHeading name="Ammo Scavenger" type="item" />
-``
+##item:ammo-scavenger: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/mods_weapon/ammo_scavenger.webp]] Ammo Scavenger
 
 - Duration increased from 35s to 45s.
 
-``embed:svelte:
-<EntityHeading name="Berserker" type="item" />
-``
+##item:berserker: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/berserker.webp]] Berserker
 
 - Bullet Resist increased from 7% to 9%.
 
-``embed:svelte:
-<EntityHeading name="Bullet Armor" type="item" />
-``
+##item:bullet-armor: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/bullet_resilience.webp]] Bullet Armor
 
 - Bullet Resist increased from 25% to 26%.
 
-``embed:svelte:
-<EntityHeading name="Close Quarters" type="item" />
-``
+##item:close-quarters: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/close_quarters.webp]] Close Quarters
 
 - No longer grants +85 Bullet Shield Health.
 - Now grants +5% Bullet Resist.
 
-``embed:svelte:
-<EntityHeading name="Debuff Reducer" type="item" />
-``
+##item:debuff-reducer: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/debuff_reducer.webp]] Debuff Reducer
 
 - Health increased from +75 to +125.
 
-``embed:svelte:
-<EntityHeading name="Decay" type="item" />
-``
+##item:decay: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/decay.webp]] Decay
 
 - Now grants +1.5 HP Regen.
 - Now grants +8% Ability Duration.
@@ -478,184 +372,126 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 - Bleed Damage reduced from 3.1% to 1%.
 - Cooldown reduced from 45s to 33s.
 
-``embed:svelte:
-<EntityHeading name="Divine Barrier" type="item" />
-``
+##item:divine-barrier: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/divine_barrier.webp]] Divine Barrier
 
 - No longer grants +8% Ability Range.
 - Now grants +6 Spirit Power.
 
-``embed:svelte:
-<EntityHeading name="Extra Health" type="item" />
-``
+##item:extra-health: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_health.webp]] Extra Health
 
 - Weapon Damage increased from 6% to 7%.
 
-``embed:svelte:
-<EntityHeading name="Fortitude" type="item" />
-``
+##item:fortitude: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/fortitude.webp]] Fortitude
 
 - Health increased from 365 to 400.
 
-``embed:svelte:
-<EntityHeading name="Frenzy" type="item" />
-``
+##item:frenzy: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/frenzy.webp]] Frenzy
 
 - Low HP bullet resist increased from 45% to 55%.
 
-``embed:svelte:
-<EntityHeading name="Glass Cannon" type="item" />
-``
+##item:glass-cannon: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/glass_cannon.webp]] Glass Cannon
 
 - Health loss reduced from -15% to -12%.
 
-``embed:svelte:
-<EntityHeading name="Healbane" type="item" />
-``
+##item:healbane: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healbane.webp]] Healbane
 
 - Healing reduction increased from -40% to -45%.
 
-``embed:svelte:
-<EntityHeading name="Healing Nova" type="item" />
-``
+##item:healing-nova: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healing_nova.webp]] Healing Nova
 
 - Now grants +6% Ability Range.
 
-``embed:svelte:
-<EntityHeading name="Healing Rite" type="item" />
-``
+##item:healing-rite: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healing_rite.webp]] Healing Rite
 
 - Duration increased from 19s to 20s (total health restored unchanged).
 
-``embed:svelte:
-<EntityHeading name="Heroic Aura" type="item" />
-``
+##item:heroic-aura: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/heroic_aura.webp]] Heroic Aura
 
 - Cooldown reduced from 32s to 25s.
 
-``embed:svelte:
-<EntityHeading name="Inhibitor" type="item" />
-``
+##item:inhibitor: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/inhibitor.webp]] Inhibitor
 
 - Slow reduced from 25% to 20%.
 
-``embed:svelte:
-<EntityHeading name="Intensifying Magazine" type="item" />
-``
+##item:intensifying-magazine: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/intensifying_magazine.webp]] Intensifying Magazine
 
 - Time to reach Max Damage reduced from 3s to 2.7s.
 
-``embed:svelte:
-<EntityHeading name="Lifestrike" type="item" />
-``
+##item:lifestrike: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/lifestrike.webp]] Lifestrike
 
 - Bullet resistance increased from 8% to 10%.
 
-``embed:svelte:
-<EntityHeading name="Long Range" type="item" />
-``
+##item:long-range: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/long_range.webp]] Long Range
 
 - Long range Weapon Damage reduced from 40% to 30%.
 - Now grants +10% Weapon Damage.
 
-``embed:svelte:
-<EntityHeading name="Lucky Shot" type="item" />
-``
+##item:lucky-shot: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/lucky_shot.webp]] Lucky Shot
 
 - Fixed it causing proc effects to roll twice whenever it procced.
 
-``embed:svelte:
-<EntityHeading name="Magic Carpet" type="item" />
-``
+##item:magic-carpet: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/magic_carpet.webp]] Magic Carpet
 
 - Now grants +10% Ability Range.
 
-``embed:svelte:
-<EntityHeading name="Melee Charge" type="item" />
-``
+##item:melee-charge: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/melee_charge.webp]] Melee Charge
 
 - No longer grants +1 HP Regen.
 - Weapon Damage reduced from 12% to 10%.
 
-``embed:svelte:
-<EntityHeading name="Metal Skin" type="item" />
-``
+##item:metal-skin: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/metal_skin.webp]] Metal Skin
 
 - No longer blocks melee damage.
 
-``embed:svelte:
-<EntityHeading name="Mystic Burst" type="item" />
-``
+##item:mystic-burst: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mystic_burst.webp]] Mystic Burst
 
 - Now triggers on your base damage, rather than how much the target receives.
 
-``embed:svelte:
-<EntityHeading name="Phantom Strike" type="item" />
-``
+##item:phantom-strike: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/phantom_strike.webp]] Phantom Strike
 
 - Now grounds any flying targets on impact (similar to how Slowing Hex used to work).
 
-``embed:svelte:
-<EntityHeading name="Reactive Barrier" type="item" />
-``
+##item:reactive-barrier: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/reactive_barrier.webp]] Reactive Barrier
 
 - Restores 1 stamina on proc.
 
-``embed:svelte:
-<EntityHeading name="Restorative Locket" type="item" />
-``
+##item:restorative-locket: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/restorative_locket.webp]] Restorative Locket
 
 - No longer grants +5 Spirit Power.
 - Now grants +25% Melee Resistance.
 
-``embed:svelte:
-<EntityHeading name="Restorative Shot" type="item" />
-``
+##item:restorative-shot: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/restorative_shot.webp]] Restorative Shot
 
 - No longer grants +7% Bullet Resist.
 - Now grants +90 Bullet Shield.
 - Now procs on orb shots for NPC heal value.
 
-``embed:svelte:
-<EntityHeading name="Return Fire" type="item" />
-``
+##item:return-fire: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/return_fire.webp]] Return Fire
 
 - Duration reduced from 7s to 6s.
 
-``embed:svelte:
-<EntityHeading name="Shadow Weave" type="item" />
-``
+##item:shadow-weave: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/shadow_weave.webp]] Shadow Weave
 
 - Detection range increased from 18m to 22m.
 
-``embed:svelte:
-<EntityHeading name="Sharpshooter" type="item" />
-``
+##item:sharpshooter: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/sharp_shooter.webp]] Sharpshooter
 
 - Long range Weapon Damage reduced from 70% to 50%.
 - Now grants +20% Weapon Damage.
 
-``embed:svelte:
-<EntityHeading name="Silencer" type="item" />
-``
+##item:silencer: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/silencer.webp]] Silencer
 
 - Now grants +12% Spirit Resist.
 
-``embed:svelte:
-<EntityHeading name="Siphon Bullets" type="item" />
-``
+##item:siphon-bullets: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/siphon_bullets.webp]] Siphon Bullets
 
 - Now grants +15% Weapon Damage.
 
-``embed:svelte:
-<EntityHeading name="Slowing Bullets" type="item" />
-``
+##item:slowing-bullets: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/slowing_bullets.webp]] Slowing Bullets
 
 - Spirit Power increased from +5 to +6.
 
-``embed:svelte:
-<EntityHeading name="Slowing Hex" type="item" />
-``
+##item:slowing-hex: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/slowing_hex.webp]] Slowing Hex
 
 - Now uses Enduring Spirit as a component.
 - Now gains +10% Spirit Lifesteal and +75 Bonus Health.
@@ -663,39 +499,27 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 - No longer grants +1 Sprint.
 - Damage reduced from 70 to 40.
 
-``embed:svelte:
-<EntityHeading name="Soul Rebirth" type="item" />
-``
+##item:soul-rebirth: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/mods_tech/rebirth.webp]] Soul Rebirth
 
 - Removed from the game.
 
-``embed:svelte:
-<EntityHeading name="Spirit Armor" type="item" />
-``
+##item:spirit-armor: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/spirit_resilience.webp]] Spirit Armor
 
 - Spirit Resist increased from 20% to 22%.
 
-``embed:svelte:
-<EntityHeading name="Superior Cooldown" type="item" />
-``
+##item:superior-cooldown: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/superior_cooldown.webp]] Superior Cooldown
 
 - Now grants +15% Ammo.
 
-``embed:svelte:
-<EntityHeading name="Toxic Bullets" type="item" />
-``
+##item:toxic-bullets: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/toxic_bullets.webp]] Toxic Bullets
 
 - Damage changed from 5% of Current Health to 2.5% of Max Health.
 
-``embed:svelte:
-<EntityHeading name="Vampiric Burst" type="item" />
-``
+##item:vampiric-burst: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/vampiric_burst.webp]] Vampiric Burst
 
 - Cooldown reduced from 34s to 30s.
 
-``embed:svelte:
-<EntityHeading name="Veil Walker" type="item" />
-``
+##item:veil-walker: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/veil_walker.webp]] Veil Walker
 
 - Ammo increased from 12% to 15%.
 - Weapon Damage increased from 10% to 15%.

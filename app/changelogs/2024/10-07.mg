@@ -20,13 +20,9 @@ content_text "Fixed various cases where you could target/select units behind wal
 <SectionPreview type="hero" names={["Wraith"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Wraith" type="hero" />
-``
+##hero:wraith: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp]] Wraith
 
-``embed:svelte:
-<AbilityHeading name="Card Trick Spirit" />
-``
+###ability: Card Trick Spirit
 
 - Card Trick Spirit scaling reduced from 1.5 to 1.2
 
@@ -36,8 +32,6 @@ content_text "Fixed various cases where you could target/select units behind wal
 <SectionPreview type="item" names={["Shadow Weave"]} />
 ``
 
-``embed:svelte:
-<EntityHeading name="Shadow Weave" type="item" />
-``
+##item:shadow-weave: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/shadow_weave.webp]] Shadow Weave
 
 - Ambush Fire Rate reduced from +40% to +30%

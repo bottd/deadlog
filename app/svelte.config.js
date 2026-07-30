@@ -9,7 +9,7 @@ const adapter =
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	extensions: ['.svelte', '.norg'],
+	extensions: ['.svelte', '.mg'],
 	preprocess: vitePreprocess(),
 	kit: {
 		adapter,
