@@ -1,0 +1,57 @@
+``meta:
+title "06-23-2024 Update"
+thread_id "7705"
+published "2024-06-23T16:23:36-0700"
+author "Yoshi"
+author_image "https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630"
+category "patch"
+major_update #false
+status "draft"
+content_text "There is no longer a reinforcement trooper wave after Guardians and Walkers die Yamato Shadow Transformation now causes you to be unable to die during the buff Spirit Strike Melee damage reduced from 20% to 15% Melee Charge No longer grants +15% Melee Damage Veil Walker Bullet Shield reduced from +200 to +150 Shield restore now takes 5s to fully regen Cooldown increased from 20s to 25s"
+``
+
+# General Changes
+
+- There is no longer a reinforcement trooper wave after Guardians and Walkers die
+
+# Hero Changes
+
+``embed:svelte:
+<SectionPreview type="hero" names={["Yamato"]} />
+``
+
+``embed:svelte:
+<EntityHeading name="Yamato" type="hero" />
+``
+
+``embed:svelte:
+<AbilityHeading name="Shadow Transformation" />
+``
+
+- Shadow Transformation now causes you to be unable to die during the buff
+
+# Item Changes
+
+``embed:svelte:
+<SectionPreview type="item" names={["Melee Charge", "Spirit Strike", "Veil Walker"]} />
+``
+
+``embed:svelte:
+<EntityHeading name="Melee Charge" type="item" />
+``
+
+- No longer grants +15% Melee Damage
+
+``embed:svelte:
+<EntityHeading name="Spirit Strike" type="item" />
+``
+
+- Melee damage reduced from 20% to 15%
+
+``embed:svelte:
+<EntityHeading name="Veil Walker" type="item" />
+``
+
+- Bullet Shield reduced from +200 to +150
+- Shield restore now takes 5s to fully regen
+- Cooldown increased from 20s to 25s

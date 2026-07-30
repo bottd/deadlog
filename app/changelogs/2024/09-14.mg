@@ -1,0 +1,66 @@
+``meta:
+title "09-14-2024 Update"
+thread_id "29586"
+published "2024-09-14T21:05:26-0700"
+author "Yoshi"
+author_image "https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630"
+category "patch"
+major_update #false
+status "draft"
+content_text "Bebop Hyper Beam cooldown increased from 117 to 130 Hyper Beam T1 reduced from -38s to -30s Hyper Beam end radius reduced from 5m to 4m Hyper Beam slow reduced from 40% to 30% Hyper Beam DPS reduced from 220 to 205 Hyper Beam DPS spirit scaling reduced from 3 to 2.7 McGinnis Medicinal Specter radius spirit power reduced from 0.07 to 0.05 Ammo Scavenger Buff duration reduced from 40s to 35s"
+``
+
+
+# Hero Changes
+
+``embed:svelte:
+<SectionPreview type="hero" names={["Bebop", "McGinnis"]} />
+``
+
+``embed:svelte:
+<EntityHeading name="Bebop" type="hero" />
+``
+
+``embed:svelte:
+<AbilityHeading name="Hyper Beam" />
+``
+
+- Hyper Beam cooldown increased from 117 to 130
+- Hyper Beam T1 reduced from -38s to -30s
+
+- Hyper Beam end radius reduced from 5m to 4m
+
+``embed:svelte:
+<AbilityHeading name="Hyper Beam" id="hyper-beam-1" />
+``
+
+- Hyper Beam slow reduced from 40% to 30%
+
+``embed:svelte:
+<AbilityHeading name="Hyper Beam DPS" />
+``
+
+- Hyper Beam DPS reduced from 220 to 205
+- Hyper Beam DPS spirit scaling reduced from 3 to 2.7
+
+``embed:svelte:
+<EntityHeading name="McGinnis" type="hero" />
+``
+
+``embed:svelte:
+<AbilityHeading name="Medicinal Specter" />
+``
+
+- Medicinal Specter radius spirit power reduced from 0.07 to 0.05
+
+# Item Changes
+
+``embed:svelte:
+<SectionPreview type="item" names={["Ammo Scavenger"]} />
+``
+
+``embed:svelte:
+<EntityHeading name="Ammo Scavenger" type="item" />
+``
+
+- Buff duration reduced from 40s to 35s

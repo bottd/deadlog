@@ -161,9 +161,9 @@ importers:
       vite:
         specifier: 8.1.5
         version: 8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1)
-      vite-plugin-norg:
-        specifier: 4.0.17
-        version: 4.0.17(react@19.2.8)(svelte@5.56.7(@typescript-eslint/types@8.65.0))(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1))
+      vite-plugin-mog:
+        specifier: 0.2.0
+        version: 0.2.0(react@19.2.8)(svelte@5.56.7(@typescript-eslint/types@8.65.0))(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1))
       vitest:
         specifier: 4.1.10
         version: 4.1.10(@types/node@26.1.1)(@vitest/browser-playwright@4.1.10)(happy-dom@20.11.1)(msw@2.15.0(@types/node@26.1.1)(typescript@6.0.3))(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1))
@@ -2010,14 +2010,6 @@ packages:
       supports-color:
         optional: true
 
-  dedent@1.7.2:
-    resolution: {integrity: sha512-WzMx3mW98SN+zn3hgemf4OzdmyNhhhKz5Ay0pUfQiMQ3e1g+xmTJWp/pKdwKVXhdSkAEGIIzqeuWrL3mV/AXbA==}
-    peerDependencies:
-      babel-plugin-macros: ^3.1.0
-    peerDependenciesMeta:
-      babel-plugin-macros:
-        optional: true
-
   deep-is@0.1.4:
     resolution: {integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==}
 
@@ -3290,8 +3282,49 @@ packages:
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
-  vite-plugin-norg@4.0.17:
-    resolution: {integrity: sha512-+dkcyRrCCc12S/wDa9hi5z7vVN/rJmEx2DhJZyQ7i31QHB61uEYbVMwXEsTqa+huUl4tplim9FqwoKA8osT4PA==}
+  vite-plugin-mog-darwin-arm64@0.2.0:
+    resolution: {integrity: sha512-prroCq20ph/01xsnJP7KNiH7ON7v/3+Etz6rgJ+ThKBNe9rZefi5mvp2ovb5y3jc/rjR+uLoBnko/74afKiMWw==}
+    engines: {node: ^20.19.0 || >=22.12.0}
+    cpu: [arm64]
+    os: [darwin]
+
+  vite-plugin-mog-darwin-x64@0.2.0:
+    resolution: {integrity: sha512-Sa2rwlzDQC4Y6T0mpF1FJbzqGCOdM3WEldeMtE+dH0D6aAC6YTZmd90SYFeGTbNd29DUlS39bMhogTJAANBkyQ==}
+    engines: {node: ^20.19.0 || >=22.12.0}
+    cpu: [x64]
+    os: [darwin]
+
+  vite-plugin-mog-linux-arm64-gnu@0.2.0:
+    resolution: {integrity: sha512-OHzCBRST+1KBmVQgOV52KGp+zr2TG9OSLu0HPjlDVLWBLHfyPhzCiQWN3IUVHdMHJ402Z2mj96Z9GZVvcH1TPQ==}
+    engines: {node: ^20.19.0 || >=22.12.0}
+    cpu: [arm64]
+    os: [linux]
+    libc: [glibc]
+
+  vite-plugin-mog-linux-arm64-musl@0.2.0:
+    resolution: {integrity: sha512-Cm0y51xhEkKN2he9CDGkgq4rAqGP3PWUY6F9iQUgxv51oGXDCMZGA0msWQdJoyuHXHttxuQiLftx0VyOER4BXQ==}
+    engines: {node: ^20.19.0 || >=22.12.0}
+    cpu: [arm64]
+    os: [linux]
+    libc: [musl]
+
+  vite-plugin-mog-linux-x64-gnu@0.2.0:
+    resolution: {integrity: sha512-Peb8elihTxPRDWCnY3xAO+tgKNtGgrsC1h5zw+bmF/4fnTAmV+/aqO2zDGbF6tB5fVdcwM268orT+EFrNMjOag==}
+    engines: {node: ^20.19.0 || >=22.12.0}
+    cpu: [x64]
+    os: [linux]
+    libc: [glibc]
+
+  vite-plugin-mog-linux-x64-musl@0.2.0:
+    resolution: {integrity: sha512-MFjW+SiggXEjV0tg51nHW890SPDKHi9sTv6cdj+4WnnoCgrOV0ouXAdWYPLE2oQ2ISlAo1+dUZYVQkcthf6xIQ==}
+    engines: {node: ^20.19.0 || >=22.12.0}
+    cpu: [x64]
+    os: [linux]
+    libc: [musl]
+
+  vite-plugin-mog@0.2.0:
+    resolution: {integrity: sha512-ZuYwj2S1vbKAdQMMeKs2pzE7RlQ17MGgKFnlVwAbbZyOuA1RjkdVXSRUG8ocoG0yg62uazXNpy4rNhhkKYpqLg==}
+    engines: {node: ^20.19.0 || >=22.12.0}
     peerDependencies:
       react: ^19.0.0
       svelte: ^5.0.0
@@ -4859,8 +4892,6 @@ snapshots:
     optionalDependencies:
       supports-color: 10.2.2
 
-  dedent@1.7.2: {}
-
   deep-is@0.1.4: {}
 
   deepmerge@4.3.1: {}
@@ -6039,15 +6070,36 @@ snapshots:
 
   util-deprecate@1.0.2: {}
 
-  vite-plugin-norg@4.0.17(react@19.2.8)(svelte@5.56.7(@typescript-eslint/types@8.65.0))(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1)):
+  vite-plugin-mog-darwin-arm64@0.2.0:
+    optional: true
+
+  vite-plugin-mog-darwin-x64@0.2.0:
+    optional: true
+
+  vite-plugin-mog-linux-arm64-gnu@0.2.0:
+    optional: true
+
+  vite-plugin-mog-linux-arm64-musl@0.2.0:
+    optional: true
+
+  vite-plugin-mog-linux-x64-gnu@0.2.0:
+    optional: true
+
+  vite-plugin-mog-linux-x64-musl@0.2.0:
+    optional: true
+
+  vite-plugin-mog@0.2.0(react@19.2.8)(svelte@5.56.7(@typescript-eslint/types@8.65.0))(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1)):
     dependencies:
-      dedent: 1.7.2
       vite: 8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1)
     optionalDependencies:
       react: 19.2.8
       svelte: 5.56.7(@typescript-eslint/types@8.65.0)
-    transitivePeerDependencies:
-      - babel-plugin-macros
+      vite-plugin-mog-darwin-arm64: 0.2.0
+      vite-plugin-mog-darwin-x64: 0.2.0
+      vite-plugin-mog-linux-arm64-gnu: 0.2.0
+      vite-plugin-mog-linux-arm64-musl: 0.2.0
+      vite-plugin-mog-linux-x64-gnu: 0.2.0
+      vite-plugin-mog-linux-x64-musl: 0.2.0
 
   vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1):
     dependencies:
