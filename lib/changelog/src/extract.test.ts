@@ -8,22 +8,23 @@ import {
 
 describe('extractEntityChanges', () => {
 	it('counts every bullet in an entity section across ability headings', () => {
-		const content = `
-* Hero Changes
-@embed svelte
-<EntityHeading name="Doorman" type="hero" />
-@end
-- Base damage increased
-@embed svelte
-<AbilityHeading name="Call Bell" />
-@end
-- Cooldown reduced
-- Radius increased
-@embed svelte
-<EntityHeading name="Tesla Bullets" type="item" />
-@end
-- Proc chance increased
-`;
+		const content = [
+			'# Hero Changes',
+			'=hero:doorman:',
+			'[[!:https://cdn.example/doorman.webp]]',
+			'## Doorman',
+			'- Base damage increased',
+			'==ability:call-bell:',
+			'### Call Bell',
+			'- Cooldown reduced',
+			'- Radius increased',
+			'==',
+			'=',
+			'=item:tesla-bullets:',
+			'## Tesla Bullets',
+			'- Proc chance increased',
+			'='
+		].join('\n');
 
 		expect(extractEntityChanges(content)).toEqual([
 			{
@@ -45,10 +46,12 @@ describe('extractEntityChanges', () => {
 	it('clamps a long summary at a word boundary', () => {
 		const bullet = 'Cooldown reduced from 40s to 32s and radius increased by 15%';
 		const content = `
-<EntityHeading name="Abrams" type="hero" />
+=hero:abrams:
+## Abrams
 - ${bullet}
 - ${bullet}
 - ${bullet}
+=
 `;
 
 		const [change] = extractEntityChanges(content);
@@ -60,12 +63,18 @@ describe('extractEntityChanges', () => {
 
 	it('merges repeated article aliases and decodes entity names', () => {
 		const content = `
-<EntityHeading name="The Doorman" type="hero" />
+=hero:doorman:
+## The Doorman
 - First change
-<EntityHeading type="hero" name="Doorman" />
+=
+=hero:doorman:
+## Doorman
 - Second change
-<EntityHeading name="Mo &amp; Krill" type="hero" />
+=
+=hero:mo-krill:
+## Mo &amp; Krill
 - Third change
+=
 `;
 
 		expect(extractEntityChanges(content)).toEqual([
@@ -79,32 +88,38 @@ describe('extractEntityChanges', () => {
 		]);
 	});
 
-	it('does not attribute bullets after a malformed heading or a new top-level section', () => {
+	it('stops attributing bullets at a new top-level section', () => {
 		const content = `
-<EntityHeading name="Abrams" type="hero" />
+=hero:abrams:
+## Abrams
 - Counted
-<EntityHeading name="Missing Type" />
-- Not counted for Abrams
-* Item Changes
-- Also not counted
+- Also counted
+=
+# Item Changes
+- Not counted, a new top-level section
 `;
 
 		expect(extractEntityChanges(content)).toEqual([
-			{ name: 'Abrams', type: 'hero', count: 1, summary: 'Counted' }
+			{ name: 'Abrams', type: 'hero', count: 2, summary: 'Counted · Also counted' }
 		]);
 	});
 
 	it('keeps an explicit zero instead of inventing a change', () => {
-		expect(extractEntityChanges('<EntityHeading name="Abrams" type="hero" />')).toEqual([
+		expect(extractEntityChanges('=hero:abrams:\n## Abrams\n=')).toEqual([
 			{ name: 'Abrams', type: 'hero', count: 0, summary: '' }
 		]);
 	});
 });
 
 describe('entity identity extraction', () => {
-	it('accepts either component attribute order', () => {
-		const entities = extractEntities([], '<EntityHeading type="hero" name="Doorman" />');
-		expect(entities).toEqual({ heroes: ['Doorman'], items: [] });
+	it('reads entities off the toc by their heading attribute', () => {
+		const entities = extractEntities([
+			{ level: 1, title: 'Hero Changes', attrs: [] },
+			{ level: 2, title: 'Doorman', attrs: ['hero', 'doorman'] },
+			{ level: 3, title: 'Call Bell', attrs: ['ability'] },
+			{ level: 2, title: 'Tesla Bullets', attrs: ['item', 'tesla-bullets'] }
+		]);
+		expect(entities).toEqual({ heroes: ['Doorman'], items: ['Tesla Bullets'] });
 	});
 
 	it('exposes canonical article aliases', () => {

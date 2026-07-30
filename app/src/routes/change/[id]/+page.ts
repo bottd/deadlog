@@ -1,15 +1,15 @@
 import type { PageLoad } from './$types';
 import type { Component } from 'svelte';
 
-const norgModules = import.meta.glob('../../../../changelogs/**/*.norg');
+const mogModules = import.meta.glob('../../../../changelogs/**/*.mg');
 
 export const load: PageLoad = async ({ data }) => {
-	let NorgComponent: Component | null = null;
-	let norgSections: string[] = [];
+	let MogComponent: Component | null = null;
+	let mogSections: string[] = [];
 
 	if (data.changelog.slug) {
-		const key = `../../../../changelogs/${data.changelog.slug}.norg`;
-		const loader = norgModules[key];
+		const key = `../../../../changelogs/${data.changelog.slug}.mg`;
+		const loader = mogModules[key];
 
 		if (loader) {
 			try {
@@ -17,17 +17,17 @@ export const load: PageLoad = async ({ data }) => {
 					default: Component;
 					toc?: { id: string }[];
 				};
-				NorgComponent = module.default;
-				norgSections = module.toc?.map((section) => section.id) ?? [];
+				MogComponent = module.default;
+				mogSections = module.toc?.map((section) => section.id) ?? [];
 			} catch (e) {
-				console.warn(`Failed to load .norg file for ${data.changelog.slug}:`, e);
+				console.warn(`Failed to load .mg file for ${data.changelog.slug}:`, e);
 			}
 		}
 	}
 
 	return {
 		...data,
-		NorgComponent,
-		norgSections
+		MogComponent,
+		mogSections
 	};
 };

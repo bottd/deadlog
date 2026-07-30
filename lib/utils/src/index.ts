@@ -8,6 +8,8 @@ export function toSlug(name: string): string {
 		.replace(/^-|-$/g, '');
 }
 
+import { entityNameAliases } from './entityNames';
+
 export {
 	decodeEntityName,
 	entityNameAliases,
@@ -26,42 +28,78 @@ export function abilityFragmentId(name: string): string {
 		.replace(/^-+|-+$/g, '');
 }
 
-/** Norg's inline link: `{target}[label]`. Written once — the three uses below had
+/**
+ * Anchor id for a hero or item heading. Same slug rule as {@link abilityFragmentId},
+ * applied to the article-stripped alias so "The Doorman" and "Doorman" land together.
+ */
+export function entityFragmentId(name: string): string {
+	return abilityFragmentId(entityNameAliases(name).at(-1) ?? '');
+}
+
+/** Mog's inline link: `[[target]]((label))`. Written once — the three uses below had
  * already drifted on whether an empty target counts. */
-const NORG_LINK_SOURCE = String.raw`\{([^{}]*)\}\[([^\]]*)\]`;
-const NORG_LINK_RE = new RegExp(NORG_LINK_SOURCE, 'g');
-const NORG_LINK_ONLY_RE = new RegExp(`^${NORG_LINK_SOURCE}$`);
-const NORG_LOOSE_BRACE_RE = new RegExp(`${NORG_LINK_SOURCE}|(?<!\\\\)([{}])`, 'g');
+const MOG_LINK_SOURCE = String.raw`\[\[([^\[\]]*)\]\]\(\(([^()]*)\)\)`;
+const MOG_LINK_RE = new RegExp(MOG_LINK_SOURCE, 'g');
+const MOG_LINK_ONLY_RE = new RegExp(`^${MOG_LINK_SOURCE}$`);
+
+/** Mog's media transclusion, `[[!:<url>]]((alt))`. Images stay a distinct note kind from
+ * links: they render as media, and their alt text is chrome rather than patch content. */
+export const MOG_IMAGE_PREFIX = '[[!:';
+/** Anchored at line start, since an image is always a note of its own. */
+export const MOG_IMAGE_RE = /^\[\[!:([^[\]]+)\]\]/;
+
+/** Encoders for the grammar above, so no caller has to spell the delimiters again. */
+export function mogLink(target: string, label: string): string {
+	return `[[${target}]]((${label}))`;
+}
+
+export function mogImage(url: string, alt: string): string {
+	return `${MOG_IMAGE_PREFIX}${url}]]${alt ? `((${alt}))` : ''}`;
+}
+
+/** Every paired delimiter Mog reads as markup, so prose that happens to contain one
+ * can be handed back to the author untouched. */
+const MOG_DELIMITERS = String.raw`\*\*|__|~~|\$\$|\[\[|\]\]|\(\(|\)\)|\{\{|\}\}|\|\|`;
+const MOG_LOOSE_DELIMITER_RE = new RegExp(
+	`${MOG_LINK_SOURCE}|(?<!\\\\)(${MOG_DELIMITERS})`,
+	'g'
+);
+const MOG_ESCAPED_DELIMITER_RE = new RegExp(String.raw`\\(${MOG_DELIMITERS})`, 'g');
 
 /**
  * Splits a note that is nothing but a link — an attachment or a source, not prose.
  * The one place the link grammar is decoded, so callers never re-encode it.
  */
-export function parseNorgLink(text: string): { target: string; label: string } | null {
-	const match = text.trim().match(NORG_LINK_ONLY_RE);
-	return match ? { target: match[1], label: match[2] } : null;
+export function parseMogLink(text: string): { target: string; label: string } | null {
+	const match = text.trim().match(MOG_LINK_ONLY_RE);
+	// An image is the same grammar with a `!:` target, but it is a different kind of
+	// note — reporting it as a link makes every caller's prefix check load-bearing.
+	if (!match || match[1].startsWith('!:')) return null;
+	return { target: match[1], label: match[2] };
 }
 
-/** Reduces a norg link to the text a reader sees — for plaintext (search, meta, summaries). */
-export function stripNorgLinks(text: string): string {
-	return text.replace(NORG_LINK_RE, '$2');
+/** Reduces a mog link to the text a reader sees — for plaintext (search, meta, summaries). */
+export function stripMogLinks(text: string): string {
+	return text.replace(MOG_LINK_RE, '$2');
 }
 
-/** Inverse of {@link escapeNorgBraces} — lives beside it so the pair cannot drift. */
-export function unescapeNorgBraces(text: string): string {
-	return text.replace(/\\([{}])/g, '$1');
+/** Inverse of {@link escapeMogDelimiters} — lives beside it so the pair cannot drift. */
+export function unescapeMogDelimiters(text: string): string {
+	return text.replace(MOG_ESCAPED_DELIMITER_RE, '$1');
 }
 
 /**
- * Escapes braces so Norg reads them as punctuation rather than opening a link, while
- * leaving real `{target}[label]` links intact. Prose like "{ Standard | Gyro }" would
- * otherwise render as <a href=" Standard | Gyro ">.
+ * Escapes Mog's paired delimiters so prose reads as punctuation rather than markup,
+ * while leaving real `[[target]]((label))` links intact. Every occurrence has to be
+ * escaped, not just the opening one — an escaped `~~` still leaves its partner free
+ * to pair with whatever comes next and swallow the rest of the block.
  */
-export function escapeNorgBraces(text: string): string {
-	// Link branch first, so a brace inside {target}[label] is returned untouched. The
-	// link alternative captures target/label, so the loose brace is the third group.
-	return text.replace(NORG_LOOSE_BRACE_RE, (match, _target, _label, brace) =>
-		brace ? `\\${brace}` : match
+export function escapeMogDelimiters(text: string): string {
+	// Link branch first, so the brackets inside [[target]]((label)) are returned
+	// untouched. The link alternative captures target/label, so the loose delimiter is
+	// the third group.
+	return text.replace(MOG_LOOSE_DELIMITER_RE, (match, _target, _label, delimiter) =>
+		delimiter ? `\\${delimiter}` : match
 	);
 }
 

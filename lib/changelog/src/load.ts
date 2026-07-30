@@ -1,9 +1,9 @@
 import { readFileSync, existsSync, readdirSync, statSync } from 'fs';
 import { join, relative } from 'path';
 import { ChangelogMetadataSchema, type ParsedChangelog } from './schema';
-import { extractEntities, extractEntityChanges, type TocEntry } from './extract';
+import { extractEntities, parseStructure } from './extract';
 
-function findNorgFiles(dir: string): string[] {
+function findMogFiles(dir: string): string[] {
 	const files: string[] = [];
 	if (!existsSync(dir)) return files;
 
@@ -12,8 +12,8 @@ function findNorgFiles(dir: string): string[] {
 		const stat = statSync(fullPath);
 
 		if (stat.isDirectory()) {
-			files.push(...findNorgFiles(fullPath));
-		} else if (entry.endsWith('.norg')) {
+			files.push(...findMogFiles(fullPath));
+		} else if (entry.endsWith('.mg')) {
 			files.push(fullPath);
 		}
 	}
@@ -21,66 +21,49 @@ function findNorgFiles(dir: string): string[] {
 	return files;
 }
 
-function parseNorgContent(content: string): {
+/**
+ * The leading `meta` verbatim block, whose body is KDL. The generator only ever emits
+ * `key "string"`, `key #bool` and `//` comments, so a line reader stays cheaper than a
+ * KDL dependency — anything richer than that has to grow one.
+ */
+function parseMogMetadata(content: string): {
 	metadata: Record<string, unknown>;
-	toc: TocEntry[];
+	body: string;
 } {
-	const metaMatch = content.match(/@document\.meta\s*\n([\s\S]*?)\n@end/);
+	const metaMatch = content.match(/^``meta:[ \t]*\n([\s\S]*?)\n``/);
 	const metadata: Record<string, unknown> = {};
 
 	if (metaMatch) {
 		for (const line of metaMatch[1].split('\n')) {
-			const colonIndex = line.indexOf(':');
-			if (colonIndex === -1) continue;
+			// A leading `/` is a KDL comment, not a key.
+			const match = line.trim().match(/^([^\s/]\S*)\s+(.+)$/);
+			if (!match) continue;
 
-			const key = line.slice(0, colonIndex).trim();
-			let value: string | boolean = line.slice(colonIndex + 1).trim();
-
-			if (value === 'true') {
-				metadata[key] = true;
-			} else if (value === 'false') {
-				metadata[key] = false;
-			} else {
-				if (value.startsWith('"') && value.endsWith('"')) {
-					value = value.slice(1, -1).replace(/\\"/g, '"');
-				} else if (value.startsWith("'") && value.endsWith("'")) {
-					value = value.slice(1, -1);
-				}
-				metadata[key] = value;
-			}
+			const [, key, raw] = match;
+			// The generator writes strings with JSON.stringify, so JSON.parse reverses it.
+			// A value that is neither shape is malformed; letting it throw beats guessing,
+			// since loadAllChangelogs reports the offending file.
+			metadata[key] = raw.startsWith('#') ? raw === '#true' : JSON.parse(raw);
 		}
 	}
 
-	const toc: TocEntry[] = [];
-	const contentWithoutMeta = content
-		.replace(/@document\.meta[\s\S]*?@end/g, '')
-		.replace(/@comment[\s\S]*?@end/g, '');
-
-	for (const line of contentWithoutMeta.split('\n')) {
-		const match = line.match(/^(\*+)\s+(.+)$/);
-		if (match) {
-			const level = match[1].length;
-			const title = match[2].trim();
-			const id = title
-				.toLowerCase()
-				.replace(/[^a-z0-9]+/g, '-')
-				.replace(/^-+|-+$/g, '');
-			toc.push({ level, title, id });
-		}
-	}
-
-	return { metadata, toc };
+	// The meta block was matched from position 0, so it is just a prefix to drop.
+	return { metadata, body: content.slice(metaMatch?.[0].length ?? 0) };
 }
 
-export function extractPreviewImage(content: string): string | undefined {
-	for (const match of content.matchAll(/^@image\s+(\S+)\s*$/gm)) {
+/**
+ * The patch's own screenshot, from the images `parseStructure` found outside every
+ * block — an entity portrait is chrome and would otherwise win by being first.
+ */
+export function extractPreviewImage(images: string[]): string | undefined {
+	for (const candidate of images) {
 		try {
-			const url = new URL(match[1]);
+			const url = new URL(candidate);
 			if (!['http:', 'https:'].includes(url.protocol)) continue;
 			if (url.pathname.toLowerCase().endsWith('.ico') || /favicon/i.test(url.pathname)) {
 				continue;
 			}
-			return match[1];
+			return candidate;
 		} catch {
 			continue;
 		}
@@ -94,26 +77,26 @@ export async function loadAllChangelogs(
 	options: { curatedOnly?: boolean } = {}
 ): Promise<ParsedChangelog[]> {
 	const { curatedOnly = true } = options;
-	const files = findNorgFiles(changelogsDir);
+	const files = findMogFiles(changelogsDir);
 	const changelogs: ParsedChangelog[] = [];
 
 	for (const filepath of files) {
 		const content = readFileSync(filepath, 'utf-8');
 
-		if (curatedOnly && content.includes('status: draft')) {
+		if (curatedOnly && content.includes('status "draft"')) {
 			continue;
 		}
 
 		try {
-			const { metadata: rawMetadata, toc } = parseNorgContent(content);
+			const { metadata: rawMetadata, body } = parseMogMetadata(content);
 			const metadata = ChangelogMetadataSchema.parse(rawMetadata);
-			const entities = extractEntities(toc, content);
-			const entityChanges = extractEntityChanges(content);
+			const { toc, changes: entityChanges, images } = parseStructure(body);
+			const entities = extractEntities(toc);
 			const relativePath = relative(changelogsDir, filepath);
-			const slug = relativePath.replace(/\.norg$/, '');
+			const slug = relativePath.replace(/\.mg$/, '');
 			const plainText =
 				typeof rawMetadata.content_text === 'string' ? rawMetadata.content_text : '';
-			const previewImage = metadata.preview_image ?? extractPreviewImage(content);
+			const previewImage = metadata.preview_image ?? extractPreviewImage(images);
 
 			changelogs.push({
 				filepath,

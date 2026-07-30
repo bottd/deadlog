@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { building } from '$app/environment';
-	import { ChangelogToc, EntityPreview, NorgContent } from '$lib/components/changelog';
+	import { ChangelogToc, EntityPreview, MogContent } from '$lib/components/changelog';
 	import { searchParams } from '$lib/stores/searchParams.svelte';
 	import type { EntityIcon } from '$lib/types';
 	import * as Avatar from '$lib/components/ui/avatar';
@@ -27,8 +27,8 @@
 	const description = $derived(data.description);
 	const image = $derived(data.image);
 	const isIndexable = $derived(data.isIndexable);
-	const NorgComponent = $derived(data.NorgComponent);
-	const norgSections = $derived(data.norgSections ?? []);
+	const MogComponent = $derived(data.MogComponent);
+	const mogSections = $derived(data.mogSections ?? []);
 
 	let tocOpen = $state(false);
 
@@ -54,14 +54,14 @@
 
 	const filterActive = $derived(selHeroes.length + selItems.length > 0);
 	// undefined unless at least one selected entity actually changed in this patch
-	const norgFilter = $derived(
+	const mogFilter = $derived(
 		matchedHeroes.length + matchedItems.length > 0
 			? { heroes: matchedHeroes.map((h) => h.alt), items: matchedItems.map((i) => i.alt) }
 			: undefined
 	);
 
-	const tocHeroes = $derived(norgFilter ? matchedHeroes : allHeroes);
-	const tocItems = $derived(norgFilter ? matchedItems : allItems);
+	const tocHeroes = $derived(mogFilter ? matchedHeroes : allHeroes);
+	const tocItems = $derived(mogFilter ? matchedItems : allItems);
 	const matchedLabel = $derived(
 		[...matchedHeroes, ...matchedItems].map((e) => e.alt).join(', ')
 	);
@@ -70,7 +70,7 @@
 
 	const heroCount = $derived(tocHeroes.length);
 	const itemCount = $derived(tocItems.length);
-	const hideGeneral = $derived(!!norgFilter || !norgSections.includes('general-changes'));
+	const hideGeneral = $derived(!!mogFilter || !mogSections.includes('general-changes'));
 	const canonical = $derived(absoluteUrl(`/change/${encodeURIComponent(changelog.id)}`));
 	const publishedTime = $derived(changelog.date.toISOString());
 	const structuredData = $derived.by(() => {
@@ -169,7 +169,7 @@
 		<div
 			class="clip-corner-sm border-signal/30 bg-signal/5 mb-6 flex flex-wrap items-center gap-x-3 gap-y-1 border px-4 py-2.5 text-sm"
 		>
-			{#if norgFilter}
+			{#if mogFilter}
 				<span
 					class="text-muted-foreground font-mono text-[10px] tracking-widest uppercase"
 				>
@@ -192,7 +192,7 @@
 	{/if}
 
 	<div class="flex gap-8">
-		{#if NorgComponent && changelog.icons}
+		{#if MogComponent && changelog.icons}
 			<aside class="hidden w-56 shrink-0 xl:block">
 				<div class="sticky top-[12rem]">
 					<ChangelogToc heroes={tocHeroes} items={tocItems} {hideGeneral} />
@@ -286,7 +286,7 @@
 
 					<hr class="editorial-divider border-none" />
 
-					{#if !NorgComponent && changelog.icons}
+					{#if !MogComponent && changelog.icons}
 						<div class="mt-6 flex flex-wrap gap-3">
 							{#if changelog.icons.heroes.length > 0}
 								<EntityPreview entities={changelog.icons.heroes} />
@@ -298,13 +298,13 @@
 					{/if}
 				</header>
 
-				{#if NorgComponent}
-					<NorgContent
-						content={NorgComponent}
+				{#if MogComponent}
+					<MogContent
+						content={MogComponent}
 						{heroMap}
 						{itemMap}
 						{abilityMap}
-						filter={norgFilter}
+						filter={mogFilter}
 					/>
 				{/if}
 			</div>
@@ -312,7 +312,7 @@
 	</div>
 </main>
 
-{#if NorgComponent && changelog.icons}
+{#if MogComponent && changelog.icons}
 	<button
 		type="button"
 		onclick={() => (tocOpen = true)}

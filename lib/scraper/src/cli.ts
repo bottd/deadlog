@@ -1,5 +1,5 @@
 import { scrapeChangelogs } from './pipeline';
-import { buildDatabaseFromNorg } from './buildDatabase';
+import { buildDatabaseFromMog } from './buildDatabase';
 
 async function main() {
 	const args = process.argv.slice(2);
@@ -8,14 +8,14 @@ async function main() {
 	const outputDir = process.env.OUTPUT_DIR || './app/static';
 	const changelogsDir = process.env.CHANGELOGS_DIR || './app/changelogs';
 
-	// Step 1: Scrape forum and write .norg files
+	// Step 1: Scrape forum and write .mg files
 	console.log('📝 Step 1: Scraping changelogs from forum...\n');
 	await scrapeChangelogs({ overwrite });
 
-	// Step 2: Build database from .norg files
+	// Step 2: Build database from .mg files
 	console.log('\n🗄️  Step 2: Building database...\n');
 
-	const result = await buildDatabaseFromNorg({
+	const result = await buildDatabaseFromMog({
 		outputDir,
 		changelogsDir
 	});

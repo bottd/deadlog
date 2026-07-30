@@ -1,12 +1,10 @@
-export { default as AbilityHeading } from './AbilityHeading.svelte';
 export { default as Changelog } from './Changelog.svelte';
 export { default as FeaturedPatchCard } from './FeaturedPatchCard.svelte';
 export { default as PatchCard } from './PatchCard.svelte';
 export { default as ChangelogToc } from './ChangelogToc.svelte';
-export { default as EntityHeading } from './EntityHeading.svelte';
 export { default as EntityPreview } from './EntityPreview.svelte';
 export { default as EntityTooltip } from './EntityTooltip.svelte';
-export { default as NorgContent } from './NorgContent.svelte';
+export { default as MogContent } from './MogContent.svelte';
 export { default as PatchPreviewCard } from './PatchPreviewCard.svelte';
 export { default as PatchTimeline } from './PatchTimeline.svelte';
 export { default as SectionPreview } from './SectionPreview.svelte';

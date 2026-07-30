@@ -5,7 +5,7 @@ import { z } from 'zod';
 export const changelogs = sqliteTable('changelogs', {
 	id: text('id').primaryKey(),
 	title: text('title').notNull(),
-	slug: text('slug'), // Path to .norg file (e.g., "2025/01-23-update")
+	slug: text('slug'), // Path to .mg file (e.g., "2025/01-23-update")
 	author: text('author').notNull(),
 	authorImage: text('author_image').notNull(),
 	previewImage: text('preview_image'),

@@ -1,0 +1,28 @@
+``meta:
+title "08-18-2024 Update"
+thread_id "18377"
+published "2024-08-18T22:46:34-0700"
+author "Yoshi"
+author_image "https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630"
+category "patch"
+major_update #false
+status "draft"
+content_text "Restorative Locket Spirit Resist reduced from 10% to 8% Cooldown increased from 24s to 28s Heal reduced from 40 per stack to 35 Stamina restore changed from max stamina to 1 charge"
+``
+
+
+# Item Changes
+
+``embed:svelte:
+<SectionPreview type="item" names={["Restorative Locket"]} />
+``
+
+=item:restorative-locket:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/restorative_locket.webp]]
+## Restorative Locket
+
+- Spirit Resist reduced from 10% to 8%
+- Cooldown increased from 24s to 28s
+- Heal reduced from 40 per stack to 35
+- Stamina restore changed from max stamina to 1 charge
+=

@@ -151,7 +151,7 @@ function collectEntityMatches(
 	return matches;
 }
 
-export async function buildDatabaseFromNorg(
+export async function buildDatabaseFromMog(
 	options: BuildOptions = {}
 ): Promise<BuildResult> {
 	const outputDir = options.outputDir || './dist/data';

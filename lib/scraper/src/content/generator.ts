@@ -22,59 +22,131 @@ function cleanVideoLabel(label: string): string {
 	return cleaned || 'clip';
 }
 import {
+	MOG_IMAGE_PREFIX,
 	abilityFragmentId,
-	escapeNorgBraces,
-	parseNorgLink,
-	stripNorgLinks
+	entityFragmentId,
+	entityNameAliases,
+	escapeMogDelimiters,
+	mogImage,
+	parseMogLink,
+	stripMogLinks
 } from '@deadlog/utils';
+import type { HeroesApiResponse, ItemsApiResponse } from '../types/deadlockApi';
 
-const EMPTY_CHANGELOG = `* Changelog\n\nNo structured changes were parsed for this update.`;
+/**
+ * Icon URL per entity, keyed by every alias a note might name it with. Baked into the
+ * heading rather than resolved at render time, so the portrait survives without a
+ * component — the trade is that a changed asset URL needs a regeneration.
+ */
+export interface EntityIcons {
+	hero: Map<string, string>;
+	item: Map<string, string>;
+	ability: Map<string, string>;
+}
 
-function escapeMetaValue(value: string): string {
-	if (value.includes('\n') || value.includes(':') || value.includes('"')) {
-		return `"${value.replace(/"/g, '\\"')}"`;
+function indexByAlias<T>(rows: T[], name: (row: T) => string, image: (row: T) => string) {
+	const map = new Map<string, string>();
+	for (const row of rows) {
+		const url = image(row);
+		if (!url) continue;
+		for (const alias of entityNameAliases(name(row))) map.set(alias, url);
 	}
-	return value;
+	return map;
+}
+
+/** Mirrors the precedence the app resolves at render time, so the baked icon matches. */
+export function buildEntityIcons(
+	heroes: HeroesApiResponse,
+	items: ItemsApiResponse
+): EntityIcons {
+	const heroImage = (h: HeroesApiResponse[number]) =>
+		h.images.icon_image_small_webp ||
+		h.images.icon_image_small ||
+		Object.values(h.images)[0] ||
+		'';
+	const itemImage = (i: ItemsApiResponse[number]) =>
+		i.shop_image_webp || i.shop_image || i.image_webp || i.image || '';
+
+	return {
+		hero: indexByAlias(heroes, (h) => h.name, heroImage),
+		item: indexByAlias(
+			items.filter((i) => i.type !== 'ability'),
+			(i) => i.name,
+			itemImage
+		),
+		ability: indexByAlias(
+			items.filter((i) => i.type === 'ability'),
+			(i) => i.name,
+			itemImage
+		)
+	};
+}
+
+function iconFor(
+	icons: EntityIcons | undefined,
+	kind: keyof EntityIcons,
+	name: string
+): string | undefined {
+	if (!icons) return undefined;
+	for (const alias of entityNameAliases(name)) {
+		const url = icons[kind].get(alias);
+		if (url) return url;
+	}
+	return undefined;
+}
+
+const EMPTY_CHANGELOG = `# Changelog\n\nNo structured changes were parsed for this update.`;
+
+/** A KDL quoted string and a JSON one escape the same way for everything written here,
+ * so the reader in @deadlog/changelog can pair this with JSON.parse. */
+const kdlString = JSON.stringify as (value: string) => string;
+
+/** A component embed, `` ``embed:svelte: `` fenced. */
+function embedBlock(tag: string): string {
+	return ['``embed:svelte:', tag, '``'].join('\n');
 }
 
 function escapeInlineAttr(value: string): string {
 	return value.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 }
 
-function entityHeadingBlock(name: string, type: 'hero' | 'item'): string {
-	const escaped = escapeInlineAttr(name);
-	return `\
-@embed svelte
-<EntityHeading name="${escaped}" type="${type}" />
-@end`;
+/**
+ * An entity section as a wrapped block, so its portrait, heading and notes render as one
+ * subtree rather than a run of siblings:
+ *
+ *   =hero:abrams:
+ *   [[!:https://…/abrams.webp]]
+ *   ## Abrams
+ *   - Base Health increased
+ *   =
+ *
+ * The attribute chain must abut the marker — `= hero:` renders it as literal text. The
+ * renderer derives the anchor id from the heading title alone and disambiguates repeats
+ * itself (`-1`, `-2`), which is why no id is written here.
+ *
+ * The single place the entity shape is spelled.
+ */
+function entityBlock(
+	depth: number,
+	attrs: string[],
+	level: number,
+	name: string,
+	icon: string | undefined,
+	body: string[]
+): string[] {
+	const fence = '='.repeat(depth);
+	return [
+		`${fence}${attrs.map((a) => `${a}:`).join('')}`,
+		...(icon ? [mogImage(icon, '')] : []),
+		`${'#'.repeat(level)} ${name}`,
+		...body,
+		fence
+	];
 }
 
 function sectionPreviewBlock(type: 'hero' | 'item', names: string[]): string {
 	const escaped = names.map((n) => `"${escapeInlineAttr(n)}"`).join(', ');
-	return `\
-@embed svelte
-<SectionPreview type="${type}" names={[${escaped}]} />
-@end`;
-}
-
-/**
- * An ability can head more than one group in a patch — `detectAbilityPrefix` only
- * recognises a note when its wording is familiar, so an unrecognised note between two
- * "Shoulder Charge" notes splits them. Repeats are legitimate, duplicate ids are not, so
- * later ones get an explicit id (`-1`, `-2`, matching how the Norg renderer disambiguates
- * its own headings). The first keeps the bare slug, leaving existing anchors alone.
- */
-function abilityHeadingBlock(name: string, usedIds: Set<string>): string {
-	const base = abilityFragmentId(name);
-	let id = base;
-	for (let n = 1; usedIds.has(id); n++) id = `${base}-${n}`;
-	usedIds.add(id);
-
-	const idAttr = id === base ? '' : ` id="${id}"`;
-	return `\
-@embed svelte
-<AbilityHeading name="${escapeInlineAttr(name)}"${idAttr} />
-@end`;
+	return embedBlock(`<SectionPreview type="${type}" names={[${escaped}]} />`);
 }
 
 /**
@@ -82,31 +154,30 @@ function abilityHeadingBlock(name: string, usedIds: Set<string>): string {
  * real <video> once the files are hosted somewhere is a change inside VideoLink.
  */
 function videoEmbedBlock(link: { target: string; label: string }): string {
-	return `\
-@embed svelte
-<VideoLink src="${escapeInlineAttr(link.target)}" label="${escapeInlineAttr(cleanVideoLabel(link.label))}" />
-@end`;
+	return embedBlock(
+		`<VideoLink src="${escapeInlineAttr(link.target)}" label="${escapeInlineAttr(cleanVideoLabel(link.label))}" />`
+	);
 }
 
 /**
- * Note text only — the @embed svelte blocks above rely on real braces. Prose braces are
- * escaped (see the Glyph Locking line in 2024/11-07), links carried over from the source
- * post are not.
+ * Note text only — the embed blocks above rely on real braces and brackets. Prose
+ * delimiters are escaped, links carried over from the source post are not.
  */
 function bulletLine(note: string): string {
-	return `- ${escapeNorgBraces(note)}`;
+	return `- ${escapeMogDelimiters(note)}`;
 }
 
-export function generateStructuredContent(grouped: GroupedContent): string {
+export function generateStructuredContent(
+	grouped: GroupedContent,
+	icons?: EntityIcons
+): string {
 	const out: string[] = [];
-	// Anchor ids have to be unique across the rendered page, not just within a hero.
-	const abilityIds = new Set<string>();
 
 	if (grouped.general.length > 0) {
-		out.push('* General Changes', '');
+		out.push('# General Changes', '');
 		for (const note of grouped.general) {
-			const link = parseNorgLink(note);
-			if (note.startsWith('@image ')) out.push(note);
+			const link = parseMogLink(note);
+			if (note.startsWith(MOG_IMAGE_PREFIX)) out.push(note);
 			else if (link && VIDEO_HREF_RE.test(link.target)) out.push(videoEmbedBlock(link));
 			else out.push(bulletLine(note));
 		}
@@ -119,7 +190,7 @@ export function generateStructuredContent(grouped: GroupedContent): string {
 
 		out.push(
 			'',
-			'* Hero Changes',
+			'# Hero Changes',
 			'',
 			sectionPreviewBlock(
 				'hero',
@@ -128,21 +199,36 @@ export function generateStructuredContent(grouped: GroupedContent): string {
 		);
 
 		for (const [heroName, notes] of sortedHeroes) {
-			out.push('', entityHeadingBlock(heroName, 'hero'), '');
-
-			const abilityGroups = groupNotesByAbility(notes);
-			for (let gi = 0; gi < abilityGroups.length; gi++) {
-				const group = abilityGroups[gi];
-				if (group.abilityName) {
-					out.push(abilityHeadingBlock(group.abilityName, abilityIds), '');
+			const body: string[] = [];
+			for (const group of groupNotesByAbility(notes)) {
+				const bullets = group.notes.map(bulletLine);
+				if (!group.abilityName) {
+					body.push(...bullets);
+					continue;
 				}
-				for (const note of group.notes) {
-					out.push(bulletLine(note));
-				}
-				if (gi < abilityGroups.length - 1) {
-					out.push('');
-				}
+				body.push(
+					...entityBlock(
+						2,
+						['ability', abilityFragmentId(group.abilityName)],
+						3,
+						group.abilityName,
+						iconFor(icons, 'ability', group.abilityName),
+						bullets
+					)
+				);
 			}
+
+			out.push(
+				'',
+				...entityBlock(
+					1,
+					['hero', entityFragmentId(heroName)],
+					2,
+					heroName,
+					iconFor(icons, 'hero', heroName),
+					body
+				)
+			);
 		}
 	}
 
@@ -153,7 +239,7 @@ export function generateStructuredContent(grouped: GroupedContent): string {
 
 		out.push(
 			'',
-			'* Item Changes',
+			'# Item Changes',
 			'',
 			sectionPreviewBlock(
 				'item',
@@ -162,10 +248,17 @@ export function generateStructuredContent(grouped: GroupedContent): string {
 		);
 
 		for (const [itemName, notes] of sortedItems) {
-			out.push('', entityHeadingBlock(itemName, 'item'), '');
-			for (const note of notes) {
-				out.push(bulletLine(note));
-			}
+			out.push(
+				'',
+				...entityBlock(
+					1,
+					['item', entityFragmentId(itemName)],
+					2,
+					itemName,
+					iconFor(icons, 'item', itemName),
+					notes.map(bulletLine)
+				)
+			);
 		}
 	}
 
@@ -178,7 +271,7 @@ function collectPlainText(grouped: GroupedContent): string {
 	for (const note of grouped.general) {
 		// Media and bare source links are navigation, not patch content — keeping their
 		// labels would put "View attachment clip.mp4" into search and meta descriptions.
-		if (!note.startsWith('@image ') && !parseNorgLink(note)) {
+		if (!note.startsWith(MOG_IMAGE_PREFIX) && !parseMogLink(note)) {
 			parts.push(note);
 		}
 	}
@@ -193,7 +286,7 @@ function collectPlainText(grouped: GroupedContent): string {
 
 	// content_text feeds search and meta descriptions, so it wants the link's label
 	// rather than its markup.
-	return stripNorgLinks(parts.join(' '));
+	return stripMogLinks(parts.join(' '));
 }
 
 export interface ChangelogSource {
@@ -208,33 +301,37 @@ export interface ChangelogSource {
 
 export function generateChangelog(
 	source: ChangelogSource,
-	entities: EntityLists
+	entities: EntityLists,
+	icons?: EntityIcons
 ): string {
 	const grouped = parseAndGroupContent(source.rawContent, entities);
-	const structuredContent = generateStructuredContent(grouped);
+	const structuredContent = generateStructuredContent(grouped, icons);
 	const contentText = collectPlainText(grouped);
 
-	const out: string[] = ['@document.meta', `title: ${escapeMetaValue(source.title)}`];
+	const out: string[] = ['``meta:', `title ${kdlString(source.title)}`];
 
 	if (source.threadId) {
-		out.push(`thread_id: ${source.threadId}`);
+		out.push(`thread_id ${kdlString(source.threadId)}`);
 	}
 	if (source.steamGid) {
-		out.push(`steam_gid: ${source.steamGid}`);
-	}
-
-	out.push(`published: ${source.published}`, `author: ${escapeMetaValue(source.author)}`);
-
-	if (source.authorImage) {
-		out.push(`author_image: ${source.authorImage}`);
+		out.push(`steam_gid ${kdlString(source.steamGid)}`);
 	}
 
 	out.push(
-		'category: patch',
-		'major_update: false',
-		'status: draft',
-		`content_text: ${escapeMetaValue(contentText)}`,
-		'@end',
+		`published ${kdlString(source.published)}`,
+		`author ${kdlString(source.author)}`
+	);
+
+	if (source.authorImage) {
+		out.push(`author_image ${kdlString(source.authorImage)}`);
+	}
+
+	out.push(
+		'category "patch"',
+		'major_update #false',
+		'status "draft"',
+		`content_text ${kdlString(contentText)}`,
+		'``',
 		'',
 		structuredContent || EMPTY_CHANGELOG
 	);
