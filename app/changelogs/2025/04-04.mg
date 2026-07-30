@@ -42,63 +42,96 @@ content_text "Added an option to allow canceling abilities with the ability key 
 <SectionPreview type="hero" names={["Calico", "Holliday", "Mirage", "Seven", "Sinclair", "Vindicta"]} />
 ``
 
-##hero:calico: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp]] Calico
+=hero:calico:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp]]
+## Calico
 
 - Health growth per boon reduced from 41 to 34
 
-###ability: Leaping Slash Heal
+==ability:leaping-slash-heal:
+### Leaping Slash Heal
 
 - Leaping Slash Heal reduced from 50 to 40
-
-###ability: Leaping Slash Heal Spirit Scaling
+==
+==ability:leaping-slash-heal-spirit-scaling:
+### Leaping Slash Heal Spirit Scaling
 
 - Leaping Slash Heal Spirit Scaling reduced from 1.6 to 1.1
+==
+=
+=hero:holliday:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]]
+## Holliday
 
-##hero:holliday: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]] Holliday
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_powder_keg.webp]] Powder Keg
+==ability:powder-keg:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_powder_keg.webp]]
+### Powder Keg
 
 - Powder Keg T2 bonus damage reduced from 100 to 80
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_crackshot.webp]] Crackshot
+==
+==ability:crackshot:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_crackshot.webp]]
+### Crackshot
 
 - Crackshot T2 bonus damage reduced from 85 to 60
+==
+=
+=hero:mirage:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]]
+## Mirage
 
-##hero:mirage: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_sand_phantom.webp]] Djinn's Mark
+==ability:djinn-s-mark:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_sand_phantom.webp]]
+### Djinn's Mark
 
 - Djinn's Mark T2 reduced from +4s Multiplier Duration to +2.5s
-
-##hero:seven: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven
+==
+=
+=hero:seven:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]]
+## Seven
 
 - Health Regen reduced from 3 to 1.5
+=
+=hero:sinclair:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/magician_sm.webp]]
+## Sinclair
 
-##hero:sinclair: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/magician_sm.webp]] Sinclair
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_magicbolt.webp]] Vexing Bolt
+==ability:vexing-bolt:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_magicbolt.webp]]
+### Vexing Bolt
 
 - Vexing Bolt cooldown increased from 15 to 24
 - Vexing Bolt T1 changed from -4s Cooldown to "Bolt Apply -25% Fire Rate for 5s"
 - Vexing Bolt T2 changed from "Bolt Apply -25% Fire Rate for 5s" to -13s Cooldown
+==
+=
+=hero:vindicta:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]]
+## Vindicta
 
-##hero:vindicta: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_crow.webp]] Crow Familiar
+==ability:crow-familiar:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_crow.webp]]
+### Crow Familiar
 
 - Crow Familiar duration spirit scaling reduced from 0.03 to 0.024
-
-###ability: Crow Familiar Health Drain
+==
+==ability:crow-familiar-health-drain:
+### Crow Familiar Health Drain
 
 - Crow Familiar Health Drain reduced from 3% to 2.3%
-
+==
+=
 # Item Changes
 
 ``embed:svelte:
 <SectionPreview type="item" names={["Infuser"]} />
 ``
 
-##item:infuser: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/infuser.webp]] Infuser
+=item:infuser:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/infuser.webp]]
+## Infuser
 
 - Spirit Lifesteal reduced from 20% to 15%
 - Bonus Spirit reduced from 16 to 13
+=

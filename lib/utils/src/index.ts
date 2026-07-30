@@ -46,7 +46,7 @@ const MOG_LINK_ONLY_RE = new RegExp(`^${MOG_LINK_SOURCE}$`);
  * links: they render as media, and their alt text is chrome rather than patch content. */
 export const MOG_IMAGE_PREFIX = '[[!:';
 /** Anchored at line start, since an image is always a note of its own. */
-export const MOG_IMAGE_LINE_RE = new RegExp(String.raw`^\[\[!:([^\[\]]+)\]\]`, 'gm');
+export const MOG_IMAGE_RE = /^\[\[!:([^[\]]+)\]\]/;
 
 /** Encoders for the grammar above, so no caller has to spell the delimiters again. */
 export function mogLink(target: string, label: string): string {

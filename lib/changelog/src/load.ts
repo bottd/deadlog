@@ -1,13 +1,7 @@
 import { readFileSync, existsSync, readdirSync, statSync } from 'fs';
 import { join, relative } from 'path';
 import { ChangelogMetadataSchema, type ParsedChangelog } from './schema';
-import {
-	extractEntities,
-	extractEntityChanges,
-	parseHeading,
-	type TocEntry
-} from './extract';
-import { MOG_IMAGE_LINE_RE } from '@deadlog/utils';
+import { extractEntities, parseStructure } from './extract';
 
 function findMogFiles(dir: string): string[] {
 	const files: string[] = [];
@@ -32,9 +26,9 @@ function findMogFiles(dir: string): string[] {
  * `key "string"`, `key #bool` and `//` comments, so a line reader stays cheaper than a
  * KDL dependency — anything richer than that has to grow one.
  */
-function parseMogContent(content: string): {
+function parseMogMetadata(content: string): {
 	metadata: Record<string, unknown>;
-	toc: TocEntry[];
+	body: string;
 } {
 	const metaMatch = content.match(/^``meta:[ \t]*\n([\s\S]*?)\n``/);
 	const metadata: Record<string, unknown> = {};
@@ -53,27 +47,23 @@ function parseMogContent(content: string): {
 		}
 	}
 
-	const toc: TocEntry[] = [];
 	// The meta block was matched from position 0, so it is just a prefix to drop.
-	const contentWithoutMeta = content.slice(metaMatch?.[0].length ?? 0);
-
-	for (const line of contentWithoutMeta.split('\n')) {
-		const heading = parseHeading(line.trim());
-		if (heading) toc.push(heading);
-	}
-
-	return { metadata, toc };
+	return { metadata, body: content.slice(metaMatch?.[0].length ?? 0) };
 }
 
-export function extractPreviewImage(content: string): string | undefined {
-	for (const match of content.matchAll(MOG_IMAGE_LINE_RE)) {
+/**
+ * The patch's own screenshot, from the images `parseStructure` found outside every
+ * block — an entity portrait is chrome and would otherwise win by being first.
+ */
+export function extractPreviewImage(images: string[]): string | undefined {
+	for (const candidate of images) {
 		try {
-			const url = new URL(match[1]);
+			const url = new URL(candidate);
 			if (!['http:', 'https:'].includes(url.protocol)) continue;
 			if (url.pathname.toLowerCase().endsWith('.ico') || /favicon/i.test(url.pathname)) {
 				continue;
 			}
-			return match[1];
+			return candidate;
 		} catch {
 			continue;
 		}
@@ -98,15 +88,15 @@ export async function loadAllChangelogs(
 		}
 
 		try {
-			const { metadata: rawMetadata, toc } = parseMogContent(content);
+			const { metadata: rawMetadata, body } = parseMogMetadata(content);
 			const metadata = ChangelogMetadataSchema.parse(rawMetadata);
+			const { toc, changes: entityChanges, images } = parseStructure(body);
 			const entities = extractEntities(toc);
-			const entityChanges = extractEntityChanges(content);
 			const relativePath = relative(changelogsDir, filepath);
 			const slug = relativePath.replace(/\.mg$/, '');
 			const plainText =
 				typeof rawMetadata.content_text === 'string' ? rawMetadata.content_text : '';
-			const previewImage = metadata.preview_image ?? extractPreviewImage(content);
+			const previewImage = metadata.preview_image ?? extractPreviewImage(images);
 
 			changelogs.push({
 				filepath,

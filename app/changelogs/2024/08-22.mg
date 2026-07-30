@@ -29,26 +29,38 @@ content_text "Fixed High-Velocity Mag affecting some abilities Silence Glyph: Da
 <SectionPreview type="hero" names={["Ivy", "Shiv"]} />
 ``
 
-##hero:ivy: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy
+=hero:ivy:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]]
+## Ivy
 
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_lightning_crash.webp]] Air Drop
+==ability:air-drop:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_lightning_crash.webp]]
+### Air Drop
 
 - Air Drop now silences the ally being carried until they are released
-
-##hero:shiv: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv
+==
+=
+=hero:shiv:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]]
+## Shiv
 
 - Bloodletting incoming damage deferred reduced from 40% to 35%
-
+=
 # Item Changes
 
 ``embed:svelte:
 <SectionPreview type="item" names={["Reactive Barrier", "Return Fire"]} />
 ``
 
-##item:reactive-barrier: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/reactive_barrier.webp]] Reactive Barrier
+=item:reactive-barrier:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/reactive_barrier.webp]]
+## Reactive Barrier
 
 - Cooldown increased from 20s to 30s
-
-##item:return-fire: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/return_fire.webp]] Return Fire
+=
+=item:return-fire:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/return_fire.webp]]
+## Return Fire
 
 - Bullet damage returned reduced form 80% to 70%
+=

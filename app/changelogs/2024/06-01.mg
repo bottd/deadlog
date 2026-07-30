@@ -17,7 +17,10 @@ content_text "Return Fire No longer applies procs Bullet damage return increased
 <SectionPreview type="item" names={["Return Fire"]} />
 ``
 
-##item:return-fire: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/return_fire.webp]] Return Fire
+=item:return-fire:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/return_fire.webp]]
+## Return Fire
 
 - No longer applies procs
 - Bullet damage return increased from 60% to 70%
+=

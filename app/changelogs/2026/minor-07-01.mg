@@ -16,13 +16,19 @@ content_text "Shiv Alt Fire ammo cost reduced from 5 to 4 Weapon now has fixed p
 <SectionPreview type="hero" names={["Shiv"]} />
 ``
 
-##hero:shiv: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv
+=hero:shiv:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]]
+## Shiv
 
 - Alt Fire ammo cost reduced from 5 to 4
 - Weapon now has fixed pellet spread
 - Slice and Dice is now back to doing spirit damage and reducing Spirit Resistance from enemies
 - Slice and Dice damage increased from 60 to 75
 
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp]] Killing Blow
+==ability:killing-blow:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp]]
+### Killing Blow
 
 - Killing Blow T3 reduced from +10% Enemy Health Threshold to +8%
+==
+=

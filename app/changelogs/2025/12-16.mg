@@ -63,120 +63,175 @@ content_text "The 10% move speed slow from taking damage is now a 20% slow only 
 <SectionPreview type="hero" names={["Billy", "Dynamo", "Lady Geist", "Mirage", "Shiv", "Vindicta", "Wraith"]} />
 ``
 
-##hero:billy: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/punkgoat_sm.webp]] Billy
+=hero:billy:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/punkgoat_sm.webp]]
+## Billy
 
 - Health regen reduced from 3 to 2.5
 - Blasted non-player effectiveness reduced from 35% to 25%
 - Blasted light melee effectiveness reduced from 50% to 40%
 - Chain Gang will now break slightly faster when target is out of LOS
+=
+=hero:dynamo:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]]
+## Dynamo
 
-##hero:dynamo: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_stomp.webp]] Kinetic Pulse
+==ability:kinetic-pulse:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_stomp.webp]]
+### Kinetic Pulse
 
 - Kinetic Pulse spirit scaling range reduced from 0.2 to 0.1
 
 - Health regen reduced from 2.5 to 1.75
-
-##hero:lady-geist: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]] Lady Geist
+==
+=
+=hero:lady-geist:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]]
+## Lady Geist
 
 - Stamina dash distance moved to bucket 3 (slower)
 - Essence Bomb self damage spirit scaling reduced from 1.6 to 1.8
 - Malice self damage increased from 7% to 9%
-
-##hero:mirage: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage
+=
+=hero:mirage:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]]
+## Mirage
 
 - Move speed reduced by 0.2
 - Bullet damage per boon reduced from 0.616 to 0.5
 
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_sand_phantom.webp]] Djinn's Mark
+==ability:djinn-s-mark:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_sand_phantom.webp]]
+### Djinn's Mark
 
 - Djinn's Mark cooldown increased from 2.5s to 2.6s
 - Djinn's Mark max range from 45m to 40m
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_teleport.webp]] Traveler
+==
+==ability:traveler:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_teleport.webp]]
+### Traveler
 
 - Traveler cooldown increased from 145s to 155s
 - Traveler T1 cooldown from -25s to -35s
-
-##hero:shiv: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv
+==
+=
+=hero:shiv:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]]
+## Shiv
 
 - Bloodletting deferred damage reduced from 30% to 25%
 
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_bloodletting.webp]] Bloodletting
+==ability:bloodletting:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_bloodletting.webp]]
+### Bloodletting
 
 - Bloodletting T2 deferred damage increased from 10% to 15%
 
 - Rage buildup rate reduced by 6%
 - Killing Blow cast range reduced from 15m to 13m
+==
+=
+=hero:vindicta:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]]
+## Vindicta
 
-##hero:vindicta: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_assassinate.webp]] Assassinate
+==ability:assassinate:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_assassinate.webp]]
+### Assassinate
 
 - Assassinate T2 reduced from +90 Max Bonus Damage to 80
+==
+=
+=hero:wraith:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp]]
+## Wraith
 
-##hero:wraith: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp]] Wraith
-
-###ability: Sprint
+==ability:sprint:
+### Sprint
 
 - Sprint speed spirit power scaling reduced from 0.6 to 0.5
 
 - Bullet damage per boon reduced from 0.17 to 0.14
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_teleport.webp]] Project Mind
+==
+==ability:project-mind:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_teleport.webp]]
+### Project Mind
 
 - Project Mind T2 spirit scaling reduced from 2.44 to 1.7
-
+==
+=
 # Item Changes
 
 ``embed:svelte:
 <SectionPreview type="item" names={["Active Reload", "Colossus", "Crippling Headshot", "Cultist Sacrifice", "Fleetfoot", "Focus Lens", "Majestic Leap", "Siphon Bullets", "Spirit Snatch", "Sprint Boots", "Tankbuster"]} />
 ``
 
-##item:active-reload: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/active_reload.webp]] Active Reload
+=item:active-reload:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/active_reload.webp]]
+## Active Reload
 
 - Move speed reduced from 1 to 0.75​- Backstabber: Move speed reduced from 1.75 to 1.5​- Fleetfoot: Move speed reduced from 3.5 to 3.25​- Enduring Speed: Move speed reduced from 2.25 to 2.0​- Guardian Ward: Move speed reduced from 3 to 2.75​- Spirit Shielding: Move speed reduced from 1.75 to 1.5​- Weapon Shielding: Move speed reduced from 1.75 to 1.5​- Blood Tribute: Move speed reduced from 2.25 to 2​- Burst Fire: Move speed reduced from 1.5 to 1.25​- Headhunter: Move speed reduced from 2 to 1.75​- Heroic Aura: Move speed reduced from 2.5 to 2.25​- Counterspell: Move speed reduced from 2 to 1.75​- Debuff Remover: Move speed reduced from 2.5 to 2.25​- Fortitude: Move speed reduced from 1.5 to 1.25​- Veil Walker: Invis move speed reduced from 4 to 3.5​- Radiant Regeneration: Move speed reduced from 2 to 1.75​- Surge of Power: Move speed reduced from 2 to 1.75​- Frenzy: Move speed reduced from 1 to 0.75​- Frenzy: Active move speed reduced from 3 to 2.5​- Divine Barrier: Move speed reduced from 3 to 2.75​- Healing Tempo: Move speed reduced from 1.5 to 1.25​- Juggernaut: Move speed reduced from 2.25 to 2​- Ethereal Shift: Move speed reduced from 3 to 2.5​- Sprint ramp rate reduced from 0.75/sec to 0.6/sec
-
-##item:colossus: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/colossus.webp]] Colossus
+=
+=item:colossus:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/colossus.webp]]
+## Colossus
 
 - Bonus Health reduced from +600 to +300
 - Now grants +15% Base Health
-
-##item:crippling-headshot: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/crippling_headshot.webp]] Crippling Headshot
+=
+=item:crippling-headshot:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/crippling_headshot.webp]]
+## Crippling Headshot
 
 - Bullet and Spirit Resist reduction from -18% to -16%
-
-##item:cultist-sacrifice: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/cultist_sacrifice.webp]] Cultist Sacrifice
+=
+=item:cultist-sacrifice:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/cultist_sacrifice.webp]]
+## Cultist Sacrifice
 
 - Cooldown increased from 260s to 270s
-
-##item:fleetfoot: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/fleetfoot.webp]] Fleetfoot
+=
+=item:fleetfoot:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/fleetfoot.webp]]
+## Fleetfoot
 
 - Active slow resist reduced from 40% to 35%
-
-##item:focus-lens: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/focus_lens.webp]] Focus Lens
+=
+=item:focus-lens:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/focus_lens.webp]]
+## Focus Lens
 
 - Spirit Resist reduction reduced from -12% to -9% (affects Spirit Sap)
-
-##item:majestic-leap: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/majestic_leap.webp]] Majestic Leap
+=
+=item:majestic-leap:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/majestic_leap.webp]]
+## Majestic Leap
 
 - Cooldown increased from 34s to 45s
 - Barrier scaling per boon reduced from 10 to 8
-
-##item:siphon-bullets: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/siphon_bullets.webp]] Siphon Bullets
+=
+=item:siphon-bullets:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/siphon_bullets.webp]]
+## Siphon Bullets
 
 - Cooldown increased from 0.8s to 1.2s
-
-##item:spirit-snatch: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/spirit_snatch.webp]] Spirit Snatch
+=
+=item:spirit-snatch:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/spirit_snatch.webp]]
+## Spirit Snatch
 
 - Spirit Resist steal reduced from 15% to 12%
-
-##item:sprint-boots: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/sprint_boots.webp]] Sprint Boots
+=
+=item:sprint-boots:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/sprint_boots.webp]]
+## Sprint Boots
 
 - Sprint reduced from 2.2 to 2.0​- Long Range: Sprint reduced from 1 to 0.75​- Swift Striker: Sprint reduced from 1 to 0.75​- Mystic Slow: Sprint reduced from 1 to 0.75​- Heroic Aura: Sprint reduced from 2 to 1.5​- Hunter's Aura: Sprint reduced from 1 to 0.75​- Sharpshooter: Sprint reduced from 1.5 to 1​- Rescue Beam: Sprint reduced from 1 to 0.75​- Trophy Collector: Sprint reduced from 2.2 to 2.0​- Disarming Hex: Sprint reduced from 1 to 0.75​- Shadow Weave: Sprint reduced from 2 to 1.5​- Lightning Scroll: Sprint reduced from 1 to 0.75​- Vortex Web: Sprint reduced from 1 to 0.75​- Enduring Speed: Slow resist reduced from 30% to 25%
-
-##item:tankbuster: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/tankbuster.webp]] Tankbuster
+=
+=item:tankbuster:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/tankbuster.webp]]
+## Tankbuster
 
 - Changed from doing % of Max Health to a % of Current Health
 - Damage dealt increased from 5% to 7.5%
+=

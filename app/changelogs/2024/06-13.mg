@@ -92,223 +92,334 @@ content_text "Voice/Text chat is now opt-in. There is a prompt pre-match for joi
 <SectionPreview type="hero" names={["Abrams", "Bebop", "Dynamo", "Grey Talon", "Haze", "Ivy", "Kelvin", "Lash", "McGinnis", "Mo &amp; Krill", "Seven", "Yamato"]} />
 ``
 
-##hero:abrams: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams
+=hero:abrams:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]]
+## Abrams
 
 - Base health regen reduced from 2 to 1
 
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_beef.webp]] Infernal Resilience
+==ability:infernal-resilience:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_beef.webp]]
+### Infernal Resilience
 
 - Infernal Resilience T1 reduced from +2 HP Regen to +1.5
-
-##hero:bebop: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop
+==
+=
+=hero:bebop:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]]
+## Bebop
 
 - Sticky Bomb base damage reduced from 130 to 120
 - Hook grab radius reduced from 40 inches to 36
 
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hyper_beam.webp]] Hyper Beam
+==ability:hyper-beam:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hyper_beam.webp]]
+### Hyper Beam
 
 - Hyper Beam movement and dash slow increased from 30% to 40%
-
-###ability: Hyper Beam DPS
+==
+==ability:hyper-beam-dps:
+### Hyper Beam DPS
 
 - Hyper Beam DPS increased from 210 to 220
 
 - Hyper Beam tracking speed increased by 10%
+==
+=
+=hero:dynamo:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]]
+## Dynamo
 
-##hero:dynamo: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_vacuum.webp]] Singularity
+==ability:singularity:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_vacuum.webp]]
+### Singularity
 
 - Singularity radius reduced from 10m to 9m
+==
+=
+=hero:grey-talon:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]]
+## Grey Talon
 
-##hero:grey-talon: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_guided_arrow.webp]] Guided Owl
+==ability:guided-owl:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_guided_arrow.webp]]
+### Guided Owl
 
 - Guided Owl cooldown reduced from 130s to 120s
+==
+=
+=hero:haze:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]]
+## Haze
 
-##hero:haze: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger
+==ability:sleep-dagger:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]]
+### Sleep Dagger
 
 - Sleep Dagger damage Spirit growth increased from 2.5 to 2.8
 - Sleep Dagger T3 is now -12% Bullet Resistance for 6 seconds
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_smoke_bomb.webp]] Smoke Bomb
+==
+==ability:smoke-bomb:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_smoke_bomb.webp]]
+### Smoke Bomb
 
 - Smoke Bomb T1 increased from +4 m/s Invis Sprint Speed to +5
 
 - Smoke Bomb causes your footsteps to be silent
-
-##hero:ivy: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy
+==
+=
+=hero:ivy:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]]
+## Ivy
 
 - Watcher's Covenant replicated healing reduced from 55% to 45%
 
-###ability: Watcher's Covenant
+==ability:watcher-s-covenant:
+### Watcher's Covenant
 
 - Watcher's Covenant no longer provides +2 m/s in the base ability
 - Watcher's Covenant T2 movement bonus increased from +2 m/s to +3
+==
+=
+=hero:kelvin:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]]
+## Kelvin
 
-##hero:kelvin: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/frozen_shelter.webp]] Frozen Shelter
+==ability:frozen-shelter:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/frozen_shelter.webp]]
+### Frozen Shelter
 
 - Frozen Shelter movement speed slow increased from 25% to 35%
-
-###ability: Can
+==
+==ability:can:
+### Can
 
 - Can now dismiss Frozen Shelter while channeling other abilities (Arctic Beam)
-
-##hero:lash: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp]] Lash
+==
+=
+=hero:lash:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp]]
+## Lash
 
 - Ground Strike base damage reduced from 110 to 90
 
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_death_slam.webp]] Ground Strike
+==ability:ground-strike:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_death_slam.webp]]
+### Ground Strike
 
 - Ground Strike damage per meter increased from 6 to 6.75
 - Ground Strike now reduced scaling after 25m height to 4.5
-
-##hero:mcginnis: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis
+==
+=
+=hero:mcginnis:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]]
+## McGinnis
 
 - Mini Turret charge delay reduced from 10s to 8s
 - Fixed Echo Shard to be compatible with Spectral Wall again (Activating echo shard resets the ability so you can cast it again and not have to cancel your first one. After casting the 2nd, using cancel will remove the first wall first)
 
-###ability: Can
+==ability:can:
+### Can
 
 - Can now dismiss Spectral Wall while channeling other abilities (Heavy Barrage)
-
-##hero:mo-krill: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]] Mo & Krill
+==
+=
+=hero:mo-krill:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]]
+## Mo & Krill
 
 - HP Growth per boon reduced from 48 to 42
 
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo
+==ability:combo:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]]
+### Combo
 
 - Combo now grants 25 max hp each time a target dies during it
-
-##hero:seven: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven
+==
+=
+=hero:seven:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]]
+## Seven
 
 - Storm Cloud initial radius increased from 10m to 12m
 
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_storm.webp]] Storm Cloud
+==ability:storm-cloud:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_storm.webp]]
+### Storm Cloud
 
 - Storm Cloud T2 bonus radius reduced from 12m to 10m
+==
+=
+=hero:yamato:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]]
+## Yamato
 
-##hero:yamato: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_power_slash.webp]] Power Slash
+==ability:power-slash:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_power_slash.webp]]
+### Power Slash
 
 - Power Slash T3 bonus damage reduced from +210 to +200
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]] Shadow Transformation
+==
+==ability:shadow-transformation:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]]
+### Shadow Transformation
 
 - Shadow Transformation cooldown increased from 100 to 110
-
+==
+=
 # Item Changes
 
 ``embed:svelte:
 <SectionPreview type="item" names={["Alchemical Fire", "Boundless Spirit", "Bullet Resist Shredder", "Burst Fire", "Cold Front", "Crippling Headshot", "Divine Barrier", "Escalating Resilience", "Extra Health", "Fleetfoot", "Headshot Booster", "Healbane", "Healing Booster", "Majestic Leap", "Mystic Burst", "Mystic Slow", "Reactive Barrier", "Refresher", "Rescue Beam", "Swift Striker", "Tesla Bullets", "Vampiric Burst", "Warp Stone"]} />
 ``
 
-##item:alchemical-fire: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/alchemical_fire.webp]] Alchemical Fire
+=item:alchemical-fire:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/alchemical_fire.webp]]
+## Alchemical Fire
 
 - Cooldown reduced from 34s to 30s
-
-##item:boundless-spirit: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/boundless_spirit.webp]] Boundless Spirit
+=
+=item:boundless-spirit:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/boundless_spirit.webp]]
+## Boundless Spirit
 
 - Spirit Power increased from +50 to +55
 - Now grants +175 Health
-
-##item:bullet-resist-shredder: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/bullet_resist_shredder.webp]] Bullet Resist Shredder
+=
+=item:bullet-resist-shredder:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/bullet_resist_shredder.webp]]
+## Bullet Resist Shredder
 
 - Debuff duration increased from 4s to 5s
-
-##item:burst-fire: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/burst_fire.webp]] Burst Fire
+=
+=item:burst-fire:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/burst_fire.webp]]
+## Burst Fire
 
 - Cooldown reduced from 10s to 9s
-
-##item:cold-front: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/cold_front.webp]] Cold Front
+=
+=item:cold-front:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/cold_front.webp]]
+## Cold Front
 
 - Time to expand reduced from 1.5s to 0.75s
-
-##item:crippling-headshot: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/crippling_headshot.webp]] Crippling Headshot
+=
+=item:crippling-headshot:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/crippling_headshot.webp]]
+## Crippling Headshot
 
 - Bullet and Spirit resistance reduction reduced from 35% to 30%
-
-##item:divine-barrier: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/divine_barrier.webp]] Divine Barrier
+=
+=item:divine-barrier:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/divine_barrier.webp]]
+## Divine Barrier
 
 - No longer grants +2 Sprint
 - Bullet Resist reduced from 10% to 7%
 - Cooldown increased from 20 to 30
 - Active Move Speed reduced from 3 to 2
-
-##item:escalating-resilience: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/escalating_resilience.webp]] Escalating Resilience
+=
+=item:escalating-resilience:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/escalating_resilience.webp]]
+## Escalating Resilience
 
 - Stacks share a duration now and each new stack refreshes it
 - Duration reduced from 15s to 10s
 - Max resistance reduced from 36% to 30%
-
-##item:extra-health: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_health.webp]] Extra Health
+=
+=item:extra-health:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_health.webp]]
+## Extra Health
 
 - Health increased from 125 to 135
-
-##item:fleetfoot: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/fleetfoot.webp]] Fleetfoot
+=
+=item:fleetfoot:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/fleetfoot.webp]]
+## Fleetfoot
 
 - Cooldown increased from 20s to 22s
-
-##item:headshot-booster: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/headshot_booster.webp]] Headshot Booster
+=
+=item:headshot-booster:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/headshot_booster.webp]]
+## Headshot Booster
 
 - Bonus headshot damage reduced from 50 to 45
-
-##item:healbane: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healbane.webp]] Healbane
+=
+=item:healbane:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healbane.webp]]
+## Healbane
 
 - Bonus HP increased from 50 to 75
-
-##item:healing-booster: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healing_booster.webp]] Healing Booster
+=
+=item:healing-booster:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healing_booster.webp]]
+## Healing Booster
 
 - No longer grants +50 HP
 - Now grants +8% Spirit Resist
-
-##item:majestic-leap: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/majestic_leap.webp]] Majestic Leap
+=
+=item:majestic-leap:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/majestic_leap.webp]]
+## Majestic Leap
 
 - Cooldown increased from 15s to 20s
 - Drop down speed reduced from 51 to 36
-
-##item:mystic-burst: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mystic_burst.webp]] Mystic Burst
+=
+=item:mystic-burst:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mystic_burst.webp]]
+## Mystic Burst
 
 - No longer grants +3 Spirit Power
 - No longer grants +1 Sprint
 - Now grants +40 Spirit Shield
 - Now grants +6% Weapon Power
-
-##item:mystic-slow: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mystic_slow.webp]] Mystic Slow
+=
+=item:mystic-slow:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mystic_slow.webp]]
+## Mystic Slow
 
 - Bonus HP increased from +75 to +100
-
-##item:reactive-barrier: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/reactive_barrier.webp]] Reactive Barrier
+=
+=item:reactive-barrier:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/reactive_barrier.webp]]
+## Reactive Barrier
 
 - Cooldown reduced from 25s to 20s
-
-##item:refresher: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/refresher.webp]] Refresher
+=
+=item:refresher:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/refresher.webp]]
+## Refresher
 
 - Now has a 0.3s cast time
-
-##item:rescue-beam: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/rescue_beam.webp]] Rescue Beam
+=
+=item:rescue-beam:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/rescue_beam.webp]]
+## Rescue Beam
 
 - No longer grants movement speed
 - Active has been reworked. Now channels for 3 seconds, healing you and the target for up to 25% of Max HP. If you click the ally again during that time, you will pull them to you. Has 40m cast range and 45s cooldown. Can be self cast.
-
-##item:swift-striker: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/swift_striker.webp]] Swift Striker
+=
+=item:swift-striker:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/swift_striker.webp]]
+## Swift Striker
 
 - Armor penalty reduced from -7% to -6%
-
-##item:tesla-bullets: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/tesla_bullets.webp]] Tesla Bullets
+=
+=item:tesla-bullets:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/tesla_bullets.webp]]
+## Tesla Bullets
 
 - Internal cooldown reduced from 0.4s to 0.35s
-
-##item:vampiric-burst: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/vampiric_burst.webp]] Vampiric Burst
+=
+=item:vampiric-burst:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/vampiric_burst.webp]]
+## Vampiric Burst
 
 - Lifesteal increased from 70% to 80%
-
-##item:warp-stone: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/warp_stone.webp]] Warp Stone
+=
+=item:warp-stone:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/warp_stone.webp]]
+## Warp Stone
 
 - Fixed some cases where it would fail to cast near objects
+=

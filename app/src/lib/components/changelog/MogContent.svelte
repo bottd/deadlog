@@ -41,43 +41,32 @@
 		if (sectionEl) applyEntityFilter(sectionEl, selectedSlugs);
 	});
 
-	const isEntity = (el: HTMLElement) =>
-		el.classList.contains('hero') || el.classList.contains('item');
-
-	function sectionOf(h1: HTMLElement): 'general' | 'hero' | 'item' {
-		const id = h1.id || entityFragmentId(h1.textContent ?? '');
-		if (id.includes('hero')) return 'hero';
-		if (id.includes('item')) return 'item';
-		return 'general';
-	}
+	/** `=hero:abrams:` renders as `<div class="hero abrams">`, so the slug is a class. */
+	const isSelectedEntity = (el: HTMLElement, selected: Set<string>) =>
+		(el.classList.contains('hero') || el.classList.contains('item')) &&
+		[...el.classList].some((name) => selected.has(name));
 
 	function applyEntityFilter(root: HTMLElement, selected: Set<string>) {
 		const children = Array.from(root.children) as HTMLElement[];
 		for (const el of children) el.style.removeProperty('display');
 		if (selected.size === 0) return;
 
-		// which top-level sections contain at least one selected entity
-		const matched: Record<string, boolean> = {};
-		let sec: 'general' | 'hero' | 'item' = 'general';
-		for (const el of children) {
-			if (el.tagName === 'H1') sec = sectionOf(el);
-			else if (isEntity(el) && selected.has(el.id)) matched[sec] = true;
-		}
+		// Each entity is a self-contained block, so a section is worth showing exactly
+		// when one of its own blocks matched — no need to infer which section is which.
+		let section: { heading: HTMLElement; members: HTMLElement[] } | null = null;
+		const sections: { heading: HTMLElement; members: HTMLElement[] }[] = [];
 
-		// a heading owns its siblings until the next heading; hide general changes,
-		// empty sections, and non-selected entities
-		let mode: 'show' | 'hide' = 'hide';
 		for (const el of children) {
 			if (el.tagName === 'H1') {
-				sec = sectionOf(el);
-				el.style.display = sec !== 'general' && matched[sec] ? '' : 'none';
-				mode = 'hide';
-			} else if (isEntity(el)) {
-				mode = selected.has(el.id) ? 'show' : 'hide';
-				el.style.display = mode === 'show' ? '' : 'none';
-			} else {
-				el.style.display = mode === 'show' ? '' : 'none';
-			}
+				section = { heading: el, members: [] };
+				sections.push(section);
+			} else section?.members.push(el);
+		}
+
+		for (const { heading, members } of sections) {
+			const shown = members.filter((el) => isSelectedEntity(el, selected));
+			heading.style.display = shown.length ? '' : 'none';
+			for (const el of members) el.style.display = shown.includes(el) ? '' : 'none';
 		}
 	}
 </script>
@@ -110,46 +99,66 @@
 			@apply text-primary mt-6 mb-4 text-lg font-semibold tracking-tight;
 		}
 
-		/* Entity and ability headings carry their own classification and portrait —
-		   `##hero:abrams: [[!:…]] Abrams` — so the layout that used to live in
-		   EntityHeading.svelte is applied to the generated heading instead. */
-		:global(h2.hero),
-		:global(h2.item) {
-			@apply text-foreground relative mt-8 mb-4 flex scroll-mt-20 items-center gap-4 py-2 text-lg font-semibold tracking-tight;
+		/* `=hero:abrams:` wraps an entity's portrait, heading and notes in one block, so
+		   what used to live in EntityHeading.svelte is styling on that container. The
+		   portrait is a sibling of the heading, hence the grid rather than a flex row. */
+		:global(div.hero),
+		:global(div.item) {
+			@apply border-border/30 mt-8 grid border-t pt-6;
+			grid-template-columns: auto 1fr;
+			column-gap: 1rem;
 		}
 
-		:global(h3.ability) {
-			@apply text-foreground relative mt-4 mb-2 flex scroll-mt-20 items-center gap-2.5 py-1 pl-3 text-sm font-semibold;
+		/* The portrait sits in the left column, spanning heading and notes. */
+		:global(div.hero > p:has(img)),
+		:global(div.item > p:has(img)) {
+			@apply col-start-1 row-start-1 m-0;
 		}
 
-		:global(h2.hero img),
-		:global(h2.item img) {
-			@apply border-border bg-card ml-3 size-10 rounded-lg border object-cover shadow-sm;
+		:global(div.hero > img),
+		:global(div.item > img),
+		:global(div.hero > p > img),
+		:global(div.item > p > img) {
+			@apply border-border bg-card size-10 rounded-lg border object-cover shadow-sm;
 		}
 
-		:global(h3.ability img) {
+		:global(div.hero > h2),
+		:global(div.item > h2) {
+			@apply text-foreground col-start-2 m-0 scroll-mt-20 self-center text-lg font-semibold tracking-tight;
+		}
+
+		/* Notes and nested abilities share the content column. */
+		:global(div.hero > :not(p:has(img)):not(h2)),
+		:global(div.item > :not(p:has(img)):not(h2)) {
+			@apply col-start-2;
+		}
+
+		:global(div.ability) {
+			@apply mt-4 grid;
+			grid-template-columns: auto 1fr;
+			column-gap: 0.625rem;
+		}
+
+		:global(div.ability > p:has(img)) {
+			@apply col-start-1 row-start-1 m-0;
+		}
+
+		:global(div.ability > img),
+		:global(div.ability > p > img) {
 			@apply size-6 rounded object-cover;
 		}
 
-		/* Separator between entity sections (list → next entity heading) */
-		:global(ul:not(.section-preview) + h2.hero),
-		:global(ul:not(.section-preview) + h2.item) {
-			@apply border-border/30 border-t pt-6;
+		:global(div.ability > h3) {
+			@apply text-foreground col-start-2 m-0 scroll-mt-20 self-center text-sm font-semibold;
 		}
 
-		/* Indent notes under entity/ability headings */
-		:global(h2.hero + ul),
-		:global(h2.item + ul) {
-			@apply border-border/40 ml-14 border-l pl-3;
+		:global(div.ability > :not(p:has(img)):not(h3)) {
+			@apply col-start-2;
 		}
 
-		:global(h3.ability + ul) {
-			@apply ml-9;
-		}
-
-		/* First entity after section preview — minimal gap */
-		:global(ul.section-preview + h2.hero),
-		:global(ul.section-preview + h2.item) {
+		/* First entity after the section preview — minimal gap */
+		:global(ul.section-preview + div.hero),
+		:global(ul.section-preview + div.item) {
 			@apply mt-2 border-t-0 pt-0;
 		}
 

@@ -24,45 +24,61 @@ content_text "Fixed spectating ending 1 minute before the game ended Fixed Hero 
 <SectionPreview type="hero" names={["Ivy", "Shiv"]} />
 ``
 
-##hero:ivy: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy
+=hero:ivy:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]]
+## Ivy
 
 - Restored previous audio processing
 
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_lightning_crash.webp]] Air Drop
+==ability:air-drop:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_lightning_crash.webp]]
+### Air Drop
 
 - Air Drop cooldown increased from 70s to 80s
 - Air Drop duration reduced from 20s to 17s
 
 - Air Drop bomb no longer silences in the base (now part of t3)
 - Air Drop bomb slow duration increased from 3s to 4.5s
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_lightning_crash.webp]] Air Drop
+==
+==ability:air-drop:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_lightning_crash.webp]]
+### Air Drop
 
 - Air Drop T2 now also has +5m radius
 - Air Drop T3 no longer has +12m radius
 - Air Drop T3 no longer extends debuff duration by +2s
 - Air Drop T3 silences enemies for 4.5s
-
-##hero:shiv: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv
+==
+=
+=hero:shiv:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]]
+## Shiv
 
 - Gun base damage reduced from 6.3 to 5.7
 - Serrated Knives collision size reduced by 10%
 
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_toss.webp]] Serrated Knives
+==ability:serrated-knives:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_toss.webp]]
+### Serrated Knives
 
 - Serrated Knives projectile speed reduced by 10%
 
 - Serrated Knives base damage reduced from 75 to 35
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_toss.webp]] Serrated Knives
+==
+==ability:serrated-knives:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_toss.webp]]
+### Serrated Knives
 
 - Serrated Knives spirit scaling reduced from 1 to 0.6
-
-###ability: Serrated Knives DPS
+==
+==ability:serrated-knives-dps:
+### Serrated Knives DPS
 
 - Serrated Knives DPS spirit scaling reduced from 0.2 to 0.16
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_toss.webp]] Serrated Knives
+==
+==ability:serrated-knives:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_toss.webp]]
+### Serrated Knives
 
 - Serrated Knives T3 reduced from +75 Damage and +5 Bleed to +40 Damage and +5 Bleed
 
@@ -70,3 +86,5 @@ content_text "Fixed spectating ending 1 minute before the game ended Fixed Hero 
 - Fixed Rage and Bloodletting not clearing out on death
 - Fixed Bloodletting deferred damage waking him up from sleep
 - Fixed Killing Blow falling through the world sometimes
+==
+=

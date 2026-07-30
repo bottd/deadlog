@@ -36,24 +36,33 @@ describe('entity and ability headings', () => {
 		]
 	);
 
-	it('writes the attribute chain abutting the marker', () => {
-		// `## hero:` with a space renders the attributes as literal title text.
+	it('wraps an entity in a fenced block with its attribute chain', () => {
+		// `= hero:` with a space renders the attributes as literal text.
 		const out = generateStructuredContent(
 			grouped({ heroes: new Map([['Abrams', abrams.slice(0, 1)]]) })
 		);
-		expect(out).toContain('##hero:abrams: Abrams');
-		expect(out).toContain('###ability: Shoulder Charge');
-		expect(out).not.toContain('## hero:');
+		expect(out.split('\n').filter(Boolean).slice(-7)).toEqual([
+			'=hero:abrams:',
+			'## Abrams',
+			'==ability:shoulder-charge:',
+			'### Shoulder Charge',
+			'- Shoulder Charge speed increased by 25%',
+			'==',
+			'='
+		]);
+		expect(out).not.toContain('= hero:');
 	});
 
-	it('bakes the portrait into the heading when an icon is known', () => {
+	it('bakes the portrait in as its own line inside the block', () => {
 		const out = generateStructuredContent(
 			grouped({ heroes: new Map([['Abrams', abrams.slice(0, 1)]]) }),
 			icons
 		);
-		expect(out).toContain('##hero:abrams: [[!:https://cdn.example/abrams.webp]] Abrams');
 		expect(out).toContain(
-			'###ability: [[!:https://cdn.example/charge.webp]] Shoulder Charge'
+			'=hero:abrams:\n[[!:https://cdn.example/abrams.webp]]\n## Abrams'
+		);
+		expect(out).toContain(
+			'==ability:shoulder-charge:\n[[!:https://cdn.example/charge.webp]]\n### Shoulder Charge'
 		);
 	});
 
@@ -62,7 +71,7 @@ describe('entity and ability headings', () => {
 			grouped({ heroes: new Map([['Nobody', ['Base health increased']]]) }),
 			icons
 		);
-		expect(out).toContain('##hero:nobody: Nobody');
+		expect(out).toContain('=hero:nobody:\n## Nobody');
 		expect(out).not.toContain('[[!:]]');
 	});
 
@@ -70,12 +79,25 @@ describe('entity and ability headings', () => {
 		const out = generateStructuredContent(
 			grouped({ heroes: new Map([['Abrams', abrams]]) })
 		);
-		const headings = out.split('\n').filter((l) => l.startsWith('###ability:'));
-		expect(headings).toEqual([
-			'###ability: Shoulder Charge',
-			'###ability: Shoulder Charge'
-		]);
+		const opens = out.split('\n').filter((l) => l.startsWith('==ability:'));
+		expect(opens).toEqual(['==ability:shoulder-charge:', '==ability:shoulder-charge:']);
 		expect(out).not.toContain('id=');
+	});
+
+	it('closes every block it opens', () => {
+		const out = generateStructuredContent(
+			grouped({
+				heroes: new Map([['Abrams', abrams]]),
+				items: new Map([['Metal Skin', ['Cooldown increased']]])
+			})
+		);
+		const lines = out.split('\n');
+		expect(lines.filter((l) => /^=[a-z]/.test(l)).length).toBe(
+			lines.filter((l) => l === '=').length
+		);
+		expect(lines.filter((l) => /^==[a-z]/.test(l)).length).toBe(
+			lines.filter((l) => l === '==').length
+		);
 	});
 });
 

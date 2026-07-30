@@ -20,18 +20,27 @@ content_text "Soul Sharing ratios post-lane reduced from 100/100/66/50/40/33% to
 <SectionPreview type="hero" names={["Paradox", "Yamato"]} />
 ``
 
-##hero:paradox: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox
+=hero:paradox:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]]
+## Paradox
 
 - Paradoxical Swap time increased by 0.1s (to help with camera)
-
-##hero:yamato: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato
+=
+=hero:yamato:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]]
+## Yamato
 
 - Shadow Transformation Bullet and Spirit Resist reduced from 60% to 50%
 
-###ability: Shadow Transformation Heal
+==ability:shadow-transformation-heal:
+### Shadow Transformation Heal
 
 - Shadow Transformation Heal reduced from 30% to 25%
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]] Shadow Transformation
+==
+==ability:shadow-transformation:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]]
+### Shadow Transformation
 
 - Shadow Transformation duration reduced from 6s to 5.5s
+==
+=

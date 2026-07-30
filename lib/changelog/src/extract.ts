@@ -1,5 +1,6 @@
 import type { ChangelogEntities, EntityChange } from './schema';
 import {
+	MOG_IMAGE_RE,
 	decodeEntityName,
 	entityNameAliases,
 	makeSummary,
@@ -17,83 +18,123 @@ export interface TocEntry {
 }
 
 /**
- * A heading with its attribute chain: `##hero:abrams: [[!:…]] Abrams`. The chain abuts
- * the marker, so a space after it means the colon is ordinary text — `# Foo: Bar` keeps
- * its title intact, exactly as the renderer reads it.
+ * An entity section opens with `=hero:abrams:` and closes with a bare `=` at the same
+ * depth; abilities nest one deeper. The attribute chain abuts the marker, so a space
+ * after it means the colon is ordinary text — exactly as the renderer reads it.
  */
-const HEADING_RE = /^(#+)((?:[^\s:]+:)*)[ \t]*(.*)$/;
-/** The baked portrait leads the title; the name is what follows it. */
-const LEADING_IMAGE_RE = /^\[\[!:[^\]]*\]\](?:\(\([^)]*\)\))?\s*/;
-
-/** Shared with the changelog loader so the toc and the entity walk read alike. */
-export function parseHeading(line: string): TocEntry | null {
-	const match = line.match(HEADING_RE);
-	if (!match) return null;
-	const title = decodeEntityName(match[3].replace(LEADING_IMAGE_RE, '').trim());
-	if (!title) return null;
-	return {
-		level: match[1].length,
-		attrs: match[2].split(':').filter(Boolean),
-		title
-	};
-}
+const BLOCK_RE = /^(=+)((?:[^\s:]+:)*)$/;
+const HEADING_RE = /^(#+)[ \t]*(.+)$/;
 
 /** Roughly two card lines — see PatchPreviewCard's line-clamp-2. */
 const SUMMARY_MAX = 160;
 
+type Kind = 'hero' | 'item' | 'ability';
+
+interface Frame {
+	kind: Kind;
+	name: string | null;
+	level: number;
+}
+
 type EntityBullets = Omit<EntityChange, 'count' | 'summary'> & { bullets: string[] };
 
-export function extractEntityChanges(content: string): EntityChange[] {
+/**
+ * One pass over the document, yielding both outputs the build needs. Walking it twice
+ * would mean two implementations of the same block grammar, which is how the toc and
+ * the entity list drift apart.
+ */
+export function parseStructure(content: string): {
+	toc: TocEntry[];
+	changes: EntityChange[];
+	/** Only images outside every block — an entity's own portrait is chrome, not content. */
+	images: string[];
+} {
+	const toc: TocEntry[] = [];
+	const images: string[] = [];
 	const changes = new Map<string, EntityBullets>();
-	let currentKey: string | null = null;
-	let currentAbility: string | null = null;
+	const stack: Frame[] = [];
+
+	const innermost = (kind: Kind) =>
+		[...stack].reverse().find((f) => f.kind === kind && f.name);
 
 	for (const rawLine of content.split('\n')) {
 		const line = rawLine.trim();
-		const heading = parseHeading(line);
 
+		const block = line.match(BLOCK_RE);
+		if (block) {
+			const attrs = block[2].split(':').filter(Boolean);
+			const [kind] = attrs;
+			// A bare fence closes the innermost block of its depth.
+			if (!attrs.length) stack.pop();
+			else if (kind === 'hero' || kind === 'item' || kind === 'ability')
+				stack.push({ kind, name: null, level: block[1].length });
+			else stack.push({ kind: 'ability', name: null, level: block[1].length });
+			continue;
+		}
+
+		const heading = line.match(HEADING_RE);
 		if (heading) {
-			const [kind] = heading.attrs;
+			const title = decodeEntityName(heading[2].trim());
+			const open = stack.at(-1);
+			// A heading names the block it sits in; anything outside one is a section.
+			const attrs = open && !open.name ? [open.kind] : [];
+			if (open && !open.name) open.name = title;
+			toc.push({ level: heading[1].length, title, attrs });
 
-			if (kind === 'hero' || kind === 'item') {
-				const key = `${kind}:${entityNameAliases(heading.title).at(-1)}`;
+			if (open && attrs[0] && attrs[0] !== 'ability') {
+				const key = `${open.kind}:${entityNameAliases(title).at(-1)}`;
 				if (!changes.has(key))
-					changes.set(key, { name: heading.title, type: kind, bullets: [] });
-				currentKey = key;
-				currentAbility = null;
-			} else if (kind === 'ability') {
-				// Ability bullets still belong to the hero, but a bare "Cooldown reduced to
-				// 32s" is meaningless without knowing which ability it came from.
-				currentAbility = heading.title;
-			} else {
-				// A section heading — anything below it belongs to no entity yet.
-				currentKey = null;
-				currentAbility = null;
+					changes.set(key, {
+						name: title,
+						type: open.kind as 'hero' | 'item',
+						bullets: []
+					});
 			}
 			continue;
 		}
 
-		if (currentKey && /^-\s+\S/.test(line)) {
-			const current = changes.get(currentKey);
-			if (!current) continue;
-			// .mg carries escaped delimiters and [[target]]((label)) links; a summary
-			// wants neither the backslashes nor the markup.
-			const text = stripMogLinks(
-				decodeEntityName(unescapeMogDelimiters(line.replace(/^-\s+/, '').trim()))
-			);
-			// Most bullets already lead with the ability name; only prefix the ones that don't.
-			const needsPrefix =
-				currentAbility !== null &&
-				!text.toLowerCase().startsWith(currentAbility.toLowerCase());
-			current.bullets.push(needsPrefix ? `${currentAbility}: ${text}` : text);
+		const image = line.match(MOG_IMAGE_RE);
+		if (image) {
+			if (!stack.length) images.push(image[1]);
+			continue;
 		}
+
+		if (!/^-\s+\S/.test(line)) continue;
+
+		const entity = innermost('hero') ?? innermost('item');
+		if (!entity?.name) continue;
+		const current = changes.get(
+			`${entity.kind}:${entityNameAliases(entity.name).at(-1)}`
+		);
+		if (!current) continue;
+
+		// .mg carries escaped delimiters and [[target]]((label)) links; a summary wants
+		// neither the backslashes nor the markup.
+		const text = stripMogLinks(
+			decodeEntityName(unescapeMogDelimiters(line.replace(/^-\s+/, '').trim()))
+		);
+		// Ability bullets still belong to the hero, but a bare "Cooldown reduced to 32s"
+		// is meaningless without knowing which ability it came from. Most already lead
+		// with the ability name; only prefix the ones that don't.
+		const ability = innermost('ability')?.name ?? null;
+		const needsPrefix =
+			ability !== null && !text.toLowerCase().startsWith(ability.toLowerCase());
+		current.bullets.push(needsPrefix ? `${ability}: ${text}` : text);
 	}
 
-	return [...changes.values()].map(({ bullets, ...change }) => ({
-		...change,
-		count: bullets.length,
-		summary: makeSummary(bullets.join(' · '), SUMMARY_MAX)
-	}));
+	return {
+		toc,
+		images,
+		changes: [...changes.values()].map(({ bullets, ...change }) => ({
+			...change,
+			count: bullets.length,
+			summary: makeSummary(bullets.join(' · '), SUMMARY_MAX)
+		}))
+	};
+}
+
+export function extractEntityChanges(content: string): EntityChange[] {
+	return parseStructure(content).changes;
 }
 
 export function extractEntities(toc: TocEntry[]): ChangelogEntities {

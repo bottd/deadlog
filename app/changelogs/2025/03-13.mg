@@ -34,43 +34,62 @@ content_text "Increased horizontal soul orb movement a bit Soul Orb spawn delay 
 <SectionPreview type="hero" names={["Haze", "Holliday", "Sinclair"]} />
 ``
 
-##hero:haze: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze
+=hero:haze:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]]
+## Haze
 
 - Bullet Dance bonus damage is now weapon damage instead of spirit
+=
+=hero:holliday:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]]
+## Holliday
 
-##hero:holliday: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]] Holliday
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_powder_keg.webp]] Powder Keg
+==ability:powder-keg:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_powder_keg.webp]]
+### Powder Keg
 
 - Powder Keg T2 decreased from +120 to +100
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_bounce_pad.webp]] Bounce Pad
+==
+==ability:bounce-pad:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_bounce_pad.webp]]
+### Bounce Pad
 
 - Bounce Pad cooldown increased from 37s to 41s
 - Bounce Pad T1 is now T2
-
-###ability: Bounce Pad New
+==
+==ability:bounce-pad-new:
+### Bounce Pad New
 
 - Bounce Pad New T1 is -10s cooldown
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_bounce_pad.webp]] Bounce Pad
+==
+==ability:bounce-pad:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_bounce_pad.webp]]
+### Bounce Pad
 
 - Bounce Pad T2 is now T3. Removed T3 Stun
+==
+=
+=hero:sinclair:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/magician_sm.webp]]
+## Sinclair
 
-##hero:sinclair: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/magician_sm.webp]] Sinclair
-
-###ability: Assistant
+==ability:assistant:
+### Assistant
 
 - Assistant damage now follows his gun's falloff range
 
 - Assistant base damage reduced from 30 to 20
-
+==
+=
 # Item Changes
 
 ``embed:svelte:
 <SectionPreview type="item" names={["Cold Front"]} />
 ``
 
-##item:cold-front: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/cold_front.webp]] Cold Front
+=item:cold-front:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/cold_front.webp]]
+## Cold Front
 
 - No longer does double damage to creeps
+=

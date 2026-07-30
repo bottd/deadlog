@@ -22,32 +22,49 @@ content_text "Rope climb speed increased from 11 to 13 Rope activation range inc
 <SectionPreview type="hero" names={["Infernus", "Ivy", "Seven", "Viscous"]} />
 ``
 
-##hero:infernus: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus
+=hero:infernus:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]]
+## Infernus
 
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_dash.webp]] Flame Dash
+==ability:flame-dash:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_dash.webp]]
+### Flame Dash
 
 - Flame Dash now has 30% Slow Resistance
-
-##hero:ivy: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy
+==
+=
+=hero:ivy:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]]
+## Ivy
 
 - Air Drop self cast time reduced from 2 to 1.3
-
-##hero:seven: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven
+=
+=hero:seven:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]]
+## Seven
 
 - Storm Cloud: Spirit Power DPS scaling reduced from 0.8 to 0.7
-
-##hero:viscous: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous
+=
+=hero:viscous:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]]
+## Viscous
 
 - Puddle Punch base cast range from 60m to 40m
 
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp]] Puddle Punch
+==ability:puddle-punch:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp]]
+### Puddle Punch
 
 - Puddle Punch T2 damage from +50 to +35
 
 - Puddle Punch base cooldown increased from 24 to 28
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp]] Puddle Punch
+==
+==ability:puddle-punch:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp]]
+### Puddle Punch
 
 - Puddle Punch now knocks people less high into the air
 
 - Base clip reduced from 24 to 20, Alt Fire now requires 5 bullets
+==
+=

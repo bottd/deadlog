@@ -162,8 +162,8 @@ importers:
         specifier: 8.1.5
         version: 8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1)
       vite-plugin-mog:
-        specifier: 0.2.0
-        version: 0.2.0(react@19.2.8)(svelte@5.56.7(@typescript-eslint/types@8.65.0))(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1))
+        specifier: 0.2.1
+        version: 0.2.1(react@19.2.8)(svelte@5.56.7(@typescript-eslint/types@8.65.0))(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1))
       vitest:
         specifier: 4.1.10
         version: 4.1.10(@types/node@26.1.1)(@vitest/browser-playwright@4.1.10)(happy-dom@20.11.1)(msw@2.15.0(@types/node@26.1.1)(typescript@6.0.3))(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1))
@@ -3282,48 +3282,48 @@ packages:
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
-  vite-plugin-mog-darwin-arm64@0.2.0:
-    resolution: {integrity: sha512-prroCq20ph/01xsnJP7KNiH7ON7v/3+Etz6rgJ+ThKBNe9rZefi5mvp2ovb5y3jc/rjR+uLoBnko/74afKiMWw==}
+  vite-plugin-mog-darwin-arm64@0.2.1:
+    resolution: {integrity: sha512-ymWHXQ22mPLQIhmFJvWsNEsSywtLbNujVuNRlkdZZUPHuqa5YI8N0yE5H4UNKPohN2wcFFqJVh+uNkWcCc7QXg==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [arm64]
     os: [darwin]
 
-  vite-plugin-mog-darwin-x64@0.2.0:
-    resolution: {integrity: sha512-Sa2rwlzDQC4Y6T0mpF1FJbzqGCOdM3WEldeMtE+dH0D6aAC6YTZmd90SYFeGTbNd29DUlS39bMhogTJAANBkyQ==}
+  vite-plugin-mog-darwin-x64@0.2.1:
+    resolution: {integrity: sha512-LmYEpylwf1V0J1P0vUqClCGmfyRfN3x7UGyznlPiNb/mHUbNq0WkFehdL5AfBAHxPU5Xbb5zIqsu4gjhMETURg==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [x64]
     os: [darwin]
 
-  vite-plugin-mog-linux-arm64-gnu@0.2.0:
-    resolution: {integrity: sha512-OHzCBRST+1KBmVQgOV52KGp+zr2TG9OSLu0HPjlDVLWBLHfyPhzCiQWN3IUVHdMHJ402Z2mj96Z9GZVvcH1TPQ==}
+  vite-plugin-mog-linux-arm64-gnu@0.2.1:
+    resolution: {integrity: sha512-UaO8NUOvWXLFjFP/8XUuUTihZUhGlw7Of8kTvKIvkl6dTeJnIsMPaFnK/WD8DK9BVrXlU3IjxnLW7L8aR3WTJw==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [arm64]
     os: [linux]
     libc: [glibc]
 
-  vite-plugin-mog-linux-arm64-musl@0.2.0:
-    resolution: {integrity: sha512-Cm0y51xhEkKN2he9CDGkgq4rAqGP3PWUY6F9iQUgxv51oGXDCMZGA0msWQdJoyuHXHttxuQiLftx0VyOER4BXQ==}
+  vite-plugin-mog-linux-arm64-musl@0.2.1:
+    resolution: {integrity: sha512-L8Dsptf4PkjsSqab6HO1mdh6PkPmNzq0k42geZqnjQ4sCRZLcmPwAIVbLzLEFjaFpwsJgTHrRu65cgn13raAgw==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [arm64]
     os: [linux]
     libc: [musl]
 
-  vite-plugin-mog-linux-x64-gnu@0.2.0:
-    resolution: {integrity: sha512-Peb8elihTxPRDWCnY3xAO+tgKNtGgrsC1h5zw+bmF/4fnTAmV+/aqO2zDGbF6tB5fVdcwM268orT+EFrNMjOag==}
+  vite-plugin-mog-linux-x64-gnu@0.2.1:
+    resolution: {integrity: sha512-x5WVQN4+k08tgOPqqIGfRG6JzGEIEZeBwO+o4c/HZkyKJHrBjjgC7KxJePZ5q4WXeg8p8OyPTsmN1cuBzESbTg==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [x64]
     os: [linux]
     libc: [glibc]
 
-  vite-plugin-mog-linux-x64-musl@0.2.0:
-    resolution: {integrity: sha512-MFjW+SiggXEjV0tg51nHW890SPDKHi9sTv6cdj+4WnnoCgrOV0ouXAdWYPLE2oQ2ISlAo1+dUZYVQkcthf6xIQ==}
+  vite-plugin-mog-linux-x64-musl@0.2.1:
+    resolution: {integrity: sha512-h4oxoEU6A/YGubBOxdFmqejtzM7OL1h+45V2Oqp7+apT4SSGg7WOR5dUM+EDDV8QsAJk/XVvbCGIrBwlC6UWYw==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [x64]
     os: [linux]
     libc: [musl]
 
-  vite-plugin-mog@0.2.0:
-    resolution: {integrity: sha512-ZuYwj2S1vbKAdQMMeKs2pzE7RlQ17MGgKFnlVwAbbZyOuA1RjkdVXSRUG8ocoG0yg62uazXNpy4rNhhkKYpqLg==}
+  vite-plugin-mog@0.2.1:
+    resolution: {integrity: sha512-P6I6RQoJwR5a5ATJybMqExKVv6wNrcv4sgY777lbh7zjHuPlHawBmVJFQr0WMaOX3egiVXns6rmg5IyH5hc5/Q==}
     engines: {node: ^20.19.0 || >=22.12.0}
     peerDependencies:
       react: ^19.0.0
@@ -6070,36 +6070,36 @@ snapshots:
 
   util-deprecate@1.0.2: {}
 
-  vite-plugin-mog-darwin-arm64@0.2.0:
+  vite-plugin-mog-darwin-arm64@0.2.1:
     optional: true
 
-  vite-plugin-mog-darwin-x64@0.2.0:
+  vite-plugin-mog-darwin-x64@0.2.1:
     optional: true
 
-  vite-plugin-mog-linux-arm64-gnu@0.2.0:
+  vite-plugin-mog-linux-arm64-gnu@0.2.1:
     optional: true
 
-  vite-plugin-mog-linux-arm64-musl@0.2.0:
+  vite-plugin-mog-linux-arm64-musl@0.2.1:
     optional: true
 
-  vite-plugin-mog-linux-x64-gnu@0.2.0:
+  vite-plugin-mog-linux-x64-gnu@0.2.1:
     optional: true
 
-  vite-plugin-mog-linux-x64-musl@0.2.0:
+  vite-plugin-mog-linux-x64-musl@0.2.1:
     optional: true
 
-  vite-plugin-mog@0.2.0(react@19.2.8)(svelte@5.56.7(@typescript-eslint/types@8.65.0))(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1)):
+  vite-plugin-mog@0.2.1(react@19.2.8)(svelte@5.56.7(@typescript-eslint/types@8.65.0))(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1)):
     dependencies:
       vite: 8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1)
     optionalDependencies:
       react: 19.2.8
       svelte: 5.56.7(@typescript-eslint/types@8.65.0)
-      vite-plugin-mog-darwin-arm64: 0.2.0
-      vite-plugin-mog-darwin-x64: 0.2.0
-      vite-plugin-mog-linux-arm64-gnu: 0.2.0
-      vite-plugin-mog-linux-arm64-musl: 0.2.0
-      vite-plugin-mog-linux-x64-gnu: 0.2.0
-      vite-plugin-mog-linux-x64-musl: 0.2.0
+      vite-plugin-mog-darwin-arm64: 0.2.1
+      vite-plugin-mog-darwin-x64: 0.2.1
+      vite-plugin-mog-linux-arm64-gnu: 0.2.1
+      vite-plugin-mog-linux-arm64-musl: 0.2.1
+      vite-plugin-mog-linux-x64-gnu: 0.2.1
+      vite-plugin-mog-linux-x64-musl: 0.2.1
 
   vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1):
     dependencies:

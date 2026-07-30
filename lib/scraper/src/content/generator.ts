@@ -23,6 +23,7 @@ function cleanVideoLabel(label: string): string {
 }
 import {
 	MOG_IMAGE_PREFIX,
+	abilityFragmentId,
 	entityFragmentId,
 	entityNameAliases,
 	escapeMogDelimiters,
@@ -110,33 +111,37 @@ function escapeInlineAttr(value: string): string {
 }
 
 /**
- * A heading carrying its own classification and portrait:
+ * An entity section as a wrapped block, so its portrait, heading and notes render as one
+ * subtree rather than a run of siblings:
  *
- *   ##hero:abrams: [[!:https://…/abrams.webp]] Abrams
+ *   =hero:abrams:
+ *   [[!:https://…/abrams.webp]]
+ *   ## Abrams
+ *   - Base Health increased
+ *   =
  *
- * The attribute chain must abut the marker — `## hero:` renders the attributes as
- * literal title text. The renderer derives the anchor id from the title alone and
- * disambiguates repeats itself (`-1`, `-2`), which is why no id is written here.
+ * The attribute chain must abut the marker — `= hero:` renders it as literal text. The
+ * renderer derives the anchor id from the heading title alone and disambiguates repeats
+ * itself (`-1`, `-2`), which is why no id is written here.
  *
- * The single place the heading shape is spelled: switching to a wrapped block form
- * changes this function and nothing else.
+ * The single place the entity shape is spelled.
  */
-function headingLine(
-	level: number,
+function entityBlock(
+	depth: number,
 	attrs: string[],
+	level: number,
 	name: string,
-	icon: string | undefined
-): string {
-	const media = icon ? `${mogImage(icon, '')} ` : '';
-	return `${'#'.repeat(level)}${attrs.map((a) => `${a}:`).join('')} ${media}${name}`;
-}
-
-function entityHeading(name: string, type: 'hero' | 'item', icons?: EntityIcons): string {
-	return headingLine(2, [type, entityFragmentId(name)], name, iconFor(icons, type, name));
-}
-
-function abilityHeading(name: string, icons?: EntityIcons): string {
-	return headingLine(3, ['ability'], name, iconFor(icons, 'ability', name));
+	icon: string | undefined,
+	body: string[]
+): string[] {
+	const fence = '='.repeat(depth);
+	return [
+		`${fence}${attrs.map((a) => `${a}:`).join('')}`,
+		...(icon ? [mogImage(icon, '')] : []),
+		`${'#'.repeat(level)} ${name}`,
+		...body,
+		fence
+	];
 }
 
 function sectionPreviewBlock(type: 'hero' | 'item', names: string[]): string {
@@ -194,21 +199,36 @@ export function generateStructuredContent(
 		);
 
 		for (const [heroName, notes] of sortedHeroes) {
-			out.push('', entityHeading(heroName, 'hero', icons), '');
-
-			const abilityGroups = groupNotesByAbility(notes);
-			for (let gi = 0; gi < abilityGroups.length; gi++) {
-				const group = abilityGroups[gi];
-				if (group.abilityName) {
-					out.push(abilityHeading(group.abilityName, icons), '');
+			const body: string[] = [];
+			for (const group of groupNotesByAbility(notes)) {
+				const bullets = group.notes.map(bulletLine);
+				if (!group.abilityName) {
+					body.push(...bullets);
+					continue;
 				}
-				for (const note of group.notes) {
-					out.push(bulletLine(note));
-				}
-				if (gi < abilityGroups.length - 1) {
-					out.push('');
-				}
+				body.push(
+					...entityBlock(
+						2,
+						['ability', abilityFragmentId(group.abilityName)],
+						3,
+						group.abilityName,
+						iconFor(icons, 'ability', group.abilityName),
+						bullets
+					)
+				);
 			}
+
+			out.push(
+				'',
+				...entityBlock(
+					1,
+					['hero', entityFragmentId(heroName)],
+					2,
+					heroName,
+					iconFor(icons, 'hero', heroName),
+					body
+				)
+			);
 		}
 	}
 
@@ -228,10 +248,17 @@ export function generateStructuredContent(
 		);
 
 		for (const [itemName, notes] of sortedItems) {
-			out.push('', entityHeading(itemName, 'item', icons), '');
-			for (const note of notes) {
-				out.push(bulletLine(note));
-			}
+			out.push(
+				'',
+				...entityBlock(
+					1,
+					['item', entityFragmentId(itemName)],
+					2,
+					itemName,
+					iconFor(icons, 'item', itemName),
+					notes.map(bulletLine)
+				)
+			);
 		}
 	}
 

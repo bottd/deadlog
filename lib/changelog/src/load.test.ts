@@ -1,26 +1,38 @@
 import { describe, expect, it } from 'vitest';
 import { extractPreviewImage } from './load';
+import { parseStructure } from './extract';
+
+const imagesIn = (content: string) => parseStructure(content).images;
 
 describe('extractPreviewImage', () => {
-	it('returns the first non-favicon image embed', () => {
-		const content = `
-[[!:https://store.steampowered.com/favicon.ico]]((Steam))
-
-[[!:https://cdn.example.com/patch-header.jpg?version=2]]((Patch header))
-`;
-
-		expect(extractPreviewImage(content)).toBe(
-			'https://cdn.example.com/patch-header.jpg?version=2'
-		);
+	it('returns the first non-favicon image', () => {
+		expect(
+			extractPreviewImage([
+				'https://store.steampowered.com/favicon.ico',
+				'https://cdn.example.com/patch-header.jpg?version=2'
+			])
+		).toBe('https://cdn.example.com/patch-header.jpg?version=2');
 	});
 
 	it('ignores malformed and non-http image sources', () => {
-		const content = `
-[[!:/local/header.jpg]]((Local image))
+		expect(
+			extractPreviewImage(['/local/header.jpg', 'javascript:alert(1)'])
+		).toBeUndefined();
+	});
 
-[[!:javascript:alert(1)]]((Invalid image))
-`;
+	it('skips an entity portrait, which is chrome rather than patch content', () => {
+		const content = [
+			'# General Changes',
+			'[[!:https://cdn.example.com/screenshot.jpg]]((map changes))',
+			'',
+			'# Hero Changes',
+			'=hero:abrams:',
+			'[[!:https://cdn.example.com/abrams_sm.webp]]',
+			'## Abrams',
+			'- Base health increased',
+			'='
+		].join('\n');
 
-		expect(extractPreviewImage(content)).toBeUndefined();
+		expect(imagesIn(content)).toEqual(['https://cdn.example.com/screenshot.jpg']);
 	});
 });

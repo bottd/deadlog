@@ -17,9 +17,12 @@ content_text "Restorative Locket Spirit Resist reduced from 10% to 8% Cooldown i
 <SectionPreview type="item" names={["Restorative Locket"]} />
 ``
 
-##item:restorative-locket: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/restorative_locket.webp]] Restorative Locket
+=item:restorative-locket:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/restorative_locket.webp]]
+## Restorative Locket
 
 - Spirit Resist reduced from 10% to 8%
 - Cooldown increased from 24s to 28s
 - Heal reduced from 40 per stack to 35
 - Stamina restore changed from max stamina to 1 charge
+=

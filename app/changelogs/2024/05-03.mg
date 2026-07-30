@@ -51,158 +51,236 @@ content_text "Added a Recommend A Friend button to the dashboard that you can us
 <SectionPreview type="hero" names={["Abrams", "Bebop", "Dynamo", "Grey Talon", "Haze", "Infernus", "Kelvin", "Lady Geist", "Lash", "McGinnis", "Mo &amp; Krill", "Vindicta", "Yamato"]} />
 ``
 
-##hero:abrams: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams
+=hero:abrams:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]]
+## Abrams
 
 - Base Health increased from 550 to 600
 
-###ability: Siphon DPS
+==ability:siphon-dps:
+### Siphon DPS
 
 - Siphon DPS increased from 24 to 35
-
-##hero:bebop: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop
+==
+=
+=hero:bebop:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]]
+## Bebop
 
 - Weapon no longer has horizontal/vertical recoil
+=
+=hero:dynamo:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]]
+## Dynamo
 
-##hero:dynamo: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo
-
-###ability: Singularity DPS
+==ability:singularity-dps:
+### Singularity DPS
 
 - Singularity DPS increased from 48 to 60
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_vacuum.webp]] Singularity
+==
+==ability:singularity:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_vacuum.webp]]
+### Singularity
 
 - Singularity T3 Max HP DPS increased from 3.2% to 3.8%
+==
+=
+=hero:grey-talon:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]]
+## Grey Talon
 
-##hero:grey-talon: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon
-
-###ability: Charge Shot
+==ability:charge-shot:
+### Charge Shot
 
 - Charge Shot damage increased from 95 to 105
 - Charge Shot T2 damage reduced from 80 to 70
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_guided_arrow.webp]] Guided Owl
+==
+==ability:guided-owl:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_guided_arrow.webp]]
+### Guided Owl
 
 - Guided Owl damage increased from 200 to 300
-
-##hero:haze: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze
+==
+=
+=hero:haze:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]]
+## Haze
 
 - Bullet Dance bonus Fire Rate reduced from +30 to +20
 
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_smoke_bomb.webp]] Smoke Bomb
+==ability:smoke-bomb:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_smoke_bomb.webp]]
+### Smoke Bomb
 
 - Smoke Bomb duration scaling from Spirit improved from 0.2 to 0.3
+==
+=
+=hero:infernus:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]]
+## Infernus
 
-##hero:infernus: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus
-
-###ability: Catalyst
+==ability:catalyst:
+### Catalyst
 
 - Catalyst no longer slows Infernus to 1.3 m/s during the cast delay
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_bomb.webp]] Concussive Combustion
+==
+==ability:concussive-combustion:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_bomb.webp]]
+### Concussive Combustion
 
 - Concussive Combustion damage increased from 130 to 160
+==
+=
+=hero:kelvin:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]]
+## Kelvin
 
-##hero:kelvin: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/freezing_grenade.webp]] Frost Grenade
+==ability:frost-grenade:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/freezing_grenade.webp]]
+### Frost Grenade
 
 - Frost Grenade T3 bonus damage increased from +100 to +175
+==
+=
+=hero:lady-geist:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]]
+## Lady Geist
 
-##hero:lady-geist: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]] Lady Geist
-
-###ability: Blood Bomb
+==ability:blood-bomb:
+### Blood Bomb
 
 - Blood Bomb damage increased from 80 to 100
 - Blood Bomb T2 damage increased from +65 to +70
 
 - Blood Bomb tooltip fixed to reference the correct self damage type and that it can be reduced with armor
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/geist_dagger.webp]] Malice
+==
+==ability:malice:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/geist_dagger.webp]]
+### Malice
 
 - Malice damage amp per shard increased from 10% to 15%
+==
+=
+=hero:lash:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp]]
+## Lash
 
-##hero:lash: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp]] Lash
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_lash.webp]] Grapple
+==ability:grapple:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_lash.webp]]
+### Grapple
 
 - Grapple cooldown reduced from 55 to 45
-
-###ability: Flog Damage
+==
+==ability:flog-damage:
+### Flog Damage
 
 - Flog Damage increased from 55 to 65
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_flog.webp]] Flog
+==
+==ability:flog:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_flog.webp]]
+### Flog
 
 - Flog lifesteal from heroes increased from 70% to 80% of damage dealt
 - Flog lifesteal from non-heroes reduced from 35% to 30% of damage dealt
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_counter_lash.webp]] Death Slam
+==
+==ability:death-slam:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_counter_lash.webp]]
+### Death Slam
 
 - Death Slam T1 from +3m to +5m
 
 - Fixed Death Slam's targeting cone not finding enemies near the edges
 - Fixed Death Slam to only target enemies who stay in the targeting cone
+==
+=
+=hero:mcginnis:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]]
+## McGinnis
 
-##hero:mcginnis: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_rockets.webp]] Heavy Barrage
+==ability:heavy-barrage:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_rockets.webp]]
+### Heavy Barrage
 
 - Heavy Barrage now reduces your speed rather than setting it to a low cap (by itself this change isn't a buff or a nerf, but it allows you to buy items to move faster during the ultimate)
 
 - Heavy Barrage camera interaction with Fleetfoot Boots has been fixed
+==
+=
+=hero:mo-krill:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]]
+## Mo & Krill
 
-##hero:mo-krill: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]] Mo & Krill
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_throw_sand.webp]] Sand Blast
+==ability:sand-blast:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_throw_sand.webp]]
+### Sand Blast
 
 - Sand Blast range increased from 25m to 30m
 - Sand Blast width increased from 3m to 5m
 - Sand Blast is now permissive with small obstructions in the way
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_spin.webp]] Burrow
+==
+==ability:burrow:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_spin.webp]]
+### Burrow
 
 - Burrow no longer loses its state as you change elevations
 - Burrow now knocks enemies up when you come up
-
-###ability: Combo DPS
+==
+==ability:combo-dps:
+### Combo DPS
 
 - Combo DPS increased from 50 to 60
 
 - No longer listed as a recommended new player hero
-
-##hero:vindicta: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta
+==
+=
+=hero:vindicta:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]]
+## Vindicta
 
 - Base Bullet Damage reduced from 15 to 14
 - Bullet Damage gained per boon reduced from 0.88 to 0.7 (these are gained occasionally as you earn souls, up to 11 times)
 
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_stake.webp]] Stake
+==ability:stake:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_stake.webp]]
+### Stake
 
 - Stake T1 bonus duration reduced from +1.5s to +1.0s
 
 - Is now a recommended hero for new players
+==
+=
+=hero:yamato:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]]
+## Yamato
 
-##hero:yamato: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_crimson_slash.webp]] Crimson Slash
+==ability:crimson-slash:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_crimson_slash.webp]]
+### Crimson Slash
 
 - Crimson Slash radius increased from 11m to 12m
 - Crimson Slash fire rate debuff duration increased from 3s to 4s
 - Crimson Slash T2 changed from "-5s Cooldown" to "10% Max Health heal on hero hit"
 - Crimson Slash T3 changed from "12% Max Health heal on hero hit" to "-6s Cooldown"
-
-###ability: [[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_power_slash.webp]] Power Slash
+==
+==ability:power-slash:
+[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_power_slash.webp]]
+### Power Slash
 
 - Power Slash T1 Bullet Resist increased from 40% to 60%
-
-###ability: Flying Strike
+==
+==ability:flying-strike:
+### Flying Strike
 
 - Flying Strike cooldown reduced from 35 to 20
 - Flying Strike T2 changed from "-15s Cooldown" to "+20 Cast Range"
 - Flying Strike range no longer scales with Spirit
-
-###ability: Shadow Explosion
+==
+==ability:shadow-explosion:
+### Shadow Explosion
 
 - Shadow Explosion bonus Spirit per victim increased from 10 to 15
 - Shadow Explosion bonus Fire Rate per victim increased from 5 to 10
 
 - Shadow Explosion buff duration increased from 8s to 15s
+==
+=

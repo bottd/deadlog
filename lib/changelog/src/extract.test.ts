@@ -10,13 +10,20 @@ describe('extractEntityChanges', () => {
 	it('counts every bullet in an entity section across ability headings', () => {
 		const content = [
 			'# Hero Changes',
-			'##hero:doorman: [[!:https://cdn.example/doorman.webp]] Doorman',
+			'=hero:doorman:',
+			'[[!:https://cdn.example/doorman.webp]]',
+			'## Doorman',
 			'- Base damage increased',
-			'###ability: Call Bell',
+			'==ability:call-bell:',
+			'### Call Bell',
 			'- Cooldown reduced',
 			'- Radius increased',
-			'##item:tesla-bullets: Tesla Bullets',
-			'- Proc chance increased'
+			'==',
+			'=',
+			'=item:tesla-bullets:',
+			'## Tesla Bullets',
+			'- Proc chance increased',
+			'='
 		].join('\n');
 
 		expect(extractEntityChanges(content)).toEqual([
@@ -39,10 +46,12 @@ describe('extractEntityChanges', () => {
 	it('clamps a long summary at a word boundary', () => {
 		const bullet = 'Cooldown reduced from 40s to 32s and radius increased by 15%';
 		const content = `
-##hero:abrams: Abrams
+=hero:abrams:
+## Abrams
 - ${bullet}
 - ${bullet}
 - ${bullet}
+=
 `;
 
 		const [change] = extractEntityChanges(content);
@@ -54,12 +63,18 @@ describe('extractEntityChanges', () => {
 
 	it('merges repeated article aliases and decodes entity names', () => {
 		const content = `
-##hero:doorman: The Doorman
+=hero:doorman:
+## The Doorman
 - First change
-##hero:doorman: Doorman
+=
+=hero:doorman:
+## Doorman
 - Second change
-##hero:mo-krill: Mo &amp; Krill
+=
+=hero:mo-krill:
+## Mo &amp; Krill
 - Third change
+=
 `;
 
 		expect(extractEntityChanges(content)).toEqual([
@@ -75,9 +90,11 @@ describe('extractEntityChanges', () => {
 
 	it('stops attributing bullets at a new top-level section', () => {
 		const content = `
-##hero:abrams: Abrams
+=hero:abrams:
+## Abrams
 - Counted
 - Also counted
+=
 # Item Changes
 - Not counted, a new top-level section
 `;
@@ -88,7 +105,7 @@ describe('extractEntityChanges', () => {
 	});
 
 	it('keeps an explicit zero instead of inventing a change', () => {
-		expect(extractEntityChanges('##hero:abrams: Abrams')).toEqual([
+		expect(extractEntityChanges('=hero:abrams:\n## Abrams\n=')).toEqual([
 			{ name: 'Abrams', type: 'hero', count: 0, summary: '' }
 		]);
 	});
