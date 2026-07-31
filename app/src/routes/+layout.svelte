@@ -1,8 +1,8 @@
 <script lang="ts">
 	import '../app.css';
-	import { Header } from '$lib/components/header';
-	import { Toaster } from '$lib/components/ui/sonner';
-	import { Footer } from '$lib/components/ui/footer';
+	import Header from '$lib/components/header/Header.svelte';
+	import { Toaster } from 'svelte-sonner';
+	import Footer from '$lib/components/ui/footer/footer.svelte';
 	import * as Tooltip from '$lib/components/ui/tooltip';
 	import { QueryClient, QueryClientProvider } from '@tanstack/svelte-query';
 	import { browser } from '$app/environment';
@@ -39,7 +39,11 @@
 			>
 				Skip to content
 			</a>
-			<Toaster />
+			<Toaster
+				theme="dark"
+				class="toaster group"
+				style="--normal-bg: var(--color-popover); --normal-text: var(--color-popover-foreground); --normal-border: var(--color-border);"
+			/>
 
 			<Header />
 

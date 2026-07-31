@@ -9,7 +9,7 @@ import {
 } from '$lib/server/changelog-utils';
 
 export const GET: RequestHandler = async ({ url, locals }) => {
-	const { limit, offset, hero, item, q } = parseApiParams(url);
+	const { limit, offset, hero, item, q, major } = parseApiParams(url);
 
 	const [heroes, items] = await Promise.all([
 		hero.length > 0 ? getAllHeroes(locals.db) : [],
@@ -23,6 +23,7 @@ export const GET: RequestHandler = async ({ url, locals }) => {
 		heroIds,
 		itemIds,
 		searchQuery: q,
+		majorOnly: major,
 		limit: limit + 1,
 		offset
 	});

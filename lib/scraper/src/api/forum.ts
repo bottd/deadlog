@@ -1,4 +1,5 @@
 import { mkdir, writeFile, readFile } from 'fs/promises';
+import { setTimeout as sleep } from 'node:timers/promises';
 import { existsSync } from 'fs';
 import path from 'path';
 import { z } from 'zod';
@@ -49,7 +50,7 @@ const postContentResultSchema = z.object({
 });
 
 const POST_CACHE_VERSION = 2;
-export const cachedPostSchema = z.object({
+const cachedPostSchema = z.object({
 	version: z.literal(POST_CACHE_VERSION),
 	data: postContentResultSchema
 });
@@ -57,36 +58,19 @@ export const cachedPostSchema = z.object({
 /** Where scraped post bodies land. Exported so readers cannot drift from the writer. */
 export const POST_CACHE_DIR = 'lib/scraper/src/cache/posts';
 
-export interface ScraperOptions {
-	timeout?: number;
-	userAgent?: string;
-	useCache?: boolean;
-	cacheDir?: string;
-	maxPagesToScrape?: number;
-	maxThreadPages?: number;
-}
+const FETCH_TIMEOUT = 30000;
+const USER_AGENT =
+	'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
+const MAX_PAGES_TO_SCRAPE = 100;
+const MAX_THREAD_PAGES = 10;
 
-const DEFAULT_OPTIONS = {
-	timeout: 30000,
-	userAgent:
-		'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-	useCache: false,
-	cacheDir: POST_CACHE_DIR,
-	maxPagesToScrape: 100,
-	maxThreadPages: 10
-} satisfies Required<ScraperOptions>;
-
-function sleep(ms: number): Promise<void> {
-	return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
-async function fetchHtml(url: string, opts: Required<ScraperOptions>): Promise<string> {
+async function fetchHtml(url: string): Promise<string> {
 	const response = await fetch(url, {
 		headers: {
-			'User-Agent': opts.userAgent,
+			'User-Agent': USER_AGENT,
 			Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
 		},
-		signal: AbortSignal.timeout(opts.timeout)
+		signal: AbortSignal.timeout(FETCH_TIMEOUT)
 	});
 
 	if (!response.ok) {
@@ -255,10 +239,7 @@ function extractThreadList(document: Document): {
 	return { posts, hasNextPage };
 }
 
-export async function scrapeChangelogPage(
-	options: ScraperOptions = {}
-): Promise<ChangelogPost[]> {
-	const opts = { ...DEFAULT_OPTIONS, ...options };
+export async function scrapeChangelogPage(): Promise<ChangelogPost[]> {
 	const baseUrl = 'https://forums.playdeadlock.com/forums/changelog.10/';
 	const allPosts: ChangelogPost[] = [];
 	let currentPage = 1;
@@ -266,11 +247,11 @@ export async function scrapeChangelogPage(
 
 	console.log(`🔍 Scraping changelog forum...`);
 
-	while (hasMorePages && currentPage <= opts.maxPagesToScrape) {
+	while (hasMorePages && currentPage <= MAX_PAGES_TO_SCRAPE) {
 		const pageUrl = currentPage === 1 ? baseUrl : `${baseUrl}page-${currentPage}`;
 		console.log(`  📄 Page ${currentPage}: ${pageUrl}`);
 
-		const html = await fetchHtml(pageUrl, opts);
+		const html = await fetchHtml(pageUrl);
 		const { document, close } = parseDocument(html, pageUrl);
 		const { posts, hasNextPage } = extractThreadList(document);
 		close();
@@ -292,9 +273,9 @@ export async function scrapeChangelogPage(
 
 async function scrapePost(
 	url: string,
-	opts: Required<ScraperOptions>
+	maxThreadPages: number
 ): Promise<PostContentResult> {
-	const html = await fetchHtml(url, opts);
+	const html = await fetchHtml(url);
 	const { document, close } = parseDocument(html, url);
 	let data: PostContentResult | null;
 	let nextPageUrl: string | null;
@@ -310,7 +291,6 @@ async function scrapePost(
 		throw new Error(`No content found for URL: ${url}`);
 	}
 
-	const maxThreadPages = Math.max(1, Math.floor(opts.maxThreadPages));
 	const visitedUrls = new Set([url]);
 	let pagesScraped = 1;
 
@@ -318,7 +298,7 @@ async function scrapePost(
 		if (visitedUrls.has(nextPageUrl)) break;
 		visitedUrls.add(nextPageUrl);
 
-		const pageHtml = await fetchHtml(nextPageUrl, opts);
+		const pageHtml = await fetchHtml(nextPageUrl);
 		const { document: pageDocument, close: closePage } = parseDocument(
 			pageHtml,
 			nextPageUrl
@@ -361,10 +341,23 @@ async function writeToCache(
 
 export async function scrapeMultipleChangelogPosts(
 	posts: ChangelogPost[],
-	options: ScraperOptions & { concurrency?: number; delayMs?: number } = {}
+	// cacheDir and maxThreadPages exist so tests can isolate the cache and bound
+	// pagination; production callers take the defaults.
+	options: {
+		useCache?: boolean;
+		cacheDir?: string;
+		concurrency?: number;
+		delayMs?: number;
+		maxThreadPages?: number;
+	} = {}
 ): Promise<PostContentResult[]> {
-	const { concurrency = 5, delayMs = 500, ...scraperOptions } = options;
-	const opts = { ...DEFAULT_OPTIONS, ...scraperOptions };
+	const {
+		concurrency = 5,
+		delayMs = 500,
+		useCache = false,
+		cacheDir = POST_CACHE_DIR,
+		maxThreadPages = MAX_THREAD_PAGES
+	} = options;
 	const results: PostContentResult[] = [];
 
 	console.log(
@@ -375,9 +368,9 @@ export async function scrapeMultipleChangelogPosts(
 	const cachedPosts: PostContentResult[] = [];
 	const postsToScrape: ChangelogPost[] = [];
 
-	if (opts.useCache) {
+	if (useCache) {
 		for (const post of posts) {
-			const cacheFile = path.join(opts.cacheDir, `post-${post.postId}.json`);
+			const cacheFile = path.join(cacheDir, `post-${post.postId}.json`);
 			if (existsSync(cacheFile)) {
 				try {
 					const cached = await readFile(cacheFile, 'utf-8');
@@ -412,8 +405,11 @@ export async function scrapeMultipleChangelogPosts(
 		const batchResults = await Promise.all(
 			batch.map(async (post) => {
 				try {
-					const data = { ...(await scrapePost(post.url, opts)), postId: post.postId };
-					if (opts.useCache) await writeToCache(opts.cacheDir, post.postId, data);
+					const data = {
+						...(await scrapePost(post.url, maxThreadPages)),
+						postId: post.postId
+					};
+					if (useCache) await writeToCache(cacheDir, post.postId, data);
 					return data;
 				} catch (error) {
 					console.warn(`  ⚠️  Failed to scrape ${post.postId}:`, error);

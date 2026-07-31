@@ -1,16 +1,22 @@
 import { page } from '$app/state';
 import { goto } from '$app/navigation';
 import { building } from '$app/environment';
-import { parseCSV, toCSV } from '$lib/utils/csv';
+import { parseCSV } from '$lib/utils/csv';
+import { filtersToSearchParams } from '$lib/queries/keys';
 
 const GOTO_OPTS = { replaceState: false, keepFocus: true, noScroll: false } as const;
 
-type ParamValues = Partial<{ hero: string[]; item: string[]; change: number; q: string }>;
+type ParamValues = Partial<{
+	hero: string[];
+	item: string[];
+	q: string;
+	major: boolean;
+}>;
 type ParamValue = ParamValues[keyof ParamValues];
 
 function serialize(value: ParamValue): string | null {
-	if (value === undefined || value === '') return null;
-	if (Array.isArray(value)) return value.length > 0 ? toCSV(value) : null;
+	if (value === undefined || value === '' || value === false) return null;
+	if (Array.isArray(value)) return value.length > 0 ? value.join(',') : null;
 	return String(value);
 }
 
@@ -39,13 +45,17 @@ class SearchParamsStore {
 		return parseCSV(this.#getParams().get('item'));
 	}
 
-	get change(): number | undefined {
-		const val = this.#getParams().get('change');
-		return val ? Number(val) : undefined;
-	}
-
 	get q(): string {
 		return this.#getParams().get('q') ?? '';
+	}
+
+	get major(): boolean {
+		return this.#getParams().get('major') === 'true';
+	}
+
+	/** How many filters are active — the one source for badges and is-filtered checks. */
+	get activeFilterCount(): number {
+		return this.hero.length + this.item.length + (this.q ? 1 : 0) + (this.major ? 1 : 0);
 	}
 
 	update(values: ParamValues) {
@@ -84,18 +94,12 @@ class SearchParamsStore {
 	}
 
 	toURLSearchParams(): URLSearchParams {
-		const params = new URLSearchParams();
-		const all: ParamValues = {
+		return filtersToSearchParams({
 			hero: this.hero,
 			item: this.item,
-			change: this.change,
-			q: this.q
-		};
-		for (const [key, value] of Object.entries(all)) {
-			const s = serialize(value as ParamValue);
-			if (s !== null) params.set(key, s);
-		}
-		return params;
+			q: this.q,
+			major: this.major
+		});
 	}
 }
 

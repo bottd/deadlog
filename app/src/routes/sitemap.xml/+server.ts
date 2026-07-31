@@ -5,7 +5,7 @@ import {
 	getHeroLastModified,
 	getItemLastModified
 } from '@deadlog/scraper';
-import { absoluteUrl, SITE_URL } from '$lib/seo';
+import { absoluteUrl, changePath, SITE_URL } from '$lib/seo';
 import type { RequestHandler } from './$types';
 
 interface SitemapEntry {
@@ -13,13 +13,10 @@ interface SitemapEntry {
 	lastModified?: string;
 }
 
+// Values here are encoded URLs and ISO dates, where `&` is the only reachable
+// XML-special character (from query strings).
 function escapeXml(value: string): string {
-	return value
-		.replaceAll('&', '&amp;')
-		.replaceAll('<', '&lt;')
-		.replaceAll('>', '&gt;')
-		.replaceAll('"', '&quot;')
-		.replaceAll("'", '&apos;');
+	return value.replaceAll('&', '&amp;');
 }
 
 function toIsoDate(pubDate: string | undefined): string | undefined {
@@ -63,7 +60,7 @@ export const GET: RequestHandler = async ({ locals }) => {
 		...sortedChangelogs
 			.filter((changelog) => changelog.contentText?.trim())
 			.map((changelog) => ({
-				url: absoluteUrl(`/change/${encodeURIComponent(changelog.id)}`),
+				url: absoluteUrl(changePath(changelog)),
 				lastModified: toIsoDate(changelog.pubDate)
 			})),
 		...heroes

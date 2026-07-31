@@ -10,7 +10,6 @@ import {
 	extractSteamGidFromUnfurl,
 	parseSteamContent,
 	extractDateFromTitle,
-	POST_CACHE_DIR,
 	type ChangelogPost,
 	type PostContentResult,
 	type SteamPatchNote
@@ -44,7 +43,7 @@ function fileStatus(filepath: string): 'missing' | 'curated' | 'draft' {
 	return content.includes('status "published"') ? 'curated' : 'draft';
 }
 
-export function resolveFilepath(title: string, date: string) {
+function resolveFilepath(title: string, date: string) {
 	const year = new Date(date).getFullYear();
 	const slug = slugify(title);
 	const dir = join(CHANGELOGS_DIR, String(year));
@@ -68,7 +67,7 @@ function writeMogFile(filepath: string, content: string): 'created' | 'updated' 
 
 // --- Source builders ---
 
-export function buildChangelogSource(
+function buildChangelogSource(
 	content: PostContentResult,
 	threadId: string,
 	entities: EntityLists,
@@ -215,7 +214,7 @@ export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<voi
 
 	console.log('🔍 Fetching changelog posts from forum and Steam API...');
 	const [posts, steamNotes] = await Promise.all([
-		scrapeChangelogPage({ timeout: 30000 }),
+		scrapeChangelogPage(),
 		fetchSteamPatchNotes({ timeout: 30000 }).catch((err) => {
 			console.warn(`   ⚠️  Steam API fetch failed: ${err.message}`);
 			return [] as SteamPatchNote[];
@@ -285,13 +284,7 @@ export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<voi
 	if (newPosts.length > 0) {
 		console.log(`\n🕷️  Scraping ${newPosts.length} forum posts...`);
 
-		const contents = await scrapeMultipleChangelogPosts(newPosts, {
-			timeout: 30000,
-			useCache: true,
-			cacheDir: POST_CACHE_DIR,
-			concurrency: 5,
-			delayMs: 500
-		});
+		const contents = await scrapeMultipleChangelogPosts(newPosts, { useCache: true });
 
 		const contentMap = new Map(contents.map((c) => [c.postId, c]));
 		const steamNotesByGid = new Map(steamNotes.map((note) => [note.gid, note]));

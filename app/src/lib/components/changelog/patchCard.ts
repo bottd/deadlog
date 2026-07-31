@@ -1,11 +1,11 @@
 import { formatDate, plural } from '@deadlog/utils';
 import { searchParams } from '$lib/stores/searchParams.svelte';
-import type { ChangelogEntry, EntityIcon } from '$lib/types';
+import type { ChangelogEntry } from '$lib/types';
 import { entityFragmentId } from './entityContext';
+import { changePath } from '$lib/seo';
 
 export type PatchCardProps = Omit<ChangelogEntry, 'title' | 'updates'>;
 
-/** Avatar-fallback rule shared with PatchPreviewCard. */
 export const authorInitials = (author: string) => author.slice(0, 2).toUpperCase();
 
 /** Stand-in art when a patch has no scraped preview image. */
@@ -16,24 +16,13 @@ const FALLBACK_PREVIEW = {
 		'https://clan.akamai.steamstatic.com/images/45164767/568ff640318c8a81e2b5b4a22bf29e100ee144d9.png'
 };
 
-interface PatchCardRow {
-	type: 'heroes' | 'items';
-	label: string;
-	tone: string;
-	list: EntityIcon[];
-	/** Icons past the cap, rendered as "+N". */
-	extra: number;
-	/** Position in the card's overall icon sequence, so stagger delays stay continuous. */
-	offset: number;
-}
-
 /**
  * Reads the filter store — keep in its own `$derived`, separate from `patchCardView`,
  * so a filter change only rebuilds the hrefs, not every card's rows and counts.
  */
-export function patchCardHrefs(patchId: string) {
+export function patchCardHrefs(patch: { slug: string }) {
 	const query = searchParams.toURLSearchParams().toString();
-	const href = `/change/${encodeURIComponent(patchId)}${query ? `?${query}` : ''}`;
+	const href = `${changePath(patch)}${query ? `?${query}` : ''}`;
 	return { href, entityHref: (name: string) => `${href}#${entityFragmentId(name)}` };
 }
 
@@ -43,26 +32,24 @@ export function patchCardView(patch: PatchCardProps, featured = false) {
 	const heroes = patch.icons?.heroes ?? [];
 	const items = patch.icons?.items ?? [];
 
-	const rows = (
-		[
-			{
-				type: 'heroes',
-				label: 'Heroes',
-				tone: 'text-primary',
-				list: heroes.slice(0, max),
-				extra: Math.max(0, heroes.length - max),
-				offset: 0
-			},
-			{
-				type: 'items',
-				label: 'Items',
-				tone: 'text-signal',
-				list: items.slice(0, max),
-				extra: Math.max(0, items.length - max),
-				offset: Math.min(heroes.length, max)
-			}
-		] satisfies PatchCardRow[]
-	).filter((row) => row.list.length > 0);
+	const rows = [
+		{
+			type: 'heroes',
+			label: 'Heroes',
+			tone: 'text-primary',
+			list: heroes.slice(0, max),
+			extra: Math.max(0, heroes.length - max),
+			offset: 0
+		},
+		{
+			type: 'items',
+			label: 'Items',
+			tone: 'text-signal',
+			list: items.slice(0, max),
+			extra: Math.max(0, items.length - max),
+			offset: Math.min(heroes.length, max)
+		}
+	].filter((row) => row.list.length > 0);
 
 	const counts = [
 		{

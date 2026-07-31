@@ -11,6 +11,11 @@ export function absoluteUrl(path = ''): string {
 	return `${SITE_URL}${path.startsWith('/') ? path : `/${path}`}`;
 }
 
+/** Canonical patch URL — the slug's own `/` must survive, so encode per segment. */
+export function changePath(changelog: { slug: string }): string {
+	return '/change/' + changelog.slug.split('/').map(encodeURIComponent).join('/');
+}
+
 /**
  * Every page shares the same og/twitter/robots shape — only title, description, url,
  * image and indexability actually vary. Pass `openGraph` to override or extend
@@ -119,7 +124,7 @@ export function entityCollectionSchema(page: {
 	title: string;
 	description: string;
 	image: string;
-	changelogs: readonly { id: string; title: string; date: Date }[];
+	changelogs: readonly { slug: string; title: string; date: Date }[];
 }) {
 	const { entity, path, title, description, image, changelogs } = page;
 	const listing = ENTITY_LISTING[entity.type];
@@ -132,7 +137,7 @@ export function entityCollectionSchema(page: {
 		about: [DEADLOCK_GAME, { '@type': 'Thing', name: entity.name, image: entity.image }],
 		items: changelogs.map((changelog) => ({
 			name: changelog.title,
-			url: absoluteUrl(`/change/${encodeURIComponent(changelog.id)}`)
+			url: absoluteUrl(changePath(changelog))
 		})),
 		breadcrumbs: [
 			{ name: SITE_NAME, path: '/' },

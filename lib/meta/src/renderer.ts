@@ -1,15 +1,7 @@
 import { Renderer } from '@takumi-rs/core';
 
-let renderer: Renderer | null = null;
-
-export async function getRenderer(): Promise<Renderer> {
-	if (renderer) return renderer;
-
-	// Using Geist font (bundled by default in takumi)
-	renderer = new Renderer({});
-
-	return renderer;
-}
+// Using Geist font (bundled by default in takumi)
+export const renderer = new Renderer({});
 
 export async function fetchImageAsDataUri(url: string): Promise<string> {
 	try {

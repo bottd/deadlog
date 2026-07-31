@@ -40,7 +40,7 @@
 </script>
 
 <script lang="ts">
-	import { CornerAccents } from '$lib/components/ui/corner-accents';
+	import CornerAccents from '$lib/components/ui/corner-accents/CornerAccents.svelte';
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
 	import Search from '@lucide/svelte/icons/search';
 

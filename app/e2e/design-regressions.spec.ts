@@ -1,6 +1,6 @@
 import { expect, test } from 'playwright/test';
 
-const LATEST_CHANGE = '/change/1835236783562074';
+const LATEST_CHANGE = '/change/2026/minor-06-11';
 
 async function gotoApp(page: import('playwright/test').Page, path: string) {
 	await page.goto(path);
@@ -103,7 +103,7 @@ test('patch cards show preserved post image previews', async ({ page }) => {
 	// is a sibling of it rather than a descendant — scope to the card instead.
 	const preview = page
 		.locator('[data-patch-card]')
-		.filter({ has: page.locator('a[href^="/change/135477"]') })
+		.filter({ has: page.locator('a[href^="/change/2026/05-22"]') })
 		.locator('img[data-patch-preview]');
 	await expect(preview).toBeVisible();
 	await expect(preview).toHaveAttribute(

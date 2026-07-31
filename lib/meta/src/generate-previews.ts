@@ -14,13 +14,12 @@ import { join, resolve } from 'path';
 import { fileURLToPath } from 'url';
 import React from 'react';
 
-import { getRenderer, fetchImageAsDataUri } from './renderer';
+import { renderer, fetchImageAsDataUri } from './renderer';
 import { Theme } from './theme';
 import { ChangelogLayout } from './layouts/ChangelogLayout';
 import { HomeLayout } from './layouts/HomeLayout';
-import { HeroLayout, type HeroPreviewItem } from './layouts/HeroLayout';
+import { HeroLayout } from './layouts/HeroLayout';
 import { ItemLayout } from './layouts/ItemLayout';
-import type { HeroPreview } from './components/HeroPreview';
 
 const OUTPUT_DIR = 'app/static/assets/meta';
 
@@ -38,7 +37,6 @@ async function convertImageUrls(urls: readonly string[]): Promise<string[]> {
 
 export async function renderToFile(element: React.ReactElement, outputPath: string) {
 	try {
-		const renderer = await getRenderer();
 		const { node, stylesheets } = await fromJsx(element);
 		const { width, height } = Theme.size;
 		const imageBuffer = await renderer.render(node, {
@@ -58,31 +56,16 @@ export async function renderToFile(element: React.ReactElement, outputPath: stri
 
 async function generateChangelogOG(
 	changeId: string,
-	data: {
-		title: string;
-		author: string;
-		authorIcon: string;
-		heroPreviews: HeroPreview[];
-		itemIcons: string[];
-		generalNotes: string[];
-	},
+	data: { title: string; author: string; authorIcon: string; itemIcons: string[] },
 	outputDir = OUTPUT_DIR
 ) {
 	const authorIcon = await convertImageUrl(data.authorIcon);
 	const itemIcons = await convertImageUrls(data.itemIcons);
 
-	const heroPreviews = await Promise.all(
-		data.heroPreviews.map(async (hero) => ({
-			heroIcon: await convertImageUrl(hero.heroIcon),
-			abilityIcons: await convertImageUrls(hero.abilityIcons)
-		}))
-	);
-
 	const element = React.createElement(ChangelogLayout, {
 		...data,
 		authorIcon,
-		itemIcons,
-		heroPreviews
+		itemIcons
 	});
 	await renderToFile(element, join(outputDir, 'change', `${changeId}.png`));
 }
@@ -115,11 +98,7 @@ async function generateHomeOG(
 	await renderToFile(element, join(outputDir, 'index.png'));
 }
 
-async function generateHeroOG(
-	hero: EnrichedHero,
-	changePreview: HeroPreviewItem[] | null,
-	outputDir = OUTPUT_DIR
-) {
+async function generateHeroOG(hero: EnrichedHero, outputDir = OUTPUT_DIR) {
 	const image = hero.images.card ?? hero.images.portrait ?? Object.values(hero.images)[0];
 	if (!image) {
 		throw new Error(`Hero ${hero.name} has no images`);
@@ -127,33 +106,16 @@ async function generateHeroOG(
 
 	const imageUri = await convertImageUrl(image);
 
-	let preview: HeroPreviewItem[] | null = null;
-	if (changePreview) {
-		preview = await Promise.all(
-			changePreview.map(async (item): Promise<HeroPreviewItem> => {
-				if (item.type === 'ability' && item.image) {
-					return { ...item, image: await convertImageUrl(item.image) };
-				}
-				return item;
-			})
-		);
-	}
-
 	const element = React.createElement(HeroLayout, {
 		name: hero.name,
 		heroType: hero.heroType,
-		image: imageUri,
-		changePreview: preview
+		image: imageUri
 	});
 
 	await renderToFile(element, join(outputDir, 'hero', `${hero.slug}.png`));
 }
 
-async function generateItemOG(
-	item: EnrichedItem,
-	changePreview: string | null,
-	outputDir = OUTPUT_DIR
-) {
+async function generateItemOG(item: EnrichedItem, outputDir = OUTPUT_DIR) {
 	const image = item.image;
 	if (!image) {
 		throw new Error(`Item ${item.name} has no images`);
@@ -164,8 +126,7 @@ async function generateItemOG(
 	const element = React.createElement(ItemLayout, {
 		name: item.name,
 		type: item.type,
-		image: imageUri,
-		changePreview: changePreview ?? ''
+		image: imageUri
 	});
 
 	await renderToFile(element, join(outputDir, 'item', `${item.slug}.png`));
@@ -256,9 +217,7 @@ export async function generatePreviews(
 							title: `${formatDate(changelog.pubDate)} Update`,
 							author: changelog.author,
 							authorIcon: changelog.authorImage,
-							heroPreviews: [],
-							itemIcons: icons.items.slice(0, 6).map((i) => i.src),
-							generalNotes: []
+							itemIcons: icons.items.slice(0, 6).map((i) => i.src)
 						},
 						outputDir
 					);
@@ -279,7 +238,7 @@ export async function generatePreviews(
 		for (const hero of heroes.filter((h) => h.isReleased)) {
 			if (
 				await generateOne(`hero preview ${hero.name}`, failures, () =>
-					generateHeroOG(hero, null, outputDir)
+					generateHeroOG(hero, outputDir)
 				)
 			) {
 				heroCount++;
@@ -297,7 +256,7 @@ export async function generatePreviews(
 		for (const item of items.filter((item) => item.isReleased)) {
 			if (
 				await generateOne(`item preview ${item.name}`, failures, () =>
-					generateItemOG(item, null, outputDir)
+					generateItemOG(item, outputDir)
 				)
 			) {
 				itemCount++;

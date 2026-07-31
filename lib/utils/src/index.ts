@@ -114,22 +114,33 @@ export function makeSummary(text: string | null | undefined, max = 140): string 
 	return (lastSpace > max * 0.6 ? cut.slice(0, lastSpace) : cut).trimEnd() + '…';
 }
 
+/**
+ * Streaks over the newest-first main-changelog sequence: `current` counts members
+ * from index 0 (0 when the entity missed the newest patch), `longest` is the best
+ * consecutive run anywhere in the sequence.
+ */
+export function computeStreaks(
+	orderedIds: readonly string[],
+	memberIds: ReadonlySet<string>
+): { current: number; longest: number } {
+	let current = 0;
+	let longest = 0;
+	let run = 0;
+	for (const [i, id] of orderedIds.entries()) {
+		run = memberIds.has(id) ? run + 1 : 0;
+		if (run > longest) longest = run;
+		if (run === i + 1) current = run;
+	}
+	return { current, longest };
+}
+
 function toDate(date: Date | string): Date {
 	return date instanceof Date ? date : new Date(date);
 }
 
 function getOrdinalSuffix(day: number): string {
 	if (day >= 11 && day <= 13) return 'th';
-	switch (day % 10) {
-		case 1:
-			return 'st';
-		case 2:
-			return 'nd';
-		case 3:
-			return 'rd';
-		default:
-			return 'th';
-	}
+	return ['th', 'st', 'nd', 'rd'][day % 10] ?? 'th';
 }
 
 /** Word only, so callers keep control of the count's own markup. */

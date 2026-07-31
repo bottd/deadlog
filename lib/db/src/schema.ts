@@ -2,19 +2,32 @@ import { sqliteTable, text, integer, primaryKey, index } from 'drizzle-orm/sqlit
 import { createInsertSchema } from 'drizzle-zod';
 import { z } from 'zod';
 
-export const changelogs = sqliteTable('changelogs', {
-	id: text('id').primaryKey(),
-	title: text('title').notNull(),
-	slug: text('slug'), // Path to .mg file (e.g., "2025/01-23-update")
-	author: text('author').notNull(),
-	authorImage: text('author_image').notNull(),
-	previewImage: text('preview_image'),
-	category: text('category'),
-	pubDate: text('pub_date').notNull(),
-	majorUpdate: integer('major_update', { mode: 'boolean' }).notNull().default(false),
-	parentChange: text('parent_change'),
-	contentText: text('content_text')
-});
+export const changelogs = sqliteTable(
+	'changelogs',
+	{
+		id: text('id').primaryKey(),
+		title: text('title').notNull(),
+		slug: text('slug').notNull(), // Path to .mg file (e.g., "2025/01-23-update")
+		author: text('author').notNull(),
+		authorImage: text('author_image').notNull(),
+		previewImage: text('preview_image'),
+		category: text('category'),
+		pubDate: text('pub_date').notNull(),
+		majorUpdate: integer('major_update', { mode: 'boolean' }).notNull().default(false),
+		parentChange: text('parent_change'),
+		contentText: text('content_text')
+	},
+	// SQLite serves ORDER BY … DESC from an ASC index via a backward scan, so no
+	// ordering modifiers here.
+	(table) => ({
+		pubDateIdx: index('idx_changelogs_pub_date').on(table.pubDate),
+		slugIdx: index('idx_changelogs_slug').on(table.slug),
+		parentChangeIdx: index('idx_changelogs_parent_change').on(
+			table.parentChange,
+			table.pubDate
+		)
+	})
+);
 
 export type SelectChangelog = typeof changelogs.$inferSelect;
 
@@ -66,8 +79,7 @@ export const changelogHeroes = sqliteTable(
 		heroId: integer('hero_id')
 			.notNull()
 			.references(() => heroes.id),
-		changeCount: integer('change_count'),
-		changeSummary: text('change_summary')
+		changeBullets: text('change_bullets', { mode: 'json' }).$type<string[]>()
 	},
 	(table) => ({
 		pk: primaryKey({ columns: [table.changelogId, table.heroId] }),
@@ -75,7 +87,9 @@ export const changelogHeroes = sqliteTable(
 	})
 );
 
-export const insertChangelogHeroSchema = createInsertSchema(changelogHeroes);
+export const insertChangelogHeroSchema = createInsertSchema(changelogHeroes, {
+	changeBullets: z.array(z.string()).nullable()
+});
 
 export const changelogItems = sqliteTable(
 	'changelog_items',
@@ -86,8 +100,7 @@ export const changelogItems = sqliteTable(
 		itemId: integer('item_id')
 			.notNull()
 			.references(() => items.id),
-		changeCount: integer('change_count'),
-		changeSummary: text('change_summary')
+		changeBullets: text('change_bullets', { mode: 'json' }).$type<string[]>()
 	},
 	(table) => ({
 		pk: primaryKey({ columns: [table.changelogId, table.itemId] }),
@@ -95,4 +108,6 @@ export const changelogItems = sqliteTable(
 	})
 );
 
-export const insertChangelogItemSchema = createInsertSchema(changelogItems);
+export const insertChangelogItemSchema = createInsertSchema(changelogItems, {
+	changeBullets: z.array(z.string()).nullable()
+});

@@ -40,9 +40,3 @@ export const Theme = {
 		full: '50%'
 	} as const
 } as const;
-
-export type ThemeColor = (typeof Theme.colors)[keyof typeof Theme.colors];
-export type ThemeSize = (typeof Theme.spacing)[keyof typeof Theme.spacing];
-export type ThemeBorderRadius =
-	(typeof Theme.borderRadius)[keyof typeof Theme.borderRadius];
-export type ThemeFont = (typeof Theme.font)[keyof typeof Theme.font];

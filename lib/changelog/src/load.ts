@@ -1,24 +1,13 @@
-import { readFileSync, existsSync, readdirSync, statSync } from 'fs';
+import { readFileSync, existsSync, readdirSync } from 'fs';
 import { join, relative } from 'path';
 import { ChangelogMetadataSchema, type ParsedChangelog } from './schema';
 import { extractEntities, parseStructure } from './extract';
 
 function findMogFiles(dir: string): string[] {
-	const files: string[] = [];
-	if (!existsSync(dir)) return files;
-
-	for (const entry of readdirSync(dir)) {
-		const fullPath = join(dir, entry);
-		const stat = statSync(fullPath);
-
-		if (stat.isDirectory()) {
-			files.push(...findMogFiles(fullPath));
-		} else if (entry.endsWith('.mg')) {
-			files.push(fullPath);
-		}
-	}
-
-	return files;
+	if (!existsSync(dir)) return [];
+	return readdirSync(dir, { recursive: true, encoding: 'utf-8' })
+		.filter((entry) => entry.endsWith('.mg'))
+		.map((entry) => join(dir, entry));
 }
 
 /**

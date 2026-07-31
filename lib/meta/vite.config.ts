@@ -26,7 +26,6 @@ export default defineConfig({
 		globals: true,
 		environment: 'node',
 		include: ['src/**/*.{test,spec}.{js,ts,tsx}'],
-		exclude: ['src/generate-previews.test.ts', 'src/generate-previews.snapshot.test.ts'],
 		passWithNoTests: true
 	}
 });

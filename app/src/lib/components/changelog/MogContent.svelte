@@ -1,22 +1,21 @@
 <script lang="ts">
 	import type { Component } from 'svelte';
-	import { entityFragmentId, setEntityMaps, type EntityMaps } from './entityContext';
+	import {
+		entityFragmentId,
+		entityHistoryHref,
+		resolveEntity,
+		setEntityMaps,
+		type EntityMaps
+	} from './entityContext';
 
 	interface Props {
 		content: Component;
 		heroMap?: EntityMaps['heroMap'];
 		itemMap?: EntityMaps['itemMap'];
-		abilityMap?: EntityMaps['abilityMap'];
 		filter?: { heroes: string[]; items: string[] };
 	}
 
-	let {
-		content: Content,
-		heroMap = {},
-		itemMap = {},
-		abilityMap = {},
-		filter
-	}: Props = $props();
+	let { content: Content, heroMap = {}, itemMap = {}, filter }: Props = $props();
 
 	setEntityMaps({
 		get heroMap() {
@@ -24,9 +23,6 @@
 		},
 		get itemMap() {
 			return itemMap;
-		},
-		get abilityMap() {
-			return abilityMap;
 		}
 	});
 
@@ -36,10 +32,34 @@
 		new Set([...(filter?.heroes ?? []), ...(filter?.items ?? [])].map(entityFragmentId))
 	);
 
+	// separate effects: linkification depends only on the rendered body and maps,
+	// so it must not re-sweep the DOM on every filter toggle
+	$effect(() => {
+		if (sectionEl) linkEntityHeadings(sectionEl);
+	});
+
 	// the patch body is a prerendered component — filter by toggling block display
 	$effect(() => {
 		if (sectionEl) applyEntityFilter(sectionEl, selectedSlugs);
 	});
+
+	/** Wrap each entity block's heading in a link to its /hero or /item history page. */
+	function linkEntityHeadings(root: HTMLElement) {
+		const maps = { heroMap, itemMap };
+		for (const el of root.querySelectorAll<HTMLElement>(
+			':scope > .hero, :scope > .item'
+		)) {
+			const heading = el.querySelector<HTMLHeadingElement>(':scope > h2');
+			if (!heading || heading.firstElementChild?.tagName === 'A') continue;
+			const type = el.classList.contains('hero') ? 'hero' : 'item';
+			const entity = resolveEntity(maps, type, heading.textContent?.trim() ?? '');
+			if (!entity) continue;
+			const link = document.createElement('a');
+			link.href = entityHistoryHref(type, entity.slug);
+			while (heading.firstChild) link.appendChild(heading.firstChild);
+			heading.appendChild(link);
+		}
+	}
 
 	/** `=hero:abrams:` renders as `<div class="hero abrams">`, so the slug is a class. */
 	const isSelectedEntity = (el: HTMLElement, selected: Set<string>) =>
@@ -199,6 +219,12 @@
 		/* Links — but not the video cards, which are blocks, not body copy */
 		:global(a:not(.video-link)) {
 			@apply text-primary font-medium underline-offset-2 transition-all duration-200 hover:underline hover:opacity-80;
+		}
+
+		/* Entity headings link to their history page but read as headings, not body links */
+		:global(div.hero > h2 > a),
+		:global(div.item > h2 > a) {
+			@apply text-foreground hover:text-signal font-semibold no-underline hover:no-underline hover:opacity-100;
 		}
 
 		/* Emphasis */

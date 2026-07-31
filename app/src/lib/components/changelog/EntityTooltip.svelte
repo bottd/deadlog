@@ -11,7 +11,7 @@
 		imageSrc?: string;
 		type?: 'hero' | 'item';
 		heroType?: string | null;
-		itemCategory?: 'weapon' | 'ability' | 'upgrade';
+		itemCategory?: 'weapon' | 'vitality' | 'spirit';
 		onSelect?: () => void;
 		children: Snippet;
 	}
@@ -32,28 +32,13 @@
 		if (type === 'hero' && heroType) {
 			return heroType.toLowerCase() as BadgeVariant;
 		}
-		if (type === 'item' && itemCategory) {
-			const categoryMap: Record<string, BadgeVariant> = {
-				weapon: 'weapon',
-				ability: 'vitality',
-				upgrade: 'spirit'
-			};
-			return categoryMap[itemCategory] || 'default';
-		}
-		return 'default';
+		return itemCategory ?? 'default';
 	});
 
 	const badgeLabel = $derived.by(() => {
-		if (type === 'hero' && heroType) {
-			return heroType;
-		}
+		if (type === 'hero' && heroType) return heroType;
 		if (type === 'item' && itemCategory) {
-			const labelMap: Record<string, string> = {
-				weapon: 'Weapon',
-				ability: 'Vitality',
-				upgrade: 'Spirit'
-			};
-			return labelMap[itemCategory] || itemCategory;
+			return itemCategory[0].toUpperCase() + itemCategory.slice(1);
 		}
 		return null;
 	});

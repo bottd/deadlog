@@ -1,6 +1,10 @@
 <script lang="ts">
-	import { PatchPreviewCard, PatchTimeline } from '$lib/components/changelog';
-	import { CornerAccents } from '$lib/components/ui/corner-accents';
+	import { PatchTimeline } from '$lib/components/changelog';
+	import {
+		changeCountLabel,
+		entityPatchHref
+	} from '$lib/components/changelog/entityContext';
+	import CornerAccents from '$lib/components/ui/corner-accents/CornerAccents.svelte';
 	import { ENTITY_LISTING } from '$lib/seo';
 	import { formatDate, plural } from '@deadlog/utils';
 	import Activity from '@lucide/svelte/icons/activity';
@@ -10,11 +14,11 @@
 
 	interface EntityPatch {
 		id: string;
+		slug: string;
 		date: Date;
 		author: string;
-		authorImage?: string;
 		changeCount: number | null;
-		changeSummary?: string | null;
+		changeBullets?: string[] | null;
 	}
 
 	interface Props {
@@ -25,11 +29,12 @@
 		label: string;
 		lede: string;
 		changelogs: EntityPatch[];
+		streaks: { current: number; longest: number };
 		/** Extra eyebrow content after the label, e.g. an item's tier. */
 		labelSuffix?: Snippet;
 	}
 
-	let { entity, accent, label, lede, changelogs, labelSuffix }: Props = $props();
+	let { entity, accent, label, lede, changelogs, streaks, labelSuffix }: Props = $props();
 
 	const isItem = $derived(entity.type === 'item');
 	const listing = $derived(ENTITY_LISTING[entity.type]);
@@ -159,7 +164,7 @@
 						{lede}
 					</p>
 
-					<dl class="mt-6 grid grid-cols-2 gap-px overflow-hidden border sm:grid-cols-3">
+					<dl class="mt-6 grid grid-cols-2 gap-px overflow-hidden border sm:grid-cols-5">
 						<div class="bg-muted/30 p-3 text-left">
 							{@render statLabel('Patches')}
 							<dd class="text-foreground mt-1 font-mono text-xl font-bold">
@@ -170,6 +175,18 @@
 							{@render statLabel('Changes')}
 							<dd class="mt-1 font-mono text-xl font-bold" style:color={accent}>
 								{changeValue}
+							</dd>
+						</div>
+						<div class="bg-muted/30 p-3 text-left">
+							{@render statLabel('Current streak')}
+							<dd class="text-foreground mt-1 font-mono text-xl font-bold">
+								{streaks.current}
+							</dd>
+						</div>
+						<div class="bg-muted/30 p-3 text-left">
+							{@render statLabel('Longest run')}
+							<dd class="text-foreground mt-1 font-mono text-xl font-bold">
+								{streaks.longest}
 							</dd>
 						</div>
 						<div class="bg-muted/30 col-span-2 p-3 text-left sm:col-span-1">
@@ -229,10 +246,52 @@
 			</div>
 
 			{#if changelogs.length > 0}
-				<ol class="grid list-none grid-cols-1 gap-4 p-0 sm:grid-cols-2 lg:grid-cols-3">
+				<ol class="m-0 list-none space-y-4 p-0">
 					{#each changelogs as changelog (changelog.id)}
-						<li>
-							<PatchPreviewCard {...changelog} {entity} {accent} />
+						<li
+							class="clip-corner-sm bg-card relative overflow-hidden border p-4 sm:p-5"
+							style:border-color="color-mix(in oklab, {accent} 24%, var(--border))"
+						>
+							<div
+								class="pointer-events-none absolute inset-x-0 top-0 h-px"
+								style:background="linear-gradient(to right, {accent}, transparent 75%)"
+								aria-hidden="true"
+							></div>
+							<div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+								<a
+									href={entityPatchHref(changelog, entity)}
+									class="text-foreground hover:text-signal text-sm font-semibold transition-colors"
+								>
+									<time datetime={changelog.date.toISOString()}>
+										{formatDate(changelog.date)}
+									</time>
+								</a>
+								<span class="font-mono text-xs" style:color={accent}>
+									{changeCountLabel(changelog.changeCount)}
+								</span>
+								<span class="text-muted-foreground ml-auto truncate text-xs">
+									by {changelog.author}
+								</span>
+							</div>
+							{#if changelog.changeBullets?.length}
+								<ul class="mt-3 ml-4 list-none space-y-1.5">
+									{#each changelog.changeBullets as bullet, i (i)}
+										<li
+											class="text-foreground/90 before:bg-primary/40 relative text-sm leading-relaxed before:absolute before:top-[0.55em] before:-left-4 before:size-1.5 before:rounded-full before:content-['']"
+										>
+											{bullet}
+										</li>
+									{/each}
+								</ul>
+							{:else}
+								<p class="text-muted-foreground mt-3 text-sm">
+									{entity.name} was mentioned in this patch —
+									<a
+										href={entityPatchHref(changelog, entity)}
+										class="text-signal hover:underline">details in the full notes</a
+									>.
+								</p>
+							{/if}
 						</li>
 					{/each}
 				</ol>

@@ -58,6 +58,7 @@
 <EntityChangelogPage
 	{entity}
 	{changelogs}
+	streaks={data.streaks}
 	accent={categoryMeta.accent}
 	label={categoryMeta.label}
 	lede="{item.isReleased

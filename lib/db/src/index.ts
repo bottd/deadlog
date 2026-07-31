@@ -1,4 +1,4 @@
-export { getDb, getD1Db, getLibsqlDb, type DrizzleDB } from './client';
+export { getDb, getLibsqlDb, type DrizzleDB } from './client';
 export * as schema from './schema';
 export type { SelectChangelog } from './schema';
 

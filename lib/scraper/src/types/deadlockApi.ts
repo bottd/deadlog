@@ -1,141 +1,49 @@
 import { z } from 'zod';
 
-export type HeroId = number;
-export type ItemId = number;
-
-export const ENTITY_TYPES = {
-	HERO: 'hero',
-	ITEM: 'item'
-} as const;
-
-export type EntityType = (typeof ENTITY_TYPES)[keyof typeof ENTITY_TYPES];
+export type EntityType = 'hero' | 'item';
 
 export interface EntityIcon {
 	id: number;
 	src: string;
 	alt: string;
+	/** Entity-page slug, e.g. `/hero/{slug}`. */
+	slug: string;
 	type: EntityType;
 	heroType?: string | null;
-	itemCategory?: 'weapon' | 'ability' | 'upgrade';
+	itemCategory?: 'weapon' | 'vitality' | 'spirit';
 }
 
-// Schema for stat values that have a value and display name
-const statValueSchema = z.object({
-	value: z.number(),
-	display_stat_name: z.string()
-});
-
-// Schema for cost bonus entries
-const costBonusSchema = z.object({
-	gold_threshold: z.number(),
-	bonus: z.number(),
-	percent_on_graph: z.number()
-});
-
-// Schema for complex item/weapon property values
-// Making this very permissive since the API returns various structures
-const complexPropertySchema = z.union([
-	z.object({
-		value: z.union([z.string(), z.number()]).optional(),
-		can_set_token_override: z.boolean().optional(),
-		css_class: z.string().optional(),
-		disable_value: z.string().optional(),
-		label: z.string().optional(),
-		postfix: z.string().optional(),
-		postvalue_label: z.string().optional(),
-		icon: z.string().optional()
-	}),
-	z.array(z.number()), // Some properties are arrays
-	z.record(z.string(), z.any()) // Some properties are arbitrary objects
-]);
-
-const heroImagesSchema = z.record(z.string(), z.string());
-
-const heroDescriptionSchema = z.object({
-	lore: z.string().optional(),
-	playstyle: z.string().optional(),
-	role: z.string().optional()
-});
-
+// The API returns far more than the build reads; zod strips unknown keys, so the
+// schemas list only the fields consumers actually use.
 const heroSchema = z.object({
 	id: z.number(),
 	name: z.string(),
 	class_name: z.string(),
-	description: heroDescriptionSchema.optional(),
 	hero_type: z.string().optional(),
-	tags: z.array(z.string()).optional(),
-	starting_stats: z.record(z.string(), statValueSchema).optional(),
-	images: heroImagesSchema,
-	recommended_upgrades: z.array(z.string()).optional(),
-	recommended_ability_order: z.array(z.string()).optional(),
-	cost_bonuses: z.record(z.string(), z.array(costBonusSchema)).optional(),
-	physics: z.record(z.string(), z.number()).optional(),
-	colors: z.record(z.string(), z.union([z.array(z.number()), z.string()])).optional(),
+	images: z.record(z.string(), z.string()),
 	player_selectable: z.boolean().optional(),
 	disabled: z.boolean().optional(),
 	in_development: z.boolean().optional()
 });
-
-export type Hero = z.infer<typeof heroSchema>;
-export type HeroImages = z.infer<typeof heroImagesSchema>;
 
 const itemSchema = z.object({
 	id: z.number(),
 	class_name: z.string(),
 	name: z.string(),
 	type: z.enum(['weapon', 'ability', 'upgrade']),
-	heroes: z.array(z.number()).optional(),
-	properties: z.record(z.string(), complexPropertySchema).optional(),
-	weapon_info: z
-		.record(
-			z.string(),
-			z.union([complexPropertySchema, z.number(), z.boolean(), z.array(z.number())])
-		)
-		.optional(),
 	image: z.string().optional(),
 	image_webp: z.string().optional(),
 	shop_image: z.string().optional(),
 	shop_image_webp: z.string().optional(),
-	shop_image_small: z.string().optional(),
-	shop_image_small_webp: z.string().optional()
+	// Shop taxonomy, same endpoint: null when absent or an unexpected shape.
+	item_slot_type: z.enum(['weapon', 'vitality', 'spirit']).nullish().catch(null),
+	item_tier: z.number().int().positive().nullish().catch(null),
+	shopable: z.boolean().optional(),
+	disabled: z.boolean().optional()
 });
-
-export type Item = z.infer<typeof itemSchema>;
-export type ItemType = Item['type'];
 
 export const heroesApiResponseSchema = z.array(heroSchema);
 export const itemsApiResponseSchema = z.array(itemSchema);
 
 export type HeroesApiResponse = z.infer<typeof heroesApiResponseSchema>;
 export type ItemsApiResponse = z.infer<typeof itemsApiResponseSchema>;
-
-interface EntityDb {
-	id: number;
-	name: string;
-	slug: string;
-	className: string;
-	images: string;
-	isReleased: number;
-}
-
-export type HeroType = 'marksman' | 'mystic' | 'brawler' | 'assassin';
-
-export interface HeroDb extends EntityDb {
-	heroType: HeroType | null;
-}
-
-export interface ItemDb extends EntityDb {
-	type: 'weapon' | 'ability' | 'upgrade';
-}
-
-export interface EnrichedHero extends Omit<HeroDb, 'images' | 'isReleased'> {
-	images: HeroImages;
-	isReleased: boolean;
-}
-
-export interface EnrichedItem extends Omit<ItemDb, 'images' | 'isReleased' | 'type'> {
-	image: string;
-	shopImage?: string;
-	type: 'weapon' | 'ability' | 'upgrade';
-	isReleased: boolean;
-}

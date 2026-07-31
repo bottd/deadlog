@@ -1,9 +1,9 @@
 import { createClient } from '@libsql/client';
 import { drizzle } from 'drizzle-orm/libsql';
 import { PatchesApi, Configuration } from 'deadlock-api-client';
+import { execSync } from 'node:child_process';
 import { mkdir, rename, rm } from 'fs/promises';
 import path from 'path';
-import { sql } from 'drizzle-orm';
 import { fetchHeroes, fetchItems } from './api';
 import {
 	schema,
@@ -19,18 +19,6 @@ import {
 } from '@deadlog/changelog';
 import { toSlug } from '@deadlog/utils';
 
-const ITEMS_API_URL = 'https://assets.deadlock-api.com/v2/items';
-const ITEMS_API_TIMEOUT_MS = 30_000;
-
-type ItemCategory = 'weapon' | 'vitality' | 'spirit';
-
-interface ItemTaxonomy {
-	category: ItemCategory | null;
-	tier: number | null;
-	shopable: boolean;
-	disabled: boolean;
-}
-
 interface BuildOptions {
 	outputDir?: string;
 	changelogsDir?: string;
@@ -41,56 +29,6 @@ interface BuildResult {
 	patchCount: number;
 	heroMatches: number;
 	itemMatches: number;
-}
-
-function isRecord(value: unknown): value is Record<string, unknown> {
-	return typeof value === 'object' && value !== null;
-}
-
-export function parseItemTaxonomy(payload: unknown): Map<number, ItemTaxonomy> {
-	if (!Array.isArray(payload)) throw new Error('Invalid item taxonomy response');
-
-	const result = new Map<number, ItemTaxonomy>();
-	for (const item of payload) {
-		if (!isRecord(item) || typeof item.id !== 'number') continue;
-
-		const category =
-			item.item_slot_type === 'weapon' ||
-			item.item_slot_type === 'vitality' ||
-			item.item_slot_type === 'spirit'
-				? item.item_slot_type
-				: null;
-		const tier =
-			typeof item.item_tier === 'number' &&
-			Number.isInteger(item.item_tier) &&
-			item.item_tier > 0
-				? item.item_tier
-				: null;
-
-		result.set(item.id, {
-			category,
-			tier,
-			shopable: item.shopable === true,
-			disabled: item.disabled === true
-		});
-	}
-
-	return result;
-}
-
-async function fetchItemTaxonomy(): Promise<Map<number, ItemTaxonomy>> {
-	let response: Response;
-	try {
-		response = await fetch(ITEMS_API_URL, {
-			signal: AbortSignal.timeout(ITEMS_API_TIMEOUT_MS)
-		});
-	} catch (error) {
-		throw new Error('Failed to fetch item taxonomy within 30 seconds', { cause: error });
-	}
-	if (!response.ok) {
-		throw new Error(`Failed to fetch item taxonomy: ${response.statusText}`);
-	}
-	return parseItemTaxonomy(await response.json());
 }
 
 function createEntityIdMap(
@@ -116,10 +54,8 @@ function resolveEntityId(
 	return undefined;
 }
 
-interface EntityMatch {
-	changeCount: number | null;
-	changeSummary: string | null;
-}
+/** Null bullets = the entity is named in the patch but heads no section of its own. */
+type EntityMatch = string[] | null;
 
 function collectEntityMatches(
 	names: string[],
@@ -132,7 +68,7 @@ function collectEntityMatches(
 	for (const name of names) {
 		const id = resolveEntityId(entityMap, name);
 		if (id !== undefined && !matches.has(id)) {
-			matches.set(id, { changeCount: null, changeSummary: null });
+			matches.set(id, null);
 		}
 	}
 
@@ -140,12 +76,8 @@ function collectEntityMatches(
 		if (change.type !== type) continue;
 		const id = resolveEntityId(entityMap, change.name);
 		if (id === undefined) continue;
-		const existing = matches.get(id);
-		matches.set(id, {
-			changeCount: (existing?.changeCount ?? 0) + change.count,
-			// An entity can head more than one section in a patch; keep the first teaser.
-			changeSummary: existing?.changeSummary || change.summary || null
-		});
+		// An entity can head more than one section in a patch; bullets concatenate.
+		matches.set(id, [...(matches.get(id) ?? []), ...change.bullets]);
 	}
 
 	return matches;
@@ -167,11 +99,10 @@ export async function buildDatabaseFromMog(
 		new Configuration({ basePath: 'https://api.deadlock-api.com' })
 	);
 
-	const [bigDaysResponse, heroes, items, itemTaxonomy] = await Promise.all([
+	const [bigDaysResponse, heroes, items] = await Promise.all([
 		patchesApi.bigPatchDays(),
 		fetchHeroes(),
-		fetchItems(),
-		fetchItemTaxonomy()
+		fetchItems()
 	]);
 
 	const bigDayDates = new Set(
@@ -184,11 +115,22 @@ export async function buildDatabaseFromMog(
 
 	console.log(`📁 Database path: ${dbPath}`);
 
+	// One source of truth for the schema: drizzle-kit materializes lib/db/src/schema.ts
+	// into the fresh .building file, so the DDL cannot drift from the Drizzle types.
+	console.log('📊 Creating tables...');
+	const env = { ...process.env, DATABASE_URL: `file:${path.resolve(dbPath)}` };
+	// tsx exports its --tsconfig to children; drizzle-kit would resolve it against
+	// lib/db and fail, so drop it.
+	delete env.TSX_TSCONFIG_PATH;
+	delete env.ESBK_TSCONFIG_PATH;
+	execSync('pnpm exec drizzle-kit push --force', {
+		cwd: path.resolve(import.meta.dirname, '../../db'),
+		env,
+		stdio: 'inherit'
+	});
+
 	const client = createClient({ url: `file:${dbPath}` });
 	const db = drizzle(client, { schema });
-
-	console.log('📊 Creating tables...');
-	await createTables(db);
 
 	console.log(`📅 Found ${bigDayDates.size} big patch days`);
 	console.log(`🦸 Found ${heroes.length} heroes`);
@@ -223,12 +165,9 @@ export async function buildDatabaseFromMog(
 			(item) => item.shop_image || item.shop_image_webp || item.image || item.image_webp
 		)
 		.sort((a, b) => {
-			const priority = (type: string, taxonomy?: ItemTaxonomy) =>
-				taxonomy?.shopable && !taxonomy.disabled ? 3 : type === 'upgrade' ? 2 : 1;
-			return (
-				priority(b.type, itemTaxonomy.get(b.id)) -
-				priority(a.type, itemTaxonomy.get(a.id))
-			);
+			const priority = (item: (typeof items)[number]) =>
+				item.shopable && !item.disabled ? 3 : item.type === 'upgrade' ? 2 : 1;
+			return priority(b) - priority(a);
 		})
 		.filter((item) => {
 			const slug = toSlug(item.name);
@@ -238,7 +177,6 @@ export async function buildDatabaseFromMog(
 		});
 
 	for (const item of itemsToInsert) {
-		const taxonomy = itemTaxonomy.get(item.id);
 		await db
 			.insert(schema.items)
 			.values(
@@ -248,8 +186,8 @@ export async function buildDatabaseFromMog(
 					slug: toSlug(item.name),
 					className: item.class_name,
 					type: item.type,
-					category: taxonomy?.category ?? null,
-					tier: taxonomy?.tier ?? null,
+					category: item.item_slot_type ?? null,
+					tier: item.item_tier ?? null,
 					image:
 						item.shop_image_webp ||
 						item.shop_image ||
@@ -257,7 +195,9 @@ export async function buildDatabaseFromMog(
 						item.image ||
 						'',
 					isReleased:
-						taxonomy?.category != null && taxonomy.shopable && !taxonomy.disabled
+						item.item_slot_type != null &&
+						item.shopable === true &&
+						item.disabled !== true
 				})
 			)
 			.onConflictDoNothing();
@@ -318,32 +258,18 @@ export async function buildDatabaseFromMog(
 			})
 			.onConflictDoNothing();
 
-		for (const [heroId, { changeCount, changeSummary }] of heroMatchesForPatch) {
+		for (const [heroId, changeBullets] of heroMatchesForPatch) {
 			await db
 				.insert(schema.changelogHeroes)
-				.values(
-					insertChangelogHeroSchema.parse({
-						changelogId,
-						heroId,
-						changeCount,
-						changeSummary
-					})
-				)
+				.values(insertChangelogHeroSchema.parse({ changelogId, heroId, changeBullets }))
 				.onConflictDoNothing();
 			heroMatches++;
 		}
 
-		for (const [itemId, { changeCount, changeSummary }] of itemMatchesForPatch) {
+		for (const [itemId, changeBullets] of itemMatchesForPatch) {
 			await db
 				.insert(schema.changelogItems)
-				.values(
-					insertChangelogItemSchema.parse({
-						changelogId,
-						itemId,
-						changeCount,
-						changeSummary
-					})
-				)
+				.values(insertChangelogItemSchema.parse({ changelogId, itemId, changeBullets }))
 				.onConflictDoNothing();
 			itemMatches++;
 		}
@@ -367,21 +293,6 @@ export async function buildDatabaseFromMog(
 			set: { value: String(changelogs.length) }
 		});
 
-	console.log('🔍 Creating indexes...');
-	await db.run(
-		sql`CREATE INDEX IF NOT EXISTS idx_changelogs_pub_date ON changelogs(pub_date DESC)`
-	);
-	await db.run(sql`CREATE INDEX IF NOT EXISTS idx_changelogs_slug ON changelogs(slug)`);
-	await db.run(
-		sql`CREATE INDEX IF NOT EXISTS idx_changelog_heroes_hero_id ON changelog_heroes(hero_id)`
-	);
-	await db.run(
-		sql`CREATE INDEX IF NOT EXISTS idx_changelog_items_item_id ON changelog_items(item_id)`
-	);
-	await db.run(
-		sql`CREATE INDEX IF NOT EXISTS idx_changelogs_parent_change ON changelogs(parent_change, pub_date DESC)`
-	);
-
 	client.close();
 	await rename(dbPath, targetDbPath);
 
@@ -390,75 +301,4 @@ export async function buildDatabaseFromMog(
 	console.log(`📊 Changelogs: ${changelogs.length}`);
 
 	return { path: targetDbPath, patchCount: changelogs.length, heroMatches, itemMatches };
-}
-
-async function createTables(db: ReturnType<typeof drizzle>) {
-	await db.run(sql`
-		CREATE TABLE IF NOT EXISTS changelogs (
-			id TEXT PRIMARY KEY,
-			title TEXT NOT NULL,
-			slug TEXT,
-			author TEXT NOT NULL,
-			author_image TEXT NOT NULL,
-			preview_image TEXT,
-			category TEXT,
-			pub_date TEXT NOT NULL,
-			major_update INTEGER NOT NULL DEFAULT 0,
-			parent_change TEXT,
-			content_text TEXT
-		)
-	`);
-
-	await db.run(sql`
-		CREATE TABLE IF NOT EXISTS heroes (
-			id INTEGER PRIMARY KEY,
-			name TEXT NOT NULL,
-			slug TEXT NOT NULL UNIQUE,
-			class_name TEXT NOT NULL,
-			hero_type TEXT,
-			images TEXT NOT NULL,
-			is_released INTEGER NOT NULL DEFAULT 1
-		)
-	`);
-
-	await db.run(sql`
-		CREATE TABLE IF NOT EXISTS items (
-			id INTEGER PRIMARY KEY,
-			name TEXT NOT NULL,
-			slug TEXT NOT NULL UNIQUE,
-			class_name TEXT NOT NULL,
-			type TEXT NOT NULL,
-			category TEXT,
-			tier INTEGER,
-			image TEXT NOT NULL,
-			is_released INTEGER NOT NULL DEFAULT 0
-		)
-	`);
-
-	await db.run(sql`
-		CREATE TABLE IF NOT EXISTS metadata (
-			key TEXT PRIMARY KEY,
-			value TEXT
-		)
-	`);
-
-	await db.run(sql`
-		CREATE TABLE IF NOT EXISTS changelog_heroes (
-			changelog_id TEXT NOT NULL REFERENCES changelogs(id),
-			hero_id INTEGER NOT NULL REFERENCES heroes(id),
-			change_count INTEGER,
-			change_summary TEXT,
-			PRIMARY KEY (changelog_id, hero_id)
-		)
-	`);
-
-	await db.run(sql`
-		CREATE TABLE IF NOT EXISTS changelog_items (
-			changelog_id TEXT NOT NULL REFERENCES changelogs(id),
-			item_id INTEGER NOT NULL REFERENCES items(id),
-			change_count INTEGER,
-			change_summary TEXT,
-			PRIMARY KEY (changelog_id, item_id)
-		)
-	`);
 }

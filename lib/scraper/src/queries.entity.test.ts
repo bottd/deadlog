@@ -26,7 +26,7 @@ describe('entity history queries', () => {
 			CREATE TABLE changelogs (
 				id TEXT PRIMARY KEY,
 				title TEXT NOT NULL,
-				slug TEXT,
+				slug TEXT NOT NULL,
 				author TEXT NOT NULL,
 				author_image TEXT NOT NULL,
 				preview_image TEXT,
@@ -59,15 +59,13 @@ describe('entity history queries', () => {
 			CREATE TABLE changelog_heroes (
 				changelog_id TEXT NOT NULL,
 				hero_id INTEGER NOT NULL,
-				change_count INTEGER,
-				change_summary TEXT,
+				change_bullets TEXT,
 				PRIMARY KEY (changelog_id, hero_id)
 			);
 			CREATE TABLE changelog_items (
 				changelog_id TEXT NOT NULL,
 				item_id INTEGER NOT NULL,
-				change_count INTEGER,
-				change_summary TEXT,
+				change_bullets TEXT,
 				PRIMARY KEY (changelog_id, item_id)
 			);
 		`);
@@ -116,6 +114,7 @@ describe('entity history queries', () => {
 			{
 				id: 'new',
 				title: '100% patch',
+				slug: '2026/02-02',
 				author: 'Yoshi',
 				authorImage: '',
 				pubDate: '2026-02-02T20:00:00.000Z',
@@ -124,6 +123,7 @@ describe('entity history queries', () => {
 			{
 				id: 'old',
 				title: 'Old_patch',
+				slug: '2026/01-01',
 				author: 'Yoshi',
 				authorImage: '',
 				pubDate: '2026-01-01T20:00:00.000Z',
@@ -134,25 +134,26 @@ describe('entity history queries', () => {
 			{
 				changelogId: 'new',
 				heroId: 69,
-				changeCount: 4,
-				changeSummary: 'Doorway: Cooldown reduced from 40s to 32s'
+				changeBullets: [
+					'Doorway: Cooldown reduced from 40s to 32s',
+					'Base bullet damage increased'
+				]
 			},
-			{ changelogId: 'old', heroId: 69, changeCount: null, changeSummary: null }
+			{ changelogId: 'old', heroId: 69, changeBullets: null }
 		]);
 		await db.insert(schema.changelogItems).values({
 			changelogId: 'new',
 			itemId: 1,
-			changeCount: 2,
-			changeSummary: 'Proc chance increased'
+			changeBullets: ['Proc chance increased']
 		});
 	});
 
 	afterEach(() => client.close());
 
-	it('returns stored hero counts and preserves an unknown count as null', async () => {
+	it('derives hero counts from bullets and keeps a bullet-less mention null', async () => {
 		const history = await getChangelogsByHeroId(db, 69);
 		expect(history.map(({ id, changeCount }) => ({ id, changeCount }))).toEqual([
-			{ id: 'new', changeCount: 4 },
+			{ id: 'new', changeCount: 2 },
 			{ id: 'old', changeCount: null }
 		]);
 	});
@@ -160,15 +161,18 @@ describe('entity history queries', () => {
 	it('returns the item-specific count rather than the wider patch scope', async () => {
 		const history = await getChangelogsByItemId(db, 1);
 		expect(history).toHaveLength(1);
-		expect(history[0].changeCount).toBe(2);
+		expect(history[0].changeCount).toBe(1);
 	});
 
-	it('carries the entity-specific teaser instead of the whole patch body', async () => {
+	it('carries the entity-specific bullets instead of the whole patch body', async () => {
 		const [hero] = await getChangelogsByHeroId(db, 69);
 		const [item] = await getChangelogsByItemId(db, 1);
 
-		expect(hero.changeSummary).toBe('Doorway: Cooldown reduced from 40s to 32s');
-		expect(item.changeSummary).toBe('Proc chance increased');
+		expect(hero.changeBullets).toEqual([
+			'Doorway: Cooldown reduced from 40s to 32s',
+			'Base bullet damage increased'
+		]);
+		expect(item.changeBullets).toEqual(['Proc chance increased']);
 
 		// Entity history pages prerender ~200 pages; shipping contentText put the full
 		// prose of every patch into each one. Keep it out of this query.

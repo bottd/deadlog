@@ -3,7 +3,6 @@ import {
 	MOG_IMAGE_RE,
 	decodeEntityName,
 	entityNameAliases,
-	makeSummary,
 	stripMogLinks,
 	unescapeMogDelimiters
 } from '@deadlog/utils';
@@ -25,9 +24,6 @@ export interface TocEntry {
 const BLOCK_RE = /^(=+)((?:[^\s:]+:)*)$/;
 const HEADING_RE = /^(#+)[ \t]*(.+)$/;
 
-/** Roughly two card lines — see PatchPreviewCard's line-clamp-2. */
-const SUMMARY_MAX = 160;
-
 type Kind = 'hero' | 'item' | 'ability';
 
 interface Frame {
@@ -35,8 +31,6 @@ interface Frame {
 	name: string | null;
 	level: number;
 }
-
-type EntityBullets = Omit<EntityChange, 'count' | 'summary'> & { bullets: string[] };
 
 /**
  * One pass over the document, yielding both outputs the build needs. Walking it twice
@@ -51,7 +45,7 @@ export function parseStructure(content: string): {
 } {
 	const toc: TocEntry[] = [];
 	const images: string[] = [];
-	const changes = new Map<string, EntityBullets>();
+	const changes = new Map<string, EntityChange>();
 	const stack: Frame[] = [];
 
 	const innermost = (kind: Kind) =>
@@ -122,15 +116,7 @@ export function parseStructure(content: string): {
 		current.bullets.push(needsPrefix ? `${ability}: ${text}` : text);
 	}
 
-	return {
-		toc,
-		images,
-		changes: [...changes.values()].map(({ bullets, ...change }) => ({
-			...change,
-			count: bullets.length,
-			summary: makeSummary(bullets.join(' · '), SUMMARY_MAX)
-		}))
-	};
+	return { toc, images, changes: [...changes.values()] };
 }
 
 export function extractEntityChanges(content: string): EntityChange[] {

@@ -6,7 +6,7 @@
 	import { HeroRail } from '$lib/components/filter-bar';
 	import { searchParams as params } from '$lib/stores/searchParams.svelte';
 	import { useChangelogQuery } from '$lib/hooks/useChangelogQuery.svelte';
-	import { CornerAccents } from '$lib/components/ui/corner-accents';
+	import CornerAccents from '$lib/components/ui/corner-accents/CornerAccents.svelte';
 	import AlertCircle from '@lucide/svelte/icons/alert-circle';
 	import Frown from '@lucide/svelte/icons/frown';
 	import { scale, fly } from 'svelte/transition';
@@ -17,26 +17,20 @@
 	const initialLoadCount = $derived(page.data.initialLoadCount ?? 12);
 	const totalCount = $derived(page.data.totalCount ?? 0);
 
-	const queryState = useChangelogQuery({
+	const query = useChangelogQuery({
 		getInitialChangelogs: () => changelogs,
 		getInitialLoadCount: () => initialLoadCount,
 		getTotalCount: () => totalCount,
-		getFilters: () => page.data.filters ?? { hero: [], item: [], q: '' }
+		getFilters: () => page.data.filters ?? { hero: [], item: [], q: '', major: false }
 	});
 
-	const query = $derived(queryState.query);
-
-	const isFiltered = $derived(
-		params.hero.length > 0 || params.item.length > 0 || params.q.length > 0
-	);
+	const filterCount = $derived(params.activeFilterCount);
+	const isFiltered = $derived(filterCount > 0);
 
 	// All filtering (text search, hero, item) is server-side — just flatten pages
 	const allChangelogs = $derived((query.data?.pages ?? []).flatMap((p) => p.changelogs));
 
 	const hasNextPage = $derived(query.hasNextPage);
-	const filterCount = $derived(
-		params.hero.length + params.item.length + (params.q.length > 0 ? 1 : 0)
-	);
 
 	// "new since last visit": client-only high-water mark, null until a prior visit exists
 	let lastVisit = $state<number | null>(null);
@@ -73,6 +67,17 @@
 
 <main class="container mx-auto mt-8 mb-24 px-4">
 	<HeroRail />
+
+	<button
+		type="button"
+		onclick={() => params.update({ major: !params.major })}
+		aria-pressed={params.major}
+		class="clip-corner-sm mb-6 border px-3 py-1.5 font-mono text-[10px] font-bold tracking-widest uppercase transition-colors {params.major
+			? 'border-primary/60 bg-primary/15 text-primary'
+			: 'border-border text-muted-foreground hover:border-primary/40 hover:text-foreground'}"
+	>
+		Major updates only
+	</button>
 
 	{#if query.isError && !query.data}
 		<div

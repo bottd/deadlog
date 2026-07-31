@@ -1,6 +1,6 @@
 <script lang="ts">
 	import * as Avatar from '$lib/components/ui/avatar';
-	import { CornerAccents } from '$lib/components/ui/corner-accents';
+	import CornerAccents from '$lib/components/ui/corner-accents/CornerAccents.svelte';
 	import { formatDate } from '@deadlog/utils';
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
 	import Zap from '@lucide/svelte/icons/zap';
@@ -11,7 +11,7 @@
 	let patch: PatchCardProps = $props();
 
 	const view = $derived(patchCardView(patch, true));
-	const links = $derived(patchCardHrefs(patch.id));
+	const links = $derived(patchCardHrefs(patch));
 </script>
 
 <div class="group relative col-span-full mb-8 block">

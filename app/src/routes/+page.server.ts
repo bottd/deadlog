@@ -4,7 +4,6 @@ import {
 	getHeroByName,
 	getItemByName
 } from '@deadlog/scraper';
-import { redirect } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import { absoluteUrl, DEFAULT_SOCIAL_IMAGE, SITE_DESCRIPTION } from '$lib/seo';
 import {
@@ -17,16 +16,7 @@ import {
 export const prerender = false;
 
 export const load: PageServerLoad = async ({ locals, url, parent }) => {
-	const { hero, item, q, change } = parseApiParams(url);
-	if (change) {
-		const searchParams = new URLSearchParams(url.searchParams);
-		searchParams.delete('change');
-		const query = searchParams.toString();
-		throw redirect(
-			308,
-			`/change/${encodeURIComponent(change)}${query ? `?${query}` : ''}`
-		);
-	}
+	const { hero, item, q, major } = parseApiParams(url);
 
 	// Get heroes and items from layout data
 	const { heroes, items } = await parent();
@@ -40,6 +30,7 @@ export const load: PageServerLoad = async ({ locals, url, parent }) => {
 		heroIds,
 		itemIds,
 		searchQuery: q,
+		majorOnly: major,
 		limit: initialLoadLimit + 1,
 		offset: 0
 	});
@@ -49,7 +40,7 @@ export const load: PageServerLoad = async ({ locals, url, parent }) => {
 	);
 
 	const totalCount =
-		hero.length === 0 && item.length === 0 && !q
+		hero.length === 0 && item.length === 0 && !q && !major
 			? await getChangelogsCount(locals.db)
 			: initialHasMore
 				? initialLoadLimit + 1
@@ -57,13 +48,7 @@ export const load: PageServerLoad = async ({ locals, url, parent }) => {
 
 	const enriched = await enrichChangelogs(locals.db, allChangelogs);
 
-	interface PageMeta {
-		title: string;
-		description: string;
-		image: string;
-	}
-
-	let pageMeta: PageMeta = {
+	let pageMeta = {
 		title: 'Deadlock Patch Notes & Changelog | Deadlog',
 		description: SITE_DESCRIPTION,
 		image: DEFAULT_SOCIAL_IMAGE
@@ -89,24 +74,12 @@ export const load: PageServerLoad = async ({ locals, url, parent }) => {
 		}
 	}
 
-	// Get latest patch summary for hero banner
-	const latestPatch = enriched[0];
-	const latestPatchSummary = latestPatch
-		? {
-				id: latestPatch.id,
-				date: latestPatch.date,
-				heroCount: latestPatch.icons?.heroes?.length ?? 0,
-				itemCount: latestPatch.icons?.items?.length ?? 0
-			}
-		: null;
-
 	return {
 		changelogs: enriched,
-		filters: { hero, item, q },
+		filters: { hero, item, q, major },
 		totalCount,
 		initialLoadCount: initialLoadLimit,
 		lastUpdate: (enriched[0]?.date ?? new Date()).toISOString(),
-		latestPatchSummary,
 		title: pageMeta.title,
 		description: pageMeta.description,
 		image: pageMeta.image

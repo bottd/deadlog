@@ -2,7 +2,6 @@ import {
 	eq,
 	sql,
 	desc,
-	gt,
 	and,
 	or,
 	ne,
@@ -13,7 +12,7 @@ import {
 	type SQL
 } from 'drizzle-orm';
 import type { SQLiteColumn } from 'drizzle-orm/sqlite-core';
-import type { EnrichedHero, EntityIcon } from './types/deadlockApi';
+import type { EntityIcon } from './types/deadlockApi';
 import { getLibsqlDb, type DrizzleDB, type SelectChangelog, schema } from '@deadlog/db';
 import { entityNamesMatch } from '@deadlog/changelog';
 
@@ -21,26 +20,29 @@ export { getLibsqlDb as getDb };
 
 export type ScrapedChangelog = SelectChangelog;
 export type ScrapedItem = typeof schema.items.$inferSelect;
+export type EnrichedHero = typeof schema.heroes.$inferSelect;
+export type EnrichedItem = ScrapedItem;
 
 /**
- * Entity history cards render a date, an author and a teaser — never the patch body.
- * Selecting `contentText` here put the full prose of every patch into the prerendered
- * HTML of all ~200 hero/item pages, so the column list is deliberate.
+ * Entity history rows carry the entity's own scoped bullets — never the full patch
+ * body. Selecting `contentText` here put the full prose of every patch into the
+ * prerendered HTML of all ~200 hero/item pages, so the column list is deliberate.
  */
 const ENTITY_HISTORY_COLUMNS = {
 	id: schema.changelogs.id,
 	title: schema.changelogs.title,
+	slug: schema.changelogs.slug,
 	pubDate: schema.changelogs.pubDate,
-	author: schema.changelogs.author,
-	authorImage: schema.changelogs.authorImage
+	author: schema.changelogs.author
 } as const;
 
 export type EntityChangelog = Pick<
 	SelectChangelog,
 	keyof typeof ENTITY_HISTORY_COLUMNS
 > & {
+	/** Derived from changeBullets — null when the patch mentions the entity without its own section. */
 	changeCount: number | null;
-	changeSummary: string | null;
+	changeBullets: string[] | null;
 };
 
 function isMainChangelog() {
@@ -59,12 +61,12 @@ export async function getAllChangelogs(db: DrizzleDB) {
 	return db.select().from(schema.changelogs).all();
 }
 
-export async function getAllChangelogIds(db: DrizzleDB): Promise<string[]> {
-	const results = await db
-		.select({ id: schema.changelogs.id })
+export async function getAllChangelogSlugs(db: DrizzleDB): Promise<string[]> {
+	const rows = await db
+		.select({ slug: schema.changelogs.slug })
 		.from(schema.changelogs)
 		.all();
-	return results.map((r) => r.id);
+	return rows.map((r) => r.slug);
 }
 
 export async function queryChangelogs(
@@ -73,17 +75,29 @@ export async function queryChangelogs(
 		heroIds?: number[];
 		itemIds?: number[];
 		searchQuery?: string | null;
+		majorOnly?: boolean;
 		limit?: number;
 		offset?: number;
 	} = {}
 ): Promise<ScrapedChangelog[]> {
-	const { heroIds = [], itemIds = [], searchQuery, limit = 5, offset = 0 } = options;
+	const {
+		heroIds = [],
+		itemIds = [],
+		searchQuery,
+		majorOnly = false,
+		limit = 5,
+		offset = 0
+	} = options;
 
 	// Only return main changelogs (exclude child updates) for pagination to work correctly
 	const conditions = [isMainChangelog()];
 
 	if (searchQuery?.trim()) {
 		conditions.push(buildTextSearchCondition(searchQuery));
+	}
+
+	if (majorOnly) {
+		conditions.push(eq(schema.changelogs.majorUpdate, true));
 	}
 
 	// PK on (changelog_id, hero_id) guarantees uniqueness within a group,
@@ -150,39 +164,17 @@ export async function getUpdatesForChangelogs(
 		.all();
 }
 
-export async function getChangelogPosition(
-	db: DrizzleDB,
-	changelogId: string
-): Promise<number> {
-	const target = await db
-		.select()
-		.from(schema.changelogs)
-		.where(eq(schema.changelogs.id, changelogId))
-		.get();
-
-	if (!target) {
-		return 0;
-	}
-
-	const result = await db
-		.select({ count: count() })
-		.from(schema.changelogs)
-		.where(and(gt(schema.changelogs.pubDate, target.pubDate), isMainChangelog()))
-		.get();
-
-	return result?.count ?? 0;
-}
-
-export async function getChangelogById(db: DrizzleDB, id: string) {
+export async function getChangelogBySlug(db: DrizzleDB, slug: string) {
 	return (
 		(await db
 			.select()
 			.from(schema.changelogs)
-			.where(eq(schema.changelogs.id, id))
+			.where(eq(schema.changelogs.slug, slug))
 			.get()) ?? null
 	);
 }
 
+/** Build-artifact bookkeeping (built_at, patch_count); read by the integrity tests. */
 export async function getMetadata(db: DrizzleDB, key: string) {
 	const result = await db
 		.select()
@@ -301,6 +293,17 @@ export async function getReleasedItemSlugs(db: DrizzleDB): Promise<string[]> {
 	return results.map((r) => r.slug);
 }
 
+/** Newest-first main-changelog ids, for streak math against an entity's patch set. */
+export async function getMainChangelogIdSequence(db: DrizzleDB): Promise<string[]> {
+	const rows = await db
+		.select({ id: schema.changelogs.id })
+		.from(schema.changelogs)
+		.where(isMainChangelog())
+		.orderBy(desc(schema.changelogs.pubDate))
+		.all();
+	return rows.map((r) => r.id);
+}
+
 /**
  * No limit by design: the page bills itself as the canonical history and derives
  * "Patches" and "Tracked since" from these rows, so a cap silently reported the
@@ -310,11 +313,10 @@ export async function getChangelogsByHeroId(
 	db: DrizzleDB,
 	heroId: number
 ): Promise<EntityChangelog[]> {
-	return db
+	const rows = await db
 		.select({
 			...ENTITY_HISTORY_COLUMNS,
-			changeCount: schema.changelogHeroes.changeCount,
-			changeSummary: schema.changelogHeroes.changeSummary
+			changeBullets: schema.changelogHeroes.changeBullets
 		})
 		.from(schema.changelogs)
 		.innerJoin(
@@ -324,6 +326,7 @@ export async function getChangelogsByHeroId(
 		.where(eq(schema.changelogHeroes.heroId, heroId))
 		.orderBy(desc(schema.changelogs.pubDate))
 		.all();
+	return rows.map((row) => ({ ...row, changeCount: row.changeBullets?.length ?? null }));
 }
 
 /** See getChangelogsByHeroId — deliberately uncapped for the same reason. */
@@ -331,11 +334,10 @@ export async function getChangelogsByItemId(
 	db: DrizzleDB,
 	itemId: number
 ): Promise<EntityChangelog[]> {
-	return db
+	const rows = await db
 		.select({
 			...ENTITY_HISTORY_COLUMNS,
-			changeCount: schema.changelogItems.changeCount,
-			changeSummary: schema.changelogItems.changeSummary
+			changeBullets: schema.changelogItems.changeBullets
 		})
 		.from(schema.changelogs)
 		.innerJoin(
@@ -345,6 +347,7 @@ export async function getChangelogsByItemId(
 		.where(eq(schema.changelogItems.itemId, itemId))
 		.orderBy(desc(schema.changelogs.pubDate))
 		.all();
+	return rows.map((row) => ({ ...row, changeCount: row.changeBullets?.length ?? null }));
 }
 
 /**
@@ -382,17 +385,6 @@ interface ChangelogIcons {
 	items: EntityIcon[];
 }
 
-function toEntityIconItemCategory(
-	category: ScrapedItem['category']
-): EntityIcon['itemCategory'] {
-	// EntityIcon retains the deployed technical enum; translate the real shop taxonomy
-	// until its external consumers can migrate to weapon/vitality/spirit directly.
-	if (category === 'weapon') return 'weapon';
-	if (category === 'vitality') return 'ability';
-	if (category === 'spirit') return 'upgrade';
-	return undefined;
-}
-
 export async function getChangelogIcons(
 	db: DrizzleDB,
 	changelogIds: string[]
@@ -424,6 +416,7 @@ export async function getChangelogIcons(
 				Object.values(images)[0] ??
 				'',
 			alt: r.heroes.name,
+			slug: r.heroes.slug,
 			type: 'hero',
 			heroType: r.heroes.heroType
 		});
@@ -435,8 +428,9 @@ export async function getChangelogIcons(
 			id: r.items.id,
 			src: r.items.image,
 			alt: r.items.name,
+			slug: r.items.slug,
 			type: 'item',
-			itemCategory: toEntityIconItemCategory(r.items.category)
+			itemCategory: r.items.category ?? undefined
 		});
 	}
 

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { JsonLd, MetaTags } from 'svelte-meta-tags';
 	import { Changelog } from '$lib/components/changelog';
-	import { ScrollToTop } from '$lib/components/scroll-to-top';
+	import ScrollToTop from '$lib/components/scroll-to-top/ScrollToTop.svelte';
 	import type { PageData } from './$types';
 	import { searchParams as params } from '$lib/stores/searchParams.svelte';
 	import { DEFAULT_SOCIAL_IMAGE, pageMeta, SITE_NAME, SITE_URL } from '$lib/seo';

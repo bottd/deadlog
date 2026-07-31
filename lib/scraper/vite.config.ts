@@ -9,18 +9,6 @@ export default defineConfig({
 			'@deadlog/utils': resolve(__dirname, '../utils/src/index.ts')
 		}
 	},
-	build: {
-		lib: {
-			entry: resolve(__dirname, 'src/compile.ts'),
-			formats: ['es'],
-			fileName: 'compile'
-		},
-		rollupOptions: {
-			external: [/^node:/, /^@deadlog\//]
-		},
-		target: 'node20',
-		ssr: true
-	},
 	test: {
 		globals: true,
 		environment: 'node',

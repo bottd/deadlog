@@ -1,11 +1,36 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import {
 	NO_MATCH_ENTITY_ID,
 	resolveEntityIds,
 	parseApiParams,
-	splitPage
+	splitPage,
+	enrichChangelogs
 } from './changelog-utils';
 import { parseCSV } from '$lib/utils/csv';
+
+vi.mock('@deadlog/scraper', () => ({
+	getChangelogIcons: async () => ({}),
+	getUpdatesForChangelogs: async () => [
+		makeRow({ id: 'hotfix', parentChange: 'patch', contentText: 'Hotfix prose.' })
+	]
+}));
+
+function makeRow(overrides: Record<string, unknown> = {}) {
+	return {
+		id: 'patch',
+		title: 'A patch',
+		slug: '2026/01-01-patch',
+		author: 'Yoshi',
+		authorImage: '',
+		previewImage: null,
+		category: 'patch',
+		pubDate: '2026-01-01T00:00:00.000Z',
+		majorUpdate: false,
+		parentChange: null,
+		contentText: 'The full prose of the patch body.',
+		...overrides
+	};
+}
 
 // makeSummary moved to @deadlog/utils — its tests live in lib/utils/src/index.test.ts.
 
@@ -104,5 +129,22 @@ describe('parseApiParams', () => {
 		const url = new URL('http://localhost/api?q=General');
 		const params = parseApiParams(url);
 		expect(params.q).toBe('General');
+	});
+});
+
+describe('enrichChangelogs', () => {
+	// Cards render the summary only, but the load functions serialize whatever comes
+	// back into the page payload — contentText leaking here ships the whole patch body
+	// to every client.
+	it('summarizes contentText without passing it through', async () => {
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
+		const [entry] = await enrichChangelogs({} as any, [makeRow() as any]);
+
+		expect(entry.summary).toBe('The full prose of the patch body.');
+		expect(entry).not.toHaveProperty('contentText');
+
+		const [update] = entry.updates ?? [];
+		expect(update.summary).toBe('Hotfix prose.');
+		expect(update).not.toHaveProperty('contentText');
 	});
 });

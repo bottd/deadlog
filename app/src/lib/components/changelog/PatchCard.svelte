@@ -1,6 +1,6 @@
 <script lang="ts">
 	import * as Avatar from '$lib/components/ui/avatar';
-	import { CornerAccents } from '$lib/components/ui/corner-accents';
+	import CornerAccents from '$lib/components/ui/corner-accents/CornerAccents.svelte';
 	import { formatDate } from '@deadlog/utils';
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
 	import Calendar from '@lucide/svelte/icons/calendar';
@@ -11,7 +11,7 @@
 	let { isNew = false, ...patch }: PatchCardProps & { isNew?: boolean } = $props();
 
 	const view = $derived(patchCardView(patch));
-	const links = $derived(patchCardHrefs(patch.id));
+	const links = $derived(patchCardHrefs(patch));
 	// ponytail: MAJOR is the only reliable tier — `category` is uniformly "patch"
 	// and entity count is a poor signal for "small patch", so no HOTFIX tier.
 	const isMajor = $derived(!!patch.majorUpdate);

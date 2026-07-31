@@ -1,5 +1,6 @@
 import { getContext, setContext } from 'svelte';
 import { entityNamesMatch, plural } from '@deadlog/utils';
+import { changePath } from '$lib/seo';
 
 /** Re-exported so changelog components keep one import site for entity helpers. */
 export { entityFragmentId } from '@deadlog/utils';
@@ -7,7 +8,6 @@ export { entityFragmentId } from '@deadlog/utils';
 export interface EntityMaps {
 	heroMap: Record<number, { name: string; slug: string; images: Record<string, string> }>;
 	itemMap: Record<number, { name: string; slug: string; image: string }>;
-	abilityMap: Record<string, { name: string; image: string; heroName: string }>;
 }
 
 export interface EntityFilterContext {
@@ -58,9 +58,17 @@ export function resolveEntity(
 	return undefined;
 }
 
-export function entityPatchHref(patchId: string, entity: EntityFilterContext): string {
+export function entityPatchHref(
+	patch: { slug: string },
+	entity: EntityFilterContext
+): string {
 	const search = new URLSearchParams({ [entity.type]: entity.name });
-	return `/change/${encodeURIComponent(patchId)}?${search.toString()}`;
+	return `${changePath(patch)}?${search.toString()}`;
+}
+
+/** History-page URL for an entity, e.g. `/hero/abrams`. */
+export function entityHistoryHref(type: 'hero' | 'item', slug: string): string {
+	return `/${type}/${slug}`;
 }
 
 /** One wording for a patch's per-entity change count, shared by the card and the timeline. */

@@ -7,10 +7,9 @@ interface ItemLayoutProps {
 	name: string;
 	type: string;
 	image: string;
-	changePreview?: string;
 }
 
-export function ItemLayout({ name, type, image, changePreview }: ItemLayoutProps) {
+export function ItemLayout({ name, type, image }: ItemLayoutProps) {
 	return (
 		<LayoutContainer>
 			<Header />
@@ -71,30 +70,6 @@ export function ItemLayout({ name, type, image, changePreview }: ItemLayoutProps
 					>
 						{type}
 					</div>
-					{changePreview && (
-						<div
-							style={{
-								display: 'flex',
-								flexDirection: 'column',
-								gap: '16px',
-								marginBottom: '40px',
-								overflow: 'hidden'
-							}}
-						>
-							{changePreview.split('\n').map((line, idx) => (
-								<div
-									key={idx}
-									style={{
-										fontSize: Theme.font.md,
-										color: Theme.colors.textPrimary,
-										lineHeight: 1.5
-									}}
-								>
-									{line}
-								</div>
-							))}
-						</div>
-					)}
 				</div>
 			</div>
 		</LayoutContainer>

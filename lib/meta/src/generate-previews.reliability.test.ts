@@ -12,7 +12,6 @@ const mocks = vi.hoisted(() => ({
 	getChangelogIcons: vi.fn(),
 	getDb: vi.fn(),
 	fromJsx: vi.fn(),
-	getRenderer: vi.fn(),
 	fetchImageAsDataUri: vi.fn(),
 	render: vi.fn()
 }));
@@ -34,7 +33,7 @@ vi.mock('@takumi-rs/helpers/jsx', () => ({
 }));
 
 vi.mock('./renderer', () => ({
-	getRenderer: mocks.getRenderer,
+	renderer: { render: mocks.render },
 	fetchImageAsDataUri: mocks.fetchImageAsDataUri
 }));
 
@@ -64,7 +63,6 @@ describe('preview generation reliability', () => {
 			stylesheets: ['body { margin: 0; }']
 		});
 		mocks.render.mockResolvedValue(Buffer.from('rendered image'));
-		mocks.getRenderer.mockResolvedValue({ render: mocks.render });
 		mocks.fetchImageAsDataUri.mockResolvedValue('data:image/png;base64,AA==');
 		vi.spyOn(console, 'log').mockImplementation(() => undefined);
 		vi.spyOn(console, 'error').mockImplementation(() => undefined);

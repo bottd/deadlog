@@ -6,9 +6,6 @@
 	"scripts": {
 		"test": "vitest run --config vite.config.ts"
 	},
-	"exports": {
-		".": "./src/index.ts"
-	},
 	"dependencies": {
 		"@deadlog/db": "workspace:*",
 		"@deadlog/scraper": "workspace:*"

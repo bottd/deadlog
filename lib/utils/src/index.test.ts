@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
 	DISPLAY_TIME_ZONE,
 	abilityFragmentId,
+	computeStreaks,
 	escapeMogDelimiters,
 	formatDate,
 	formatTime,
@@ -86,6 +87,32 @@ describe('makeSummary', () => {
 		expect(out.length).toBeLessThanOrEqual(21); // <= max + ellipsis
 		expect(out).not.toContain('  ');
 		expect(text.startsWith(out.slice(0, -1))).toBe(true); // prefix of the source
+	});
+});
+
+describe('computeStreaks', () => {
+	const seq = ['e', 'd', 'c', 'b', 'a']; // newest first
+
+	it('returns zeros for an entity with no patches', () => {
+		expect(computeStreaks(seq, new Set())).toEqual({ current: 0, longest: 0 });
+	});
+
+	it('counts a current streak from the newest patch', () => {
+		expect(computeStreaks(seq, new Set(['e', 'd', 'b']))).toEqual({
+			current: 2,
+			longest: 2
+		});
+	});
+
+	it('reports zero current when the newest patch was missed', () => {
+		expect(computeStreaks(seq, new Set(['d', 'c', 'b']))).toEqual({
+			current: 0,
+			longest: 3
+		});
+	});
+
+	it('handles a full-sequence run', () => {
+		expect(computeStreaks(seq, new Set(seq))).toEqual({ current: 5, longest: 5 });
 	});
 });
 

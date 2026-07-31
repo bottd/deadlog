@@ -1,8 +1,10 @@
 import {
 	getReleasedItemSlugs,
 	getItemBySlug,
-	getChangelogsByItemId
+	getChangelogsByItemId,
+	getMainChangelogIdSequence
 } from '@deadlog/scraper';
+import { computeStreaks } from '@deadlog/utils';
 import { error, redirect } from '@sveltejs/kit';
 import type { PageServerLoad, EntryGenerator } from './$types';
 import { absoluteUrl } from '$lib/seo';
@@ -24,7 +26,10 @@ export const load: PageServerLoad = async ({ params, locals }) => {
 	}
 	if (item.slug !== params.slug) redirect(308, `/item/${item.slug}`);
 
-	const changelogs = await getChangelogsByItemId(locals.db, item.id);
+	const [changelogs, patchSequence] = await Promise.all([
+		getChangelogsByItemId(locals.db, item.id),
+		getMainChangelogIdSequence(locals.db)
+	]);
 
 	const enrichedChangelogs = changelogs.map((changelog) => ({
 		...changelog,
@@ -34,6 +39,7 @@ export const load: PageServerLoad = async ({ params, locals }) => {
 	return {
 		item,
 		changelogs: enrichedChangelogs,
+		streaks: computeStreaks(patchSequence, new Set(changelogs.map((c) => c.id))),
 		title: `${item.name} Deadlock Changes: Buffs & Nerfs | Deadlog`,
 		description: `Track every ${item.name} buff, nerf, and balance change across Deadlock patch notes in chronological order.`,
 		image: absoluteUrl(`/assets/meta/item/${params.slug}.png`)

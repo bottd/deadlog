@@ -1,12 +1,10 @@
 export {
 	queryChangelogs,
 	getAllChangelogs,
-	getAllChangelogIds,
+	getAllChangelogSlugs,
 	getChangelogsCount,
-	getChangelogPosition,
-	getChangelogById,
+	getChangelogBySlug,
 	getUpdatesForChangelogs,
-	getMetadata,
 	getAllHeroes,
 	getAllItems,
 	getHeroByName,
@@ -17,22 +15,16 @@ export {
 	getReleasedItemSlugs,
 	getChangelogsByHeroId,
 	getChangelogsByItemId,
+	getMainChangelogIdSequence,
 	getHeroLastModified,
 	getItemLastModified,
 	getChangelogIcons,
 	type ScrapedChangelog,
 	type EntityChangelog,
-	type ScrapedItem
+	type ScrapedItem,
+	type EnrichedHero,
+	type EnrichedItem
 } from './queries';
 
 export { formatDate, formatTime } from '@deadlog/utils';
-export { entityNameAliases, entityNamesMatch } from '@deadlog/changelog';
-export type {
-	HeroId,
-	ItemId,
-	EnrichedHero,
-	EnrichedItem,
-	EntityType,
-	EntityIcon
-} from './types/deadlockApi';
-export { ENTITY_TYPES } from './types/deadlockApi';
+export type { EntityType, EntityIcon } from './types/deadlockApi';

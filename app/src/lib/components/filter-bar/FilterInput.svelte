@@ -5,17 +5,12 @@
 	import XIcon from '@lucide/svelte/icons/x';
 	import FilterIcon from '@lucide/svelte/icons/filter';
 	import * as Command from '$lib/components/ui/command';
-	import * as ToggleGroup from '$lib/components/ui/toggle-group';
 	import * as Sheet from '$lib/components/ui/sheet';
-	import { Button } from '$lib/components/ui/button';
+	import Button from '$lib/components/ui/button/button.svelte';
 	import FilterBadge from './FilterBadge.svelte';
 	import EntityItem from './EntityItem.svelte';
 	import type { EnrichedHero, EnrichedItem } from '$lib/types';
 	import { searchParams as params } from '$lib/stores/searchParams.svelte';
-	import {
-		getSelectedHeroObjects,
-		getSelectedItemObjects
-	} from '$lib/utils/selectedEntities.svelte';
 	import { getHeroImage, getItemImage } from '$lib/utils/entityImages';
 	import { FilterState } from './filterState.svelte';
 
@@ -24,11 +19,17 @@
 	const MOBILE_LIST_ID = 'mobile-filter-options';
 	const MAX_OPTIONS = 60;
 
-	const selectedHeroObjects = $derived(getSelectedHeroObjects());
-	const selectedItemObjects = $derived(getSelectedItemObjects());
-	const filterCount = $derived(
-		selectedHeroObjects.length + selectedItemObjects.length + (params.q ? 1 : 0)
+	const selectedHeroObjects = $derived(
+		((page.data.heroes ?? []) as EnrichedHero[]).filter((hero) =>
+			params.hero.includes(hero.name)
+		)
 	);
+	const selectedItemObjects = $derived(
+		((page.data.items ?? []) as EnrichedItem[]).filter((item) =>
+			params.item.includes(item.name)
+		)
+	);
+	const filterCount = $derived(params.activeFilterCount);
 
 	const filterState = new FilterState(
 		() => page.data.heroes ?? [],
@@ -49,10 +50,7 @@
 		return 'Search heroes, items, or keywords...';
 	});
 
-	const availableOptionCount = $derived.by(() => {
-		if (filterState.filterMode === 'all') return filterState.mergedList.length;
-		return filterState.filteredHeroes.length + filterState.filteredItems.length;
-	});
+	const availableOptionCount = $derived(filterState.mergedList.length);
 
 	afterNavigate(({ to }) => {
 		filterState.syncSearch(to?.url.searchParams.get('q') ?? '');
@@ -126,20 +124,6 @@
 {/snippet}
 
 {#snippet filterContent(listId: string, optionPrefix: 'desktop' | 'mobile')}
-	<div class="border-border flex border-b p-2">
-		<ToggleGroup.Root
-			type="single"
-			bind:value={filterState.filterMode}
-			class="w-full"
-			aria-label="Filter entity type"
-			onkeydown={(event) => event.stopPropagation()}
-		>
-			<ToggleGroup.Item value="all" class="flex-1 text-xs">All</ToggleGroup.Item>
-			<ToggleGroup.Item value="heroes" class="flex-1 text-xs">Heroes</ToggleGroup.Item>
-			<ToggleGroup.Item value="items" class="flex-1 text-xs">Items</ToggleGroup.Item>
-		</ToggleGroup.Root>
-	</div>
-
 	<Command.List
 		id={listId}
 		aria-label="Available hero and item filters"
@@ -150,7 +134,7 @@
 			<Command.Empty class="text-muted-foreground py-6 text-center text-sm">
 				No entity matches. Submit to search the changelog for this keyword.
 			</Command.Empty>
-		{:else if filterState.filterMode === 'all'}
+		{:else}
 			<Command.Group heading="Heroes and items">
 				{#each filterState.mergedList.slice(0, MAX_OPTIONS) as entity (entity.type === 'hero' ? `hero-${entity.data.id}` : `item-${entity.data.id}`)}
 					{@const value = `${entity.type}-${entity.data.id}`}
@@ -170,38 +154,6 @@
 					/>
 				{/each}
 			</Command.Group>
-		{:else}
-			{#if filterState.filteredHeroes.length > 0}
-				<Command.Group heading="Heroes">
-					{#each filterState.filteredHeroes.slice(0, MAX_OPTIONS) as hero (hero.id)}
-						<EntityItem
-							id={`${optionPrefix}-option-hero-${hero.id}`}
-							value={`hero-${hero.id}`}
-							name={hero.name}
-							imageSrc={getHeroImage(hero)}
-							isSelected={filterState.isHeroSelected(hero.name)}
-							colorClass="hero"
-							onSelect={() => filterState.selectHero(hero.id)}
-						/>
-					{/each}
-				</Command.Group>
-			{/if}
-
-			{#if filterState.filteredItems.length > 0}
-				<Command.Group heading="Items">
-					{#each filterState.filteredItems.slice(0, MAX_OPTIONS) as item (item.id)}
-						<EntityItem
-							id={`${optionPrefix}-option-item-${item.id}`}
-							value={`item-${item.id}`}
-							name={item.name}
-							imageSrc={getItemImage(item)}
-							isSelected={filterState.isItemSelected(item.name)}
-							colorClass="item"
-							onSelect={() => filterState.selectItem(item.id)}
-						/>
-					{/each}
-				</Command.Group>
-			{/if}
 		{/if}
 	</Command.List>
 

@@ -46,6 +46,7 @@
 	{entity}
 	{accent}
 	{changelogs}
+	streaks={data.streaks}
 	label={hero.heroType ? `${hero.heroType} hero` : 'Hero profile'}
 	lede="Canonical patch history for {hero.name}, with entity-specific changes separated from the rest of each update."
 />

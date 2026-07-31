@@ -1,7 +1,10 @@
 import { createInfiniteQuery, useQueryClient } from '@tanstack/svelte-query';
 import type { ChangelogEntry } from '$lib/types';
-import { queryKeys } from '$lib/queries/keys';
-import { toCSV } from '$lib/utils/csv';
+import {
+	changelogsListKey,
+	filtersToSearchParams,
+	type ChangelogFilters
+} from '$lib/queries/keys';
 
 interface PageData {
 	changelogs: ChangelogEntry[];
@@ -17,7 +20,7 @@ interface UseChangelogQueryOptions {
 	getInitialChangelogs: () => ChangelogEntry[];
 	getInitialLoadCount: () => number;
 	getTotalCount: () => number;
-	getFilters: () => { hero: string[]; item: string[]; q: string };
+	getFilters: () => Required<Omit<ChangelogFilters, 'initialCount'>>;
 }
 
 const PAGE_SIZE = 12;
@@ -25,12 +28,14 @@ const PAGE_SIZE = 12;
 export function useChangelogQuery(options: UseChangelogQueryOptions) {
 	const queryClient = useQueryClient();
 
+	// Not redundant with initialData below: initialData only seeds a missing cache
+	// entry, while this refreshes an existing one when navigation brings newer SSR data.
 	$effect(() => {
 		const changelogs = options.getInitialChangelogs();
 		const initialCount = options.getInitialLoadCount();
 		const filters = options.getFilters();
 		queryClient.setQueryData<InfiniteData>(
-			queryKeys.changelogsList({ ...filters, initialCount }),
+			changelogsListKey({ ...filters, initialCount }),
 			{
 				pages: [
 					{
@@ -43,19 +48,19 @@ export function useChangelogQuery(options: UseChangelogQueryOptions) {
 		);
 	});
 
-	const query = createInfiniteQuery<
+	return createInfiniteQuery<
 		PageData,
 		Error,
 		InfiniteData,
-		ReturnType<typeof queryKeys.changelogsList>,
+		ReturnType<typeof changelogsListKey>,
 		number
 	>(() => {
 		const initialChangelogs = options.getInitialChangelogs();
 		const initialCount = options.getInitialLoadCount();
-		const { hero, item, q } = options.getFilters();
+		const { hero, item, q, major } = options.getFilters();
 
 		return {
-			queryKey: queryKeys.changelogsList({ hero, item, q, initialCount }),
+			queryKey: changelogsListKey({ hero, item, q, major, initialCount }),
 			initialData: {
 				pages: [
 					{
@@ -68,10 +73,7 @@ export function useChangelogQuery(options: UseChangelogQueryOptions) {
 			queryFn: async ({ pageParam }) => {
 				const limit = pageParam === 0 ? initialCount : PAGE_SIZE;
 				const offset = pageParam === 0 ? 0 : initialCount + (pageParam - 1) * PAGE_SIZE;
-				const searchParams = new URLSearchParams();
-				if (hero.length > 0) searchParams.set('hero', toCSV(hero));
-				if (item.length > 0) searchParams.set('item', toCSV(item));
-				if (q) searchParams.set('q', q);
+				const searchParams = filtersToSearchParams({ hero, item, q, major });
 				searchParams.set('limit', String(limit));
 				searchParams.set('offset', String(offset));
 
@@ -88,10 +90,4 @@ export function useChangelogQuery(options: UseChangelogQueryOptions) {
 			initialPageParam: 0
 		};
 	});
-
-	return {
-		get query() {
-			return query;
-		}
-	};
 }

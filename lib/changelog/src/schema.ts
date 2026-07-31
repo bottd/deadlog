@@ -23,9 +23,8 @@ export interface ChangelogEntities {
 export interface EntityChange {
 	name: string;
 	type: 'hero' | 'item';
-	count: number;
-	/** Teaser built from this entity's own bullets, for entity-page patch cards. */
-	summary: string;
+	/** The entity's own bullet lines, ability-prefixed where the text needs it. */
+	bullets: string[];
 }
 
 export interface ParsedChangelog {

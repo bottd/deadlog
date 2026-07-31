@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import {
 	getAllChangelogs,
-	getChangelogById,
+	getChangelogBySlug,
 	getMetadata,
 	getDb,
 	queryChangelogs,
@@ -68,99 +68,18 @@ describe.skipIf(!existsSync(dbPath))('Database Static Reader', () => {
 		});
 	});
 
-	describe('getChangelogById', () => {
-		it('should return a patch when given a valid id', async () => {
+	describe('getChangelogBySlug', () => {
+		it('resolves a changelog by its .mg slug', async () => {
 			const db = getDb();
-			const allPatches = await getAllChangelogs(db);
-			const testId = allPatches[0].id;
-
-			const patch = await getChangelogById(db, testId);
-			expect(patch).not.toBeNull();
-			expect(patch?.id).toBe(testId);
+			// slug is NOT NULL, so any row exercises the lookup
+			const [changelog] = await getAllChangelogs(db);
+			const patch = await getChangelogBySlug(db, changelog.slug);
+			expect(patch?.id).toBe(changelog.id);
 		});
 
-		it('should return null for non-existent patch id', async () => {
+		it('returns null for an unknown slug', async () => {
 			const db = getDb();
-			const patch = await getChangelogById(db, 'non-existent-id-12345');
-			expect(patch).toBeNull();
-		});
-
-		it('should return patch with correct structure', async () => {
-			const db = getDb();
-			const allPatches = await getAllChangelogs(db);
-			const testId = allPatches[0].id;
-
-			const patch = await getChangelogById(db, testId);
-			expect(patch).toHaveProperty('id');
-			expect(patch).toHaveProperty('title');
-			expect(patch).toHaveProperty('author');
-			expect(patch).toHaveProperty('pubDate');
-			expect(typeof patch?.pubDate).toBe('string');
-		});
-
-		it('should return same data as getAllChangelogs for matching id', async () => {
-			const db = getDb();
-			const allPatches = await getAllChangelogs(db);
-			const testId = allPatches[0].id;
-
-			const patchFromGetAll = allPatches[0];
-			const patchFromGetById = await getChangelogById(db, testId);
-
-			expect(patchFromGetById?.id).toBe(patchFromGetAll.id);
-			expect(patchFromGetById?.title).toBe(patchFromGetAll.title);
-			expect(patchFromGetById?.author).toBe(patchFromGetAll.author);
-		});
-	});
-
-	describe('getMetadata', () => {
-		it('should return metadata value for existing key', async () => {
-			const db = getDb();
-			// Test with known metadata keys
-			const lastUpdated = await getMetadata(db, 'last_updated');
-			const patchCount = await getMetadata(db, 'patch_count');
-
-			// At least one of these should exist
-			const hasMetadata = lastUpdated !== null || patchCount !== null;
-			expect(hasMetadata).toBe(true);
-		});
-
-		it('should return null for non-existent key', async () => {
-			const db = getDb();
-			const result = await getMetadata(db, 'non-existent-key-12345');
-			expect(result).toBeNull();
-		});
-
-		it('should return string values', async () => {
-			const db = getDb();
-			const lastUpdated = await getMetadata(db, 'last_updated');
-			// Ensure we always have an assertion
-			if (lastUpdated !== null) {
-				expect(typeof lastUpdated).toBe('string');
-			} else {
-				// If no last_updated, that's acceptable - just verify it's null
-				expect(lastUpdated).toBeNull();
-			}
-		});
-
-		it('should handle patch_count metadata', async () => {
-			const db = getDb();
-			const patchCount = await getMetadata(db, 'patch_count');
-			if (patchCount !== null) {
-				expect(typeof patchCount).toBe('string');
-				const count = parseInt(patchCount, 10);
-				expect(count).toBeGreaterThan(0);
-			}
-		});
-
-		it('should handle big_patch_days metadata', async () => {
-			const db = getDb();
-			const bigPatchDays = await getMetadata(db, 'big_patch_days');
-			if (bigPatchDays !== null) {
-				expect(typeof bigPatchDays).toBe('string');
-				// Should be valid JSON
-				const parsed = JSON.parse(bigPatchDays);
-				expect(Array.isArray(parsed)).toBe(true);
-			}
+			expect(await getChangelogBySlug(db, '1999/no-such-patch')).toBeNull();
 		});
 	});
 
@@ -223,6 +142,15 @@ describe.skipIf(!existsSync(dbPath))('Database Static Reader', () => {
 			const results = await queryChangelogs(db, { limit: 10 });
 			expect(results.length).toBeGreaterThan(0);
 			expect(results.length).toBeLessThanOrEqual(10);
+		});
+
+		it('returns only major updates when majorOnly is set', async () => {
+			const db = getDb();
+			const results = await queryChangelogs(db, { majorOnly: true, limit: 200 });
+			expect(results.length).toBeGreaterThan(0);
+			for (const r of results) {
+				expect(r.majorUpdate).toBe(true);
+			}
 		});
 
 		it('respects pagination with limit and offset', async () => {

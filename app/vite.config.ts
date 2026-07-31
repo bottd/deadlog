@@ -61,7 +61,6 @@ export default defineConfig({
 			'@deadlog/changelog',
 			'@deadlog/scraper',
 			'@deadlog/db',
-			'@deadlog/meta',
 			'@deadlog/utils',
 			'runed',
 			'@lucide/svelte',
@@ -70,7 +69,6 @@ export default defineConfig({
 			'@tanstack/svelte-query',
 			/^@floating-ui/,
 			'nanoid',
-			'mode-watcher',
 			'svelte-sonner'
 		]
 	},

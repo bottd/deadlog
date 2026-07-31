@@ -2,15 +2,19 @@ export interface ChangelogFilters {
 	hero?: string[];
 	item?: string[];
 	q?: string;
+	major?: boolean;
 	initialCount?: number;
 }
 
-export const queryKeys = {
-	all: ['deadlog'] as const,
+/** One encoding for the filter set — shared by the URL store and the API fetch. */
+export function filtersToSearchParams(filters: ChangelogFilters): URLSearchParams {
+	const params = new URLSearchParams();
+	if (filters.hero?.length) params.set('hero', filters.hero.join(','));
+	if (filters.item?.length) params.set('item', filters.item.join(','));
+	if (filters.q) params.set('q', filters.q);
+	if (filters.major) params.set('major', 'true');
+	return params;
+}
 
-	changelogs: () => [...queryKeys.all, 'changelogs'] as const,
-	changelogsList: (filters: ChangelogFilters = {}) =>
-		[...queryKeys.changelogs(), 'list', filters] as const
-};
-
-export type QueryKeys = typeof queryKeys;
+export const changelogsListKey = (filters: ChangelogFilters = {}) =>
+	['deadlog', 'changelogs', 'list', filters] as const;

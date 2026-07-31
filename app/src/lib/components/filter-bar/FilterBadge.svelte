@@ -1,6 +1,6 @@
 <script lang="ts">
 	import XIcon from '@lucide/svelte/icons/x';
-	import { Badge } from '$lib/components/ui/badge';
+	import Badge from '$lib/components/ui/badge/badge.svelte';
 
 	interface Props {
 		name: string;

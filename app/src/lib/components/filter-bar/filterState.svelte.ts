@@ -2,14 +2,11 @@ import { searchParams } from '$lib/stores/searchParams.svelte';
 import type { EnrichedHero, EnrichedItem } from '$lib/types';
 import { toggleArray } from '$lib/utils/toggle';
 
-export type FilterMode = 'all' | 'heroes' | 'items';
-
 export type MergedEntity =
 	| { type: 'hero'; data: EnrichedHero; isSelected: boolean }
 	| { type: 'item'; data: EnrichedItem; isSelected: boolean };
 
 export class FilterState {
-	filterMode = $state<FilterMode>('all');
 	inputValue = $state('');
 
 	#params = searchParams;
@@ -22,56 +19,32 @@ export class FilterState {
 		this.inputValue = this.#params.q;
 	}
 
-	filteredHeroes = $derived.by(() => {
-		return this.#getHeroes()
-			.filter((hero) => {
-				if (!hero.isReleased) return false;
-				if (this.filterMode === 'items') return false;
-				if (!this.inputValue) return true;
-				return hero.name.toLowerCase().includes(this.inputValue.toLowerCase());
-			})
-			.sort((a, b) => {
-				const aSelected = this.#params.hero.includes(a.name);
-				const bSelected = this.#params.hero.includes(b.name);
-				if (aSelected && !bSelected) return -1;
-				if (!aSelected && bSelected) return 1;
-				return a.name.localeCompare(b.name);
-			});
-	});
-
-	filteredItems = $derived.by(() => {
-		return this.#getItems()
-			.filter((item) => {
-				if (this.filterMode === 'heroes') return false;
-				if (!item.name || item.name.trim() === '' || item.name.includes('_'))
-					return false;
-				if (!item.isReleased) return false;
-				if (!this.inputValue) return true;
-				return item.name.toLowerCase().includes(this.inputValue.toLowerCase());
-			})
-			.sort((a, b) => {
-				const aSelected = this.#params.item.includes(a.name);
-				const bSelected = this.#params.item.includes(b.name);
-				if (aSelected && !bSelected) return -1;
-				if (!aSelected && bSelected) return 1;
-				return a.name.localeCompare(b.name);
-			});
-	});
+	#matchesInput(name: string): boolean {
+		return !this.inputValue || name.toLowerCase().includes(this.inputValue.toLowerCase());
+	}
 
 	mergedList = $derived.by((): MergedEntity[] => {
-		if (this.filterMode !== 'all') return [];
+		const heroes: MergedEntity[] = this.#getHeroes()
+			.filter((hero) => hero.isReleased && this.#matchesInput(hero.name))
+			.map((hero) => ({
+				type: 'hero',
+				data: hero,
+				isSelected: this.#params.hero.includes(hero.name)
+			}));
 
-		const heroes: MergedEntity[] = this.filteredHeroes.map((hero) => ({
-			type: 'hero',
-			data: hero,
-			isSelected: this.#params.hero.includes(hero.name)
-		}));
-
-		const items: MergedEntity[] = this.filteredItems.map((item) => ({
-			type: 'item',
-			data: item,
-			isSelected: this.#params.item.includes(item.name)
-		}));
+		const items: MergedEntity[] = this.#getItems()
+			.filter(
+				(item) =>
+					item.isReleased &&
+					item.name.trim() !== '' &&
+					!item.name.includes('_') &&
+					this.#matchesInput(item.name)
+			)
+			.map((item) => ({
+				type: 'item',
+				data: item,
+				isSelected: this.#params.item.includes(item.name)
+			}));
 
 		return [...heroes, ...items].sort((a, b) => {
 			if (a.isSelected && !b.isSelected) return -1;
@@ -79,14 +52,6 @@ export class FilterState {
 			return a.data.name.localeCompare(b.data.name);
 		});
 	});
-
-	isHeroSelected(heroName: string): boolean {
-		return this.#params.hero.includes(heroName);
-	}
-
-	isItemSelected(itemName: string): boolean {
-		return this.#params.item.includes(itemName);
-	}
 
 	selectHero(heroId: number) {
 		const hero = this.#getHeroes().find((h) => h.id === heroId);

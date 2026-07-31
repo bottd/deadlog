@@ -6,15 +6,23 @@
 	import type { EntityIcon } from '$lib/types';
 	import * as Avatar from '$lib/components/ui/avatar';
 	import * as Sheet from '$lib/components/ui/sheet';
-	import { Button } from '$lib/components/ui/button';
+	import Button from '$lib/components/ui/button/button.svelte';
 	import { entityNamesMatch, formatDate, formatTime } from '@deadlog/utils';
-	import { CornerAccents } from '$lib/components/ui/corner-accents';
+	import CornerAccents from '$lib/components/ui/corner-accents/CornerAccents.svelte';
 	import ArrowLeft from '@lucide/svelte/icons/arrow-left';
 	import Link from '@lucide/svelte/icons/link';
 	import ListIcon from '@lucide/svelte/icons/list';
 	import { toast } from 'svelte-sonner';
 	import { JsonLd, MetaTags } from 'svelte-meta-tags';
-	import { absoluteUrl, breadcrumbList, pageMeta, SITE_NAME, SITE_URL } from '$lib/seo';
+	import {
+		absoluteUrl,
+		breadcrumbList,
+		changePath,
+		pageMeta,
+		SITE_NAME,
+		SITE_URL
+	} from '$lib/seo';
+
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();
@@ -22,13 +30,12 @@
 	const changelog = $derived(data.changelog);
 	const heroMap = $derived(data.heroMap);
 	const itemMap = $derived(data.itemMap);
-	const abilityMap = $derived(data.abilityMap);
 	const title = $derived(data.title);
 	const description = $derived(data.description);
 	const image = $derived(data.image);
 	const isIndexable = $derived(data.isIndexable);
 	const MogComponent = $derived(data.MogComponent);
-	const mogSections = $derived(data.mogSections ?? []);
+	const mogToc = $derived(data.mogToc ?? []);
 
 	let tocOpen = $state(false);
 
@@ -70,8 +77,12 @@
 
 	const heroCount = $derived(tocHeroes.length);
 	const itemCount = $derived(tocItems.length);
-	const hideGeneral = $derived(!!mogFilter || !mogSections.includes('general-changes'));
-	const canonical = $derived(absoluteUrl(`/change/${encodeURIComponent(changelog.id)}`));
+
+	const hideGeneral = $derived(
+		!!mogFilter || !mogToc.some((s) => s.id === 'general-changes')
+	);
+	const patchPath = $derived(changePath(changelog));
+	const canonical = $derived(absoluteUrl(patchPath));
 	const publishedTime = $derived(changelog.date.toISOString());
 	const structuredData = $derived.by(() => {
 		const entities = [...allHeroes, ...allItems].map((entity) => ({
@@ -118,7 +129,7 @@
 				// Google's structured-data validator flags as a duplicate ListItem.
 				breadcrumbList([
 					{ name: SITE_NAME, path: '/' },
-					{ name: changelog.title, path: `/change/${encodeURIComponent(changelog.id)}` }
+					{ name: changelog.title, path: patchPath }
 				])
 			]
 		};
@@ -183,7 +194,7 @@
 				</span>
 			{/if}
 			<a
-				href="/change/{encodeURIComponent(changelog.id)}"
+				href={patchPath}
 				class="text-signal ml-auto font-mono text-xs font-semibold hover:underline"
 			>
 				Show all changes
@@ -195,7 +206,7 @@
 		{#if MogComponent && changelog.icons}
 			<aside class="hidden w-56 shrink-0 xl:block">
 				<div class="sticky top-[12rem]">
-					<ChangelogToc heroes={tocHeroes} items={tocItems} {hideGeneral} />
+					<ChangelogToc heroes={tocHeroes} items={tocItems} toc={mogToc} {hideGeneral} />
 				</div>
 			</aside>
 		{/if}
@@ -299,13 +310,7 @@
 				</header>
 
 				{#if MogComponent}
-					<MogContent
-						content={MogComponent}
-						{heroMap}
-						{itemMap}
-						{abilityMap}
-						filter={mogFilter}
-					/>
+					<MogContent content={MogComponent} {heroMap} {itemMap} filter={mogFilter} />
 				{/if}
 			</div>
 		</article>
@@ -331,6 +336,7 @@
 				<ChangelogToc
 					heroes={tocHeroes}
 					items={tocItems}
+					toc={mogToc}
 					{hideGeneral}
 					onnavigate={() => (tocOpen = false)}
 					size="lg"

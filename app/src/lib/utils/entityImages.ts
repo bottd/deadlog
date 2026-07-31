@@ -31,5 +31,5 @@ export function getHeroCardImage(hero: EnrichedHero): string {
 }
 
 export function getItemImage(item: EnrichedItem): string {
-	return item.shopImage ?? item.image;
+	return item.image;
 }

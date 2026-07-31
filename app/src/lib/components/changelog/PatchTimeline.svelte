@@ -9,6 +9,7 @@
 
 	interface Patch {
 		id: string;
+		slug: string;
 		date: Date;
 		changeCount: number | null;
 	}
@@ -21,16 +22,10 @@
 	interface Props {
 		patches: Patch[];
 		entity: EntityFilterContext;
-		class?: string;
 		accent?: string;
 	}
 
-	let {
-		patches,
-		entity,
-		class: className = '',
-		accent = 'var(--signal)'
-	}: Props = $props();
+	let { patches, entity, accent = 'var(--signal)' }: Props = $props();
 
 	const sortedPatches = $derived(
 		[...patches].sort((a, b) => a.date.getTime() - b.date.getTime())
@@ -82,7 +77,7 @@
 					{#snippet child({ props })}
 						<a
 							{...props}
-							href={entityPatchHref(patch.id, entity)}
+							href={entityPatchHref(patch, entity)}
 							class="focus-visible:ring-ring relative z-10 flex size-6 shrink-0 items-center justify-center rounded-full transition-transform hover:scale-110 focus-visible:ring-2 focus-visible:outline-none"
 							aria-label="View {entity.name} in the {formatDate(
 								patch.date
@@ -108,7 +103,7 @@
 {#if sortedPatches.length > 1}
 	<Tooltip.Provider>
 		<div
-			class="flex w-full flex-col gap-2 {className}"
+			class="flex w-full flex-col gap-2"
 			role="group"
 			aria-label="Patch timeline for {entity.name}"
 		>
