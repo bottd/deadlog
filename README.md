@@ -4,21 +4,21 @@ A changelog site for Deadlock
 
 ## Tech Stack
 
-- SvelteKit
-- Tailwind CSS
-- TypeScript
 - Drizzle ORM
   - SQLite (`@libsql/client`)
   - Cloudflare D1 (`drizzle-orm/d1`)
+- PNPM
+- SvelteKit
+- Tailwind CSS
+- TypeScript
 - Playwright
-- NX
 - [Deadlock API](https://deadlock-api.com)
 
 ## Development
 
 ### Project Structure
 
-This is an NX monorepo with the following structure:
+This is a pnpm workspace with the following structure:
 
 ```
 apps/
