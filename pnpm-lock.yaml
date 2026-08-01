@@ -200,6 +200,9 @@ importers:
       '@deadlog/scraper':
         specifier: workspace:*
         version: link:../scraper
+      '@deadlog/utils':
+        specifier: workspace:*
+        version: link:../utils
     devDependencies:
       '@types/node':
         specifier: 26.1.1

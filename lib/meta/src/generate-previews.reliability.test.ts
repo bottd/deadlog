@@ -20,7 +20,10 @@ vi.mock('@deadlog/scraper', () => ({
 	getAllChangelogs: mocks.getAllChangelogs,
 	getAllHeroes: mocks.getAllHeroes,
 	getAllItems: mocks.getAllItems,
-	getChangelogIcons: mocks.getChangelogIcons,
+	getChangelogIcons: mocks.getChangelogIcons
+}));
+
+vi.mock('@deadlog/utils', () => ({
 	formatDate: (date: string) => date
 }));
 

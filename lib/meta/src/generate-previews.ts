@@ -2,11 +2,11 @@ import {
 	getAllChangelogs,
 	getAllHeroes,
 	getAllItems,
-	formatDate,
 	getChangelogIcons,
 	type EnrichedHero,
 	type EnrichedItem
 } from '@deadlog/scraper';
+import { formatDate } from '@deadlog/utils';
 import { getLibsqlDb as getDb } from '@deadlog/db';
 import { fromJsx } from '@takumi-rs/helpers/jsx';
 import { mkdir, writeFile } from 'fs/promises';
