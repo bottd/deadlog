@@ -1,4 +1,9 @@
-export type { EnrichedHero, EnrichedItem, EntityIcon } from '@deadlog/scraper';
+export type {
+	ChangelogAbilityIcon,
+	EnrichedHero,
+	EnrichedItem,
+	EntityIcon
+} from '@deadlog/scraper';
 
 import type { EntityIcon } from '@deadlog/scraper';
 
@@ -22,3 +27,8 @@ export interface ChangelogEntry {
 	updates?: ChangelogEntry[];
 	majorUpdate?: boolean;
 }
+
+export type ChangelogWireEntry = Omit<ChangelogEntry, 'date' | 'updates'> & {
+	date: string;
+	updates?: ChangelogWireEntry[];
+};

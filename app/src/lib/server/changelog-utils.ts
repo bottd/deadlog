@@ -1,5 +1,6 @@
 import {
 	formatDate,
+	getChangelogAbilityIcons,
 	getChangelogIcons,
 	getUpdatesForChangelogs,
 	type ScrapedChangelog
@@ -9,8 +10,43 @@ import type { ChangelogEntry } from '$lib/types';
 import { entityNameAliases, makeSummary } from '@deadlog/utils';
 import { parseCSV } from '$lib/utils/csv';
 import { absoluteUrl } from '$lib/seo';
+import { error } from '@sveltejs/kit';
+import { z } from 'zod';
+import { MAX_ENTITY_FILTERS, MAX_QUERY_LENGTH } from '$lib/queries/keys';
 
 export const NO_MATCH_ENTITY_ID = -1;
+const MAX_PAGE_SIZE = 100;
+const MAX_OFFSET = 100_000;
+const MAX_ENTITY_NAME_LENGTH = 100;
+
+const integerParam = (minimum: number, maximum: number) =>
+	z.number().int().min(minimum).max(maximum);
+
+function parseIntegerParam(
+	url: URL,
+	name: string,
+	fallback: number,
+	minimum: number,
+	maximum: number
+): number {
+	const raw = url.searchParams.get(name);
+	const parsed = integerParam(minimum, maximum).safeParse(
+		raw === null ? fallback : Number(raw)
+	);
+	if (!parsed.success) throw error(400, `Invalid ${name} parameter`);
+	return parsed.data;
+}
+
+function parseEntityFilters(url: URL, name: 'hero' | 'item'): string[] {
+	const values = parseCSV(url.searchParams.get(name));
+	if (
+		values.length > MAX_ENTITY_FILTERS ||
+		values.some((value) => value.length > MAX_ENTITY_NAME_LENGTH)
+	) {
+		throw error(400, `Invalid ${name} parameter`);
+	}
+	return values;
+}
 
 export function resolveEntityIds(
 	names: string[],
@@ -91,37 +127,16 @@ export async function enrichChangelogs(
 }
 
 /** The full patch-page payload for the /change/[...slug] load. */
-export async function buildChangePageData(
-	db: DrizzleDB,
-	changelog: ScrapedChangelog,
-	parentData: Promise<{
-		heroes: { id: number; name: string; slug: string; images: Record<string, string> }[];
-		items: { id: number; name: string; slug: string; image: string }[];
-	}>
-) {
-	const [iconsMap, { heroes, items }] = await Promise.all([
+export async function buildChangePageData(db: DrizzleDB, changelog: ScrapedChangelog) {
+	const [iconsMap, abilityIcons] = await Promise.all([
 		getChangelogIcons(db, [changelog.id]),
-		parentData
+		getChangelogAbilityIcons(db, changelog.id)
 	]);
 	const icons = iconsMap[changelog.id] ?? { heroes: [], items: [] };
 	const date = new Date(changelog.pubDate);
 	const description =
 		makeSummary(changelog.contentText, 155) ||
 		`Read the ${formatDate(date)} Deadlock patch notes, including hero, item, and gameplay balance changes.`;
-
-	const heroMap: Record<
-		number,
-		{ name: string; slug: string; images: Record<string, string> }
-	> = {};
-	for (const hero of heroes) {
-		// `heroes` comes from the layout load, which already trimmed images.
-		heroMap[hero.id] = { name: hero.name, slug: hero.slug, images: hero.images };
-	}
-
-	const itemMap: Record<number, { name: string; slug: string; image: string }> = {};
-	for (const item of items) {
-		itemMap[item.id] = { name: item.name, slug: item.slug, image: item.image };
-	}
 
 	// The body renders from the .mg component, so contentText is dead weight in the
 	// payload — it only feeds the summary and indexability checks on the server.
@@ -131,10 +146,9 @@ export async function buildChangePageData(
 		changelog: {
 			...changelogFields,
 			date,
-			icons
+			icons,
+			abilityIcons
 		},
-		heroMap,
-		itemMap,
 		title: `${changelog.title} | Deadlock Patch Notes | Deadlog`,
 		description,
 		// Meta previews are generated per changelog id — the filename is not the URL.
@@ -144,12 +158,15 @@ export async function buildChangePageData(
 }
 
 export function parseApiParams(url: URL) {
+	const q = (url.searchParams.get('q') ?? '').trim();
+	if (q.length > MAX_QUERY_LENGTH) throw error(400, 'Invalid q parameter');
+
 	return {
-		limit: Number(url.searchParams.get('limit')) || 8,
-		offset: Number(url.searchParams.get('offset')) || 0,
-		hero: parseCSV(url.searchParams.get('hero')),
-		item: parseCSV(url.searchParams.get('item')),
-		q: url.searchParams.get('q') ?? '',
+		limit: parseIntegerParam(url, 'limit', 8, 1, MAX_PAGE_SIZE),
+		offset: parseIntegerParam(url, 'offset', 0, 0, MAX_OFFSET),
+		hero: parseEntityFilters(url, 'hero'),
+		item: parseEntityFilters(url, 'item'),
+		q,
 		major: url.searchParams.get('major') === 'true'
 	};
 }

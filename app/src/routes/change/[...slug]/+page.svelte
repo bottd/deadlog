@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { building } from '$app/environment';
-	import { ChangelogToc, EntityPreview, MogContent } from '$lib/components/changelog';
+	import { ChangelogToc, MogContent } from '$lib/components/changelog';
 	import { searchParams } from '$lib/stores/searchParams.svelte';
 	import type { EntityIcon } from '$lib/types';
 	import * as Avatar from '$lib/components/ui/avatar';
@@ -28,8 +28,6 @@
 	let { data }: PageProps = $props();
 
 	const changelog = $derived(data.changelog);
-	const heroMap = $derived(data.heroMap);
-	const itemMap = $derived(data.itemMap);
 	const title = $derived(data.title);
 	const description = $derived(data.description);
 	const image = $derived(data.image);
@@ -53,6 +51,8 @@
 	const selItems = $derived(searchParams.item);
 	const allHeroes = $derived<EntityIcon[]>(changelog.icons?.heroes ?? []);
 	const allItems = $derived<EntityIcon[]>(changelog.icons?.items ?? []);
+	const abilityIcons = $derived(changelog.abilityIcons ?? []);
+	const icons = $derived({ heroes: allHeroes, items: allItems });
 
 	const has = (names: string[], name: string) =>
 		names.some((n) => entityNamesMatch(n, name));
@@ -169,7 +169,6 @@
 <main class="container mx-auto mt-8 mb-24 max-w-4xl px-4 xl:max-w-6xl">
 	<a
 		href={backHref}
-		data-sveltekit-reload
 		class="text-muted-foreground hover:text-signal mb-8 inline-flex items-center gap-2 text-sm transition-colors"
 	>
 		<ArrowLeft class="size-4" />
@@ -203,10 +202,19 @@
 	{/if}
 
 	<div class="flex gap-8">
-		{#if MogComponent && changelog.icons}
+		{#if changelog.icons}
 			<aside class="hidden w-56 shrink-0 xl:block">
-				<div class="sticky top-[12rem]">
-					<ChangelogToc heroes={tocHeroes} items={tocItems} toc={mogToc} {hideGeneral} />
+				<div
+					class="sticky top-[12rem] max-h-[calc(100dvh-13rem)] [scrollbar-gutter:stable] overflow-y-auto overscroll-contain pr-1"
+					data-toc-scroll
+				>
+					<ChangelogToc
+						heroes={tocHeroes}
+						items={tocItems}
+						{abilityIcons}
+						toc={mogToc}
+						{hideGeneral}
+					/>
 				</div>
 			</aside>
 		{/if}
@@ -296,28 +304,15 @@
 					</div>
 
 					<hr class="editorial-divider border-none" />
-
-					{#if !MogComponent && changelog.icons}
-						<div class="mt-6 flex flex-wrap gap-3">
-							{#if changelog.icons.heroes.length > 0}
-								<EntityPreview entities={changelog.icons.heroes} />
-							{/if}
-							{#if changelog.icons.items.length > 0}
-								<EntityPreview entities={changelog.icons.items} />
-							{/if}
-						</div>
-					{/if}
 				</header>
 
-				{#if MogComponent}
-					<MogContent content={MogComponent} {heroMap} {itemMap} filter={mogFilter} />
-				{/if}
+				<MogContent content={MogComponent} {icons} filter={mogFilter} />
 			</div>
 		</article>
 	</div>
 </main>
 
-{#if MogComponent && changelog.icons}
+{#if changelog.icons}
 	<button
 		type="button"
 		onclick={() => (tocOpen = true)}
@@ -331,11 +326,13 @@
 		<Sheet.Content side="bottom" class="max-h-[70vh]">
 			<Sheet.Header>
 				<Sheet.Title class="text-sm font-semibold tracking-tight">Contents</Sheet.Title>
+				<Sheet.Description>Jump to a section or affected entity.</Sheet.Description>
 			</Sheet.Header>
 			<div class="overflow-y-auto px-2 pb-6">
 				<ChangelogToc
 					heroes={tocHeroes}
 					items={tocItems}
+					{abilityIcons}
 					toc={mogToc}
 					{hideGeneral}
 					onnavigate={() => (tocOpen = false)}

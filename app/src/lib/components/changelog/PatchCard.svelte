@@ -122,7 +122,7 @@
 				<div class="flex -space-x-1.5">
 					{#each row.list as icon, i (icon.id)}
 						<a
-							href={links.entityHref(icon.alt)}
+							href={links.entityHref(icon)}
 							aria-label="Jump to {icon.alt} in this patch"
 							class="focus-visible:outline-primary relative z-10 rounded-md focus-visible:outline-2 focus-visible:outline-offset-2"
 						>

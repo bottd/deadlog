@@ -54,6 +54,10 @@ describe('parseCSV', () => {
 	it('filters out empty entries from trailing commas', () => {
 		expect(parseCSV('Bebop,,Warden,')).toEqual(['Bebop', 'Warden']);
 	});
+
+	it('trims entries', () => {
+		expect(parseCSV(' Bebop, Warden ')).toEqual(['Bebop', 'Warden']);
+	});
 });
 
 describe('resolveEntityIds', () => {
@@ -129,6 +133,34 @@ describe('parseApiParams', () => {
 		const url = new URL('http://localhost/api?q=General');
 		const params = parseApiParams(url);
 		expect(params.q).toBe('General');
+	});
+
+	it.each([
+		['negative limit', 'limit=-1'],
+		['fractional limit', 'limit=1.5'],
+		['infinite limit', 'limit=Infinity'],
+		['oversized limit', 'limit=101'],
+		['negative offset', 'offset=-1'],
+		['fractional offset', 'offset=1.5'],
+		['oversized offset', 'offset=100001']
+	])('rejects %s', (_label, query) => {
+		expect(() => parseApiParams(new URL(`http://localhost/api?${query}`))).toThrow();
+	});
+
+	it('trims q and rejects oversized queries', () => {
+		expect(parseApiParams(new URL('http://localhost/api?q=%20General%20')).q).toBe(
+			'General'
+		);
+		expect(() =>
+			parseApiParams(new URL(`http://localhost/api?q=${'x'.repeat(201)}`))
+		).toThrow();
+	});
+
+	it('rejects excessive entity filters', () => {
+		const heroes = Array.from({ length: 21 }, (_, index) => `Hero${index}`).join(',');
+		expect(() =>
+			parseApiParams(new URL(`http://localhost/api?hero=${heroes}`))
+		).toThrow();
 	});
 });
 

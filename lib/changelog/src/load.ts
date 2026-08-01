@@ -3,6 +3,57 @@ import { join, relative } from 'path';
 import { ChangelogMetadataSchema, type ParsedChangelog } from './schema';
 import { extractEntities, parseStructure } from './extract';
 
+interface ChangelogIdentity {
+	slug: string;
+	aliases: string[];
+	metadata: { steam_gid?: string; thread_id?: string };
+}
+
+export function deduplicateChangelogs<T extends ChangelogIdentity>(
+	changelogs: readonly T[]
+): T[] {
+	const unique: T[] = [];
+	const sameSource = (left: T, right: T) => {
+		const leftMeta = left.metadata;
+		const rightMeta = right.metadata;
+		return (
+			(leftMeta.steam_gid !== undefined && leftMeta.steam_gid === rightMeta.steam_gid) ||
+			(leftMeta.thread_id !== undefined && leftMeta.thread_id === rightMeta.thread_id) ||
+			(!leftMeta.steam_gid &&
+				!leftMeta.thread_id &&
+				!rightMeta.steam_gid &&
+				!rightMeta.thread_id &&
+				left.slug === right.slug)
+		);
+	};
+	const sourceCount = (changelog: T) =>
+		Number(Boolean(changelog.metadata.thread_id)) +
+		Number(Boolean(changelog.metadata.steam_gid));
+
+	for (const changelog of changelogs) {
+		const matches = unique.flatMap((current, index) =>
+			sameSource(changelog, current) ? [index] : []
+		);
+		if (matches.length === 0) {
+			unique.push(changelog);
+			continue;
+		}
+
+		const candidates = matches.map((index) => unique[index]).concat(changelog);
+		const preferred = candidates.reduce((best, candidate) =>
+			sourceCount(candidate) > sourceCount(best) ? candidate : best
+		);
+		const aliases = [
+			preferred.slug,
+			...candidates.flatMap((candidate) => candidate.aliases)
+		].filter((slug, index, all) => all.indexOf(slug) === index);
+		unique[matches[0]] = { ...preferred, aliases };
+		for (const index of matches.slice(1).reverse()) unique.splice(index, 1);
+	}
+
+	return unique;
+}
+
 function findMogFiles(dir: string): string[] {
 	if (!existsSync(dir)) return [];
 	return readdirSync(dir, { recursive: true, encoding: 'utf-8' })
@@ -90,6 +141,7 @@ export async function loadAllChangelogs(
 			changelogs.push({
 				filepath,
 				slug,
+				aliases: [slug],
 				metadata,
 				entities,
 				entityChanges,
@@ -101,10 +153,11 @@ export async function loadAllChangelogs(
 		}
 	}
 
-	changelogs.sort(
+	const unique = deduplicateChangelogs(changelogs);
+	unique.sort(
 		(a, b) =>
 			new Date(b.metadata.published).getTime() - new Date(a.metadata.published).getTime()
 	);
 
-	return changelogs;
+	return unique;
 }

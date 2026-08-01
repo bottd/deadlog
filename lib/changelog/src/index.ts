@@ -2,6 +2,7 @@ export {
 	ChangelogMetadataSchema,
 	type ChangelogMetadata,
 	type ChangelogEntities,
+	type EntityBulletGroup,
 	type EntityChange,
 	type ParsedChangelog
 } from './schema';

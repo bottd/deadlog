@@ -5,28 +5,22 @@ import type { MogTocEntry } from '$lib/types';
 const mogModules = import.meta.glob('../../../../changelogs/**/*.mg');
 
 export const load: PageLoad = async ({ data }) => {
-	let MogComponent: Component | null = null;
-	let mogToc: MogTocEntry[] = [];
-
 	const key = `../../../../changelogs/${data.changelog.slug}.mg`;
 	const loader = mogModules[key];
+	if (!loader) {
+		throw new Error(`Missing .mg file for ${data.changelog.slug}`);
+	}
 
-	if (loader) {
-		try {
-			const module = (await loader()) as {
-				default: Component;
-				toc?: MogTocEntry[];
-			};
-			MogComponent = module.default;
-			mogToc = module.toc ?? [];
-		} catch (e) {
-			console.warn(`Failed to load .mg file for ${data.changelog.slug}:`, e);
-		}
+	let module: { default: Component; toc?: MogTocEntry[] };
+	try {
+		module = (await loader()) as typeof module;
+	} catch (cause) {
+		throw new Error(`Failed to load .mg file for ${data.changelog.slug}`, { cause });
 	}
 
 	return {
 		...data,
-		MogComponent,
-		mogToc
+		MogComponent: module.default,
+		mogToc: module.toc ?? []
 	};
 };

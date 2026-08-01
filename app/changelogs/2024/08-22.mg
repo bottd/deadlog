@@ -30,21 +30,26 @@ content_text "Fixed High-Velocity Mag affecting some abilities Silence Glyph: Da
 ``
 
 =hero:ivy:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]]
-## Ivy
+[[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
+## [[/hero/ivy]]((Ivy))
 
 ==ability:air-drop:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_lightning_crash.webp]]
-### Air Drop
+[[/hero/ivy?ability=air-drop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_lightning_crash.webp]] Air Drop change history))
+### [[/hero/ivy?ability=air-drop]]((Air Drop))
 
 - Air Drop now silences the ally being carried until they are released
 ==
 =
 =hero:shiv:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]]
-## Shiv
+[[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
+## [[/hero/shiv]]((Shiv))
+
+==ability:bloodletting:
+[[/hero/shiv?ability=bloodletting]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_bloodletting.webp]] Bloodletting change history))
+### [[/hero/shiv?ability=bloodletting]]((Bloodletting))
 
 - Bloodletting incoming damage deferred reduced from 40% to 35%
+==
 =
 # Item Changes
 
@@ -53,14 +58,14 @@ content_text "Fixed High-Velocity Mag affecting some abilities Silence Glyph: Da
 ``
 
 =item:reactive-barrier:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/reactive_barrier.webp]]
-## Reactive Barrier
+[[/item/reactive-barrier]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/reactive_barrier.webp]] Reactive Barrier patch history))
+## [[/item/reactive-barrier]]((Reactive Barrier))
 
 - Cooldown increased from 20s to 30s
 =
 =item:return-fire:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/return_fire.webp]]
-## Return Fire
+[[/item/return-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/return_fire.webp]] Return Fire patch history))
+## [[/item/return-fire]]((Return Fire))
 
 - Bullet damage returned reduced form 80% to 70%
 =

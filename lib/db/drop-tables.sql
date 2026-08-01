@@ -4,9 +4,13 @@ DROP TABLE IF EXISTS changelog_items;
 
 DROP TABLE IF EXISTS changelog_heroes;
 
+DROP TABLE IF EXISTS changelog_aliases;
+
 DROP TABLE IF EXISTS changelog_entities;
 
 DROP TABLE IF EXISTS changelogs;
+
+DROP TABLE IF EXISTS hero_abilities;
 
 DROP TABLE IF EXISTS items;
 

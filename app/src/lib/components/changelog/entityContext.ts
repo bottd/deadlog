@@ -1,13 +1,14 @@
-import { getContext, setContext } from 'svelte';
+import { createContext } from 'svelte';
 import { entityNamesMatch, plural } from '@deadlog/utils';
 import { changePath } from '$lib/seo';
+import type { EntityIcon } from '$lib/types';
 
 /** Re-exported so changelog components keep one import site for entity helpers. */
 export { entityFragmentId } from '@deadlog/utils';
 
-export interface EntityMaps {
-	heroMap: Record<number, { name: string; slug: string; images: Record<string, string> }>;
-	itemMap: Record<number, { name: string; slug: string; image: string }>;
+export interface EntityIconsContext {
+	heroes: EntityIcon[];
+	items: EntityIcon[];
 }
 
 export interface EntityFilterContext {
@@ -15,47 +16,15 @@ export interface EntityFilterContext {
 	name: string;
 }
 
-export interface ResolvedEntity extends EntityFilterContext {
-	id: number;
-	slug: string;
-	image?: string;
-}
-
-const ENTITY_MAPS_KEY = Symbol('entity-maps');
-
-export function setEntityMaps(maps: EntityMaps): void {
-	setContext(ENTITY_MAPS_KEY, maps);
-}
-
-export function getEntityMaps(): EntityMaps {
-	return getContext<EntityMaps>(ENTITY_MAPS_KEY);
-}
+export const [getEntityIcons, setEntityIcons] = createContext<EntityIconsContext>();
 
 export function resolveEntity(
-	maps: EntityMaps,
+	icons: EntityIconsContext,
 	type: 'hero' | 'item',
 	name: string
-): ResolvedEntity | undefined {
-	const entries = type === 'hero' ? maps.heroMap : maps.itemMap;
-
-	for (const [id, entity] of Object.entries(entries)) {
-		if (!entityNamesMatch(entity.name, name)) continue;
-
-		const image =
-			type === 'hero'
-				? 'images' in entity
-					? entity.images.icon_image_small_webp ||
-						entity.images.icon_image_small ||
-						Object.values(entity.images)[0]
-					: undefined
-				: 'image' in entity
-					? entity.image
-					: undefined;
-
-		return { id: Number(id), type, name: entity.name, slug: entity.slug, image };
-	}
-
-	return undefined;
+): EntityIcon | undefined {
+	const entries = type === 'hero' ? icons.heroes : icons.items;
+	return entries.find((entity) => entityNamesMatch(entity.alt, name));
 }
 
 export function entityPatchHref(

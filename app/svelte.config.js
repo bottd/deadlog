@@ -7,10 +7,22 @@ const adapter =
 		? adapterCloudflare({ platformProxy: {} })
 		: adapterNode({ out: '../dist/app' });
 
+// Mog rewrites bare document references to `.html`; entity targets are SvelteKit routes.
+/** @type {import('svelte/compiler').PreprocessorGroup} */
+const preserveMogAppRoutes = {
+	name: 'preserve-mog-app-routes',
+	markup({ content, filename }) {
+		if (!filename || !/\.mg(?:$|\?)/.test(filename)) return;
+		return {
+			code: content.replace(/href=\\"(\/(?:hero|item)\/[a-z0-9-]+)\.html/g, 'href=\\"$1')
+		};
+	}
+};
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	extensions: ['.svelte', '.mg'],
-	preprocess: vitePreprocess(),
+	preprocess: [preserveMogAppRoutes, vitePreprocess()],
 	kit: {
 		adapter,
 		prerender: {

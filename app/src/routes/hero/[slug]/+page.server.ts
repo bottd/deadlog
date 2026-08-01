@@ -1,8 +1,10 @@
 import {
 	getReleasedHeroSlugs,
 	getHeroBySlug,
+	getHeroAbilities,
 	getChangelogsByHeroId,
-	getMainChangelogIdSequence
+	getMainChangelogIdSequence,
+	resolveHeroAbilitySlug
 } from '@deadlog/scraper';
 import { computeStreaks } from '@deadlog/utils';
 import { error, redirect } from '@sveltejs/kit';
@@ -10,7 +12,7 @@ import { getHeroCardImage } from '$lib/utils/entityImages';
 import { absoluteUrl } from '$lib/seo';
 import type { PageServerLoad, EntryGenerator } from './$types';
 
-export const prerender = true;
+export const prerender = 'auto';
 
 export const entries: EntryGenerator = async () => {
 	const { getLibsqlDb } = await import('@deadlog/db');
@@ -19,22 +21,35 @@ export const entries: EntryGenerator = async () => {
 	return slugs.map((slug) => ({ slug }));
 };
 
-export const load: PageServerLoad = async ({ params, locals }) => {
+export const load: PageServerLoad = async ({ params, locals, url }) => {
 	const hero = await getHeroBySlug(locals.db, params.slug);
 
 	if (!hero) {
 		throw error(404, 'Hero not found');
 	}
-	if (hero.slug !== params.slug) redirect(308, `/hero/${hero.slug}`);
+	if (hero.slug !== params.slug) redirect(308, `/hero/${hero.slug}${url.search}`);
 
-	const [changelogs, patchSequence] = await Promise.all([
+	const [changelogs, patchSequence, abilities] = await Promise.all([
 		getChangelogsByHeroId(locals.db, hero.id),
-		getMainChangelogIdSequence(locals.db)
+		getMainChangelogIdSequence(locals.db),
+		getHeroAbilities(locals.db, hero.id)
 	]);
 
 	const enrichedChangelogs = changelogs.map((changelog) => ({
 		...changelog,
-		date: new Date(changelog.pubDate)
+		date: new Date(changelog.pubDate),
+		changeGroups:
+			changelog.changeGroups?.map((group) => {
+				const slug = group.ability
+					? resolveHeroAbilitySlug(group.ability, abilities)
+					: null;
+				const ability = abilities.find((candidate) => candidate.slug === slug);
+				return {
+					...group,
+					abilitySlug: ability?.slug ?? null,
+					icon: ability?.image ?? null
+				};
+			}) ?? null
 	}));
 
 	return {
@@ -49,6 +64,7 @@ export const load: PageServerLoad = async ({ params, locals }) => {
 			image: getHeroCardImage(hero)
 		},
 		changelogs: enrichedChangelogs,
+		abilities,
 		streaks: computeStreaks(patchSequence, new Set(changelogs.map((c) => c.id))),
 		title: `${hero.name} Deadlock Changes: Buffs & Nerfs | Deadlog`,
 		description: `Track every ${hero.name} buff, nerf, and balance change across Deadlock patch notes in chronological order.`,

@@ -24,8 +24,8 @@ content_text "Replaced the recent soul duplication hotfix with new behavior. Pre
 ``
 
 =item:veil-walker:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/veil_walker.webp]]
-## Veil Walker
+[[/item/veil-walker]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/veil_walker.webp]] Veil Walker patch history))
+## [[/item/veil-walker]]((Veil Walker))
 
 - Fire Rate reduced from 30% to 20%
 =

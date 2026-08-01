@@ -35,43 +35,48 @@ content_text "Increased horizontal soul orb movement a bit Soul Orb spawn delay 
 ``
 
 =hero:haze:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]]
-## Haze
+[[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
+## [[/hero/haze]]((Haze))
+
+==ability:bullet-dance:
+[[/hero/haze?ability=bullet-dance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_bullet_flurry.webp]] Bullet Dance change history))
+### [[/hero/haze?ability=bullet-dance]]((Bullet Dance))
 
 - Bullet Dance bonus damage is now weapon damage instead of spirit
+==
 =
 =hero:holliday:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]]
-## Holliday
+[[/hero/holliday]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]] Holliday patch history))
+## [[/hero/holliday]]((Holliday))
 
 ==ability:powder-keg:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_powder_keg.webp]]
-### Powder Keg
+[[/hero/holliday?ability=powder-keg]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_powder_keg.webp]] Powder Keg change history))
+### [[/hero/holliday?ability=powder-keg]]((Powder Keg))
 
 - Powder Keg T2 decreased from +120 to +100
 ==
 ==ability:bounce-pad:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_bounce_pad.webp]]
-### Bounce Pad
+[[/hero/holliday?ability=bounce-pad]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_bounce_pad.webp]] Bounce Pad change history))
+### [[/hero/holliday?ability=bounce-pad]]((Bounce Pad))
 
 - Bounce Pad cooldown increased from 37s to 41s
 - Bounce Pad T1 is now T2
 ==
 ==ability:bounce-pad-new:
-### Bounce Pad New
+### [[/hero/holliday?ability=bounce-pad]]((Bounce Pad New))
 
 - Bounce Pad New T1 is -10s cooldown
 ==
 ==ability:bounce-pad:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_bounce_pad.webp]]
-### Bounce Pad
+[[/hero/holliday?ability=bounce-pad]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_bounce_pad.webp]] Bounce Pad change history))
+### [[/hero/holliday?ability=bounce-pad]]((Bounce Pad))
 
 - Bounce Pad T2 is now T3. Removed T3 Stun
 ==
 =
 =hero:sinclair:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/magician_sm.webp]]
-## Sinclair
+[[/hero/sinclair]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/magician_sm.webp]] Sinclair patch history))
+## [[/hero/sinclair]]((Sinclair))
 
 ==ability:assistant:
 ### Assistant
@@ -88,8 +93,8 @@ content_text "Increased horizontal soul orb movement a bit Soul Orb spawn delay 
 ``
 
 =item:cold-front:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/cold_front.webp]]
-## Cold Front
+[[/item/cold-front]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/cold_front.webp]] Cold Front patch history))
+## [[/item/cold-front]]((Cold Front))
 
 - No longer does double damage to creeps
 =

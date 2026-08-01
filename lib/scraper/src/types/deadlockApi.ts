@@ -21,6 +21,14 @@ const heroSchema = z.object({
 	class_name: z.string(),
 	hero_type: z.string().optional(),
 	images: z.record(z.string(), z.string()),
+	items: z
+		.object({
+			signature1: z.string().optional(),
+			signature2: z.string().optional(),
+			signature3: z.string().optional(),
+			signature4: z.string().optional()
+		})
+		.optional(),
 	player_selectable: z.boolean().optional(),
 	disabled: z.boolean().optional(),
 	in_development: z.boolean().optional()
@@ -39,7 +47,8 @@ const itemSchema = z.object({
 	item_slot_type: z.enum(['weapon', 'vitality', 'spirit']).nullish().catch(null),
 	item_tier: z.number().int().positive().nullish().catch(null),
 	shopable: z.boolean().optional(),
-	disabled: z.boolean().optional()
+	disabled: z.boolean().optional(),
+	description: z.object({ desc: z.string().nullish() }).nullish().catch(null)
 });
 
 export const heroesApiResponseSchema = z.array(heroSchema);
@@ -47,3 +56,7 @@ export const itemsApiResponseSchema = z.array(itemSchema);
 
 export type HeroesApiResponse = z.infer<typeof heroesApiResponseSchema>;
 export type ItemsApiResponse = z.infer<typeof itemsApiResponseSchema>;
+
+export function itemImage(item: ItemsApiResponse[number]): string {
+	return item.shop_image_webp || item.shop_image || item.image_webp || item.image || '';
+}

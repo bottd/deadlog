@@ -18,8 +18,8 @@ content_text "Return Fire No longer applies procs Bullet damage return increased
 ``
 
 =item:return-fire:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/return_fire.webp]]
-## Return Fire
+[[/item/return-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/return_fire.webp]] Return Fire patch history))
+## [[/item/return-fire]]((Return Fire))
 
 - No longer applies procs
 - Bullet damage return increased from 60% to 70%

@@ -27,19 +27,19 @@ content_text "Urn now reveals you after 20s from initial pickup Urn sprint chang
 ``
 
 =hero:seven:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]]
-## Seven
+[[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
+## [[/hero/seven]]((Seven))
 
 ==ability:lightning-ball:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_ball.webp]]
-### Lightning Ball
+[[/hero/seven?ability=lightning-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_ball.webp]] Lightning Ball change history))
+### [[/hero/seven?ability=lightning-ball]]((Lightning Ball))
 
 - Lightning Ball T3 reduced from +2m Radius to +1m
 ==
 =
 =hero:shiv:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]]
-## Shiv
+[[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
+## [[/hero/shiv]]((Shiv))
 
 - Rage decay rate increased from 0.25 to 0.3
 - Rage buffer duration reduced from 12s to 10s

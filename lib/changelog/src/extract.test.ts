@@ -7,21 +7,21 @@ import {
 } from './extract';
 
 describe('extractEntityChanges', () => {
-	it('collects every bullet in an entity section across ability headings', () => {
+	it('groups bullets per ability section within an entity', () => {
 		const content = [
 			'# Hero Changes',
 			'=hero:doorman:',
-			'[[!:https://cdn.example/doorman.webp]]',
-			'## Doorman',
+			'[[/hero/doorman]](([[!:https://cdn.example/doorman.webp]] Doorman patch history))',
+			'## [[/hero/doorman]]((Doorman))',
 			'- Base damage increased',
 			'==ability:call-bell:',
-			'### Call Bell',
+			'### [[/hero/doorman?ability=call-bell]]((Call Bell))',
 			'- Cooldown reduced',
 			'- Radius increased',
 			'==',
 			'=',
 			'=item:tesla-bullets:',
-			'## Tesla Bullets',
+			'## [[/item/tesla-bullets]]((Tesla Bullets))',
 			'- Proc chance increased',
 			'='
 		].join('\n');
@@ -30,16 +30,15 @@ describe('extractEntityChanges', () => {
 			{
 				name: 'Doorman',
 				type: 'hero',
-				bullets: [
-					'Base damage increased',
-					'Call Bell: Cooldown reduced',
-					'Call Bell: Radius increased'
+				groups: [
+					{ ability: null, bullets: ['Base damage increased'] },
+					{ ability: 'Call Bell', bullets: ['Cooldown reduced', 'Radius increased'] }
 				]
 			},
 			{
 				name: 'Tesla Bullets',
 				type: 'item',
-				bullets: ['Proc chance increased']
+				groups: [{ ability: null, bullets: ['Proc chance increased'] }]
 			}
 		]);
 	});
@@ -64,9 +63,14 @@ describe('extractEntityChanges', () => {
 			{
 				name: 'The Doorman',
 				type: 'hero',
-				bullets: ['First change', 'Second change']
+				// Both alias sections' bullets sit at hero level, so they share one group.
+				groups: [{ ability: null, bullets: ['First change', 'Second change'] }]
 			},
-			{ name: 'Mo & Krill', type: 'hero', bullets: ['Third change'] }
+			{
+				name: 'Mo & Krill',
+				type: 'hero',
+				groups: [{ ability: null, bullets: ['Third change'] }]
+			}
 		]);
 	});
 
@@ -82,13 +86,17 @@ describe('extractEntityChanges', () => {
 `;
 
 		expect(extractEntityChanges(content)).toEqual([
-			{ name: 'Abrams', type: 'hero', bullets: ['Counted', 'Also counted'] }
+			{
+				name: 'Abrams',
+				type: 'hero',
+				groups: [{ ability: null, bullets: ['Counted', 'Also counted'] }]
+			}
 		]);
 	});
 
 	it('keeps an explicit empty list instead of inventing a change', () => {
 		expect(extractEntityChanges('=hero:abrams:\n## Abrams\n=')).toEqual([
-			{ name: 'Abrams', type: 'hero', bullets: [] }
+			{ name: 'Abrams', type: 'hero', groups: [] }
 		]);
 	});
 });

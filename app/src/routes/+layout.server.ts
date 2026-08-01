@@ -3,17 +3,30 @@ import { eq } from 'drizzle-orm';
 import { pickHeroImages } from '$lib/utils/entityImages';
 import type { LayoutServerLoad } from './$types';
 
-export const load: LayoutServerLoad = async ({ locals, route }) => {
-	// Detail pages render historical records as well as currently released entities.
-	const isPatchPage = route.id?.startsWith('/change/');
-	const releaseCondition = isPatchPage ? undefined : eq(schema.heroes.isReleased, true);
-	const itemReleaseCondition = isPatchPage
-		? undefined
-		: eq(schema.items.isReleased, true);
-
+export const load: LayoutServerLoad = async ({ locals }) => {
 	const [heroes, items] = await Promise.all([
-		locals.db.select().from(schema.heroes).where(releaseCondition).all(),
-		locals.db.select().from(schema.items).where(itemReleaseCondition).all()
+		locals.db
+			.select()
+			.from(schema.heroes)
+			.where(eq(schema.heroes.isReleased, true))
+			.all(),
+		// Keep the shared layout payload explicit so item-table additions do not
+		// silently ride into every prerendered page.
+		locals.db
+			.select({
+				id: schema.items.id,
+				name: schema.items.name,
+				slug: schema.items.slug,
+				className: schema.items.className,
+				type: schema.items.type,
+				category: schema.items.category,
+				tier: schema.items.tier,
+				image: schema.items.image,
+				isReleased: schema.items.isReleased
+			})
+			.from(schema.items)
+			.where(eq(schema.items.isReleased, true))
+			.all()
 	]);
 
 	return {

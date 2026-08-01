@@ -17,7 +17,7 @@ import {
 import { parseAuthorName } from './authorParser';
 import { extractContent, deduplicateLines, type EntityLists } from './content/parser';
 import {
-	buildEntityIcons,
+	buildEntityAssets,
 	generateChangelog,
 	type ChangelogSource
 } from './content/generator';
@@ -204,7 +204,7 @@ export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<voi
 
 	console.log('🌐 Fetching hero and item lists...');
 	const [heroes, items] = await Promise.all([fetchHeroes(), fetchItems()]);
-	const icons = buildEntityIcons(heroes, items);
+	const assets = buildEntityAssets(heroes, items);
 
 	const entities: EntityLists = {
 		heroes: new Set(heroes.flatMap((h) => entityNameAliases(h.name))),
@@ -318,7 +318,7 @@ export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<voi
 			}
 
 			const source = buildChangelogSource(content, post.postId, entities, steamNote);
-			const changelog = generateChangelog(source, entities, icons);
+			const changelog = generateChangelog(source, entities, assets);
 			const result = writeMogFile(filepath, changelog);
 
 			console.log(
@@ -340,7 +340,7 @@ export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<voi
 			const { filepath } = resolveFilepath(note.title, note.date);
 
 			const source = buildSteamChangelogSource(note);
-			const changelog = generateChangelog(source, entities, icons);
+			const changelog = generateChangelog(source, entities, assets);
 			const result = writeMogFile(filepath, changelog);
 
 			console.log(

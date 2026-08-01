@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { afterNavigate } from '$app/navigation';
+	import { resolve } from '$app/paths';
 	import SearchIcon from '@lucide/svelte/icons/search';
 	import XIcon from '@lucide/svelte/icons/x';
 	import FilterIcon from '@lucide/svelte/icons/filter';
@@ -9,25 +10,51 @@
 	import Button from '$lib/components/ui/button/button.svelte';
 	import FilterBadge from './FilterBadge.svelte';
 	import EntityItem from './EntityItem.svelte';
-	import type { EnrichedHero, EnrichedItem } from '$lib/types';
+	import type { EnrichedHero, EnrichedItem, EntityIcon } from '$lib/types';
 	import { searchParams as params } from '$lib/stores/searchParams.svelte';
 	import { getHeroImage, getItemImage } from '$lib/utils/entityImages';
-	import { FilterState } from './filterState.svelte';
+	import { FilterState, hasEntity } from './filterState.svelte';
+	import { MAX_QUERY_LENGTH } from '$lib/queries/keys';
 
 	const DESKTOP_LIST_ID = 'filter-options';
 	const MOBILE_INPUT_ID = 'mobile-filter-input';
 	const MOBILE_LIST_ID = 'mobile-filter-options';
 	const MAX_OPTIONS = 60;
 
+	const patchIcons = $derived(
+		(
+			page.data as {
+				changelog?: { icons?: { heroes: EntityIcon[]; items: EntityIcon[] } };
+			}
+		).changelog?.icons
+	);
 	const selectedHeroObjects = $derived(
-		((page.data.heroes ?? []) as EnrichedHero[]).filter((hero) =>
-			params.hero.includes(hero.name)
-		)
+		params.hero.map((name, index) => {
+			const entity = ((page.data.heroes ?? []) as EnrichedHero[]).find((hero) =>
+				hasEntity([name], hero.name)
+			);
+			const icon = patchIcons?.heroes.find((hero) => hasEntity([name], hero.alt));
+			return {
+				key: `${name}-${index}`,
+				index,
+				name: entity?.name ?? icon?.alt ?? name,
+				icon: entity ? getHeroImage(entity) : icon?.src
+			};
+		})
 	);
 	const selectedItemObjects = $derived(
-		((page.data.items ?? []) as EnrichedItem[]).filter((item) =>
-			params.item.includes(item.name)
-		)
+		params.item.map((name, index) => {
+			const entity = ((page.data.items ?? []) as EnrichedItem[]).find((item) =>
+				hasEntity([name], item.name)
+			);
+			const icon = patchIcons?.items.find((item) => hasEntity([name], item.alt));
+			return {
+				key: `${name}-${index}`,
+				index,
+				name: entity?.name ?? icon?.alt ?? name,
+				icon: entity ? getItemImage(entity) : icon?.src
+			};
+		})
 	);
 	const filterCount = $derived(params.activeFilterCount);
 
@@ -77,6 +104,21 @@
 		submitSearch(closeSheet);
 	}
 
+	function filterRemovalHref(key: 'hero' | 'item' | 'major', index?: number) {
+		const next = params.toURLSearchParams();
+		if (key === 'major') {
+			next.delete(key);
+		} else {
+			const values = [...(key === 'hero' ? params.hero : params.item)];
+			if (index !== undefined) values.splice(index, 1);
+			if (values.length > 0) next.set(key, values.join(','));
+			else next.delete(key);
+		}
+
+		const query = next.toString();
+		return `${resolve('/', {})}${query ? `?${query}` : ''}`;
+	}
+
 	function handleComboboxKeydown(event: KeyboardEvent, mobile = false) {
 		if (event.key === 'Escape') {
 			event.preventDefault();
@@ -105,22 +147,34 @@
 </script>
 
 {#snippet selectedFilters()}
-	{#each selectedHeroObjects as hero (hero.id)}
+	{#each selectedHeroObjects as hero (hero.key)}
 		<FilterBadge
 			name={hero.name}
-			icon={Object.values(hero.images)[0] as string}
-			onRemove={() => filterState.selectHero(hero.id)}
+			icon={hero.icon}
+			onRemove={() => filterState.toggleHero(hero.name)}
 			badgeColor="hero"
 		/>
 	{/each}
-	{#each selectedItemObjects as item (item.id)}
+	{#each selectedItemObjects as item (item.key)}
 		<FilterBadge
 			name={item.name}
-			icon={item.image}
-			onRemove={() => filterState.selectItem(item.id)}
+			icon={item.icon}
+			onRemove={() => filterState.toggleItem(item.name)}
 			badgeColor="item"
 		/>
 	{/each}
+{/snippet}
+
+{#snippet filterFields()}
+	{#if params.hero.length > 0}
+		<input type="hidden" name="hero" value={params.hero.join(',')} />
+	{/if}
+	{#if params.item.length > 0}
+		<input type="hidden" name="item" value={params.item.join(',')} />
+	{/if}
+	{#if params.major}
+		<input type="hidden" name="major" value="true" />
+	{/if}
 {/snippet}
 
 {#snippet filterContent(listId: string, optionPrefix: 'desktop' | 'mobile')}
@@ -179,11 +233,19 @@
 				label="Search by hero, item, or keyword"
 				class="relative z-50 h-auto overflow-visible rounded-none bg-transparent"
 			>
-				<form onsubmit={handleSubmit} class="filter-form flex">
+				<form
+					method="GET"
+					action={resolve('/', {})}
+					onsubmit={handleSubmit}
+					class="filter-form flex"
+				>
+					{@render filterFields()}
 					<div class="flex min-w-0 flex-1 flex-wrap items-center gap-1.5">
 						{@render selectedFilters()}
 						<input
 							id="filter-input"
+							name="q"
+							maxlength={MAX_QUERY_LENGTH}
 							type="text"
 							aria-label="Search by hero, item, or keyword"
 							role="combobox"
@@ -246,7 +308,72 @@
 		</div>
 
 		<!-- Mobile filter summary and dialog trigger -->
-		<div class="filter-form flex sm:hidden">
+		<form
+			method="GET"
+			action={resolve('/', {})}
+			class="filter-form no-js-mobile-filter flex-wrap"
+		>
+			{@render filterFields()}
+			{#if selectedHeroObjects.length > 0 || selectedItemObjects.length > 0 || params.major}
+				<div class="flex w-full flex-wrap items-center gap-1.5 pb-1">
+					{#each selectedHeroObjects as hero (hero.key)}
+						<a
+							href={filterRemovalHref('hero', hero.index)}
+							class="border-primary/30 bg-primary/10 text-foreground inline-flex items-center gap-1 rounded border px-2 py-1 text-xs"
+							aria-label="Remove Hero filter: {hero.name}"
+						>
+							Hero: {hero.name}
+							<XIcon class="size-3" />
+						</a>
+					{/each}
+					{#each selectedItemObjects as item (item.key)}
+						<a
+							href={filterRemovalHref('item', item.index)}
+							class="border-signal/30 bg-signal/10 text-foreground inline-flex items-center gap-1 rounded border px-2 py-1 text-xs"
+							aria-label="Remove Item filter: {item.name}"
+						>
+							Item: {item.name}
+							<XIcon class="size-3" />
+						</a>
+					{/each}
+					{#if params.major}
+						<a
+							href={filterRemovalHref('major')}
+							class="bg-secondary text-secondary-foreground inline-flex items-center gap-1 rounded px-2 py-1 text-xs"
+							aria-label="Remove Major patches filter"
+						>
+							Major patches
+							<XIcon class="size-3" />
+						</a>
+					{/if}
+					<a
+						href={resolve('/', {})}
+						class="text-muted-foreground ml-auto text-xs underline underline-offset-2"
+					>
+						Clear all
+					</a>
+				</div>
+			{/if}
+			<label for="no-js-filter-input" class="sr-only">Search the changelog</label>
+			<input
+				id="no-js-filter-input"
+				name="q"
+				type="search"
+				maxlength={MAX_QUERY_LENGTH}
+				value={params.q}
+				placeholder="Search the changelog..."
+				class="placeholder:text-muted-foreground min-w-0 flex-1 bg-transparent outline-none"
+			/>
+			<button
+				type="submit"
+				class="bg-primary text-primary-foreground -my-2 -mr-3 px-3"
+				aria-label="Search changelog"
+			>
+				<SearchIcon class="size-5" />
+			</button>
+		</form>
+
+		<div class="filter-form enhanced-mobile-filter">
 			<div class="flex min-w-0 flex-1 flex-wrap items-center gap-1.5">
 				{@render selectedFilters()}
 				{#if selectedHeroObjects.length === 0 && selectedItemObjects.length === 0}
@@ -309,7 +436,12 @@
 						label="Search by hero, item, or keyword"
 						class="mt-4 h-auto bg-transparent"
 					>
-						<form onsubmit={(event) => handleSubmit(event, true)}>
+						<form
+							method="GET"
+							action={resolve('/', {})}
+							onsubmit={(event) => handleSubmit(event, true)}
+						>
+							{@render filterFields()}
 							<label
 								for={MOBILE_INPUT_ID}
 								class="text-foreground mb-1.5 block text-sm font-medium"
@@ -322,6 +454,8 @@
 								<SearchIcon class="text-muted-foreground size-4 shrink-0" />
 								<input
 									id={MOBILE_INPUT_ID}
+									name="q"
+									maxlength={MAX_QUERY_LENGTH}
 									type="text"
 									role="combobox"
 									aria-autocomplete="list"
@@ -366,5 +500,29 @@
 	.filter-dropdown {
 		@apply absolute inset-x-0 top-full z-50 mt-2 hidden max-h-[450px] overflow-hidden rounded-md border shadow-2xl sm:block;
 		@apply border-border bg-background/95 backdrop-blur-lg;
+	}
+
+	.no-js-mobile-filter {
+		display: flex;
+	}
+
+	.enhanced-mobile-filter {
+		display: none;
+	}
+
+	:global([data-app-ready='true']) .no-js-mobile-filter {
+		display: none;
+	}
+
+	:global([data-app-ready='true']) .enhanced-mobile-filter {
+		display: flex;
+	}
+
+	@media (min-width: 640px) {
+		.no-js-mobile-filter,
+		.enhanced-mobile-filter,
+		:global([data-app-ready='true']) .enhanced-mobile-filter {
+			display: none;
+		}
 	}
 </style>

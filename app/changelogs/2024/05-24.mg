@@ -23,8 +23,8 @@ content_text "Withering Whip: No longer has +1 Stamina Withering Whip: Duration 
 ``
 
 =item:decay:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/decay.webp]]
-## Decay
+[[/item/decay]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/decay.webp]] Decay patch history))
+## [[/item/decay]]((Decay))
 
 - Cast range reduced from 30m to 15m
 =

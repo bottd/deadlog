@@ -36,6 +36,91 @@ export function entityFragmentId(name: string): string {
 	return abilityFragmentId(entityNameAliases(name).at(-1) ?? '');
 }
 
+function singularizeSlug(slug: string): string {
+	return slug
+		.split('-')
+		.map((part) => (part.length > 3 && part.endsWith('s') ? part.slice(0, -1) : part))
+		.join('-');
+}
+
+function matchesAbilitySlug(heading: string, ability: string): boolean {
+	const compact = ability.replaceAll('-', '');
+	return (
+		heading === ability ||
+		heading.startsWith(`${ability}-`) ||
+		heading === compact ||
+		heading.startsWith(`${compact}-`) ||
+		heading.replaceAll('-', '') === compact
+	);
+}
+
+export function resolveAbilitySlug(
+	name: string,
+	abilities: readonly { slug: string }[]
+): string | null {
+	const headingSlug = toSlug(name);
+	const headings = [headingSlug, singularizeSlug(headingSlug)];
+	let best: string | null = null;
+
+	for (const { slug } of abilities) {
+		const matches = headings.some((heading) =>
+			[slug, singularizeSlug(slug)].some((candidate) =>
+				matchesAbilitySlug(heading, candidate)
+			)
+		);
+		if (matches && (!best || slug.length > best.length)) best = slug;
+	}
+
+	return best;
+}
+
+const HERO_ABILITY_ALIASES: Readonly<Record<string, string>> = {
+	'should-charge': 'shoulder-charge',
+	siphon: 'siphon-life',
+	hook: 'grapple-arm',
+	uppercut: 'exploding-uppercut',
+	'charge-shot': 'charged-shot',
+	'immobilizing-trap': 'spirit-snare',
+	'rain-of-fire': 'rain-of-arrows',
+	catalyst: 'napalm',
+	'kudzu-bomb': 'entangling-thorns',
+	'watchers-covenant': 'kudzu-connection',
+	'true-form': 'stone-form',
+	'blood-bomb': 'essence-bomb',
+	'ground-slam': 'ground-strike',
+	ghouls: 'borrowed-decree',
+	turret: 'mini-turret',
+	'medicinal-spectre': 'medicinal-specter',
+	'rocket-barrage': 'heavy-barrage',
+	tornado: 'dust-devil',
+	bookworm: 'bookwyrm',
+	'conjure-dragon': 'bookwyrm',
+	bararge: 'barrage',
+	'tail-whack': 'boot-kick',
+	'mauling-leap': 'entangling-bola',
+	'go-for-the-throat': 'lycan-curse',
+	assistant: 'spectral-assistant',
+	crow: 'crow-familiar',
+	'royal-flush': 'card-trick',
+	'card-toss': 'card-trick',
+	'flying-strike': 'flying-slash',
+	'shadow-explosion': 'shadow-transformation'
+};
+
+const heroAbilityAliases = Object.keys(HERO_ABILITY_ALIASES).map((slug) => ({ slug }));
+
+export function resolveHeroAbilitySlug(
+	name: string,
+	abilities: readonly { slug: string }[]
+): string | null {
+	const current = resolveAbilitySlug(name, abilities);
+	if (current) return current;
+
+	const alias = resolveAbilitySlug(name, heroAbilityAliases);
+	const slug = alias ? HERO_ABILITY_ALIASES[alias] : null;
+	return slug && abilities.some((ability) => ability.slug === slug) ? slug : null;
+}
+
 /** Mog's inline link: `[[target]]((label))`. Written once — the three uses below had
  * already drifted on whether an empty target counts. */
 const MOG_LINK_SOURCE = String.raw`\[\[([^\[\]]*)\]\]\(\(([^()]*)\)\)`;

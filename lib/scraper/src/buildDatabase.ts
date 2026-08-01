@@ -2,12 +2,14 @@ import { createClient } from '@libsql/client';
 import { drizzle } from 'drizzle-orm/libsql';
 import { PatchesApi, Configuration } from 'deadlock-api-client';
 import { execSync } from 'node:child_process';
-import { mkdir, rename, rm } from 'fs/promises';
+import { mkdir, readFile, rename, rm } from 'fs/promises';
 import path from 'path';
 import { fetchHeroes, fetchItems } from './api';
+import { itemImage } from './types/deadlockApi';
 import {
 	schema,
 	insertHeroSchema,
+	insertHeroAbilitySchema,
 	insertItemSchema,
 	insertChangelogHeroSchema,
 	insertChangelogItemSchema
@@ -15,9 +17,11 @@ import {
 import {
 	loadAllChangelogs,
 	entityNameAliases,
+	type EntityBulletGroup,
 	type EntityChange
 } from '@deadlog/changelog';
 import { toSlug } from '@deadlog/utils';
+import { resolveAbilitySlots } from './heroAbilities';
 
 interface BuildOptions {
 	outputDir?: string;
@@ -29,6 +33,42 @@ interface BuildResult {
 	patchCount: number;
 	heroMatches: number;
 	itemMatches: number;
+}
+
+interface EntityRoutes {
+	heroes: ReadonlySet<string>;
+	items: ReadonlySet<string>;
+	abilities: ReadonlySet<string>;
+}
+
+function assertEntityLinks(
+	content: string,
+	filepath: string,
+	routes: EntityRoutes
+): void {
+	for (const match of content.matchAll(/\[\[(\/(?:hero|item)\/[^\]]+)\]\]/g)) {
+		const target = match[1];
+		const url = new URL(target, 'https://deadlog.test');
+		const [, type, slug, extra] = url.pathname.split('/');
+		const ability = url.searchParams.get('ability');
+		const query = [...url.searchParams.keys()];
+		const valid =
+			!extra &&
+			!url.hash &&
+			(type === 'hero'
+				? routes.heroes.has(slug) &&
+					(query.length === 0 ||
+						(query.length === 1 &&
+							query[0] === 'ability' &&
+							ability !== null &&
+							routes.abilities.has(`${slug}:${ability}`)))
+				: type === 'item' && routes.items.has(slug) && query.length === 0);
+		const labelStart = (match.index ?? 0) + match[0].length;
+
+		if (!valid || content.slice(labelStart, labelStart + 2) !== '((') {
+			throw new Error(`Invalid entity link ${target} in ${filepath}`);
+		}
+	}
 }
 
 function createEntityIdMap(
@@ -54,8 +94,8 @@ function resolveEntityId(
 	return undefined;
 }
 
-/** Null bullets = the entity is named in the patch but heads no section of its own. */
-type EntityMatch = string[] | null;
+/** Null groups = the entity is named in the patch but heads no section of its own. */
+type EntityMatch = EntityBulletGroup[] | null;
 
 function collectEntityMatches(
 	names: string[],
@@ -76,8 +116,8 @@ function collectEntityMatches(
 		if (change.type !== type) continue;
 		const id = resolveEntityId(entityMap, change.name);
 		if (id === undefined) continue;
-		// An entity can head more than one section in a patch; bullets concatenate.
-		matches.set(id, [...(matches.get(id) ?? []), ...change.bullets]);
+		// An entity can head more than one section in a patch; groups concatenate.
+		matches.set(id, [...(matches.get(id) ?? []), ...change.groups]);
 	}
 
 	return matches;
@@ -158,12 +198,22 @@ export async function buildDatabaseFromMog(
 	}
 	console.log(`  ✅ Inserted ${heroes.length} heroes`);
 
+	const abilitySlots = resolveAbilitySlots(heroes, items);
+	let heroAbilityCount = 0;
+	for (const abilities of abilitySlots.values()) {
+		for (const ability of abilities) {
+			await db
+				.insert(schema.heroAbilities)
+				.values(insertHeroAbilitySchema.parse(ability));
+			heroAbilityCount++;
+		}
+	}
+	console.log(`  ✅ Inserted ${heroAbilityCount} hero ability slots`);
+
 	console.log('💾 Inserting items...');
 	const seenItemSlugs = new Set<string>();
 	const itemsToInsert = [...items]
-		.filter(
-			(item) => item.shop_image || item.shop_image_webp || item.image || item.image_webp
-		)
+		.filter(itemImage)
 		.sort((a, b) => {
 			const priority = (item: (typeof items)[number]) =>
 				item.shopable && !item.disabled ? 3 : item.type === 'upgrade' ? 2 : 1;
@@ -188,12 +238,7 @@ export async function buildDatabaseFromMog(
 					type: item.type,
 					category: item.item_slot_type ?? null,
 					tier: item.item_tier ?? null,
-					image:
-						item.shop_image_webp ||
-						item.shop_image ||
-						item.image_webp ||
-						item.image ||
-						'',
+					image: itemImage(item),
 					isReleased:
 						item.item_slot_type != null &&
 						item.shopable === true &&
@@ -211,7 +256,27 @@ export async function buildDatabaseFromMog(
 
 	console.log(`📂 Loading changelogs from ${changelogsDir}...`);
 	const changelogs = await loadAllChangelogs(changelogsDir, { curatedOnly: false });
-	console.log(`  ✅ Found ${changelogs.length} changelog files`);
+	console.log(`  ✅ Found ${changelogs.length} unique changelogs`);
+	const routes: EntityRoutes = {
+		heroes: new Set(heroes.map((hero) => toSlug(hero.name))),
+		items: new Set(
+			itemsToInsert
+				.filter((item) => item.type !== 'ability')
+				.map((item) => toSlug(item.name))
+		),
+		abilities: new Set(
+			heroes.flatMap((hero) =>
+				(abilitySlots.get(hero.id) ?? []).map(
+					(ability) => `${toSlug(hero.name)}:${ability.slug}`
+				)
+			)
+		)
+	};
+	await Promise.all(
+		changelogs.map(async ({ filepath }) =>
+			assertEntityLinks(await readFile(filepath, 'utf8'), filepath, routes)
+		)
+	);
 
 	console.log('💾 Inserting changelogs...');
 	let heroMatches = 0;
@@ -222,6 +287,7 @@ export async function buildDatabaseFromMog(
 		entities,
 		entityChanges,
 		slug,
+		aliases,
 		plainText,
 		previewImage
 	} of changelogs) {
@@ -257,19 +323,29 @@ export async function buildDatabaseFromMog(
 				contentText: plainText
 			})
 			.onConflictDoNothing();
+		for (const alias of aliases) {
+			if (alias === slug) continue;
+			await db.insert(schema.changelogAliases).values({ slug: alias, changelogId });
+		}
 
-		for (const [heroId, changeBullets] of heroMatchesForPatch) {
+		for (const [heroId, changeGroups] of heroMatchesForPatch) {
 			await db
 				.insert(schema.changelogHeroes)
-				.values(insertChangelogHeroSchema.parse({ changelogId, heroId, changeBullets }))
+				.values(
+					insertChangelogHeroSchema.parse({
+						changelogId,
+						heroId,
+						changeGroups
+					})
+				)
 				.onConflictDoNothing();
 			heroMatches++;
 		}
 
-		for (const [itemId, changeBullets] of itemMatchesForPatch) {
+		for (const [itemId, changeGroups] of itemMatchesForPatch) {
 			await db
 				.insert(schema.changelogItems)
-				.values(insertChangelogItemSchema.parse({ changelogId, itemId, changeBullets }))
+				.values(insertChangelogItemSchema.parse({ changelogId, itemId, changeGroups }))
 				.onConflictDoNothing();
 			itemMatches++;
 		}

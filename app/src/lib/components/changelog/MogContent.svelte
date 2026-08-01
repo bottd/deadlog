@@ -2,63 +2,34 @@
 	import type { Component } from 'svelte';
 	import {
 		entityFragmentId,
-		entityHistoryHref,
-		resolveEntity,
-		setEntityMaps,
-		type EntityMaps
+		setEntityIcons,
+		type EntityIconsContext
 	} from './entityContext';
 
 	interface Props {
 		content: Component;
-		heroMap?: EntityMaps['heroMap'];
-		itemMap?: EntityMaps['itemMap'];
+		icons: EntityIconsContext;
 		filter?: { heroes: string[]; items: string[] };
 	}
 
-	let { content: Content, heroMap = {}, itemMap = {}, filter }: Props = $props();
+	let { content: Content, icons, filter }: Props = $props();
 
-	setEntityMaps({
-		get heroMap() {
-			return heroMap;
+	setEntityIcons({
+		get heroes() {
+			return icons.heroes;
 		},
-		get itemMap() {
-			return itemMap;
+		get items() {
+			return icons.items;
 		}
 	});
-
-	let sectionEl = $state<HTMLElement>();
 
 	const selectedSlugs = $derived(
 		new Set([...(filter?.heroes ?? []), ...(filter?.items ?? [])].map(entityFragmentId))
 	);
 
-	// separate effects: linkification depends only on the rendered body and maps,
-	// so it must not re-sweep the DOM on every filter toggle
-	$effect(() => {
-		if (sectionEl) linkEntityHeadings(sectionEl);
-	});
-
-	// the patch body is a prerendered component — filter by toggling block display
-	$effect(() => {
-		if (sectionEl) applyEntityFilter(sectionEl, selectedSlugs);
-	});
-
-	/** Wrap each entity block's heading in a link to its /hero or /item history page. */
-	function linkEntityHeadings(root: HTMLElement) {
-		const maps = { heroMap, itemMap };
-		for (const el of root.querySelectorAll<HTMLElement>(
-			':scope > .hero, :scope > .item'
-		)) {
-			const heading = el.querySelector<HTMLHeadingElement>(':scope > h2');
-			if (!heading || heading.firstElementChild?.tagName === 'A') continue;
-			const type = el.classList.contains('hero') ? 'hero' : 'item';
-			const entity = resolveEntity(maps, type, heading.textContent?.trim() ?? '');
-			if (!entity) continue;
-			const link = document.createElement('a');
-			link.href = entityHistoryHref(type, entity.slug);
-			while (heading.firstChild) link.appendChild(heading.firstChild);
-			heading.appendChild(link);
-		}
+	function filterMogContent(node: HTMLElement) {
+		void Content;
+		applyEntityFilter(node, selectedSlugs);
 	}
 
 	/** `=hero:abrams:` renders as `<div class="hero abrams">`, so the slug is a class. */
@@ -91,7 +62,7 @@
 	}
 </script>
 
-<section class="mog-content" aria-label="Changelog details" bind:this={sectionEl}>
+<section class="mog-content" aria-label="Changelog details" {@attach filterMogContent}>
 	<Content />
 </section>
 
@@ -103,20 +74,19 @@
 
 		/* Section headings — editorial treatment */
 		:global(h1) {
-			@apply text-foreground font-display relative mt-12 mb-6 pt-8 text-xl font-medium tracking-wide first:mt-0 first:pt-0;
-		}
-
-		:global(h1::before) {
-			content: '';
-			@apply from-primary/40 via-border to-border/0 absolute top-0 left-0 h-px w-full bg-gradient-to-r;
-		}
-
-		:global(h1:first-child::before) {
-			@apply hidden;
+			@apply text-foreground font-display mt-12 mb-6 text-3xl leading-tight font-semibold tracking-wide first:mt-0;
 		}
 
 		:global(h2) {
-			@apply text-primary mt-6 mb-4 text-lg font-semibold tracking-tight;
+			@apply text-primary mt-8 mb-4 text-2xl leading-tight font-semibold tracking-tight;
+		}
+
+		:global(h3) {
+			@apply text-foreground mt-6 mb-3 text-lg leading-tight font-semibold tracking-tight;
+		}
+
+		:global(h4) {
+			@apply text-foreground mt-5 mb-2 text-base leading-snug font-semibold tracking-tight;
 		}
 
 		/* `=hero:abrams:` wraps an entity's portrait, heading and notes in one block, so
@@ -135,16 +105,24 @@
 			@apply col-start-1 row-start-1 m-0;
 		}
 
+		/* The Mog link label names the image link for assistive technology. */
+		:global(div.hero > p:has(img) > a),
+		:global(div.item > p:has(img) > a),
+		:global(div.ability > p:has(img) > a) {
+			font-size: 0;
+		}
+
+		/* Descendant selector: the portrait img may sit inside the history-page link. */
 		:global(div.hero > img),
 		:global(div.item > img),
-		:global(div.hero > p > img),
-		:global(div.item > p > img) {
+		:global(div.hero > p img),
+		:global(div.item > p img) {
 			@apply border-border bg-card size-10 rounded-lg border object-cover shadow-sm;
 		}
 
 		:global(div.hero > h2),
 		:global(div.item > h2) {
-			@apply text-foreground col-start-2 m-0 scroll-mt-20 self-center text-lg font-semibold tracking-tight;
+			@apply text-foreground col-start-2 m-0 scroll-mt-20 self-center text-2xl leading-tight font-semibold tracking-tight;
 		}
 
 		/* Notes and nested abilities share the content column. */
@@ -163,13 +141,14 @@
 			@apply col-start-1 row-start-1 m-0;
 		}
 
+		/* Descendant selector: the icon may sit inside the ability deep link. */
 		:global(div.ability > img),
-		:global(div.ability > p > img) {
+		:global(div.ability > p img) {
 			@apply size-6 rounded object-cover;
 		}
 
 		:global(div.ability > h3) {
-			@apply text-foreground col-start-2 m-0 scroll-mt-20 self-center text-sm font-semibold;
+			@apply text-foreground col-start-2 m-0 scroll-mt-20 self-center text-lg leading-tight font-semibold;
 		}
 
 		:global(div.ability > :not(p:has(img)):not(h3)) {
@@ -221,10 +200,32 @@
 			@apply text-primary font-medium underline-offset-2 transition-all duration-200 hover:underline hover:opacity-80;
 		}
 
-		/* Entity headings link to their history page but read as headings, not body links */
+		/* Entity and ability headings link out but read as headings, not body links */
 		:global(div.hero > h2 > a),
-		:global(div.item > h2 > a) {
-			@apply text-foreground hover:text-signal font-semibold no-underline hover:no-underline hover:opacity-100;
+		:global(div.item > h2 > a),
+		:global(div.ability > h3 > a) {
+			@apply text-foreground font-semibold no-underline hover:no-underline hover:opacity-100;
+		}
+
+		/* Ability icon and heading share one hover state, like the entity block above. */
+		:global(div.ability:has(> h3 a:hover, > p a:hover) > h3 > a) {
+			@apply text-signal;
+		}
+
+		:global(div.ability:has(> h3 a:hover, > p a:hover) > p img) {
+			@apply ring-signal ring-1;
+		}
+
+		/* Portrait and heading link to the same page, so they share one hover state:
+		   hovering either highlights both. */
+		:global(div.hero:has(> h2 a:hover, > p a:hover) > h2 > a),
+		:global(div.item:has(> h2 a:hover, > p a:hover) > h2 > a) {
+			@apply text-signal;
+		}
+
+		:global(div.hero:has(> h2 a:hover, > p a:hover) > p img),
+		:global(div.item:has(> h2 a:hover, > p a:hover) > p img) {
+			@apply border-signal;
 		}
 
 		/* Emphasis */

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildEntityIcons, generateStructuredContent } from './generator';
+import { buildEntityAssets, generateStructuredContent } from './generator';
 import type { GroupedContent } from './parser';
 
 function grouped(partial: Partial<GroupedContent> = {}): GroupedContent {
@@ -16,13 +16,19 @@ describe('entity and ability headings', () => {
 		'Shoulder Charge now stuns enemies for 1s if it drags them into a wall'
 	];
 
-	const icons = buildEntityIcons(
+	const assets = buildEntityAssets(
 		[
 			{
 				id: 1,
 				name: 'Abrams',
 				class_name: 'hero_abrams',
-				images: { icon_image_small_webp: 'https://cdn.example/abrams.webp' }
+				images: { icon_image_small_webp: 'https://cdn.example/abrams.webp' },
+				items: {
+					signature1: 'ability_charge',
+					signature2: 'missing_two',
+					signature3: 'missing_three',
+					signature4: 'missing_four'
+				}
 			}
 		],
 		[
@@ -56,23 +62,94 @@ describe('entity and ability headings', () => {
 	it('bakes the portrait in as its own line inside the block', () => {
 		const out = generateStructuredContent(
 			grouped({ heroes: new Map([['Abrams', abrams.slice(0, 1)]]) }),
-			icons
+			assets
 		);
 		expect(out).toContain(
-			'=hero:abrams:\n[[!:https://cdn.example/abrams.webp]]\n## Abrams'
+			'=hero:abrams:\n[[/hero/abrams]](([[!:https://cdn.example/abrams.webp]] Abrams patch history))\n## [[/hero/abrams]]((Abrams))'
 		);
 		expect(out).toContain(
-			'==ability:shoulder-charge:\n[[!:https://cdn.example/charge.webp]]\n### Shoulder Charge'
+			'==ability:shoulder-charge:\n[[/hero/abrams?ability=shoulder-charge]](([[!:https://cdn.example/charge.webp]] Shoulder Charge change history))\n### [[/hero/abrams?ability=shoulder-charge]]((Shoulder Charge))'
 		);
 	});
 
-	it('omits the portrait rather than emitting an empty transclusion', () => {
+	it('leaves an unresolved entity unlinked', () => {
 		const out = generateStructuredContent(
 			grouped({ heroes: new Map([['Nobody', ['Base health increased']]]) }),
-			icons
+			assets
 		);
 		expect(out).toContain('=hero:nobody:\n## Nobody');
+		expect(out).not.toContain('/hero/nobody');
 		expect(out).not.toContain('[[!:]]');
+	});
+
+	it('links a resolved entity even when it has no image', () => {
+		const assetsWithoutImage = buildEntityAssets(
+			[{ id: 4, name: 'Nobody', class_name: 'hero_nobody', images: {} }],
+			[]
+		);
+		const out = generateStructuredContent(
+			grouped({ heroes: new Map([['Nobody', ['Base health increased']]]) }),
+			assetsWithoutImage
+		);
+		expect(out).toContain('=hero:nobody:\n## [[/hero/nobody]]((Nobody))');
+		expect(out).not.toContain('[[!:]]');
+	});
+
+	it('uses the canonical API slug when a note names an alias', () => {
+		const aliasedAssets = buildEntityAssets(
+			[
+				{
+					id: 3,
+					name: 'The Doorman',
+					class_name: 'hero_doorman',
+					images: { icon_image_small_webp: 'https://cdn.example/doorman.webp' }
+				}
+			],
+			[]
+		);
+		const out = generateStructuredContent(
+			grouped({ heroes: new Map([['Doorman', ['Base health increased']]]) }),
+			aliasedAssets
+		);
+		expect(out).toContain('## [[/hero/the-doorman]]((Doorman))');
+	});
+
+	it('links derived headings only when they resolve to the hero ability rail', () => {
+		const linked = generateStructuredContent(
+			grouped({ heroes: new Map([['Abrams', ['Shoulder Charge Cooldown reduced']]]) }),
+			assets
+		);
+		expect(linked).toContain(
+			'### [[/hero/abrams?ability=shoulder-charge]]((Shoulder Charge Cooldown))'
+		);
+
+		const unresolved = generateStructuredContent(
+			grouped({ heroes: new Map([['Abrams', ['Can now be cast while airborne']]]) }),
+			assets
+		);
+		expect(unresolved).toContain('### Can');
+		expect(unresolved).not.toContain('ability=can');
+	});
+
+	it('does not turn an ability-classified top-level entity into an item route', () => {
+		const assets = buildEntityAssets(
+			[],
+			[
+				{
+					id: 5,
+					class_name: 'ability_golden_idol',
+					name: 'Soul Urn',
+					type: 'ability',
+					image: '/soul-urn.png'
+				}
+			]
+		);
+		const out = generateStructuredContent(
+			grouped({ items: new Map([['Soul Urn', ['Carrier resistance reduced']]]) }),
+			assets
+		);
+		expect(out).toContain('=item:soul-urn:\n## Soul Urn');
+		expect(out).not.toContain('/item/soul-urn');
 	});
 
 	it('writes no anchor id — the renderer disambiguates repeats itself', () => {

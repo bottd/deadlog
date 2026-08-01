@@ -36,13 +36,15 @@ const ENTITY_HISTORY_COLUMNS = {
 	author: schema.changelogs.author
 } as const;
 
+type ChangeGroups = NonNullable<typeof schema.changelogHeroes.$inferSelect.changeGroups>;
+
 export type EntityChangelog = Pick<
 	SelectChangelog,
 	keyof typeof ENTITY_HISTORY_COLUMNS
 > & {
-	/** Derived from changeBullets — null when the patch mentions the entity without its own section. */
+	/** Derived from changeGroups — null when the patch mentions the entity without its own section. */
 	changeCount: number | null;
-	changeBullets: string[] | null;
+	changeGroups: ChangeGroups | null;
 };
 
 function isMainChangelog() {
@@ -165,12 +167,25 @@ export async function getUpdatesForChangelogs(
 }
 
 export async function getChangelogBySlug(db: DrizzleDB, slug: string) {
+	const changelog = await db
+		.select()
+		.from(schema.changelogs)
+		.where(eq(schema.changelogs.slug, slug))
+		.get();
+	if (changelog) return changelog;
+
 	return (
-		(await db
-			.select()
-			.from(schema.changelogs)
-			.where(eq(schema.changelogs.slug, slug))
-			.get()) ?? null
+		(
+			await db
+				.select()
+				.from(schema.changelogAliases)
+				.innerJoin(
+					schema.changelogs,
+					eq(schema.changelogAliases.changelogId, schema.changelogs.id)
+				)
+				.where(eq(schema.changelogAliases.slug, slug))
+				.get()
+		)?.changelogs ?? null
 	);
 }
 
@@ -304,6 +319,58 @@ export async function getMainChangelogIdSequence(db: DrizzleDB): Promise<string[
 	return rows.map((r) => r.id);
 }
 
+function countGroupBullets(groups: ChangeGroups | null): number | null {
+	return groups?.reduce((total, group) => total + group.bullets.length, 0) ?? null;
+}
+
+export type HeroAbility = Pick<
+	typeof schema.heroAbilities.$inferSelect,
+	'name' | 'slug' | 'image' | 'description'
+>;
+
+export interface ChangelogAbilityIcon {
+	heroId: number;
+	slug: string;
+	image: string;
+}
+
+export async function getHeroAbilities(
+	db: DrizzleDB,
+	heroId: number
+): Promise<HeroAbility[]> {
+	return db
+		.select({
+			name: schema.heroAbilities.name,
+			slug: schema.heroAbilities.slug,
+			image: schema.heroAbilities.image,
+			description: schema.heroAbilities.description
+		})
+		.from(schema.heroAbilities)
+		.where(eq(schema.heroAbilities.heroId, heroId))
+		.orderBy(schema.heroAbilities.position)
+		.all();
+}
+
+export async function getChangelogAbilityIcons(
+	db: DrizzleDB,
+	changelogId: string
+): Promise<ChangelogAbilityIcon[]> {
+	return db
+		.select({
+			heroId: schema.heroAbilities.heroId,
+			slug: schema.heroAbilities.slug,
+			image: schema.heroAbilities.image
+		})
+		.from(schema.heroAbilities)
+		.innerJoin(
+			schema.changelogHeroes,
+			eq(schema.heroAbilities.heroId, schema.changelogHeroes.heroId)
+		)
+		.where(eq(schema.changelogHeroes.changelogId, changelogId))
+		.orderBy(schema.heroAbilities.heroId, schema.heroAbilities.position)
+		.all();
+}
+
 /**
  * No limit by design: the page bills itself as the canonical history and derives
  * "Patches" and "Tracked since" from these rows, so a cap silently reported the
@@ -316,7 +383,7 @@ export async function getChangelogsByHeroId(
 	const rows = await db
 		.select({
 			...ENTITY_HISTORY_COLUMNS,
-			changeBullets: schema.changelogHeroes.changeBullets
+			changeGroups: schema.changelogHeroes.changeGroups
 		})
 		.from(schema.changelogs)
 		.innerJoin(
@@ -326,7 +393,10 @@ export async function getChangelogsByHeroId(
 		.where(eq(schema.changelogHeroes.heroId, heroId))
 		.orderBy(desc(schema.changelogs.pubDate))
 		.all();
-	return rows.map((row) => ({ ...row, changeCount: row.changeBullets?.length ?? null }));
+	return rows.map((row) => ({
+		...row,
+		changeCount: countGroupBullets(row.changeGroups)
+	}));
 }
 
 /** See getChangelogsByHeroId — deliberately uncapped for the same reason. */
@@ -337,7 +407,7 @@ export async function getChangelogsByItemId(
 	const rows = await db
 		.select({
 			...ENTITY_HISTORY_COLUMNS,
-			changeBullets: schema.changelogItems.changeBullets
+			changeGroups: schema.changelogItems.changeGroups
 		})
 		.from(schema.changelogs)
 		.innerJoin(
@@ -347,7 +417,10 @@ export async function getChangelogsByItemId(
 		.where(eq(schema.changelogItems.itemId, itemId))
 		.orderBy(desc(schema.changelogs.pubDate))
 		.all();
-	return rows.map((row) => ({ ...row, changeCount: row.changeBullets?.length ?? null }));
+	return rows.map((row) => ({
+		...row,
+		changeCount: countGroupBullets(row.changeGroups)
+	}));
 }
 
 /**

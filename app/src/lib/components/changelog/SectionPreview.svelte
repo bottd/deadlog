@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { entityFragmentId, getEntityMaps, resolveEntity } from './entityContext';
+	import { entityFragmentId, getEntityIcons, resolveEntity } from './entityContext';
 
 	interface Props {
 		type: 'hero' | 'item';
@@ -8,16 +8,16 @@
 
 	let { type, names }: Props = $props();
 
-	const maps = getEntityMaps();
+	const entityIcons = getEntityIcons();
 
 	const icons = $derived.by(() => {
 		return names
 			.map((name) => {
-				const entity = resolveEntity(maps, type, name);
-				const displayName = entity?.name ?? name;
+				const entity = resolveEntity(entityIcons, type, name);
+				const displayName = entity?.alt ?? name;
 				return {
 					name: displayName,
-					image: entity?.image,
+					image: entity?.src,
 					slug: entityFragmentId(displayName)
 				};
 			})

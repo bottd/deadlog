@@ -1,5 +1,5 @@
 import { createInfiniteQuery, useQueryClient } from '@tanstack/svelte-query';
-import type { ChangelogEntry } from '$lib/types';
+import type { ChangelogEntry, ChangelogWireEntry } from '$lib/types';
 import {
 	changelogsListKey,
 	filtersToSearchParams,
@@ -8,6 +8,11 @@ import {
 
 interface PageData {
 	changelogs: ChangelogEntry[];
+	hasMore: boolean;
+}
+
+interface WirePageData {
+	changelogs: ChangelogWireEntry[];
 	hasMore: boolean;
 }
 
@@ -24,6 +29,14 @@ interface UseChangelogQueryOptions {
 }
 
 const PAGE_SIZE = 12;
+
+function reviveChangelog(entry: ChangelogWireEntry): ChangelogEntry {
+	return {
+		...entry,
+		date: new Date(entry.date),
+		updates: entry.updates?.map(reviveChangelog)
+	};
+}
 
 export function useChangelogQuery(options: UseChangelogQueryOptions) {
 	const queryClient = useQueryClient();
@@ -70,20 +83,23 @@ export function useChangelogQuery(options: UseChangelogQueryOptions) {
 				],
 				pageParams: [0]
 			},
-			queryFn: async ({ pageParam }) => {
+			queryFn: async ({ pageParam, signal }) => {
 				const limit = pageParam === 0 ? initialCount : PAGE_SIZE;
 				const offset = pageParam === 0 ? 0 : initialCount + (pageParam - 1) * PAGE_SIZE;
 				const searchParams = filtersToSearchParams({ hero, item, q, major });
 				searchParams.set('limit', String(limit));
 				searchParams.set('offset', String(offset));
 
-				const response = await fetch(`/api/changelogs?${searchParams.toString()}`);
+				const response = await fetch(`/api/changelogs?${searchParams.toString()}`, {
+					signal
+				});
 
 				if (!response.ok) {
 					throw new Error(`Failed to fetch changelogs: ${response.statusText}`);
 				}
 
-				return (await response.json()) as PageData;
+				const page = (await response.json()) as WirePageData;
+				return { ...page, changelogs: page.changelogs.map(reviveChangelog) };
 			},
 			getNextPageParam: (lastPage, _pages, lastPageParam) =>
 				lastPage.hasMore ? lastPageParam + 1 : undefined,

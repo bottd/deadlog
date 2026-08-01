@@ -34,8 +34,8 @@ content_text "Troopers will now only flinch from player damage if it is a headsh
 ``
 
 =item:decay:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/decay.webp]]
-## Decay
+[[/item/decay]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/decay.webp]] Decay patch history))
+## [[/item/decay]]((Decay))
 
 - Cast range spirit scaling reduced from 0.13 to 0.1
 - Damage reduced from 2.5% to 2.4%
@@ -44,21 +44,21 @@ content_text "Troopers will now only flinch from player damage if it is a headsh
 - Healing Reduction increased from -35% to -40%
 =
 =item:express-shot:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/express_shot.webp]]
-## Express Shot
+[[/item/express-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/express_shot.webp]] Express Shot patch history))
+## [[/item/express-shot]]((Express Shot))
 
 - Weapon Damage increased from 125% to 150%
 - Now does reduced damage for non-primary gun damage (alt fires, carbine), 150% to 75%
 =
 =item:frenzy:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/frenzy.webp]]
-## Frenzy
+[[/item/frenzy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/frenzy.webp]] Frenzy patch history))
+## [[/item/frenzy]]((Frenzy))
 
 - Active Spirit Resistance reduced from 40% to 30%
 =
 =item:headhunter:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/headhunter.webp]]
-## Headhunter
+[[/item/headhunter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/headhunter.webp]] Headhunter patch history))
+## [[/item/headhunter]]((Headhunter))
 
 - Heal reduced from 6% to 4%
 - Heal now scales with spirit power (0.014)
@@ -66,28 +66,28 @@ content_text "Troopers will now only flinch from player damage if it is a headsh
 - Bonus damage now scales with spirit power (0.3)
 =
 =item:headshot-booster:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/headshot_booster.webp]]
-## Headshot Booster
+[[/item/headshot-booster]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/headshot_booster.webp]] Headshot Booster patch history))
+## [[/item/headshot-booster]]((Headshot Booster))
 
 - Health reduced from 65 to 40
 =
 =item:siphon-bullets:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/siphon_bullets.webp]]
-## Siphon Bullets
+[[/item/siphon-bullets]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/siphon_bullets.webp]] Siphon Bullets patch history))
+## [[/item/siphon-bullets]]((Siphon Bullets))
 
 - Steal per hit reduced from 65 to 55
 - Spirit Resistance reduced from 12% to 10%
 - Fixed the cooldown not being consumed when blocked by Plated Armor
 =
 =item:spirit-rend:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/spellslinger_headshots.webp]]
-## Spirit Rend
+[[/item/spirit-rend]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/spellslinger_headshots.webp]] Spirit Rend patch history))
+## [[/item/spirit-rend]]((Spirit Rend))
 
 - Fixed being able to get 2 stacks without using the cooldown
 =
 =item:superior-cooldown:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/superior_cooldown.webp]]
-## Superior Cooldown
+[[/item/superior-cooldown]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/superior_cooldown.webp]] Superior Cooldown patch history))
+## [[/item/superior-cooldown]]((Superior Cooldown))
 
 - Cooldown Reduction reduced from 27% to 26%
 =

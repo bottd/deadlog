@@ -2,6 +2,10 @@ import type { DrizzleDB } from '@deadlog/db';
 
 declare global {
 	namespace App {
+		interface PageState {
+			ability?: string | null;
+		}
+
 		interface Locals {
 			db: DrizzleDB;
 		}

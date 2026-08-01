@@ -18,8 +18,8 @@ content_text "Restorative Locket Spirit Resist reduced from 10% to 8% Cooldown i
 ``
 
 =item:restorative-locket:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/restorative_locket.webp]]
-## Restorative Locket
+[[/item/restorative-locket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/restorative_locket.webp]] Restorative Locket patch history))
+## [[/item/restorative-locket]]((Restorative Locket))
 
 - Spirit Resist reduced from 10% to 8%
 - Cooldown increased from 24s to 28s

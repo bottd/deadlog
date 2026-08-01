@@ -24,24 +24,33 @@ content_text "Various adjustments to orb spawning behavior (a bit less horizonta
 ``
 
 =hero:viscous:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]]
-## Viscous
+[[/hero/viscous]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous patch history))
+## [[/hero/viscous]]((Viscous))
+
+==ability:goo-ball:
+[[/hero/viscous?ability=goo-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_sphere.webp]] Goo Ball change history))
+### [[/hero/viscous?ability=goo-ball]]((Goo Ball))
 
 - Added a directional arrow particle effect to Goo Ball for Viscous
 - Added additional particles while using Goo Ball
+==
+==ability:puddle-punch:
+[[/hero/viscous?ability=puddle-punch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp]] Puddle Punch change history))
+### [[/hero/viscous?ability=puddle-punch]]((Puddle Punch))
+
 - Fixed hit detection on Puddle Punch and Goo Ball
 - Fixed Puddle Punch having 2x the range of the tooltip.
 - Fixed Puddle Punch being able to target behind puddle
 - Fixed Puddle Punch using Guardians as a surface to punch from
-
+==
 ==ability:puddle-punch-range:
-### Puddle Punch Range
+### [[/hero/viscous?ability=puddle-punch]]((Puddle Punch Range))
 
 - Puddle Punch Range reduced from 70m to 60m
 ==
 ==ability:splatter:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_ball.webp]]
-### Splatter
+[[/hero/viscous?ability=splatter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_ball.webp]] Splatter change history))
+### [[/hero/viscous?ability=splatter]]((Splatter))
 
 - Splatter now deals less damage if it hits the same target multiple times. 66% damage for the second hit, 33% damage for the third hit.
 

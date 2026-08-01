@@ -30,58 +30,61 @@ content_text "Fixed some cases where slows could cause your speed to fall below 
 ``
 
 =hero:infernus:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]]
-## Infernus
+[[/hero/infernus]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus patch history))
+## [[/hero/infernus]]((Infernus))
 
 ==ability:flame-dash:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_dash.webp]]
-### Flame Dash
+[[/hero/infernus?ability=flame-dash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_dash.webp]] Flame Dash change history))
+### [[/hero/infernus?ability=flame-dash]]((Flame Dash))
 
 - Flame Dash T3 changed Charge Time increased from 15s to 18s
 ==
 =
 =hero:mirage:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]]
-## Mirage
+[[/hero/mirage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage patch history))
+## [[/hero/mirage]]((Mirage))
+
+==ability:fire-scarabs:
+[[/hero/mirage?ability=fire-scarabs]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_fire_beetles.webp]] Fire Scarabs change history))
+### [[/hero/mirage?ability=fire-scarabs]]((Fire Scarabs))
 
 - Fire Scarabs T2 reduced from -10% Bullet Resist to -8%
+==
 =
 =hero:vindicta:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]]
-## Vindicta
-
-- Assassinate base damage reduced from 120 to 100
+[[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
+## [[/hero/vindicta]]((Vindicta))
 
 ==ability:assassinate:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_assassinate.webp]]
-### Assassinate
+[[/hero/vindicta?ability=assassinate]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_assassinate.webp]] Assassinate change history))
+### [[/hero/vindicta?ability=assassinate]]((Assassinate))
 
+- Assassinate base damage reduced from 120 to 100
 - Assassinate bonus damage reduced from 120 to 100
 ==
 =
 =hero:warden:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]]
-## Warden
+[[/hero/warden]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden patch history))
+## [[/hero/warden]]((Warden))
 
 - Bullet damage growth reduced from 0.94 to 0.9
 
 ==ability:last-stand:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_riot_protocol.webp]]
-### Last Stand
+[[/hero/warden?ability=last-stand]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_riot_protocol.webp]] Last Stand change history))
+### [[/hero/warden?ability=last-stand]]((Last Stand))
 
 - Last Stand now does 40% less damage to objectives (similar to various other abilities)
 ==
 =
 =hero:yamato:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]]
-## Yamato
-
-- Shadow Transformation Bullet and Spirit Resist reduced from 45% to 40%
+[[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
+## [[/hero/yamato]]((Yamato))
 
 ==ability:shadow-transformation:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]]
-### Shadow Transformation
+[[/hero/yamato?ability=shadow-transformation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]] Shadow Transformation change history))
+### [[/hero/yamato?ability=shadow-transformation]]((Shadow Transformation))
 
+- Shadow Transformation Bullet and Spirit Resist reduced from 45% to 40%
 - Shadow Transformation T3 increased from 15% to 20% Resist
 ==
 =
@@ -92,26 +95,26 @@ content_text "Fixed some cases where slows could cause your speed to fall below 
 ``
 
 =item:alchemical-fire:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/alchemical_fire.webp]]
-## Alchemical Fire
+[[/item/alchemical-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/alchemical_fire.webp]] Alchemical Fire patch history))
+## [[/item/alchemical-fire]]((Alchemical Fire))
 
 - Base DPS reduced from 55 to 50
 =
 =item:knockdown:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/knockdown.webp]]
-## Knockdown
+[[/item/knockdown]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/knockdown.webp]] Knockdown patch history))
+## [[/item/knockdown]]((Knockdown))
 
 - Stun duration reduced form 0.75s to 0.5s for ground targets (airborne values adjusted to be similar to before)
 =
 =item:restorative-shot:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/restorative_shot.webp]]
-## Restorative Shot
+[[/item/restorative-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/restorative_shot.webp]] Restorative Shot patch history))
+## [[/item/restorative-shot]]((Restorative Shot))
 
 - Cooldown increased from 6s to 7s
 =
 =item:veil-walker:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/veil_walker.webp]]
-## Veil Walker
+[[/item/veil-walker]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/veil_walker.webp]] Veil Walker patch history))
+## [[/item/veil-walker]]((Veil Walker))
 
 - Now a T4 item
 - Shields increased from 250 to 300

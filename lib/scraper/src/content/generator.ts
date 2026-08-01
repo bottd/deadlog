@@ -1,4 +1,26 @@
 import {
+	MOG_IMAGE_PREFIX,
+	abilityFragmentId,
+	entityFragmentId,
+	entityNameAliases,
+	escapeMogDelimiters,
+	mogImage,
+	mogLink,
+	parseMogLink,
+	stripMogLinks,
+	toSlug
+} from '@deadlog/utils';
+import {
+	regroupAbilityChanges,
+	resolveAbilitySlots,
+	resolveHeroAbilitySlug
+} from '../heroAbilities';
+import {
+	itemImage,
+	type HeroesApiResponse,
+	type ItemsApiResponse
+} from '../types/deadlockApi';
+import {
 	groupNotesByAbility,
 	parseAndGroupContent,
 	type EntityLists,
@@ -21,78 +43,99 @@ function cleanVideoLabel(label: string): string {
 		.trim();
 	return cleaned || 'clip';
 }
-import {
-	MOG_IMAGE_PREFIX,
-	abilityFragmentId,
-	entityFragmentId,
-	entityNameAliases,
-	escapeMogDelimiters,
-	mogImage,
-	parseMogLink,
-	stripMogLinks
-} from '@deadlog/utils';
-import type { HeroesApiResponse, ItemsApiResponse } from '../types/deadlockApi';
 
-/**
- * Icon URL per entity, keyed by every alias a note might name it with. Baked into the
- * heading rather than resolved at render time, so the portrait survives without a
- * component — the trade is that a changed asset URL needs a regeneration.
- */
-export interface EntityIcons {
-	hero: Map<string, string>;
-	item: Map<string, string>;
-	ability: Map<string, string>;
+interface EntityAsset {
+	name: string;
+	src?: string;
+	slug: string;
 }
 
-function indexByAlias<T>(rows: T[], name: (row: T) => string, image: (row: T) => string) {
-	const map = new Map<string, string>();
+export interface EntityAssets {
+	hero: ReadonlyMap<string, EntityAsset>;
+	item: ReadonlyMap<string, EntityAsset>;
+	abilitiesByHero: ReadonlyMap<string, readonly EntityAsset[]>;
+}
+
+interface LinkTarget {
+	href: string;
+	src?: string;
+}
+
+function indexByAlias<T>(
+	rows: readonly T[],
+	name: (row: T) => string,
+	image: (row: T) => string
+) {
+	const map = new Map<string, EntityAsset>();
 	for (const row of rows) {
-		const url = image(row);
-		if (!url) continue;
-		for (const alias of entityNameAliases(name(row))) map.set(alias, url);
+		const canonicalName = name(row);
+		const asset = {
+			name: canonicalName,
+			src: image(row) || undefined,
+			slug: toSlug(canonicalName)
+		};
+		for (const alias of entityNameAliases(canonicalName)) map.set(alias, asset);
 	}
 	return map;
 }
 
-/** Mirrors the precedence the app resolves at render time, so the baked icon matches. */
-export function buildEntityIcons(
+export function buildEntityAssets(
 	heroes: HeroesApiResponse,
 	items: ItemsApiResponse
-): EntityIcons {
+): EntityAssets {
 	const heroImage = (h: HeroesApiResponse[number]) =>
 		h.images.icon_image_small_webp ||
 		h.images.icon_image_small ||
 		Object.values(h.images)[0] ||
 		'';
-	const itemImage = (i: ItemsApiResponse[number]) =>
-		i.shop_image_webp || i.shop_image || i.image_webp || i.image || '';
+	const abilitiesByHero = new Map<string, EntityAsset[]>();
+	const abilitySlots = resolveAbilitySlots(heroes, items);
+	for (const hero of heroes) {
+		const abilities = (abilitySlots.get(hero.id) ?? []).map((ability) => ({
+			name: ability.name,
+			src: ability.image,
+			slug: ability.slug
+		}));
+		for (const alias of entityNameAliases(hero.name))
+			abilitiesByHero.set(alias, abilities);
+	}
 
 	return {
 		hero: indexByAlias(heroes, (h) => h.name, heroImage),
 		item: indexByAlias(
-			items.filter((i) => i.type !== 'ability'),
+			items.filter((item) => item.type !== 'ability' && itemImage(item)),
 			(i) => i.name,
 			itemImage
 		),
-		ability: indexByAlias(
-			items.filter((i) => i.type === 'ability'),
-			(i) => i.name,
-			itemImage
-		)
+		abilitiesByHero
 	};
 }
 
-function iconFor(
-	icons: EntityIcons | undefined,
-	kind: keyof EntityIcons,
+function byAlias<T>(
+	rows: ReadonlyMap<string, T> | undefined,
 	name: string
-): string | undefined {
-	if (!icons) return undefined;
+): T | undefined {
 	for (const alias of entityNameAliases(name)) {
-		const url = icons[kind].get(alias);
-		if (url) return url;
+		const row = rows?.get(alias);
+		if (row) return row;
 	}
 	return undefined;
+}
+
+function entityTarget(
+	assets: EntityAssets | undefined,
+	type: 'hero' | 'item',
+	name: string
+): LinkTarget | undefined {
+	const asset = byAlias(assets?.[type], name);
+	return asset ? { href: `/${type}/${asset.slug}`, src: asset.src } : undefined;
+}
+
+function abilitiesFor(
+	assets: EntityAssets | undefined,
+	heroName: string
+): readonly EntityAsset[] {
+	return byAlias(assets?.abilitiesByHero, heroName) ?? [];
 }
 
 const EMPTY_CHANGELOG = `# Changelog\n\nNo structured changes were parsed for this update.`;
@@ -110,35 +153,22 @@ function escapeInlineAttr(value: string): string {
 	return value.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 }
 
-/**
- * An entity section as a wrapped block, so its portrait, heading and notes render as one
- * subtree rather than a run of siblings:
- *
- *   =hero:abrams:
- *   [[!:https://…/abrams.webp]]
- *   ## Abrams
- *   - Base Health increased
- *   =
- *
- * The attribute chain must abut the marker — `= hero:` renders it as literal text. The
- * renderer derives the anchor id from the heading title alone and disambiguates repeats
- * itself (`-1`, `-2`), which is why no id is written here.
- *
- * The single place the entity shape is spelled.
- */
 function entityBlock(
 	depth: number,
 	attrs: string[],
 	level: number,
 	name: string,
-	icon: string | undefined,
-	body: string[]
+	target: LinkTarget | undefined,
+	body: readonly string[]
 ): string[] {
 	const fence = '='.repeat(depth);
+	const imageLabel = `${name} ${attrs[0] === 'ability' ? 'change' : 'patch'} history`;
 	return [
 		`${fence}${attrs.map((a) => `${a}:`).join('')}`,
-		...(icon ? [mogImage(icon, '')] : []),
-		`${'#'.repeat(level)} ${name}`,
+		...(target?.src
+			? [mogLink(target.href, `${mogImage(target.src, '')} ${imageLabel}`)]
+			: []),
+		`${'#'.repeat(level)} ${target ? mogLink(target.href, name) : name}`,
 		...body,
 		fence
 	];
@@ -169,7 +199,7 @@ function bulletLine(note: string): string {
 
 export function generateStructuredContent(
 	grouped: GroupedContent,
-	icons?: EntityIcons
+	assets?: EntityAssets
 ): string {
 	const out: string[] = [];
 
@@ -199,20 +229,35 @@ export function generateStructuredContent(
 		);
 
 		for (const [heroName, notes] of sortedHeroes) {
+			const hero = entityTarget(assets, 'hero', heroName);
+			const abilities = abilitiesFor(assets, heroName);
 			const body: string[] = [];
-			for (const group of groupNotesByAbility(notes)) {
-				const bullets = group.notes.map(bulletLine);
-				if (!group.abilityName) {
+			const groups = regroupAbilityChanges(
+				groupNotesByAbility(notes).map((group) => ({
+					ability: group.abilityName,
+					bullets: group.notes
+				})),
+				abilities
+			);
+			for (const group of groups) {
+				const bullets = group.bullets.map(bulletLine);
+				if (!group.ability) {
 					body.push(...bullets);
 					continue;
 				}
+				const slug = resolveHeroAbilitySlug(group.ability, abilities);
+				const ability = abilities.find((candidate) => candidate.slug === slug);
+				const target =
+					hero && ability
+						? { href: `${hero.href}?ability=${ability.slug}`, src: ability.src }
+						: undefined;
 				body.push(
 					...entityBlock(
 						2,
-						['ability', abilityFragmentId(group.abilityName)],
+						['ability', abilityFragmentId(group.ability)],
 						3,
-						group.abilityName,
-						iconFor(icons, 'ability', group.abilityName),
+						group.ability,
+						target,
 						bullets
 					)
 				);
@@ -220,14 +265,7 @@ export function generateStructuredContent(
 
 			out.push(
 				'',
-				...entityBlock(
-					1,
-					['hero', entityFragmentId(heroName)],
-					2,
-					heroName,
-					iconFor(icons, 'hero', heroName),
-					body
-				)
+				...entityBlock(1, ['hero', entityFragmentId(heroName)], 2, heroName, hero, body)
 			);
 		}
 	}
@@ -248,6 +286,7 @@ export function generateStructuredContent(
 		);
 
 		for (const [itemName, notes] of sortedItems) {
+			const item = entityTarget(assets, 'item', itemName);
 			out.push(
 				'',
 				...entityBlock(
@@ -255,7 +294,7 @@ export function generateStructuredContent(
 					['item', entityFragmentId(itemName)],
 					2,
 					itemName,
-					iconFor(icons, 'item', itemName),
+					item,
 					notes.map(bulletLine)
 				)
 			);
@@ -302,10 +341,10 @@ export interface ChangelogSource {
 export function generateChangelog(
 	source: ChangelogSource,
 	entities: EntityLists,
-	icons?: EntityIcons
+	assets?: EntityAssets
 ): string {
 	const grouped = parseAndGroupContent(source.rawContent, entities);
-	const structuredContent = generateStructuredContent(grouped, icons);
+	const structuredContent = generateStructuredContent(grouped, assets);
 	const contentText = collectPlainText(grouped);
 
 	const out: string[] = ['``meta:', `title ${kdlString(source.title)}`];

@@ -2,7 +2,11 @@ import { page } from '$app/state';
 import { goto } from '$app/navigation';
 import { building } from '$app/environment';
 import { parseCSV } from '$lib/utils/csv';
-import { filtersToSearchParams } from '$lib/queries/keys';
+import {
+	filtersToSearchParams,
+	MAX_ENTITY_FILTERS,
+	MAX_QUERY_LENGTH
+} from '$lib/queries/keys';
 
 const GOTO_OPTS = { replaceState: false, keepFocus: true, noScroll: false } as const;
 
@@ -46,7 +50,7 @@ class SearchParamsStore {
 	}
 
 	get q(): string {
-		return this.#getParams().get('q') ?? '';
+		return (this.#getParams().get('q') ?? '').trim();
 	}
 
 	get major(): boolean {
@@ -60,9 +64,14 @@ class SearchParamsStore {
 
 	update(values: ParamValues) {
 		if (building) return;
-		const nextParams = new URLSearchParams(this.#getParams());
+		const nextParams = this.toURLSearchParams();
 		for (const [key, value] of Object.entries(values)) {
-			const s = serialize(value as ParamValue);
+			const normalized = Array.isArray(value)
+				? value.slice(0, MAX_ENTITY_FILTERS)
+				: key === 'q' && typeof value === 'string'
+					? value.trim().slice(0, MAX_QUERY_LENGTH)
+					: value;
+			const s = serialize(normalized as ParamValue);
 			if (s === null) nextParams.delete(key);
 			else nextParams.set(key, s);
 		}
@@ -78,12 +87,7 @@ class SearchParamsStore {
 		this.#pendingParams = nextParams;
 		const navigationId = ++this.#navigationId;
 		const query = nextParams.toString();
-		// Only the changelog list and a single patch page read these params. On the
-		// directories and entity profiles they are inert, so filtering from there means
-		// "show me this in the changelog" rather than "?hero=… on a page that ignores it".
-		const { pathname } = page.url;
-		const path = pathname === '/' || pathname.startsWith('/change/') ? pathname : '/';
-		this.#pendingTarget = query ? `${path}?${query}` : path;
+		this.#pendingTarget = query ? `/?${query}` : '/';
 		this.#hasReachedTarget = false;
 
 		const finish = () => {

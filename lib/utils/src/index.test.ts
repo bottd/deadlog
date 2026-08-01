@@ -7,6 +7,7 @@ import {
 	formatDate,
 	formatTime,
 	makeSummary,
+	resolveAbilitySlug,
 	stripMogLinks,
 	unescapeMogDelimiters
 } from './index';
@@ -67,6 +68,26 @@ describe('abilityFragmentId', () => {
 
 	it('trims leading and trailing separators', () => {
 		expect(abilityFragmentId('  Mo & Krill  ')).toBe('mo-krill');
+	});
+});
+
+describe('resolveAbilitySlug', () => {
+	const abilities = [
+		{ slug: 'call-bell' },
+		{ slug: 'storm-cloud' },
+		{ slug: 'hyper-beam' }
+	];
+
+	it('maps stat-suffixed and compact headings to a canonical ability', () => {
+		expect(resolveAbilitySlug('Call Bell Charge Time', abilities)).toBe('call-bell');
+		expect(resolveAbilitySlug('Storm Cloud DPS', abilities)).toBe('storm-cloud');
+		expect(resolveAbilitySlug('Hyperbeam', abilities)).toBe('hyper-beam');
+		expect(resolveAbilitySlug('Hyperbeam DPS', abilities)).toBe('hyper-beam');
+		expect(resolveAbilitySlug('Storm Clouds DPS', abilities)).toBe('storm-cloud');
+	});
+
+	it('does not invent a match for an unrelated heading', () => {
+		expect(resolveAbilitySlug('Can', abilities)).toBeNull();
 	});
 });
 

@@ -2,8 +2,8 @@
 	import { page } from '$app/state';
 	import { searchParams as params } from '$lib/stores/searchParams.svelte';
 	import { getHeroCardImage } from '$lib/utils/entityImages';
-	import { toggleArray } from '$lib/utils/toggle';
 	import type { EnrichedHero } from '$lib/types';
+	import { hasEntity, toggleEntity } from './filterState.svelte';
 
 	// ponytail: heroes only — the roster is ~25 (finite), so a full icon rail is
 	// honest. Items number 70+; they stay in the search dropdown, not a rail.
@@ -14,7 +14,7 @@
 	);
 
 	function toggle(name: string) {
-		params.update({ hero: toggleArray(params.hero, name), q: '' });
+		params.update({ hero: toggleEntity(params.hero, name) });
 	}
 </script>
 
@@ -28,7 +28,7 @@
 		<div class="-mx-4 overflow-x-auto px-4 pb-1 sm:mx-0 sm:overflow-visible sm:px-0">
 			<div class="flex w-max gap-1.5 sm:w-auto sm:flex-wrap">
 				{#each heroes as hero (hero.id)}
-					{@const selected = params.hero.includes(hero.name)}
+					{@const selected = hasEntity(params.hero, hero.name)}
 					<button
 						type="button"
 						onclick={() => toggle(hero.name)}

@@ -4,6 +4,7 @@ export type { SelectChangelog } from './schema';
 
 export {
 	insertHeroSchema,
+	insertHeroAbilitySchema,
 	insertItemSchema,
 	insertChangelogHeroSchema,
 	insertChangelogItemSchema

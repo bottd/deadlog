@@ -3,9 +3,12 @@ import { createClient, type Client } from '@libsql/client';
 import { drizzle } from 'drizzle-orm/libsql';
 import { schema, type DrizzleDB } from '@deadlog/db';
 import {
+	getChangelogAbilityIcons,
+	getChangelogBySlug,
 	getChangelogsByHeroId,
 	getChangelogsByItemId,
 	getChangelogIcons,
+	getHeroAbilities,
 	getHeroByName,
 	getHeroBySlug,
 	getHeroLastModified,
@@ -36,6 +39,10 @@ describe('entity history queries', () => {
 				parent_change TEXT,
 				content_text TEXT
 			);
+			CREATE TABLE changelog_aliases (
+				slug TEXT PRIMARY KEY,
+				changelog_id TEXT NOT NULL
+			);
 			CREATE TABLE heroes (
 				id INTEGER PRIMARY KEY,
 				name TEXT NOT NULL,
@@ -44,6 +51,16 @@ describe('entity history queries', () => {
 				hero_type TEXT,
 				images TEXT NOT NULL,
 				is_released INTEGER NOT NULL DEFAULT 0
+			);
+			CREATE TABLE hero_abilities (
+				hero_id INTEGER NOT NULL,
+				position INTEGER NOT NULL,
+				name TEXT NOT NULL,
+				slug TEXT NOT NULL,
+				image TEXT NOT NULL,
+				description TEXT,
+				PRIMARY KEY (hero_id, position),
+				UNIQUE (hero_id, slug)
 			);
 			CREATE TABLE items (
 				id INTEGER PRIMARY KEY,
@@ -59,13 +76,13 @@ describe('entity history queries', () => {
 			CREATE TABLE changelog_heroes (
 				changelog_id TEXT NOT NULL,
 				hero_id INTEGER NOT NULL,
-				change_bullets TEXT,
+				change_groups TEXT,
 				PRIMARY KEY (changelog_id, hero_id)
 			);
 			CREATE TABLE changelog_items (
 				changelog_id TEXT NOT NULL,
 				item_id INTEGER NOT NULL,
-				change_bullets TEXT,
+				change_groups TEXT,
 				PRIMARY KEY (changelog_id, item_id)
 			);
 		`);
@@ -99,17 +116,32 @@ describe('entity history queries', () => {
 			image: '/tesla.png',
 			isReleased: true
 		});
-		await db.insert(schema.items).values({
-			id: 2,
-			name: 'Prototype Ability',
-			slug: 'prototype-ability',
-			className: 'ability_prototype',
-			type: 'ability',
-			category: null,
-			tier: null,
-			image: '/prototype.png',
-			isReleased: false
-		});
+		await db.insert(schema.heroAbilities).values([
+			{
+				heroId: 69,
+				position: 2,
+				name: 'Doorway',
+				slug: 'doorway',
+				image: '/doorway.png',
+				description: 'Opens a doorway.'
+			},
+			{
+				heroId: 69,
+				position: 1,
+				name: 'Call Bell',
+				slug: 'call-bell',
+				image: '/call-bell.png',
+				description: null
+			},
+			{
+				heroId: 70,
+				position: 1,
+				name: 'Call Bell',
+				slug: 'call-bell',
+				image: '/prototype-call-bell.png',
+				description: null
+			}
+		]);
 		await db.insert(schema.changelogs).values([
 			{
 				id: 'new',
@@ -130,21 +162,25 @@ describe('entity history queries', () => {
 				contentText: 'An underscore marker'
 			}
 		]);
+		await db.insert(schema.changelogAliases).values({
+			slug: '2026/gameplay-02-02',
+			changelogId: 'new'
+		});
 		await db.insert(schema.changelogHeroes).values([
 			{
 				changelogId: 'new',
 				heroId: 69,
-				changeBullets: [
-					'Doorway: Cooldown reduced from 40s to 32s',
-					'Base bullet damage increased'
+				changeGroups: [
+					{ ability: null, bullets: ['Base bullet damage increased'] },
+					{ ability: 'Doorway', bullets: ['Cooldown reduced from 40s to 32s'] }
 				]
 			},
-			{ changelogId: 'old', heroId: 69, changeBullets: null }
+			{ changelogId: 'old', heroId: 69, changeGroups: null }
 		]);
 		await db.insert(schema.changelogItems).values({
 			changelogId: 'new',
 			itemId: 1,
-			changeBullets: ['Proc chance increased']
+			changeGroups: [{ ability: null, bullets: ['Proc chance increased'] }]
 		});
 	});
 
@@ -158,27 +194,61 @@ describe('entity history queries', () => {
 		]);
 	});
 
+	it('resolves changelog aliases as canonical rows', async () => {
+		await expect(getChangelogBySlug(db, '2026/gameplay-02-02')).resolves.toMatchObject({
+			id: 'new',
+			slug: '2026/02-02'
+		});
+	});
+
 	it('returns the item-specific count rather than the wider patch scope', async () => {
 		const history = await getChangelogsByItemId(db, 1);
 		expect(history).toHaveLength(1);
 		expect(history[0].changeCount).toBe(1);
 	});
 
-	it('carries the entity-specific bullets instead of the whole patch body', async () => {
+	it('carries the entity-specific change groups instead of the whole patch body', async () => {
 		const [hero] = await getChangelogsByHeroId(db, 69);
 		const [item] = await getChangelogsByItemId(db, 1);
 
-		expect(hero.changeBullets).toEqual([
-			'Doorway: Cooldown reduced from 40s to 32s',
-			'Base bullet damage increased'
+		expect(hero.changeGroups).toEqual([
+			{ ability: null, bullets: ['Base bullet damage increased'] },
+			{ ability: 'Doorway', bullets: ['Cooldown reduced from 40s to 32s'] }
 		]);
-		expect(item.changeBullets).toEqual(['Proc chance increased']);
+		expect(item.changeGroups).toEqual([
+			{ ability: null, bullets: ['Proc chance increased'] }
+		]);
 
 		// Entity history pages prerender ~200 pages; shipping contentText put the full
 		// prose of every patch into each one. Keep it out of this query.
 		for (const row of [hero, item]) {
 			expect(row).not.toHaveProperty('contentText');
 		}
+	});
+
+	it('returns a hero’s castable abilities in in-game order', async () => {
+		const abilities = await getHeroAbilities(db, 69);
+		expect(abilities).toEqual([
+			{
+				name: 'Call Bell',
+				slug: 'call-bell',
+				image: '/call-bell.png',
+				description: null
+			},
+			{
+				name: 'Doorway',
+				slug: 'doorway',
+				image: '/doorway.png',
+				description: 'Opens a doorway.'
+			}
+		]);
+	});
+
+	it('returns only the patch heroes ability icons in slot order', async () => {
+		await expect(getChangelogAbilityIcons(db, 'new')).resolves.toEqual([
+			{ heroId: 69, slug: 'call-bell', image: '/call-bell.png' },
+			{ heroId: 69, slug: 'doorway', image: '/doorway.png' }
+		]);
 	});
 
 	it('translates the stored shop taxonomy for existing icon consumers', async () => {

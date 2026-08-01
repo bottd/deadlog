@@ -1,11 +1,12 @@
 <script lang="ts">
-	import type { EntityIcon, MogTocEntry } from '$lib/types';
-	import { entityFragmentId, entityHistoryHref } from './entityContext';
-	import History from '@lucide/svelte/icons/history';
+	import type { ChangelogAbilityIcon, EntityIcon, MogTocEntry } from '$lib/types';
+	import { entityFragmentId } from './entityContext';
+	import { resolveHeroAbilitySlug } from '@deadlog/utils';
 
 	interface Props {
 		heroes: EntityIcon[];
 		items: EntityIcon[];
+		abilityIcons?: ChangelogAbilityIcon[];
 		onnavigate?: () => void;
 		size?: 'sm' | 'lg';
 		hideGeneral?: boolean;
@@ -16,6 +17,7 @@
 	let {
 		heroes,
 		items,
+		abilityIcons = [],
 		onnavigate,
 		size = 'sm',
 		hideGeneral = false,
@@ -36,9 +38,44 @@
 		}
 		return buckets;
 	});
+
+	const abilityIconsByHero = $derived.by(() => {
+		const icons = new Map<number, ChangelogAbilityIcon[]>();
+		for (const ability of abilityIcons) {
+			const entries = icons.get(ability.heroId) ?? [];
+			entries.push(ability);
+			icons.set(ability.heroId, entries);
+		}
+		return icons;
+	});
+
+	function abilityImage(heroId: number, entry: MogTocEntry): string | undefined {
+		const icons = abilityIconsByHero.get(heroId) ?? [];
+		const slug = resolveHeroAbilitySlug(entry.title, icons);
+		return icons.find((ability) => ability.slug === slug)?.image;
+	}
+
+	function orderEntities(sectionId: string, entities: EntityIcon[]): EntityIcon[] {
+		const positions = new Map<string, number>();
+		let inSection = false;
+		for (const entry of toc) {
+			if (entry.level === 1) {
+				inSection = entry.id === sectionId;
+				continue;
+			}
+			if (inSection && entry.level === 2) positions.set(entry.id, positions.size);
+		}
+
+		return [...entities].sort(
+			(a, b) =>
+				(positions.get(entityFragmentId(a.alt)) ?? Number.MAX_SAFE_INTEGER) -
+				(positions.get(entityFragmentId(b.alt)) ?? Number.MAX_SAFE_INTEGER)
+		);
+	}
 </script>
 
 {#snippet tocGroup(href: string, label: string, count: number, entities: EntityIcon[])}
+	{@const orderedEntities = orderEntities(href.slice(1), entities)}
 	<div class={size === 'lg' ? 'pt-3' : 'pt-2'}>
 		<a {href} class="toc-section" onclick={onnavigate}>
 			<span class="toc-marker" aria-hidden="true"></span>
@@ -46,49 +83,59 @@
 			<span
 				class={size === 'lg'
 					? 'bg-signal/10 text-signal ml-auto rounded-full px-2 py-0.5 font-mono text-xs font-medium'
-					: 'text-signal/50 ml-auto font-mono text-[10px]'}>{count}</span
+					: 'text-signal ml-auto font-mono text-[10px]'}>{count}</span
 			>
 		</a>
 		<ul class={size === 'lg' ? 'mt-1 space-y-0.5' : 'mt-0.5 space-y-px'}>
-			{#each entities as entity (entity.id)}
+			{#each orderedEntities as entity (entity.id)}
 				{@const abilities = abilityEntries.get(entityFragmentId(entity.alt)) ?? []}
 				<li>
-					<div class="flex items-center">
-						<a
-							href="#{entityFragmentId(entity.alt)}"
-							class="toc-entity min-w-0 flex-1"
-							onclick={onnavigate}
-						>
-							<img
-								src={entity.src}
-								alt=""
-								width={size === 'lg' ? 28 : 16}
-								height={size === 'lg' ? 28 : 16}
-								loading="lazy"
-								decoding="async"
-								class={size === 'lg'
-									? 'size-7 rounded object-cover'
-									: 'size-4 rounded object-cover'}
-							/>
-							<span class="truncate">{entity.alt}</span>
-						</a>
-						<a
-							href={entityHistoryHref(entity.type, entity.slug)}
-							class="toc-history"
-							aria-label="{entity.alt} patch history"
-						>
-							<History class={size === 'lg' ? 'size-4' : 'size-3'} />
-						</a>
-					</div>
+					<a
+						href="#{entityFragmentId(entity.alt)}"
+						class="toc-entity min-w-0"
+						onclick={onnavigate}
+					>
+						<img
+							src={entity.src}
+							alt=""
+							width={size === 'lg' ? 28 : 16}
+							height={size === 'lg' ? 28 : 16}
+							loading="lazy"
+							decoding="async"
+							class={size === 'lg'
+								? 'size-7 rounded object-cover'
+								: 'size-4 rounded object-cover'}
+						/>
+						<span class="truncate">{entity.alt}</span>
+					</a>
 					{#if abilities.length > 0}
 						<ul class="space-y-px">
 							{#each abilities as ability, i (i)}
+								{@const image = abilityImage(entity.id, ability)}
 								<li>
 									<a
 										href="#{ability.id}"
-										class="toc-ability {size === 'lg' ? 'py-1 pl-12 text-sm' : ''}"
+										class="toc-ability {size === 'lg' ? 'py-1 text-sm' : ''}"
 										onclick={onnavigate}
 									>
+										{#if image}
+											<img
+												src={image}
+												alt=""
+												width={size === 'lg' ? 20 : 14}
+												height={size === 'lg' ? 20 : 14}
+												loading="lazy"
+												decoding="async"
+												class={size === 'lg'
+													? 'size-5 shrink-0 rounded object-cover'
+													: 'size-3.5 shrink-0 rounded-sm object-cover'}
+											/>
+										{:else}
+											<span
+												class={size === 'lg' ? 'size-5 shrink-0' : 'size-3.5 shrink-0'}
+												aria-hidden="true"
+											></span>
+										{/if}
 										<span class="truncate">{ability.title}</span>
 									</a>
 								</li>
@@ -101,7 +148,10 @@
 	</div>
 {/snippet}
 
-<nav class="toc {size}" aria-label="Table of contents">
+<nav
+	class="toc {size} clip-corner-sm border-border/60 bg-card/80 border p-3 shadow-sm backdrop-blur-sm"
+	aria-label="Table of contents"
+>
 	{#if size === 'sm'}
 		<div class="bg-signal/50 mb-4 h-px w-8" aria-hidden="true"></div>
 
@@ -112,11 +162,7 @@
 		</h2>
 	{/if}
 
-	<div
-		class={size === 'lg'
-			? 'border-border/60 space-y-1.5 border-l-2'
-			: 'border-border/60 space-y-1 border-l'}
-	>
+	<div class={size === 'lg' ? 'space-y-1.5' : 'space-y-1'} data-toc-tree>
 		{#if !hideGeneral}
 			<a href="#general-changes" class="toc-section" onclick={onnavigate}>
 				<span class="toc-marker" aria-hidden="true"></span>
@@ -138,7 +184,7 @@
 	@reference "../../../app.css";
 
 	.toc-section {
-		@apply text-foreground/70 hover:text-signal relative flex items-center gap-2 py-1 pl-3 text-xs font-semibold tracking-tight transition-colors;
+		@apply text-foreground/80 hover:text-signal relative flex items-center gap-2 py-1 pl-3 text-xs font-semibold tracking-tight transition-colors;
 	}
 
 	.toc-marker {
@@ -150,15 +196,11 @@
 	}
 
 	.toc-entity {
-		@apply text-muted-foreground hover:text-foreground hover:bg-muted/50 flex items-center gap-1.5 rounded-sm py-0.5 pl-6 text-xs transition-colors;
-	}
-
-	.toc-history {
-		@apply text-muted-foreground/60 hover:text-signal shrink-0 rounded-sm p-1 transition-colors;
+		@apply text-muted-foreground hover:text-foreground hover:bg-muted/50 flex items-center gap-1.5 rounded-sm py-0.5 pl-3 text-xs transition-colors;
 	}
 
 	.toc-ability {
-		@apply text-muted-foreground/70 hover:text-foreground hover:bg-muted/50 flex items-center rounded-sm py-0.5 pl-[2.85rem] text-[11px] transition-colors;
+		@apply text-muted-foreground hover:text-foreground hover:bg-muted/50 ml-4 flex items-center gap-1.5 rounded-sm py-0.5 pl-3 text-[11px] transition-colors;
 	}
 
 	.toc ul {
@@ -179,6 +221,10 @@
 	}
 
 	.toc.lg .toc-entity {
-		@apply gap-2.5 rounded py-1.5 pl-8 text-sm;
+		@apply gap-2.5 rounded py-1.5 pl-4 text-sm;
+	}
+
+	.toc.lg .toc-ability {
+		@apply ml-6 gap-2 pl-3;
 	}
 </style>

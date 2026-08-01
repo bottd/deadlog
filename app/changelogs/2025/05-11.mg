@@ -25,12 +25,12 @@ content_text "Weapon tree investment bonus increased by 6-12% (from 6/8/12/18/26
 ``
 
 =hero:lady-geist:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]]
-## Lady Geist
+[[/hero/lady-geist]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]] Lady Geist patch history))
+## [[/hero/lady-geist]]((Lady Geist))
 
 ==ability:malice:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/geist_dagger.webp]]
-### Malice
+[[/hero/lady-geist?ability=malice]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/geist_dagger.webp]] Malice change history))
+### [[/hero/lady-geist?ability=malice]]((Malice))
 
 - Malice now costs 6% of your Current HP
 - Malice damage reduced from 32 to 25
@@ -40,36 +40,42 @@ content_text "Weapon tree investment bonus increased by 6-12% (from 6/8/12/18/26
 ==
 =
 =hero:pocket:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]]
-## Pocket
+[[/hero/pocket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket patch history))
+## [[/hero/pocket]]((Pocket))
 
 ==ability:affliction:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_affliction.webp]]
-### Affliction
+[[/hero/pocket?ability=affliction]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_affliction.webp]] Affliction change history))
+### [[/hero/pocket?ability=affliction]]((Affliction))
 
 - Affliction duration reduced from 14s to 12s
 ==
 =
 =hero:shiv:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]]
-## Shiv
+[[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
+## [[/hero/shiv]]((Shiv))
+
+==ability:slice-and-dice:
+[[/hero/shiv?ability=slice-and-dice]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_flash.webp]] Slice and Dice change history))
+### [[/hero/shiv?ability=slice-and-dice]]((Slice and Dice))
 
 - Slice and Dice damage reduced from 100 to 80
+==
+
 - Bullet damage growth reduced from 0.246 to 0.22
 =
 =hero:vyper:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kali_sm.webp]]
-## Vyper
+[[/hero/vyper]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kali_sm.webp]] Vyper patch history))
+## [[/hero/vyper]]((Vyper))
 
 ==ability:lethal-venom:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viper/viper_venom.webp]]
-### Lethal Venom
+[[/hero/vyper?ability=lethal-venom]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viper/viper_venom.webp]] Lethal Venom change history))
+### [[/hero/vyper?ability=lethal-venom]]((Lethal Venom))
 
 - Lethal Venom T2 reduced from -60% Healing Reduction to -40%
 ==
 ==ability:slither:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viper/viper_snakedash.webp]]
-### Slither
+[[/hero/vyper?ability=slither]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viper/viper_snakedash.webp]] Slither change history))
+### [[/hero/vyper?ability=slither]]((Slither))
 
 - Slither T3 reduced from +25% Resist to +20%
 ==
@@ -81,95 +87,95 @@ content_text "Weapon tree investment bonus increased by 6-12% (from 6/8/12/18/26
 ``
 
 =item:active-reload:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/active_reload.webp]]
-## Active Reload
+[[/item/active-reload]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/active_reload.webp]] Active Reload patch history))
+## [[/item/active-reload]]((Active Reload))
 
 - Cooldown reduced from 14s to 12s
 =
 =item:boundless-spirit:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/boundless_spirit.webp]]
-## Boundless Spirit
+[[/item/boundless-spirit]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/boundless_spirit.webp]] Boundless Spirit patch history))
+## [[/item/boundless-spirit]]((Boundless Spirit))
 
 - Heal reduced from 100 to 75
 =
 =item:capacitor:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/capacitor.webp]]
-## Capacitor
+[[/item/capacitor]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/capacitor.webp]] Capacitor patch history))
+## [[/item/capacitor]]((Capacitor))
 
 - Cooldown increased from 30s to 40s
 =
 =item:cultist-sacrifice:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/cultist_sacrifice.webp]]
-## Cultist Sacrifice
+[[/item/cultist-sacrifice]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/cultist_sacrifice.webp]] Cultist Sacrifice patch history))
+## [[/item/cultist-sacrifice]]((Cultist Sacrifice))
 
 - Health reduced from 350 to 300
 =
 =item:decay:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/decay.webp]]
-## Decay
+[[/item/decay]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/decay.webp]] Decay patch history))
+## [[/item/decay]]((Decay))
 
 - Spirit power scaling reduced from 0.007 to 0.005
 - Cooldown increased from 22s to 24s
 - Cast range spirit scaling reduced from 0.16 to 0.14
 =
 =item:divine-barrier:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/divine_barrier.webp]]
-## Divine Barrier
+[[/item/divine-barrier]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/divine_barrier.webp]] Divine Barrier patch history))
+## [[/item/divine-barrier]]((Divine Barrier))
 
 - Cooldown increased from 36s to 45s
 =
 =item:fleetfoot:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/fleetfoot.webp]]
-## Fleetfoot
+[[/item/fleetfoot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/fleetfoot.webp]] Fleetfoot patch history))
+## [[/item/fleetfoot]]((Fleetfoot))
 
 - Cooldown reduced from 12s to 11s
 =
 =item:headhunter:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/headhunter.webp]]
-## Headhunter
+[[/item/headhunter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/headhunter.webp]] Headhunter patch history))
+## [[/item/headhunter]]((Headhunter))
 
 - Bonus Headshot damage reduced from 150 to 120
 =
 =item:inhibitor:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/inhibitor.webp]]
-## Inhibitor
+[[/item/inhibitor]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/inhibitor.webp]] Inhibitor patch history))
+## [[/item/inhibitor]]((Inhibitor))
 
 - Duration increased from 2.5s to 3s
 =
 =item:mercurial-magnum:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mercurial_magnum.webp]]
-## Mercurial Magnum
+[[/item/mercurial-magnum]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mercurial_magnum.webp]] Mercurial Magnum patch history))
+## [[/item/mercurial-magnum]]((Mercurial Magnum))
 
 - Fire Rate bonus reduced from +30% to +25%
 - Spirit Power scaling reduced from 0.6 to 0.5
 =
 =item:silence-wave:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/silence_glyph.webp]]
-## Silence Wave
+[[/item/silence-wave]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/silence_glyph.webp]] Silence Wave patch history))
+## [[/item/silence-wave]]((Silence Wave))
 
 - Cooldown increased from 24s to 28s
 =
 =item:spirit-burn:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/spirit_burn.webp]]
-## Spirit Burn
+[[/item/spirit-burn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/spirit_burn.webp]] Spirit Burn patch history))
+## [[/item/spirit-burn]]((Spirit Burn))
 
 - Healing Reduction reduced from -80% to -70%
 =
 =item:spirit-rend:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/spellslinger_headshots.webp]]
-## Spirit Rend
+[[/item/spirit-rend]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/spellslinger_headshots.webp]] Spirit Rend patch history))
+## [[/item/spirit-rend]]((Spirit Rend))
 
 - Cooldown increased from 2s to 2.5s
 =
 =item:split-shot:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/split_shot.webp]]
-## Split Shot
+[[/item/split-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/split_shot.webp]] Split Shot patch history))
+## [[/item/split-shot]]((Split Shot))
 
 - Shot count increased from 4 to 5
 =
 =item:tankbuster:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/tankbuster.webp]]
-## Tankbuster
+[[/item/tankbuster]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/tankbuster.webp]] Tankbuster patch history))
+## [[/item/tankbuster]]((Tankbuster))
 
 - Fixed working on mid boss and objectives
 =

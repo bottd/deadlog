@@ -112,76 +112,93 @@ content_text "Reworked how friend invites work inside the client. You must now b
 ``
 
 =hero:abrams:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]]
-## Abrams
+[[/hero/abrams]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams patch history))
+## [[/hero/abrams]]((Abrams))
 
 - Base HP growth reduced from 36 to 32
 
 ==ability:infernal-resilience:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_beef.webp]]
-### Infernal Resilience
+[[/hero/abrams?ability=infernal-resilience]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_beef.webp]] Infernal Resilience change history))
+### [[/hero/abrams?ability=infernal-resilience]]((Infernal Resilience))
 
 - Infernal Resilience T2 reduced from +200 Health to +150
+==
+==ability:seismic-impact:
+[[/hero/abrams?ability=seismic-impact]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_jump.webp]] Seismic Impact change history))
+### [[/hero/abrams?ability=seismic-impact]]((Seismic Impact))
 
 - Seismic Impact personal brief busy state upon landing increased from 0.2s to 0.3s
 ==
 =
 =hero:bebop:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]]
-## Bebop
+[[/hero/bebop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop patch history))
+## [[/hero/bebop]]((Bebop))
 
 ==ability:hyper-beam:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hyper_beam.webp]]
-### Hyper Beam
+[[/hero/bebop?ability=hyper-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hyper_beam.webp]] Hyper Beam change history))
+### [[/hero/bebop?ability=hyper-beam]]((Hyper Beam))
 
 - Hyper Beam slow now affects stamina dashes
 ==
 =
 =hero:dynamo:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]]
-## Dynamo
+[[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
+## [[/hero/dynamo]]((Dynamo))
 
 - Base HP growth reduced from 48 to 44
 
 ==ability:quantum-entanglement:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_quantum.webp]]
-### Quantum Entanglement
+[[/hero/dynamo?ability=quantum-entanglement]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_quantum.webp]] Quantum Entanglement change history))
+### [[/hero/dynamo?ability=quantum-entanglement]]((Quantum Entanglement))
 
 - Quantum Entanglement fire rate bonus reduced from +30% to +25%
+==
+==ability:singularity:
+[[/hero/dynamo?ability=singularity]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_vacuum.webp]] Singularity change history))
+### [[/hero/dynamo?ability=singularity]]((Singularity))
 
 - Singularity base radius increased from 8m to 10m
 ==
 =
 =hero:haze:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]]
-## Haze
+[[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
+## [[/hero/haze]]((Haze))
 
 ==ability:sleep-dagger:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]]
-### Sleep Dagger
+[[/hero/haze?ability=sleep-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger change history))
+### [[/hero/haze?ability=sleep-dagger]]((Sleep Dagger))
 
 - Sleep Dagger T3 damage reduction on target improved from -30% to -40%
+==
+==ability:smoke-bomb:
+[[/hero/haze?ability=smoke-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_smoke_bomb.webp]] Smoke Bomb change history))
+### [[/hero/haze?ability=smoke-bomb]]((Smoke Bomb))
 
 - Smoke Bomb sprint speed now instantly kicks in after casting it
+==
+==ability:bullet-dance:
+[[/hero/haze?ability=bullet-dance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_bullet_flurry.webp]] Bullet Dance change history))
+### [[/hero/haze?ability=bullet-dance]]((Bullet Dance))
+
 - Bullet Dance cooldown reduced from 160s to 130s
 - Bullet Dance T2 changed to -40s Cooldown
 - Bullet Dance T3 changed to +1 Targets Hit Per Shot
 ==
 =
 =hero:infernus:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]]
-## Infernus
+[[/hero/infernus]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus patch history))
+## [[/hero/infernus]]((Infernus))
 
 ==ability:flame-dash:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_dash.webp]]
-### Flame Dash
+[[/hero/infernus?ability=flame-dash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_dash.webp]] Flame Dash change history))
+### [[/hero/infernus?ability=flame-dash]]((Flame Dash))
 
 - Flame Dash cooldown increased from 30s to 38s
 ==
 =
 =hero:ivy:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]]
-## Ivy
+[[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
+## [[/hero/ivy]]((Ivy))
 
 ==ability:watcher-s-covenant:
 ### Watcher's Covenant
@@ -190,15 +207,19 @@ content_text "Reworked how friend invites work inside the client. You must now b
 ==
 =
 =hero:kelvin:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]]
-## Kelvin
+[[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
+## [[/hero/kelvin]]((Kelvin))
+
+==ability:ice-path:
+[[/hero/kelvin?ability=ice-path]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_path.webp]] Ice Path change history))
+### [[/hero/kelvin?ability=ice-path]]((Ice Path))
 
 - Ice Path sprint speed increased from +1 to +2
 - Ice Path trail duration increased from 12s to 15s
-
+==
 ==ability:frozen-shelter:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/frozen_shelter.webp]]
-### Frozen Shelter
+[[/hero/kelvin?ability=frozen-shelter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/frozen_shelter.webp]] Frozen Shelter change history))
+### [[/hero/kelvin?ability=frozen-shelter]]((Frozen Shelter))
 
 - Frozen Shelter T2 changed to -40s Cooldown
 - Frozen Shelter T3 changed to +70 Health Regen that scales with Spirit
@@ -207,43 +228,52 @@ content_text "Reworked how friend invites work inside the client. You must now b
 ==
 =
 =hero:mcginnis:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]]
-## McGinnis
+[[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
+## [[/hero/mcginnis]]((McGinnis))
+
+==ability:spectral-wall:
+[[/hero/mcginnis?ability=spectral-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_fissure_2.webp]] Spectral Wall change history))
+### [[/hero/mcginnis?ability=spectral-wall]]((Spectral Wall))
 
 - Spectral Wall can now be dismissed early
+==
 =
 =hero:pocket:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]]
-## Pocket
+[[/hero/pocket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket patch history))
+## [[/hero/pocket]]((Pocket))
 
 ==ability:barrage:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_barrage.webp]]
-### Barrage
+[[/hero/pocket?ability=barrage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_barrage.webp]] Barrage change history))
+### [[/hero/pocket?ability=barrage]]((Barrage))
 
 - Barrage channel can now be interrupted by casting your other abilities
 - Barrage radius increased from 6m to 6.5m
+==
+==ability:enchanter-s-satchel:
+[[/hero/pocket?ability=enchanters-satchel]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_pulse.webp]] Enchanter's Satchel change history))
+### [[/hero/pocket?ability=enchanters-satchel]]((Enchanter's Satchel))
 
 - Enchanted Satchel cast time reduced from 0.25s to 0.15s
 ==
 =
 =hero:seven:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]]
-## Seven
+[[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
+## [[/hero/seven]]((Seven))
 
 ==ability:storm-cloud:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_storm.webp]]
-### Storm Cloud
+[[/hero/seven?ability=storm-cloud]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_storm.webp]] Storm Cloud change history))
+### [[/hero/seven?ability=storm-cloud]]((Storm Cloud))
 
 - Storm Cloud T1 increased from +30% to +35% Bullet Resist
 ==
 =
 =hero:vindicta:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]]
-## Vindicta
+[[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
+## [[/hero/vindicta]]((Vindicta))
 
 ==ability:flight:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_flight.webp]]
-### Flight
+[[/hero/vindicta?ability=flight]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_flight.webp]] Flight change history))
+### [[/hero/vindicta?ability=flight]]((Flight))
 
 - Flight spirit bonus damage reduced from +12 to +10
 - Flight no longer has +10% bonus range to damage falloff
@@ -257,8 +287,8 @@ content_text "Reworked how friend invites work inside the client. You must now b
 - Can no longer melee while flying for extra movement
 ==
 ==ability:assassinate:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_assassinate.webp]]
-### Assassinate
+[[/hero/vindicta?ability=assassinate]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_assassinate.webp]] Assassinate change history))
+### [[/hero/vindicta?ability=assassinate]]((Assassinate))
 
 - Assassinate now ramps up its total damage from 50% to 100% over 1 second of being zoomed (UI indication for this)
 
@@ -266,20 +296,20 @@ content_text "Reworked how friend invites work inside the client. You must now b
 ==
 =
 =hero:warden:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]]
-## Warden
+[[/hero/warden]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden patch history))
+## [[/hero/warden]]((Warden))
 
 - Base ammo increased from 14 to 16
 
 ==ability:alchemical-flask:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_crowd_control.webp]]
-### Alchemical Flask
+[[/hero/warden?ability=alchemical-flask]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_crowd_control.webp]] Alchemical Flask change history))
+### [[/hero/warden?ability=alchemical-flask]]((Alchemical Flask))
 
 - Alchemical Flask T3 increased from +25% Fire Rate Slow to +35%
 ==
 ==ability:willpower:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_high_alert.webp]]
-### Willpower
+[[/hero/warden?ability=willpower]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_high_alert.webp]] Willpower change history))
+### [[/hero/warden?ability=willpower]]((Willpower))
 
 - Willpower T3 increased from +150 Spirit Shield to +200
 ==
@@ -291,94 +321,94 @@ content_text "Reworked how friend invites work inside the client. You must now b
 ``
 
 =item:boundless-spirit:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/boundless_spirit.webp]]
-## Boundless Spirit
+[[/item/boundless-spirit]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/boundless_spirit.webp]] Boundless Spirit patch history))
+## [[/item/boundless-spirit]]((Boundless Spirit))
 
 - Spirit increased from 45 to 50
 =
 =item:cold-front:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/cold_front.webp]]
-## Cold Front
+[[/item/cold-front]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/cold_front.webp]] Cold Front patch history))
+## [[/item/cold-front]]((Cold Front))
 
 - cooldown reduced from 40s to 32s
 =
 =item:enduring-spirit:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/mods_armor/resilience.webp]]
-## Enduring Spirit
+[[/item/enduring-spirit]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/mods_armor/resilience.webp]] Enduring Spirit patch history))
+## [[/item/enduring-spirit]]((Enduring Spirit))
 
 - Spirit Lifesteal reduced from +10% to +8%
 =
 =item:extra-regen:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_regen.webp]]
-## Extra Regen
+[[/item/extra-regen]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_regen.webp]] Extra Regen patch history))
+## [[/item/extra-regen]]((Extra Regen))
 
 - Regen increased from 1.75 to 2
 =
 =item:intensifying-magazine:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/intensifying_magazine.webp]]
-## Intensifying Magazine
+[[/item/intensifying-magazine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/intensifying_magazine.webp]] Intensifying Magazine patch history))
+## [[/item/intensifying-magazine]]((Intensifying Magazine))
 
 - Time for Max Damage reduced from 4s to 3.5s
 =
 =item:knockdown:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/knockdown.webp]]
-## Knockdown
+[[/item/knockdown]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/knockdown.webp]] Knockdown patch history))
+## [[/item/knockdown]]((Knockdown))
 
 - No longer provides +2 Sprint
 - Now provides +1 Stamina
 =
 =item:leech:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/leech.webp]]
-## Leech
+[[/item/leech]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/leech.webp]] Leech patch history))
+## [[/item/leech]]((Leech))
 
 - Spirit Lifesteal reduced from +35% to +33%
 =
 =item:majestic-leap:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/majestic_leap.webp]]
-## Majestic Leap
+[[/item/majestic-leap]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/majestic_leap.webp]] Majestic Leap patch history))
+## [[/item/majestic-leap]]((Majestic Leap))
 
 - Velocity increased from 22.5 to 27
 =
 =item:mystic-reverb:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mystic_reverb.webp]]
-## Mystic Reverb
+[[/item/mystic-reverb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mystic_reverb.webp]] Mystic Reverb patch history))
+## [[/item/mystic-reverb]]((Mystic Reverb))
 
 - Fixed the damage being reduced by armor twice
 - Damage reduced from 35% to 30%
 =
 =item:reactive-barrier:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/reactive_barrier.webp]]
-## Reactive Barrier
+[[/item/reactive-barrier]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/reactive_barrier.webp]] Reactive Barrier patch history))
+## [[/item/reactive-barrier]]((Reactive Barrier))
 
 - Cooldown reduced from 35s to 25s
 =
 =item:refresher:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/refresher.webp]]
-## Refresher
+[[/item/refresher]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/refresher.webp]] Refresher patch history))
+## [[/item/refresher]]((Refresher))
 
 - No longer has cast time (was 1s)
 =
 =item:sharpshooter:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/sharp_shooter.webp]]
-## Sharpshooter
+[[/item/sharpshooter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/sharp_shooter.webp]] Sharpshooter patch history))
+## [[/item/sharpshooter]]((Sharpshooter))
 
 - Damage falloff bonus reduced from 20% to 15%
 =
 =item:spirit-lifesteal:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/spirit_lifesteal.webp]]
-## Spirit Lifesteal
+[[/item/spirit-lifesteal]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/spirit_lifesteal.webp]] Spirit Lifesteal patch history))
+## [[/item/spirit-lifesteal]]((Spirit Lifesteal))
 
 - Reduced from +25% to +23%
 =
 =item:spiritual-overflow:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/spiritual_overflow.webp]]
-## Spiritual Overflow
+[[/item/spiritual-overflow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/spiritual_overflow.webp]] Spiritual Overflow patch history))
+## [[/item/spiritual-overflow]]((Spiritual Overflow))
 
 - Spirit duration increased from 14s to 18s
 =
 =item:torment-pulse:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/torment_pulse.webp]]
-## Torment Pulse
+[[/item/torment-pulse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/torment_pulse.webp]] Torment Pulse patch history))
+## [[/item/torment-pulse]]((Torment Pulse))
 
 - Interval improved from 2s to 1.5s
 - Damage per pulse reduced from 45 to 40 (total dps from 22.5 to 26.6)

@@ -105,109 +105,117 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 ``
 
 =hero:abrams:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]]
-## Abrams
+[[/hero/abrams]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams patch history))
+## [[/hero/abrams]]((Abrams))
 
 ==ability:shoulder-charge:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_charge.webp]]
-### Shoulder Charge
+[[/hero/abrams?ability=shoulder-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_charge.webp]] Shoulder Charge change history))
+### [[/hero/abrams?ability=shoulder-charge]]((Shoulder Charge))
 
 - Shoulder Charge speed increased by 25%
 
 - Shoulder Charge distance increased by 15%
-==
-==ability:shoulder-charge:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_charge.webp]]
-### Shoulder Charge
-
 - Shoulder Charge now stuns enemies for 1s if it drags them into a wall
 ==
 ==ability:infernal-resilience:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_beef.webp]]
-### Infernal Resilience
+[[/hero/abrams?ability=infernal-resilience]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_beef.webp]] Infernal Resilience change history))
+### [[/hero/abrams?ability=infernal-resilience]]((Infernal Resilience))
 
 - Infernal Resilience now provides +1 Health Regen
 - Infernal Resilience damage regenerated reduced from 20% to 18%
 - Infernal Resilience T3 changed to +8% damage regenerated
+==
+==ability:siphon-life:
+[[/hero/abrams?ability=siphon-life]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_drain.webp]] Siphon Life change history))
+### [[/hero/abrams?ability=siphon-life]]((Siphon Life))
 
 - Fixed Siphon Life not healing you against shields
 ==
 =
 =hero:dynamo:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]]
-## Dynamo
+[[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
+## [[/hero/dynamo]]((Dynamo))
+
+==ability:quantum-entanglement:
+[[/hero/dynamo?ability=quantum-entanglement]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_quantum.webp]] Quantum Entanglement change history))
+### [[/hero/dynamo?ability=quantum-entanglement]]((Quantum Entanglement))
 
 - Quantum Entanglement ally radius increased from 8m to 9m
+==
 =
 =hero:grey-talon:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]]
-## Grey Talon
+[[/hero/grey-talon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon patch history))
+## [[/hero/grey-talon]]((Grey Talon))
+
+==ability:rain-of-arrows:
+[[/hero/grey-talon?ability=rain-of-arrows]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_power_jump.webp]] Rain of Arrows change history))
+### [[/hero/grey-talon?ability=rain-of-arrows]]((Rain of Arrows))
 
 - Rain of Arrows flight duration reduced from 8s to 7s
-
+==
 ==ability:guided-owl:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_guided_arrow.webp]]
-### Guided Owl
+[[/hero/grey-talon?ability=guided-owl]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_guided_arrow.webp]] Guided Owl change history))
+### [[/hero/grey-talon?ability=guided-owl]]((Guided Owl))
 
 - Guided Owl spirit gain per kill increased from 4 to 5
 
 - Guided Owl base ability now stuns for 0.75s
 - Guided Owl base damage reduced from 300 to 250
-==
-==ability:guided-owl:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_guided_arrow.webp]]
-### Guided Owl
-
 - Guided Owl T1 is now +100 damage
 
 - Guided Owl collision size reduced
 ==
 =
 =hero:haze:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]]
-## Haze
-
-==ability:ammo:
-### Ammo
+[[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
+## [[/hero/haze]]((Haze))
 
 - Ammo scaling with spirit power reduced from 0.6 to 0.5
-==
 =
 =hero:ivy:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]]
-## Ivy
+[[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
+## [[/hero/ivy]]((Ivy))
 
 - Base damage growth increased from 0.35 to 0.55
-- Watcher's Covenant replicated healing reduced from 45% to 35%
 
+==ability:kudzu-connection:
+[[/hero/ivy?ability=kudzu-connection]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_tether.webp]] Kudzu Connection change history))
+### [[/hero/ivy?ability=kudzu-connection]]((Kudzu Connection))
+
+- Watcher's Covenant replicated healing reduced from 45% to 35%
+==
 ==ability:watcher-s-covenant:
 ### Watcher's Covenant
 
 - Watcher's Covenant bullet lifesteal now scales with spirit power (0.18)
 - Watcher's Covenant fire rate reduced from 15% to 10%
 - Watcher's Covenant fire rate now scales with spirit power (0.2)
+==
+==ability:entangling-thorns:
+[[/hero/ivy?ability=entangling-thorns]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_storm_flask.webp]] Entangling Thorns change history))
+### [[/hero/ivy?ability=entangling-thorns]]((Entangling Thorns))
 
 - Fixed Kudzu Bomb not going where you had targeted if you moved quickly during the cast
 ==
 =
 =hero:lash:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp]]
-## Lash
+[[/hero/lash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp]] Lash patch history))
+## [[/hero/lash]]((Lash))
 
 - Base bullet damage reduced from 11.5 to 10
 - Bullet damage growth increased from 1 to 1.15
 - Now has +8% spirit resist
 
 ==ability:ground-strike:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_death_slam.webp]]
-### Ground Strike
+[[/hero/lash?ability=ground-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_death_slam.webp]] Ground Strike change history))
+### [[/hero/lash?ability=ground-strike]]((Ground Strike))
 
 - Ground Strike damage per meter reduced from 6.75 to 6.3
 - Ground Strike damage per meter spirit power scaling increased from 0.04 to 0.05
 ==
 ==ability:death-slam:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_counter_lash.webp]]
-### Death Slam
+[[/hero/lash?ability=death-slam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_counter_lash.webp]] Death Slam change history))
+### [[/hero/lash?ability=death-slam]]((Death Slam))
 
 - Death Slam range is now defined as the horizontal distance to the units rather than the distance from his position in the air (so being high up doesn't work against you)
 - Death Slam range reduced from 19m to 14m
@@ -218,12 +226,16 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 ==
 =
 =hero:mcginnis:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]]
-## McGinnis
+[[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
+## [[/hero/mcginnis]]((McGinnis))
+
+==ability:mini-turret:
+[[/hero/mcginnis?ability=mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turret change history))
+### [[/hero/mcginnis?ability=mini-turret]]((Mini Turret))
 
 - Turrets receive full damage from enemy guns regardless of distance (fall off is not considered when taking damage)
 - Turrets outgoing damage fall off distance window (20m-35m) now scales with range upgrades
-
+==
 ==ability:turrets:
 ### Turrets
 
@@ -231,83 +243,100 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 ==
 =
 =hero:mo-krill:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]]
-## Mo & Krill
+[[/hero/mo-krill]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]] Mo & Krill patch history))
+## [[/hero/mo-krill]]((Mo & Krill))
+
+==ability:scorn:
+[[/hero/mo-krill?ability=scorn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_regen.webp]] Scorn change history))
+### [[/hero/mo-krill?ability=scorn]]((Scorn))
 
 - Fixed Scorn not healing you against shields
-- Sand Blast base duration reduced from 4s to 3.5s
-
+==
 ==ability:sand-blast:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_throw_sand.webp]]
-### Sand Blast
+[[/hero/mo-krill?ability=sand-blast]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_throw_sand.webp]] Sand Blast change history))
+### [[/hero/mo-krill?ability=sand-blast]]((Sand Blast))
 
+- Sand Blast base duration reduced from 4s to 3.5s
 - Sand Blast T1 reduced from +2s to +1.5s
 ==
 =
 =hero:paradox:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]]
-## Paradox
+[[/hero/paradox]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox patch history))
+## [[/hero/paradox]]((Paradox))
+
+==ability:time-wall:
+[[/hero/paradox?ability=time-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_wall.webp]] Time Wall change history))
+### [[/hero/paradox?ability=time-wall]]((Time Wall))
 
 - Fixed Time Wall projectiles and bullets being stuck in the wall for its full duration instead of for the shorter time stop duration
+==
+==ability:kinetic-carbine:
+[[/hero/paradox?ability=kinetic-carbine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/duo/duo_attack.webp]] Kinetic Carbine change history))
+### [[/hero/paradox?ability=kinetic-carbine]]((Kinetic Carbine))
+
 - Kinetic Carbine collision radius reduced by 10%
+==
+==ability:pulse-grenade:
+[[/hero/paradox?ability=pulse-grenade]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_bomb.webp]] Pulse Grenade change history))
+### [[/hero/paradox?ability=pulse-grenade]]((Pulse Grenade))
+
 - Fixed Pulse Grenade not going where you had targeted if you moved quickly during the cast
+==
 =
 =hero:pocket:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]]
-## Pocket
+[[/hero/pocket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket patch history))
+## [[/hero/pocket]]((Pocket))
 
 ==ability:enchanter-s-satchel:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_pulse.webp]]
-### Enchanter's Satchel
+[[/hero/pocket?ability=enchanters-satchel]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_pulse.webp]] Enchanter's Satchel change history))
+### [[/hero/pocket?ability=enchanters-satchel]]((Enchanter's Satchel))
 
 - Enchanter's Satchel duration from 1.5s to 2s
 - Enchanter's Satchel T3 changed to 2.5s Disarm
 ==
 =
 =hero:seven:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]]
-## Seven
+[[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
+## [[/hero/seven]]((Seven))
+
+==ability:static-charge:
+[[/hero/seven?ability=static-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_static.webp]] Static Charge change history))
+### [[/hero/seven?ability=static-charge]]((Static Charge))
 
 - Static Charge cast range scaling reduced from 0.1 to 0.07
 - Static Charge base radius reduced from 8m to 5m
-
-==ability:static-charge:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_static.webp]]
-### Static Charge
-
 - Static Charge T2 changed to +5m radius
 ==
 =
 =hero:vindicta:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]]
-## Vindicta
+[[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
+## [[/hero/vindicta]]((Vindicta))
 
 ==ability:crow-familiar:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_crow.webp]]
-### Crow Familiar
+[[/hero/vindicta?ability=crow-familiar]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_crow.webp]] Crow Familiar change history))
+### [[/hero/vindicta?ability=crow-familiar]]((Crow Familiar))
 
 - Crow Familiar duration spirit power scaling reduced from 0.07 to 0.05
+==
 
 - Gun damage growth increased from 0.7 to 0.85
-==
 =
 =hero:warden:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]]
-## Warden
+[[/hero/warden]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden patch history))
+## [[/hero/warden]]((Warden))
 
 - Reload time no longer scales with spirit power
 - Now innately gains additive fire rate from spirit power (scale factor is 0.015)
 =
 =hero:yamato:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]]
-## Yamato
-
-- Shadow Transformation incoming damage reduction reduced from 70% to 55%
+[[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
+## [[/hero/yamato]]((Yamato))
 
 ==ability:shadow-transformation:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]]
-### Shadow Transformation
+[[/hero/yamato?ability=shadow-transformation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]] Shadow Transformation change history))
+### [[/hero/yamato?ability=shadow-transformation]]((Shadow Transformation))
 
+- Shadow Transformation incoming damage reduction reduced from 70% to 55%
 - Shadow Transformation changed from 70% debuff reduction to the same buff as Unstoppable
 ==
 =
@@ -318,83 +347,83 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 ``
 
 =item:active-reload:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/active_reload.webp]]
-## Active Reload
+[[/item/active-reload]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/active_reload.webp]] Active Reload patch history))
+## [[/item/active-reload]]((Active Reload))
 
 - Added 0.2s grace period where the reload start does not count any button presses
 - Active fire rate increased from 18% to 24%
 - Cooldown reduced from 23s to 21s
 =
 =item:ammo-scavenger:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/mods_weapon/ammo_scavenger.webp]]
-## Ammo Scavenger
+[[/item/ammo-scavenger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/mods_weapon/ammo_scavenger.webp]] Ammo Scavenger patch history))
+## [[/item/ammo-scavenger]]((Ammo Scavenger))
 
 - Ammo reduced from +20% to +15%
 =
 =item:bullet-lifesteal:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/bullet_lifesteal.webp]]
-## Bullet Lifesteal
+[[/item/bullet-lifesteal]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/bullet_lifesteal.webp]] Bullet Lifesteal patch history))
+## [[/item/bullet-lifesteal]]((Bullet Lifesteal))
 
 - Lifesteal increased from 24% to 26%
 =
 =item:burst-fire:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/burst_fire.webp]]
-## Burst Fire
+[[/item/burst-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/burst_fire.webp]] Burst Fire patch history))
+## [[/item/burst-fire]]((Burst Fire))
 
 - Now innately gives +12% fire rate
 - Conditional fire rate now only triggers when you hit a hero, this bonus is reduced from 40% to 30%
 =
 =item:debuff-reducer:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/debuff_reducer.webp]]
-## Debuff Reducer
+[[/item/debuff-reducer]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/debuff_reducer.webp]] Debuff Reducer patch history))
+## [[/item/debuff-reducer]]((Debuff Reducer))
 
 - Now a T2 Vitality item. Grants +30% debuff resist, +75 health and +10% weapon damage. No longer has an active.
 =
 =item:extra-charge:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/extra_charge.webp]]
-## Extra Charge
+[[/item/extra-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/extra_charge.webp]] Extra Charge patch history))
+## [[/item/extra-charge]]((Extra Charge))
 
 - Now grants +6% weapon damage
 =
 =item:extra-regen:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_regen.webp]]
-## Extra Regen
+[[/item/extra-regen]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_regen.webp]] Extra Regen patch history))
+## [[/item/extra-regen]]((Extra Regen))
 
 - Health regen increased from 2 to 2.3
 =
 =item:fortitude:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/fortitude.webp]]
-## Fortitude
+[[/item/fortitude]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/fortitude.webp]] Fortitude patch history))
+## [[/item/fortitude]]((Fortitude))
 
 - Health increased from 225 to 250
 =
 =item:frenzy:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/frenzy.webp]]
-## Frenzy
+[[/item/frenzy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/frenzy.webp]] Frenzy patch history))
+## [[/item/frenzy]]((Frenzy))
 
 - Active spirit resist increased from 30% to 40%
 =
 =item:glass-cannon:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/glass_cannon.webp]]
-## Glass Cannon
+[[/item/glass-cannon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/glass_cannon.webp]] Glass Cannon patch history))
+## [[/item/glass-cannon]]((Glass Cannon))
 
 - Weapon damage increased from 65% to 70%
 =
 =item:headshot-booster:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/headshot_booster.webp]]
-## Headshot Booster
+[[/item/headshot-booster]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/headshot_booster.webp]] Headshot Booster patch history))
+## [[/item/headshot-booster]]((Headshot Booster))
 
 - Bonus health reduced from +50 to +40
 =
 =item:healing-rite:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healing_rite.webp]]
-## Healing Rite
+[[/item/healing-rite]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healing_rite.webp]] Healing Rite patch history))
+## [[/item/healing-rite]]((Healing Rite))
 
 - Bonus health increased from 35 to 45
 =
 =item:heroic-aura:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/heroic_aura.webp]]
-## Heroic Aura
+[[/item/heroic-aura]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/heroic_aura.webp]] Heroic Aura patch history))
+## [[/item/heroic-aura]]((Heroic Aura))
 
 - Lifesteal increased from 16% to 18%
 - Active duration reduced from 8s to 5s
@@ -402,70 +431,70 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 - Active fire rate increased from 20% to 25%
 =
 =item:kinetic-dash:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/kinetic_dash.webp]]
-## Kinetic Dash
+[[/item/kinetic-dash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/kinetic_dash.webp]] Kinetic Dash patch history))
+## [[/item/kinetic-dash]]((Kinetic Dash))
 
 - Cooldown reduced from 14s to 12s
 =
 =item:leech:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/leech.webp]]
-## Leech
+[[/item/leech]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/leech.webp]] Leech patch history))
+## [[/item/leech]]((Leech))
 
 - Spirit Lifesteal increased from 33% to 35%
 - Bullet Lifesteal increased from 30% to 35%
 =
 =item:lifestrike:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/lifestrike.webp]]
-## Lifestrike
+[[/item/lifestrike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/lifestrike.webp]] Lifestrike patch history))
+## [[/item/lifestrike]]((Lifestrike))
 
 - Now grants +6% bullet resist
 =
 =item:long-range:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/long_range.webp]]
-## Long Range
+[[/item/long-range]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/long_range.webp]] Long Range patch history))
+## [[/item/long-range]]((Long Range))
 
 - Min distance reduced from 20m to 18m
 =
 =item:majestic-leap:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/majestic_leap.webp]]
-## Majestic Leap
+[[/item/majestic-leap]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/majestic_leap.webp]] Majestic Leap patch history))
+## [[/item/majestic-leap]]((Majestic Leap))
 
 - Added a brief period before you can press the hotkey again to prevent accidental uses of drop down
 =
 =item:melee-charge:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/melee_charge.webp]]
-## Melee Charge
+[[/item/melee-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/melee_charge.webp]] Melee Charge patch history))
+## [[/item/melee-charge]]((Melee Charge))
 
 - Bonus health increased from 75 to 100
 =
 =item:melee-lifesteal:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/melee_lifesteal.webp]]
-## Melee Lifesteal
+[[/item/melee-lifesteal]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/melee_lifesteal.webp]] Melee Lifesteal patch history))
+## [[/item/melee-lifesteal]]((Melee Lifesteal))
 
 - Cooldown reduced from 8s to 7s
 =
 =item:mystic-reverb:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mystic_reverb.webp]]
-## Mystic Reverb
+[[/item/mystic-reverb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mystic_reverb.webp]] Mystic Reverb patch history))
+## [[/item/mystic-reverb]]((Mystic Reverb))
 
 - Cooldown reduced from 8s to 6s
 - Now gives +15% ability range
 =
 =item:phantom-strike:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/phantom_strike.webp]]
-## Phantom Strike
+[[/item/phantom-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/phantom_strike.webp]] Phantom Strike patch history))
+## [[/item/phantom-strike]]((Phantom Strike))
 
 - Fixed it sometimes malfunctioning and not teleporting to the target
 =
 =item:restorative-shot:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/restorative_shot.webp]]
-## Restorative Shot
+[[/item/restorative-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/restorative_shot.webp]] Restorative Shot patch history))
+## [[/item/restorative-shot]]((Restorative Shot))
 
 - Weapon damage reduced from +8% to +6%
 =
 =item:silencer:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/silencer.webp]]
-## Silencer
+[[/item/silencer]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/silencer.webp]] Silencer patch history))
+## [[/item/silencer]]((Silencer))
 
 - Now requires Slowing Bullets (total cost from 6500 to 7700)
 - Innately gives 25% slow for 1.3s
@@ -473,26 +502,26 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 - Weapon damage reduced from 25% to 15%
 =
 =item:spirit-strike:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/spirit_strike.webp]]
-## Spirit Strike
+[[/item/spirit-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/spirit_strike.webp]] Spirit Strike patch history))
+## [[/item/spirit-strike]]((Spirit Strike))
 
 - Spirit shield increased from +75 to +85
 =
 =item:surge-of-power:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/surge_of_power.webp]]
-## Surge of Power
+[[/item/surge-of-power]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/surge_of_power.webp]] Surge of Power patch history))
+## [[/item/surge-of-power]]((Surge of Power))
 
 - Active movement speed increased from 2 to 3
 =
 =item:titanic-magazine:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/titanic_magazine.webp]]
-## Titanic Magazine
+[[/item/titanic-magazine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/titanic_magazine.webp]] Titanic Magazine patch history))
+## [[/item/titanic-magazine]]((Titanic Magazine))
 
 - No longer has 10% reload penalty
 =
 =item:unstoppable:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/unstoppable.webp]]
-## Unstoppable
+[[/item/unstoppable]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/unstoppable.webp]] Unstoppable patch history))
+## [[/item/unstoppable]]((Unstoppable))
 
 - Duration reduced from 9s to 6s
 - No longer grants +20% spirit resist in the active
@@ -501,14 +530,14 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 - Now grants +1 m/s
 =
 =item:vampiric-burst:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/vampiric_burst.webp]]
-## Vampiric Burst
+[[/item/vampiric-burst]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/vampiric_burst.webp]] Vampiric Burst patch history))
+## [[/item/vampiric-burst]]((Vampiric Burst))
 
 - Active lifesteal increased from 80% to 100%
 =
 =item:veil-walker:
-[[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/veil_walker.webp]]
-## Veil Walker
+[[/item/veil-walker]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/veil_walker.webp]] Veil Walker patch history))
+## [[/item/veil-walker]]((Veil Walker))
 
 - Ammo reduced from 15% to 12%
 - Weapon damage reduced from 8% to 6%

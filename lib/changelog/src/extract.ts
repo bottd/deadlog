@@ -68,7 +68,8 @@ export function parseStructure(content: string): {
 
 		const heading = line.match(HEADING_RE);
 		if (heading) {
-			const title = decodeEntityName(heading[2].trim());
+			// Entity headings can use native Mog links; their visible label remains the name.
+			const title = decodeEntityName(stripMogLinks(heading[2].trim()));
 			const open = stack.at(-1);
 			// A heading names the block it sits in; anything outside one is a section.
 			const attrs = open && !open.name ? [open.kind] : [];
@@ -81,7 +82,7 @@ export function parseStructure(content: string): {
 					changes.set(key, {
 						name: title,
 						type: open.kind as 'hero' | 'item',
-						bullets: []
+						groups: []
 					});
 			}
 			continue;
@@ -102,18 +103,17 @@ export function parseStructure(content: string): {
 		);
 		if (!current) continue;
 
-		// .mg carries escaped delimiters and [[target]]((label)) links; a summary wants
-		// neither the backslashes nor the markup.
+		// .mg carries escaped delimiters and [[target]]((label)) links; the rendered
+		// history wants neither the backslashes nor the markup.
 		const text = stripMogLinks(
 			decodeEntityName(unescapeMogDelimiters(line.replace(/^-\s+/, '').trim()))
 		);
-		// Ability bullets still belong to the hero, but a bare "Cooldown reduced to 32s"
-		// is meaningless without knowing which ability it came from. Most already lead
-		// with the ability name; only prefix the ones that don't.
+		// Bullets group per ability section, so the renderer can show the ability
+		// heading and icon instead of a text prefix.
 		const ability = innermost('ability')?.name ?? null;
-		const needsPrefix =
-			ability !== null && !text.toLowerCase().startsWith(ability.toLowerCase());
-		current.bullets.push(needsPrefix ? `${ability}: ${text}` : text);
+		const group = current.groups.at(-1);
+		if (group && group.ability === ability) group.bullets.push(text);
+		else current.groups.push({ ability, bullets: [text] });
 	}
 
 	return { toc, images, changes: [...changes.values()] };

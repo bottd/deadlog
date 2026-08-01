@@ -2,14 +2,14 @@
 	import ArrowUp from '@lucide/svelte/icons/arrow-up';
 	import { fly } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
-	let showScrollTop = $state(false);
+	import { scrollY } from 'svelte/reactivity/window';
+
+	const showScrollTop = $derived((scrollY.current ?? 0) > 500);
 
 	function scrollToTop() {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	}
 </script>
-
-<svelte:window onscroll={() => (showScrollTop = window.scrollY > 500)} />
 
 {#if showScrollTop}
 	<button

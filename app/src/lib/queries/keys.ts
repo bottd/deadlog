@@ -6,6 +6,9 @@ export interface ChangelogFilters {
 	initialCount?: number;
 }
 
+export const MAX_QUERY_LENGTH = 200;
+export const MAX_ENTITY_FILTERS = 20;
+
 /** One encoding for the filter set — shared by the URL store and the API fetch. */
 export function filtersToSearchParams(filters: ChangelogFilters): URLSearchParams {
 	const params = new URLSearchParams();

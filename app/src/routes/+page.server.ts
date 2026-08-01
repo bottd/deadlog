@@ -2,7 +2,9 @@ import {
 	queryChangelogs,
 	getChangelogsCount,
 	getHeroByName,
-	getItemByName
+	getItemByName,
+	getAllHeroes,
+	getAllItems
 } from '@deadlog/scraper';
 import type { PageServerLoad } from './$types';
 import { absoluteUrl, DEFAULT_SOCIAL_IMAGE, SITE_DESCRIPTION } from '$lib/seo';
@@ -20,9 +22,13 @@ export const load: PageServerLoad = async ({ locals, url, parent }) => {
 
 	// Get heroes and items from layout data
 	const { heroes, items } = await parent();
+	const [filterHeroes, filterItems] = await Promise.all([
+		hero.length > 0 ? getAllHeroes(locals.db) : heroes,
+		item.length > 0 ? getAllItems(locals.db) : items
+	]);
 
-	const heroIds = resolveEntityIds(hero, heroes);
-	const itemIds = resolveEntityIds(item, items);
+	const heroIds = resolveEntityIds(hero, filterHeroes);
+	const itemIds = resolveEntityIds(item, filterItems);
 
 	const initialLoadLimit = 15;
 

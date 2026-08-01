@@ -9,7 +9,7 @@ import { error, redirect } from '@sveltejs/kit';
 import type { PageServerLoad, EntryGenerator } from './$types';
 import { absoluteUrl } from '$lib/seo';
 
-export const prerender = true;
+export const prerender = 'auto';
 
 export const entries: EntryGenerator = async () => {
 	const { getLibsqlDb } = await import('@deadlog/db');
@@ -18,13 +18,13 @@ export const entries: EntryGenerator = async () => {
 	return slugs.map((slug) => ({ slug }));
 };
 
-export const load: PageServerLoad = async ({ params, locals }) => {
+export const load: PageServerLoad = async ({ params, locals, url }) => {
 	const item = await getItemBySlug(locals.db, params.slug);
 
 	if (!item) {
 		throw error(404, 'Item not found');
 	}
-	if (item.slug !== params.slug) redirect(308, `/item/${item.slug}`);
+	if (item.slug !== params.slug) redirect(308, `/item/${item.slug}${url.search}`);
 
 	const [changelogs, patchSequence] = await Promise.all([
 		getChangelogsByItemId(locals.db, item.id),

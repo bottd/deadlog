@@ -20,16 +20,23 @@ export interface ChangelogEntities {
 	items: string[];
 }
 
+/** One run of bullets under an entity, split per ability section. */
+export interface EntityBulletGroup {
+	/** Ability heading the bullets sit under; null for the entity's own bullets. */
+	ability: string | null;
+	bullets: string[];
+}
+
 export interface EntityChange {
 	name: string;
 	type: 'hero' | 'item';
-	/** The entity's own bullet lines, ability-prefixed where the text needs it. */
-	bullets: string[];
+	groups: EntityBulletGroup[];
 }
 
 export interface ParsedChangelog {
 	filepath: string;
 	slug: string;
+	aliases: string[];
 	metadata: ChangelogMetadata;
 	entities: ChangelogEntities;
 	entityChanges: EntityChange[];

@@ -1,6 +1,7 @@
-import { formatDate, plural } from '@deadlog/utils';
+import { entityNamesMatch, formatDate, plural } from '@deadlog/utils';
 import { searchParams } from '$lib/stores/searchParams.svelte';
-import type { ChangelogEntry } from '$lib/types';
+import { MAX_ENTITY_FILTERS } from '$lib/queries/keys';
+import type { ChangelogEntry, EntityIcon } from '$lib/types';
 import { entityFragmentId } from './entityContext';
 import { changePath } from '$lib/seo';
 
@@ -21,9 +22,24 @@ const FALLBACK_PREVIEW = {
  * so a filter change only rebuilds the hrefs, not every card's rows and counts.
  */
 export function patchCardHrefs(patch: { slug: string }) {
-	const query = searchParams.toURLSearchParams().toString();
+	const params = searchParams.toURLSearchParams();
+	const query = params.toString();
 	const href = `${changePath(patch)}${query ? `?${query}` : ''}`;
-	return { href, entityHref: (name: string) => `${href}#${entityFragmentId(name)}` };
+
+	return {
+		href,
+		entityHref: (entity: EntityIcon) => {
+			const entityParams = new URLSearchParams(params);
+			const key = entity.type;
+			const selected = key === 'hero' ? searchParams.hero : searchParams.item;
+			if (!selected.some((name) => entityNamesMatch(name, entity.alt))) {
+				const retained = selected.slice(0, MAX_ENTITY_FILTERS - 1);
+				entityParams.set(key, [...retained, entity.alt].join(','));
+			}
+			const entityQuery = entityParams.toString();
+			return `${changePath(patch)}${entityQuery ? `?${entityQuery}` : ''}#${entityFragmentId(entity.alt)}`;
+		}
+	};
 }
 
 /** Everything both patch cards derive from the same props, independent of the filters. */

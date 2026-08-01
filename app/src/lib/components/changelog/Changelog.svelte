@@ -7,7 +7,6 @@
 	import { searchParams as params } from '$lib/stores/searchParams.svelte';
 	import { useChangelogQuery } from '$lib/hooks/useChangelogQuery.svelte';
 	import CornerAccents from '$lib/components/ui/corner-accents/CornerAccents.svelte';
-	import AlertCircle from '@lucide/svelte/icons/alert-circle';
 	import Frown from '@lucide/svelte/icons/frown';
 	import { scale, fly } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
@@ -43,19 +42,8 @@
 	const isNew = (entry: ChangelogEntry) =>
 		lastVisit !== null && new Date(entry.date).getTime() > lastVisit;
 
-	// One grid per fetched page so appended results never reflow the ones above them.
-	const gridBatches = $derived.by(() => {
-		let startIndex = 0;
-		return (query.data?.pages ?? [])
-			.map((pageData, pageIndex) => {
-				const entries = pageData.changelogs.slice(!isFiltered && pageIndex === 0 ? 1 : 0);
-				const batch = { entries, startIndex };
-				startIndex += entries.length;
-				return batch;
-			})
-			.filter((batch) => batch.entries.length > 0);
-	});
-	const gridEntries = $derived(gridBatches.flatMap((batch) => batch.entries));
+	// Keep every fetched page in one grid so new cards fill the final incomplete row.
+	const gridEntries = $derived(allChangelogs.slice(isFiltered ? 0 : 1));
 	const newCount = $derived(
 		lastVisit === null || isFiltered ? 0 : allChangelogs.filter(isNew).length
 	);
@@ -63,6 +51,26 @@
 	const firstSeenIdx = $derived(
 		lastVisit === null || isFiltered ? -1 : gridEntries.findIndex((e) => !isNew(e))
 	);
+
+	function loadMoreWhenVisible(node: HTMLElement) {
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				if (
+					entry?.isIntersecting &&
+					query.hasNextPage &&
+					!query.isFetchingNextPage &&
+					!query.isFetchNextPageError
+				) {
+					void query.fetchNextPage();
+				}
+			},
+			{ rootMargin: '0px 0px 200px 0px' }
+		);
+
+		observer.observe(node);
+
+		return () => observer.disconnect();
+	}
 </script>
 
 <main class="container mx-auto mt-8 mb-24 px-4">
@@ -78,61 +86,6 @@
 	>
 		Major updates only
 	</button>
-
-	{#if query.isError && !query.data}
-		<div
-			class="clip-corner bg-card border-destructive/30 relative overflow-hidden border-2 p-12 text-center"
-			in:scale={{ start: 0.9, duration: 400 }}
-			role="alert"
-		>
-			<CornerAccents tlSize="2rem" tlColor="bg-destructive/50" />
-			<div
-				class="clip-corner-sm bg-destructive/10 border-destructive/20 mx-auto mb-6 flex size-20 items-center justify-center border"
-			>
-				<AlertCircle class="text-destructive size-10" />
-			</div>
-			<h3 class="text-foreground font-display mb-3 text-2xl font-medium tracking-wide">
-				Connection Failed
-			</h3>
-			<p
-				class="text-muted-foreground mx-auto mb-2 font-mono text-xs tracking-wide uppercase"
-			>
-				Error: {query.error?.message || 'FETCH_FAILED'}
-			</p>
-			<button
-				type="button"
-				onclick={() => query.refetch()}
-				class="clip-corner-sm bg-destructive/10 text-destructive hover:bg-destructive/20 border-destructive/30 mt-6 border px-6 py-3 font-mono text-sm font-semibold transition-all hover:scale-105"
-			>
-				Retry
-			</button>
-		</div>
-	{/if}
-
-	{#if query.isPending && !query.data}
-		<div
-			class="clip-corner-lg shimmer border-primary/20 mb-8 h-64 border-2 md:h-52"
-		></div>
-		<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-			{#each { length: 12 }, i (i)}
-				<div
-					class="clip-corner-sm shimmer border-border/50 relative h-[200px] border"
-					style:animation-delay="{i * 80}ms"
-				>
-					<CornerAccents tlSize="1.5rem" tlColor="bg-primary/20" />
-					<div class="flex flex-col gap-3 p-4">
-						<div class="bg-muted/50 h-4 w-24 rounded"></div>
-						<div class="bg-muted/30 h-3 w-16 rounded"></div>
-						<div class="mt-2 flex gap-1">
-							{#each { length: 4 }, j (j)}<div
-									class="bg-muted/40 size-7 rounded-md"
-								></div>{/each}
-						</div>
-					</div>
-				</div>
-			{/each}
-		</div>
-	{/if}
 
 	{#if query.data}
 		{#if allChangelogs.length > 0}
@@ -154,47 +107,40 @@
 				</div>
 			{/if}
 
-			{#each gridBatches as batch, batchIndex (batchIndex)}
-				<div
-					data-patch-grid
-					data-patch-grid-page={batchIndex}
-					class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 {batchIndex >
-					0
-						? 'mt-4'
-						: ''}"
-				>
-					{#each batch.entries as entry, i (entry.id)}
-						{@const gridIndex = batch.startIndex + i}
-						{#if gridIndex === firstSeenIdx && firstSeenIdx > 0}
-							<div
-								role="presentation"
-								aria-hidden="true"
-								class="col-span-full my-1 mb-4 flex items-center gap-4"
-							>
-								<div class="bg-signal/35 h-px flex-1"></div>
-								<span
-									class="text-signal font-mono text-[10px] font-bold tracking-widest uppercase"
-								>
-									{newCount} new since your last visit
-								</span>
-								<div class="bg-primary/30 h-px flex-1"></div>
-							</div>
-						{/if}
+			<div
+				data-patch-grid
+				class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+			>
+				{#each gridEntries as entry, i (entry.id)}
+					{#if i === firstSeenIdx && firstSeenIdx > 0}
 						<div
-							data-patch-card
-							class="h-full"
-							in:fly={{
-								y: 20,
-								delay: Math.min(i, 8) * 30,
-								duration: 350,
-								easing: quintOut
-							}}
+							role="presentation"
+							aria-hidden="true"
+							class="col-span-full my-1 mb-4 flex items-center gap-4"
 						>
-							<PatchCard {...entry} isNew={isNew(entry)} />
+							<div class="bg-signal/35 h-px flex-1"></div>
+							<span
+								class="text-signal font-mono text-[10px] font-bold tracking-widest uppercase"
+							>
+								{newCount} new since your last visit
+							</span>
+							<div class="bg-primary/30 h-px flex-1"></div>
 						</div>
-					{/each}
-				</div>
-			{/each}
+					{/if}
+					<div
+						data-patch-card
+						class="h-full"
+						in:fly={{
+							y: 20,
+							delay: Math.min(i, 8) * 30,
+							duration: 350,
+							easing: quintOut
+						}}
+					>
+						<PatchCard {...entry} isNew={isNew(entry)} />
+					</div>
+				{/each}
+			</div>
 		{:else}
 			<div
 				class="clip-corner bg-card border-border/50 relative overflow-hidden border-2 p-12 text-center"
@@ -255,14 +201,12 @@
 						>
 					</div>
 				{:else if query.hasNextPage}
-					<button
-						type="button"
-						onclick={() => query.fetchNextPage()}
-						disabled={query.isFetchingNextPage}
-						class="clip-corner-sm bg-primary/10 text-primary hover:bg-primary/20 border-primary/30 group border px-8 py-3 font-mono text-sm font-semibold transition-all hover:scale-105 disabled:opacity-50"
-					>
-						Load More
-					</button>
+					<div
+						data-load-more-sentinel
+						class="h-px w-full"
+						aria-hidden="true"
+						{@attach loadMoreWhenVisible}
+					></div>
 				{:else}
 					<div class="flex items-center gap-4" in:fly={{ y: 10, duration: 400 }}>
 						<div class="bg-primary/30 h-px w-16"></div>
