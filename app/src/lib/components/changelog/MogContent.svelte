@@ -70,15 +70,15 @@
 	@reference "../../../app.css";
 
 	.mog-content {
-		@apply max-w-none text-[15px] leading-relaxed;
+		@apply max-w-none text-base leading-relaxed;
 
 		/* Section headings — editorial treatment */
 		:global(h1) {
-			@apply text-foreground font-display mt-12 mb-6 text-3xl leading-tight font-semibold tracking-wide first:mt-0;
+			@apply text-foreground font-display mt-12 mb-6 text-[28px] leading-tight font-semibold tracking-wide first:mt-0;
 		}
 
 		:global(h2) {
-			@apply text-primary mt-8 mb-4 text-2xl leading-tight font-semibold tracking-tight;
+			@apply text-primary mt-8 mb-4 text-xl leading-tight font-semibold tracking-tight;
 		}
 
 		:global(h3) {
@@ -163,7 +163,15 @@
 
 		/* Paragraphs */
 		:global(p) {
-			@apply text-foreground/90 my-3 leading-relaxed;
+			@apply text-foreground/90 my-3 max-w-[72ch] leading-relaxed;
+		}
+
+		& > :global(p:has(> img)) {
+			@apply my-6 max-w-none;
+		}
+
+		& > :global(p > img) {
+			@apply border-border bg-muted/20 h-auto max-h-[32rem] w-full rounded-lg border object-contain shadow-lg;
 		}
 
 		/* Lists */

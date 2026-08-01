@@ -7,11 +7,13 @@ export {
 	type PostContentResult
 } from './forum';
 export {
-	fetchSteamPatchNotes,
+	fetchSteamAnnouncements,
 	isSteamUnfurl,
+	isSteamPatchContent,
 	parseSteamContent,
+	renderSteamAnnouncement,
 	extractDateFromTitle,
-	extractSteamGidFromUnfurl,
 	type SteamNewsItem,
-	type SteamPatchNote
+	type SteamAnnouncement,
+	type RenderedSteamAnnouncement
 } from './steam';

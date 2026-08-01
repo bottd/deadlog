@@ -1,6 +1,7 @@
 ``meta:
 title "12-17-2024 Update"
 thread_id "52008"
+steam_gid "1785774543697622"
 published "2024-12-17T12:53:43-0800"
 author "Yoshi"
 author_image "https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630"

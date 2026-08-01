@@ -1,25 +1,32 @@
 import { describe, expect, it } from 'vitest';
 
 import type { ChangelogPost } from './api';
-import type { SteamPatchNote } from './api/steam';
-import { extractSteamGidFromUnfurl } from './api/steam';
+import type { SteamAnnouncement } from './api/steam';
 import { matchSteamNotesToForumPosts } from './pipeline';
 
-function forumPost(postId: string, title: string): ChangelogPost {
+function forumPost(
+	postId: string,
+	title: string,
+	pubDate = '2024-10-18T10:00:00Z'
+): ChangelogPost {
 	return {
 		postId,
 		title,
 		url: `https://forums.playdeadlock.com/threads/update.${postId}/`,
 		author: 'Yoshi',
-		pubDate: '2024-10-18T10:00:00Z'
+		pubDate
 	};
 }
 
-function steamNote(gid: string, title: string): SteamPatchNote {
+function steamNote(
+	gid: string,
+	title: string,
+	date = '2024-10-18T10:00:00Z'
+): SteamAnnouncement {
 	return {
 		gid,
 		title,
-		date: '2024-10-18T10:00:00Z',
+		date,
 		author: 'Yoshi',
 		content: `Content for ${gid}`
 	};
@@ -83,29 +90,23 @@ describe('matchSteamNotesToForumPosts', () => {
 		expect(result.unmatchedSteamNotes).toEqual([]);
 	});
 
-	it('cannot match a Steam note whose title carries no date', () => {
-		// The real 02-25-2025 case: Steam called it "Map Rework Update". Date-keyed
-		// matching has nothing to key on, which is why the gid fallback exists.
+	it('matches a dateless Steam note by its nearby publication time', () => {
 		const result = matchSteamNotesToForumPosts(
-			[forumPost('56683', '02-25-2025 Update')],
-			[steamNote('530965072572320687', 'Map Rework Update')]
+			[forumPost('56683', '02-25-2025 Update', '2025-02-25T21:51:13Z')],
+			[steamNote('530965072572320687', 'Map Rework Update', '2025-02-25T21:49:19Z')]
+		);
+
+		expect(result.steamByForumPostId.get('56683')?.gid).toBe('530965072572320687');
+		expect(result.unmatchedSteamNotes).toEqual([]);
+	});
+
+	it('does not match unrelated announcements merely because they share a date', () => {
+		const result = matchSteamNotesToForumPosts(
+			[forumPost('forum', '07-31-2026 Update', '2026-07-31T11:55:00Z')],
+			[steamNote('news', 'Community News', '2026-07-31T12:00:00Z')]
 		);
 
 		expect(result.steamByForumPostId.size).toBe(0);
-		expect(result.unmatchedSteamNotes.map((note) => note.gid)).toEqual([
-			'530965072572320687'
-		]);
-	});
-});
-
-describe('extractSteamGidFromUnfurl', () => {
-	it('recovers the gid a dateless Steam title cannot be matched by', () => {
-		const unfurl = `<div class="bbCodeBlock bbCodeBlock--unfurl"><h3><a href="https://store.steampowered.com/news/app/1422450/view/530965072572320687">Deadlock - Map Rework Update - Steam News</a></h3></div>`;
-
-		expect(extractSteamGidFromUnfurl(unfurl)).toBe('530965072572320687');
-	});
-
-	it('returns null when the post has no Steam unfurl', () => {
-		expect(extractSteamGidFromUnfurl('<p>- Base damage increased</p>')).toBeNull();
+		expect(result.unmatchedSteamNotes.map((note) => note.gid)).toEqual(['news']);
 	});
 });

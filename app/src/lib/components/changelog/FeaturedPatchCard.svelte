@@ -1,7 +1,6 @@
 <script lang="ts">
 	import * as Avatar from '$lib/components/ui/avatar';
 	import CornerAccents from '$lib/components/ui/corner-accents/CornerAccents.svelte';
-	import { formatDate } from '@deadlog/utils';
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
 	import Zap from '@lucide/svelte/icons/zap';
 	import { backOut } from 'svelte/easing';
@@ -55,7 +54,7 @@
 					aria-label={view.accessibleLabel}
 					class="focus-visible:outline-primary after:absolute after:inset-0 focus-visible:outline-2 focus-visible:outline-offset-2"
 				>
-					{formatDate(patch.date)}
+					{view.heading}
 				</a>
 			</h2>
 
@@ -69,6 +68,15 @@
 					>
 				</Avatar.Root>
 				<span class="text-foreground text-sm font-medium">{patch.author}</span>
+				{#if view.named}
+					<span class="text-muted-foreground" aria-hidden="true">&middot;</span>
+					<time
+						datetime={patch.date.toISOString()}
+						class="text-muted-foreground font-mono text-xs tracking-wide"
+					>
+						{view.date}
+					</time>
+				{/if}
 			</div>
 
 			{#if patch.summary}

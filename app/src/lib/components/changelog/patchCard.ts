@@ -5,7 +5,7 @@ import type { ChangelogEntry, EntityIcon } from '$lib/types';
 import { entityFragmentId } from './entityContext';
 import { changePath } from '$lib/seo';
 
-export type PatchCardProps = Omit<ChangelogEntry, 'title' | 'updates'>;
+export type PatchCardProps = Omit<ChangelogEntry, 'updates'>;
 
 export const authorInitials = (author: string) => author.slice(0, 2).toUpperCase();
 
@@ -77,14 +77,19 @@ export function patchCardView(patch: PatchCardProps, featured = false) {
 	].filter((count) => count.n > 0);
 
 	const scope = counts.map((count) => `${count.n} ${count.noun}`).join(' and ');
+	const date = formatDate(patch.date);
+	const named = !/\d{2}-\d{2}-\d{4}/.test(patch.title);
 
 	return {
 		rows,
 		counts,
 		initials: authorInitials(patch.author),
+		heading: named ? patch.title : date,
+		date,
+		named,
 		fallbackImage: patch.majorUpdate ? FALLBACK_PREVIEW.major : FALLBACK_PREVIEW.minor,
 		accessibleLabel:
-			`${featured ? 'Latest patch, ' : ''}${formatDate(patch.date)}, by ${patch.author}` +
+			`${featured ? 'Latest patch, ' : ''}${named ? `${patch.title}, ${date}` : date}, by ${patch.author}` +
 			`${scope ? `, affecting ${scope}` : ''}. View full patch.`
 	};
 }

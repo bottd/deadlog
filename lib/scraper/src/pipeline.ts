@@ -1,18 +1,18 @@
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
-import { dirname, join } from 'path';
+import { existsSync, globSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
+import { basename, dirname, join } from 'path';
 import {
 	scrapeChangelogPage,
 	scrapeMultipleChangelogPosts,
 	fetchHeroes,
 	fetchItems,
-	fetchSteamPatchNotes,
+	fetchSteamAnnouncements,
 	isSteamUnfurl,
-	extractSteamGidFromUnfurl,
+	isSteamPatchContent,
 	parseSteamContent,
-	extractDateFromTitle,
+	renderSteamAnnouncement,
 	type ChangelogPost,
 	type PostContentResult,
-	type SteamPatchNote
+	type SteamAnnouncement
 } from './api';
 import { parseAuthorName } from './authorParser';
 import { extractContent, deduplicateLines, type EntityLists } from './content/parser';
@@ -21,7 +21,7 @@ import {
 	generateChangelog,
 	type ChangelogSource
 } from './content/generator';
-import { toSlug } from '@deadlog/utils';
+import { MOG_IMAGE_PREFIX, toSlug } from '@deadlog/utils';
 import { entityNameAliases } from '@deadlog/changelog';
 
 export const CHANGELOGS_DIR = process.env.CHANGELOGS_DIR || 'app/changelogs';
@@ -34,7 +34,7 @@ interface ScrapeOptions {
 
 function slugify(title: string): string {
 	const cleaned = title.replace(/\b\d{4}\b/g, '').replace(/\bupdate\b/gi, '');
-	return toSlug(cleaned);
+	return toSlug(cleaned) || 'announcement';
 }
 
 function fileStatus(filepath: string): 'missing' | 'curated' | 'draft' {
@@ -43,12 +43,10 @@ function fileStatus(filepath: string): 'missing' | 'curated' | 'draft' {
 	return content.includes('status "published"') ? 'curated' : 'draft';
 }
 
-function resolveFilepath(title: string, date: string) {
-	const year = new Date(date).getFullYear();
+function resolveFilepath(title: string, date: string): string {
+	const year = new Date(date).getUTCFullYear();
 	const slug = slugify(title);
-	const dir = join(CHANGELOGS_DIR, String(year));
-	const filepath = join(dir, `${slug}.mg`);
-	return { year, slug, dir, filepath };
+	return join(CHANGELOGS_DIR, String(year), `${slug}.mg`);
 }
 
 function skipReason(filepath: string, overwrite: boolean): string | null {
@@ -65,135 +63,142 @@ function writeMogFile(filepath: string, content: string): 'created' | 'updated' 
 	return isUpdate ? 'updated' : 'created';
 }
 
+function existingSteamFiles(): Map<string, string> {
+	const files = new Map<string, string>();
+	for (const filepath of globSync(join(CHANGELOGS_DIR, '**', '*.mg'))) {
+		const gid = readFileSync(filepath, 'utf-8').match(/^steam_gid "([^"]+)"$/m)?.[1];
+		if (gid) files.set(gid, filepath);
+	}
+	return files;
+}
+
+function resolveSteamFilepath(
+	note: SteamAnnouncement,
+	filesByGid: ReadonlyMap<string, string>,
+	reserved: Set<string>
+): string {
+	const existing = filesByGid.get(note.gid);
+	if (existing) return existing;
+
+	let filepath = resolveFilepath(note.title, note.date);
+	if (reserved.has(filepath) || existsSync(filepath)) {
+		filepath = join(dirname(filepath), `${basename(filepath, '.mg')}-${note.gid}.mg`);
+	}
+	reserved.add(filepath);
+	return filepath;
+}
+
+function needsSteamBackfill(
+	filepath: string,
+	note: SteamAnnouncement | undefined
+): boolean {
+	if (!note || fileStatus(filepath) !== 'draft') return false;
+	return !readFileSync(filepath, 'utf-8').includes(`steam_gid "${note.gid}"`);
+}
+
 // --- Source builders ---
 
 function buildChangelogSource(
 	content: PostContentResult,
 	threadId: string,
-	entities: EntityLists,
-	steamContent?: SteamPatchNote
+	steamContent?: SteamAnnouncement
 ): ChangelogSource {
-	const contentParts: string[] = [];
+	const forumRaw = extractContent(content.content);
+	const forumImages = forumRaw
+		.split('\n')
+		.filter((line) => line.startsWith(MOG_IMAGE_PREFIX) && !/favicon/i.test(line));
+	const replies = (content.posterReplies ?? [])
+		.map((reply) => extractContent(reply.content))
+		.filter((reply) => reply.trim());
+	let rawContent = forumRaw;
+	let renderedContent: ChangelogSource['renderedContent'];
+	let steamMeta: SteamAnnouncement | undefined;
 
 	if (steamContent) {
 		const steamRaw = parseSteamContent(steamContent.content);
+		const steamUnfurl = isSteamUnfurl(content.content);
+		const roughForumLen = content.content.replace(/<[^>]+>/g, '').length;
+		const useSteam = steamUnfurl || roughForumLen <= steamRaw.length;
+		if (steamUnfurl) steamMeta = steamContent;
 
-		if (isSteamUnfurl(content.content)) {
-			contentParts.push(steamRaw);
-		} else {
-			const roughForumLen = content.content.replace(/<[^>]+>/g, '').length;
-			if (roughForumLen > steamRaw.length) {
-				contentParts.push(extractContent(content.content));
-			} else {
-				contentParts.push(steamRaw);
-			}
-		}
-	} else {
-		contentParts.push(extractContent(content.content));
-	}
-
-	if (content.posterReplies?.length) {
-		for (const reply of content.posterReplies) {
-			const replyRaw = extractContent(reply.content);
-			if (replyRaw.trim()) {
-				contentParts.push(replyRaw);
-			}
+		if (useSteam && replies.length === 0 && !isSteamPatchContent(steamContent.content)) {
+			renderedContent = renderSteamAnnouncement(steamContent.title, steamContent.content);
+		} else if (useSteam) {
+			rawContent = [...forumImages, steamRaw].join('\n');
 		}
 	}
+	if (!renderedContent)
+		rawContent = deduplicateLines([rawContent, ...replies].join('\n'));
 
 	return {
-		title: content.title,
-		published: content.pubDate || new Date().toISOString(),
-		author: parseAuthorName(content.author),
-		authorImage: content.authorImage,
+		title: steamMeta ? steamMeta.title : content.title,
+		published: steamMeta ? steamMeta.date : content.pubDate || new Date().toISOString(),
+		author: steamMeta ? steamMeta.author : parseAuthorName(content.author),
+		authorImage: steamMeta ? undefined : content.authorImage,
 		threadId,
 		steamGid: steamContent?.gid,
-		rawContent: deduplicateLines(contentParts.join('\n'))
+		...(renderedContent ? { renderedContent } : { rawContent })
 	};
 }
 
-function buildSteamChangelogSource(steamNote: SteamPatchNote): ChangelogSource {
+function buildSteamChangelogSource(steamNote: SteamAnnouncement): ChangelogSource {
 	return {
 		title: steamNote.title,
 		published: steamNote.date,
 		author: steamNote.author,
 		steamGid: steamNote.gid,
-		rawContent: parseSteamContent(steamNote.content)
+		...(isSteamPatchContent(steamNote.content)
+			? { rawContent: parseSteamContent(steamNote.content) }
+			: { renderedContent: renderSteamAnnouncement(steamNote.title, steamNote.content) })
 	};
 }
 
-function steamNoteIdentity(note: SteamPatchNote): string {
-	return note.gid ? `gid:${note.gid}` : `title:${toSlug(note.title)}:${note.date}`;
-}
+const STEAM_FORUM_MATCH_WINDOW_MS = 15 * 60 * 1000;
 
 export function matchSteamNotesToForumPosts(
 	posts: ChangelogPost[],
-	steamNotes: SteamPatchNote[]
+	steamNotes: SteamAnnouncement[]
 ): {
-	steamByForumPostId: Map<string, SteamPatchNote>;
-	unmatchedSteamNotes: SteamPatchNote[];
+	steamByForumPostId: Map<string, SteamAnnouncement>;
+	unmatchedSteamNotes: SteamAnnouncement[];
 } {
-	const forumPostsByDate = new Map<string, ChangelogPost[]>();
-	const steamNotesByDate = new Map<string, SteamPatchNote[]>();
+	const steamByForumPostId = new Map<string, SteamAnnouncement>();
+	const consumedGids = new Set<string>();
+	const claim = (post: ChangelogPost, note: SteamAnnouncement) => {
+		steamByForumPostId.set(post.postId, note);
+		consumedGids.add(note.gid);
+	};
 
 	for (const post of posts) {
-		const dateKey = extractDateFromTitle(post.title);
-		if (!dateKey) continue;
-		const datePosts = forumPostsByDate.get(dateKey) ?? [];
-		datePosts.push(post);
-		forumPostsByDate.set(dateKey, datePosts);
+		const candidates = steamNotes.filter(
+			(note) => !consumedGids.has(note.gid) && toSlug(note.title) === toSlug(post.title)
+		);
+		if (candidates.length === 1) claim(post, candidates[0]);
 	}
 
-	for (const note of steamNotes) {
-		const dateKey = extractDateFromTitle(note.title);
-		if (!dateKey) continue;
-		const dateNotes = steamNotesByDate.get(dateKey) ?? [];
-		dateNotes.push(note);
-		steamNotesByDate.set(dateKey, dateNotes);
-	}
+	const unmatchedPosts = posts.filter((post) => !steamByForumPostId.has(post.postId));
+	const unmatchedNotes = steamNotes.filter((note) => !consumedGids.has(note.gid));
+	const isClose = (post: ChangelogPost, note: SteamAnnouncement) =>
+		/\bupdate\b/i.test(`${note.title}\n${note.content}`) &&
+		Math.abs(new Date(post.pubDate).getTime() - new Date(note.date).getTime()) <=
+			STEAM_FORUM_MATCH_WINDOW_MS;
 
-	const steamByForumPostId = new Map<string, SteamPatchNote>();
-	const consumedSteamNotes = new Set<string>();
-
-	for (const [dateKey, datePosts] of forumPostsByDate) {
-		const dateNotes = steamNotesByDate.get(dateKey) ?? [];
-
-		// Match normalized full titles first so ordering cannot swap same-day notes.
-		for (const post of datePosts) {
-			const titleIdentity = toSlug(post.title);
-			const note = dateNotes.find(
-				(candidate) =>
-					!consumedSteamNotes.has(steamNoteIdentity(candidate)) &&
-					toSlug(candidate.title) === titleIdentity
-			);
-
-			if (note) {
-				steamByForumPostId.set(post.postId, note);
-				consumedSteamNotes.add(steamNoteIdentity(note));
-			}
-		}
-
-		const unmatchedPosts = datePosts.filter(
-			(post) => !steamByForumPostId.has(post.postId)
+	for (const post of unmatchedPosts) {
+		const noteCandidates = unmatchedNotes.filter(
+			(note) => !consumedGids.has(note.gid) && isClose(post, note)
 		);
-		const unmatchedNotes = dateNotes.filter(
-			(note) => !consumedSteamNotes.has(steamNoteIdentity(note))
-		);
+		if (noteCandidates.length !== 1) continue;
 
-		// A lone pair can safely tolerate source-specific title wording.
-		if (unmatchedPosts.length === 1 && unmatchedNotes.length === 1) {
-			const [post] = unmatchedPosts;
-			const [note] = unmatchedNotes;
-			steamByForumPostId.set(post.postId, note);
-			consumedSteamNotes.add(steamNoteIdentity(note));
-		}
+		const [note] = noteCandidates;
+		const postCandidates = unmatchedPosts.filter(
+			(candidate) => !steamByForumPostId.has(candidate.postId) && isClose(candidate, note)
+		);
+		if (postCandidates.length === 1) claim(post, note);
 	}
 
 	return {
 		steamByForumPostId,
-		unmatchedSteamNotes: steamNotes.filter(
-			(note) => !consumedSteamNotes.has(steamNoteIdentity(note))
-		)
+		unmatchedSteamNotes: steamNotes.filter((note) => !consumedGids.has(note.gid))
 	};
 }
 
@@ -215,14 +220,14 @@ export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<voi
 	console.log('🔍 Fetching changelog posts from forum and Steam API...');
 	const [posts, steamNotes] = await Promise.all([
 		scrapeChangelogPage(),
-		fetchSteamPatchNotes({ timeout: 30000 }).catch((err) => {
+		fetchSteamAnnouncements({ timeout: 30000 }).catch((err) => {
 			console.warn(`   ⚠️  Steam API fetch failed: ${err.message}`);
-			return [] as SteamPatchNote[];
+			return [] as SteamAnnouncement[];
 		})
 	]);
 
 	console.log(
-		`📋 Found ${posts.length} forum posts, ${steamNotes.length} Steam patch notes`
+		`📋 Found ${posts.length} forum posts, ${steamNotes.length} Steam announcements`
 	);
 
 	const { steamByForumPostId, unmatchedSteamNotes } = matchSteamNotesToForumPosts(
@@ -234,10 +239,10 @@ export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<voi
 	const skipped: { title: string; reason: string }[] = [];
 
 	for (const post of posts) {
-		const { filepath } = resolveFilepath(post.title, post.pubDate);
+		const filepath = resolveFilepath(post.title, post.pubDate);
 
 		const reason = skipReason(filepath, overwrite);
-		if (reason) {
+		if (reason && !needsSteamBackfill(filepath, steamByForumPostId.get(post.postId))) {
 			skipped.push({ title: post.title, reason });
 			continue;
 		}
@@ -245,12 +250,11 @@ export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<voi
 		newPosts.push(post);
 	}
 
-	const steamOnlyNotes: SteamPatchNote[] = [];
+	const filesByGid = existingSteamFiles();
+	const reservedPaths = new Set(filesByGid.values());
+	const steamOnlyNotes: { note: SteamAnnouncement; filepath: string }[] = [];
 	for (const note of unmatchedSteamNotes) {
-		const dateKey = extractDateFromTitle(note.title);
-		if (!dateKey) continue;
-
-		const { filepath } = resolveFilepath(note.title, note.date);
+		const filepath = resolveSteamFilepath(note, filesByGid, reservedPaths);
 
 		const reason = skipReason(filepath, overwrite);
 		if (reason) {
@@ -258,7 +262,7 @@ export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<voi
 			continue;
 		}
 
-		steamOnlyNotes.push(note);
+		steamOnlyNotes.push({ note, filepath });
 	}
 
 	if (skipped.length > 0) {
@@ -278,17 +282,12 @@ export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<voi
 
 	let created = 0;
 	let updated = 0;
-	// Notes claimed late (by gid) must not also be written as standalone changelogs.
-	const gidMatchedSteamNotes = new Set<string>();
-
 	if (newPosts.length > 0) {
 		console.log(`\n🕷️  Scraping ${newPosts.length} forum posts...`);
 
 		const contents = await scrapeMultipleChangelogPosts(newPosts, { useCache: true });
 
 		const contentMap = new Map(contents.map((c) => [c.postId, c]));
-		const steamNotesByGid = new Map(steamNotes.map((note) => [note.gid, note]));
-
 		console.log('\n📝 Writing changelogs...');
 
 		for (const post of newPosts) {
@@ -298,26 +297,15 @@ export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<voi
 				continue;
 			}
 
-			const { filepath } = resolveFilepath(post.title, post.pubDate);
+			const filepath = resolveFilepath(post.title, post.pubDate);
 
-			// Title-date matching runs before bodies are fetched, so a Steam note whose
-			// title carries no date can only be found here, via the unfurl's gid.
-			let steamNote = steamByForumPostId.get(post.postId);
-			if (!steamNote) {
-				const gid = extractSteamGidFromUnfurl(content.content);
-				const byGid = gid ? steamNotesByGid.get(gid) : undefined;
-				if (byGid) {
-					steamNote = byGid;
-					gidMatchedSteamNotes.add(steamNoteIdentity(byGid));
-					console.log(`   🔗 Matched Steam content by gid for: ${post.title}`);
-				}
-			}
+			const steamNote = steamByForumPostId.get(post.postId);
 
 			if (steamNote) {
 				console.log(`   🔗 Matched Steam content for: ${post.title}`);
 			}
 
-			const source = buildChangelogSource(content, post.postId, entities, steamNote);
+			const source = buildChangelogSource(content, post.postId, steamNote);
 			const changelog = generateChangelog(source, entities, assets);
 			const result = writeMogFile(filepath, changelog);
 
@@ -329,16 +317,10 @@ export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<voi
 		}
 	}
 
-	const unclaimedSteamNotes = steamOnlyNotes.filter(
-		(note) => !gidMatchedSteamNotes.has(steamNoteIdentity(note))
-	);
+	if (steamOnlyNotes.length > 0) {
+		console.log(`\n🎮 Writing ${steamOnlyNotes.length} Steam-only announcements...`);
 
-	if (unclaimedSteamNotes.length > 0) {
-		console.log(`\n🎮 Writing ${unclaimedSteamNotes.length} Steam-only patch notes...`);
-
-		for (const note of unclaimedSteamNotes) {
-			const { filepath } = resolveFilepath(note.title, note.date);
-
+		for (const { note, filepath } of steamOnlyNotes) {
 			const source = buildSteamChangelogSource(note);
 			const changelog = generateChangelog(source, entities, assets);
 			const result = writeMogFile(filepath, changelog);

@@ -77,9 +77,28 @@
 
 	const heroCount = $derived(tocHeroes.length);
 	const itemCount = $derived(tocItems.length);
+	const namedTitle = $derived(!/\d{2}-\d{2}-\d{4}/.test(changelog.title));
+	const displayTitle = $derived(
+		namedTitle ? changelog.title : formatDate(changelog.date)
+	);
 
 	const hideGeneral = $derived(
 		!!mogFilter || !mogToc.some((s) => s.id === 'general-changes')
+	);
+	const genericTocEntries = $derived(
+		heroCount + itemCount === 0
+			? mogToc.filter(
+					(entry) =>
+						!['general-changes', 'hero-changes', 'item-changes'].includes(entry.id)
+				)
+			: []
+	);
+	const showToc = $derived(
+		(hideGeneral ? 0 : 1) +
+			(heroCount > 0 ? heroCount + 1 : 0) +
+			(itemCount > 0 ? itemCount + 1 : 0) +
+			genericTocEntries.length >
+			1
 	);
 	const patchPath = $derived(changePath(changelog));
 	const canonical = $derived(absoluteUrl(patchPath));
@@ -201,8 +220,20 @@
 		</div>
 	{/if}
 
+	{#if showToc}
+		<button
+			type="button"
+			onclick={() => (tocOpen = true)}
+			class="clip-corner-sm border-border bg-card text-foreground hover:border-signal hover:text-signal mb-4 ml-auto flex h-10 items-center gap-2 border px-3 font-mono text-xs font-semibold tracking-wider uppercase transition-colors xl:hidden"
+			aria-label="Open table of contents"
+		>
+			<ListIcon class="size-4" />
+			Contents
+		</button>
+	{/if}
+
 	<div class="flex gap-8">
-		{#if changelog.icons}
+		{#if showToc}
 			<aside class="hidden w-56 shrink-0 xl:block">
 				<div
 					class="sticky top-[12rem] max-h-[calc(100dvh-13rem)] [scrollbar-gutter:stable] overflow-y-auto overscroll-contain pr-1"
@@ -246,9 +277,7 @@
 							<h1
 								class="text-foreground font-display heading-glow text-3xl leading-tight font-medium tracking-wide"
 							>
-								<time datetime={changelog.date.toISOString()}
-									>{formatDate(changelog.date)}</time
-								>
+								{displayTitle}
 							</h1>
 
 							<div class="flex items-center gap-4">
@@ -263,6 +292,12 @@
 									</Avatar.Root>
 									<span class="tracking-tight">
 										By <span class="text-foreground font-medium">{changelog.author}</span>
+										{#if namedTitle}
+											on
+											<time datetime={changelog.date.toISOString()}
+												>{formatDate(changelog.date)}</time
+											>
+										{/if}
 										at
 										<time datetime={changelog.date.toISOString()}
 											>{formatTime(changelog.date)}</time
@@ -312,16 +347,7 @@
 	</div>
 </main>
 
-{#if changelog.icons}
-	<button
-		type="button"
-		onclick={() => (tocOpen = true)}
-		class="bg-primary text-primary-foreground fixed right-8 bottom-8 z-50 flex size-12 items-center justify-center rounded-full shadow-lg transition-all hover:scale-110 hover:opacity-80 xl:hidden"
-		aria-label="Open table of contents"
-	>
-		<ListIcon class="size-5" />
-	</button>
-
+{#if showToc}
 	<Sheet.Root bind:open={tocOpen}>
 		<Sheet.Content side="bottom" class="max-h-[70vh]">
 			<Sheet.Header>

@@ -48,6 +48,14 @@
 		}
 		return icons;
 	});
+	const genericEntries = $derived(
+		heroes.length + items.length === 0
+			? toc.filter(
+					(entry) =>
+						!['general-changes', 'hero-changes', 'item-changes'].includes(entry.id)
+				)
+			: []
+	);
 
 	function abilityImage(heroId: number, entry: MogTocEntry): string | undefined {
 		const icons = abilityIconsByHero.get(heroId) ?? [];
@@ -170,6 +178,17 @@
 			</a>
 		{/if}
 
+		{#each genericEntries as entry (entry.id)}
+			<a
+				href="#{entry.id}"
+				class="toc-section {entry.level > 1 ? 'toc-subsection' : ''}"
+				onclick={onnavigate}
+			>
+				<span class="toc-marker" aria-hidden="true"></span>
+				<span class="line-clamp-2 leading-tight">{entry.title}</span>
+			</a>
+		{/each}
+
 		{#if heroes.length > 0}
 			{@render tocGroup('#hero-changes', 'Heroes', heroes.length, heroes)}
 		{/if}
@@ -185,6 +204,10 @@
 
 	.toc-section {
 		@apply text-foreground/80 hover:text-signal relative flex items-center gap-2 py-1 pl-3 text-xs font-semibold tracking-tight transition-colors;
+	}
+
+	.toc-subsection {
+		@apply text-muted-foreground pl-6 font-normal;
 	}
 
 	.toc-marker {

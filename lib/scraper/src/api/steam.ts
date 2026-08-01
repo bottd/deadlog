@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { escapeMogDelimiters, mogImage, mogLink } from '@deadlog/utils';
 
 const STEAM_NEWS_API = 'https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/';
 const DEADLOCK_APP_ID = '1422450';
@@ -6,6 +7,9 @@ const DEADLOCK_APP_ID = '1422450';
 const SECTION_MARKER = '__SECTION__';
 const SUBPATCH_MARKER = '__SUBPATCH__';
 const SECTION_NAMES = new Set(['Items', 'Heroes', 'General']);
+const STEAM_IMAGE_BASE = 'https://clan.fastly.steamstatic.com/images';
+const STEAM_IMAGE_RE =
+	/\[img(?:\s+src=(?:"([^"]+)"|'([^']+)'|([^\]\s]+)))?\]([\s\S]*?)\[\/img\]/gi;
 
 const steamNewsItemSchema = z.object({
 	gid: z.string(),
@@ -30,12 +34,17 @@ const steamNewsResponseSchema = z.object({
 
 export type SteamNewsItem = z.infer<typeof steamNewsItemSchema>;
 
-export interface SteamPatchNote {
+export interface SteamAnnouncement {
 	gid: string;
 	title: string;
 	date: string; // ISO date string
 	author: string;
 	content: string; // BBCode content
+}
+
+export interface RenderedSteamAnnouncement {
+	mog: string;
+	text: string;
 }
 
 /**
@@ -53,10 +62,23 @@ export function extractDateFromTitle(title: string): string | null {
 function bbcodeToText(bbcode: string): string {
 	let text = bbcode;
 
+	// Plain-text parsing omits presentation-only media.
+	text = text
+		.replace(/\[img(?:\s+[^\]]*)?\][\s\S]*?\[\/img\]/gi, '\n')
+		.replace(/\{STEAM_CLAN_(?:LOC_)?IMAGE\}\/\S+/g, '');
+
+	// Keep link labels and list text while dropping presentation-only BBCode.
+	text = text
+		.replace(/\[url=[^\]]+\]([\s\S]*?)\[\/url\]/gi, '$1')
+		.replace(/\[url\]([\s\S]*?)\[\/url\]/gi, '$1')
+		.replace(/\[video(?:\s+[^\]]*)?\][\s\S]*?\[\/video\]/gi, '\n')
+		.replace(/\[\*\]\s*/g, '\n- ');
+
 	// Convert [p]...[/p] to lines ([/p][p] → single newline, standalone tags → newline or empty)
 	text = text
 		.replace(/\[\/p\]\[p\]/g, '\n')
 		.replace(/\[\/?p\]/g, (m) => (m === '[p]' ? '' : '\n'));
+	text = text.replace(/\[\/?(?:h[1-6]|list)\]/gi, '\n');
 
 	// Convert section headers: [u][b]\[ General ][/b][/u] -> section markers
 	text = text.replace(
@@ -75,8 +97,8 @@ function bbcodeToText(bbcode: string): string {
 		return trimmed;
 	});
 
-	// Strip remaining BBCode tags
-	text = text.replace(/\[\/?\w+\]/g, '');
+	// Strip remaining BBCode tags, including tags with attributes.
+	text = text.replace(/\[\/?\w+(?:[=\s][^\]]*)?\]/g, '');
 
 	// Clean up backslash escapes from BBCode
 	text = text.replace(/\\(?=\[)/g, '');
@@ -110,11 +132,157 @@ export function parseSteamContent(bbcode: string): string {
 	return output.join('\n');
 }
 
-export async function fetchSteamPatchNotes(options: {
+export function isSteamPatchContent(bbcode: string): boolean {
+	const withoutBbcodeLists = bbcode.replace(/\[list\][\s\S]*?\[\/list\]/gi, '');
+	return parseSteamContent(withoutBbcodeLists)
+		.split('\n')
+		.some((line) => /^(?:[-•]\s*\S|\*\s+\S)/.test(line.trim()));
+}
+
+function safeHttpUrl(value: string): string | null {
+	try {
+		const url = new URL(value.trim().replace(/^"|"$/g, ''));
+		return ['http:', 'https:'].includes(url.protocol) && !/[[\]()]/.test(url.href)
+			? url.href
+			: null;
+	} catch {
+		return null;
+	}
+}
+
+function steamImageUrl(value: string): string | null {
+	return safeHttpUrl(
+		value.trim().replace(/^\{STEAM_CLAN_(?:LOC_)?IMAGE\}/i, STEAM_IMAGE_BASE)
+	);
+}
+
+function plainBbcode(value: string): string {
+	return value
+		.replace(/\[\/?\w+(?:[=\s][^\]]*)?\]/g, '')
+		.replace(/\\(?=\[)/g, '')
+		.replace(/\s+/g, ' ')
+		.trim();
+}
+
+function safeMogLabel(value: string): string {
+	return plainBbcode(value)
+		.replace(/[[\]()]/g, '')
+		.trim();
+}
+
+/** Convert prose-shaped Steam BBCode directly to readable Mog blocks. */
+export function renderSteamAnnouncement(
+	title: string,
+	bbcode: string
+): RenderedSteamAnnouncement {
+	const tokens: string[] = [];
+	const protect = (value: string) => {
+		const index = tokens.push(value) - 1;
+		return `\uE000${index}\uE001`;
+	};
+	const restore = (value: string) =>
+		value.replace(/\uE000(\d+)\uE001/g, (_, index) => tokens[Number(index)] ?? '');
+	const hasExplicitHeading = /\[h[1-6]\]/i.test(bbcode);
+
+	let content = bbcode.replace(/\r\n?/g, '\n').replace(/\u00a0/g, ' ');
+
+	content = content.replace(
+		/\[url=([^\]]+)\]([\s\S]*?)\[\/url\]/gi,
+		(_match, target: string, label: string) => {
+			if (/\[img(?:\s|\])/i.test(label)) return label;
+			const href = safeHttpUrl(target);
+			const text = safeMogLabel(label);
+			return href && text ? protect(mogLink(href, text)) : text;
+		}
+	);
+
+	content = content.replace(
+		STEAM_IMAGE_RE,
+		(_match, doubleQuoted: string, singleQuoted: string, bare: string, body: string) => {
+			const src = steamImageUrl(doubleQuoted || singleQuoted || bare || body);
+			if (!src) return '\n';
+			return `\n${protect(mogImage(src, `${safeMogLabel(title)} announcement art`))}\n`;
+		}
+	);
+
+	content = content.replace(
+		/\[video\s+[^\]]*\bmp4=(?:"([^"]+)"|'([^']+)'|([^\]\s]+))[^\]]*\][\s\S]*?\[\/video\]/gi,
+		(_match, doubleQuoted: string, singleQuoted: string, bare: string) => {
+			const href = safeHttpUrl(doubleQuoted || singleQuoted || bare);
+			return href ? `\n${protect(mogLink(href, 'Video'))}\n` : '\n';
+		}
+	);
+
+	content = content
+		.replace(/\[h[1-6]\]([\s\S]*?)\[\/h[1-6]\]/gi, '\n\uE100$1\n')
+		.replace(/\[\/?p\]/gi, '\n')
+		.replace(/\[\/?list\]/gi, '\n')
+		.replace(/\[\*\]\s*/gi, '\n\uE101')
+		.replace(/\[br\s*\/?\]/gi, '\n');
+
+	const formatInline = (value: string): string => {
+		let text = value
+			.replace(/\[i\]([\s\S]*?)\[\/i\]/gi, (_match, label: string) =>
+				protect(`__${escapeMogDelimiters(plainBbcode(label))}__`)
+			)
+			.replace(/\[b\]([\s\S]*?)\[\/b\]/gi, (_match, label: string) =>
+				protect(`**${escapeMogDelimiters(plainBbcode(label))}**`)
+			)
+			.replace(/\[\/?u\]/gi, '')
+			.replace(/\[\/?\w+(?:[=\s][^\]]*)?\]/g, '')
+			.replace(/\\(?=\[)/g, '')
+			.replace(/\s+/g, ' ')
+			.trim();
+		text = escapeMogDelimiters(text);
+		if (/^[#=.`>|+*~:$-]/.test(text)) text = `\\${text}`;
+		return restore(text);
+	};
+
+	const blocks: { value: string; list: boolean }[] = [];
+	const append = (value: string, list = false) => {
+		if (!value) return;
+		const previous = blocks.at(-1);
+		if (list && previous?.list) previous.value += `\n${value}`;
+		else blocks.push({ value, list });
+	};
+
+	for (const rawLine of content.split('\n')) {
+		const line = rawLine.trim();
+		if (!line || line === '-') continue;
+
+		if (line.startsWith('\uE100')) {
+			append(`## ${formatInline(line.slice(1))}`);
+			continue;
+		}
+
+		if (line.startsWith('\uE101')) {
+			append(`- ${formatInline(line.slice(1))}`, true);
+			continue;
+		}
+
+		const boldHeading = line.match(/^\[b\](.*?)\[\/b\]$/i);
+		if (boldHeading) {
+			append(`${hasExplicitHeading ? '###' : '#'} ${formatInline(boldHeading[1])}`);
+			continue;
+		}
+
+		append(formatInline(line));
+	}
+
+	const text = parseSteamContent(bbcode)
+		.split('\n')
+		.map((line) => line.replace(/^(?:[-*•]+\s*)/, '').trim())
+		.filter(Boolean)
+		.join(' ');
+
+	return { mog: blocks.map((block) => block.value).join('\n\n'), text };
+}
+
+export async function fetchSteamAnnouncements(options: {
 	count?: number;
 	timeout?: number;
-}): Promise<SteamPatchNote[]> {
-	const { count = 100, timeout = 30000 } = options;
+}): Promise<SteamAnnouncement[]> {
+	const { count = 1000, timeout = 30000 } = options;
 
 	const url = new URL(STEAM_NEWS_API);
 	url.searchParams.set('appid', DEADLOCK_APP_ID);
@@ -132,27 +300,13 @@ export async function fetchSteamPatchNotes(options: {
 
 	const data = steamNewsResponseSchema.parse(await response.json());
 
-	// Filter to patch notes (titles with date patterns like "MM-DD-YYYY Update"
-	// or major update titles)
-	return data.appnews.newsitems
-		.filter((item) => {
-			const dateMatch = extractDateFromTitle(item.title);
-			if (dateMatch) return true;
-			// Also include major named updates that have patch-note-style content
-			const hasChanges = item.contents.includes('- ');
-			const hasSections =
-				item.contents.includes('[ General ]') ||
-				item.contents.includes('[ Heroes ]') ||
-				item.contents.includes('[ Items ]');
-			return hasChanges && hasSections;
-		})
-		.map((item) => ({
-			gid: item.gid,
-			title: item.title,
-			date: new Date(item.date * 1000).toISOString(),
-			author: item.author,
-			content: item.contents
-		}));
+	return data.appnews.newsitems.map((item) => ({
+		gid: item.gid,
+		title: item.title,
+		date: new Date(item.date * 1000).toISOString(),
+		author: item.author,
+		content: item.contents
+	}));
 }
 
 /**
@@ -163,18 +317,6 @@ export function extractSteamUrlFromUnfurl(html: string): string | null {
 		/href="(https:\/\/store\.steampowered\.com\/news\/app\/\d+\/view\/\d+)"/
 	);
 	return match ? match[1] : null;
-}
-
-/**
- * Pull the Steam news gid out of a forum post's unfurl block.
- *
- * Steam titles the same patch differently from the forum ("Map Rework Update" vs
- * "02-25-2025 Update"), and date-keyed matching needs a date in *both* titles — so
- * these posts never matched and lost their notes entirely. The unfurl names the gid.
- */
-export function extractSteamGidFromUnfurl(html: string): string | null {
-	const url = extractSteamUrlFromUnfurl(html);
-	return url?.match(/\/view\/(\d+)$/)?.[1] ?? null;
 }
 
 /**

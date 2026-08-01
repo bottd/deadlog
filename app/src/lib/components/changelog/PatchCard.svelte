@@ -1,9 +1,7 @@
 <script lang="ts">
 	import * as Avatar from '$lib/components/ui/avatar';
 	import CornerAccents from '$lib/components/ui/corner-accents/CornerAccents.svelte';
-	import { formatDate } from '@deadlog/utils';
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
-	import Calendar from '@lucide/svelte/icons/calendar';
 	import { quintOut } from 'svelte/easing';
 	import { scale } from 'svelte/transition';
 	import { patchCardHrefs, patchCardView, type PatchCardProps } from './patchCard';
@@ -74,11 +72,8 @@
 	<div class="z-10 flex flex-1 flex-col gap-3 p-4">
 		<div>
 			<div class="mb-1.5 flex items-center gap-2">
-				<Calendar
-					class="text-muted-foreground group-hover:text-primary size-3.5 shrink-0 transition-colors duration-300"
-				/>
 				<h2
-					class="text-foreground group-hover:text-primary min-w-0 truncate text-base font-semibold tracking-tight transition-colors duration-300"
+					class="text-foreground group-hover:text-primary line-clamp-2 min-w-0 text-base font-semibold tracking-tight transition-colors duration-300"
 				>
 					<!-- Stretched link — see FeaturedPatchCard. -->
 					<a
@@ -86,7 +81,7 @@
 						aria-label={view.accessibleLabel}
 						class="focus-visible:outline-primary after:absolute after:inset-0 focus-visible:outline-2 focus-visible:outline-offset-2"
 					>
-						{formatDate(patch.date)}
+						{view.heading}
 					</a>
 				</h2>
 				{#if isMajor}
@@ -107,6 +102,10 @@
 					>
 				</Avatar.Root>
 				<span class="truncate">{patch.author}</span>
+				{#if view.named}
+					<span aria-hidden="true">&middot;</span>
+					<time datetime={patch.date.toISOString()}>{view.date}</time>
+				{/if}
 			</div>
 		</div>
 

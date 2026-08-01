@@ -328,24 +328,36 @@ function collectPlainText(grouped: GroupedContent): string {
 	return stripMogLinks(parts.join(' '));
 }
 
-export interface ChangelogSource {
+interface ChangelogSourceMetadata {
 	title: string;
 	published: string;
 	author: string;
 	authorImage?: string;
 	threadId?: string;
 	steamGid?: string;
-	rawContent: string;
 }
+
+export type ChangelogSource = ChangelogSourceMetadata &
+	(
+		| { rawContent: string; renderedContent?: never }
+		| { rawContent?: never; renderedContent: { mog: string; text: string } }
+	);
 
 export function generateChangelog(
 	source: ChangelogSource,
 	entities: EntityLists,
 	assets?: EntityAssets
 ): string {
-	const grouped = parseAndGroupContent(source.rawContent, entities);
-	const structuredContent = generateStructuredContent(grouped, assets);
-	const contentText = collectPlainText(grouped);
+	let structuredContent: string;
+	let contentText: string;
+	if (source.renderedContent) {
+		structuredContent = source.renderedContent.mog;
+		contentText = source.renderedContent.text;
+	} else {
+		const grouped = parseAndGroupContent(source.rawContent, entities);
+		structuredContent = generateStructuredContent(grouped, assets);
+		contentText = collectPlainText(grouped);
+	}
 
 	const out: string[] = ['``meta:', `title ${kdlString(source.title)}`];
 
