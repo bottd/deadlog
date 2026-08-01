@@ -80,10 +80,20 @@ describe('matchSteamNotesToForumPosts', () => {
 		]);
 	});
 
-	it('matches a single same-day pair when source titles use different wording', () => {
+	it('does not match an exact title reused on a different day', () => {
 		const result = matchSteamNotesToForumPosts(
-			[forumPost('forum', 'Gameplay Update - 03-06-2026')],
-			[steamNote('steam', '03-06-2026 Update')]
+			[forumPost('forum', 'Matchmaking Update', '2026-07-31T12:00:00Z')],
+			[steamNote('old', 'Matchmaking Update', '2026-07-29T12:00:00Z')]
+		);
+
+		expect(result.steamByForumPostId.size).toBe(0);
+		expect(result.unmatchedSteamNotes.map((note) => note.gid)).toEqual(['old']);
+	});
+
+	it('matches a single dated pair when source titles and publication times differ', () => {
+		const result = matchSteamNotesToForumPosts(
+			[forumPost('forum', '05-22-2026 Update', '2026-05-23T00:11:11Z')],
+			[steamNote('steam', 'Gameplay Update - 05-22-2026', '2026-05-22T21:51:02Z')]
 		);
 
 		expect(result.steamByForumPostId.get('forum')?.gid).toBe('steam');
@@ -98,6 +108,35 @@ describe('matchSteamNotesToForumPosts', () => {
 
 		expect(result.steamByForumPostId.get('56683')?.gid).toBe('530965072572320687');
 		expect(result.unmatchedSteamNotes).toEqual([]);
+	});
+
+	it('leaves ambiguous dated updates unmatched outside the time window', () => {
+		const result = matchSteamNotesToForumPosts(
+			[
+				forumPost('first', '10-18-2024 Update A', '2024-10-19T02:00:00Z'),
+				forumPost('second', '10-18-2024 Update B', '2024-10-19T02:00:00Z')
+			],
+			[
+				steamNote('third', 'Gameplay Update - 10-18-2024', '2024-10-18T20:00:00Z'),
+				steamNote('fourth', 'Ranked Update - 10-18-2024', '2024-10-18T20:00:00Z')
+			]
+		);
+
+		expect(result.steamByForumPostId.size).toBe(0);
+		expect(result.unmatchedSteamNotes.map((note) => note.gid)).toEqual([
+			'third',
+			'fourth'
+		]);
+	});
+
+	it('does not match unrelated dated updates published far apart', () => {
+		const result = matchSteamNotesToForumPosts(
+			[forumPost('forum', '07-31-2026 Update', '2026-07-31T23:00:00Z')],
+			[steamNote('ranked', 'Ranked Update - 07-31-2026', '2026-07-31T12:00:00Z')]
+		);
+
+		expect(result.steamByForumPostId.size).toBe(0);
+		expect(result.unmatchedSteamNotes.map((note) => note.gid)).toEqual(['ranked']);
 	});
 
 	it('does not match unrelated announcements merely because they share a date', () => {

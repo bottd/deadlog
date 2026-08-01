@@ -97,8 +97,6 @@ const ABILITY_TERMS: Readonly<Record<string, RegExp>> = {
 	'spirit-lasso': /\blasso\b/i
 };
 
-export { resolveHeroAbilitySlug } from '@deadlog/utils';
-
 function mentionedAbility(
 	note: string,
 	abilities: readonly Pick<AbilitySlot, 'name' | 'slug'>[]

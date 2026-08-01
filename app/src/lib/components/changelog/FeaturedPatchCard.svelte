@@ -15,7 +15,7 @@
 
 <div class="group relative col-span-full mb-8 block">
 	<div
-		class="clip-corner-lg border-primary/40 hover:border-primary/70 bg-card card-glow relative flex flex-col overflow-hidden border-2 transition-all duration-200 hover:shadow-2xl active:scale-[0.99] md:flex-row md:items-stretch"
+		class="clip-corner-lg card-glow border-primary/40 bg-card hover:border-primary/70 relative flex flex-col overflow-hidden border-2 transition-all duration-200 hover:shadow-2xl active:scale-[0.99] md:flex-row md:items-stretch"
 	>
 		<div
 			class="from-primary/0 via-signal/5 to-signal/10 pointer-events-none absolute inset-0 bg-gradient-to-r opacity-0 transition-opacity duration-200 group-hover:opacity-100"
@@ -32,7 +32,7 @@
 		<div class="z-10 flex flex-1 flex-col gap-5 p-6 md:p-8">
 			<div class="flex items-center gap-4">
 				<div
-					class="pulse-glow bg-primary/15 border-primary/30 clip-corner-sm inline-flex items-center gap-2 border px-4 py-1.5"
+					class="pulse-glow clip-corner-sm border-primary/30 bg-primary/15 inline-flex items-center gap-2 border px-4 py-1.5"
 					in:fly={{ x: -20, duration: 500, easing: backOut }}
 				>
 					<Zap class="text-primary size-4" />
@@ -44,7 +44,7 @@
 			</div>
 
 			<h2
-				class="font-display text-foreground group-hover:text-primary heading-glow text-3xl font-medium tracking-wide transition-colors duration-300 md:text-4xl"
+				class="heading-glow font-display text-foreground group-hover:text-primary text-3xl font-medium tracking-wide transition-colors duration-300 md:text-4xl"
 				in:fly={{ y: 20, duration: 400, delay: 100 }}
 			>
 				<!-- Stretched link: the whole card is clickable, but crawlers and
@@ -136,7 +136,7 @@
 		</div>
 
 		<div
-			class="from-signal/5 to-primary/5 group-hover:from-signal/10 group-hover:to-primary/10 border-signal/20 relative z-10 flex min-h-44 shrink-0 items-center justify-center overflow-hidden border-t bg-gradient-to-r p-6 transition-colors duration-300 md:min-h-0 md:border-t-0 md:border-l md:p-8 {patch.previewImage
+			class="border-signal/20 from-signal/5 to-primary/5 group-hover:from-signal/10 group-hover:to-primary/10 relative z-10 flex min-h-44 shrink-0 items-center justify-center overflow-hidden border-t bg-gradient-to-r p-6 transition-colors duration-300 md:min-h-0 md:border-t-0 md:border-l md:p-8 {patch.previewImage
 				? 'md:w-80'
 				: 'md:w-56'}"
 		>
@@ -167,7 +167,7 @@
 			{/if}
 			<div class="relative z-10 flex flex-col items-center gap-3 text-center">
 				<div
-					class="bg-primary text-primary-foreground pulse-glow flex size-14 items-center justify-center rounded-xl shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl"
+					class="pulse-glow bg-primary text-primary-foreground flex size-14 items-center justify-center rounded-xl shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl"
 				>
 					<ArrowRight
 						class="size-6 transition-transform duration-300 group-hover:translate-x-1"

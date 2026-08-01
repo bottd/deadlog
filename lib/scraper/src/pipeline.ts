@@ -1,11 +1,19 @@
-import { existsSync, globSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
-import { basename, dirname, join } from 'path';
+import {
+	existsSync,
+	globSync,
+	mkdirSync,
+	readFileSync,
+	unlinkSync,
+	writeFileSync
+} from 'fs';
+import { basename, dirname, join, relative } from 'path';
 import {
 	scrapeChangelogPage,
 	scrapeMultipleChangelogPosts,
 	fetchHeroes,
 	fetchItems,
 	fetchSteamAnnouncements,
+	extractDateFromTitle,
 	isSteamUnfurl,
 	isSteamPatchContent,
 	parseSteamContent,
@@ -21,16 +29,13 @@ import {
 	generateChangelog,
 	type ChangelogSource
 } from './content/generator';
-import { MOG_IMAGE_PREFIX, toSlug } from '@deadlog/utils';
-import { entityNameAliases } from '@deadlog/changelog';
+import { MOG_IMAGE_PREFIX, entityNameAliases, toSlug } from '@deadlog/utils';
 
 export const CHANGELOGS_DIR = process.env.CHANGELOGS_DIR || 'app/changelogs';
 
 interface ScrapeOptions {
 	overwrite?: boolean;
 }
-
-// --- Helpers ---
 
 function slugify(title: string): string {
 	const cleaned = title.replace(/\b\d{4}\b/g, '').replace(/\bupdate\b/gi, '');
@@ -59,6 +64,10 @@ function skipReason(filepath: string, overwrite: boolean): string | null {
 function writeMogFile(filepath: string, content: string): 'created' | 'updated' {
 	mkdirSync(dirname(filepath), { recursive: true });
 	const isUpdate = existsSync(filepath);
+	if (isUpdate && !/^alias /m.test(content)) {
+		const alias = readFileSync(filepath, 'utf-8').match(/^alias .+$/m)?.[0];
+		if (alias) content = content.replace(/^title .+$/m, (title) => `${title}\n${alias}`);
+	}
 	writeFileSync(filepath, content, 'utf-8');
 	return isUpdate ? 'updated' : 'created';
 }
@@ -96,21 +105,21 @@ function needsSteamBackfill(
 	return !readFileSync(filepath, 'utf-8').includes(`steam_gid "${note.gid}"`);
 }
 
-// --- Source builders ---
-
 function buildChangelogSource(
 	content: PostContentResult,
 	threadId: string,
-	steamContent?: SteamAnnouncement
+	steamContent?: SteamAnnouncement,
+	alias?: string
 ): ChangelogSource {
 	const forumRaw = extractContent(content.content);
 	const forumImages = forumRaw
 		.split('\n')
 		.filter((line) => line.startsWith(MOG_IMAGE_PREFIX) && !/favicon/i.test(line));
 	const replies = (content.posterReplies ?? [])
+		.filter((reply) => !isSteamUnfurl(reply.content))
 		.map((reply) => extractContent(reply.content))
 		.filter((reply) => reply.trim());
-	let rawContent = forumRaw;
+	let rawContent = '';
 	let renderedContent: ChangelogSource['renderedContent'];
 	let steamMeta: SteamAnnouncement | undefined;
 
@@ -119,25 +128,37 @@ function buildChangelogSource(
 		const steamUnfurl = isSteamUnfurl(content.content);
 		const roughForumLen = content.content.replace(/<[^>]+>/g, '').length;
 		const useSteam = steamUnfurl || roughForumLen <= steamRaw.length;
-		if (steamUnfurl) steamMeta = steamContent;
 
-		if (useSteam && replies.length === 0 && !isSteamPatchContent(steamContent.content)) {
-			renderedContent = renderSteamAnnouncement(steamContent.title, steamContent.content);
-		} else if (useSteam) {
-			rawContent = [...forumImages, steamRaw].join('\n');
+		if (useSteam) {
+			steamMeta = steamContent;
+			if (isSteamPatchContent(steamContent.content)) {
+				rawContent = [...forumImages, steamRaw, ...replies].join('\n');
+			} else {
+				renderedContent = renderSteamAnnouncement(
+					steamContent.title,
+					steamContent.content
+				);
+				rawContent = replies.join('\n');
+			}
+		} else {
+			rawContent = [forumRaw, ...replies].join('\n');
 		}
+	} else {
+		rawContent = [forumRaw, ...replies].join('\n');
 	}
-	if (!renderedContent)
-		rawContent = deduplicateLines([rawContent, ...replies].join('\n'));
+	rawContent = deduplicateLines(rawContent);
 
 	return {
 		title: steamMeta ? steamMeta.title : content.title,
+		alias,
 		published: steamMeta ? steamMeta.date : content.pubDate || new Date().toISOString(),
 		author: steamMeta ? steamMeta.author : parseAuthorName(content.author),
 		authorImage: steamMeta ? undefined : content.authorImage,
 		threadId,
 		steamGid: steamContent?.gid,
-		...(renderedContent ? { renderedContent } : { rawContent })
+		...(renderedContent
+			? { renderedContent, ...(rawContent.trim() ? { rawContent } : {}) }
+			: { rawContent })
 	};
 }
 
@@ -154,6 +175,8 @@ function buildSteamChangelogSource(steamNote: SteamAnnouncement): ChangelogSourc
 }
 
 const STEAM_FORUM_MATCH_WINDOW_MS = 15 * 60 * 1000;
+const STEAM_TITLE_DATE_MATCH_WINDOW_MS = 6 * 60 * 60 * 1000;
+const STEAM_EXACT_TITLE_MATCH_WINDOW_MS = 24 * 60 * 60 * 1000;
 
 export function matchSteamNotesToForumPosts(
 	posts: ChangelogPost[],
@@ -171,13 +194,44 @@ export function matchSteamNotesToForumPosts(
 
 	for (const post of posts) {
 		const candidates = steamNotes.filter(
-			(note) => !consumedGids.has(note.gid) && toSlug(note.title) === toSlug(post.title)
+			(note) =>
+				!consumedGids.has(note.gid) &&
+				toSlug(note.title) === toSlug(post.title) &&
+				Math.abs(new Date(post.pubDate).getTime() - new Date(note.date).getTime()) <=
+					STEAM_EXACT_TITLE_MATCH_WINDOW_MS
 		);
 		if (candidates.length === 1) claim(post, candidates[0]);
 	}
 
 	const unmatchedPosts = posts.filter((post) => !steamByForumPostId.has(post.postId));
 	const unmatchedNotes = steamNotes.filter((note) => !consumedGids.has(note.gid));
+	const hasMatchingTitleDate = (post: ChangelogPost, note: SteamAnnouncement) => {
+		const postDate = extractDateFromTitle(post.title);
+		return (
+			postDate !== null &&
+			postDate === extractDateFromTitle(note.title) &&
+			/\bupdate\b/i.test(post.title) &&
+			/\bupdate\b/i.test(note.title) &&
+			Math.abs(new Date(post.pubDate).getTime() - new Date(note.date).getTime()) <=
+				STEAM_TITLE_DATE_MATCH_WINDOW_MS
+		);
+	};
+
+	for (const post of unmatchedPosts) {
+		if (steamByForumPostId.has(post.postId)) continue;
+		const noteCandidates = unmatchedNotes.filter(
+			(note) => !consumedGids.has(note.gid) && hasMatchingTitleDate(post, note)
+		);
+		if (noteCandidates.length !== 1) continue;
+
+		const [note] = noteCandidates;
+		const postCandidates = unmatchedPosts.filter(
+			(candidate) =>
+				!steamByForumPostId.has(candidate.postId) && hasMatchingTitleDate(candidate, note)
+		);
+		if (postCandidates.length === 1) claim(post, note);
+	}
+
 	const isClose = (post: ChangelogPost, note: SteamAnnouncement) =>
 		/\bupdate\b/i.test(`${note.title}\n${note.content}`) &&
 		Math.abs(new Date(post.pubDate).getTime() - new Date(note.date).getTime()) <=
@@ -201,8 +255,6 @@ export function matchSteamNotesToForumPosts(
 		unmatchedSteamNotes: steamNotes.filter((note) => !consumedGids.has(note.gid))
 	};
 }
-
-// --- Main orchestration ---
 
 export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<void> {
 	const { overwrite = false } = options;
@@ -300,14 +352,27 @@ export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<voi
 			const filepath = resolveFilepath(post.title, post.pubDate);
 
 			const steamNote = steamByForumPostId.get(post.postId);
+			const existingSteamPath = steamNote ? filesByGid.get(steamNote.gid) : undefined;
+			const migratedSteamPath =
+				existingSteamPath &&
+				existingSteamPath !== filepath &&
+				fileStatus(existingSteamPath) === 'draft'
+					? existingSteamPath
+					: undefined;
+			const alias = migratedSteamPath
+				? relative(CHANGELOGS_DIR, migratedSteamPath)
+						.replace(/\\/g, '/')
+						.replace(/\.mg$/, '')
+				: undefined;
 
 			if (steamNote) {
 				console.log(`   🔗 Matched Steam content for: ${post.title}`);
 			}
 
-			const source = buildChangelogSource(content, post.postId, steamNote);
+			const source = buildChangelogSource(content, post.postId, steamNote, alias);
 			const changelog = generateChangelog(source, entities, assets);
 			const result = writeMogFile(filepath, changelog);
+			if (migratedSteamPath) unlinkSync(migratedSteamPath);
 
 			console.log(
 				`   ${result === 'created' ? '✨ Created' : '📄 Updated'}: ${filepath}`

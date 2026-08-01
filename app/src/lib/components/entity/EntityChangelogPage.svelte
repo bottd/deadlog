@@ -228,7 +228,7 @@
 						{@render labelSuffix?.()}
 					</div>
 					<h1
-						class="text-foreground font-display heading-glow text-4xl leading-none font-medium tracking-wide break-words sm:text-5xl lg:text-6xl"
+						class="heading-glow font-display text-foreground text-4xl leading-none font-medium tracking-wide break-words sm:text-5xl lg:text-6xl"
 					>
 						{entity.name}
 					</h1>
@@ -356,7 +356,7 @@
 					</p>
 					<h2
 						id="history-heading"
-						class="text-foreground font-display mt-1 text-2xl font-medium tracking-wide sm:text-3xl"
+						class="font-display text-foreground mt-1 text-2xl font-medium tracking-wide sm:text-3xl"
 					>
 						Change History
 					</h2>
@@ -468,7 +468,7 @@
 				</ol>
 			{:else}
 				<div
-					class="clip-corner bg-card border-border relative overflow-hidden border-2 p-8 text-center sm:p-12"
+					class="clip-corner border-border bg-card relative overflow-hidden border-2 p-8 text-center sm:p-12"
 				>
 					<CornerAccents tlSize="2rem" tlColor="bg-signal/50" />
 					<EmptyIcon class="text-signal/60 mx-auto mb-4 size-8" />

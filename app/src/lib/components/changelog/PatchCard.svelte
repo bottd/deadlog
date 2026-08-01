@@ -16,7 +16,7 @@
 </script>
 
 <div
-	class="clip-corner-sm bg-card hover:bg-card-accent/30 group relative flex h-full min-h-[200px] flex-col overflow-hidden border transition-all duration-200 hover:shadow-xl active:scale-[0.98] {isMajor
+	class="clip-corner-sm group bg-card hover:bg-card-accent/30 relative flex h-full min-h-[200px] flex-col overflow-hidden border transition-all duration-200 hover:shadow-xl active:scale-[0.98] {isMajor
 		? 'border-primary/50 hover:border-primary/80'
 		: 'border-border hover:border-signal/45'}"
 >
@@ -86,7 +86,7 @@
 				</h2>
 				{#if isMajor}
 					<span
-						class="bg-primary/15 border-primary/40 text-primary clip-corner-sm ml-auto shrink-0 border px-1.5 py-0.5 font-mono text-[9px] font-bold tracking-widest uppercase"
+						class="clip-corner-sm border-primary/40 bg-primary/15 text-primary ml-auto shrink-0 border px-1.5 py-0.5 font-mono text-[9px] font-bold tracking-widest uppercase"
 					>
 						Major
 					</span>

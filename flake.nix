@@ -34,6 +34,68 @@
           withWebkit = false;
         };
 
+        node-tools-src = pkgs.lib.fileset.toSource {
+          root = ./.;
+          fileset = pkgs.lib.fileset.unions [
+            ./package.json
+            ./pnpm-lock.yaml
+            ./pnpm-workspace.yaml
+            ./app/package.json
+            ./lib/changelog/package.json
+            ./lib/db/package.json
+            ./lib/meta/package.json
+            ./lib/scraper/package.json
+            ./lib/utils/package.json
+          ];
+        };
+
+        node-tools = pkgs.stdenvNoCC.mkDerivation (finalAttrs: {
+          pname = "deadlog-node-tools";
+          version = "1";
+          src = node-tools-src;
+
+          pnpmDeps = pkgs.fetchPnpmDeps {
+            inherit (finalAttrs) pname version src;
+            pnpm = pkgs.pnpm;
+            fetcherVersion = 3;
+            hash = "sha256-n+fkydKorJr4HvmXPuwf6HT6YBNVSsnmorjtTkqmR6o=";
+          };
+
+          nativeBuildInputs = with pkgs; [
+            nodejs_24
+            pnpm
+            pnpmConfigHook
+          ];
+
+          dontBuild = true;
+
+          installPhase = ''
+            runHook preInstall
+            mkdir -p "$out/lib"
+            cp -r . "$out/lib/deadlog"
+            runHook postInstall
+          '';
+        });
+
+        prettier = pkgs.writeShellApplication {
+          name = "deadlog-prettier";
+          text = ''
+            project_root=$PWD
+            files=()
+            for file in "$@"; do
+              files+=("$project_root/$file")
+            done
+
+            cd ${node-tools}/lib/deadlog
+            ${pkgs.nodejs_24}/bin/node \
+              ${node-tools}/lib/deadlog/node_modules/prettier/bin/prettier.cjs \
+              --config "$project_root/.prettierrc" \
+              --ignore-path "$project_root/.prettierignore" \
+              --write \
+              "''${files[@]}"
+          '';
+        };
+
         treefmtEval = treefmt-nix.lib.evalModule pkgs {
           projectRootFile = "flake.nix";
 
@@ -43,11 +105,7 @@
 
           settings.formatter = {
             prettier = {
-              command = "npx";
-              options = [
-                "prettier"
-                "--write"
-              ];
+              command = "${prettier}/bin/deadlog-prettier";
               includes = [
                 "*.js"
                 "*.ts"
@@ -60,19 +118,6 @@
                 "*.md"
                 "*.yml"
                 "*.yaml"
-              ];
-            };
-            eslint = {
-              command = "${pkgs.eslint}/bin/eslint";
-              options = [
-                "--fix"
-              ];
-              includes = [
-                "*.js"
-                "*.ts"
-                "*.jsx"
-                "*.tsx"
-                "*.svelte"
               ];
             };
           };

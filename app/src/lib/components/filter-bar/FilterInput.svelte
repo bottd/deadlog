@@ -213,7 +213,7 @@
 
 	{#if availableOptionCount > MAX_OPTIONS}
 		<p
-			class="text-muted-foreground border-border border-t px-3 py-2 text-xs"
+			class="border-border text-muted-foreground border-t px-3 py-2 text-xs"
 			role="status"
 		>
 			Showing the first {MAX_OPTIONS} of {availableOptionCount} matches. Type to narrow the
@@ -224,7 +224,6 @@
 
 <div class="sticky z-40 w-full" style="top: max(64px, env(safe-area-inset-top));">
 	<div class="relative">
-		<!-- Desktop combobox -->
 		<div class="hidden sm:block">
 			<Command.Root
 				bind:value={desktopCommandValue}
@@ -307,7 +306,6 @@
 			{/if}
 		</div>
 
-		<!-- Mobile filter summary and dialog trigger -->
 		<form
 			method="GET"
 			action={resolve('/', {})}

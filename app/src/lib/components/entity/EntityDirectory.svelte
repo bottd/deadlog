@@ -84,7 +84,7 @@
 				>
 			</div>
 			<h1
-				class="text-foreground font-display heading-glow text-4xl leading-tight font-medium tracking-wide md:text-6xl"
+				class="heading-glow font-display text-foreground text-4xl leading-tight font-medium tracking-wide md:text-6xl"
 			>
 				{heading}
 			</h1>
@@ -100,7 +100,7 @@
 				</p>
 				<h2
 					id="{kind}-directory-heading"
-					class="text-foreground font-display mt-1 text-2xl font-medium tracking-wide"
+					class="font-display text-foreground mt-1 text-2xl font-medium tracking-wide"
 				>
 					{t.title}
 				</h2>
@@ -134,7 +134,7 @@
 					<li>
 						<a
 							href={entry.href}
-							class="clip-corner-sm bg-card border-border {t.card} group relative flex h-full min-h-20 items-center gap-3 overflow-hidden border p-3 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+							class="clip-corner-sm border-border bg-card {t.card} group relative flex h-full min-h-20 items-center gap-3 overflow-hidden border p-3 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
 						>
 							<CornerAccents tlSize="1rem" {...t.cardAccents} />
 							{#if kind === 'item'}

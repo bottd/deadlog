@@ -203,12 +203,11 @@ export function extractContent(html: string): string {
 		return html;
 	}
 
-	// Convert <br> to newlines before extracting text
 	for (const br of [...bbWrapper.querySelectorAll('br')]) {
 		br.replaceWith('\n');
 	}
 
-	// Convert <img> to media transclusions, replacing parent <a> if wrapped in a link
+	// A wrapping <a> is replaced, not kept: the transclusion carries its own target.
 	for (const img of [...bbWrapper.querySelectorAll('img')]) {
 		const src = img.getAttribute('src') || '';
 		const alt = img.getAttribute('alt') || '';

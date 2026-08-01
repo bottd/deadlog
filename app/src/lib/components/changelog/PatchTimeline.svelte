@@ -57,7 +57,7 @@
 							<a
 								{...props}
 								href={entityPatchHref(patch, entity)}
-								class="focus-visible:ring-ring bg-card flex size-6 shrink-0 items-center justify-center rounded-full transition-transform hover:scale-110 focus-visible:ring-2 focus-visible:outline-none"
+								class="bg-card focus-visible:ring-ring flex size-6 shrink-0 items-center justify-center rounded-full transition-transform hover:scale-110 focus-visible:ring-2 focus-visible:outline-none"
 								aria-label="View {entity.name} in the {formatDate(
 									patch.date
 								)} patch, {changeCountLabel(patch.changeCount)}"

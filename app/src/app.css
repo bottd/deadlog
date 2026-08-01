@@ -1,7 +1,6 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
-/* Fonts */
 @font-face {
 	font-family: 'Archivo';
 	src: url('/fonts/Archivo-VariableFont_wdth,wght.woff2') format('woff2');
@@ -48,86 +47,12 @@
 	--safe-area-inset-right: env(safe-area-inset-right, 0px);
 	--safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
 	--safe-area-inset-left: env(safe-area-inset-left, 0px);
-	--grid-color: var(--sea-700);
-	--grid-opacity: 0.06;
-	--grid-size: 20px;
-
-	/* Melange's warm paper base with cooler Deadlock-specific accents. */
-	--base-950: #54433a;
-	--base-900: #665248;
-	--base-500: #7d6658;
-	--base-100: #d9d3ce;
-	--base-50: #e9e1db;
-	--base-25: #f8f5f2;
-	--base-10: #f1f1f1;
-
-	--accent-500: #875d00;
-	--accent-100: #ead8c2;
-	--sea-700: #2f6870;
-	--sea-500: #2f6870;
-	--sea-100: #c9e5e7;
-
-	--border-default: #9b7d6b;
-	--border-light: #d9d3ce;
-
-	/* Semantic tokens */
-	--background: var(--base-10);
-	--foreground: var(--base-950);
-	--card: var(--base-25);
-	--card-foreground: var(--base-950);
-	--card-accent: var(--base-50);
-	--popover: var(--base-10);
-	--popover-foreground: var(--base-950);
-	--primary: var(--accent-500);
-	--primary-foreground: var(--base-10);
-	--primary-subtle: var(--accent-100);
-	--signal: var(--sea-500);
-	--signal-foreground: var(--base-10);
-	--signal-subtle: var(--sea-100);
-	--secondary: var(--base-100);
-	--secondary-foreground: var(--base-900);
-	--muted: var(--base-50);
-	--muted-foreground: var(--base-500);
-	--accent: var(--accent-500);
-	--accent-foreground: var(--base-10);
-	--destructive: #a33135;
-	--border: var(--border-default);
-	--border-subtle: var(--border-light);
-	--input: var(--border-default);
-	--ring: var(--accent-500);
-	--editorial-divider: var(--border-default);
-
-	/* Hero Types */
-	--type-marksman: #875d00;
-	--type-mystic: #804678;
-	--type-brawler: #a33135;
-	--type-assassin: #35644f;
-
-	/* Item Categories */
-	--item-weapon: #a94f00;
-	--item-vitality: #35644f;
-	--item-spirit: #804678;
-
-	--chart-1: #a94f00;
-	--chart-2: #2f6870;
-	--chart-3: #465aa4;
-	--chart-4: #804678;
-	--chart-5: #35644f;
-	--sidebar: var(--card);
-	--sidebar-foreground: var(--foreground);
-	--sidebar-primary: var(--primary);
-	--sidebar-primary-foreground: var(--primary-foreground);
-	--sidebar-accent: var(--secondary);
-	--sidebar-accent-foreground: var(--secondary-foreground);
-	--sidebar-border: var(--border);
-	--sidebar-ring: var(--ring);
-}
-
-.dark {
 	--grid-color: var(--sea-500);
 	--grid-opacity: 0.09;
+	--grid-size: 20px;
 
-	/* Melange's ink base, cooled by the signal channel rather than the surfaces. */
+	/* Melange's ink base, cooled by the signal channel rather than the surfaces.
+	   Dark only by design — app.html hardcodes `class="dark"` and there is no toggle. */
 	--base-950: #292522;
 	--base-900: #34302c;
 	--base-500: #c1a78e;
@@ -145,7 +70,6 @@
 	--border-default: #897766;
 	--border-light: #544b43;
 
-	/* Semantic tokens (remapped for dark mode) */
 	--background: var(--base-950);
 	--foreground: var(--base-10);
 	--card: var(--base-900);
@@ -173,34 +97,9 @@
 	--input: var(--border-default);
 	--ring: var(--accent-500);
 	--editorial-divider: var(--border-default);
-
-	/* Brighter category hues stay legible when used as small text on cards. */
-	--type-marksman: #ebc06d;
-	--type-mystic: #cf9bc2;
-	--type-brawler: #da806f;
-	--type-assassin: #85b695;
-
-	--item-weapon: #e49b5d;
-	--item-vitality: #85b695;
-	--item-spirit: #cf9bc2;
-
-	--chart-1: #e49b5d;
-	--chart-2: #82bbc2;
-	--chart-3: #a3a9ce;
-	--chart-4: #cf9bc2;
-	--chart-5: #85b695;
-	--sidebar: var(--card);
-	--sidebar-foreground: var(--foreground);
-	--sidebar-primary: var(--primary);
-	--sidebar-primary-foreground: var(--primary-foreground);
-	--sidebar-accent: var(--secondary);
-	--sidebar-accent-foreground: var(--secondary-foreground);
-	--sidebar-border: var(--border);
-	--sidebar-ring: var(--ring);
 }
 
 @theme inline {
-	/* Font families */
 	--font-sans: 'Archivo', ui-sans-serif, system-ui, sans-serif;
 	--font-display: 'Oswald', ui-sans-serif, sans-serif;
 	--font-mono: 'JetBrains Mono', ui-monospace, monospace;
@@ -232,19 +131,6 @@
 	--color-border: var(--border);
 	--color-input: var(--input);
 	--color-ring: var(--ring);
-	--color-chart-1: var(--chart-1);
-	--color-chart-2: var(--chart-2);
-	--color-chart-3: var(--chart-3);
-	--color-chart-4: var(--chart-4);
-	--color-chart-5: var(--chart-5);
-	--color-sidebar: var(--sidebar);
-	--color-sidebar-foreground: var(--sidebar-foreground);
-	--color-sidebar-primary: var(--sidebar-primary);
-	--color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-	--color-sidebar-accent: var(--sidebar-accent);
-	--color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-	--color-sidebar-border: var(--sidebar-border);
-	--color-sidebar-ring: var(--sidebar-ring);
 }
 
 @layer base {
@@ -256,7 +142,7 @@
 	}
 	html,
 	body {
-		@apply text-foreground bg-background font-sans antialiased;
+		@apply bg-background text-foreground font-sans antialiased;
 		padding-top: var(--safe-area-inset-top);
 		padding-right: var(--safe-area-inset-right);
 		padding-bottom: var(--safe-area-inset-bottom);
@@ -299,7 +185,6 @@
 		var(--grid-size) var(--grid-size);
 }
 
-/* Corner cut clip-paths */
 .clip-corner {
 	--corner: 12px;
 	clip-path: polygon(
@@ -344,27 +229,6 @@ button.clip-corner-lg:focus-visible {
 	box-shadow: inset 0 0 0 2px var(--ring);
 }
 
-/* Shimmer loading effect */
-@keyframes shimmer {
-	0% {
-		background-position: -200% 0;
-	}
-	100% {
-		background-position: 200% 0;
-	}
-}
-.shimmer {
-	background: linear-gradient(
-		90deg,
-		var(--card) 0%,
-		oklch(from var(--primary) l c h / 0.1) 50%,
-		var(--card) 100%
-	);
-	background-size: 200% 100%;
-	animation: shimmer 1.5s ease-in-out infinite;
-}
-
-/* Pulse glow animation */
 @keyframes pulse-glow {
 	0%,
 	100% {
@@ -390,27 +254,17 @@ button.clip-corner-lg:focus-visible {
 	);
 }
 
-/* Card glow effect */
 .card-glow {
-	box-shadow:
-		0 0 20px -8px oklch(from var(--primary) l c h / 0.25),
-		0 0 40px -12px oklch(from var(--primary) l c h / 0.1),
-		18px 0 48px -20px oklch(from var(--signal) l c h / 0.18);
-}
-
-.dark .card-glow {
 	box-shadow:
 		0 0 25px -8px oklch(from var(--primary) l c h / 0.35),
 		0 0 50px -15px oklch(from var(--primary) l c h / 0.15),
 		20px 0 56px -22px oklch(from var(--signal) l c h / 0.22);
 }
 
-/* Heading glow for dark mode */
-.dark .heading-glow {
+.heading-glow {
 	text-shadow: 0 0 30px oklch(from var(--primary) l c h / 0.3);
 }
 
-/* Page entrance animations */
 @keyframes entrance-slide-down {
 	from {
 		opacity: 0;
@@ -439,7 +293,6 @@ button.clip-corner-lg:focus-visible {
 	animation: entrance-fade-up 0.5s cubic-bezier(0.23, 1, 0.32, 1) 0.15s backwards;
 }
 
-/* Terminal text flicker */
 @keyframes terminal-flicker {
 	0%,
 	100% {
@@ -457,7 +310,6 @@ button.clip-corner-lg:focus-visible {
 	animation: terminal-flicker 4s ease-in-out infinite;
 }
 
-/* Accessibility: reduced motion style */
 @media (prefers-reduced-motion: reduce) {
 	*,
 	*::before,

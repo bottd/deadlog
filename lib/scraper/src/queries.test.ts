@@ -1,9 +1,9 @@
 import { describe, it, expect } from 'vitest';
+import { getLibsqlDb as getDb } from '@deadlog/db';
 import {
 	getAllChangelogs,
 	getChangelogBySlug,
 	getMetadata,
-	getDb,
 	queryChangelogs,
 	getAllHeroes,
 	getAllItems
@@ -90,7 +90,6 @@ describe.skipIf(!existsSync(dbPath))('Database Static Reader', () => {
 			const hero = heroes[0];
 			const results = await queryChangelogs(db, { heroIds: [hero.id], limit: 50 });
 			expect(results.length).toBeGreaterThan(0);
-			// Every result should be a main changelog (no parentChange)
 			for (const r of results) {
 				expect(!r.parentChange || r.parentChange === '').toBe(true);
 			}
@@ -99,7 +98,6 @@ describe.skipIf(!existsSync(dbPath))('Database Static Reader', () => {
 		it('returns fewer or equal results for two heroes AND than either alone', async () => {
 			const db = getDb();
 			const heroes = await getAllHeroes(db);
-			// Pick two heroes that are likely to have changelogs
 			const hero1 = heroes[0];
 			const hero2 = heroes[1];
 
@@ -159,7 +157,6 @@ describe.skipIf(!existsSync(dbPath))('Database Static Reader', () => {
 			const page2 = await queryChangelogs(db, { limit: 3, offset: 3 });
 			expect(page1).toHaveLength(3);
 			expect(page2).toHaveLength(3);
-			// Pages should not overlap
 			const ids1 = new Set(page1.map((r) => r.id));
 			for (const r of page2) {
 				expect(ids1.has(r.id)).toBe(false);
@@ -175,11 +172,10 @@ describe.skipIf(!existsSync(dbPath))('Database Static Reader', () => {
 
 			if (metadataCount !== null) {
 				const count = parseInt(metadataCount, 10);
-				// Note: actual patch count may be higher than metadata due to poster replies
-				// Each main post can have additional update entries (e.g., 79 posts -> 86 total entries)
+				// Poster replies become their own entries, so the row count runs ahead
+				// of the recorded patch count (e.g. 79 posts -> 86 entries).
 				expect(patches.length).toBeGreaterThanOrEqual(count);
 			} else {
-				// If no metadata, just verify we have some patches
 				expect(patches.length).toBeGreaterThan(0);
 			}
 		});
@@ -191,10 +187,8 @@ describe.skipIf(!existsSync(dbPath))('Database Static Reader', () => {
 			if (lastUpdated !== null) {
 				const date = new Date(lastUpdated);
 				expect(date.toString()).not.toBe('Invalid Date');
-				// Should be a reasonable date (after 2020)
 				expect(date.getFullYear()).toBeGreaterThanOrEqual(2020);
 			} else {
-				// If no last_updated metadata, check for built_at instead
 				const builtAt = await getMetadata(db, 'built_at');
 				expect(builtAt).not.toBeNull();
 			}
@@ -206,7 +200,6 @@ describe.skipIf(!existsSync(dbPath))('Database Static Reader', () => {
 			const patches2 = await getAllChangelogs(db);
 
 			expect(patches1.length).toBe(patches2.length);
-			// First and last patches should match
 			if (patches1.length > 0) {
 				expect(patches1[0].id).toBe(patches2[0].id);
 				expect(patches1[patches1.length - 1].id).toBe(patches2[patches2.length - 1].id);

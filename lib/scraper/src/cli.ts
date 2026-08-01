@@ -3,21 +3,17 @@ import { buildDatabaseFromMog } from './buildDatabase';
 
 async function main() {
 	const args = process.argv.slice(2);
-	const overwrite = args.includes('--overwrite');
 
-	const outputDir = process.env.OUTPUT_DIR || './app/static';
-	const changelogsDir = process.env.CHANGELOGS_DIR || './app/changelogs';
-
-	// Step 1: Scrape forum and write .mg files
-	console.log('📝 Step 1: Scraping changelogs from forum...\n');
-	await scrapeChangelogs({ overwrite });
-
-	// Step 2: Build database from .mg files
-	console.log('\n🗄️  Step 2: Building database...\n');
+	// `--db-only` rebuilds from the .mg files already on disk (pnpm build:db).
+	if (!args.includes('--db-only')) {
+		console.log('📝 Step 1: Scraping changelogs from forum...\n');
+		await scrapeChangelogs({ overwrite: args.includes('--overwrite') });
+		console.log('\n🗄️  Step 2: Building database...\n');
+	}
 
 	const result = await buildDatabaseFromMog({
-		outputDir,
-		changelogsDir
+		outputDir: process.env.OUTPUT_DIR || './app/static',
+		changelogsDir: process.env.CHANGELOGS_DIR || './app/changelogs'
 	});
 
 	console.log('\n✅ Build complete!');

@@ -1,5 +1,8 @@
+import { mkdir, mkdtemp, rm, writeFile } from 'fs/promises';
+import { tmpdir } from 'os';
+import { join } from 'path';
 import { describe, expect, it } from 'vitest';
-import { deduplicateChangelogs, extractPreviewImage } from './load';
+import { deduplicateChangelogs, extractPreviewImage, loadAllChangelogs } from './load';
 import { parseStructure } from './extract';
 
 const imagesIn = (content: string) => parseStructure(content).images;
@@ -81,5 +84,34 @@ describe('deduplicateChangelogs', () => {
 		expect(deduplicateChangelogs([forumOnly, steamOnly, linked])).toEqual([
 			{ ...linked, aliases: ['linked', 'forum', 'steam'] }
 		]);
+	});
+});
+
+describe('loadAllChangelogs', () => {
+	it('keeps an explicit legacy slug as a database alias', async () => {
+		const dir = await mkdtemp(join(tmpdir(), 'deadlog-alias-'));
+		const yearDir = join(dir, '2026');
+		await mkdir(yearDir);
+		await writeFile(
+			join(yearDir, '03-06.mg'),
+			[
+				'``meta:',
+				'title "Gameplay Update - 03-06-2026"',
+				'alias "2026/gameplay-03-06"',
+				'published "2026-03-06T21:37:00.000Z"',
+				'author "simonne"',
+				'``',
+				'',
+				'# General Changes',
+				'- Test change'
+			].join('\n')
+		);
+
+		try {
+			const [changelog] = await loadAllChangelogs(dir, { curatedOnly: false });
+			expect(changelog.aliases).toEqual(['2026/03-06', '2026/gameplay-03-06']);
+		} finally {
+			await rm(dir, { recursive: true, force: true });
+		}
 	});
 });

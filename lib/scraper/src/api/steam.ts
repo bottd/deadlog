@@ -47,18 +47,12 @@ export interface RenderedSteamAnnouncement {
 	text: string;
 }
 
-/**
- * Extract a date string (MM-DD-YYYY) from a title like "Gameplay Update - 03-06-2026"
- * or "03-06-2026 Update"
- */
+/** MM-DD-YYYY out of "Gameplay Update - 03-06-2026" or "03-06-2026 Update". */
 export function extractDateFromTitle(title: string): string | null {
 	const match = title.match(/(\d{2}-\d{2}-\d{4})/);
 	return match ? match[1] : null;
 }
 
-/**
- * Convert Steam BBCode to plain text with section markers.
- */
 function bbcodeToText(bbcode: string): string {
 	let text = bbcode;
 
@@ -67,20 +61,19 @@ function bbcodeToText(bbcode: string): string {
 		.replace(/\[img(?:\s+[^\]]*)?\][\s\S]*?\[\/img\]/gi, '\n')
 		.replace(/\{STEAM_CLAN_(?:LOC_)?IMAGE\}\/\S+/g, '');
 
-	// Keep link labels and list text while dropping presentation-only BBCode.
 	text = text
 		.replace(/\[url=[^\]]+\]([\s\S]*?)\[\/url\]/gi, '$1')
 		.replace(/\[url\]([\s\S]*?)\[\/url\]/gi, '$1')
 		.replace(/\[video(?:\s+[^\]]*)?\][\s\S]*?\[\/video\]/gi, '\n')
 		.replace(/\[\*\]\s*/g, '\n- ');
 
-	// Convert [p]...[/p] to lines ([/p][p] → single newline, standalone tags → newline or empty)
+	// [/p][p] is a single newline; a standalone tag is a newline or nothing.
 	text = text
 		.replace(/\[\/p\]\[p\]/g, '\n')
 		.replace(/\[\/?p\]/g, (m) => (m === '[p]' ? '' : '\n'));
 	text = text.replace(/\[\/?(?:h[1-6]|list)\]/gi, '\n');
 
-	// Convert section headers: [u][b]\[ General ][/b][/u] -> section markers
+	// Section header shape: [u][b]\[ General ][/b][/u]
 	text = text.replace(
 		/\[u\]\[b\]\\?\[\s*([^\]]+?)\s*\]?\[\/b\]\[\/u\]/g,
 		`${SECTION_MARKER}$1`
@@ -97,22 +90,16 @@ function bbcodeToText(bbcode: string): string {
 		return trimmed;
 	});
 
-	// Strip remaining BBCode tags, including tags with attributes.
 	text = text.replace(/\[\/?\w+(?:[=\s][^\]]*)?\]/g, '');
 
-	// Clean up backslash escapes from BBCode
 	text = text.replace(/\\(?=\[)/g, '');
 
-	// Normalize whitespace
 	text = text.replace(/\n{3,}/g, '\n\n');
 
 	return text.trim();
 }
 
-/**
- * Parse Steam BBCode content into plain text lines
- * that can be fed directly into parseAndGroupContent.
- */
+/** Plain-text lines, shaped to feed parseAndGroupContent directly. */
 export function parseSteamContent(bbcode: string): string {
 	const processed = bbcodeToText(bbcode);
 	const lines = processed.split('\n');
@@ -309,9 +296,6 @@ export async function fetchSteamAnnouncements(options: {
 	}));
 }
 
-/**
- * Extract the Steam news URL from a forum post's unfurl/embed block.
- */
 export function extractSteamUrlFromUnfurl(html: string): string | null {
 	const match = html.match(
 		/href="(https:\/\/store\.steampowered\.com\/news\/app\/\d+\/view\/\d+)"/
@@ -319,15 +303,11 @@ export function extractSteamUrlFromUnfurl(html: string): string | null {
 	return match ? match[1] : null;
 }
 
-/**
- * Check if forum post content is primarily a Steam unfurl (link preview)
- * with no substantial patch note content.
- */
+/** True when the post is a link preview with no patch notes of its own. */
 export function isSteamUnfurl(html: string): boolean {
 	if (!extractSteamUrlFromUnfurl(html)) return false;
 	if (!html.includes('bbCodeBlock--unfurl')) return false;
 
-	// Strip the unfurl block and see if there's any real content left
 	const stripped = html
 		.replace(
 			/<div class="bbCodeBlock bbCodeBlock--unfurl[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/g,

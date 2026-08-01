@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
+import { resolveHeroAbilitySlug } from '@deadlog/utils';
 import {
 	descriptionText,
 	regroupAbilityChanges,
-	resolveHeroAbilitySlug,
 	resolveAbilitySlots
 } from './heroAbilities';
 import type { HeroesApiResponse, ItemsApiResponse } from './types/deadlockApi';

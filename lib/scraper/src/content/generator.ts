@@ -7,14 +7,11 @@ import {
 	mogImage,
 	mogLink,
 	parseMogLink,
+	resolveHeroAbilitySlug,
 	stripMogLinks,
 	toSlug
 } from '@deadlog/utils';
-import {
-	regroupAbilityChanges,
-	resolveAbilitySlots,
-	resolveHeroAbilitySlug
-} from '../heroAbilities';
+import { regroupAbilityChanges, resolveAbilitySlots } from '../heroAbilities';
 import {
 	itemImage,
 	type HeroesApiResponse,
@@ -330,6 +327,7 @@ function collectPlainText(grouped: GroupedContent): string {
 
 interface ChangelogSourceMetadata {
 	title: string;
+	alias?: string;
 	published: string;
 	author: string;
 	authorImage?: string;
@@ -340,7 +338,7 @@ interface ChangelogSourceMetadata {
 export type ChangelogSource = ChangelogSourceMetadata &
 	(
 		| { rawContent: string; renderedContent?: never }
-		| { rawContent?: never; renderedContent: { mog: string; text: string } }
+		| { rawContent?: string; renderedContent: { mog: string; text: string } }
 	);
 
 export function generateChangelog(
@@ -353,6 +351,16 @@ export function generateChangelog(
 	if (source.renderedContent) {
 		structuredContent = source.renderedContent.mog;
 		contentText = source.renderedContent.text;
+
+		if (source.rawContent?.trim()) {
+			const grouped = parseAndGroupContent(source.rawContent, entities);
+			const supplementalContent = generateStructuredContent(grouped, assets).trim();
+			const supplementalText = collectPlainText(grouped);
+			structuredContent = [structuredContent, supplementalContent]
+				.filter(Boolean)
+				.join('\n\n');
+			contentText = [contentText, supplementalText].filter(Boolean).join(' ');
+		}
 	} else {
 		const grouped = parseAndGroupContent(source.rawContent, entities);
 		structuredContent = generateStructuredContent(grouped, assets);
@@ -361,6 +369,9 @@ export function generateChangelog(
 
 	const out: string[] = ['``meta:', `title ${kdlString(source.title)}`];
 
+	if (source.alias) {
+		out.push(`alias ${kdlString(source.alias)}`);
+	}
 	if (source.threadId) {
 		out.push(`thread_id ${kdlString(source.threadId)}`);
 	}

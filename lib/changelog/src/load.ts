@@ -141,7 +141,7 @@ export async function loadAllChangelogs(
 			changelogs.push({
 				filepath,
 				slug,
-				aliases: [slug],
+				aliases: metadata.alias ? [slug, metadata.alias] : [slug],
 				metadata,
 				entities,
 				entityChanges,

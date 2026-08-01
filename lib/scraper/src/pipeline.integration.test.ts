@@ -95,11 +95,14 @@ describe('scrapeChangelogs', () => {
 		expect(second).toContain('steam_gid "second"');
 	});
 
-	it('backfills a matched draft that does not yet contain its Steam source', async () => {
+	it('backfills a matched draft without dropping its legacy alias on overwrite', async () => {
 		const dir = join(changelogsDir, '2025');
 		const filepath = join(dir, '05-08.mg');
 		await mkdir(dir, { recursive: true });
-		await writeFile(filepath, '``meta:\nstatus "draft"\n``\n');
+		await writeFile(
+			filepath,
+			'``meta:\ntitle "Legacy Shop Update"\nalias "2025/shop-rework"\nstatus "draft"\n``\n'
+		);
 
 		apiMocks.scrapeChangelogPage.mockResolvedValue([
 			{
@@ -132,11 +135,122 @@ describe('scrapeChangelogs', () => {
 		]);
 		const { scrapeChangelogs } = await import('./pipeline');
 
-		await scrapeChangelogs();
+		await scrapeChangelogs({ overwrite: true });
 
 		const content = await readFile(filepath, 'utf-8');
 		expect(content).toContain('title "Shop Rework Update"');
+		expect(content).toContain('alias "2025/shop-rework"');
 		expect(content).toContain('steam_gid "1799088287841594"');
 		expect(content).toContain('- Full shop rework');
+	});
+
+	it('keeps rendered Steam prose, forum follow-ups, and Steam metadata together', async () => {
+		apiMocks.scrapeChangelogPage.mockResolvedValue([
+			{
+				postId: '75046',
+				title: 'Six New Heroes',
+				url: 'https://forums.playdeadlock.com/threads/update.75046/',
+				author: 'Yoshi',
+				pubDate: '2025-08-18T20:43:52.000Z'
+			}
+		]);
+		apiMocks.fetchSteamAnnouncements.mockResolvedValue([
+			{
+				gid: '1808061939479652',
+				title: 'Six New Heroes',
+				date: '2025-08-18T20:42:20.000Z',
+				author: 'simonne',
+				content:
+					'[p]Meet the newest heroes coming to the Cursed Apple.[/p]\n[h3]Billy[/h3]\n[p]Billy charges into battle.[/p]'
+			}
+		]);
+		apiMocks.scrapeMultipleChangelogPosts.mockResolvedValue([
+			{
+				postId: '75046',
+				title: 'Six New Heroes',
+				author: 'Yoshi',
+				authorImage: 'https://forums.example/yoshi.png',
+				pubDate: '2025-08-18T20:43:52.000Z',
+				content:
+					'<div class="bbWrapper"><a href="https://store.steampowered.com/news/app/1422450/view/123">Steam article</a></div>',
+				posterReplies: [
+					{
+						content:
+							'<div class="bbWrapper">- Billy: Health regen increased from 2.5 to 3.0</div>',
+						timestamp: '2025-08-22T19:02:06.000Z'
+					},
+					{
+						content:
+							'<div class="bbWrapper"><div class="bbCodeBlock bbCodeBlock--unfurl"><div><a href="https://store.steampowered.com/news/app/1422450/view/456">Duplicate teaser</a></div></div></div>',
+						timestamp: '2025-08-28T17:49:04.000Z'
+					}
+				]
+			}
+		]);
+		const { scrapeChangelogs } = await import('./pipeline');
+
+		await scrapeChangelogs();
+
+		const content = await readFile(
+			join(changelogsDir, '2025', 'six-new-heroes.mg'),
+			'utf-8'
+		);
+		expect(content).toContain('title "Six New Heroes"');
+		expect(content).toContain('published "2025-08-18T20:42:20.000Z"');
+		expect(content).toContain('author "simonne"');
+		expect(content).not.toContain('author_image');
+		expect(content).toContain('Meet the newest heroes coming to the Cursed Apple.');
+		expect(content).toContain('## Billy');
+		expect(content).toContain('# General Changes');
+		expect(content).toContain('- Billy: Health regen increased from 2.5 to 3.0');
+		expect(content).not.toContain('Duplicate teaser');
+		expect(content).toContain(
+			'content_text "Meet the newest heroes coming to the Cursed Apple. Billy Billy charges into battle. Billy: Health regen increased from 2.5 to 3.0"'
+		);
+	});
+
+	it('migrates a Steam-first draft when its forum post appears later', async () => {
+		apiMocks.fetchSteamAnnouncements.mockResolvedValue([
+			{
+				gid: 'steam-gameplay',
+				title: 'Gameplay Update - 05-22-2026',
+				date: '2026-05-22T21:51:02.000Z',
+				author: 'simonne',
+				content: '- Base HP reduced by 10'
+			}
+		]);
+		const { scrapeChangelogs } = await import('./pipeline');
+
+		await scrapeChangelogs();
+		const standalone = join(changelogsDir, '2026', 'gameplay-05-22.mg');
+		expect(await readFile(standalone, 'utf-8')).toContain('steam_gid "steam-gameplay"');
+
+		apiMocks.scrapeChangelogPage.mockResolvedValue([
+			{
+				postId: '135477',
+				title: '05-22-2026 Update',
+				url: 'https://forums.playdeadlock.com/threads/update.135477/',
+				author: 'Yoshi',
+				pubDate: '2026-05-23T00:11:11.000Z'
+			}
+		]);
+		apiMocks.scrapeMultipleChangelogPosts.mockResolvedValue([
+			{
+				postId: '135477',
+				title: '05-22-2026 Update',
+				author: 'Yoshi',
+				pubDate: '2026-05-23T00:11:11.000Z',
+				content: '<div class="bbWrapper">Forum update</div>',
+				posterReplies: []
+			}
+		]);
+
+		await scrapeChangelogs();
+
+		const canonical = await readFile(join(changelogsDir, '2026', '05-22.mg'), 'utf-8');
+		expect(canonical).toContain('alias "2026/gameplay-05-22"');
+		expect(canonical).toContain('thread_id "135477"');
+		expect(canonical).toContain('steam_gid "steam-gameplay"');
+		await expect(readFile(standalone, 'utf-8')).rejects.toMatchObject({ code: 'ENOENT' });
 	});
 });

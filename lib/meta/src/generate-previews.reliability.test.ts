@@ -130,4 +130,34 @@ describe('preview generation reliability', () => {
 			readFile(join(outputDir, 'hero', 'canonical-hero.png'))
 		).resolves.toEqual(Buffer.from('rendered image'));
 	});
+
+	it('uses a named changelog title in its social preview', async () => {
+		mocks.getAllChangelogs.mockResolvedValue([
+			{
+				id: '2025-08-18',
+				title: 'Six New Heroes',
+				slug: '2025/08-18',
+				author: 'simonne',
+				authorImage: '',
+				previewImage: null,
+				category: 'patch',
+				pubDate: '2025-08-18T20:42:20.000Z',
+				majorUpdate: false,
+				parentChange: null,
+				contentText: 'Meet the new heroes.'
+			}
+		]);
+
+		const result = (await runPreviewGenerator({
+			args: ['--changelog-only'],
+			outputDir
+		})) as GeneratePreviewsResult;
+
+		expect(result).toEqual({ totalCount: 2, failures: [] });
+		expect(mocks.fromJsx).toHaveBeenCalledWith(
+			expect.objectContaining({
+				props: expect.objectContaining({ title: 'Six New Heroes' })
+			})
+		);
+	});
 });

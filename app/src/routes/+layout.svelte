@@ -32,7 +32,7 @@
 
 <QueryClientProvider client={queryClient}>
 	<Tooltip.Provider>
-		<div class="bg-background bg-wire-grid min-h-screen" data-app-ready={appReady}>
+		<div class="bg-wire-grid bg-background min-h-screen" data-app-ready={appReady}>
 			<a
 				href="#main-content"
 				class="focus:bg-primary focus:text-primary-foreground sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:font-mono focus:text-xs focus:font-bold focus:tracking-wider focus:uppercase"

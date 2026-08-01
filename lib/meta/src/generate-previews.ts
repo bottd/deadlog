@@ -179,7 +179,6 @@ export async function generatePreviews(
 	let totalCount = 0;
 	const failures: string[] = [];
 
-	// Generate changelog OG images
 	if (includeChangelogs) {
 		if (allChangelogs.length > 0) {
 			const latest = allChangelogs.reduce((mostRecent, current) => {
@@ -214,7 +213,7 @@ export async function generatePreviews(
 					await generateChangelogOG(
 						changelog.id,
 						{
-							title: `${formatDate(changelog.pubDate)} Update`,
+							title: changelog.title,
 							author: changelog.author,
 							authorIcon: changelog.authorImage,
 							itemIcons: icons.items.slice(0, 6).map((i) => i.src)
@@ -231,7 +230,6 @@ export async function generatePreviews(
 		console.log(`Generated ${changelogCount} changelog images`);
 	}
 
-	// Generate hero OG images
 	if (includeHeroes) {
 		let heroCount = 0;
 
@@ -249,7 +247,6 @@ export async function generatePreviews(
 		console.log(`Generated ${heroCount} hero images`);
 	}
 
-	// Generate item OG images
 	if (includeItems) {
 		let itemCount = 0;
 

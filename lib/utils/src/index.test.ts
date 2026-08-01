@@ -3,6 +3,8 @@ import {
 	DISPLAY_TIME_ZONE,
 	abilityFragmentId,
 	computeStreaks,
+	entityNameAliases,
+	entityNamesMatch,
 	escapeMogDelimiters,
 	formatDate,
 	formatTime,
@@ -58,6 +60,17 @@ describe('stripMogLinks', () => {
 		expect(stripMogLinks('Cooldown reduced from 8s to 6s')).toBe(
 			'Cooldown reduced from 8s to 6s'
 		);
+	});
+});
+
+describe('entity names', () => {
+	it('exposes canonical article aliases', () => {
+		expect(entityNameAliases(' The Doorman ')).toEqual(['the doorman', 'doorman']);
+		expect(entityNameAliases('Doorman')).toEqual(['doorman']);
+	});
+
+	it('matches names with optional articles', () => {
+		expect(entityNamesMatch('The Doorman', 'Doorman')).toBe(true);
 	});
 });
 

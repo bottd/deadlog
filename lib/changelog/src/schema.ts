@@ -2,6 +2,7 @@ import { z } from 'zod';
 
 export const ChangelogMetadataSchema = z.object({
 	title: z.string(),
+	alias: z.string().optional(), // Legacy changelog slug that resolves to this entry
 	thread_id: z.coerce.string().optional(), // Forum thread ID (from URL)
 	steam_gid: z.string().optional(), // Steam news item ID
 	published: z.string(), // ISO 8601 timestamp

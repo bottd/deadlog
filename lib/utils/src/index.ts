@@ -17,10 +17,8 @@ export {
 	normalizeEntityName
 } from './entityNames';
 
-/**
- * Anchor id for an ability heading. Shared so the generator can hand out collision-free
- * ids while every heading it leaves alone keeps the id it already has.
- */
+/** Shared so the generator hands out collision-free ids while every heading it
+ * leaves alone keeps the one it already has. */
 export function abilityFragmentId(name: string): string {
 	return name
 		.toLowerCase()
@@ -28,10 +26,8 @@ export function abilityFragmentId(name: string): string {
 		.replace(/^-+|-+$/g, '');
 }
 
-/**
- * Anchor id for a hero or item heading. Same slug rule as {@link abilityFragmentId},
- * applied to the article-stripped alias so "The Doorman" and "Doorman" land together.
- */
+/** {@link abilityFragmentId} over the article-stripped alias, so "The Doorman" and
+ * "Doorman" land on the same id. */
 export function entityFragmentId(name: string): string {
 	return abilityFragmentId(entityNameAliases(name).at(-1) ?? '');
 }

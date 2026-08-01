@@ -1,13 +1,12 @@
-import { entityNamesMatch, formatDate, plural } from '@deadlog/utils';
+import { entityFragmentId, entityNamesMatch, formatDate, plural } from '@deadlog/utils';
 import { searchParams } from '$lib/stores/searchParams.svelte';
 import { MAX_ENTITY_FILTERS } from '$lib/queries/keys';
 import type { ChangelogEntry, EntityIcon } from '$lib/types';
-import { entityFragmentId } from './entityContext';
 import { changePath } from '$lib/seo';
 
 export type PatchCardProps = Omit<ChangelogEntry, 'updates'>;
 
-export const authorInitials = (author: string) => author.slice(0, 2).toUpperCase();
+const authorInitials = (author: string) => author.slice(0, 2).toUpperCase();
 
 /** Stand-in art when a patch has no scraped preview image. */
 const FALLBACK_PREVIEW = {

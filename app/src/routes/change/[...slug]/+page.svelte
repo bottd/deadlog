@@ -236,7 +236,8 @@
 		{#if showToc}
 			<aside class="hidden w-56 shrink-0 xl:block">
 				<div
-					class="sticky top-[12rem] max-h-[calc(100dvh-13rem)] [scrollbar-gutter:stable] overflow-y-auto overscroll-contain pr-1"
+					class="sticky top-[12rem] max-h-[calc(100dvh-13rem)] overflow-y-auto overscroll-contain pr-1"
+					style="scrollbar-gutter: stable"
 					data-toc-scroll
 				>
 					<ChangelogToc
@@ -251,7 +252,7 @@
 		{/if}
 
 		<article
-			class="clip-corner bg-card border-border relative min-w-0 flex-1 overflow-hidden border"
+			class="clip-corner border-border bg-card relative min-w-0 flex-1 overflow-hidden border"
 		>
 			<CornerAccents tlSize="2rem" brSize="1.25rem" />
 			<div
@@ -265,7 +266,7 @@
 						<div class="flex flex-col gap-4">
 							<div class="flex items-center gap-3">
 								<span
-									class="bg-primary/10 text-primary border-primary/20 rounded border px-2 py-0.5 font-mono text-[10px] font-bold tracking-widest uppercase"
+									class="border-primary/20 bg-primary/10 text-primary rounded border px-2 py-0.5 font-mono text-[10px] font-bold tracking-widest uppercase"
 								>
 									{changelog.category ?? 'patch'}
 								</span>
@@ -275,7 +276,7 @@
 							</div>
 
 							<h1
-								class="text-foreground font-display heading-glow text-3xl leading-tight font-medium tracking-wide"
+								class="heading-glow font-display text-foreground text-3xl leading-tight font-medium tracking-wide"
 							>
 								{displayTitle}
 							</h1>

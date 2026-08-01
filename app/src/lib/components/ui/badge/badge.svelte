@@ -7,21 +7,7 @@
 			variant: {
 				default:
 					'bg-primary text-primary-foreground [a&]:hover:bg-primary/90 border-transparent',
-				signal: 'bg-signal/15 text-signal border-signal/25 [a&]:hover:bg-signal/25',
-				marksman:
-					'bg-[var(--type-marksman)] border-transparent text-white [a&]:hover:opacity-90',
-				mystic:
-					'bg-[var(--type-mystic)] border-transparent text-white [a&]:hover:opacity-90',
-				brawler:
-					'bg-[var(--type-brawler)] border-transparent text-white [a&]:hover:opacity-90',
-				assassin:
-					'bg-[var(--type-assassin)] border-transparent text-white [a&]:hover:opacity-90',
-				weapon:
-					'bg-[var(--item-weapon)] border-transparent text-white [a&]:hover:opacity-90',
-				vitality:
-					'bg-[var(--item-vitality)] border-transparent text-white [a&]:hover:opacity-90',
-				spirit:
-					'bg-[var(--item-spirit)] border-transparent text-white [a&]:hover:opacity-90'
+				signal: 'bg-signal/15 text-signal border-signal/25 [a&]:hover:bg-signal/25'
 			}
 		},
 		defaultVariants: {

@@ -143,20 +143,20 @@
 			</div>
 		{:else}
 			<div
-				class="clip-corner bg-card border-border/50 relative overflow-hidden border-2 p-12 text-center"
+				class="clip-corner border-border/50 bg-card relative overflow-hidden border-2 p-12 text-center"
 				in:scale={{ start: 0.95, duration: 400 }}
 				role="status"
 			>
 				<CornerAccents tlSize="2rem" tlColor="bg-muted-foreground/30" />
 				<div
-					class="clip-corner-sm bg-muted/30 border-border mx-auto mb-6 flex size-20 items-center justify-center border"
+					class="clip-corner-sm border-border bg-muted/30 mx-auto mb-6 flex size-20 items-center justify-center border"
 				>
 					<Frown class="text-muted-foreground size-10" />
 				</div>
 				<p class="text-muted-foreground mb-2 font-mono text-xs tracking-wide uppercase">
 					No Results
 				</p>
-				<h3 class="text-foreground font-display mb-3 text-2xl font-medium tracking-wide">
+				<h3 class="font-display text-foreground mb-3 text-2xl font-medium tracking-wide">
 					No changes found
 				</h3>
 				<p class="text-muted-foreground mx-auto mb-8 max-w-md">
@@ -165,7 +165,7 @@
 				<button
 					type="button"
 					onclick={() => params.reset()}
-					class="clip-corner-sm bg-primary/10 text-primary hover:bg-primary/20 border-primary/30 border px-6 py-3 font-mono text-sm font-semibold transition-all hover:scale-105"
+					class="clip-corner-sm border-primary/30 bg-primary/10 text-primary hover:bg-primary/20 border px-6 py-3 font-mono text-sm font-semibold transition-all hover:scale-105"
 				>
 					Clear Filters
 				</button>

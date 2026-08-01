@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { entityFragmentId, getEntityIcons, resolveEntity } from './entityContext';
+	import { entityFragmentId } from '@deadlog/utils';
+	import { getEntityIcons, resolveEntity } from './entityContext';
 
 	interface Props {
 		type: 'hero' | 'item';

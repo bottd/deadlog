@@ -14,9 +14,7 @@ import {
 import type { SQLiteColumn } from 'drizzle-orm/sqlite-core';
 import type { EntityIcon } from './types/deadlockApi';
 import { getLibsqlDb, type DrizzleDB, type SelectChangelog, schema } from '@deadlog/db';
-import { entityNamesMatch } from '@deadlog/changelog';
-
-export { getLibsqlDb as getDb };
+import { entityNamesMatch } from '@deadlog/utils';
 
 export type ScrapedChangelog = SelectChangelog;
 export type ScrapedItem = typeof schema.items.$inferSelect;
@@ -91,7 +89,6 @@ export async function queryChangelogs(
 		offset = 0
 	} = options;
 
-	// Only return main changelogs (exclude child updates) for pagination to work correctly
 	const conditions = [isMainChangelog()];
 
 	if (searchQuery?.trim()) {
@@ -149,9 +146,6 @@ export async function getChangelogsCount(db: DrizzleDB): Promise<number> {
 	return result?.count ?? 0;
 }
 
-/**
- * Get child updates for given parent changelog IDs
- */
 export async function getUpdatesForChangelogs(
 	db: DrizzleDB,
 	parentIds: string[]

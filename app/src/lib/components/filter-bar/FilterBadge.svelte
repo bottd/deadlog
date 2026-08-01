@@ -29,7 +29,7 @@
 >
 	<Badge
 		variant={badgeColor === 'hero' ? 'default' : 'signal'}
-		class="hover:shadow-primary/10 group-focus-visible/badge:ring-signal/50 cursor-pointer transition-all duration-200 group-hover/badge:pr-2 group-hover/badge:shadow-md group-focus-visible/badge:ring-2"
+		class="group-focus-visible/badge:ring-signal/50 hover:shadow-primary/10 cursor-pointer transition-all duration-200 group-hover/badge:pr-2 group-hover/badge:shadow-md group-focus-visible/badge:ring-2"
 	>
 		{#if icon}
 			<img

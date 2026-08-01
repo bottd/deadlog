@@ -1,10 +1,10 @@
 ``meta:
-title "04-30-2026 Update"
+title "Gameplay Update - 04-30-2026"
+alias "2026/gameplay-04-30"
 thread_id "129989"
 steam_gid "1831432155569981"
-published "2026-04-30T16:46:20-0700"
-author "Yoshi"
-author_image "https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630"
+published "2026-04-30T23:45:43.000Z"
+author "simonne"
 category "patch"
 major_update #false
 status "draft"

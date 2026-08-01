@@ -16,16 +16,15 @@ import {
 } from '@deadlog/db';
 import {
 	loadAllChangelogs,
-	entityNameAliases,
 	type EntityBulletGroup,
 	type EntityChange
 } from '@deadlog/changelog';
-import { toSlug } from '@deadlog/utils';
+import { entityNameAliases, toSlug } from '@deadlog/utils';
 import { resolveAbilitySlots } from './heroAbilities';
 
 interface BuildOptions {
-	outputDir?: string;
-	changelogsDir?: string;
+	outputDir: string;
+	changelogsDir: string;
 }
 
 interface BuildResult {
@@ -123,11 +122,8 @@ function collectEntityMatches(
 	return matches;
 }
 
-export async function buildDatabaseFromMog(
-	options: BuildOptions = {}
-): Promise<BuildResult> {
-	const outputDir = options.outputDir || './dist/data';
-	const changelogsDir = options.changelogsDir || './app/changelogs';
+export async function buildDatabaseFromMog(options: BuildOptions): Promise<BuildResult> {
+	const { outputDir, changelogsDir } = options;
 
 	await mkdir(outputDir, { recursive: true });
 

@@ -6,7 +6,6 @@
 	<div class="editorial-divider mb-10"></div>
 
 	<div class="container mx-auto flex flex-col items-center gap-6 px-4">
-		<!-- Brand mark -->
 		<a href="/" class="group flex items-center gap-3 transition-opacity hover:opacity-80">
 			<div
 				class="bg-signal/10 group-hover:bg-signal/15 flex size-7 items-center justify-center rounded-md transition-colors"
@@ -22,7 +21,6 @@
 			</span>
 		</a>
 
-		<!-- Attribution -->
 		<div class="flex flex-col items-center gap-1.5 text-center">
 			<p class="text-muted-foreground font-mono text-[10px] tracking-wider uppercase">
 				Data provided by <a
@@ -37,7 +35,6 @@
 			</p>
 		</div>
 
-		<!-- Terminal closer -->
 		<div class="flex items-center gap-4">
 			<div class="bg-signal/20 h-px w-10"></div>
 			<span

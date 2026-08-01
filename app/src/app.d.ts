@@ -10,7 +10,6 @@ declare global {
 			db: DrizzleDB;
 		}
 
-		// Define environment bindings for Cloudflare Workers
 		interface CloudflareEnv {
 			DB: D1Database;
 		}

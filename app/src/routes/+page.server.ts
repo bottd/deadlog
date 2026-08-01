@@ -20,7 +20,6 @@ export const prerender = false;
 export const load: PageServerLoad = async ({ locals, url, parent }) => {
 	const { hero, item, q, major } = parseApiParams(url);
 
-	// Get heroes and items from layout data
 	const { heroes, items } = await parent();
 	const [filterHeroes, filterItems] = await Promise.all([
 		hero.length > 0 ? getAllHeroes(locals.db) : heroes,

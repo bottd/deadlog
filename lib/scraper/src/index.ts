@@ -30,6 +30,4 @@ export {
 	type EnrichedItem
 } from './queries';
 
-export { formatDate, formatTime } from '@deadlog/utils';
 export type { EntityType, EntityIcon } from './types/deadlockApi';
-export { resolveHeroAbilitySlug } from './heroAbilities';

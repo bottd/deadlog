@@ -1,10 +1,9 @@
 ``meta:
-title "01-17-2025 Update"
+title "Holliday, Vyper, Calico, and The Magnificent Sinclair"
 thread_id "53607"
 steam_gid "1789039014375669"
-published "2025-01-17T10:40:54-0800"
-author "Yoshi"
-author_image "https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630"
+published "2025-01-17T18:40:01.000Z"
+author "Daniel Jennings"
 category "patch"
 major_update #false
 status "draft"

@@ -1,5 +1,4 @@
 import {
-	formatDate,
 	getChangelogAbilityIcons,
 	getChangelogIcons,
 	getUpdatesForChangelogs,
@@ -7,7 +6,7 @@ import {
 } from '@deadlog/scraper';
 import type { DrizzleDB } from '@deadlog/db';
 import type { ChangelogEntry } from '$lib/types';
-import { entityNameAliases, makeSummary } from '@deadlog/utils';
+import { entityNameAliases, formatDate, makeSummary } from '@deadlog/utils';
 import { parseCSV } from '$lib/utils/csv';
 import { absoluteUrl } from '$lib/seo';
 import { error } from '@sveltejs/kit';

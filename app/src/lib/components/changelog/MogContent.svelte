@@ -1,10 +1,7 @@
 <script lang="ts">
 	import type { Component } from 'svelte';
-	import {
-		entityFragmentId,
-		setEntityIcons,
-		type EntityIconsContext
-	} from './entityContext';
+	import { entityFragmentId } from '@deadlog/utils';
+	import { setEntityIcons, type EntityIconsContext } from './entityContext';
 
 	interface Props {
 		content: Component;
@@ -72,9 +69,8 @@
 	.mog-content {
 		@apply max-w-none text-base leading-relaxed;
 
-		/* Section headings — editorial treatment */
 		:global(h1) {
-			@apply text-foreground font-display mt-12 mb-6 text-[28px] leading-tight font-semibold tracking-wide first:mt-0;
+			@apply font-display text-foreground mt-12 mb-6 text-[28px] leading-tight font-semibold tracking-wide first:mt-0;
 		}
 
 		:global(h2) {
@@ -155,13 +151,11 @@
 			@apply col-start-2;
 		}
 
-		/* First entity after the section preview — minimal gap */
 		:global(ul.section-preview + div.hero),
 		:global(ul.section-preview + div.item) {
 			@apply mt-2 border-t-0 pt-0;
 		}
 
-		/* Paragraphs */
 		:global(p) {
 			@apply text-foreground/90 my-3 max-w-[72ch] leading-relaxed;
 		}
@@ -174,7 +168,6 @@
 			@apply border-border bg-muted/20 h-auto max-h-[32rem] w-full rounded-lg border object-contain shadow-lg;
 		}
 
-		/* Lists */
 		:global(ul) {
 			@apply my-3 ml-5 list-none space-y-2.5;
 		}
@@ -187,13 +180,11 @@
 			@apply text-foreground/90 relative leading-relaxed;
 		}
 
-		/* Custom bullet markers */
 		:global(ul > li::before) {
 			content: '';
 			@apply bg-primary/40 absolute top-[0.55em] -left-4 size-1.5 rounded-full;
 		}
 
-		/* Nested lists */
 		:global(li > ul),
 		:global(li > ol) {
 			@apply my-1.5;
@@ -236,7 +227,6 @@
 			@apply border-signal;
 		}
 
-		/* Emphasis */
 		:global(strong) {
 			@apply text-foreground font-semibold;
 		}
@@ -245,9 +235,8 @@
 			@apply italic;
 		}
 
-		/* Code */
 		:global(code) {
-			@apply bg-primary/5 text-primary border-primary/10 rounded border px-1.5 py-0.5 font-mono text-xs;
+			@apply border-primary/10 bg-primary/5 text-primary rounded border px-1.5 py-0.5 font-mono text-xs;
 		}
 
 		:global(pre) {
@@ -258,17 +247,14 @@
 			@apply border-0 bg-transparent p-0;
 		}
 
-		/* Blockquotes */
 		:global(blockquote) {
 			@apply border-primary/30 text-foreground/70 my-4 border-l-2 pl-4 italic;
 		}
 
-		/* Horizontal rules */
 		:global(hr) {
 			@apply border-border my-8;
 		}
 
-		/* Tables */
 		:global(table) {
 			@apply border-border my-4 w-full border-collapse border;
 		}

@@ -3,10 +3,9 @@ import {
 	getHeroBySlug,
 	getHeroAbilities,
 	getChangelogsByHeroId,
-	getMainChangelogIdSequence,
-	resolveHeroAbilitySlug
+	getMainChangelogIdSequence
 } from '@deadlog/scraper';
-import { computeStreaks } from '@deadlog/utils';
+import { computeStreaks, resolveHeroAbilitySlug } from '@deadlog/utils';
 import { error, redirect } from '@sveltejs/kit';
 import { getHeroCardImage } from '$lib/utils/entityImages';
 import { absoluteUrl } from '$lib/seo';

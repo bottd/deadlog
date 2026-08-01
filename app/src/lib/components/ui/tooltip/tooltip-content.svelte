@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { Tooltip as TooltipPrimitive } from 'bits-ui';
 	import { cn } from '$lib/utils.js';
-	import TooltipPortal from './tooltip-portal.svelte';
-	import type { ComponentProps } from 'svelte';
 	import type { WithoutChildrenOrChild } from '$lib/utils.js';
 
 	let {
@@ -16,21 +14,21 @@
 		...restProps
 	}: TooltipPrimitive.ContentProps & {
 		arrowClasses?: string;
-		portalProps?: WithoutChildrenOrChild<ComponentProps<typeof TooltipPortal>>;
+		portalProps?: WithoutChildrenOrChild<TooltipPrimitive.PortalProps>;
 	} = $props();
 </script>
 
-<TooltipPortal {...portalProps}>
+<TooltipPrimitive.Portal {...portalProps}>
 	<TooltipPrimitive.Content
 		bind:ref
 		data-slot="tooltip-content"
 		{sideOffset}
 		{side}
 		class={cn(
-			// The floating-surface tokens, same as hover-card and the command palette:
+			// The floating-surface tokens, same as the command palette:
 			// `text-muted-foreground` is tuned for dark backgrounds, so on the amber
 			// `bg-primary` a secondary line landed at L 0.6 on L 0.75 and all but vanished.
-			'bg-popover text-popover-foreground border-border animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-end-2 data-[side=right]:slide-in-from-start-2 data-[side=top]:slide-in-from-bottom-2 z-50 w-fit origin-(--bits-tooltip-content-transform-origin) rounded-md border px-3 py-1.5 text-xs text-balance shadow-md',
+			'animate-in border-border bg-popover text-popover-foreground fade-in-0 zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-end-2 data-[side=right]:slide-in-from-start-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 z-50 w-fit origin-(--bits-tooltip-content-transform-origin) rounded-md border px-3 py-1.5 text-xs text-balance shadow-md',
 			className
 		)}
 		{...restProps}
@@ -52,4 +50,4 @@
 			{/snippet}
 		</TooltipPrimitive.Arrow>
 	</TooltipPrimitive.Content>
-</TooltipPortal>
+</TooltipPrimitive.Portal>

@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type { ChangelogAbilityIcon, EntityIcon, MogTocEntry } from '$lib/types';
-	import { entityFragmentId } from './entityContext';
-	import { resolveHeroAbilitySlug } from '@deadlog/utils';
+	import { entityFragmentId, resolveHeroAbilitySlug } from '@deadlog/utils';
 
 	interface Props {
 		heroes: EntityIcon[];
@@ -219,18 +218,17 @@
 	}
 
 	.toc-entity {
-		@apply text-muted-foreground hover:text-foreground hover:bg-muted/50 flex items-center gap-1.5 rounded-sm py-0.5 pl-3 text-xs transition-colors;
+		@apply text-muted-foreground hover:bg-muted/50 hover:text-foreground flex items-center gap-1.5 rounded-sm py-0.5 pl-3 text-xs transition-colors;
 	}
 
 	.toc-ability {
-		@apply text-muted-foreground hover:text-foreground hover:bg-muted/50 ml-4 flex items-center gap-1.5 rounded-sm py-0.5 pl-3 text-[11px] transition-colors;
+		@apply text-muted-foreground hover:bg-muted/50 hover:text-foreground ml-4 flex items-center gap-1.5 rounded-sm py-0.5 pl-3 text-[11px] transition-colors;
 	}
 
 	.toc ul {
 		@apply list-none;
 	}
 
-	/* Large variant for mobile sheet */
 	.toc.lg .toc-section {
 		@apply gap-3 py-2 pr-2 pl-4 text-sm;
 	}

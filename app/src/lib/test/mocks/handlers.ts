@@ -42,7 +42,6 @@ const mockPatches = [
 
 const mockBigPatchDays: string[] = ['2025-10-05', '2025-09-25'];
 
-// Mock changelog page HTML
 const mockChangelogHTML = () => `
 <!DOCTYPE html>
 <html>
@@ -79,7 +78,6 @@ const mockChangelogHTML = () => `
 </html>
 `;
 
-// Mock forum post HTML for scraping
 const mockForumPostHTML = (patchId: string, title: string) => `
 <!DOCTYPE html>
 <html>
@@ -139,7 +137,6 @@ const mockForumPostHTML = (patchId: string, title: string) => `
 </html>
 `;
 
-// Mock assets data
 const mockHeroes = [
 	{
 		id: 1,
@@ -196,7 +193,6 @@ const mockRanks = [
 ];
 
 export const handlers = [
-	// Mock patches feed endpoint (both URLs for compatibility)
 	http.get<never, never, Patch[]>('https://api.deadlock-api.com/v1/patches', () => {
 		return HttpResponse.json<Patch[]>(mockPatches);
 	}),
@@ -204,17 +200,15 @@ export const handlers = [
 		return HttpResponse.json<Patch[]>(mockPatches);
 	}),
 
-	// Mock big patch days endpoint
 	http.get('https://api.deadlock-api.com/v1/patches/bigdays', () => {
 		return HttpResponse.json<typeof mockBigPatchDays>(mockBigPatchDays);
 	}),
 
-	// Mock big-days endpoint (alternative URL)
+	// Same feed, alternative URL.
 	http.get('https://api.deadlock-api.com/v1/patches/big-days', () => {
 		return HttpResponse.json<typeof mockBigPatchDays>(mockBigPatchDays);
 	}),
 
-	// Mock assets endpoints
 	http.get('https://assets.deadlock-api.com/v2/heroes', () => {
 		return HttpResponse.json<typeof mockHeroes>(mockHeroes);
 	}),
@@ -227,12 +221,10 @@ export const handlers = [
 		return HttpResponse.json<typeof mockRanks>(mockRanks);
 	}),
 
-	// Mock changelog page
 	http.get('https://forums.playdeadlock.com/forums/changelog.10/', () => {
 		return HttpResponse.html(mockChangelogHTML());
 	}),
 
-	// Mock forum post pages for scraping
 	http.get('https://forums.playdeadlock.com/threads/:slug.:id/', ({ params }) => {
 		const { id, slug } = params;
 		const title = (slug as string)

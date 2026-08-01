@@ -1,10 +1,10 @@
 ``meta:
-title "06-30-2026 Update"
+title "Minor Update - 06-30-2026"
+alias "2026/minor-06-30"
 thread_id "146261"
 steam_gid "1836506165563227"
-published "2026-06-30T10:37:32-0700"
-author "Yoshi"
-author_image "https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630"
+published "2026-06-30T17:22:14.000Z"
+author "IceFrog"
 category "patch"
 major_update #false
 status "draft"

@@ -137,5 +137,3 @@ export function extractEntities(toc: TocEntry[]): ChangelogEntities {
 
 	return { heroes: [...heroes], items: [...items] };
 }
-
-export { entityNameAliases, entityNamesMatch, normalizeEntityName } from '@deadlog/utils';

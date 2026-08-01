@@ -364,7 +364,6 @@ export async function scrapeMultipleChangelogPosts(
 		`🕷️  Scraping ${posts.length} changelog posts (concurrency: ${concurrency}, mode: fetch)...`
 	);
 
-	// Check cache
 	const cachedPosts: PostContentResult[] = [];
 	const postsToScrape: ChangelogPost[] = [];
 
@@ -399,7 +398,6 @@ export async function scrapeMultipleChangelogPosts(
 		postsToScrape.push(...posts);
 	}
 
-	// Scrape in batches
 	for (let i = 0; i < postsToScrape.length; i += concurrency) {
 		const batch = postsToScrape.slice(i, i + concurrency);
 		const batchResults = await Promise.all(

@@ -18,7 +18,6 @@
 					aria-label="deadlog.io - Home"
 					class="group flex items-center gap-4 transition-all duration-300"
 				>
-					<!-- Logo mark -->
 					<div class="relative">
 						<div
 							class="bg-primary/10 group-hover:bg-primary/20 flex size-10 items-center justify-center rounded-lg transition-all duration-300"
@@ -27,7 +26,6 @@
 								class="text-primary size-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-45"
 							/>
 						</div>
-						<!-- Corner accents -->
 						<div
 							class="bg-primary absolute -top-0.5 -left-0.5 size-1.5 opacity-60 transition-all duration-300 group-hover:opacity-100"
 						></div>
@@ -36,11 +34,10 @@
 						></div>
 					</div>
 
-					<!-- Logo text -->
 					<div class="flex flex-col">
 						<div class="flex items-baseline gap-2">
 							<span
-								class="font-display text-foreground heading-glow text-2xl font-medium tracking-wide transition-colors duration-300 md:text-3xl"
+								class="heading-glow font-display text-foreground text-2xl font-medium tracking-wide transition-colors duration-300 md:text-3xl"
 							>
 								dead<span class="text-primary">log</span>
 							</span>
