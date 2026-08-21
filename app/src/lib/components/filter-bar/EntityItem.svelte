@@ -43,12 +43,14 @@
 					height="32"
 					loading="lazy"
 					decoding="async"
-					class="border-border bg-card size-8 rounded border object-cover"
+					border="border ~"
+					bg="card"
+					class="size-8 rounded object-cover"
 				/>
 			{:else}
-				<div class="bg-secondary size-8 rounded" aria-hidden="true"></div>
+				<div bg="secondary" class="size-8 rounded" aria-hidden="true"></div>
 			{/if}
-			<span class="min-w-0 flex-1">
+			<span flex="1" class="min-w-0">
 				<span
 					class={cn(
 						'block truncate text-sm',
@@ -58,7 +60,11 @@
 					{name}
 				</span>
 				<span
-					class="text-muted-foreground block font-mono text-[9px] tracking-wider uppercase"
+					text="muted-foreground"
+					block
+					font="mono"
+					uppercase
+					class="text-[9px] tracking-wider"
 				>
 					{typeLabel}
 				</span>

@@ -28,14 +28,24 @@
 
 {#if icons.length > 0}
 	<ul
-		class="section-preview mb-5 flex list-none flex-wrap gap-1 p-0"
+		m="b-5"
+		flex="~ wrap"
+		list="none"
+		gap="1"
+		p="0"
+		class="section-preview"
 		aria-label="Affected {type}s"
 	>
 		{#each icons as icon (icon.name)}
 			<li>
 				<a
 					href="#{icon.slug}"
-					class="group/badge border-border/60 hover:border-primary/30 hover:bg-primary/5 flex items-center gap-1.5 rounded-sm border py-0.5 pr-2 pl-0.5 transition-colors"
+					border="border/60 ~"
+					items="center"
+					gap="1.5"
+					rounded="sm"
+					p="y-0.5 r-2 l-0.5"
+					class="group/badge hover:border-primary/30 hover:bg-primary/5 transition-colors flex"
 				>
 					<img
 						src={icon.image}
@@ -44,10 +54,13 @@
 						height="20"
 						loading="lazy"
 						decoding="async"
-						class="size-5 rounded-sm object-cover"
+						rounded="sm"
+						class="size-5 object-cover"
 					/>
 					<span
-						class="text-muted-foreground group-hover/badge:text-foreground text-[11px] font-medium transition-colors"
+						text="muted-foreground"
+						font="medium"
+						class="group-hover/badge:text-foreground text-[11px] transition-colors"
 					>
 						{icon.name}
 					</span>

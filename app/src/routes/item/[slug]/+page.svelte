@@ -67,7 +67,12 @@
 >
 	{#snippet labelSuffix()}
 		{#if item.tier}
-			<span class="text-muted-foreground font-mono text-[9px] tracking-widest uppercase">
+			<span
+				text="muted-foreground"
+				font="mono"
+				uppercase
+				class="text-[9px] tracking-widest"
+			>
 				/ Tier {item.tier}
 			</span>
 		{/if}

@@ -73,7 +73,7 @@
 	}
 </script>
 
-<main class="container mx-auto mt-8 mb-24 px-4">
+<main container m="x-auto t-8 b-24" p="x-4">
 	<HeroRail />
 
 	<button
@@ -91,7 +91,11 @@
 		{#if allChangelogs.length > 0}
 			{#if isFiltered}
 				<p
-					class="text-muted-foreground mb-4 font-mono text-xs tracking-wider uppercase"
+					text="muted-foreground xs"
+					m="b-4"
+					font="mono"
+					uppercase
+					class="tracking-wider"
 					role="status"
 					aria-live="polite"
 				>
@@ -109,27 +113,35 @@
 
 			<div
 				data-patch-grid
-				class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+				grid="cols-1"
+				gap="4"
+				class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
 			>
 				{#each gridEntries as entry, i (entry.id)}
 					{#if i === firstSeenIdx && firstSeenIdx > 0}
 						<div
 							role="presentation"
 							aria-hidden="true"
-							class="col-span-full my-1 mb-4 flex items-center gap-4"
+							m="y-1 b-4"
+							items="center"
+							gap="4"
+							class="col-span-full flex"
 						>
-							<div class="bg-signal/35 h-px flex-1"></div>
+							<div bg="signal/35" h="px" flex="1"></div>
 							<span
-								class="text-signal font-mono text-[10px] font-bold tracking-widest uppercase"
+								text="signal"
+								font="mono bold"
+								uppercase
+								class="text-[10px] tracking-widest"
 							>
 								{newCount} new since your last visit
 							</span>
-							<div class="bg-primary/30 h-px flex-1"></div>
+							<div bg="primary/30" h="px" flex="1"></div>
 						</div>
 					{/if}
 					<div
 						data-patch-card
-						class="h-full"
+						h="full"
 						in:fly={{
 							y: 20,
 							delay: Math.min(i, 8) * 30,
@@ -143,29 +155,44 @@
 			</div>
 		{:else}
 			<div
-				class="clip-corner border-border/50 bg-card relative overflow-hidden border-2 p-12 text-center"
+				border="border/50 2"
+				bg="card"
+				relative
+				p="12"
+				text="center"
+				class="clip-corner overflow-hidden"
 				in:scale={{ start: 0.95, duration: 400 }}
 				role="status"
 			>
 				<CornerAccents tlSize="2rem" tlColor="bg-muted-foreground/30" />
 				<div
-					class="clip-corner-sm border-border bg-muted/30 mx-auto mb-6 flex size-20 items-center justify-center border"
+					border="border ~"
+					bg="muted/30"
+					m="x-auto b-6"
+					items="center"
+					justify="center"
+					class="clip-corner-sm size-20 flex"
 				>
 					<Frown class="text-muted-foreground size-10" />
 				</div>
-				<p class="text-muted-foreground mb-2 font-mono text-xs tracking-wide uppercase">
+				<p text="muted-foreground xs" m="b-2" font="mono" uppercase class="tracking-wide">
 					No Results
 				</p>
-				<h3 class="font-display text-foreground mb-3 text-2xl font-medium tracking-wide">
+				<h3 font="display medium" text="foreground 2xl" m="b-3" class="tracking-wide">
 					No changes found
 				</h3>
-				<p class="text-muted-foreground mx-auto mb-8 max-w-md">
+				<p text="muted-foreground" m="x-auto b-8" class="max-w-md">
 					No changelog entries match your filters.
 				</p>
 				<button
 					type="button"
 					onclick={() => params.reset()}
-					class="clip-corner-sm border-primary/30 bg-primary/10 text-primary hover:bg-primary/20 border px-6 py-3 font-mono text-sm font-semibold transition-all hover:scale-105"
+					border="primary/30 ~"
+					bg="primary/10"
+					text="primary sm"
+					p="x-6 y-3"
+					font="mono semibold"
+					class="clip-corner-sm hover:bg-primary/20 transition-all hover:scale-105"
 				>
 					Clear Filters
 				</button>
@@ -174,46 +201,54 @@
 
 		{#if allChangelogs.length > 0}
 			<div
-				class="flex flex-col items-center gap-4 py-12"
+				flex="~ col"
+				items="center"
+				gap="4"
+				p="y-12"
 				aria-live="polite"
 				aria-busy={query.isFetchingNextPage}
 			>
 				{#if query.isFetchNextPageError}
-					<div class="flex flex-col items-center gap-3 text-center" role="alert">
-						<p class="text-destructive text-sm font-medium">
-							Failed to load more patches.
-						</p>
+					<div flex="~ col" items="center" gap="3" text="center" role="alert">
+						<p text="destructive sm" font="medium">Failed to load more patches.</p>
 						<button
 							type="button"
 							onclick={() => query.fetchNextPage()}
-							class="border-destructive/30 text-destructive hover:bg-destructive/10 border px-5 py-2 font-mono text-xs font-semibold"
+							border="destructive/30 ~"
+							text="destructive xs"
+							p="x-5 y-2"
+							font="mono semibold"
+							class="hover:bg-destructive/10"
 						>
 							Retry
 						</button>
 					</div>
 				{:else if query.isFetchingNextPage}
-					<div class="flex flex-col items-center gap-3" role="status">
+					<div flex="~ col" items="center" gap="3" role="status">
 						<div
-							class="border-primary/30 size-10 animate-spin rounded-lg border-2 border-t-transparent"
+							border="primary/30 2 t-transparent"
+							rounded="lg"
+							class="size-10 animate-spin"
 						></div>
-						<span class="text-muted-foreground font-mono text-xs tracking-wider uppercase"
+						<span text="muted-foreground xs" font="mono" uppercase class="tracking-wider"
 							>Loading...</span
 						>
 					</div>
 				{:else if query.hasNextPage}
 					<div
 						data-load-more-sentinel
-						class="h-px w-full"
+						h="px"
+						w="full"
 						aria-hidden="true"
 						{@attach loadMoreWhenVisible}
 					></div>
 				{:else}
-					<div class="flex items-center gap-4" in:fly={{ y: 10, duration: 400 }}>
-						<div class="bg-primary/30 h-px w-16"></div>
-						<p class="text-muted-foreground font-mono text-xs tracking-wider uppercase">
+					<div items="center" gap="4" class="flex" in:fly={{ y: 10, duration: 400 }}>
+						<div bg="primary/30" h="px" w="16"></div>
+						<p text="muted-foreground xs" font="mono" uppercase class="tracking-wider">
 							End of Log
 						</p>
-						<div class="bg-primary/30 h-px w-16"></div>
+						<div bg="primary/30" h="px" w="16"></div>
 					</div>
 				{/if}
 			</div>

@@ -43,27 +43,35 @@
 </script>
 
 {#snippet timelineRow(visiblePatches: Patch[])}
-	<div class="relative flex items-start justify-between">
+	<div relative items="start" justify="between" class="flex">
 		<div
-			class="absolute inset-x-3 top-3 h-px -translate-y-1/2"
+			absolute
+			h="px"
+			class="inset-x-3 top-3 -translate-y-1/2"
 			style:background-color={trackColor}
 			aria-hidden="true"
 		></div>
 		{#each visiblePatches as patch (patch.id)}
-			<div class="relative z-10 flex min-w-0 flex-col items-center gap-1">
+			<div relative z="10" flex="~ col" items="center" gap="1" class="min-w-0">
 				<Tooltip.Root>
 					<Tooltip.Trigger>
 						{#snippet child({ props })}
 							<a
 								{...props}
 								href={entityPatchHref(patch, entity)}
-								class="bg-card focus-visible:ring-ring flex size-6 shrink-0 items-center justify-center rounded-full transition-transform hover:scale-110 focus-visible:ring-2 focus-visible:outline-none"
+								bg="card"
+								shrink="0"
+								items="center"
+								justify="center"
+								rounded="full"
+								class="focus-visible:ring-ring size-6 transition-transform hover:scale-110 focus-visible:ring-2 focus-visible:outline-none flex"
 								aria-label="View {entity.name} in the {formatDate(
 									patch.date
 								)} patch, {changeCountLabel(patch.changeCount)}"
 							>
 								<span
-									class="size-2.5 rounded-full border"
+									rounded="full"
+									class="size-2.5 border"
 									style:background-color={accent}
 									style:border-color="color-mix(in oklab, {accent} 65%, var(--card))"
 								></span>
@@ -71,13 +79,15 @@
 						{/snippet}
 					</Tooltip.Trigger>
 					<Tooltip.Content side="top" class="text-xs">
-						<p class="text-sm font-medium">{formatDate(patch.date)}</p>
-						<p class="text-muted-foreground">{changeCountLabel(patch.changeCount)}</p>
+						<p text="sm" font="medium">{formatDate(patch.date)}</p>
+						<p text="muted-foreground">{changeCountLabel(patch.changeCount)}</p>
 					</Tooltip.Content>
 				</Tooltip.Root>
 				<time
 					datetime={patch.date.toISOString()}
-					class="text-muted-foreground font-mono text-[9px] tracking-tight whitespace-nowrap"
+					text="muted-foreground"
+					font="mono"
+					class="text-[9px] tracking-tight whitespace-nowrap"
 					data-timeline-date
 				>
 					{formatTimelineDate(patch.date)}
@@ -89,7 +99,7 @@
 
 {#if sortedPatches.length > 1}
 	<Tooltip.Provider>
-		<div class="w-full" role="group" aria-label="Patch timeline for {entity.name}">
+		<div w="full" role="group" aria-label="Patch timeline for {entity.name}">
 			<div class="md:hidden">{@render timelineRow(mobileSlice)}</div>
 			<div class="hidden md:block">{@render timelineRow(desktopSlice)}</div>
 		</div>

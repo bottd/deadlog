@@ -156,9 +156,9 @@
 </script>
 
 {#snippet stat(count: number, label: string, tone: string)}
-	<span class="flex items-baseline gap-1">
+	<span items="baseline" gap="1" class="flex">
 		<span class="font-mono font-bold {tone}">{count}</span>
-		<span class="text-muted-foreground">{label}</span>
+		<span text="muted-foreground">{label}</span>
 	</span>
 {/snippet}
 
@@ -185,10 +185,14 @@
 	<JsonLd schema={structuredData} />
 {/if}
 
-<main class="container mx-auto mt-8 mb-24 max-w-4xl px-4 xl:max-w-6xl">
+<main container m="x-auto t-8 b-24" p="x-4" class="max-w-4xl xl:max-w-6xl">
 	<a
 		href={backHref}
-		class="text-muted-foreground hover:text-signal mb-8 inline-flex items-center gap-2 text-sm transition-colors"
+		text="muted-foreground sm"
+		m="b-8"
+		items="center"
+		gap="2"
+		class="hover:text-signal inline-flex transition-colors"
 	>
 		<ArrowLeft class="size-4" />
 		Back to all changes
@@ -196,24 +200,38 @@
 
 	{#if filterActive}
 		<div
-			class="clip-corner-sm border-signal/30 bg-signal/5 mb-6 flex flex-wrap items-center gap-x-3 gap-y-1 border px-4 py-2.5 text-sm"
+			border="signal/30 ~"
+			bg="signal/5"
+			m="b-6"
+			flex="~ wrap"
+			items="center"
+			gap="x-3 y-1"
+			p="x-4 y-2.5"
+			text="sm"
+			class="clip-corner-sm"
 		>
 			{#if mogFilter}
 				<span
-					class="text-muted-foreground font-mono text-[10px] tracking-widest uppercase"
+					text="muted-foreground"
+					font="mono"
+					uppercase
+					class="text-[10px] tracking-widest"
 				>
 					Filtered to
 				</span>
-				<span class="text-foreground font-medium">{matchedLabel}</span>
+				<span text="foreground" font="medium">{matchedLabel}</span>
 			{:else}
-				<span class="text-muted-foreground">
-					No changes for <span class="text-foreground font-medium">{selectedLabel}</span> in
-					this patch.
+				<span text="muted-foreground">
+					No changes for <span text="foreground" font="medium">{selectedLabel}</span> in this
+					patch.
 				</span>
 			{/if}
 			<a
 				href={patchPath}
-				class="text-signal ml-auto font-mono text-xs font-semibold hover:underline"
+				text="signal xs"
+				m="l-auto"
+				font="mono semibold"
+				class="hover:underline"
 			>
 				Show all changes
 			</a>
@@ -224,7 +242,17 @@
 		<button
 			type="button"
 			onclick={() => (tocOpen = true)}
-			class="clip-corner-sm border-border bg-card text-foreground hover:border-signal hover:text-signal mb-4 ml-auto flex h-10 items-center gap-2 border px-3 font-mono text-xs font-semibold tracking-wider uppercase transition-colors xl:hidden"
+			border="border ~"
+			bg="card"
+			text="foreground xs"
+			m="b-4 l-auto"
+			h="10"
+			items="center"
+			gap="2"
+			p="x-3"
+			font="mono semibold"
+			uppercase
+			class="clip-corner-sm hover:border-signal hover:text-signal tracking-wider transition-colors xl:hidden flex"
 			aria-label="Open table of contents"
 		>
 			<ListIcon class="size-4" />
@@ -232,11 +260,13 @@
 		</button>
 	{/if}
 
-	<div class="flex gap-8">
+	<div gap="8" class="flex">
 		{#if showToc}
-			<aside class="hidden w-56 shrink-0 xl:block">
+			<aside w="56" shrink="0" class="hidden xl:block">
 				<div
-					class="sticky top-[12rem] max-h-[calc(100dvh-13rem)] overflow-y-auto overscroll-contain pr-1"
+					sticky
+					p="r-1"
+					class="top-[12rem] max-h-[calc(100dvh-13rem)] overflow-y-auto overscroll-contain"
 					style="scrollbar-gutter: stable"
 					data-toc-scroll
 				>
@@ -252,37 +282,56 @@
 		{/if}
 
 		<article
-			class="clip-corner border-border bg-card relative min-w-0 flex-1 overflow-hidden border"
+			border="border ~"
+			bg="card"
+			relative
+			flex="1"
+			class="clip-corner min-w-0 overflow-hidden"
 		>
 			<CornerAccents tlSize="2rem" brSize="1.25rem" />
 			<div
-				class="from-primary/60 via-signal/35 absolute inset-x-0 top-0 h-px bg-gradient-to-r to-transparent"
+				absolute
+				h="px"
+				bg="gradient-to-r"
+				class="from-primary/60 via-signal/35 inset-x-0 top-0 to-transparent"
 				aria-hidden="true"
 			></div>
 
-			<div class="relative p-6 md:p-8">
-				<header class="mb-8">
-					<div class="mb-6 flex flex-wrap items-start justify-between gap-4">
-						<div class="flex flex-col gap-4">
-							<div class="flex items-center gap-3">
+			<div relative p="6" class="md:p-8">
+				<header m="b-8">
+					<div m="b-6" flex="~ wrap" items="start" justify="between" gap="4">
+						<div flex="~ col" gap="4">
+							<div items="center" gap="3" class="flex">
 								<span
-									class="border-primary/20 bg-primary/10 text-primary rounded border px-2 py-0.5 font-mono text-[10px] font-bold tracking-widest uppercase"
+									border="primary/20 ~"
+									bg="primary/10"
+									text="primary"
+									p="x-2 y-0.5"
+									font="mono bold"
+									uppercase
+									class="rounded text-[10px] tracking-widest"
 								>
 									{changelog.category ?? 'patch'}
 								</span>
-								<span class="text-muted-foreground font-mono text-[10px] tracking-wider">
+								<span
+									text="muted-foreground"
+									font="mono"
+									class="text-[10px] tracking-wider"
+								>
 									ID:{changelog.id}
 								</span>
 							</div>
 
 							<h1
-								class="heading-glow font-display text-foreground text-3xl leading-tight font-medium tracking-wide"
+								font="display medium"
+								text="foreground 3xl"
+								class="heading-glow leading-tight tracking-wide"
 							>
 								{displayTitle}
 							</h1>
 
-							<div class="flex items-center gap-4">
-								<div class="text-muted-foreground flex items-center gap-2.5 text-sm">
+							<div items="center" gap="4" class="flex">
+								<div text="muted-foreground sm" items="center" gap="2.5" class="flex">
 									<Avatar.Root
 										class="border-primary/30 ring-primary/10 size-7 border ring-2"
 									>
@@ -292,7 +341,7 @@
 										</Avatar.Fallback>
 									</Avatar.Root>
 									<span class="tracking-tight">
-										By <span class="text-foreground font-medium">{changelog.author}</span>
+										By <span text="foreground" font="medium">{changelog.author}</span>
 										{#if namedTitle}
 											on
 											<time datetime={changelog.date.toISOString()}
@@ -307,8 +356,8 @@
 								</div>
 
 								{#if heroCount > 0 || itemCount > 0}
-									<div class="bg-border h-4 w-px" aria-hidden="true"></div>
-									<div class="flex items-center gap-3 text-xs">
+									<div bg="border" h="4" w="px" aria-hidden="true"></div>
+									<div items="center" gap="3" text="xs" class="flex">
 										{#if heroCount > 0}
 											{@render stat(
 												heroCount,
@@ -329,7 +378,6 @@
 						</div>
 
 						<Button
-							variant="ghost"
 							size="icon"
 							onclick={copyLink}
 							class="text-muted-foreground hover:bg-signal/10 hover:text-signal"
@@ -339,7 +387,7 @@
 						</Button>
 					</div>
 
-					<hr class="editorial-divider border-none" />
+					<hr border="none" class="editorial-divider" />
 				</header>
 
 				<MogContent content={MogComponent} {icons} filter={mogFilter} />
@@ -350,12 +398,12 @@
 
 {#if showToc}
 	<Sheet.Root bind:open={tocOpen}>
-		<Sheet.Content side="bottom" class="max-h-[70vh]">
+		<Sheet.Content class="max-h-[70vh]">
 			<Sheet.Header>
 				<Sheet.Title class="text-sm font-semibold tracking-tight">Contents</Sheet.Title>
 				<Sheet.Description>Jump to a section or affected entity.</Sheet.Description>
 			</Sheet.Header>
-			<div class="overflow-y-auto px-2 pb-6">
+			<div p="x-2 b-6" class="overflow-y-auto">
 				<ChangelogToc
 					heroes={tocHeroes}
 					items={tocItems}

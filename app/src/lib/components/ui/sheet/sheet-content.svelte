@@ -1,23 +1,3 @@
-<script lang="ts" module>
-	import { cn } from '$lib/utils.js';
-	type Side = 'top' | 'bottom' | 'left' | 'right';
-
-	const sheetBase =
-		'bg-background data-[state=open]:animate-in data-[state=closed]:animate-out fixed z-50 flex flex-col gap-4 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500';
-	const sheetSideClasses = {
-		top: 'data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top inset-x-0 top-0 h-auto border-b',
-		bottom:
-			'data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom inset-x-0 bottom-0 h-auto border-t',
-		left: 'data-[state=closed]:slide-out-to-start data-[state=open]:slide-in-from-start inset-y-0 start-0 h-full w-3/4 border-e sm:max-w-sm',
-		right:
-			'data-[state=closed]:slide-out-to-end data-[state=open]:slide-in-from-end inset-y-0 end-0 h-full w-3/4 border-s sm:max-w-sm'
-	} satisfies Record<Side, string>;
-
-	export function sheetVariants({ side = 'right' }: { side?: Side } = {}) {
-		return cn(sheetBase, sheetSideClasses[side]);
-	}
-</script>
-
 <script lang="ts">
 	import { Dialog as SheetPrimitive } from 'bits-ui';
 	import XIcon from '@lucide/svelte/icons/x';
@@ -28,13 +8,11 @@
 	let {
 		ref = $bindable(null),
 		class: className,
-		side = 'right',
 		portalProps,
 		children,
 		...restProps
 	}: WithoutChildrenOrChild<SheetPrimitive.ContentProps> & {
 		portalProps?: WithoutChildrenOrChild<SheetPrimitive.PortalProps>;
-		side?: Side;
 		children: Snippet;
 	} = $props();
 </script>
@@ -44,12 +22,13 @@
 	<SheetPrimitive.Content
 		bind:ref
 		data-slot="sheet-content"
-		class={cn(sheetVariants({ side }), className)}
+		class="sheet-bottom data-[state=open]:animate-slide-up-in data-[state=closed]:animate-slide-down-out {className ??
+			''}"
 		{...restProps}
 	>
 		{@render children?.()}
 		<SheetPrimitive.Close
-			class="ring-offset-background focus-visible:ring-ring absolute end-4 top-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden disabled:pointer-events-none"
+			class="focus-ring absolute end-4 top-4 rounded-xs op-70 transition-opacity hover:op-100 disabled:pointer-events-none"
 		>
 			<XIcon class="size-4" />
 			<span class="sr-only">Close</span>

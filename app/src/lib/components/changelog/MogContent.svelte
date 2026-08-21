@@ -166,7 +166,7 @@
 			@apply border-border bg-muted/20 h-auto max-h-[32rem] w-full rounded-lg border object-contain shadow-lg;
 		}
 
-		:global(ul:not(.section-preview)) {
+		:global(ul) {
 			@apply my-3 ml-5 list-none space-y-2.5;
 		}
 
@@ -178,7 +178,7 @@
 			@apply text-foreground/90 relative leading-relaxed;
 		}
 
-		:global(ul:not(.section-preview) > li::before) {
+		:global(ul > li::before) {
 			content: '';
 			@apply bg-primary/40 absolute top-[0.55em] -left-4 size-1.5 rounded-full;
 		}

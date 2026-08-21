@@ -1,191 +1,140 @@
-import { defineConfig, presetWind3, transformerDirectives } from 'unocss';
-import type { Rule } from 'unocss';
+import {
+	defineConfig,
+	presetAttributify,
+	presetWind4,
+	transformerDirectives,
+	transformerVariantGroup
+} from 'unocss';
 
 /**
- * The shadcn components lean on tailwindcss-animate's `animate-in` / `animate-out`
- * vocabulary, which presetWind3 has no equivalent for. Rather than pull in another
- * preset for a handful of utilities, port the mechanism directly: two keyframes read
- * a set of custom properties, and each modifier sets one of them.
+ * `app.css` owns the palette: it defines the raw Melange ramp and the semantic tokens
+ * (`--card`, `--signal`, …) that hand-written CSS like `.bg-wire-grid` also reads. The
+ * theme below only names them, so there is one place to change a colour. presetWind4
+ * re-exports each as `--colors-*` and applies opacity modifiers with `color-mix`, so
+ * `bg-card/80` works even though the value is a `var()` indirection.
  */
-const enterExitKeyframes = `
-@keyframes enter {
-	from {
-		opacity: var(--un-enter-opacity, 1);
-		transform: translate3d(var(--un-enter-translate-x, 0), var(--un-enter-translate-y, 0), 0)
-			scale3d(var(--un-enter-scale, 1), var(--un-enter-scale, 1), var(--un-enter-scale, 1));
-	}
-}
-@keyframes exit {
-	to {
-		opacity: var(--un-exit-opacity, 1);
-		transform: translate3d(var(--un-exit-translate-x, 0), var(--un-exit-translate-y, 0), 0)
-			scale3d(var(--un-exit-scale, 1), var(--un-exit-scale, 1), var(--un-exit-scale, 1));
-	}
-}
-`;
-
-/** `slide-in-from-top-2` counts in spacing units; a bare `slide-in-from-top` is a full side. */
-const slideDistance = (raw?: string) =>
-	raw === undefined ? '100%' : `${Number(raw) / 4}rem`;
-
-/** `fade-in-0`, `zoom-in-95` — a percentage written without its sign or unit. */
-const percent = (raw = '0') => String(Number(raw) / 100);
-
-/** `start`/`end` are the logical directions; the app is LTR-only, so they map to x. */
-const slideAxis = {
-	top: ['y', '-'],
-	bottom: ['y', ''],
-	left: ['x', '-'],
-	right: ['x', ''],
-	start: ['x', '-'],
-	end: ['x', '']
-} as const;
-
-const slideProperty = (
-	phase: 'enter' | 'exit',
-	side: keyof typeof slideAxis,
-	distance: string
-) => {
-	const [axis, sign] = slideAxis[side];
-	return { [`--un-${phase}-translate-${axis}`]: sign + distance };
-};
-
-/** The presetWind3 scales the rules below read; UnoCSS types `theme` as bare `object`. */
-interface ThemeScales {
-	duration?: Record<string, string>;
-	easing?: Record<string, string>;
-}
-
-/** Look a value up in one of presetWind3's own scales, or take an arbitrary `[…]` value. */
-const fromTheme = (raw: string, scale: keyof ThemeScales, theme: object) =>
-	(theme as ThemeScales)[scale]?.[raw] ??
-	(raw.startsWith('[') && raw.endsWith(']') ? raw.slice(1, -1) : undefined);
-
-const animationRules: Rule[] = [
-	[
-		/^animate-in$/,
-		() => ({
-			'animation-name': 'enter',
-			'animation-duration': 'var(--un-animate-duration, 150ms)',
-			'--un-enter-opacity': 'initial',
-			'--un-enter-scale': 'initial',
-			'--un-enter-translate-x': 'initial',
-			'--un-enter-translate-y': 'initial'
-		})
-	],
-	[
-		/^animate-out$/,
-		() => ({
-			'animation-name': 'exit',
-			'animation-duration': 'var(--un-animate-duration, 150ms)',
-			'--un-exit-opacity': 'initial',
-			'--un-exit-scale': 'initial',
-			'--un-exit-translate-x': 'initial',
-			'--un-exit-translate-y': 'initial'
-		})
-	],
-	[/^fade-in(?:-(\d+))?$/, ([, n]) => ({ '--un-enter-opacity': percent(n) })],
-	[/^fade-out(?:-(\d+))?$/, ([, n]) => ({ '--un-exit-opacity': percent(n) })],
-	[/^zoom-in(?:-(\d+))?$/, ([, n]) => ({ '--un-enter-scale': percent(n) })],
-	[/^zoom-out(?:-(\d+))?$/, ([, n]) => ({ '--un-exit-scale': percent(n) })],
-	[
-		/^slide-in-from-(top|bottom|left|right|start|end)(?:-(\d+))?$/,
-		([, side, n]) =>
-			slideProperty('enter', side as keyof typeof slideAxis, slideDistance(n))
-	],
-	[
-		/^slide-out-to-(top|bottom|left|right|start|end)(?:-(\d+))?$/,
-		([, side, n]) =>
-			slideProperty('exit', side as keyof typeof slideAxis, slideDistance(n))
-	],
-	// tailwindcss-animate widens `duration-*` and `ease-*` to drive animations as well as
-	// transitions, so `animate-in duration-500` reads the way the component authors meant
-	// it. Both shadow a presetWind3 rule, so they resolve through the same theme scales and
-	// fall through to the original when the value isn't one this rule understands.
-	[
-		/^duration-(.+)$/,
-		([, raw], { theme }) => {
-			const value =
-				fromTheme(raw, 'duration', theme) ?? (/^\d+$/.test(raw) ? `${raw}ms` : undefined);
-			if (!value) return;
-			return {
-				'--un-animate-duration': value,
-				'animation-duration': value,
-				'transition-duration': value
-			};
-		}
-	],
-	[
-		/^ease-(.+)$/,
-		([, raw], { theme }) => {
-			const value = fromTheme(raw, 'easing', theme);
-			if (!value) return;
-			return { 'animation-timing-function': value, 'transition-timing-function': value };
-		}
-	]
+const semanticColors = [
+	'background',
+	'foreground',
+	'card',
+	'card-foreground',
+	'card-accent',
+	'popover',
+	'popover-foreground',
+	'primary',
+	'primary-foreground',
+	'primary-subtle',
+	'signal',
+	'signal-foreground',
+	'signal-subtle',
+	'secondary',
+	'secondary-foreground',
+	'muted',
+	'muted-foreground',
+	'accent',
+	'accent-foreground',
+	'destructive',
+	'border',
+	'input',
+	'ring'
 ];
 
-/**
- * Every palette entry is a `var()` indirection, which UnoCSS cannot decompose into
- * channels — so `bg-card/80` would quietly drop the /80 and paint the colour at full
- * strength. Spelling each one as a color-mix around an `%alpha` placeholder (the shape
- * Tailwind 4 emits) keeps the opacity modifiers working. `app.css` owns the values.
- */
-const colors = Object.fromEntries(
-	[
-		'background',
-		'foreground',
-		'card',
-		'card-foreground',
-		'card-accent',
-		'popover',
-		'popover-foreground',
-		'primary',
-		'primary-foreground',
-		'primary-subtle',
-		'signal',
-		'signal-foreground',
-		'signal-subtle',
-		'secondary',
-		'secondary-foreground',
-		'muted',
-		'muted-foreground',
-		'accent',
-		'accent-foreground',
-		'destructive',
-		'border',
-		'input',
-		'ring'
-	].map((name) => [
-		name,
-		`color-mix(in oklab, var(--${name}) calc(%alpha * 100%), transparent)`
-	])
-);
+const colors = Object.fromEntries(semanticColors.map((name) => [name, `var(--${name})`]));
 
 export default defineConfig({
-	presets: [presetWind3()],
-	transformers: [transformerDirectives()],
-	preflights: [{ getCSS: () => enterExitKeyframes }],
-	rules: animationRules,
+	presets: [presetWind4(), presetAttributify()],
+	transformers: [transformerDirectives(), transformerVariantGroup()],
+
 	theme: {
-		/**
-		 * presetWind3 ships the nine `aria-*` states Tailwind 3 had. bits-ui sets
-		 * `aria-invalid` on invalid controls and the shadcn base classes key off it, so
-		 * add it to the same map the built-in variants read.
-		 */
-		aria: { invalid: 'invalid="true"' },
-		colors,
-		fontFamily: {
-			sans: 'var(--font-sans)',
-			display: 'var(--font-display)',
-			mono: 'var(--font-mono)'
+		colors: { ...colors, subtle: 'var(--border-subtle)' },
+
+		font: {
+			sans: "'Archivo', ui-sans-serif, system-ui, sans-serif",
+			display: "'Oswald', ui-sans-serif, sans-serif",
+			mono: "'JetBrains Mono', ui-monospace, monospace"
 		},
-		borderRadius: {
-			xs: '0.125rem',
+
+		/**
+		 * Tailwind 4 expresses these leadings as unitless ratios, so an arbitrary
+		 * override like `text-[10px]` rescales the line box with it; presetWind4 ships
+		 * absolute values, which do not. The site leans on that behaviour in ~40 places
+		 * (small mono labels sized in px), so keep the ratios. Each one still computes to
+		 * presetWind4's own value when no override is present.
+		 */
+		text: {
+			xs: { fontSize: '0.75rem', lineHeight: 'calc(1 / 0.75)' },
+			sm: { fontSize: '0.875rem', lineHeight: 'calc(1.25 / 0.875)' },
+			base: { fontSize: '1rem', lineHeight: 'calc(1.5 / 1)' },
+			lg: { fontSize: '1.125rem', lineHeight: 'calc(1.75 / 1.125)' },
+			xl: { fontSize: '1.25rem', lineHeight: 'calc(1.75 / 1.25)' },
+			'2xl': { fontSize: '1.5rem', lineHeight: 'calc(2 / 1.5)' },
+			'3xl': { fontSize: '1.875rem', lineHeight: 'calc(2.25 / 1.875)' },
+			'4xl': { fontSize: '2.25rem', lineHeight: 'calc(2.5 / 2.25)' }
+		},
+
+		radius: {
 			sm: 'calc(var(--radius) - 4px)',
 			md: 'calc(var(--radius) - 2px)',
 			lg: 'var(--radius)',
 			xl: 'calc(var(--radius) + 4px)'
+		},
+
+		/**
+		 * Overlay motion. bits-ui drives these through `data-[state]`, so each direction
+		 * needs its own keyframe rather than one reversible pair. Emitted only when used.
+		 */
+		animation: {
+			keyframes: {
+				'fade-in': '{from{opacity:0}to{opacity:1}}',
+				'fade-out': '{from{opacity:1}to{opacity:0}}',
+				'slide-up-in': '{from{transform:translateY(100%)}to{transform:translateY(0)}}',
+				'slide-down-out': '{from{transform:translateY(0)}to{transform:translateY(100%)}}',
+				'pop-in':
+					'{from{opacity:0;transform:scale(0.95)}to{opacity:1;transform:scale(1)}}',
+				'pop-out':
+					'{from{opacity:1;transform:scale(1)}to{opacity:0;transform:scale(0.95)}}'
+			},
+			durations: {
+				'fade-in': '200ms',
+				'fade-out': '200ms',
+				'slide-up-in': '500ms',
+				'slide-down-out': '300ms',
+				'pop-in': '150ms',
+				'pop-out': '150ms'
+			},
+			timingFns: {
+				'fade-in': 'ease-out',
+				'fade-out': 'ease-in',
+				'slide-up-in': 'cubic-bezier(0.32, 0.72, 0, 1)',
+				'slide-down-out': 'cubic-bezier(0.32, 0.72, 0, 1)',
+				'pop-in': 'ease-out',
+				'pop-out': 'ease-in'
+			}
 		}
+	},
+
+	shortcuts: {
+		/** Every focusable surface shows the same ring, so it is defined once. */
+		'focus-ring': 'outline-none focus-visible:(border-ring ring-3 ring-ring/50)',
+
+		btn: 'focus-ring inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all active:scale-[0.97] disabled:(pointer-events-none op-50) aria-disabled:(pointer-events-none op-50) [&_svg]:(pointer-events-none shrink-0)',
+		'btn-ghost': 'btn hover:(bg-accent text-accent-foreground)',
+		'btn-sm': 'h-8 gap-1.5 px-3',
+		'btn-icon': 'size-9',
+
+		badge:
+			'focus-ring inline-flex w-fit shrink-0 items-center justify-center gap-1 overflow-hidden whitespace-nowrap rounded-md border px-2 py-0.5 text-xs font-medium transition-[color,box-shadow] [&>svg]:(pointer-events-none size-3)',
+		'badge-default':
+			'badge border-transparent bg-primary text-primary-foreground hover:bg-primary/90',
+		'badge-signal': 'badge border-signal/25 bg-signal/15 text-signal hover:bg-signal/25',
+
+		/** Floating surfaces: one step above `--card` so they read as elevated. */
+		overlay: 'fixed inset-0 z-50 bg-black/60',
+		sheet: 'fixed z-50 flex flex-col gap-4 bg-background shadow-lg',
+		'sheet-bottom': 'sheet inset-x-0 bottom-0 h-auto border-t',
+		popover: 'z-50 rounded-md border bg-popover text-popover-foreground shadow-md',
+
+		'menu-item':
+			'relative flex cursor-default select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden aria-selected:(bg-accent text-accent-foreground) data-[disabled]:(pointer-events-none op-50) [&_svg]:(pointer-events-none shrink-0)'
 	}
 });

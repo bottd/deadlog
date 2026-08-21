@@ -68,7 +68,7 @@
 	});
 </script>
 
-<main class="container mx-auto mt-8 mb-24 max-w-6xl px-4">
+<main container m="x-auto t-8 b-24" p="x-4" class="max-w-6xl">
 	<header
 		class="clip-corner bg-card {t.border} relative mb-10 overflow-hidden border-2 px-6 py-10 md:px-10"
 	>
@@ -76,31 +76,41 @@
 		<div
 			class="{t.wash} pointer-events-none absolute inset-0 bg-gradient-to-br to-transparent"
 		></div>
-		<div class="relative max-w-3xl">
+		<div relative class="max-w-3xl">
 			<div class="{t.text} mb-3 flex items-center gap-2">
 				<Icon class="size-4" />
-				<span class="font-mono text-[10px] font-bold tracking-[0.2em] uppercase"
+				<span font="mono bold" uppercase class="text-[10px] tracking-[0.2em]"
 					>{eyebrow}</span
 				>
 			</div>
 			<h1
-				class="heading-glow font-display text-foreground text-4xl leading-tight font-medium tracking-wide md:text-6xl"
+				font="display medium"
+				text="foreground 4xl"
+				class="heading-glow leading-tight tracking-wide md:text-6xl"
 			>
 				{heading}
 			</h1>
-			<p class="text-muted-foreground mt-4 max-w-2xl leading-relaxed">{lede}</p>
+			<p text="muted-foreground" m="t-4" class="max-w-2xl leading-relaxed">{lede}</p>
 		</div>
 	</header>
 
 	<section aria-labelledby="{kind}-directory-heading">
-		<div class="mb-5 flex items-end justify-between gap-4">
+		<div m="b-5" items="end" justify="between" gap="4" class="flex">
 			<div>
-				<p class="text-muted-foreground font-mono text-[10px] tracking-widest uppercase">
+				<p
+					text="muted-foreground"
+					font="mono"
+					uppercase
+					class="text-[10px] tracking-widest"
+				>
 					{listEyebrow}
 				</p>
 				<h2
 					id="{kind}-directory-heading"
-					class="font-display text-foreground mt-1 text-2xl font-medium tracking-wide"
+					font="display medium"
+					text="foreground 2xl"
+					m="t-1"
+					class="tracking-wide"
 				>
 					{t.title}
 				</h2>
@@ -122,13 +132,19 @@
 				bind:value={search}
 				aria-describedby="{kind}-directory-count"
 				placeholder="Filter {t.noun}..."
-				class="placeholder:text-muted-foreground w-full bg-transparent py-3 pr-3 pl-10 text-sm outline-none"
+				w="full"
+				bg="transparent"
+				p="y-3 r-3 l-10"
+				text="sm"
+				class="placeholder:text-muted-foreground outline-none"
 			/>
 		</div>
 
 		{#if filtered.length > 0}
 			<ul
-				class="grid grid-cols-1 gap-3 min-[360px]:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
+				grid="cols-1"
+				gap="3"
+				class="grid min-[360px]:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
 			>
 				{#each filtered as entry, index (entry.id)}
 					<li>
@@ -139,7 +155,14 @@
 							<CornerAccents tlSize="1rem" {...t.cardAccents} />
 							{#if kind === 'item'}
 								<div
-									class="border-border bg-background flex size-12 shrink-0 items-center justify-center rounded-md border p-1.5"
+									border="border ~"
+									bg="background"
+									shrink="0"
+									items="center"
+									justify="center"
+									rounded="md"
+									p="1.5"
+									class="size-12 flex"
 								>
 									<img
 										src={entry.image}
@@ -159,16 +182,24 @@
 									height="56"
 									loading={index < 10 ? 'eager' : 'lazy'}
 									decoding="async"
-									class="border-border bg-background size-14 shrink-0 rounded-md border object-cover"
+									border="border ~"
+									bg="background"
+									shrink="0"
+									rounded="md"
+									class="size-14 object-cover"
 								/>
 							{/if}
-							<div class="min-w-0 flex-1">
-								<h3 class="text-foreground text-sm leading-tight font-semibold">
+							<div flex="1" class="min-w-0">
+								<h3 text="foreground sm" font="semibold" class="leading-tight">
 									{entry.name}
 								</h3>
 								{#if entry.subtitle}
 									<p
-										class="text-muted-foreground mt-0.5 font-mono text-[9px] tracking-wider uppercase"
+										text="muted-foreground"
+										m="t-0.5"
+										font="mono"
+										uppercase
+										class="text-[9px] tracking-wider"
 									>
 										{entry.subtitle}
 									</p>
@@ -182,7 +213,7 @@
 				{/each}
 			</ul>
 		{:else}
-			<p class="border-border bg-card text-muted-foreground border p-8 text-center">
+			<p border="border ~" bg="card" text="muted-foreground center" p="8">
 				No {t.noun} match "{search}".
 			</p>
 		{/if}
