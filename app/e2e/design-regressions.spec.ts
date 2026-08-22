@@ -551,6 +551,36 @@ test('cards do not nest interactive controls', async ({ page }) => {
 	}
 });
 
+test('patch cards navigate from their full card surfaces', async ({ page }) => {
+	await gotoApp(page, '/');
+
+	const featuredLink = page.getByRole('link', {
+		name: /^Latest patch,.*View full patch\.$/i
+	});
+	const featuredHref = await featuredLink.getAttribute('href');
+	expect(featuredHref).not.toBeNull();
+	const cta = page.getByText('View Full Patch', { exact: true });
+	await cta.scrollIntoViewIfNeeded();
+	const ctaBox = await cta.boundingBox();
+	expect(ctaBox).not.toBeNull();
+	await page.mouse.click(ctaBox!.x + ctaBox!.width / 2, ctaBox!.y + ctaBox!.height / 2);
+	await expect(page).toHaveURL(new URL(featuredHref!, page.url()).href);
+
+	await gotoApp(page, '/');
+	const card = page.locator('[data-patch-card]').first();
+	const cardHref = await card.locator('h2 a').getAttribute('href');
+	expect(cardHref).not.toBeNull();
+	const preview = card.locator('img').first();
+	await preview.scrollIntoViewIfNeeded();
+	const previewBox = await preview.boundingBox();
+	expect(previewBox).not.toBeNull();
+	await page.mouse.click(
+		previewBox!.x + previewBox!.width / 2,
+		previewBox!.y + previewBox!.height / 2
+	);
+	await expect(page).toHaveURL(new URL(cardHref!, page.url()).href);
+});
+
 test('patch cards show preserved post image previews', async ({ page }) => {
 	await gotoApp(page, '/');
 	// The card's link is a stretched anchor around the heading, so the preview image

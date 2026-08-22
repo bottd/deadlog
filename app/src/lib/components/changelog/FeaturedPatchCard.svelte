@@ -64,7 +64,7 @@
 				<a
 					href={links.href}
 					aria-label={view.accessibleLabel}
-					class="focus-visible:outline-primary after:absolute after:inset-0 focus-visible:outline-2 focus-visible:outline-offset-2"
+					class="focus-visible:outline-primary after:absolute after:inset-0 after:content-[''] focus-visible:outline-2 focus-visible:outline-offset-2"
 				>
 					{view.heading}
 				</a>
@@ -157,7 +157,7 @@
 		</div>
 
 		<div
-			class="border-signal/20 from-signal/5 to-primary/5 group-hover:from-signal/10 group-hover:to-primary/10 relative z-10 flex min-h-44 shrink-0 items-center justify-center overflow-hidden border-t bg-gradient-to-r p-6 transition-colors duration-300 md:min-h-0 md:border-t-0 md:border-l md:p-8 {patch.previewImage
+			class="border-signal/20 from-signal/5 to-primary/5 group-hover:from-signal/10 group-hover:to-primary/10 relative z-0 flex min-h-44 shrink-0 items-center justify-center overflow-hidden border-t bg-gradient-to-r p-6 transition-colors duration-300 md:min-h-0 md:border-t-0 md:border-l md:p-8 {patch.previewImage
 				? 'md:w-80'
 				: 'md:w-56'}"
 		>
