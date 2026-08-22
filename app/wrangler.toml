@@ -10,6 +10,10 @@ enabled = true
 head_sampling_rate = 1
 invocation_logs = true
 
+[vars]
+PUBLIC_COUNTERSCALE_SITE_ID = "deadlog-io"
+PUBLIC_COUNTERSCALE_REPORTER_URL = "https://a.drake.dev/collect"
+
 [[d1_databases]]
 binding = "DB"
 database_name = "deadlog"
