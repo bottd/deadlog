@@ -71,7 +71,10 @@ test('canonical aliases and profile history preserve entity scope', async ({ pag
 		.getByRole('region', { name: 'Change History' })
 		.getByRole('link')
 		.first();
-	await expect(patchLink).toHaveAttribute('href', /\/change\/[^?]+\?hero=The\+Doorman$/);
+	await expect(patchLink).toHaveAttribute(
+		'href',
+		/\/change\/[^?]+\?hero=The\+Doorman#doorman$/
+	);
 });
 
 test('keyword search from a patch navigates to the changelog list', async ({
@@ -311,11 +314,21 @@ test('entity aliases render as selected and toggle without duplication', async (
 
 test('patch entity deep links keep their target visible', async ({ page }) => {
 	await gotoApp(page, '/?hero=Bebop');
+	await expect(page.locator('[data-patch-card]').first().locator('h2 a')).toHaveAttribute(
+		'href',
+		/^\/change\/[^?]+\?hero=Bebop$/
+	);
 	const link = page.getByRole('link', { name: 'Jump to Abrams in this patch' }).first();
 
 	await expect(link).toHaveAttribute('href', /hero=Bebop%2CAbrams#abrams$/);
 	await link.click();
+	await expect(page).toHaveURL(/\/change\/[^?]+\?hero=Bebop%2CAbrams#abrams$/);
 	await expect(page.locator('#abrams')).toBeVisible();
+	const current = new URL(page.url());
+	await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+		'href',
+		`https://deadlog.io${current.pathname}`
+	);
 
 	const saturatedFilter = Array.from({ length: 20 }, () => 'Bebop').join(',');
 	await gotoApp(page, `/?hero=${encodeURIComponent(saturatedFilter)}`);
@@ -371,7 +384,7 @@ test('hero abilities preserve slot order and scoped change counts', async ({ pag
 
 	const history = page.getByRole('region', { name: 'Change History' });
 	const card = history.locator(
-		'li:has(a[href="/change/2026/minor-07-28?hero=The+Doorman"])'
+		'li:has(a[href="/change/2026/minor-07-28?hero=The+Doorman#doorman"])'
 	);
 	await expect(card.getByText('9 changes', { exact: true })).toBeVisible();
 	await expect(
@@ -425,13 +438,24 @@ test('mog entity links target app routes without document extensions', async ({
 	const content = page.getByRole('region', { name: 'Changelog details' });
 
 	await expect(
-		content.getByRole('heading', { level: 2, name: 'Doorman' }).getByRole('link')
+		content.getByRole('heading', { level: 3, name: 'Doorman' }).getByRole('link')
 	).toHaveAttribute('href', '/hero/the-doorman');
 	await expect(
 		content
-			.getByRole('heading', { level: 3, name: 'Call Bell Charge Time' })
+			.getByRole('heading', { level: 4, name: 'Call Bell Charge Time' })
 			.getByRole('link')
 	).toHaveAttribute('href', '/hero/the-doorman?ability=call-bell');
+
+	const entityImage = content.locator('.hero img').first();
+	await expect(entityImage).toHaveAttribute('width', '40');
+	await expect(entityImage).toHaveAttribute('height', '40');
+	await expect(entityImage).toHaveAttribute('loading', 'lazy');
+	await expect(entityImage).toHaveAttribute('decoding', 'async');
+	const abilityImage = content.locator('.ability img').first();
+	await expect(abilityImage).toHaveAttribute('width', '24');
+	await expect(abilityImage).toHaveAttribute('height', '24');
+	await expect(abilityImage).toHaveAttribute('loading', 'lazy');
+	await expect(abilityImage).toHaveAttribute('decoding', 'async');
 });
 
 test('changelog contents surface ability icons on a card', async ({ page }, testInfo) => {
@@ -499,12 +523,13 @@ test('mog headings use a clear hierarchy without decorative top rules', async ({
 }) => {
 	await gotoApp(page, '/change/2026/minor-07-28');
 	const content = page.getByRole('region', { name: 'Changelog details' });
-	const section = content.getByRole('heading', { level: 1, name: 'Hero Changes' });
-	const entity = content.getByRole('heading', { level: 2, name: 'Doorman' });
+	const section = content.getByRole('heading', { level: 2, name: 'Hero Changes' });
+	const entity = content.getByRole('heading', { level: 3, name: 'Doorman' });
 	const ability = content.getByRole('heading', {
-		level: 3,
+		level: 4,
 		name: 'Call Bell Charge Time'
 	});
+	await expect(page.getByRole('heading', { level: 1 })).toHaveCount(1);
 
 	const sizes = await Promise.all(
 		[section, entity, ability].map((heading) =>
@@ -518,6 +543,37 @@ test('mog headings use a clear hierarchy without decorative top rules', async ({
 			section.evaluate((element) => getComputedStyle(element, '::before').content)
 		)
 		.toBe('none');
+});
+
+test('patch articles expose their original source in markup and structured data', async ({
+	page
+}) => {
+	await gotoApp(page, LATEST_CHANGE);
+	const original = page.getByRole('link', { name: 'View original patch notes' });
+	await expect(original).toHaveAttribute(
+		'href',
+		/^https:\/\/store\.steampowered\.com\/news\/externalpost\/steam_community_announcements\/\d+$/
+	);
+	await expect(original).toHaveAttribute('target', '_blank');
+	const sourceUrl = await original.getAttribute('href');
+	const basedOnUrl = await page.locator('script[type="application/ld+json"]').evaluateAll(
+		(scripts) =>
+			scripts
+				.flatMap((script) => {
+					const value = JSON.parse(script.textContent ?? '{}');
+					return value['@graph'] ?? [value];
+				})
+				.find((entry) => entry['@type'] === 'Article')?.isBasedOn?.url
+	);
+	expect(basedOnUrl).toBe(sourceUrl);
+
+	await gotoApp(page, '/change/2026/apollo-a-cut-above');
+	const announcementImage = page
+		.getByRole('region', { name: 'Changelog details' })
+		.locator('img')
+		.first();
+	await expect(announcementImage).toHaveAttribute('loading', 'eager');
+	await expect(announcementImage).toHaveAttribute('decoding', 'async');
 });
 
 test('patch dates are stable across viewer timezones', async ({ browser }) => {
@@ -553,6 +609,10 @@ test('cards do not nest interactive controls', async ({ page }) => {
 
 test('patch cards navigate from their full card surfaces', async ({ page }) => {
 	await gotoApp(page, '/');
+	await expect(
+		page.getByRole('heading', { level: 1, name: 'Deadlock Patch Notes & Changelog' })
+	).toBeVisible();
+	await expect(page.getByRole('heading', { level: 1 })).toHaveCount(1);
 
 	const featuredLink = page.getByRole('link', {
 		name: /^Latest patch,.*View full patch\.$/i

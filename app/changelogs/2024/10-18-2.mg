@@ -6,7 +6,6 @@ author "Yoshi"
 author_image "https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630"
 category "patch"
 major_update #false
-status "draft"
 content_text "Ranked now has weekend specific hours (starts 5 hours earlier) Fixed some regions (South America, Oceania, Asia) that were off by 1-2 hours from their intended times"
 ``
 

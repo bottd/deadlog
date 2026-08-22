@@ -108,7 +108,7 @@ describe('loadAllChangelogs', () => {
 		);
 
 		try {
-			const [changelog] = await loadAllChangelogs(dir, { curatedOnly: false });
+			const [changelog] = await loadAllChangelogs(dir);
 			expect(changelog.aliases).toEqual(['2026/03-06', '2026/gameplay-03-06']);
 		} finally {
 			await rm(dir, { recursive: true, force: true });

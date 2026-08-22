@@ -42,12 +42,6 @@ function slugify(title: string): string {
 	return toSlug(cleaned) || 'announcement';
 }
 
-function fileStatus(filepath: string): 'missing' | 'curated' | 'draft' {
-	if (!existsSync(filepath)) return 'missing';
-	const content = readFileSync(filepath, 'utf-8');
-	return content.includes('status "published"') ? 'curated' : 'draft';
-}
-
 function resolveFilepath(title: string, date: string): string {
 	const year = new Date(date).getUTCFullYear();
 	const slug = slugify(title);
@@ -55,9 +49,7 @@ function resolveFilepath(title: string, date: string): string {
 }
 
 function skipReason(filepath: string, overwrite: boolean): string | null {
-	const status = fileStatus(filepath);
-	if (status === 'curated') return 'curated';
-	if (status === 'draft' && !overwrite) return 'exists (use --overwrite)';
+	if (existsSync(filepath) && !overwrite) return 'exists (use --overwrite)';
 	return null;
 }
 
@@ -101,7 +93,7 @@ function needsSteamBackfill(
 	filepath: string,
 	note: SteamAnnouncement | undefined
 ): boolean {
-	if (!note || fileStatus(filepath) !== 'draft') return false;
+	if (!note || !existsSync(filepath)) return false;
 	return !readFileSync(filepath, 'utf-8').includes(`steam_gid "${note.gid}"`);
 }
 
@@ -354,9 +346,7 @@ export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<voi
 			const steamNote = steamByForumPostId.get(post.postId);
 			const existingSteamPath = steamNote ? filesByGid.get(steamNote.gid) : undefined;
 			const migratedSteamPath =
-				existingSteamPath &&
-				existingSteamPath !== filepath &&
-				fileStatus(existingSteamPath) === 'draft'
+				existingSteamPath && existingSteamPath !== filepath
 					? existingSteamPath
 					: undefined;
 			const alias = migratedSteamPath

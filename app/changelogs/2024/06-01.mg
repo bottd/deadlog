@@ -6,7 +6,6 @@ author "Yoshi"
 author_image "https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630"
 category "patch"
 major_update #false
-status "draft"
 content_text "Return Fire No longer applies procs Bullet damage return increased from 60% to 70%"
 ``
 

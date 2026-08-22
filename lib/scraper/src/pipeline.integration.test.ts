@@ -63,6 +63,7 @@ describe('scrapeChangelogs', () => {
 		expect(content).toContain('Players are now matched by rank points.');
 		expect(content).toContain('# STANDARD MODE');
 		expect(content).not.toContain('# General Changes');
+		expect(content).not.toMatch(/^status /m);
 	});
 
 	it('does not overwrite announcements that normalize to the same path', async () => {
@@ -95,13 +96,13 @@ describe('scrapeChangelogs', () => {
 		expect(second).toContain('steam_gid "second"');
 	});
 
-	it('backfills a matched draft without dropping its legacy alias on overwrite', async () => {
+	it('backfills a matched changelog without dropping its legacy alias on overwrite', async () => {
 		const dir = join(changelogsDir, '2025');
 		const filepath = join(dir, '05-08.mg');
 		await mkdir(dir, { recursive: true });
 		await writeFile(
 			filepath,
-			'``meta:\ntitle "Legacy Shop Update"\nalias "2025/shop-rework"\nstatus "draft"\n``\n'
+			'``meta:\ntitle "Legacy Shop Update"\nalias "2025/shop-rework"\n``\n'
 		);
 
 		apiMocks.scrapeChangelogPage.mockResolvedValue([
@@ -209,7 +210,7 @@ describe('scrapeChangelogs', () => {
 		);
 	});
 
-	it('migrates a Steam-first draft when its forum post appears later', async () => {
+	it('migrates a Steam-first changelog when its forum post appears later', async () => {
 		apiMocks.fetchSteamAnnouncements.mockResolvedValue([
 			{
 				gid: 'steam-gameplay',

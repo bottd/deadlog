@@ -15,6 +15,7 @@ export const changelogs = sqliteTable(
 		id: text('id').primaryKey(),
 		title: text('title').notNull(),
 		slug: text('slug').notNull(), // Path to .mg file (e.g., "2025/01-23-update")
+		sourceUrl: text('source_url').notNull(),
 		author: text('author').notNull(),
 		authorImage: text('author_image').notNull(),
 		previewImage: text('preview_image'),

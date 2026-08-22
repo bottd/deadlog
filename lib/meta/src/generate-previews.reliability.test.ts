@@ -140,6 +140,7 @@ describe('preview generation reliability', () => {
 				id: '2025-08-18',
 				title: 'Six New Heroes',
 				slug: '2025/08-18',
+				sourceUrl: 'https://forums.playdeadlock.com/threads/1/',
 				author: 'simonne',
 				authorImage: '',
 				previewImage: null,

@@ -39,6 +39,7 @@ describe.skipIf(!existsSync(dbPath))('Database Static Reader', () => {
 			expect(firstPatch).toHaveProperty('title');
 			expect(firstPatch).toHaveProperty('author');
 			expect(firstPatch).toHaveProperty('authorImage');
+			expect(firstPatch).toHaveProperty('sourceUrl');
 			expect(firstPatch).toHaveProperty('pubDate');
 			expect(typeof firstPatch.pubDate).toBe('string');
 		});
@@ -52,6 +53,9 @@ describe.skipIf(!existsSync(dbPath))('Database Static Reader', () => {
 			expect(typeof firstPatch.title).toBe('string');
 			expect(typeof firstPatch.author).toBe('string');
 			expect(typeof firstPatch.authorImage).toBe('string');
+			expect(firstPatch.sourceUrl).toMatch(
+				/^https:\/\/(?:store\.steampowered\.com|forums\.playdeadlock\.com)\//
+			);
 			expect(typeof firstPatch.pubDate).toBe('string');
 			expect(typeof firstPatch.majorUpdate).toBe('boolean');
 		});

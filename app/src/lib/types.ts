@@ -14,6 +14,7 @@ export interface ChangelogEntry {
 	id: string;
 	/** The .mg file path — basis of the canonical patch URL. */
 	slug: string;
+	sourceUrl?: string;
 	title: string;
 	date: Date;
 	author: string;

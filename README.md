@@ -2,6 +2,8 @@
 
 A changelog site for Deadlock
 
+[![Deadlog homepage showing the latest Deadlock patch notes](docs/homepage.png)](https://deadlog.io)
+
 ## Tech Stack
 
 - Drizzle ORM
@@ -39,6 +41,12 @@ pnpm install
 
 # Run local dev server
 pnpm dev
+
+# Refresh the README screenshot (prod)
+pnpm screenshot
+
+# Screenshot local instead
+SCREENSHOT_URL=http://127.0.0.1:5173 pnpm screenshot
 
 # Format
 nix fmt

@@ -391,7 +391,6 @@ export function generateChangelog(
 	out.push(
 		'category "patch"',
 		'major_update #false',
-		'status "draft"',
 		`content_text ${kdlString(contentText)}`,
 		'``',
 		'',

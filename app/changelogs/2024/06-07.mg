@@ -6,7 +6,6 @@ author "Yoshi"
 author_image "https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630"
 category "patch"
 major_update #false
-status "draft"
 content_text "Rejuv buff to candle troopers reduced from +100% HP to +50% Fixed rejuv buff applying to objectives Fixed various performance related issues from the previous update"
 ``
 

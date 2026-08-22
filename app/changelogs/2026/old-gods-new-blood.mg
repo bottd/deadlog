@@ -5,7 +5,6 @@ published "2026-01-22T22:56:33.000Z"
 author "simonne"
 category "patch"
 major_update #false
-status "draft"
 content_text "The ritual takes form... Overhauled Patrons and bases, six new heroes, a fast-paced game mode 'Street Brawl', HUD updates, many quality-of-life additions, revamped postgame with an MVP screen and more. View the Old Gods, New Blood update page."
 ``
 

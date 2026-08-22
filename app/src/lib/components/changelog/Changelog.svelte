@@ -74,6 +74,21 @@
 </script>
 
 <main container m="x-auto t-8 b-24" p="x-4">
+	<header m="b-7" class="max-w-3xl">
+		<p text="signal" font="bold" class="kicker text-[10px]">Every update, indexed</p>
+		<h1
+			font="display medium"
+			text="foreground 3xl"
+			m="t-1"
+			class="heading-glow tracking-wide sm:text-4xl"
+		>
+			Deadlock Patch Notes &amp; Changelog
+		</h1>
+		<p text="muted-foreground sm" m="t-2" class="max-w-2xl leading-relaxed">
+			Search every gameplay update, hero adjustment, and item balance change in one log.
+		</p>
+	</header>
+
 	<HeroRail />
 
 	<button
@@ -175,9 +190,9 @@
 				<p text="muted-foreground xs" m="b-2" font="mono" uppercase class="tracking-wide">
 					No Results
 				</p>
-				<h3 font="display medium" text="foreground 2xl" m="b-3" class="tracking-wide">
+				<h2 font="display medium" text="foreground 2xl" m="b-3" class="tracking-wide">
 					No changes found
-				</h3>
+				</h2>
 				<p text="muted-foreground" m="x-auto b-8" class="max-w-md">
 					No changelog entries match your filters.
 				</p>

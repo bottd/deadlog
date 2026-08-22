@@ -162,7 +162,7 @@
 	{#if size === 'sm'}
 		<div bg="signal/50" m="b-4" h="px" w="8" aria-hidden="true"></div>
 
-		<h2
+		<p
 			text="muted-foreground"
 			m="b-4"
 			font="mono bold"
@@ -170,7 +170,7 @@
 			class="text-[10px] tracking-[0.2em]"
 		>
 			Contents
-		</h2>
+		</p>
 	{/if}
 
 	<div class={size === 'lg' ? 'space-y-1.5' : 'space-y-1'} data-toc-tree>

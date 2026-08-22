@@ -5,7 +5,6 @@ published "2026-07-01T22:54:59.000Z"
 author "IceFrog"
 category "patch"
 major_update #false
-status "draft"
 content_text "Shiv Alt Fire ammo cost reduced from 5 to 4 Weapon now has fixed pellet spread Slice and Dice is now back to doing spirit damage and reducing Spirit Resistance from enemies Slice and Dice damage increased from 60 to 75 Killing Blow T3 reduced from +10% Enemy Health Threshold to +8%"
 ``
 

@@ -45,7 +45,7 @@
 		const sections: { heading: HTMLElement; members: HTMLElement[] }[] = [];
 
 		for (const el of children) {
-			if (el.tagName === 'H1') {
+			if (el.matches('h2[data-mog-section]')) {
 				section = { heading: el, members: [] };
 				sections.push(section);
 			} else section?.members.push(el);
@@ -67,7 +67,7 @@
 	.mog-content {
 		@apply max-w-none text-base leading-relaxed;
 
-		:global(h1) {
+		:global(h2[data-mog-section]) {
 			@apply font-display text-foreground mt-12 mb-6 text-[28px] leading-tight font-semibold tracking-wide first:mt-0;
 		}
 
@@ -114,14 +114,14 @@
 			@apply border-border bg-card size-10 rounded-lg border object-cover shadow-sm;
 		}
 
-		:global(div.hero > h2),
-		:global(div.item > h2) {
+		:global(div.hero > h3),
+		:global(div.item > h3) {
 			@apply text-foreground col-start-2 m-0 scroll-mt-20 self-center text-2xl leading-tight font-semibold tracking-tight;
 		}
 
 		/* Notes and nested abilities share the content column. */
-		:global(div.hero > :not(p:has(img)):not(h2)),
-		:global(div.item > :not(p:has(img)):not(h2)) {
+		:global(div.hero > :not(p:has(img)):not(h3)),
+		:global(div.item > :not(p:has(img)):not(h3)) {
 			@apply col-start-2;
 		}
 
@@ -141,11 +141,11 @@
 			@apply size-6 rounded object-cover;
 		}
 
-		:global(div.ability > h3) {
+		:global(div.ability > h4) {
 			@apply text-foreground col-start-2 m-0 scroll-mt-20 self-center text-lg leading-tight font-semibold;
 		}
 
-		:global(div.ability > :not(p:has(img)):not(h3)) {
+		:global(div.ability > :not(p:has(img)):not(h4)) {
 			@apply col-start-2;
 		}
 
@@ -183,6 +183,10 @@
 			@apply bg-primary/40 absolute top-[0.55em] -left-4 size-1.5 rounded-full;
 		}
 
+		:global(ul.section-preview > li::before) {
+			content: none;
+		}
+
 		:global(li > ul),
 		:global(li > ol) {
 			@apply my-1.5;
@@ -198,30 +202,30 @@
 		}
 
 		/* Entity and ability headings link out but read as headings, not body links */
-		:global(div.hero > h2 > a),
-		:global(div.item > h2 > a),
-		:global(div.ability > h3 > a) {
+		:global(div.hero > h3 > a),
+		:global(div.item > h3 > a),
+		:global(div.ability > h4 > a) {
 			@apply text-foreground font-semibold no-underline hover:no-underline hover:opacity-100;
 		}
 
 		/* Ability icon and heading share one hover state, like the entity block above. */
-		:global(div.ability:has(> h3 a:hover, > p a:hover) > h3 > a) {
+		:global(div.ability:has(> h4 a:hover, > p a:hover) > h4 > a) {
 			@apply text-signal;
 		}
 
-		:global(div.ability:has(> h3 a:hover, > p a:hover) > p img) {
+		:global(div.ability:has(> h4 a:hover, > p a:hover) > p img) {
 			@apply ring-signal ring-1;
 		}
 
 		/* Portrait and heading link to the same page, so they share one hover state:
 		   hovering either highlights both. */
-		:global(div.hero:has(> h2 a:hover, > p a:hover) > h2 > a),
-		:global(div.item:has(> h2 a:hover, > p a:hover) > h2 > a) {
+		:global(div.hero:has(> h3 a:hover, > p a:hover) > h3 > a),
+		:global(div.item:has(> h3 a:hover, > p a:hover) > h3 > a) {
 			@apply text-signal;
 		}
 
-		:global(div.hero:has(> h2 a:hover, > p a:hover) > p img),
-		:global(div.item:has(> h2 a:hover, > p a:hover) > p img) {
+		:global(div.hero:has(> h3 a:hover, > p a:hover) > p img),
+		:global(div.item:has(> h3 a:hover, > p a:hover) > p img) {
 			@apply border-signal;
 		}
 

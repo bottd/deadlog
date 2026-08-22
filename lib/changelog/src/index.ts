@@ -8,3 +8,4 @@ export {
 } from './schema';
 export { extractEntities, extractEntityChanges, type TocEntry } from './extract';
 export { extractPreviewImage, loadAllChangelogs } from './load';
+export { changelogSourceUrl } from './source';

@@ -5,7 +5,6 @@ published "2025-08-22T21:00:03.000Z"
 author "simonne"
 category "patch"
 major_update #false
-status "draft"
 content_text "Hero Spotlight: The Doorman He's proper, he's polite, but the humble Doorman of The Baroness Hotel is more than meets the eye. A brisk ring of his Call Bell leaves nearby enemies disoriented, and his high-speed Luggage Cart knocks them right off their feet. Do you find yourself getting lost easily in the streets of Manhattan? Don't worry, The Doorman is here to provide a shortcut with his Doorway whenever the need arises. And only the most special of enemies get to experience the trip of a lifetime to The Baroness Hotel. - Please, stay as long as you'd like. You can check out The Doorman in game now. Keep your votes coming over the weekend as our next hero will be released on Monday August 25th at 2pm PST."
 ``
 

@@ -1,0 +1,13 @@
+{
+	"compilerOptions": {
+		"allowJs": false,
+		"module": "ESNext",
+		"moduleResolution": "Bundler",
+		"noEmit": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"target": "ES2022",
+		"types": ["@cloudflare/workers-types"]
+	},
+	"include": ["cloudflare-worker.ts", "src/lib/server/canonical-origin.ts"]
+}

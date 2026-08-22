@@ -1,5 +1,5 @@
 import { createContext } from 'svelte';
-import { entityNamesMatch, plural } from '@deadlog/utils';
+import { entityFragmentId, entityNamesMatch, plural } from '@deadlog/utils';
 import { changePath } from '$lib/seo';
 import type { EntityIcon } from '$lib/types';
 
@@ -29,7 +29,7 @@ export function entityPatchHref(
 	entity: EntityFilterContext
 ): string {
 	const search = new URLSearchParams({ [entity.type]: entity.name });
-	return `${changePath(patch)}?${search.toString()}`;
+	return `${changePath(patch)}?${search.toString()}#${entityFragmentId(entity.name)}`;
 }
 
 /** One wording for a patch's per-entity change count, shared by the card and the timeline. */

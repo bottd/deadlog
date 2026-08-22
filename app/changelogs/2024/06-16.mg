@@ -6,7 +6,6 @@ author "Yoshi"
 author_image "https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630"
 category "patch"
 major_update #false
-status "draft"
 content_text "Carrying the Soul Urn no longer causes your hero to be revealed to enemies"
 ``
 

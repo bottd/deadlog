@@ -113,19 +113,13 @@ export function extractPreviewImage(images: string[]): string | undefined {
 }
 
 export async function loadAllChangelogs(
-	changelogsDir: string,
-	options: { curatedOnly?: boolean } = {}
+	changelogsDir: string
 ): Promise<ParsedChangelog[]> {
-	const { curatedOnly = true } = options;
 	const files = findMogFiles(changelogsDir);
 	const changelogs: ParsedChangelog[] = [];
 
 	for (const filepath of files) {
 		const content = readFileSync(filepath, 'utf-8');
-
-		if (curatedOnly && content.includes('status "draft"')) {
-			continue;
-		}
 
 		try {
 			const { metadata: rawMetadata, body } = parseMogMetadata(content);

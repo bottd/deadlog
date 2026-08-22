@@ -15,6 +15,7 @@ import {
 	insertChangelogItemSchema
 } from '@deadlog/db';
 import {
+	changelogSourceUrl,
 	loadAllChangelogs,
 	type EntityBulletGroup,
 	type EntityChange
@@ -251,7 +252,7 @@ export async function buildDatabaseFromMog(options: BuildOptions): Promise<Build
 	);
 
 	console.log(`📂 Loading changelogs from ${changelogsDir}...`);
-	const changelogs = await loadAllChangelogs(changelogsDir, { curatedOnly: false });
+	const changelogs = await loadAllChangelogs(changelogsDir);
 	console.log(`  ✅ Found ${changelogs.length} unique changelogs`);
 	const routes: EntityRoutes = {
 		heroes: new Set(heroes.map((hero) => toSlug(hero.name))),
@@ -309,6 +310,7 @@ export async function buildDatabaseFromMog(options: BuildOptions): Promise<Build
 				id: changelogId,
 				title: metadata.title,
 				slug,
+				sourceUrl: changelogSourceUrl(metadata),
 				author: metadata.author,
 				authorImage: metadata.author_image ?? '',
 				previewImage: previewImage ?? null,

@@ -10,6 +10,7 @@
 	import { entityNamesMatch, formatDate, formatTime } from '@deadlog/utils';
 	import CornerAccents from '$lib/components/ui/corner-accents/CornerAccents.svelte';
 	import ArrowLeft from '@lucide/svelte/icons/arrow-left';
+	import ExternalLink from '@lucide/svelte/icons/external-link';
 	import Link from '@lucide/svelte/icons/link';
 	import ListIcon from '@lucide/svelte/icons/list';
 	import { toast } from 'svelte-sonner';
@@ -142,6 +143,10 @@
 					articleSection: 'Deadlock Patch Notes',
 					isAccessibleForFree: true,
 					inLanguage: 'en-US',
+					isBasedOn: {
+						'@type': 'CreativeWork',
+						url: changelog.sourceUrl
+					},
 					about: entities
 				},
 				// One entry per URL: "Deadlog" and "Patch Notes" both pointed at "/", which
@@ -370,14 +375,33 @@
 							</div>
 						</div>
 
-						<Button
-							size="icon"
-							onclick={copyLink}
-							class="text-muted-foreground hover:bg-signal/10 hover:text-signal"
-							aria-label="Copy link to clipboard"
-						>
-							<Link class="size-4" />
-						</Button>
+						<div flex="~" items="center" gap="2">
+							<a
+								href={changelog.sourceUrl}
+								target="_blank"
+								rel="external noopener noreferrer"
+								flex="~"
+								text="muted-foreground xs"
+								h="10"
+								items="center"
+								gap="2"
+								p="x-3"
+								font="mono semibold"
+								class="ui-focus-ring hover:bg-primary/10 hover:text-primary rounded-md transition-colors"
+								aria-label="View original patch notes"
+							>
+								<ExternalLink class="size-4" />
+								<span class="hidden sm:inline">Original</span>
+							</a>
+							<Button
+								size="icon"
+								onclick={copyLink}
+								class="text-muted-foreground hover:bg-signal/10 hover:text-signal"
+								aria-label="Copy link to clipboard"
+							>
+								<Link class="size-4" />
+							</Button>
+						</div>
 					</div>
 
 					<hr border="none" class="editorial-divider" />
