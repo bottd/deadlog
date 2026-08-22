@@ -13,9 +13,18 @@
 
 {#if showScrollTop}
 	<button
+		flex="~"
 		type="button"
 		onclick={scrollToTop}
-		class="bg-primary text-primary-foreground fixed right-8 bottom-8 z-50 flex size-12 items-center justify-center rounded-full shadow-lg transition-all hover:scale-110 hover:opacity-80 active:scale-95"
+		bg="primary"
+		text="primary-foreground"
+		fixed
+		z="50"
+		items="center"
+		justify="center"
+		rounded="full"
+		shadow="lg"
+		class="right-8 bottom-8 size-12 transition-all hover:scale-110 hover:opacity-80 active:scale-95"
 		aria-label="Scroll to top"
 		in:fly={{ y: 10, duration: 250, easing: quintOut }}
 		out:fly={{ y: 10, duration: 200 }}

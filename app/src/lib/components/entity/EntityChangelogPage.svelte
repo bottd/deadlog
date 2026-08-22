@@ -131,23 +131,31 @@
 </script>
 
 {#snippet statLabel(text: string)}
-	<dt class="text-muted-foreground font-mono text-[9px] tracking-widest uppercase">
+	<dt text="muted-foreground" class="kicker text-[9px]">
 		{text}
 	</dt>
 {/snippet}
 
 <main class="bg-wire-grid min-h-screen">
-	<div class="container mx-auto mt-6 mb-24 max-w-6xl px-3 sm:mt-8 sm:px-4">
+	<div container m="x-auto t-6 b-24" p="x-3" class="max-w-6xl sm:mt-8 sm:px-4">
 		<a
 			href={listing.path}
-			class="text-muted-foreground hover:text-signal mb-6 inline-flex min-h-6 items-center gap-2 text-sm transition-colors sm:mb-8"
+			text="muted-foreground sm"
+			m="b-6"
+			items="center"
+			gap="2"
+			class="hover:text-signal inline-flex min-h-6 transition-colors sm:mb-8"
 		>
 			<ArrowLeft class="size-4" />
 			<span>Back to {listing.label.toLowerCase()}</span>
 		</a>
 
 		<header
-			class="clip-corner-lg bg-card relative mb-10 overflow-hidden border-2 p-5 sm:p-8 lg:p-10"
+			bg="card"
+			relative
+			m="b-10"
+			p="5"
+			class="border-2 clip-corner-lg overflow-hidden sm:p-8 lg:p-10"
 			style:border-color="color-mix(in oklab, {accent} 42%, var(--border))"
 		>
 			<CornerAccents
@@ -158,32 +166,44 @@
 				brColor="bg-primary/35"
 			/>
 			<div
-				class="pointer-events-none absolute inset-0"
+				absolute
+				class="pointer-events-none inset-0"
 				style:background="radial-gradient(circle at 12% 20%, color-mix(in oklab, {accent} 18%,
 				transparent), transparent 42%)"
 				aria-hidden="true"
 			></div>
 			<div
-				class="pointer-events-none absolute inset-x-0 top-0 h-px"
+				absolute
+				h="px"
+				class="pointer-events-none inset-x-0 top-0"
 				style:background="linear-gradient(to right, {accent}, var(--signal), transparent
 				78%)"
 				aria-hidden="true"
 			></div>
 
 			<div
-				class="relative z-10 grid gap-7 md:grid-cols-[auto_minmax(0,1fr)] md:items-center"
+				relative
+				z="10"
+				gap="7"
+				class="grid md:grid-cols-[auto_minmax(0,1fr)] md:items-center"
 			>
 				{#if entity.image}
-					<div class="relative mx-auto shrink-0 md:mx-0">
+					<div relative m="x-auto" shrink="0" class="md:mx-0">
 						<div
-							class="absolute inset-2 -z-10 blur-2xl"
+							absolute
+							class="inset-2 -z-10 blur-2xl"
 							style:background-color={accent}
 							style:opacity={isItem ? '0.22' : '0.24'}
 							aria-hidden="true"
 						></div>
 						{#if isItem}
 							<div
-								class="clip-corner-sm bg-muted/30 flex size-32 items-center justify-center border-2 p-3 sm:size-40 lg:size-44"
+								flex="~"
+								bg="muted/30"
+								items="center"
+								justify="center"
+								p="3"
+								class="border-2 clip-corner-sm size-32 sm:size-40 lg:size-44"
 								style:border-color={accent}
 							>
 								<img
@@ -197,7 +217,10 @@
 							</div>
 						{:else}
 							<div
-								class="clip-corner-sm bg-muted/30 relative border-2 p-1.5"
+								bg="muted/30"
+								relative
+								p="1.5"
+								class="border-2 clip-corner-sm"
 								style:border-color={accent}
 							>
 								<img
@@ -213,14 +236,20 @@
 					</div>
 				{/if}
 
-				<div class="min-w-0 text-center md:text-left">
+				<div text="center" class="min-w-0 md:text-left">
 					<div
-						class="mb-3 flex flex-wrap items-center justify-center gap-2 md:justify-start"
+						m="b-3"
+						flex="~ wrap"
+						items="center"
+						justify="center"
+						gap="2"
+						class="md:justify-start"
 					>
-						<span class="h-px w-7" style:background-color={accent} aria-hidden="true"
-						></span>
+						<span h="px" w="7" style:background-color={accent} aria-hidden="true"></span>
 						<span
-							class="font-mono text-[10px] font-bold tracking-[0.22em] uppercase"
+							font="mono bold"
+							uppercase
+							class="text-[10px] tracking-[0.22em]"
 							style:color={accent}
 						>
 							{label}
@@ -228,49 +257,60 @@
 						{@render labelSuffix?.()}
 					</div>
 					<h1
-						class="heading-glow font-display text-foreground text-4xl leading-none font-medium tracking-wide break-words sm:text-5xl lg:text-6xl"
+						font="display medium"
+						text="foreground 4xl"
+						class="heading-glow leading-none tracking-wide break-words sm:text-5xl lg:text-6xl"
 					>
 						{entity.name}
 					</h1>
-					<p class="text-muted-foreground mt-3 max-w-2xl text-sm leading-relaxed">
+					<p text="muted-foreground sm" m="t-3" class="max-w-2xl leading-relaxed">
 						{lede}
 					</p>
 
-					<dl class="mt-6 grid grid-cols-2 gap-px overflow-hidden border sm:grid-cols-5">
-						<div class="bg-muted/30 p-3 text-left">
+					<dl
+						m="t-6"
+						grid="~ cols-2"
+						gap="px"
+						class="overflow-hidden sm:grid-cols-5 border"
+					>
+						<div bg="muted/30" p="3" text="left">
 							{@render statLabel('Patches')}
-							<dd class="text-foreground mt-1 font-mono text-xl font-bold">
+							<dd text="foreground xl" m="t-1" font="mono bold">
 								{changelogs.length}
 							</dd>
 						</div>
-						<div class="bg-muted/30 p-3 text-left">
+						<div bg="muted/30" p="3" text="left">
 							{@render statLabel('Changes')}
-							<dd class="mt-1 font-mono text-xl font-bold" style:color={accent}>
+							<dd m="t-1" font="mono bold" text="xl" style:color={accent}>
 								{changeValue}
 							</dd>
 						</div>
-						<div class="bg-muted/30 p-3 text-left">
+						<div bg="muted/30" p="3" text="left">
 							{@render statLabel('Current streak')}
-							<dd class="text-foreground mt-1 font-mono text-xl font-bold">
+							<dd text="foreground xl" m="t-1" font="mono bold">
 								{streaks.current}
 							</dd>
 						</div>
-						<div class="bg-muted/30 p-3 text-left">
+						<div bg="muted/30" p="3" text="left">
 							{@render statLabel('Longest run')}
-							<dd class="text-foreground mt-1 font-mono text-xl font-bold">
+							<dd text="foreground xl" m="t-1" font="mono bold">
 								{streaks.longest}
 							</dd>
 						</div>
-						<div class="bg-muted/30 col-span-2 p-3 text-left sm:col-span-1">
+						<div bg="muted/30" p="3" text="left" class="col-span-2 sm:col-span-1">
 							{@render statLabel('Tracked since')}
-							<dd class="text-foreground mt-1 text-sm font-semibold">
+							<dd text="foreground sm" m="t-1" font="semibold">
 								{oldestPatch ? formatDate(oldestPatch.date) : 'No patches yet'}
 							</dd>
 						</div>
 					</dl>
 					{#if unknownPatches > 0}
 						<p
-							class="text-muted-foreground mt-2 font-mono text-[9px] tracking-wide uppercase"
+							text="muted-foreground"
+							m="t-2"
+							font="mono"
+							uppercase
+							class="text-[9px] tracking-wide"
 						>
 							{unknownPatches}
 							{plural(unknownPatches, 'patch', 'patches')} awaiting a reliable count
@@ -280,14 +320,12 @@
 			</div>
 
 			{#if changelogs.length > 1}
-				<div class="border-border/60 relative z-10 mt-7 border-t pt-5">
-					<div class="mb-2 flex items-center justify-between gap-3">
-						<span
-							class="text-muted-foreground font-mono text-[9px] font-bold tracking-widest uppercase"
-						>
+				<div border="border/60 t" relative z="10" m="t-7" p="t-5">
+					<div flex="~" m="b-2" items="center" justify="between" gap="3">
+						<span text="muted-foreground" font="bold" class="kicker text-[9px]">
 							Patch cadence
 						</span>
-						<span class="text-muted-foreground font-mono text-[9px]">
+						<span text="muted-foreground" font="mono" class="text-[9px]">
 							{changelogs.length} points
 						</span>
 					</div>
@@ -297,14 +335,21 @@
 		</header>
 
 		{#if abilities.length > 0}
-			<section aria-label="Abilities" class="mb-10">
+			<section aria-label="Abilities" m="b-10">
 				<p
-					class="text-signal mb-3 font-mono text-[10px] font-bold tracking-[0.2em] uppercase"
+					text="signal"
+					m="b-3"
+					font="mono bold"
+					uppercase
+					class="text-[10px] tracking-[0.2em]"
 				>
 					Abilities — click to filter the log
 				</p>
 				<div
-					class="grid auto-rows-fr grid-cols-1 items-stretch gap-3 sm:grid-cols-2 lg:grid-cols-4"
+					grid="~ cols-1"
+					items="stretch"
+					gap="3"
+					class="auto-rows-fr sm:grid-cols-2 lg:grid-cols-4"
 				>
 					{#each abilities as ability (ability.slug)}
 						{@const selected = selectedAbility === ability.slug}
@@ -319,7 +364,7 @@
 								? undefined
 								: 'color-mix(in oklab, ' + accent + ' 24%, var(--border))'}
 						>
-							<div class="flex items-center gap-2.5">
+							<div flex="~" items="center" gap="2.5">
 								<img
 									src={ability.image}
 									alt=""
@@ -329,13 +374,16 @@
 									decoding="async"
 									class="size-8 rounded object-cover"
 								/>
-								<span class="text-foreground text-sm font-semibold">
+								<span text="foreground sm" font="semibold">
 									{ability.name}
 								</span>
 							</div>
 							{#if ability.description}
 								<span
-									class="text-muted-foreground mt-2 line-clamp-2 block text-xs leading-relaxed"
+									text="muted-foreground xs"
+									m="t-2"
+									block
+									class="line-clamp-2 leading-relaxed"
 								>
 									{ability.description}
 								</span>
@@ -347,21 +395,27 @@
 		{/if}
 
 		<section aria-labelledby="history-heading">
-			<div class="mb-6 flex items-end justify-between gap-4">
+			<div flex="~" m="b-6" items="end" justify="between" gap="4">
 				<div>
 					<p
-						class="text-signal font-mono text-[10px] font-bold tracking-[0.2em] uppercase"
+						text="signal"
+						font="mono bold"
+						uppercase
+						class="text-[10px] tracking-[0.2em]"
 					>
 						Entity log
 					</p>
 					<h2
 						id="history-heading"
-						class="font-display text-foreground mt-1 text-2xl font-medium tracking-wide sm:text-3xl"
+						font="display medium"
+						text="foreground 2xl"
+						m="t-1"
+						class="tracking-wide sm:text-3xl"
 					>
 						Change History
 					</h2>
 				</div>
-				<span class="text-muted-foreground font-mono text-xs">
+				<span text="muted-foreground xs" font="mono">
 					{visibleChangelogs.length}
 					{plural(visibleChangelogs.length, 'patch', 'patches')}
 				</span>
@@ -369,18 +423,27 @@
 
 			{#if selectedAbilityName}
 				<div
-					class="clip-corner-sm border-signal/30 bg-signal/5 mb-6 flex flex-wrap items-center gap-x-3 gap-y-1 border px-4 py-2.5 text-sm"
+					border="signal/30 ~"
+					bg="signal/5"
+					m="b-6"
+					flex="~ wrap"
+					items="center"
+					gap="x-3 y-1"
+					p="x-4 y-2.5"
+					text="sm"
+					class="clip-corner-sm"
 				>
-					<span
-						class="text-muted-foreground font-mono text-[10px] tracking-widest uppercase"
-					>
-						Filtered to
-					</span>
-					<span class="text-foreground font-medium">{selectedAbilityName}</span>
+					<span text="muted-foreground" class="kicker text-[10px]"> Filtered to </span>
+					<span text="foreground" font="medium">{selectedAbilityName}</span>
 					<button
 						type="button"
 						onclick={() => toggleAbility(selectedAbility ?? '')}
-						class="text-signal ml-auto inline-flex items-center gap-1 font-mono text-xs font-semibold hover:underline"
+						text="signal xs"
+						m="l-auto"
+						items="center"
+						gap="1"
+						font="mono semibold"
+						class="inline-flex hover:underline"
 					>
 						<XIcon class="size-3.5" />
 						Show all changes
@@ -389,41 +452,48 @@
 			{/if}
 
 			{#if visibleChangelogs.length > 0}
-				<ol class="m-0 list-none space-y-4 p-0">
+				<ol m="0" list="none" space="y-4" p="0">
 					{#each visibleChangelogs as changelog (changelog.id)}
 						<li
-							class="clip-corner-sm bg-card relative overflow-hidden border p-4 sm:p-5"
+							bg="card"
+							relative
+							p="4"
+							class="clip-corner-sm overflow-hidden sm:p-5 border"
 							style:border-color="color-mix(in oklab, {accent} 24%, var(--border))"
 						>
 							<div
-								class="pointer-events-none absolute inset-x-0 top-0 h-px"
+								absolute
+								h="px"
+								class="pointer-events-none inset-x-0 top-0"
 								style:background="linear-gradient(to right, {accent}, transparent 75%)"
 								aria-hidden="true"
 							></div>
-							<div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+							<div flex="~ wrap" items="baseline" gap="x-3 y-1">
 								<h3>
 									<a
 										href={entityPatchHref(changelog, entity)}
-										class="text-foreground hover:text-signal text-sm font-semibold transition-colors"
+										text="foreground sm"
+										font="semibold"
+										class="hover:text-signal transition-colors"
 									>
 										<time datetime={changelog.date.toISOString()}>
 											{formatDate(changelog.date)}
 										</time>
 									</a>
 								</h3>
-								<span class="font-mono text-xs" style:color={accent}>
+								<span font="mono" text="xs" style:color={accent}>
 									{changeCountLabel(changelog.changeCount)}
 								</span>
-								<span class="text-muted-foreground ml-auto truncate text-xs">
+								<span text="muted-foreground xs" m="l-auto" truncate>
 									by {changelog.author}
 								</span>
 							</div>
 							{#if changelog.changeGroups?.length}
-								<div class="mt-3 space-y-3">
+								<div m="t-3" space="y-3">
 									{#each changelog.changeGroups as group, gi (gi)}
 										<div>
 											{#if group.ability}
-												<div class="mb-1.5 flex items-center gap-2">
+												<div flex="~" m="b-1.5" items="center" gap="2">
 													{#if group.icon}
 														<img
 															src={group.icon}
@@ -435,7 +505,7 @@
 															class="size-6 rounded object-cover"
 														/>
 													{/if}
-													<h4 class="text-foreground text-sm font-semibold">
+													<h4 text="foreground sm" font="semibold">
 														{group.ability}
 													</h4>
 												</div>
@@ -445,7 +515,9 @@
 											>
 												{#each group.bullets as bullet, i (i)}
 													<li
-														class="text-foreground/90 before:bg-primary/40 relative text-sm leading-relaxed before:absolute before:top-[0.55em] before:-left-4 before:size-1.5 before:rounded-full before:content-['']"
+														text="foreground/90 sm"
+														relative
+														class="before:bg-primary/40 leading-relaxed before:absolute before:top-[0.55em] before:-left-4 before:size-1.5 before:rounded-full before:content-['']"
 													>
 														{bullet}
 													</li>
@@ -455,11 +527,12 @@
 									{/each}
 								</div>
 							{:else}
-								<p class="text-muted-foreground mt-3 text-sm">
+								<p text="muted-foreground sm" m="t-3">
 									{entity.name} was mentioned in this patch —
 									<a
 										href={entityPatchHref(changelog, entity)}
-										class="text-signal hover:underline">details in the full notes</a
+										text="signal"
+										class="hover:underline">details in the full notes</a
 									>.
 								</p>
 							{/if}
@@ -468,14 +541,19 @@
 				</ol>
 			{:else}
 				<div
-					class="clip-corner border-border bg-card relative overflow-hidden border-2 p-8 text-center sm:p-12"
+					border="border 2"
+					bg="card"
+					relative
+					p="8"
+					text="center"
+					class="clip-corner overflow-hidden sm:p-12"
 				>
 					<CornerAccents tlSize="2rem" tlColor="bg-signal/50" />
 					<EmptyIcon class="text-signal/60 mx-auto mb-4 size-8" />
-					<p class="text-muted-foreground font-mono text-xs tracking-wide uppercase">
+					<p text="muted-foreground xs" font="mono" uppercase class="tracking-wide">
 						No log entries
 					</p>
-					<p class="text-foreground mt-2 text-lg">
+					<p text="foreground lg" m="t-2">
 						No recorded changes for {selectedAbilityName ?? entity.name}.
 					</p>
 				</div>

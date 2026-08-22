@@ -212,18 +212,15 @@
 	</Command.List>
 
 	{#if availableOptionCount > MAX_OPTIONS}
-		<p
-			class="border-border text-muted-foreground border-t px-3 py-2 text-xs"
-			role="status"
-		>
+		<p border="border t" text="muted-foreground xs" p="x-3 y-2" role="status">
 			Showing the first {MAX_OPTIONS} of {availableOptionCount} matches. Type to narrow the
 			list.
 		</p>
 	{/if}
 {/snippet}
 
-<div class="sticky z-40 w-full" style="top: max(64px, env(safe-area-inset-top));">
-	<div class="relative">
+<div sticky z="40" w="full" style="top: max(64px, env(safe-area-inset-top));">
+	<div relative>
 		<div class="hidden sm:block">
 			<Command.Root
 				bind:value={desktopCommandValue}
@@ -239,7 +236,7 @@
 					class="filter-form flex"
 				>
 					{@render filterFields()}
-					<div class="flex min-w-0 flex-1 flex-wrap items-center gap-1.5">
+					<div flex="~ 1 wrap" items="center" gap="1.5" class="min-w-0">
 						{@render selectedFilters()}
 						<input
 							id="filter-input"
@@ -257,7 +254,9 @@
 								: undefined}
 							autocomplete="off"
 							{placeholder}
-							class="placeholder:text-muted-foreground min-w-[200px] flex-1 bg-transparent outline-none"
+							flex="1"
+							bg="transparent"
+							class="placeholder:text-muted-foreground min-w-[200px] outline-none"
 							bind:value={filterState.inputValue}
 							onfocus={() => (open = true)}
 							oninput={() => (open = true)}
@@ -270,7 +269,10 @@
 							type="button"
 							onclick={clearAll}
 							onkeydown={(event) => event.stopPropagation()}
-							class="hover:bg-secondary shrink-0 rounded-sm p-1 transition-colors"
+							shrink="0"
+							rounded="sm"
+							p="1"
+							class="hover:bg-secondary transition-colors"
 							aria-label="Clear all filters"
 						>
 							<XIcon class="text-muted-foreground size-4" />
@@ -278,13 +280,19 @@
 					{/if}
 
 					<button
+						flex="~"
 						type="submit"
 						onkeydown={(event) => event.stopPropagation()}
-						class="bg-primary -my-[10px] -mr-[13px] flex shrink-0 items-center self-stretch rounded-r px-3 transition-colors hover:opacity-80"
+						bg="primary"
+						shrink="0"
+						items="center"
+						rounded="r"
+						p="x-3"
+						class="-my-[10px] -mr-[13px] self-stretch transition-colors hover:opacity-80"
 						aria-label="Search changelog"
 						title="Search changelog"
 					>
-						<SearchIcon class="text-primary-foreground size-5 stroke-[2.5]" />
+						<SearchIcon class="text-primary-foreground size-5 stroke-2.5" />
 					</button>
 				</form>
 
@@ -298,7 +306,9 @@
 			{#if open}
 				<button
 					type="button"
-					class="fixed inset-0 z-40"
+					fixed
+					z="40"
+					class="inset-0"
 					onclick={() => (open = false)}
 					aria-label="Close filter options"
 					tabindex="-1"
@@ -309,15 +319,22 @@
 		<form
 			method="GET"
 			action={resolve('/', {})}
-			class="filter-form no-js-mobile-filter flex-wrap"
+			flex="wrap"
+			class="filter-form no-js-mobile-filter"
 		>
 			{@render filterFields()}
 			{#if selectedHeroObjects.length > 0 || selectedItemObjects.length > 0 || params.major}
-				<div class="flex w-full flex-wrap items-center gap-1.5 pb-1">
+				<div flex="~ wrap" w="full" items="center" gap="1.5" p="b-1">
 					{#each selectedHeroObjects as hero (hero.key)}
 						<a
 							href={filterRemovalHref('hero', hero.index)}
-							class="border-primary/30 bg-primary/10 text-foreground inline-flex items-center gap-1 rounded border px-2 py-1 text-xs"
+							border="primary/30 ~"
+							bg="primary/10"
+							text="foreground xs"
+							items="center"
+							gap="1"
+							p="x-2 y-1"
+							class="inline-flex rounded"
 							aria-label="Remove Hero filter: {hero.name}"
 						>
 							Hero: {hero.name}
@@ -327,7 +344,13 @@
 					{#each selectedItemObjects as item (item.key)}
 						<a
 							href={filterRemovalHref('item', item.index)}
-							class="border-signal/30 bg-signal/10 text-foreground inline-flex items-center gap-1 rounded border px-2 py-1 text-xs"
+							border="signal/30 ~"
+							bg="signal/10"
+							text="foreground xs"
+							items="center"
+							gap="1"
+							p="x-2 y-1"
+							class="inline-flex rounded"
 							aria-label="Remove Item filter: {item.name}"
 						>
 							Item: {item.name}
@@ -337,7 +360,12 @@
 					{#if params.major}
 						<a
 							href={filterRemovalHref('major')}
-							class="bg-secondary text-secondary-foreground inline-flex items-center gap-1 rounded px-2 py-1 text-xs"
+							bg="secondary"
+							text="secondary-foreground xs"
+							items="center"
+							gap="1"
+							p="x-2 y-1"
+							class="inline-flex rounded"
 							aria-label="Remove Major patches filter"
 						>
 							Major patches
@@ -346,7 +374,10 @@
 					{/if}
 					<a
 						href={resolve('/', {})}
-						class="text-muted-foreground ml-auto text-xs underline underline-offset-2"
+						text="muted-foreground xs"
+						m="l-auto"
+						underline
+						class="underline-offset-2"
 					>
 						Clear all
 					</a>
@@ -360,11 +391,16 @@
 				maxlength={MAX_QUERY_LENGTH}
 				value={params.q}
 				placeholder="Search the changelog..."
-				class="placeholder:text-muted-foreground min-w-0 flex-1 bg-transparent outline-none"
+				flex="1"
+				bg="transparent"
+				class="placeholder:text-muted-foreground min-w-0 outline-none"
 			/>
 			<button
 				type="submit"
-				class="bg-primary text-primary-foreground -my-2 -mr-3 px-3"
+				bg="primary"
+				text="primary-foreground"
+				p="x-3"
+				class="-my-2 -mr-3"
 				aria-label="Search changelog"
 			>
 				<SearchIcon class="size-5" />
@@ -372,10 +408,10 @@
 		</form>
 
 		<div class="filter-form enhanced-mobile-filter">
-			<div class="flex min-w-0 flex-1 flex-wrap items-center gap-1.5">
+			<div flex="~ 1 wrap" items="center" gap="1.5" class="min-w-0">
 				{@render selectedFilters()}
 				{#if selectedHeroObjects.length === 0 && selectedItemObjects.length === 0}
-					<span class="text-muted-foreground flex-1">Search the changelog</span>
+					<span text="muted-foreground" flex="1">Search the changelog</span>
 				{/if}
 			</div>
 
@@ -383,7 +419,10 @@
 				<button
 					type="button"
 					onclick={clearAll}
-					class="hover:bg-secondary shrink-0 rounded-sm p-1 transition-colors"
+					shrink="0"
+					rounded="sm"
+					p="1"
+					class="hover:bg-secondary transition-colors"
 					aria-label="Clear all filters"
 				>
 					<XIcon class="text-muted-foreground size-4" />
@@ -393,17 +432,16 @@
 			<Sheet.Root bind:open={sheetOpen}>
 				<Sheet.Trigger>
 					{#snippet child({ props })}
-						<Button
-							{...props}
-							type="button"
-							variant="ghost"
-							size="sm"
-							class="text-muted-foreground"
-						>
+						<Button {...props} type="button" size="sm" class="text-muted-foreground">
 							<FilterIcon class="size-4" />
 							<span>Filters</span>
 							{#if filterCount > 0}
-								<span class="bg-primary text-primary-foreground rounded px-1 text-[10px]">
+								<span
+									bg="primary"
+									text="primary-foreground"
+									p="x-1"
+									class="rounded text-[10px]"
+								>
 									{filterCount}
 								</span>
 							{/if}
@@ -412,12 +450,15 @@
 				</Sheet.Trigger>
 
 				<Sheet.Content
-					side="bottom"
 					class="max-h-[85vh] rounded-t-xl"
 					style="padding-bottom: max(1.5rem, var(--safe-area-inset-bottom));"
 				>
 					<div
-						class="bg-muted mx-auto mb-4 h-1 w-12 rounded-full"
+						bg="muted"
+						m="x-auto b-4"
+						h="1"
+						w="12"
+						rounded="full"
 						aria-hidden="true"
 					></div>
 					<Sheet.Header>
@@ -442,12 +483,20 @@
 							{@render filterFields()}
 							<label
 								for={MOBILE_INPUT_ID}
-								class="text-foreground mb-1.5 block text-sm font-medium"
+								text="foreground sm"
+								m="b-1.5"
+								block
+								font="medium"
 							>
 								Hero, item, or keyword
 							</label>
 							<div
-								class="border-border flex items-center gap-2 rounded-md border px-3 py-2"
+								flex="~"
+								border="border ~"
+								items="center"
+								gap="2"
+								rounded="md"
+								p="x-3 y-2"
 							>
 								<SearchIcon class="text-muted-foreground size-4 shrink-0" />
 								<input
@@ -463,13 +512,15 @@
 									aria-activedescendant={getOptionId('mobile', mobileCommandValue)}
 									autocomplete="off"
 									placeholder="Search heroes, items, or patch text..."
-									class="placeholder:text-muted-foreground min-w-0 flex-1 bg-transparent text-sm outline-none"
+									flex="1"
+									bg="transparent"
+									text="sm"
+									class="placeholder:text-muted-foreground min-w-0 outline-none"
 									bind:value={filterState.inputValue}
 									onkeydown={(event) => handleComboboxKeydown(event, true)}
 								/>
 								<Button
 									type="submit"
-									variant="ghost"
 									size="sm"
 									onkeydown={(event) => event.stopPropagation()}
 								>
@@ -487,8 +538,6 @@
 </div>
 
 <style lang="postcss">
-	@reference "../../../app.css";
-
 	.filter-form {
 		@apply min-h-[44px] w-full items-center gap-2 rounded-md border-2 px-3 py-2 text-sm transition-colors;
 		@apply border-border bg-card/80 text-foreground backdrop-blur-sm;

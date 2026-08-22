@@ -15,10 +15,19 @@
 	href={src}
 	target="_blank"
 	rel="noopener noreferrer"
-	class="video-link border-border/60 bg-card/60 text-muted-foreground hover:border-signal/50 hover:text-foreground focus-visible:ring-ring my-2 inline-flex items-center gap-2 rounded-md border px-2.5 py-1.5 text-xs font-medium no-underline transition-colors focus-visible:ring-2 focus-visible:outline-none"
+	border="border/60 ~"
+	bg="card/60"
+	text="muted-foreground xs"
+	m="y-2"
+	items="center"
+	gap="2"
+	rounded="md"
+	p="x-2.5 y-1.5"
+	font="medium"
+	class="video-link hover:border-signal/50 hover:text-foreground focus-visible:ring-ring inline-flex no-underline transition-colors focus-visible:ring-2 focus-visible:outline-none"
 	aria-label="{label} — video clip, opens on the Deadlock forums"
 >
 	<Clapperboard class="text-signal size-3.5 shrink-0" aria-hidden="true" />
-	<span class="truncate">{label}</span>
+	<span truncate>{label}</span>
 	<ExternalLink class="size-3 shrink-0 opacity-60" aria-hidden="true" />
 </a>

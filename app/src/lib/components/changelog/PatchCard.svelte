@@ -31,13 +31,19 @@
 	/>
 	{#if isNew}
 		<span
-			class="bg-primary text-primary-foreground absolute top-0 right-0 z-20 px-1.5 py-0.5 font-mono text-[9px] font-bold tracking-widest uppercase"
+			bg="primary"
+			text="primary-foreground"
+			absolute
+			z="20"
+			p="x-1.5 y-0.5"
+			font="bold"
+			class="kicker top-0 right-0 text-[9px]"
 		>
 			New
 		</span>
 	{/if}
 
-	<div class="border-border/70 relative h-28 shrink-0 overflow-hidden border-b">
+	<div border="border/70 b" relative h="28" shrink="0" class="overflow-hidden">
 		{#if patch.previewImage}
 			<img
 				data-patch-preview
@@ -50,7 +56,9 @@
 				class="size-full object-cover transition-transform duration-500 group-hover:scale-105"
 			/>
 			<div
-				class="from-card/0 via-card/10 to-card/55 pointer-events-none absolute inset-0 bg-gradient-to-b"
+				absolute
+				bg="gradient-to-b"
+				class="from-card/0 via-card/10 to-card/55 pointer-events-none inset-0"
 				aria-hidden="true"
 			></div>
 		{:else}
@@ -61,19 +69,24 @@
 				height="360"
 				loading="lazy"
 				decoding="async"
-				class="size-full object-cover opacity-25"
+				op="25"
+				class="size-full object-cover"
 			/>
 		{/if}
 	</div>
 	<div
-		class="from-primary/0 group-hover:from-primary/5 pointer-events-none absolute inset-0 bg-gradient-to-br to-transparent transition-all duration-200"
+		absolute
+		bg="gradient-to-br"
+		class="from-primary/0 group-hover:from-primary/5 pointer-events-none inset-0 to-transparent transition-all duration-200"
 	></div>
 
-	<div class="z-10 flex flex-1 flex-col gap-3 p-4">
+	<div z="10" flex="~ 1 col" gap="3" p="4">
 		<div>
-			<div class="mb-1.5 flex items-center gap-2">
+			<div flex="~" m="b-1.5" items="center" gap="2">
 				<h2
-					class="text-foreground group-hover:text-primary line-clamp-2 min-w-0 text-base font-semibold tracking-tight transition-colors duration-300"
+					text="foreground base"
+					font="semibold"
+					class="group-hover:text-primary line-clamp-2 min-w-0 tracking-tight transition-colors duration-300"
 				>
 					<!-- Stretched link — see FeaturedPatchCard. -->
 					<a
@@ -86,13 +99,20 @@
 				</h2>
 				{#if isMajor}
 					<span
-						class="clip-corner-sm border-primary/40 bg-primary/15 text-primary ml-auto shrink-0 border px-1.5 py-0.5 font-mono text-[9px] font-bold tracking-widest uppercase"
+						border="primary/40 ~"
+						bg="primary/15"
+						text="primary"
+						m="l-auto"
+						shrink="0"
+						p="x-1.5 y-0.5"
+						font="bold"
+						class="kicker clip-corner-sm text-[9px]"
 					>
 						Major
 					</span>
 				{/if}
 			</div>
-			<div class="text-muted-foreground flex items-center gap-2 text-xs">
+			<div flex="~" text="muted-foreground xs" items="center" gap="2">
 				<Avatar.Root
 					class="border-primary/20 group-hover:border-primary/50 size-5 border transition-all duration-300"
 				>
@@ -101,7 +121,7 @@
 						>{view.initials}</Avatar.Fallback
 					>
 				</Avatar.Root>
-				<span class="truncate">{patch.author}</span>
+				<span truncate>{patch.author}</span>
 				{#if view.named}
 					<span aria-hidden="true">&middot;</span>
 					<time datetime={patch.date.toISOString()}>{view.date}</time>
@@ -110,20 +130,23 @@
 		</div>
 
 		{#if patch.summary}
-			<p class="text-muted-foreground line-clamp-2 text-xs leading-snug">
+			<p text="muted-foreground xs" class="line-clamp-2 leading-snug">
 				{patch.summary}
 			</p>
 		{/if}
 
 		{#each view.rows as row (row.type)}
 			{@const isItems = row.type === 'items'}
-			<div class="flex items-center gap-1.5">
-				<div class="flex -space-x-1.5">
+			<div flex="~" items="center" gap="1.5">
+				<div class="flex [&>*+*]:-ml-1.5">
 					{#each row.list as icon, i (icon.id)}
 						<a
 							href={links.entityHref(icon)}
 							aria-label="Jump to {icon.alt} in this patch"
-							class="focus-visible:outline-primary relative z-10 rounded-md focus-visible:outline-2 focus-visible:outline-offset-2"
+							relative
+							z="10"
+							rounded="md"
+							class="focus-visible:outline-primary focus-visible:outline-2 focus-visible:outline-offset-2"
 						>
 							<img
 								src={icon.src}
@@ -155,11 +178,19 @@
 			</div>
 		{/each}
 
-		<div class="border-border/50 mt-auto flex items-center gap-3 border-t pt-3 text-xs">
+		<div
+			flex="~"
+			border="border/50 t"
+			m="t-auto"
+			items="center"
+			gap="3"
+			p="t-3"
+			text="xs"
+		>
 			{#each view.counts as count (count.noun)}
-				<span class="flex items-baseline gap-1">
+				<span flex="~" items="baseline" gap="1">
 					<span class="font-mono font-bold {count.tone}">{count.n}</span>
-					<span class="text-muted-foreground">{count.noun}</span>
+					<span text="muted-foreground">{count.noun}</span>
 				</span>
 			{/each}
 			<ArrowRight

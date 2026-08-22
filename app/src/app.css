@@ -1,6 +1,4 @@
-@import 'tailwindcss';
-@import 'tw-animate-css';
-
+/* Fonts */
 @font-face {
 	font-family: 'Archivo';
 	src: url('/fonts/Archivo-VariableFont_wdth,wght.woff2') format('woff2');
@@ -97,64 +95,41 @@
 	--input: var(--border-default);
 	--ring: var(--accent-500);
 	--editorial-divider: var(--border-default);
+
+	/* Category accents remain distinct and legible when used as small text on cards. */
+	--type-marksman: #ebc06d;
+	--type-mystic: #cf9bc2;
+	--type-brawler: #da806f;
+	--type-assassin: #85b695;
+	--item-weapon: #e49b5d;
+	--item-vitality: #85b695;
+	--item-spirit: #cf9bc2;
 }
 
-@theme inline {
-	--font-sans: 'Archivo', ui-sans-serif, system-ui, sans-serif;
-	--font-display: 'Oswald', ui-sans-serif, sans-serif;
-	--font-mono: 'JetBrains Mono', ui-monospace, monospace;
-
-	--radius-sm: calc(var(--radius) - 4px);
-	--radius-md: calc(var(--radius) - 2px);
-	--radius-lg: var(--radius);
-	--radius-xl: calc(var(--radius) + 4px);
-	--color-background: var(--background);
-	--color-foreground: var(--foreground);
-	--color-card: var(--card);
-	--color-card-foreground: var(--card-foreground);
-	--color-card-accent: var(--card-accent);
-	--color-popover: var(--popover);
-	--color-popover-foreground: var(--popover-foreground);
-	--color-primary: var(--primary);
-	--color-primary-foreground: var(--primary-foreground);
-	--color-primary-subtle: var(--primary-subtle);
-	--color-signal: var(--signal);
-	--color-signal-foreground: var(--signal-foreground);
-	--color-signal-subtle: var(--signal-subtle);
-	--color-secondary: var(--secondary);
-	--color-secondary-foreground: var(--secondary-foreground);
-	--color-muted: var(--muted);
-	--color-muted-foreground: var(--muted-foreground);
-	--color-accent: var(--accent);
-	--color-accent-foreground: var(--accent-foreground);
-	--color-destructive: var(--destructive);
-	--color-border: var(--border);
-	--color-input: var(--input);
-	--color-ring: var(--ring);
+* {
+	border-color: var(--border);
+	outline-color: color-mix(in oklab, var(--ring) 50%, transparent);
 }
 
-@layer base {
-	* {
-		@apply border-border outline-ring/50;
-	}
-	html {
-		scroll-padding-top: 12rem;
-	}
-	html,
-	body {
-		@apply bg-background text-foreground font-sans antialiased;
-		padding-top: var(--safe-area-inset-top);
-		padding-right: var(--safe-area-inset-right);
-		padding-bottom: var(--safe-area-inset-bottom);
-		padding-left: var(--safe-area-inset-left);
-		font-feature-settings:
-			'kern' 1,
-			'liga' 1,
-			'calt' 1;
-		text-rendering: optimizeLegibility;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-	}
+html {
+	scroll-padding-top: 12rem;
+}
+
+html,
+body {
+	color: var(--foreground);
+	background-color: var(--background);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	padding-top: var(--safe-area-inset-top);
+	padding-right: var(--safe-area-inset-right);
+	padding-bottom: var(--safe-area-inset-bottom);
+	padding-left: var(--safe-area-inset-left);
+	font-feature-settings:
+		'kern' 1,
+		'liga' 1,
+		'calt' 1;
+	text-rendering: optimizeLegibility;
 }
 
 .bg-wire-grid {

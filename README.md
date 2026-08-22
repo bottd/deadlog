@@ -9,7 +9,7 @@ A changelog site for Deadlock
   - Cloudflare D1 (`drizzle-orm/d1`)
 - PNPM
 - SvelteKit
-- Tailwind CSS
+- UnoCSS
 - TypeScript
 - Playwright
 - [Deadlock API](https://deadlock-api.com)

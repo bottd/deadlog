@@ -113,10 +113,10 @@
 								? 'size-7 rounded object-cover'
 								: 'size-4 rounded object-cover'}
 						/>
-						<span class="truncate">{entity.alt}</span>
+						<span truncate>{entity.alt}</span>
 					</a>
 					{#if abilities.length > 0}
-						<ul class="space-y-px">
+						<ul space="y-px">
 							{#each abilities as ability, i (i)}
 								{@const image = abilityImage(entity.id, ability)}
 								<li>
@@ -143,7 +143,7 @@
 												aria-hidden="true"
 											></span>
 										{/if}
-										<span class="truncate">{ability.title}</span>
+										<span truncate>{ability.title}</span>
 									</a>
 								</li>
 							{/each}
@@ -160,10 +160,14 @@
 	aria-label="Table of contents"
 >
 	{#if size === 'sm'}
-		<div class="bg-signal/50 mb-4 h-px w-8" aria-hidden="true"></div>
+		<div bg="signal/50" m="b-4" h="px" w="8" aria-hidden="true"></div>
 
 		<h2
-			class="text-muted-foreground mb-4 font-mono text-[10px] font-bold tracking-[0.2em] uppercase"
+			text="muted-foreground"
+			m="b-4"
+			font="mono bold"
+			uppercase
+			class="text-[10px] tracking-[0.2em]"
 		>
 			Contents
 		</h2>
@@ -199,8 +203,6 @@
 </nav>
 
 <style lang="postcss">
-	@reference "../../../app.css";
-
 	.toc-section {
 		@apply text-foreground/80 hover:text-signal relative flex items-center gap-2 py-1 pl-3 text-xs font-semibold tracking-tight transition-colors;
 	}

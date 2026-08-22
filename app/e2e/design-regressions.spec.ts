@@ -165,7 +165,7 @@ test('semantic accent colors remain legible on their UI surfaces', async ({
 			const primary = token('--primary');
 			const signal = token('--signal');
 			const reference = document.createElement('span');
-			reference.style.color = 'var(--signal)';
+			reference.style.color = 'color-mix(in srgb, var(--signal) 100%, transparent)';
 			document.body.append(reference);
 			const searchLabel = [...document.querySelectorAll('header span')].find(
 				(element) => element.textContent?.trim() === 'Search by hero, item, or keyword'
@@ -200,6 +200,99 @@ test('semantic accent colors remain legible on their UI surfaces', async ({
 	for (const ratio of values.text) expect(ratio).toBeGreaterThanOrEqual(4.5);
 	for (const ratio of values.controls) expect(ratio).toBeGreaterThanOrEqual(3);
 	expect(values.headerUsesFullSignal).toBe(true);
+});
+
+test('toasts resolve semantic colors without Tailwind theme aliases', async ({
+	context,
+	page
+}, testInfo) => {
+	test.skip(
+		testInfo.project.name !== 'desktop-chromium',
+		'One browser color calculation is enough'
+	);
+	await context.grantPermissions(['clipboard-read', 'clipboard-write'], {
+		origin: 'http://localhost:4173'
+	});
+	await gotoApp(page, LATEST_CHANGE);
+	await page.getByRole('button', { name: 'Copy link to clipboard' }).click();
+
+	const toast = page
+		.locator('[data-sonner-toast]')
+		.filter({ hasText: 'Copied to clipboard' });
+	await expect(toast).toBeVisible();
+	const colors = await toast.evaluate((element) => {
+		const reference = document.createElement('div');
+		reference.style.backgroundColor = 'var(--popover)';
+		reference.style.color = 'var(--popover-foreground)';
+		reference.style.borderColor = 'var(--border)';
+		document.body.append(reference);
+
+		const actual = getComputedStyle(element);
+		const expected = getComputedStyle(reference);
+		const result = {
+			actual: [actual.backgroundColor, actual.color, actual.borderColor],
+			expected: [expected.backgroundColor, expected.color, expected.borderColor]
+		};
+		reference.remove();
+		return result;
+	});
+	expect(colors.actual).toEqual(colors.expected);
+});
+
+test('classified entity pages resolve their restored category accents', async ({
+	page
+}, testInfo) => {
+	test.skip(
+		testInfo.project.name !== 'desktop-chromium',
+		'One browser color calculation is enough'
+	);
+
+	const expectTokenColor = async (label: string, token: string) => {
+		const element = page.getByText(label, { exact: true });
+		await expect(element).toBeVisible();
+		const colors = await element.evaluate((target, tokenName) => {
+			const tokenValue = getComputedStyle(document.documentElement)
+				.getPropertyValue(tokenName)
+				.trim();
+			const reference = document.createElement('span');
+			reference.style.color = `var(${tokenName})`;
+			document.body.append(reference);
+			const result = {
+				actual: getComputedStyle(target).color,
+				expected: getComputedStyle(reference).color,
+				tokenValue
+			};
+			reference.remove();
+			return result;
+		}, token);
+
+		expect(colors.tokenValue).not.toBe('');
+		expect(colors.actual).toBe(colors.expected);
+	};
+
+	await gotoApp(page, '/hero/abrams');
+	await expectTokenColor('brawler hero', '--type-brawler');
+	await gotoApp(page, '/item/active-reload');
+	await expectTokenColor('Weapon item', '--item-weapon');
+});
+
+test('the mobile sheet close control uses the shared focus-visible ring', async ({
+	page
+}, testInfo) => {
+	test.skip(testInfo.project.name !== 'mobile-chromium', 'Mobile sheet regression');
+	await gotoApp(page, '/');
+	await page.getByRole('button', { name: /Filters/ }).click();
+
+	const close = page.getByRole('button', { name: 'Close' });
+	await expect(close).toBeVisible();
+	await close.focus();
+	await page.keyboard.press('Tab');
+	await page.keyboard.press('Shift+Tab');
+	await expect(close).toBeFocused();
+	const boxShadow = await close.evaluate(
+		(element) => getComputedStyle(element).boxShadow
+	);
+	expect(boxShadow).toMatch(/0px 0px 0px 3px/);
 });
 
 test('entity aliases render as selected and toggle without duplication', async ({
@@ -362,7 +455,8 @@ test('changelog contents surface ability icons on a card', async ({ page }, test
 	expect(abilityBox!.x).toBeGreaterThan(heroBox!.x);
 	const abilityUsesMutedText = await ability.evaluate((element) => {
 		const reference = document.createElement('span');
-		reference.style.color = 'var(--muted-foreground)';
+		reference.style.color =
+			'color-mix(in srgb, var(--muted-foreground) 100%, transparent)';
 		document.body.append(reference);
 		const matches = getComputedStyle(element).color === getComputedStyle(reference).color;
 		reference.remove();

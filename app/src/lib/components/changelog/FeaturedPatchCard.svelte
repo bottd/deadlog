@@ -13,12 +13,19 @@
 	const links = $derived(patchCardHrefs(patch));
 </script>
 
-<div class="group relative col-span-full mb-8 block">
+<div relative m="b-8" block class="group col-span-full">
 	<div
-		class="clip-corner-lg card-glow border-primary/40 bg-card hover:border-primary/70 relative flex flex-col overflow-hidden border-2 transition-all duration-200 hover:shadow-2xl active:scale-[0.99] md:flex-row md:items-stretch"
+		border="primary/40 2"
+		bg="card"
+		relative
+		flex="~ col"
+		class="clip-corner-lg card-glow hover:border-primary/70 overflow-hidden transition-all duration-200 hover:shadow-2xl active:scale-[0.99] md:flex-row md:items-stretch"
 	>
 		<div
-			class="from-primary/0 via-signal/5 to-signal/10 pointer-events-none absolute inset-0 bg-gradient-to-r opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+			absolute
+			bg="gradient-to-r"
+			op="0"
+			class="from-primary/0 via-signal/5 to-signal/10 pointer-events-none inset-0 transition-opacity duration-200 group-hover:opacity-100"
 		></div>
 		<CornerAccents
 			tlSize="4rem"
@@ -29,22 +36,27 @@
 			class="z-20"
 		/>
 
-		<div class="z-10 flex flex-1 flex-col gap-5 p-6 md:p-8">
-			<div class="flex items-center gap-4">
+		<div z="10" flex="~ 1 col" gap="5" p="6" class="md:p-8">
+			<div flex="~" items="center" gap="4">
 				<div
-					class="pulse-glow clip-corner-sm border-primary/30 bg-primary/15 inline-flex items-center gap-2 border px-4 py-1.5"
+					border="primary/30 ~"
+					bg="primary/15"
+					items="center"
+					gap="2"
+					p="x-4 y-1.5"
+					class="pulse-glow clip-corner-sm inline-flex"
 					in:fly={{ x: -20, duration: 500, easing: backOut }}
 				>
 					<Zap class="text-primary size-4" />
-					<span class="text-primary font-mono text-xs font-bold tracking-widest uppercase"
-						>Latest Patch</span
-					>
+					<span text="primary xs" font="bold" class="kicker">Latest Patch</span>
 				</div>
-				<div class="bg-signal/30 h-px flex-1"></div>
+				<div bg="signal/30" h="px" flex="1"></div>
 			</div>
 
 			<h2
-				class="heading-glow font-display text-foreground group-hover:text-primary text-3xl font-medium tracking-wide transition-colors duration-300 md:text-4xl"
+				font="display medium"
+				text="foreground 3xl"
+				class="heading-glow group-hover:text-primary tracking-wide transition-colors duration-300 md:text-4xl"
 				in:fly={{ y: 20, duration: 400, delay: 100 }}
 			>
 				<!-- Stretched link: the whole card is clickable, but crawlers and
@@ -58,7 +70,7 @@
 				</a>
 			</h2>
 
-			<div class="flex items-center gap-3">
+			<div flex="~" items="center" gap="3">
 				<Avatar.Root
 					class="border-primary/30 group-hover:border-primary size-8 border-2 transition-all duration-300"
 				>
@@ -67,12 +79,14 @@
 						>{view.initials}</Avatar.Fallback
 					>
 				</Avatar.Root>
-				<span class="text-foreground text-sm font-medium">{patch.author}</span>
+				<span text="foreground sm" font="medium">{patch.author}</span>
 				{#if view.named}
-					<span class="text-muted-foreground" aria-hidden="true">&middot;</span>
+					<span text="muted-foreground" aria-hidden="true">&middot;</span>
 					<time
 						datetime={patch.date.toISOString()}
-						class="text-muted-foreground font-mono text-xs tracking-wide"
+						text="muted-foreground xs"
+						font="mono"
+						class="tracking-wide"
 					>
 						{view.date}
 					</time>
@@ -80,24 +94,27 @@
 			</div>
 
 			{#if patch.summary}
-				<p class="text-muted-foreground max-w-2xl text-sm leading-relaxed">
+				<p text="muted-foreground sm" class="max-w-2xl leading-relaxed">
 					{patch.summary}
 				</p>
 			{/if}
 
 			{#if view.rows.length > 0}
-				<div class="mt-2 flex flex-col gap-3">
+				<div m="t-2" flex="~ col" gap="3">
 					{#each view.rows as row (row.type)}
-						<div class="flex items-center gap-3">
+						<div flex="~" items="center" gap="3">
 							<span class="w-14 font-mono text-xs tracking-wider uppercase {row.tone}"
 								>{row.label}</span
 							>
-							<div class="flex -space-x-2">
+							<div class="flex [&>*+*]:-ml-2">
 								{#each row.list as icon, i (icon.id)}
 									<a
 										href={links.entityHref(icon)}
 										aria-label="Jump to {icon.alt} in this patch"
-										class="focus-visible:outline-primary relative z-10 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2"
+										relative
+										z="10"
+										rounded="lg"
+										class="focus-visible:outline-primary focus-visible:outline-2 focus-visible:outline-offset-2"
 									>
 										<img
 											src={icon.src}
@@ -106,7 +123,11 @@
 											height="40"
 											loading="lazy"
 											decoding="async"
-											class="border-primary/20 bg-card hover:border-primary size-9 rounded-lg border-2 object-cover shadow-md transition-all duration-300 hover:z-20 hover:-translate-y-1 hover:scale-110"
+											border="primary/20 2"
+											bg="card"
+											rounded="lg"
+											shadow="md"
+											class="hover:border-primary size-9 object-cover transition-all duration-300 hover:z-20 hover:-translate-y-1 hover:scale-110"
 											in:scale={{
 												start: 0,
 												duration: 400,
@@ -125,11 +146,11 @@
 				</div>
 			{/if}
 
-			<div class="border-border/50 mt-auto flex items-center gap-6 border-t pt-4">
+			<div flex="~" border="border/50 t" m="t-auto" items="center" gap="6" p="t-4">
 				{#each view.counts as count (count.noun)}
-					<span class="flex items-baseline gap-1.5">
+					<span flex="~" items="baseline" gap="1.5">
 						<span class="font-mono text-2xl font-bold {count.tone}">{count.n}</span>
-						<span class="text-muted-foreground text-sm">{count.noun}</span>
+						<span text="muted-foreground sm">{count.noun}</span>
 					</span>
 				{/each}
 			</div>
@@ -148,10 +169,13 @@
 					width="640"
 					height="360"
 					decoding="async"
-					class="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-105"
+					absolute
+					class="inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-105"
 				/>
 				<div
-					class="from-card/10 via-card/55 to-card/95 absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r"
+					absolute
+					bg="gradient-to-t"
+					class="from-card/10 via-card/55 to-card/95 inset-0 md:bg-gradient-to-r"
 					aria-hidden="true"
 				></div>
 			{:else}
@@ -162,27 +186,34 @@
 					height="360"
 					loading="lazy"
 					decoding="async"
-					class="absolute inset-0 size-full object-cover opacity-25"
+					absolute
+					op="25"
+					class="inset-0 size-full object-cover"
 				/>
 			{/if}
-			<div class="relative z-10 flex flex-col items-center gap-3 text-center">
+			<div relative z="10" flex="~ col" items="center" gap="3" text="center">
 				<div
-					class="pulse-glow bg-primary text-primary-foreground flex size-14 items-center justify-center rounded-xl shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl"
+					flex="~"
+					bg="primary"
+					text="primary-foreground"
+					items="center"
+					justify="center"
+					rounded="xl"
+					shadow="lg"
+					class="pulse-glow size-14 transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl"
 				>
 					<ArrowRight
 						class="size-6 transition-transform duration-300 group-hover:translate-x-1"
 					/>
 				</div>
-				<span class="text-foreground text-sm font-semibold">View Full Patch</span>
+				<span text="foreground sm" font="semibold">View Full Patch</span>
 			</div>
 		</div>
 	</div>
 
-	<div class="mt-2 flex items-center gap-4 px-4">
-		<div class="bg-signal/35 h-px flex-1"></div>
-		<span class="text-muted-foreground font-mono text-[10px] tracking-widest uppercase"
-			>Previous Updates</span
-		>
-		<div class="bg-primary/30 h-px flex-1"></div>
+	<div flex="~" m="t-2" items="center" gap="4" p="x-4">
+		<div bg="signal/35" h="px" flex="1"></div>
+		<span text="muted-foreground" class="kicker text-[10px]">Previous Updates</span>
+		<div bg="primary/30" h="px" flex="1"></div>
 	</div>
 </div>

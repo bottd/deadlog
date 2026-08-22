@@ -1,31 +1,17 @@
 <script lang="ts" module>
-	import { cn, type WithElementRef } from '$lib/utils.js';
+	import type { WithElementRef } from '$lib/utils.js';
 	import type { HTMLAnchorAttributes, HTMLButtonAttributes } from 'svelte/elements';
-	import { type VariantProps, tv } from 'tailwind-variants';
 
-	export const buttonVariants = tv({
-		base: "focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium outline-none transition-all active:scale-[0.97] focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0",
-		variants: {
-			variant: {
-				ghost: 'hover:bg-accent hover:text-accent-foreground'
-			},
-			size: {
-				sm: 'h-8 gap-1.5 rounded-md px-3 has-[>svg]:px-2.5',
-				icon: 'size-9'
-			}
-		},
-		defaultVariants: {
-			variant: 'ghost',
-			size: 'sm'
-		}
-	});
+	export type ButtonSize = 'sm' | 'icon';
 
-	export type ButtonVariant = VariantProps<typeof buttonVariants>['variant'];
-	export type ButtonSize = VariantProps<typeof buttonVariants>['size'];
+	/** Spelled out so UnoCSS's extractor sees the shortcut names as literals. */
+	export const buttonSizes = {
+		sm: 'btn-sm',
+		icon: 'btn-icon'
+	} satisfies Record<ButtonSize, string>;
 
 	export type ButtonProps = WithElementRef<HTMLButtonAttributes> &
 		WithElementRef<HTMLAnchorAttributes> & {
-			variant?: ButtonVariant;
 			size?: ButtonSize;
 		};
 </script>
@@ -33,7 +19,6 @@
 <script lang="ts">
 	let {
 		class: className,
-		variant = 'ghost',
 		size = 'sm',
 		ref = $bindable(null),
 		href = undefined,
@@ -48,7 +33,7 @@
 	<a
 		bind:this={ref}
 		data-slot="button"
-		class={cn(buttonVariants({ variant, size }), className)}
+		class="btn-ghost {buttonSizes[size]} {className ?? ''}"
 		href={disabled ? undefined : href}
 		aria-disabled={disabled}
 		role={disabled ? 'link' : undefined}
@@ -61,7 +46,7 @@
 	<button
 		bind:this={ref}
 		data-slot="button"
-		class={cn(buttonVariants({ variant, size }), className)}
+		class="btn-ghost {buttonSizes[size]} {className ?? ''}"
 		{type}
 		{disabled}
 		{...restProps}

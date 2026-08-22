@@ -19,14 +19,12 @@
 </script>
 
 {#if heroes.length > 0}
-	<div class="mb-6">
-		<span
-			class="text-muted-foreground mb-2 block font-mono text-[10px] tracking-widest uppercase"
-		>
+	<div m="b-6">
+		<span text="muted-foreground" m="b-2" block class="kicker text-[10px]">
 			&mdash; Filter by hero
 		</span>
-		<div class="-mx-4 overflow-x-auto px-4 pb-1 sm:mx-0 sm:overflow-visible sm:px-0">
-			<div class="flex w-max gap-1.5 sm:w-auto sm:flex-wrap">
+		<div p="x-4 b-1" class="-mx-4 overflow-x-auto sm:mx-0 sm:overflow-visible sm:px-0">
+			<div flex="~" w="max" gap="1.5" class="sm:w-auto sm:flex-wrap">
 				{#each heroes as hero (hero.id)}
 					{@const selected = hasEntity(params.hero, hero.name)}
 					<button
