@@ -39,13 +39,14 @@
 		{#each icons as icon (icon.name)}
 			<li>
 				<a
+					flex="~"
 					href="#{icon.slug}"
 					border="border/60 ~"
 					items="center"
 					gap="1.5"
 					rounded="sm"
 					p="y-0.5 r-2 l-0.5"
-					class="group/badge hover:border-primary/30 hover:bg-primary/5 transition-colors flex"
+					class="group/badge hover:border-primary/30 hover:bg-primary/5 transition-colors"
 				>
 					<img
 						src={icon.image}

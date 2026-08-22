@@ -156,7 +156,7 @@
 </script>
 
 {#snippet stat(count: number, label: string, tone: string)}
-	<span items="baseline" gap="1" class="flex">
+	<span flex="~" items="baseline" gap="1">
 		<span class="font-mono font-bold {tone}">{count}</span>
 		<span text="muted-foreground">{label}</span>
 	</span>
@@ -211,14 +211,7 @@
 			class="clip-corner-sm"
 		>
 			{#if mogFilter}
-				<span
-					text="muted-foreground"
-					font="mono"
-					uppercase
-					class="text-[10px] tracking-widest"
-				>
-					Filtered to
-				</span>
+				<span text="muted-foreground" class="kicker text-[10px]"> Filtered to </span>
 				<span text="foreground" font="medium">{matchedLabel}</span>
 			{:else}
 				<span text="muted-foreground">
@@ -240,6 +233,7 @@
 
 	{#if showToc}
 		<button
+			flex="~"
 			type="button"
 			onclick={() => (tocOpen = true)}
 			border="border ~"
@@ -252,7 +246,7 @@
 			p="x-3"
 			font="mono semibold"
 			uppercase
-			class="clip-corner-sm hover:border-signal hover:text-signal tracking-wider transition-colors xl:hidden flex"
+			class="clip-corner-sm hover:border-signal hover:text-signal tracking-wider transition-colors xl:hidden"
 			aria-label="Open table of contents"
 		>
 			<ListIcon class="size-4" />
@@ -260,7 +254,7 @@
 		</button>
 	{/if}
 
-	<div gap="8" class="flex">
+	<div flex="~" gap="8">
 		{#if showToc}
 			<aside w="56" shrink="0" class="hidden xl:block">
 				<div
@@ -301,15 +295,14 @@
 				<header m="b-8">
 					<div m="b-6" flex="~ wrap" items="start" justify="between" gap="4">
 						<div flex="~ col" gap="4">
-							<div items="center" gap="3" class="flex">
+							<div flex="~" items="center" gap="3">
 								<span
 									border="primary/20 ~"
 									bg="primary/10"
 									text="primary"
 									p="x-2 y-0.5"
-									font="mono bold"
-									uppercase
-									class="rounded text-[10px] tracking-widest"
+									font="bold"
+									class="kicker rounded text-[10px]"
 								>
 									{changelog.category ?? 'patch'}
 								</span>
@@ -330,8 +323,8 @@
 								{displayTitle}
 							</h1>
 
-							<div items="center" gap="4" class="flex">
-								<div text="muted-foreground sm" items="center" gap="2.5" class="flex">
+							<div flex="~" items="center" gap="4">
+								<div flex="~" text="muted-foreground sm" items="center" gap="2.5">
 									<Avatar.Root
 										class="border-primary/30 ring-primary/10 size-7 border ring-2"
 									>
@@ -357,7 +350,7 @@
 
 								{#if heroCount > 0 || itemCount > 0}
 									<div bg="border" h="4" w="px" aria-hidden="true"></div>
-									<div items="center" gap="3" text="xs" class="flex">
+									<div flex="~" items="center" gap="3" text="xs">
 										{#if heroCount > 0}
 											{@render stat(
 												heroCount,

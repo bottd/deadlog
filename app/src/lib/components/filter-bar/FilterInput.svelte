@@ -280,6 +280,7 @@
 					{/if}
 
 					<button
+						flex="~"
 						type="submit"
 						onkeydown={(event) => event.stopPropagation()}
 						bg="primary"
@@ -287,7 +288,7 @@
 						items="center"
 						rounded="r"
 						p="x-3"
-						class="-my-[10px] -mr-[13px] self-stretch transition-colors hover:opacity-80 flex"
+						class="-my-[10px] -mr-[13px] self-stretch transition-colors hover:opacity-80"
 						aria-label="Search changelog"
 						title="Search changelog"
 					>
@@ -490,12 +491,12 @@
 								Hero, item, or keyword
 							</label>
 							<div
+								flex="~"
 								border="border ~"
 								items="center"
 								gap="2"
 								rounded="md"
 								p="x-3 y-2"
-								class="flex"
 							>
 								<SearchIcon class="text-muted-foreground size-4 shrink-0" />
 								<input

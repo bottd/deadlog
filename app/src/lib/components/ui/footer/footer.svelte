@@ -7,17 +7,19 @@
 
 	<div container m="x-auto" flex="~ col" items="center" gap="6" p="x-4">
 		<a
+			flex="~"
 			href="/"
 			items="center"
 			gap="3"
-			class="group transition-opacity hover:opacity-80 flex"
+			class="group transition-opacity hover:opacity-80"
 		>
 			<div
+				flex="~"
 				bg="signal/10"
 				items="center"
 				justify="center"
 				rounded="md"
-				class="group-hover:bg-signal/15 size-7 transition-colors flex"
+				class="group-hover:bg-signal/15 size-7 transition-colors"
 			>
 				<Crosshair class="text-signal size-3.5" />
 			</div>
@@ -51,7 +53,7 @@
 			</p>
 		</div>
 
-		<div items="center" gap="4" class="flex">
+		<div flex="~" items="center" gap="4">
 			<div bg="signal/20" h="px" w="10"></div>
 			<span
 				text="muted-foreground/40"

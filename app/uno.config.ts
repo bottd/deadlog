@@ -55,11 +55,12 @@ export default defineConfig({
 		},
 
 		/**
-		 * Tailwind 4 expresses these leadings as unitless ratios, so an arbitrary
-		 * override like `text-[10px]` rescales the line box with it; presetWind4 ships
-		 * absolute values, which do not. The site leans on that behaviour in ~40 places
-		 * (small mono labels sized in px), so keep the ratios. Each one still computes to
-		 * presetWind4's own value when no override is present.
+		 * Unitless leadings, as Tailwind 4 wrote them. `text-[10px]` sets font-size and
+		 * nothing else, so its line box comes from whatever an ancestor established — and
+		 * a ratio re-scales on inherit where presetWind4's absolute `1.25rem` would not.
+		 * The small mono labels (41 `text-[Npx]` sites) sit inside `text-sm`/`text-xs`
+		 * containers and depend on that. Each entry still computes to presetWind4's own
+		 * value at its own size, so nothing else moves.
 		 */
 		text: {
 			xs: { fontSize: '0.75rem', lineHeight: 'calc(1 / 0.75)' },
@@ -133,6 +134,9 @@ export default defineConfig({
 		sheet: 'fixed z-50 flex flex-col gap-4 bg-background shadow-lg',
 		'sheet-bottom': 'sheet inset-x-0 bottom-0 h-auto border-t',
 		popover: 'z-50 rounded-md border bg-popover text-popover-foreground shadow-md',
+
+		/** The small mono all-caps label used as a section kicker in 12 places. */
+		kicker: 'font-mono uppercase tracking-widest',
 
 		'menu-item':
 			'relative flex cursor-default select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden aria-selected:(bg-accent text-accent-foreground) data-[disabled]:(pointer-events-none op-50) [&_svg]:(pointer-events-none shrink-0)'

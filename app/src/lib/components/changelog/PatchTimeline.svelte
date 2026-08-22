@@ -43,7 +43,7 @@
 </script>
 
 {#snippet timelineRow(visiblePatches: Patch[])}
-	<div relative items="start" justify="between" class="flex">
+	<div flex="~" relative items="start" justify="between">
 		<div
 			absolute
 			h="px"
@@ -57,6 +57,7 @@
 					<Tooltip.Trigger>
 						{#snippet child({ props })}
 							<a
+								flex="~"
 								{...props}
 								href={entityPatchHref(patch, entity)}
 								bg="card"
@@ -64,7 +65,7 @@
 								items="center"
 								justify="center"
 								rounded="full"
-								class="focus-visible:ring-ring size-6 transition-transform hover:scale-110 focus-visible:ring-2 focus-visible:outline-none flex"
+								class="focus-visible:ring-ring size-6 transition-transform hover:scale-110 focus-visible:ring-2 focus-visible:outline-none"
 								aria-label="View {entity.name} in the {formatDate(
 									patch.date
 								)} patch, {changeCountLabel(patch.changeCount)}"

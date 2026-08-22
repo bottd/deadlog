@@ -17,21 +17,23 @@
 >
 	<div container m="x-auto" p="x-4">
 		<nav aria-label="Primary navigation">
-			<div h="16" items="center" justify="between" class="md:h-20 flex">
+			<div flex="~" h="16" items="center" justify="between" class="md:h-20">
 				<a
+					flex="~"
 					href="/"
 					aria-label="deadlog.io - Home"
 					items="center"
 					gap="4"
-					class="group transition-all duration-300 flex"
+					class="group transition-all duration-300"
 				>
 					<div relative>
 						<div
+							flex="~"
 							bg="primary/10"
 							items="center"
 							justify="center"
 							rounded="lg"
-							class="group-hover:bg-primary/20 size-10 transition-all duration-300 flex"
+							class="group-hover:bg-primary/20 size-10 transition-all duration-300"
 						>
 							<Crosshair
 								class="text-primary size-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-45"
@@ -52,7 +54,7 @@
 					</div>
 
 					<div flex="~ col">
-						<div items="baseline" gap="2" class="flex">
+						<div flex="~" items="baseline" gap="2">
 							<span
 								font="display medium"
 								text="foreground 2xl"
@@ -81,7 +83,7 @@
 					</div>
 				</a>
 
-				<div items="center" gap="1" class="sm:gap-2 flex">
+				<div flex="~" items="center" gap="1" class="sm:gap-2">
 					<a
 						href="/heroes"
 						aria-current={heroesActive ? 'page' : undefined}
@@ -104,14 +106,7 @@
 			</div>
 		</nav>
 		<div flex="~ col" gap="2">
-			<span
-				text="signal xs"
-				items="center"
-				gap="2"
-				font="mono medium"
-				uppercase
-				class="tracking-widest flex"
-			>
+			<span flex="~" text="signal xs" items="center" gap="2" font="medium" class="kicker">
 				<span bg="signal/60" h="px" w="3"></span>
 				Search by hero, item, or keyword
 			</span>

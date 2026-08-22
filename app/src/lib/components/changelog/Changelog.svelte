@@ -113,27 +113,23 @@
 
 			<div
 				data-patch-grid
-				grid="cols-1"
+				grid="~ cols-1"
 				gap="4"
-				class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+				class="sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
 			>
 				{#each gridEntries as entry, i (entry.id)}
 					{#if i === firstSeenIdx && firstSeenIdx > 0}
 						<div
+							flex="~"
 							role="presentation"
 							aria-hidden="true"
 							m="y-1 b-4"
 							items="center"
 							gap="4"
-							class="col-span-full flex"
+							class="col-span-full"
 						>
 							<div bg="signal/35" h="px" flex="1"></div>
-							<span
-								text="signal"
-								font="mono bold"
-								uppercase
-								class="text-[10px] tracking-widest"
-							>
+							<span text="signal" font="bold" class="kicker text-[10px]">
 								{newCount} new since your last visit
 							</span>
 							<div bg="primary/30" h="px" flex="1"></div>
@@ -166,12 +162,13 @@
 			>
 				<CornerAccents tlSize="2rem" tlColor="bg-muted-foreground/30" />
 				<div
+					flex="~"
 					border="border ~"
 					bg="muted/30"
 					m="x-auto b-6"
 					items="center"
 					justify="center"
-					class="clip-corner-sm size-20 flex"
+					class="clip-corner-sm size-20"
 				>
 					<Frown class="text-muted-foreground size-10" />
 				</div>
@@ -243,7 +240,7 @@
 						{@attach loadMoreWhenVisible}
 					></div>
 				{:else}
-					<div items="center" gap="4" class="flex" in:fly={{ y: 10, duration: 400 }}>
+					<div flex="~" items="center" gap="4" in:fly={{ y: 10, duration: 400 }}>
 						<div bg="primary/30" h="px" w="16"></div>
 						<p text="muted-foreground xs" font="mono" uppercase class="tracking-wider">
 							End of Log

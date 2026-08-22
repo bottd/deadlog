@@ -95,14 +95,9 @@
 	</header>
 
 	<section aria-labelledby="{kind}-directory-heading">
-		<div m="b-5" items="end" justify="between" gap="4" class="flex">
+		<div flex="~" m="b-5" items="end" justify="between" gap="4">
 			<div>
-				<p
-					text="muted-foreground"
-					font="mono"
-					uppercase
-					class="text-[10px] tracking-widest"
-				>
+				<p text="muted-foreground" class="kicker text-[10px]">
 					{listEyebrow}
 				</p>
 				<h2
@@ -142,9 +137,9 @@
 
 		{#if filtered.length > 0}
 			<ul
-				grid="cols-1"
+				grid="~ cols-1"
 				gap="3"
-				class="grid min-[360px]:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
+				class="min-[360px]:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
 			>
 				{#each filtered as entry, index (entry.id)}
 					<li>
@@ -155,6 +150,7 @@
 							<CornerAccents tlSize="1rem" {...t.cardAccents} />
 							{#if kind === 'item'}
 								<div
+									flex="~"
 									border="border ~"
 									bg="background"
 									shrink="0"
@@ -162,7 +158,7 @@
 									justify="center"
 									rounded="md"
 									p="1.5"
-									class="size-12 flex"
+									class="size-12"
 								>
 									<img
 										src={entry.image}

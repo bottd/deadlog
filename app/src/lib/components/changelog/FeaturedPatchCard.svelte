@@ -37,7 +37,7 @@
 		/>
 
 		<div z="10" flex="~ 1 col" gap="5" p="6" class="md:p-8">
-			<div items="center" gap="4" class="flex">
+			<div flex="~" items="center" gap="4">
 				<div
 					border="primary/30 ~"
 					bg="primary/15"
@@ -48,9 +48,7 @@
 					in:fly={{ x: -20, duration: 500, easing: backOut }}
 				>
 					<Zap class="text-primary size-4" />
-					<span text="primary xs" font="mono bold" uppercase class="tracking-widest"
-						>Latest Patch</span
-					>
+					<span text="primary xs" font="bold" class="kicker">Latest Patch</span>
 				</div>
 				<div bg="signal/30" h="px" flex="1"></div>
 			</div>
@@ -72,7 +70,7 @@
 				</a>
 			</h2>
 
-			<div items="center" gap="3" class="flex">
+			<div flex="~" items="center" gap="3">
 				<Avatar.Root
 					class="border-primary/30 group-hover:border-primary size-8 border-2 transition-all duration-300"
 				>
@@ -104,7 +102,7 @@
 			{#if view.rows.length > 0}
 				<div m="t-2" flex="~ col" gap="3">
 					{#each view.rows as row (row.type)}
-						<div items="center" gap="3" class="flex">
+						<div flex="~" items="center" gap="3">
 							<span class="w-14 font-mono text-xs tracking-wider uppercase {row.tone}"
 								>{row.label}</span
 							>
@@ -148,9 +146,9 @@
 				</div>
 			{/if}
 
-			<div border="border/50 t" m="t-auto" items="center" gap="6" p="t-4" class="flex">
+			<div flex="~" border="border/50 t" m="t-auto" items="center" gap="6" p="t-4">
 				{#each view.counts as count (count.noun)}
-					<span items="baseline" gap="1.5" class="flex">
+					<span flex="~" items="baseline" gap="1.5">
 						<span class="font-mono text-2xl font-bold {count.tone}">{count.n}</span>
 						<span text="muted-foreground sm">{count.noun}</span>
 					</span>
@@ -195,13 +193,14 @@
 			{/if}
 			<div relative z="10" flex="~ col" items="center" gap="3" text="center">
 				<div
+					flex="~"
 					bg="primary"
 					text="primary-foreground"
 					items="center"
 					justify="center"
 					rounded="xl"
 					shadow="lg"
-					class="pulse-glow size-14 transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl flex"
+					class="pulse-glow size-14 transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl"
 				>
 					<ArrowRight
 						class="size-6 transition-transform duration-300 group-hover:translate-x-1"
@@ -212,14 +211,9 @@
 		</div>
 	</div>
 
-	<div m="t-2" items="center" gap="4" p="x-4" class="flex">
+	<div flex="~" m="t-2" items="center" gap="4" p="x-4">
 		<div bg="signal/35" h="px" flex="1"></div>
-		<span
-			text="muted-foreground"
-			font="mono"
-			uppercase
-			class="text-[10px] tracking-widest">Previous Updates</span
-		>
+		<span text="muted-foreground" class="kicker text-[10px]">Previous Updates</span>
 		<div bg="primary/30" h="px" flex="1"></div>
 	</div>
 </div>

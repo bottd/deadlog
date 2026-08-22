@@ -36,9 +36,8 @@
 			absolute
 			z="20"
 			p="x-1.5 y-0.5"
-			font="mono bold"
-			uppercase
-			class="top-0 right-0 text-[9px] tracking-widest"
+			font="bold"
+			class="kicker top-0 right-0 text-[9px]"
 		>
 			New
 		</span>
@@ -83,7 +82,7 @@
 
 	<div z="10" flex="~ 1 col" gap="3" p="4">
 		<div>
-			<div m="b-1.5" items="center" gap="2" class="flex">
+			<div flex="~" m="b-1.5" items="center" gap="2">
 				<h2
 					text="foreground base"
 					font="semibold"
@@ -106,15 +105,14 @@
 						m="l-auto"
 						shrink="0"
 						p="x-1.5 y-0.5"
-						font="mono bold"
-						uppercase
-						class="clip-corner-sm text-[9px] tracking-widest"
+						font="bold"
+						class="kicker clip-corner-sm text-[9px]"
 					>
 						Major
 					</span>
 				{/if}
 			</div>
-			<div text="muted-foreground xs" items="center" gap="2" class="flex">
+			<div flex="~" text="muted-foreground xs" items="center" gap="2">
 				<Avatar.Root
 					class="border-primary/20 group-hover:border-primary/50 size-5 border transition-all duration-300"
 				>
@@ -139,7 +137,7 @@
 
 		{#each view.rows as row (row.type)}
 			{@const isItems = row.type === 'items'}
-			<div items="center" gap="1.5" class="flex">
+			<div flex="~" items="center" gap="1.5">
 				<div class="flex [&>*+*]:-ml-1.5">
 					{#each row.list as icon, i (icon.id)}
 						<a
@@ -181,16 +179,16 @@
 		{/each}
 
 		<div
+			flex="~"
 			border="border/50 t"
 			m="t-auto"
 			items="center"
 			gap="3"
 			p="t-3"
 			text="xs"
-			class="flex"
 		>
 			{#each view.counts as count (count.noun)}
-				<span items="baseline" gap="1" class="flex">
+				<span flex="~" items="baseline" gap="1">
 					<span class="font-mono font-bold {count.tone}">{count.n}</span>
 					<span text="muted-foreground">{count.noun}</span>
 				</span>

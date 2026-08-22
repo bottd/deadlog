@@ -1,6 +1,5 @@
 <script lang="ts">
 	import * as Command from '$lib/components/ui/command';
-	import { cn } from '$lib/utils';
 
 	interface Props {
 		id: string;
@@ -24,10 +23,9 @@
 	{id}
 	{value}
 	{onSelect}
-	class={cn(
-		'hover:bg-secondary data-[selected]:bg-secondary flex cursor-pointer items-center gap-3 rounded-sm px-3 py-2 transition-colors',
-		isSelected && bgClass
-	)}
+	class="hover:bg-secondary data-[selected]:bg-secondary flex cursor-pointer items-center gap-3 rounded-sm px-3 py-2 transition-colors {isSelected
+		? bgClass
+		: ''}"
 >
 	{#snippet child({ props })}
 		<div
@@ -52,10 +50,9 @@
 			{/if}
 			<span flex="1" class="min-w-0">
 				<span
-					class={cn(
-						'block truncate text-sm',
-						isSelected ? `font-medium ${textClass}` : 'text-foreground'
-					)}
+					class="block truncate text-sm {isSelected
+						? `font-medium ${textClass}`
+						: 'text-foreground'}"
 				>
 					{name}
 				</span>

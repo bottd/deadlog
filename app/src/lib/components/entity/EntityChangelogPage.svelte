@@ -131,7 +131,7 @@
 </script>
 
 {#snippet statLabel(text: string)}
-	<dt text="muted-foreground" font="mono" uppercase class="text-[9px] tracking-widest">
+	<dt text="muted-foreground" class="kicker text-[9px]">
 		{text}
 	</dt>
 {/snippet}
@@ -198,11 +198,12 @@
 						></div>
 						{#if isItem}
 							<div
+								flex="~"
 								bg="muted/30"
 								items="center"
 								justify="center"
 								p="3"
-								class="border-2 clip-corner-sm size-32 sm:size-40 lg:size-44 flex"
+								class="border-2 clip-corner-sm size-32 sm:size-40 lg:size-44"
 								style:border-color={accent}
 							>
 								<img
@@ -268,9 +269,9 @@
 
 					<dl
 						m="t-6"
-						grid="cols-2"
+						grid="~ cols-2"
 						gap="px"
-						class="grid overflow-hidden sm:grid-cols-5 border"
+						class="overflow-hidden sm:grid-cols-5 border"
 					>
 						<div bg="muted/30" p="3" text="left">
 							{@render statLabel('Patches')}
@@ -320,13 +321,8 @@
 
 			{#if changelogs.length > 1}
 				<div border="border/60 t" relative z="10" m="t-7" p="t-5">
-					<div m="b-2" items="center" justify="between" gap="3" class="flex">
-						<span
-							text="muted-foreground"
-							font="mono bold"
-							uppercase
-							class="text-[9px] tracking-widest"
-						>
+					<div flex="~" m="b-2" items="center" justify="between" gap="3">
+						<span text="muted-foreground" font="bold" class="kicker text-[9px]">
 							Patch cadence
 						</span>
 						<span text="muted-foreground" font="mono" class="text-[9px]">
@@ -350,10 +346,10 @@
 					Abilities — click to filter the log
 				</p>
 				<div
-					grid="cols-1"
+					grid="~ cols-1"
 					items="stretch"
 					gap="3"
-					class="grid auto-rows-fr sm:grid-cols-2 lg:grid-cols-4"
+					class="auto-rows-fr sm:grid-cols-2 lg:grid-cols-4"
 				>
 					{#each abilities as ability (ability.slug)}
 						{@const selected = selectedAbility === ability.slug}
@@ -368,7 +364,7 @@
 								? undefined
 								: 'color-mix(in oklab, ' + accent + ' 24%, var(--border))'}
 						>
-							<div items="center" gap="2.5" class="flex">
+							<div flex="~" items="center" gap="2.5">
 								<img
 									src={ability.image}
 									alt=""
@@ -399,7 +395,7 @@
 		{/if}
 
 		<section aria-labelledby="history-heading">
-			<div m="b-6" items="end" justify="between" gap="4" class="flex">
+			<div flex="~" m="b-6" items="end" justify="between" gap="4">
 				<div>
 					<p
 						text="signal"
@@ -437,14 +433,7 @@
 					text="sm"
 					class="clip-corner-sm"
 				>
-					<span
-						text="muted-foreground"
-						font="mono"
-						uppercase
-						class="text-[10px] tracking-widest"
-					>
-						Filtered to
-					</span>
+					<span text="muted-foreground" class="kicker text-[10px]"> Filtered to </span>
 					<span text="foreground" font="medium">{selectedAbilityName}</span>
 					<button
 						type="button"
@@ -504,7 +493,7 @@
 									{#each changelog.changeGroups as group, gi (gi)}
 										<div>
 											{#if group.ability}
-												<div m="b-1.5" items="center" gap="2" class="flex">
+												<div flex="~" m="b-1.5" items="center" gap="2">
 													{#if group.icon}
 														<img
 															src={group.icon}

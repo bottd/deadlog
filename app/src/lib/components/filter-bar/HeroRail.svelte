@@ -20,18 +20,11 @@
 
 {#if heroes.length > 0}
 	<div m="b-6">
-		<span
-			text="muted-foreground"
-			m="b-2"
-			block
-			font="mono"
-			uppercase
-			class="text-[10px] tracking-widest"
-		>
+		<span text="muted-foreground" m="b-2" block class="kicker text-[10px]">
 			&mdash; Filter by hero
 		</span>
 		<div p="x-4 b-1" class="-mx-4 overflow-x-auto sm:mx-0 sm:overflow-visible sm:px-0">
-			<div w="max" gap="1.5" class="sm:w-auto sm:flex-wrap flex">
+			<div flex="~" w="max" gap="1.5" class="sm:w-auto sm:flex-wrap">
 				{#each heroes as hero (hero.id)}
 					{@const selected = hasEntity(params.hero, hero.name)}
 					<button
