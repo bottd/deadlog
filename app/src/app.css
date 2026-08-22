@@ -95,6 +95,15 @@
 	--input: var(--border-default);
 	--ring: var(--accent-500);
 	--editorial-divider: var(--border-default);
+
+	/* Category accents remain distinct and legible when used as small text on cards. */
+	--type-marksman: #ebc06d;
+	--type-mystic: #cf9bc2;
+	--type-brawler: #da806f;
+	--type-assassin: #85b695;
+	--item-weapon: #e49b5d;
+	--item-vitality: #85b695;
+	--item-spirit: #cf9bc2;
 }
 
 * {

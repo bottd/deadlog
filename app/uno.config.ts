@@ -116,15 +116,15 @@ export default defineConfig({
 
 	shortcuts: {
 		/** Every focusable surface shows the same ring, so it is defined once. */
-		'focus-ring': 'outline-none focus-visible:(border-ring ring-3 ring-ring/50)',
+		'ui-focus-ring': 'outline-none focus-visible:(border-ring ring-3 ring-ring/50)',
 
-		btn: 'focus-ring inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all active:scale-[0.97] disabled:(pointer-events-none op-50) aria-disabled:(pointer-events-none op-50) [&_svg]:(pointer-events-none shrink-0)',
+		btn: 'ui-focus-ring inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all active:scale-[0.97] disabled:(pointer-events-none op-50) aria-disabled:(pointer-events-none op-50) [&_svg]:(pointer-events-none shrink-0)',
 		'btn-ghost': 'btn hover:(bg-accent text-accent-foreground)',
 		'btn-sm': 'h-8 gap-1.5 px-3',
 		'btn-icon': 'size-9',
 
 		badge:
-			'focus-ring inline-flex w-fit shrink-0 items-center justify-center gap-1 overflow-hidden whitespace-nowrap rounded-md border px-2 py-0.5 text-xs font-medium transition-[color,box-shadow] [&>svg]:(pointer-events-none size-3)',
+			'ui-focus-ring inline-flex w-fit shrink-0 items-center justify-center gap-1 overflow-hidden whitespace-nowrap rounded-md border px-2 py-0.5 text-xs font-medium transition-[color,box-shadow] [&>svg]:(pointer-events-none size-3)',
 		'badge-default':
 			'badge border-transparent bg-primary text-primary-foreground hover:bg-primary/90',
 		'badge-signal': 'badge border-signal/25 bg-signal/15 text-signal hover:bg-signal/25',

@@ -28,7 +28,7 @@
 	>
 		{@render children?.()}
 		<SheetPrimitive.Close
-			class="focus-ring absolute end-4 top-4 rounded-xs op-70 transition-opacity hover:op-100 disabled:pointer-events-none"
+			class="ui-focus-ring absolute end-4 top-4 rounded-xs op-70 transition-opacity hover:op-100 disabled:pointer-events-none"
 		>
 			<XIcon class="size-4" />
 			<span class="sr-only">Close</span>
