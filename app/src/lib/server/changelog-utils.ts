@@ -148,7 +148,7 @@ export async function buildChangePageData(db: DrizzleDB, changelog: ScrapedChang
 			icons,
 			abilityIcons
 		},
-		title: `${changelog.title} | Deadlock Patch Notes | Deadlog`,
+		title: `${changelog.title} | Deadlock Patch Notes`,
 		description,
 		// Meta previews are generated per changelog id — the filename is not the URL.
 		image: absoluteUrl(`/assets/meta/change/${changelog.id}.png`),

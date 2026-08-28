@@ -10,15 +10,29 @@ interface Env {
 	PUBLIC_COUNTERSCALE_SITE_ID: string;
 }
 
+// includeSubDomains and preload are deliberately omitted: they commit every current and
+// future subdomain to HTTPS for a year, which is a separate decision from securing
+// deadlog.io itself.
+const STRICT_TRANSPORT_SECURITY = 'max-age=31536000';
+
 const svelteKitWorker = generatedWorker as {
 	fetch(request: Request, env: Env, context: ExecutionContext): Promise<Response>;
 };
 
 export default {
 	async fetch(request, env, context) {
-		const redirect = canonicalOriginRedirect(request);
-		if (redirect) return redirect;
+		const response =
+			canonicalOriginRedirect(request) ??
+			(await svelteKitWorker.fetch(request, env, context));
 
-		return svelteKitWorker.fetch(request, env, context);
+		// Only responses served over TLS carry HSTS; user agents ignore it otherwise, and
+		// the canonical-origin redirect already upgrades plain-HTTP requests. The redirect
+		// is deliberately inside this branch: the https www -> apex 308 is the only
+		// response that ever pins a policy on www.deadlog.io.
+		if (new URL(request.url).protocol !== 'https:') return response;
+
+		const secured = new Response(response.body, response);
+		secured.headers.set('Strict-Transport-Security', STRICT_TRANSPORT_SECURITY);
+		return secured;
 	}
 } satisfies ExportedHandler<Env>;
