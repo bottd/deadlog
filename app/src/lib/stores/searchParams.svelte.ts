@@ -5,7 +5,8 @@ import { parseCSV } from '$lib/utils/csv';
 import {
 	filtersToSearchParams,
 	MAX_ENTITY_FILTERS,
-	MAX_QUERY_LENGTH
+	MAX_QUERY_LENGTH,
+	type ChangelogFilters
 } from '$lib/queries/keys';
 
 const GOTO_OPTS = { replaceState: false, keepFocus: true, noScroll: false } as const;
@@ -62,6 +63,10 @@ class SearchParamsStore {
 		return this.hero.length + this.item.length + (this.q ? 1 : 0) + (this.major ? 1 : 0);
 	}
 
+	get filters(): Required<ChangelogFilters> {
+		return { hero: this.hero, item: this.item, q: this.q, major: this.major };
+	}
+
 	update(values: ParamValues) {
 		if (building) return;
 		const nextParams = this.toURLSearchParams();
@@ -98,12 +103,7 @@ class SearchParamsStore {
 	}
 
 	toURLSearchParams(): URLSearchParams {
-		return filtersToSearchParams({
-			hero: this.hero,
-			item: this.item,
-			q: this.q,
-			major: this.major
-		});
+		return filtersToSearchParams(this.filters);
 	}
 }
 

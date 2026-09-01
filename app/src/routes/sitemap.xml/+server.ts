@@ -85,13 +85,9 @@ ${entries.map(renderEntry).join('\n')}
 </urlset>`.trim();
 
 	return new Response(sitemap, {
-		headers: {
-			'Content-Type': 'application/xml; charset=utf-8',
-			'Cache-Control':
-				'public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400',
-			'X-Content-Type-Options': 'nosniff'
-		}
+		headers: { 'Content-Type': 'application/xml; charset=utf-8' }
 	});
 };
 
-export const prerender = false;
+// Avoid scanning the build-time data again on every crawler request.
+export const prerender = true;

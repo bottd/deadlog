@@ -1,5 +1,6 @@
 import type { Handle } from '@sveltejs/kit';
 import { getDb } from '@deadlog/db';
+import { edgeCacheControlFor } from '$lib/server/cache-policy';
 
 export const handle: Handle = async ({ event, resolve }) => {
 	if (event.platform?.caches !== undefined) {
@@ -10,13 +11,8 @@ export const handle: Handle = async ({ event, resolve }) => {
 
 	const response = await resolve(event);
 
-	if (event.url.pathname === '/') {
-		response.headers.set(
-			'Cache-Control',
-			'public, max-age=0, s-maxage=3600, must-revalidate'
-		);
-		response.headers.set('Vary', 'Accept-Encoding');
-	}
+	const cacheControl = edgeCacheControlFor(event.request, response);
+	if (cacheControl) response.headers.set('Cache-Control', cacheControl);
 
 	return response;
 };

@@ -9,7 +9,6 @@ import {
 	getChangelogsByItemId,
 	getChangelogIcons,
 	getHeroAbilities,
-	getHeroByName,
 	getHeroBySlug,
 	getHeroLastModified,
 	getItemLastModified,
@@ -289,10 +288,6 @@ describe('entity history queries', () => {
 	});
 
 	it('resolves article aliases to the canonical hero row', async () => {
-		await expect(getHeroByName(db, 'Doorman')).resolves.toMatchObject({
-			name: 'The Doorman',
-			slug: 'the-doorman'
-		});
 		await expect(getHeroBySlug(db, 'doorman')).resolves.toMatchObject({
 			name: 'The Doorman',
 			slug: 'the-doorman'

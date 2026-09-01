@@ -1,8 +1,9 @@
-import { createInfiniteQuery, useQueryClient } from '@tanstack/svelte-query';
+import { createInfiniteQuery, type InfiniteData } from '@tanstack/svelte-query';
 import type { ChangelogEntry, ChangelogWireEntry } from '$lib/types';
 import {
 	changelogsListKey,
 	filtersToSearchParams,
+	INITIAL_LOAD_COUNT,
 	type ChangelogFilters
 } from '$lib/queries/keys';
 
@@ -16,19 +17,18 @@ interface WirePageData {
 	hasMore: boolean;
 }
 
-interface InfiniteData {
-	pages: PageData[];
-	pageParams: number[];
-}
-
 interface UseChangelogQueryOptions {
 	getInitialChangelogs: () => ChangelogEntry[];
-	getInitialLoadCount: () => number;
 	getTotalCount: () => number;
-	getFilters: () => Required<Omit<ChangelogFilters, 'initialCount'>>;
+	getFilters: () => Required<ChangelogFilters>;
 }
 
 const PAGE_SIZE = 12;
+
+/** The prerendered page data holds only the unfiltered feed, so it may only seed the unfiltered query. */
+function isUnfiltered(filters: ChangelogFilters): boolean {
+	return filtersToSearchParams(filters).size === 0;
+}
 
 function reviveChangelog(entry: ChangelogWireEntry): ChangelogEntry {
 	return {
@@ -39,54 +39,34 @@ function reviveChangelog(entry: ChangelogWireEntry): ChangelogEntry {
 }
 
 export function useChangelogQuery(options: UseChangelogQueryOptions) {
-	const queryClient = useQueryClient();
-
-	// Not redundant with initialData below: initialData only seeds a missing cache
-	// entry, while this refreshes an existing one when navigation brings newer SSR data.
-	$effect(() => {
-		const changelogs = options.getInitialChangelogs();
-		const initialCount = options.getInitialLoadCount();
-		const filters = options.getFilters();
-		queryClient.setQueryData<InfiniteData>(
-			changelogsListKey({ ...filters, initialCount }),
-			{
-				pages: [
-					{
-						changelogs,
-						hasMore: options.getTotalCount() > changelogs.length
-					}
-				],
-				pageParams: [0]
-			}
-		);
-	});
-
 	return createInfiniteQuery<
 		PageData,
 		Error,
-		InfiniteData,
+		InfiniteData<PageData, number>,
 		ReturnType<typeof changelogsListKey>,
 		number
 	>(() => {
 		const initialChangelogs = options.getInitialChangelogs();
-		const initialCount = options.getInitialLoadCount();
-		const { hero, item, q, major } = options.getFilters();
+		const filters = options.getFilters();
 
 		return {
-			queryKey: changelogsListKey({ hero, item, q, major, initialCount }),
-			initialData: {
-				pages: [
-					{
-						changelogs: initialChangelogs,
-						hasMore: options.getTotalCount() > initialChangelogs.length
+			queryKey: changelogsListKey(filters),
+			initialData: isUnfiltered(filters)
+				? {
+						pages: [
+							{
+								changelogs: initialChangelogs,
+								hasMore: options.getTotalCount() > initialChangelogs.length
+							}
+						],
+						pageParams: [0]
 					}
-				],
-				pageParams: [0]
-			},
+				: undefined,
 			queryFn: async ({ pageParam, signal }) => {
-				const limit = pageParam === 0 ? initialCount : PAGE_SIZE;
-				const offset = pageParam === 0 ? 0 : initialCount + (pageParam - 1) * PAGE_SIZE;
-				const searchParams = filtersToSearchParams({ hero, item, q, major });
+				const limit = pageParam === 0 ? INITIAL_LOAD_COUNT : PAGE_SIZE;
+				const offset =
+					pageParam === 0 ? 0 : INITIAL_LOAD_COUNT + (pageParam - 1) * PAGE_SIZE;
+				const searchParams = filtersToSearchParams(filters);
 				searchParams.set('limit', String(limit));
 				searchParams.set('offset', String(offset));
 

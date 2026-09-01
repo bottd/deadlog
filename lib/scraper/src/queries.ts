@@ -14,7 +14,6 @@ import {
 import type { SQLiteColumn } from 'drizzle-orm/sqlite-core';
 import type { EntityIcon } from './types/deadlockApi';
 import { getLibsqlDb, type DrizzleDB, type SelectChangelog, schema } from '@deadlog/db';
-import { entityNamesMatch } from '@deadlog/utils';
 
 export type ScrapedChangelog = SelectChangelog;
 export type ScrapedItem = typeof schema.items.$inferSelect;
@@ -221,20 +220,6 @@ function slugCandidates(slug: string): string[] {
 	];
 }
 
-export async function getHeroByName(
-	db: DrizzleDB,
-	name: string
-): Promise<EnrichedHero | null> {
-	const exact = await db
-		.select()
-		.from(schema.heroes)
-		.where(eq(schema.heroes.name, name))
-		.get();
-	if (exact) return exact;
-	const candidates = await db.select().from(schema.heroes).all();
-	return candidates.find((hero) => entityNamesMatch(hero.name, name)) ?? null;
-}
-
 export async function getHeroBySlug(
 	db: DrizzleDB,
 	slug: string
@@ -257,20 +242,6 @@ export async function getReleasedHeroSlugs(db: DrizzleDB): Promise<string[]> {
 		.where(eq(schema.heroes.isReleased, true))
 		.all();
 	return results.map((r) => r.slug);
-}
-
-export async function getItemByName(
-	db: DrizzleDB,
-	name: string
-): Promise<ScrapedItem | null> {
-	const exact = await db
-		.select()
-		.from(schema.items)
-		.where(eq(schema.items.name, name))
-		.get();
-	if (exact) return exact;
-	const candidates = await db.select().from(schema.items).all();
-	return candidates.find((item) => entityNamesMatch(item.name, name)) ?? null;
 }
 
 export async function getItemBySlug(

@@ -4,12 +4,16 @@
 	import ScrollToTop from '$lib/components/scroll-to-top/ScrollToTop.svelte';
 	import type { PageData } from './$types';
 	import { searchParams as params } from '$lib/stores/searchParams.svelte';
-	import { DEFAULT_SOCIAL_IMAGE, pageMeta, SITE_NAME, SITE_URL } from '$lib/seo';
+	import {
+		DEFAULT_SOCIAL_IMAGE,
+		pageMeta,
+		SITE_DESCRIPTION,
+		SITE_NAME,
+		SITE_TITLE,
+		SITE_URL
+	} from '$lib/seo';
 
 	let { data }: { data: PageData } = $props();
-	const title = $derived(data.title);
-	const description = $derived(data.description);
-	const image = $derived(data.image);
 
 	const queryString = $derived(params.toURLSearchParams().toString());
 	const hasFilters = $derived(queryString !== '');
@@ -21,10 +25,9 @@
 
 <MetaTags
 	{...pageMeta({
-		title,
-		description,
+		title: SITE_TITLE,
+		description: SITE_DESCRIPTION,
 		canonical: shareUrl,
-		image,
 		indexable: !hasFilters
 	})}
 />
@@ -39,15 +42,15 @@
 					url: SITE_URL,
 					name: SITE_NAME,
 					alternateName: 'Deadlock Changelog',
-					description,
+					description: SITE_DESCRIPTION,
 					inLanguage: 'en-US'
 				},
 				{
 					'@type': 'CollectionPage',
 					'@id': `${SITE_URL}/#webpage`,
 					url: SITE_URL,
-					name: title,
-					description,
+					name: SITE_TITLE,
+					description: SITE_DESCRIPTION,
 					image: DEFAULT_SOCIAL_IMAGE,
 					dateModified: data.lastUpdate,
 					inLanguage: 'en-US',

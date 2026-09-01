@@ -2,6 +2,7 @@ import type { MetaTagsProps, OpenGraph } from 'svelte-meta-tags';
 
 export const SITE_URL = 'https://deadlog.io';
 export const SITE_NAME = 'Deadlog';
+export const SITE_TITLE = 'Deadlock Patch Notes & Changelog | Deadlog';
 export const SITE_DESCRIPTION =
 	'Track every Deadlock update in one searchable changelog. Browse the latest patch notes, hero buffs and nerfs, item changes, and balance updates.';
 export const DEFAULT_SOCIAL_IMAGE = `${SITE_URL}/assets/meta/index.png`;

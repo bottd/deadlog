@@ -1,6 +1,7 @@
 {
 	"compilerOptions": {
 		"allowJs": false,
+		"lib": ["ES2022"],
 		"module": "ESNext",
 		"moduleResolution": "Bundler",
 		"noEmit": true,
@@ -9,5 +10,5 @@
 		"target": "ES2022",
 		"types": ["@cloudflare/workers-types"]
 	},
-	"include": ["cloudflare-worker.ts", "src/lib/server/canonical-origin.ts"]
+	"include": ["cloudflare-worker.ts"]
 }

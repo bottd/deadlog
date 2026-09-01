@@ -13,14 +13,14 @@
 	import type { ChangelogEntry } from '$lib/types';
 
 	const changelogs = $derived(page.data.changelogs ?? []);
-	const initialLoadCount = $derived(page.data.initialLoadCount ?? 12);
 	const totalCount = $derived(page.data.totalCount ?? 0);
 
+	// Page data is prerendered without query parameters; filters remain URL-derived.
+	const filters = $derived(params.filters);
 	const query = useChangelogQuery({
 		getInitialChangelogs: () => changelogs,
-		getInitialLoadCount: () => initialLoadCount,
 		getTotalCount: () => totalCount,
-		getFilters: () => page.data.filters ?? { hero: [], item: [], q: '', major: false }
+		getFilters: () => filters
 	});
 
 	const filterCount = $derived(params.activeFilterCount);
@@ -72,6 +72,36 @@
 		return () => observer.disconnect();
 	}
 </script>
+
+{#snippet retryPrompt(message: string, retry: () => void)}
+	<div flex="~ col" items="center" gap="3" text="center" role="alert">
+		<p text="destructive sm" font="medium">{message}</p>
+		<button
+			type="button"
+			onclick={retry}
+			border="destructive/30 ~"
+			text="destructive xs"
+			p="x-5 y-2"
+			font="mono semibold"
+			class="hover:bg-destructive/10"
+		>
+			Retry
+		</button>
+	</div>
+{/snippet}
+
+{#snippet loadingSpinner()}
+	<div flex="~ col" items="center" gap="3" role="status">
+		<div
+			border="primary/30 2 t-transparent"
+			rounded="lg"
+			class="size-10 animate-spin"
+		></div>
+		<span text="muted-foreground xs" font="mono" uppercase class="tracking-wider"
+			>Loading...</span
+		>
+	</div>
+{/snippet}
 
 <main container m="x-auto t-8 b-24" p="x-4">
 	<header m="b-7" class="max-w-3xl">
@@ -221,31 +251,11 @@
 				aria-busy={query.isFetchingNextPage}
 			>
 				{#if query.isFetchNextPageError}
-					<div flex="~ col" items="center" gap="3" text="center" role="alert">
-						<p text="destructive sm" font="medium">Failed to load more patches.</p>
-						<button
-							type="button"
-							onclick={() => query.fetchNextPage()}
-							border="destructive/30 ~"
-							text="destructive xs"
-							p="x-5 y-2"
-							font="mono semibold"
-							class="hover:bg-destructive/10"
-						>
-							Retry
-						</button>
-					</div>
+					{@render retryPrompt('Failed to load more patches.', () =>
+						query.fetchNextPage()
+					)}
 				{:else if query.isFetchingNextPage}
-					<div flex="~ col" items="center" gap="3" role="status">
-						<div
-							border="primary/30 2 t-transparent"
-							rounded="lg"
-							class="size-10 animate-spin"
-						></div>
-						<span text="muted-foreground xs" font="mono" uppercase class="tracking-wider"
-							>Loading...</span
-						>
-					</div>
+					{@render loadingSpinner()}
 				{:else if query.hasNextPage}
 					<div
 						data-load-more-sentinel
@@ -265,5 +275,13 @@
 				{/if}
 			</div>
 		{/if}
+	{:else if query.isError}
+		<div p="y-16">
+			{@render retryPrompt('Failed to load patches.', () => query.refetch())}
+		</div>
+	{:else}
+		<div p="y-16">
+			{@render loadingSpinner()}
+		</div>
 	{/if}
 </main>
