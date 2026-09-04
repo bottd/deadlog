@@ -13,7 +13,7 @@
 	const links = $derived(patchCardHrefs(patch));
 </script>
 
-<div relative m="b-8" block class="group col-span-full">
+<div relative m="b-8" block class="group">
 	<div
 		border="primary/40 2"
 		bg="card"
@@ -56,7 +56,7 @@
 			<h2
 				font="display medium"
 				text="foreground 3xl"
-				class="heading-glow group-hover:text-primary tracking-wide transition-colors duration-300 md:text-4xl"
+				class="group-hover:text-primary tracking-wide break-words transition-colors duration-300 md:text-4xl"
 				in:fly={{ y: 20, duration: 400, delay: 100 }}
 			>
 				<!-- Stretched link: the whole card is clickable, but crawlers and
@@ -75,7 +75,7 @@
 					class="border-primary/30 group-hover:border-primary size-8 border-2 transition-all duration-300"
 				>
 					<Avatar.Image src={patch.authorImage} alt="" />
-					<Avatar.Fallback class="bg-muted text-xs font-medium"
+					<Avatar.Fallback text="muted-foreground xs" font="mono" class="tracking-wide"
 						>{view.initials}</Avatar.Fallback
 					>
 				</Avatar.Root>
@@ -106,7 +106,7 @@
 							<span class="w-14 font-mono text-xs tracking-wider uppercase {row.tone}"
 								>{row.label}</span
 							>
-							<div class="flex [&>*+*]:-ml-2">
+							<div class="flex min-w-0 flex-wrap gap-y-2 [&>*+*]:-ml-2">
 								{#each row.list as icon, i (icon.id)}
 									<a
 										href={links.entityHref(icon)}
@@ -200,7 +200,7 @@
 					justify="center"
 					rounded="xl"
 					shadow="lg"
-					class="pulse-glow size-14 transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl"
+					class="size-14 transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl"
 				>
 					<ArrowRight
 						class="size-6 transition-transform duration-300 group-hover:translate-x-1"

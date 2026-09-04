@@ -1,6 +1,8 @@
 import { page } from '$app/state';
 import { goto } from '$app/navigation';
 import { building } from '$app/environment';
+import { toast } from 'svelte-sonner';
+import { plural } from '@deadlog/utils';
 import { parseCSV } from '$lib/utils/csv';
 import {
 	filtersToSearchParams,
@@ -63,6 +65,15 @@ class SearchParamsStore {
 		return this.hero.length + this.item.length + (this.q ? 1 : 0) + (this.major ? 1 : 0);
 	}
 
+	/** A filter navigation started by this store is still in flight. */
+	get isPending(): boolean {
+		return this.#pendingParams !== null;
+	}
+
+	get heroAtCap(): boolean {
+		return this.hero.length >= MAX_ENTITY_FILTERS;
+	}
+
 	get filters(): Required<ChangelogFilters> {
 		return { hero: this.hero, item: this.item, q: this.q, major: this.major };
 	}
@@ -70,15 +81,26 @@ class SearchParamsStore {
 	update(values: ParamValues) {
 		if (building) return;
 		const nextParams = this.toURLSearchParams();
+		let dropped = 0;
 		for (const [key, value] of Object.entries(values)) {
-			const normalized = Array.isArray(value)
-				? value.slice(0, MAX_ENTITY_FILTERS)
-				: key === 'q' && typeof value === 'string'
-					? value.trim().slice(0, MAX_QUERY_LENGTH)
-					: value;
-			const s = serialize(normalized as ParamValue);
+			let normalized: ParamValue;
+			if (Array.isArray(value)) {
+				normalized = value.slice(0, MAX_ENTITY_FILTERS);
+				dropped += value.length - normalized.length;
+			} else if (key === 'q' && typeof value === 'string') {
+				normalized = value.trim().slice(0, MAX_QUERY_LENGTH);
+			} else {
+				normalized = value;
+			}
+			const s = serialize(normalized);
 			if (s === null) nextParams.delete(key);
 			else nextParams.set(key, s);
+		}
+		if (dropped > 0) {
+			toast.error(
+				`Filter limit reached — ${MAX_ENTITY_FILTERS} heroes and ${MAX_ENTITY_FILTERS} items max. ` +
+					`${dropped} ${plural(dropped, 'selection')} not applied.`
+			);
 		}
 		this.#navigate(nextParams);
 	}

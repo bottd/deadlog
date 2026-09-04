@@ -13,6 +13,8 @@
 			.sort((a, b) => a.name.localeCompare(b.name))
 	);
 
+	const atCap = $derived(params.heroAtCap);
+
 	function toggle(name: string) {
 		params.update({ hero: toggleEntity(params.hero, name) });
 	}
@@ -27,15 +29,17 @@
 			<div flex="~" w="max" gap="1.5" class="sm:w-auto sm:flex-wrap">
 				{#each heroes as hero (hero.id)}
 					{@const selected = hasEntity(params.hero, hero.name)}
+					{@const blocked = !selected && atCap}
 					<button
 						type="button"
 						onclick={() => toggle(hero.name)}
-						title={hero.name}
+						disabled={blocked}
+						title={blocked ? `${hero.name} — filter limit reached` : hero.name}
 						aria-label={hero.name}
 						aria-pressed={selected}
-						class="clip-corner-sm relative size-9 overflow-hidden border transition-all duration-200 hover:z-10 hover:-translate-y-0.5 hover:scale-110 {selected
-							? 'border-signal ring-signal/45 ring-2'
-							: 'border-border hover:border-signal/55 opacity-70 hover:opacity-100'}"
+						class="clip-corner-sm relative size-9 overflow-hidden border transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:translate-y-0 disabled:hover:scale-100 hover:z-10 hover:-translate-y-0.5 hover:scale-110 {selected
+							? 'border-primary ring-primary/45 ring-2'
+							: 'border-border hover:border-primary/55 opacity-70 hover:opacity-100'}"
 					>
 						<img
 							src={getHeroCardImage(hero)}

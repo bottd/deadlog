@@ -37,7 +37,7 @@
 			z="20"
 			p="x-1.5 y-0.5"
 			font="bold"
-			class="kicker top-0 right-0 text-[9px]"
+			class="kicker top-2 right-2 text-[9px]"
 		>
 			New
 		</span>
@@ -117,8 +117,10 @@
 					class="border-primary/20 group-hover:border-primary/50 size-5 border transition-all duration-300"
 				>
 					<Avatar.Image src={patch.authorImage} alt="" />
-					<Avatar.Fallback class="bg-muted text-[9px] font-medium"
-						>{view.initials}</Avatar.Fallback
+					<Avatar.Fallback
+						text="muted-foreground"
+						font="mono"
+						class="text-[9px] tracking-wide">{view.initials}</Avatar.Fallback
 					>
 				</Avatar.Root>
 				<span truncate>{patch.author}</span>

@@ -5,6 +5,7 @@
 	import { searchParams } from '$lib/stores/searchParams.svelte';
 	import type { EntityIcon } from '$lib/types';
 	import * as Avatar from '$lib/components/ui/avatar';
+	import { authorInitials } from '$lib/author';
 	import * as Sheet from '$lib/components/ui/sheet';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import { entityNamesMatch, formatDate, formatTime } from '@deadlog/utils';
@@ -334,8 +335,12 @@
 										class="border-primary/30 ring-primary/10 size-7 border ring-2"
 									>
 										<Avatar.Image src={changelog.authorImage} alt={changelog.author} />
-										<Avatar.Fallback class="bg-muted text-xs">
-											{changelog.author.slice(0, 2).toUpperCase()}
+										<Avatar.Fallback
+											text="muted-foreground xs"
+											font="mono"
+											class="tracking-wide"
+										>
+											{authorInitials(changelog.author)}
 										</Avatar.Fallback>
 									</Avatar.Root>
 									<span class="tracking-tight">
