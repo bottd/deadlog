@@ -8,19 +8,18 @@
 
 	// ponytail: heroes only — the roster is finite, so a full icon rail is honest.
 	// Items number 70+; they stay in the search dropdown, not a rail.
-	const roster = $derived(
-		((page.data.heroes ?? []) as EnrichedHero[])
-			.filter((h) => h.isReleased)
-			.sort((a, b) => a.name.localeCompare(b.name))
-	);
-
 	// Selected lead the rail: the mobile strip only shows a fraction of the roster.
-	const heroes = $derived(
-		[...roster].sort(
-			(a, b) =>
-				Number(hasEntity(params.hero, b.name)) - Number(hasEntity(params.hero, a.name))
-		)
-	);
+	const heroes = $derived.by(() => {
+		const selected = params.hero;
+		return ((page.data.heroes ?? []) as EnrichedHero[])
+			.filter((h) => h.isReleased)
+			.map((hero) => ({ hero, selected: hasEntity(selected, hero.name) }))
+			.sort(
+				(a, b) =>
+					Number(b.selected) - Number(a.selected) ||
+					a.hero.name.localeCompare(b.hero.name)
+			);
+	});
 
 	const atCap = $derived(params.heroAtCap);
 
@@ -44,11 +43,10 @@
 				<span text="primary">&mdash; {MAX_ENTITY_FILTERS} hero limit reached</span>
 			{/if}
 		</span>
-		<div relative class="sm:contents">
+		<div relative>
 			<div p="x-4 b-1" class="-mx-4 overflow-x-auto sm:mx-0 sm:overflow-visible sm:px-0">
 				<div flex="~" w="max" gap="1.5" class="sm:w-auto sm:flex-wrap">
-					{#each heroes as hero (hero.id)}
-						{@const selected = hasEntity(params.hero, hero.name)}
+					{#each heroes as { hero, selected } (hero.id)}
 						{@const blocked = !selected && atCap}
 						<button
 							type="button"

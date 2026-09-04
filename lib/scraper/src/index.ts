@@ -28,4 +28,4 @@ export {
 	type EnrichedItem
 } from './queries';
 
-export type { EntityType, EntityIcon } from './types/deadlockApi';
+export type { EntityType, EntityIcon, ChangelogEntityIcon } from './types/deadlockApi';

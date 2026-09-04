@@ -5,8 +5,7 @@
 	import { quintOut } from 'svelte/easing';
 	import { scale } from 'svelte/transition';
 	import {
-		matchCountLabel,
-		matchTone,
+		entityKey,
 		patchCardHrefs,
 		patchCardMatches,
 		patchCardView,
@@ -18,7 +17,6 @@
 	const matches = $derived(patchCardMatches(patch));
 	const view = $derived(patchCardView(patch, false, matches.keys));
 	const links = $derived(patchCardHrefs(patch));
-	const matchLabel = $derived(matchCountLabel(matches));
 	// ponytail: MAJOR is the only reliable tier — `category` is uniformly "patch"
 	// and entity count is a poor signal for "small patch", so no HOTFIX tier.
 	const isMajor = $derived(!!patch.majorUpdate);
@@ -153,7 +151,7 @@
 			<div flex="~" items="center" gap="1.5">
 				<div class="flex [&>*+*]:-ml-1.5">
 					{#each row.list as icon, i (icon.id)}
-						{@const matched = matches.keys.has(`${icon.type}:${icon.id}`)}
+						{@const matched = matches.keys.has(entityKey(icon))}
 						<a
 							href={links.entityHref(icon)}
 							aria-label="Jump to {icon.alt} in this patch{matched
@@ -205,16 +203,12 @@
 			p="t-3"
 			text="xs"
 		>
-			{#if matchLabel}
+			{#if matches.label}
 				<span flex="~" items="baseline" gap="1">
-					<span class="font-mono font-bold {matchTone(matches)}"
-						>{matches.changeCount}</span
-					>
-					<span text="foreground">{matchLabel}</span>
+					<span class="font-mono font-bold {matches.tone}">{matches.changeCount}</span>
+					<span text="foreground">{matches.label}</span>
 				</span>
-				<span text="muted-foreground/70" class="text-[10px]">
-					{view.counts.map((c) => `${c.n} ${c.noun}`).join(' · ')} total
-				</span>
+				<span text="muted-foreground/70" class="text-[10px]">{view.totals} total</span>
 			{:else}
 				{#each view.counts as count (count.noun)}
 					<span flex="~" items="baseline" gap="1">

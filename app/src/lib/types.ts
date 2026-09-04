@@ -1,11 +1,12 @@
 export type {
 	ChangelogAbilityIcon,
+	ChangelogEntityIcon,
 	EnrichedHero,
 	EnrichedItem,
 	EntityIcon
 } from '@deadlog/scraper';
 
-import type { EntityIcon } from '@deadlog/scraper';
+import type { ChangelogEntityIcon } from '@deadlog/scraper';
 
 /** The `toc` export of a compiled .mg module. */
 export type { TocEntry as MogTocEntry } from 'vite-plugin-mog';
@@ -22,8 +23,8 @@ export interface ChangelogEntry {
 	previewImage?: string | null;
 	summary?: string;
 	icons?: {
-		heroes: EntityIcon[];
-		items: EntityIcon[];
+		heroes: ChangelogEntityIcon[];
+		items: ChangelogEntityIcon[];
 	};
 	updates?: ChangelogEntry[];
 	majorUpdate?: boolean;

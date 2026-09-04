@@ -12,7 +12,7 @@ import {
 	type SQL
 } from 'drizzle-orm';
 import type { SQLiteColumn } from 'drizzle-orm/sqlite-core';
-import type { EntityIcon } from './types/deadlockApi';
+import type { ChangelogEntityIcon, EntityIcon } from './types/deadlockApi';
 import { getLibsqlDb, type DrizzleDB, type SelectChangelog, schema } from '@deadlog/db';
 
 export type ScrapedChangelog = SelectChangelog;
@@ -419,8 +419,8 @@ export function getItemLastModified(db: DrizzleDB): Promise<Map<number, string>>
 }
 
 interface ChangelogIcons {
-	heroes: EntityIcon[];
-	items: EntityIcon[];
+	heroes: ChangelogEntityIcon[];
+	items: ChangelogEntityIcon[];
 }
 
 export async function getChangelogIcons(
