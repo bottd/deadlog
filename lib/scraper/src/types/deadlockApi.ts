@@ -11,6 +11,8 @@ export interface EntityIcon {
 	type: EntityType;
 	heroType?: string | null;
 	itemCategory?: 'weapon' | 'vitality' | 'spirit';
+	/** Bullets this patch aimed at the entity; null when merely mentioned. */
+	changeCount?: number | null;
 }
 
 // The API returns far more than the build reads; zod strips unknown keys, so the

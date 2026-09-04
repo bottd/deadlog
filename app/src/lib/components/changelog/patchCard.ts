@@ -15,9 +15,65 @@ const FALLBACK_PREVIEW = {
 		'https://clan.akamai.steamstatic.com/images/45164767/568ff640318c8a81e2b5b4a22bf29e100ee144d9.png'
 };
 
+const entityKey = (entity: EntityIcon) => `${entity.type}:${entity.id}`;
+
+const NO_MATCHES: PatchCardMatches = {
+	searching: false,
+	keys: new Set<string>(),
+	entities: [],
+	changeCount: null
+};
+
+export interface PatchCardMatches {
+	searching: boolean;
+	keys: ReadonlySet<string>;
+	entities: EntityIcon[];
+	changeCount: number | null;
+}
+
+/** Which of this patch's entities the active filters asked for. */
+export function patchCardMatches(patch: PatchCardProps): PatchCardMatches {
+	if (!searchParams.isSearching) return NO_MATCHES;
+
+	const pick = (icons: EntityIcon[], names: string[]) =>
+		names.length === 0
+			? []
+			: icons.filter((icon) => names.some((name) => entityNamesMatch(name, icon.alt)));
+
+	const entities = [
+		...pick(patch.icons?.heroes ?? [], searchParams.hero),
+		...pick(patch.icons?.items ?? [], searchParams.item)
+	];
+	const counted = entities.filter((entity) => entity.changeCount != null);
+
+	return {
+		searching: true,
+		keys: new Set(entities.map(entityKey)),
+		entities,
+		changeCount:
+			counted.length > 0
+				? counted.reduce((total, entity) => total + (entity.changeCount ?? 0), 0)
+				: null
+	};
+}
+
+export function matchCountLabel(matches: PatchCardMatches): string | null {
+	if (matches.changeCount === null) return null;
+	const noun = plural(matches.changeCount, 'change');
+	return matches.entities.length === 1
+		? `${matches.entities[0].alt} ${noun}`
+		: `matched ${noun}`;
+}
+
+export function matchTone(matches: PatchCardMatches): string {
+	return matches.entities.length > 0 && matches.entities.every((e) => e.type === 'item')
+		? 'text-signal'
+		: 'text-primary';
+}
+
 /**
  * Reads the filter store — keep in its own `$derived`, separate from `patchCardView`,
- * so a filter change only rebuilds the hrefs, not every card's rows and counts.
+ * so a filter change only rebuilds the hrefs, not every card's counts and headings.
  */
 export function patchCardHrefs(patch: { slug: string }) {
 	const params = searchParams.toURLSearchParams();
@@ -40,11 +96,22 @@ export function patchCardHrefs(patch: { slug: string }) {
 	};
 }
 
-/** Everything both patch cards derive from the same props, independent of the filters. */
-export function patchCardView(patch: PatchCardProps, featured = false) {
+/** `prioritize` floats filtered entities ahead of the `+N` slice. */
+export function patchCardView(
+	patch: PatchCardProps,
+	featured = false,
+	prioritize: ReadonlySet<string> = NO_MATCHES.keys
+) {
 	const max = featured ? 14 : 6;
-	const heroes = patch.icons?.heroes ?? [];
-	const items = patch.icons?.items ?? [];
+	const lead = (list: EntityIcon[]) =>
+		prioritize.size === 0
+			? list
+			: [...list].sort(
+					(a, b) =>
+						Number(prioritize.has(entityKey(b))) - Number(prioritize.has(entityKey(a)))
+				);
+	const heroes = lead(patch.icons?.heroes ?? []);
+	const items = lead(patch.icons?.items ?? []);
 
 	const rows = [
 		{

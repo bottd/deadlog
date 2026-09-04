@@ -456,7 +456,8 @@ export async function getChangelogIcons(
 			alt: r.heroes.name,
 			slug: r.heroes.slug,
 			type: 'hero',
-			heroType: r.heroes.heroType
+			heroType: r.heroes.heroType,
+			changeCount: countGroupBullets(r.changelog_heroes.changeGroups)
 		});
 	}
 
@@ -468,7 +469,8 @@ export async function getChangelogIcons(
 			alt: r.items.name,
 			slug: r.items.slug,
 			type: 'item',
-			itemCategory: r.items.category ?? undefined
+			itemCategory: r.items.category ?? undefined,
+			changeCount: countGroupBullets(r.changelog_items.changeGroups)
 		});
 	}
 

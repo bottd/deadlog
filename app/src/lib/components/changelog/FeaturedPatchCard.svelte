@@ -106,7 +106,7 @@
 							<span class="w-14 font-mono text-xs tracking-wider uppercase {row.tone}"
 								>{row.label}</span
 							>
-							<div class="flex min-w-0 flex-wrap gap-y-2 [&>*+*]:-ml-2">
+							<div class="flex min-w-0 flex-wrap gap-y-2 pl-2 [&>*]:-ml-2">
 								{#each row.list as icon, i (icon.id)}
 									<a
 										href={links.entityHref(icon)}
@@ -114,7 +114,7 @@
 										relative
 										z="10"
 										rounded="lg"
-										class="focus-visible:outline-primary focus-visible:outline-2 focus-visible:outline-offset-2"
+										class="group/icon focus-visible:outline-primary transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 hover:z-20 hover:-translate-y-1 hover:scale-110"
 									>
 										<img
 											src={icon.src}
@@ -127,7 +127,7 @@
 											bg="card"
 											rounded="lg"
 											shadow="md"
-											class="hover:border-primary size-9 object-cover transition-all duration-300 hover:z-20 hover:-translate-y-1 hover:scale-110"
+											class="group-hover/icon:border-primary size-9 object-cover transition-colors duration-300"
 											in:scale={{
 												start: 0,
 												duration: 400,

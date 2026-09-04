@@ -45,11 +45,11 @@ class SearchParamsStore {
 	}
 
 	get hero(): string[] {
-		return parseCSV(this.#getParams().get('hero'));
+		return parseCSV(this.#getParams().get('hero')).slice(0, MAX_ENTITY_FILTERS);
 	}
 
 	get item(): string[] {
-		return parseCSV(this.#getParams().get('item'));
+		return parseCSV(this.#getParams().get('item')).slice(0, MAX_ENTITY_FILTERS);
 	}
 
 	get q(): string {
@@ -72,6 +72,11 @@ class SearchParamsStore {
 
 	get heroAtCap(): boolean {
 		return this.hero.length >= MAX_ENTITY_FILTERS;
+	}
+
+	/** `major` alone is not searching — it narrows the same feed. */
+	get isSearching(): boolean {
+		return this.hero.length > 0 || this.item.length > 0 || this.q !== '';
 	}
 
 	get filters(): Required<ChangelogFilters> {

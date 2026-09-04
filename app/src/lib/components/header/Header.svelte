@@ -58,7 +58,7 @@
 							<span
 								font="display medium"
 								text="foreground 2xl"
-								class="heading-glow tracking-wide transition-colors duration-300 md:text-3xl"
+								class="tracking-wide transition-colors duration-300 md:text-3xl"
 							>
 								dead<span text="primary">log</span>
 							</span>

@@ -25,9 +25,7 @@
 	});
 
 	const filterCount = $derived(params.activeFilterCount);
-	const isSearching = $derived(
-		filters.hero.length > 0 || filters.item.length > 0 || filters.q !== ''
-	);
+	const isSearching = $derived(params.isSearching);
 
 	// All filtering (text search, hero, item) is server-side — just flatten pages
 	const allChangelogs = $derived((query.data?.pages ?? []).flatMap((p) => p.changelogs));
@@ -63,7 +61,7 @@
 	// Keep every fetched page in one grid so new cards fill the final incomplete row.
 	const gridEntries = $derived(allChangelogs.slice(isSearching ? 0 : 1));
 	const newCount = $derived(
-		lastVisit === null || isSearching ? 0 : allChangelogs.filter(isNew).length
+		lastVisit === null || isSearching ? 0 : gridEntries.filter(isNew).length
 	);
 	// boundary between new and already-seen cards within the grid (-1 = none)
 	const firstSeenIdx = $derived(
@@ -112,7 +110,7 @@
 	<div flex="~ col" items="center" gap="3" role="status">
 		<div
 			border="primary/30 2 t-transparent"
-			rounded="lg"
+			rounded="full"
 			class="size-10 animate-spin"
 		></div>
 		<span text="muted-foreground xs" font="mono" uppercase class="tracking-wider"
@@ -212,8 +210,6 @@
 					gap="2"
 					font="mono"
 					class="tracking-wider uppercase"
-					role="status"
-					aria-live="polite"
 				>
 					<span text="primary" font="bold">{newCount}</span>
 					<span>new {plural(newCount, 'patch', 'patches')} since your last visit</span>
@@ -292,8 +288,16 @@
 				</h2>
 				{#if filterCount > 0}
 					<p text="muted-foreground" m="x-auto b-8" class="max-w-md">
-						No changelog entries match your
-						{filterCount === 1 ? 'filter' : `${filterCount} filters`}.
+						{#if filters.q}
+							Nothing matches <span text="foreground" font="mono"
+								>&ldquo;{filters.q}&rdquo;</span
+							>{filterCount > 1
+								? ` and your other ${filterCount - 1} ${plural(filterCount - 1, 'filter')}`
+								: ''}.
+						{:else}
+							No changelog entries match your
+							{filterCount === 1 ? 'filter' : `${filterCount} filters`}.
+						{/if}
 					</p>
 					<button
 						type="button"

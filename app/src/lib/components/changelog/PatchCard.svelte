@@ -4,12 +4,21 @@
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
 	import { quintOut } from 'svelte/easing';
 	import { scale } from 'svelte/transition';
-	import { patchCardHrefs, patchCardView, type PatchCardProps } from './patchCard';
+	import {
+		matchCountLabel,
+		matchTone,
+		patchCardHrefs,
+		patchCardMatches,
+		patchCardView,
+		type PatchCardProps
+	} from './patchCard';
 
 	let { isNew = false, ...patch }: PatchCardProps & { isNew?: boolean } = $props();
 
-	const view = $derived(patchCardView(patch));
+	const matches = $derived(patchCardMatches(patch));
+	const view = $derived(patchCardView(patch, false, matches.keys));
 	const links = $derived(patchCardHrefs(patch));
+	const matchLabel = $derived(matchCountLabel(matches));
 	// ponytail: MAJOR is the only reliable tier — `category` is uniformly "patch"
 	// and entity count is a poor signal for "small patch", so no HOTFIX tier.
 	const isMajor = $derived(!!patch.majorUpdate);
@@ -37,43 +46,45 @@
 			z="20"
 			p="x-1.5 y-0.5"
 			font="bold"
-			class="kicker top-2 right-2 text-[9px]"
+			class="kicker clip-corner-sm top-2 right-2 text-[9px]"
 		>
 			New
 		</span>
 	{/if}
 
-	<div border="border/70 b" relative h="28" shrink="0" class="overflow-hidden">
-		{#if patch.previewImage}
-			<img
-				data-patch-preview
-				src={patch.previewImage}
-				alt=""
-				width="640"
-				height="360"
-				loading="lazy"
-				decoding="async"
-				class="size-full object-cover transition-transform duration-500 group-hover:scale-105"
-			/>
-			<div
-				absolute
-				bg="gradient-to-b"
-				class="from-card/0 via-card/10 to-card/55 pointer-events-none inset-0"
-				aria-hidden="true"
-			></div>
-		{:else}
-			<img
-				src={view.fallbackImage}
-				alt=""
-				width="640"
-				height="360"
-				loading="lazy"
-				decoding="async"
-				op="25"
-				class="size-full object-cover"
-			/>
-		{/if}
-	</div>
+	{#if !matches.searching}
+		<div border="border/70 b" relative h="28" shrink="0" class="overflow-hidden">
+			{#if patch.previewImage}
+				<img
+					data-patch-preview
+					src={patch.previewImage}
+					alt=""
+					width="640"
+					height="360"
+					loading="lazy"
+					decoding="async"
+					class="size-full object-cover transition-transform duration-500 group-hover:scale-105"
+				/>
+				<div
+					absolute
+					bg="gradient-to-b"
+					class="from-card/0 via-card/10 to-card/55 pointer-events-none inset-0"
+					aria-hidden="true"
+				></div>
+			{:else}
+				<img
+					src={view.fallbackImage}
+					alt=""
+					width="640"
+					height="360"
+					loading="lazy"
+					decoding="async"
+					op="25"
+					class="size-full object-cover"
+				/>
+			{/if}
+		</div>
+	{/if}
 	<div
 		absolute
 		bg="gradient-to-br"
@@ -142,13 +153,18 @@
 			<div flex="~" items="center" gap="1.5">
 				<div class="flex [&>*+*]:-ml-1.5">
 					{#each row.list as icon, i (icon.id)}
+						{@const matched = matches.keys.has(`${icon.type}:${icon.id}`)}
 						<a
 							href={links.entityHref(icon)}
-							aria-label="Jump to {icon.alt} in this patch"
+							aria-label="Jump to {icon.alt} in this patch{matched
+								? ', matches your filter'
+								: ''}"
 							relative
 							z="10"
 							rounded="md"
-							class="focus-visible:outline-primary focus-visible:outline-2 focus-visible:outline-offset-2"
+							class="group/icon focus-visible:outline-primary transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 hover:z-20 hover:-translate-y-0.5 hover:scale-110 {matched
+								? 'ring-signal/70 z-20 rounded-md ring-2'
+								: ''}"
 						>
 							<img
 								src={icon.src}
@@ -157,9 +173,9 @@
 								height="28"
 								loading="lazy"
 								decoding="async"
-								class="border-border/80 bg-card size-7 rounded-md border object-cover shadow-sm transition-all duration-200 hover:z-20 hover:-translate-y-0.5 hover:scale-110 {isItems
-									? 'hover:border-signal/60'
-									: 'hover:border-primary/50'}"
+								class="border-border/80 bg-card size-7 rounded-md border object-cover shadow-sm transition-colors duration-200 {isItems
+									? 'group-hover/icon:border-signal/60'
+									: 'group-hover/icon:border-primary/50'}"
 								in:scale={{
 									start: 0,
 									duration: 250,
@@ -189,12 +205,24 @@
 			p="t-3"
 			text="xs"
 		>
-			{#each view.counts as count (count.noun)}
+			{#if matchLabel}
 				<span flex="~" items="baseline" gap="1">
-					<span class="font-mono font-bold {count.tone}">{count.n}</span>
-					<span text="muted-foreground">{count.noun}</span>
+					<span class="font-mono font-bold {matchTone(matches)}"
+						>{matches.changeCount}</span
+					>
+					<span text="foreground">{matchLabel}</span>
 				</span>
-			{/each}
+				<span text="muted-foreground/70" class="text-[10px]">
+					{view.counts.map((c) => `${c.n} ${c.noun}`).join(' · ')} total
+				</span>
+			{:else}
+				{#each view.counts as count (count.noun)}
+					<span flex="~" items="baseline" gap="1">
+						<span class="font-mono font-bold {count.tone}">{count.n}</span>
+						<span text="muted-foreground">{count.noun}</span>
+					</span>
+				{/each}
+			{/if}
 			<ArrowRight
 				class="text-signal ml-auto size-3.5 -translate-x-1 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100"
 			/>
