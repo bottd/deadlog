@@ -88,15 +88,19 @@
 		   portrait is a sibling of the heading, hence the grid rather than a flex row. */
 		:global(div.hero),
 		:global(div.item) {
-			@apply border-border/30 mt-8 grid border-t pt-6;
+			@apply mt-8 grid pt-6;
 			grid-template-columns: auto 1fr;
 			column-gap: 1rem;
 		}
 
-		/* The portrait sits in the left column, spanning heading and notes. */
+		/* The portrait sits in the left column, spanning heading and notes. The link's
+		   assistive label is a text node after the image, and as a paragraph it took a
+		   full line box below the portrait — a 40px icon in a 66px cell, so the icon read
+		   a line high of the heading it labels. Flex centres the portrait in the row
+		   instead, whether the heading is one line or two. */
 		:global(div.hero > p:has(img)),
 		:global(div.item > p:has(img)) {
-			@apply col-start-1 row-start-1 m-0;
+			@apply col-start-1 row-start-1 m-0 flex items-center;
 		}
 
 		/* The Mog link label names the image link for assistive technology. */
@@ -132,7 +136,7 @@
 		}
 
 		:global(div.ability > p:has(img)) {
-			@apply col-start-1 row-start-1 m-0;
+			@apply col-start-1 row-start-1 m-0 flex items-center;
 		}
 
 		/* Descendant selector: the icon may sit inside the ability deep link. */
@@ -151,7 +155,7 @@
 
 		:global(ul.section-preview + div.hero),
 		:global(ul.section-preview + div.item) {
-			@apply mt-2 border-t-0 pt-0;
+			@apply mt-2 pt-0;
 		}
 
 		:global(p) {
@@ -181,6 +185,13 @@
 		:global(ul > li::before) {
 			content: '';
 			@apply bg-primary/40 absolute top-[0.55em] -left-4 size-1.5 rounded-full;
+		}
+
+		/* The preview badges are jump links, not body copy, so they take neither the
+		   bullet nor the list indent — the row starts flush with its section heading
+		   and with the entity blocks it links down to. */
+		:global(ul.section-preview) {
+			@apply ml-0;
 		}
 
 		:global(ul.section-preview > li::before) {

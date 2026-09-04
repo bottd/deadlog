@@ -87,7 +87,7 @@
 					<a
 						href="/heroes"
 						aria-current={heroesActive ? 'page' : undefined}
-						class="rounded px-2.5 py-2 font-mono text-[10px] font-semibold tracking-wider uppercase transition-colors sm:px-3 sm:text-xs {heroesActive
+						class="rounded px-2.5 py-2 font-mono text-[10px] font-semibold tracking-wider uppercase transition-colors sm:(px-3 text-xs) {heroesActive
 							? 'bg-signal/10 text-signal'
 							: 'text-muted-foreground hover:bg-signal/10 hover:text-signal'}"
 					>
@@ -96,7 +96,7 @@
 					<a
 						href="/items"
 						aria-current={itemsActive ? 'page' : undefined}
-						class="rounded px-2.5 py-2 font-mono text-[10px] font-semibold tracking-wider uppercase transition-colors sm:px-3 sm:text-xs {itemsActive
+						class="rounded px-2.5 py-2 font-mono text-[10px] font-semibold tracking-wider uppercase transition-colors sm:(px-3 text-xs) {itemsActive
 							? 'bg-signal/10 text-signal'
 							: 'text-muted-foreground hover:bg-signal/10 hover:text-signal'}"
 					>

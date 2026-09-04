@@ -1,16 +1,17 @@
 <script lang="ts">
 	import XIcon from '@lucide/svelte/icons/x';
 	import Badge from '$lib/components/ui/badge/badge.svelte';
+	import { ENTITY_TONE, type EntityKind } from '$lib/entityTone';
 
 	interface Props {
 		name: string;
 		icon?: string;
 		onRemove: () => void;
-		badgeColor?: 'hero' | 'item';
+		kind?: EntityKind;
 	}
 
-	let { name, icon, onRemove, badgeColor = 'hero' }: Props = $props();
-	const typeLabel = $derived(badgeColor === 'hero' ? 'Hero' : 'Item');
+	let { name, icon, onRemove, kind = 'hero' }: Props = $props();
+	const tone = $derived(ENTITY_TONE[kind]);
 
 	function handleKeydown(event: KeyboardEvent) {
 		event.stopPropagation();
@@ -26,10 +27,10 @@
 	onkeydown={handleKeydown}
 	rounded="md"
 	class="group/badge transition-transform hover:scale-105 focus-visible:outline-none"
-	aria-label="Remove {typeLabel} filter: {name}"
+	aria-label="Remove {tone.label} filter: {name}"
 >
 	<Badge
-		variant={badgeColor === 'hero' ? 'default' : 'signal'}
+		variant={tone.badgeVariant}
 		class="group-focus-visible/badge:ring-signal/50 hover:shadow-primary/10 cursor-pointer transition-all duration-200 group-hover/badge:pr-2 group-hover/badge:shadow-md group-focus-visible/badge:ring-2"
 	>
 		{#if icon}
@@ -44,7 +45,7 @@
 			/>
 		{/if}
 		<span font="mono" uppercase op="75" class="text-[9px] tracking-wider"
-			>{typeLabel}</span
+			>{tone.label}</span
 		>
 		<span aria-hidden="true" op="50">/</span>
 		<span text="xs" font="medium" class="tracking-tight">{name}</span>

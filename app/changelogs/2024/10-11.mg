@@ -3,7 +3,7 @@ title "10-11-2024 Update"
 thread_id "37641"
 published "2024-10-11T16:54:46-0700"
 author "Yoshi"
-author_image "https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630"
+author_image "/assets/authors/yoshi.webp"
 category "patch"
 major_update #false
 content_text "Torment Pulse now scales with cooldown again Torment Pulse Spirit power scaling reduced from 0.33 to 0.3 Fixed Ethereal Shift scaling with duration Pause no longer restricted before 3 minutes (we plan to bring this back in the future, but we want to allow this for now while we are early and have technical issues sometimes) Updated Heavy Barrage sound Bebop Sticky Bomb no longer has a cap (was 15 stacks) Sticky Bomb scaling per hero reduced from 4% to 3% (previous uncapped was 2.5%) Sticky Bomb still loses 2 stacks on death Fixed some hook bugs causing it to sometimes not grab heroes near cover but still in collision range Hook collision against troopers reduced to 12 (default is 33) Hook no longer kills troopers (so you can bomb/uppercut/melee them) Hyper Beam duration increased from 10s to 11s Vindicta Movespeed increased from 8.3 to 9"
@@ -26,38 +26,33 @@ content_text "Torment Pulse now scales with cooldown again Torment Pulse Spirit 
 =hero:bebop:
 [[/hero/bebop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop patch history))
 ## [[/hero/bebop]]((Bebop))
-
 ==ability:sticky-bomb:
 [[/hero/bebop?ability=sticky-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_sticky_bomb.webp]] Sticky Bomb change history))
 ### [[/hero/bebop?ability=sticky-bomb]]((Sticky Bomb))
-
 - Sticky Bomb no longer has a cap (was 15 stacks)
 - Sticky Bomb scaling per hero reduced from 4% to 3% (previous uncapped was 2.5%)
-
 - Sticky Bomb still loses 2 stacks on death
 ==
 ==ability:grapple-arm:
 [[/hero/bebop?ability=grapple-arm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hook.webp]] Grapple Arm change history))
 ### [[/hero/bebop?ability=grapple-arm]]((Grapple Arm))
-
 - Fixed some hook bugs causing it to sometimes not grab heroes near cover but still in collision range
 - Hook collision against troopers reduced to 12 (default is 33)
 ==
 ==ability:hook:
-### Hook
-
+[[/hero/bebop?ability=grapple-arm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hook.webp]] Hook change history))
+### [[/hero/bebop?ability=grapple-arm]]((Hook))
 - Hook no longer kills troopers (so you can bomb/uppercut/melee them)
 ==
 ==ability:hyper-beam:
 [[/hero/bebop?ability=hyper-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hyper_beam.webp]] Hyper Beam change history))
 ### [[/hero/bebop?ability=hyper-beam]]((Hyper Beam))
-
 - Hyper Beam duration increased from 10s to 11s
 ==
 =
+
 =hero:vindicta:
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
-
 - Movespeed increased from 8.3 to 9
 =

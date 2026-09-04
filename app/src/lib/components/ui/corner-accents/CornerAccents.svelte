@@ -22,29 +22,21 @@
 	}: Props = $props();
 </script>
 
-<div
-	class="absolute top-0 left-0 {tlColor} {tlHover} {className} transition-colors duration-300"
-	style:height={tlSize}
-	style:width={thickness}
-	aria-hidden="true"
-></div>
-<div
-	class="absolute top-0 left-0 {tlColor} {tlHover} {className} transition-colors duration-300"
-	style:height={thickness}
-	style:width={tlSize}
-	aria-hidden="true"
-></div>
+<!-- Each accent is an L: two bars sharing a corner, swapping which axis carries the
+     length. The array form drops the unset hover/class props instead of leaving holes. -->
+{#snippet bar(corner: string, tone: string, hover: string, height: string, width: string)}
+	<div
+		class={['absolute', corner, tone, hover, className, 'transition-colors duration-300']}
+		style:height
+		style:width
+		aria-hidden="true"
+	></div>
+{/snippet}
+
+{@render bar('top-0 left-0', tlColor, tlHover, tlSize, thickness)}
+{@render bar('top-0 left-0', tlColor, tlHover, thickness, tlSize)}
+
 {#if brSize}
-	<div
-		class="absolute right-0 bottom-0 {brColor} {brHover} {className} transition-colors duration-300"
-		style:height={brSize}
-		style:width={thickness}
-		aria-hidden="true"
-	></div>
-	<div
-		class="absolute right-0 bottom-0 {brColor} {brHover} {className} transition-colors duration-300"
-		style:height={thickness}
-		style:width={brSize}
-		aria-hidden="true"
-	></div>
+	{@render bar('right-0 bottom-0', brColor, brHover, brSize, thickness)}
+	{@render bar('right-0 bottom-0', brColor, brHover, thickness, brSize)}
 {/if}

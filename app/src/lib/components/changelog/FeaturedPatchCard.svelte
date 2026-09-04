@@ -19,7 +19,7 @@
 		bg="card"
 		relative
 		flex="~ col"
-		class="clip-corner-lg card-glow hover:border-primary/70 overflow-hidden transition-all duration-200 hover:shadow-2xl active:scale-[0.99] md:flex-row md:items-stretch"
+		class="clip-corner-lg card-glow overflow-hidden transition-all duration-200 hover:(border-primary/70 shadow-2xl) active:scale-[0.99] md:(flex-row items-stretch)"
 	>
 		<div
 			absolute
@@ -59,13 +59,7 @@
 				class="group-hover:text-primary tracking-wide break-words transition-colors duration-300 md:text-4xl"
 				in:fly={{ y: 20, duration: 400, delay: 100 }}
 			>
-				<!-- Stretched link: the whole card is clickable, but crawlers and
-				     middle-click still get a real href. -->
-				<a
-					href={links.href}
-					aria-label={view.accessibleLabel}
-					class="focus-visible:outline-primary after:absolute after:inset-0 after:content-[''] focus-visible:outline-2 focus-visible:outline-offset-2"
-				>
+				<a href={links.href} aria-label={view.accessibleLabel} class="stretched-link">
 					{view.heading}
 				</a>
 			</h2>
@@ -114,7 +108,7 @@
 										relative
 										z="10"
 										rounded="lg"
-										class="group/icon focus-visible:outline-primary transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 hover:z-20 hover:-translate-y-1 hover:scale-110"
+										class="group/icon ui-focus-outline transition-all duration-300 hover:(z-20 -translate-y-1 scale-110)"
 									>
 										<img
 											src={icon.src}
@@ -157,7 +151,7 @@
 		</div>
 
 		<div
-			class="border-signal/20 from-signal/5 to-primary/5 group-hover:from-signal/10 group-hover:to-primary/10 relative z-0 flex min-h-44 shrink-0 items-center justify-center overflow-hidden border-t bg-gradient-to-r p-6 transition-colors duration-300 md:min-h-0 md:border-t-0 md:border-l md:p-8 {patch.previewImage
+			class="border-signal/20 from-signal/5 to-primary/5 group-hover:(from-signal/10 to-primary/10) relative z-0 flex min-h-44 shrink-0 items-center justify-center overflow-hidden border-t bg-gradient-to-r p-6 transition-colors duration-300 md:(min-h-0 border-t-0 border-l p-8) {patch.previewImage
 				? 'md:w-80'
 				: 'md:w-56'}"
 		>
@@ -200,7 +194,7 @@
 					justify="center"
 					rounded="xl"
 					shadow="lg"
-					class="size-14 transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl"
+					class="size-14 transition-all duration-300 group-hover:(scale-110 shadow-xl)"
 				>
 					<ArrowRight
 						class="size-6 transition-transform duration-300 group-hover:translate-x-1"
@@ -213,7 +207,7 @@
 
 	<div flex="~" m="t-2" items="center" gap="4" p="x-4">
 		<div bg="signal/35" h="px" flex="1"></div>
-		<span text="muted-foreground" class="kicker text-[10px]">Previous Updates</span>
+		<span text="muted-foreground" kicker-sm>Previous Updates</span>
 		<div bg="primary/30" h="px" flex="1"></div>
 	</div>
 </div>

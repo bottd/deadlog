@@ -1,10 +1,13 @@
 import { searchParams } from '$lib/stores/searchParams.svelte';
+import type { EntityKind } from '$lib/entityTone';
 import type { EnrichedHero, EnrichedItem } from '$lib/types';
 import { entityNamesMatch } from '@deadlog/utils';
 
-export type MergedEntity =
-	| { type: 'hero'; data: EnrichedHero; isSelected: boolean }
-	| { type: 'item'; data: EnrichedItem; isSelected: boolean };
+export type MergedEntity = {
+	/** Doubles as the each-key and the combobox option value. */
+	key: string;
+	isSelected: boolean;
+} & ({ type: 'hero'; data: EnrichedHero } | { type: 'item'; data: EnrichedItem });
 
 export const hasEntity = (names: string[], name: string) =>
 	names.some((candidate) => entityNamesMatch(candidate, name));
@@ -13,6 +16,18 @@ export const toggleEntity = (names: string[], name: string) =>
 	hasEntity(names, name)
 		? names.filter((candidate) => !entityNamesMatch(candidate, name))
 		: [...names, name];
+
+/**
+ * Add or remove one entity in the URL filters. The hero rail and the filter dropdown
+ * both toggle, so the read-modify-write lives here rather than at each call site.
+ */
+export function toggleEntityFilter(kind: EntityKind, name: string) {
+	const next = toggleEntity(
+		kind === 'hero' ? searchParams.hero : searchParams.item,
+		name
+	);
+	searchParams.update(kind === 'hero' ? { hero: next } : { item: next });
+}
 
 export class FilterState {
 	inputValue = $state('');
@@ -37,6 +52,7 @@ export class FilterState {
 			.map((hero) => ({
 				type: 'hero',
 				data: hero,
+				key: `hero-${hero.id}`,
 				isSelected: hasEntity(this.#params.hero, hero.name)
 			}));
 
@@ -51,6 +67,7 @@ export class FilterState {
 			.map((item) => ({
 				type: 'item',
 				data: item,
+				key: `item-${item.id}`,
 				isSelected: hasEntity(this.#params.item, item.name)
 			}));
 
@@ -61,24 +78,16 @@ export class FilterState {
 		});
 	});
 
-	selectHero(heroId: number) {
-		const hero = this.#getHeroes().find((h) => h.id === heroId);
-		if (hero) this.toggleHero(hero.name);
-	}
-
-	selectItem(itemId: number) {
-		const item = this.#getItems().find((i) => i.id === itemId);
-		if (item) this.toggleItem(item.name);
-	}
-
-	toggleHero(name: string) {
+	/** Picking an option from the list clears the typed query — the choice replaces it. */
+	toggle(kind: EntityKind, name: string) {
 		this.inputValue = '';
-		this.#params.update({ hero: toggleEntity(this.#params.hero, name) });
+		toggleEntityFilter(kind, name);
 	}
 
-	toggleItem(name: string) {
-		this.inputValue = '';
-		this.#params.update({ item: toggleEntity(this.#params.item, name) });
+	selectById(kind: EntityKind, id: number) {
+		const entities = kind === 'hero' ? this.#getHeroes() : this.#getItems();
+		const entity = entities.find((candidate) => candidate.id === id);
+		if (entity) this.toggle(kind, entity.name);
 	}
 
 	clearAll() {

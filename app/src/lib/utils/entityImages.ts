@@ -11,7 +11,7 @@ const HERO_CARD_KEYS = [
 	'icon_image_small'
 ] as const;
 
-/** Order is preserved so getHeroImage's first-value fallback still lands on card art. */
+/** Order is preserved so getHeroCardImage's first-value pick still lands on card art. */
 export function pickHeroImages(images: Record<string, string>): Record<string, string> {
 	const picked = HERO_CARD_KEYS.filter((key) => images[key]).map(
 		(key) => [key, images[key]] as const
@@ -20,13 +20,11 @@ export function pickHeroImages(images: Record<string, string>): Record<string, s
 	return Object.fromEntries(picked.length ? picked : Object.entries(images).slice(0, 1));
 }
 
-export function getHeroImage(hero: EnrichedHero): string {
-	return Object.values(hero.images)[0] as string;
-}
-
+/**
+ * Idempotent, so it is also correct for the already-narrowed heroes the layout load
+ * sends to the client — insertion order survives Object.fromEntries.
+ */
 export function getHeroCardImage(hero: EnrichedHero): string {
-	// Via pickHeroImages so the preference order and the no-expected-keys fallback stay
-	// defined once; insertion order survives Object.fromEntries.
 	return Object.values(pickHeroImages(hero.images))[0] ?? '';
 }
 

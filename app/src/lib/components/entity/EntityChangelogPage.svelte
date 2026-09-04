@@ -5,7 +5,13 @@
 		entityPatchHref
 	} from '$lib/components/changelog/entityContext';
 	import CornerAccents from '$lib/components/ui/corner-accents/CornerAccents.svelte';
-	import { ENTITY_LISTING } from '$lib/seo';
+	import {
+		absoluteUrl,
+		ENTITY_LISTING,
+		entityCollectionSchema,
+		pageMeta
+	} from '$lib/seo';
+	import { JsonLd, MetaTags } from 'svelte-meta-tags';
 	import { formatDate, plural } from '@deadlog/utils';
 	import Activity from '@lucide/svelte/icons/activity';
 	import ArrowLeft from '@lucide/svelte/icons/arrow-left';
@@ -26,6 +32,7 @@
 	interface EntityPatch {
 		id: string;
 		slug: string;
+		title: string;
 		date: Date;
 		author: string;
 		changeCount: number | null;
@@ -48,6 +55,19 @@
 		abilities?: Ability[];
 		streaks: { current: number; longest: number };
 		labelSuffix?: Snippet;
+		/**
+		 * Hero and item pages wire up meta tags and structured data identically, so the
+		 * page owns it and each route passes only what actually differs.
+		 * `indexable` deliberately tracks release, not patch count: the sitemap lists every
+		 * released entity, and a new one has no patches yet — exactly when its page matters.
+		 */
+		seo: {
+			path: string;
+			title: string;
+			description: string;
+			image: string;
+			indexable: boolean;
+		};
 	}
 
 	let {
@@ -58,7 +78,8 @@
 		changelogs,
 		abilities = [],
 		streaks,
-		labelSuffix
+		labelSuffix,
+		seo
 	}: Props = $props();
 
 	const requestedAbility = $derived(
@@ -112,29 +133,47 @@
 	const listing = $derived(ENTITY_LISTING[entity.type]);
 	const EmptyIcon = $derived(isItem ? Package : Activity);
 
-	const countedPatches = $derived(
-		changelogs.filter((c) => c.changeCount !== null).length
-	);
-	const unknownPatches = $derived(changelogs.length - countedPatches);
-	const totalChanges = $derived(
-		changelogs.reduce((total, c) => total + (c.changeCount ?? 0), 0)
-	);
 	// "N+" once any patch is missing a count, "N/A" when none of them have one.
-	const changeValue = $derived(
-		unknownPatches === 0
-			? String(totalChanges)
-			: countedPatches > 0
-				? `${totalChanges}+`
-				: 'N/A'
-	);
+	const changes = $derived.by(() => {
+		const counted = changelogs.filter((c) => c.changeCount !== null);
+		const unknown = changelogs.length - counted.length;
+		const total = counted.reduce((sum, c) => sum + (c.changeCount ?? 0), 0);
+		return {
+			unknown,
+			value: unknown === 0 ? String(total) : counted.length > 0 ? `${total}+` : 'N/A'
+		};
+	});
 	const oldestPatch = $derived(changelogs.at(-1));
 </script>
 
 {#snippet statLabel(text: string)}
-	<dt text="muted-foreground" class="kicker text-[9px]">
+	<dt text="muted-foreground" kicker-xs>
 		{text}
 	</dt>
 {/snippet}
+
+<MetaTags
+	{...pageMeta({
+		title: seo.title,
+		description: seo.description,
+		canonical: absoluteUrl(seo.path),
+		image: seo.image,
+		indexable: seo.indexable
+	})}
+/>
+
+{#if seo.indexable}
+	<JsonLd
+		schema={entityCollectionSchema({
+			entity,
+			path: seo.path,
+			title: seo.title,
+			description: seo.description,
+			image: seo.image,
+			changelogs
+		})}
+	/>
+{/if}
 
 <main class="bg-wire-grid min-h-screen">
 	<div container m="x-auto t-6 b-24" p="x-3" class="max-w-6xl sm:mt-8 sm:px-4">
@@ -282,7 +321,7 @@
 						<div bg="muted/30" p="3" text="left">
 							{@render statLabel('Changes')}
 							<dd m="t-1" font="mono bold" text="xl" style:color={accent}>
-								{changeValue}
+								{changes.value}
 							</dd>
 						</div>
 						<div bg="muted/30" p="3" text="left">
@@ -304,7 +343,7 @@
 							</dd>
 						</div>
 					</dl>
-					{#if unknownPatches > 0}
+					{#if changes.unknown > 0}
 						<p
 							text="muted-foreground"
 							m="t-2"
@@ -312,8 +351,8 @@
 							uppercase
 							class="text-[9px] tracking-wide"
 						>
-							{unknownPatches}
-							{plural(unknownPatches, 'patch', 'patches')} awaiting a reliable count
+							{changes.unknown}
+							{plural(changes.unknown, 'patch', 'patches')} awaiting a reliable count
 						</p>
 					{/if}
 				</div>
@@ -322,9 +361,7 @@
 			{#if changelogs.length > 1}
 				<div border="border/60 t" relative z="10" m="t-7" p="t-5">
 					<div flex="~" m="b-2" items="center" justify="between" gap="3">
-						<span text="muted-foreground" font="bold" class="kicker text-[9px]">
-							Patch cadence
-						</span>
+						<span text="muted-foreground" font="bold" kicker-xs> Patch cadence </span>
 						<span text="muted-foreground" font="mono" class="text-[9px]">
 							{changelogs.length} points
 						</span>
@@ -433,7 +470,7 @@
 					text="sm"
 					class="clip-corner-sm"
 				>
-					<span text="muted-foreground" class="kicker text-[10px]"> Filtered to </span>
+					<span text="muted-foreground" kicker-sm> Filtered to </span>
 					<span text="foreground" font="medium">{selectedAbilityName}</span>
 					<button
 						type="button"

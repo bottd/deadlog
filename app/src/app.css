@@ -160,7 +160,11 @@ body {
 		var(--grid-size) var(--grid-size);
 }
 
-.clip-corner {
+/* The notched panel: two opposite corners cut off. Only the cut size varies, so the
+   polygon is written once and each variant just resets `--corner`. */
+.clip-corner,
+.clip-corner-sm,
+.clip-corner-lg {
 	--corner: 12px;
 	clip-path: polygon(
 		0 0,
@@ -173,33 +177,13 @@ body {
 }
 .clip-corner-sm {
 	--corner: 10px;
-	clip-path: polygon(
-		0 0,
-		calc(100% - var(--corner)) 0,
-		100% var(--corner),
-		100% 100%,
-		var(--corner) 100%,
-		0 calc(100% - var(--corner))
-	);
 }
 .clip-corner-lg {
 	--corner: 24px;
-	clip-path: polygon(
-		0 0,
-		calc(100% - var(--corner)) 0,
-		100% var(--corner),
-		100% 100%,
-		var(--corner) 100%,
-		0 calc(100% - var(--corner))
-	);
 }
 
-a.clip-corner:focus-visible,
-a.clip-corner-sm:focus-visible,
-a.clip-corner-lg:focus-visible,
-button.clip-corner:focus-visible,
-button.clip-corner-sm:focus-visible,
-button.clip-corner-lg:focus-visible {
+/* `clip-path` crops an outline, so a clipped control rings itself from the inside. */
+:is(a, button):is(.clip-corner, .clip-corner-sm, .clip-corner-lg):focus-visible {
 	outline: none;
 	box-shadow: inset 0 0 0 2px var(--ring);
 }

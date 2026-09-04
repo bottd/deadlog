@@ -9,8 +9,8 @@ import {
 import { formatDate } from '@deadlog/utils';
 import { getLibsqlDb as getDb } from '@deadlog/db';
 import { fromJsx } from '@takumi-rs/helpers/jsx';
-import { mkdir, writeFile } from 'fs/promises';
-import { join, resolve } from 'path';
+import { mkdir, readFile, writeFile } from 'fs/promises';
+import { extname, join, resolve } from 'path';
 import { fileURLToPath } from 'url';
 import React from 'react';
 
@@ -22,10 +22,29 @@ import { HeroLayout } from './layouts/HeroLayout';
 import { ItemLayout } from './layouts/ItemLayout';
 
 const OUTPUT_DIR = 'app/static/assets/meta';
+// Anchored to this file, not to cwd: every changelog now carries a root-relative
+// author_image, so a cwd-relative lookup would fail every preview when build:meta runs
+// from anywhere but the repo root.
+const STATIC_DIR = resolve(import.meta.dirname, '../../../app/static');
+
+const MIME_TYPES: Record<string, string> = {
+	'.png': 'image/png',
+	'.jpg': 'image/jpeg',
+	'.jpeg': 'image/jpeg',
+	'.webp': 'image/webp'
+};
+
+/** Author avatars are root-relative site paths, not URLs, so they come off disk. */
+async function readStaticAsDataUri(path: string): Promise<string> {
+	const buffer = await readFile(join(STATIC_DIR, path));
+	const mime = MIME_TYPES[extname(path).toLowerCase()] ?? 'image/png';
+	return `data:${mime};base64,${buffer.toString('base64')}`;
+}
 
 export async function convertImageUrl(url?: string | null): Promise<string> {
 	if (!url) return '';
 	if (url.startsWith('data:')) return url;
+	if (url.startsWith('/')) return await readStaticAsDataUri(url);
 	const dataUri = await fetchImageAsDataUri(url);
 	if (!dataUri) throw new Error(`Failed to fetch image: ${url}`);
 	return dataUri;

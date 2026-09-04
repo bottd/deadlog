@@ -7,7 +7,6 @@ import { Window } from 'happy-dom';
 
 const S = {
 	CONTENT: '.bbWrapper, .message-content',
-	AVATAR: '.message-avatar img',
 	TITLE: 'h1.p-title-value, h1',
 	AUTHOR: '.message-name .username, .username',
 	DATE: 'time[datetime], time',
@@ -33,7 +32,6 @@ export interface PostContentResult {
 	postId: string;
 	title: string;
 	author: string;
-	authorImage?: string;
 	pubDate: string;
 	content: string;
 	posterReplies: PosterReply[];
@@ -43,7 +41,6 @@ const postContentResultSchema = z.object({
 	postId: z.string(),
 	title: z.string(),
 	author: z.string(),
-	authorImage: z.string().optional(),
 	pubDate: z.string(),
 	content: z.string(),
 	posterReplies: z.array(z.object({ content: z.string(), timestamp: z.string() }))
@@ -185,9 +182,6 @@ function extractPostContent(document: Document): PostContentResult | null {
 	const authorElement = firstPost.querySelector(S.AUTHOR);
 	const author = authorElement?.textContent?.trim() || '';
 
-	const avatarElement = firstPost.querySelector(S.AVATAR) as HTMLImageElement | null;
-	const authorImage = avatarElement?.src || undefined;
-
 	const dateElement = firstPost.querySelector(S.DATE);
 	const pubDate =
 		dateElement?.getAttribute('datetime') || dateElement?.textContent?.trim();
@@ -201,7 +195,7 @@ function extractPostContent(document: Document): PostContentResult | null {
 
 	if (!pubDate) return null;
 
-	return { postId, title, author, authorImage, pubDate, content, posterReplies };
+	return { postId, title, author, pubDate, content, posterReplies };
 }
 
 function extractThreadList(document: Document): {

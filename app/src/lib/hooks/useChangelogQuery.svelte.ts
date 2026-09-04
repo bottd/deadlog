@@ -1,5 +1,6 @@
 import { createInfiniteQuery, type InfiniteData } from '@tanstack/svelte-query';
 import type { ChangelogEntry, ChangelogWireEntry } from '$lib/types';
+import { searchParams } from '$lib/stores/searchParams.svelte';
 import {
 	changelogsListKey,
 	filtersToSearchParams,
@@ -17,10 +18,9 @@ interface WirePageData {
 	hasMore: boolean;
 }
 
+/** The prerendered feed the query starts from, read fresh so it stays reactive. */
 interface UseChangelogQueryOptions {
-	getInitialChangelogs: () => ChangelogEntry[];
-	getTotalCount: () => number;
-	getFilters: () => Required<ChangelogFilters>;
+	getSeed: () => { changelogs: ChangelogEntry[]; totalCount: number };
 }
 
 const PAGE_SIZE = 12;
@@ -46,8 +46,8 @@ export function useChangelogQuery(options: UseChangelogQueryOptions) {
 		ReturnType<typeof changelogsListKey>,
 		number
 	>(() => {
-		const initialChangelogs = options.getInitialChangelogs();
-		const filters = options.getFilters();
+		const seed = options.getSeed();
+		const filters = searchParams.filters;
 
 		return {
 			queryKey: changelogsListKey(filters),
@@ -55,8 +55,8 @@ export function useChangelogQuery(options: UseChangelogQueryOptions) {
 				? {
 						pages: [
 							{
-								changelogs: initialChangelogs,
-								hasMore: options.getTotalCount() > initialChangelogs.length
+								changelogs: seed.changelogs,
+								hasMore: seed.totalCount > seed.changelogs.length
 							}
 						],
 						pageParams: [0]

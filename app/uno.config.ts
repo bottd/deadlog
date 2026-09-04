@@ -135,8 +135,30 @@ export default defineConfig({
 		'sheet-bottom': 'sheet inset-x-0 bottom-0 h-auto border-t',
 		popover: 'z-50 rounded-md border bg-popover text-popover-foreground shadow-md',
 
-		/** The small mono all-caps label used as a section kicker in 12 places. */
+		/**
+		 * The small mono all-caps section label. `kicker` is the typography alone, for the
+		 * two sites that set their own size; the sized variants cover the rest, so no call
+		 * site has to pair the shortcut with a loose `text-[Npx]`.
+		 *
+		 * Sizes stay arbitrary rather than joining `theme.text`: that scale's entries carry
+		 * a unitless leading, and these labels deliberately inherit their line box from the
+		 * `text-sm`/`text-xs` container they sit in (see the `text` comment above).
+		 */
 		kicker: 'font-mono uppercase tracking-widest',
+		'kicker-sm': 'kicker text-[10px]',
+		'kicker-xs': 'kicker text-[9px]',
+
+		/**
+		 * Links inside a clipped card ring themselves with an outline rather than
+		 * `ui-focus-ring`: the card's `clip-path` would crop a ring drawn as box-shadow.
+		 */
+		'ui-focus-outline': 'focus-visible:(outline-primary outline-2 outline-offset-2)',
+
+		/**
+		 * Card-wide click target: the heading's link covers the card via `::after`, so the
+		 * card itself needs no handler while crawlers and middle-click still get a real href.
+		 */
+		'stretched-link': "ui-focus-outline after:(absolute inset-0 content-[''])",
 
 		'menu-item':
 			'relative flex cursor-default select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden aria-selected:(bg-accent text-accent-foreground) data-[disabled]:(pointer-events-none op-50) [&_svg]:(pointer-events-none shrink-0)'

@@ -5,8 +5,20 @@ import { MAX_ENTITY_FILTERS } from '$lib/queries/keys';
 import type { ChangelogEntityIcon, ChangelogEntry, EntityIcon } from '$lib/types';
 import { changePath } from '$lib/seo';
 import { authorInitials } from '$lib/author';
+import { ENTITY_TONE } from '$lib/entityTone';
 
 export type PatchCardProps = Omit<ChangelogEntry, 'updates'>;
+
+/**
+ * Most patches are titled by their date, which would read as a duplicate next to the
+ * date line — those show a formatted date as the heading instead. Cards and the patch
+ * page share this so a patch is headed the same way wherever it appears.
+ */
+export function patchHeading(patch: { title: string; date: Date }) {
+	const date = formatDate(patch.date);
+	const named = !/\d{2}-\d{2}-\d{4}/.test(patch.title);
+	return { named, date, heading: named ? patch.title : date };
+}
 
 /** Stand-in art when a patch has no scraped preview image. */
 const FALLBACK_PREVIEW = {
@@ -23,7 +35,7 @@ const NO_MATCHES: PatchCardMatches = {
 	keys: new Set<string>(),
 	changeCount: null,
 	label: null,
-	tone: 'text-primary'
+	tone: ENTITY_TONE.hero.text
 };
 
 export interface PatchCardMatches {
@@ -62,8 +74,8 @@ export function patchCardMatches(patch: PatchCardProps): PatchCardMatches {
 					? `${entities[0].alt} ${plural(changeCount, 'change')}`
 					: `matched ${plural(changeCount, 'change')}`,
 		tone: entities.every((entity) => entity.type === 'item')
-			? 'text-signal'
-			: 'text-primary'
+			? ENTITY_TONE.item.text
+			: ENTITY_TONE.hero.text
 	};
 }
 
@@ -112,7 +124,7 @@ export function patchCardView(
 		{
 			type: 'heroes',
 			label: 'Heroes',
-			tone: 'text-primary',
+			tone: ENTITY_TONE.hero.text,
 			list: heroes.slice(0, max),
 			extra: Math.max(0, heroes.length - max),
 			offset: 0
@@ -120,7 +132,7 @@ export function patchCardView(
 		{
 			type: 'items',
 			label: 'Items',
-			tone: 'text-signal',
+			tone: ENTITY_TONE.item.text,
 			list: items.slice(0, max),
 			extra: Math.max(0, items.length - max),
 			offset: Math.min(heroes.length, max)
@@ -131,27 +143,25 @@ export function patchCardView(
 		{
 			n: heroes.length,
 			noun: plural(heroes.length, 'hero', 'heroes'),
-			tone: 'text-primary'
+			tone: ENTITY_TONE.hero.text
 		},
-		{ n: items.length, noun: plural(items.length, 'item'), tone: 'text-signal' }
+		{ n: items.length, noun: plural(items.length, 'item'), tone: ENTITY_TONE.item.text }
 	].filter((count) => count.n > 0);
 
-	const scope = counts.map((count) => `${count.n} ${count.noun}`).join(' and ');
-	const totals = counts.map((count) => `${count.n} ${count.noun}`).join(' · ');
-	const date = formatDate(patch.date);
-	const named = !/\d{2}-\d{2}-\d{4}/.test(patch.title);
+	const phrases = counts.map((count) => `${count.n} ${count.noun}`);
+	const { named, date, heading } = patchHeading(patch);
 
 	return {
 		rows,
 		counts,
-		totals,
+		totals: phrases.join(' · '),
 		initials: authorInitials(patch.author),
-		heading: named ? patch.title : date,
+		heading,
 		date,
 		named,
 		fallbackImage: patch.majorUpdate ? FALLBACK_PREVIEW.major : FALLBACK_PREVIEW.minor,
 		accessibleLabel:
 			`${featured ? 'Latest patch, ' : ''}${named ? `${patch.title}, ${date}` : date}, by ${patch.author}` +
-			`${scope ? `, affecting ${scope}` : ''}. View full patch.`
+			`${phrases.length ? `, affecting ${phrases.join(' and ')}` : ''}. View full patch.`
 	};
 }

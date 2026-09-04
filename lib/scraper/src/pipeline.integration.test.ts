@@ -170,7 +170,6 @@ describe('scrapeChangelogs', () => {
 				postId: '75046',
 				title: 'Six New Heroes',
 				author: 'Yoshi',
-				authorImage: 'https://forums.example/yoshi.png',
 				pubDate: '2025-08-18T20:43:52.000Z',
 				content:
 					'<div class="bbWrapper"><a href="https://store.steampowered.com/news/app/1422450/view/123">Steam article</a></div>',
@@ -199,7 +198,9 @@ describe('scrapeChangelogs', () => {
 		expect(content).toContain('title "Six New Heroes"');
 		expect(content).toContain('published "2025-08-18T20:42:20.000Z"');
 		expect(content).toContain('author "simonne"');
-		expect(content).not.toContain('author_image');
+		// The avatar tracks the displayed author, not whoever relayed the post to the
+		// forum: Yoshi has a picture of his own, simonne falls back to the group's.
+		expect(content).toContain('author_image "/assets/authors/deadlock.webp"');
 		expect(content).toContain('Meet the newest heroes coming to the Cursed Apple.');
 		expect(content).toContain('## Billy');
 		expect(content).toContain('# General Changes');

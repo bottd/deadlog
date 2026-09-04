@@ -4,15 +4,15 @@ import { resolve } from 'path';
 export default defineConfig({
 	resolve: {
 		alias: {
-			'@deadlog/changelog': resolve(__dirname, '../changelog/src/index.ts'),
-			'@deadlog/db': resolve(__dirname, '../db/src/index.ts'),
-			'@deadlog/scraper': resolve(__dirname, '../scraper/src/index.ts'),
-			'@deadlog/utils': resolve(__dirname, '../utils/src/index.ts')
+			'@deadlog/changelog': resolve(import.meta.dirname, '../changelog/src/index.ts'),
+			'@deadlog/db': resolve(import.meta.dirname, '../db/src/index.ts'),
+			'@deadlog/scraper': resolve(import.meta.dirname, '../scraper/src/index.ts'),
+			'@deadlog/utils': resolve(import.meta.dirname, '../utils/src/index.ts')
 		}
 	},
 	build: {
 		lib: {
-			entry: resolve(__dirname, 'src/generate-previews.ts'),
+			entry: resolve(import.meta.dirname, 'src/generate-previews.ts'),
 			formats: ['es'],
 			fileName: 'generate-previews'
 		},

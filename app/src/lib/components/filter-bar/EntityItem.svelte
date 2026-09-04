@@ -1,5 +1,6 @@
 <script lang="ts">
 	import * as Command from '$lib/components/ui/command';
+	import { ENTITY_TONE, type EntityKind } from '$lib/entityTone';
 
 	interface Props {
 		id: string;
@@ -7,16 +8,13 @@
 		name: string;
 		imageSrc?: string;
 		isSelected: boolean;
-		colorClass: 'hero' | 'item';
+		kind: EntityKind;
 		onSelect: () => void;
 	}
 
-	let { id, value, name, imageSrc, isSelected, colorClass, onSelect }: Props = $props();
+	let { id, value, name, imageSrc, isSelected, kind, onSelect }: Props = $props();
 
-	const bgClass = $derived(colorClass === 'hero' ? 'bg-primary/10' : 'bg-signal/10');
-	const textClass = $derived(colorClass === 'hero' ? 'text-primary' : 'text-signal');
-	const dotClass = $derived(colorClass === 'hero' ? 'bg-primary' : 'bg-signal');
-	const typeLabel = $derived(colorClass === 'hero' ? 'Hero' : 'Item');
+	const tone = $derived(ENTITY_TONE[kind]);
 </script>
 
 <Command.Item
@@ -24,14 +22,14 @@
 	{value}
 	{onSelect}
 	class="hover:bg-secondary data-[selected]:bg-secondary flex cursor-pointer items-center gap-3 rounded-sm px-3 py-2 transition-colors {isSelected
-		? bgClass
+		? tone.subtle
 		: ''}"
 >
 	{#snippet child({ props })}
 		<div
 			{...props}
 			aria-selected={isSelected}
-			aria-label="{name}, {typeLabel}, {isSelected ? 'selected' : 'not selected'}"
+			aria-label="{name}, {tone.label}, {isSelected ? 'selected' : 'not selected'}"
 		>
 			{#if imageSrc}
 				<img
@@ -51,7 +49,7 @@
 			<span flex="1" class="min-w-0">
 				<span
 					class="block truncate text-sm {isSelected
-						? `font-medium ${textClass}`
+						? `font-medium ${tone.text}`
 						: 'text-foreground'}"
 				>
 					{name}
@@ -63,14 +61,14 @@
 					uppercase
 					class="text-[9px] tracking-wider"
 				>
-					{typeLabel}
+					{tone.label}
 				</span>
 			</span>
 			{#if isSelected}
-				<span class="font-mono text-[9px] tracking-wider uppercase {textClass}"
+				<span class="font-mono text-[9px] tracking-wider uppercase {tone.text}"
 					>Selected</span
 				>
-				<span class="size-2 rounded-full {dotClass}" aria-hidden="true"></span>
+				<span class="size-2 rounded-full {tone.dot}" aria-hidden="true"></span>
 			{/if}
 		</div>
 	{/snippet}

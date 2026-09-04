@@ -3,7 +3,7 @@ title "10-07-2024 Update"
 thread_id "36441"
 published "2024-10-07T12:45:09-0700"
 author "Yoshi"
-author_image "https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630"
+author_image "/assets/authors/yoshi.webp"
 category "patch"
 major_update #false
 content_text "Fixed various cases where you could target/select units behind walls with abilities (like Yamato's Flying Strike) Wraith Card Trick Spirit scaling reduced from 1.5 to 1.2 Shadow Weave Ambush Fire Rate reduced from +40% to +30%"
@@ -22,13 +22,13 @@ content_text "Fixed various cases where you could target/select units behind wal
 =hero:wraith:
 [[/hero/wraith]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp]] Wraith patch history))
 ## [[/hero/wraith]]((Wraith))
-
 ==ability:card-trick-spirit:
+[[/hero/wraith?ability=card-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_card_trick.webp]] Card Trick Spirit change history))
 ### [[/hero/wraith?ability=card-trick]]((Card Trick Spirit))
-
 - Card Trick Spirit scaling reduced from 1.5 to 1.2
 ==
 =
+
 # Item Changes
 
 ``embed:svelte:
@@ -38,6 +38,5 @@ content_text "Fixed various cases where you could target/select units behind wal
 =item:shadow-weave:
 [[/item/shadow-weave]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/shadow_weave.webp]] Shadow Weave patch history))
 ## [[/item/shadow-weave]]((Shadow Weave))
-
 - Ambush Fire Rate reduced from +40% to +30%
 =

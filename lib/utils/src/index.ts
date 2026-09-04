@@ -17,6 +17,14 @@ export {
 	normalizeEntityName
 } from './entityNames';
 
+export {
+	AUTHOR_AVATAR_DIR,
+	SHARED_AUTHOR_AVATAR,
+	authorAvatarPath,
+	authorInitials,
+	authorSlug
+} from './author';
+
 /** Shared so the generator hands out collision-free ids while every heading it
  * leaves alone keeps the one it already has. */
 export function abilityFragmentId(name: string): string {

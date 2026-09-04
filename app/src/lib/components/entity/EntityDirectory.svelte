@@ -1,6 +1,7 @@
 <script module lang="ts">
 	import Package from '@lucide/svelte/icons/package';
 	import Users from '@lucide/svelte/icons/users';
+	import { ENTITY_TONE } from '$lib/entityTone';
 
 	export interface DirectoryEntry {
 		id: number | string;
@@ -10,13 +11,22 @@
 		subtitle?: string | null;
 	}
 
-	// The class scanner only sees literal class strings, so each kind spells its classes out.
+	/** Both directories list released entities alphabetically. */
+	export function releasedByName<T extends { isReleased: boolean; name: string }>(
+		entities: T[]
+	): T[] {
+		return entities
+			.filter((entity) => entity.isReleased)
+			.sort((a, b) => a.name.localeCompare(b.name));
+	}
+
+	// Shared tone (label, plural, text colour) plus the directory-only surfaces. The class
+	// scanner only sees literal class strings, so each kind spells its classes out.
 	const KINDS = {
 		hero: {
+			...ENTITY_TONE.hero,
 			icon: Users,
-			noun: 'heroes',
 			title: 'Hero Directory',
-			text: 'text-primary',
 			border: 'border-primary/30',
 			wash: 'from-primary/10',
 			accents: { tlColor: 'bg-primary/70', brColor: 'bg-primary/30' },
@@ -25,10 +35,9 @@
 			cardAccents: { tlColor: 'bg-primary/30', tlHover: 'group-hover:bg-primary' }
 		},
 		item: {
+			...ENTITY_TONE.item,
 			icon: Package,
-			noun: 'items',
 			title: 'Item Directory',
-			text: 'text-signal',
 			border: 'border-signal/30',
 			wash: 'from-signal/10 via-signal/5',
 			accents: { tlColor: 'bg-signal/80', brColor: 'bg-primary/40' },
@@ -43,6 +52,16 @@
 	import CornerAccents from '$lib/components/ui/corner-accents/CornerAccents.svelte';
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
 	import Search from '@lucide/svelte/icons/search';
+	import { JsonLd, MetaTags } from 'svelte-meta-tags';
+	import {
+		absoluteUrl,
+		collectionPageSchema,
+		DEADLOCK_GAME,
+		DEFAULT_SOCIAL_IMAGE,
+		ENTITY_LISTING,
+		pageMeta,
+		SITE_NAME
+	} from '$lib/seo';
 
 	interface Props {
 		/** Drives the id prefix, tone, icon, copy and image treatment. */
@@ -52,12 +71,20 @@
 		lede: string;
 		listEyebrow: string;
 		entries: DirectoryEntry[];
+		/**
+		 * /heroes and /items wire up meta tags and structured data identically, and both
+		 * the canonical and the breadcrumbs follow from `kind` — only the copy differs.
+		 */
+		seo: { title: string; description: string };
 	}
 
-	let { kind, eyebrow, heading, lede, listEyebrow, entries }: Props = $props();
+	let { kind, eyebrow, heading, lede, listEyebrow, entries, seo }: Props = $props();
 
 	const t = $derived(KINDS[kind]);
 	const Icon = $derived(t.icon);
+
+	const listing = $derived(ENTITY_LISTING[kind]);
+	const canonical = $derived(absoluteUrl(listing.path));
 
 	let search = $state('');
 	const filtered = $derived.by(() => {
@@ -67,6 +94,23 @@
 			: entries;
 	});
 </script>
+
+<MetaTags {...pageMeta({ title: seo.title, description: seo.description, canonical })} />
+
+<JsonLd
+	schema={collectionPageSchema({
+		canonical,
+		title: seo.title,
+		description: seo.description,
+		image: DEFAULT_SOCIAL_IMAGE,
+		about: [DEADLOCK_GAME],
+		items: entries.map((entry) => ({ name: entry.name, url: absoluteUrl(entry.href) })),
+		breadcrumbs: [
+			{ name: SITE_NAME, path: '/' },
+			{ name: listing.label, path: listing.path }
+		]
+	})}
+/>
 
 <main container m="x-auto t-8 b-24" p="x-4" class="max-w-6xl">
 	<header
@@ -97,7 +141,7 @@
 	<section aria-labelledby="{kind}-directory-heading">
 		<div flex="~" m="b-5" items="end" justify="between" gap="4">
 			<div>
-				<p text="muted-foreground" class="kicker text-[10px]">
+				<p text="muted-foreground" kicker-sm>
 					{listEyebrow}
 				</p>
 				<h2
@@ -112,11 +156,11 @@
 			</div>
 			<span id="{kind}-directory-count" class="{t.text} font-mono text-xs font-bold">
 				{filtered.length}{search ? ` / ${entries.length}` : ''}
-				{t.noun.toUpperCase()}
+				{t.plural.toUpperCase()}
 			</span>
 		</div>
 
-		<label for="{kind}-directory-search" class="sr-only">Filter {t.noun} by name</label>
+		<label for="{kind}-directory-search" class="sr-only">Filter {t.plural} by name</label>
 		<div class="border-border bg-card {t.focus} relative mb-5 max-w-md border">
 			<Search
 				class="text-muted-foreground pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2"
@@ -126,7 +170,7 @@
 				type="search"
 				bind:value={search}
 				aria-describedby="{kind}-directory-count"
-				placeholder="Filter {t.noun}..."
+				placeholder="Filter {t.plural}..."
 				w="full"
 				bg="transparent"
 				p="y-3 r-3 l-10"
@@ -202,7 +246,7 @@
 								{/if}
 							</div>
 							<ArrowRight
-								class="{t.text} size-3.5 shrink-0 -translate-x-1 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100"
+								class="{t.text} size-3.5 shrink-0 -translate-x-1 opacity-0 transition-all group-hover:(translate-x-0 opacity-100)"
 							/>
 						</a>
 					</li>
@@ -210,7 +254,7 @@
 			</ul>
 		{:else}
 			<p border="border ~" bg="card" text="muted-foreground center" p="8">
-				No {t.noun} match "{search}".
+				No {t.plural} match "{search}".
 			</p>
 		{/if}
 	</section>

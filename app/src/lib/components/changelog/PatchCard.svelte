@@ -44,7 +44,7 @@
 			z="20"
 			p="x-1.5 y-0.5"
 			font="bold"
-			class="kicker clip-corner-sm top-2 right-2 text-[9px]"
+			class="kicker-xs clip-corner-sm top-2 right-2"
 		>
 			New
 		</span>
@@ -97,12 +97,7 @@
 					font="semibold"
 					class="group-hover:text-primary line-clamp-2 min-w-0 tracking-tight transition-colors duration-300"
 				>
-					<!-- Stretched link — see FeaturedPatchCard. -->
-					<a
-						href={links.href}
-						aria-label={view.accessibleLabel}
-						class="focus-visible:outline-primary after:absolute after:inset-0 after:content-[''] focus-visible:outline-2 focus-visible:outline-offset-2"
-					>
+					<a href={links.href} aria-label={view.accessibleLabel} class="stretched-link">
 						{view.heading}
 					</a>
 				</h2>
@@ -115,7 +110,7 @@
 						shrink="0"
 						p="x-1.5 y-0.5"
 						font="bold"
-						class="kicker clip-corner-sm text-[9px]"
+						class="kicker-xs clip-corner-sm"
 					>
 						Major
 					</span>
@@ -160,7 +155,7 @@
 							relative
 							z="10"
 							rounded="md"
-							class="group/icon focus-visible:outline-primary transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 hover:z-20 hover:-translate-y-0.5 hover:scale-110 {matched
+							class="group/icon ui-focus-outline transition-all duration-200 hover:(z-20 -translate-y-0.5 scale-110) {matched
 								? 'ring-signal/70 z-20 rounded-md ring-2'
 								: ''}"
 						>
@@ -218,7 +213,7 @@
 				{/each}
 			{/if}
 			<ArrowRight
-				class="text-signal ml-auto size-3.5 -translate-x-1 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100"
+				class="text-signal ml-auto size-3.5 -translate-x-1 opacity-0 transition-all duration-300 group-hover:(translate-x-0 opacity-100)"
 			/>
 		</div>
 	</div>

@@ -8,7 +8,10 @@
 	import { authorInitials } from '$lib/author';
 	import * as Sheet from '$lib/components/ui/sheet';
 	import Button from '$lib/components/ui/button/button.svelte';
-	import { entityNamesMatch, formatDate, formatTime } from '@deadlog/utils';
+	import { formatDate, formatTime } from '@deadlog/utils';
+	import { hasEntity } from '$lib/components/filter-bar/filterState.svelte';
+	import { patchHeading } from '$lib/components/changelog/patchCard';
+	import { tocLinkCount } from '$lib/components/changelog/toc';
 	import CornerAccents from '$lib/components/ui/corner-accents/CornerAccents.svelte';
 	import ArrowLeft from '@lucide/svelte/icons/arrow-left';
 	import ExternalLink from '@lucide/svelte/icons/external-link';
@@ -56,10 +59,8 @@
 	const abilityIcons = $derived(changelog.abilityIcons ?? []);
 	const icons = $derived({ heroes: allHeroes, items: allItems });
 
-	const has = (names: string[], name: string) =>
-		names.some((n) => entityNamesMatch(n, name));
-	const matchedHeroes = $derived(allHeroes.filter((h) => has(selHeroes, h.alt)));
-	const matchedItems = $derived(allItems.filter((i) => has(selItems, i.alt)));
+	const matchedHeroes = $derived(allHeroes.filter((h) => hasEntity(selHeroes, h.alt)));
+	const matchedItems = $derived(allItems.filter((i) => hasEntity(selItems, i.alt)));
 
 	const filterActive = $derived(selHeroes.length + selItems.length > 0);
 	// undefined unless at least one selected entity actually changed in this patch
@@ -79,28 +80,14 @@
 
 	const heroCount = $derived(tocHeroes.length);
 	const itemCount = $derived(tocItems.length);
-	const namedTitle = $derived(!/\d{2}-\d{2}-\d{4}/.test(changelog.title));
-	const displayTitle = $derived(
-		namedTitle ? changelog.title : formatDate(changelog.date)
-	);
+	const patchTitle = $derived(patchHeading(changelog));
 
 	const hideGeneral = $derived(
 		!!mogFilter || !mogToc.some((s) => s.id === 'general-changes')
 	);
-	const genericTocEntries = $derived(
-		heroCount + itemCount === 0
-			? mogToc.filter(
-					(entry) =>
-						!['general-changes', 'hero-changes', 'item-changes'].includes(entry.id)
-				)
-			: []
-	);
+	// A single link is not a table of contents.
 	const showToc = $derived(
-		(hideGeneral ? 0 : 1) +
-			(heroCount > 0 ? heroCount + 1 : 0) +
-			(itemCount > 0 ? itemCount + 1 : 0) +
-			genericTocEntries.length >
-			1
+		tocLinkCount({ toc: mogToc, heroes: tocHeroes, items: tocItems, hideGeneral }) > 1
 	);
 	const patchPath = $derived(changePath(changelog));
 	const canonical = $derived(absoluteUrl(patchPath));
@@ -217,7 +204,7 @@
 			class="clip-corner-sm"
 		>
 			{#if mogFilter}
-				<span text="muted-foreground" class="kicker text-[10px]"> Filtered to </span>
+				<span text="muted-foreground" kicker-sm> Filtered to </span>
 				<span text="foreground" font="medium">{matchedLabel}</span>
 			{:else}
 				<span text="muted-foreground">
@@ -308,7 +295,8 @@
 									text="primary"
 									p="x-2 y-0.5"
 									font="bold"
-									class="kicker rounded text-[10px]"
+									rounded
+									class="kicker-sm"
 								>
 									{changelog.category ?? 'patch'}
 								</span>
@@ -326,7 +314,7 @@
 								text="foreground 3xl"
 								class="heading-glow leading-tight tracking-wide"
 							>
-								{displayTitle}
+								{patchTitle.heading}
 							</h1>
 
 							<div flex="~" items="center" gap="4">
@@ -345,7 +333,7 @@
 									</Avatar.Root>
 									<span class="tracking-tight">
 										By <span text="foreground" font="medium">{changelog.author}</span>
-										{#if namedTitle}
+										{#if patchTitle.named}
 											on
 											<time datetime={changelog.date.toISOString()}
 												>{formatDate(changelog.date)}</time

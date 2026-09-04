@@ -24,7 +24,7 @@
 	rounded="md"
 	p="x-2.5 y-1.5"
 	font="medium"
-	class="video-link hover:border-signal/50 hover:text-foreground focus-visible:ring-ring inline-flex no-underline transition-colors focus-visible:ring-2 focus-visible:outline-none"
+	class="video-link inline-flex no-underline transition-colors hover:(border-signal/50 text-foreground) focus-visible:(ring-ring ring-2 outline-none)"
 	aria-label="{label} — video clip, opens on the Deadlock forums"
 >
 	<Clapperboard class="text-signal size-3.5 shrink-0" aria-hidden="true" />

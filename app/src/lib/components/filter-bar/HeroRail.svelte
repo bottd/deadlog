@@ -3,7 +3,7 @@
 	import { searchParams as params } from '$lib/stores/searchParams.svelte';
 	import { getHeroCardImage } from '$lib/utils/entityImages';
 	import type { EnrichedHero } from '$lib/types';
-	import { hasEntity, toggleEntity } from './filterState.svelte';
+	import { hasEntity, toggleEntityFilter } from './filterState.svelte';
 	import { MAX_ENTITY_FILTERS } from '$lib/queries/keys';
 
 	// ponytail: heroes only — the roster is finite, so a full icon rail is honest.
@@ -22,21 +22,11 @@
 	});
 
 	const atCap = $derived(params.heroAtCap);
-
-	function toggle(name: string) {
-		params.update({ hero: toggleEntity(params.hero, name) });
-	}
 </script>
 
 {#if heroes.length > 0}
 	<div m="b-6" role="group" aria-labelledby="hero-rail-label">
-		<span
-			id="hero-rail-label"
-			text="muted-foreground"
-			m="b-2"
-			block
-			class="kicker text-[10px]"
-		>
+		<span id="hero-rail-label" text="muted-foreground" m="b-2" block kicker-sm>
 			&mdash; Filter by hero
 			<span text="muted-foreground/60">({heroes.length})</span>
 			{#if atCap}
@@ -50,7 +40,7 @@
 						{@const blocked = !selected && atCap}
 						<button
 							type="button"
-							onclick={() => toggle(hero.name)}
+							onclick={() => toggleEntityFilter('hero', hero.name)}
 							disabled={blocked}
 							title={blocked ? `${hero.name} — filter limit reached` : hero.name}
 							aria-label={blocked ? `${hero.name} — filter limit reached` : hero.name}

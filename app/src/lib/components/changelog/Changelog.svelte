@@ -18,19 +18,13 @@
 
 	// Page data is prerendered without query parameters; filters remain URL-derived.
 	const filters = $derived(params.filters);
-	const query = useChangelogQuery({
-		getInitialChangelogs: () => changelogs,
-		getTotalCount: () => totalCount,
-		getFilters: () => filters
-	});
+	const query = useChangelogQuery({ getSeed: () => ({ changelogs, totalCount }) });
 
 	const filterCount = $derived(params.activeFilterCount);
 	const isSearching = $derived(params.isSearching);
 
 	// All filtering (text search, hero, item) is server-side — just flatten pages
 	const allChangelogs = $derived((query.data?.pages ?? []).flatMap((p) => p.changelogs));
-
-	const hasNextPage = $derived(query.hasNextPage);
 
 	const isFilterPending = $derived(params.isPending);
 
@@ -132,14 +126,7 @@
 			Search every gameplay update, hero adjustment, and item balance change in one log.
 		</p>
 		{#if totalCount > 0}
-			<p
-				flex="~"
-				text="muted-foreground"
-				m="t-3"
-				items="center"
-				gap="2"
-				class="kicker text-[10px]"
-			>
+			<p flex="~" text="muted-foreground" m="t-3" items="center" gap="2" kicker-sm>
 				<span text="primary" font="bold">{totalCount}</span>
 				<span>{plural(totalCount, 'patch', 'patches')} indexed</span>
 				{#if lastUpdate}
@@ -158,7 +145,7 @@
 		type="button"
 		onclick={() => params.update({ major: !params.major })}
 		aria-pressed={params.major}
-		class="clip-corner-sm mb-6 border px-3 py-1.5 font-mono text-[10px] font-bold tracking-widest uppercase transition-colors {params.major
+		class="kicker-sm clip-corner-sm mb-6 border px-3 py-1.5 font-bold transition-colors {params.major
 			? 'border-primary/60 bg-primary/15 text-primary'
 			: 'border-border text-muted-foreground hover:border-primary/40 hover:text-foreground'}"
 	>
@@ -187,9 +174,10 @@
 					role="status"
 					aria-live="polite"
 				>
-					&mdash; {allChangelogs.length}{hasNextPage ? '+' : ''}
-					{hasNextPage ? 'patches' : plural(allChangelogs.length, 'patch', 'patches')} matching
-					all
+					&mdash; {allChangelogs.length}{query.hasNextPage ? '+' : ''}
+					{query.hasNextPage
+						? 'patches'
+						: plural(allChangelogs.length, 'patch', 'patches')} matching all
 					{filterCount}
 					{plural(filterCount, 'filter')}
 				</p>
@@ -237,9 +225,7 @@
 							class="col-span-full"
 						>
 							<div bg="signal/35" h="px" flex="1"></div>
-							<span text="muted-foreground" class="kicker text-[10px]">
-								Seen before
-							</span>
+							<span text="muted-foreground" kicker-sm> Seen before </span>
 							<div bg="primary/30" h="px" flex="1"></div>
 						</div>
 					{/if}
@@ -307,7 +293,7 @@
 						text="primary sm"
 						p="x-6 y-3"
 						font="mono semibold"
-						class="clip-corner-sm hover:bg-primary/20 transition-all hover:scale-105"
+						class="clip-corner-sm transition-all hover:(bg-primary/20 scale-105)"
 					>
 						Clear Filters
 					</button>

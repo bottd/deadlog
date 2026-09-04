@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { ChangelogAbilityIcon, EntityIcon, MogTocEntry } from '$lib/types';
 	import { entityFragmentId, resolveHeroAbilitySlug } from '@deadlog/utils';
+	import { genericTocEntries } from './toc';
 
 	interface Props {
 		heroes: EntityIcon[];
@@ -47,13 +48,12 @@
 		}
 		return icons;
 	});
-	const genericEntries = $derived(
-		heroes.length + items.length === 0
-			? toc.filter(
-					(entry) =>
-						!['general-changes', 'hero-changes', 'item-changes'].includes(entry.id)
-				)
-			: []
+	const genericEntries = $derived(genericTocEntries({ toc, heroes, items }));
+
+	// Everything else about `size` is CSS on `.toc.lg`; only the intrinsic image
+	// dimensions have to be attributes, so that reserving space still prevents reflow.
+	const iconPx = $derived(
+		size === 'lg' ? { entity: 28, ability: 20 } : { entity: 16, ability: 14 }
 	);
 
 	function abilityImage(heroId: number, entry: MogTocEntry): string | undefined {
@@ -83,17 +83,13 @@
 
 {#snippet tocGroup(href: string, label: string, count: number, entities: EntityIcon[])}
 	{@const orderedEntities = orderEntities(href.slice(1), entities)}
-	<div class={size === 'lg' ? 'pt-3' : 'pt-2'}>
+	<div class="toc-group">
 		<a {href} class="toc-section" onclick={onnavigate}>
 			<span class="toc-marker" aria-hidden="true"></span>
 			{label}
-			<span
-				class={size === 'lg'
-					? 'bg-signal/10 text-signal ml-auto rounded-full px-2 py-0.5 font-mono text-xs font-medium'
-					: 'text-signal ml-auto font-mono text-[10px]'}>{count}</span
-			>
+			<span class="toc-count">{count}</span>
 		</a>
-		<ul class={size === 'lg' ? 'mt-1 space-y-0.5' : 'mt-0.5 space-y-px'}>
+		<ul class="toc-entities">
 			{#each orderedEntities as entity (entity.id)}
 				{@const abilities = abilityEntries.get(entityFragmentId(entity.alt)) ?? []}
 				<li>
@@ -105,13 +101,11 @@
 						<img
 							src={entity.src}
 							alt=""
-							width={size === 'lg' ? 28 : 16}
-							height={size === 'lg' ? 28 : 16}
+							width={iconPx.entity}
+							height={iconPx.entity}
 							loading="lazy"
 							decoding="async"
-							class={size === 'lg'
-								? 'size-7 rounded object-cover'
-								: 'size-4 rounded object-cover'}
+							class="toc-entity-img"
 						/>
 						<span truncate>{entity.alt}</span>
 					</a>
@@ -120,28 +114,19 @@
 							{#each abilities as ability, i (i)}
 								{@const image = abilityImage(entity.id, ability)}
 								<li>
-									<a
-										href="#{ability.id}"
-										class="toc-ability {size === 'lg' ? 'py-1 text-sm' : ''}"
-										onclick={onnavigate}
-									>
+									<a href="#{ability.id}" class="toc-ability" onclick={onnavigate}>
 										{#if image}
 											<img
 												src={image}
 												alt=""
-												width={size === 'lg' ? 20 : 14}
-												height={size === 'lg' ? 20 : 14}
+												width={iconPx.ability}
+												height={iconPx.ability}
 												loading="lazy"
 												decoding="async"
-												class={size === 'lg'
-													? 'size-5 shrink-0 rounded object-cover'
-													: 'size-3.5 shrink-0 rounded-sm object-cover'}
+												class="toc-ability-icon toc-ability-img"
 											/>
 										{:else}
-											<span
-												class={size === 'lg' ? 'size-5 shrink-0' : 'size-3.5 shrink-0'}
-												aria-hidden="true"
-											></span>
+											<span class="toc-ability-icon" aria-hidden="true"></span>
 										{/if}
 										<span truncate>{ability.title}</span>
 									</a>
@@ -173,7 +158,7 @@
 		</p>
 	{/if}
 
-	<div class={size === 'lg' ? 'space-y-1.5' : 'space-y-1'} data-toc-tree>
+	<div class="toc-tree" data-toc-tree>
 		{#if !hideGeneral}
 			<a href="#general-changes" class="toc-section" onclick={onnavigate}>
 				<span class="toc-marker" aria-hidden="true"></span>
@@ -203,12 +188,25 @@
 </nav>
 
 <style lang="postcss">
+	/* The `sm` rules below are the base; `.toc.lg` overrides only what actually changes. */
+	.toc-tree {
+		@apply space-y-1;
+	}
+
+	.toc-group {
+		@apply pt-2;
+	}
+
 	.toc-section {
 		@apply text-foreground/80 hover:text-signal relative flex items-center gap-2 py-1 pl-3 text-xs font-semibold tracking-tight transition-colors;
 	}
 
 	.toc-subsection {
 		@apply text-muted-foreground pl-6 font-normal;
+	}
+
+	.toc-count {
+		@apply text-signal ml-auto font-mono text-[10px];
 	}
 
 	.toc-marker {
@@ -219,20 +217,48 @@
 		@apply bg-signal h-4;
 	}
 
+	.toc-entities {
+		@apply mt-0.5 space-y-px;
+	}
+
 	.toc-entity {
 		@apply text-muted-foreground hover:bg-muted/50 hover:text-foreground flex items-center gap-1.5 rounded-sm py-0.5 pl-3 text-xs transition-colors;
+	}
+
+	.toc-entity-img {
+		@apply size-4 rounded object-cover;
 	}
 
 	.toc-ability {
 		@apply text-muted-foreground hover:bg-muted/50 hover:text-foreground ml-4 flex items-center gap-1.5 rounded-sm py-0.5 pl-3 text-[11px] transition-colors;
 	}
 
+	.toc-ability-icon {
+		@apply size-3.5 shrink-0;
+	}
+
+	.toc-ability-img {
+		@apply rounded-sm object-cover;
+	}
+
 	.toc ul {
 		@apply list-none;
 	}
 
+	.toc.lg .toc-tree {
+		@apply space-y-1.5;
+	}
+
+	.toc.lg .toc-group {
+		@apply pt-3;
+	}
+
 	.toc.lg .toc-section {
 		@apply gap-3 py-2 pr-2 pl-4 text-sm;
+	}
+
+	.toc.lg .toc-count {
+		@apply bg-signal/10 rounded-full px-2 py-0.5 text-xs font-medium;
 	}
 
 	.toc.lg .toc-marker {
@@ -243,11 +269,27 @@
 		@apply h-5;
 	}
 
+	.toc.lg .toc-entities {
+		@apply mt-1 space-y-0.5;
+	}
+
 	.toc.lg .toc-entity {
 		@apply gap-2.5 rounded py-1.5 pl-4 text-sm;
 	}
 
+	.toc.lg .toc-entity-img {
+		@apply size-7;
+	}
+
 	.toc.lg .toc-ability {
-		@apply ml-6 gap-2 pl-3;
+		@apply ml-6 gap-2 py-1 pl-3 text-sm;
+	}
+
+	.toc.lg .toc-ability-icon {
+		@apply size-5;
+	}
+
+	.toc.lg .toc-ability-img {
+		@apply rounded;
 	}
 </style>

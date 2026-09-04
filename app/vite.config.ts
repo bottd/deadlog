@@ -5,7 +5,7 @@ import { mogPlugin } from 'vite-plugin-mog';
 import { playwright } from '@vitest/browser-playwright';
 import path from 'path';
 
-const changelogsDir = path.resolve(__dirname, 'changelogs');
+const changelogsDir = path.resolve(import.meta.dirname, 'changelogs');
 
 /**
  * The Mog parser reports malformed markup as a plugin warning — a dropped unsafe link,
@@ -31,7 +31,7 @@ export default defineConfig({
 		mogPlugin({
 			mode: 'svelte',
 			include: [`${changelogsDir}/**/*.mg`],
-			componentDir: path.resolve(__dirname, 'src/lib/components/changelog'),
+			componentDir: path.resolve(import.meta.dirname, 'src/lib/components/changelog'),
 			theme: { light: 'github-light', dark: 'github-dark' }
 		}),
 		failOnMogDiagnostics,
@@ -100,7 +100,7 @@ export default defineConfig({
 				},
 				resolve: {
 					alias: {
-						$lib: path.resolve(__dirname, './src/lib')
+						$lib: path.resolve(import.meta.dirname, './src/lib')
 					}
 				}
 			}

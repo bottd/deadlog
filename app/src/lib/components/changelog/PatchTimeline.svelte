@@ -65,7 +65,7 @@
 								items="center"
 								justify="center"
 								rounded="full"
-								class="focus-visible:ring-ring size-6 transition-transform hover:scale-110 focus-visible:ring-2 focus-visible:outline-none"
+								class="size-6 transition-transform hover:scale-110 focus-visible:(ring-ring ring-2 outline-none)"
 								aria-label="View {entity.name} in the {formatDate(
 									patch.date
 								)} patch, {changeCountLabel(patch.changeCount)}"

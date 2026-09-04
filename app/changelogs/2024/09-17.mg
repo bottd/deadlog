@@ -3,7 +3,7 @@ title "09-17-2024 Update"
 thread_id "30413"
 published "2024-09-17T16:08:12-0700"
 author "Yoshi"
-author_image "https://project8-data.community.forum/avatars/m/0/1.jpg?1713628630"
+author_image "/assets/authors/yoshi.webp"
 category "patch"
 major_update #false
 content_text "Fixed players being able to exploit soul sharing across multiple lanes to earn more souls than intended. The way the fix is implemented is that each player can only be considered for an enemy trooper death event 4 times per wave number during the laning phase. Fixed troopers sometimes not dying after doing their death flash state Fixed Unstoppable state not preventing fire rate reductions Fixed Grey Talon's Charge Shot and Vindicta's Assassinate cameras not working properly"

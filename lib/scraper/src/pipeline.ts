@@ -29,7 +29,12 @@ import {
 	generateChangelog,
 	type ChangelogSource
 } from './content/generator';
-import { MOG_IMAGE_PREFIX, entityNameAliases, toSlug } from '@deadlog/utils';
+import {
+	MOG_IMAGE_PREFIX,
+	authorAvatarPath,
+	entityNameAliases,
+	toSlug
+} from '@deadlog/utils';
 
 export const CHANGELOGS_DIR = process.env.CHANGELOGS_DIR || 'app/changelogs';
 
@@ -140,12 +145,14 @@ function buildChangelogSource(
 	}
 	rawContent = deduplicateLines(rawContent);
 
+	const author = steamMeta ? steamMeta.author : parseAuthorName(content.author);
+
 	return {
 		title: steamMeta ? steamMeta.title : content.title,
 		alias,
 		published: steamMeta ? steamMeta.date : content.pubDate || new Date().toISOString(),
-		author: steamMeta ? steamMeta.author : parseAuthorName(content.author),
-		authorImage: steamMeta ? undefined : content.authorImage,
+		author,
+		authorImage: authorAvatarPath(author),
 		threadId,
 		steamGid: steamContent?.gid,
 		...(renderedContent
@@ -159,6 +166,7 @@ function buildSteamChangelogSource(steamNote: SteamAnnouncement): ChangelogSourc
 		title: steamNote.title,
 		published: steamNote.date,
 		author: steamNote.author,
+		authorImage: authorAvatarPath(steamNote.author),
 		steamGid: steamNote.gid,
 		...(isSteamPatchContent(steamNote.content)
 			? { rawContent: parseSteamContent(steamNote.content) }

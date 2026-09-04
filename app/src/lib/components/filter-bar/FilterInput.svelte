@@ -12,8 +12,9 @@
 	import EntityItem from './EntityItem.svelte';
 	import type { EnrichedHero, EnrichedItem, EntityIcon } from '$lib/types';
 	import { searchParams as params } from '$lib/stores/searchParams.svelte';
-	import { getHeroImage, getItemImage } from '$lib/utils/entityImages';
+	import { getHeroCardImage, getItemImage } from '$lib/utils/entityImages';
 	import { FilterState, hasEntity } from './filterState.svelte';
+	import { ENTITY_TONE, type EntityKind } from '$lib/entityTone';
 	import { MAX_QUERY_LENGTH } from '$lib/queries/keys';
 
 	const DESKTOP_LIST_ID = 'filter-options';
@@ -28,34 +29,39 @@
 			}
 		).changelog?.icons
 	);
-	const selectedHeroObjects = $derived(
-		params.hero.map((name, index) => {
-			const entity = ((page.data.heroes ?? []) as EnrichedHero[]).find((hero) =>
-				hasEntity([name], hero.name)
-			);
-			const icon = patchIcons?.heroes.find((hero) => hasEntity([name], hero.alt));
+
+	const entityImage = (kind: EntityKind, entity: EnrichedHero | EnrichedItem) =>
+		kind === 'hero'
+			? getHeroCardImage(entity as EnrichedHero)
+			: getItemImage(entity as EnrichedItem);
+
+	/**
+	 * A selected name resolves to the roster entry when there is one, else to the icon
+	 * this patch carries, else to the raw name — an off-roster filter still reads as a name.
+	 */
+	function selectedEntities(kind: EntityKind) {
+		const names = kind === 'hero' ? params.hero : params.item;
+		const roster = ((kind === 'hero' ? page.data.heroes : page.data.items) ?? []) as (
+			EnrichedHero | EnrichedItem
+		)[];
+		const fallbacks = kind === 'hero' ? patchIcons?.heroes : patchIcons?.items;
+
+		return names.map((name, index) => {
+			const entity = roster.find((candidate) => hasEntity([name], candidate.name));
+			const icon = fallbacks?.find((candidate) => hasEntity([name], candidate.alt));
 			return {
-				key: `${name}-${index}`,
+				key: `${kind}-${name}-${index}`,
+				kind,
 				index,
 				name: entity?.name ?? icon?.alt ?? name,
-				icon: entity ? getHeroImage(entity) : icon?.src
+				icon: entity ? entityImage(kind, entity) : icon?.src
 			};
-		})
-	);
-	const selectedItemObjects = $derived(
-		params.item.map((name, index) => {
-			const entity = ((page.data.items ?? []) as EnrichedItem[]).find((item) =>
-				hasEntity([name], item.name)
-			);
-			const icon = patchIcons?.items.find((item) => hasEntity([name], item.alt));
-			return {
-				key: `${name}-${index}`,
-				index,
-				name: entity?.name ?? icon?.alt ?? name,
-				icon: entity ? getItemImage(entity) : icon?.src
-			};
-		})
-	);
+		});
+	}
+
+	const selectedHeroes = $derived(selectedEntities('hero'));
+	const selectedItems = $derived(selectedEntities('item'));
+	const selectedAll = $derived([...selectedHeroes, ...selectedItems]);
 	const filterCount = $derived(params.activeFilterCount);
 
 	const filterState = new FilterState(
@@ -69,8 +75,8 @@
 	let mobileCommandValue = $state('');
 
 	const placeholder = $derived.by(() => {
-		const hasHeroes = selectedHeroObjects.length > 0;
-		const hasItems = selectedItemObjects.length > 0;
+		const hasHeroes = selectedHeroes.length > 0;
+		const hasItems = selectedItems.length > 0;
 		if (hasHeroes && hasItems) return 'Add more filters...';
 		if (hasHeroes) return 'Add items or more heroes...';
 		if (hasItems) return 'Add heroes or more items...';
@@ -83,9 +89,8 @@
 		filterState.syncSearch(to?.url.searchParams.get('q') ?? '');
 	});
 
-	function getOptionId(prefix: 'desktop' | 'mobile', value: string) {
-		return value ? `${prefix}-option-${value}` : undefined;
-	}
+	const optionId = (prefix: 'desktop' | 'mobile', value: string) =>
+		`${prefix}-option-${value}`;
 
 	function clearAll() {
 		open = false;
@@ -147,22 +152,30 @@
 </script>
 
 {#snippet selectedFilters()}
-	{#each selectedHeroObjects as hero (hero.key)}
+	{#each selectedAll as entity (entity.key)}
 		<FilterBadge
-			name={hero.name}
-			icon={hero.icon}
-			onRemove={() => filterState.toggleHero(hero.name)}
-			badgeColor="hero"
+			name={entity.name}
+			icon={entity.icon}
+			kind={entity.kind}
+			onRemove={() => filterState.toggle(entity.kind, entity.name)}
 		/>
 	{/each}
-	{#each selectedItemObjects as item (item.key)}
-		<FilterBadge
-			name={item.name}
-			icon={item.icon}
-			onRemove={() => filterState.toggleItem(item.name)}
-			badgeColor="item"
-		/>
-	{/each}
+{/snippet}
+
+<!-- The no-JS fallback removes a filter by navigating, so its chips are links, not buttons. -->
+{#snippet removeChip(href: string, label: string, ariaLabel: string, tone: string)}
+	<a
+		{href}
+		text="xs"
+		items="center"
+		gap="1"
+		p="x-2 y-1"
+		class="inline-flex rounded {tone}"
+		aria-label={ariaLabel}
+	>
+		{label}
+		<XIcon class="size-3" />
+	</a>
 {/snippet}
 
 {#snippet filterFields()}
@@ -190,21 +203,15 @@
 			</Command.Empty>
 		{:else}
 			<Command.Group heading="Heroes and items">
-				{#each filterState.mergedList.slice(0, MAX_OPTIONS) as entity (entity.type === 'hero' ? `hero-${entity.data.id}` : `item-${entity.data.id}`)}
-					{@const value = `${entity.type}-${entity.data.id}`}
+				{#each filterState.mergedList.slice(0, MAX_OPTIONS) as entity (entity.key)}
 					<EntityItem
-						id={`${optionPrefix}-option-${value}`}
-						{value}
+						id={optionId(optionPrefix, entity.key)}
+						value={entity.key}
 						name={entity.data.name}
-						imageSrc={entity.type === 'hero'
-							? getHeroImage(entity.data as EnrichedHero)
-							: getItemImage(entity.data as EnrichedItem)}
+						imageSrc={entityImage(entity.type, entity.data)}
 						isSelected={entity.isSelected}
-						colorClass={entity.type}
-						onSelect={() =>
-							entity.type === 'hero'
-								? filterState.selectHero(entity.data.id)
-								: filterState.selectItem(entity.data.id)}
+						kind={entity.type}
+						onSelect={() => filterState.selectById(entity.type, entity.data.id)}
 					/>
 				{/each}
 			</Command.Group>
@@ -249,8 +256,8 @@
 							aria-haspopup="listbox"
 							aria-expanded={open}
 							aria-controls={open ? DESKTOP_LIST_ID : undefined}
-							aria-activedescendant={open
-								? getOptionId('desktop', desktopCommandValue)
+							aria-activedescendant={open && desktopCommandValue
+								? optionId('desktop', desktopCommandValue)
 								: undefined}
 							autocomplete="off"
 							{placeholder}
@@ -323,54 +330,24 @@
 			class="filter-form no-js-mobile-filter"
 		>
 			{@render filterFields()}
-			{#if selectedHeroObjects.length > 0 || selectedItemObjects.length > 0 || params.major}
+			{#if selectedAll.length > 0 || params.major}
 				<div flex="~ wrap" w="full" items="center" gap="1.5" p="b-1">
-					{#each selectedHeroObjects as hero (hero.key)}
-						<a
-							href={filterRemovalHref('hero', hero.index)}
-							border="primary/30 ~"
-							bg="primary/10"
-							text="foreground xs"
-							items="center"
-							gap="1"
-							p="x-2 y-1"
-							class="inline-flex rounded"
-							aria-label="Remove Hero filter: {hero.name}"
-						>
-							Hero: {hero.name}
-							<XIcon class="size-3" />
-						</a>
-					{/each}
-					{#each selectedItemObjects as item (item.key)}
-						<a
-							href={filterRemovalHref('item', item.index)}
-							border="signal/30 ~"
-							bg="signal/10"
-							text="foreground xs"
-							items="center"
-							gap="1"
-							p="x-2 y-1"
-							class="inline-flex rounded"
-							aria-label="Remove Item filter: {item.name}"
-						>
-							Item: {item.name}
-							<XIcon class="size-3" />
-						</a>
+					{#each selectedAll as entity (entity.key)}
+						{@const label = ENTITY_TONE[entity.kind].label}
+						{@render removeChip(
+							filterRemovalHref(entity.kind, entity.index),
+							`${label}: ${entity.name}`,
+							`Remove ${label} filter: ${entity.name}`,
+							`${ENTITY_TONE[entity.kind].chip} text-foreground`
+						)}
 					{/each}
 					{#if params.major}
-						<a
-							href={filterRemovalHref('major')}
-							bg="secondary"
-							text="secondary-foreground xs"
-							items="center"
-							gap="1"
-							p="x-2 y-1"
-							class="inline-flex rounded"
-							aria-label="Remove Major patches filter"
-						>
-							Major patches
-							<XIcon class="size-3" />
-						</a>
+						{@render removeChip(
+							filterRemovalHref('major'),
+							'Major patches',
+							'Remove Major patches filter',
+							'bg-secondary text-secondary-foreground'
+						)}
 					{/if}
 					<a
 						href={resolve('/', {})}
@@ -410,7 +387,7 @@
 		<div class="filter-form enhanced-mobile-filter">
 			<div flex="~ 1 wrap" items="center" gap="1.5" class="min-w-0">
 				{@render selectedFilters()}
-				{#if selectedHeroObjects.length === 0 && selectedItemObjects.length === 0}
+				{#if selectedAll.length === 0}
 					<span text="muted-foreground" flex="1">Search the changelog</span>
 				{/if}
 			</div>
@@ -509,7 +486,9 @@
 									aria-haspopup="listbox"
 									aria-expanded={sheetOpen}
 									aria-controls={MOBILE_LIST_ID}
-									aria-activedescendant={getOptionId('mobile', mobileCommandValue)}
+									aria-activedescendant={mobileCommandValue
+										? optionId('mobile', mobileCommandValue)
+										: undefined}
 									autocomplete="off"
 									placeholder="Search heroes, items, or patch text..."
 									flex="1"
