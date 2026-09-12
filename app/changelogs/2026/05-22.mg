@@ -88,14 +88,14 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 [[/hero/abrams]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams patch history))
 ## [[/hero/abrams]]((Abrams))
 ==ability:infernal-resilience:
-[[/hero/abrams?ability=infernal-resilience]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_beef.webp]] Infernal Resilience change history))
-### [[/hero/abrams?ability=infernal-resilience]]((Infernal Resilience))
+[[/ability/infernal-resilience]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_beef.webp]] Infernal Resilience change history))
+### [[/ability/infernal-resilience]]((Infernal Resilience))
 - Infernal Resilience T1 changed from "+1.5 Health Regen" to "+200 Max Health"
 - Infernal Resilience T2 changed from "200 Max Health" to "+18% Melee Lifesteal" (40% effective vs non-heroes)
 ==
 ==ability:seismic-impact:
-[[/hero/abrams?ability=seismic-impact]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_jump.webp]] Seismic Impact change history))
-### [[/hero/abrams?ability=seismic-impact]]((Seismic Impact))
+[[/ability/seismic-impact]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_jump.webp]] Seismic Impact change history))
+### [[/ability/seismic-impact]]((Seismic Impact))
 - Seismic Impact T2 increased from +0.7s Stun Duration to +0.8s
 - Seismic Impact T3 Unstoppable duration increased from 5s to 6s
 ==
@@ -107,15 +107,15 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 - Improved the hero's hitboxes (easier to hit)
 - Base regen reduced from 2 to 1
 ==ability:riposte:
-[[/hero/apollo?ability=riposte]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/fencer/fencer_riposte.webp]] Riposte change history))
-### [[/hero/apollo?ability=riposte]]((Riposte))
+[[/ability/riposte]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/fencer/fencer_riposte.webp]] Riposte change history))
+### [[/ability/riposte]]((Riposte))
 - Riposte no longer automatically dashes. It now grants you a sub ability immediately to target the hero you want to jump to for a brief duration (can target the enemy before the parry to buffer it). Cast range is 25m.
 - Riposte no longer triggers on damage auras (things like Flame Dash)
 - Riposte no longer triggers off of objective damage
 ==
 ==ability:flawless-advance:
-[[/hero/apollo?ability=flawless-advance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/fencer/fencer_lungingstab.webp]] Flawless Advance change history))
-### [[/hero/apollo?ability=flawless-advance]]((Flawless Advance))
+[[/ability/flawless-advance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/fencer/fencer_lungingstab.webp]] Flawless Advance change history))
+### [[/ability/flawless-advance]]((Flawless Advance))
 - Flawless Advance hitbox reduced by 10%
 ==
 =
@@ -125,13 +125,13 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 ## [[/hero/bebop]]((Bebop))
 - Bullet damage per boon reduced from 0.139 to 0.115
 ==ability:exploding-uppercut:
-[[/hero/bebop?ability=exploding-uppercut]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_uppercut.webp]] Exploding Uppercut change history))
-### [[/hero/bebop?ability=exploding-uppercut]]((Exploding Uppercut))
+[[/ability/exploding-uppercut]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_uppercut.webp]] Exploding Uppercut change history))
+### [[/ability/exploding-uppercut]]((Exploding Uppercut))
 - Exploding Uppercut T2 weapon damage reduced from +40% to +30%
 ==
 ==ability:sticky-bomb:
-[[/hero/bebop?ability=sticky-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_sticky_bomb.webp]] Sticky Bomb change history))
-### [[/hero/bebop?ability=sticky-bomb]]((Sticky Bomb))
+[[/ability/sticky-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_sticky_bomb.webp]] Sticky Bomb change history))
+### [[/ability/sticky-bomb]]((Sticky Bomb))
 - Sticky Bomb T2 increased from +75 Damage to +85
 ==
 =
@@ -142,8 +142,8 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 - Health per boon increased from +48 to +59
 - Bullet damage per boon reduced from 0.165 to 0.142
 ==ability:rising-ram:
-[[/hero/billy?ability=rising-ram]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/punkgoat/goat_risingram.webp]] Rising Ram change history))
-### [[/hero/billy?ability=rising-ram]]((Rising Ram))
+[[/ability/rising-ram]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/punkgoat/goat_risingram.webp]] Rising Ram change history))
+### [[/ability/rising-ram]]((Rising Ram))
 - Rising Ram cooldown increased from 30s to 32s
 - Rising Ram T2 increased from +0.3s Duration to +0.4s
 - Rising Ram T3 increased from -10s Cooldown to -13s
@@ -154,8 +154,8 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 [[/hero/calico]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp]] Calico patch history))
 ## [[/hero/calico]]((Calico))
 ==ability:gloom-bomb:
-[[/hero/calico?ability=gloom-bombs]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_clustergrenade.webp]] Gloom Bomb change history))
-### [[/hero/calico?ability=gloom-bombs]]((Gloom Bomb))
+[[/ability/gloom-bombs]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_clustergrenade.webp]] Gloom Bomb change history))
+### [[/ability/gloom-bombs]]((Gloom Bomb))
 - Gloom Bomb T2 changed from "+75 Damage to Barriers" to "-5% Melee Resist for 5s Per Bomb" (stacks)
 ==
 =
@@ -166,13 +166,13 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 - Improved the hero's hitboxes (easier to hit)
 - Stamina cooldown increased from 4.5s to 5s
 ==ability:radiant-daggers:
-[[/hero/celeste?ability=radiant-daggers]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_luminousflux.webp]] Radiant Daggers change history))
-### [[/hero/celeste?ability=radiant-daggers]]((Radiant Daggers))
+[[/ability/radiant-daggers]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_luminousflux.webp]] Radiant Daggers change history))
+### [[/ability/radiant-daggers]]((Radiant Daggers))
 - Radiant Daggers T2 changed from "-18s Cooldown and +70 Damage" to "-22s Cooldown and +80 Damage"
 ==
 ==ability:shining-wonder:
-[[/hero/celeste?ability=shining-wonder]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_orb.webp]] Shining Wonder change history))
-### [[/hero/celeste?ability=shining-wonder]]((Shining Wonder))
+[[/ability/shining-wonder]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_orb.webp]] Shining Wonder change history))
+### [[/ability/shining-wonder]]((Shining Wonder))
 - Shining Wonder T2 increased from +50 Damage to +70
 ==
 =
@@ -181,8 +181,8 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 [[/hero/the-doorman]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/doorman_sm.webp]] Doorman patch history))
 ## [[/hero/the-doorman]]((Doorman))
 ==ability:call-bell:
-[[/hero/the-doorman?ability=call-bell]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_bell.webp]] Call Bell change history))
-### [[/hero/the-doorman?ability=call-bell]]((Call Bell))
+[[/ability/call-bell]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_bell.webp]] Call Bell change history))
+### [[/ability/call-bell]]((Call Bell))
 - Call Bell radius reduced from 6m to 5.5m
 - Call Bell T3 radius increased from +4m to +4.5m
 - Call Bell explosion damage spirit scaling reduced from 1.4 to 1.3
@@ -190,14 +190,14 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 - Call Bell inaccuracy debuff reduced from -100% to -40% (lasts the full duration)
 ==
 ==ability:doorway:
-[[/hero/the-doorman?ability=doorway]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_doorway.webp]] Doorway change history))
-### [[/hero/the-doorman?ability=doorway]]((Doorway))
+[[/ability/doorway]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_doorway.webp]] Doorway change history))
+### [[/ability/doorway]]((Doorway))
 - Doorways close sub ability now starts on cooldown for 8s
 - Doorway is no longer unsilenceable
 ==
 ==ability:luggage-cart:
-[[/hero/the-doorman?ability=luggage-cart]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_luggagetrolley.webp]] Luggage Cart change history))
-### [[/hero/the-doorman?ability=luggage-cart]]((Luggage Cart))
+[[/ability/luggage-cart]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_luggagetrolley.webp]] Luggage Cart change history))
+### [[/ability/luggage-cart]]((Luggage Cart))
 - Fixed recent bug causing Luggage Cart not being dispelled
 ==
 =
@@ -206,8 +206,8 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 [[/hero/drifter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/drifter_sm.webp]] Drifter patch history))
 ## [[/hero/drifter]]((Drifter))
 ==ability:rend:
-[[/hero/drifter?ability=rend]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/drifter/drifter_claw.webp]] Rend change history))
-### [[/hero/drifter?ability=rend]]((Rend))
+[[/ability/rend]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/drifter/drifter_claw.webp]] Rend change history))
+### [[/ability/rend]]((Rend))
 - Rend T3 no longer increases scaling by 0.4
 - Rend T3 now also deals Heavy Melee Damage (0.55 scale)
 ==
@@ -217,14 +217,14 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 ==ability:kinetic-pulse:
-[[/hero/dynamo?ability=kinetic-pulse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_stomp.webp]] Kinetic Pulse change history))
-### [[/hero/dynamo?ability=kinetic-pulse]]((Kinetic Pulse))
+[[/ability/kinetic-pulse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_stomp.webp]] Kinetic Pulse change history))
+### [[/ability/kinetic-pulse]]((Kinetic Pulse))
 - Kinetic Pulse T2 reduced from -18% Bullet Resistance to -15%
 - Kinetic Pulse spirit scaling reduced from 1.65 to 1.55
 ==
 ==ability:quantum-entanglement:
-[[/hero/dynamo?ability=quantum-entanglement]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_quantum.webp]] Quantum Entanglement change history))
-### [[/hero/dynamo?ability=quantum-entanglement]]((Quantum Entanglement))
+[[/ability/quantum-entanglement]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_quantum.webp]] Quantum Entanglement change history))
+### [[/ability/quantum-entanglement]]((Quantum Entanglement))
 - Quantum Entanglement T3 changed from dispelling non-ult debuffs to reducing the duration of non-ult debuffs by 50%
 ==
 =
@@ -234,13 +234,13 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 ## [[/hero/graves]]((Graves))
 - Sprint speed increased from 1.6 to 2.2
 ==ability:grasping-hands:
-[[/hero/graves?ability=grasping-hands]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/necro/necro_hands.webp]] Grasping Hands change history))
-### [[/hero/graves?ability=grasping-hands]]((Grasping Hands))
+[[/ability/grasping-hands]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/necro/necro_hands.webp]] Grasping Hands change history))
+### [[/ability/grasping-hands]]((Grasping Hands))
 - Grasping Hands now spawns a ghoul in the base ability (T3 still increases it by 1)
 ==
 ==ability:jar-of-dead:
-[[/hero/graves?ability=jar-of-dead]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/necro/necro_skull.webp]] Jar of Dead change history))
-### [[/hero/graves?ability=jar-of-dead]]((Jar of Dead))
+[[/ability/jar-of-dead]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/necro/necro_skull.webp]] Jar of Dead change history))
+### [[/ability/jar-of-dead]]((Jar of Dead))
 - Updated dash ranges for Deadheads to be calculated from the center of Graves when they are following her
 - Fixed Fire Rate buffs for Deadheads not being applied to their next attack, but only on subsequent attacks
 - Fixed Deadheads being unable to dash through veils
@@ -260,8 +260,8 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 [[/hero/grey-talon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon patch history))
 ## [[/hero/grey-talon]]((Grey Talon))
 ==ability:rain-of-arrows:
-[[/hero/grey-talon?ability=rain-of-arrows]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_power_jump.webp]] Rain of Arrows change history))
-### [[/hero/grey-talon?ability=rain-of-arrows]]((Rain of Arrows))
+[[/ability/rain-of-arrows]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_power_jump.webp]] Rain of Arrows change history))
+### [[/ability/rain-of-arrows]]((Rain of Arrows))
 - Rain of Arrows cooldown reduced from 30s to 22s
 - Rain of Arrows cast delay reduced from 0.5s to 0.2s
 - Rain of Arrows duration reduced from 7s to 4s
@@ -277,8 +277,8 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 ==ability:fixation:
-[[/hero/haze?ability=fixation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_fixation.webp]] Fixation change history))
-### [[/hero/haze?ability=fixation]]((Fixation))
+[[/ability/fixation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_fixation.webp]] Fixation change history))
+### [[/ability/fixation]]((Fixation))
 - Fixation T3 increased from +0.12 to +0.14
 ==
 =
@@ -295,8 +295,8 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 ## [[/hero/infernus]]((Infernus))
 - Bullet size increased from 3 to 4
 ==ability:concussive-combustion:
-[[/hero/infernus?ability=concussive-combustion]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_bomb.webp]] Concussive Combustion change history))
-### [[/hero/infernus?ability=concussive-combustion]]((Concussive Combustion))
+[[/ability/concussive-combustion]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_bomb.webp]] Concussive Combustion change history))
+### [[/ability/concussive-combustion]]((Concussive Combustion))
 - Concussive Combustion T3 increased from +0.75s Stun Duration to +0.9s
 ==
 =
@@ -305,18 +305,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 ==ability:frost-grenade:
-[[/hero/kelvin?ability=frost-grenade]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/freezing_grenade.webp]] Frost Grenade change history))
-### [[/hero/kelvin?ability=frost-grenade]]((Frost Grenade))
+[[/ability/frost-grenade]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/freezing_grenade.webp]] Frost Grenade change history))
+### [[/ability/frost-grenade]]((Frost Grenade))
 - Frost Grenade damage spirit scaling reduced from 0.7 to 0.6
 ==
 ==ability:ice-path:
-[[/hero/kelvin?ability=ice-path]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_path.webp]] Ice Path change history))
-### [[/hero/kelvin?ability=ice-path]]((Ice Path))
+[[/ability/ice-path]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_path.webp]] Ice Path change history))
+### [[/ability/ice-path]]((Ice Path))
 - When interrupted on Ice Path, it no longer creates an ice path below him and instead lets him fall to the ground
 ==
 ==ability:arctic-beam-dps:
-[[/hero/kelvin?ability=arctic-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_beam.webp]] Arctic Beam DPS change history))
-### [[/hero/kelvin?ability=arctic-beam]]((Arctic Beam DPS))
+[[/ability/arctic-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_beam.webp]] Arctic Beam DPS change history))
+### [[/ability/arctic-beam]]((Arctic Beam DPS))
 - Arctic Beam DPS spirit scaling reduced from 0.5 to 0.38
 ==
 =
@@ -326,13 +326,13 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 ## [[/hero/lash]]((Lash))
 - Bullet damage per boon reduced from 0.341 to 0.31
 ==ability:ground-strike:
-[[/hero/lash?ability=ground-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_death_slam.webp]] Ground Strike change history))
-### [[/hero/lash?ability=ground-strike]]((Ground Strike))
+[[/ability/ground-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_death_slam.webp]] Ground Strike change history))
+### [[/ability/ground-strike]]((Ground Strike))
 - Ground Strike damage per meter spirit scaling increased from 0.0372 to 0.04
 ==
 ==ability:grapple:
-[[/hero/lash?ability=grapple]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_lash.webp]] Grapple change history))
-### [[/hero/lash?ability=grapple]]((Grapple))
+[[/ability/grapple]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_lash.webp]] Grapple change history))
+### [[/ability/grapple]]((Grapple))
 - Grapple T2 bonus damage no longer stacks with itself, but instead refreshes the duration
 - Grapple T3 now also grants +1 Charge
 ==
@@ -343,13 +343,13 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 ## [[/hero/mcginnis]]((McGinnis))
 - Bullet damage per boon increased from 0.17 to 0.18
 ==ability:heavy-barrage:
-[[/hero/mcginnis?ability=heavy-barrage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_rockets.webp]] Heavy Barrage change history))
-### [[/hero/mcginnis?ability=heavy-barrage]]((Heavy Barrage))
+[[/ability/heavy-barrage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_rockets.webp]] Heavy Barrage change history))
+### [[/ability/heavy-barrage]]((Heavy Barrage))
 - Fixed Heavy Barrage not triggering Diviner's Kevlar
 ==
 ==ability:medicinal-specter:
-[[/hero/mcginnis?ability=medicinal-specter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_resupply.webp]] Medicinal Specter change history))
-### [[/hero/mcginnis?ability=medicinal-specter]]((Medicinal Specter))
+[[/ability/medicinal-specter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_resupply.webp]] Medicinal Specter change history))
+### [[/ability/medicinal-specter]]((Medicinal Specter))
 - Medicinal Specter radius increased from 5.5m to 6m
 ==
 =
@@ -359,19 +359,19 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 ## [[/hero/mina]]((Mina))
 - Innate -8% Debuff Resist
 ==ability:rake:
-[[/hero/mina?ability=rake]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_rake.webp]] Rake change history))
-### [[/hero/mina?ability=rake]]((Rake))
+[[/ability/rake]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_rake.webp]] Rake change history))
+### [[/ability/rake]]((Rake))
 - Fixed Rake sometimes not working with high ping
 ==
 ==ability:love-bites:
-[[/hero/mina?ability=love-bites]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_love_bites.webp]] Love Bites change history))
-### [[/hero/mina?ability=love-bites]]((Love Bites))
+[[/ability/love-bites]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_love_bites.webp]] Love Bites change history))
+### [[/ability/love-bites]]((Love Bites))
 - Love Bites T3 increased from -4s Cooldown to -5s
 - Love Bites no longer applies the flat on hit damage to abilities (was doing 20% of its value on Nox Nostra)
 ==
 ==ability:nox-nostra:
-[[/hero/mina?ability=nox-nostra]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_nox_nostra.webp]] Nox Nostra change history))
-### [[/hero/mina?ability=nox-nostra]]((Nox Nostra))
+[[/ability/nox-nostra]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_nox_nostra.webp]] Nox Nostra change history))
+### [[/ability/nox-nostra]]((Nox Nostra))
 - Nox Nostra T3 reduced from 1% Current HP to 0.5%
 ==
 =
@@ -380,8 +380,8 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 [[/hero/mirage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage patch history))
 ## [[/hero/mirage]]((Mirage))
 ==ability:djinn-s-mark:
-[[/hero/mirage?ability=djinns-mark]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_sand_phantom.webp]] Djinn's Mark change history))
-### [[/hero/mirage?ability=djinns-mark]]((Djinn's Mark))
+[[/ability/djinns-mark]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_sand_phantom.webp]] Djinn's Mark change history))
+### [[/ability/djinns-mark]]((Djinn's Mark))
 - Updated Djinn's Mark visuals
 ==
 =
@@ -391,8 +391,8 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 ## [[/hero/mo-krill]]((Mo & Krill))
 - Getting hit with a melee no longer knocks you up when you are burrowed
 ==ability:sand-blast:
-[[/hero/mo-krill?ability=sand-blast]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_throw_sand.webp]] Sand Blast change history))
-### [[/hero/mo-krill?ability=sand-blast]]((Sand Blast))
+[[/ability/sand-blast]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_throw_sand.webp]] Sand Blast change history))
+### [[/ability/sand-blast]]((Sand Blast))
 - Sand Blast T3 increased from +1s Duration to +1.5s
 ==
 =
@@ -401,13 +401,13 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 [[/hero/paige]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bookworm_sm.webp]] Paige patch history))
 ## [[/hero/paige]]((Paige))
 ==ability:bookwyrm:
-[[/hero/paige?ability=bookwyrm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bookworm/bookworm_dragon.webp]] Bookwyrm change history))
-### [[/hero/paige?ability=bookwyrm]]((Bookwyrm))
+[[/ability/bookwyrm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bookworm/bookworm_dragon.webp]] Bookwyrm change history))
+### [[/ability/bookwyrm]]((Bookwyrm))
 - Bookwyrm T2 improved from -8s Cooldown to -12s
 ==
 ==ability:rallying-charge:
-[[/hero/paige?ability=rallying-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bookworm/bookworm_charge.webp]] Rallying Charge change history))
-### [[/hero/paige?ability=rallying-charge]]((Rallying Charge))
+[[/ability/rallying-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bookworm/bookworm_charge.webp]] Rallying Charge change history))
+### [[/ability/rallying-charge]]((Rallying Charge))
 - Rallying Charge T3 increased from +135 Damage to +160
 - Rallying Charge now has half cooldown if it hits no allies or enemies
 ==
@@ -417,20 +417,20 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 [[/hero/paradox]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox patch history))
 ## [[/hero/paradox]]((Paradox))
 ==ability:time-wall:
-[[/hero/paradox?ability=time-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_wall.webp]] Time Wall change history))
-### [[/hero/paradox?ability=time-wall]]((Time Wall))
+[[/ability/time-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_wall.webp]] Time Wall change history))
+### [[/ability/time-wall]]((Time Wall))
 - Time Wall T1 duration increased from +2.5s to +3.5s
 - Time Wall T3 increased from +1 Charge to +2
 - Time Wall T3 Charge Delay reduced from 4s to 2s
 ==
 ==ability:kinetic-carbine:
-[[/hero/paradox?ability=kinetic-carbine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/duo/duo_attack.webp]] Kinetic Carbine change history))
-### [[/hero/paradox?ability=kinetic-carbine]]((Kinetic Carbine))
+[[/ability/kinetic-carbine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/duo/duo_attack.webp]] Kinetic Carbine change history))
+### [[/ability/kinetic-carbine]]((Kinetic Carbine))
 - Kinetic Carbine T3 increased from +50% Max Damage Scaling to +55%
 ==
 ==ability:paradoxical-swap:
-[[/hero/paradox?ability=paradoxical-swap]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_swap.webp]] Paradoxical Swap change history))
-### [[/hero/paradox?ability=paradoxical-swap]]((Paradoxical Swap))
+[[/ability/paradoxical-swap]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_swap.webp]] Paradoxical Swap change history))
+### [[/ability/paradoxical-swap]]((Paradoxical Swap))
 - Paradoxical Swap damage increased from 125 to 150
 ==
 =
@@ -439,13 +439,13 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 [[/hero/pocket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket patch history))
 ## [[/hero/pocket]]((Pocket))
 ==ability:flying-cloak:
-[[/hero/pocket?ability=flying-cloak]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_plasma_flux.webp]] Flying Cloak change history))
-### [[/hero/pocket?ability=flying-cloak]]((Flying Cloak))
+[[/ability/flying-cloak]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_plasma_flux.webp]] Flying Cloak change history))
+### [[/ability/flying-cloak]]((Flying Cloak))
 - Flying Cloak T2 weapon damage duration reduced from 8s to 6s
 ==
 ==ability:affliction:
-[[/hero/pocket?ability=affliction]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_affliction.webp]] Affliction change history))
-### [[/hero/pocket?ability=affliction]]((Affliction))
+[[/ability/affliction]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_affliction.webp]] Affliction change history))
+### [[/ability/affliction]]((Affliction))
 - Affliction cooldown increased from 140s to 150s
 ==
 =
@@ -454,14 +454,14 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 [[/hero/rem]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/familiar_sm.webp]] Rem patch history))
 ## [[/hero/rem]]((Rem))
 ==ability:pillow-toss:
-[[/hero/rem?ability=pillow-toss]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/familiar/familiar_pillow.webp]] Pillow Toss change history))
-### [[/hero/rem?ability=pillow-toss]]((Pillow Toss))
+[[/ability/pillow-toss]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/familiar/familiar_pillow.webp]] Pillow Toss change history))
+### [[/ability/pillow-toss]]((Pillow Toss))
 - Pillow Toss charge time reduced from 9s to 8s
 - Pillow Toss T3 increased from +90 to +100 Damage
 ==
 ==ability:tag-along:
-[[/hero/rem?ability=tag-along]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/familiar/familiar_tag_along.webp]] Tag Along change history))
-### [[/hero/rem?ability=tag-along]]((Tag Along))
+[[/ability/tag-along]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/familiar/familiar_tag_along.webp]] Tag Along change history))
+### [[/ability/tag-along]]((Tag Along))
 - Tag Along burst heal now also applies to secondary allies that you jump to
 - Tag Along lingering heal duration reduced from 3s to 2s (values rebalanced to be the same overall heal just faster)
 - Tag Along T2 Barrier and Item Duration/Range effectiveness increased from 25% to 35%
@@ -476,8 +476,8 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 - Tag Along eject no longer briefly restricts movement abilities and input
 ==
 ==ability:naptime:
-[[/hero/rem?ability=naptime]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/familiar/familiar_sleep.webp]] Naptime change history))
-### [[/hero/rem?ability=naptime]]((Naptime))
+[[/ability/naptime]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/familiar/familiar_sleep.webp]] Naptime change history))
+### [[/ability/naptime]]((Naptime))
 - Naptime now provides +30% damage reduction in the base ability (T3 still adds +50%)
 ==
 =
@@ -493,23 +493,23 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 [[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
 ## [[/hero/shiv]]((Shiv))
 ==ability:slice-and-dice:
-[[/hero/shiv?ability=slice-and-dice]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_flash.webp]] Slice and Dice change history))
-### [[/hero/shiv?ability=slice-and-dice]]((Slice and Dice))
+[[/ability/slice-and-dice]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_flash.webp]] Slice and Dice change history))
+### [[/ability/slice-and-dice]]((Slice and Dice))
 - Slice and Dice T2 reduced from -8% Spirit Resist to -6%
 ==
 ==ability:bloodletting-deferred-damage-cleared:
-[[/hero/shiv?ability=bloodletting]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_bloodletting.webp]] Bloodletting Deferred Damage Cleared change history))
-### [[/hero/shiv?ability=bloodletting]]((Bloodletting Deferred Damage Cleared))
+[[/ability/bloodletting]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_bloodletting.webp]] Bloodletting Deferred Damage Cleared change history))
+### [[/ability/bloodletting]]((Bloodletting Deferred Damage Cleared))
 - Bloodletting Deferred Damage Cleared reduced from 40% to 35%
 ==
 ==ability:bloodletting:
-[[/hero/shiv?ability=bloodletting]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_bloodletting.webp]] Bloodletting change history))
-### [[/hero/shiv?ability=bloodletting]]((Bloodletting))
+[[/ability/bloodletting]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_bloodletting.webp]] Bloodletting change history))
+### [[/ability/bloodletting]]((Bloodletting))
 - Bloodletting T3 increased from +45% Deferred Damage Cleared to +50%
 ==
 ==ability:killing-blow:
-[[/hero/shiv?ability=killing-blow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp]] Killing Blow change history))
-### [[/hero/shiv?ability=killing-blow]]((Killing Blow))
+[[/ability/killing-blow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp]] Killing Blow change history))
+### [[/ability/killing-blow]]((Killing Blow))
 - Killing Blow cooldown increased from 105s to 125s
 - Killing Blow full rage damage bonus reduced from 14% to 12%
 - Killing Blow T2 increased from +8% Full Rage Damage Bonus to +10%
@@ -522,15 +522,15 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 ## [[/hero/silver]]((Silver))
 - Bullet Cycle Time reduced from 0.9s to 0.85s (overall DPS adjusted to remain the same)
 ==ability:entangling-bola:
-[[/hero/silver?ability=entangling-bola]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/werewolf/werewolf_bola.webp]] Entangling Bola change history))
-### [[/hero/silver?ability=entangling-bola]]((Entangling Bola))
+[[/ability/entangling-bola]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/werewolf/werewolf_bola.webp]] Entangling Bola change history))
+### [[/ability/entangling-bola]]((Entangling Bola))
 - Entangling Bola no longer prevents you from jumping and mantling
 - Entangling Bola T2 changed from "+0.75s Duration" to "-5s Cooldown"
 - Entangling Bola T3 changed from "-5s Cooldown and Ricochet to 2 additional targets" to "+0.75s Duration and Ricochet to 2 additional targets"
 ==
 ==ability:lycan-curse-fire-rate:
-[[/hero/silver?ability=lycan-curse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/werewolf/werewolf_lycancurse.webp]] Lycan Curse Fire Rate change history))
-### [[/hero/silver?ability=lycan-curse]]((Lycan Curse Fire Rate))
+[[/ability/lycan-curse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/werewolf/werewolf_lycancurse.webp]] Lycan Curse Fire Rate change history))
+### [[/ability/lycan-curse]]((Lycan Curse Fire Rate))
 - Lycan Curse Fire Rate reduced from 80% to 65%
 - Lycan Curse Fire Rate spirit scaling increased from 0.25 to 0.45
 ==
@@ -541,8 +541,8 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 ## [[/hero/venator]]((Venator))
 - Health increased from 790+43/boon to 830+48/boon
 ==ability:hex-lined-snap-trap:
-[[/hero/venator?ability=hex-lined-snap-trap]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/priest/priest_trap.webp]] Hex-Lined Snap Trap change history))
-### [[/hero/venator?ability=hex-lined-snap-trap]]((Hex-Lined Snap Trap))
+[[/ability/hex-lined-snap-trap]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/priest/priest_trap.webp]] Hex-Lined Snap Trap change history))
+### [[/ability/hex-lined-snap-trap]]((Hex-Lined Snap Trap))
 - Hex-Lined Snap Trap T3 increased from +25% Damage Against Revealed Targets to +30%
 - Hex-Lined Snap Trap T3 now also grants +1 Charge
 ==
@@ -553,13 +553,13 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 ## [[/hero/victor]]((Victor))
 - Bullet damage reduced from 13+0.3135 to 12+0.26
 ==ability:jumpstart:
-[[/hero/victor?ability=jumpstart]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_jump_start.webp]] Jumpstart change history))
-### [[/hero/victor?ability=jumpstart]]((Jumpstart))
+[[/ability/jumpstart]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_jump_start.webp]] Jumpstart change history))
+### [[/ability/jumpstart]]((Jumpstart))
 - Jumpstart T3 spirit scaling increased from +0.6 to +0.9
 ==
 ==ability:aura-of-suffering:
-[[/hero/victor?ability=aura-of-suffering]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_aura_of_suffering.webp]] Aura of Suffering change history))
-### [[/hero/victor?ability=aura-of-suffering]]((Aura of Suffering))
+[[/ability/aura-of-suffering]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_aura_of_suffering.webp]] Aura of Suffering change history))
+### [[/ability/aura-of-suffering]]((Aura of Suffering))
 - Aura of Suffering now does 50% damage to objectives
 ==
 =
@@ -568,8 +568,8 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 [[/hero/viscous]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous patch history))
 ## [[/hero/viscous]]((Viscous))
 ==ability:puddle-punch:
-[[/hero/viscous?ability=puddle-punch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp]] Puddle Punch change history))
-### [[/hero/viscous?ability=puddle-punch]]((Puddle Punch))
+[[/ability/puddle-punch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp]] Puddle Punch change history))
+### [[/ability/puddle-punch]]((Puddle Punch))
 - Puddle Punch T1 now also increases damage by +20
 - Puddle Punch T2 no longer increases damage by +30
 - Puddle Punch T2 now also grants +40% Lifesteal (1/4th against non-heroes)
@@ -580,8 +580,8 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 [[/hero/vyper]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kali_sm.webp]] Vyper patch history))
 ## [[/hero/vyper]]((Vyper))
 ==ability:screwjab-dagger:
-[[/hero/vyper?ability=screwjab-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viper/viper_debuffdagger.webp]] Screwjab Dagger change history))
-### [[/hero/vyper?ability=screwjab-dagger]]((Screwjab Dagger))
+[[/ability/screwjab-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viper/viper_debuffdagger.webp]] Screwjab Dagger change history))
+### [[/ability/screwjab-dagger]]((Screwjab Dagger))
 - Screwjab Dagger T2 bullet resist per stack from -5% to -6%
 - Screwjab Dagger T3 now also increases max stacks by 2
 ==
@@ -592,13 +592,13 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 ## [[/hero/warden]]((Warden))
 - Bullet damage per boon reduced from 0.38 to 0.34
 ==ability:willpower:
-[[/hero/warden?ability=willpower]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_high_alert.webp]] Willpower change history))
-### [[/hero/warden?ability=willpower]]((Willpower))
+[[/ability/willpower]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_high_alert.webp]] Willpower change history))
+### [[/ability/willpower]]((Willpower))
 - Willpower T3 debuff resistance now retroactively applies to existing debuffs when cast
 ==
 ==ability:binding-word:
-[[/hero/warden?ability=binding-word]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_lock_down.webp]] Binding Word change history))
-### [[/hero/warden?ability=binding-word]]((Binding Word))
+[[/ability/binding-word]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_lock_down.webp]] Binding Word change history))
+### [[/ability/binding-word]]((Binding Word))
 - Binding Word T2 no longer increases cast range by +12m
 ==
 =
@@ -607,27 +607,27 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 ==ability:power-slash:
-[[/hero/yamato?ability=power-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_power_slash.webp]] Power Slash change history))
-### [[/hero/yamato?ability=power-slash]]((Power Slash))
+[[/ability/power-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_power_slash.webp]] Power Slash change history))
+### [[/ability/power-slash]]((Power Slash))
 - Power Slash post cast time reduced from 0.4s to 0.2s
 - Power Slash spirit scaling increased from 1.86s to 2.1
 ==
 ==ability:flying-slash:
-[[/hero/yamato?ability=flying-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_flying_strike.webp]] Flying Slash change history))
-### [[/hero/yamato?ability=flying-slash]]((Flying Slash))
+[[/ability/flying-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_flying_strike.webp]] Flying Slash change history))
+### [[/ability/flying-slash]]((Flying Slash))
 - Flying Slash range increased from 25m to 30m
 - Flying Slash T2 no longer grants +20m Cast Range
 - Flying Slash T3 now also grants +15m Cast Range
 - Flying Slash T3 increased from +1 Charge to +2
 ==
 ==ability:crimson-slash:
-[[/hero/yamato?ability=crimson-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_crimson_slash.webp]] Crimson Slash change history))
-### [[/hero/yamato?ability=crimson-slash]]((Crimson Slash))
+[[/ability/crimson-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_crimson_slash.webp]] Crimson Slash change history))
+### [[/ability/crimson-slash]]((Crimson Slash))
 - Fixed Crimson Slash not being able to hit anything if the player is aimed too high or low
 ==
 ==ability:shadow-transformation:
-[[/hero/yamato?ability=shadow-transformation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]] Shadow Transformation change history))
-### [[/hero/yamato?ability=shadow-transformation]]((Shadow Transformation))
+[[/ability/shadow-transformation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]] Shadow Transformation change history))
+### [[/ability/shadow-transformation]]((Shadow Transformation))
 - Shadow Transformation T1 increased from +5 Weapon Damage to +7
 ==
 =

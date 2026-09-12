@@ -37,8 +37,8 @@ content_text "Increased horizontal soul orb movement a bit Soul Orb spawn delay 
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 ==ability:bullet-dance:
-[[/hero/haze?ability=bullet-dance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_bullet_flurry.webp]] Bullet Dance change history))
-### [[/hero/haze?ability=bullet-dance]]((Bullet Dance))
+[[/ability/bullet-dance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_bullet_flurry.webp]] Bullet Dance change history))
+### [[/ability/bullet-dance]]((Bullet Dance))
 - Bullet Dance bonus damage is now weapon damage instead of spirit
 ==
 =
@@ -47,24 +47,24 @@ content_text "Increased horizontal soul orb movement a bit Soul Orb spawn delay 
 [[/hero/holliday]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]] Holliday patch history))
 ## [[/hero/holliday]]((Holliday))
 ==ability:powder-keg:
-[[/hero/holliday?ability=powder-keg]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_powder_keg.webp]] Powder Keg change history))
-### [[/hero/holliday?ability=powder-keg]]((Powder Keg))
+[[/ability/powder-keg]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_powder_keg.webp]] Powder Keg change history))
+### [[/ability/powder-keg]]((Powder Keg))
 - Powder Keg T2 decreased from +120 to +100
 ==
 ==ability:bounce-pad:
-[[/hero/holliday?ability=bounce-pad]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_bounce_pad.webp]] Bounce Pad change history))
-### [[/hero/holliday?ability=bounce-pad]]((Bounce Pad))
+[[/ability/bounce-pad]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_bounce_pad.webp]] Bounce Pad change history))
+### [[/ability/bounce-pad]]((Bounce Pad))
 - Bounce Pad cooldown increased from 37s to 41s
 - Bounce Pad T1 is now T2
 ==
 ==ability:bounce-pad-new:
-[[/hero/holliday?ability=bounce-pad]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_bounce_pad.webp]] Bounce Pad New change history))
-### [[/hero/holliday?ability=bounce-pad]]((Bounce Pad New))
+[[/ability/bounce-pad]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_bounce_pad.webp]] Bounce Pad New change history))
+### [[/ability/bounce-pad]]((Bounce Pad New))
 - Bounce Pad New T1 is -10s cooldown
 ==
 ==ability:bounce-pad:
-[[/hero/holliday?ability=bounce-pad]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_bounce_pad.webp]] Bounce Pad change history))
-### [[/hero/holliday?ability=bounce-pad]]((Bounce Pad))
+[[/ability/bounce-pad]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_bounce_pad.webp]] Bounce Pad change history))
+### [[/ability/bounce-pad]]((Bounce Pad))
 - Bounce Pad T2 is now T3. Removed T3 Stun
 ==
 =
@@ -73,13 +73,13 @@ content_text "Increased horizontal soul orb movement a bit Soul Orb spawn delay 
 [[/hero/sinclair]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/magician_sm.webp]] Sinclair patch history))
 ## [[/hero/sinclair]]((Sinclair))
 ==ability:assistant:
-[[/hero/sinclair?ability=spectral-assistant]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_cloneturret.webp]] Assistant change history))
-### [[/hero/sinclair?ability=spectral-assistant]]((Assistant))
+[[/ability/spectral-assistant]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_cloneturret.webp]] Assistant change history))
+### [[/ability/spectral-assistant]]((Assistant))
 - Assistant damage now follows his gun's falloff range
 ==
 ==ability:spectral-assistant:
-[[/hero/sinclair?ability=spectral-assistant]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_cloneturret.webp]] Spectral Assistant change history))
-### [[/hero/sinclair?ability=spectral-assistant]]((Spectral Assistant))
+[[/ability/spectral-assistant]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_cloneturret.webp]] Spectral Assistant change history))
+### [[/ability/spectral-assistant]]((Spectral Assistant))
 - Assistant base damage reduced from 30 to 20
 ==
 =

@@ -1,4 +1,4 @@
-import { getAllChangelogSlugs, getChangelogBySlug } from '@deadlog/scraper';
+import { getAllChangelogSlugs, getChangelogBySlug } from '@deadlog/db';
 import { error, redirect } from '@sveltejs/kit';
 import type { PageServerLoad, EntryGenerator } from './$types';
 import { buildChangePageData } from '$lib/server/changelog-utils';

@@ -182,7 +182,7 @@
 	<a
 		href={backHref}
 		text="muted-foreground sm"
-		m="b-8"
+		m="b-4"
 		items="center"
 		gap="2"
 		class="hover:text-signal inline-flex transition-colors"
@@ -284,31 +284,10 @@
 				aria-hidden="true"
 			></div>
 
-			<div relative p="6" class="md:p-8">
-				<header m="b-8">
-					<div m="b-6" flex="~ wrap" items="start" justify="between" gap="4">
+			<div relative p="4" class="sm:p-6 md:p-8">
+				<header m="b-4">
+					<div m="b-4" flex="~ wrap" items="start" justify="between" gap="4">
 						<div flex="~ col" gap="4">
-							<div flex="~" items="center" gap="3">
-								<span
-									border="primary/20 ~"
-									bg="primary/10"
-									text="primary"
-									p="x-2 y-0.5"
-									font="bold"
-									rounded
-									class="kicker-sm"
-								>
-									{changelog.category ?? 'patch'}
-								</span>
-								<span
-									text="muted-foreground"
-									font="mono"
-									class="text-[10px] tracking-wider"
-								>
-									ID:{changelog.id}
-								</span>
-							</div>
-
 							<h1
 								font="display medium"
 								text="foreground 3xl"
@@ -317,7 +296,7 @@
 								{patchTitle.heading}
 							</h1>
 
-							<div flex="~" items="center" gap="4">
+							<div flex="~ wrap" items="center" gap="3">
 								<div flex="~" text="muted-foreground sm" items="center" gap="2.5">
 									<Avatar.Root
 										class="border-primary/30 ring-primary/10 size-7 border ring-2"
@@ -408,8 +387,8 @@
 
 {#if showToc}
 	<Sheet.Root bind:open={tocOpen}>
-		<Sheet.Content class="max-h-[70vh]">
-			<Sheet.Header>
+		<Sheet.Content class="max-h-[70dvh] px-4">
+			<Sheet.Header class="pr-12">
 				<Sheet.Title class="text-sm font-semibold tracking-tight">Contents</Sheet.Title>
 				<Sheet.Description>Jump to a section or affected entity.</Sheet.Description>
 			</Sheet.Header>

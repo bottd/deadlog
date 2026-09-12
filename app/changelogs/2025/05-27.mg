@@ -30,26 +30,26 @@ content_text "Breakable souls rescaled from 28.5 + 2.375/min to 23 + 2.6/min Tro
 ## [[/hero/abrams]]((Abrams))
 - Health growth per boon reduced from 81 to 78
 ==ability:infernal-resilience-damage-regenerated:
-[[/hero/abrams?ability=infernal-resilience]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_beef.webp]] Infernal Resilience Damage Regenerated change history))
-### [[/hero/abrams?ability=infernal-resilience]]((Infernal Resilience Damage Regenerated))
+[[/ability/infernal-resilience]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_beef.webp]] Infernal Resilience Damage Regenerated change history))
+### [[/ability/infernal-resilience]]((Infernal Resilience Damage Regenerated))
 - Infernal Resilience Damage Regenerated increased from 10% to 12%
 ==
 ==ability:infernal-resilience:
-[[/hero/abrams?ability=infernal-resilience]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_beef.webp]] Infernal Resilience change history))
-### [[/hero/abrams?ability=infernal-resilience]]((Infernal Resilience))
+[[/ability/infernal-resilience]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_beef.webp]] Infernal Resilience change history))
+### [[/ability/infernal-resilience]]((Infernal Resilience))
 - Infernal Resilience T3 increased from 5% to 6%
 ==
 ==ability:shoulder-charge:
-[[/hero/abrams?ability=shoulder-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_charge.webp]] Shoulder Charge change history))
-### [[/hero/abrams?ability=shoulder-charge]]((Shoulder Charge))
+[[/ability/shoulder-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_charge.webp]] Shoulder Charge change history))
+### [[/ability/shoulder-charge]]((Shoulder Charge))
 - Various network related fixed for Shoulder Charge
 - Shoulder Charge wall stun from 0.85s to 0.6s
 - Shoulder Charge T2 changed from -12s Cooldown to +0.45s Wall Stun
 - Shoulder Charge T3 changed to -18s Cooldown
 ==
 ==ability:seismic-impact:
-[[/hero/abrams?ability=seismic-impact]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_jump.webp]] Seismic Impact change history))
-### [[/hero/abrams?ability=seismic-impact]]((Seismic Impact))
+[[/ability/seismic-impact]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_jump.webp]] Seismic Impact change history))
+### [[/ability/seismic-impact]]((Seismic Impact))
 - Seismic Impact cooldown increased from 160s to 170s
 ==
 =
@@ -58,13 +58,13 @@ content_text "Breakable souls rescaled from 28.5 + 2.375/min to 23 + 2.6/min Tro
 [[/hero/bebop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop patch history))
 ## [[/hero/bebop]]((Bebop))
 ==ability:hyperbeam:
-[[/hero/bebop?ability=hyper-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hyper_beam.webp]] Hyperbeam change history))
-### [[/hero/bebop?ability=hyper-beam]]((Hyperbeam))
+[[/ability/hyper-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hyper_beam.webp]] Hyperbeam change history))
+### [[/ability/hyper-beam]]((Hyperbeam))
 - Hyperbeam cooldown reduced from 130s to 110s
 ==
 ==ability:grapple-arm:
-[[/hero/bebop?ability=grapple-arm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hook.webp]] Grapple Arm change history))
-### [[/hero/bebop?ability=grapple-arm]]((Grapple Arm))
+[[/ability/grapple-arm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hook.webp]] Grapple Arm change history))
+### [[/ability/grapple-arm]]((Grapple Arm))
 - Fixed some issues with lag compensation and Hook
 ==
 =
@@ -74,8 +74,8 @@ content_text "Breakable souls rescaled from 28.5 + 2.375/min to 23 + 2.6/min Tro
 ## [[/hero/calico]]((Calico))
 - Ammo increased from 9 to 10
 ==ability:ava:
-[[/hero/calico?ability=ava]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_catform.webp]] Ava change history))
-### [[/hero/calico?ability=ava]]((Ava))
+[[/ability/ava]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_catform.webp]] Ava change history))
+### [[/ability/ava]]((Ava))
 - Ava self slow on damage duration increased from 1.5s to 2s
 - Ava self slow on damage increased from -50% to -65%
 - Ava duration reduced from 15s to 14s
@@ -89,13 +89,13 @@ content_text "Breakable souls rescaled from 28.5 + 2.375/min to 23 + 2.6/min Tro
 [[/hero/grey-talon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon patch history))
 ## [[/hero/grey-talon]]((Grey Talon))
 ==ability:spirit-snare:
-[[/hero/grey-talon?ability=spirit-snare]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/imobolize_trap.webp]] Spirit Snare change history))
-### [[/hero/grey-talon?ability=spirit-snare]]((Spirit Snare))
+[[/ability/spirit-snare]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/imobolize_trap.webp]] Spirit Snare change history))
+### [[/ability/spirit-snare]]((Spirit Snare))
 - Spirit Snare radius increased from 6.2 to 6.5
 ==
 ==ability:guided-owl:
-[[/hero/grey-talon?ability=guided-owl]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_guided_arrow.webp]] Guided Owl change history))
-### [[/hero/grey-talon?ability=guided-owl]]((Guided Owl))
+[[/ability/guided-owl]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_guided_arrow.webp]] Guided Owl change history))
+### [[/ability/guided-owl]]((Guided Owl))
 - Guided Owl duration increased from 14s to 16s
 - Guided Owl cooldown decreased from 127s to 125s
 - Guided Owl T2 cooldown improved from -47s to -50s
@@ -106,8 +106,8 @@ content_text "Breakable souls rescaled from 28.5 + 2.375/min to 23 + 2.6/min Tro
 [[/hero/holliday]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]] Holliday patch history))
 ## [[/hero/holliday]]((Holliday))
 ==ability:spirit-lasso:
-[[/hero/holliday?ability=spirit-lasso]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_spirit_lasso.webp]] Spirit Lasso change history))
-### [[/hero/holliday?ability=spirit-lasso]]((Spirit Lasso))
+[[/ability/spirit-lasso]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_spirit_lasso.webp]] Spirit Lasso change history))
+### [[/ability/spirit-lasso]]((Spirit Lasso))
 - Fixed some issues with lag compensation and Lasso
 - Spirit Lasso cooldown increased from 100s to 105s
 - Spirit Lasso T3 improved from -30s Cooldown to -35s
@@ -118,8 +118,8 @@ content_text "Breakable souls rescaled from 28.5 + 2.375/min to 23 + 2.6/min Tro
 [[/hero/infernus]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus patch history))
 ## [[/hero/infernus]]((Infernus))
 ==ability:afterburn:
-[[/hero/infernus?ability=afterburn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_deflect.webp]] Afterburn change history))
-### [[/hero/infernus?ability=afterburn]]((Afterburn))
+[[/ability/afterburn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_deflect.webp]] Afterburn change history))
+### [[/ability/afterburn]]((Afterburn))
 - Afterburn headshot buildup rate improved by 10%
 ==
 =
@@ -128,8 +128,8 @@ content_text "Breakable souls rescaled from 28.5 + 2.375/min to 23 + 2.6/min Tro
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 ==ability:mini-turret:
-[[/hero/mcginnis?ability=mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turret change history))
-### [[/hero/mcginnis?ability=mini-turret]]((Mini Turret))
+[[/ability/mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turret change history))
+### [[/ability/mini-turret]]((Mini Turret))
 - Fixed Turret bugs when thrown at the Patron Throne
 ==
 =
@@ -139,13 +139,13 @@ content_text "Breakable souls rescaled from 28.5 + 2.375/min to 23 + 2.6/min Tro
 ## [[/hero/mo-krill]]((Mo & Krill))
 - Base gun damage increased from 2.6 to 2.7
 ==ability:scorn:
-[[/hero/mo-krill?ability=scorn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_regen.webp]] Scorn change history))
-### [[/hero/mo-krill?ability=scorn]]((Scorn))
+[[/ability/scorn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_regen.webp]] Scorn change history))
+### [[/ability/scorn]]((Scorn))
 - Scorn spirit scaling increased from 0.39 to 0.42
 ==
 ==ability:combo:
-[[/hero/mo-krill?ability=combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo change history))
-### [[/hero/mo-krill?ability=combo]]((Combo))
+[[/ability/combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo change history))
+### [[/ability/combo]]((Combo))
 - Combo cooldown increased from 75s to 80s
 ==
 =
@@ -154,8 +154,8 @@ content_text "Breakable souls rescaled from 28.5 + 2.375/min to 23 + 2.6/min Tro
 [[/hero/pocket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket patch history))
 ## [[/hero/pocket]]((Pocket))
 ==ability:flying-cloak:
-[[/hero/pocket?ability=flying-cloak]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_plasma_flux.webp]] Flying Cloak change history))
-### [[/hero/pocket?ability=flying-cloak]]((Flying Cloak))
+[[/ability/flying-cloak]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_plasma_flux.webp]] Flying Cloak change history))
+### [[/ability/flying-cloak]]((Flying Cloak))
 - Flying Cloak spirit damage scaling increased from 1.04 to 1.3
 ==
 =
@@ -165,18 +165,18 @@ content_text "Breakable souls rescaled from 28.5 + 2.375/min to 23 + 2.6/min Tro
 ## [[/hero/seven]]((Seven))
 - Fixed Health Regen being 3 instead of 1.5
 ==ability:power-surge:
-[[/hero/seven?ability=power-surge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_chain.webp]] Power Surge change history))
-### [[/hero/seven?ability=power-surge]]((Power Surge))
+[[/ability/power-surge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_chain.webp]] Power Surge change history))
+### [[/ability/power-surge]]((Power Surge))
 - Power Surge spirit scaling increased from 0.148 to 0.16
 ==
 ==ability:storm-cloud-dps:
-[[/hero/seven?ability=storm-cloud]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_storm.webp]] Storm Cloud DPS change history))
-### [[/hero/seven?ability=storm-cloud]]((Storm Cloud DPS))
+[[/ability/storm-cloud]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_storm.webp]] Storm Cloud DPS change history))
+### [[/ability/storm-cloud]]((Storm Cloud DPS))
 - Storm Cloud DPS reduced from 120 to 115
 ==
 ==ability:storm-cloud:
-[[/hero/seven?ability=storm-cloud]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_storm.webp]] Storm Cloud change history))
-### [[/hero/seven?ability=storm-cloud]]((Storm Cloud))
+[[/ability/storm-cloud]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_storm.webp]] Storm Cloud change history))
+### [[/ability/storm-cloud]]((Storm Cloud))
 - Storm Cloud T3 reduced from +75 to +70
 - Storm Cloud spirit scaling increased from 0.65 to 0.7
 - Storm Cloud cooldown increased from 148s to 155s
@@ -194,19 +194,19 @@ content_text "Breakable souls rescaled from 28.5 + 2.375/min to 23 + 2.6/min Tro
 [[/hero/sinclair]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/magician_sm.webp]] Sinclair patch history))
 ## [[/hero/sinclair]]((Sinclair))
 ==ability:vexing-bolt:
-[[/hero/sinclair?ability=vexing-bolt]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_magicbolt.webp]] Vexing Bolt change history))
-### [[/hero/sinclair?ability=vexing-bolt]]((Vexing Bolt))
+[[/ability/vexing-bolt]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_magicbolt.webp]] Vexing Bolt change history))
+### [[/ability/vexing-bolt]]((Vexing Bolt))
 - Vexing Bolt radius increased from 3m to 3.5m
 - Vexing Bolt radius fixed to scale with radius increase now
 ==
 ==ability:spectral-assistant:
-[[/hero/sinclair?ability=spectral-assistant]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_cloneturret.webp]] Spectral Assistant change history))
-### [[/hero/sinclair?ability=spectral-assistant]]((Spectral Assistant))
+[[/ability/spectral-assistant]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_cloneturret.webp]] Spectral Assistant change history))
+### [[/ability/spectral-assistant]]((Spectral Assistant))
 - Spectral Assistant T2 duration increased from +5s to +7s
 ==
 ==ability:rabbit-hex:
-[[/hero/sinclair?ability=rabbit-hex]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_animalcurse.webp]] Rabbit Hex change history))
-### [[/hero/sinclair?ability=rabbit-hex]]((Rabbit Hex))
+[[/ability/rabbit-hex]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_animalcurse.webp]] Rabbit Hex change history))
+### [[/ability/rabbit-hex]]((Rabbit Hex))
 - Rabbit Hex cooldown reduced from 35s to 30s
 ==
 =
@@ -215,8 +215,8 @@ content_text "Breakable souls rescaled from 28.5 + 2.375/min to 23 + 2.6/min Tro
 [[/hero/viscous]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous patch history))
 ## [[/hero/viscous]]((Viscous))
 ==ability:goo-ball:
-[[/hero/viscous?ability=goo-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_sphere.webp]] Goo Ball change history))
-### [[/hero/viscous?ability=goo-ball]]((Goo Ball))
+[[/ability/goo-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_sphere.webp]] Goo Ball change history))
+### [[/ability/goo-ball]]((Goo Ball))
 - Goo Ball duration reduced from 10s to 9s
 ==
 =
@@ -226,8 +226,8 @@ content_text "Breakable souls rescaled from 28.5 + 2.375/min to 23 + 2.6/min Tro
 ## [[/hero/warden]]((Warden))
 - Bullet damage per boon reduced from 0.74 to 0.6
 ==ability:last-stand:
-[[/hero/warden?ability=last-stand]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_riot_protocol.webp]] Last Stand change history))
-### [[/hero/warden?ability=last-stand]]((Last Stand))
+[[/ability/last-stand]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_riot_protocol.webp]] Last Stand change history))
+### [[/ability/last-stand]]((Last Stand))
 - Last Stand interrupt cooldown increased from 20s to 30s
 ==
 =
@@ -236,8 +236,8 @@ content_text "Breakable souls rescaled from 28.5 + 2.375/min to 23 + 2.6/min Tro
 [[/hero/wraith]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp]] Wraith patch history))
 ## [[/hero/wraith]]((Wraith))
 ==ability:telekinesis:
-[[/hero/wraith?ability=telekinesis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_lift.webp]] Telekinesis change history))
-### [[/hero/wraith?ability=telekinesis]]((Telekinesis))
+[[/ability/telekinesis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_lift.webp]] Telekinesis change history))
+### [[/ability/telekinesis]]((Telekinesis))
 - Telekinesis duration reduced from 3s to 2.75s
 ==
 =

@@ -30,7 +30,12 @@ try {
 			[...document.images]
 				.filter((image) => {
 					const bounds = image.getBoundingClientRect();
-					return bounds.bottom > 0 && bounds.top < window.innerHeight;
+					// Closed details can retain layout boxes while their lazy images are hidden.
+					return (
+						image.checkVisibility({ visibilityProperty: true }) &&
+						bounds.bottom > 0 &&
+						bounds.top < window.innerHeight
+					);
 				})
 				.every((image) => image.complete),
 		undefined,

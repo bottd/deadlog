@@ -4,6 +4,7 @@
 	import Header from '$lib/components/header/Header.svelte';
 	import { Toaster } from 'svelte-sonner';
 	import Footer from '$lib/components/ui/footer/footer.svelte';
+	import ScrollToTop from '$lib/components/scroll-to-top/ScrollToTop.svelte';
 	import * as Tooltip from '$lib/components/ui/tooltip';
 	import { QueryClient, QueryClientProvider } from '@tanstack/svelte-query';
 	import { browser } from '$app/environment';
@@ -53,6 +54,8 @@
 			</div>
 
 			<Footer />
+
+			<ScrollToTop />
 		</div>
 	</Tooltip.Provider>
 </QueryClientProvider>

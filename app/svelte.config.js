@@ -27,47 +27,51 @@ function transformMogHtml(html, state) {
 	/** @type {Array<'entity' | 'ability' | undefined>} */
 	const blocks = [];
 
-	return html
-		.replace(/href="(\/(?:hero|item)\/[a-z0-9-]+)\.html/g, 'href="$1')
-		.replace(/<\/?([a-z][\w:-]*)\b[^>]*>/gi, (tag, rawName) => {
-			const name = rawName.toLowerCase();
-			const closing = tag.startsWith('</');
+	return (
+		html
+			// The Mog parser suffixes every internal link with `.html`; these are SvelteKit
+			// routes, not files. Keep this alternation in step with the routes the notes link.
+			.replace(/href="(\/(?:hero|item|ability)\/[a-z0-9-]+)\.html/g, 'href="$1')
+			.replace(/<\/?([a-z][\w:-]*)\b[^>]*>/gi, (tag, rawName) => {
+				const name = rawName.toLowerCase();
+				const closing = tag.startsWith('</');
 
-			if (name === 'div') {
-				if (closing) blocks.pop();
-				else blocks.push(mogBlockKind(tag));
-				return tag;
-			}
+				if (name === 'div') {
+					if (closing) blocks.pop();
+					else blocks.push(mogBlockKind(tag));
+					return tag;
+				}
 
-			const block = blocks.findLast((entry) => entry !== undefined);
-			if (name === 'h1') {
-				const heading = tag.replace(/^<(\/?)h1\b/i, '<$1h2');
-				return closing ? heading : addHtmlAttribute(heading, 'data-mog-section', '');
-			}
-			if (name === 'h2' && block === 'entity') {
-				return tag.replace(/^<(\/?)h2\b/i, '<$1h3');
-			}
-			if (name === 'h3' && block === 'ability') {
-				return tag.replace(/^<(\/?)h3\b/i, '<$1h4');
-			}
-			if (name !== 'img' || closing) return tag;
+				const block = blocks.findLast((entry) => entry !== undefined);
+				if (name === 'h1') {
+					const heading = tag.replace(/^<(\/?)h1\b/i, '<$1h2');
+					return closing ? heading : addHtmlAttribute(heading, 'data-mog-section', '');
+				}
+				if (name === 'h2' && block === 'entity') {
+					return tag.replace(/^<(\/?)h2\b/i, '<$1h3');
+				}
+				if (name === 'h3' && block === 'ability') {
+					return tag.replace(/^<(\/?)h3\b/i, '<$1h4');
+				}
+				if (name !== 'img' || closing) return tag;
 
-			let image = addHtmlAttribute(tag, 'decoding', 'async');
-			if (block === 'ability') {
-				image = addHtmlAttribute(image, 'width', '24');
-				image = addHtmlAttribute(image, 'height', '24');
-				return addHtmlAttribute(image, 'loading', 'lazy');
-			}
-			if (block === 'entity') {
-				image = addHtmlAttribute(image, 'width', '40');
-				image = addHtmlAttribute(image, 'height', '40');
-				return addHtmlAttribute(image, 'loading', 'lazy');
-			}
+				let image = addHtmlAttribute(tag, 'decoding', 'async');
+				if (block === 'ability') {
+					image = addHtmlAttribute(image, 'width', '24');
+					image = addHtmlAttribute(image, 'height', '24');
+					return addHtmlAttribute(image, 'loading', 'lazy');
+				}
+				if (block === 'entity') {
+					image = addHtmlAttribute(image, 'width', '40');
+					image = addHtmlAttribute(image, 'height', '40');
+					return addHtmlAttribute(image, 'loading', 'lazy');
+				}
 
-			const loading = state.seenTopLevelImage ? 'lazy' : 'eager';
-			state.seenTopLevelImage = true;
-			return addHtmlAttribute(image, 'loading', loading);
-		});
+				const loading = state.seenTopLevelImage ? 'lazy' : 'eager';
+				state.seenTopLevelImage = true;
+				return addHtmlAttribute(image, 'loading', loading);
+			})
+	);
 }
 
 // Mog emits serialized HTML fragments. Normalize app routes and enrich the markup
@@ -99,7 +103,6 @@ const config = {
 		},
 		alias: {
 			'@deadlog/changelog': '../lib/changelog/src/index.ts',
-			'@deadlog/scraper': '../lib/scraper/src/index.ts',
 			'@deadlog/db': '../lib/db/src/index.ts',
 			'@deadlog/utils': '../lib/utils/src/index.ts',
 			$changelogs: './changelogs'

@@ -1,5 +1,5 @@
 import { createInfiniteQuery, type InfiniteData } from '@tanstack/svelte-query';
-import type { ChangelogEntry, ChangelogWireEntry } from '$lib/types';
+import type { PatchSummary } from '$lib/types';
 import { searchParams } from '$lib/stores/searchParams.svelte';
 import {
 	changelogsListKey,
@@ -9,18 +9,13 @@ import {
 } from '$lib/queries/keys';
 
 interface PageData {
-	changelogs: ChangelogEntry[];
-	hasMore: boolean;
-}
-
-interface WirePageData {
-	changelogs: ChangelogWireEntry[];
+	changelogs: PatchSummary[];
 	hasMore: boolean;
 }
 
 /** The prerendered feed the query starts from, read fresh so it stays reactive. */
 interface UseChangelogQueryOptions {
-	getSeed: () => { changelogs: ChangelogEntry[]; totalCount: number };
+	getSeed: () => { changelogs: PatchSummary[]; totalCount: number };
 }
 
 const PAGE_SIZE = 12;
@@ -28,14 +23,6 @@ const PAGE_SIZE = 12;
 /** The prerendered page data holds only the unfiltered feed, so it may only seed the unfiltered query. */
 function isUnfiltered(filters: ChangelogFilters): boolean {
 	return filtersToSearchParams(filters).size === 0;
-}
-
-function reviveChangelog(entry: ChangelogWireEntry): ChangelogEntry {
-	return {
-		...entry,
-		date: new Date(entry.date),
-		updates: entry.updates?.map(reviveChangelog)
-	};
 }
 
 export function useChangelogQuery(options: UseChangelogQueryOptions) {
@@ -78,8 +65,7 @@ export function useChangelogQuery(options: UseChangelogQueryOptions) {
 					throw new Error(`Failed to fetch changelogs: ${response.statusText}`);
 				}
 
-				const page = (await response.json()) as WirePageData;
-				return { ...page, changelogs: page.changelogs.map(reviveChangelog) };
+				return (await response.json()) as PageData;
 			},
 			getNextPageParam: (lastPage, _pages, lastPageParam) =>
 				lastPage.hasMore ? lastPageParam + 1 : undefined,

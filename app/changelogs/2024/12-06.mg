@@ -120,8 +120,8 @@ content_text "Added a new hero, Raven, to Hero Labs Added park theming to purple
 - Bullet Damage decreased from 4.68 to 4.5
 
 ==ability:siphon-life:
-[[/hero/abrams?ability=siphon-life]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_drain.webp]] Siphon Life change history))
-### [[/hero/abrams?ability=siphon-life]]((Siphon Life))
+[[/ability/siphon-life]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_drain.webp]] Siphon Life change history))
+### [[/ability/siphon-life]]((Siphon Life))
 
 - Spirit Siphon spirit scaling increased from 0.5 to 0.65
 ==
@@ -148,26 +148,26 @@ content_text "Added a new hero, Raven, to Hero Labs Added park theming to purple
 ## [[/hero/dynamo]]((Dynamo))
 
 ==ability:quantum-entanglement:
-[[/hero/dynamo?ability=quantum-entanglement]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_quantum.webp]] Quantum Entanglement change history))
-### [[/hero/dynamo?ability=quantum-entanglement]]((Quantum Entanglement))
+[[/ability/quantum-entanglement]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_quantum.webp]] Quantum Entanglement change history))
+### [[/ability/quantum-entanglement]]((Quantum Entanglement))
 
 - Fixed Quantum Entanglement not deselecting if you get silenced while targeting
 ==
 ==ability:kinetic-pulse:
-[[/hero/dynamo?ability=kinetic-pulse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_stomp.webp]] Kinetic Pulse change history))
-### [[/hero/dynamo?ability=kinetic-pulse]]((Kinetic Pulse))
+[[/ability/kinetic-pulse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_stomp.webp]] Kinetic Pulse change history))
+### [[/ability/kinetic-pulse]]((Kinetic Pulse))
 
 - Kinetic Pulse T2 now affects melee damage too
 ==
 ==ability:rejuvenating-aurora:
-[[/hero/dynamo?ability=rejuvenating-aurora]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_pork_bun.webp]] Rejuvenating Aurora change history))
-### [[/hero/dynamo?ability=rejuvenating-aurora]]((Rejuvenating Aurora))
+[[/ability/rejuvenating-aurora]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_pork_bun.webp]] Rejuvenating Aurora change history))
+### [[/ability/rejuvenating-aurora]]((Rejuvenating Aurora))
 
 - Fixed Magic Carpet + Dynamo heal interaction
 ==
 ==ability:singularity:
-[[/hero/dynamo?ability=singularity]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_vacuum.webp]] Singularity change history))
-### [[/hero/dynamo?ability=singularity]]((Singularity))
+[[/ability/singularity]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_vacuum.webp]] Singularity change history))
+### [[/ability/singularity]]((Singularity))
 
 - Singularity cooldown increased from 191s to 215s
 - Singularity now deals half damage to objectives
@@ -180,8 +180,8 @@ content_text "Added a new hero, Raven, to Hero Labs Added park theming to purple
 ## [[/hero/grey-talon]]((Grey Talon))
 
 ==ability:spirit-snare:
-[[/hero/grey-talon?ability=spirit-snare]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/imobolize_trap.webp]] Spirit Snare change history))
-### [[/hero/grey-talon?ability=spirit-snare]]((Spirit Snare))
+[[/ability/spirit-snare]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/imobolize_trap.webp]] Spirit Snare change history))
+### [[/ability/spirit-snare]]((Spirit Snare))
 
 - Immobilizing Trap renamed to Spirit Snare
 - Spirit Snare now applies a Curse debuff for 1.75s to all enemies in the radius when it triggers instead of a tether
@@ -189,8 +189,8 @@ content_text "Added a new hero, Raven, to Hero Labs Added park theming to purple
 - Spirit Snare T2 now increases Curse debuff by 0.5s
 ==
 ==ability:charged-shot:
-[[/hero/grey-talon?ability=charged-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_charged_shot.webp]] Charged Shot change history))
-### [[/hero/grey-talon?ability=charged-shot]]((Charged Shot))
+[[/ability/charged-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_charged_shot.webp]] Charged Shot change history))
+### [[/ability/charged-shot]]((Charged Shot))
 
 - You can now shoot Charged Shot onto Spirit Snare center to trigger it to detonate immediately in a 30% increased radius
 - Charged Shot can now secure orbs
@@ -201,30 +201,30 @@ content_text "Added a new hero, Raven, to Hero Labs Added park theming to purple
 ## [[/hero/haze]]((Haze))
 
 ==ability:smoke-bomb:
-[[/hero/haze?ability=smoke-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_smoke_bomb.webp]] Smoke Bomb change history))
-### [[/hero/haze?ability=smoke-bomb]]((Smoke Bomb))
+[[/ability/smoke-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_smoke_bomb.webp]] Smoke Bomb change history))
+### [[/ability/smoke-bomb]]((Smoke Bomb))
 
 - Smoke Bomb T1 Sprint reduced from +6 to +5
 - Smoke Bomb T3 charge time reduced from 10s to 7s
 ==
 ==ability:fixation:
-[[/hero/haze?ability=fixation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_fixation.webp]] Fixation change history))
-### [[/hero/haze?ability=fixation]]((Fixation))
+[[/ability/fixation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_fixation.webp]] Fixation change history))
+### [[/ability/fixation]]((Fixation))
 
 - Fixed Fixation not working correctly with debuff resist
 - Fixation T3 reduced from 0.15 to 0.12
 ==
 ==ability:sleep-dagger:
-[[/hero/haze?ability=sleep-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger change history))
-### [[/hero/haze?ability=sleep-dagger]]((Sleep Dagger))
+[[/ability/sleep-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger change history))
+### [[/ability/sleep-dagger]]((Sleep Dagger))
 
 - Sleep state no longer disables the target. It instead allows them to move at 2 m/s and be unable to take any other action (including stamina, mantle, parry etc). The target still wakes up on damage.
 - Sleep dagger now takes effect immediately, rather than after a brief delay
 - Fixed creeps sometimes attacking and waking on sleeping targets
 ==
 ==ability:bullet-dance:
-[[/hero/haze?ability=bullet-dance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_bullet_flurry.webp]] Bullet Dance change history))
-### [[/hero/haze?ability=bullet-dance]]((Bullet Dance))
+[[/ability/bullet-dance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_bullet_flurry.webp]] Bullet Dance change history))
+### [[/ability/bullet-dance]]((Bullet Dance))
 
 - Bullet Dance cooldown increased from 138s to 150s
 - Bullet Dance T1 reduced from +7 to +6 Spirit Damage
@@ -237,16 +237,16 @@ content_text "Added a new hero, Raven, to Hero Labs Added park theming to purple
 ## [[/hero/infernus]]((Infernus))
 
 ==ability:flame-dash:
-[[/hero/infernus?ability=flame-dash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_dash.webp]] Flame Dash change history))
-### [[/hero/infernus?ability=flame-dash]]((Flame Dash))
+[[/ability/flame-dash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_dash.webp]] Flame Dash change history))
+### [[/ability/flame-dash]]((Flame Dash))
 
 - Flame Dash cooldown reduced from 40s to 35s
 - Flame Dash T3 changed from -19s CD to -15s
 - Flame Dash T3 now also makes the ability charged (15s charge time)
 ==
 ==ability:afterburn:
-[[/hero/infernus?ability=afterburn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_deflect.webp]] Afterburn change history))
-### [[/hero/infernus?ability=afterburn]]((Afterburn))
+[[/ability/afterburn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_deflect.webp]] Afterburn change history))
+### [[/ability/afterburn]]((Afterburn))
 
 - Afterburn spirit scaling increased from 0.5 to 0.6
 ==
@@ -259,8 +259,8 @@ content_text "Added a new hero, Raven, to Hero Labs Added park theming to purple
 - Starting Health reduced from 550 to 525
 
 ==ability:kudzu-connection:
-[[/hero/ivy?ability=kudzu-connection]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_tether.webp]] Kudzu Connection change history))
-### [[/hero/ivy?ability=kudzu-connection]]((Kudzu Connection))
+[[/ability/kudzu-connection]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_tether.webp]] Kudzu Connection change history))
+### [[/ability/kudzu-connection]]((Kudzu Connection))
 
 - Watcher's Covenant fixed to replicate healing even when you are full
 ==
@@ -270,8 +270,8 @@ content_text "Added a new hero, Raven, to Hero Labs Added park theming to purple
 - Watcher's Covenant now initially locks onto the target in your facing direction if there is one
 ==
 ==ability:stone-form:
-[[/hero/ivy?ability=stone-form]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_stone_form.webp]] Stone Form change history))
-### [[/hero/ivy?ability=stone-form]]((Stone Form))
+[[/ability/stone-form]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_stone_form.webp]] Stone Form change history))
+### [[/ability/stone-form]]((Stone Form))
 
 - Stone Form now shows the Ivy player a visible radius indicator for where your hero will hit
 ==
@@ -281,8 +281,8 @@ content_text "Added a new hero, Raven, to Hero Labs Added park theming to purple
 - Kudzu Bomb now grows on the ground if it hits geo instead of floating in the air
 ==
 ==ability:air-drop:
-[[/hero/ivy?ability=air-drop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_lightning_crash.webp]] Air Drop change history))
-### [[/hero/ivy?ability=air-drop]]((Air Drop))
+[[/ability/air-drop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_lightning_crash.webp]] Air Drop change history))
+### [[/ability/air-drop]]((Air Drop))
 
 - Air Drop damage reduced from 150 to 125
 
@@ -297,14 +297,14 @@ content_text "Added a new hero, Raven, to Hero Labs Added park theming to purple
 - Fixed some issues with being unable to shoot over half-height cover
 
 ==ability:frost-grenade:
-[[/hero/kelvin?ability=frost-grenade]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/freezing_grenade.webp]] Frost Grenade change history))
-### [[/hero/kelvin?ability=frost-grenade]]((Frost Grenade))
+[[/ability/frost-grenade]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/freezing_grenade.webp]] Frost Grenade change history))
+### [[/ability/frost-grenade]]((Frost Grenade))
 
 - Frost Grenade now also reduces Stamina Regeneration during the slow duration
 ==
 ==ability:frozen-shelter:
-[[/hero/kelvin?ability=frozen-shelter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/frozen_shelter.webp]] Frozen Shelter change history))
-### [[/hero/kelvin?ability=frozen-shelter]]((Frozen Shelter))
+[[/ability/frozen-shelter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/frozen_shelter.webp]] Frozen Shelter change history))
+### [[/ability/frozen-shelter]]((Frozen Shelter))
 
 - Frozen Shelter now created on key up. While the key is down an outline of the area will be shown
 - Frozen Shelter cooldown increased from 127s to 130s
@@ -316,21 +316,21 @@ content_text "Added a new hero, Raven, to Hero Labs Added park theming to purple
 ## [[/hero/lady-geist]]((Lady Geist))
 
 ==ability:malice:
-[[/hero/lady-geist?ability=malice]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/geist_dagger.webp]] Malice change history))
-### [[/hero/lady-geist?ability=malice]]((Malice))
+[[/ability/malice]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/geist_dagger.webp]] Malice change history))
+### [[/ability/malice]]((Malice))
 
 - Malice can now secure orbs
 ==
 ==ability:soul-exchange:
-[[/hero/lady-geist?ability=soul-exchange]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/blood_exchange.webp]] Soul Exchange change history))
-### [[/hero/lady-geist?ability=soul-exchange]]((Soul Exchange))
+[[/ability/soul-exchange]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/blood_exchange.webp]] Soul Exchange change history))
+### [[/ability/soul-exchange]]((Soul Exchange))
 
 - Soul Exchange T2 changed from "-10% Min Health" to "On cast +40% Fire Rate for 8s"
 - Soul Exchange T3 changed from "On cast, +40% Fire Rate and +40% Spirit Resist for 8s" to "Silences enemies in 15m radius for 3s"
 ==
 ==ability:life-drain:
-[[/hero/lady-geist?ability=life-drain]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/life_drain.webp]] Life Drain change history))
-### [[/hero/lady-geist?ability=life-drain]]((Life Drain))
+[[/ability/life-drain]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/life_drain.webp]] Life Drain change history))
+### [[/ability/life-drain]]((Life Drain))
 
 - Life Drain duration increased from 2s to 2.5s
 - Life Drain T3 changed from "Enemy is Silenced while being Life Drained" to "Ability becomes charged and grants +1 Charge". You can cast multiple Life Drains at the same time on different targets, no Charge Time.
@@ -341,20 +341,20 @@ content_text "Added a new hero, Raven, to Hero Labs Added park theming to purple
 ## [[/hero/lash]]((Lash))
 
 ==ability:ground-strike:
-[[/hero/lash?ability=ground-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_death_slam.webp]] Ground Strike change history))
-### [[/hero/lash?ability=ground-strike]]((Ground Strike))
+[[/ability/ground-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_death_slam.webp]] Ground Strike change history))
+### [[/ability/ground-strike]]((Ground Strike))
 
 - Ground Strike T1 improved from -9.5s Cooldown to -10s
 ==
 ==ability:death-slam:
-[[/hero/lash?ability=death-slam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_counter_lash.webp]] Death Slam change history))
-### [[/hero/lash?ability=death-slam]]((Death Slam))
+[[/ability/death-slam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_counter_lash.webp]] Death Slam change history))
+### [[/ability/death-slam]]((Death Slam))
 
 - Death Slam cooldown increased from 137s to 140s
 - Death Slam channel time increased from 2s to 2.3s
 ==
 ==ability:death-slam-impact:
-### [[/hero/lash?ability=death-slam]]((Death Slam Impact))
+### [[/ability/death-slam]]((Death Slam Impact))
 
 - Death Slam Impact radius increased from 5m to 6m
 
@@ -362,8 +362,8 @@ content_text "Added a new hero, Raven, to Hero Labs Added park theming to purple
 - Death Slam cast range increased from 18m to 20m
 ==
 ==ability:death-slam:
-[[/hero/lash?ability=death-slam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_counter_lash.webp]] Death Slam change history))
-### [[/hero/lash?ability=death-slam]]((Death Slam))
+[[/ability/death-slam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_counter_lash.webp]] Death Slam change history))
+### [[/ability/death-slam]]((Death Slam))
 
 - Death Slam T2 changed from +100 damage to -30s Cooldown
 - Death Slam T3 changed from -56s Cooldown to Impact Area Stuns for 1s
@@ -376,19 +376,19 @@ content_text "Added a new hero, Raven, to Hero Labs Added park theming to purple
 ## [[/hero/mcginnis]]((McGinnis))
 
 ==ability:mini-turret:
-[[/hero/mcginnis?ability=mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turret change history))
-### [[/hero/mcginnis?ability=mini-turret]]((Mini Turret))
+[[/ability/mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turret change history))
+### [[/ability/mini-turret]]((Mini Turret))
 
 - Mini Turrets HP gain per boon increased from 20 to 30
 ==
 ==ability:mini-turrets:
-### [[/hero/mcginnis?ability=mini-turret]]((Mini Turrets))
+### [[/ability/mini-turret]]((Mini Turrets))
 
 - Mini Turrets no longer limit the damage they take to 33% of HP per second
 - Mini Turrets now have a minimum lifetime of 4s. If they are killed during this time, they will be marked for death regardless of what happens during that time. There will be a visual indication that they are malfunctioning/dying.
 ==
 ==ability:mini-turrets-fire-rate:
-### [[/hero/mcginnis?ability=mini-turret]]((Mini Turrets Fire Rate))
+### [[/ability/mini-turret]]((Mini Turrets Fire Rate))
 
 - Mini Turrets Fire Rate reduced by 20%
 ==
@@ -398,16 +398,16 @@ content_text "Added a new hero, Raven, to Hero Labs Added park theming to purple
 ## [[/hero/mirage]]((Mirage))
 
 ==ability:fire-scarabs:
-[[/hero/mirage?ability=fire-scarabs]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_fire_beetles.webp]] Fire Scarabs change history))
-### [[/hero/mirage?ability=fire-scarabs]]((Fire Scarabs))
+[[/ability/fire-scarabs]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_fire_beetles.webp]] Fire Scarabs change history))
+### [[/ability/fire-scarabs]]((Fire Scarabs))
 
 - Fire Scarabs now applies its drain over 4s instead of frontloaded
 - Fire Scarabs no longer restricts you from hitting the same target (debuff duration refreshes)
 - Fire Scarabs launch window increased from 5s to 8s (can be extended by duration extender)
 ==
 ==ability:traveler:
-[[/hero/mirage?ability=traveler]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_teleport.webp]] Traveler change history))
-### [[/hero/mirage?ability=traveler]]((Traveler))
+[[/ability/traveler]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_teleport.webp]] Traveler change history))
+### [[/ability/traveler]]((Traveler))
 
 - Traveler now allows you to rotate the camera
 - Traveler T2 changed from "-56 Cooldown" to "Grants Ally Traveler Benefits" (if cast on an enemy, it'll give the bonus to the closest ally hero within 30m)
@@ -418,8 +418,8 @@ content_text "Added a new hero, Raven, to Hero Labs Added park theming to purple
 ## [[/hero/mo-krill]]((Mo & Krill))
 
 ==ability:burrow:
-[[/hero/mo-krill?ability=burrow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_spin.webp]] Burrow change history))
-### [[/hero/mo-krill?ability=burrow]]((Burrow))
+[[/ability/burrow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_spin.webp]] Burrow change history))
+### [[/ability/burrow]]((Burrow))
 
 - Burrow is no longer affected by Shoulder Charge
 ==
@@ -430,14 +430,14 @@ content_text "Added a new hero, Raven, to Hero Labs Added park theming to purple
 - Spectral Wall no longer hits you while you are Burrowed
 ==
 ==ability:scorn:
-[[/hero/mo-krill?ability=scorn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_regen.webp]] Scorn change history))
-### [[/hero/mo-krill?ability=scorn]]((Scorn))
+[[/ability/scorn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_regen.webp]] Scorn change history))
+### [[/ability/scorn]]((Scorn))
 
 - Scorn now heals you instantly rather than over 1s
 ==
 ==ability:combo:
-[[/hero/mo-krill?ability=combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo change history))
-### [[/hero/mo-krill?ability=combo]]((Combo))
+[[/ability/combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo change history))
+### [[/ability/combo]]((Combo))
 
 - Combo health gain tooltip clarified
 ==
@@ -447,18 +447,18 @@ content_text "Added a new hero, Raven, to Hero Labs Added park theming to purple
 ## [[/hero/paradox]]((Paradox))
 
 ==ability:time-wall-time-stop:
-### [[/hero/paradox?ability=time-wall]]((Time Wall Time Stop))
+### [[/ability/time-wall]]((Time Wall Time Stop))
 
 - Time Wall Time Stop duration reduced from 0.6s to 0.5s
 ==
 ==ability:kinetic-carbine-max-stop:
-### [[/hero/paradox?ability=kinetic-carbine]]((Kinetic Carbine Max Stop))
+### [[/ability/kinetic-carbine]]((Kinetic Carbine Max Stop))
 
 - Kinetic Carbine Max Stop duration reduced from 0.5s to 0.4s
 ==
 ==ability:kinetic-carbine:
-[[/hero/paradox?ability=kinetic-carbine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/duo/duo_attack.webp]] Kinetic Carbine change history))
-### [[/hero/paradox?ability=kinetic-carbine]]((Kinetic Carbine))
+[[/ability/kinetic-carbine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/duo/duo_attack.webp]] Kinetic Carbine change history))
+### [[/ability/kinetic-carbine]]((Kinetic Carbine))
 
 - Kinetic Carbine T1 reduced from +0.5s to +0.4s
 ==
@@ -470,47 +470,47 @@ content_text "Added a new hero, Raven, to Hero Labs Added park theming to purple
 - Health growth reduced from 31 to 27
 
 ==ability:enchanter-s-satchel:
-[[/hero/pocket?ability=enchanters-satchel]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_pulse.webp]] Enchanter's Satchel change history))
-### [[/hero/pocket?ability=enchanters-satchel]]((Enchanter's Satchel))
+[[/ability/enchanters-satchel]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_pulse.webp]] Enchanter's Satchel change history))
+### [[/ability/enchanters-satchel]]((Enchanter's Satchel))
 
 - Enchanter's Satchel T1 increased from -4.75s to -5s
 ==
 ==ability:enchanter-s-satchel-escape-duration:
-### [[/hero/pocket?ability=enchanters-satchel]]((Enchanter's Satchel Escape Duration))
+### [[/ability/enchanters-satchel]]((Enchanter's Satchel Escape Duration))
 
 - Enchanter's Satchel Escape Duration reduced from 2s to 1.5s
 ==
 ==ability:enchanter-s-satchel:
-[[/hero/pocket?ability=enchanters-satchel]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_pulse.webp]] Enchanter's Satchel change history))
-### [[/hero/pocket?ability=enchanters-satchel]]((Enchanter's Satchel))
+[[/ability/enchanters-satchel]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_pulse.webp]] Enchanter's Satchel change history))
+### [[/ability/enchanters-satchel]]((Enchanter's Satchel))
 
 - Enchanter's Satchel T3 now also increases Escape Duration by +0.5s
 ==
 ==ability:flying-cloak:
-[[/hero/pocket?ability=flying-cloak]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_plasma_flux.webp]] Flying Cloak change history))
-### [[/hero/pocket?ability=flying-cloak]]((Flying Cloak))
+[[/ability/flying-cloak]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_plasma_flux.webp]] Flying Cloak change history))
+### [[/ability/flying-cloak]]((Flying Cloak))
 
 - Flying Cloak duration increased from 3.2 to 3.4s (slower speed, same overall distance)
 ==
 ==ability:affliction:
-[[/hero/pocket?ability=affliction]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_affliction.webp]] Affliction change history))
-### [[/hero/pocket?ability=affliction]]((Affliction))
+[[/ability/affliction]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_affliction.webp]] Affliction change history))
+### [[/ability/affliction]]((Affliction))
 
 - Affliction now immediately deals 18% of Current HP on application
 ==
 ==ability:affliction-dps:
-### [[/hero/pocket?ability=affliction]]((Affliction DPS))
+### [[/ability/affliction]]((Affliction DPS))
 
 - Affliction DPS reduced from 27 to 12
 ==
 ==ability:affliction-dps-spirit-power:
-### [[/hero/pocket?ability=affliction]]((Affliction DPS Spirit Power))
+### [[/ability/affliction]]((Affliction DPS Spirit Power))
 
 - Affliction DPS Spirit Power scaling reduced from 0.3 to 0.22
 ==
 ==ability:affliction:
-[[/hero/pocket?ability=affliction]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_affliction.webp]] Affliction change history))
-### [[/hero/pocket?ability=affliction]]((Affliction))
+[[/ability/affliction]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_affliction.webp]] Affliction change history))
+### [[/ability/affliction]]((Affliction))
 
 - Affliction radius reduced from 14m to 9m
 - Affliction T3 reduced from +27 DPS to +15 DPS
@@ -522,19 +522,19 @@ content_text "Added a new hero, Raven, to Hero Labs Added park theming to purple
 ## [[/hero/seven]]((Seven))
 
 ==ability:storm-cloud:
-[[/hero/seven?ability=storm-cloud]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_storm.webp]] Storm Cloud change history))
-### [[/hero/seven?ability=storm-cloud]]((Storm Cloud))
+[[/ability/storm-cloud]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_storm.webp]] Storm Cloud change history))
+### [[/ability/storm-cloud]]((Storm Cloud))
 
 - Storm Cloud now grants you a secondary ability Lightning Strike. It is a one time use AoE ability. You can target anywhere in your ultimate range, after a 2s delay it releases a vertical lightning strike onto a 6m area, knocking enemies away from that radius (6m knockback) and dealing 150 Damage (1.5 spirit scaling). There is a visual indicator for enemies that that area is about to be hit.
 ==
 ==ability:storm-cloud-dps:
-### [[/hero/seven?ability=storm-cloud]]((Storm Cloud DPS))
+### [[/ability/storm-cloud]]((Storm Cloud DPS))
 
 - Storm Cloud DPS reduced from 125 to 110
 ==
 ==ability:storm-cloud:
-[[/hero/seven?ability=storm-cloud]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_storm.webp]] Storm Cloud change history))
-### [[/hero/seven?ability=storm-cloud]]((Storm Cloud))
+[[/ability/storm-cloud]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_storm.webp]] Storm Cloud change history))
+### [[/ability/storm-cloud]]((Storm Cloud))
 
 - Storm Cloud T3 now also allows you to float around at 2.5m/s speed
 ==
@@ -544,8 +544,8 @@ content_text "Added a new hero, Raven, to Hero Labs Added park theming to purple
 ## [[/hero/shiv]]((Shiv))
 
 ==ability:killing-blow:
-[[/hero/shiv?ability=killing-blow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp]] Killing Blow change history))
-### [[/hero/shiv?ability=killing-blow]]((Killing Blow))
+[[/ability/killing-blow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp]] Killing Blow change history))
+### [[/ability/killing-blow]]((Killing Blow))
 
 - Fixed some targeting issues with Killing Blow
 ==
@@ -557,14 +557,14 @@ content_text "Added a new hero, Raven, to Hero Labs Added park theming to purple
 - Health reduced from 550 to 525
 
 ==ability:crow-familiar:
-[[/hero/vindicta?ability=crow-familiar]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_crow.webp]] Crow Familiar change history))
-### [[/hero/vindicta?ability=crow-familiar]]((Crow Familiar))
+[[/ability/crow-familiar]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_crow.webp]] Crow Familiar change history))
+### [[/ability/crow-familiar]]((Crow Familiar))
 
 - Crow Familiar projectile speed increased from 3500 to 4750
 ==
 ==ability:stake:
-[[/hero/vindicta?ability=stake]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_stake.webp]] Stake change history))
-### [[/hero/vindicta?ability=stake]]((Stake))
+[[/ability/stake]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_stake.webp]] Stake change history))
+### [[/ability/stake]]((Stake))
 
 - Stake cooldown reduced from 42s to 40s
 - Stake T2 increased from -19s Cooldown to -20s
@@ -572,8 +572,8 @@ content_text "Added a new hero, Raven, to Hero Labs Added park theming to purple
 - Stake T3 now also increases capture radius by +2m
 ==
 ==ability:assassinate:
-[[/hero/vindicta?ability=assassinate]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_assassinate.webp]] Assassinate change history))
-### [[/hero/vindicta?ability=assassinate]]((Assassinate))
+[[/ability/assassinate]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_assassinate.webp]] Assassinate change history))
+### [[/ability/assassinate]]((Assassinate))
 
 - Assassinate time between charges increased from 1.6s to 2s
 - Assassinate base damage reduced from 130 to 120
@@ -585,22 +585,22 @@ content_text "Added a new hero, Raven, to Hero Labs Added park theming to purple
 ## [[/hero/viscous]]((Viscous))
 
 ==ability:puddle-punch:
-[[/hero/viscous?ability=puddle-punch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp]] Puddle Punch change history))
-### [[/hero/viscous?ability=puddle-punch]]((Puddle Punch))
+[[/ability/puddle-punch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp]] Puddle Punch change history))
+### [[/ability/puddle-punch]]((Puddle Punch))
 
 - Fixed visual parry cooldown bug with Puddle Punch
 ==
 ==ability:the-cube:
-[[/hero/viscous?ability=the-cube]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_restorative_goo.webp]] The Cube change history))
-### [[/hero/viscous?ability=the-cube]]((The Cube))
+[[/ability/the-cube]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_restorative_goo.webp]] The Cube change history))
+### [[/ability/the-cube]]((The Cube))
 
 - The Cube cooldown reduced from 48s to 42s
 
 - The Cube cast range reduced from 30m to 26m
 ==
 ==ability:puddle-punch:
-[[/hero/viscous?ability=puddle-punch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp]] Puddle Punch change history))
-### [[/hero/viscous?ability=puddle-punch]]((Puddle Punch))
+[[/ability/puddle-punch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp]] Puddle Punch change history))
+### [[/ability/puddle-punch]]((Puddle Punch))
 
 - Puddle Punch radius increased from 4 to 4.5
 - Puddle Punch slow reduced from 20% to 15%
@@ -608,8 +608,8 @@ content_text "Added a new hero, Raven, to Hero Labs Added park theming to purple
 - Puddle Punch T3 now also causes the Punch to become a heavy melee
 ==
 ==ability:goo-ball:
-[[/hero/viscous?ability=goo-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_sphere.webp]] Goo Ball change history))
-### [[/hero/viscous?ability=goo-ball]]((Goo Ball))
+[[/ability/goo-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_sphere.webp]] Goo Ball change history))
+### [[/ability/goo-ball]]((Goo Ball))
 
 - Goo Ball damage Spirit Power scaling reduced from 1.3 to 1.1
 - Goo Ball damage T2 reduced from 120 to 90
@@ -622,8 +622,8 @@ content_text "Added a new hero, Raven, to Hero Labs Added park theming to purple
 - Fire Rate Spirit Power scaling reduced from 0.25 to 0.22
 
 ==ability:last-stand:
-[[/hero/warden?ability=last-stand]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_riot_protocol.webp]] Last Stand change history))
-### [[/hero/warden?ability=last-stand]]((Last Stand))
+[[/ability/last-stand]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_riot_protocol.webp]] Last Stand change history))
+### [[/ability/last-stand]]((Last Stand))
 
 - Last Stand Resistance reduced from 60% to 30%
 - Last Stand now only goes on cooldown for 20s when interrupted rather than full
@@ -638,16 +638,16 @@ content_text "Added a new hero, Raven, to Hero Labs Added park theming to purple
 - Bullet damage growth increased 0.37 to 0.39
 
 ==ability:full-auto:
-[[/hero/wraith?ability=full-auto]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_aura.webp]] Full Auto change history))
-### [[/hero/wraith?ability=full-auto]]((Full Auto))
+[[/ability/full-auto]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_aura.webp]] Full Auto change history))
+### [[/ability/full-auto]]((Full Auto))
 
 - Full Auto T2 Spirit Damage Per Bullet now has default 0.05 Spirit Power scaling
 - Full Auto T3 reduces the improved Spirit Power scaling from 0.1 to 0.05
 - Full Auto T3 changed from 30% Bullet Lifesteal to 20% Bullet and Spirit Lifesteal
 ==
 ==ability:telekinesis:
-[[/hero/wraith?ability=telekinesis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_lift.webp]] Telekinesis change history))
-### [[/hero/wraith?ability=telekinesis]]((Telekinesis))
+[[/ability/telekinesis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_lift.webp]] Telekinesis change history))
+### [[/ability/telekinesis]]((Telekinesis))
 
 - Telekinesis cast time reduced from 0.7s to 0.4s
 - Telekinesis projectile speed increased from 650 to 750
@@ -666,8 +666,8 @@ content_text "Added a new hero, Raven, to Hero Labs Added park theming to purple
 - Flying Strike T3 now also lets you grapple to ally heroes
 ==
 ==ability:shadow-transformation:
-[[/hero/yamato?ability=shadow-transformation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]] Shadow Transformation change history))
-### [[/hero/yamato?ability=shadow-transformation]]((Shadow Transformation))
+[[/ability/shadow-transformation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]] Shadow Transformation change history))
+### [[/ability/shadow-transformation]]((Shadow Transformation))
 
 - Shadow Transformation cast time reduced from 2s to 1.5s
 - Shadow Transformation no longer has a 0.6s post cast time

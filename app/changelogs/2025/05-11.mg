@@ -27,8 +27,8 @@ content_text "Weapon tree investment bonus increased by 6-12% (from 6/8/12/18/26
 [[/hero/lady-geist]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]] Lady Geist patch history))
 ## [[/hero/lady-geist]]((Lady Geist))
 ==ability:malice:
-[[/hero/lady-geist?ability=malice]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/geist_dagger.webp]] Malice change history))
-### [[/hero/lady-geist?ability=malice]]((Malice))
+[[/ability/malice]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/geist_dagger.webp]] Malice change history))
+### [[/ability/malice]]((Malice))
 - Malice now costs 6% of your Current HP
 - Malice damage reduced from 32 to 25
 - Malice damage spirit scaling reduced from 0.72 to 0.6
@@ -40,8 +40,8 @@ content_text "Weapon tree investment bonus increased by 6-12% (from 6/8/12/18/26
 [[/hero/pocket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket patch history))
 ## [[/hero/pocket]]((Pocket))
 ==ability:affliction:
-[[/hero/pocket?ability=affliction]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_affliction.webp]] Affliction change history))
-### [[/hero/pocket?ability=affliction]]((Affliction))
+[[/ability/affliction]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_affliction.webp]] Affliction change history))
+### [[/ability/affliction]]((Affliction))
 - Affliction duration reduced from 14s to 12s
 ==
 =
@@ -50,8 +50,8 @@ content_text "Weapon tree investment bonus increased by 6-12% (from 6/8/12/18/26
 [[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
 ## [[/hero/shiv]]((Shiv))
 ==ability:slice-and-dice:
-[[/hero/shiv?ability=slice-and-dice]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_flash.webp]] Slice and Dice change history))
-### [[/hero/shiv?ability=slice-and-dice]]((Slice and Dice))
+[[/ability/slice-and-dice]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_flash.webp]] Slice and Dice change history))
+### [[/ability/slice-and-dice]]((Slice and Dice))
 - Slice and Dice damage reduced from 100 to 80
 ==
 - Bullet damage growth reduced from 0.246 to 0.22
@@ -61,13 +61,13 @@ content_text "Weapon tree investment bonus increased by 6-12% (from 6/8/12/18/26
 [[/hero/vyper]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kali_sm.webp]] Vyper patch history))
 ## [[/hero/vyper]]((Vyper))
 ==ability:lethal-venom:
-[[/hero/vyper?ability=lethal-venom]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viper/viper_venom.webp]] Lethal Venom change history))
-### [[/hero/vyper?ability=lethal-venom]]((Lethal Venom))
+[[/ability/lethal-venom]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viper/viper_venom.webp]] Lethal Venom change history))
+### [[/ability/lethal-venom]]((Lethal Venom))
 - Lethal Venom T2 reduced from -60% Healing Reduction to -40%
 ==
 ==ability:slither:
-[[/hero/vyper?ability=slither]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viper/viper_snakedash.webp]] Slither change history))
-### [[/hero/vyper?ability=slither]]((Slither))
+[[/ability/slither]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viper/viper_snakedash.webp]] Slither change history))
+### [[/ability/slither]]((Slither))
 - Slither T3 reduced from +25% Resist to +20%
 ==
 =

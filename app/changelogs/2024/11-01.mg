@@ -23,8 +23,8 @@ content_text "Improved Burst: Damage threshold requirement reduced from 200 to 1
 [[/hero/bebop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop patch history))
 ## [[/hero/bebop]]((Bebop))
 ==ability:sticky-bomb:
-[[/hero/bebop?ability=sticky-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_sticky_bomb.webp]] Sticky Bomb change history))
-### [[/hero/bebop?ability=sticky-bomb]]((Sticky Bomb))
+[[/ability/sticky-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_sticky_bomb.webp]] Sticky Bomb change history))
+### [[/ability/sticky-bomb]]((Sticky Bomb))
 - Sticky Bomb now gains 1% stack on attach (still gains 5% on target death)
 ==
 =
@@ -40,8 +40,8 @@ content_text "Improved Burst: Damage threshold requirement reduced from 200 to 1
 [[/hero/mirage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage patch history))
 ## [[/hero/mirage]]((Mirage))
 ==ability:fire-scarabs:
-[[/hero/mirage?ability=fire-scarabs]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_fire_beetles.webp]] Fire Scarabs change history))
-### [[/hero/mirage?ability=fire-scarabs]]((Fire Scarabs))
+[[/ability/fire-scarabs]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_fire_beetles.webp]] Fire Scarabs change history))
+### [[/ability/fire-scarabs]]((Fire Scarabs))
 - Fire Scarabs cooldown increased from 32s to 40s
 ==
 - HP per boon reduced from 41 to 37
@@ -51,8 +51,8 @@ content_text "Improved Burst: Damage threshold requirement reduced from 200 to 1
 [[/hero/paradox]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox patch history))
 ## [[/hero/paradox]]((Paradox))
 ==ability:time-wall:
-[[/hero/paradox?ability=time-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_wall.webp]] Time Wall change history))
-### [[/hero/paradox?ability=time-wall]]((Time Wall))
+[[/ability/time-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_wall.webp]] Time Wall change history))
+### [[/ability/time-wall]]((Time Wall))
 - Time Wall T3 silence duration reduced from 3s to 2.5s
 ==
 =

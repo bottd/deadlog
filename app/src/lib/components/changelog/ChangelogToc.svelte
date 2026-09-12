@@ -152,7 +152,7 @@
 			m="b-4"
 			font="mono bold"
 			uppercase
-			class="text-[10px] tracking-[0.2em]"
+			class="text-[11px] tracking-[0.2em]"
 		>
 			Contents
 		</p>
@@ -206,7 +206,7 @@
 	}
 
 	.toc-count {
-		@apply text-signal ml-auto font-mono text-[10px];
+		@apply text-signal ml-auto font-mono text-[11px];
 	}
 
 	.toc-marker {

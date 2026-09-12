@@ -5,8 +5,8 @@ import {
 	getChangelogIcons,
 	type EnrichedHero,
 	type EnrichedItem
-} from '@deadlog/scraper';
-import { formatDate } from '@deadlog/utils';
+} from '@deadlog/db';
+import { formatDate, heroImage } from '@deadlog/utils';
 import { getLibsqlDb as getDb } from '@deadlog/db';
 import { fromJsx } from '@takumi-rs/helpers/jsx';
 import { mkdir, readFile, writeFile } from 'fs/promises';
@@ -36,9 +36,9 @@ const MIME_TYPES: Record<string, string> = {
 
 /** Author avatars are root-relative site paths, not URLs, so they come off disk. */
 async function readStaticAsDataUri(path: string): Promise<string> {
-	const buffer = await readFile(join(STATIC_DIR, path));
+	const base64 = await readFile(join(STATIC_DIR, path), 'base64');
 	const mime = MIME_TYPES[extname(path).toLowerCase()] ?? 'image/png';
-	return `data:${mime};base64,${buffer.toString('base64')}`;
+	return `data:${mime};base64,${base64}`;
 }
 
 export async function convertImageUrl(url?: string | null): Promise<string> {
@@ -50,9 +50,8 @@ export async function convertImageUrl(url?: string | null): Promise<string> {
 	return dataUri;
 }
 
-async function convertImageUrls(urls: readonly string[]): Promise<string[]> {
-	return await Promise.all(urls.map((url) => convertImageUrl(url)));
-}
+type ImageConverter = typeof convertImageUrl;
+type ChangelogIcons = Awaited<ReturnType<typeof getChangelogIcons>>[string];
 
 export async function renderToFile(element: React.ReactElement, outputPath: string) {
 	try {
@@ -76,10 +75,13 @@ export async function renderToFile(element: React.ReactElement, outputPath: stri
 async function generateChangelogOG(
 	changeId: string,
 	data: { title: string; author: string; authorIcon: string; itemIcons: string[] },
+	convert: ImageConverter,
 	outputDir = OUTPUT_DIR
 ) {
-	const authorIcon = await convertImageUrl(data.authorIcon);
-	const itemIcons = await convertImageUrls(data.itemIcons);
+	const [authorIcon, itemIcons] = await Promise.all([
+		convert(data.authorIcon),
+		Promise.all(data.itemIcons.map(convert))
+	]);
 
 	const element = React.createElement(ChangelogLayout, {
 		...data,
@@ -96,15 +98,15 @@ async function generateHomeOG(
 		author: string;
 		authorImage?: string | null;
 	},
-	db: ReturnType<typeof getDb>,
+	icons: ChangelogIcons,
+	convert: ImageConverter,
 	outputDir = OUTPUT_DIR
 ) {
-	const iconsMap = await getChangelogIcons(db, [latestChangelog.id]);
-	const icons = iconsMap[latestChangelog.id] ?? { heroes: [], items: [] };
-
-	const authorImage = await convertImageUrl(latestChangelog.authorImage);
-	const heroIcons = await convertImageUrls(icons.heroes.slice(0, 8).map((h) => h.src));
-	const itemIcons = await convertImageUrls(icons.items.slice(0, 8).map((i) => i.src));
+	const [authorImage, heroIcons, itemIcons] = await Promise.all([
+		convert(latestChangelog.authorImage),
+		Promise.all(icons.heroes.slice(0, 8).map((hero) => convert(hero.src))),
+		Promise.all(icons.items.slice(0, 8).map((item) => convert(item.src)))
+	]);
 
 	const element = React.createElement(HomeLayout, {
 		lastUpdated: formatDate(latestChangelog.pubDate),
@@ -117,13 +119,17 @@ async function generateHomeOG(
 	await renderToFile(element, join(outputDir, 'index.png'));
 }
 
-async function generateHeroOG(hero: EnrichedHero, outputDir = OUTPUT_DIR) {
-	const image = hero.images.card ?? hero.images.portrait ?? Object.values(hero.images)[0];
+async function generateHeroOG(
+	hero: EnrichedHero,
+	convert: ImageConverter,
+	outputDir = OUTPUT_DIR
+) {
+	const image = heroImage(hero.images);
 	if (!image) {
 		throw new Error(`Hero ${hero.name} has no images`);
 	}
 
-	const imageUri = await convertImageUrl(image);
+	const imageUri = await convert(image);
 
 	const element = React.createElement(HeroLayout, {
 		name: hero.name,
@@ -134,13 +140,17 @@ async function generateHeroOG(hero: EnrichedHero, outputDir = OUTPUT_DIR) {
 	await renderToFile(element, join(outputDir, 'hero', `${hero.slug}.png`));
 }
 
-async function generateItemOG(item: EnrichedItem, outputDir = OUTPUT_DIR) {
+async function generateItemOG(
+	item: EnrichedItem,
+	convert: ImageConverter,
+	outputDir = OUTPUT_DIR
+) {
 	const image = item.image;
 	if (!image) {
 		throw new Error(`Item ${item.name} has no images`);
 	}
 
-	const imageUri = await convertImageUrl(image);
+	const imageUri = await convert(image);
 
 	const element = React.createElement(ItemLayout, {
 		name: item.name,
@@ -194,6 +204,25 @@ export async function generatePreviews(
 		includeHeroes ? getAllHeroes(db) : Promise.resolve([]),
 		includeItems ? getAllItems(db) : Promise.resolve([])
 	]);
+	const iconsByPatch = await getChangelogIcons(
+		db,
+		allChangelogs.map((patch) => patch.id)
+	);
+	const imageCache = new Map<string, Promise<string>>();
+	const convert: ImageConverter = (url) => {
+		if (!url) return Promise.resolve('');
+		let image = imageCache.get(url);
+		if (!image) {
+			// Drop a failed fetch from the cache: memoizing the rejection would turn one
+			// blip on a shared icon into a failure for every later preview that uses it.
+			image = convertImageUrl(url).catch((error) => {
+				imageCache.delete(url);
+				throw error;
+			});
+			imageCache.set(url, image);
+		}
+		return image;
+	};
 
 	let totalCount = 0;
 	const failures: string[] = [];
@@ -213,7 +242,8 @@ export async function generatePreviews(
 							author: latest.author,
 							authorImage: latest.authorImage
 						},
-						db,
+						iconsByPatch[latest.id] ?? { heroes: [], items: [] },
+						convert,
 						outputDir
 					)
 				)
@@ -226,8 +256,7 @@ export async function generatePreviews(
 		for (const changelog of allChangelogs) {
 			if (
 				await generateOne(`changelog preview ${changelog.id}`, failures, async () => {
-					const iconsMap = await getChangelogIcons(db, [changelog.id]);
-					const icons = iconsMap[changelog.id] ?? { heroes: [], items: [] };
+					const icons = iconsByPatch[changelog.id] ?? { heroes: [], items: [] };
 
 					await generateChangelogOG(
 						changelog.id,
@@ -237,6 +266,7 @@ export async function generatePreviews(
 							authorIcon: changelog.authorImage,
 							itemIcons: icons.items.slice(0, 6).map((i) => i.src)
 						},
+						convert,
 						outputDir
 					);
 				})
@@ -255,7 +285,7 @@ export async function generatePreviews(
 		for (const hero of heroes.filter((h) => h.isReleased)) {
 			if (
 				await generateOne(`hero preview ${hero.name}`, failures, () =>
-					generateHeroOG(hero, outputDir)
+					generateHeroOG(hero, convert, outputDir)
 				)
 			) {
 				heroCount++;
@@ -272,7 +302,7 @@ export async function generatePreviews(
 		for (const item of items.filter((item) => item.isReleased)) {
 			if (
 				await generateOne(`item preview ${item.name}`, failures, () =>
-					generateItemOG(item, outputDir)
+					generateItemOG(item, convert, outputDir)
 				)
 			) {
 				itemCount++;

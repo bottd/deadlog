@@ -25,10 +25,10 @@
 </script>
 
 {#if heroes.length > 0}
-	<div m="b-6" role="group" aria-labelledby="hero-rail-label">
+	<div m="b-2" role="group" aria-labelledby="hero-rail-label">
 		<span id="hero-rail-label" text="muted-foreground" m="b-2" block kicker-sm>
 			&mdash; Filter by hero
-			<span text="muted-foreground/60">({heroes.length})</span>
+			<span text="muted-foreground">({heroes.length})</span>
 			{#if atCap}
 				<span text="primary">&mdash; {MAX_ENTITY_FILTERS} hero limit reached</span>
 			{/if}
@@ -45,7 +45,7 @@
 							title={blocked ? `${hero.name} — filter limit reached` : hero.name}
 							aria-label={blocked ? `${hero.name} — filter limit reached` : hero.name}
 							aria-pressed={selected}
-							class="clip-corner-sm relative size-9 shrink-0 overflow-hidden border transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:translate-y-0 disabled:hover:scale-100 hover:z-10 hover:-translate-y-0.5 hover:scale-110 {selected
+							class="clip-corner-sm relative size-11 shrink-0 overflow-hidden border transition-colors disabled:cursor-not-allowed disabled:opacity-30 hover:z-10 {selected
 								? 'border-primary ring-primary/45 ring-2'
 								: 'border-border hover:border-primary/55 opacity-70 hover:opacity-100'}"
 						>

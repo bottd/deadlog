@@ -4,22 +4,17 @@
 		"rootDir": ".",
 		"sourceMap": true,
 		"declaration": false,
-		"moduleResolution": "node",
-		"emitDecoratorMetadata": true,
-		"experimentalDecorators": true,
-		"importHelpers": true,
+		"moduleResolution": "bundler",
 		"target": "ES2022",
 		"module": "ESNext",
 		"lib": ["ES2022"],
 		"skipLibCheck": true,
 		"skipDefaultLibCheck": true,
-		"baseUrl": ".",
 		"paths": {
-			"@deadlog/changelog": ["lib/changelog/src/index.ts"],
-			"@deadlog/scraper": ["lib/scraper/src/index.ts"],
-			"@deadlog/meta": ["lib/meta/src/index.ts"],
-			"@deadlog/db": ["lib/db/src/index.ts"],
-			"@deadlog/utils": ["lib/utils/src/index.ts"]
+			"@deadlog/changelog": ["./lib/changelog/src/index.ts"],
+			"@deadlog/scraper": ["./lib/scraper/src/index.ts"],
+			"@deadlog/db": ["./lib/db/src/index.ts"],
+			"@deadlog/utils": ["./lib/utils/src/index.ts"]
 		}
 	},
 	"exclude": ["node_modules", "tmp"]

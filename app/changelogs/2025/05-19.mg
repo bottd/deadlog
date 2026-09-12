@@ -42,8 +42,8 @@ content_text "Troopers now gain 50% resistance when they are in near the base (t
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 ==ability:rejuvenating-aurora:
-[[/hero/dynamo?ability=rejuvenating-aurora]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_pork_bun.webp]] Rejuvenating Aurora change history))
-### [[/hero/dynamo?ability=rejuvenating-aurora]]((Rejuvenating Aurora))
+[[/ability/rejuvenating-aurora]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_pork_bun.webp]] Rejuvenating Aurora change history))
+### [[/ability/rejuvenating-aurora]]((Rejuvenating Aurora))
 - Rejuvenating Aurora T3 reduced from 3% to 2.5%
 ==
 =
@@ -59,13 +59,13 @@ content_text "Troopers now gain 50% resistance when they are in near the base (t
 ## [[/hero/lady-geist]]((Lady Geist))
 - Health per boon reduced from 86 to 82
 ==ability:essence-bomb:
-[[/hero/lady-geist?ability=essence-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/blood_bomb.webp]] Essence Bomb change history))
-### [[/hero/lady-geist?ability=essence-bomb]]((Essence Bomb))
+[[/ability/essence-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/blood_bomb.webp]] Essence Bomb change history))
+### [[/ability/essence-bomb]]((Essence Bomb))
 - Essence Bomb self damage spirit scaling increased from 1.3 to 1.6
 ==
 ==ability:life-drain:
-[[/hero/lady-geist?ability=life-drain]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/life_drain.webp]] Life Drain change history))
-### [[/hero/lady-geist?ability=life-drain]]((Life Drain))
+[[/ability/life-drain]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/life_drain.webp]] Life Drain change history))
+### [[/ability/life-drain]]((Life Drain))
 - Life Drain cast range reduced from 20m to 18m
 ==
 =
@@ -74,8 +74,8 @@ content_text "Troopers now gain 50% resistance when they are in near the base (t
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 ==ability:medicinal-specter:
-[[/hero/mcginnis?ability=medicinal-specter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_resupply.webp]] Medicinal Specter change history))
-### [[/hero/mcginnis?ability=medicinal-specter]]((Medicinal Specter))
+[[/ability/medicinal-specter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_resupply.webp]] Medicinal Specter change history))
+### [[/ability/medicinal-specter]]((Medicinal Specter))
 - Medicinal Specter T3 reduced from 3.5% to 3%
 ==
 =
@@ -100,8 +100,8 @@ content_text "Troopers now gain 50% resistance when they are in near the base (t
 [[/hero/warden]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden patch history))
 ## [[/hero/warden]]((Warden))
 ==ability:last-stand:
-[[/hero/warden?ability=last-stand]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_riot_protocol.webp]] Last Stand change history))
-### [[/hero/warden?ability=last-stand]]((Last Stand))
+[[/ability/last-stand]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_riot_protocol.webp]] Last Stand change history))
+### [[/ability/last-stand]]((Last Stand))
 - Last Stand T2 reduced from +70 DPS to +60
 - Last Stand spirit power scaling increased from 1.3 to 1.4
 ==
@@ -112,8 +112,8 @@ content_text "Troopers now gain 50% resistance when they are in near the base (t
 ## [[/hero/wraith]]((Wraith))
 - Health per boon reduced from 65 to 57
 ==ability:full-auto:
-[[/hero/wraith?ability=full-auto]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_aura.webp]] Full Auto change history))
-### [[/hero/wraith?ability=full-auto]]((Full Auto))
+[[/ability/full-auto]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_aura.webp]] Full Auto change history))
+### [[/ability/full-auto]]((Full Auto))
 - Full Auto T2 spirit damage per bullet reduced from 5 to 4
 ==
 =
@@ -122,8 +122,8 @@ content_text "Troopers now gain 50% resistance when they are in near the base (t
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 ==ability:crimson-slash:
-[[/hero/yamato?ability=crimson-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_crimson_slash.webp]] Crimson Slash change history))
-### [[/hero/yamato?ability=crimson-slash]]((Crimson Slash))
+[[/ability/crimson-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_crimson_slash.webp]] Crimson Slash change history))
+### [[/ability/crimson-slash]]((Crimson Slash))
 - Crimson Slash T2 heal reduced from 8% to 6%
 ==
 =

@@ -59,7 +59,6 @@ export default defineConfig({
 	ssr: {
 		noExternal: [
 			'@deadlog/changelog',
-			'@deadlog/scraper',
 			'@deadlog/db',
 			'@deadlog/utils',
 			'runed',

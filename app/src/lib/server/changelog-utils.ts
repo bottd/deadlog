@@ -1,17 +1,22 @@
 import {
 	getChangelogAbilityIcons,
 	getChangelogIcons,
-	getUpdatesForChangelogs,
+	getSelectedChangeGroups,
 	type ScrapedChangelog
-} from '@deadlog/scraper';
+} from '@deadlog/db';
 import type { DrizzleDB } from '@deadlog/db';
-import type { ChangelogEntry } from '$lib/types';
-import { entityNameAliases, formatDate, makeSummary } from '@deadlog/utils';
+import type { PatchSummary, ChangelogEntityIcon } from '$lib/types';
+import {
+	findEntityName,
+	indexEntityNames,
+	formatDate,
+	makeSummary
+} from '@deadlog/utils';
 import { parseCSV } from '$lib/utils/csv';
 import { absoluteUrl } from '$lib/seo';
 import { error } from '@sveltejs/kit';
 import { z } from 'zod';
-import { MAX_ENTITY_FILTERS, MAX_QUERY_LENGTH } from '$lib/queries/keys';
+import { MAX_ENTITY_FILTERS, MAX_QUERY_LENGTH, parseFilters } from '$lib/queries/keys';
 
 export const NO_MATCH_ENTITY_ID = -1;
 const MAX_PAGE_SIZE = 100;
@@ -51,20 +56,10 @@ export function resolveEntityIds(
 	names: string[],
 	entities: { id: number; name: string }[]
 ): number[] {
-	const idsByName = new Map<string, number>();
-	for (const entity of entities) {
-		for (const alias of entityNameAliases(entity.name)) {
-			if (!idsByName.has(alias)) idsByName.set(alias, entity.id);
-		}
-	}
+	const byName = indexEntityNames(entities, (entity) => entity.name);
 	return [
 		...new Set(
-			names.map(
-				(name) =>
-					entityNameAliases(name)
-						.map((alias) => idsByName.get(alias))
-						.find((id) => id !== undefined) ?? NO_MATCH_ENTITY_ID
-			)
+			names.map((name) => findEntityName(byName, name)?.id ?? NO_MATCH_ENTITY_ID)
 		)
 	];
 }
@@ -76,53 +71,88 @@ export function splitPage<T>(rows: T[], limit: number) {
 	};
 }
 
-export async function enrichChangelogs(
+/** Preserve the matching passage rather than always taking the beginning of a patch. */
+export function searchExcerpt(text: string | null, query: string, max = 240): string {
+	const clean = (text ?? '').replace(/\s+/g, ' ').trim();
+	const match = clean.toLowerCase().indexOf(query.toLowerCase());
+	if (match < 0) return makeSummary(clean, max);
+	const context = Math.min(60, Math.max(0, Math.floor((max - query.length) / 2)));
+	const start = Math.max(0, match - context);
+	const wordBoundary = clean.indexOf(' ', start);
+	const boundary =
+		start > 0 && wordBoundary >= 0 && wordBoundary < match ? wordBoundary + 1 : start;
+	return `${boundary > 0 ? '…' : ''}${makeSummary(clean.slice(boundary), max)}`;
+}
+
+export async function buildPatchSummaries(
 	db: DrizzleDB,
-	changelogs: ScrapedChangelog[]
-): Promise<ChangelogEntry[]> {
-	const parentIds = changelogs.map((c) => c.id);
-	const updates = await getUpdatesForChangelogs(db, parentIds);
+	changelogs: ScrapedChangelog[],
+	{
+		heroIds = [],
+		itemIds = [],
+		q = '',
+		isFirstPage = false
+	}: {
+		heroIds?: number[];
+		itemIds?: number[];
+		q?: string;
+		/** Only the top of an unfiltered feed gets the wide treatment. */
+		isFirstPage?: boolean;
+	} = {}
+): Promise<PatchSummary[]> {
+	const ids = changelogs.map((entry) => entry.id);
+	const [iconsByChangelog, groups] = await Promise.all([
+		getChangelogIcons(db, ids),
+		getSelectedChangeGroups(db, ids, heroIds, itemIds)
+	]);
+	const selected = (icon: ChangelogEntityIcon) =>
+		(icon.type === 'hero' ? heroIds : itemIds).includes(icon.id);
+	const searching = heroIds.length + itemIds.length > 0 || q !== '';
+	const featureFirst = isFirstPage && !searching;
 
-	const updatesMap = new Map<string, ScrapedChangelog[]>();
-	for (const update of updates) {
-		if (!update.parentChange) continue;
-		const existing = updatesMap.get(update.parentChange) ?? [];
-		existing.push(update);
-		updatesMap.set(update.parentChange, existing);
-	}
-
-	const sorted = [...changelogs].sort(
-		(a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime()
-	);
-
-	const changelogIds = [...changelogs.map((c) => c.id), ...updates.map((u) => u.id)];
-	const iconsByChangelog = await getChangelogIcons(db, changelogIds);
-
-	// Cards only ever show the summary, so contentText is destructured off rather than
-	// spread through — it would otherwise ship the full patch prose to every client.
-	const enriched = sorted.map(({ contentText, ...entry }) => {
-		const icons = iconsByChangelog[entry.id] ?? { heroes: [], items: [] };
-
-		const entryUpdates = updatesMap.get(entry.id) ?? [];
-		const enrichedUpdates: ChangelogEntry[] = entryUpdates
-			.sort((a, b) => new Date(a.pubDate).getTime() - new Date(b.pubDate).getTime())
-			.map(({ contentText: updateText, ...update }) => ({
-				...update,
-				date: new Date(update.pubDate),
-				summary: makeSummary(updateText),
-				icons: iconsByChangelog[update.id] ?? { heroes: [], items: [] }
-			}));
-
+	return changelogs.map((entry, index) => {
+		const all = iconsByChangelog[entry.id] ?? { heroes: [], items: [] };
+		const limit = featureFirst && index === 0 ? 14 : 6;
+		let remainingExcerpts = 6;
+		const matches = [...all.heroes, ...all.items].filter(selected).map((icon) => {
+			const changes = (groups.get(`${entry.id}:${icon.type}:${icon.id}`) ?? [])
+				.flatMap((group) =>
+					group.bullets.map((text) => ({ ability: group.ability, text }))
+				)
+				.slice(0, Math.min(3, remainingExcerpts))
+				.map((change) => ({ ...change, text: makeSummary(change.text, 320) }));
+			remainingExcerpts -= changes.length;
+			return {
+				id: icon.id,
+				type: icon.type,
+				name: icon.alt,
+				slug: icon.slug,
+				changeCount: icon.changeCount,
+				changes
+			};
+		});
 		return {
-			...entry,
-			date: new Date(entry.pubDate),
-			summary: makeSummary(contentText),
-			icons,
-			updates: enrichedUpdates
+			id: entry.id,
+			slug: entry.slug,
+			title: entry.title,
+			date: entry.pubDate,
+			author: entry.author,
+			authorImage: entry.authorImage,
+			previewImage: entry.previewImage,
+			majorUpdate: entry.majorUpdate,
+			summary: q
+				? searchExcerpt(entry.contentText, q)
+				: matches.length
+					? ''
+					: makeSummary(entry.contentText),
+			icons: {
+				heroes: searching ? [] : all.heroes.slice(0, limit),
+				items: searching ? [] : all.items.slice(0, limit)
+			},
+			counts: { heroes: all.heroes.length, items: all.items.length },
+			matches
 		};
 	});
-
-	return enriched;
 }
 
 /** The full patch-page payload for the /change/[...slug] load. */
@@ -157,15 +187,14 @@ export async function buildChangePageData(db: DrizzleDB, changelog: ScrapedChang
 }
 
 export function parseApiParams(url: URL) {
-	const q = (url.searchParams.get('q') ?? '').trim();
-	if (q.length > MAX_QUERY_LENGTH) throw error(400, 'Invalid q parameter');
+	const filters = parseFilters(url.searchParams);
+	if (filters.q.length > MAX_QUERY_LENGTH) throw error(400, 'Invalid q parameter');
+	parseEntityFilters(url, 'hero');
+	parseEntityFilters(url, 'item');
 
 	return {
+		...filters,
 		limit: parseIntegerParam(url, 'limit', 8, 1, MAX_PAGE_SIZE),
-		offset: parseIntegerParam(url, 'offset', 0, 0, MAX_OFFSET),
-		hero: parseEntityFilters(url, 'hero'),
-		item: parseEntityFilters(url, 'item'),
-		q,
-		major: url.searchParams.get('major') === 'true'
+		offset: parseIntegerParam(url, 'offset', 0, 0, MAX_OFFSET)
 	};
 }

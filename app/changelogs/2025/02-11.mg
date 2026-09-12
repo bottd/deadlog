@@ -20,13 +20,13 @@ content_text "Calico Leaping Slash T2 damage decreased from +75 to +60 Return to
 [[/hero/calico]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp]] Calico patch history))
 ## [[/hero/calico]]((Calico))
 ==ability:leaping-slash:
-[[/hero/calico?ability=leaping-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_dash.webp]] Leaping Slash change history))
-### [[/hero/calico?ability=leaping-slash]]((Leaping Slash))
+[[/ability/leaping-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_dash.webp]] Leaping Slash change history))
+### [[/ability/leaping-slash]]((Leaping Slash))
 - Leaping Slash T2 damage decreased from +75 to +60
 ==
 ==ability:return-to-shadows:
-[[/hero/calico?ability=return-to-shadows]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_shadow_pulse.webp]] Return to Shadows change history))
-### [[/hero/calico?ability=return-to-shadows]]((Return to Shadows))
+[[/ability/return-to-shadows]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_shadow_pulse.webp]] Return to Shadows change history))
+### [[/ability/return-to-shadows]]((Return to Shadows))
 - Return to Shadows cooldown increased from 90s to 100s
 - Return to Shadows speed reduced from +50% to +30%
 - Return to Shadows T2 now also grants +20% speed
@@ -37,13 +37,13 @@ content_text "Calico Leaping Slash T2 damage decreased from +75 to +60 Return to
 [[/hero/holliday]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]] Holliday patch history))
 ## [[/hero/holliday]]((Holliday))
 ==ability:powder-keg:
-[[/hero/holliday?ability=powder-keg]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_powder_keg.webp]] Powder Keg change history))
-### [[/hero/holliday?ability=powder-keg]]((Powder Keg))
+[[/ability/powder-keg]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_powder_keg.webp]] Powder Keg change history))
+### [[/ability/powder-keg]]((Powder Keg))
 - Powder Keg cooldown between charges increased from 2s to 3.5s
 ==
 ==ability:bounce-pad:
-[[/hero/holliday?ability=bounce-pad]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_bounce_pad.webp]] Bounce Pad change history))
-### [[/hero/holliday?ability=bounce-pad]]((Bounce Pad))
+[[/ability/bounce-pad]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_bounce_pad.webp]] Bounce Pad change history))
+### [[/ability/bounce-pad]]((Bounce Pad))
 - Bounce Pad T2 damage reduced from +100 to +80
 ==
 =
@@ -54,19 +54,19 @@ content_text "Calico Leaping Slash T2 damage decreased from +75 to +60 Return to
 - Bullet Damage reduced by 15%
 - Bullet velocity increased from 86 to 340
 ==ability:spectral-assistant:
-[[/hero/sinclair?ability=spectral-assistant]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_cloneturret.webp]] Spectral Assistant change history))
-### [[/hero/sinclair?ability=spectral-assistant]]((Spectral Assistant))
+[[/ability/spectral-assistant]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_cloneturret.webp]] Spectral Assistant change history))
+### [[/ability/spectral-assistant]]((Spectral Assistant))
 - Spectral Assistant now has new VFX
 ==
 ==ability:rabbit-hex:
-[[/hero/sinclair?ability=rabbit-hex]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_animalcurse.webp]] Rabbit Hex change history))
-### [[/hero/sinclair?ability=rabbit-hex]]((Rabbit Hex))
+[[/ability/rabbit-hex]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_animalcurse.webp]] Rabbit Hex change history))
+### [[/ability/rabbit-hex]]((Rabbit Hex))
 - Rabbit Hex targeting mechanism has been reworked. It is now an AoE target ability in the base. It has a 0.7s delay before the area is affected. Cast range increased from 20m to 30m, Movespeed reduced from 35% to 15% and cooldown reduced from 45s to 35s.
 - Rabbit Hex now has new VFX
 ==
 ==ability:audience-participation:
-[[/hero/sinclair?ability=audience-participation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_copyult.webp]] Audience Participation change history))
-### [[/hero/sinclair?ability=audience-participation]]((Audience Participation))
+[[/ability/audience-participation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_copyult.webp]] Audience Participation change history))
+### [[/ability/audience-participation]]((Audience Participation))
 - Audience Participation range increased from 10m to 20m
 - Audience Participation copy duration decreased from 20s to 10s
 - Various new and improved SFX
@@ -77,13 +77,13 @@ content_text "Calico Leaping Slash T2 damage decreased from +75 to +60 Return to
 [[/hero/wraith]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp]] Wraith patch history))
 ## [[/hero/wraith]]((Wraith))
 ==ability:card-trick:
-[[/hero/wraith?ability=card-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_card_trick.webp]] Card Trick change history))
-### [[/hero/wraith?ability=card-trick]]((Card Trick))
+[[/ability/card-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_card_trick.webp]] Card Trick change history))
+### [[/ability/card-trick]]((Card Trick))
 - Card Trick base radius reduced from 5m to 4m
 ==
 ==ability:telekinesis:
-[[/hero/wraith?ability=telekinesis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_lift.webp]] Telekinesis change history))
-### [[/hero/wraith?ability=telekinesis]]((Telekinesis))
+[[/ability/telekinesis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_lift.webp]] Telekinesis change history))
+### [[/ability/telekinesis]]((Telekinesis))
 - Telekinesis base damage reduced from 175 to 140
 ==
 =

@@ -32,8 +32,8 @@ content_text "Fixed High-Velocity Mag affecting some abilities Silence Glyph: Da
 [[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
 ## [[/hero/ivy]]((Ivy))
 ==ability:air-drop:
-[[/hero/ivy?ability=air-drop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_lightning_crash.webp]] Air Drop change history))
-### [[/hero/ivy?ability=air-drop]]((Air Drop))
+[[/ability/air-drop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_lightning_crash.webp]] Air Drop change history))
+### [[/ability/air-drop]]((Air Drop))
 - Air Drop now silences the ally being carried until they are released
 ==
 =
@@ -42,8 +42,8 @@ content_text "Fixed High-Velocity Mag affecting some abilities Silence Glyph: Da
 [[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
 ## [[/hero/shiv]]((Shiv))
 ==ability:bloodletting:
-[[/hero/shiv?ability=bloodletting]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_bloodletting.webp]] Bloodletting change history))
-### [[/hero/shiv?ability=bloodletting]]((Bloodletting))
+[[/ability/bloodletting]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_bloodletting.webp]] Bloodletting change history))
+### [[/ability/bloodletting]]((Bloodletting))
 - Bloodletting incoming damage deferred reduced from 40% to 35%
 ==
 =

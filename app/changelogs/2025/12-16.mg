@@ -67,14 +67,14 @@ content_text "The 10% move speed slow from taking damage is now a 20% slow only 
 ## [[/hero/billy]]((Billy))
 - Health regen reduced from 3 to 2.5
 ==ability:blasted:
-[[/hero/billy?ability=blasted]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/punkgoat/goat_blasted.webp]] Blasted change history))
-### [[/hero/billy?ability=blasted]]((Blasted))
+[[/ability/blasted]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/punkgoat/goat_blasted.webp]] Blasted change history))
+### [[/ability/blasted]]((Blasted))
 - Blasted non-player effectiveness reduced from 35% to 25%
 - Blasted light melee effectiveness reduced from 50% to 40%
 ==
 ==ability:chain-gang:
-[[/hero/billy?ability=chain-gang]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/punkgoat/goat_chaingang.webp]] Chain Gang change history))
-### [[/hero/billy?ability=chain-gang]]((Chain Gang))
+[[/ability/chain-gang]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/punkgoat/goat_chaingang.webp]] Chain Gang change history))
+### [[/ability/chain-gang]]((Chain Gang))
 - Chain Gang will now break slightly faster when target is out of LOS
 ==
 =
@@ -83,8 +83,8 @@ content_text "The 10% move speed slow from taking damage is now a 20% slow only 
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 ==ability:kinetic-pulse:
-[[/hero/dynamo?ability=kinetic-pulse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_stomp.webp]] Kinetic Pulse change history))
-### [[/hero/dynamo?ability=kinetic-pulse]]((Kinetic Pulse))
+[[/ability/kinetic-pulse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_stomp.webp]] Kinetic Pulse change history))
+### [[/ability/kinetic-pulse]]((Kinetic Pulse))
 - Kinetic Pulse spirit scaling range reduced from 0.2 to 0.1
 ==
 - Health regen reduced from 2.5 to 1.75
@@ -95,13 +95,13 @@ content_text "The 10% move speed slow from taking damage is now a 20% slow only 
 ## [[/hero/lady-geist]]((Lady Geist))
 - Stamina dash distance moved to bucket 3 (slower)
 ==ability:essence-bomb:
-[[/hero/lady-geist?ability=essence-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/blood_bomb.webp]] Essence Bomb change history))
-### [[/hero/lady-geist?ability=essence-bomb]]((Essence Bomb))
+[[/ability/essence-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/blood_bomb.webp]] Essence Bomb change history))
+### [[/ability/essence-bomb]]((Essence Bomb))
 - Essence Bomb self damage spirit scaling reduced from 1.6 to 1.8
 ==
 ==ability:malice:
-[[/hero/lady-geist?ability=malice]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/geist_dagger.webp]] Malice change history))
-### [[/hero/lady-geist?ability=malice]]((Malice))
+[[/ability/malice]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/geist_dagger.webp]] Malice change history))
+### [[/ability/malice]]((Malice))
 - Malice self damage increased from 7% to 9%
 ==
 =
@@ -112,14 +112,14 @@ content_text "The 10% move speed slow from taking damage is now a 20% slow only 
 - Move speed reduced by 0.2
 - Bullet damage per boon reduced from 0.616 to 0.5
 ==ability:djinn-s-mark:
-[[/hero/mirage?ability=djinns-mark]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_sand_phantom.webp]] Djinn's Mark change history))
-### [[/hero/mirage?ability=djinns-mark]]((Djinn's Mark))
+[[/ability/djinns-mark]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_sand_phantom.webp]] Djinn's Mark change history))
+### [[/ability/djinns-mark]]((Djinn's Mark))
 - Djinn's Mark cooldown increased from 2.5s to 2.6s
 - Djinn's Mark max range from 45m to 40m
 ==
 ==ability:traveler:
-[[/hero/mirage?ability=traveler]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_teleport.webp]] Traveler change history))
-### [[/hero/mirage?ability=traveler]]((Traveler))
+[[/ability/traveler]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_teleport.webp]] Traveler change history))
+### [[/ability/traveler]]((Traveler))
 - Traveler cooldown increased from 145s to 155s
 - Traveler T1 cooldown from -25s to -35s
 ==
@@ -129,15 +129,15 @@ content_text "The 10% move speed slow from taking damage is now a 20% slow only 
 [[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
 ## [[/hero/shiv]]((Shiv))
 ==ability:bloodletting:
-[[/hero/shiv?ability=bloodletting]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_bloodletting.webp]] Bloodletting change history))
-### [[/hero/shiv?ability=bloodletting]]((Bloodletting))
+[[/ability/bloodletting]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_bloodletting.webp]] Bloodletting change history))
+### [[/ability/bloodletting]]((Bloodletting))
 - Bloodletting deferred damage reduced from 30% to 25%
 - Bloodletting T2 deferred damage increased from 10% to 15%
 ==
 - Rage buildup rate reduced by 6%
 ==ability:killing-blow:
-[[/hero/shiv?ability=killing-blow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp]] Killing Blow change history))
-### [[/hero/shiv?ability=killing-blow]]((Killing Blow))
+[[/ability/killing-blow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp]] Killing Blow change history))
+### [[/ability/killing-blow]]((Killing Blow))
 - Killing Blow cast range reduced from 15m to 13m
 ==
 =
@@ -146,8 +146,8 @@ content_text "The 10% move speed slow from taking damage is now a 20% slow only 
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
 ==ability:assassinate:
-[[/hero/vindicta?ability=assassinate]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_assassinate.webp]] Assassinate change history))
-### [[/hero/vindicta?ability=assassinate]]((Assassinate))
+[[/ability/assassinate]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_assassinate.webp]] Assassinate change history))
+### [[/ability/assassinate]]((Assassinate))
 - Assassinate T2 reduced from +90 Max Bonus Damage to 80
 ==
 =
@@ -158,8 +158,8 @@ content_text "The 10% move speed slow from taking damage is now a 20% slow only 
 - Sprint speed spirit power scaling reduced from 0.6 to 0.5
 - Bullet damage per boon reduced from 0.17 to 0.14
 ==ability:project-mind:
-[[/hero/wraith?ability=project-mind]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_teleport.webp]] Project Mind change history))
-### [[/hero/wraith?ability=project-mind]]((Project Mind))
+[[/ability/project-mind]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_teleport.webp]] Project Mind change history))
+### [[/ability/project-mind]]((Project Mind))
 - Project Mind T2 spirit scaling reduced from 2.44 to 1.7
 ==
 =

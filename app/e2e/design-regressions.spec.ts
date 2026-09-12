@@ -1,22 +1,7 @@
 import { expect, test } from 'playwright/test';
+import { gotoApp, openEntityFilter } from './helpers';
 
 const LATEST_CHANGE = '/change/2026/minor-06-11';
-
-async function gotoApp(page: import('playwright/test').Page, path: string) {
-	await page.goto(path);
-	await expect(page.locator('[data-app-ready="true"]')).toBeAttached();
-}
-
-async function openEntityFilter(page: import('playwright/test').Page, mobile: boolean) {
-	if (mobile) {
-		await page.getByRole('button', { name: /Filters/ }).click();
-		return page.getByRole('combobox', { name: 'Hero, item, or keyword' });
-	}
-
-	return page.getByRole('combobox', {
-		name: 'Search by hero, item, or keyword'
-	});
-}
 
 test('the global changelog filter navigates from a directory', async ({
 	page
@@ -31,8 +16,9 @@ test('the global changelog filter navigates from a directory', async ({
 	// from a directory stayed on a page that ignores the param.
 	await expect(page).toHaveURL(/\/\?hero=Bebop$/);
 	await expect(
-		page.locator('main').getByRole('button', { name: 'Bebop', exact: true })
-	).toHaveAttribute('aria-pressed', 'true');
+		page.getByRole('button', { name: 'Remove Hero filter: Bebop' })
+	).toBeVisible();
+	await expect(page.locator('[data-matched-changes]').first()).toContainText('Bebop');
 });
 
 test('selected filter chips are keyboard removable', async ({ page }) => {
@@ -71,10 +57,7 @@ test('canonical aliases and profile history preserve entity scope', async ({ pag
 		.getByRole('region', { name: 'Change History' })
 		.getByRole('link')
 		.first();
-	await expect(patchLink).toHaveAttribute(
-		'href',
-		/\/change\/[^?]+\?hero=The\+Doorman#doorman$/
-	);
+	await expect(patchLink).toHaveAttribute('href', /\/change\/[^?]+#doorman$/);
 });
 
 test('keyword search from a patch navigates to the changelog list', async ({
@@ -97,42 +80,40 @@ test('historical item filters still resolve and remain removable', async ({ page
 	await expect(
 		page.getByRole('button', { name: 'Remove Item filter: Ammo Scavenger' })
 	).toBeVisible();
+	await page.getByRole('link', { name: 'Ammo Scavenger full history' }).first().click();
+	await expect(
+		page.getByRole('heading', { level: 1, name: 'Ammo Scavenger' })
+	).toBeVisible();
+	await expect(page.locator('main header')).toContainText('Historical');
 });
 
-test('mobile search remains usable without JavaScript', async ({ browser }, testInfo) => {
+test('mobile fallback offers a complete archive without JavaScript', async ({
+	browser
+}, testInfo) => {
 	test.skip(testInfo.project.name !== 'mobile-chromium', 'Mobile no-JavaScript fallback');
 	const context = await browser.newContext({
 		javaScriptEnabled: false,
+		reducedMotion: 'reduce',
 		viewport: { width: 390, height: 844 }
 	});
 	const page = await context.newPage();
 	await page.goto('http://127.0.0.1:4173/?hero=Bebop&item=Ammo+Scavenger&major=true');
+	await page.evaluate(() => document.fonts.ready);
 
-	const input = page.getByRole('searchbox', { name: 'Search the changelog' });
-	await expect(input).toBeVisible();
+	// Playwright's text/role query engines skip noscript descendants even when the
+	// browser renders them with JavaScript disabled, so locate this native fallback.
+	const fallback = page.locator('header noscript p');
+	await expect(fallback).toBeVisible();
+	await expect(fallback).toContainText('Search needs JavaScript.');
+	await expect(page.getByRole('searchbox')).toHaveCount(0);
+	await page.locator('header noscript a[href="/archive"]').click();
 	await expect(
-		page.getByRole('link', { name: 'Remove Hero filter: Bebop' })
+		page.getByRole('heading', { level: 1, name: 'Patch archive' })
 	).toBeVisible();
-	await expect(
-		page.getByRole('link', { name: 'Remove Item filter: Ammo Scavenger' })
-	).toBeVisible();
-	await expect(
-		page.getByRole('link', { name: 'Remove Major patches filter' })
-	).toBeVisible();
-
-	const itemFilter = page.getByRole('link', {
-		name: 'Remove Item filter: Ammo Scavenger'
-	});
-	const removalHref = await itemFilter.getAttribute('href');
-	expect(removalHref).not.toBeNull();
-	await page.goto(new URL(removalHref!, page.url()).href);
-	await expect(page).toHaveURL(/\/\?hero=Bebop&major=true$/);
-	await input.fill('stamina bucket');
-	await input.press('Enter');
-	await page.waitForURL((url) => url.searchParams.get('q') === 'stamina bucket');
-	expect(new URL(page.url()).searchParams.get('hero')).toBe('Bebop');
-	expect(new URL(page.url()).searchParams.get('item')).toBeNull();
-	expect(new URL(page.url()).searchParams.get('major')).toBe('true');
+	const patches = page.locator('main a[href^="/change/"]');
+	expect(await patches.count()).toBeGreaterThan(100);
+	await patches.last().click();
+	await expect(page.getByRole('region', { name: 'Changelog details' })).toBeVisible();
 	await context.close();
 });
 
@@ -167,16 +148,13 @@ test('semantic accent colors remain legible on their UI surfaces', async ({
 			const card = token('--card');
 			const primary = token('--primary');
 			const signal = token('--signal');
-			const reference = document.createElement('span');
-			reference.style.color = 'color-mix(in srgb, var(--signal) 100%, transparent)';
-			document.body.append(reference);
-			const searchLabel = [...document.querySelectorAll('header span')].find(
-				(element) => element.textContent?.trim() === 'Search by hero, item, or keyword'
+			const navigationFontSize = Math.min(
+				...[
+					...document.querySelectorAll(
+						'header nav a[href="/heroes"], header nav a[href="/items"]'
+					)
+				].map((element) => Number.parseFloat(getComputedStyle(element).fontSize))
 			);
-			const headerUsesFullSignal =
-				searchLabel !== undefined &&
-				getComputedStyle(searchLabel).color === getComputedStyle(reference).color;
-			reference.remove();
 
 			return {
 				text: [
@@ -194,7 +172,7 @@ test('semantic accent colors remain legible on their UI surfaces', async ({
 					ratio(token('--border'), background),
 					ratio(token('--border'), card)
 				],
-				headerUsesFullSignal
+				navigationFontSize
 			};
 		});
 	};
@@ -202,7 +180,7 @@ test('semantic accent colors remain legible on their UI surfaces', async ({
 	const values = await contrast();
 	for (const ratio of values.text) expect(ratio).toBeGreaterThanOrEqual(4.5);
 	for (const ratio of values.controls) expect(ratio).toBeGreaterThanOrEqual(3);
-	expect(values.headerUsesFullSignal).toBe(true);
+	expect(values.navigationFontSize).toBeGreaterThanOrEqual(12);
 });
 
 test('toasts resolve semantic colors without Tailwind theme aliases', async ({
@@ -284,10 +262,13 @@ test('the mobile sheet close control uses the shared focus-visible ring', async 
 }, testInfo) => {
 	test.skip(testInfo.project.name !== 'mobile-chromium', 'Mobile sheet regression');
 	await gotoApp(page, '/');
-	await page.getByRole('button', { name: /Filters/ }).click();
+	await page.getByRole('button', { name: /Search & filter/ }).click();
 
 	const close = page.getByRole('button', { name: 'Close' });
 	await expect(close).toBeVisible();
+	const target = await close.boundingBox();
+	expect(target?.width).toBeGreaterThanOrEqual(44);
+	expect(target?.height).toBeGreaterThanOrEqual(44);
 	await close.focus();
 	await page.keyboard.press('Tab');
 	await page.keyboard.press('Shift+Tab');
@@ -302,6 +283,7 @@ test('entity aliases render as selected and toggle without duplication', async (
 	page
 }) => {
 	await gotoApp(page, '/?hero=bebop');
+	await page.getByText('Quick hero filters', { exact: true }).click();
 	const hero = page.locator('main').getByRole('button', { name: 'Bebop', exact: true });
 
 	await expect(hero).toHaveAttribute('aria-pressed', 'true');
@@ -312,36 +294,37 @@ test('entity aliases render as selected and toggle without duplication', async (
 	await expect(page).toHaveURL(/\/$/);
 });
 
-test('patch entity deep links keep their target visible', async ({ page }) => {
+test('filtered results retain scope and expose direct entity histories', async ({
+	page
+}) => {
 	await gotoApp(page, '/?hero=Bebop');
 	await expect(page.locator('[data-patch-card]').first().locator('h2 a')).toHaveAttribute(
 		'href',
 		/^\/change\/[^?]+\?hero=Bebop$/
 	);
-	const link = page.getByRole('link', { name: 'Jump to Abrams in this patch' }).first();
-
-	await expect(link).toHaveAttribute('href', /hero=Bebop%2CAbrams#abrams$/);
+	await expect(
+		page.getByRole('link', { name: 'Bebop full history' }).first()
+	).toHaveAttribute('href', '/hero/bebop');
+	await gotoApp(page, '/?hero=Bebop,Abrams');
+	const link = page.locator('[data-patch-card]').first().locator('h2 a');
+	await expect(link).toHaveAttribute('href', /hero=Bebop%2CAbrams$/);
 	await link.click();
-	await expect(page).toHaveURL(/\/change\/[^?]+\?hero=Bebop%2CAbrams#abrams$/);
-	await expect(page.locator('#abrams')).toBeVisible();
+	await expect(
+		page.getByRole('region', { name: 'Changelog details' }).locator('#abrams')
+	).toBeVisible();
 	const current = new URL(page.url());
 	await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
 		'href',
 		`https://deadlog.io${current.pathname}`
 	);
 
-	const saturatedFilter = Array.from({ length: 20 }, () => 'Bebop').join(',');
-	await gotoApp(page, `/?hero=${encodeURIComponent(saturatedFilter)}`);
-	const saturatedLink = page
+	await gotoApp(page, '/');
+	const entityLink = page
 		.getByRole('link', { name: 'Jump to Abrams in this patch' })
 		.first();
-	const href = await saturatedLink.getAttribute('href');
-	expect(href).not.toBeNull();
-	const linkedHeroes = new URL(href!, 'http://127.0.0.1').searchParams
-		.get('hero')!
-		.split(',');
-	expect(linkedHeroes).toHaveLength(20);
-	expect(linkedHeroes.at(-1)).toBe('Abrams');
+	await expect(entityLink).toHaveAttribute('href', /\/change\/[^?]+#abrams$/);
+	await entityLink.click();
+	await expect(page.locator('#abrams')).toBeVisible();
 });
 
 test('the changelog API rejects invalid pagination', async ({ request }) => {
@@ -383,9 +366,7 @@ test('hero abilities preserve slot order and scoped change counts', async ({ pag
 	}
 
 	const history = page.getByRole('region', { name: 'Change History' });
-	const card = history.locator(
-		'li:has(a[href="/change/2026/minor-07-28?hero=The+Doorman#doorman"])'
-	);
+	const card = history.locator('li:has(a[href="/change/2026/minor-07-28#doorman"])');
 	await expect(card.getByText('9 changes', { exact: true })).toBeVisible();
 	await expect(
 		card.getByRole('heading', { level: 3, name: 'July 28th, 2026' })
@@ -619,7 +600,7 @@ test('patch cards navigate from their full card surfaces', async ({ page }) => {
 	});
 	const featuredHref = await featuredLink.getAttribute('href');
 	expect(featuredHref).not.toBeNull();
-	const cta = page.getByText('View Full Patch', { exact: true });
+	const cta = page.getByText('View full patch', { exact: true });
 	await cta.scrollIntoViewIfNeeded();
 	const ctaBox = await cta.boundingBox();
 	expect(ctaBox).not.toBeNull();
@@ -630,13 +611,12 @@ test('patch cards navigate from their full card surfaces', async ({ page }) => {
 	const card = page.locator('[data-patch-card]').first();
 	const cardHref = await card.locator('h2 a').getAttribute('href');
 	expect(cardHref).not.toBeNull();
-	const preview = card.locator('img').first();
-	await preview.scrollIntoViewIfNeeded();
-	const previewBox = await preview.boundingBox();
-	expect(previewBox).not.toBeNull();
+	await card.scrollIntoViewIfNeeded();
+	const cardBox = await card.boundingBox();
+	expect(cardBox).not.toBeNull();
 	await page.mouse.click(
-		previewBox!.x + previewBox!.width / 2,
-		previewBox!.y + previewBox!.height / 2
+		cardBox!.x + cardBox!.width - 12,
+		cardBox!.y + cardBox!.height - 12
 	);
 	await expect(page).toHaveURL(new URL(cardHref!, page.url()).href);
 });
@@ -713,7 +693,7 @@ test('scrolling to the bottom appends cards to the same grid without reflow', as
 	).toBe(true);
 });
 
-test('reduced motion removes route delay and timeline targets remain usable', async ({
+test('reduced motion removes route delay and recent patch links remain usable', async ({
 	page
 }) => {
 	await page.emulateMedia({ reducedMotion: 'reduce' });
@@ -725,13 +705,14 @@ test('reduced motion removes route delay and timeline targets remain usable', as
 	expect(timing.delay).toBe('0s');
 	expect(Number.parseFloat(timing.duration)).toBeLessThanOrEqual(0.001);
 
-	const timeline = page.getByRole('group', { name: 'Patch timeline for Abrams' });
+	await page.getByText('Archive details', { exact: true }).click();
+	const timeline = page.getByRole('navigation', { name: 'Recent patches for Abrams' });
 	const timelineLinks = timeline.locator('a[aria-label^="View Abrams in the"]:visible');
 	const timelineLink = timelineLinks.first();
 	await expect(timelineLink).toBeVisible();
 	const box = await timelineLink.boundingBox();
-	expect(box?.width).toBeGreaterThanOrEqual(24);
-	expect(box?.height).toBeGreaterThanOrEqual(24);
+	expect(box?.width).toBeGreaterThanOrEqual(44);
+	expect(box?.height).toBeGreaterThanOrEqual(44);
 	await expect(timeline.locator('[aria-label*="not shown"]')).toHaveCount(0);
 	await expect(timeline.locator('[data-timeline-date]:visible')).toHaveCount(
 		await timelineLinks.count()
@@ -749,18 +730,21 @@ test('timeline date labels do not collide at responsive breakpoints', async ({
 	for (const width of [640, 768]) {
 		await page.setViewportSize({ width, height: 900 });
 		await gotoApp(page, '/hero/mcginnis');
+		await page.getByText('Archive details', { exact: true }).click();
 		const labels = page
-			.getByRole('group', { name: 'Patch timeline for McGinnis' })
+			.getByRole('navigation', { name: 'Recent patches for McGinnis' })
 			.locator('[data-timeline-date]:visible');
-		await expect(labels.first()).toHaveText(/^[A-Z][a-z]{2} \d{1,2} '\d{2}$/);
+		await expect(labels.first()).toHaveText(/^[A-Z][a-z]{2} \d{1,2}, \d{4}$/);
 		const boxes = await labels.evaluateAll((elements) =>
 			elements.map((element) => {
 				const rect = element.getBoundingClientRect();
-				return { left: rect.left, right: rect.right };
+				return { left: rect.left, right: rect.right, top: rect.top };
 			})
 		);
 		for (let index = 1; index < boxes.length; index += 1) {
-			expect(boxes[index]!.left).toBeGreaterThanOrEqual(boxes[index - 1]!.right - 0.5);
+			if (Math.abs(boxes[index]!.top - boxes[index - 1]!.top) < 1) {
+				expect(boxes[index]!.left).toBeGreaterThanOrEqual(boxes[index - 1]!.right - 0.5);
+			}
 		}
 	}
 });

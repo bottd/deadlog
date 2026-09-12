@@ -74,13 +74,13 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 ==ability:quantum-entanglement:
-[[/hero/dynamo?ability=quantum-entanglement]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_quantum.webp]] Quantum Entanglement change history))
-### [[/hero/dynamo?ability=quantum-entanglement]]((Quantum Entanglement))
+[[/ability/quantum-entanglement]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_quantum.webp]] Quantum Entanglement change history))
+### [[/ability/quantum-entanglement]]((Quantum Entanglement))
 - Quantum Entanglement is prevented from being cast when Dynamo is rooted or movement-silenced (such as by Slowing Hex)
 ==
 ==ability:rejuvenating-aurora:
-[[/hero/dynamo?ability=rejuvenating-aurora]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_pork_bun.webp]] Rejuvenating Aurora change history))
-### [[/hero/dynamo?ability=rejuvenating-aurora]]((Rejuvenating Aurora))
+[[/ability/rejuvenating-aurora]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_pork_bun.webp]] Rejuvenating Aurora change history))
+### [[/ability/rejuvenating-aurora]]((Rejuvenating Aurora))
 - Rejuvenating Aurora T3 reduced from +5% to +4%
 ==
 =
@@ -89,8 +89,8 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 ==ability:bullet-dance:
-[[/hero/haze?ability=bullet-dance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_bullet_flurry.webp]] Bullet Dance change history))
-### [[/hero/haze?ability=bullet-dance]]((Bullet Dance))
+[[/ability/bullet-dance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_bullet_flurry.webp]] Bullet Dance change history))
+### [[/ability/bullet-dance]]((Bullet Dance))
 - Bullet Dance T1 increased from +5 Weapon Damage to +6
 - Fixed various bugs with the fire rate on Bullet Dance (net effect of the bugs was that it often fired a little faster than it was intended to)
 ==
@@ -100,8 +100,8 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 [[/hero/infernus]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus patch history))
 ## [[/hero/infernus]]((Infernus))
 ==ability:afterburn:
-[[/hero/infernus?ability=afterburn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_deflect.webp]] Afterburn change history))
-### [[/hero/infernus?ability=afterburn]]((Afterburn))
+[[/ability/afterburn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_deflect.webp]] Afterburn change history))
+### [[/ability/afterburn]]((Afterburn))
 - Afterburn base dps reduced from 20 to 18
 - Afterburn T3 reduced from +35 to +33
 ==
@@ -111,8 +111,8 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 ==ability:arctic-beam:
-[[/hero/kelvin?ability=arctic-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_beam.webp]] Arctic Beam change history))
-### [[/hero/kelvin?ability=arctic-beam]]((Arctic Beam))
+[[/ability/arctic-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_beam.webp]] Arctic Beam change history))
+### [[/ability/arctic-beam]]((Arctic Beam))
 - Arctic Beam spirit scaling increased from 0.7 to 0.9
 - Arctic Beam cooldown reduced from 25 to 23
 ==
@@ -122,13 +122,13 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 [[/hero/lash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp]] Lash patch history))
 ## [[/hero/lash]]((Lash))
 ==ability:ground-strike:
-[[/hero/lash?ability=ground-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_death_slam.webp]] Ground Strike change history))
-### [[/hero/lash?ability=ground-strike]]((Ground Strike))
+[[/ability/ground-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_death_slam.webp]] Ground Strike change history))
+### [[/ability/ground-strike]]((Ground Strike))
 - Ground Strike radius reduced from 14m to 13m
 ==
 ==ability:death-slam:
-[[/hero/lash?ability=death-slam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_counter_lash.webp]] Death Slam change history))
-### [[/hero/lash?ability=death-slam]]((Death Slam))
+[[/ability/death-slam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_counter_lash.webp]] Death Slam change history))
+### [[/ability/death-slam]]((Death Slam))
 - Death Slam radius reduced from 20m to 19m
 ==
 =
@@ -138,20 +138,20 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 ## [[/hero/mcginnis]]((McGinnis))
 - Fixed her gun having a recent regression that caused it to not have any spread
 ==ability:mini-turret:
-[[/hero/mcginnis?ability=mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turret change history))
-### [[/hero/mcginnis?ability=mini-turret]]((Mini Turret))
+[[/ability/mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turret change history))
+### [[/ability/mini-turret]]((Mini Turret))
 - Mini Turret damage reduced by up to 30% at 35m (now has bullet falloff from 20m to 35m)
 - Mini Turret deploy time reduced from 2s to 1s
 - Mini Turret now shows up on the minimap
 ==
 ==ability:medicinal-specter:
-[[/hero/mcginnis?ability=medicinal-specter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_resupply.webp]] Medicinal Specter change history))
-### [[/hero/mcginnis?ability=medicinal-specter]]((Medicinal Specter))
+[[/ability/medicinal-specter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_resupply.webp]] Medicinal Specter change history))
+### [[/ability/medicinal-specter]]((Medicinal Specter))
 - Medicinal Spectre can no longer be attacked
 ==
 ==ability:spectral-wall:
-[[/hero/mcginnis?ability=spectral-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_fissure_2.webp]] Spectral Wall change history))
-### [[/hero/mcginnis?ability=spectral-wall]]((Spectral Wall))
+[[/ability/spectral-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_fissure_2.webp]] Spectral Wall change history))
+### [[/ability/spectral-wall]]((Spectral Wall))
 - Spectral Wall height increased by 2m
 - Spectral Wall slow duration increased from 2s to 2.5s
 - Fixed a bug with Spectral Wall that caused the Rejuvenator to instantly drop
@@ -163,24 +163,24 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 ## [[/hero/mo-krill]]((Mo & Krill))
 - Base HP regen increased from 2.5 to 3
 ==ability:scorn:
-[[/hero/mo-krill?ability=scorn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_regen.webp]] Scorn change history))
-### [[/hero/mo-krill?ability=scorn]]((Scorn))
+[[/ability/scorn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_regen.webp]] Scorn change history))
+### [[/ability/scorn]]((Scorn))
 - Scorn damage increased from 50 to 60
 - Fixed Scorn not healing for more with things like Mystic Burst
 ==
 ==ability:burrow:
-[[/hero/mo-krill?ability=burrow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_spin.webp]] Burrow change history))
-### [[/hero/mo-krill?ability=burrow]]((Burrow))
+[[/ability/burrow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_spin.webp]] Burrow change history))
+### [[/ability/burrow]]((Burrow))
 - Burrow now destroys breakables in its path
 ==
 ==ability:scorn:
-[[/hero/mo-krill?ability=scorn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_regen.webp]] Scorn change history))
-### [[/hero/mo-krill?ability=scorn]]((Scorn))
+[[/ability/scorn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_regen.webp]] Scorn change history))
+### [[/ability/scorn]]((Scorn))
 - Fixed Healing Booster not applying to Scorn's 2x heal multiplier on heroes
 ==
 ==ability:combo:
-[[/hero/mo-krill?ability=combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo change history))
-### [[/hero/mo-krill?ability=combo]]((Combo))
+[[/ability/combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo change history))
+### [[/ability/combo]]((Combo))
 - Added a bonus counter to show how much health has been earned by getting a kill during Combo
 ==
 =
@@ -190,25 +190,25 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 ## [[/hero/paradox]]((Paradox))
 - Base movement speed reduced from 7 to 6.5
 ==ability:kinetic-carbine:
-[[/hero/paradox?ability=kinetic-carbine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/duo/duo_attack.webp]] Kinetic Carbine change history))
-### [[/hero/paradox?ability=kinetic-carbine]]((Kinetic Carbine))
+[[/ability/kinetic-carbine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/duo/duo_attack.webp]] Kinetic Carbine change history))
+### [[/ability/kinetic-carbine]]((Kinetic Carbine))
 - Kinetic Carbine impact radius reduced by 15%
 ==
 ==ability:kinetic-carbine-max-stop-duration:
-[[/hero/paradox?ability=kinetic-carbine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/duo/duo_attack.webp]] Kinetic Carbine Max Stop Duration change history))
-### [[/hero/paradox?ability=kinetic-carbine]]((Kinetic Carbine Max Stop Duration))
+[[/ability/kinetic-carbine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/duo/duo_attack.webp]] Kinetic Carbine Max Stop Duration change history))
+### [[/ability/kinetic-carbine]]((Kinetic Carbine Max Stop Duration))
 - Kinetic Carbine Max Stop Duration reduced from 0.75 to 0.5
 ==
 ==ability:kinetic-carbine:
-[[/hero/paradox?ability=kinetic-carbine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/duo/duo_attack.webp]] Kinetic Carbine change history))
-### [[/hero/paradox?ability=kinetic-carbine]]((Kinetic Carbine))
+[[/ability/kinetic-carbine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/duo/duo_attack.webp]] Kinetic Carbine change history))
+### [[/ability/kinetic-carbine]]((Kinetic Carbine))
 - Kinetic Carbine buff duration reduced from 6 to 4
 - Kinetic Carbine T1 increased from +0.5s Max Stop Duration to +0.75
 - Kinetic Carbine T2 now also increases buff by +2s
 ==
 ==ability:paradoxical-swap:
-[[/hero/paradox?ability=paradoxical-swap]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_swap.webp]] Paradoxical Swap change history))
-### [[/hero/paradox?ability=paradoxical-swap]]((Paradoxical Swap))
+[[/ability/paradoxical-swap]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_swap.webp]] Paradoxical Swap change history))
+### [[/ability/paradoxical-swap]]((Paradoxical Swap))
 - Paradoxical Swap range reduced from 35m to 30m
 ==
 =
@@ -217,8 +217,8 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 [[/hero/pocket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket patch history))
 ## [[/hero/pocket]]((Pocket))
 ==ability:enchanter-s-satchel:
-[[/hero/pocket?ability=enchanters-satchel]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_pulse.webp]] Enchanter's Satchel change history))
-### [[/hero/pocket?ability=enchanters-satchel]]((Enchanter's Satchel))
+[[/ability/enchanters-satchel]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_pulse.webp]] Enchanter's Satchel change history))
+### [[/ability/enchanters-satchel]]((Enchanter's Satchel))
 - Enchanter's Satchel can now be canceled by shooting
 ==
 =
@@ -227,16 +227,16 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 [[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
 ## [[/hero/seven]]((Seven))
 ==ability:power-surge:
-[[/hero/seven?ability=power-surge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_chain.webp]] Power Surge change history))
-### [[/hero/seven?ability=power-surge]]((Power Surge))
+[[/ability/power-surge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_chain.webp]] Power Surge change history))
+### [[/ability/power-surge]]((Power Surge))
 - Fixed Return Fire working with Power Surge
 ==
 - No longer has base +15% Spirit Resistance
 - Now has base +20% Bullet Resistance
 - Base health regen reduced from 2 to 1
 ==ability:static-charge:
-[[/hero/seven?ability=static-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_static.webp]] Static Charge change history))
-### [[/hero/seven?ability=static-charge]]((Static Charge))
+[[/ability/static-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_static.webp]] Static Charge change history))
+### [[/ability/static-charge]]((Static Charge))
 - Static Charge T1 improved from -15s Cooldown to -20s
 ==
 =
@@ -246,13 +246,13 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 ## [[/hero/vindicta]]((Vindicta))
 - Base movement speed increased from 7 to 8
 ==ability:crow-familiar:
-[[/hero/vindicta?ability=crow-familiar]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_crow.webp]] Crow Familiar change history))
-### [[/hero/vindicta?ability=crow-familiar]]((Crow Familiar))
+[[/ability/crow-familiar]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_crow.webp]] Crow Familiar change history))
+### [[/ability/crow-familiar]]((Crow Familiar))
 - Fixed Crow Familiar T1 only bouncing to 1 additional target instead of 2
 ==
 ==ability:assassinate:
-[[/hero/vindicta?ability=assassinate]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_assassinate.webp]] Assassinate change history))
-### [[/hero/vindicta?ability=assassinate]]((Assassinate))
+[[/ability/assassinate]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_assassinate.webp]] Assassinate change history))
+### [[/ability/assassinate]]((Assassinate))
 - Assassinate zoom level is reduced a bit
 ==
 =
@@ -261,8 +261,8 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 [[/hero/warden]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden patch history))
 ## [[/hero/warden]]((Warden))
 ==ability:willpower:
-[[/hero/warden?ability=willpower]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_high_alert.webp]] Willpower change history))
-### [[/hero/warden?ability=willpower]]((Willpower))
+[[/ability/willpower]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_high_alert.webp]] Willpower change history))
+### [[/ability/willpower]]((Willpower))
 - Willpower no longer loses movement speed when the shield is depleted
 - Willpower duration reduced from 8s to 7s
 ==
@@ -272,8 +272,8 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 [[/hero/wraith]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp]] Wraith patch history))
 ## [[/hero/wraith]]((Wraith))
 ==ability:card-trick:
-[[/hero/wraith?ability=card-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_card_trick.webp]] Card Trick change history))
-### [[/hero/wraith?ability=card-trick]]((Card Trick))
+[[/ability/card-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_card_trick.webp]] Card Trick change history))
+### [[/ability/card-trick]]((Card Trick))
 - The Royal Flush ability has been replaced with Card Trick.  Card Trick enables Wraith's weapon damage to summon playing cards.  Activating the ability throws one of the cards, which will fly towards the enemy or point under the crosshair and explode on impact.
 ==
 =
@@ -282,18 +282,18 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 ==ability:power-slash:
-[[/hero/yamato?ability=power-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_power_slash.webp]] Power Slash change history))
-### [[/hero/yamato?ability=power-slash]]((Power Slash))
+[[/ability/power-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_power_slash.webp]] Power Slash change history))
+### [[/ability/power-slash]]((Power Slash))
 - Power Slash damage reduced from 175 to 170
 ==
 ==ability:flying-slash:
-[[/hero/yamato?ability=flying-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_flying_strike.webp]] Flying Slash change history))
-### [[/hero/yamato?ability=flying-slash]]((Flying Slash))
+[[/ability/flying-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_flying_strike.webp]] Flying Slash change history))
+### [[/ability/flying-slash]]((Flying Slash))
 - Can now cancel Flying Strike
 ==
 ==ability:shadow-transformation:
-[[/hero/yamato?ability=shadow-transformation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]] Shadow Transformation change history))
-### [[/hero/yamato?ability=shadow-transformation]]((Shadow Transformation))
+[[/ability/shadow-transformation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]] Shadow Transformation change history))
+### [[/ability/shadow-transformation]]((Shadow Transformation))
 - Shadow Transformation damage and debuff resistance reduced from 80% to 70%
 - Shadow Transformation duration increased from 4.5s to 5s
 ==

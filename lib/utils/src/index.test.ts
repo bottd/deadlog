@@ -2,12 +2,12 @@ import { describe, expect, it } from 'vitest';
 import {
 	DISPLAY_TIME_ZONE,
 	abilityFragmentId,
-	computeStreaks,
 	entityNameAliases,
 	entityNamesMatch,
 	escapeMogDelimiters,
 	formatDate,
 	formatTime,
+	formatYear,
 	makeSummary,
 	resolveAbilitySlug,
 	stripMogLinks,
@@ -124,38 +124,18 @@ describe('makeSummary', () => {
 	});
 });
 
-describe('computeStreaks', () => {
-	const seq = ['e', 'd', 'c', 'b', 'a']; // newest first
-
-	it('returns zeros for an entity with no patches', () => {
-		expect(computeStreaks(seq, new Set())).toEqual({ current: 0, longest: 0 });
-	});
-
-	it('counts a current streak from the newest patch', () => {
-		expect(computeStreaks(seq, new Set(['e', 'd', 'b']))).toEqual({
-			current: 2,
-			longest: 2
-		});
-	});
-
-	it('reports zero current when the newest patch was missed', () => {
-		expect(computeStreaks(seq, new Set(['d', 'c', 'b']))).toEqual({
-			current: 0,
-			longest: 3
-		});
-	});
-
-	it('handles a full-sequence run', () => {
-		expect(computeStreaks(seq, new Set(seq))).toEqual({ current: 5, longest: 5 });
-	});
-});
-
 describe('patch date formatting', () => {
 	it('uses Valve local time near a UTC date boundary', () => {
 		const date = '2026-06-12T00:59:18.000Z';
 		expect(DISPLAY_TIME_ZONE).toBe('America/Los_Angeles');
 		expect(formatDate(date)).toBe('June 11th, 2026');
 		expect(formatTime(date)).toBe('5:59 PM');
+	});
+
+	it('reports the year the date itself prints, not the UTC one', () => {
+		const newYearsMorning = '2026-01-01T02:00:00.000Z';
+		expect(formatDate(newYearsMorning)).toBe('December 31st, 2025');
+		expect(formatYear(newYearsMorning)).toBe('2025');
 	});
 
 	it('formats ordinal suffixes after timezone conversion', () => {

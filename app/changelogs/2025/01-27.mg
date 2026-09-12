@@ -27,8 +27,8 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 [[/hero/abrams]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams patch history))
 ## [[/hero/abrams]]((Abrams))
 ==ability:infernal-resilience:
-[[/hero/abrams?ability=infernal-resilience]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_beef.webp]] Infernal Resilience change history))
-### [[/hero/abrams?ability=infernal-resilience]]((Infernal Resilience))
+[[/ability/infernal-resilience]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_beef.webp]] Infernal Resilience change history))
+### [[/ability/infernal-resilience]]((Infernal Resilience))
 - Infernal Resilience increased from 11% to 12%
 ==
 =
@@ -37,8 +37,8 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 [[/hero/bebop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop patch history))
 ## [[/hero/bebop]]((Bebop))
 ==ability:exploding-uppercut:
-[[/hero/bebop?ability=exploding-uppercut]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_uppercut.webp]] Exploding Uppercut change history))
-### [[/hero/bebop?ability=exploding-uppercut]]((Exploding Uppercut))
+[[/ability/exploding-uppercut]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_uppercut.webp]] Exploding Uppercut change history))
+### [[/ability/exploding-uppercut]]((Exploding Uppercut))
 - Uppercut air control lockout period reduced from 0.5s to 0.3s
 ==
 =
@@ -47,22 +47,22 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 [[/hero/calico]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp]] Calico patch history))
 ## [[/hero/calico]]((Calico))
 ==ability:gloom-bombs:
-[[/hero/calico?ability=gloom-bombs]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_clustergrenade.webp]] Gloom Bombs change history))
-### [[/hero/calico?ability=gloom-bombs]]((Gloom Bombs))
+[[/ability/gloom-bombs]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_clustergrenade.webp]] Gloom Bombs change history))
+### [[/ability/gloom-bombs]]((Gloom Bombs))
 - Gloom Bombs now has updated impact SFX
 - Gloom Bombs now has an arming effect for when they are about to detonate
 ==
 ==ability:leaping-slash:
-[[/hero/calico?ability=leaping-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_dash.webp]] Leaping Slash change history))
-### [[/hero/calico?ability=leaping-slash]]((Leaping Slash))
+[[/ability/leaping-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_dash.webp]] Leaping Slash change history))
+### [[/ability/leaping-slash]]((Leaping Slash))
 - Leaping Slash only heals when hitting heroes
 - Leaping Slash fixed VFX to match the damage area more accurately
 - Leaping Slash updated to break breakables in the area
 - Leaping Slash fixed a bug where calico's slash would deal no damage near walls
 ==
 ==ability:ava:
-[[/hero/calico?ability=ava]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_catform.webp]] Ava change history))
-### [[/hero/calico?ability=ava]]((Ava))
+[[/ability/ava]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_catform.webp]] Ava change history))
+### [[/ability/ava]]((Ava))
 - Ava duration reduced from 20s to 15s
 - Ava cooldown reduced from 50s to 45s
 - Ava now gets slowed by 30% for 1s anytime she takes damage
@@ -71,13 +71,13 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 - Ava now can now meow with m1
 ==
 ==ability:return-to-shadows:
-[[/hero/calico?ability=return-to-shadows]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_shadow_pulse.webp]] Return to Shadows change history))
-### [[/hero/calico?ability=return-to-shadows]]((Return to Shadows))
+[[/ability/return-to-shadows]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_shadow_pulse.webp]] Return to Shadows change history))
+### [[/ability/return-to-shadows]]((Return to Shadows))
 - Return to Shadows cooldown increased from 80s to 90s
 ==
 ==ability:leaping-slash:
-[[/hero/calico?ability=leaping-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_dash.webp]] Leaping Slash change history))
-### [[/hero/calico?ability=leaping-slash]]((Leaping Slash))
+[[/ability/leaping-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_dash.webp]] Leaping Slash change history))
+### [[/ability/leaping-slash]]((Leaping Slash))
 - Fixed Leaping Slash doing bonus damage from Melee Charge
 ==
 =
@@ -86,8 +86,8 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 ==ability:kinetic-pulse:
-[[/hero/dynamo?ability=kinetic-pulse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_stomp.webp]] Kinetic Pulse change history))
-### [[/hero/dynamo?ability=kinetic-pulse]]((Kinetic Pulse))
+[[/ability/kinetic-pulse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_stomp.webp]] Kinetic Pulse change history))
+### [[/ability/kinetic-pulse]]((Kinetic Pulse))
 - Kinetic Pulse damage spirit scaling increased from 1.4 to 1.8
 - Kinetic Pulse T3 now also adds +1 Charge
 ==
@@ -97,8 +97,8 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 [[/hero/grey-talon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon patch history))
 ## [[/hero/grey-talon]]((Grey Talon))
 ==ability:spirit-snare:
-[[/hero/grey-talon?ability=spirit-snare]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/imobolize_trap.webp]] Spirit Snare change history))
-### [[/hero/grey-talon?ability=spirit-snare]]((Spirit Snare))
+[[/ability/spirit-snare]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/imobolize_trap.webp]] Spirit Snare change history))
+### [[/ability/spirit-snare]]((Spirit Snare))
 - Spirit Snare cooldown reduced from 37s to 34s
 - Spirit Snare T2 increased from +0.5s to +0.75s
 ==
@@ -108,8 +108,8 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 ==ability:bullet-dance:
-[[/hero/haze?ability=bullet-dance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_bullet_flurry.webp]] Bullet Dance change history))
-### [[/hero/haze?ability=bullet-dance]]((Bullet Dance))
+[[/ability/bullet-dance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_bullet_flurry.webp]] Bullet Dance change history))
+### [[/ability/bullet-dance]]((Bullet Dance))
 - Bullet Dance T3 increased from +40% Evasion to +60%
 - Bullet Dance T3 increased from +2 Dance Move Speed to +3
 ==
@@ -119,23 +119,23 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 [[/hero/holliday]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]] Holliday patch history))
 ## [[/hero/holliday]]((Holliday))
 ==ability:powder-keg:
-[[/hero/holliday?ability=powder-keg]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_powder_keg.webp]] Powder Keg change history))
-### [[/hero/holliday?ability=powder-keg]]((Powder Keg))
+[[/ability/powder-keg]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_powder_keg.webp]] Powder Keg change history))
+### [[/ability/powder-keg]]((Powder Keg))
 - Powder Keg will no longer arm instantly if the player has the Bounce Pad modifier
 ==
 ==ability:powder-keg-charge-time:
-[[/hero/holliday?ability=powder-keg]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_powder_keg.webp]] Powder Keg Charge Time change history))
-### [[/hero/holliday?ability=powder-keg]]((Powder Keg Charge Time))
+[[/ability/powder-keg]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_powder_keg.webp]] Powder Keg Charge Time change history))
+### [[/ability/powder-keg]]((Powder Keg Charge Time))
 - Powder Keg Charge Time increased from 1s to 2s
 ==
 ==ability:powder-keg:
-[[/hero/holliday?ability=powder-keg]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_powder_keg.webp]] Powder Keg change history))
-### [[/hero/holliday?ability=powder-keg]]((Powder Keg))
+[[/ability/powder-keg]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_powder_keg.webp]] Powder Keg change history))
+### [[/ability/powder-keg]]((Powder Keg))
 - Powder Keg knock up time reduced by 15%
 ==
 ==ability:bounce-pad:
-[[/hero/holliday?ability=bounce-pad]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_bounce_pad.webp]] Bounce Pad change history))
-### [[/hero/holliday?ability=bounce-pad]]((Bounce Pad))
+[[/ability/bounce-pad]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_bounce_pad.webp]] Bounce Pad change history))
+### [[/ability/bounce-pad]]((Bounce Pad))
 - Bounce Pad no will no longer expire after 5 seconds in the air
 - Bounce Pad spirit scaling reduced from 0.9 to 0.4
 - Bounce Pad will now play a different sound on the player's first bounce when the stomp modifier is active
@@ -143,8 +143,8 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 - Bounce Pad will now be more responsive for the player when landing and dealing damage
 ==
 ==ability:spirit-lasso:
-[[/hero/holliday?ability=spirit-lasso]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_spirit_lasso.webp]] Spirit Lasso change history))
-### [[/hero/holliday?ability=spirit-lasso]]((Spirit Lasso))
+[[/ability/spirit-lasso]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_spirit_lasso.webp]] Spirit Lasso change history))
+### [[/ability/spirit-lasso]]((Spirit Lasso))
 - Spirit Lasso duration reduced from 2.5s to 2.25s
 - Spirit Lasso duration now lasts 1.5s longer when using Bounce Pad
 - Spirit Lasso Fixed an issue where the lasso animation would get stuck on sometimes
@@ -155,8 +155,8 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 ==ability:arctic-beam:
-[[/hero/kelvin?ability=arctic-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_beam.webp]] Arctic Beam change history))
-### [[/hero/kelvin?ability=arctic-beam]]((Arctic Beam))
+[[/ability/arctic-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_beam.webp]] Arctic Beam change history))
+### [[/ability/arctic-beam]]((Arctic Beam))
 - Arctic Beam now also slows roll distances by 20%
 ==
 =
@@ -165,8 +165,8 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 [[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
 ## [[/hero/seven]]((Seven))
 ==ability:storm-cloud:
-[[/hero/seven?ability=storm-cloud]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_storm.webp]] Storm Cloud change history))
-### [[/hero/seven?ability=storm-cloud]]((Storm Cloud))
+[[/ability/storm-cloud]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_storm.webp]] Storm Cloud change history))
+### [[/ability/storm-cloud]]((Storm Cloud))
 - Storm Cloud secondary ability delay reduced from 2s to 0.25s
 ==
 =
@@ -175,8 +175,8 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 [[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
 ## [[/hero/shiv]]((Shiv))
 ==ability:serrated-knives:
-[[/hero/shiv?ability=serrated-knives]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_toss.webp]] Serrated Knives change history))
-### [[/hero/shiv?ability=serrated-knives]]((Serrated Knives))
+[[/ability/serrated-knives]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_toss.webp]] Serrated Knives change history))
+### [[/ability/serrated-knives]]((Serrated Knives))
 - Serrated Knives no longer stops after hitting a Soul Orb
 ==
 =
@@ -186,26 +186,26 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 ## [[/hero/sinclair]]((Sinclair))
 - No longer has -35% Headshot Damage Reduction
 ==ability:vexing-bolt:
-[[/hero/sinclair?ability=vexing-bolt]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_magicbolt.webp]] Vexing Bolt change history))
-### [[/hero/sinclair?ability=vexing-bolt]]((Vexing Bolt))
+[[/ability/vexing-bolt]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_magicbolt.webp]] Vexing Bolt change history))
+### [[/ability/vexing-bolt]]((Vexing Bolt))
 - Vexing Bolt damage mechanics reworked, increases damage as the bolt travels, various values adjusted (150 max damage, 75 min damage, 2s time for max damage, assistant does 50% damage. T3 is now +150 max damage, +50% assistant damage)
 - Vexing Bolt T2 updated to remove base fire rate debuff, add as t2 upgrade, remove spirit shred t2
 - Vexing Bolt allow for retarget to try to find targets through walls and to bend around corners
 ==
 ==ability:rabbit-hex:
-[[/hero/sinclair?ability=rabbit-hex]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_animalcurse.webp]] Rabbit Hex change history))
-### [[/hero/sinclair?ability=rabbit-hex]]((Rabbit Hex))
+[[/ability/rabbit-hex]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_animalcurse.webp]] Rabbit Hex change history))
+### [[/ability/rabbit-hex]]((Rabbit Hex))
 - Rabbit can now use jump
 - Rabbit Hex projectile updated to better track targets that have recently changes models
 ==
 ==ability:spectral-assistant:
-[[/hero/sinclair?ability=spectral-assistant]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_cloneturret.webp]] Spectral Assistant change history))
-### [[/hero/sinclair?ability=spectral-assistant]]((Spectral Assistant))
+[[/ability/spectral-assistant]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_cloneturret.webp]] Spectral Assistant change history))
+### [[/ability/spectral-assistant]]((Spectral Assistant))
 - Spectral Assistant update VFX radius & lifetimes to scale off of clone damage
 ==
 ==ability:audience-participation:
-[[/hero/sinclair?ability=audience-participation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_copyult.webp]] Audience Participation change history))
-### [[/hero/sinclair?ability=audience-participation]]((Audience Participation))
+[[/ability/audience-participation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_copyult.webp]] Audience Participation change history))
+### [[/ability/audience-participation]]((Audience Participation))
 - Audience Participation cooldown with successful usage reduced from 100% to 50%
 - Audience Participation stolen ultimate duration increased from 10s to 20s
 - Audience Participation VFX updated steal effect to feel snappier
@@ -218,13 +218,13 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 ## [[/hero/vindicta]]((Vindicta))
 - Bullet damage reduced from 11.7 to 11.4
 ==ability:crow:
-[[/hero/vindicta?ability=crow-familiar]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_crow.webp]] Crow change history))
-### [[/hero/vindicta?ability=crow-familiar]]((Crow))
+[[/ability/crow-familiar]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_crow.webp]] Crow change history))
+### [[/ability/crow-familiar]]((Crow))
 - Crow projectile speed reduced from 4750 to 4250
 ==
 ==ability:assassinate:
-[[/hero/vindicta?ability=assassinate]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_assassinate.webp]] Assassinate change history))
-### [[/hero/vindicta?ability=assassinate]]((Assassinate))
+[[/ability/assassinate]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_assassinate.webp]] Assassinate change history))
+### [[/ability/assassinate]]((Assassinate))
 - Assassinate T2 reduced from +120 to +110
 ==
 =
@@ -233,8 +233,8 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 [[/hero/viscous]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous patch history))
 ## [[/hero/viscous]]((Viscous))
 ==ability:goo-ball:
-[[/hero/viscous?ability=goo-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_sphere.webp]] Goo Ball change history))
-### [[/hero/viscous?ability=goo-ball]]((Goo Ball))
+[[/ability/goo-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_sphere.webp]] Goo Ball change history))
+### [[/ability/goo-ball]]((Goo Ball))
 - Goo Ball turn rate improved by 10%
 ==
 =
@@ -244,13 +244,13 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 ## [[/hero/vyper]]((Vyper))
 - Bullet damage growth increased from 0.32 to 0.36
 ==ability:petrifying-bola:
-[[/hero/vyper?ability=petrifying-bola]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viper/viper_petrifybola.webp]] Petrifying Bola change history))
-### [[/hero/vyper?ability=petrifying-bola]]((Petrifying Bola))
+[[/ability/petrifying-bola]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viper/viper_petrifybola.webp]] Petrifying Bola change history))
+### [[/ability/petrifying-bola]]((Petrifying Bola))
 - Petrifying Bola changed the petrify to no longer be breakable
 ==
 ==ability:lethal-venom:
-[[/hero/vyper?ability=lethal-venom]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viper/viper_venom.webp]] Lethal Venom change history))
-### [[/hero/vyper?ability=lethal-venom]]((Lethal Venom))
+[[/ability/lethal-venom]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viper/viper_venom.webp]] Lethal Venom change history))
+### [[/ability/lethal-venom]]((Lethal Venom))
 - Lethal Venom updated to deal damage through petrify, rather than cleanse the petrify and damage
 - Fixed Lethal Venom T2 anti-heal not working properly
 ==

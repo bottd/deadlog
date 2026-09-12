@@ -107,22 +107,22 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 [[/hero/abrams]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams patch history))
 ## [[/hero/abrams]]((Abrams))
 ==ability:shoulder-charge:
-[[/hero/abrams?ability=shoulder-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_charge.webp]] Shoulder Charge change history))
-### [[/hero/abrams?ability=shoulder-charge]]((Shoulder Charge))
+[[/ability/shoulder-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_charge.webp]] Shoulder Charge change history))
+### [[/ability/shoulder-charge]]((Shoulder Charge))
 - Shoulder Charge speed increased by 25%
 - Shoulder Charge distance increased by 15%
 - Shoulder Charge now stuns enemies for 1s if it drags them into a wall
 ==
 ==ability:infernal-resilience:
-[[/hero/abrams?ability=infernal-resilience]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_beef.webp]] Infernal Resilience change history))
-### [[/hero/abrams?ability=infernal-resilience]]((Infernal Resilience))
+[[/ability/infernal-resilience]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_beef.webp]] Infernal Resilience change history))
+### [[/ability/infernal-resilience]]((Infernal Resilience))
 - Infernal Resilience now provides +1 Health Regen
 - Infernal Resilience damage regenerated reduced from 20% to 18%
 - Infernal Resilience T3 changed to +8% damage regenerated
 ==
 ==ability:siphon-life:
-[[/hero/abrams?ability=siphon-life]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_drain.webp]] Siphon Life change history))
-### [[/hero/abrams?ability=siphon-life]]((Siphon Life))
+[[/ability/siphon-life]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_drain.webp]] Siphon Life change history))
+### [[/ability/siphon-life]]((Siphon Life))
 - Fixed Siphon Life not healing you against shields
 ==
 =
@@ -131,8 +131,8 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 ==ability:quantum-entanglement:
-[[/hero/dynamo?ability=quantum-entanglement]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_quantum.webp]] Quantum Entanglement change history))
-### [[/hero/dynamo?ability=quantum-entanglement]]((Quantum Entanglement))
+[[/ability/quantum-entanglement]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_quantum.webp]] Quantum Entanglement change history))
+### [[/ability/quantum-entanglement]]((Quantum Entanglement))
 - Quantum Entanglement ally radius increased from 8m to 9m
 ==
 =
@@ -141,13 +141,13 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 [[/hero/grey-talon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon patch history))
 ## [[/hero/grey-talon]]((Grey Talon))
 ==ability:rain-of-arrows:
-[[/hero/grey-talon?ability=rain-of-arrows]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_power_jump.webp]] Rain of Arrows change history))
-### [[/hero/grey-talon?ability=rain-of-arrows]]((Rain of Arrows))
+[[/ability/rain-of-arrows]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_power_jump.webp]] Rain of Arrows change history))
+### [[/ability/rain-of-arrows]]((Rain of Arrows))
 - Rain of Arrows flight duration reduced from 8s to 7s
 ==
 ==ability:guided-owl:
-[[/hero/grey-talon?ability=guided-owl]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_guided_arrow.webp]] Guided Owl change history))
-### [[/hero/grey-talon?ability=guided-owl]]((Guided Owl))
+[[/ability/guided-owl]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_guided_arrow.webp]] Guided Owl change history))
+### [[/ability/guided-owl]]((Guided Owl))
 - Guided Owl spirit gain per kill increased from 4 to 5
 - Guided Owl base ability now stuns for 0.75s
 - Guided Owl base damage reduced from 300 to 250
@@ -167,20 +167,20 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 ## [[/hero/ivy]]((Ivy))
 - Base damage growth increased from 0.35 to 0.55
 ==ability:kudzu-connection:
-[[/hero/ivy?ability=kudzu-connection]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_tether.webp]] Kudzu Connection change history))
-### [[/hero/ivy?ability=kudzu-connection]]((Kudzu Connection))
+[[/ability/kudzu-connection]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_tether.webp]] Kudzu Connection change history))
+### [[/ability/kudzu-connection]]((Kudzu Connection))
 - Watcher's Covenant replicated healing reduced from 45% to 35%
 ==
 ==ability:watcher-s-covenant:
-[[/hero/ivy?ability=kudzu-connection]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_tether.webp]] Watcher's Covenant change history))
-### [[/hero/ivy?ability=kudzu-connection]]((Watcher's Covenant))
+[[/ability/kudzu-connection]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_tether.webp]] Watcher's Covenant change history))
+### [[/ability/kudzu-connection]]((Watcher's Covenant))
 - Watcher's Covenant bullet lifesteal now scales with spirit power (0.18)
 - Watcher's Covenant fire rate reduced from 15% to 10%
 - Watcher's Covenant fire rate now scales with spirit power (0.2)
 ==
 ==ability:entangling-thorns:
-[[/hero/ivy?ability=entangling-thorns]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_storm_flask.webp]] Entangling Thorns change history))
-### [[/hero/ivy?ability=entangling-thorns]]((Entangling Thorns))
+[[/ability/entangling-thorns]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_storm_flask.webp]] Entangling Thorns change history))
+### [[/ability/entangling-thorns]]((Entangling Thorns))
 - Fixed Kudzu Bomb not going where you had targeted if you moved quickly during the cast
 ==
 =
@@ -192,14 +192,14 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 - Bullet damage growth increased from 1 to 1.15
 - Now has +8% spirit resist
 ==ability:ground-strike:
-[[/hero/lash?ability=ground-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_death_slam.webp]] Ground Strike change history))
-### [[/hero/lash?ability=ground-strike]]((Ground Strike))
+[[/ability/ground-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_death_slam.webp]] Ground Strike change history))
+### [[/ability/ground-strike]]((Ground Strike))
 - Ground Strike damage per meter reduced from 6.75 to 6.3
 - Ground Strike damage per meter spirit power scaling increased from 0.04 to 0.05
 ==
 ==ability:death-slam:
-[[/hero/lash?ability=death-slam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_counter_lash.webp]] Death Slam change history))
-### [[/hero/lash?ability=death-slam]]((Death Slam))
+[[/ability/death-slam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_counter_lash.webp]] Death Slam change history))
+### [[/ability/death-slam]]((Death Slam))
 - Death Slam range is now defined as the horizontal distance to the units rather than the distance from his position in the air (so being high up doesn't work against you)
 - Death Slam range reduced from 19m to 14m
 - Death Slam T1 reduced from +5m to +4m
@@ -212,14 +212,14 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 ==ability:mini-turret:
-[[/hero/mcginnis?ability=mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turret change history))
-### [[/hero/mcginnis?ability=mini-turret]]((Mini Turret))
+[[/ability/mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turret change history))
+### [[/ability/mini-turret]]((Mini Turret))
 - Turrets receive full damage from enemy guns regardless of distance (fall off is not considered when taking damage)
 - Turrets outgoing damage fall off distance window (20m-35m) now scales with range upgrades
 ==
 ==ability:turrets:
-[[/hero/mcginnis?ability=mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Turrets change history))
-### [[/hero/mcginnis?ability=mini-turret]]((Turrets))
+[[/ability/mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Turrets change history))
+### [[/ability/mini-turret]]((Turrets))
 - Turrets duration reduced from 40s to 30s
 ==
 =
@@ -228,13 +228,13 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 [[/hero/mo-krill]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]] Mo & Krill patch history))
 ## [[/hero/mo-krill]]((Mo & Krill))
 ==ability:scorn:
-[[/hero/mo-krill?ability=scorn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_regen.webp]] Scorn change history))
-### [[/hero/mo-krill?ability=scorn]]((Scorn))
+[[/ability/scorn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_regen.webp]] Scorn change history))
+### [[/ability/scorn]]((Scorn))
 - Fixed Scorn not healing you against shields
 ==
 ==ability:sand-blast:
-[[/hero/mo-krill?ability=sand-blast]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_throw_sand.webp]] Sand Blast change history))
-### [[/hero/mo-krill?ability=sand-blast]]((Sand Blast))
+[[/ability/sand-blast]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_throw_sand.webp]] Sand Blast change history))
+### [[/ability/sand-blast]]((Sand Blast))
 - Sand Blast base duration reduced from 4s to 3.5s
 - Sand Blast T1 reduced from +2s to +1.5s
 ==
@@ -244,18 +244,18 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 [[/hero/paradox]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox patch history))
 ## [[/hero/paradox]]((Paradox))
 ==ability:time-wall:
-[[/hero/paradox?ability=time-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_wall.webp]] Time Wall change history))
-### [[/hero/paradox?ability=time-wall]]((Time Wall))
+[[/ability/time-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_wall.webp]] Time Wall change history))
+### [[/ability/time-wall]]((Time Wall))
 - Fixed Time Wall projectiles and bullets being stuck in the wall for its full duration instead of for the shorter time stop duration
 ==
 ==ability:kinetic-carbine:
-[[/hero/paradox?ability=kinetic-carbine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/duo/duo_attack.webp]] Kinetic Carbine change history))
-### [[/hero/paradox?ability=kinetic-carbine]]((Kinetic Carbine))
+[[/ability/kinetic-carbine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/duo/duo_attack.webp]] Kinetic Carbine change history))
+### [[/ability/kinetic-carbine]]((Kinetic Carbine))
 - Kinetic Carbine collision radius reduced by 10%
 ==
 ==ability:pulse-grenade:
-[[/hero/paradox?ability=pulse-grenade]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_bomb.webp]] Pulse Grenade change history))
-### [[/hero/paradox?ability=pulse-grenade]]((Pulse Grenade))
+[[/ability/pulse-grenade]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_bomb.webp]] Pulse Grenade change history))
+### [[/ability/pulse-grenade]]((Pulse Grenade))
 - Fixed Pulse Grenade not going where you had targeted if you moved quickly during the cast
 ==
 =
@@ -264,8 +264,8 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 [[/hero/pocket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket patch history))
 ## [[/hero/pocket]]((Pocket))
 ==ability:enchanter-s-satchel:
-[[/hero/pocket?ability=enchanters-satchel]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_pulse.webp]] Enchanter's Satchel change history))
-### [[/hero/pocket?ability=enchanters-satchel]]((Enchanter's Satchel))
+[[/ability/enchanters-satchel]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_pulse.webp]] Enchanter's Satchel change history))
+### [[/ability/enchanters-satchel]]((Enchanter's Satchel))
 - Enchanter's Satchel duration from 1.5s to 2s
 - Enchanter's Satchel T3 changed to 2.5s Disarm
 ==
@@ -275,8 +275,8 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 [[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
 ## [[/hero/seven]]((Seven))
 ==ability:static-charge:
-[[/hero/seven?ability=static-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_static.webp]] Static Charge change history))
-### [[/hero/seven?ability=static-charge]]((Static Charge))
+[[/ability/static-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_static.webp]] Static Charge change history))
+### [[/ability/static-charge]]((Static Charge))
 - Static Charge cast range scaling reduced from 0.1 to 0.07
 - Static Charge base radius reduced from 8m to 5m
 - Static Charge T2 changed to +5m radius
@@ -287,8 +287,8 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
 ==ability:crow-familiar:
-[[/hero/vindicta?ability=crow-familiar]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_crow.webp]] Crow Familiar change history))
-### [[/hero/vindicta?ability=crow-familiar]]((Crow Familiar))
+[[/ability/crow-familiar]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_crow.webp]] Crow Familiar change history))
+### [[/ability/crow-familiar]]((Crow Familiar))
 - Crow Familiar duration spirit power scaling reduced from 0.07 to 0.05
 ==
 - Gun damage growth increased from 0.7 to 0.85
@@ -305,8 +305,8 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 ==ability:shadow-transformation:
-[[/hero/yamato?ability=shadow-transformation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]] Shadow Transformation change history))
-### [[/hero/yamato?ability=shadow-transformation]]((Shadow Transformation))
+[[/ability/shadow-transformation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]] Shadow Transformation change history))
+### [[/ability/shadow-transformation]]((Shadow Transformation))
 - Shadow Transformation incoming damage reduction reduced from 70% to 55%
 - Shadow Transformation changed from 70% debuff reduction to the same buff as Unstoppable
 ==

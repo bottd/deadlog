@@ -6,6 +6,7 @@ import { join } from 'path';
 const apiMocks = vi.hoisted(() => ({
 	fetchHeroes: vi.fn(),
 	fetchItems: vi.fn(),
+	fetchEntitySnapshot: vi.fn(),
 	scrapeChangelogPage: vi.fn(),
 	scrapeMultipleChangelogPosts: vi.fn(),
 	fetchSteamAnnouncements: vi.fn()
@@ -26,6 +27,10 @@ describe('scrapeChangelogs', () => {
 
 		apiMocks.fetchHeroes.mockReset().mockResolvedValue([]);
 		apiMocks.fetchItems.mockReset().mockResolvedValue([]);
+		apiMocks.fetchEntitySnapshot.mockReset().mockImplementation(async () => ({
+			heroes: await apiMocks.fetchHeroes(),
+			items: await apiMocks.fetchItems()
+		}));
 		apiMocks.scrapeChangelogPage.mockReset().mockResolvedValue([]);
 		apiMocks.scrapeMultipleChangelogPosts.mockReset().mockResolvedValue([]);
 		apiMocks.fetchSteamAnnouncements.mockReset().mockResolvedValue([
@@ -64,6 +69,30 @@ describe('scrapeChangelogs', () => {
 		expect(content).toContain('# STANDARD MODE');
 		expect(content).not.toContain('# General Changes');
 		expect(content).not.toMatch(/^status /m);
+	});
+
+	it('reports an unchanged archive accurately even when overwrite is requested', async () => {
+		const { scrapeChangelogs } = await import('./pipeline');
+		await expect(scrapeChangelogs()).resolves.toMatchObject({
+			created: 1,
+			changed: true
+		});
+		await expect(scrapeChangelogs()).resolves.toEqual({
+			created: 0,
+			updated: 0,
+			changed: false
+		});
+		await expect(scrapeChangelogs({ overwrite: true })).resolves.toEqual({
+			created: 0,
+			updated: 0,
+			changed: false
+		});
+	});
+
+	it('uses an injected entity snapshot without fetching it again', async () => {
+		const { scrapeChangelogs } = await import('./pipeline');
+		await scrapeChangelogs({ snapshot: { heroes: [], items: [] } });
+		expect(apiMocks.fetchEntitySnapshot).not.toHaveBeenCalled();
 	});
 
 	it('does not overwrite announcements that normalize to the same path', async () => {

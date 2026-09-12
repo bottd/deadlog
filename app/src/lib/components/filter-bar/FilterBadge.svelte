@@ -26,7 +26,7 @@
 	onclick={onRemove}
 	onkeydown={handleKeydown}
 	rounded="md"
-	class="group/badge transition-transform hover:scale-105 focus-visible:outline-none"
+	class="group/badge min-h-11 shrink-0 focus-visible:outline-none"
 	aria-label="Remove {tone.label} filter: {name}"
 >
 	<Badge
@@ -44,9 +44,7 @@
 				class="size-[18px] rounded object-cover transition-all duration-200 group-hover/badge:scale-110"
 			/>
 		{/if}
-		<span font="mono" uppercase op="75" class="text-[9px] tracking-wider"
-			>{tone.label}</span
-		>
+		<span font="mono" uppercase class="text-[11px] tracking-wide">{tone.label}</span>
 		<span aria-hidden="true" op="50">/</span>
 		<span text="xs" font="medium" class="tracking-tight">{name}</span>
 		<XIcon

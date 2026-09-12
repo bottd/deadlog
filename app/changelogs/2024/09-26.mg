@@ -163,19 +163,19 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 [[/hero/abrams]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams patch history))
 ## [[/hero/abrams]]((Abrams))
 ==ability:infernal-resilience:
-[[/hero/abrams?ability=infernal-resilience]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_beef.webp]] Infernal Resilience change history))
-### [[/hero/abrams?ability=infernal-resilience]]((Infernal Resilience))
+[[/ability/infernal-resilience]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_beef.webp]] Infernal Resilience change history))
+### [[/ability/infernal-resilience]]((Infernal Resilience))
 - Infernal Resilience reduced from 16% to 15%
 - Infernal Resilience T3 reduced from 9% to 8%
 ==
 ==ability:siphon-life:
-[[/hero/abrams?ability=siphon-life]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_drain.webp]] Siphon Life change history))
-### [[/hero/abrams?ability=siphon-life]]((Siphon Life))
+[[/ability/siphon-life]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_drain.webp]] Siphon Life change history))
+### [[/ability/siphon-life]]((Siphon Life))
 - Siphon Life spirit scaling increased from 0.2 to 0.3
 ==
 ==ability:shoulder-charge:
-[[/hero/abrams?ability=shoulder-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_charge.webp]] Shoulder Charge change history))
-### [[/hero/abrams?ability=shoulder-charge]]((Shoulder Charge))
+[[/ability/shoulder-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_charge.webp]] Shoulder Charge change history))
+### [[/ability/shoulder-charge]]((Shoulder Charge))
 - Fixed Cases where Shoulder Charge was unexpectedly 'slamming' in to walls and stairs
 ==
 =
@@ -184,13 +184,13 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 [[/hero/bebop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop patch history))
 ## [[/hero/bebop]]((Bebop))
 ==ability:hook:
-[[/hero/bebop?ability=grapple-arm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hook.webp]] Hook change history))
-### [[/hero/bebop?ability=grapple-arm]]((Hook))
+[[/ability/grapple-arm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hook.webp]] Hook change history))
+### [[/ability/grapple-arm]]((Hook))
 - Hook range reduced from 30m to 25m
 ==
 ==ability:hyper-beam:
-[[/hero/bebop?ability=hyper-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hyper_beam.webp]] Hyper Beam change history))
-### [[/hero/bebop?ability=hyper-beam]]((Hyper Beam))
+[[/ability/hyper-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hyper_beam.webp]] Hyper Beam change history))
+### [[/ability/hyper-beam]]((Hyper Beam))
 - Hyper Beam duration spirit scaling reduced from 0.08 to 0.06
 ==
 =
@@ -199,8 +199,8 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 ==ability:singularity:
-[[/hero/dynamo?ability=singularity]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_vacuum.webp]] Singularity change history))
-### [[/hero/dynamo?ability=singularity]]((Singularity))
+[[/ability/singularity]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_vacuum.webp]] Singularity change history))
+### [[/ability/singularity]]((Singularity))
 - Singularity radius reduced from 8m to 7m
 ==
 =
@@ -210,14 +210,14 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 ## [[/hero/grey-talon]]((Grey Talon))
 - Arrow cycle time reduced from 0.4s to 0.45s (overall dps unchanged)
 ==ability:rain-of-arrows:
-[[/hero/grey-talon?ability=rain-of-arrows]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_power_jump.webp]] Rain of Arrows change history))
-### [[/hero/grey-talon?ability=rain-of-arrows]]((Rain of Arrows))
+[[/ability/rain-of-arrows]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_power_jump.webp]] Rain of Arrows change history))
+### [[/ability/rain-of-arrows]]((Rain of Arrows))
 - Rain of Arrows can be alternate-casted to remain near the ground
 - Fixed air dash during Rain of Arrows going half the distance
 ==
 ==ability:guided-owl:
-[[/hero/grey-talon?ability=guided-owl]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_guided_arrow.webp]] Guided Owl change history))
-### [[/hero/grey-talon?ability=guided-owl]]((Guided Owl))
+[[/ability/guided-owl]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_guided_arrow.webp]] Guided Owl change history))
+### [[/ability/guided-owl]]((Guided Owl))
 - Guided Owl bonus spirit on death now has a 3s buffer window
 - Guided Owl: very slight turn rate improvements
 - Guided Owl radius increased from 12m to 13m
@@ -228,19 +228,19 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 ==ability:sleep-dagger:
-[[/hero/haze?ability=sleep-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger change history))
-### [[/hero/haze?ability=sleep-dagger]]((Sleep Dagger))
+[[/ability/sleep-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger change history))
+### [[/ability/sleep-dagger]]((Sleep Dagger))
 - Sleep dagger hitbox reduced by 10%
 ==
 ==ability:smoke-bomb:
-[[/hero/haze?ability=smoke-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_smoke_bomb.webp]] Smoke Bomb change history))
-### [[/hero/haze?ability=smoke-bomb]]((Smoke Bomb))
+[[/ability/smoke-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_smoke_bomb.webp]] Smoke Bomb change history))
+### [[/ability/smoke-bomb]]((Smoke Bomb))
 - Fixed refresher not working properly with Smoke Bomb
 - Fixed some items that didn't proc before: Tesla Bullets, Lucky Shot, Mystic Shot
 ==
 ==ability:bullet-dance:
-[[/hero/haze?ability=bullet-dance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_bullet_flurry.webp]] Bullet Dance change history))
-### [[/hero/haze?ability=bullet-dance]]((Bullet Dance))
+[[/ability/bullet-dance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_bullet_flurry.webp]] Bullet Dance change history))
+### [[/ability/bullet-dance]]((Bullet Dance))
 - Bullet Dance now more accurately shows who it is shooting
 - Fixed Bullet Dance sometimes not obeying line of sight accurately
 - Bullet Dance bullets are now affected by Time Wall
@@ -253,24 +253,24 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 [[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
 ## [[/hero/ivy]]((Ivy))
 ==ability:stone-form:
-[[/hero/ivy?ability=stone-form]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_stone_form.webp]] Stone Form change history))
-### [[/hero/ivy?ability=stone-form]]((Stone Form))
+[[/ability/stone-form]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_stone_form.webp]] Stone Form change history))
+### [[/ability/stone-form]]((Stone Form))
 - Stone Form now works against airborne targets
 ==
 ==ability:kudzu-bomb:
-[[/hero/ivy?ability=entangling-thorns]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_storm_flask.webp]] Kudzu Bomb change history))
-### [[/hero/ivy?ability=entangling-thorns]]((Kudzu Bomb))
+[[/ability/entangling-thorns]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_storm_flask.webp]] Kudzu Bomb change history))
+### [[/ability/entangling-thorns]]((Kudzu Bomb))
 - Kudzu Bomb T3 now also grants +2m Radius
 - Kudzu Bomb spirit power scaling increased from 0.6 to 0.7
 ==
 ==ability:air-drop:
-[[/hero/ivy?ability=air-drop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_lightning_crash.webp]] Air Drop change history))
-### [[/hero/ivy?ability=air-drop]]((Air Drop))
+[[/ability/air-drop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_lightning_crash.webp]] Air Drop change history))
+### [[/ability/air-drop]]((Air Drop))
 - Fixed clicking noise when flying while disarmed
 ==
 ==ability:stone-form:
-[[/hero/ivy?ability=stone-form]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_stone_form.webp]] Stone Form change history))
-### [[/hero/ivy?ability=stone-form]]((Stone Form))
+[[/ability/stone-form]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_stone_form.webp]] Stone Form change history))
+### [[/ability/stone-form]]((Stone Form))
 - Fixed being able to Stone Form during the Take Flight animation to circumvent the vulnerable cast period
 ==
 =
@@ -281,13 +281,13 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 - Headshot bonus damage reduced by 20%
 - Bullet damage growth reduced from 1.2 to 0.9
 ==ability:arctic-beam:
-[[/hero/kelvin?ability=arctic-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_beam.webp]] Arctic Beam change history))
-### [[/hero/kelvin?ability=arctic-beam]]((Arctic Beam))
+[[/ability/arctic-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_beam.webp]] Arctic Beam change history))
+### [[/ability/arctic-beam]]((Arctic Beam))
 - Arctic Beam movement slow reduced from 70% to 50%
 ==
 ==ability:ice-path:
-[[/hero/kelvin?ability=ice-path]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_path.webp]] Ice Path change history))
-### [[/hero/kelvin?ability=ice-path]]((Ice Path))
+[[/ability/ice-path]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_path.webp]] Ice Path change history))
+### [[/ability/ice-path]]((Ice Path))
 - Moving through breakables while on Ice Path now destroys them
 ==
 =
@@ -296,19 +296,19 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 [[/hero/lady-geist]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]] Lady Geist patch history))
 ## [[/hero/lady-geist]]((Lady Geist))
 ==ability:life-drain:
-[[/hero/lady-geist?ability=life-drain]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/life_drain.webp]] Life Drain change history))
-### [[/hero/lady-geist?ability=life-drain]]((Life Drain))
+[[/ability/life-drain]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/life_drain.webp]] Life Drain change history))
+### [[/ability/life-drain]]((Life Drain))
 - Life Drain cooldown reduced from 42s to 30s
 ==
 ==ability:malice:
-[[/hero/lady-geist?ability=malice]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/geist_dagger.webp]] Malice change history))
-### [[/hero/lady-geist?ability=malice]]((Malice))
+[[/ability/malice]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/geist_dagger.webp]] Malice change history))
+### [[/ability/malice]]((Malice))
 - Malice cooldown reduced from 6.25s to 6s
 - Malice T1 improved from -2.75s Cooldown to -3s
 ==
 ==ability:life-drain:
-[[/hero/lady-geist?ability=life-drain]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/life_drain.webp]] Life Drain change history))
-### [[/hero/lady-geist?ability=life-drain]]((Life Drain))
+[[/ability/life-drain]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/life_drain.webp]] Life Drain change history))
+### [[/ability/life-drain]]((Life Drain))
 - Fixed Life Drain not healing extra based on amplifications (like Soul Shredder and Malice stacks)
 ==
 - Sprint increased from 1 to 1.5
@@ -323,8 +323,8 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 - Can now cast parry to cancel your ult
 ==
 ==ability:spectral-wall:
-[[/hero/mcginnis?ability=spectral-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_fissure_2.webp]] Spectral Wall change history))
-### [[/hero/mcginnis?ability=spectral-wall]]((Spectral Wall))
+[[/ability/spectral-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_fissure_2.webp]] Spectral Wall change history))
+### [[/ability/spectral-wall]]((Spectral Wall))
 - Fixed various issues with Spectral Wall indoors and near walls spawning the wrong number of segments
 ==
 =
@@ -333,21 +333,21 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 [[/hero/mo-krill]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]] Mo & Krill patch history))
 ## [[/hero/mo-krill]]((Mo & Krill))
 ==ability:combo:
-[[/hero/mo-krill?ability=combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo change history))
-### [[/hero/mo-krill?ability=combo]]((Combo))
+[[/ability/combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo change history))
+### [[/ability/combo]]((Combo))
 - Combo duration reduced from 2.75s to 2.5s
 - Combo damage spirit scaling increased from 0.8 to 1.1
 - Combo kill trigger now has a 3s buffer window to get credit
 ==
 ==ability:sand-blast:
-[[/hero/mo-krill?ability=sand-blast]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_throw_sand.webp]] Sand Blast change history))
-### [[/hero/mo-krill?ability=sand-blast]]((Sand Blast))
+[[/ability/sand-blast]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_throw_sand.webp]] Sand Blast change history))
+### [[/ability/sand-blast]]((Sand Blast))
 - Sand Blast T1 reduced from +1.5s to +1s
 - Sand Blast range increased from 30m to 35m
 ==
 ==ability:burrow:
-[[/hero/mo-krill?ability=burrow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_spin.webp]] Burrow change history))
-### [[/hero/mo-krill?ability=burrow]]((Burrow))
+[[/ability/burrow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_spin.webp]] Burrow change history))
+### [[/ability/burrow]]((Burrow))
 - Burrow base speed increased from 3 to 4
 - Burrow T3 speed reduced from +3 to +2
 ==
@@ -357,13 +357,13 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 [[/hero/paradox]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox patch history))
 ## [[/hero/paradox]]((Paradox))
 ==ability:pulse-grenade:
-[[/hero/paradox?ability=pulse-grenade]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_bomb.webp]] Pulse Grenade change history))
-### [[/hero/paradox?ability=pulse-grenade]]((Pulse Grenade))
+[[/ability/pulse-grenade]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_bomb.webp]] Pulse Grenade change history))
+### [[/ability/pulse-grenade]]((Pulse Grenade))
 - Pulse Grenade T3 now also grants +2% Damage Amp
 ==
 ==ability:time-wall:
-[[/hero/paradox?ability=time-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_wall.webp]] Time Wall change history))
-### [[/hero/paradox?ability=time-wall]]((Time Wall))
+[[/ability/time-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_wall.webp]] Time Wall change history))
+### [[/ability/time-wall]]((Time Wall))
 - Fixed being unable to be damaged by multiple Time Walls
 ==
 =
@@ -372,13 +372,13 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 [[/hero/pocket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket patch history))
 ## [[/hero/pocket]]((Pocket))
 ==ability:affliction:
-[[/hero/pocket?ability=affliction]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_affliction.webp]] Affliction change history))
-### [[/hero/pocket?ability=affliction]]((Affliction))
+[[/ability/affliction]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_affliction.webp]] Affliction change history))
+### [[/ability/affliction]]((Affliction))
 - Affliction no longer goes through walls, now respects line of sight
 ==
 ==ability:barrage:
-[[/hero/pocket?ability=barrage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_barrage.webp]] Barrage change history))
-### [[/hero/pocket?ability=barrage]]((Barrage))
+[[/ability/barrage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_barrage.webp]] Barrage change history))
+### [[/ability/barrage]]((Barrage))
 - Barrage T3 reduced from +5% to +4%
 ==
 =
@@ -387,8 +387,8 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 [[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
 ## [[/hero/seven]]((Seven))
 ==ability:static-charge:
-[[/hero/seven?ability=static-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_static.webp]] Static Charge change history))
-### [[/hero/seven?ability=static-charge]]((Static Charge))
+[[/ability/static-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_static.webp]] Static Charge change history))
+### [[/ability/static-charge]]((Static Charge))
 - Static Charge stun duration reduced from 1.1 to 0.9
 - Static Charge T3 reduced from 1.1 to 0.9
 - Static Charge radius reduced from 6m to 5m
@@ -396,8 +396,8 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 - Static Charge now respects line of sight
 ==
 ==ability:lightning-ball:
-[[/hero/seven?ability=lightning-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_ball.webp]] Lightning Ball change history))
-### [[/hero/seven?ability=lightning-ball]]((Lightning Ball))
+[[/ability/lightning-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_ball.webp]] Lightning Ball change history))
+### [[/ability/lightning-ball]]((Lightning Ball))
 - Lightning Ball T3 now also gives +1m Radius
 ==
 =
@@ -406,24 +406,24 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 [[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
 ## [[/hero/shiv]]((Shiv))
 ==ability:slice-and-dice:
-[[/hero/shiv?ability=slice-and-dice]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_flash.webp]] Slice and Dice change history))
-### [[/hero/shiv?ability=slice-and-dice]]((Slice and Dice))
+[[/ability/slice-and-dice]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_flash.webp]] Slice and Dice change history))
+### [[/ability/slice-and-dice]]((Slice and Dice))
 - Slice and Dice T2 reduced from +85 to +75
 ==
 ==ability:killing-blow:
-[[/hero/shiv?ability=killing-blow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp]] Killing Blow change history))
-### [[/hero/shiv?ability=killing-blow]]((Killing Blow))
+[[/ability/killing-blow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp]] Killing Blow change history))
+### [[/ability/killing-blow]]((Killing Blow))
 - Killing Blow Rage buildup per spirit damage reduced from 0.02 to 0.013
 - Killing Blow Rage drain rate increased from 0.3 to 0.35
 ==
 ==ability:killing-blow-full-rage-bonus-damage:
-[[/hero/shiv?ability=killing-blow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp]] Killing Blow Full Rage Bonus Damage change history))
-### [[/hero/shiv?ability=killing-blow]]((Killing Blow Full Rage Bonus Damage))
+[[/ability/killing-blow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp]] Killing Blow Full Rage Bonus Damage change history))
+### [[/ability/killing-blow]]((Killing Blow Full Rage Bonus Damage))
 - Killing Blow Full Rage Bonus Damage reduced from 20% to 15%
 ==
 ==ability:killing-blow:
-[[/hero/shiv?ability=killing-blow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp]] Killing Blow change history))
-### [[/hero/shiv?ability=killing-blow]]((Killing Blow))
+[[/ability/killing-blow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp]] Killing Blow change history))
+### [[/ability/killing-blow]]((Killing Blow))
 - Killing Blow T2 increased from 5% to 10%
 ==
 =
@@ -433,34 +433,34 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 ## [[/hero/vindicta]]((Vindicta))
 - Gun cycle time increased from 0.19s to 0.22s (same overall dps)
 ==ability:stake:
-[[/hero/vindicta?ability=stake]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_stake.webp]] Stake change history))
-### [[/hero/vindicta?ability=stake]]((Stake))
+[[/ability/stake]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_stake.webp]] Stake change history))
+### [[/ability/stake]]((Stake))
 - Stake: distance enemies are allowed to move increased from 6m to 8m
 ==
 - Max Falloff reduced from 58m to 45m
 ==ability:flight:
-[[/hero/vindicta?ability=flight]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_flight.webp]] Flight change history))
-### [[/hero/vindicta?ability=flight]]((Flight))
+[[/ability/flight]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_flight.webp]] Flight change history))
+### [[/ability/flight]]((Flight))
 - Fixed Flight ending if you touch the ground
 ==
 ==ability:assassinate:
-[[/hero/vindicta?ability=assassinate]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_assassinate.webp]] Assassinate change history))
-### [[/hero/vindicta?ability=assassinate]]((Assassinate))
+[[/ability/assassinate]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_assassinate.webp]] Assassinate change history))
+### [[/ability/assassinate]]((Assassinate))
 - Low HP indication now also shows up while unscoped
 ==
 ==ability:assassinate-base:
-[[/hero/vindicta?ability=assassinate]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_assassinate.webp]] Assassinate Base change history))
-### [[/hero/vindicta?ability=assassinate]]((Assassinate Base))
+[[/ability/assassinate]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_assassinate.webp]] Assassinate Base change history))
+### [[/ability/assassinate]]((Assassinate Base))
 - Assassinate Base damage reduced from 160 to 140
 ==
 ==ability:assassinate:
-[[/hero/vindicta?ability=assassinate]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_assassinate.webp]] Assassinate change history))
-### [[/hero/vindicta?ability=assassinate]]((Assassinate))
+[[/ability/assassinate]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_assassinate.webp]] Assassinate change history))
+### [[/ability/assassinate]]((Assassinate))
 - Assassinate zoom level reduced a little bit
 ==
 ==ability:flight:
-[[/hero/vindicta?ability=flight]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_flight.webp]] Flight change history))
-### [[/hero/vindicta?ability=flight]]((Flight))
+[[/ability/flight]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_flight.webp]] Flight change history))
+### [[/ability/flight]]((Flight))
 - Flight duration spirit scaling reduced from 0.2 to 0.15
 ==
 =
@@ -469,25 +469,25 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 [[/hero/viscous]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous patch history))
 ## [[/hero/viscous]]((Viscous))
 ==ability:the-cube:
-[[/hero/viscous?ability=the-cube]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_restorative_goo.webp]] The Cube change history))
-### [[/hero/viscous?ability=the-cube]]((The Cube))
+[[/ability/the-cube]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_restorative_goo.webp]] The Cube change history))
+### [[/ability/the-cube]]((The Cube))
 - The Cube cleanse is now part of the T2
 ==
 ==ability:puddle-punch:
-[[/hero/viscous?ability=puddle-punch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp]] Puddle Punch change history))
-### [[/hero/viscous?ability=puddle-punch]]((Puddle Punch))
+[[/ability/puddle-punch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp]] Puddle Punch change history))
+### [[/ability/puddle-punch]]((Puddle Punch))
 - Puddle Punch enemy warning time increased from 0.35s to 0.45s
 ==
 - Bullet Damage reduced from 13 to 12
 ==ability:goo-ball:
-[[/hero/viscous?ability=goo-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_sphere.webp]] Goo Ball change history))
-### [[/hero/viscous?ability=goo-ball]]((Goo Ball))
+[[/ability/goo-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_sphere.webp]] Goo Ball change history))
+### [[/ability/goo-ball]]((Goo Ball))
 - Can now use down dash during Goo Ball
 - Fixed Phantom Strike not positioning you correctly when using it with your Goo Ball
 ==
 ==ability:splatter:
-[[/hero/viscous?ability=splatter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_ball.webp]] Splatter change history))
-### [[/hero/viscous?ability=splatter]]((Splatter))
+[[/ability/splatter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_ball.webp]] Splatter change history))
+### [[/ability/splatter]]((Splatter))
 - Splatter post cast delay reduced from 0.5s to 0.2s
 ==
 =
@@ -496,13 +496,13 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 [[/hero/warden]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden patch history))
 ## [[/hero/warden]]((Warden))
 ==ability:binding-word:
-[[/hero/warden?ability=binding-word]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_lock_down.webp]] Binding Word change history))
-### [[/hero/warden?ability=binding-word]]((Binding Word))
+[[/ability/binding-word]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_lock_down.webp]] Binding Word change history))
+### [[/ability/binding-word]]((Binding Word))
 - Binding Word escape range and escape time increased by 15%
 ==
 ==ability:last-stand:
-[[/hero/warden?ability=last-stand]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_riot_protocol.webp]] Last Stand change history))
-### [[/hero/warden?ability=last-stand]]((Last Stand))
+[[/ability/last-stand]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_riot_protocol.webp]] Last Stand change history))
+### [[/ability/last-stand]]((Last Stand))
 - Last Stand spirit scaling increased from 0.9 to 1.2
 ==
 =
@@ -512,18 +512,18 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 ## [[/hero/yamato]]((Yamato))
 - Bullet damage growth reduced from 0.5 to 0.45
 ==ability:crimson-slash:
-[[/hero/yamato?ability=crimson-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_crimson_slash.webp]] Crimson Slash change history))
-### [[/hero/yamato?ability=crimson-slash]]((Crimson Slash))
+[[/ability/crimson-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_crimson_slash.webp]] Crimson Slash change history))
+### [[/ability/crimson-slash]]((Crimson Slash))
 - Crimson Slash fire rate slow reduced from 30% to 20%
 ==
 ==ability:flying-slash:
-[[/hero/yamato?ability=flying-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_flying_strike.webp]] Flying Slash change history))
-### [[/hero/yamato?ability=flying-slash]]((Flying Slash))
+[[/ability/flying-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_flying_strike.webp]] Flying Slash change history))
+### [[/ability/flying-slash]]((Flying Slash))
 - Fixed various issues with Flying Strike pathing
 ==
 ==ability:shadow-transformation:
-[[/hero/yamato?ability=shadow-transformation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]] Shadow Transformation change history))
-### [[/hero/yamato?ability=shadow-transformation]]((Shadow Transformation))
+[[/ability/shadow-transformation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]] Shadow Transformation change history))
+### [[/ability/shadow-transformation]]((Shadow Transformation))
 - Shadow Transformation duration reduced from 5s to 4.5s
 - Shadow Transformation T3 duration increased from +1.5s to +2s
 - Shadow Transformation no longer provides unlimited ammo

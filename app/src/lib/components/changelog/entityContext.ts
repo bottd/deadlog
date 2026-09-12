@@ -1,5 +1,10 @@
 import { createContext } from 'svelte';
-import { entityFragmentId, entityNamesMatch, plural } from '@deadlog/utils';
+import {
+	abilityFragmentId,
+	entityFragmentId,
+	entityNamesMatch,
+	plural
+} from '@deadlog/utils';
 import { changePath } from '$lib/seo';
 import type { EntityIcon } from '$lib/types';
 
@@ -9,7 +14,7 @@ export interface EntityIconsContext {
 }
 
 export interface EntityFilterContext {
-	type: 'hero' | 'item';
+	type: 'hero' | 'item' | 'ability';
 	name: string;
 }
 
@@ -24,12 +29,26 @@ export function resolveEntity(
 	return entries.find((entity) => entityNamesMatch(entity.alt, name));
 }
 
+/** Fragment only: a `?hero=`/`?item=` query would mint a crawlable duplicate of the
+ * patch page for every entity that links to it.
+ *
+ * A hero or item heads its own section on the patch page, so its name is the anchor.
+ * An ability does not: the notes head each group with the stat they changed
+ * ("Affliction DPS", not "Affliction"), and the renderer derives the id from that
+ * heading. So an ability anchors on the label of the group it matched, and falls back
+ * to the patch itself when the patch mentions it without an attributed group. */
 export function entityPatchHref(
-	patch: { slug: string },
+	patch: { slug: string; changeGroups?: { ability: string | null }[] | null },
 	entity: EntityFilterContext
 ): string {
-	const search = new URLSearchParams({ [entity.type]: entity.name });
-	return `${changePath(patch)}?${search.toString()}#${entityFragmentId(entity.name)}`;
+	if (entity.type !== 'ability')
+		return `${changePath(patch)}#${entityFragmentId(entity.name)}`;
+
+	const label = patch.changeGroups?.find((group) => group.ability)?.ability ?? null;
+	// `abilityFragmentId`, not `entityFragmentId`: the renderer derives a group's id
+	// from the literal heading, so "The Cube" is `the-cube`. Article stripping is right
+	// for entity names, which have aliases, and wrong for these raw labels.
+	return label ? `${changePath(patch)}#${abilityFragmentId(label)}` : changePath(patch);
 }
 
 /** One wording for a patch's per-entity change count, shared by the card and the timeline. */

@@ -85,8 +85,8 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 [[/hero/abrams]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams patch history))
 ## [[/hero/abrams]]((Abrams))
 ==ability:seismic-impact:
-[[/hero/abrams?ability=seismic-impact]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_jump.webp]] Seismic Impact change history))
-### [[/hero/abrams?ability=seismic-impact]]((Seismic Impact))
+[[/ability/seismic-impact]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_jump.webp]] Seismic Impact change history))
+### [[/ability/seismic-impact]]((Seismic Impact))
 - Seismic Impact T3 is now Gain +100 Max HP and +15% Fire Rate per enemy hero hit for 25s
 ==
 =
@@ -96,8 +96,8 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 ## [[/hero/bebop]]((Bebop))
 - Base HP regen reduced from 2 to 1
 ==ability:hyper-beam:
-[[/hero/bebop?ability=hyper-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hyper_beam.webp]] Hyper Beam change history))
-### [[/hero/bebop?ability=hyper-beam]]((Hyper Beam))
+[[/ability/hyper-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hyper_beam.webp]] Hyper Beam change history))
+### [[/ability/hyper-beam]]((Hyper Beam))
 - Hyper Beam cast range increased from 60m to 70m
 ==
 =
@@ -106,13 +106,13 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 [[/hero/grey-talon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon patch history))
 ## [[/hero/grey-talon]]((Grey Talon))
 ==ability:guided-owl:
-[[/hero/grey-talon?ability=guided-owl]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_guided_arrow.webp]] Guided Owl change history))
-### [[/hero/grey-talon?ability=guided-owl]]((Guided Owl))
+[[/ability/guided-owl]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_guided_arrow.webp]] Guided Owl change history))
+### [[/ability/guided-owl]]((Guided Owl))
 - Guided Owl now grants +4 permanent Spirit Power for each hero killed with it
 ==
 ==ability:charged-shot:
-[[/hero/grey-talon?ability=charged-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_charged_shot.webp]] Charged Shot change history))
-### [[/hero/grey-talon?ability=charged-shot]]((Charged Shot))
+[[/ability/charged-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_charged_shot.webp]] Charged Shot change history))
+### [[/ability/charged-shot]]((Charged Shot))
 - Fixed Charged Shot not piercing if it collides with a Mini Turret
 ==
 =
@@ -121,8 +121,8 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 ==ability:smoke-bomb:
-[[/hero/haze?ability=smoke-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_smoke_bomb.webp]] Smoke Bomb change history))
-### [[/hero/haze?ability=smoke-bomb]]((Smoke Bomb))
+[[/ability/smoke-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_smoke_bomb.webp]] Smoke Bomb change history))
+### [[/ability/smoke-bomb]]((Smoke Bomb))
 - Smoke Bomb no longer instantly grants sprint
 - Smoke Bomb duration increased from 6s to 8s
 - Smoke Bomb T1 is now -15s CD
@@ -130,8 +130,8 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 - Smoke Bomb T3 is now Gain +30% Bullet Lifesteal for 8s
 ==
 ==ability:sleep-dagger:
-[[/hero/haze?ability=sleep-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger change history))
-### [[/hero/haze?ability=sleep-dagger]]((Sleep Dagger))
+[[/ability/sleep-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger change history))
+### [[/ability/sleep-dagger]]((Sleep Dagger))
 - Sleep Dagger T1 changed from +1s Sleep Duration to Drains 1 Stamina
 ==
 =
@@ -140,8 +140,8 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 [[/hero/infernus]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus patch history))
 ## [[/hero/infernus]]((Infernus))
 ==ability:flame-dash:
-[[/hero/infernus?ability=flame-dash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_dash.webp]] Flame Dash change history))
-### [[/hero/infernus?ability=flame-dash]]((Flame Dash))
+[[/ability/flame-dash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_dash.webp]] Flame Dash change history))
+### [[/ability/flame-dash]]((Flame Dash))
 - Flame Dash dps linger duration increased from 0.4s to 1s
 ==
 =
@@ -150,8 +150,8 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 [[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
 ## [[/hero/ivy]]((Ivy))
 ==ability:kudzu-connection:
-[[/hero/ivy?ability=kudzu-connection]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_tether.webp]] Kudzu Connection change history))
-### [[/hero/ivy?ability=kudzu-connection]]((Kudzu Connection))
+[[/ability/kudzu-connection]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_tether.webp]] Kudzu Connection change history))
+### [[/ability/kudzu-connection]]((Kudzu Connection))
 - Fixed some bugs with Watcher's Covenant that caused it to sometimes disconnect/reconnect unintentionally
 - Watcher's Covenant distance threshold to pick a new target increased from 2.5m to 6m
 - Watcher's Covenant can now be cast again on an ally while the buff is active to make it prioritize that hero when possible
@@ -162,13 +162,13 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 ==ability:frost-grenade:
-[[/hero/kelvin?ability=frost-grenade]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/freezing_grenade.webp]] Frost Grenade change history))
-### [[/hero/kelvin?ability=frost-grenade]]((Frost Grenade))
+[[/ability/frost-grenade]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/freezing_grenade.webp]] Frost Grenade change history))
+### [[/ability/frost-grenade]]((Frost Grenade))
 - Fixed Frost Grenade not going where you had targeted if you moved quickly during the cast
 ==
 ==ability:ice-path:
-[[/hero/kelvin?ability=ice-path]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_path.webp]] Ice Path change history))
-### [[/hero/kelvin?ability=ice-path]]((Ice Path))
+[[/ability/ice-path]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_path.webp]] Ice Path change history))
+### [[/ability/ice-path]]((Ice Path))
 - Ice Path T3 bonus now lingers for 6s extra
 ==
 =
@@ -177,8 +177,8 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 [[/hero/lash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp]] Lash patch history))
 ## [[/hero/lash]]((Lash))
 ==ability:death-slam:
-[[/hero/lash?ability=death-slam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_counter_lash.webp]] Death Slam change history))
-### [[/hero/lash?ability=death-slam]]((Death Slam))
+[[/ability/death-slam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_counter_lash.webp]] Death Slam change history))
+### [[/ability/death-slam]]((Death Slam))
 - Death Slam time to lock on increased from 0.8s to 0.9s
 ==
 =
@@ -187,8 +187,8 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 ==ability:mini-turret:
-[[/hero/mcginnis?ability=mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turret change history))
-### [[/hero/mcginnis?ability=mini-turret]]((Mini Turret))
+[[/ability/mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turret change history))
+### [[/ability/mini-turret]]((Mini Turret))
 - Mini Turret damage reduction against troopers/neutrals increased from -30% to -40%
 - Mini Turret damage reduction against objectives increased from -50% to -60%
 - Mini Turret falloff damage increased from -30% to -35%
@@ -196,8 +196,8 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 - Mini Turret recharge time reduced from 6s to 5s
 ==
 ==ability:spectral-wall:
-[[/hero/mcginnis?ability=spectral-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_fissure_2.webp]] Spectral Wall change history))
-### [[/hero/mcginnis?ability=spectral-wall]]((Spectral Wall))
+[[/ability/spectral-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_fissure_2.webp]] Spectral Wall change history))
+### [[/ability/spectral-wall]]((Spectral Wall))
 - Spectral Wall T1 and T2 swapped
 - Spectral Wall T1 stamina drain reduced from 2 to 1
 ==
@@ -207,14 +207,14 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 [[/hero/mo-krill]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]] Mo & Krill patch history))
 ## [[/hero/mo-krill]]((Mo & Krill))
 ==ability:combo:
-[[/hero/mo-krill?ability=combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo change history))
-### [[/hero/mo-krill?ability=combo]]((Combo))
+[[/ability/combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo change history))
+### [[/ability/combo]]((Combo))
 - Fixed Combo not gaining bonus HP when enemies died during it unless you got the killing blow
 ==
 - Health growth per boon reduced from 47 to 44
 ==ability:scorn:
-[[/hero/mo-krill?ability=scorn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_regen.webp]] Scorn change history))
-### [[/hero/mo-krill?ability=scorn]]((Scorn))
+[[/ability/scorn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_regen.webp]] Scorn change history))
+### [[/ability/scorn]]((Scorn))
 - While burrowed you have the same cast rules as the unborrow phase (i.e. can cast items and Scorn)
 ==
 =
@@ -223,8 +223,8 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 [[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
 ## [[/hero/seven]]((Seven))
 ==ability:static-charge:
-[[/hero/seven?ability=static-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_static.webp]] Static Charge change history))
-### [[/hero/seven?ability=static-charge]]((Static Charge))
+[[/ability/static-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_static.webp]] Static Charge change history))
+### [[/ability/static-charge]]((Static Charge))
 - Static Charge cast range now scales with Spirit (0.1)
 ==
 =
@@ -233,8 +233,8 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
 ==ability:flight:
-[[/hero/vindicta?ability=flight]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_flight.webp]] Flight change history))
-### [[/hero/vindicta?ability=flight]]((Flight))
+[[/ability/flight]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_flight.webp]] Flight change history))
+### [[/ability/flight]]((Flight))
 - Flight cooldown reduced from 50s to 45s
 - Flight up and down speed improved a bit
 ==
@@ -244,8 +244,8 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 [[/hero/warden]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden patch history))
 ## [[/hero/warden]]((Warden))
 ==ability:binding-word:
-[[/hero/warden?ability=binding-word]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_lock_down.webp]] Binding Word change history))
-### [[/hero/warden?ability=binding-word]]((Binding Word))
+[[/ability/binding-word]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_lock_down.webp]] Binding Word change history))
+### [[/ability/binding-word]]((Binding Word))
 - Binding Word now drains 1 stamina from the target on cast
 ==
 =
@@ -254,8 +254,8 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 [[/hero/wraith]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp]] Wraith patch history))
 ## [[/hero/wraith]]((Wraith))
 ==ability:project-mind:
-[[/hero/wraith?ability=project-mind]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_teleport.webp]] Project Mind change history))
-### [[/hero/wraith?ability=project-mind]]((Project Mind))
+[[/ability/project-mind]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_teleport.webp]] Project Mind change history))
+### [[/ability/project-mind]]((Project Mind))
 - Project Mind T3 cooldown reduced from -35s to -30s
 ==
 =

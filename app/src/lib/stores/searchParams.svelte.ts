@@ -3,29 +3,16 @@ import { goto } from '$app/navigation';
 import { building } from '$app/environment';
 import { toast } from 'svelte-sonner';
 import { plural } from '@deadlog/utils';
-import { parseCSV } from '$lib/utils/csv';
 import {
 	filtersToSearchParams,
+	normalizeFilters,
+	parseFilters,
 	MAX_ENTITY_FILTERS,
 	MAX_QUERY_LENGTH,
 	type ChangelogFilters
 } from '$lib/queries/keys';
 
 const GOTO_OPTS = { replaceState: false, keepFocus: true, noScroll: false } as const;
-
-type ParamValues = Partial<{
-	hero: string[];
-	item: string[];
-	q: string;
-	major: boolean;
-}>;
-type ParamValue = ParamValues[keyof ParamValues];
-
-function serialize(value: ParamValue): string | null {
-	if (value === undefined || value === '' || value === false) return null;
-	if (Array.isArray(value)) return value.length > 0 ? value.join(',') : null;
-	return String(value);
-}
 
 class SearchParamsStore {
 	#pendingParams = $state<URLSearchParams | null>(null);
@@ -45,19 +32,19 @@ class SearchParamsStore {
 	}
 
 	get hero(): string[] {
-		return parseCSV(this.#getParams().get('hero')).slice(0, MAX_ENTITY_FILTERS);
+		return this.filters.hero;
 	}
 
 	get item(): string[] {
-		return parseCSV(this.#getParams().get('item')).slice(0, MAX_ENTITY_FILTERS);
+		return this.filters.item;
 	}
 
 	get q(): string {
-		return (this.#getParams().get('q') ?? '').trim();
+		return this.filters.q;
 	}
 
 	get major(): boolean {
-		return this.#getParams().get('major') === 'true';
+		return this.filters.major;
 	}
 
 	/** How many filters are active — the one source for badges and is-filtered checks. */
@@ -79,35 +66,36 @@ class SearchParamsStore {
 		return this.hero.length > 0 || this.item.length > 0 || this.q !== '';
 	}
 
+	/** Parsed once per URL change; every other getter reads this. */
+	#filters = $derived.by((): Required<ChangelogFilters> => {
+		const filters = parseFilters(this.#getParams());
+		return {
+			...filters,
+			hero: filters.hero.slice(0, MAX_ENTITY_FILTERS),
+			item: filters.item.slice(0, MAX_ENTITY_FILTERS)
+		};
+	});
+
 	get filters(): Required<ChangelogFilters> {
-		return { hero: this.hero, item: this.item, q: this.q, major: this.major };
+		return this.#filters;
 	}
 
-	update(values: ParamValues) {
+	update(values: ChangelogFilters) {
 		if (building) return;
-		const nextParams = this.toURLSearchParams();
-		let dropped = 0;
-		for (const [key, value] of Object.entries(values)) {
-			let normalized: ParamValue;
-			if (Array.isArray(value)) {
-				normalized = value.slice(0, MAX_ENTITY_FILTERS);
-				dropped += value.length - normalized.length;
-			} else if (key === 'q' && typeof value === 'string') {
-				normalized = value.trim().slice(0, MAX_QUERY_LENGTH);
-			} else {
-				normalized = value;
-			}
-			const s = serialize(normalized);
-			if (s === null) nextParams.delete(key);
-			else nextParams.set(key, s);
-		}
+		const next = normalizeFilters({ ...this.filters, ...values });
+		const dropped =
+			Math.max(0, next.hero.length - MAX_ENTITY_FILTERS) +
+			Math.max(0, next.item.length - MAX_ENTITY_FILTERS);
+		next.hero = next.hero.slice(0, MAX_ENTITY_FILTERS);
+		next.item = next.item.slice(0, MAX_ENTITY_FILTERS);
+		next.q = next.q.slice(0, MAX_QUERY_LENGTH);
 		if (dropped > 0) {
 			toast.error(
 				`Filter limit reached — ${MAX_ENTITY_FILTERS} heroes and ${MAX_ENTITY_FILTERS} items max. ` +
 					`${dropped} ${plural(dropped, 'selection')} not applied.`
 			);
 		}
-		this.#navigate(nextParams);
+		this.#navigate(filtersToSearchParams(next));
 	}
 
 	reset() {

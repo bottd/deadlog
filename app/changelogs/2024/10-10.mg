@@ -172,13 +172,13 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 - Base health reduced from 600 to 570
 - Health per boon increased from 32 to 34 (1048 vs 1046 total)
 ==ability:shoulder-charge:
-[[/hero/abrams?ability=shoulder-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_charge.webp]] Shoulder Charge change history))
-### [[/hero/abrams?ability=shoulder-charge]]((Shoulder Charge))
+[[/ability/shoulder-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_charge.webp]] Shoulder Charge change history))
+### [[/ability/shoulder-charge]]((Shoulder Charge))
 - Fixed shoulder charge sensitivity bugs that allowed you to turn more than intended
 ==
 ==ability:seismic-impact:
-[[/hero/abrams?ability=seismic-impact]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_jump.webp]] Seismic Impact change history))
-### [[/hero/abrams?ability=seismic-impact]]((Seismic Impact))
+[[/ability/seismic-impact]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_jump.webp]] Seismic Impact change history))
+### [[/ability/seismic-impact]]((Seismic Impact))
 - Seismic Impact now allows for some very minor movement to help nudge around small objects
 ==
 =
@@ -187,33 +187,33 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 [[/hero/bebop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop patch history))
 ## [[/hero/bebop]]((Bebop))
 ==ability:sticky-bomb:
-[[/hero/bebop?ability=sticky-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_sticky_bomb.webp]] Sticky Bomb change history))
-### [[/hero/bebop?ability=sticky-bomb]]((Sticky Bomb))
+[[/ability/sticky-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_sticky_bomb.webp]] Sticky Bomb change history))
+### [[/ability/sticky-bomb]]((Sticky Bomb))
 - Sticky Bomb growth increased from 2.5% to 4% per stack
 - Sticky Bomb now loses 2 stacks on death
 - Sticky Bomb now has 15 max stacks
 ==
 ==ability:hook:
-[[/hero/bebop?ability=grapple-arm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hook.webp]] Hook change history))
-### [[/hero/bebop?ability=grapple-arm]]((Hook))
+[[/ability/grapple-arm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hook.webp]] Hook change history))
+### [[/ability/grapple-arm]]((Hook))
 - Hook range increased from 25m to 30m
 - Hook now also hits enemy troopers, killing them instantly
 ==
 ==ability:grapple-arm:
-[[/hero/bebop?ability=grapple-arm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hook.webp]] Grapple Arm change history))
-### [[/hero/bebop?ability=grapple-arm]]((Grapple Arm))
+[[/ability/grapple-arm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hook.webp]] Grapple Arm change history))
+### [[/ability/grapple-arm]]((Grapple Arm))
 - Fixed some cases where Hook would grab players from around corners
 ==
 ==ability:hyper-beam:
-[[/hero/bebop?ability=hyper-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hyper_beam.webp]] Hyper Beam change history))
-### [[/hero/bebop?ability=hyper-beam]]((Hyper Beam))
+[[/ability/hyper-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hyper_beam.webp]] Hyper Beam change history))
+### [[/ability/hyper-beam]]((Hyper Beam))
 - Hyper Beam movement slow reduced from 30% to 25%
 - Hyper Beam duration no longer scales with Spirit Power
 - Hyper Beam duration increased from 8s to 10s
 ==
 ==ability:uppercut:
-[[/hero/bebop?ability=exploding-uppercut]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_uppercut.webp]] Uppercut change history))
-### [[/hero/bebop?ability=exploding-uppercut]]((Uppercut))
+[[/ability/exploding-uppercut]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_uppercut.webp]] Uppercut change history))
+### [[/ability/exploding-uppercut]]((Uppercut))
 - Uppercut now applies a 15% Fire Rate slow in the landing radius for 5s. Scales with Spirit Power (0.2)
 ==
 =
@@ -222,14 +222,14 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 ==ability:quantum-entanglement:
-[[/hero/dynamo?ability=quantum-entanglement]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_quantum.webp]] Quantum Entanglement change history))
-### [[/hero/dynamo?ability=quantum-entanglement]]((Quantum Entanglement))
+[[/ability/quantum-entanglement]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_quantum.webp]] Quantum Entanglement change history))
+### [[/ability/quantum-entanglement]]((Quantum Entanglement))
 - Quantum Entanglement cooldown increased from 12.5s to 15s
 - Quantum Entanglement T3 now also also reduces cooldown by 4s
 ==
 ==ability:kinetic-pulse:
-[[/hero/dynamo?ability=kinetic-pulse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_stomp.webp]] Kinetic Pulse change history))
-### [[/hero/dynamo?ability=kinetic-pulse]]((Kinetic Pulse))
+[[/ability/kinetic-pulse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_stomp.webp]] Kinetic Pulse change history))
+### [[/ability/kinetic-pulse]]((Kinetic Pulse))
 - Fixed Kinetic Pulse T2 tooltip to clarify that it affects bullets only and not melee damage
 ==
 =
@@ -239,20 +239,20 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 ## [[/hero/grey-talon]]((Grey Talon))
 - Arrow cycle time increased from 0.45s to 0.55s (overall dps unchanged)
 ==ability:rain-of-arrows:
-[[/hero/grey-talon?ability=rain-of-arrows]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_power_jump.webp]] Rain of Arrows change history))
-### [[/hero/grey-talon?ability=rain-of-arrows]]((Rain of Arrows))
+[[/ability/rain-of-arrows]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_power_jump.webp]] Rain of Arrows change history))
+### [[/ability/rain-of-arrows]]((Rain of Arrows))
 - Fixed Rain of Arrows alternate cast causing you to hit the ground soon after cast
 ==
 ==ability:guided-owl:
-[[/hero/grey-talon?ability=guided-owl]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_guided_arrow.webp]] Guided Owl change history))
-### [[/hero/grey-talon?ability=guided-owl]]((Guided Owl))
+[[/ability/guided-owl]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_guided_arrow.webp]] Guided Owl change history))
+### [[/ability/guided-owl]]((Guided Owl))
 - Fixed Guided Owl colliding with nearby objects during cast
 ==
 - Fire Rate no longer scales with Spirit Power
 - Base bullet damage now scales with Spirit Power (0.1)
 ==ability:guided-owl:
-[[/hero/grey-talon?ability=guided-owl]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_guided_arrow.webp]] Guided Owl change history))
-### [[/hero/grey-talon?ability=guided-owl]]((Guided Owl))
+[[/ability/guided-owl]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_guided_arrow.webp]] Guided Owl change history))
+### [[/ability/guided-owl]]((Guided Owl))
 - Guided Owl 3s grace period for kill increased to 4s
 - Fixed Guided Owl grace period still requiring that he gets the kill, rather than the target just die
 ==
@@ -264,14 +264,14 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 ==ability:fixation:
-[[/hero/haze?ability=fixation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_fixation.webp]] Fixation change history))
-### [[/hero/haze?ability=fixation]]((Fixation))
+[[/ability/fixation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_fixation.webp]] Fixation change history))
+### [[/ability/fixation]]((Fixation))
 - Fixation max stacks increased from 30 to 40
 - Fixation T3 reduced from +0.2 to +0.15
 ==
 ==ability:bullet-dance:
-[[/hero/haze?ability=bullet-dance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_bullet_flurry.webp]] Bullet Dance change history))
-### [[/hero/haze?ability=bullet-dance]]((Bullet Dance))
+[[/ability/bullet-dance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_bullet_flurry.webp]] Bullet Dance change history))
+### [[/ability/bullet-dance]]((Bullet Dance))
 - Bullet Dance no longer grants +15% Fire Rate
 - Bullet Dance base ability now grants 2 Targets Hit Per Shot
 - Bullet Dance base ability no longer grants +25% Evasion
@@ -283,13 +283,13 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 [[/hero/infernus]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus patch history))
 ## [[/hero/infernus]]((Infernus))
 ==ability:catalyst-damage-amp:
-[[/hero/infernus?ability=napalm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_molotov.webp]] Catalyst Damage Amp change history))
-### [[/hero/infernus?ability=napalm]]((Catalyst Damage Amp))
+[[/ability/napalm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_molotov.webp]] Catalyst Damage Amp change history))
+### [[/ability/napalm]]((Catalyst Damage Amp))
 - Catalyst Damage Amp reduced from 25% to 20%
 ==
 ==ability:catalyst:
-[[/hero/infernus?ability=napalm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_molotov.webp]] Catalyst change history))
-### [[/hero/infernus?ability=napalm]]((Catalyst))
+[[/ability/napalm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_molotov.webp]] Catalyst change history))
+### [[/ability/napalm]]((Catalyst))
 - Catalyst T3 Damage Amp increased from 15% to 20%
 ==
 =
@@ -306,19 +306,19 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 [[/hero/lady-geist]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]] Lady Geist patch history))
 ## [[/hero/lady-geist]]((Lady Geist))
 ==ability:essence-bomb:
-[[/hero/lady-geist?ability=essence-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/blood_bomb.webp]] Essence Bomb change history))
-### [[/hero/lady-geist?ability=essence-bomb]]((Essence Bomb))
+[[/ability/essence-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/blood_bomb.webp]] Essence Bomb change history))
+### [[/ability/essence-bomb]]((Essence Bomb))
 - Fixed a bug that could cause some units to take more damage than intended with Essence Bomb when multiple targets are hit
 ==
 ==ability:life-drain:
-[[/hero/lady-geist?ability=life-drain]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/life_drain.webp]] Life Drain change history))
-### [[/hero/lady-geist?ability=life-drain]]((Life Drain))
+[[/ability/life-drain]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/life_drain.webp]] Life Drain change history))
+### [[/ability/life-drain]]((Life Drain))
 - Life Drain can now be alternate-casted on allied heroes
 - Added double tap accidental protection for Life Drain to help against instant cancellations
 ==
 ==ability:malice:
-[[/hero/lady-geist?ability=malice]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/geist_dagger.webp]] Malice change history))
-### [[/hero/lady-geist?ability=malice]]((Malice))
+[[/ability/malice]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/geist_dagger.webp]] Malice change history))
+### [[/ability/malice]]((Malice))
 - Malice slow duration reduced from 6s to 4s
 - Malice amp duration reduced from 16s to 13s
 - You can now see how many Malice stacks you have on you as the opponent
@@ -330,8 +330,8 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 ## [[/hero/lash]]((Lash))
 - Base bullet damage reduced from 10 to 9
 ==ability:flog:
-[[/hero/lash?ability=flog]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_flog.webp]] Flog change history))
-### [[/hero/lash?ability=flog]]((Flog))
+[[/ability/flog]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_flog.webp]] Flog change history))
+### [[/ability/flog]]((Flog))
 - Flog Heal vs heroes reduced from 80% to 70%
 - Flog Heal vs creeps reduced from 30% to 25%
 ==
@@ -343,16 +343,16 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 - No longer has +25% Spirit Resist
 - Now has +15% Bullet Resist
 ==ability:mini-turrets:
-[[/hero/mcginnis?ability=mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turrets change history))
-### [[/hero/mcginnis?ability=mini-turret]]((Mini Turrets))
+[[/ability/mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turrets change history))
+### [[/ability/mini-turret]]((Mini Turrets))
 - Mini Turrets T1 no longer grants +1 charge
 - Mini Turrets duration reduced from 30s to 24s
 - Mini Turrets cooldown reduced from 30s to 24s
 - Mini Turrets health scaling reduced from 30% to 20%
 ==
 ==ability:mini-turret:
-[[/hero/mcginnis?ability=mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turret change history))
-### [[/hero/mcginnis?ability=mini-turret]]((Mini Turret))
+[[/ability/mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turret change history))
+### [[/ability/mini-turret]]((Mini Turret))
 - Mini Turrets recharge time reduced from 5s to 3s
 - Mini Turrets cast range increased from 15m to 20m
 - Mini Turret damage reduction against troopers/neutrals increased from -40% to -50%
@@ -362,8 +362,8 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 - Mini Turret attack delay reduced from 0.35s to 0.2s
 ==
 ==ability:heavy-barrage:
-[[/hero/mcginnis?ability=heavy-barrage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_rockets.webp]] Heavy Barrage change history))
-### [[/hero/mcginnis?ability=heavy-barrage]]((Heavy Barrage))
+[[/ability/heavy-barrage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_rockets.webp]] Heavy Barrage change history))
+### [[/ability/heavy-barrage]]((Heavy Barrage))
 - Heavy Barrage radius increased from 4.5m to 5m
 ==
 =
@@ -372,25 +372,25 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 [[/hero/mirage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage patch history))
 ## [[/hero/mirage]]((Mirage))
 ==ability:tornado:
-[[/hero/mirage?ability=dust-devil]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_tornado.webp]] Tornado change history))
-### [[/hero/mirage?ability=dust-devil]]((Tornado))
+[[/ability/dust-devil]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_tornado.webp]] Tornado change history))
+### [[/ability/dust-devil]]((Tornado))
 - Tornado now uses a range for its travel distance instead of a travel duration (scales with range increase)
 ==
 ==ability:fire-scarabs:
-[[/hero/mirage?ability=fire-scarabs]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_fire_beetles.webp]] Fire Scarabs change history))
-### [[/hero/mirage?ability=fire-scarabs]]((Fire Scarabs))
+[[/ability/fire-scarabs]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_fire_beetles.webp]] Fire Scarabs change history))
+### [[/ability/fire-scarabs]]((Fire Scarabs))
 - Enemies that have already been hit by Fire Scarabs now let the next scarab projectile pass through them
 ==
 ==ability:djinn-s-mark:
-[[/hero/mirage?ability=djinns-mark]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_sand_phantom.webp]] Djinn's Mark change history))
-### [[/hero/mirage?ability=djinns-mark]]((Djinn's Mark))
+[[/ability/djinns-mark]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_sand_phantom.webp]] Djinn's Mark change history))
+### [[/ability/djinns-mark]]((Djinn's Mark))
 - Djinn's Mark base damage reduced from 16 to 12
 - Djinn's Mark scaling from spirit power increased from 0.4 to 0.55
 - Djinn's Mark reveal duration increased from 2s to 3s
 ==
 ==ability:traveler:
-[[/hero/mirage?ability=traveler]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_teleport.webp]] Traveler change history))
-### [[/hero/mirage?ability=traveler]]((Traveler))
+[[/ability/traveler]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_teleport.webp]] Traveler change history))
+### [[/ability/traveler]]((Traveler))
 - Traveler now causes your camera to move to the destination during the channel
 - Traveler T1 is now "+2 m/s" (was -20s cd)
 - Traveler T2 is now "-30s cd" (was +2 m/s)
@@ -402,8 +402,8 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 [[/hero/mo-krill]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]] Mo & Krill patch history))
 ## [[/hero/mo-krill]]((Mo & Krill))
 ==ability:combo:
-[[/hero/mo-krill?ability=combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo change history))
-### [[/hero/mo-krill?ability=combo]]((Combo))
+[[/ability/combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo change history))
+### [[/ability/combo]]((Combo))
 - Combo T1 now grants +30% Bullet Resist While Channeling (no longer grants -28s CD)
 - Combo cooldown reduced from 95s to 75s
 ==
@@ -414,22 +414,22 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 ## [[/hero/paradox]]((Paradox))
 - Bullet growth per boon increased from 0.33 to 0.45
 ==ability:time-wall:
-[[/hero/paradox?ability=time-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_wall.webp]] Time Wall change history))
-### [[/hero/paradox?ability=time-wall]]((Time Wall))
+[[/ability/time-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_wall.webp]] Time Wall change history))
+### [[/ability/time-wall]]((Time Wall))
 - Time Wall bullet duration reduced from 1s to 0.7s
 - Fixed Time Wall not being spawned when looking down while casting
 ==
 ==ability:paradoxical-swap:
-[[/hero/paradox?ability=paradoxical-swap]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_swap.webp]] Paradoxical Swap change history))
-### [[/hero/paradox?ability=paradoxical-swap]]((Paradoxical Swap))
+[[/ability/paradoxical-swap]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_swap.webp]] Paradoxical Swap change history))
+### [[/ability/paradoxical-swap]]((Paradoxical Swap))
 - Paradoxical Swap cooldown increased from 48s to 65s
 - Paradoxical Swap range reduced from 30m to 25m
 - Paradoxical Swap T1 now reduces cooldown by 15s
 - Paradoxical Swap T3 now increases range by 20m
 ==
 ==ability:pulse-grenade:
-[[/hero/paradox?ability=pulse-grenade]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_bomb.webp]] Pulse Grenade change history))
-### [[/hero/paradox?ability=pulse-grenade]]((Pulse Grenade))
+[[/ability/pulse-grenade]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_bomb.webp]] Pulse Grenade change history))
+### [[/ability/pulse-grenade]]((Pulse Grenade))
 - Pulse Grenade radius reduced from 7m to 6m
 - Pulse Grenade Damage Amp per Stack increased from 5% to 6%
 - Pulse Grenade T3 no longer increases Damage Amp by 2%
@@ -442,19 +442,19 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 ## [[/hero/pocket]]((Pocket))
 - Shotgun falloff start reduced from 22m to 16m
 ==ability:enchanter-s-satchel:
-[[/hero/pocket?ability=enchanters-satchel]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_pulse.webp]] Enchanter's Satchel change history))
-### [[/hero/pocket?ability=enchanters-satchel]]((Enchanter's Satchel))
+[[/ability/enchanters-satchel]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_pulse.webp]] Enchanter's Satchel change history))
+### [[/ability/enchanters-satchel]]((Enchanter's Satchel))
 - Enchanter's Satchel damage now respects line of sight
 - Enchanter's Satchel now shows an aoe indicator for Pocket while channeling
 ==
 ==ability:affliction-dps-spirit-power:
-[[/hero/pocket?ability=affliction]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_affliction.webp]] Affliction DPS Spirit Power change history))
-### [[/hero/pocket?ability=affliction]]((Affliction DPS Spirit Power))
+[[/ability/affliction]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_affliction.webp]] Affliction DPS Spirit Power change history))
+### [[/ability/affliction]]((Affliction DPS Spirit Power))
 - Affliction DPS Spirit Power scaling reduced from 0.4 to 0.34
 ==
 ==ability:barrage:
-[[/hero/pocket?ability=barrage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_barrage.webp]] Barrage change history))
-### [[/hero/pocket?ability=barrage]]((Barrage))
+[[/ability/barrage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_barrage.webp]] Barrage change history))
+### [[/ability/barrage]]((Barrage))
 - Barrage radius reduced from 6.5m to 4.5m
 - Barrage T3 now also increases radius by 2m
 ==
@@ -466,8 +466,8 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 - Base regen increased from 1.5 to 3
 - Movespeed scaling with Spirit Power reduced from 0.028 to 0.02
 ==ability:lightning-ball:
-[[/hero/seven?ability=lightning-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_ball.webp]] Lightning Ball change history))
-### [[/hero/seven?ability=lightning-ball]]((Lightning Ball))
+[[/ability/lightning-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_ball.webp]] Lightning Ball change history))
+### [[/ability/lightning-ball]]((Lightning Ball))
 - Lightning Ball T3 increased from +1m to +2m
 ==
 =
@@ -476,8 +476,8 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 [[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
 ## [[/hero/shiv]]((Shiv))
 ==ability:slice-and-dice:
-[[/hero/shiv?ability=slice-and-dice]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_flash.webp]] Slice and Dice change history))
-### [[/hero/shiv?ability=slice-and-dice]]((Slice and Dice))
+[[/ability/slice-and-dice]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_flash.webp]] Slice and Dice change history))
+### [[/ability/slice-and-dice]]((Slice and Dice))
 - Slice and Dice Spirit damage scaling increased from 1.2 to 1.3
 - Slice and Dice T1 improved from -3.75s to -4s
 ==
@@ -492,8 +492,8 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 - Fall off increased from 58m (default) to 64m
 - Bullet damage growth per boon reduced from 0.79 to 0.55
 ==ability:flight:
-[[/hero/vindicta?ability=flight]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_flight.webp]] Flight change history))
-### [[/hero/vindicta?ability=flight]]((Flight))
+[[/ability/flight]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_flight.webp]] Flight change history))
+### [[/ability/flight]]((Flight))
 - Flight duration no longer scales with Spirit Power
 - Flight T2 now increases flight duration by 6s
 - Flight bonus move speed above base now scales at 50% effectiveness
@@ -502,24 +502,24 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 - Health growth per boon reduced from 20 to 15
 - Gun cycle time increased from 0.22 to 0.26 (dps rescaled to remain the same, after the above changes are calculated in)
 ==ability:stake:
-[[/hero/vindicta?ability=stake]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_stake.webp]] Stake change history))
-### [[/hero/vindicta?ability=stake]]((Stake))
+[[/ability/stake]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_stake.webp]] Stake change history))
+### [[/ability/stake]]((Stake))
 - Stake duration reduced from 2s to 1.75s
 ==
 ==ability:assassinate:
-[[/hero/vindicta?ability=assassinate]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_assassinate.webp]] Assassinate change history))
-### [[/hero/vindicta?ability=assassinate]]((Assassinate))
+[[/ability/assassinate]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_assassinate.webp]] Assassinate change history))
+### [[/ability/assassinate]]((Assassinate))
 - Assassinate bonus souls is now unsecured
 ==
 ==ability:flight:
-[[/hero/vindicta?ability=flight]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_flight.webp]] Flight change history))
-### [[/hero/vindicta?ability=flight]]((Flight))
+[[/ability/flight]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_flight.webp]] Flight change history))
+### [[/ability/flight]]((Flight))
 - Shooting while flying now has similar speed impact as on the ground
 - Flight air acceleration decreased a little
 ==
 ==ability:crow-familiar:
-[[/hero/vindicta?ability=crow-familiar]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_crow.webp]] Crow Familiar change history))
-### [[/hero/vindicta?ability=crow-familiar]]((Crow Familiar))
+[[/ability/crow-familiar]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_crow.webp]] Crow Familiar change history))
+### [[/ability/crow-familiar]]((Crow Familiar))
 - Crow Familiar % damage no longer affects Mid Boss
 ==
 =
@@ -528,26 +528,26 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 [[/hero/viscous]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous patch history))
 ## [[/hero/viscous]]((Viscous))
 ==ability:goo-ball:
-[[/hero/viscous?ability=goo-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_sphere.webp]] Goo Ball change history))
-### [[/hero/viscous?ability=goo-ball]]((Goo Ball))
+[[/ability/goo-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_sphere.webp]] Goo Ball change history))
+### [[/ability/goo-ball]]((Goo Ball))
 - Goo Ball no longer triggers on hit effect while in Ethereal Shift
 - Fixed Superior Stamina dash count not working with Goo Ball
 - Goo Ball stun duration reduced from 1s to 0.7s
 ==
 ==ability:splatter:
-[[/hero/viscous?ability=splatter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_ball.webp]] Splatter change history))
-### [[/hero/viscous?ability=splatter]]((Splatter))
+[[/ability/splatter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_ball.webp]] Splatter change history))
+### [[/ability/splatter]]((Splatter))
 - Splatter base damage reduced from 100 to 90
 - Splatter T2 reduced from +70 to +60
 ==
 ==ability:splatter-spirit:
-[[/hero/viscous?ability=splatter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_ball.webp]] Splatter Spirit change history))
-### [[/hero/viscous?ability=splatter]]((Splatter Spirit))
+[[/ability/splatter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_ball.webp]] Splatter Spirit change history))
+### [[/ability/splatter]]((Splatter Spirit))
 - Splatter Spirit damage scale increased from 1.5 to 1.9
 ==
 ==ability:puddle-punch:
-[[/hero/viscous?ability=puddle-punch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp]] Puddle Punch change history))
-### [[/hero/viscous?ability=puddle-punch]]((Puddle Punch))
+[[/ability/puddle-punch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp]] Puddle Punch change history))
+### [[/ability/puddle-punch]]((Puddle Punch))
 - Fixed Instant Cast not working for Puddle Punch
 ==
 =
@@ -556,16 +556,16 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 [[/hero/warden]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden patch history))
 ## [[/hero/warden]]((Warden))
 ==ability:alchemical-flask:
-[[/hero/warden?ability=alchemical-flask]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_crowd_control.webp]] Alchemical Flask change history))
-### [[/hero/warden?ability=alchemical-flask]]((Alchemical Flask))
+[[/ability/alchemical-flask]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_crowd_control.webp]] Alchemical Flask change history))
+### [[/ability/alchemical-flask]]((Alchemical Flask))
 - Alchemical Flask cooldown reduced from 14s to 12s
 - Alchemical Flask damage increased from 55 to 65
 - Alchemical Flask T1 is now +1 Stamina Reduction
 - Alchemical Flask T2 is now +50 Damage
 ==
 ==ability:last-stand:
-[[/hero/warden?ability=last-stand]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_riot_protocol.webp]] Last Stand change history))
-### [[/hero/warden?ability=last-stand]]((Last Stand))
+[[/ability/last-stand]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_riot_protocol.webp]] Last Stand change history))
+### [[/ability/last-stand]]((Last Stand))
 - Last Stand channel duration reduced from 2.2s to 2s
 - Last Stand range increased from 12m to 13m
 ==
@@ -575,8 +575,8 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 [[/hero/wraith]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp]] Wraith patch history))
 ## [[/hero/wraith]]((Wraith))
 ==ability:card-trick:
-[[/hero/wraith?ability=card-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_card_trick.webp]] Card Trick change history))
-### [[/hero/wraith?ability=card-trick]]((Card Trick))
+[[/ability/card-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_card_trick.webp]] Card Trick change history))
+### [[/ability/card-trick]]((Card Trick))
 - Card Trick spirit scale reduced from 1.2 to 1.1
 - Card Trick generation via melee reduced by 50%
 ==
@@ -586,14 +586,14 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 ==ability:power-slash:
-[[/hero/yamato?ability=power-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_power_slash.webp]] Power Slash change history))
-### [[/hero/yamato?ability=power-slash]]((Power Slash))
+[[/ability/power-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_power_slash.webp]] Power Slash change history))
+### [[/ability/power-slash]]((Power Slash))
 - Power Slash cooldown increased from 8.5s to 10.5s
 - Power Slash T2 now also reduces cooldown by 2s
 ==
 ==ability:shadow-transformation:
-[[/hero/yamato?ability=shadow-transformation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]] Shadow Transformation change history))
-### [[/hero/yamato?ability=shadow-transformation]]((Shadow Transformation))
+[[/ability/shadow-transformation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]] Shadow Transformation change history))
+### [[/ability/shadow-transformation]]((Shadow Transformation))
 - Shadow Transformation no longer grants you bullet and spirit resist
 - Shadow Transformation duration reduced from 4.5s to 4s
 ==

@@ -29,14 +29,14 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 ## [[/hero/bebop]]((Bebop))
 - Weapon windup time reduced from 0.5s to 0.3s and fast windup time reduced from 0.1s to 0.05s
 ==ability:sticky-bomb:
-[[/hero/bebop?ability=sticky-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_sticky_bomb.webp]] Sticky Bomb change history))
-### [[/hero/bebop?ability=sticky-bomb]]((Sticky Bomb))
+[[/ability/sticky-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_sticky_bomb.webp]] Sticky Bomb change history))
+### [[/ability/sticky-bomb]]((Sticky Bomb))
 - Sticky Bomb can now be self cast again, but it deals 20% damage to yourself
 - Sticky Bomb radius reduced from 10m to 8m
 ==
 ==ability:grapple-arm:
-[[/hero/bebop?ability=grapple-arm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hook.webp]] Grapple Arm change history))
-### [[/hero/bebop?ability=grapple-arm]]((Grapple Arm))
+[[/ability/grapple-arm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hook.webp]] Grapple Arm change history))
+### [[/ability/grapple-arm]]((Grapple Arm))
 - Grapple Arm now deals light melee damage (0.7 scaling)
 ==
 =
@@ -45,13 +45,13 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 [[/hero/billy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/punkgoat_sm.webp]] Billy patch history))
 ## [[/hero/billy]]((Billy))
 ==ability:bashdown:
-[[/hero/billy?ability=bashdown]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/punkgoat/goat_sigilslam.webp]] Bashdown change history))
-### [[/hero/billy?ability=bashdown]]((Bashdown))
+[[/ability/bashdown]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/punkgoat/goat_sigilslam.webp]] Bashdown change history))
+### [[/ability/bashdown]]((Bashdown))
 - Bashdown T3 increased from -2s Charge Time to -3s
 ==
 ==ability:rising-ram:
-[[/hero/billy?ability=rising-ram]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/punkgoat/goat_risingram.webp]] Rising Ram change history))
-### [[/hero/billy?ability=rising-ram]]((Rising Ram))
+[[/ability/rising-ram]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/punkgoat/goat_risingram.webp]] Rising Ram change history))
+### [[/ability/rising-ram]]((Rising Ram))
 - Rising Ram T3 damage increased from 8% to 10%
 ==
 =
@@ -65,31 +65,31 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 - Bullet damage rescaled from 22 + 0.7/boon to 18 + 0.82/boon
 - Bullet cycle time increased from 0.6 to 0.65 (this is an 8% reduction in fire rate base and overall dps)
 ==ability:light-eater:
-[[/hero/celeste?ability=light-eater]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_flare.webp]] Light Eater change history))
-### [[/hero/celeste?ability=light-eater]]((Light Eater))
+[[/ability/light-eater]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_flare.webp]] Light Eater change history))
+### [[/ability/light-eater]]((Light Eater))
 - Light Eater initial impact damage rescaled from 50 + 0.35 to 40 + 0.47
 - Light Eater on bullet hit rescaled from 20 + 0.28 to 15 + 0.34
 - Light Eater debuff duration reduced from 12s to 8s
 - Light Eater debuff duration now scales with spirit (0.05)
 ==
 ==ability:dazzling-trick-barrier:
-[[/hero/celeste?ability=dazzling-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_shield.webp]] Dazzling Trick Barrier change history))
-### [[/hero/celeste?ability=dazzling-trick]]((Dazzling Trick Barrier))
+[[/ability/dazzling-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_shield.webp]] Dazzling Trick Barrier change history))
+### [[/ability/dazzling-trick]]((Dazzling Trick Barrier))
 - Dazzling Trick Barrier reduced from 120 to 100
 ==
 ==ability:dazzling-trick:
-[[/hero/celeste?ability=dazzling-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_shield.webp]] Dazzling Trick change history))
-### [[/hero/celeste?ability=dazzling-trick]]((Dazzling Trick))
+[[/ability/dazzling-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_shield.webp]] Dazzling Trick change history))
+### [[/ability/dazzling-trick]]((Dazzling Trick))
 - Dazzling Trick T2 Barrier reduced from +100 to +80
 ==
 ==ability:radiant-daggers:
-[[/hero/celeste?ability=radiant-daggers]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_luminousflux.webp]] Radiant Daggers change history))
-### [[/hero/celeste?ability=radiant-daggers]]((Radiant Daggers))
+[[/ability/radiant-daggers]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_luminousflux.webp]] Radiant Daggers change history))
+### [[/ability/radiant-daggers]]((Radiant Daggers))
 - Radiant Daggers T3 increased from 7% Fire Rate per Stack to 9%
 ==
 ==ability:shining-wonder:
-[[/hero/celeste?ability=shining-wonder]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_orb.webp]] Shining Wonder change history))
-### [[/hero/celeste?ability=shining-wonder]]((Shining Wonder))
+[[/ability/shining-wonder]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_orb.webp]] Shining Wonder change history))
+### [[/ability/shining-wonder]]((Shining Wonder))
 - Shining Wonder damage increased from 105 + 0.63 to 120 + 0.73
 ==
 =
@@ -98,13 +98,13 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 [[/hero/the-doorman]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/doorman_sm.webp]] Doorman patch history))
 ## [[/hero/the-doorman]]((Doorman))
 ==ability:doorways:
-[[/hero/the-doorman?ability=doorway]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_doorway.webp]] Doorways change history))
-### [[/hero/the-doorman?ability=doorway]]((Doorways))
+[[/ability/doorway]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_doorway.webp]] Doorways change history))
+### [[/ability/doorway]]((Doorways))
 - Doorways now reveal on the minimap for enemies when they are within LOS
 ==
 ==ability:luggage-cart:
-[[/hero/the-doorman?ability=luggage-cart]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_luggagetrolley.webp]] Luggage Cart change history))
-### [[/hero/the-doorman?ability=luggage-cart]]((Luggage Cart))
+[[/ability/luggage-cart]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_luggagetrolley.webp]] Luggage Cart change history))
+### [[/ability/luggage-cart]]((Luggage Cart))
 - Luggage Cart collision size reduced by 10%
 - Luggage Cart no longer stuns enemies, just immobilizes/movement controls them (this means you can use dispel magic to get off)
 ==
@@ -114,8 +114,8 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 ==ability:quantum-entanglement:
-[[/hero/dynamo?ability=quantum-entanglement]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_quantum.webp]] Quantum Entanglement change history))
-### [[/hero/dynamo?ability=quantum-entanglement]]((Quantum Entanglement))
+[[/ability/quantum-entanglement]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_quantum.webp]] Quantum Entanglement change history))
+### [[/ability/quantum-entanglement]]((Quantum Entanglement))
 - Quantum Entanglement cooldown increased from 16s to 19s
 ==
 =
@@ -125,13 +125,13 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 ## [[/hero/grey-talon]]((Grey Talon))
 - Spirit power per boon increased from 1.1 to 1.6
 ==ability:charged-shot:
-[[/hero/grey-talon?ability=charged-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_charged_shot.webp]] Charged Shot change history))
-### [[/hero/grey-talon?ability=charged-shot]]((Charged Shot))
+[[/ability/charged-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_charged_shot.webp]] Charged Shot change history))
+### [[/ability/charged-shot]]((Charged Shot))
 - Charged Shot channeling move speed increased from 1.3m to 1.5m
 ==
 ==ability:guided-owl:
-[[/hero/grey-talon?ability=guided-owl]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_guided_arrow.webp]] Guided Owl change history))
-### [[/hero/grey-talon?ability=guided-owl]]((Guided Owl))
+[[/ability/guided-owl]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_guided_arrow.webp]] Guided Owl change history))
+### [[/ability/guided-owl]]((Guided Owl))
 - Guided Owl min speed reduced from 17.8m to 15m
 - Guided Owl max speed increased from 35.56m to 36m
 - Guided Owl duration increased from 18s to 20s
@@ -142,38 +142,38 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 ==ability:sleep-dagger:
-[[/hero/haze?ability=sleep-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger change history))
-### [[/hero/haze?ability=sleep-dagger]]((Sleep Dagger))
+[[/ability/sleep-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger change history))
+### [[/ability/sleep-dagger]]((Sleep Dagger))
 - Sleep Dagger no longer takes you out of RMB zoom
 ==
 ==ability:sleep-dagger-wake-up:
-[[/hero/haze?ability=sleep-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger Wake Up change history))
-### [[/hero/haze?ability=sleep-dagger]]((Sleep Dagger Wake Up))
+[[/ability/sleep-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger Wake Up change history))
+### [[/ability/sleep-dagger]]((Sleep Dagger Wake Up))
 - Sleep Dagger Wake Up delay now has spirit scaling (0.003)
 ==
 ==ability:sleep-dagger:
-[[/hero/haze?ability=sleep-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger change history))
-### [[/hero/haze?ability=sleep-dagger]]((Sleep Dagger))
+[[/ability/sleep-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger change history))
+### [[/ability/sleep-dagger]]((Sleep Dagger))
 - Sleep Dagger spirit scaling increased from 2.6 to 2.8
 - Sleep Dagger T2 increased from -15s Cooldown to -17s
 - Sleep Dagger T3 sleep duration increased from +0.75s to +1s
 - Sleep Dagger T3 slow duration increased from 2.5s to 3s
 ==
 ==ability:smoke-bomb:
-[[/hero/haze?ability=smoke-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_smoke_bomb.webp]] Smoke Bomb change history))
-### [[/hero/haze?ability=smoke-bomb]]((Smoke Bomb))
+[[/ability/smoke-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_smoke_bomb.webp]] Smoke Bomb change history))
+### [[/ability/smoke-bomb]]((Smoke Bomb))
 - Smoke Bomb spirit scaling increased from 0.08 to 0.1
 - Smoke Bomb T3 lifesteal increased from 30% to 40%
 ==
 ==ability:fixation:
-[[/hero/haze?ability=fixation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_fixation.webp]] Fixation change history))
-### [[/hero/haze?ability=fixation]]((Fixation))
+[[/ability/fixation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_fixation.webp]] Fixation change history))
+### [[/ability/fixation]]((Fixation))
 - Fixation Weapon Damage per stack increased from 0.18 to 0.2
 - Fixation T3 reduced from +0.14 Weapon Damage per stack to +0.12
 ==
 ==ability:bullet-dance:
-[[/hero/haze?ability=bullet-dance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_bullet_flurry.webp]] Bullet Dance change history))
-### [[/hero/haze?ability=bullet-dance]]((Bullet Dance))
+[[/ability/bullet-dance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_bullet_flurry.webp]] Bullet Dance change history))
+### [[/ability/bullet-dance]]((Bullet Dance))
 - Fixed being able to slide while using Bullet Dance
 - Bullet Dance targeting is no longer a full radius around the hero, but instead is a cone in the direction you are aiming
 - Bullet Dance cooldown reduced from 165s to 145s
@@ -195,8 +195,8 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 ==ability:frost-grenade:
-[[/hero/kelvin?ability=frost-grenade]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/freezing_grenade.webp]] Frost Grenade change history))
-### [[/hero/kelvin?ability=frost-grenade]]((Frost Grenade))
+[[/ability/frost-grenade]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/freezing_grenade.webp]] Frost Grenade change history))
+### [[/ability/frost-grenade]]((Frost Grenade))
 - Frost Grenade healing spirit scaling reduced from 0.9 to 0.8
 - Frost Grenade T3 healing spirit scaling reduced from +1.0 to +0.9
 ==
@@ -207,8 +207,8 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 ## [[/hero/lady-geist]]((Lady Geist))
 - Bullet damage rescaled from 21.94 + 0.946/boon to 20.7+1.0/boon
 ==ability:soul-exchange:
-[[/hero/lady-geist?ability=soul-exchange]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/blood_exchange.webp]] Soul Exchange change history))
-### [[/hero/lady-geist?ability=soul-exchange]]((Soul Exchange))
+[[/ability/soul-exchange]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/blood_exchange.webp]] Soul Exchange change history))
+### [[/ability/soul-exchange]]((Soul Exchange))
 - Soul Exchange cooldown increased from 185s to 190s
 ==
 =
@@ -218,8 +218,8 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 ## [[/hero/mcginnis]]((McGinnis))
 - Bullet damage increased from 6.2 + 0.16/boon to 6.4 + 0.17/boon
 ==ability:spectral-wall:
-[[/hero/mcginnis?ability=spectral-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_fissure_2.webp]] Spectral Wall change history))
-### [[/hero/mcginnis?ability=spectral-wall]]((Spectral Wall))
+[[/ability/spectral-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_fissure_2.webp]] Spectral Wall change history))
+### [[/ability/spectral-wall]]((Spectral Wall))
 - Spectral Wall duration increased from 5.5s to 6s
 - Spectral Wall segment count increased from 7 to 8
 ==
@@ -229,14 +229,14 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 [[/hero/mirage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage patch history))
 ## [[/hero/mirage]]((Mirage))
 ==ability:fire-scarabs:
-[[/hero/mirage?ability=fire-scarabs]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_fire_beetles.webp]] Fire Scarabs change history))
-### [[/hero/mirage?ability=fire-scarabs]]((Fire Scarabs))
+[[/ability/fire-scarabs]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_fire_beetles.webp]] Fire Scarabs change history))
+### [[/ability/fire-scarabs]]((Fire Scarabs))
 - Fire Scarabs Health Steal per second reduced from 9 to 8
 - Fire Scarabs Health Steal per second spirit scaling reduced from 0.12 to 0.1
 ==
 ==ability:djinn-s-mark:
-[[/hero/mirage?ability=djinns-mark]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_sand_phantom.webp]] Djinn's Mark change history))
-### [[/hero/mirage?ability=djinns-mark]]((Djinn's Mark))
+[[/ability/djinns-mark]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_sand_phantom.webp]] Djinn's Mark change history))
+### [[/ability/djinns-mark]]((Djinn's Mark))
 - Djinn's Mark spirit scaling reduced from 0.38 to 0.35
 ==
 =
@@ -246,14 +246,14 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 ## [[/hero/paradox]]((Paradox))
 - Bullet damage increased from 6.42 + 0.242/boon to 6.8 + 0.26/boon
 ==ability:time-wall:
-[[/hero/paradox?ability=time-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_wall.webp]] Time Wall change history))
-### [[/hero/paradox?ability=time-wall]]((Time Wall))
+[[/ability/time-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_wall.webp]] Time Wall change history))
+### [[/ability/time-wall]]((Time Wall))
 - Time Wall width increased from 7.5m to 8m
 - Time Wall height increased from 3.5m to 4m
 ==
 ==ability:kinetic-carbine:
-[[/hero/paradox?ability=kinetic-carbine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/duo/duo_attack.webp]] Kinetic Carbine change history))
-### [[/hero/paradox?ability=kinetic-carbine]]((Kinetic Carbine))
+[[/ability/kinetic-carbine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/duo/duo_attack.webp]] Kinetic Carbine change history))
+### [[/ability/kinetic-carbine]]((Kinetic Carbine))
 - Kinetic Carbine collision radius increased slightly
 ==
 =
@@ -263,13 +263,13 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 ## [[/hero/rem]]((Rem))
 - Fixed souls bug with breakables
 ==ability:tag-along:
-[[/hero/rem?ability=tag-along]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/familiar/familiar_tag_along.webp]] Tag Along change history))
-### [[/hero/rem?ability=tag-along]]((Tag Along))
+[[/ability/tag-along]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/familiar/familiar_tag_along.webp]] Tag Along change history))
+### [[/ability/tag-along]]((Tag Along))
 - Tag Along can no longer be cancelled during the cast delay to prevent accidentally stopping it mid-cast
 ==
 ==ability:naptime:
-[[/hero/rem?ability=naptime]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/familiar/familiar_sleep.webp]] Naptime change history))
-### [[/hero/rem?ability=naptime]]((Naptime))
+[[/ability/naptime]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/familiar/familiar_sleep.webp]] Naptime change history))
+### [[/ability/naptime]]((Naptime))
 - Naptime radius increased from 17m to 19m
 - Naptime T2 sleep duration increased from +0.5s to +0.75s
 ==
@@ -285,8 +285,8 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 [[/hero/venator]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/priest_sm.webp]] Venator patch history))
 ## [[/hero/venator]]((Venator))
 ==ability:hex-lined-snap-trap:
-[[/hero/venator?ability=hex-lined-snap-trap]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/priest/priest_trap.webp]] Hex-Lined Snap Trap change history))
-### [[/hero/venator?ability=hex-lined-snap-trap]]((Hex-Lined Snap Trap))
+[[/ability/hex-lined-snap-trap]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/priest/priest_trap.webp]] Hex-Lined Snap Trap change history))
+### [[/ability/hex-lined-snap-trap]]((Hex-Lined Snap Trap))
 - Hex-Lined Snap Trap immobilize duration reduced from 1.5s to 1.25s
 - Hex-Lined Snap Trap cooldown increased from 25s to 28s
 - Hex-Lined Snap Trap T1 increased from -8s Cooldown to -11s
@@ -299,13 +299,13 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 ## [[/hero/victor]]((Victor))
 - Bullet damage increased from 12 to 13
 ==ability:jumpstart:
-[[/hero/victor?ability=jumpstart]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_jump_start.webp]] Jumpstart change history))
-### [[/hero/victor?ability=jumpstart]]((Jumpstart))
+[[/ability/jumpstart]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_jump_start.webp]] Jumpstart change history))
+### [[/ability/jumpstart]]((Jumpstart))
 - Jumpstart T2 increased from +50 Total HP Regen to +70
 ==
 ==ability:aura-of-suffering:
-[[/hero/victor?ability=aura-of-suffering]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_aura_of_suffering.webp]] Aura of Suffering change history))
-### [[/hero/victor?ability=aura-of-suffering]]((Aura of Suffering))
+[[/ability/aura-of-suffering]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_aura_of_suffering.webp]] Aura of Suffering change history))
+### [[/ability/aura-of-suffering]]((Aura of Suffering))
 - Aura of Suffering now builds up over 8s instead of 6s
 - Aura of Suffering T1 slow now also affects dashes
 - Aura of Suffering T1 slow reduced from 30% to 25%
@@ -313,8 +313,8 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 - Aura of Suffering Max DPS increased by 20% (affects base damage, AP and spirit scaling)
 ==
 ==ability:shocking-reanimation:
-[[/hero/victor?ability=shocking-reanimation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_shocking_reanimation.webp]] Shocking Reanimation change history))
-### [[/hero/victor?ability=shocking-reanimation]]((Shocking Reanimation))
+[[/ability/shocking-reanimation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_shocking_reanimation.webp]] Shocking Reanimation change history))
+### [[/ability/shocking-reanimation]]((Shocking Reanimation))
 - Shocking Reanimation now applies a heavy diminishing slow immediately when you die
 ==
 =
@@ -323,15 +323,15 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 [[/hero/vyper]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kali_sm.webp]] Vyper patch history))
 ## [[/hero/vyper]]((Vyper))
 ==ability:screwjab-dagger:
-[[/hero/vyper?ability=screwjab-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viper/viper_debuffdagger.webp]] Screwjab Dagger change history))
-### [[/hero/vyper?ability=screwjab-dagger]]((Screwjab Dagger))
+[[/ability/screwjab-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viper/viper_debuffdagger.webp]] Screwjab Dagger change history))
+### [[/ability/screwjab-dagger]]((Screwjab Dagger))
 - Screwjab Dagger no longer takes you out of RMB zoom
 - Screwjab Dagger charge time reduced from 4.5s to 4.0s
 ==
 - Sliding uphill now allows for lateral movement
 ==ability:slither:
-[[/hero/vyper?ability=slither]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viper/viper_snakedash.webp]] Slither change history))
-### [[/hero/vyper?ability=slither]]((Slither))
+[[/ability/slither]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viper/viper_snakedash.webp]] Slither change history))
+### [[/ability/slither]]((Slither))
 - Slither slide distance increased from +10% to +15%
 ==
 =
@@ -340,8 +340,8 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 ==ability:crimson-slash:
-[[/hero/yamato?ability=crimson-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_crimson_slash.webp]] Crimson Slash change history))
-### [[/hero/yamato?ability=crimson-slash]]((Crimson Slash))
+[[/ability/crimson-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_crimson_slash.webp]] Crimson Slash change history))
+### [[/ability/crimson-slash]]((Crimson Slash))
 - Fixed Crimson Slash not hitting through veils
 ==
 =

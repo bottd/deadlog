@@ -46,13 +46,13 @@ content_text "Added an option to allow canceling abilities with the ability key 
 ## [[/hero/calico]]((Calico))
 - Health growth per boon reduced from 41 to 34
 ==ability:leaping-slash-heal:
-[[/hero/calico?ability=leaping-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_dash.webp]] Leaping Slash Heal change history))
-### [[/hero/calico?ability=leaping-slash]]((Leaping Slash Heal))
+[[/ability/leaping-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_dash.webp]] Leaping Slash Heal change history))
+### [[/ability/leaping-slash]]((Leaping Slash Heal))
 - Leaping Slash Heal reduced from 50 to 40
 ==
 ==ability:leaping-slash-heal-spirit-scaling:
-[[/hero/calico?ability=leaping-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_dash.webp]] Leaping Slash Heal Spirit Scaling change history))
-### [[/hero/calico?ability=leaping-slash]]((Leaping Slash Heal Spirit Scaling))
+[[/ability/leaping-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_dash.webp]] Leaping Slash Heal Spirit Scaling change history))
+### [[/ability/leaping-slash]]((Leaping Slash Heal Spirit Scaling))
 - Leaping Slash Heal Spirit Scaling reduced from 1.6 to 1.1
 ==
 =
@@ -61,13 +61,13 @@ content_text "Added an option to allow canceling abilities with the ability key 
 [[/hero/holliday]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]] Holliday patch history))
 ## [[/hero/holliday]]((Holliday))
 ==ability:powder-keg:
-[[/hero/holliday?ability=powder-keg]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_powder_keg.webp]] Powder Keg change history))
-### [[/hero/holliday?ability=powder-keg]]((Powder Keg))
+[[/ability/powder-keg]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_powder_keg.webp]] Powder Keg change history))
+### [[/ability/powder-keg]]((Powder Keg))
 - Powder Keg T2 bonus damage reduced from 100 to 80
 ==
 ==ability:crackshot:
-[[/hero/holliday?ability=crackshot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_crackshot.webp]] Crackshot change history))
-### [[/hero/holliday?ability=crackshot]]((Crackshot))
+[[/ability/crackshot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_crackshot.webp]] Crackshot change history))
+### [[/ability/crackshot]]((Crackshot))
 - Crackshot T2 bonus damage reduced from 85 to 60
 ==
 =
@@ -76,8 +76,8 @@ content_text "Added an option to allow canceling abilities with the ability key 
 [[/hero/mirage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage patch history))
 ## [[/hero/mirage]]((Mirage))
 ==ability:djinn-s-mark:
-[[/hero/mirage?ability=djinns-mark]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_sand_phantom.webp]] Djinn's Mark change history))
-### [[/hero/mirage?ability=djinns-mark]]((Djinn's Mark))
+[[/ability/djinns-mark]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_sand_phantom.webp]] Djinn's Mark change history))
+### [[/ability/djinns-mark]]((Djinn's Mark))
 - Djinn's Mark T2 reduced from +4s Multiplier Duration to +2.5s
 ==
 =
@@ -92,8 +92,8 @@ content_text "Added an option to allow canceling abilities with the ability key 
 [[/hero/sinclair]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/magician_sm.webp]] Sinclair patch history))
 ## [[/hero/sinclair]]((Sinclair))
 ==ability:vexing-bolt:
-[[/hero/sinclair?ability=vexing-bolt]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_magicbolt.webp]] Vexing Bolt change history))
-### [[/hero/sinclair?ability=vexing-bolt]]((Vexing Bolt))
+[[/ability/vexing-bolt]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_magicbolt.webp]] Vexing Bolt change history))
+### [[/ability/vexing-bolt]]((Vexing Bolt))
 - Vexing Bolt cooldown increased from 15 to 24
 - Vexing Bolt T1 changed from -4s Cooldown to "Bolt Apply -25% Fire Rate for 5s"
 - Vexing Bolt T2 changed from "Bolt Apply -25% Fire Rate for 5s" to -13s Cooldown
@@ -104,13 +104,13 @@ content_text "Added an option to allow canceling abilities with the ability key 
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
 ==ability:crow-familiar:
-[[/hero/vindicta?ability=crow-familiar]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_crow.webp]] Crow Familiar change history))
-### [[/hero/vindicta?ability=crow-familiar]]((Crow Familiar))
+[[/ability/crow-familiar]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_crow.webp]] Crow Familiar change history))
+### [[/ability/crow-familiar]]((Crow Familiar))
 - Crow Familiar duration spirit scaling reduced from 0.03 to 0.024
 ==
 ==ability:crow-familiar-health-drain:
-[[/hero/vindicta?ability=crow-familiar]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_crow.webp]] Crow Familiar Health Drain change history))
-### [[/hero/vindicta?ability=crow-familiar]]((Crow Familiar Health Drain))
+[[/ability/crow-familiar]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_crow.webp]] Crow Familiar Health Drain change history))
+### [[/ability/crow-familiar]]((Crow Familiar Health Drain))
 - Crow Familiar Health Drain reduced from 3% to 2.3%
 ==
 =

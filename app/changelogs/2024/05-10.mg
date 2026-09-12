@@ -81,24 +81,24 @@ content_text "Sandbox mode now supports entering it with your party Sandbox mode
 - No longer has an innate +15% Spirit Resist
 - Now has innate +20% Bullet Resist
 ==ability:hook:
-[[/hero/bebop?ability=grapple-arm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hook.webp]] Hook change history))
-### [[/hero/bebop?ability=grapple-arm]]((Hook))
+[[/ability/grapple-arm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hook.webp]] Hook change history))
+### [[/ability/grapple-arm]]((Hook))
 - Hook cooldown reduced from 27s to 22s
 - Hook T3 reduced from -15s to -12s Cooldown
 ==
 ==ability:hook-speed:
-[[/hero/bebop?ability=grapple-arm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hook.webp]] Hook Speed change history))
-### [[/hero/bebop?ability=grapple-arm]]((Hook Speed))
+[[/ability/grapple-arm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hook.webp]] Hook Speed change history))
+### [[/ability/grapple-arm]]((Hook Speed))
 - Hook Speed increased from 2700 to 3000
 ==
 ==ability:hook-return-speed:
-[[/hero/bebop?ability=grapple-arm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hook.webp]] Hook Return Speed change history))
-### [[/hero/bebop?ability=grapple-arm]]((Hook Return Speed))
+[[/ability/grapple-arm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hook.webp]] Hook Return Speed change history))
+### [[/ability/grapple-arm]]((Hook Return Speed))
 - Hook Return Speed increased from 1800 to 2200
 ==
 ==ability:hyper-beam-dps:
-[[/hero/bebop?ability=hyper-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hyper_beam.webp]] Hyper Beam DPS change history))
-### [[/hero/bebop?ability=hyper-beam]]((Hyper Beam DPS))
+[[/ability/hyper-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hyper_beam.webp]] Hyper Beam DPS change history))
+### [[/ability/hyper-beam]]((Hyper Beam DPS))
 - Hyper Beam DPS increased from 180 to 210
 ==
 =
@@ -107,13 +107,13 @@ content_text "Sandbox mode now supports entering it with your party Sandbox mode
 [[/hero/grey-talon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon patch history))
 ## [[/hero/grey-talon]]((Grey Talon))
 ==ability:charged-shot:
-[[/hero/grey-talon?ability=charged-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_charged_shot.webp]] Charged Shot change history))
-### [[/hero/grey-talon?ability=charged-shot]]((Charged Shot))
+[[/ability/charged-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_charged_shot.webp]] Charged Shot change history))
+### [[/ability/charged-shot]]((Charged Shot))
 - Charged Shot damage increased from 105 to 115
 ==
 ==ability:rain-of-arrows:
-[[/hero/grey-talon?ability=rain-of-arrows]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_power_jump.webp]] Rain of Arrows change history))
-### [[/hero/grey-talon?ability=rain-of-arrows]]((Rain of Arrows))
+[[/ability/rain-of-arrows]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_power_jump.webp]] Rain of Arrows change history))
+### [[/ability/rain-of-arrows]]((Rain of Arrows))
 - Rain of Arrows Multishot increased from 3 to 5
 ==
 =
@@ -122,8 +122,8 @@ content_text "Sandbox mode now supports entering it with your party Sandbox mode
 [[/hero/infernus]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus patch history))
 ## [[/hero/infernus]]((Infernus))
 ==ability:afterburn:
-[[/hero/infernus?ability=afterburn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_deflect.webp]] Afterburn change history))
-### [[/hero/infernus?ability=afterburn]]((Afterburn))
+[[/ability/afterburn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_deflect.webp]] Afterburn change history))
+### [[/ability/afterburn]]((Afterburn))
 - Fixed Afterburn refreshing from item damage
 ==
 =
@@ -138,8 +138,8 @@ content_text "Sandbox mode now supports entering it with your party Sandbox mode
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 ==ability:frost-grenade:
-[[/hero/kelvin?ability=frost-grenade]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/freezing_grenade.webp]] Frost Grenade change history))
-### [[/hero/kelvin?ability=frost-grenade]]((Frost Grenade))
+[[/ability/frost-grenade]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/freezing_grenade.webp]] Frost Grenade change history))
+### [[/ability/frost-grenade]]((Frost Grenade))
 - Frost Grenade cooldown reduced from 30s to 26s
 ==
 =
@@ -148,8 +148,8 @@ content_text "Sandbox mode now supports entering it with your party Sandbox mode
 [[/hero/lady-geist]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]] Lady Geist patch history))
 ## [[/hero/lady-geist]]((Lady Geist))
 ==ability:malice:
-[[/hero/lady-geist?ability=malice]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/geist_dagger.webp]] Malice change history))
-### [[/hero/lady-geist?ability=malice]]((Malice))
+[[/ability/malice]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/geist_dagger.webp]] Malice change history))
+### [[/ability/malice]]((Malice))
 - Malice now comes out quicker and no longer slows you
 ==
 =
@@ -158,8 +158,8 @@ content_text "Sandbox mode now supports entering it with your party Sandbox mode
 [[/hero/lash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp]] Lash patch history))
 ## [[/hero/lash]]((Lash))
 ==ability:ground-strike:
-[[/hero/lash?ability=ground-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_death_slam.webp]] Ground Strike change history))
-### [[/hero/lash?ability=ground-strike]]((Ground Strike))
+[[/ability/ground-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_death_slam.webp]] Ground Strike change history))
+### [[/ability/ground-strike]]((Ground Strike))
 - Ground Strike now additionally damages enemies within 2m of Lash on impact
 - Ground Strike radius reduced from 16m to 14m
 - Ground Strike's ground preview now lines up under Lash when cast on the ground
@@ -167,8 +167,8 @@ content_text "Sandbox mode now supports entering it with your party Sandbox mode
 ==
 - Bullet Damage growth increased from 0.76 to 1.0
 ==ability:death-slam:
-[[/hero/lash?ability=death-slam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_counter_lash.webp]] Death Slam change history))
-### [[/hero/lash?ability=death-slam]]((Death Slam))
+[[/ability/death-slam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_counter_lash.webp]] Death Slam change history))
+### [[/ability/death-slam]]((Death Slam))
 - Death Slam tether visuals now improved to communicate the different phases its in
 ==
 =
@@ -177,23 +177,23 @@ content_text "Sandbox mode now supports entering it with your party Sandbox mode
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 ==ability:mini-turret-spirit-resistance:
-[[/hero/mcginnis?ability=mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turret Spirit Resistance change history))
-### [[/hero/mcginnis?ability=mini-turret]]((Mini Turret Spirit Resistance))
+[[/ability/mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turret Spirit Resistance change history))
+### [[/ability/mini-turret]]((Mini Turret Spirit Resistance))
 - Mini Turret Spirit Resistance increased 50% to 60%
 ==
 ==ability:mini-turret-health:
-[[/hero/mcginnis?ability=mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turret Health change history))
-### [[/hero/mcginnis?ability=mini-turret]]((Mini Turret Health))
+[[/ability/mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turret Health change history))
+### [[/ability/mini-turret]]((Mini Turret Health))
 - Mini Turret Health increased from 30% to 40%
 ==
 ==ability:mini-turret:
-[[/hero/mcginnis?ability=mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turret change history))
-### [[/hero/mcginnis?ability=mini-turret]]((Mini Turret))
+[[/ability/mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turret change history))
+### [[/ability/mini-turret]]((Mini Turret))
 - Mini Turret T2 increased from +5m Range to +10m
 ==
 ==ability:heavy-barrage:
-[[/hero/mcginnis?ability=heavy-barrage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_rockets.webp]] Heavy Barrage change history))
-### [[/hero/mcginnis?ability=heavy-barrage]]((Heavy Barrage))
+[[/ability/heavy-barrage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_rockets.webp]] Heavy Barrage change history))
+### [[/ability/heavy-barrage]]((Heavy Barrage))
 - Fixed issues with Heavy Barrage not damaging units within the target area
 ==
 =
@@ -203,19 +203,19 @@ content_text "Sandbox mode now supports entering it with your party Sandbox mode
 ## [[/hero/mo-krill]]((Mo & Krill))
 - Base HP increased from 650 to 700
 ==ability:scorn:
-[[/hero/mo-krill?ability=scorn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_regen.webp]] Scorn change history))
-### [[/hero/mo-krill?ability=scorn]]((Scorn))
+[[/ability/scorn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_regen.webp]] Scorn change history))
+### [[/ability/scorn]]((Scorn))
 - Scorn damage increased from 40 to 50
 - Scorn T3 debuff duration increased from 10s to 16s
 ==
 ==ability:sand-blast:
-[[/hero/mo-krill?ability=sand-blast]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_throw_sand.webp]] Sand Blast change history))
-### [[/hero/mo-krill?ability=sand-blast]]((Sand Blast))
+[[/ability/sand-blast]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_throw_sand.webp]] Sand Blast change history))
+### [[/ability/sand-blast]]((Sand Blast))
 - Sand Blast duration increased from 3.5s to 4s
 ==
 ==ability:combo:
-[[/hero/mo-krill?ability=combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo change history))
-### [[/hero/mo-krill?ability=combo]]((Combo))
+[[/ability/combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo change history))
+### [[/ability/combo]]((Combo))
 - Combo T3 DPS increased from +30 to +40
 ==
 =
@@ -224,15 +224,15 @@ content_text "Sandbox mode now supports entering it with your party Sandbox mode
 [[/hero/paradox]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox patch history))
 ## [[/hero/paradox]]((Paradox))
 ==ability:time-wall:
-[[/hero/paradox?ability=time-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_wall.webp]] Time Wall change history))
-### [[/hero/paradox?ability=time-wall]]((Time Wall))
+[[/ability/time-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_wall.webp]] Time Wall change history))
+### [[/ability/time-wall]]((Time Wall))
 - Time Wall bullet freeze duration no longer increases with Spirit or Duration Extender
 - Time Wall bullet freeze base duration reduced from 1.5 to 1.25
 - Time Wall no longer deals damage to Mid Boss
 ==
 ==ability:kinetic-carbine:
-[[/hero/paradox?ability=kinetic-carbine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/duo/duo_attack.webp]] Kinetic Carbine change history))
-### [[/hero/paradox?ability=kinetic-carbine]]((Kinetic Carbine))
+[[/ability/kinetic-carbine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/duo/duo_attack.webp]] Kinetic Carbine change history))
+### [[/ability/kinetic-carbine]]((Kinetic Carbine))
 - Kinetic Carbine: Max Damage Amp reduced from 150% to 125%
 - Kinetic Carbine T3 no longer provides +50% Min Damage Amp
 - Kinetic Carbine T3 reduced from +125% Max Damage to +75%
@@ -244,8 +244,8 @@ content_text "Sandbox mode now supports entering it with your party Sandbox mode
 ## [[/hero/pocket]]((Pocket))
 - Gun damage per bullet reduced from 6 to 5.6
 ==ability:affliction-dps:
-[[/hero/pocket?ability=affliction]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_affliction.webp]] Affliction DPS change history))
-### [[/hero/pocket?ability=affliction]]((Affliction DPS))
+[[/ability/affliction]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_affliction.webp]] Affliction DPS change history))
+### [[/ability/affliction]]((Affliction DPS))
 - Affliction DPS reduced from 30 to 26
 ==
 =
@@ -254,8 +254,8 @@ content_text "Sandbox mode now supports entering it with your party Sandbox mode
 [[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
 ## [[/hero/seven]]((Seven))
 ==ability:power-surge:
-[[/hero/seven?ability=power-surge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_chain.webp]] Power Surge change history))
-### [[/hero/seven?ability=power-surge]]((Power Surge))
+[[/ability/power-surge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_chain.webp]] Power Surge change history))
+### [[/ability/power-surge]]((Power Surge))
 - Power Surge rebalanced around no longer reducing fire rate (similar shock value effectiveness as before)
 ==
 =
@@ -264,8 +264,8 @@ content_text "Sandbox mode now supports entering it with your party Sandbox mode
 [[/hero/warden]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden patch history))
 ## [[/hero/warden]]((Warden))
 ==ability:alchemical-flask:
-[[/hero/warden?ability=alchemical-flask]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_crowd_control.webp]] Alchemical Flask change history))
-### [[/hero/warden?ability=alchemical-flask]]((Alchemical Flask))
+[[/ability/alchemical-flask]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_crowd_control.webp]] Alchemical Flask change history))
+### [[/ability/alchemical-flask]]((Alchemical Flask))
 - Alchemical Flask damage increased from 48 to 55
 ==
 =
@@ -274,28 +274,28 @@ content_text "Sandbox mode now supports entering it with your party Sandbox mode
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 ==ability:crimson-slash:
-[[/hero/yamato?ability=crimson-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_crimson_slash.webp]] Crimson Slash change history))
-### [[/hero/yamato?ability=crimson-slash]]((Crimson Slash))
+[[/ability/crimson-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_crimson_slash.webp]] Crimson Slash change history))
+### [[/ability/crimson-slash]]((Crimson Slash))
 - Crimson Slash cooldown reduced from 13s to 11s
 ==
 ==ability:power-slash:
-[[/hero/yamato?ability=power-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_power_slash.webp]] Power Slash change history))
-### [[/hero/yamato?ability=power-slash]]((Power Slash))
+[[/ability/power-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_power_slash.webp]] Power Slash change history))
+### [[/ability/power-slash]]((Power Slash))
 - Power Slash physics/world collision reduced from 15 to 4 (allowing it to be more easily used near objects)
 ==
 ==ability:shadow-explosion:
-[[/hero/yamato?ability=shadow-transformation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]] Shadow Explosion change history))
-### [[/hero/yamato?ability=shadow-transformation]]((Shadow Explosion))
+[[/ability/shadow-transformation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]] Shadow Explosion change history))
+### [[/ability/shadow-transformation]]((Shadow Explosion))
 - Shadow Explosion radius increased from 14m to 16m
 ==
 ==ability:shadow-transformation:
-[[/hero/yamato?ability=shadow-transformation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]] Shadow Transformation change history))
-### [[/hero/yamato?ability=shadow-transformation]]((Shadow Transformation))
+[[/ability/shadow-transformation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]] Shadow Transformation change history))
+### [[/ability/shadow-transformation]]((Shadow Transformation))
 - Shadow Explosion Fire Rate and Spirit buff duration increased from 15s to 20s
 ==
 ==ability:shadow-explosion:
-[[/hero/yamato?ability=shadow-transformation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]] Shadow Explosion change history))
-### [[/hero/yamato?ability=shadow-transformation]]((Shadow Explosion))
+[[/ability/shadow-transformation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]] Shadow Explosion change history))
+### [[/ability/shadow-transformation]]((Shadow Explosion))
 - Shadow Explosion T3 Spirit bonus increased from +10% to +15%
 - Shadow Explosion T3 Fire Rate bonus increased from +5% to +10%
 ==

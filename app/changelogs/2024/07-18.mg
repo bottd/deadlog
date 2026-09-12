@@ -98,20 +98,20 @@ content_text "Accounts that are banned for cheating will now have all their invi
 [[/hero/abrams]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams patch history))
 ## [[/hero/abrams]]((Abrams))
 ==ability:shoulder-charge:
-[[/hero/abrams?ability=shoulder-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_charge.webp]] Shoulder Charge change history))
-### [[/hero/abrams?ability=shoulder-charge]]((Shoulder Charge))
+[[/ability/shoulder-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_charge.webp]] Shoulder Charge change history))
+### [[/ability/shoulder-charge]]((Shoulder Charge))
 - Shoulder Charge now considers Spectral Wall and Frozen Shelter as walls
 ==
 ==ability:infernal-resilience:
-[[/hero/abrams?ability=infernal-resilience]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_beef.webp]] Infernal Resilience change history))
-### [[/hero/abrams?ability=infernal-resilience]]((Infernal Resilience))
+[[/ability/infernal-resilience]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_beef.webp]] Infernal Resilience change history))
+### [[/ability/infernal-resilience]]((Infernal Resilience))
 - Infernal Resilience duration to regen increased from 14s to 16s (this is a nerf)
 - Infernal Resilience damage regenerated reduced from 18% to 17%
 - Infernal Resilience T3 increased from +8% to +9%
 ==
 ==ability:seismic-impact:
-[[/hero/abrams?ability=seismic-impact]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_jump.webp]] Seismic Impact change history))
-### [[/hero/abrams?ability=seismic-impact]]((Seismic Impact))
+[[/ability/seismic-impact]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_jump.webp]] Seismic Impact change history))
+### [[/ability/seismic-impact]]((Seismic Impact))
 - Improved reliability of Seismic Impact
 - Seismic Impact base radius increased from 6m to 9m
 - Seismic Impact T1 changed from +4m Impact Radius to -40s Cooldown
@@ -127,29 +127,29 @@ content_text "Accounts that are banned for cheating will now have all their invi
 - No longer has 24% base bullet resistance
 - Now gains +2% Bullet Resistance per boon (happens 11 times)
 ==ability:hook:
-[[/hero/bebop?ability=grapple-arm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hook.webp]] Hook change history))
-### [[/hero/bebop?ability=grapple-arm]]((Hook))
+[[/ability/grapple-arm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hook.webp]] Hook change history))
+### [[/ability/grapple-arm]]((Hook))
 - Hook speed reduced from 3000 to 2850
 ==
 ==ability:exploding-uppercut:
-[[/hero/bebop?ability=exploding-uppercut]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_uppercut.webp]] Exploding Uppercut change history))
-### [[/hero/bebop?ability=exploding-uppercut]]((Exploding Uppercut))
+[[/ability/exploding-uppercut]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_uppercut.webp]] Exploding Uppercut change history))
+### [[/ability/exploding-uppercut]]((Exploding Uppercut))
 - Uppercut horizontal distance knockback on enemy heroes is reduced from 25m to 20m
 - Fixed enemies being able to use heavy melee to cancel Uppercut's momentum
 ==
 ==ability:hyperbeam:
-[[/hero/bebop?ability=hyper-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hyper_beam.webp]] Hyperbeam change history))
-### [[/hero/bebop?ability=hyper-beam]]((Hyperbeam))
+[[/ability/hyper-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hyper_beam.webp]] Hyperbeam change history))
+### [[/ability/hyper-beam]]((Hyperbeam))
 - Hyperbeam is now very wide in the area right in front of the hero, then narrows into the current size a few meters away
 ==
 ==ability:hyperbeam-spirit-power:
-[[/hero/bebop?ability=hyper-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hyper_beam.webp]] Hyperbeam Spirit Power change history))
-### [[/hero/bebop?ability=hyper-beam]]((Hyperbeam Spirit Power))
+[[/ability/hyper-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hyper_beam.webp]] Hyperbeam Spirit Power change history))
+### [[/ability/hyper-beam]]((Hyperbeam Spirit Power))
 - Hyperbeam Spirit Power damage scaling increased from 1.96 to 2.2
 ==
 ==ability:hyperbeam:
-[[/hero/bebop?ability=hyper-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hyper_beam.webp]] Hyperbeam change history))
-### [[/hero/bebop?ability=hyper-beam]]((Hyperbeam))
+[[/ability/hyper-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hyper_beam.webp]] Hyperbeam change history))
+### [[/ability/hyper-beam]]((Hyperbeam))
 - Hyperbeam T2 increased from +120 to +140
 ==
 =
@@ -159,13 +159,13 @@ content_text "Accounts that are banned for cheating will now have all their invi
 ## [[/hero/dynamo]]((Dynamo))
 - Gun damage growth increased from 0.8 to 0.9
 ==ability:kinetic-pulse:
-[[/hero/dynamo?ability=kinetic-pulse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_stomp.webp]] Kinetic Pulse change history))
-### [[/hero/dynamo?ability=kinetic-pulse]]((Kinetic Pulse))
+[[/ability/kinetic-pulse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_stomp.webp]] Kinetic Pulse change history))
+### [[/ability/kinetic-pulse]]((Kinetic Pulse))
 - Kinetic Pulse spirit power scaling increased from 1.2 to 1.4
 ==
 ==ability:singularity:
-[[/hero/dynamo?ability=singularity]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_vacuum.webp]] Singularity change history))
-### [[/hero/dynamo?ability=singularity]]((Singularity))
+[[/ability/singularity]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_vacuum.webp]] Singularity change history))
+### [[/ability/singularity]]((Singularity))
 - Singularity duration reduced from 3 to 2.75
 ==
 =
@@ -174,8 +174,8 @@ content_text "Accounts that are banned for cheating will now have all their invi
 [[/hero/grey-talon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon patch history))
 ## [[/hero/grey-talon]]((Grey Talon))
 ==ability:charged-shot:
-[[/hero/grey-talon?ability=charged-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_charged_shot.webp]] Charged Shot change history))
-### [[/hero/grey-talon?ability=charged-shot]]((Charged Shot))
+[[/ability/charged-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_charged_shot.webp]] Charged Shot change history))
+### [[/ability/charged-shot]]((Charged Shot))
 - Charged Shot damage reduced from 115 to 105
 - Charged Shot spirit scaling increased from 1.3 to 1.6
 ==
@@ -185,21 +185,21 @@ content_text "Accounts that are banned for cheating will now have all their invi
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 ==ability:sleep-dagger:
-[[/hero/haze?ability=sleep-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger change history))
-### [[/hero/haze?ability=sleep-dagger]]((Sleep Dagger))
+[[/ability/sleep-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger change history))
+### [[/ability/sleep-dagger]]((Sleep Dagger))
 - Sleep Dagger min sleep time reduced from 0.3 to 0.2
 - Sleep Dagger wake-up time reduced from 0.15 to 0.1
 - Sleep Dagger projectile size reduced by 10%
 ==
 ==ability:fixation:
-[[/hero/haze?ability=fixation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_fixation.webp]] Fixation change history))
-### [[/hero/haze?ability=fixation]]((Fixation))
+[[/ability/fixation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_fixation.webp]] Fixation change history))
+### [[/ability/fixation]]((Fixation))
 - Fixation T1 and T2 swapped
 - Fixation damage per stack reduced from 0.25 to 0.2
 ==
 ==ability:bullet-dance:
-[[/hero/haze?ability=bullet-dance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_bullet_flurry.webp]] Bullet Dance change history))
-### [[/hero/haze?ability=bullet-dance]]((Bullet Dance))
+[[/ability/bullet-dance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_bullet_flurry.webp]] Bullet Dance change history))
+### [[/ability/bullet-dance]]((Bullet Dance))
 - Bullet Dance fire rate increased from +20% to +25%
 - Bullet Dance radius increased from 14m to 15m
 ==
@@ -210,13 +210,13 @@ content_text "Accounts that are banned for cheating will now have all their invi
 ## [[/hero/ivy]]((Ivy))
 - Base damage reduced from 5.0 to 4.5
 ==ability:kudzu-bomb-dps:
-[[/hero/ivy?ability=entangling-thorns]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_storm_flask.webp]] Kudzu Bomb DPS change history))
-### [[/hero/ivy?ability=entangling-thorns]]((Kudzu Bomb DPS))
+[[/ability/entangling-thorns]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_storm_flask.webp]] Kudzu Bomb DPS change history))
+### [[/ability/entangling-thorns]]((Kudzu Bomb DPS))
 - Kudzu Bomb DPS spirit scaling increased from 0.4 to 0.6
 ==
 ==ability:kudzu-connection:
-[[/hero/ivy?ability=kudzu-connection]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_tether.webp]] Kudzu Connection change history))
-### [[/hero/ivy?ability=kudzu-connection]]((Kudzu Connection))
+[[/ability/kudzu-connection]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_tether.webp]] Kudzu Connection change history))
+### [[/ability/kudzu-connection]]((Kudzu Connection))
 - Watcher's Covenant replicated healing reduced from 35% to 30%
 ==
 =
@@ -225,18 +225,18 @@ content_text "Accounts that are banned for cheating will now have all their invi
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 ==ability:frost-grenade:
-[[/hero/kelvin?ability=frost-grenade]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/freezing_grenade.webp]] Frost Grenade change history))
-### [[/hero/kelvin?ability=frost-grenade]]((Frost Grenade))
+[[/ability/frost-grenade]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/freezing_grenade.webp]] Frost Grenade change history))
+### [[/ability/frost-grenade]]((Frost Grenade))
 - Frost Grenade cooldown reduced from 23s to 21s
 ==
 ==ability:ice-path:
-[[/hero/kelvin?ability=ice-path]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_path.webp]] Ice Path change history))
-### [[/hero/kelvin?ability=ice-path]]((Ice Path))
+[[/ability/ice-path]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_path.webp]] Ice Path change history))
+### [[/ability/ice-path]]((Ice Path))
 - Ice Path trail duration increased from 15s to 18s
 ==
 ==ability:arctic-beam:
-[[/hero/kelvin?ability=arctic-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_beam.webp]] Arctic Beam change history))
-### [[/hero/kelvin?ability=arctic-beam]]((Arctic Beam))
+[[/ability/arctic-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_beam.webp]] Arctic Beam change history))
+### [[/ability/arctic-beam]]((Arctic Beam))
 - Arctic Beam T3 now hits up to 2 additional targets
 ==
 =
@@ -247,19 +247,19 @@ content_text "Accounts that are banned for cheating will now have all their invi
 - Base bullet damage reduced from 28 to 25
 - Bullet damage growth increased from 1.84 to 2.1
 ==ability:essence-bomb:
-[[/hero/lady-geist?ability=essence-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/blood_bomb.webp]] Essence Bomb change history))
-### [[/hero/lady-geist?ability=essence-bomb]]((Essence Bomb))
+[[/ability/essence-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/blood_bomb.webp]] Essence Bomb change history))
+### [[/ability/essence-bomb]]((Essence Bomb))
 - Essence Bomb T2 reduced from +70 to +60
 - Essence Bomb T3 increased from 20% to 22%
 ==
 ==ability:life-drain:
-[[/hero/lady-geist?ability=life-drain]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/life_drain.webp]] Life Drain change history))
-### [[/hero/lady-geist?ability=life-drain]]((Life Drain))
+[[/ability/life-drain]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/life_drain.webp]] Life Drain change history))
+### [[/ability/life-drain]]((Life Drain))
 - Life Drain self slow reduced from -40% to -25%
 ==
 ==ability:soul-exchange:
-[[/hero/lady-geist?ability=soul-exchange]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/blood_exchange.webp]] Soul Exchange change history))
-### [[/hero/lady-geist?ability=soul-exchange]]((Soul Exchange))
+[[/ability/soul-exchange]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/blood_exchange.webp]] Soul Exchange change history))
+### [[/ability/soul-exchange]]((Soul Exchange))
 - Soul Exchange can be cast on enemies that are lower health. It will always steal a minimum of 30% of their current health.
 ==
 =
@@ -268,18 +268,18 @@ content_text "Accounts that are banned for cheating will now have all their invi
 [[/hero/lash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp]] Lash patch history))
 ## [[/hero/lash]]((Lash))
 ==ability:grapple:
-[[/hero/lash?ability=grapple]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_lash.webp]] Grapple change history))
-### [[/hero/lash?ability=grapple]]((Grapple))
+[[/ability/grapple]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_lash.webp]] Grapple change history))
+### [[/ability/grapple]]((Grapple))
 - Grapple weapon damage is now added into the T2 instead of in the base
 ==
 ==ability:ground-strike:
-[[/hero/lash?ability=ground-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_death_slam.webp]] Ground Strike change history))
-### [[/hero/lash?ability=ground-strike]]((Ground Strike))
+[[/ability/ground-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_death_slam.webp]] Ground Strike change history))
+### [[/ability/ground-strike]]((Ground Strike))
 - Ground Strike radius reduced from 13m to 11m
 ==
 ==ability:death-slam:
-[[/hero/lash?ability=death-slam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_counter_lash.webp]] Death Slam change history))
-### [[/hero/lash?ability=death-slam]]((Death Slam))
+[[/ability/death-slam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_counter_lash.webp]] Death Slam change history))
+### [[/ability/death-slam]]((Death Slam))
 - Death Slam grab time reduced from 0.8s to 0.6s
 - Death Slam cast range increased from 14m to 18m
 - Death Slam throw distance reduced from 20m to 12m
@@ -291,14 +291,14 @@ content_text "Accounts that are banned for cheating will now have all their invi
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 ==ability:spectral-wall:
-[[/hero/mcginnis?ability=spectral-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_fissure_2.webp]] Spectral Wall change history))
-### [[/hero/mcginnis?ability=spectral-wall]]((Spectral Wall))
+[[/ability/spectral-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_fissure_2.webp]] Spectral Wall change history))
+### [[/ability/spectral-wall]]((Spectral Wall))
 - Spectral Wall cooldown increased from 30s to 35s
 ==
 - Base melee damage reduced by 20%
 ==ability:spectral-wall:
-[[/hero/mcginnis?ability=spectral-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_fissure_2.webp]] Spectral Wall change history))
-### [[/hero/mcginnis?ability=spectral-wall]]((Spectral Wall))
+[[/ability/spectral-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_fissure_2.webp]] Spectral Wall change history))
+### [[/ability/spectral-wall]]((Spectral Wall))
 - Spectral Wall segments that are touching the Rejuv will be destroyed
 ==
 =
@@ -307,18 +307,18 @@ content_text "Accounts that are banned for cheating will now have all their invi
 [[/hero/paradox]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox patch history))
 ## [[/hero/paradox]]((Paradox))
 ==ability:time-wall:
-[[/hero/paradox?ability=time-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_wall.webp]] Time Wall change history))
-### [[/hero/paradox?ability=time-wall]]((Time Wall))
+[[/ability/time-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_wall.webp]] Time Wall change history))
+### [[/ability/time-wall]]((Time Wall))
 - Time Wall projectile stop duration reduced from 1.25s to 1s
 ==
 ==ability:pulse-grenade:
-[[/hero/paradox?ability=pulse-grenade]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_bomb.webp]] Pulse Grenade change history))
-### [[/hero/paradox?ability=pulse-grenade]]((Pulse Grenade))
+[[/ability/pulse-grenade]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_bomb.webp]] Pulse Grenade change history))
+### [[/ability/pulse-grenade]]((Pulse Grenade))
 - Pulse Grenade amp duration increased from 6s to 8s
 ==
 ==ability:paradoxical-swap:
-[[/hero/paradox?ability=paradoxical-swap]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_swap.webp]] Paradoxical Swap change history))
-### [[/hero/paradox?ability=paradoxical-swap]]((Paradoxical Swap))
+[[/ability/paradoxical-swap]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_swap.webp]] Paradoxical Swap change history))
+### [[/ability/paradoxical-swap]]((Paradoxical Swap))
 - Paradoxical Swap projectile size reduced by 10%
 ==
 =
@@ -338,8 +338,8 @@ content_text "Accounts that are banned for cheating will now have all their invi
 - Base bullet resistance reduced from 20% to 8%
 - Now gains +1% Bullet Resistance per boon (happens 11 times)
 ==ability:power-surge:
-[[/hero/seven?ability=power-surge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_chain.webp]] Power Surge change history))
-### [[/hero/seven?ability=power-surge]]((Power Surge))
+[[/ability/power-surge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_chain.webp]] Power Surge change history))
+### [[/ability/power-surge]]((Power Surge))
 - Power Surge scaling reduced from 0.2 to 0.16
 ==
 =

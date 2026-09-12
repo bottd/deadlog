@@ -175,18 +175,18 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 [[/hero/abrams]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams patch history))
 ## [[/hero/abrams]]((Abrams))
 ==ability:seismic-impact:
-[[/hero/abrams?ability=seismic-impact]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_jump.webp]] Seismic Impact change history))
-### [[/hero/abrams?ability=seismic-impact]]((Seismic Impact))
+[[/ability/seismic-impact]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_jump.webp]] Seismic Impact change history))
+### [[/ability/seismic-impact]]((Seismic Impact))
 - Fixed Seismic Impact often not dragging enemies in the air along with you when you are slamming down
 ==
 ==ability:shoulder-charge:
-[[/hero/abrams?ability=shoulder-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_charge.webp]] Shoulder Charge change history))
-### [[/hero/abrams?ability=shoulder-charge]]((Shoulder Charge))
+[[/ability/shoulder-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_charge.webp]] Shoulder Charge change history))
+### [[/ability/shoulder-charge]]((Shoulder Charge))
 - Fixed Shoulder Charge not always placing enemies in front of you
 ==
 ==ability:seismic-impact:
-[[/hero/abrams?ability=seismic-impact]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_jump.webp]] Seismic Impact change history))
-### [[/hero/abrams?ability=seismic-impact]]((Seismic Impact))
+[[/ability/seismic-impact]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_jump.webp]] Seismic Impact change history))
+### [[/ability/seismic-impact]]((Seismic Impact))
 - Seismic Impact damage reduced from 175 to 150
 ==
 =
@@ -200,32 +200,32 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 - Base Bullet Resist increased from 0% to 10%
 - Bullet Resist per boon reduced from 2.5% to 1.6% (same overall bullet resist at max)
 ==ability:hook:
-[[/hero/bebop?ability=grapple-arm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hook.webp]] Hook change history))
-### [[/hero/bebop?ability=grapple-arm]]((Hook))
+[[/ability/grapple-arm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hook.webp]] Hook change history))
+### [[/ability/grapple-arm]]((Hook))
 - Hook range reduced from 40m to 35m
 - Hook T2 increased from +25m to +30m
 ==
 ==ability:exploding-uppercut:
-[[/hero/bebop?ability=exploding-uppercut]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_uppercut.webp]] Exploding Uppercut change history))
-### [[/hero/bebop?ability=exploding-uppercut]]((Exploding Uppercut))
+[[/ability/exploding-uppercut]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_uppercut.webp]] Exploding Uppercut change history))
+### [[/ability/exploding-uppercut]]((Exploding Uppercut))
 - Exploding Uppercut now has a slight angle limitation to prevent straight-up direction
 - Exploding Uppercut radius increased from 10m to 14m
 - Exploding Uppercut T1 increased from -10s Cooldown to -11s
 ==
 ==ability:grapple-arm:
-[[/hero/bebop?ability=grapple-arm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hook.webp]] Grapple Arm change history))
-### [[/hero/bebop?ability=grapple-arm]]((Grapple Arm))
+[[/ability/grapple-arm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hook.webp]] Grapple Arm change history))
+### [[/ability/grapple-arm]]((Grapple Arm))
 - Fixed hooking through veils sometimes not working
 ==
 ==ability:sticky-bomb:
-[[/hero/bebop?ability=sticky-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_sticky_bomb.webp]] Sticky Bomb change history))
-### [[/hero/bebop?ability=sticky-bomb]]((Sticky Bomb))
+[[/ability/sticky-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_sticky_bomb.webp]] Sticky Bomb change history))
+### [[/ability/sticky-bomb]]((Sticky Bomb))
 - Sticky Bomb radius increased from 10m to 12m
 - Sticky Bomb can now be cast on self using alt cast hotkey
 ==
 ==ability:hyper-beam:
-[[/hero/bebop?ability=hyper-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hyper_beam.webp]] Hyper Beam change history))
-### [[/hero/bebop?ability=hyper-beam]]((Hyper Beam))
+[[/ability/hyper-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hyper_beam.webp]] Hyper Beam change history))
+### [[/ability/hyper-beam]]((Hyper Beam))
 - Hyper Beam T2 reduced from +140 to +100
 - Hyper Beam spirit scaling increased from 2.4 to 3.0
 - Hyper Beam turn rate improved by 10%
@@ -238,23 +238,23 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 ==ability:rejuvenating-aurora:
-[[/hero/dynamo?ability=rejuvenating-aurora]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_pork_bun.webp]] Rejuvenating Aurora change history))
-### [[/hero/dynamo?ability=rejuvenating-aurora]]((Rejuvenating Aurora))
+[[/ability/rejuvenating-aurora]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_pork_bun.webp]] Rejuvenating Aurora change history))
+### [[/ability/rejuvenating-aurora]]((Rejuvenating Aurora))
 - Rejuvenating Aurora can now be canceled by using stamina instead of needing to manually exit first (pre T3)
 ==
 ==ability:kinetic-pulse:
-[[/hero/dynamo?ability=kinetic-pulse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_stomp.webp]] Kinetic Pulse change history))
-### [[/hero/dynamo?ability=kinetic-pulse]]((Kinetic Pulse))
+[[/ability/kinetic-pulse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_stomp.webp]] Kinetic Pulse change history))
+### [[/ability/kinetic-pulse]]((Kinetic Pulse))
 - Fixed Kinetic Pulse sometimes getting caught on stairs
 ==
 ==ability:singularity:
-[[/hero/dynamo?ability=singularity]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_vacuum.webp]] Singularity change history))
-### [[/hero/dynamo?ability=singularity]]((Singularity))
+[[/ability/singularity]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_vacuum.webp]] Singularity change history))
+### [[/ability/singularity]]((Singularity))
 - Singularity now has a 0.1s cast point
 ==
 ==ability:kinetic-pulse:
-[[/hero/dynamo?ability=kinetic-pulse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_stomp.webp]] Kinetic Pulse change history))
-### [[/hero/dynamo?ability=kinetic-pulse]]((Kinetic Pulse))
+[[/ability/kinetic-pulse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_stomp.webp]] Kinetic Pulse change history))
+### [[/ability/kinetic-pulse]]((Kinetic Pulse))
 - Kinetic Pulse width increased from 4.5m to 5m
 - Kinetic Pulse T3 increased from +115 Damage to +125
 ==
@@ -264,13 +264,13 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 [[/hero/grey-talon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon patch history))
 ## [[/hero/grey-talon]]((Grey Talon))
 ==ability:charged-shot:
-[[/hero/grey-talon?ability=charged-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_charged_shot.webp]] Charged Shot change history))
-### [[/hero/grey-talon?ability=charged-shot]]((Charged Shot))
+[[/ability/charged-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_charged_shot.webp]] Charged Shot change history))
+### [[/ability/charged-shot]]((Charged Shot))
 - Charged Shot collision radius reduced by 10%
 ==
 ==ability:guided-owl:
-[[/hero/grey-talon?ability=guided-owl]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_guided_arrow.webp]] Guided Owl change history))
-### [[/hero/grey-talon?ability=guided-owl]]((Guided Owl))
+[[/ability/guided-owl]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_guided_arrow.webp]] Guided Owl change history))
+### [[/ability/guided-owl]]((Guided Owl))
 - Fixed T3 Guided Owl not triggering correctly sometimes when the target has Spirit Armor
 ==
 =
@@ -279,19 +279,19 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 ==ability:sleep-dagger:
-[[/hero/haze?ability=sleep-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger change history))
-### [[/hero/haze?ability=sleep-dagger]]((Sleep Dagger))
+[[/ability/sleep-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger change history))
+### [[/ability/sleep-dagger]]((Sleep Dagger))
 - Sleep Dagger now puts you in a brief drowsy state for 0.25s seconds where you move slowly before falling asleep (you still have the ability to shoot/cast/move/etc during this period)
 ==
 ==ability:fixation:
-[[/hero/haze?ability=fixation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_fixation.webp]] Fixation change history))
-### [[/hero/haze?ability=fixation]]((Fixation))
+[[/ability/fixation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_fixation.webp]] Fixation change history))
+### [[/ability/fixation]]((Fixation))
 - Fixation T2 from +6s Duration to +5s
 - Fixation T3 reduced from +0.25 to +0.2
 ==
 ==ability:bullet-dance:
-[[/hero/haze?ability=bullet-dance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_bullet_flurry.webp]] Bullet Dance change history))
-### [[/hero/haze?ability=bullet-dance]]((Bullet Dance))
+[[/ability/bullet-dance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_bullet_flurry.webp]] Bullet Dance change history))
+### [[/ability/bullet-dance]]((Bullet Dance))
 - Bullet Dance T1 increased from +6 to +7
 ==
 =
@@ -300,19 +300,19 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 [[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
 ## [[/hero/ivy]]((Ivy))
 ==ability:stone-form:
-[[/hero/ivy?ability=stone-form]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_stone_form.webp]] Stone Form change history))
-### [[/hero/ivy?ability=stone-form]]((Stone Form))
+[[/ability/stone-form]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_stone_form.webp]] Stone Form change history))
+### [[/ability/stone-form]]((Stone Form))
 - Fixed melee still going through when casting Stone Form after initiating a melee attack
 - Stone Form T2 stun reduced from 0.75s to 0.5s
 ==
 ==ability:watcher-s-covenant:
-[[/hero/ivy?ability=kudzu-connection]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_tether.webp]] Watcher's Covenant change history))
-### [[/hero/ivy?ability=kudzu-connection]]((Watcher's Covenant))
+[[/ability/kudzu-connection]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_tether.webp]] Watcher's Covenant change history))
+### [[/ability/kudzu-connection]]((Watcher's Covenant))
 - Watcher's Covenant T1 reduced from +15% Fire Rate to +10%
 ==
 ==ability:air-drop:
-[[/hero/ivy?ability=air-drop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_lightning_crash.webp]] Air Drop change history))
-### [[/hero/ivy?ability=air-drop]]((Air Drop))
+[[/ability/air-drop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_lightning_crash.webp]] Air Drop change history))
+### [[/ability/air-drop]]((Air Drop))
 - Now has a new ultimate ability, Air Drop. Take flight with an Ally (or self-cast to carry a bomb). You fly and drop the ally or bomb onto an area, dealing damage, slowing, and silencing enemies. Ivy and the ally gain a bullet shield when they are dropped. Allies can drop by themselves at any time. When using the ability without an ally (carrying a bomb), it has a 1 second cast time.
 ==
 =
@@ -321,16 +321,16 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 ==ability:arctic-beam:
-[[/hero/kelvin?ability=arctic-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_beam.webp]] Arctic Beam change history))
-### [[/hero/kelvin?ability=arctic-beam]]((Arctic Beam))
+[[/ability/arctic-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_beam.webp]] Arctic Beam change history))
+### [[/ability/arctic-beam]]((Arctic Beam))
 - Arctic Beam no longer applies a Disarm
 - Arctic Beam now slows Fire Rate (same values as slow)
 - Arctic Beam max slow reduced from 90% to 60%
 - Arctic Beam time to reach max slow increased from 1.2s to 2s
 ==
 ==ability:frozen-shelter:
-[[/hero/kelvin?ability=frozen-shelter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/frozen_shelter.webp]] Frozen Shelter change history))
-### [[/hero/kelvin?ability=frozen-shelter]]((Frozen Shelter))
+[[/ability/frozen-shelter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/frozen_shelter.webp]] Frozen Shelter change history))
+### [[/ability/frozen-shelter]]((Frozen Shelter))
 - Frozen Shelter can now be cast while using Arctic Beam
 ==
 =
@@ -341,8 +341,8 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 - Health per boon increased from 37 to 42
 - Base spirit resist increased from 8% to 15%
 ==ability:flog:
-[[/hero/lash?ability=flog]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_flog.webp]] Flog change history))
-### [[/hero/lash?ability=flog]]((Flog))
+[[/ability/flog]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_flog.webp]] Flog change history))
+### [[/ability/flog]]((Flog))
 - Flog cooldown reduced from 30s to 25s
 - Flog T3 now also reduces Fire Rate by 35%
 ==
@@ -353,18 +353,18 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 ## [[/hero/mcginnis]]((McGinnis))
 - Speed while shooting increased from 55% to 70%
 ==ability:mini-turrets:
-[[/hero/mcginnis?ability=mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turrets change history))
-### [[/hero/mcginnis?ability=mini-turret]]((Mini Turrets))
+[[/ability/mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turrets change history))
+### [[/ability/mini-turret]]((Mini Turrets))
 - Mini Turrets now prioritize any heroes McGinnis is shooting at
 ==
 ==ability:medicinal-specter:
-[[/hero/mcginnis?ability=medicinal-specter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_resupply.webp]] Medicinal Specter change history))
-### [[/hero/mcginnis?ability=medicinal-specter]]((Medicinal Specter))
+[[/ability/medicinal-specter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_resupply.webp]] Medicinal Specter change history))
+### [[/ability/medicinal-specter]]((Medicinal Specter))
 - Medicinal Specter duration Spirit Power scaling increased from 0.09 to 0.12
 ==
 ==ability:heavy-barrage:
-[[/hero/mcginnis?ability=heavy-barrage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_rockets.webp]] Heavy Barrage change history))
-### [[/hero/mcginnis?ability=heavy-barrage]]((Heavy Barrage))
+[[/ability/heavy-barrage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_rockets.webp]] Heavy Barrage change history))
+### [[/ability/heavy-barrage]]((Heavy Barrage))
 - Heavy Barrage T1 changed to Rockets apply 35% slow
 ==
 =
@@ -373,8 +373,8 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 [[/hero/mo-krill]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]] Mo & Krill patch history))
 ## [[/hero/mo-krill]]((Mo & Krill))
 ==ability:scorn:
-[[/hero/mo-krill?ability=scorn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_regen.webp]] Scorn change history))
-### [[/hero/mo-krill?ability=scorn]]((Scorn))
+[[/ability/scorn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_regen.webp]] Scorn change history))
+### [[/ability/scorn]]((Scorn))
 - Scorn T3 now affects all damage types
 ==
 =
@@ -384,8 +384,8 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 ## [[/hero/paradox]]((Paradox))
 - Base ammo reduced from 45 to 40
 ==ability:kinetic-carbine:
-[[/hero/paradox?ability=kinetic-carbine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/duo/duo_attack.webp]] Kinetic Carbine change history))
-### [[/hero/paradox?ability=kinetic-carbine]]((Kinetic Carbine))
+[[/ability/kinetic-carbine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/duo/duo_attack.webp]] Kinetic Carbine change history))
+### [[/ability/kinetic-carbine]]((Kinetic Carbine))
 - Kinetic Carbine projectile size reduced by 10%
 - Kinetic Carbine cooldown increased from 24s to 28s
 - Kinetic Carbine speed duration reduced from 4s to 3.5s
@@ -394,13 +394,13 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 - Kinetic Carbine T2 cd reduction increased from -8s to -10s
 ==
 ==ability:time-wall:
-[[/hero/paradox?ability=time-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_wall.webp]] Time Wall change history))
-### [[/hero/paradox?ability=time-wall]]((Time Wall))
+[[/ability/time-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_wall.webp]] Time Wall change history))
+### [[/ability/time-wall]]((Time Wall))
 - Time Wall T3 silence duration reduced from 3.5s to 3s
 ==
 ==ability:paradoxical-swap:
-[[/hero/paradox?ability=paradoxical-swap]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_swap.webp]] Paradoxical Swap change history))
-### [[/hero/paradox?ability=paradoxical-swap]]((Paradoxical Swap))
+[[/ability/paradoxical-swap]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_swap.webp]] Paradoxical Swap change history))
+### [[/ability/paradoxical-swap]]((Paradoxical Swap))
 - Paradoxical Swap projectile size reduced by 10%
 ==
 =
@@ -409,22 +409,22 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 [[/hero/pocket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket patch history))
 ## [[/hero/pocket]]((Pocket))
 ==ability:barrage:
-[[/hero/pocket?ability=barrage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_barrage.webp]] Barrage change history))
-### [[/hero/pocket?ability=barrage]]((Barrage))
+[[/ability/barrage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_barrage.webp]] Barrage change history))
+### [[/ability/barrage]]((Barrage))
 - Barrage now respects line of sight
 - Barrage amp effect now shows on Pocket
 ==
 - Base Bullet Resist increased from -15% to 0%
 - Base Spirit Resist reduced from 0% to -15%
 ==ability:barrage:
-[[/hero/pocket?ability=barrage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_barrage.webp]] Barrage change history))
-### [[/hero/pocket?ability=barrage]]((Barrage))
+[[/ability/barrage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_barrage.webp]] Barrage change history))
+### [[/ability/barrage]]((Barrage))
 - Barrage Amp per stack reduced from 10% to 8%
 - Barrage T3 changed to +5% Amp Per Stack
 ==
 ==ability:flying-cloak:
-[[/hero/pocket?ability=flying-cloak]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_plasma_flux.webp]] Flying Cloak change history))
-### [[/hero/pocket?ability=flying-cloak]]((Flying Cloak))
+[[/ability/flying-cloak]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_plasma_flux.webp]] Flying Cloak change history))
+### [[/ability/flying-cloak]]((Flying Cloak))
 - Fixed the camera moving too slowly after teleporting with Cloak
 ==
 =
@@ -433,18 +433,18 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 [[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
 ## [[/hero/seven]]((Seven))
 ==ability:static-charge:
-[[/hero/seven?ability=static-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_static.webp]] Static Charge change history))
-### [[/hero/seven?ability=static-charge]]((Static Charge))
+[[/ability/static-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_static.webp]] Static Charge change history))
+### [[/ability/static-charge]]((Static Charge))
 - Fixed multiple instances of Static Charge not working correctly
 ==
 ==ability:lightning-ball:
-[[/hero/seven?ability=lightning-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_ball.webp]] Lightning Ball change history))
-### [[/hero/seven?ability=lightning-ball]]((Lightning Ball))
+[[/ability/lightning-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_ball.webp]] Lightning Ball change history))
+### [[/ability/lightning-ball]]((Lightning Ball))
 - Lightning Ball duration increased from 4s to 5s
 ==
 ==ability:static-charge:
-[[/hero/seven?ability=static-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_static.webp]] Static Charge change history))
-### [[/hero/seven?ability=static-charge]]((Static Charge))
+[[/ability/static-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_static.webp]] Static Charge change history))
+### [[/ability/static-charge]]((Static Charge))
 - Static Charge stun delay reduced from 4s to 3.5s
 ==
 =
@@ -453,8 +453,8 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
 ==ability:stake:
-[[/hero/vindicta?ability=stake]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_stake.webp]] Stake change history))
-### [[/hero/vindicta?ability=stake]]((Stake))
+[[/ability/stake]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_stake.webp]] Stake change history))
+### [[/ability/stake]]((Stake))
 - Stake base duration reduced from 2.5s to 2.25s
 - Stake T1 duration reduced from 1s to 0.75s
 ==
@@ -464,34 +464,34 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 [[/hero/viscous]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous patch history))
 ## [[/hero/viscous]]((Viscous))
 ==ability:splatter:
-[[/hero/viscous?ability=splatter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_ball.webp]] Splatter change history))
-### [[/hero/viscous?ability=splatter]]((Splatter))
+[[/ability/splatter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_ball.webp]] Splatter change history))
+### [[/ability/splatter]]((Splatter))
 - Fixed Splatter direct hits counting as the second hit
 ==
 ==ability:goo-ball:
-[[/hero/viscous?ability=goo-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_sphere.webp]] Goo Ball change history))
-### [[/hero/viscous?ability=goo-ball]]((Goo Ball))
+[[/ability/goo-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_sphere.webp]] Goo Ball change history))
+### [[/ability/goo-ball]]((Goo Ball))
 - Fix Damage prevention after being hit by Viscous' Goo Ball being reduced by Debuff Reducer
 ==
 ==ability:the-cube:
-[[/hero/viscous?ability=the-cube]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_restorative_goo.webp]] The Cube change history))
-### [[/hero/viscous?ability=the-cube]]((The Cube))
+[[/ability/the-cube]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_restorative_goo.webp]] The Cube change history))
+### [[/ability/the-cube]]((The Cube))
 - The Cube cast range increased from 25m to 30m
 - The Cube T2 cooldown reduced from -25s to -22s
 ==
 ==ability:puddle-punch:
-[[/hero/viscous?ability=puddle-punch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp]] Puddle Punch change history))
-### [[/hero/viscous?ability=puddle-punch]]((Puddle Punch))
+[[/ability/puddle-punch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp]] Puddle Punch change history))
+### [[/ability/puddle-punch]]((Puddle Punch))
 - Puddle Punch now deals light melee damage and is affected by melee items
 ==
 ==ability:puddle-punch-charge-delay:
-[[/hero/viscous?ability=puddle-punch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp]] Puddle Punch Charge Delay change history))
-### [[/hero/viscous?ability=puddle-punch]]((Puddle Punch Charge Delay))
+[[/ability/puddle-punch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp]] Puddle Punch Charge Delay change history))
+### [[/ability/puddle-punch]]((Puddle Punch Charge Delay))
 - Puddle Punch Charge Delay increased from 0.5s to 1.5s
 ==
 ==ability:goo-ball:
-[[/hero/viscous?ability=goo-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_sphere.webp]] Goo Ball change history))
-### [[/hero/viscous?ability=goo-ball]]((Goo Ball))
+[[/ability/goo-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_sphere.webp]] Goo Ball change history))
+### [[/ability/goo-ball]]((Goo Ball))
 - Goo Ball duration reduced from 12s to 10s
 - Goo Ball T1 duration reduced from +6s to +5s
 - Goo Ball cooldown increased from 80s to 90s
@@ -508,20 +508,20 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 [[/hero/warden]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden patch history))
 ## [[/hero/warden]]((Warden))
 ==ability:binding-word:
-[[/hero/warden?ability=binding-word]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_lock_down.webp]] Binding Word change history))
-### [[/hero/warden?ability=binding-word]]((Binding Word))
+[[/ability/binding-word]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_lock_down.webp]] Binding Word change history))
+### [[/ability/binding-word]]((Binding Word))
 - Binding Word no longer drains 1 stamina
 ==
 ==ability:alchemical-flask:
-[[/hero/warden?ability=alchemical-flask]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_crowd_control.webp]] Alchemical Flask change history))
-### [[/hero/warden?ability=alchemical-flask]]((Alchemical Flask))
+[[/ability/alchemical-flask]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_crowd_control.webp]] Alchemical Flask change history))
+### [[/ability/alchemical-flask]]((Alchemical Flask))
 - Alchemical Flask cooldown reduced from 16s to 13s
 - Alchemical Flask T2 changed from -10s Cooldown to Drains 1 Stamina
 - Alchemical Flask T3 now also reduces cooldown by -7s
 ==
 ==ability:binding-word:
-[[/hero/warden?ability=binding-word]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_lock_down.webp]] Binding Word change history))
-### [[/hero/warden?ability=binding-word]]((Binding Word))
+[[/ability/binding-word]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_lock_down.webp]] Binding Word change history))
+### [[/ability/binding-word]]((Binding Word))
 - Binding Word immobilize duration reduced from 2s to 1.75
 - Binding Word now has a quick cast behavior (same as Static Charge)
 ==
@@ -531,23 +531,23 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 [[/hero/wraith]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp]] Wraith patch history))
 ## [[/hero/wraith]]((Wraith))
 ==ability:card-trick:
-[[/hero/wraith?ability=card-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_card_trick.webp]] Card Trick change history))
-### [[/hero/wraith?ability=card-trick]]((Card Trick))
+[[/ability/card-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_card_trick.webp]] Card Trick change history))
+### [[/ability/card-trick]]((Card Trick))
 - Card Trick now has 0.5s cd per cast
 ==
 ==ability:telekinesis:
-[[/hero/wraith?ability=telekinesis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_lift.webp]] Telekinesis change history))
-### [[/hero/wraith?ability=telekinesis]]((Telekinesis))
+[[/ability/telekinesis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_lift.webp]] Telekinesis change history))
+### [[/ability/telekinesis]]((Telekinesis))
 - Telekinesis T2 duration reduced from +0.75s to +0.5s
 ==
 ==ability:full-auto:
-[[/hero/wraith?ability=full-auto]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_aura.webp]] Full Auto change history))
-### [[/hero/wraith?ability=full-auto]]((Full Auto))
+[[/ability/full-auto]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_aura.webp]] Full Auto change history))
+### [[/ability/full-auto]]((Full Auto))
 - Full Auto T2 changed to Imbues Bullets with +5 Spirit Damage (only affects Wraith)
 ==
 ==ability:telekinesis:
-[[/hero/wraith?ability=telekinesis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_lift.webp]] Telekinesis change history))
-### [[/hero/wraith?ability=telekinesis]]((Telekinesis))
+[[/ability/telekinesis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_lift.webp]] Telekinesis change history))
+### [[/ability/telekinesis]]((Telekinesis))
 - Fixed being able to melee and parry while stunned by Wraith's Telekinesis
 ==
 =
@@ -557,8 +557,8 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 ## [[/hero/yamato]]((Yamato))
 - Base melee damage increased by 10%
 ==ability:flying-strike:
-[[/hero/yamato?ability=flying-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_flying_strike.webp]] Flying Strike change history))
-### [[/hero/yamato?ability=flying-slash]]((Flying Strike))
+[[/ability/flying-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_flying_strike.webp]] Flying Strike change history))
+### [[/ability/flying-slash]]((Flying Strike))
 - Flying Strike T3 now procs after the ability ends, rather than when connecting to the target
 ==
 =

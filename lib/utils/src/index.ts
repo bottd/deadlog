@@ -14,8 +14,27 @@ export {
 	decodeEntityName,
 	entityNameAliases,
 	entityNamesMatch,
+	indexEntityNames,
+	findEntityName,
 	normalizeEntityName
 } from './entityNames';
+
+export { HERO_IMAGE_KEYS, heroImage } from './entityImages';
+
+/** Null groups mean the count is unknown. */
+export function countBullets(
+	groups: readonly { bullets: readonly string[] }[] | null | undefined
+): number | null {
+	return groups?.reduce((total, group) => total + group.bullets.length, 0) ?? null;
+}
+
+/** The shop's three columns, in shop order. */
+export const ITEM_CATEGORIES = ['weapon', 'vitality', 'spirit'] as const;
+export type ItemCategory = (typeof ITEM_CATEGORIES)[number];
+
+export function isItemCategory(value: string): value is ItemCategory {
+	return (ITEM_CATEGORIES as readonly string[]).includes(value);
+}
 
 export {
 	AUTHOR_AVATAR_DIR,
@@ -203,26 +222,6 @@ export function makeSummary(text: string | null | undefined, max = 140): string 
 	return (lastSpace > max * 0.6 ? cut.slice(0, lastSpace) : cut).trimEnd() + '…';
 }
 
-/**
- * Streaks over the newest-first main-changelog sequence: `current` counts members
- * from index 0 (0 when the entity missed the newest patch), `longest` is the best
- * consecutive run anywhere in the sequence.
- */
-export function computeStreaks(
-	orderedIds: readonly string[],
-	memberIds: ReadonlySet<string>
-): { current: number; longest: number } {
-	let current = 0;
-	let longest = 0;
-	let run = 0;
-	for (const [i, id] of orderedIds.entries()) {
-		run = memberIds.has(id) ? run + 1 : 0;
-		if (run > longest) longest = run;
-		if (run === i + 1) current = run;
-	}
-	return { current, longest };
-}
-
 function toDate(date: Date | string): Date {
 	return date instanceof Date ? date : new Date(date);
 }
@@ -252,6 +251,26 @@ export function formatDate(date: Date | string): string {
 		parts.find((part) => part.type === type)?.value ?? '';
 	const day = Number(value('day'));
 	return `${value('month')} ${day}${getOrdinalSuffix(day)}, ${value('year')}`;
+}
+
+const shortDateFormatter = new Intl.DateTimeFormat('en-US', {
+	timeZone: DISPLAY_TIME_ZONE,
+	dateStyle: 'medium'
+});
+
+/** {@link formatDate}'s compact form ("Sep 1, 2026"), for chips and dense lists. */
+export function formatDateShort(date: Date | string): string {
+	return shortDateFormatter.format(toDate(date));
+}
+
+const yearFormatter = new Intl.DateTimeFormat('en-US', {
+	timeZone: DISPLAY_TIME_ZONE,
+	year: 'numeric'
+});
+
+/** The year {@link formatDate} would print. */
+export function formatYear(date: Date | string): string {
+	return yearFormatter.format(toDate(date));
 }
 
 const timeFormatter = new Intl.DateTimeFormat('en-US', {

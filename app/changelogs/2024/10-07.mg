@@ -23,8 +23,8 @@ content_text "Fixed various cases where you could target/select units behind wal
 [[/hero/wraith]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp]] Wraith patch history))
 ## [[/hero/wraith]]((Wraith))
 ==ability:card-trick-spirit:
-[[/hero/wraith?ability=card-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_card_trick.webp]] Card Trick Spirit change history))
-### [[/hero/wraith?ability=card-trick]]((Card Trick Spirit))
+[[/ability/card-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_card_trick.webp]] Card Trick Spirit change history))
+### [[/ability/card-trick]]((Card Trick Spirit))
 - Card Trick Spirit scaling reduced from 1.5 to 1.2
 ==
 =

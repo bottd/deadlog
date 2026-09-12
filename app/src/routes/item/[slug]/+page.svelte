@@ -27,12 +27,10 @@
 <EntityChangelogPage
 	{entity}
 	changelogs={data.changelogs}
-	streaks={data.streaks}
 	accent={categoryMeta.accent}
-	label={categoryMeta.label}
-	lede="{item.isReleased
-		? 'Current catalog item.'
-		: 'Historical item record.'} Entity-specific changes are separated from the rest of each update."
+	label={item.isReleased
+		? categoryMeta.label
+		: `Historical ${categoryMeta.label.toLowerCase()}`}
 	seo={{
 		path: `/item/${item.slug}`,
 		title: data.title,

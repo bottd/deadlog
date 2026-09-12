@@ -114,7 +114,10 @@ export const DEADLOCK_GAME = { '@type': 'VideoGame', name: 'Deadlock' };
 /** One home for the entity-type → listing-page mapping, so back links and breadcrumbs can't drift. */
 export const ENTITY_LISTING = {
 	hero: { path: '/heroes', label: 'Heroes' },
-	item: { path: '/items', label: 'Items' }
+	item: { path: '/items', label: 'Items' },
+	// An ability is reached through its hero, so it shares the hero listing and adds
+	// that hero as a `parent` breadcrumb level below it.
+	ability: { path: '/heroes', label: 'Heroes' }
 } as const;
 
 /** The hero and item pages share this schema wiring exactly — only the entity varies. */
@@ -126,8 +129,10 @@ export function entityCollectionSchema(page: {
 	description: string;
 	image: string;
 	changelogs: readonly { slug: string; title: string; date: Date }[];
+	/** Optional level between the listing and the entity, e.g. an ability's hero. */
+	parent?: { name: string; path: string };
 }) {
-	const { entity, path, title, description, image, changelogs } = page;
+	const { entity, path, title, description, image, changelogs, parent } = page;
 	const listing = ENTITY_LISTING[entity.type];
 	return collectionPageSchema({
 		canonical: absoluteUrl(path),
@@ -143,6 +148,7 @@ export function entityCollectionSchema(page: {
 		breadcrumbs: [
 			{ name: SITE_NAME, path: '/' },
 			{ name: listing.label, path: listing.path },
+			...(parent ? [parent] : []),
 			{ name: entity.name, path }
 		]
 	});

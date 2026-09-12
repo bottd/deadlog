@@ -1,25 +1,32 @@
-import { describe, it, expect, vi } from 'vitest';
+import { beforeEach, describe, it, expect, vi } from 'vitest';
+import type { DrizzleDB, ScrapedChangelog } from '@deadlog/db';
 import {
 	NO_MATCH_ENTITY_ID,
 	resolveEntityIds,
 	parseApiParams,
 	splitPage,
-	enrichChangelogs
+	buildPatchSummaries,
+	searchExcerpt
 } from './changelog-utils';
 import { parseCSV } from '$lib/utils/csv';
 
-vi.mock('@deadlog/scraper', () => ({
-	getChangelogIcons: async () => ({}),
-	getUpdatesForChangelogs: async () => [
-		makeRow({ id: 'hotfix', parentChange: 'patch', contentText: 'Hotfix prose.' })
-	]
+const mocks = vi.hoisted(() => ({ icons: vi.fn(), groups: vi.fn() }));
+vi.mock('@deadlog/db', () => ({
+	getChangelogIcons: mocks.icons,
+	getSelectedChangeGroups: mocks.groups
 }));
 
-function makeRow(overrides: Record<string, unknown> = {}) {
+beforeEach(() => {
+	mocks.icons.mockResolvedValue({});
+	mocks.groups.mockResolvedValue(new Map());
+});
+
+function makeRow(overrides: Partial<ScrapedChangelog> = {}): ScrapedChangelog {
 	return {
 		id: 'patch',
 		title: 'A patch',
 		slug: '2026/01-01-patch',
+		sourceUrl: 'https://forums.playdeadlock.com/threads/1/',
 		author: 'Yoshi',
 		authorImage: '',
 		previewImage: null,
@@ -164,19 +171,104 @@ describe('parseApiParams', () => {
 	});
 });
 
-describe('enrichChangelogs', () => {
-	// Cards render the summary only, but the load functions serialize whatever comes
-	// back into the page payload — contentText leaking here ships the whole patch body
-	// to every client.
-	it('summarizes contentText without passing it through', async () => {
-		// eslint-disable-next-line @typescript-eslint/no-explicit-any
-		const [entry] = await enrichChangelogs({} as any, [makeRow() as any]);
+describe('feed summaries', () => {
+	const db = {} as DrizzleDB;
+	it('keeps the wire payload explicit and JSON-native', async () => {
+		const [entry] = await buildPatchSummaries(db, [makeRow()]);
 
 		expect(entry.summary).toBe('The full prose of the patch body.');
-		expect(entry).not.toHaveProperty('contentText');
+		expect(entry.date).toBe('2026-01-01T00:00:00.000Z');
+		for (const field of [
+			'contentText',
+			'pubDate',
+			'parentChange',
+			'updates',
+			'sourceUrl'
+		]) {
+			expect(entry).not.toHaveProperty(field);
+		}
+	});
 
-		const [update] = entry.updates ?? [];
-		expect(update.summary).toBe('Hotfix prose.');
-		expect(update).not.toHaveProperty('contentText');
+	it('bounds preview icons while preserving the full patch counts', async () => {
+		const heroes = Array.from({ length: 20 }, (_, id) => ({
+			id,
+			type: 'hero',
+			alt: `Hero ${id}`,
+			slug: `hero-${id}`,
+			src: `/hero-${id}.webp`,
+			changeCount: 4
+		}));
+		mocks.icons.mockResolvedValue({ patch: { heroes, items: [] } });
+		const [entry] = await buildPatchSummaries(db, [makeRow()]);
+		expect(entry.icons.heroes).toHaveLength(6);
+		expect(entry.counts.heroes).toBe(20);
+		const [featured] = await buildPatchSummaries(db, [makeRow()], { isFirstPage: true });
+		expect(featured.icons.heroes).toHaveLength(14);
+
+		// A searching first page shows matches, not a widened preview row.
+		const [searched] = await buildPatchSummaries(db, [makeRow()], {
+			isFirstPage: true,
+			q: 'parry'
+		});
+		expect(searched.icons.heroes).toHaveLength(0);
+	});
+
+	it('returns only the selected entity excerpts and avoids unrelated preview icons', async () => {
+		mocks.icons.mockResolvedValue({
+			patch: {
+				heroes: [
+					{
+						id: 1,
+						type: 'hero',
+						alt: 'Abrams',
+						slug: 'abrams',
+						src: '/abrams.webp',
+						changeCount: 2
+					},
+					{
+						id: 2,
+						type: 'hero',
+						alt: 'Bebop',
+						slug: 'bebop',
+						src: '/bebop.webp',
+						changeCount: 8
+					}
+				],
+				items: []
+			}
+		});
+		mocks.groups.mockResolvedValue(
+			new Map([
+				[
+					'patch:hero:1',
+					[{ ability: 'Siphon Life', bullets: ['Radius reduced from 3m to 2m'] }]
+				]
+			])
+		);
+		const [entry] = await buildPatchSummaries(db, [makeRow()], { heroIds: [1] });
+		expect(entry.matches).toEqual([
+			{
+				id: 1,
+				type: 'hero',
+				name: 'Abrams',
+				slug: 'abrams',
+				changeCount: 2,
+				changes: [{ ability: 'Siphon Life', text: 'Radius reduced from 3m to 2m' }]
+			}
+		]);
+		expect(entry.summary).toBe('');
+		expect(entry.icons).toEqual({ heroes: [], items: [] });
+		expect(entry.counts.heroes).toBe(2);
+	});
+
+	it('centers keyword excerpts on the actual match, including long search terms', () => {
+		const text = `${'Unrelated opening notes. '.repeat(30)}Parry cooldown reduced to 4s. More changes.`;
+		expect(searchExcerpt(text, 'parry')).toContain('Parry cooldown reduced to 4s');
+		expect(searchExcerpt(text, 'parry')).toMatch(/^…/);
+		const longQuery = 'a'.repeat(200);
+		expect(
+			searchExcerpt(`${'context '.repeat(30)}${longQuery} ending`, longQuery)
+		).toContain(longQuery);
+		expect(searchExcerpt(`${'x'.repeat(100)}parry`, 'parry')).toContain('parry');
 	});
 });

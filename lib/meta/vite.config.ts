@@ -6,7 +6,6 @@ export default defineConfig({
 		alias: {
 			'@deadlog/changelog': resolve(import.meta.dirname, '../changelog/src/index.ts'),
 			'@deadlog/db': resolve(import.meta.dirname, '../db/src/index.ts'),
-			'@deadlog/scraper': resolve(import.meta.dirname, '../scraper/src/index.ts'),
 			'@deadlog/utils': resolve(import.meta.dirname, '../utils/src/index.ts')
 		}
 	},

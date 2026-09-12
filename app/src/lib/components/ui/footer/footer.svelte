@@ -28,13 +28,18 @@
 				text="muted-foreground sm"
 				class="tracking-wide transition-colors"
 			>
-				dead<span text="primary">log</span><span font="mono" class="text-[10px]">.io</span
+				dead<span text="primary">log</span><span font="mono" class="text-[11px]">.io</span
 				>
 			</span>
 		</a>
 
 		<div flex="~ col" items="center" gap="1.5" text="center">
-			<p text="muted-foreground" font="mono" uppercase class="text-[10px] tracking-wider">
+			<a
+				href="/archive"
+				class="ui-focus-ring text-signal mb-2 inline-flex min-h-11 items-center rounded-sm text-sm underline-offset-4 hover:underline"
+				>Browse all patches</a
+			>
+			<p text="muted-foreground" class="text-xs">
 				Data provided by <a
 					href="https://deadlock-api.com"
 					text="signal"
@@ -43,23 +48,19 @@
 					rel="noopener noreferrer">Deadlock API</a
 				>
 			</p>
-			<p
-				text="muted-foreground/50"
-				font="mono"
-				uppercase
-				class="text-[10px] tracking-wider"
-			>
+			<p text="muted-foreground" class="text-xs">
 				Deadlock is a trademark of Valve Corporation
 			</p>
 		</div>
 
 		<div flex="~" items="center" gap="4">
 			<div bg="signal/20" h="px" w="10"></div>
+			<!-- Full tone at 11px: 9px at 40% alpha under the flicker measured 2.24:1. -->
 			<span
-				text="muted-foreground/40"
+				text="muted-foreground"
 				font="mono"
 				uppercase
-				class="terminal-flicker text-[9px] tracking-[0.25em]"
+				class="terminal-flicker text-[11px] tracking-[0.25em]"
 			>
 				// end transmission
 			</span>

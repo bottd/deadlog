@@ -16,9 +16,7 @@
 	{accent}
 	changelogs={data.changelogs}
 	abilities={data.abilities}
-	streaks={data.streaks}
 	label={hero.heroType ? `${hero.heroType} hero` : 'Hero profile'}
-	lede="Canonical patch history for {hero.name}, with entity-specific changes separated from the rest of each update."
 	seo={{
 		path: `/hero/${hero.slug}`,
 		title: data.title,

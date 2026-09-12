@@ -8,6 +8,7 @@ import {
 	getChangelogsByHeroId,
 	getChangelogsByItemId,
 	getChangelogIcons,
+	getSelectedChangeGroups,
 	getHeroAbilities,
 	getHeroBySlug,
 	getHeroLastModified,
@@ -256,6 +257,44 @@ describe('entity history queries', () => {
 	it('translates the stored shop taxonomy for existing icon consumers', async () => {
 		const icons = await getChangelogIcons(db, ['new']);
 		expect(icons.new.items[0].itemCategory).toBe('weapon');
+		expect(icons.new.heroes[0]).toMatchObject({ src: '/doorman.png', changeCount: 2 });
+		expect(icons.new.heroes[0]).not.toHaveProperty('images');
+		expect(icons.new.heroes[0]).not.toHaveProperty('changeGroups');
+	});
+
+	it('loads excerpt groups only for requested entities and patches', async () => {
+		const groups = await getSelectedChangeGroups(db, ['new'], [69], []);
+		expect([...groups.keys()]).toEqual(['new:hero:69']);
+		expect(groups.get('new:hero:69')).toEqual([
+			{ ability: null, bullets: ['Base bullet damage increased'] },
+			{ ability: 'Doorway', bullets: ['Cooldown reduced from 40s to 32s'] }
+		]);
+		const empty = await getSelectedChangeGroups(db, [], [69], [1]);
+		expect(empty.size).toBe(0);
+	});
+
+	it('keeps large feed/preview reads within D1 binding limits without losing results', async () => {
+		const bindingCounts: number[] = [];
+		const checked = drizzle(client, {
+			schema,
+			logger: {
+				logQuery: (_query, params) => {
+					bindingCounts.push(params.length);
+				}
+			}
+		});
+		const ids = [...Array.from({ length: 100 }, (_, index) => `missing-${index}`), 'new'];
+		const icons = await getChangelogIcons(checked, ids);
+		const groups = await getSelectedChangeGroups(
+			checked,
+			ids,
+			[69, ...Array.from({ length: 19 }, (_, index) => index)],
+			[]
+		);
+		expect(icons.new.heroes[0].alt).toBe('The Doorman');
+		expect(groups.get('new:hero:69')).toHaveLength(2);
+		expect(bindingCounts.length).toBeGreaterThan(0);
+		expect(Math.max(...bindingCounts)).toBeLessThanOrEqual(100);
 	});
 
 	it('reports the newest patch date per entity for the sitemap', async () => {

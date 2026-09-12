@@ -12,12 +12,12 @@
 	bg="card/90"
 	sticky
 	z="50"
-	p="b-4"
-	class="animate-entrance-down backdrop-blur-xl transition-all duration-300 md:pb-5"
+	p="b-3"
+	class="animate-entrance-down backdrop-blur-xl"
 >
 	<div container m="x-auto" p="x-4">
 		<nav aria-label="Primary navigation">
-			<div flex="~" h="16" items="center" justify="between" class="md:h-20">
+			<div flex="~" h="16" items="center" justify="between">
 				<a
 					flex="~"
 					href="/"
@@ -68,7 +68,7 @@
 								p="x-1.5 y-0.5"
 								font="mono medium"
 								uppercase
-								class="hidden rounded text-[10px] tracking-wider md:inline-block"
+								class="hidden rounded text-[11px] tracking-wider md:inline-block"
 							>
 								.io
 							</span>
@@ -87,7 +87,7 @@
 					<a
 						href="/heroes"
 						aria-current={heroesActive ? 'page' : undefined}
-						class="rounded px-2.5 py-2 font-mono text-[10px] font-semibold tracking-wider uppercase transition-colors sm:(px-3 text-xs) {heroesActive
+						class="ui-focus-ring inline-flex min-h-11 items-center rounded px-3 font-mono text-xs font-semibold tracking-wider uppercase transition-colors {heroesActive
 							? 'bg-signal/10 text-signal'
 							: 'text-muted-foreground hover:bg-signal/10 hover:text-signal'}"
 					>
@@ -96,7 +96,7 @@
 					<a
 						href="/items"
 						aria-current={itemsActive ? 'page' : undefined}
-						class="rounded px-2.5 py-2 font-mono text-[10px] font-semibold tracking-wider uppercase transition-colors sm:(px-3 text-xs) {itemsActive
+						class="ui-focus-ring inline-flex min-h-11 items-center rounded px-3 font-mono text-xs font-semibold tracking-wider uppercase transition-colors {itemsActive
 							? 'bg-signal/10 text-signal'
 							: 'text-muted-foreground hover:bg-signal/10 hover:text-signal'}"
 					>
@@ -105,13 +105,7 @@
 				</div>
 			</div>
 		</nav>
-		<div flex="~ col" gap="2">
-			<span flex="~" text="signal xs" items="center" gap="2" font="medium" class="kicker">
-				<span bg="signal/60" h="px" w="3"></span>
-				Search by hero, item, or keyword
-			</span>
-			<FilterInput />
-		</div>
+		<FilterInput />
 	</div>
 </header>
 

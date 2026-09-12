@@ -3,7 +3,7 @@ import { mkdtemp, readFile, rm } from 'fs/promises';
 import { tmpdir } from 'os';
 import { join } from 'path';
 
-import type { EnrichedHero } from '@deadlog/scraper';
+import type { EnrichedHero } from '@deadlog/db';
 
 const mocks = vi.hoisted(() => ({
 	getAllChangelogs: vi.fn(),
@@ -16,18 +16,11 @@ const mocks = vi.hoisted(() => ({
 	render: vi.fn()
 }));
 
-vi.mock('@deadlog/scraper', () => ({
+vi.mock('@deadlog/db', () => ({
 	getAllChangelogs: mocks.getAllChangelogs,
 	getAllHeroes: mocks.getAllHeroes,
 	getAllItems: mocks.getAllItems,
-	getChangelogIcons: mocks.getChangelogIcons
-}));
-
-vi.mock('@deadlog/utils', () => ({
-	formatDate: (date: string) => date
-}));
-
-vi.mock('@deadlog/db', () => ({
+	getChangelogIcons: mocks.getChangelogIcons,
 	getLibsqlDb: mocks.getDb
 }));
 
@@ -163,5 +156,57 @@ describe('preview generation reliability', () => {
 				props: expect.objectContaining({ title: 'Six New Heroes' })
 			})
 		);
+	});
+
+	it('batches icon reads and fetches shared artwork once per generation run', async () => {
+		const image = 'https://images.example/shared.webp';
+		mocks.getAllChangelogs.mockResolvedValue(
+			['first', 'second'].map((id) => ({
+				id,
+				title: id,
+				pubDate: '2026-09-01T20:00:00.000Z',
+				author: 'Yoshi',
+				authorImage: image
+			}))
+		);
+		const icons = {
+			heroes: [],
+			items: [
+				{ id: 1, src: image, alt: 'Item', slug: 'item', type: 'item', changeCount: 1 }
+			]
+		};
+		mocks.getChangelogIcons.mockResolvedValue({ first: icons, second: icons });
+		await runPreviewGenerator({ args: ['--changelog-only'], outputDir });
+		expect(mocks.getChangelogIcons).toHaveBeenCalledTimes(1);
+		expect(mocks.getChangelogIcons).toHaveBeenCalledWith({}, ['first', 'second']);
+		expect(mocks.fetchImageAsDataUri).toHaveBeenCalledTimes(1);
+		await runPreviewGenerator({ args: ['--changelog-only'], outputDir });
+		expect(mocks.fetchImageAsDataUri).toHaveBeenCalledTimes(2);
+	});
+
+	it('refetches shared artwork whose first fetch failed', async () => {
+		const image = 'https://images.example/flaky.webp';
+		mocks.getAllChangelogs.mockResolvedValue(
+			['first', 'second'].map((id) => ({
+				id,
+				title: id,
+				pubDate: '2026-09-01T20:00:00.000Z',
+				author: 'Yoshi',
+				authorImage: image
+			}))
+		);
+		mocks.fetchImageAsDataUri
+			.mockResolvedValueOnce('')
+			.mockResolvedValue('data:image/png;base64,AA==');
+
+		const result = (await runPreviewGenerator({
+			args: ['--changelog-only'],
+			outputDir
+		})) as GeneratePreviewsResult;
+
+		// Only the preview that hit the blip is lost; the rest retry.
+		expect(result.failures).toEqual(['home preview']);
+		expect(result.totalCount).toBe(2);
+		expect(mocks.fetchImageAsDataUri).toHaveBeenCalledTimes(2);
 	});
 });

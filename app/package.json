@@ -15,7 +15,6 @@
 	},
 	"dependencies": {
 		"@deadlog/db": "workspace:*",
-		"@deadlog/scraper": "workspace:*",
 		"@deadlog/utils": "workspace:*"
 	}
 }

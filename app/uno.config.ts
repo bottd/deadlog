@@ -120,8 +120,8 @@ export default defineConfig({
 
 		btn: 'ui-focus-ring inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all active:scale-[0.97] disabled:(pointer-events-none op-50) aria-disabled:(pointer-events-none op-50) [&_svg]:(pointer-events-none shrink-0)',
 		'btn-ghost': 'btn hover:(bg-accent text-accent-foreground)',
-		'btn-sm': 'h-8 gap-1.5 px-3',
-		'btn-icon': 'size-9',
+		'btn-sm': 'h-11 gap-1.5 px-3',
+		'btn-icon': 'size-11',
 
 		badge:
 			'ui-focus-ring inline-flex w-fit shrink-0 items-center justify-center gap-1 overflow-hidden whitespace-nowrap rounded-md border px-2 py-0.5 text-xs font-medium transition-[color,box-shadow] [&>svg]:(pointer-events-none size-3)',
@@ -145,8 +145,8 @@ export default defineConfig({
 		 * `text-sm`/`text-xs` container they sit in (see the `text` comment above).
 		 */
 		kicker: 'font-mono uppercase tracking-widest',
-		'kicker-sm': 'kicker text-[10px]',
-		'kicker-xs': 'kicker text-[9px]',
+		'kicker-sm': 'kicker text-xs',
+		'kicker-xs': 'kicker text-[11px]',
 
 		/**
 		 * Links inside a clipped card ring themselves with an outline rather than

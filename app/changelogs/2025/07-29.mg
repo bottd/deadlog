@@ -70,14 +70,14 @@ content_text "Mid Boss HP is now fixed at the spawn time. Base HP increased from
 - No longer has +10% Base Bullet Resistance
 - Now has +0.3% Bullet Resistance per Boon
 ==ability:exploding-uppercut:
-[[/hero/bebop?ability=exploding-uppercut]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_uppercut.webp]] Exploding Uppercut change history))
-### [[/hero/bebop?ability=exploding-uppercut]]((Exploding Uppercut))
+[[/ability/exploding-uppercut]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_uppercut.webp]] Exploding Uppercut change history))
+### [[/ability/exploding-uppercut]]((Exploding Uppercut))
 - Exploding Uppercut T2 reduced from +50% Weapon Damage to +40%
 - Exploding Uppercut T2 duration reduced from 12s to 9s
 ==
 ==ability:grapple-arm:
-[[/hero/bebop?ability=grapple-arm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hook.webp]] Grapple Arm change history))
-### [[/hero/bebop?ability=grapple-arm]]((Grapple Arm))
+[[/ability/grapple-arm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hook.webp]] Grapple Arm change history))
+### [[/ability/grapple-arm]]((Grapple Arm))
 - Grapple Arm T1 reduced from +25% Weapon Damage to +20%
 - Grapple Arm T1 duration reduced from 10s to 6s
 ==
@@ -87,8 +87,8 @@ content_text "Mid Boss HP is now fixed at the spawn time. Base HP increased from
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 ==ability:kinetic-pulse:
-[[/hero/dynamo?ability=kinetic-pulse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_stomp.webp]] Kinetic Pulse change history))
-### [[/hero/dynamo?ability=kinetic-pulse]]((Kinetic Pulse))
+[[/ability/kinetic-pulse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_stomp.webp]] Kinetic Pulse change history))
+### [[/ability/kinetic-pulse]]((Kinetic Pulse))
 - Kinetic Pulse damage height increased from 0.5m to 0.7m
 ==
 =
@@ -97,13 +97,13 @@ content_text "Mid Boss HP is now fixed at the spawn time. Base HP increased from
 [[/hero/grey-talon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon patch history))
 ## [[/hero/grey-talon]]((Grey Talon))
 ==ability:spirit-snare:
-[[/hero/grey-talon?ability=spirit-snare]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/imobolize_trap.webp]] Spirit Snare change history))
-### [[/hero/grey-talon?ability=spirit-snare]]((Spirit Snare))
+[[/ability/spirit-snare]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/imobolize_trap.webp]] Spirit Snare change history))
+### [[/ability/spirit-snare]]((Spirit Snare))
 - Spirit Snare Curse duration increased from 1.75s to 2s
 ==
 ==ability:guided-owl:
-[[/hero/grey-talon?ability=guided-owl]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_guided_arrow.webp]] Guided Owl change history))
-### [[/hero/grey-talon?ability=guided-owl]]((Guided Owl))
+[[/ability/guided-owl]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_guided_arrow.webp]] Guided Owl change history))
+### [[/ability/guided-owl]]((Guided Owl))
 - Guided Owl cooldown reduced from 135s to 120s
 ==
 =
@@ -112,8 +112,8 @@ content_text "Mid Boss HP is now fixed at the spawn time. Base HP increased from
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 ==ability:arctic-beam:
-[[/hero/kelvin?ability=arctic-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_beam.webp]] Arctic Beam change history))
-### [[/hero/kelvin?ability=arctic-beam]]((Arctic Beam))
+[[/ability/arctic-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_beam.webp]] Arctic Beam change history))
+### [[/ability/arctic-beam]]((Arctic Beam))
 - Arctic Beam T3 no longer bounces off of objectives
 ==
 =
@@ -122,8 +122,8 @@ content_text "Mid Boss HP is now fixed at the spawn time. Base HP increased from
 [[/hero/lady-geist]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]] Lady Geist patch history))
 ## [[/hero/lady-geist]]((Lady Geist))
 ==ability:essence-bomb:
-[[/hero/lady-geist?ability=essence-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/blood_bomb.webp]] Essence Bomb change history))
-### [[/hero/lady-geist?ability=essence-bomb]]((Essence Bomb))
+[[/ability/essence-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/blood_bomb.webp]] Essence Bomb change history))
+### [[/ability/essence-bomb]]((Essence Bomb))
 - Essence Bomb no longer sticks to units
 - Essence Bomb cooldown increased from 10.5 to 14.5
 - Essence Bomb radius increased from 7m to 9m
@@ -137,16 +137,16 @@ content_text "Mid Boss HP is now fixed at the spawn time. Base HP increased from
 ## [[/hero/mcginnis]]((McGinnis))
 - Health per boon reduced from 56 to 52
 ==ability:spectral-wall:
-[[/hero/mcginnis?ability=spectral-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_fissure_2.webp]] Spectral Wall change history))
-### [[/hero/mcginnis?ability=spectral-wall]]((Spectral Wall))
+[[/ability/spectral-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_fissure_2.webp]] Spectral Wall change history))
+### [[/ability/spectral-wall]]((Spectral Wall))
 - Spectral Wall fixed a bug where aiming at long stairs would sometimes cause the preview to go through it
 - Spectral Wall change the preview particle
 - Spectral Wall now supports Lag Compensation
 - Spectral Wall will now erupt where the preview Particle is displaying when manually triggering the Eruption
 ==
 ==ability:turrets:
-[[/hero/mcginnis?ability=mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Turrets change history))
-### [[/hero/mcginnis?ability=mini-turret]]((Turrets))
+[[/ability/mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Turrets change history))
+### [[/ability/mini-turret]]((Turrets))
 - Turrets health per boon reduced from 12 to 10
 ==
 =
@@ -167,8 +167,8 @@ content_text "Mid Boss HP is now fixed at the spawn time. Base HP increased from
 [[/hero/pocket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket patch history))
 ## [[/hero/pocket]]((Pocket))
 ==ability:affliction:
-[[/hero/pocket?ability=affliction]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_affliction.webp]] Affliction change history))
-### [[/hero/pocket?ability=affliction]]((Affliction))
+[[/ability/affliction]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_affliction.webp]] Affliction change history))
+### [[/ability/affliction]]((Affliction))
 - Affliction initial Current HP % damage increased from 10% to 12%
 ==
 =
@@ -179,28 +179,28 @@ content_text "Mid Boss HP is now fixed at the spawn time. Base HP increased from
 - Base movement speed reduced from 7.1 to 6.9
 - Move Speed spirit scaling reduced from 0.023 to 0.02
 ==ability:power-surge:
-[[/hero/seven?ability=power-surge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_chain.webp]] Power Surge change history))
-### [[/hero/seven?ability=power-surge]]((Power Surge))
+[[/ability/power-surge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_chain.webp]] Power Surge change history))
+### [[/ability/power-surge]]((Power Surge))
 - Power Surge T1 and T2 swapped
 ==
 ==ability:storm-cloud:
-[[/hero/seven?ability=storm-cloud]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_storm.webp]] Storm Cloud change history))
-### [[/hero/seven?ability=storm-cloud]]((Storm Cloud))
+[[/ability/storm-cloud]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_storm.webp]] Storm Cloud change history))
+### [[/ability/storm-cloud]]((Storm Cloud))
 - Storm Cloud cooldown increased from 170s to 180s
 ==
 ==ability:storm-cloud-spirit-power:
-[[/hero/seven?ability=storm-cloud]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_storm.webp]] Storm Cloud Spirit Power change history))
-### [[/hero/seven?ability=storm-cloud]]((Storm Cloud Spirit Power))
+[[/ability/storm-cloud]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_storm.webp]] Storm Cloud Spirit Power change history))
+### [[/ability/storm-cloud]]((Storm Cloud Spirit Power))
 - Storm Cloud Spirit Power scaling reduced from 0.7 to 0.65
 ==
 ==ability:storm-cloud-dps:
-[[/hero/seven?ability=storm-cloud]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_storm.webp]] Storm Cloud DPS change history))
-### [[/hero/seven?ability=storm-cloud]]((Storm Cloud DPS))
+[[/ability/storm-cloud]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_storm.webp]] Storm Cloud DPS change history))
+### [[/ability/storm-cloud]]((Storm Cloud DPS))
 - Storm Cloud DPS reduced from 95 to 90
 ==
 ==ability:storm-cloud:
-[[/hero/seven?ability=storm-cloud]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_storm.webp]] Storm Cloud change history))
-### [[/hero/seven?ability=storm-cloud]]((Storm Cloud))
+[[/ability/storm-cloud]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_storm.webp]] Storm Cloud change history))
+### [[/ability/storm-cloud]]((Storm Cloud))
 - Storm Cloud T3 reduced from +65 to +60
 ==
 - Base Sprint speed reduced from 2.0 to 1.0
@@ -215,8 +215,8 @@ content_text "Mid Boss HP is now fixed at the spawn time. Base HP increased from
 - Rage buildup for all damage types increased by 20% (easier to build up)
 - Rage decay duration increased from 9s to 12s
 ==ability:bloodletting:
-[[/hero/shiv?ability=bloodletting]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_bloodletting.webp]] Bloodletting change history))
-### [[/hero/shiv?ability=bloodletting]]((Bloodletting))
+[[/ability/bloodletting]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_bloodletting.webp]] Bloodletting change history))
+### [[/ability/bloodletting]]((Bloodletting))
 - Bloodletting duration reduced from 12s to 6s
 - Bloodletting cooldown reduced from 60s to 45s
 - Bloodletting damage clear increased from 30% to 40%
@@ -234,13 +234,13 @@ content_text "Mid Boss HP is now fixed at the spawn time. Base HP increased from
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
 ==ability:crow:
-[[/hero/vindicta?ability=crow-familiar]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_crow.webp]] Crow change history))
-### [[/hero/vindicta?ability=crow-familiar]]((Crow))
+[[/ability/crow-familiar]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_crow.webp]] Crow change history))
+### [[/ability/crow-familiar]]((Crow))
 - Crow T1 bounce no longer bounces off of objectives
 ==
 ==ability:stake:
-[[/hero/vindicta?ability=stake]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_stake.webp]] Stake change history))
-### [[/hero/vindicta?ability=stake]]((Stake))
+[[/ability/stake]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_stake.webp]] Stake change history))
+### [[/ability/stake]]((Stake))
 - Stake T3 reduced from +2m to +1m
 ==
 =
@@ -249,8 +249,8 @@ content_text "Mid Boss HP is now fixed at the spawn time. Base HP increased from
 [[/hero/viscous]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous patch history))
 ## [[/hero/viscous]]((Viscous))
 ==ability:puddle-punch:
-[[/hero/viscous?ability=puddle-punch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp]] Puddle Punch change history))
-### [[/hero/viscous?ability=puddle-punch]]((Puddle Punch))
+[[/ability/puddle-punch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp]] Puddle Punch change history))
+### [[/ability/puddle-punch]]((Puddle Punch))
 - Puddle Punch cooldown reduced from 30s to 24s
 - Puddle Punch T3 increased from -11.5s Cooldown to -12s
 ==
@@ -261,8 +261,8 @@ content_text "Mid Boss HP is now fixed at the spawn time. Base HP increased from
 ## [[/hero/vyper]]((Vyper))
 - Gun cycle time increased from 0.063 to 0.07 (a nerf)
 ==ability:slither:
-[[/hero/vyper?ability=slither]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viper/viper_snakedash.webp]] Slither change history))
-### [[/hero/vyper?ability=slither]]((Slither))
+[[/ability/slither]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viper/viper_snakedash.webp]] Slither change history))
+### [[/ability/slither]]((Slither))
 - Slither T1 slide distance reduced from +25% to +20%
 ==
 - Headshot Crit value reduced from 80% to 70%
@@ -276,8 +276,8 @@ content_text "Mid Boss HP is now fixed at the spawn time. Base HP increased from
 - Bullet damage growth increased from 0.38 to 0.44
 - DPS reduced from 74 to 70
 ==ability:last-stand:
-[[/hero/warden?ability=last-stand]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_riot_protocol.webp]] Last Stand change history))
-### [[/hero/warden?ability=last-stand]]((Last Stand))
+[[/ability/last-stand]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_riot_protocol.webp]] Last Stand change history))
+### [[/ability/last-stand]]((Last Stand))
 - Last Stand lifesteal vs non-heroes reduced from 15% to 10%
 ==
 =

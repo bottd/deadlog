@@ -60,8 +60,8 @@ content_text "Soul Orbs no longer have special duplication rules before 8 minute
 - Base ammo reduced from 12 to 9
 - Gun damage growth reduced by 25%
 ==ability:gloom-bombs:
-[[/hero/calico?ability=gloom-bombs]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_clustergrenade.webp]] Gloom Bombs change history))
-### [[/hero/calico?ability=gloom-bombs]]((Gloom Bombs))
+[[/ability/gloom-bombs]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_clustergrenade.webp]] Gloom Bombs change history))
+### [[/ability/gloom-bombs]]((Gloom Bombs))
 - Gloom Bombs T1 and T2 swapped
 ==
 =
@@ -72,8 +72,8 @@ content_text "Soul Orbs no longer have special duplication rules before 8 minute
 - HP regen reduced from 2.5 to 1.5
 - Move Speed spirit scaling reduced from 0.025 to 0.014
 ==ability:charged-shot:
-[[/hero/grey-talon?ability=charged-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_charged_shot.webp]] Charged Shot change history))
-### [[/hero/grey-talon?ability=charged-shot]]((Charged Shot))
+[[/ability/charged-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_charged_shot.webp]] Charged Shot change history))
+### [[/ability/charged-shot]]((Charged Shot))
 - Charged Shot damage reduced from 100 to 90
 - Charged Shot spirit scaling reduced from 1.6 to 1.2
 - Charged Shot T3 spirit scaling increased from +0.9 to +1.3
@@ -84,14 +84,14 @@ content_text "Soul Orbs no longer have special duplication rules before 8 minute
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 ==ability:sleep-dagger:
-[[/hero/haze?ability=sleep-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger change history))
-### [[/hero/haze?ability=sleep-dagger]]((Sleep Dagger))
+[[/ability/sleep-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger change history))
+### [[/ability/sleep-dagger]]((Sleep Dagger))
 - Sleep Dagger now causes the target to be unable to slide while drowsy
 - Sleep Dagger T2 now also reduces Stamina Regeneration by 60% for 6s
 ==
 ==ability:bullet-dance:
-[[/hero/haze?ability=bullet-dance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_bullet_flurry.webp]] Bullet Dance change history))
-### [[/hero/haze?ability=bullet-dance]]((Bullet Dance))
+[[/ability/bullet-dance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_bullet_flurry.webp]] Bullet Dance change history))
+### [[/ability/bullet-dance]]((Bullet Dance))
 - Bullet Dance Fire Rate increased from +30% to +35%
 - Bullet Dance T2 increased from -40s Cooldown to -50s
 ==
@@ -103,8 +103,8 @@ content_text "Soul Orbs no longer have special duplication rules before 8 minute
 - Base gun damage reduced from 29 to 26
 - Gun damage growth increased from 1.53 to 1.72
 ==ability:spirit-lasso:
-[[/hero/holliday?ability=spirit-lasso]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_spirit_lasso.webp]] Spirit Lasso change history))
-### [[/hero/holliday?ability=spirit-lasso]]((Spirit Lasso))
+[[/ability/spirit-lasso]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_spirit_lasso.webp]] Spirit Lasso change history))
+### [[/ability/spirit-lasso]]((Spirit Lasso))
 - Lasso bonus bounce pad duration reduced from 1.5 to 1s
 - Fixed being able to Heavy Melee while casting Lasso
 ==
@@ -115,8 +115,8 @@ content_text "Soul Orbs no longer have special duplication rules before 8 minute
 ## [[/hero/ivy]]((Ivy))
 - Headshot hitbox is smaller now (no longer includes the ears)
 ==ability:air-drop:
-[[/hero/ivy?ability=air-drop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_lightning_crash.webp]] Air Drop change history))
-### [[/hero/ivy?ability=air-drop]]((Air Drop))
+[[/ability/air-drop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_lightning_crash.webp]] Air Drop change history))
+### [[/ability/air-drop]]((Air Drop))
 - Fixed visibility issues with Air Drop
 ==
 =
@@ -128,8 +128,8 @@ content_text "Soul Orbs no longer have special duplication rules before 8 minute
 - Now gains +1% Spirit Resist per boon
 - Base Sprint reduced from 2 to 1.5
 ==ability:frozen-shelter:
-[[/hero/kelvin?ability=frozen-shelter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/frozen_shelter.webp]] Frozen Shelter change history))
-### [[/hero/kelvin?ability=frozen-shelter]]((Frozen Shelter))
+[[/ability/frozen-shelter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/frozen_shelter.webp]] Frozen Shelter change history))
+### [[/ability/frozen-shelter]]((Frozen Shelter))
 - Frozen Shelter cooldown increased from 130s to 140s
 - Frozen Shelter T2 Cooldown increased from -40s to -50s
 ==
@@ -145,13 +145,13 @@ content_text "Soul Orbs no longer have special duplication rules before 8 minute
 [[/hero/lash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp]] Lash patch history))
 ## [[/hero/lash]]((Lash))
 ==ability:ground-strike:
-[[/hero/lash?ability=ground-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_death_slam.webp]] Ground Strike change history))
-### [[/hero/lash?ability=ground-strike]]((Ground Strike))
+[[/ability/ground-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_death_slam.webp]] Ground Strike change history))
+### [[/ability/ground-strike]]((Ground Strike))
 - Ground Strike base damage reduced from 90 to 75
 ==
 ==ability:death-slam:
-[[/hero/lash?ability=death-slam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_counter_lash.webp]] Death Slam change history))
-### [[/hero/lash?ability=death-slam]]((Death Slam))
+[[/ability/death-slam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_counter_lash.webp]] Death Slam change history))
+### [[/ability/death-slam]]((Death Slam))
 - Death Slam lock-on time increased from 0.6s to 0.7s
 ==
 =
@@ -160,13 +160,13 @@ content_text "Soul Orbs no longer have special duplication rules before 8 minute
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 ==ability:mini-turret:
-[[/hero/mcginnis?ability=mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turret change history))
-### [[/hero/mcginnis?ability=mini-turret]]((Mini Turret))
+[[/ability/mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turret change history))
+### [[/ability/mini-turret]]((Mini Turret))
 - Mini Turrets tracking speed increased by 15%
 ==
 ==ability:mini-turrets:
-[[/hero/mcginnis?ability=mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turrets change history))
-### [[/hero/mcginnis?ability=mini-turret]]((Mini Turrets))
+[[/ability/mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turrets change history))
+### [[/ability/mini-turret]]((Mini Turrets))
 - Mini Turrets bullet velocity increased by 10%
 - Mini Turrets T3 now also increases duration by 18s
 ==
@@ -177,13 +177,13 @@ content_text "Soul Orbs no longer have special duplication rules before 8 minute
 ## [[/hero/mirage]]((Mirage))
 - Base Health reduced from 550 to 500
 ==ability:djinn-s-mark:
-[[/hero/mirage?ability=djinns-mark]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_sand_phantom.webp]] Djinn's Mark change history))
-### [[/hero/mirage?ability=djinns-mark]]((Djinn's Mark))
+[[/ability/djinns-mark]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_sand_phantom.webp]] Djinn's Mark change history))
+### [[/ability/djinns-mark]]((Djinn's Mark))
 - Djinn's Mark T1 slow reduced from 80% to 60%
 ==
 ==ability:fire-scarabs:
-[[/hero/mirage?ability=fire-scarabs]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_fire_beetles.webp]] Fire Scarabs change history))
-### [[/hero/mirage?ability=fire-scarabs]]((Fire Scarabs))
+[[/ability/fire-scarabs]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_fire_beetles.webp]] Fire Scarabs change history))
+### [[/ability/fire-scarabs]]((Fire Scarabs))
 - Fire Scarabs Bullet Resist Reduction reduced from -10% to -8%
 ==
 =
@@ -192,19 +192,19 @@ content_text "Soul Orbs no longer have special duplication rules before 8 minute
 [[/hero/mo-krill]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]] Mo & Krill patch history))
 ## [[/hero/mo-krill]]((Mo & Krill))
 ==ability:burrow:
-[[/hero/mo-krill?ability=burrow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_spin.webp]] Burrow change history))
-### [[/hero/mo-krill?ability=burrow]]((Burrow))
+[[/ability/burrow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_spin.webp]] Burrow change history))
+### [[/ability/burrow]]((Burrow))
 - Burrow T2 reduced from +140 Damage to +100
 - Burrow spirit scaling increased from 1.4 to 1.7
 ==
 ==ability:combo-dps:
-[[/hero/mo-krill?ability=combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo DPS change history))
-### [[/hero/mo-krill?ability=combo]]((Combo DPS))
+[[/ability/combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo DPS change history))
+### [[/ability/combo]]((Combo DPS))
 - Combo DPS reduced from 60 to 40
 ==
 ==ability:combo:
-[[/hero/mo-krill?ability=combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo change history))
-### [[/hero/mo-krill?ability=combo]]((Combo))
+[[/ability/combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo change history))
+### [[/ability/combo]]((Combo))
 - Combo spirit scaling increased from 1.1 to 1.3
 ==
 =
@@ -213,8 +213,8 @@ content_text "Soul Orbs no longer have special duplication rules before 8 minute
 [[/hero/paradox]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox patch history))
 ## [[/hero/paradox]]((Paradox))
 ==ability:kinetic-carbine:
-[[/hero/paradox?ability=kinetic-carbine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/duo/duo_attack.webp]] Kinetic Carbine change history))
-### [[/hero/paradox?ability=kinetic-carbine]]((Kinetic Carbine))
+[[/ability/kinetic-carbine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/duo/duo_attack.webp]] Kinetic Carbine change history))
+### [[/ability/kinetic-carbine]]((Kinetic Carbine))
 - Kinetic Carbine T2 reduced from -10s Cooldown to -8s
 ==
 =
@@ -225,8 +225,8 @@ content_text "Soul Orbs no longer have special duplication rules before 8 minute
 - Base bullet damage reduced from 4.5 to 3.9
 - Bullet damage growth increased from 0.28 to 0.32
 ==ability:enchanter-s-satchel:
-[[/hero/pocket?ability=enchanters-satchel]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_pulse.webp]] Enchanter's Satchel change history))
-### [[/hero/pocket?ability=enchanters-satchel]]((Enchanter's Satchel))
+[[/ability/enchanters-satchel]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_pulse.webp]] Enchanter's Satchel change history))
+### [[/ability/enchanters-satchel]]((Enchanter's Satchel))
 - Enchanter's Satchel damage reduced from 100 to 70
 - Enchanter's Satchel T2 damage increased from +80 to +110
 ==
@@ -236,8 +236,8 @@ content_text "Soul Orbs no longer have special duplication rules before 8 minute
 [[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
 ## [[/hero/seven]]((Seven))
 ==ability:storm-cloud:
-[[/hero/seven?ability=storm-cloud]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_storm.webp]] Storm Cloud change history))
-### [[/hero/seven?ability=storm-cloud]]((Storm Cloud))
+[[/ability/storm-cloud]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_storm.webp]] Storm Cloud change history))
+### [[/ability/storm-cloud]]((Storm Cloud))
 - Storm Cloud lightning bolt damage reduced from 150 to 100
 - Storm Cloud lightning bolt radius increased from 6m to 7m
 ==
@@ -248,34 +248,34 @@ content_text "Soul Orbs no longer have special duplication rules before 8 minute
 ## [[/hero/sinclair]]((Sinclair))
 - Bullet damage reduced from 23 to 20
 ==ability:rabbit-hex:
-[[/hero/sinclair?ability=rabbit-hex]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_animalcurse.webp]] Rabbit Hex change history))
-### [[/hero/sinclair?ability=rabbit-hex]]((Rabbit Hex))
+[[/ability/rabbit-hex]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_animalcurse.webp]] Rabbit Hex change history))
+### [[/ability/rabbit-hex]]((Rabbit Hex))
 - Fixed Rabbit Hex Damage Amp not affecting allied damage
 ==
 ==ability:rabbit-hex-damage-amp:
-[[/hero/sinclair?ability=rabbit-hex]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_animalcurse.webp]] Rabbit Hex Damage Amp change history))
-### [[/hero/sinclair?ability=rabbit-hex]]((Rabbit Hex Damage Amp))
+[[/ability/rabbit-hex]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_animalcurse.webp]] Rabbit Hex Damage Amp change history))
+### [[/ability/rabbit-hex]]((Rabbit Hex Damage Amp))
 - Rabbit Hex Damage Amp reduced from 25% to 15%
 - Rabbit Hex Damage Amp spirit scaling reduced from 0.1 to 0.06
 ==
 ==ability:rabbit-hex:
-[[/hero/sinclair?ability=rabbit-hex]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_animalcurse.webp]] Rabbit Hex change history))
-### [[/hero/sinclair?ability=rabbit-hex]]((Rabbit Hex))
+[[/ability/rabbit-hex]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_animalcurse.webp]] Rabbit Hex change history))
+### [[/ability/rabbit-hex]]((Rabbit Hex))
 - Rabbit Hex T3 now also increases Damage Amp by +5%
 ==
 ==ability:rabbit-hex-move-speed:
-[[/hero/sinclair?ability=rabbit-hex]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_animalcurse.webp]] Rabbit Hex Move Speed change history))
-### [[/hero/sinclair?ability=rabbit-hex]]((Rabbit Hex Move Speed))
+[[/ability/rabbit-hex]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_animalcurse.webp]] Rabbit Hex Move Speed change history))
+### [[/ability/rabbit-hex]]((Rabbit Hex Move Speed))
 - Rabbit Hex Move Speed increased from 15% to 22%
 ==
 ==ability:rabbit-hex:
-[[/hero/sinclair?ability=rabbit-hex]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_animalcurse.webp]] Rabbit Hex change history))
-### [[/hero/sinclair?ability=rabbit-hex]]((Rabbit Hex))
+[[/ability/rabbit-hex]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_animalcurse.webp]] Rabbit Hex change history))
+### [[/ability/rabbit-hex]]((Rabbit Hex))
 - Rabbit Hex no longer deals 80 damage
 ==
 ==ability:vexing-bolt:
-[[/hero/sinclair?ability=vexing-bolt]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_magicbolt.webp]] Vexing Bolt change history))
-### [[/hero/sinclair?ability=vexing-bolt]]((Vexing Bolt))
+[[/ability/vexing-bolt]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/magician/magician_magicbolt.webp]] Vexing Bolt change history))
+### [[/ability/vexing-bolt]]((Vexing Bolt))
 - Vexing Bolt min damage reduced from 75 to 65
 - Vexing Bolt max damage reduced from 150 to 130
 ==
@@ -285,13 +285,13 @@ content_text "Soul Orbs no longer have special duplication rules before 8 minute
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
 ==ability:crow-familiar-cooldown:
-[[/hero/vindicta?ability=crow-familiar]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_crow.webp]] Crow Familiar Cooldown change history))
-### [[/hero/vindicta?ability=crow-familiar]]((Crow Familiar Cooldown))
+[[/ability/crow-familiar]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_crow.webp]] Crow Familiar Cooldown change history))
+### [[/ability/crow-familiar]]((Crow Familiar Cooldown))
 - Crow Familiar Cooldown increased from 26s to 28s
 ==
 ==ability:crow-familiar:
-[[/hero/vindicta?ability=crow-familiar]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_crow.webp]] Crow Familiar change history))
-### [[/hero/vindicta?ability=crow-familiar]]((Crow Familiar))
+[[/ability/crow-familiar]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_crow.webp]] Crow Familiar change history))
+### [[/ability/crow-familiar]]((Crow Familiar))
 - Crow Familiar T3 Spirit and Bullet Resist Reduction reduced from -12% to -8%
 ==
 =

@@ -68,7 +68,7 @@ describe('entity and ability headings', () => {
 			'=hero:abrams:\n[[/hero/abrams]](([[!:https://cdn.example/abrams.webp]] Abrams patch history))\n## [[/hero/abrams]]((Abrams))'
 		);
 		expect(out).toContain(
-			'==ability:shoulder-charge:\n[[/hero/abrams?ability=shoulder-charge]](([[!:https://cdn.example/charge.webp]] Shoulder Charge change history))\n### [[/hero/abrams?ability=shoulder-charge]]((Shoulder Charge))'
+			'==ability:shoulder-charge:\n[[/ability/shoulder-charge]](([[!:https://cdn.example/charge.webp]] Shoulder Charge change history))\n### [[/ability/shoulder-charge]]((Shoulder Charge))'
 		);
 	});
 
@@ -120,7 +120,7 @@ describe('entity and ability headings', () => {
 			assets
 		);
 		expect(linked).toContain(
-			'### [[/hero/abrams?ability=shoulder-charge]]((Shoulder Charge Cooldown))'
+			'### [[/ability/shoulder-charge]]((Shoulder Charge Cooldown))'
 		);
 
 		const unresolved = generateStructuredContent(

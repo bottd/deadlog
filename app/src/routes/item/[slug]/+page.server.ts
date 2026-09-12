@@ -1,10 +1,4 @@
-import {
-	getReleasedItemSlugs,
-	getItemBySlug,
-	getChangelogsByItemId,
-	getMainChangelogIdSequence
-} from '@deadlog/scraper';
-import { computeStreaks } from '@deadlog/utils';
+import { getReleasedItemSlugs, getItemBySlug, getChangelogsByItemId } from '@deadlog/db';
 import { error, redirect } from '@sveltejs/kit';
 import type { PageServerLoad, EntryGenerator } from './$types';
 import { absoluteUrl } from '$lib/seo';
@@ -26,10 +20,7 @@ export const load: PageServerLoad = async ({ params, locals, url }) => {
 	}
 	if (item.slug !== params.slug) redirect(308, `/item/${item.slug}${url.search}`);
 
-	const [changelogs, patchSequence] = await Promise.all([
-		getChangelogsByItemId(locals.db, item.id),
-		getMainChangelogIdSequence(locals.db)
-	]);
+	const changelogs = await getChangelogsByItemId(locals.db, item.id);
 
 	const enrichedChangelogs = changelogs.map((changelog) => ({
 		...changelog,
@@ -39,7 +30,6 @@ export const load: PageServerLoad = async ({ params, locals, url }) => {
 	return {
 		item,
 		changelogs: enrichedChangelogs,
-		streaks: computeStreaks(patchSequence, new Set(changelogs.map((c) => c.id))),
 		title: `${item.name} Deadlock Changes: Buffs & Nerfs | Deadlog`,
 		description: `Track every ${item.name} buff, nerf, and balance change across Deadlock patch notes in chronological order.`,
 		image: absoluteUrl(`/assets/meta/item/${params.slug}.png`)

@@ -124,33 +124,33 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 - Reverted Melee attack speed reduction.
 
 ==ability:shoulder-charge:
-[[/hero/abrams?ability=shoulder-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_charge.webp]] Shoulder Charge change history))
-### [[/hero/abrams?ability=shoulder-charge]]((Shoulder Charge))
+[[/ability/shoulder-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_charge.webp]] Shoulder Charge change history))
+### [[/ability/shoulder-charge]]((Shoulder Charge))
 
 - Shoulder Charge can now again use left/right strafe to slightly change direction.
 - Shoulder Charge now carries momentum at the end of the charge.
 ==
 ==ability:siphon-life:
-[[/hero/abrams?ability=siphon-life]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_drain.webp]] Siphon Life change history))
-### [[/hero/abrams?ability=siphon-life]]((Siphon Life))
+[[/ability/siphon-life]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_drain.webp]] Siphon Life change history))
+### [[/ability/siphon-life]]((Siphon Life))
 
 - Siphon Life spirit scaling increased from 0.3 to 0.36.
 ==
 ==ability:infernal-resilience-damage-regen:
-### [[/hero/abrams?ability=infernal-resilience]]((Infernal Resilience Damage Regen))
+### [[/ability/infernal-resilience]]((Infernal Resilience Damage Regen))
 
 - Infernal Resilience Damage Regen reduced from 15% to 14%.
 - Infernal Resilience Damage Regen duration increased from 18s to 20s.
 ==
 ==ability:infernal-resilience:
-[[/hero/abrams?ability=infernal-resilience]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_beef.webp]] Infernal Resilience change history))
-### [[/hero/abrams?ability=infernal-resilience]]((Infernal Resilience))
+[[/ability/infernal-resilience]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_beef.webp]] Infernal Resilience change history))
+### [[/ability/infernal-resilience]]((Infernal Resilience))
 
 - Infernal Resilience T3 reduced from +8% to +7%.
 ==
 ==ability:seismic-impact:
-[[/hero/abrams?ability=seismic-impact]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_jump.webp]] Seismic Impact change history))
-### [[/hero/abrams?ability=seismic-impact]]((Seismic Impact))
+[[/ability/seismic-impact]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_jump.webp]] Seismic Impact change history))
+### [[/ability/seismic-impact]]((Seismic Impact))
 
 - Fixed an issue where Seismic impact would travel more downwards instead of the facing direction.
 ==
@@ -160,8 +160,8 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 ## [[/hero/bebop]]((Bebop))
 
 ==ability:sticky-bomb:
-[[/hero/bebop?ability=sticky-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_sticky_bomb.webp]] Sticky Bomb change history))
-### [[/hero/bebop?ability=sticky-bomb]]((Sticky Bomb))
+[[/ability/sticky-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_sticky_bomb.webp]] Sticky Bomb change history))
+### [[/ability/sticky-bomb]]((Sticky Bomb))
 
 - Sticky Bomb damage gained per hero impact increased from 1% to 1.5%.
 - Sticky Bomb damage gained per hero kill reduced from 5% to 4%.
@@ -176,8 +176,8 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 - Hook damage now has spirit scaling of 2x.
 ==
 ==ability:hyper-beam:
-[[/hero/bebop?ability=hyper-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hyper_beam.webp]] Hyper Beam change history))
-### [[/hero/bebop?ability=hyper-beam]]((Hyper Beam))
+[[/ability/hyper-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hyper_beam.webp]] Hyper Beam change history))
+### [[/ability/hyper-beam]]((Hyper Beam))
 
 - Hyper Beam now goes on cooldown for 3 seconds when canceled during precast.
 ==
@@ -189,20 +189,20 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 - Now gains 1% Bullet Resist per Boon (0->14%).
 
 ==ability:quantum-entanglement:
-[[/hero/dynamo?ability=quantum-entanglement]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_quantum.webp]] Quantum Entanglement change history))
-### [[/hero/dynamo?ability=quantum-entanglement]]((Quantum Entanglement))
+[[/ability/quantum-entanglement]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_quantum.webp]] Quantum Entanglement change history))
+### [[/ability/quantum-entanglement]]((Quantum Entanglement))
 
 - Fixed Quantum Entanglement sometimes not moving you to the destination properly.
 ==
 ==ability:singularity:
-[[/hero/dynamo?ability=singularity]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_vacuum.webp]] Singularity change history))
-### [[/hero/dynamo?ability=singularity]]((Singularity))
+[[/ability/singularity]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_vacuum.webp]] Singularity change history))
+### [[/ability/singularity]]((Singularity))
 
 - Singularity now deals 1.5% Max HP in the base ability.
 - Singularity T3 increased from 3.8% to 4%.
 ==
 ==ability:singularity-base-dps:
-### [[/hero/dynamo?ability=singularity]]((Singularity Base DPS))
+### [[/ability/singularity]]((Singularity Base DPS))
 
 - Singularity Base DPS reduced from 60 to 45.
 ==
@@ -216,14 +216,14 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 - Falloff range rescaled from 22m->58m to 18m->54m.
 
 ==ability:rain-of-arrows:
-[[/hero/grey-talon?ability=rain-of-arrows]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_power_jump.webp]] Rain of Arrows change history))
-### [[/hero/grey-talon?ability=rain-of-arrows]]((Rain of Arrows))
+[[/ability/rain-of-arrows]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_power_jump.webp]] Rain of Arrows change history))
+### [[/ability/rain-of-arrows]]((Rain of Arrows))
 
 - Rain of Arrows strafe distance with stamina reduced by 30%.
 ==
 ==ability:charged-shot:
-[[/hero/grey-talon?ability=charged-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_charged_shot.webp]] Charged Shot change history))
-### [[/hero/grey-talon?ability=charged-shot]]((Charged Shot))
+[[/ability/charged-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_charged_shot.webp]] Charged Shot change history))
+### [[/ability/charged-shot]]((Charged Shot))
 
 - Charged Shot hitbox size reduced by 20%.
 ==
@@ -233,16 +233,16 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 ## [[/hero/haze]]((Haze))
 
 ==ability:bullet-dance:
-[[/hero/haze?ability=bullet-dance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_bullet_flurry.webp]] Bullet Dance change history))
-### [[/hero/haze?ability=bullet-dance]]((Bullet Dance))
+[[/ability/bullet-dance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_bullet_flurry.webp]] Bullet Dance change history))
+### [[/ability/bullet-dance]]((Bullet Dance))
 
 - Bullet Dance no longer hits 2 targets.
 - Bullet Dance now grants +30% Fire Rate.
 - Bullet Dance now allows you to use items during it.
 ==
 ==ability:sleep-dagger:
-[[/hero/haze?ability=sleep-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger change history))
-### [[/hero/haze?ability=sleep-dagger]]((Sleep Dagger))
+[[/ability/sleep-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger change history))
+### [[/ability/sleep-dagger]]((Sleep Dagger))
 
 - Sleep Dagger T3 now also causes targets to wake up with -40% Fire Rate.
 ==
@@ -257,8 +257,8 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 - Catalyst slow reduced from 40% to 35%.
 ==
 ==ability:afterburn:
-[[/hero/infernus?ability=afterburn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_deflect.webp]] Afterburn change history))
-### [[/hero/infernus?ability=afterburn]]((Afterburn))
+[[/ability/afterburn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_deflect.webp]] Afterburn change history))
+### [[/ability/afterburn]]((Afterburn))
 
 - Afterburn buildup per bullet/headshot reduced from 10%/16% to 9%/14%.
 ==
@@ -283,20 +283,20 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 ## [[/hero/lash]]((Lash))
 
 ==ability:ground-strike:
-[[/hero/lash?ability=ground-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_death_slam.webp]] Ground Strike change history))
-### [[/hero/lash?ability=ground-strike]]((Ground Strike))
+[[/ability/ground-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_death_slam.webp]] Ground Strike change history))
+### [[/ability/ground-strike]]((Ground Strike))
 
 - Ground Strike can now be cast while on the zipline.
 ==
 ==ability:death-slam:
-[[/hero/lash?ability=death-slam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_counter_lash.webp]] Death Slam change history))
-### [[/hero/lash?ability=death-slam]]((Death Slam))
+[[/ability/death-slam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_counter_lash.webp]] Death Slam change history))
+### [[/ability/death-slam]]((Death Slam))
 
 - Fixed interaction between Mirage's tornado and Death Slam.
 ==
 ==ability:ground-strike:
-[[/hero/lash?ability=ground-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_death_slam.webp]] Ground Strike change history))
-### [[/hero/lash?ability=ground-strike]]((Ground Strike))
+[[/ability/ground-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_death_slam.webp]] Ground Strike change history))
+### [[/ability/ground-strike]]((Ground Strike))
 
 - Ground Strike now pulls enemies to the ground with you (similar to Stone Form recently).
 ==
@@ -306,12 +306,12 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 ## [[/hero/mcginnis]]((McGinnis))
 
 ==ability:mini-turrets-dps:
-### [[/hero/mcginnis?ability=mini-turret]]((Mini Turrets DPS))
+### [[/ability/mini-turret]]((Mini Turrets DPS))
 
 - Mini Turrets DPS reduced from 60 to 40.
 ==
 ==ability:mini-turrets:
-### [[/hero/mcginnis?ability=mini-turret]]((Mini Turrets))
+### [[/ability/mini-turret]]((Mini Turrets))
 
 - Mini Turrets health reduced from 20% max HP to 15%.
 ==
@@ -333,8 +333,8 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 - Tornado Lift Duration reduced from 1.1s to 1s.
 ==
 ==ability:fire-scarabs:
-[[/hero/mirage?ability=fire-scarabs]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_fire_beetles.webp]] Fire Scarabs change history))
-### [[/hero/mirage?ability=fire-scarabs]]((Fire Scarabs))
+[[/ability/fire-scarabs]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_fire_beetles.webp]] Fire Scarabs change history))
+### [[/ability/fire-scarabs]]((Fire Scarabs))
 
 - Fire Scarabs T2 reduced from -15% Bullet Resist to -10%.
 ==
@@ -346,8 +346,8 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 - Bullet velocity increased from 411 to 525.
 
 ==ability:time-wall:
-[[/hero/paradox?ability=time-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_wall.webp]] Time Wall change history))
-### [[/hero/paradox?ability=time-wall]]((Time Wall))
+[[/ability/time-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_wall.webp]] Time Wall change history))
+### [[/ability/time-wall]]((Time Wall))
 
 - Time Wall no longer has charges.
 - Time Wall no longer deals 10% Max Health Damage.
@@ -355,13 +355,13 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 - Time Wall T2 is now Deals 10% Max Health Damage.
 ==
 ==ability:kinetic-carbine-max-damage-amp:
-### [[/hero/paradox?ability=kinetic-carbine]]((Kinetic Carbine Max Damage Amp))
+### [[/ability/kinetic-carbine]]((Kinetic Carbine Max Damage Amp))
 
 - Kinetic Carbine Max Damage Amp increased from 85% to 100%.
 ==
 ==ability:paradoxical-swap:
-[[/hero/paradox?ability=paradoxical-swap]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_swap.webp]] Paradoxical Swap change history))
-### [[/hero/paradox?ability=paradoxical-swap]]((Paradoxical Swap))
+[[/ability/paradoxical-swap]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_swap.webp]] Paradoxical Swap change history))
+### [[/ability/paradoxical-swap]]((Paradoxical Swap))
 
 - Paradoxical Swap time to complete the swap reduced from 0.5-1.5 to 0.3-0.6 (variable based on distance).
 ==
@@ -371,8 +371,8 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 ## [[/hero/pocket]]((Pocket))
 
 ==ability:barrage:
-[[/hero/pocket?ability=barrage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_barrage.webp]] Barrage change history))
-### [[/hero/pocket?ability=barrage]]((Barrage))
+[[/ability/barrage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_barrage.webp]] Barrage change history))
+### [[/ability/barrage]]((Barrage))
 
 - Barrage spirit scaling increased from 0.4 to 0.5.
 ==
@@ -387,26 +387,26 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 - Bullet damage growth per boon increased from 0.65 to 0.8 (same total damage later on).
 
 ==ability:stake:
-[[/hero/vindicta?ability=stake]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_stake.webp]] Stake change history))
-### [[/hero/vindicta?ability=stake]]((Stake))
+[[/ability/stake]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_stake.webp]] Stake change history))
+### [[/ability/stake]]((Stake))
 
 - Stake duration increased from 1.75s to 2s.
 ==
 ==ability:flight:
-[[/hero/vindicta?ability=flight]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_flight.webp]] Flight change history))
-### [[/hero/vindicta?ability=flight]]((Flight))
+[[/ability/flight]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_flight.webp]] Flight change history))
+### [[/ability/flight]]((Flight))
 
 - Flight T2 reduced from +8s to +6s.
 ==
 ==ability:crow-familiar:
-[[/hero/vindicta?ability=crow-familiar]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_crow.webp]] Crow Familiar change history))
-### [[/hero/vindicta?ability=crow-familiar]]((Crow Familiar))
+[[/ability/crow-familiar]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_crow.webp]] Crow Familiar change history))
+### [[/ability/crow-familiar]]((Crow Familiar))
 
 - Crow Familiar tick rate changed from every 0.5s to every 1s.
 ==
 ==ability:assassinate:
-[[/hero/vindicta?ability=assassinate]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_assassinate.webp]] Assassinate change history))
-### [[/hero/vindicta?ability=assassinate]]((Assassinate))
+[[/ability/assassinate]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_assassinate.webp]] Assassinate change history))
+### [[/ability/assassinate]]((Assassinate))
 
 - Assassinate starts at 25% power instead of 50% power.
 ==
@@ -416,14 +416,14 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 ## [[/hero/viscous]]((Viscous))
 
 ==ability:the-cube:
-[[/hero/viscous?ability=the-cube]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_restorative_goo.webp]] The Cube change history))
-### [[/hero/viscous?ability=the-cube]]((The Cube))
+[[/ability/the-cube]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_restorative_goo.webp]] The Cube change history))
+### [[/ability/the-cube]]((The Cube))
 
 - The Cube health regen now scales with spirit at 0.2.
 ==
 ==ability:goo-ball:
-[[/hero/viscous?ability=goo-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_sphere.webp]] Goo Ball change history))
-### [[/hero/viscous?ability=goo-ball]]((Goo Ball))
+[[/ability/goo-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_sphere.webp]] Goo Ball change history))
+### [[/ability/goo-ball]]((Goo Ball))
 
 - Goo Ball down dash ability moved from T3 to base ability.
 - Goo Ball size now increases with range upgrades (doesn't affect collision with world).
@@ -438,8 +438,8 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 - Bullet Velocity increased from 213 to 290.
 
 ==ability:last-stand:
-[[/hero/warden?ability=last-stand]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_riot_protocol.webp]] Last Stand change history))
-### [[/hero/warden?ability=last-stand]]((Last Stand))
+[[/ability/last-stand]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_riot_protocol.webp]] Last Stand change history))
+### [[/ability/last-stand]]((Last Stand))
 
 - Last Stand now goes on cooldown if you die or the ability is interrupted while cast.
 - Last Stand T3 no longer grants unstoppable during channel.
@@ -451,8 +451,8 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 ## [[/hero/wraith]]((Wraith))
 
 ==ability:telekinesis:
-[[/hero/wraith?ability=telekinesis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_lift.webp]] Telekinesis change history))
-### [[/hero/wraith?ability=telekinesis]]((Telekinesis))
+[[/ability/telekinesis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_lift.webp]] Telekinesis change history))
+### [[/ability/telekinesis]]((Telekinesis))
 
 - Telekinesis cast time increased from 0.6 to 0.7.
 - Telekinesis damage reduced from 200 to 175.
@@ -463,8 +463,8 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 ## [[/hero/yamato]]((Yamato))
 
 ==ability:shadow-transformation:
-[[/hero/yamato?ability=shadow-transformation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]] Shadow Transformation change history))
-### [[/hero/yamato?ability=shadow-transformation]]((Shadow Transformation))
+[[/ability/shadow-transformation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]] Shadow Transformation change history))
+### [[/ability/shadow-transformation]]((Shadow Transformation))
 
 - Shadow Transformation now affects the grapple time speed.
 - Shadow Transformation duration increased from 4s to 6s.

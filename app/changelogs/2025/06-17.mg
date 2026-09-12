@@ -57,20 +57,20 @@ content_text "Removed the Arch Monument. Removed the rope entrances to Mid Boss.
 [[/hero/calico]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp]] Calico patch history))
 ## [[/hero/calico]]((Calico))
 ==ability:ava:
-[[/hero/calico?ability=ava]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_catform.webp]] Ava change history))
-### [[/hero/calico?ability=ava]]((Ava))
+[[/ability/ava]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_catform.webp]] Ava change history))
+### [[/ability/ava]]((Ava))
 - Ava no longer automatically breaks boxes, instead you can use the melee hotkey to do a pounce attack to break them
 ==
 - Base Health reduced from 700 to 650
 - Base Health Growth reduced by 13%
 ==ability:leaping-slash:
-[[/hero/calico?ability=leaping-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_dash.webp]] Leaping Slash change history))
-### [[/hero/calico?ability=leaping-slash]]((Leaping Slash))
+[[/ability/leaping-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_dash.webp]] Leaping Slash change history))
+### [[/ability/leaping-slash]]((Leaping Slash))
 - Leaping Slash melee multiplier has been reduced from 1.6 to 1.3
 ==
 ==ability:return-to-shadows:
-[[/hero/calico?ability=return-to-shadows]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_shadow_pulse.webp]] Return to Shadows change history))
-### [[/hero/calico?ability=return-to-shadows]]((Return to Shadows))
+[[/ability/return-to-shadows]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_shadow_pulse.webp]] Return to Shadows change history))
+### [[/ability/return-to-shadows]]((Return to Shadows))
 - Return to Shadows T3 reduced from +30% Amp to +24%
 ==
 =
@@ -79,8 +79,8 @@ content_text "Removed the Arch Monument. Removed the rope entrances to Mid Boss.
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 ==ability:arctic-beam:
-[[/hero/kelvin?ability=arctic-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_beam.webp]] Arctic Beam change history))
-### [[/hero/kelvin?ability=arctic-beam]]((Arctic Beam))
+[[/ability/arctic-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_beam.webp]] Arctic Beam change history))
+### [[/ability/arctic-beam]]((Arctic Beam))
 - Arctic Beam T1 reduced from -7.5s Cooldown to -7s
 - Arctic Beam T3 range reduced from 13m to 10m
 ==
@@ -91,13 +91,13 @@ content_text "Removed the Arch Monument. Removed the rope entrances to Mid Boss.
 ## [[/hero/lady-geist]]((Lady Geist))
 - Base bullet damage reduced from 26 to 23
 ==ability:life-drain:
-[[/hero/lady-geist?ability=life-drain]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/life_drain.webp]] Life Drain change history))
-### [[/hero/lady-geist?ability=life-drain]]((Life Drain))
+[[/ability/life-drain]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/life_drain.webp]] Life Drain change history))
+### [[/ability/life-drain]]((Life Drain))
 - Life Drain self slow increased from 25% to 40%
 ==
 ==ability:soul-exchange:
-[[/hero/lady-geist?ability=soul-exchange]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/blood_exchange.webp]] Soul Exchange change history))
-### [[/hero/lady-geist?ability=soul-exchange]]((Soul Exchange))
+[[/ability/soul-exchange]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/blood_exchange.webp]] Soul Exchange change history))
+### [[/ability/soul-exchange]]((Soul Exchange))
 - Soul Exchange cast range reduced from 7m to 6m
 ==
 =
@@ -106,18 +106,18 @@ content_text "Removed the Arch Monument. Removed the rope entrances to Mid Boss.
 [[/hero/viscous]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous patch history))
 ## [[/hero/viscous]]((Viscous))
 ==ability:goo-ball:
-[[/hero/viscous?ability=goo-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_sphere.webp]] Goo Ball change history))
-### [[/hero/viscous?ability=goo-ball]]((Goo Ball))
+[[/ability/goo-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_sphere.webp]] Goo Ball change history))
+### [[/ability/goo-ball]]((Goo Ball))
 - Goo Ball hitbox size increased a bit (easier to hit him)
 ==
 ==ability:splatter:
-[[/hero/viscous?ability=splatter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_ball.webp]] Splatter change history))
-### [[/hero/viscous?ability=splatter]]((Splatter))
+[[/ability/splatter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_ball.webp]] Splatter change history))
+### [[/ability/splatter]]((Splatter))
 - Splatter second bounce damage has been reduced from 70% damage to 50% damage. Damage is now 100%, 50%, 50% for first, second and third hit.
 ==
 ==ability:goo-ball:
-[[/hero/viscous?ability=goo-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_sphere.webp]] Goo Ball change history))
-### [[/hero/viscous?ability=goo-ball]]((Goo Ball))
+[[/ability/goo-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_sphere.webp]] Goo Ball change history))
+### [[/ability/goo-ball]]((Goo Ball))
 - Goo Ball damage reduced from 140 to 120
 ==
 =
@@ -126,18 +126,18 @@ content_text "Removed the Arch Monument. Removed the rope entrances to Mid Boss.
 [[/hero/warden]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden patch history))
 ## [[/hero/warden]]((Warden))
 ==ability:last-stand:
-[[/hero/warden?ability=last-stand]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_riot_protocol.webp]] Last Stand change history))
-### [[/hero/warden?ability=last-stand]]((Last Stand))
+[[/ability/last-stand]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_riot_protocol.webp]] Last Stand change history))
+### [[/ability/last-stand]]((Last Stand))
 - Last Stand no longer gets reduced cooldown when interrupted
 ==
 ==ability:last-stand-dps:
-[[/hero/warden?ability=last-stand]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_riot_protocol.webp]] Last Stand DPS change history))
-### [[/hero/warden?ability=last-stand]]((Last Stand DPS))
+[[/ability/last-stand]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_riot_protocol.webp]] Last Stand DPS change history))
+### [[/ability/last-stand]]((Last Stand DPS))
 - Last Stand DPS reduced from 90 to 80
 ==
 ==ability:last-stand:
-[[/hero/warden?ability=last-stand]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_riot_protocol.webp]] Last Stand change history))
-### [[/hero/warden?ability=last-stand]]((Last Stand))
+[[/ability/last-stand]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_riot_protocol.webp]] Last Stand change history))
+### [[/ability/last-stand]]((Last Stand))
 - Last Stand T2 DPS reduced from +60 to +50
 - Last Stand spirit scaling increased from 1.4 to 1.6
 ==
@@ -149,20 +149,20 @@ content_text "Removed the Arch Monument. Removed the rope entrances to Mid Boss.
 - Base health reduced from 700 to 650
 - Bullet damage growth reduced by 18%
 ==ability:card-trick:
-[[/hero/wraith?ability=card-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_card_trick.webp]] Card Trick change history))
-### [[/hero/wraith?ability=card-trick]]((Card Trick))
+[[/ability/card-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_card_trick.webp]] Card Trick change history))
+### [[/ability/card-trick]]((Card Trick))
 - Card Trick damage reduced from 70 to 60
 - Card Trick spirit scaling increased from 0.84 to 1.1
 - Card Trick T3 now also applies a 25% Slow for 1s
 ==
 ==ability:full-auto:
-[[/hero/wraith?ability=full-auto]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_aura.webp]] Full Auto change history))
-### [[/hero/wraith?ability=full-auto]]((Full Auto))
+[[/ability/full-auto]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_aura.webp]] Full Auto change history))
+### [[/ability/full-auto]]((Full Auto))
 - Full Auto T2 reduced from 4 Spirit Damage to 3
 ==
 ==ability:project-mind:
-[[/hero/wraith?ability=project-mind]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_teleport.webp]] Project Mind change history))
-### [[/hero/wraith?ability=project-mind]]((Project Mind))
+[[/ability/project-mind]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_teleport.webp]] Project Mind change history))
+### [[/ability/project-mind]]((Project Mind))
 - Project Mind improved teleport targeting to remove cases where Wraith would clip nearby geo unintentionally
 ==
 =

@@ -85,13 +85,13 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 ## [[/hero/abrams]]((Abrams))
 - Bullet damage reduced from 3.86+0.13/boon to 3.6+0.1/boon
 ==ability:siphon-life-dps:
-[[/hero/abrams?ability=siphon-life]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_drain.webp]] Siphon Life DPS change history))
-### [[/hero/abrams?ability=siphon-life]]((Siphon Life DPS))
+[[/ability/siphon-life]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_drain.webp]] Siphon Life DPS change history))
+### [[/ability/siphon-life]]((Siphon Life DPS))
 - Siphon Life DPS reduced from 29 to 22
 ==
 ==ability:siphon-life:
-[[/hero/abrams?ability=siphon-life]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_drain.webp]] Siphon Life change history))
-### [[/hero/abrams?ability=siphon-life]]((Siphon Life))
+[[/ability/siphon-life]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_drain.webp]] Siphon Life change history))
+### [[/ability/siphon-life]]((Siphon Life))
 - Siphon Life range reduced from 10m to 7.5m
 - Siphon Life is now circular rather than just in front of him
 - Siphon Life range no longer increases with Spirit Power
@@ -100,45 +100,45 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Siphon Life Lifesteal against non-heroes increased from 33% to 40%
 ==
 ==ability:siphon-life-dps:
-[[/hero/abrams?ability=siphon-life]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_drain.webp]] Siphon Life DPS change history))
-### [[/hero/abrams?ability=siphon-life]]((Siphon Life DPS))
+[[/ability/siphon-life]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_drain.webp]] Siphon Life DPS change history))
+### [[/ability/siphon-life]]((Siphon Life DPS))
 - Siphon Life DPS spirit scaling increased from 0.5 to 0.6
 ==
 ==ability:siphon-life:
-[[/hero/abrams?ability=siphon-life]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_drain.webp]] Siphon Life change history))
-### [[/hero/abrams?ability=siphon-life]]((Siphon Life))
+[[/ability/siphon-life]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_drain.webp]] Siphon Life change history))
+### [[/ability/siphon-life]]((Siphon Life))
 - Siphon Life T1 increased from -19s to -20s
 - Siphon Life T3 now also increases radius by +3.5m
 - Siphon Life T3 DPS reduced from 20 to 18
 ==
 ==ability:shoulder-charge:
-[[/hero/abrams?ability=shoulder-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_charge.webp]] Shoulder Charge change history))
-### [[/hero/abrams?ability=shoulder-charge]]((Shoulder Charge))
+[[/ability/shoulder-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_charge.webp]] Shoulder Charge change history))
+### [[/ability/shoulder-charge]]((Shoulder Charge))
 - Shoulder Charge damage reduced from 37 to 30
 - Shoulder Charge wall stun duration reduced from 0.6s to 0.3s
 ==
 ==ability:should-charge:
-[[/hero/abrams?ability=shoulder-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_charge.webp]] Should Charge change history))
-### [[/hero/abrams?ability=shoulder-charge]]((Should Charge))
+[[/ability/shoulder-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_charge.webp]] Should Charge change history))
+### [[/ability/shoulder-charge]]((Should Charge))
 - Should Charge spirit scaling reduced from 1.9 to 1.4
 ==
 ==ability:shoulder-charge:
-[[/hero/abrams?ability=shoulder-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_charge.webp]] Shoulder Charge change history))
-### [[/hero/abrams?ability=shoulder-charge]]((Shoulder Charge))
+[[/ability/shoulder-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_charge.webp]] Shoulder Charge change history))
+### [[/ability/shoulder-charge]]((Shoulder Charge))
 - Shoulder Charge T1 changed from "+2.2 Weapon Damage for 8s" to "+40% Slow for 3s"
 - Shoulder Charge T2 wall stun duration increased from 0.45s to 0.8s
 - Shoulder Charge T3 cooldown increased from -18s to -20s
 - Shoulder Charge T3 now also grants +1.5 Weapon Damage for 6s
 ==
 ==ability:infernal-resilience:
-[[/hero/abrams?ability=infernal-resilience]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_beef.webp]] Infernal Resilience change history))
-### [[/hero/abrams?ability=infernal-resilience]]((Infernal Resilience))
+[[/ability/infernal-resilience]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_beef.webp]] Infernal Resilience change history))
+### [[/ability/infernal-resilience]]((Infernal Resilience))
 - Infernal Resilience T2 increased from +150 Health to +200
 - Infernal Resilience T3 now also grants +20% Debuff Resistance
 ==
 ==ability:seismic-impact:
-[[/hero/abrams?ability=seismic-impact]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_jump.webp]] Seismic Impact change history))
-### [[/hero/abrams?ability=seismic-impact]]((Seismic Impact))
+[[/ability/seismic-impact]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_jump.webp]] Seismic Impact change history))
+### [[/ability/seismic-impact]]((Seismic Impact))
 - Seismic Impact is a little faster to target the location when rising
 - Seismic Impact damage increase from 75 to 100
 - Seismic Impact now allows you to use items during it
@@ -148,19 +148,19 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 ==
 - Melee damage per boon increased by 10%
 ==ability:siphon-life:
-[[/hero/abrams?ability=siphon-life]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_drain.webp]] Siphon Life change history))
-### [[/hero/abrams?ability=siphon-life]]((Siphon Life))
+[[/ability/siphon-life]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_drain.webp]] Siphon Life change history))
+### [[/ability/siphon-life]]((Siphon Life))
 - Siphon Life range increased from 7.5m to 8m
 - Siphon Life T3 range reduced from +3.5m to +3m
 ==
 ==ability:infernal-resilience:
-[[/hero/abrams?ability=infernal-resilience]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_beef.webp]] Infernal Resilience change history))
-### [[/hero/abrams?ability=infernal-resilience]]((Infernal Resilience))
+[[/ability/infernal-resilience]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_beef.webp]] Infernal Resilience change history))
+### [[/ability/infernal-resilience]]((Infernal Resilience))
 - Infernal Resilience T3 increased from +7% Damage Regenerated to +8%
 ==
 ==ability:seismic-impact:
-[[/hero/abrams?ability=seismic-impact]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_jump.webp]] Seismic Impact change history))
-### [[/hero/abrams?ability=seismic-impact]]((Seismic Impact))
+[[/ability/seismic-impact]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_jump.webp]] Seismic Impact change history))
+### [[/ability/seismic-impact]]((Seismic Impact))
 - Seismic Impact impact height increased from 4m to 6m
 - Seismic Impact T2 increased from +0.6s Stun Duration to +0.7s
 - Seismic Impact T3 Unstoppable duration increased from 4s to 5s
@@ -171,32 +171,32 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 [[/hero/apollo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/fencer_sm.webp]] Apollo patch history))
 ## [[/hero/apollo]]((Apollo))
 ==ability:riposte:
-[[/hero/apollo?ability=riposte]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/fencer/fencer_riposte.webp]] Riposte change history))
-### [[/hero/apollo?ability=riposte]]((Riposte))
+[[/ability/riposte]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/fencer/fencer_riposte.webp]] Riposte change history))
+### [[/ability/riposte]]((Riposte))
 - Fixed Riposte not leaving the ground when started on the ground
 - Riposte no longer triggers from trooper or neutral damage
 ==
 ==ability:flawless-advance:
-[[/hero/apollo?ability=flawless-advance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/fencer/fencer_lungingstab.webp]] Flawless Advance change history))
-### [[/hero/apollo?ability=flawless-advance]]((Flawless Advance))
+[[/ability/flawless-advance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/fencer/fencer_lungingstab.webp]] Flawless Advance change history))
+### [[/ability/flawless-advance]]((Flawless Advance))
 - Flawless Advance T2 no longer increases Apollo's lunge speed
 - Flawless Advance now gets interrupted by stun and sleep
 ==
 ==ability:itani-lo-sahn:
-[[/hero/apollo?ability=itani-lo-sahn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/fencer/fencer_ult.webp]] Itani Lo Sahn change history))
-### [[/hero/apollo?ability=itani-lo-sahn]]((Itani Lo Sahn))
+[[/ability/itani-lo-sahn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/fencer/fencer_ult.webp]] Itani Lo Sahn change history))
+### [[/ability/itani-lo-sahn]]((Itani Lo Sahn))
 - Itani Lo Sahn base damage reduced from 225 to 190 and spirit scaling increased from 1.6 to 2.3
 - Itani Lo Sahn's hit width no longer scales with radius increases
 ==
 ==ability:flawless-advance:
-[[/hero/apollo?ability=flawless-advance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/fencer/fencer_lungingstab.webp]] Flawless Advance change history))
-### [[/hero/apollo?ability=flawless-advance]]((Flawless Advance))
+[[/ability/flawless-advance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/fencer/fencer_lungingstab.webp]] Flawless Advance change history))
+### [[/ability/flawless-advance]]((Flawless Advance))
 - Flawless Advance T3 now also increases Apollo's attacking lunge speed
 ==
 - Bullet damage increased from 17 to 18.5
 ==ability:riposte:
-[[/hero/apollo?ability=riposte]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/fencer/fencer_riposte.webp]] Riposte change history))
-### [[/hero/apollo?ability=riposte]]((Riposte))
+[[/ability/riposte]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/fencer/fencer_riposte.webp]] Riposte change history))
+### [[/ability/riposte]]((Riposte))
 - Riposte T2 melee resist reduction increased from -22% to -30%
 - Riposte T3 increased from +1.2s Stun to +1.6s
 ==
@@ -206,8 +206,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 [[/hero/bebop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop patch history))
 ## [[/hero/bebop]]((Bebop))
 ==ability:grapple-arm:
-[[/hero/bebop?ability=grapple-arm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hook.webp]] Grapple Arm change history))
-### [[/hero/bebop?ability=grapple-arm]]((Grapple Arm))
+[[/ability/grapple-arm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hook.webp]] Grapple Arm change history))
+### [[/ability/grapple-arm]]((Grapple Arm))
 - Hook can now be canceled
 ==
 =
@@ -216,15 +216,15 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 [[/hero/billy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/punkgoat_sm.webp]] Billy patch history))
 ## [[/hero/billy]]((Billy))
 ==ability:bashdown:
-[[/hero/billy?ability=bashdown]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/punkgoat/goat_sigilslam.webp]] Bashdown change history))
-### [[/hero/billy?ability=bashdown]]((Bashdown))
+[[/ability/bashdown]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/punkgoat/goat_sigilslam.webp]] Bashdown change history))
+### [[/ability/bashdown]]((Bashdown))
 - Bashdown radius reduced from 4.5m to 4m
 - Bashdown T2 changed from "+1.3m Radius" to "+1 Charge and +2m Radius"
 - Bashdown T3 now also reduces charge time by 2s
 ==
 ==ability:rising-ram:
-[[/hero/billy?ability=rising-ram]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/punkgoat/goat_risingram.webp]] Rising Ram change history))
-### [[/hero/billy?ability=rising-ram]]((Rising Ram))
+[[/ability/rising-ram]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/punkgoat/goat_risingram.webp]] Rising Ram change history))
+### [[/ability/rising-ram]]((Rising Ram))
 - Rising Ram damage reduced from 55 to 40
 - Rising Ram damage spirit scaling increased from 1.7 to 1.9
 - Rising Ram cooldown reduced by 50% on impact
@@ -234,8 +234,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Rising Ram T3 increased from 6.5% Max Health to 8%
 ==
 ==ability:blasted:
-[[/hero/billy?ability=blasted]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/punkgoat/goat_blasted.webp]] Blasted change history))
-### [[/hero/billy?ability=blasted]]((Blasted))
+[[/ability/blasted]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/punkgoat/goat_blasted.webp]] Blasted change history))
+### [[/ability/blasted]]((Blasted))
 - Blasted spirit scaling reduced from 0.8 to 0.6
 - Blasted active duration no longer slows down the decay when doing bullet damage (melee still extends it though)
 - Blasted passive no longer reduces enemy fire rate by -14%
@@ -243,8 +243,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Blasted T3 now also increases spirit scaling by +0.6
 ==
 ==ability:chain-gang:
-[[/hero/billy?ability=chain-gang]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/punkgoat/goat_chaingang.webp]] Chain Gang change history))
-### [[/hero/billy?ability=chain-gang]]((Chain Gang))
+[[/ability/chain-gang]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/punkgoat/goat_chaingang.webp]] Chain Gang change history))
+### [[/ability/chain-gang]]((Chain Gang))
 - Chain Gang radius reduced from 13m to 12m
 - Chain Gang no longer grants +15% Spirit and Bullet Resist
 - Chain Gang cooldown increased from 125s to 150s
@@ -255,8 +255,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Chain Gang T3 now also increases the radius by +5m
 ==
 ==ability:rising-ram:
-[[/hero/billy?ability=rising-ram]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/punkgoat/goat_risingram.webp]] Rising Ram change history))
-### [[/hero/billy?ability=rising-ram]]((Rising Ram))
+[[/ability/rising-ram]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/punkgoat/goat_risingram.webp]] Rising Ram change history))
+### [[/ability/rising-ram]]((Rising Ram))
 - Rising Ram now uses a break-off angle when grounded, allowing upward movement if looking up enough
 ==
 =
@@ -270,16 +270,16 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 ==
 - Now fires an additional pellet right down the center (DPS is the same). The center pellet is now considered the primary pellet for headshots.
 ==ability:gloom-bombs:
-[[/hero/calico?ability=gloom-bombs]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_clustergrenade.webp]] Gloom Bombs change history))
-### [[/hero/calico?ability=gloom-bombs]]((Gloom Bombs))
+[[/ability/gloom-bombs]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_clustergrenade.webp]] Gloom Bombs change history))
+### [[/ability/gloom-bombs]]((Gloom Bombs))
 - Gloom Bombs changed so the first grenade always lands in the middle
 - Gloom Bombs projectile sticky radius increased from 10 to 15
 - Gloom Bombs cast delay reduced from 0.15s to 0.1s
 - Gloom Bombs T2 changed from +16.2 damage to +75 bonus damage vs barriers
 ==
 ==ability:leaping-slash:
-[[/hero/calico?ability=leaping-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_dash.webp]] Leaping Slash change history))
-### [[/hero/calico?ability=leaping-slash]]((Leaping Slash))
+[[/ability/leaping-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_dash.webp]] Leaping Slash change history))
+### [[/ability/leaping-slash]]((Leaping Slash))
 - Leaping Slash improved targeting of dash to end early if near enemy heroes
 - Leaping Slash can now dash vertically, even while on the ground
 - Leaping Slash T2 changed from +40 damage to +300 souls on hero kill
@@ -287,8 +287,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Leaping Slash radius reduced from 4.5m to 4m
 ==
 ==ability:ava:
-[[/hero/calico?ability=ava]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_catform.webp]] Ava change history))
-### [[/hero/calico?ability=ava]]((Ava))
+[[/ability/ava]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_catform.webp]] Ava change history))
+### [[/ability/ava]]((Ava))
 - Ava can no longer manipulate movement if meleeing while midair
 - Ava now uses healthbar modifier style for duration
 - Ava fixed camera not being centered around Ava
@@ -304,26 +304,26 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Ava T3 changed from -20s Cooldown and +35 Health Regen to a growing damage amp the longer you are transformed, up to 20% for 6s
 ==
 ==ability:return-to-shadows:
-[[/hero/calico?ability=return-to-shadows]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_shadow_pulse.webp]] Return To Shadows change history))
-### [[/hero/calico?ability=return-to-shadows]]((Return To Shadows))
+[[/ability/return-to-shadows]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_shadow_pulse.webp]] Return To Shadows change history))
+### [[/ability/return-to-shadows]]((Return To Shadows))
 - Return To Shadows now allows for some vertical flight movement during channel
 - Return To Shadows now has new channel bar
 ==
 ==ability:return-to-shadows:
-[[/hero/calico?ability=return-to-shadows]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_shadow_pulse.webp]] Return to Shadows change history))
-### [[/hero/calico?ability=return-to-shadows]]((Return to Shadows))
+[[/ability/return-to-shadows]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_shadow_pulse.webp]] Return to Shadows change history))
+### [[/ability/return-to-shadows]]((Return to Shadows))
 - Return to Shadows T2 reduced from 67.5 Damage to 65
 - Return to Shadows T3 no longer grants +18% Damage Amp for 6s, but grants 350 healing instead
 ==
 - Move speed reduced from 7.2 to 6.8
 ==ability:gloom-bombs:
-[[/hero/calico?ability=gloom-bombs]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_clustergrenade.webp]] Gloom Bombs change history))
-### [[/hero/calico?ability=gloom-bombs]]((Gloom Bombs))
+[[/ability/gloom-bombs]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_clustergrenade.webp]] Gloom Bombs change history))
+### [[/ability/gloom-bombs]]((Gloom Bombs))
 - Fixed Gloom Bombs T2 giving an extra +15 flat bonus (released a couple days ago)
 ==
 ==ability:leaping-slash:
-[[/hero/calico?ability=leaping-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_dash.webp]] Leaping Slash change history))
-### [[/hero/calico?ability=leaping-slash]]((Leaping Slash))
+[[/ability/leaping-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_dash.webp]] Leaping Slash change history))
+### [[/ability/leaping-slash]]((Leaping Slash))
 - Leaping Slash scaling reduced from 1.5 to 1.2
 - Leaping Slash T2 reduced from 300 Souls to 225
 - Leaping Slash scaling reduced from 1.2 to 0.8
@@ -331,13 +331,13 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Leaping Slash T2 reduced from "+225s within 4s" to "+200 within 3s"
 ==
 ==ability:ava:
-[[/hero/calico?ability=ava]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_catform.webp]] Ava change history))
-### [[/hero/calico?ability=ava]]((Ava))
+[[/ability/ava]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_catform.webp]] Ava change history))
+### [[/ability/ava]]((Ava))
 - Ava is no longer disabled by damage over time abilities (same as zipline rules)
 ==
 ==ability:return-to-shadows:
-[[/hero/calico?ability=return-to-shadows]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_shadow_pulse.webp]] Return to Shadows change history))
-### [[/hero/calico?ability=return-to-shadows]]((Return to Shadows))
+[[/ability/return-to-shadows]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_shadow_pulse.webp]] Return to Shadows change history))
+### [[/ability/return-to-shadows]]((Return to Shadows))
 - Return to Shadows move speed reduced from 30% to 20%
 - Return to Shadows cooldown increased from 90s to 100s
 ==
@@ -349,26 +349,26 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Gravity reduced from -20% to -28% (less gravity)
 - Air Control/Acceleration reduced from +50/18% to +38/12% (less air control and acceleration)
 ==ability:shining-wonder:
-[[/hero/celeste?ability=shining-wonder]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_orb.webp]] Shining Wonder change history))
-### [[/hero/celeste?ability=shining-wonder]]((Shining Wonder))
+[[/ability/shining-wonder]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_orb.webp]] Shining Wonder change history))
+### [[/ability/shining-wonder]]((Shining Wonder))
 - Shining Wonder bounce range reduced from 17m to 15m
 - Shining Wonder linger duration reduced from 4.5s to 3.25s
 ==
 - Gravity from 28% to 25% (was 20% previous patch)
 - Air Control increased from 38% to 44% (was 50% previous patch)
 ==ability:light-eater:
-[[/hero/celeste?ability=light-eater]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_flare.webp]] Light Eater change history))
-### [[/hero/celeste?ability=light-eater]]((Light Eater))
+[[/ability/light-eater]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_flare.webp]] Light Eater change history))
+### [[/ability/light-eater]]((Light Eater))
 - Light Eater on hit damage reduced from 25 to 20
 ==
 ==ability:dazzling-trick:
-[[/hero/celeste?ability=dazzling-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_shield.webp]] Dazzling Trick change history))
-### [[/hero/celeste?ability=dazzling-trick]]((Dazzling Trick))
+[[/ability/dazzling-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_shield.webp]] Dazzling Trick change history))
+### [[/ability/dazzling-trick]]((Dazzling Trick))
 - Dazzling Trick barrier spirit scaling reduced from 1.1 to 0.8
 ==
 ==ability:shining-wonder:
-[[/hero/celeste?ability=shining-wonder]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_orb.webp]] Shining Wonder change history))
-### [[/hero/celeste?ability=shining-wonder]]((Shining Wonder))
+[[/ability/shining-wonder]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_orb.webp]] Shining Wonder change history))
+### [[/ability/shining-wonder]]((Shining Wonder))
 - Shining Wonder no longer refunds half cooldown on miss
 - Shining Wonder linger time reduced from 3.25s to 3s
 ==
@@ -376,26 +376,26 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Gun now has falloff 22m->60m
 - Bullet damage increased from 18+0.6 to 22+0.7
 ==ability:light-eater:
-[[/hero/celeste?ability=light-eater]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_flare.webp]] Light Eater change history))
-### [[/hero/celeste?ability=light-eater]]((Light Eater))
+[[/ability/light-eater]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_flare.webp]] Light Eater change history))
+### [[/ability/light-eater]]((Light Eater))
 - Light Eater spirit scaling increased from 0.23 to 0.28
 ==
 ==ability:dazzling-trick:
-[[/hero/celeste?ability=dazzling-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_shield.webp]] Dazzling Trick change history))
-### [[/hero/celeste?ability=dazzling-trick]]((Dazzling Trick))
+[[/ability/dazzling-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_shield.webp]] Dazzling Trick change history))
+### [[/ability/dazzling-trick]]((Dazzling Trick))
 - Dazzling Trick no longer grants +1m Move Speed
 - Dazzling Trick T1 increased from +2.5m Move Speed to +3.5m
 ==
 ==ability:radiant-daggers:
-[[/hero/celeste?ability=radiant-daggers]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_luminousflux.webp]] Radiant Daggers change history))
-### [[/hero/celeste?ability=radiant-daggers]]((Radiant Daggers))
+[[/ability/radiant-daggers]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_luminousflux.webp]] Radiant Daggers change history))
+### [[/ability/radiant-daggers]]((Radiant Daggers))
 - Radiant Daggers spirit scaling increased from 0.42 to 0.56
 - Radiant Daggers T2 increased from "-15s Cooldown and +60 Damage" to "-18s Cooldown and +70 Damage"
 - Radiant Daggers T3 fire rate increased from 6% to 7%
 ==
 ==ability:shining-wonder:
-[[/hero/celeste?ability=shining-wonder]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_orb.webp]] Shining Wonder change history))
-### [[/hero/celeste?ability=shining-wonder]]((Shining Wonder))
+[[/ability/shining-wonder]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_orb.webp]] Shining Wonder change history))
+### [[/ability/shining-wonder]]((Shining Wonder))
 - Shining Wonder range reduced from 15m to 14m
 - Shining Wonder T3 reduced from +10 Max Bounces to +8
 ==
@@ -406,8 +406,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 ## [[/hero/the-doorman]]((Doorman))
 - Gun now pierces through targets at 50% reduced damage
 ==ability:call-bell:
-[[/hero/the-doorman?ability=call-bell]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_bell.webp]] Call Bell change history))
-### [[/hero/the-doorman?ability=call-bell]]((Call Bell))
+[[/ability/call-bell]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_bell.webp]] Call Bell change history))
+### [[/ability/call-bell]]((Call Bell))
 - Call Bell time between charges increased from 4s to 6s
 - Call Bell no longer has Impact Damage (was 40 with 1.0 scaling)
 - Call Bell explosion damage increased from 55 to 85
@@ -419,16 +419,16 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Call Bell T3 changed from "Impact causes half radius explosions" to "+1 Charge and +22s Lifetime. Causes the radius to continuously apply it's slow"
 ==
 ==ability:doorway:
-[[/hero/the-doorman?ability=doorway]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_doorway.webp]] Doorway change history))
-### [[/hero/the-doorman?ability=doorway]]((Doorway))
+[[/ability/doorway]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_doorway.webp]] Doorway change history))
+### [[/ability/doorway]]((Doorway))
 - Doorway now has a timer icon above the ability
 - Doorway T1 duration increased from +10s to +15s
 - Doorway T2 barrier duration increased from 8s to 12s
 - Doorway T3 doorway distance now also scales with Spirit Power (0.25)
 ==
 ==ability:luggage-cart:
-[[/hero/the-doorman?ability=luggage-cart]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_luggagetrolley.webp]] Luggage Cart change history))
-### [[/hero/the-doorman?ability=luggage-cart]]((Luggage Cart))
+[[/ability/luggage-cart]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_luggagetrolley.webp]] Luggage Cart change history))
+### [[/ability/luggage-cart]]((Luggage Cart))
 - Luggage Cart is now 20% larger (20% wider hitbox as well)
 - Luggage Cart T1 changed from "-8s Cooldown" to "+60 Damage"
 - Luggage Cart T2 increased from +15m Cast Range to +20m
@@ -436,8 +436,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 ==
 - Fixed issues where the cart would hit a target coming out of the hotel before they were supposed to be allowed to be hit, causing the cart to not properly drag the target
 ==ability:hotel-guest:
-[[/hero/the-doorman?ability=hotel-guest]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_elevator.webp]] Hotel Guest change history))
-### [[/hero/the-doorman?ability=hotel-guest]]((Hotel Guest))
+[[/ability/hotel-guest]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_elevator.webp]] Hotel Guest change history))
+### [[/ability/hotel-guest]]((Hotel Guest))
 - Hotel Guest cast range increased from 6m to 7m
 - Hotel Guest no longer goes on cooldown if the target dies during the cast
 - Hotel Guest fixed enemies not always landing in the correct spot on return
@@ -451,8 +451,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Hotel Guest T3 late checkout cooldown increased from 10s to 13s
 ==
 ==ability:call-bell:
-[[/hero/the-doorman?ability=call-bell]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_bell.webp]] Call Bell change history))
-### [[/hero/the-doorman?ability=call-bell]]((Call Bell))
+[[/ability/call-bell]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_bell.webp]] Call Bell change history))
+### [[/ability/call-bell]]((Call Bell))
 - Call Bell now has Impact Damage (40+1) and Explosion Damage (55+1.7) as separate components again (previous values for impact/explosion)
 - Call Bell T2 is now "+30 Impact Damage and +40 Explosion Damage"
 - Call Bell T3 now also increases slow by 15%
@@ -466,15 +466,15 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Call Bell T3 no longer increases slow by -15%
 ==
 ==ability:doorway:
-[[/hero/the-doorman?ability=doorway]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_doorway.webp]] Doorway change history))
-### [[/hero/the-doorman?ability=doorway]]((Doorway))
+[[/ability/doorway]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_doorway.webp]] Doorway change history))
+### [[/ability/doorway]]((Doorway))
 - Doorway now shows the range of where the second door can be placed on the minimap.
 - Doorway T3 distance spirit scaling reduced from 0.25 to 0.15
 - Doorway T3 reduced from +50m to +45m
 ==
 ==ability:luggage-cart:
-[[/hero/the-doorman?ability=luggage-cart]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_luggagetrolley.webp]] Luggage Cart change history))
-### [[/hero/the-doorman?ability=luggage-cart]]((Luggage Cart))
+[[/ability/luggage-cart]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_luggagetrolley.webp]] Luggage Cart change history))
+### [[/ability/luggage-cart]]((Luggage Cart))
 - Fixed Luggage Cart moving targets with Unstoppable if it goes through a Doorway
 ==
 =
@@ -483,8 +483,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 [[/hero/drifter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/drifter_sm.webp]] Drifter patch history))
 ## [[/hero/drifter]]((Drifter))
 ==ability:rend:
-[[/hero/drifter?ability=rend]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/drifter/drifter_claw.webp]] Rend change history))
-### [[/hero/drifter?ability=rend]]((Rend))
+[[/ability/rend]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/drifter/drifter_claw.webp]] Rend change history))
+### [[/ability/rend]]((Rend))
 - Rend damage range reduced from 18m to 16m
 - Rend cooldown increased from 13s to 16s
 - Rend damage spirit scaling increased from 1.4 to 1.8
@@ -493,33 +493,33 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Rend T3 changed from "Gain 45% Bullet Lifesteal against affected enemies for 4s" to "Close range attack now silences enemies for 2.3s"
 ==
 ==ability:stalker-s-mark:
-[[/hero/drifter?ability=stalkers-mark]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/drifter/drifter_stalkersmark.webp]] Stalker's Mark change history))
-### [[/hero/drifter?ability=stalkers-mark]]((Stalker's Mark))
+[[/ability/stalkers-mark]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/drifter/drifter_stalkersmark.webp]] Stalker's Mark change history))
+### [[/ability/stalkers-mark]]((Stalker's Mark))
 - Stalker's Mark duration reduced from 6s to 5s
 - Stalker's Mark T1 changed from "+1% Bleed" to "-8% Bullet Resist"
 - Stalker's Mark T2 changed from "+22% Fire Rate for 6s after ambush" to "+3s Duration and -8s Cooldown"
 - Stalker's Mark T3 changed from "Enables 2 Charges and +2s Duration" to "+2% Bleed and -40% Healing"
 ==
 ==ability:bloodscent:
-[[/hero/drifter?ability=bloodscent]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/drifter/drifter_thehunger.webp]] Bloodscent change history))
-### [[/hero/drifter?ability=bloodscent]]((Bloodscent))
+[[/ability/bloodscent]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/drifter/drifter_thehunger.webp]] Bloodscent change history))
+### [[/ability/bloodscent]]((Bloodscent))
 - Bloodscent now grants Drifter the same amount of permanent bonus weapon damage when an isolated hero dies nearby, whether Drifter gets the assist or the kill
 - Bloodscent permanent bonus weapon damage gained per isolated hero death reduced from 4% to 3%
 - Bloodscent T2 changed from "Isolated kill reduces cooldowns by 15s and restores 3 stamina" to "Isolated death restores 18% Missing Health and restores 2 stamina"
 ==
 ==ability:eternal-night:
-[[/hero/drifter?ability=eternal-night]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/drifter/darkness.webp]] Eternal Night change history))
-### [[/hero/drifter?ability=eternal-night]]((Eternal Night))
+[[/ability/eternal-night]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/drifter/darkness.webp]] Eternal Night change history))
+### [[/ability/eternal-night]]((Eternal Night))
 - Eternal Night now makes the targets be considered as isolated
 ==
 ==ability:eternal-night-sprint:
-[[/hero/drifter?ability=eternal-night]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/drifter/darkness.webp]] Eternal Night Sprint change history))
-### [[/hero/drifter?ability=eternal-night]]((Eternal Night Sprint))
+[[/ability/eternal-night]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/drifter/darkness.webp]] Eternal Night Sprint change history))
+### [[/ability/eternal-night]]((Eternal Night Sprint))
 - Eternal Night Sprint reduced from +3m to +2m
 ==
 ==ability:eternal-night:
-[[/hero/drifter?ability=eternal-night]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/drifter/darkness.webp]] Eternal Night change history))
-### [[/hero/drifter?ability=eternal-night]]((Eternal Night))
+[[/ability/eternal-night]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/drifter/darkness.webp]] Eternal Night change history))
+### [[/ability/eternal-night]]((Eternal Night))
 - Eternal Night no longer has 7 spirit damage proc
 - Eternal Night cooldown increased from 120s to 125s
 - Eternal Night duration reduced from 7s to 6.5s
@@ -528,8 +528,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Eternal Night T3 increased from "+2s Duration and +1 Max Target" to "+2.5s Duration and +1 Max Target"
 ==
 ==ability:rend:
-[[/hero/drifter?ability=rend]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/drifter/drifter_claw.webp]] Rend change history))
-### [[/hero/drifter?ability=rend]]((Rend))
+[[/ability/rend]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/drifter/drifter_claw.webp]] Rend change history))
+### [[/ability/rend]]((Rend))
 - Fixed Quicksilver Reload dealing bonus multiple times with Rend
 ==
 =
@@ -539,8 +539,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 ## [[/hero/dynamo]]((Dynamo))
 - Bullet damage increased from 12.2+0.44 to 12.6+0.5
 ==ability:kinetic-pulse:
-[[/hero/dynamo?ability=kinetic-pulse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_stomp.webp]] Kinetic Pulse change history))
-### [[/hero/dynamo?ability=kinetic-pulse]]((Kinetic Pulse))
+[[/ability/kinetic-pulse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_stomp.webp]] Kinetic Pulse change history))
+### [[/ability/kinetic-pulse]]((Kinetic Pulse))
 - Kinetic Pulse cooldown increased from 22s to 26s
 - Kinetic Pulse damage increased from 90 to 115
 - Kinetic Pulse range reduced from 20m to 16m
@@ -551,8 +551,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Kinetic Pulse T3 changed from "+104 Damage and +1 Charge" to "+135 Damage and +16m Cast Range"
 ==
 ==ability:quantum-entanglement:
-[[/hero/dynamo?ability=quantum-entanglement]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_quantum.webp]] Quantum Entanglement change history))
-### [[/hero/dynamo?ability=quantum-entanglement]]((Quantum Entanglement))
+[[/ability/quantum-entanglement]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_quantum.webp]] Quantum Entanglement change history))
+### [[/ability/quantum-entanglement]]((Quantum Entanglement))
 - Quantum Entanglement no longer grants +26% Fire Rate
 - Quantum Entanglement no longer reloads ammo
 - Quantum Entanglement base ability now restores 1 stamina
@@ -563,8 +563,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Quantum Entanglement T3 changed from "-5s Cooldown and +120% Ammo" to "Dispells non-ult debuffs for you and your allies"
 ==
 ==ability:rejuvenating-aurora:
-[[/hero/dynamo?ability=rejuvenating-aurora]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_pork_bun.webp]] Rejuvenating Aurora change history))
-### [[/hero/dynamo?ability=rejuvenating-aurora]]((Rejuvenating Aurora))
+[[/ability/rejuvenating-aurora]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_pork_bun.webp]] Rejuvenating Aurora change history))
+### [[/ability/rejuvenating-aurora]]((Rejuvenating Aurora))
 - Rejuvenating Aurora cooldown increased from 45s to 48s
 - Rejuvenating Aurora now has a 1s linger on allies
 - Rejuvenating Aurora now lets you jump while using it
@@ -573,37 +573,37 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Rejuvenating Aurora T2 now also increases duration by 1s
 ==
 ==ability:singularity:
-[[/hero/dynamo?ability=singularity]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_vacuum.webp]] Singularity change history))
-### [[/hero/dynamo?ability=singularity]]((Singularity))
+[[/ability/singularity]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_vacuum.webp]] Singularity change history))
+### [[/ability/singularity]]((Singularity))
 - Singularity no longer does 1.5% Max Health DPS
 ==
 ==ability:singularity-dps:
-[[/hero/dynamo?ability=singularity]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_vacuum.webp]] Singularity DPS change history))
-### [[/hero/dynamo?ability=singularity]]((Singularity DPS))
+[[/ability/singularity]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_vacuum.webp]] Singularity DPS change history))
+### [[/ability/singularity]]((Singularity DPS))
 - Singularity DPS increased from 40 to 75
 - Singularity DPS spirit scaling increased from 0.19 to 0.28
 ==
 ==ability:singularity:
-[[/hero/dynamo?ability=singularity]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_vacuum.webp]] Singularity change history))
-### [[/hero/dynamo?ability=singularity]]((Singularity))
+[[/ability/singularity]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_vacuum.webp]] Singularity change history))
+### [[/ability/singularity]]((Singularity))
 - Singularity T3 increased from 4% Max Health DPS to 5.5%
 ==
 - Ammo increased from 18 to 20
 ==ability:kinetic-pulse:
-[[/hero/dynamo?ability=kinetic-pulse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_stomp.webp]] Kinetic Pulse change history))
-### [[/hero/dynamo?ability=kinetic-pulse]]((Kinetic Pulse))
+[[/ability/kinetic-pulse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_stomp.webp]] Kinetic Pulse change history))
+### [[/ability/kinetic-pulse]]((Kinetic Pulse))
 - Kinetic Pulse spirit scaling reduced from 2.1 to 1.8
 - Kinetic Pulse width increased from 5m to 5.5m
 - Kinetic Pulse T3 increased from +16m Range to +20m
 ==
 ==ability:quantum-entanglement:
-[[/hero/dynamo?ability=quantum-entanglement]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_quantum.webp]] Quantum Entanglement change history))
-### [[/hero/dynamo?ability=quantum-entanglement]]((Quantum Entanglement))
+[[/ability/quantum-entanglement]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_quantum.webp]] Quantum Entanglement change history))
+### [[/ability/quantum-entanglement]]((Quantum Entanglement))
 - Quantum Entanglement T3 now also replenishes 1 charge for charged abilities (half effect on allies)
 ==
 ==ability:singularity:
-[[/hero/dynamo?ability=singularity]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_vacuum.webp]] Singularity change history))
-### [[/hero/dynamo?ability=singularity]]((Singularity))
+[[/ability/singularity]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_vacuum.webp]] Singularity change history))
+### [[/ability/singularity]]((Singularity))
 - Singularity T3 Max health as damage increased from 5.5% to 6%
 ==
 =
@@ -612,44 +612,44 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 [[/hero/graves]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/necro_sm.webp]] Graves patch history))
 ## [[/hero/graves]]((Graves))
 ==ability:grasping-hands:
-[[/hero/graves?ability=grasping-hands]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/necro/necro_hands.webp]] Grasping Hands change history))
-### [[/hero/graves?ability=grasping-hands]]((Grasping Hands))
+[[/ability/grasping-hands]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/necro/necro_hands.webp]] Grasping Hands change history))
+### [[/ability/grasping-hands]]((Grasping Hands))
 - Grasping Hands is now set up to work through proper alternate cast methods and be more responsive
 ==
 ==ability:grasping-hands-immobilize:
-[[/hero/graves?ability=grasping-hands]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/necro/necro_hands.webp]] Grasping Hands Immobilize change history))
-### [[/hero/graves?ability=grasping-hands]]((Grasping Hands Immobilize))
+[[/ability/grasping-hands]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/necro/necro_hands.webp]] Grasping Hands Immobilize change history))
+### [[/ability/grasping-hands]]((Grasping Hands Immobilize))
 - Grasping Hands Immobilize duration reduced from 1.5s to 1.25s
 ==
 ==ability:grasping-hands:
-[[/hero/graves?ability=grasping-hands]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/necro/necro_hands.webp]] Grasping Hands change history))
-### [[/hero/graves?ability=grasping-hands]]((Grasping Hands))
+[[/ability/grasping-hands]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/necro/necro_hands.webp]] Grasping Hands change history))
+### [[/ability/grasping-hands]]((Grasping Hands))
 - Grasping Hands cooldown reduced from 38s to 34s
 - Grasping Hands T2 changed from "+0.75s Immobilize Duration" to "+90 Damage and +10m Wall Length"
 - Grasping Hands T3 changed from "+15m Wall Length and -10s Cooldown" to "+1s Immobilize Duration and -12s Cooldown"
 ==
 ==ability:jar-of-dead:
-[[/hero/graves?ability=jar-of-dead]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/necro/necro_skull.webp]] Jar of Dead change history))
-### [[/hero/graves?ability=jar-of-dead]]((Jar of Dead))
+[[/ability/jar-of-dead]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/necro/necro_skull.webp]] Jar of Dead change history))
+### [[/ability/jar-of-dead]]((Jar of Dead))
 - Jar of Dead spirit scaling increased from 0.25 to 0.35
 - Jar of Dead health per boon increased from 1 to 1.3
 - Jar of Dead fixed colliding with the world sometimes
 - Jar of Dead T2 now increases duration by +4s
 ==
 ==ability:grasping-hands:
-[[/hero/graves?ability=grasping-hands]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/necro/necro_hands.webp]] Grasping Hands change history))
-### [[/hero/graves?ability=grasping-hands]]((Grasping Hands))
+[[/ability/grasping-hands]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/necro/necro_hands.webp]] Grasping Hands change history))
+### [[/ability/grasping-hands]]((Grasping Hands))
 - Grasping Hands deploy time reduced from 0.7s to 0.6s
 - Grasping Hands T3 changed from "+1s Immobilize and -12s Cooldown" to "+1s Immobilize and +2 Ghouls Summoned"
 ==
 ==ability:essence-theft:
-[[/hero/graves?ability=essence-theft]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/necro/necro_siphon.webp]] Essence Theft change history))
-### [[/hero/graves?ability=essence-theft]]((Essence Theft))
+[[/ability/essence-theft]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/necro/necro_siphon.webp]] Essence Theft change history))
+### [[/ability/essence-theft]]((Essence Theft))
 - Essence Theft T3 fixed to latch onto targets nearby more readily
 ==
 ==ability:borrowed-decree:
-[[/hero/graves?ability=borrowed-decree]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/necro/necro_gravestone.webp]] Borrowed Decree change history))
-### [[/hero/graves?ability=borrowed-decree]]((Borrowed Decree))
+[[/ability/borrowed-decree]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/necro/necro_gravestone.webp]] Borrowed Decree change history))
+### [[/ability/borrowed-decree]]((Borrowed Decree))
 - Borrowed Decree now summons 2 Ghouls on cast
 - Borrowed Decree T3 no longer summons 3 Ghouls on cast
 - Borrowed Decree T3 increased from +5% Current Health to +6%
@@ -661,35 +661,35 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 ## [[/hero/haze]]((Haze))
 - Spirit per boon reduced from 1.1 to 0.5
 ==ability:sleep-dagger:
-[[/hero/haze?ability=sleep-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger change history))
-### [[/hero/haze?ability=sleep-dagger]]((Sleep Dagger))
+[[/ability/sleep-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger change history))
+### [[/ability/sleep-dagger]]((Sleep Dagger))
 - Sleep Dagger Sleep move speed reduced from 2m/s to 1.5m/s
 ==
 ==ability:sleep-dagger-wake-up:
-[[/hero/haze?ability=sleep-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger Wake Up change history))
-### [[/hero/haze?ability=sleep-dagger]]((Sleep Dagger Wake Up))
+[[/ability/sleep-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger Wake Up change history))
+### [[/ability/sleep-dagger]]((Sleep Dagger Wake Up))
 - Sleep Dagger Wake Up delay no longer increases with spirit scaling
 ==
 ==ability:sleep-dagger:
-[[/hero/haze?ability=sleep-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger change history))
-### [[/hero/haze?ability=sleep-dagger]]((Sleep Dagger))
+[[/ability/sleep-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger change history))
+### [[/ability/sleep-dagger]]((Sleep Dagger))
 - Sleep Dagger cooldown increased from 26s to 30s
 ==
 ==ability:sleep-dagger-sleep:
-[[/hero/haze?ability=sleep-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger Sleep change history))
-### [[/hero/haze?ability=sleep-dagger]]((Sleep Dagger Sleep))
+[[/ability/sleep-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger Sleep change history))
+### [[/ability/sleep-dagger]]((Sleep Dagger Sleep))
 - Sleep Dagger Sleep duration reduced from 3s to 2.75s
 ==
 ==ability:sleep-dagger:
-[[/hero/haze?ability=sleep-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger change history))
-### [[/hero/haze?ability=sleep-dagger]]((Sleep Dagger))
+[[/ability/sleep-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger change history))
+### [[/ability/sleep-dagger]]((Sleep Dagger))
 - Sleep Dagger T1 changed from "Removes 1 Stamina" to "-8% Bullet Resist Reduction for 6s"
 - Sleep Dagger T2 changed from "-12s Cooldown and -60% Stamina for 6s" to "-15s Cooldown"
 - Sleep Dagger T3 changed from "-12% Bullet Resist and -35% Fire Rate for 6s on wakeup" to "+0.75s Sleep Duration. -50% Move and Dash Slow for 2.5s on wakeup"
 ==
 ==ability:smoke-bomb:
-[[/hero/haze?ability=smoke-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_smoke_bomb.webp]] Smoke Bomb change history))
-### [[/hero/haze?ability=smoke-bomb]]((Smoke Bomb))
+[[/ability/smoke-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_smoke_bomb.webp]] Smoke Bomb change history))
+### [[/ability/smoke-bomb]]((Smoke Bomb))
 - Smoke Bomb cooldown increased from 30s to 33s
 - Smoke Bomb duration spirit scaling reduced from 0.18 to 0.08
 - Smoke Bomb no longer has base +2m Invis Sprint Speed
@@ -698,16 +698,16 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Smoke Bomb T3 changed from "Enable 2 Charges and Grants +0.5s of Invincibility" to "Dispels non-ult debuffs and grants 30% Lifesteal for 5s"
 ==
 ==ability:fixation:
-[[/hero/haze?ability=fixation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_fixation.webp]] Fixation change history))
-### [[/hero/haze?ability=fixation]]((Fixation))
+[[/ability/fixation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_fixation.webp]] Fixation change history))
+### [[/ability/fixation]]((Fixation))
 - Fixation reduced from +0.2 Weapon Damage per stack to +0.18
 - Fixation T1 spirit scaling increased from 0.37 to 0.8
 - Fixation T1 reduced from +50 Spirit Damage to +40
 - Fixation T3 increased from +0.12 Weapon Damage to +0.14
 ==
 ==ability:bullet-dance:
-[[/hero/haze?ability=bullet-dance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_bullet_flurry.webp]] Bullet Dance change history))
-### [[/hero/haze?ability=bullet-dance]]((Bullet Dance))
+[[/ability/bullet-dance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_bullet_flurry.webp]] Bullet Dance change history))
+### [[/ability/bullet-dance]]((Bullet Dance))
 - Bullet Dance Fire Rate bonus reduced from 30% to 20%
 - Bullet Dance base ability now has 60% Evasion
 - Bullet Dance duration spirit scaling increased from 0.06 to 0.08
@@ -723,21 +723,21 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 [[/hero/infernus]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus patch history))
 ## [[/hero/infernus]]((Infernus))
 ==ability:napalm:
-[[/hero/infernus?ability=napalm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_molotov.webp]] Napalm change history))
-### [[/hero/infernus?ability=napalm]]((Napalm))
+[[/ability/napalm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_molotov.webp]] Napalm change history))
+### [[/ability/napalm]]((Napalm))
 - Napalm damage reduced from 46 to 40
 - Napalm damage spirit scaling increased from 0.3 to 0.6
 - Napalm amplified damage taken reduced from 20% to 16%
 - Napalm T2 lifesteal increased from 10% to 15%
 ==
 ==ability:flame-dash-dps:
-[[/hero/infernus?ability=flame-dash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_dash.webp]] Flame Dash DPS change history))
-### [[/hero/infernus?ability=flame-dash]]((Flame Dash DPS))
+[[/ability/flame-dash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_dash.webp]] Flame Dash DPS change history))
+### [[/ability/flame-dash]]((Flame Dash DPS))
 - Flame Dash DPS spirit scaling increased from 0.8 to 1.0
 ==
 ==ability:flame-dash:
-[[/hero/infernus?ability=flame-dash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_dash.webp]] Flame Dash change history))
-### [[/hero/infernus?ability=flame-dash]]((Flame Dash))
+[[/ability/flame-dash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_dash.webp]] Flame Dash change history))
+### [[/ability/flame-dash]]((Flame Dash))
 - Flame Dash T1 changed from "-25% Fire Rate" to "-12s Cooldown"
 - Flame Dash T2 DPS reduced from +27 to +20
 - Flame Dash T2 DPS now also increases trail duration by 1s
@@ -746,16 +746,16 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Flame Dash T3 time between charges reduced from 20s to 14s
 ==
 ==ability:afterburn:
-[[/hero/infernus?ability=afterburn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_deflect.webp]] Afterburn change history))
-### [[/hero/infernus?ability=afterburn]]((Afterburn))
+[[/ability/afterburn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_deflect.webp]] Afterburn change history))
+### [[/ability/afterburn]]((Afterburn))
 - Melee can now buildup afterburn (20% for light melee, 35% for heavy)
 - Afterburn T1 changed from "-20% Spirit Damage" to "+14 DPS"
 - Afterburn T2 changed from +1s Burn Duration to -35% Spirit Damage
 - Afterburn T3 changed from "+23 DPS" to "+3s Max Burn Duration" (Base duration is the same, but can buildup after igniting to grow to max burn duration, abilities only refresh up to the base)
 ==
 ==ability:concussive-combustion:
-[[/hero/infernus?ability=concussive-combustion]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_bomb.webp]] Concussive Combustion change history))
-### [[/hero/infernus?ability=concussive-combustion]]((Concussive Combustion))
+[[/ability/concussive-combustion]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_bomb.webp]] Concussive Combustion change history))
+### [[/ability/concussive-combustion]]((Concussive Combustion))
 - Concussive Combustion cast now causes camera to move back a bit
 - Concussive Combustion delay increased from 3s to 3.25s
 - Concussive Combustion radius reduced from 13m to 12m
@@ -767,13 +767,13 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 ==
 - Reload time reduced from 2.491 to 2.25
 ==ability:flame-dash:
-[[/hero/infernus?ability=flame-dash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_dash.webp]] Flame Dash change history))
-### [[/hero/infernus?ability=flame-dash]]((Flame Dash))
+[[/ability/flame-dash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_dash.webp]] Flame Dash change history))
+### [[/ability/flame-dash]]((Flame Dash))
 - Flame Dash speed now moves faster by the same amount of speed above your base
 ==
 ==ability:concussive-combustion:
-[[/hero/infernus?ability=concussive-combustion]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_bomb.webp]] Concussive Combustion change history))
-### [[/hero/infernus?ability=concussive-combustion]]((Concussive Combustion))
+[[/ability/concussive-combustion]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/inferno_bomb.webp]] Concussive Combustion change history))
+### [[/ability/concussive-combustion]]((Concussive Combustion))
 - Concussive Combustion T2 increased from +65% Explosion Lifesteal to +85%
 ==
 =
@@ -784,47 +784,47 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Now has -10% Gravity
 - Bullet damage reduced from 4.59+0.12/boon to 4.45+0.06/boon
 ==ability:entangling-thorns:
-[[/hero/ivy?ability=entangling-thorns]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_storm_flask.webp]] Entangling Thorns change history))
-### [[/hero/ivy?ability=entangling-thorns]]((Entangling Thorns))
+[[/ability/entangling-thorns]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_storm_flask.webp]] Entangling Thorns change history))
+### [[/ability/entangling-thorns]]((Entangling Thorns))
 - Kudzu Bomb renamed to Entangling Thorns
 ==
 ==ability:entangling-thorns-recharge-time:
-[[/hero/ivy?ability=entangling-thorns]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_storm_flask.webp]] Entangling Thorns Recharge Time change history))
-### [[/hero/ivy?ability=entangling-thorns]]((Entangling Thorns Recharge Time))
+[[/ability/entangling-thorns]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_storm_flask.webp]] Entangling Thorns Recharge Time change history))
+### [[/ability/entangling-thorns]]((Entangling Thorns Recharge Time))
 - Entangling Thorns Recharge Time reduced from 8s to 5s
 ==
 ==ability:entangling-thorns:
-[[/hero/ivy?ability=entangling-thorns]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_storm_flask.webp]] Entangling Thorns change history))
-### [[/hero/ivy?ability=entangling-thorns]]((Entangling Thorns))
+[[/ability/entangling-thorns]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_storm_flask.webp]] Entangling Thorns change history))
+### [[/ability/entangling-thorns]]((Entangling Thorns))
 - Entangling Thorns spirit scaling reduced from 0.65 to 0.55
 - Entangling Thorns T2 changed from "+2s Duration" to "+2m Radius and increases spirit scaling by +0.5"
 - Entangling Thorns T3 changed from "+36 DPS and +2m Radius" to "Entangles enemies that remain in it for 2s. Lasts 1.6s"
 ==
 ==ability:kudzu-connection:
-[[/hero/ivy?ability=kudzu-connection]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_tether.webp]] Kudzu Connection change history))
-### [[/hero/ivy?ability=kudzu-connection]]((Kudzu Connection))
+[[/ability/kudzu-connection]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_tether.webp]] Kudzu Connection change history))
+### [[/ability/kudzu-connection]]((Kudzu Connection))
 - Watcher's Covenant renamed to Kudzu Connection
 ==
 ==ability:kudzu-connection-fire-rate:
-[[/hero/ivy?ability=kudzu-connection]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_tether.webp]] Kudzu Connection Fire Rate change history))
-### [[/hero/ivy?ability=kudzu-connection]]((Kudzu Connection Fire Rate))
+[[/ability/kudzu-connection]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_tether.webp]] Kudzu Connection Fire Rate change history))
+### [[/ability/kudzu-connection]]((Kudzu Connection Fire Rate))
 - Kudzu Connection Fire Rate spirit scaling reduced from 0.25 to 0.18
 ==
 ==ability:kudzu-connection-bullet-lifesteal:
-[[/hero/ivy?ability=kudzu-connection]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_tether.webp]] Kudzu Connection Bullet Lifesteal change history))
-### [[/hero/ivy?ability=kudzu-connection]]((Kudzu Connection Bullet Lifesteal))
+[[/ability/kudzu-connection]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_tether.webp]] Kudzu Connection Bullet Lifesteal change history))
+### [[/ability/kudzu-connection]]((Kudzu Connection Bullet Lifesteal))
 - Kudzu Connection Bullet Lifesteal spirit scaling reduced from 0.19 to 0.15
 ==
 ==ability:kudzu-connection:
-[[/hero/ivy?ability=kudzu-connection]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_tether.webp]] Kudzu Connection change history))
-### [[/hero/ivy?ability=kudzu-connection]]((Kudzu Connection))
+[[/ability/kudzu-connection]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_tether.webp]] Kudzu Connection change history))
+### [[/ability/kudzu-connection]]((Kudzu Connection))
 - Kudzu Connection T1 changed from "+8% Fire Rate" to "+2m Move Speed bonus"
 - Kudzu Connection T2 changed from "+2m Move Speed Bonus" to "+8% Fire Rate and +8% Bullet Lifesteal"
 - Kudzu Connection T3 changed from "+1 Tether Count" to "Ability is now always active"
 ==
 ==ability:stone-form:
-[[/hero/ivy?ability=stone-form]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_stone_form.webp]] Stone Form change history))
-### [[/hero/ivy?ability=stone-form]]((Stone Form))
+[[/ability/stone-form]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_stone_form.webp]] Stone Form change history))
+### [[/ability/stone-form]]((Stone Form))
 - Stone Form cooldown increased from 37s to 40s
 - Stone Form damage spirit scaling reduced from 1.5 to 0.8
 - Stone Form T1 changed from "-19s cooldown" to "+7% Max Health Heal"
@@ -832,19 +832,19 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Stone Form T3 changed from "+13% Max Health Heal" to "+1s Stun and Increased Spirit Scaling (2.0)"
 ==
 ==ability:air-drop:
-[[/hero/ivy?ability=air-drop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_lightning_crash.webp]] Air Drop change history))
-### [[/hero/ivy?ability=air-drop]]((Air Drop))
+[[/ability/air-drop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_lightning_crash.webp]] Air Drop change history))
+### [[/ability/air-drop]]((Air Drop))
 - Air Drop cast time removed. Instead, if you take damage the ability will be unable to be used for 3.5s
 - Air Drop spirit damage scaling reduced from 2.3 to 1.0
 ==
 ==ability:air-drop-cooldown:
-[[/hero/ivy?ability=air-drop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_lightning_crash.webp]] Air Drop Cooldown change history))
-### [[/hero/ivy?ability=air-drop]]((Air Drop Cooldown))
+[[/ability/air-drop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_lightning_crash.webp]] Air Drop Cooldown change history))
+### [[/ability/air-drop]]((Air Drop Cooldown))
 - Air Drop Cooldown reduced from 100s to 65s
 ==
 ==ability:air-drop:
-[[/hero/ivy?ability=air-drop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_lightning_crash.webp]] Air Drop change history))
-### [[/hero/ivy?ability=air-drop]]((Air Drop))
+[[/ability/air-drop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_lightning_crash.webp]] Air Drop change history))
+### [[/ability/air-drop]]((Air Drop))
 - Air Drop duration increased from 16s to 21s
 - Air Drop base/max speed increased from 11/18m to 10/22m
 - Air Drop bomb radius increased from 14m to 20m
@@ -860,32 +860,32 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Air Drop T3 now also increases damage scaling by +1.5 and barrier scaling by +1.0
 ==
 ==ability:entangling-thorns:
-[[/hero/ivy?ability=entangling-thorns]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_storm_flask.webp]] Entangling Thorns change history))
-### [[/hero/ivy?ability=entangling-thorns]]((Entangling Thorns))
+[[/ability/entangling-thorns]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_storm_flask.webp]] Entangling Thorns change history))
+### [[/ability/entangling-thorns]]((Entangling Thorns))
 - Entangling Thorns spirit scaling reduced from 0.55 to 0.45
 ==
 - Bullet damage growth increased from 0.06 to 0.08
 ==ability:kudzu-connection:
-[[/hero/ivy?ability=kudzu-connection]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_tether.webp]] Kudzu Connection change history))
-### [[/hero/ivy?ability=kudzu-connection]]((Kudzu Connection))
+[[/ability/kudzu-connection]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_tether.webp]] Kudzu Connection change history))
+### [[/ability/kudzu-connection]]((Kudzu Connection))
 - Kudzu Connection now only gives you half the bonus if you aren't connected to an ally
 ==
 ==ability:air-drop:
-[[/hero/ivy?ability=air-drop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_lightning_crash.webp]] Air Drop change history))
-### [[/hero/ivy?ability=air-drop]]((Air Drop))
+[[/ability/air-drop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_lightning_crash.webp]] Air Drop change history))
+### [[/ability/air-drop]]((Air Drop))
 - Air Drop damage spirit scaling reduced from 1 to 0.7
 - Air Drop T1 barrier spirit scaling reduced from 1 to 0.7
 - Air Drop T2 slow reduced from 50% to 40%
 ==
 ==ability:stone-form:
-[[/hero/ivy?ability=stone-form]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_stone_form.webp]] Stone Form change history))
-### [[/hero/ivy?ability=stone-form]]((Stone Form))
+[[/ability/stone-form]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_stone_form.webp]] Stone Form change history))
+### [[/ability/stone-form]]((Stone Form))
 - Stone Form spirit scaling reduced from 0.8 to 0.6
 - Stone Form T3 spirit scaling reduced from +2 to +1.7
 ==
 ==ability:air-drop:
-[[/hero/ivy?ability=air-drop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_lightning_crash.webp]] Air Drop change history))
-### [[/hero/ivy?ability=air-drop]]((Air Drop))
+[[/ability/air-drop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_lightning_crash.webp]] Air Drop change history))
+### [[/ability/air-drop]]((Air Drop))
 - Air Drop ally cast range increased from 18m to 22m
 - Air Drop is no longer disabled by damage over time abilities (same as zipline rules)
 - Air Drop cooldown increased from 65s to 85s
@@ -897,8 +897,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 ==ability:frost-grenade:
-[[/hero/kelvin?ability=frost-grenade]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/freezing_grenade.webp]] Frost Grenade change history))
-### [[/hero/kelvin?ability=frost-grenade]]((Frost Grenade))
+[[/ability/frost-grenade]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/freezing_grenade.webp]] Frost Grenade change history))
+### [[/ability/frost-grenade]]((Frost Grenade))
 - Frost Grenade now impacts on Ice Path
 - Frost Grenade radius reduced from 6.5m to 6m
 - Frost Grenade cooldown increased from 20s to 30s
@@ -910,8 +910,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Frost Grenade T3 changed from "+144 Damage and -30% Stamina Regen" to "Increases damage and heal spirit scaling by 1.0 and Radius by +2m"
 ==
 ==ability:ice-path:
-[[/hero/kelvin?ability=ice-path]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_path.webp]] Ice Path change history))
-### [[/hero/kelvin?ability=ice-path]]((Ice Path))
+[[/ability/ice-path]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_path.webp]] Ice Path change history))
+### [[/ability/ice-path]]((Ice Path))
 - Ice Path is now cancelled on Ability Button Press instead of Space
 - Ice Path cooldown increased from 46s to 50s
 - Ice Path incline/decline speed increased
@@ -920,24 +920,24 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Ice Path T3 now grants you +35% Spirit Power while on Ice Path
 ==
 ==ability:arctic-beam:
-[[/hero/kelvin?ability=arctic-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_beam.webp]] Arctic Beam change history))
-### [[/hero/kelvin?ability=arctic-beam]]((Arctic Beam))
+[[/ability/arctic-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_beam.webp]] Arctic Beam change history))
+### [[/ability/arctic-beam]]((Arctic Beam))
 - Arctic Beam visual clarity on VFX improved
 - Arctic Beam now lets you cast Frost Grenade and items while using it
 ==
 ==ability:arctic-beam-max-fire-rate-reduction:
-[[/hero/kelvin?ability=arctic-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_beam.webp]] Arctic Beam Max Fire Rate Reduction change history))
-### [[/hero/kelvin?ability=arctic-beam]]((Arctic Beam Max Fire Rate Reduction))
+[[/ability/arctic-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_beam.webp]] Arctic Beam Max Fire Rate Reduction change history))
+### [[/ability/arctic-beam]]((Arctic Beam Max Fire Rate Reduction))
 - Arctic Beam Max Fire Rate Reduction reduced from -35% to -20%
 ==
 ==ability:arctic-beam-max-slow:
-[[/hero/kelvin?ability=arctic-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_beam.webp]] Arctic Beam Max Slow change history))
-### [[/hero/kelvin?ability=arctic-beam]]((Arctic Beam Max Slow))
+[[/ability/arctic-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_beam.webp]] Arctic Beam Max Slow change history))
+### [[/ability/arctic-beam]]((Arctic Beam Max Slow))
 - Arctic Beam Max Slow reduced from -40% to -20%
 ==
 ==ability:arctic-beam:
-[[/hero/kelvin?ability=arctic-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_beam.webp]] Arctic Beam change history))
-### [[/hero/kelvin?ability=arctic-beam]]((Arctic Beam))
+[[/ability/arctic-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_beam.webp]] Arctic Beam change history))
+### [[/ability/arctic-beam]]((Arctic Beam))
 - Arctic Beam spirit scaling reduced from 0.8 to 0.5
 - Arctic Beam cooldown increased from 25s to 28s
 - Arctic Beam T1 changed from "-7s Cooldown" to "Increases Move Slow and Fire Rate Reduction by -25%"
@@ -945,8 +945,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Arctic Beam T3 now also reduces cooldown by 13s
 ==
 ==ability:frozen-shelter:
-[[/hero/kelvin?ability=frozen-shelter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/frozen_shelter.webp]] Frozen Shelter change history))
-### [[/hero/kelvin?ability=frozen-shelter]]((Frozen Shelter))
+[[/ability/frozen-shelter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/frozen_shelter.webp]] Frozen Shelter change history))
+### [[/ability/frozen-shelter]]((Frozen Shelter))
 - Frozen Shelter can now be canceled first without canceling Ice Beam
 - Frozen Shelter is now 8m unit target, creates the dome around the center of both heroes. Can be self casted to create it around yourself.
 - Frozen Shelter duration reduced from 5.25s to 5s
@@ -955,21 +955,21 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Frozen Shelter T3 now also dispels non-ult debuffs on cast (affects you and allies)
 ==
 ==ability:frost-grenade:
-[[/hero/kelvin?ability=frost-grenade]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/freezing_grenade.webp]] Frost Grenade change history))
-### [[/hero/kelvin?ability=frost-grenade]]((Frost Grenade))
+[[/ability/frost-grenade]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/freezing_grenade.webp]] Frost Grenade change history))
+### [[/ability/frost-grenade]]((Frost Grenade))
 - Frost Grenade radius increased from 6m to 6.5m
 - Frost Grenade damage spirit scaling reduced from 0.914 to 0.8
 - Frost Grenade T3 damage spirit scaling reduced from 1.0 to 0.9
 ==
 ==ability:ice-path:
-[[/hero/kelvin?ability=ice-path]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_path.webp]] Ice Path change history))
-### [[/hero/kelvin?ability=ice-path]]((Ice Path))
+[[/ability/ice-path]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/ice_path.webp]] Ice Path change history))
+### [[/ability/ice-path]]((Ice Path))
 - Ice Path T2 increased from -20s Cooldown to -25s
 - Ice Path T3 now also grants +20 Spirit Power
 ==
 ==ability:frozen-shelter:
-[[/hero/kelvin?ability=frozen-shelter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/frozen_shelter.webp]] Frozen Shelter change history))
-### [[/hero/kelvin?ability=frozen-shelter]]((Frozen Shelter))
+[[/ability/frozen-shelter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/frozen_shelter.webp]] Frozen Shelter change history))
+### [[/ability/frozen-shelter]]((Frozen Shelter))
 - Frozen Shelter T3 increased from 50 Health Regen to 65
 ==
 =
@@ -978,8 +978,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 [[/hero/lady-geist]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]] Lady Geist patch history))
 ## [[/hero/lady-geist]]((Lady Geist))
 ==ability:essence-bomb:
-[[/hero/lady-geist?ability=essence-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/blood_bomb.webp]] Essence Bomb change history))
-### [[/hero/lady-geist?ability=essence-bomb]]((Essence Bomb))
+[[/ability/essence-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/blood_bomb.webp]] Essence Bomb change history))
+### [[/ability/essence-bomb]]((Essence Bomb))
 - Essence Bomb self damage changed from 30 + 1.8 scaling to 30% of the damage (base is 90 + 1.2 scaling)
 - Essence Bomb radius reduced from 9m to 7m
 - Essence Bomb cooldown reduced from 14.5s to 14s
@@ -987,8 +987,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Essence Bomb T2 also increases radius by +2m
 ==
 ==ability:life-drain:
-[[/hero/lady-geist?ability=life-drain]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/life_drain.webp]] Life Drain change history))
-### [[/hero/lady-geist?ability=life-drain]]((Life Drain))
+[[/ability/life-drain]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/life_drain.webp]] Life Drain change history))
+### [[/ability/life-drain]]((Life Drain))
 - Life Drain cooldown increased from 30s to 34s
 - Life Drain break range reduced from 30m to 28m
 - Life Drain T1 DPS increased from +16.2 to +18
@@ -997,8 +997,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Life Drain T3 now also increases spirit scaling by +0.3
 ==
 ==ability:soul-exchange:
-[[/hero/lady-geist?ability=soul-exchange]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/blood_exchange.webp]] Soul Exchange change history))
-### [[/hero/lady-geist?ability=soul-exchange]]((Soul Exchange))
+[[/ability/soul-exchange]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/blood_exchange.webp]] Soul Exchange change history))
+### [[/ability/soul-exchange]]((Soul Exchange))
 - Soul Exchange cast time reduced from 0.2s to 0.1s
 - Soul Exchange post cast hold time reduced from 0.7s to 0.2s
 - Soul Exchange T1 cooldown increased from -35s to -60s
@@ -1012,29 +1012,29 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 ## [[/hero/lash]]((Lash))
 - Increased Sparkles
 ==ability:ground-strike:
-[[/hero/lash?ability=ground-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_death_slam.webp]] Ground Strike change history))
-### [[/hero/lash?ability=ground-strike]]((Ground Strike))
+[[/ability/ground-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_death_slam.webp]] Ground Strike change history))
+### [[/ability/ground-strike]]((Ground Strike))
 - Fixed Ground Strike against players brought down from mid air not doing damage
 ==
 ==ability:grapple:
-[[/hero/lash?ability=grapple]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_lash.webp]] Grapple change history))
-### [[/hero/lash?ability=grapple]]((Grapple))
+[[/ability/grapple]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_lash.webp]] Grapple change history))
+### [[/ability/grapple]]((Grapple))
 - Grapple T2 weapon damage increased from +6 to +7
 - Grapple T3 changed from "+20% Fire Rate" to "+60% Air Control and +1 Stamina on Usage"
 ==
 ==ability:flog:
-[[/hero/lash?ability=flog]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_flog.webp]] Flog change history))
-### [[/hero/lash?ability=flog]]((Flog))
+[[/ability/flog]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_flog.webp]] Flog change history))
+### [[/ability/flog]]((Flog))
 - Flog cooldown increased from 24s to 26s
 ==
 ==ability:flog-attack-angle:
-[[/hero/lash?ability=flog]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_flog.webp]] Flog Attack Angle change history))
-### [[/hero/lash?ability=flog]]((Flog Attack Angle))
+[[/ability/flog]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_flog.webp]] Flog Attack Angle change history))
+### [[/ability/flog]]((Flog Attack Angle))
 - Flog Attack Angle no longer increases with Spirit Power
 ==
 ==ability:flog:
-[[/hero/lash?ability=flog]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_flog.webp]] Flog change history))
-### [[/hero/lash?ability=flog]]((Flog))
+[[/ability/flog]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_flog.webp]] Flog change history))
+### [[/ability/flog]]((Flog))
 - Flog heal vs heroes reduced from 60% to 50%
 - Flog T2 increased from -12s Cooldown to -16s
 - Flog T2 now also reduces Fire Rate by 30%
@@ -1043,8 +1043,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Flog T3 now also increases Attack Angle by 40 and Heal by +20%
 ==
 ==ability:death-slam:
-[[/hero/lash?ability=death-slam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_counter_lash.webp]] Death Slam change history))
-### [[/hero/lash?ability=death-slam]]((Death Slam))
+[[/ability/death-slam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_counter_lash.webp]] Death Slam change history))
+### [[/ability/death-slam]]((Death Slam))
 - Fixed Death Slam camera sometimes being obstructed
 - Death Slam throw distance no longer scales with Spirit Power (was 0.3)
 - Death Slam cooldown increased from 145s to 150s
@@ -1064,20 +1064,20 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Stamina speed bucket 3 to 2
 - Bullet damage reduced from 6.72 + 0.2/boon to 6.0 + 0.16/boon
 ==ability:mini-turret:
-[[/hero/mcginnis?ability=mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turret change history))
-### [[/hero/mcginnis?ability=mini-turret]]((Mini Turret))
+[[/ability/mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turret change history))
+### [[/ability/mini-turret]]((Mini Turret))
 - Mini Turret duration increased from 24s to 35s
 - Mini Turret base health and health growth reduced by 40%
 - Mini Turrets initial fading resist start value increased from 60% to 80%
 ==
 ==ability:mini-turrets:
-[[/hero/mcginnis?ability=mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turrets change history))
-### [[/hero/mcginnis?ability=mini-turret]]((Mini Turrets))
+[[/ability/mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turrets change history))
+### [[/ability/mini-turret]]((Mini Turrets))
 - Mini Turrets now have 35% melee resist
 ==
 ==ability:mini-turret:
-[[/hero/mcginnis?ability=mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turret change history))
-### [[/hero/mcginnis?ability=mini-turret]]((Mini Turret))
+[[/ability/mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turret change history))
+### [[/ability/mini-turret]]((Mini Turret))
 - Mini Turret tracking, angle and projectile speeds significantly improved
 - Mini Turret on the minimap now flash/turn red when they are attacking
 - Mini Turret T1 changed from "Turrets apply 25% slow" to "+10m Attack Range and +10 DPS"
@@ -1085,8 +1085,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Mini Turret T3 changed from "+38 Turret DPS and +14s Turret Lifetime" to "+30% Turret Fire Rate and +12s Turret Lifetime"
 ==
 ==ability:medicinal-specter:
-[[/hero/mcginnis?ability=medicinal-specter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_resupply.webp]] Medicinal Specter change history))
-### [[/hero/mcginnis?ability=medicinal-specter]]((Medicinal Specter))
+[[/ability/medicinal-specter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_resupply.webp]] Medicinal Specter change history))
+### [[/ability/medicinal-specter]]((Medicinal Specter))
 - Medicinal Specter duration no longer scales with spirit power
 - Medicinal Specter radius no longer scales with spirit power
 - Medicinal Specter regen now scales with spirit power (+0.3)
@@ -1100,8 +1100,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Medicinal Specter T3 now also increases duration by 1s
 ==
 ==ability:spectral-wall:
-[[/hero/mcginnis?ability=spectral-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_fissure_2.webp]] Spectral Wall change history))
-### [[/hero/mcginnis?ability=spectral-wall]]((Spectral Wall))
+[[/ability/spectral-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_fissure_2.webp]] Spectral Wall change history))
+### [[/ability/spectral-wall]]((Spectral Wall))
 - Spectral Wall that is midcast will now fire when you are interrupted, rather than continue to expand outward
 - Spectral Wall segments can now be destroyed with 2 heavy melee hits (destroys an individual segment)
 - Spectral Wall min range reduced from 6m to 5m
@@ -1112,8 +1112,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Spectral Wall T3 changed from "0.75s Stun on Impact" to "Creates 2 Turrets for 8s and increases slow by 30%" (creates them on the side facing you spread along the wall)
 ==
 ==ability:heavy-barrage:
-[[/hero/mcginnis?ability=heavy-barrage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_rockets.webp]] Heavy Barrage change history))
-### [[/hero/mcginnis?ability=heavy-barrage]]((Heavy Barrage))
+[[/ability/heavy-barrage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_rockets.webp]] Heavy Barrage change history))
+### [[/ability/heavy-barrage]]((Heavy Barrage))
 - Heavy Barrage duration reduced from 13s to 8s
 - Heavy Barrage minimum range reduced from 9m to 8.5m
 - Heavy Barrage T1 tooltip updated to clarify that it also reduces dash distance
@@ -1132,23 +1132,23 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 ==
 - Bullet damage increased from 6.0+0.15/boon to 6.2+0.16/boon
 ==ability:mini-turret:
-[[/hero/mcginnis?ability=mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turret change history))
-### [[/hero/mcginnis?ability=mini-turret]]((Mini Turret))
+[[/ability/mini-turret]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_turret.webp]] Mini Turret change history))
+### [[/ability/mini-turret]]((Mini Turret))
 - Mini Turret attack range increased from 25m to 30m
 ==
 ==ability:medicinal-specter:
-[[/hero/mcginnis?ability=medicinal-specter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_resupply.webp]] Medicinal Specter change history))
-### [[/hero/mcginnis?ability=medicinal-specter]]((Medicinal Specter))
+[[/ability/medicinal-specter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_resupply.webp]] Medicinal Specter change history))
+### [[/ability/medicinal-specter]]((Medicinal Specter))
 - Medicinal Specter radius increased from 5m to 5.5m
 ==
 ==ability:spectral-wall:
-[[/hero/mcginnis?ability=spectral-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_fissure_2.webp]] Spectral Wall change history))
-### [[/hero/mcginnis?ability=spectral-wall]]((Spectral Wall))
+[[/ability/spectral-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_fissure_2.webp]] Spectral Wall change history))
+### [[/ability/spectral-wall]]((Spectral Wall))
 - Spectral Wall duration increased from 4.5s to 5s
 ==
 ==ability:heavy-barrage:
-[[/hero/mcginnis?ability=heavy-barrage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_rockets.webp]] Heavy Barrage change history))
-### [[/hero/mcginnis?ability=heavy-barrage]]((Heavy Barrage))
+[[/ability/heavy-barrage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_rockets.webp]] Heavy Barrage change history))
+### [[/ability/heavy-barrage]]((Heavy Barrage))
 - Heavy Barrage cooldown increased from 165s to 175s
 - Heavy Barrage spirit scaling reduced from 0.23 to 0.2
 - Heavy Barrage T3 spirit scaling reduced from 0.2 to 0.16
@@ -1161,8 +1161,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 ## [[/hero/mina]]((Mina))
 - Stamina cooldown increased from 3.9s to 4.2s
 ==ability:rake:
-[[/hero/mina?ability=rake]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_rake.webp]] Rake change history))
-### [[/hero/mina?ability=rake]]((Rake))
+[[/ability/rake]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_rake.webp]] Rake change history))
+### [[/ability/rake]]((Rake))
 - Rake cooldown increased from 10s to 16s
 - Rake hero hit missing health as damage increased from 3% to 5%
 - Rake heal per kill reduced from 30 to 25
@@ -1172,8 +1172,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Rake T3 now also provides +1.2 Heal Per Kill spirit scaling
 ==
 ==ability:sanguine-retreat:
-[[/hero/mina?ability=sanguine-retreat]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_sanguine_retreat.webp]] Sanguine Retreat change history))
-### [[/hero/mina?ability=sanguine-retreat]]((Sanguine Retreat))
+[[/ability/sanguine-retreat]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_sanguine_retreat.webp]] Sanguine Retreat change history))
+### [[/ability/sanguine-retreat]]((Sanguine Retreat))
 - Sanguine Retreat cast range reduced 10m to 9m
 - Sanguine Retreat recast window increased from 3s to 3.5s
 - Sanguine Retreat T1 changed from "+3m Cast Range" to "+20% Fire Rate and 8 Bullets"
@@ -1181,13 +1181,13 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Sanguine Retreat T3 changed from "-12s Cooldown" to "+1 Recast"
 ==
 ==ability:love-bites-cooldown:
-[[/hero/mina?ability=love-bites]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_love_bites.webp]] Love Bites Cooldown change history))
-### [[/hero/mina?ability=love-bites]]((Love Bites Cooldown))
+[[/ability/love-bites]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_love_bites.webp]] Love Bites Cooldown change history))
+### [[/ability/love-bites]]((Love Bites Cooldown))
 - Love Bites Cooldown increased from 8s to 10s
 ==
 ==ability:love-bites:
-[[/hero/mina?ability=love-bites]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_love_bites.webp]] Love Bites change history))
-### [[/hero/mina?ability=love-bites]]((Love Bites))
+[[/ability/love-bites]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_love_bites.webp]] Love Bites change history))
+### [[/ability/love-bites]]((Love Bites))
 - Love Bites damage reduced from 6 to 4
 - Love Bites damage spirit scaling increased from 0.06 to 0.09
 - Love Bites bonus damage reduced from 55 to 45
@@ -1197,16 +1197,16 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Love Bites T3 changed from "On Proc: -1 Stamina and 30% slow for 3s" to "-4s Cooldown and On Proc +25% Fire Rate for 5s"
 ==
 ==ability:nox-nostra:
-[[/hero/mina?ability=nox-nostra]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_nox_nostra.webp]] Nox Nostra change history))
-### [[/hero/mina?ability=nox-nostra]]((Nox Nostra))
+[[/ability/nox-nostra]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_nox_nostra.webp]] Nox Nostra change history))
+### [[/ability/nox-nostra]]((Nox Nostra))
 - Nox Nostra cooldown increased from 115s to 130s
 - Nox Nostra damage reduced from 6 to 5.6
 - Nox Nostra T1 increased from +1.8 to +2.2
 - Nox Nostra T2 cooldown increased from -40s to -55s
 ==
 ==ability:rake:
-[[/hero/mina?ability=rake]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_rake.webp]] Rake change history))
-### [[/hero/mina?ability=rake]]((Rake))
+[[/ability/rake]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_rake.webp]] Rake change history))
+### [[/ability/rake]]((Rake))
 - Fixed a bug with Rake with how the low hp bonus damage against non-hero targets was dealt (when they were low, the spirit resist didn't matter effectively)
 ==
 - Float time with umbrella increased from 2.5s to 4s
@@ -1215,8 +1215,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Can now zoom in again to continue floating if you let go of the zoom, as long as the total zoom time is still under the max
 ==
 ==ability:nox-nostra:
-[[/hero/mina?ability=nox-nostra]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_nox_nostra.webp]] Nox Nostra change history))
-### [[/hero/mina?ability=nox-nostra]]((Nox Nostra))
+[[/ability/nox-nostra]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_nox_nostra.webp]] Nox Nostra change history))
+### [[/ability/nox-nostra]]((Nox Nostra))
 - Fixed various issues with Nox Nostra bats not hitting things properly (DPS values reduced to compensate for this indirect buff)
 ==
 =
@@ -1226,8 +1226,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 ## [[/hero/mirage]]((Mirage))
 - Bullet damage reduced from 15.2+0.5 to 14.8+0.3
 ==ability:fire-scarabs:
-[[/hero/mirage?ability=fire-scarabs]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_fire_beetles.webp]] Fire Scarabs change history))
-### [[/hero/mirage?ability=fire-scarabs]]((Fire Scarabs))
+[[/ability/fire-scarabs]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_fire_beetles.webp]] Fire Scarabs change history))
+### [[/ability/fire-scarabs]]((Fire Scarabs))
 - Fire Scarabs no longer have a limited duration to launch each one. Functions as a normal charged ability.
 - Fire Scarabs collision and model size increased a bit
 - Fire Scarabs base charges reduced from 4 to 2
@@ -1242,8 +1242,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Fire Scarabs no longer has a reduced effect against non-heroes
 ==
 ==ability:dust-devil:
-[[/hero/mirage?ability=dust-devil]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_tornado.webp]] Dust Devil change history))
-### [[/hero/mirage?ability=dust-devil]]((Dust Devil))
+[[/ability/dust-devil]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_tornado.webp]] Dust Devil change history))
+### [[/ability/dust-devil]]((Dust Devil))
 - Tornado renamed to Dust Devil
 - Dust Devil lift duration reduced from 1.0s to 0.4s
 - Dust Devil spirit scaling reduced from 0.7 to 0.3
@@ -1255,8 +1255,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Dust Devil T3 changed from "+20% Bullet" to "Can Recast within 5s. Increases spirit scaling by 1.0"
 ==
 ==ability:djinn-s-mark:
-[[/hero/mirage?ability=djinns-mark]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_sand_phantom.webp]] Djinn's Mark change history))
-### [[/hero/mirage?ability=djinns-mark]]((Djinn's Mark))
+[[/ability/djinns-mark]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_sand_phantom.webp]] Djinn's Mark change history))
+### [[/ability/djinns-mark]]((Djinn's Mark))
 - Djinn's Mark cooldown increased from 2.6s to 3s
 - Djinn's Mark multiplier duration increased from 4.5s to 5s
 - Djinn's Mark reveal duration increased from 3s to 6s
@@ -1267,8 +1267,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Djinn's Mark T3 now also stuns for 0.5s at max stacks
 ==
 ==ability:traveler:
-[[/hero/mirage?ability=traveler]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_teleport.webp]] Traveler change history))
-### [[/hero/mirage?ability=traveler]]((Traveler))
+[[/ability/traveler]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_teleport.webp]] Traveler change history))
+### [[/ability/traveler]]((Traveler))
 - Traveler cooldown reduced from 155s to 145s
 - Traveler can now be cast while on the zipline
 - Traveler no longer channels. It now has a 3s delay before teleporting. Taking damage interrupts the ability and puts it on cooldown for 6s.
@@ -1279,40 +1279,40 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Traveler T3 "Unstoppable for 3s" to "-80s Cooldown"
 ==
 ==ability:fire-scarabs:
-[[/hero/mirage?ability=fire-scarabs]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_fire_beetles.webp]] Fire Scarabs change history))
-### [[/hero/mirage?ability=fire-scarabs]]((Fire Scarabs))
+[[/ability/fire-scarabs]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_fire_beetles.webp]] Fire Scarabs change history))
+### [[/ability/fire-scarabs]]((Fire Scarabs))
 - Fire Scarabs cooldown reduced from 45s to 35s
 ==
 ==ability:traveler:
-[[/hero/mirage?ability=traveler]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_teleport.webp]] Traveler change history))
-### [[/hero/mirage?ability=traveler]]((Traveler))
+[[/ability/traveler]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_teleport.webp]] Traveler change history))
+### [[/ability/traveler]]((Traveler))
 - Traveler T1 now also increases Fire Rate by 20%
 ==
 ==ability:fire-scarabs:
-[[/hero/mirage?ability=fire-scarabs]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_fire_beetles.webp]] Fire Scarabs change history))
-### [[/hero/mirage?ability=fire-scarabs]]((Fire Scarabs))
+[[/ability/fire-scarabs]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_fire_beetles.webp]] Fire Scarabs change history))
+### [[/ability/fire-scarabs]]((Fire Scarabs))
 - Fire Scarabs no longer does max health steal
 - Fire Scarabs now drains life from the enemy, dealing DPS to the enemy and healing you for 8s.
 - Fire Scarabs no longer applies +10% Damage Amp
 - Fire Scarabs now reduces enemy damage output by 20% (and +15% in T3)
 ==
 ==ability:dust-devil:
-[[/hero/mirage?ability=dust-devil]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_tornado.webp]] Dust Devil change history))
-### [[/hero/mirage?ability=dust-devil]]((Dust Devil))
+[[/ability/dust-devil]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_tornado.webp]] Dust Devil change history))
+### [[/ability/dust-devil]]((Dust Devil))
 - Dust Devil radius increased from 3.5m to 4m
 - Dust Devil T3 window to recast increased from 5s to 6s
 ==
 ==ability:djinn-s-mark:
-[[/hero/mirage?ability=djinns-mark]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_sand_phantom.webp]] Djinn's Mark change history))
-### [[/hero/mirage?ability=djinns-mark]]((Djinn's Mark))
+[[/ability/djinns-mark]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_sand_phantom.webp]] Djinn's Mark change history))
+### [[/ability/djinns-mark]]((Djinn's Mark))
 - Djinn's Mark spirit scaling reduced from 0.51 to 0.44
 - Djinn's Mark debuff visuals improved
 - Djinn's Mark T1 slow duration increased from 0.5s to 0.8s
 - Djinn's Mark T2 multiplier duration increased from 2.5s to 3s
 ==
 ==ability:traveler:
-[[/hero/mirage?ability=traveler]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_teleport.webp]] Traveler change history))
-### [[/hero/mirage?ability=traveler]]((Traveler))
+[[/ability/traveler]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_teleport.webp]] Traveler change history))
+### [[/ability/traveler]]((Traveler))
 - Traveler no longer gets interrupted by non-hero sources nor DOT damage
 - Traveler wait time reduced from 3s to 2s
 - Traveler interrupt cooldown reduced from 6s to 4s
@@ -1326,8 +1326,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 [[/hero/mo-krill]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]] Mo & Krill patch history))
 ## [[/hero/mo-krill]]((Mo & Krill))
 ==ability:scorn:
-[[/hero/mo-krill?ability=scorn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_regen.webp]] Scorn change history))
-### [[/hero/mo-krill?ability=scorn]]((Scorn))
+[[/ability/scorn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_regen.webp]] Scorn change history))
+### [[/ability/scorn]]((Scorn))
 - Scorn damage reduced from 56 to 50
 - Scorn radius reduced from 10m to 9m
 - Scorn spirit scaling increased from 0.42 to 0.75
@@ -1335,8 +1335,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Scorn T2 changed from "+21 Damage" to "-5s Cooldown and +1m Radius"
 ==
 ==ability:burrow:
-[[/hero/mo-krill?ability=burrow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_spin.webp]] Burrow change history))
-### [[/hero/mo-krill?ability=burrow]]((Burrow))
+[[/ability/burrow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_spin.webp]] Burrow change history))
+### [[/ability/burrow]]((Burrow))
 - Burrow now lets you enter the tunnels
 - Burrow cooldown increased from 37s to 40s
 - Burrow T1 changed from "+3s Duration" to "+50 Spin DPS"
@@ -1345,8 +1345,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Burrow T3 increased from -19s Cooldown to -20s
 ==
 ==ability:sand-blast:
-[[/hero/mo-krill?ability=sand-blast]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_throw_sand.webp]] Sand Blast change history))
-### [[/hero/mo-krill?ability=sand-blast]]((Sand Blast))
+[[/ability/sand-blast]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_throw_sand.webp]] Sand Blast change history))
+### [[/ability/sand-blast]]((Sand Blast))
 - Sand Blast cooldown reduced from 42s to 40s
 - Sand Blast duration reduced from 3s to 2.5s
 - Sand Blast range reduced from 35m to 25m
@@ -1355,50 +1355,50 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Sand Blast T3 changed from "Slows targets Move Speed and Dash Distance by -40%" to "+1s Duration and -20s Cooldown"
 ==
 ==ability:combo:
-[[/hero/mo-krill?ability=combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo change history))
-### [[/hero/mo-krill?ability=combo]]((Combo))
+[[/ability/combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo change history))
+### [[/ability/combo]]((Combo))
 - Combo cooldown increased from 90s to 150s
 ==
 ==ability:combo-dps:
-[[/hero/mo-krill?ability=combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo DPS change history))
-### [[/hero/mo-krill?ability=combo]]((Combo DPS))
+[[/ability/combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo DPS change history))
+### [[/ability/combo]]((Combo DPS))
 - Combo DPS increased from 35 to 60
 ==
 ==ability:combo:
-[[/hero/mo-krill?ability=combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo change history))
-### [[/hero/mo-krill?ability=combo]]((Combo))
+[[/ability/combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo change history))
+### [[/ability/combo]]((Combo))
 - Combo T1 changed "+30% Bullet Resist During Combo" to "+100% Lifesteal"
 - Combo T2 changed from "+0.7s Duration" to "+60 DPS and +50% Bullet Resist"
 - Combo T3 changed from "+32 DPS and 80% Lifesteal" to "+0.7s Duration and -60s Cooldown"
 ==
 ==ability:scorn:
-[[/hero/mo-krill?ability=scorn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_regen.webp]] Scorn change history))
-### [[/hero/mo-krill?ability=scorn]]((Scorn))
+[[/ability/scorn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_regen.webp]] Scorn change history))
+### [[/ability/scorn]]((Scorn))
 - Scorn heal vs non-heroes reduced from 0.5x to 0.35x
 - Scorn cooldown increased from 12.5s to 13s
 ==
 ==ability:combo-dps:
-[[/hero/mo-krill?ability=combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo DPS change history))
-### [[/hero/mo-krill?ability=combo]]((Combo DPS))
+[[/ability/combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo DPS change history))
+### [[/ability/combo]]((Combo DPS))
 - Combo DPS reduced from 60 to 45
 ==
 ==ability:combo:
-[[/hero/mo-krill?ability=combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo change history))
-### [[/hero/mo-krill?ability=combo]]((Combo))
+[[/ability/combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo change history))
+### [[/ability/combo]]((Combo))
 - Combo cooldown reduced from 150s to 140s
 - Combo T2 changed from "+60 DPS and +50% Bullet Resist" to "-35s Cooldown and +50% Bullet Resist"
 - Combo T3 changed from +0.7s Duration and -60s Cooldown" to "+0.7s Duration and +60 Damage"
 - Combo range reduced from 4.8m to 4m
 ==
 ==ability:combo-dps:
-[[/hero/mo-krill?ability=combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo DPS change history))
-### [[/hero/mo-krill?ability=combo]]((Combo DPS))
+[[/ability/combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo DPS change history))
+### [[/ability/combo]]((Combo DPS))
 - Combo DPS reduced from 45 to 40
 - Combo DPS spirit scaling reduced from 1.2 to 0.6
 ==
 ==ability:combo:
-[[/hero/mo-krill?ability=combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo change history))
-### [[/hero/mo-krill?ability=combo]]((Combo))
+[[/ability/combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo change history))
+### [[/ability/combo]]((Combo))
 - Combo cooldown reduced from 140s to 130s
 - Combo T3 DPS reduced from +60 to +50
 - Combo T3 now also increases spirit scaling +0.4
@@ -1410,8 +1410,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 [[/hero/paige]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bookworm_sm.webp]] Paige patch history))
 ## [[/hero/paige]]((Paige))
 ==ability:bookwyrm:
-[[/hero/paige?ability=bookwyrm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bookworm/bookworm_dragon.webp]] Bookwyrm change history))
-### [[/hero/paige?ability=bookwyrm]]((Bookwyrm))
+[[/ability/bookwyrm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bookworm/bookworm_dragon.webp]] Bookwyrm change history))
+### [[/ability/bookwyrm]]((Bookwyrm))
 - Conjure Dragon renamed to Bookwyrm
 - Bookwyrm fixed initial location not starting where you click it
 - Bookwyrm cooldown increased from 30s to 33s
@@ -1421,15 +1421,15 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Bookwyrm T3 now also grants +1 Charge
 ==
 ==ability:plot-armor:
-[[/hero/paige?ability=plot-armor]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bookworm/bookworm_defendandfight.webp]] Plot Armor change history))
-### [[/hero/paige?ability=plot-armor]]((Plot Armor))
+[[/ability/plot-armor]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bookworm/bookworm_defendandfight.webp]] Plot Armor change history))
+### [[/ability/plot-armor]]((Plot Armor))
 - Defend and Fight! renamed to Plot Armor
 - Plot Armor barrier spirit scaling reduced from 1.6 to 1.3
 - Plot Armor T3 now also increases spirit scaling (+0.3)
 ==
 ==ability:captivating-read:
-[[/hero/paige?ability=captivating-read]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bookworm/bookworm_blindinglight.webp]] Captivating Read change history))
-### [[/hero/paige?ability=captivating-read]]((Captivating Read))
+[[/ability/captivating-read]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bookworm/bookworm_blindinglight.webp]] Captivating Read change history))
+### [[/ability/captivating-read]]((Captivating Read))
 - Captivating Read height area no longer increases with range bonuses
 - Captivating Read cooldown increased from 25s to 30s
 - Captivating Read immobilize duration reduced from 1.25s to 1s
@@ -1438,8 +1438,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Captivating Read T3 now also increases radius by 1m
 ==
 ==ability:rallying-charge:
-[[/hero/paige?ability=rallying-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bookworm/bookworm_charge.webp]] Rallying Charge change history))
-### [[/hero/paige?ability=rallying-charge]]((Rallying Charge))
+[[/ability/rallying-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bookworm/bookworm_charge.webp]] Rallying Charge change history))
+### [[/ability/rallying-charge]]((Rallying Charge))
 - Rallying Charge T2 now also reduces cooldown by 30s
 - Rallying Charge T3 now also increases Max Amp from +100% to +150%
 ==
@@ -1449,19 +1449,19 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 [[/hero/paradox]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox patch history))
 ## [[/hero/paradox]]((Paradox))
 ==ability:pulse-grenade:
-[[/hero/paradox?ability=pulse-grenade]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_bomb.webp]] Pulse Grenade change history))
-### [[/hero/paradox?ability=pulse-grenade]]((Pulse Grenade))
+[[/ability/pulse-grenade]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_bomb.webp]] Pulse Grenade change history))
+### [[/ability/pulse-grenade]]((Pulse Grenade))
 - Pulse Grenade radius reduced from 6m to 5.5m
 - Pulse Grenade radius increases by +1m per Pulse
 ==
 ==ability:pulse-grenade-amp-per-stack:
-[[/hero/paradox?ability=pulse-grenade]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_bomb.webp]] Pulse Grenade Amp Per Stack change history))
-### [[/hero/paradox?ability=pulse-grenade]]((Pulse Grenade Amp Per Stack))
+[[/ability/pulse-grenade]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_bomb.webp]] Pulse Grenade Amp Per Stack change history))
+### [[/ability/pulse-grenade]]((Pulse Grenade Amp Per Stack))
 - Pulse Grenade Amp Per Stack reduced from 6% to 4%
 ==
 ==ability:pulse-grenade:
-[[/hero/paradox?ability=pulse-grenade]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_bomb.webp]] Pulse Grenade change history))
-### [[/hero/paradox?ability=pulse-grenade]]((Pulse Grenade))
+[[/ability/pulse-grenade]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_bomb.webp]] Pulse Grenade change history))
+### [[/ability/pulse-grenade]]((Pulse Grenade))
 - Pulse Grenade cooldown increased from 28s to 32s
 - Pulse Grenade spirit scaling reduced from 0.6 to 0.4
 - Pulse Grenade changed from -30% Move Speed for 2s to -20% Time Slow for 0.2s
@@ -1470,8 +1470,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Pulse Grenade T3 changed from "+36 Pulse Damage and +0.8m Radius per Pulse" to "+4% Damage Amp Per Stack and +1.6s Duration"
 ==
 ==ability:time-wall:
-[[/hero/paradox?ability=time-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_wall.webp]] Time Wall change history))
-### [[/hero/paradox?ability=time-wall]]((Time Wall))
+[[/ability/time-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_wall.webp]] Time Wall change history))
+### [[/ability/time-wall]]((Time Wall))
 - Time Wall duration reduced from 6s to 5.5
 - Time Wall no longer damages enemies going through it
 - Time Wall now increases allied bullet speeds going through it by 100%
@@ -1481,8 +1481,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Time Wall T3 changed from silencing enemies to Allowing Charges and Granting +1 Charge (4s Charge Time)
 ==
 ==ability:kinetic-carbine:
-[[/hero/paradox?ability=kinetic-carbine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/duo/duo_attack.webp]] Kinetic Carbine change history))
-### [[/hero/paradox?ability=kinetic-carbine]]((Kinetic Carbine))
+[[/ability/kinetic-carbine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/duo/duo_attack.webp]] Kinetic Carbine change history))
+### [[/ability/kinetic-carbine]]((Kinetic Carbine))
 - Kinetic Carbine cooldown increased from 27s to 30s
 - Kinetic Carbine speed spirit scaling increased from 0.09 to 0.13
 - Kinetic Carbine base damage scale increased from 100% to 125%
@@ -1490,8 +1490,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Kinetic Carbine T3 now also increases charge hold by 2s
 ==
 ==ability:paradoxical-swap:
-[[/hero/paradox?ability=paradoxical-swap]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_swap.webp]] Paradoxical Swap change history))
-### [[/hero/paradox?ability=paradoxical-swap]]((Paradoxical Swap))
+[[/ability/paradoxical-swap]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_swap.webp]] Paradoxical Swap change history))
+### [[/ability/paradoxical-swap]]((Paradoxical Swap))
 - Paradoxical Swap cooldown increased from 75s to 95s
 - Paradoxical Swap no longer has 80% Spirit Lifesteal
 - Paradoxical Swap damage changed from 115 (0.6 spirit scaling) to 10% Current Health
@@ -1500,28 +1500,28 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Paradoxical Swap T3 changed from "+15m Cast Range" to "Swaps additional enemies in 7m radius and +10% Current Health Damage"
 ==
 ==ability:pulse-grenade:
-[[/hero/paradox?ability=pulse-grenade]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_bomb.webp]] Pulse Grenade change history))
-### [[/hero/paradox?ability=pulse-grenade]]((Pulse Grenade))
+[[/ability/pulse-grenade]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_bomb.webp]] Pulse Grenade change history))
+### [[/ability/pulse-grenade]]((Pulse Grenade))
 - Pulse Grenade spirit scaling reduced from 0.4 to 0.3
 ==
 ==ability:time-wall:
-[[/hero/paradox?ability=time-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_wall.webp]] Time Wall change history))
-### [[/hero/paradox?ability=time-wall]]((Time Wall))
+[[/ability/time-wall]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_wall.webp]] Time Wall change history))
+### [[/ability/time-wall]]((Time Wall))
 - Time Wall slow duration increased from 1.25s to 2s
 - Time Wall T1 now also increases duration by +2.5s
 - Time Wall T2 no longer increases duration by +2.5s
 - Time Wall T2 now also silences enemies for 2.3s
 ==
 ==ability:paradoxical-swap:
-[[/hero/paradox?ability=paradoxical-swap]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_swap.webp]] Paradoxical Swap change history))
-### [[/hero/paradox?ability=paradoxical-swap]]((Paradoxical Swap))
+[[/ability/paradoxical-swap]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_swap.webp]] Paradoxical Swap change history))
+### [[/ability/paradoxical-swap]]((Paradoxical Swap))
 - Paradoxical Swap damage changed from 10% Current Health to 125 with 1.1 spirit scaling
 - Paradoxical Swap T3 changed from 10% Current Health to 10% Max Health
 - Paradoxical Swap can now be alt casted to swap only a single target with the T3
 ==
 ==ability:pulse-grenade:
-[[/hero/paradox?ability=pulse-grenade]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_bomb.webp]] Pulse Grenade change history))
-### [[/hero/paradox?ability=pulse-grenade]]((Pulse Grenade))
+[[/ability/pulse-grenade]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/chrono/chrono_time_bomb.webp]] Pulse Grenade change history))
+### [[/ability/pulse-grenade]]((Pulse Grenade))
 - Pulse Grenade does half damage to objectives
 ==
 =
@@ -1530,8 +1530,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 [[/hero/pocket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket patch history))
 ## [[/hero/pocket]]((Pocket))
 ==ability:barrage:
-[[/hero/pocket?ability=barrage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_barrage.webp]] Barrage change history))
-### [[/hero/pocket?ability=barrage]]((Barrage))
+[[/ability/barrage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_barrage.webp]] Barrage change history))
+### [[/ability/barrage]]((Barrage))
 - Barrage projectile speed increased by 15%
 - Barrage now lets you use stamina during the ability
 - Barrage now lets you use Flying Cloak during the ability
@@ -1540,8 +1540,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Barrage T3 increased from +2m Radius to +3m
 ==
 ==ability:flying-cloak:
-[[/hero/pocket?ability=flying-cloak]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_plasma_flux.webp]] Flying Cloak change history))
-### [[/hero/pocket?ability=flying-cloak]]((Flying Cloak))
+[[/ability/flying-cloak]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_plasma_flux.webp]] Flying Cloak change history))
+### [[/ability/flying-cloak]]((Flying Cloak))
 - Flying Cloak cooldown reduced from 32s to 26s
 - Flying Cloak damage reduced from 70 to 60
 - Flying Cloak duration increased from 3.4s to 3.8s (travels slower, same total distance)
@@ -1550,8 +1550,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Flying Cloak T3 changed from "+7 Weapon Damage after teleporting for 10s" to "+1.6s Travel Time and -14s Cooldown"
 ==
 ==ability:enchanter-s-satchel:
-[[/hero/pocket?ability=enchanters-satchel]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_pulse.webp]] Enchanter's Satchel change history))
-### [[/hero/pocket?ability=enchanters-satchel]]((Enchanter's Satchel))
+[[/ability/enchanters-satchel]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_pulse.webp]] Enchanter's Satchel change history))
+### [[/ability/enchanters-satchel]]((Enchanter's Satchel))
 - Enchanter's Satchel spirit scaling increased from 0.61 to 0.9
 - Enchanter's Satchel T3 now also reduces movement speed by 40%
 - Enchanter's Satchel T3 Fire Rate slow increased from 35% to 40%
@@ -1559,18 +1559,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Enchanter's Satchel T3 now also increases radius by 4m
 ==
 ==ability:affliction:
-[[/hero/pocket?ability=affliction]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_affliction.webp]] Affliction change history))
-### [[/hero/pocket?ability=affliction]]((Affliction))
+[[/ability/affliction]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_affliction.webp]] Affliction change history))
+### [[/ability/affliction]]((Affliction))
 - Affliction no longer applies 12% Current Health Damage
 ==
 ==ability:affliction-dps:
-[[/hero/pocket?ability=affliction]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_affliction.webp]] Affliction DPS change history))
-### [[/hero/pocket?ability=affliction]]((Affliction DPS))
+[[/ability/affliction]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_affliction.webp]] Affliction DPS change history))
+### [[/ability/affliction]]((Affliction DPS))
 - Affliction DPS increased from 28 to 32
 ==
 ==ability:affliction:
-[[/hero/pocket?ability=affliction]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_affliction.webp]] Affliction change history))
-### [[/hero/pocket?ability=affliction]]((Affliction))
+[[/ability/affliction]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_affliction.webp]] Affliction change history))
+### [[/ability/affliction]]((Affliction))
 - Affliction spirit scaling increased from 0.17 to 0.2
 - Affliction cooldown increased from 140s to 150s
 - Affliction T1 increased from -25s Cooldown to -40s Cooldown
@@ -1582,13 +1582,13 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Affliction duration reduced from 12s to 11s (overall total damage is reduced slightly)
 ==
 ==ability:affliction-dps:
-[[/hero/pocket?ability=affliction]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_affliction.webp]] Affliction DPS change history))
-### [[/hero/pocket?ability=affliction]]((Affliction DPS))
+[[/ability/affliction]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_affliction.webp]] Affliction DPS change history))
+### [[/ability/affliction]]((Affliction DPS))
 - Affliction DPS increased from 32+0.2 to 34+0.22
 ==
 ==ability:affliction:
-[[/hero/pocket?ability=affliction]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_affliction.webp]] Affliction change history))
-### [[/hero/pocket?ability=affliction]]((Affliction))
+[[/ability/affliction]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_affliction.webp]] Affliction change history))
+### [[/ability/affliction]]((Affliction))
 - Affliction T2 duration reduced from +4s to +3s
 - Affliction T3 DPS increased from 16+0.1 to 18+0.11
 ==
@@ -1598,14 +1598,14 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 [[/hero/rem]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/familiar_sm.webp]] Rem patch history))
 ## [[/hero/rem]]((Rem))
 ==ability:lil-helpers:
-[[/hero/rem?ability=lil-helpers]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/familiar/familiar_helpers.webp]] Lil Helpers change history))
-### [[/hero/rem?ability=lil-helpers]]((Lil Helpers))
+[[/ability/lil-helpers]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/familiar/familiar_helpers.webp]] Lil Helpers change history))
+### [[/ability/lil-helpers]]((Lil Helpers))
 - Lil Helpers trooper base healing changed from 10/s to 8/s. The delay between heals has been reduced so the frequency of healing is more constant. (overall reduction)
 - Lil Helpers trooper healing spirit scaling increased from 0.125 to 0.14
 ==
 ==ability:naptime:
-[[/hero/rem?ability=naptime]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/familiar/familiar_sleep.webp]] Naptime change history))
-### [[/hero/rem?ability=naptime]]((Naptime))
+[[/ability/naptime]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/familiar/familiar_sleep.webp]] Naptime change history))
+### [[/ability/naptime]]((Naptime))
 - Naptime sleep move speed reduced from 2m/s to 1.5m/s
 - Naptime sleep duration decreased from 4.25s to 4s
 - Naptime radius decreased from 20m to 17.0m
@@ -1620,15 +1620,15 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Move Speed no longer scales with spirit power
 - Sprint speed increased from 0.6m to 1.8m
 ==ability:lightning-ball:
-[[/hero/seven?ability=lightning-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_ball.webp]] Lightning Ball change history))
-### [[/hero/seven?ability=lightning-ball]]((Lightning Ball))
+[[/ability/lightning-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_ball.webp]] Lightning Ball change history))
+### [[/ability/lightning-ball]]((Lightning Ball))
 - Lightning Ball slows down less vs non-heroes (previously was 2m/s for all, now 3.5m/s for non-heroes)
 - Lightning Ball fixed now doing damage if another ball was already hitting a target
 - Lightning Ball T2 now also increases lifetime by 1s
 ==
 ==ability:static-charge:
-[[/hero/seven?ability=static-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_static.webp]] Static Charge change history))
-### [[/hero/seven?ability=static-charge]]((Static Charge))
+[[/ability/static-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_static.webp]] Static Charge change history))
+### [[/ability/static-charge]]((Static Charge))
 - Static Charge damage reduced from 38 to 35
 - Static Charge cast range reduced from 16m to 15m
 - Static Charge cast range no longer increases with spirit power
@@ -1637,8 +1637,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Static Charge T3 now also increases damage by +160
 ==
 ==ability:power-surge:
-[[/hero/seven?ability=power-surge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_chain.webp]] Power Surge change history))
-### [[/hero/seven?ability=power-surge]]((Power Surge))
+[[/ability/power-surge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_chain.webp]] Power Surge change history))
+### [[/ability/power-surge]]((Power Surge))
 - Power Surge duration no longer scales with spirit power
 - Power Surge cooldown increased from 48s to 50s
 - Power Surge max jumps increased from 3 to 4
@@ -1647,21 +1647,21 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Power Surge T3 changed from "+11 Shock Damage, scaling and +3 max jumps" to "-15% Spirit Resist for 8s and +12s Duration"
 ==
 ==ability:storm-cloud:
-[[/hero/seven?ability=storm-cloud]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_storm.webp]] Storm Cloud change history))
-### [[/hero/seven?ability=storm-cloud]]((Storm Cloud))
+[[/ability/storm-cloud]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_storm.webp]] Storm Cloud change history))
+### [[/ability/storm-cloud]]((Storm Cloud))
 - Storm Cloud allows movement in the base ability (1.5m)
 - Storm Cloud bullet resistance reduced from 20% to 0%
 - Storm Cloud T1 bullet resist increased from 35% to 55%
 - Storm Cloud T3 increases move speed by +3m (was +3.8m before)
 ==
 ==ability:lightning-ball:
-[[/hero/seven?ability=lightning-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_ball.webp]] Lightning Ball change history))
-### [[/hero/seven?ability=lightning-ball]]((Lightning Ball))
+[[/ability/lightning-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_ball.webp]] Lightning Ball change history))
+### [[/ability/lightning-ball]]((Lightning Ball))
 - Lightning Ball charge time reduced from 8s to 7s
 ==
 ==ability:storm-cloud:
-[[/hero/seven?ability=storm-cloud]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_storm.webp]] Storm Cloud change history))
-### [[/hero/seven?ability=storm-cloud]]((Storm Cloud))
+[[/ability/storm-cloud]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_storm.webp]] Storm Cloud change history))
+### [[/ability/storm-cloud]]((Storm Cloud))
 - Storm Cloud T3 increases speed from +3m to +4m
 ==
 =
@@ -1673,19 +1673,19 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Stamina movement speed reduced from 6.7 to 6.5
 - Bullet damage growth increased from 0.154 to 0.165
 ==ability:serrated-knives:
-[[/hero/shiv?ability=serrated-knives]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_toss.webp]] Serrated Knives change history))
-### [[/hero/shiv?ability=serrated-knives]]((Serrated Knives))
+[[/ability/serrated-knives]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_toss.webp]] Serrated Knives change history))
+### [[/ability/serrated-knives]]((Serrated Knives))
 - Serrated Knives no longer has impact damage
 - Serrated Knives Bleed DPS per knife increased from 4 to 10
 ==
 ==ability:serrated-knives-bleed-dps:
-[[/hero/shiv?ability=serrated-knives]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_toss.webp]] Serrated Knives Bleed DPS change history))
-### [[/hero/shiv?ability=serrated-knives]]((Serrated Knives Bleed DPS))
+[[/ability/serrated-knives]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_toss.webp]] Serrated Knives Bleed DPS change history))
+### [[/ability/serrated-knives]]((Serrated Knives Bleed DPS))
 - Serrated Knives Bleed DPS spirit scaling increased from 0.13 to 0.15
 ==
 ==ability:serrated-knives:
-[[/hero/shiv?ability=serrated-knives]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_toss.webp]] Serrated Knives change history))
-### [[/hero/shiv?ability=serrated-knives]]((Serrated Knives))
+[[/ability/serrated-knives]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_toss.webp]] Serrated Knives change history))
+### [[/ability/serrated-knives]]((Serrated Knives))
 - Serrated Knives T1 changed from "+1 Charge" to "+2s Duration"
 - Serrated Knives T2 changed from "+2s Duration" to "+2 Charges"
 - Serrated Knives T3 no longer has +30 Impact Damage
@@ -1693,8 +1693,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Serrated Knives T3 increases spirit scaling by +0.10
 ==
 ==ability:slice-and-dice:
-[[/hero/shiv?ability=slice-and-dice]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_flash.webp]] Slice and Dice change history))
-### [[/hero/shiv?ability=slice-and-dice]]((Slice and Dice))
+[[/ability/slice-and-dice]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_flash.webp]] Slice and Dice change history))
+### [[/ability/slice-and-dice]]((Slice and Dice))
 - Slice and Dice cooldown increased from 15s to 16s
 - Slice and Dice Impact damage reduced from 75 to 60
 - Slice and Dice reduces Spirit Resistance by 6% for 16s. Multiple instances stack.
@@ -1703,45 +1703,45 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Slice and Dice T3 now also grants +50 Impact Damage
 ==
 ==ability:killing-blow:
-[[/hero/shiv?ability=killing-blow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp]] Killing Blow change history))
-### [[/hero/shiv?ability=killing-blow]]((Killing Blow))
+[[/ability/killing-blow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp]] Killing Blow change history))
+### [[/ability/killing-blow]]((Killing Blow))
 - Killing Blow is no longer unit targeted, you jump in the direction forward with some small control
 ==
 ==ability:killing-blow-damage-amp:
-[[/hero/shiv?ability=killing-blow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp]] Killing Blow Damage Amp change history))
-### [[/hero/shiv?ability=killing-blow]]((Killing Blow Damage Amp))
+[[/ability/killing-blow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp]] Killing Blow Damage Amp change history))
+### [[/ability/killing-blow]]((Killing Blow Damage Amp))
 - Killing Blow Damage Amp reduced from 15% to 14%
 ==
 ==ability:killing-blow:
-[[/hero/shiv?ability=killing-blow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp]] Killing Blow change history))
-### [[/hero/shiv?ability=killing-blow]]((Killing Blow))
+[[/ability/killing-blow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp]] Killing Blow change history))
+### [[/ability/killing-blow]]((Killing Blow))
 - Killing Blow T2 changed from "+5% Enemy Health Threshold and +6% Damage Amp" to "+8% Damage Amp"
 - Killing Blow T3 now grants you 20s to recast the ultimate, rather than removing the cooldown
 - Killing Blow T3 now also increases enemy health threshold by +5%
 ==
 - Alt fire knockback increased by 10%
 ==ability:serrated-knives:
-[[/hero/shiv?ability=serrated-knives]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_toss.webp]] Serrated Knives change history))
-### [[/hero/shiv?ability=serrated-knives]]((Serrated Knives))
+[[/ability/serrated-knives]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_toss.webp]] Serrated Knives change history))
+### [[/ability/serrated-knives]]((Serrated Knives))
 - Serrated Knives cooldown increased from 16s to 18s
 ==
 ==ability:killing-blow:
-[[/hero/shiv?ability=killing-blow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp]] Killing Blow change history))
-### [[/hero/shiv?ability=killing-blow]]((Killing Blow))
+[[/ability/killing-blow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp]] Killing Blow change history))
+### [[/ability/killing-blow]]((Killing Blow))
 - Killing Blow range increased from 13m to 18m
 - Killing Blow travel speed increased a bit
 ==
 - Stamina increased from 2 to 3
 - Stamina cooldown increased from 4.5s to 5.5s
 ==ability:bloodletting:
-[[/hero/shiv?ability=bloodletting]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_bloodletting.webp]] Bloodletting change history))
-### [[/hero/shiv?ability=bloodletting]]((Bloodletting))
+[[/ability/bloodletting]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_bloodletting.webp]] Bloodletting change history))
+### [[/ability/bloodletting]]((Bloodletting))
 - Bloodletting no longer interrupts sliding when cast
 - Bloodletting is now affected by healing modifiers
 ==
 ==ability:killing-blow:
-[[/hero/shiv?ability=killing-blow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp]] Killing Blow change history))
-### [[/hero/shiv?ability=killing-blow]]((Killing Blow))
+[[/ability/killing-blow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp]] Killing Blow change history))
+### [[/ability/killing-blow]]((Killing Blow))
 - Fixed a bug with Killing Blow T3 causing the cooldown to be delayed if you failed to execute during the allowed window
 - Killing Blow now continues forward (and dealing damage) until it reaches a target it can kill or runs out of range
 ==
@@ -1751,25 +1751,25 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 [[/hero/silver]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/werewolf_sm.webp]] Silver patch history))
 ## [[/hero/silver]]((Silver))
 ==ability:mauling-leap:
-[[/hero/silver?ability=entangling-bola]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/werewolf/werewolf_bola.webp]] Mauling Leap change history))
-### [[/hero/silver?ability=entangling-bola]]((Mauling Leap))
+[[/ability/entangling-bola]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/werewolf/werewolf_bola.webp]] Mauling Leap change history))
+### [[/ability/entangling-bola]]((Mauling Leap))
 - Mauling Leap damage scaling reduced from 1.9 to 1.5
 ==
 ==ability:boot-kick:
-[[/hero/silver?ability=boot-kick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/werewolf/werewolf_jumpback.webp]] Boot Kick change history))
-### [[/hero/silver?ability=boot-kick]]((Boot Kick))
+[[/ability/boot-kick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/werewolf/werewolf_jumpback.webp]] Boot Kick change history))
+### [[/ability/boot-kick]]((Boot Kick))
 - Fixed Tail Whack being considered a movement ability
 - Tail Whack disarm duration reduced from 2.5s to 2s
 ==
 ==ability:tail-whack:
-[[/hero/silver?ability=boot-kick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/werewolf/werewolf_jumpback.webp]] Tail Whack change history))
-### [[/hero/silver?ability=boot-kick]]((Tail Whack))
+[[/ability/boot-kick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/werewolf/werewolf_jumpback.webp]] Tail Whack change history))
+### [[/ability/boot-kick]]((Tail Whack))
 - Tail Whack slow duration increased from 1.5s to 2s
 - Tail Whack T3 changed from "+1s Disarm Duration" to "1.5s Debuff Duration"
 ==
 ==ability:lycan-curse:
-[[/hero/silver?ability=lycan-curse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/werewolf/werewolf_lycancurse.webp]] Lycan Curse change history))
-### [[/hero/silver?ability=lycan-curse]]((Lycan Curse))
+[[/ability/lycan-curse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/werewolf/werewolf_lycancurse.webp]] Lycan Curse change history))
+### [[/ability/lycan-curse]]((Lycan Curse))
 - Lycan Curse cooldown increased from 35s to 50s
 - Lycan Curse base health bonus reduced from 100 to 75
 - Lycan Curse no longer grants +14% Bullet and Spirit Resistance
@@ -1782,28 +1782,28 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Lycan Curse T1 increased from 15% Resists to 18%
 ==
 ==ability:slam-fire-weapon-accuracy:
-[[/hero/silver?ability=slam-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/werewolf/werewolf_slamfire.webp]] Slam Fire Weapon Accuracy change history))
-### [[/hero/silver?ability=slam-fire]]((Slam Fire Weapon Accuracy))
+[[/ability/slam-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/werewolf/werewolf_slamfire.webp]] Slam Fire Weapon Accuracy change history))
+### [[/ability/slam-fire]]((Slam Fire Weapon Accuracy))
 - Slam Fire Weapon Accuracy reduced from -25% to -30%
 ==
 ==ability:lycan-curse:
-[[/hero/silver?ability=lycan-curse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/werewolf/werewolf_lycancurse.webp]] Lycan Curse change history))
-### [[/hero/silver?ability=lycan-curse]]((Lycan Curse))
+[[/ability/lycan-curse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/werewolf/werewolf_lycancurse.webp]] Lycan Curse change history))
+### [[/ability/lycan-curse]]((Lycan Curse))
 - Go For The Throat, Boot Kick and Mauling Leap now benefit from range increases
 ==
 ==ability:boot-kick:
-[[/hero/silver?ability=boot-kick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/werewolf/werewolf_jumpback.webp]] Boot Kick change history))
-### [[/hero/silver?ability=boot-kick]]((Boot Kick))
+[[/ability/boot-kick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/werewolf/werewolf_jumpback.webp]] Boot Kick change history))
+### [[/ability/boot-kick]]((Boot Kick))
 - Boot Kick now uses a break-off angle when grounded, allowing upward movement if looking up enough
 ==
 ==ability:tail-whack:
-[[/hero/silver?ability=boot-kick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/werewolf/werewolf_jumpback.webp]] Tail Whack change history))
-### [[/hero/silver?ability=boot-kick]]((Tail Whack))
+[[/ability/boot-kick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/werewolf/werewolf_jumpback.webp]] Tail Whack change history))
+### [[/ability/boot-kick]]((Tail Whack))
 - Tail Whack spirit scaling increased from 1 to 1.5
 ==
 ==ability:lycan-curse:
-[[/hero/silver?ability=lycan-curse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/werewolf/werewolf_lycancurse.webp]] Lycan Curse change history))
-### [[/hero/silver?ability=lycan-curse]]((Lycan Curse))
+[[/ability/lycan-curse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/werewolf/werewolf_lycancurse.webp]] Lycan Curse change history))
+### [[/ability/lycan-curse]]((Lycan Curse))
 - Lycan Curse now grants 1.5m Move Speed
 - Lycan Curse T1 increased from +18% Resists to +20%
 - Lycan Curse T2 increased from +150 Bonus Health to +200
@@ -1816,8 +1816,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 ## [[/hero/victor]]((Victor))
 - Bullet damage increased from 12.3 to 12.5
 ==ability:pain-battery:
-[[/hero/victor?ability=pain-battery]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_pain_battery.webp]] Pain Battery change history))
-### [[/hero/victor?ability=pain-battery]]((Pain Battery))
+[[/ability/pain-battery]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_pain_battery.webp]] Pain Battery change history))
+### [[/ability/pain-battery]]((Pain Battery))
 - Pain Battery now starts charged
 - Pain Battery range increased from 20m to 28m
 - Pain Battery reduced randomness on the projectile paths
@@ -1826,18 +1826,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Pain Battery T3 now also increases spirit scaling by +0.6
 ==
 ==ability:jumpstart:
-[[/hero/victor?ability=jumpstart]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_jump_start.webp]] Jumpstart change history))
-### [[/hero/victor?ability=jumpstart]]((Jumpstart))
+[[/ability/jumpstart]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_jump_start.webp]] Jumpstart change history))
+### [[/ability/jumpstart]]((Jumpstart))
 - Jumpstart cooldown increased from 23s to 30s
 ==
 ==ability:jumpstart-move-speed:
-[[/hero/victor?ability=jumpstart]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_jump_start.webp]] Jumpstart Move Speed change history))
-### [[/hero/victor?ability=jumpstart]]((Jumpstart Move Speed))
+[[/ability/jumpstart]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_jump_start.webp]] Jumpstart Move Speed change history))
+### [[/ability/jumpstart]]((Jumpstart Move Speed))
 - Jumpstart Move Speed reduced from 4m to 3m
 ==
 ==ability:jumpstart:
-[[/hero/victor?ability=jumpstart]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_jump_start.webp]] Jumpstart change history))
-### [[/hero/victor?ability=jumpstart]]((Jumpstart))
+[[/ability/jumpstart]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_jump_start.webp]] Jumpstart change history))
+### [[/ability/jumpstart]]((Jumpstart))
 - Jumpstart spirit scaling reduced from 1.8 to 1.2
 - Jumpstart T1 increased from +1.5m to +3m Move Speed
 - Jumpstart T2 now also reduces cooldown by -8s
@@ -1846,8 +1846,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Jumpstart T3 now also increases spirit scaling by 0.8
 ==
 ==ability:aura-of-suffering:
-[[/hero/victor?ability=aura-of-suffering]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_aura_of_suffering.webp]] Aura of Suffering change history))
-### [[/hero/victor?ability=aura-of-suffering]]((Aura of Suffering))
+[[/ability/aura-of-suffering]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_aura_of_suffering.webp]] Aura of Suffering change history))
+### [[/ability/aura-of-suffering]]((Aura of Suffering))
 - Aura of Suffering time to max DPS reduced from 10s to 6s
 - Aura of Suffering radius increased from 7.7m to 10m
 - Aura of Suffering toggle cooldown reduced from 2.5s to 2s
@@ -1860,8 +1860,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Aura of Suffering T3 reduced from +13% Damage to +15%
 ==
 ==ability:shocking-reanimation:
-[[/hero/victor?ability=shocking-reanimation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_shocking_reanimation.webp]] Shocking Reanimation change history))
-### [[/hero/victor?ability=shocking-reanimation]]((Shocking Reanimation))
+[[/ability/shocking-reanimation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_shocking_reanimation.webp]] Shocking Reanimation change history))
+### [[/ability/shocking-reanimation]]((Shocking Reanimation))
 - Shocking Reanimation radius reduced from 13m to 12m
 - Shocking Reanimation rebirth health reduced from 60% to 50%
 - Shocking Reanimation T1 changed from "+3m Radius and +90 Damage" to "While on Cooldown: +15% Fire Rate and +6 Spirit Damage Per Bullet (0.06 scaling)"
@@ -1869,33 +1869,33 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Shocking Reanimation T3 changed from "While on Cooldown: +18% Fire Rate and +9 Spirit Damage Per Bullet (0.06 scaling)" to "+6m Radius, +1s Stun and -50s Cooldown"
 ==
 ==ability:pain-battery:
-[[/hero/victor?ability=pain-battery]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_pain_battery.webp]] Pain Battery change history))
-### [[/hero/victor?ability=pain-battery]]((Pain Battery))
+[[/ability/pain-battery]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_pain_battery.webp]] Pain Battery change history))
+### [[/ability/pain-battery]]((Pain Battery))
 - Pain Battery T3 reduced from 18% Missing Health to 15%
 ==
 ==ability:jumpstart:
-[[/hero/victor?ability=jumpstart]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_jump_start.webp]] Jumpstart change history))
-### [[/hero/victor?ability=jumpstart]]((Jumpstart))
+[[/ability/jumpstart]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_jump_start.webp]] Jumpstart change history))
+### [[/ability/jumpstart]]((Jumpstart))
 - Jumpstart T3 spirit scaling reduced from 0.8 to 0.6
 ==
 ==ability:aura-of-suffering:
-[[/hero/victor?ability=aura-of-suffering]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_aura_of_suffering.webp]] Aura of Suffering change history))
-### [[/hero/victor?ability=aura-of-suffering]]((Aura of Suffering))
+[[/ability/aura-of-suffering]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_aura_of_suffering.webp]] Aura of Suffering change history))
+### [[/ability/aura-of-suffering]]((Aura of Suffering))
 - Aura of Suffering can now be activated on the zipline
 - Aura of Suffering radius reduced from 10m to 9.5m
 - Aura of Suffering Base and T2 Max DPS and scaling reduced by 10%
 ==
 ==ability:shocking-reanimation:
-[[/hero/victor?ability=shocking-reanimation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_shocking_reanimation.webp]] Shocking Reanimation change history))
-### [[/hero/victor?ability=shocking-reanimation]]((Shocking Reanimation))
+[[/ability/shocking-reanimation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_shocking_reanimation.webp]] Shocking Reanimation change history))
+### [[/ability/shocking-reanimation]]((Shocking Reanimation))
 - Shocking Reanimation cooldown increased from 190s to 210s
 - Shocking Reanimation T3 increased from -50s Cooldown to -70s
 ==
 - Health per boon increased from 46 to 50
 - Now has 30% less effectiveness from lifesteal (Lifesteal Effectiveness stat added to Vitality tooltip)
 ==ability:shocking-reanimation:
-[[/hero/victor?ability=shocking-reanimation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_shocking_reanimation.webp]] Shocking Reanimation change history))
-### [[/hero/victor?ability=shocking-reanimation]]((Shocking Reanimation))
+[[/ability/shocking-reanimation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_shocking_reanimation.webp]] Shocking Reanimation change history))
+### [[/ability/shocking-reanimation]]((Shocking Reanimation))
 - Shocking Reanimation radius increased from 12m to 18m
 - Shocking Reanimation cooldown increased from 210s to 230s
 - Shocking Reanimation T3 no longer increases radius by 6m
@@ -1911,8 +1911,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Bullet damage now scales with spirit power (0.022)
 - Bullet Velocity increased from 557 to 660
 ==ability:stake:
-[[/hero/vindicta?ability=stake]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_stake.webp]] Stake change history))
-### [[/hero/vindicta?ability=stake]]((Stake))
+[[/ability/stake]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_stake.webp]] Stake change history))
+### [[/ability/stake]]((Stake))
 - Stake damage reduced from 55 to 40
 - Stake damage spirit scaling increased from 0.37 to 0.5
 - Stake projectile speed increased from 20m/s to 25m/s
@@ -1921,8 +1921,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Stake T3 capture radius increased from +1m to +2m
 ==
 ==ability:flight:
-[[/hero/vindicta?ability=flight]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_flight.webp]] Flight change history))
-### [[/hero/vindicta?ability=flight]]((Flight))
+[[/ability/flight]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_flight.webp]] Flight change history))
+### [[/ability/flight]]((Flight))
 - Flight now allows you to use melee
 - Flight now allows parry to be used
 - Flight now grants you +50% Item Cast Range
@@ -1934,8 +1934,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Flight T3 now also refreshes duration on hero kill
 ==
 ==ability:crow-familiar:
-[[/hero/vindicta?ability=crow-familiar]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_crow.webp]] Crow Familiar change history))
-### [[/hero/vindicta?ability=crow-familiar]]((Crow Familiar))
+[[/ability/crow-familiar]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_crow.webp]] Crow Familiar change history))
+### [[/ability/crow-familiar]]((Crow Familiar))
 - Crow Familiar now releases a swarm of crows in a cone forward, hitting all enemies along the path
 - Crow Familiar debuff duration no longer scales with spirit power
 - Crow Familiar debuff duration increased from 4s to 5s
@@ -1946,8 +1946,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Crow Familiar T3 now also increases debuff duration by 2s
 ==
 ==ability:assassinate:
-[[/hero/vindicta?ability=assassinate]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_assassinate.webp]] Assassinate change history))
-### [[/hero/vindicta?ability=assassinate]]((Assassinate))
+[[/ability/assassinate]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_assassinate.webp]] Assassinate change history))
+### [[/ability/assassinate]]((Assassinate))
 - Assassinate while scoped no longer un-scopes when using items
 - Assassinate now has a 4s buffer on impact for bonus credit
 - Assassinate while scoped now plays a sound for you when the it is fully charged
@@ -1960,8 +1960,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 [[/hero/viscous]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous patch history))
 ## [[/hero/viscous]]((Viscous))
 ==ability:splatter:
-[[/hero/viscous?ability=splatter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_ball.webp]] Splatter change history))
-### [[/hero/viscous?ability=splatter]]((Splatter))
+[[/ability/splatter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_ball.webp]] Splatter change history))
+### [[/ability/splatter]]((Splatter))
 - Splatter bounces once by default
 - Splatter cooldown reduced from 30s to 26
 - Splatter spirit scaling reduced from 1.77 to 0.8
@@ -1973,37 +1973,37 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Splatter T3 still adds 2 bounces
 ==
 ==ability:the-cube:
-[[/hero/viscous?ability=the-cube]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_restorative_goo.webp]] The Cube change history))
-### [[/hero/viscous?ability=the-cube]]((The Cube))
+[[/ability/the-cube]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_restorative_goo.webp]] The Cube change history))
+### [[/ability/the-cube]]((The Cube))
 - The Cube now has a very brief period where allies cannot cancel to prevent accidental cancels
 - The Cube healing spirit scaling increased from 0.14 to 0.3
 - The Cube T3 increased from -21s Cooldown to -25s
 ==
 ==ability:puddle-punch:
-[[/hero/viscous?ability=puddle-punch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp]] Puddle Punch change history))
-### [[/hero/viscous?ability=puddle-punch]]((Puddle Punch))
+[[/ability/puddle-punch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp]] Puddle Punch change history))
+### [[/ability/puddle-punch]]((Puddle Punch))
 - Puddle Punch now grants +30% Air Control when affecting yourself or allies
 ==
 ==ability:puddle-punch-charge-time:
-[[/hero/viscous?ability=puddle-punch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp]] Puddle Punch Charge Time change history))
-### [[/hero/viscous?ability=puddle-punch]]((Puddle Punch Charge Time))
+[[/ability/puddle-punch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp]] Puddle Punch Charge Time change history))
+### [[/ability/puddle-punch]]((Puddle Punch Charge Time))
 - Puddle Punch Charge Time increased from 1.5s to 1.7s
 ==
 ==ability:puddle-punch-slow:
-[[/hero/viscous?ability=puddle-punch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp]] Puddle Punch Slow change history))
-### [[/hero/viscous?ability=puddle-punch]]((Puddle Punch Slow))
+[[/ability/puddle-punch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp]] Puddle Punch Slow change history))
+### [[/ability/puddle-punch]]((Puddle Punch Slow))
 - Puddle Punch Slow increased from 15% to 20%
 ==
 ==ability:puddle-punch:
-[[/hero/viscous?ability=puddle-punch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp]] Puddle Punch change history))
-### [[/hero/viscous?ability=puddle-punch]]((Puddle Punch))
+[[/ability/puddle-punch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp]] Puddle Punch change history))
+### [[/ability/puddle-punch]]((Puddle Punch))
 - Puddle Punch now acts as if its close range with respect to item procs (like Point Blank)
 - Puddle Punch radius reduced from 4.5m to 4m
 - Puddle Punch T2 changed from "+27 Damage and -15% Move Slow" to "+1.5m Radius and +30 Damage"
 ==
 ==ability:goo-ball:
-[[/hero/viscous?ability=goo-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_sphere.webp]] Goo Ball change history))
-### [[/hero/viscous?ability=goo-ball]]((Goo Ball))
+[[/ability/goo-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_sphere.webp]] Goo Ball change history))
+### [[/ability/goo-ball]]((Goo Ball))
 - Goo Ball no longer can carry Urn
 - Goo Ball turn rate improved a bit
 - Goo Ball can now use abilities and items (rather than being locked behind T3)
@@ -2015,13 +2015,13 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Goo Ball T3 changed from "Can now use abilities and items" to "+6s duration and +0.3s Stun Duration"
 ==
 ==ability:splatter:
-[[/hero/viscous?ability=splatter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_ball.webp]] Splatter change history))
-### [[/hero/viscous?ability=splatter]]((Splatter))
+[[/ability/splatter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_ball.webp]] Splatter change history))
+### [[/ability/splatter]]((Splatter))
 - Splatter T3 spirit scaling reduced from 1.3 to 1.1
 ==
 ==ability:puddle-punch:
-[[/hero/viscous?ability=puddle-punch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp]] Puddle Punch change history))
-### [[/hero/viscous?ability=puddle-punch]]((Puddle Punch))
+[[/ability/puddle-punch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp]] Puddle Punch change history))
+### [[/ability/puddle-punch]]((Puddle Punch))
 - Puddle Punch scaling reduced from 1.1 to 1.0
 - Fixed Puddle Punch T3 giving an extra +60 melee damage (released a couple days ago)
 - Puddle Punch scaling reduced from 1 to 0.8
@@ -2031,8 +2031,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Puddle Punch displacement duration reduced from 0.8s to 0.6s
 ==
 ==ability:goo-ball:
-[[/hero/viscous?ability=goo-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_sphere.webp]] Goo Ball change history))
-### [[/hero/viscous?ability=goo-ball]]((Goo Ball))
+[[/ability/goo-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_sphere.webp]] Goo Ball change history))
+### [[/ability/goo-ball]]((Goo Ball))
 - Goo Ball stun duration reduced from 0.7s to 0.5s
 - Goo Ball lockout period from being affected again increased from 1.25s to 1.35s
 - Goo Ball duration increased from 10s to 11s
@@ -2044,8 +2044,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 ## [[/hero/warden]]((Warden))
 - Bullet growth per boon reduced from 0.44 to 0.38
 ==ability:alchemical-flask:
-[[/hero/warden?ability=alchemical-flask]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_crowd_control.webp]] Alchemical Flask change history))
-### [[/hero/warden?ability=alchemical-flask]]((Alchemical Flask))
+[[/ability/alchemical-flask]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_crowd_control.webp]] Alchemical Flask change history))
+### [[/ability/alchemical-flask]]((Alchemical Flask))
 - Alchemical Flask Weapon Damage reduction reduced from -30% to -25%
 - Alchemical Flask T2 damage increased from +36 to +40
 - Alchemical Flask T2 now also increases Weapon Damage Reduction by -20%
@@ -2054,8 +2054,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Alchemical Flask T3 now also increases radius by 2m
 ==
 ==ability:willpower:
-[[/hero/warden?ability=willpower]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_high_alert.webp]] Willpower change history))
-### [[/hero/warden?ability=willpower]]((Willpower))
+[[/ability/willpower]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_high_alert.webp]] Willpower change history))
+### [[/ability/willpower]]((Willpower))
 - Willpower duration reduced from 7s to 5s
 - Willpower cooldown reduced from 42s to 40
 - Willpower barrier now scales with spirit power in the base ability (+0.5)
@@ -2064,8 +2064,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Willpower T3 changed from "+150 Barrier Health and improved scaling (3.7)" to "+40% Debuff Resistance and improved scaling (2.5)"
 ==
 ==ability:binding-word:
-[[/hero/warden?ability=binding-word]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_lock_down.webp]] Binding Word change history))
-### [[/hero/warden?ability=binding-word]]((Binding Word))
+[[/ability/binding-word]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_lock_down.webp]] Binding Word change history))
+### [[/ability/binding-word]]((Binding Word))
 - Binding Word cast range reduced from 20m to 15m
 - Binding Word cooldown decreased from 37s to 34s
 - Binding Word T1 changed from "+1s Immobilize Duration" to "+20% Bullet Damage to Trapped heroes for 5s"
@@ -2074,13 +2074,13 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Binding Word T3 changed from "+20% Bullet Damage" to "-18s Cooldown and Silences enemies until they escape or are trapped"
 ==
 ==ability:last-stand-channeling:
-[[/hero/warden?ability=last-stand]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_riot_protocol.webp]] Last Stand Channeling change history))
-### [[/hero/warden?ability=last-stand]]((Last Stand Channeling))
+[[/ability/last-stand]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_riot_protocol.webp]] Last Stand Channeling change history))
+### [[/ability/last-stand]]((Last Stand Channeling))
 - Last Stand Channeling bullet and spirit resist increased from 30% to 60%
 ==
 ==ability:last-stand:
-[[/hero/warden?ability=last-stand]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_riot_protocol.webp]] Last Stand change history))
-### [[/hero/warden?ability=last-stand]]((Last Stand))
+[[/ability/last-stand]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_riot_protocol.webp]] Last Stand change history))
+### [[/ability/last-stand]]((Last Stand))
 - Last Stand radius reduced from 13m to 12m
 - Last Stand T1 increased from +3m Radius to +4m
 - Last Stand T3 no longer grants +50% Bullet and Spirit Resist
@@ -2095,8 +2095,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 [[/hero/wraith]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp]] Wraith patch history))
 ## [[/hero/wraith]]((Wraith))
 ==ability:card-trick:
-[[/hero/wraith?ability=card-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_card_trick.webp]] Card Trick change history))
-### [[/hero/wraith?ability=card-trick]]((Card Trick))
+[[/ability/card-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_card_trick.webp]] Card Trick change history))
+### [[/ability/card-trick]]((Card Trick))
 - Card Trick cards now have specific suites with special bonuses.
 - Card Trick base charge count increased from 1 to 2
 - Card Trick base damage reduced from 60 to 45
@@ -2111,13 +2111,13 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Card Trick T2 changed from "+50% Card Summon Rate and 30% slow for 1s" to "Improves Card Suites and increased joker chances" (new totals are Spades: 2.5x, Diamond: -13%, Heal: 150/2.0, Clubs: 50%, Joker: 1/5th chance)
 ==
 ==ability:project-mind:
-[[/hero/wraith?ability=project-mind]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_teleport.webp]] Project Mind change history))
-### [[/hero/wraith?ability=project-mind]]((Project Mind))
+[[/ability/project-mind]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_teleport.webp]] Project Mind change history))
+### [[/ability/project-mind]]((Project Mind))
 - Fixed Project Mind interaction with stuns
 ==
 ==ability:full-auto:
-[[/hero/wraith?ability=full-auto]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_aura.webp]] Full Auto change history))
-### [[/hero/wraith?ability=full-auto]]((Full Auto))
+[[/ability/full-auto]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_aura.webp]] Full Auto change history))
+### [[/ability/full-auto]]((Full Auto))
 - Full Auto no longer affects allies (previously gave half fire rate to allies)
 - Full Auto duration no longer scales with Spirit Power
 - Full Auto cooldown reduced from 48s to 45s
@@ -2127,8 +2127,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Full Auto T3 changed from "+15% Bullet and Spirit Lifesteal and increased spirit scaling" to "Unlimited Ammo and increased spirit scaling (+0.06)"
 ==
 ==ability:telekinesis:
-[[/hero/wraith?ability=telekinesis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_lift.webp]] Telekinesis change history))
-### [[/hero/wraith?ability=telekinesis]]((Telekinesis))
+[[/ability/telekinesis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_lift.webp]] Telekinesis change history))
+### [[/ability/telekinesis]]((Telekinesis))
 - Telekinesis cooldown increased from 110s to 120s
 - Telekinesis cast range reduced from 20m to 14m
 - Telekinesis cast time increased from 0.1s to 0.3s
@@ -2138,71 +2138,71 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Telekinesis T3 changed from "Bounces to nearby target" to "+1.5s Debuff duration and +6m Throw and Cast Range
 ==
 ==ability:card-trick-spade:
-[[/hero/wraith?ability=card-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_card_trick.webp]] Card Trick Spade change history))
-### [[/hero/wraith?ability=card-trick]]((Card Trick Spade))
+[[/ability/card-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_card_trick.webp]] Card Trick Spade change history))
+### [[/ability/card-trick]]((Card Trick Spade))
 - Card Trick Spade reduced from +70% to +60%
 ==
 ==ability:card-trick-heart:
-[[/hero/wraith?ability=card-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_card_trick.webp]] Card Trick Heart change history))
-### [[/hero/wraith?ability=card-trick]]((Card Trick Heart))
+[[/ability/card-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_card_trick.webp]] Card Trick Heart change history))
+### [[/ability/card-trick]]((Card Trick Heart))
 - Card Trick Heart scaling reduced from 1.25 to 1.0
 ==
 ==ability:card-trick:
-[[/hero/wraith?ability=card-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_card_trick.webp]] Card Trick change history))
-### [[/hero/wraith?ability=card-trick]]((Card Trick))
+[[/ability/card-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_card_trick.webp]] Card Trick change history))
+### [[/ability/card-trick]]((Card Trick))
 - Card Trick T3 Heart scaling increased from 0.5 to 0.75
 - Fixed Card Trick Heart heal doing full value for non-heroes (instead of half)
 ==
 ==ability:telekinesis:
-[[/hero/wraith?ability=telekinesis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_lift.webp]] Telekinesis change history))
-### [[/hero/wraith?ability=telekinesis]]((Telekinesis))
+[[/ability/telekinesis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_lift.webp]] Telekinesis change history))
+### [[/ability/telekinesis]]((Telekinesis))
 - Telekinesis debuff duration reduced from 3s to 2.75s
 ==
 ==ability:card-trick:
-[[/hero/wraith?ability=card-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_card_trick.webp]] Card Trick change history))
-### [[/hero/wraith?ability=card-trick]]((Card Trick))
+[[/ability/card-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_card_trick.webp]] Card Trick change history))
+### [[/ability/card-trick]]((Card Trick))
 - Card Trick cooldown increased from 0.5s to 0.6s
 ==
 ==ability:card-trick-joker:
-[[/hero/wraith?ability=card-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_card_trick.webp]] Card Trick Joker change history))
-### [[/hero/wraith?ability=card-trick]]((Card Trick Joker))
+[[/ability/card-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_card_trick.webp]] Card Trick Joker change history))
+### [[/ability/card-trick]]((Card Trick Joker))
 - Card Trick Joker no longer bounces to other targets
 ==
 ==ability:card-trick:
-[[/hero/wraith?ability=card-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_card_trick.webp]] Card Trick change history))
-### [[/hero/wraith?ability=card-trick]]((Card Trick))
+[[/ability/card-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_card_trick.webp]] Card Trick change history))
+### [[/ability/card-trick]]((Card Trick))
 - Card Trick gaining charges (AP or shop) no longer automatically builds them up
 - Card Trick can now be alt casted to fire from the inverse order
 - Card Trick T3 Spade bonus reduced from +50% to +40%
 - Card Trick T3 Heart healing scale reduced from +0.75 to +0.5
 ==
 ==ability:telekinesis:
-[[/hero/wraith?ability=telekinesis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_lift.webp]] Telekinesis change history))
-### [[/hero/wraith?ability=telekinesis]]((Telekinesis))
+[[/ability/telekinesis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_lift.webp]] Telekinesis change history))
+### [[/ability/telekinesis]]((Telekinesis))
 - Telekinesis cast range reduced from 14m to 13m
 - Telekinesis throw range reduced from 14m to 13m
 - Telekinesis cast delay increased from 0.3s to 0.35s
 ==
 ==ability:card-trick:
-[[/hero/wraith?ability=card-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_card_trick.webp]] Card Trick change history))
-### [[/hero/wraith?ability=card-trick]]((Card Trick))
+[[/ability/card-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_card_trick.webp]] Card Trick change history))
+### [[/ability/card-trick]]((Card Trick))
 - Card Trick heart now only heals for half the amount for secondary targets in the area
 - Card Trick now randomly pulls cards out of a 2 deck stack (lowers overall variance. Gets a new 2 deck stack after that is depleted)
 ==
 ==ability:project-mind:
-[[/hero/wraith?ability=project-mind]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_teleport.webp]] Project Mind change history))
-### [[/hero/wraith?ability=project-mind]]((Project Mind))
+[[/ability/project-mind]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_teleport.webp]] Project Mind change history))
+### [[/ability/project-mind]]((Project Mind))
 - Project Mind cooldown increased from 42s to 46s
 - Project Mind T3 cooldown increased from -28s to -32s
 ==
 ==ability:full-auto:
-[[/hero/wraith?ability=full-auto]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_aura.webp]] Full Auto change history))
-### [[/hero/wraith?ability=full-auto]]((Full Auto))
+[[/ability/full-auto]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_aura.webp]] Full Auto change history))
+### [[/ability/full-auto]]((Full Auto))
 - Full Auto T3 now interrupts/finishes an ongoing reload
 ==
 ==ability:telekinesis:
-[[/hero/wraith?ability=telekinesis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_lift.webp]] Telekinesis change history))
-### [[/hero/wraith?ability=telekinesis]]((Telekinesis))
+[[/ability/telekinesis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_lift.webp]] Telekinesis change history))
+### [[/ability/telekinesis]]((Telekinesis))
 - Telekinesis cast time increased from 0.35s to 0.45s
 - Telekinesis debuff duration reduced from 2.75s to 2.25s
 - Telekinesis cast range reduced from 13m to 10m
@@ -2214,28 +2214,28 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 ==ability:power-slash:
-[[/hero/yamato?ability=power-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_power_slash.webp]] Power Slash change history))
-### [[/hero/yamato?ability=power-slash]]((Power Slash))
+[[/ability/power-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_power_slash.webp]] Power Slash change history))
+### [[/ability/power-slash]]((Power Slash))
 - Power Slash being held down no longer automatically fires it
 - You can now cast Parry directly while channeling Power Slash to fire the Power Slash and parry
 - Power Slash base ability now has +60% Bullet Resist while channeling
 - Power Slash cooldown increased from 10.5s to 12s
 ==
 ==ability:power-slash-slash-length:
-[[/hero/yamato?ability=power-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_power_slash.webp]] Power Slash Slash Length change history))
-### [[/hero/yamato?ability=power-slash]]((Power Slash Slash Length))
+[[/ability/power-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_power_slash.webp]] Power Slash Slash Length change history))
+### [[/ability/power-slash]]((Power Slash Slash Length))
 - Power Slash Slash Length reduced from 25m to 22m
 ==
 ==ability:power-slash:
-[[/hero/yamato?ability=power-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_power_slash.webp]] Power Slash change history))
-### [[/hero/yamato?ability=power-slash]]((Power Slash))
+[[/ability/power-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_power_slash.webp]] Power Slash change history))
+### [[/ability/power-slash]]((Power Slash))
 - Power Slash T1 changed from "+60% Bullet Resist while channeling" to "40% Slow for 3s"
 - Power Slash T2 changed from "-2s Cooldown and 40% slow for 3s" to "-4s Cooldown"
 - Power Slash T3 now also grants +8m Range
 ==
 ==ability:flying-slash:
-[[/hero/yamato?ability=flying-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_flying_strike.webp]] Flying Slash change history))
-### [[/hero/yamato?ability=flying-slash]]((Flying Slash))
+[[/ability/flying-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_flying_strike.webp]] Flying Slash change history))
+### [[/ability/flying-slash]]((Flying Slash))
 - Flying Strike renamed to Flying Slash
 - Flying Slash is now light melee damage rather than spirit
 - Flying Slash slow increased from -30% to -50%
@@ -2247,8 +2247,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Fixed Flying Slash T3 ally cast stopping too soon before reaching the player
 ==
 ==ability:crimson-slash:
-[[/hero/yamato?ability=crimson-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_crimson_slash.webp]] Crimson Slash change history))
-### [[/hero/yamato?ability=crimson-slash]]((Crimson Slash))
+[[/ability/crimson-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_crimson_slash.webp]] Crimson Slash change history))
+### [[/ability/crimson-slash]]((Crimson Slash))
 - Crimson Slash cooldown increased from 15s to 16s
 - Crimson Slash Fire Rate reduction increased from -18% to -30%
 - Crimson Slash T1 changed from "-26% Fire Rate" to "On Hit: +30% Melee Damage for 4s"
@@ -2256,8 +2256,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Crimson Slash T3 now also increases spirit scaling (+0.6)
 ==
 ==ability:shadow-transformation:
-[[/hero/yamato?ability=shadow-transformation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]] Shadow Transformation change history))
-### [[/hero/yamato?ability=shadow-transformation]]((Shadow Transformation))
+[[/ability/shadow-transformation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]] Shadow Transformation change history))
+### [[/ability/shadow-transformation]]((Shadow Transformation))
 - Shadow Transformation cooldown increased from 110s to 130s
 - Shadow Transformation Bullet and Spirit Resist reduced from 40% to 30%
 - Shadow Transformation T1 changed from "+14% Fire Rate" to "+5 Weapon Damage"
@@ -2265,8 +2265,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 - Shadow Transformation T3 increased from +20% Bullet and Spirit Resist to +30%
 ==
 ==ability:flying-slash:
-[[/hero/yamato?ability=flying-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_flying_strike.webp]] Flying Slash change history))
-### [[/hero/yamato?ability=flying-slash]]((Flying Slash))
+[[/ability/flying-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_flying_strike.webp]] Flying Slash change history))
+### [[/ability/flying-slash]]((Flying Slash))
 - Fixed Flying Strike triggering heavy melee procs rather than light melee (damage amount was light melee still)
 ==
 =

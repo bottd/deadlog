@@ -1,7 +1,5 @@
 <script module lang="ts">
-	import Package from '@lucide/svelte/icons/package';
-	import Users from '@lucide/svelte/icons/users';
-	import { ENTITY_TONE } from '$lib/entityTone';
+	import type { ItemCategory } from '@deadlog/utils';
 
 	export interface DirectoryEntry {
 		id: number | string;
@@ -9,9 +7,8 @@
 		href: string;
 		image: string;
 		subtitle?: string | null;
+		category?: ItemCategory | null;
 	}
-
-	/** Both directories list released entities alphabetically. */
 	export function releasedByName<T extends { isReleased: boolean; name: string }>(
 		entities: T[]
 	): T[] {
@@ -19,38 +16,13 @@
 			.filter((entity) => entity.isReleased)
 			.sort((a, b) => a.name.localeCompare(b.name));
 	}
-
-	// Shared tone (label, plural, text colour) plus the directory-only surfaces. The class
-	// scanner only sees literal class strings, so each kind spells its classes out.
-	const KINDS = {
-		hero: {
-			...ENTITY_TONE.hero,
-			icon: Users,
-			title: 'Hero Directory',
-			border: 'border-primary/30',
-			wash: 'from-primary/10',
-			accents: { tlColor: 'bg-primary/70', brColor: 'bg-primary/30' },
-			focus: 'focus-within:border-primary',
-			card: 'hover:border-primary/50',
-			cardAccents: { tlColor: 'bg-primary/30', tlHover: 'group-hover:bg-primary' }
-		},
-		item: {
-			...ENTITY_TONE.item,
-			icon: Package,
-			title: 'Item Directory',
-			border: 'border-signal/30',
-			wash: 'from-signal/10 via-signal/5',
-			accents: { tlColor: 'bg-signal/80', brColor: 'bg-primary/40' },
-			focus: 'focus-within:border-signal',
-			card: 'hover:border-signal/55',
-			cardAccents: { tlColor: 'bg-signal/35', tlHover: 'group-hover:bg-signal' }
-		}
-	} as const;
 </script>
 
 <script lang="ts">
-	import CornerAccents from '$lib/components/ui/corner-accents/CornerAccents.svelte';
-	import ArrowRight from '@lucide/svelte/icons/arrow-right';
+	import { page } from '$app/state';
+	import { replaceState } from '$app/navigation';
+	import { building } from '$app/environment';
+	import { ITEM_CATEGORIES, isItemCategory } from '@deadlog/utils';
 	import Search from '@lucide/svelte/icons/search';
 	import { JsonLd, MetaTags } from 'svelte-meta-tags';
 	import {
@@ -62,41 +34,65 @@
 		pageMeta,
 		SITE_NAME
 	} from '$lib/seo';
-
-	interface Props {
-		/** Drives the id prefix, tone, icon, copy and image treatment. */
-		kind: keyof typeof KINDS;
-		eyebrow: string;
+	let {
+		kind,
+		heading,
+		lede,
+		entries,
+		seo
+	}: {
+		kind: 'hero' | 'item';
 		heading: string;
 		lede: string;
-		listEyebrow: string;
 		entries: DirectoryEntry[];
-		/**
-		 * /heroes and /items wire up meta tags and structured data identically, and both
-		 * the canonical and the breadcrumbs follow from `kind` — only the copy differs.
-		 */
 		seo: { title: string; description: string };
-	}
-
-	let { kind, eyebrow, heading, lede, listEyebrow, entries, seo }: Props = $props();
-
-	const t = $derived(KINDS[kind]);
-	const Icon = $derived(t.icon);
-
+	} = $props();
 	const listing = $derived(ENTITY_LISTING[kind]);
 	const canonical = $derived(absoluteUrl(listing.path));
+	const initial = (key: string) =>
+		building ? '' : (page.url.searchParams.get(key) ?? '');
+	function initialCategory(): string {
+		const value = initial('category');
+		return kind === 'item' && isItemCategory(value) ? value : '';
+	}
+	let search = $state(initial('name'));
+	let category = $state(initialCategory());
+	const needle = $derived(search.trim().toLowerCase());
+	const searchable = $derived(
+		entries.map((entry) => ({ ...entry, haystack: entry.name.toLowerCase() }))
+	);
+	const filtered = $derived(
+		searchable.filter(
+			(entry) =>
+				entry.haystack.includes(needle) && (!category || entry.category === category)
+		)
+	);
+	// Safari throws past roughly 100 replaceState calls in 30 seconds.
+	const HISTORY_DEBOUNCE_MS = 250;
+	let historyTimer: ReturnType<typeof setTimeout> | undefined;
 
-	let search = $state('');
-	const filtered = $derived.by(() => {
-		const query = search.trim().toLowerCase();
-		return query
-			? entries.filter((entry) => entry.name.toLowerCase().includes(query))
-			: entries;
-	});
+	function commit() {
+		const url = new URL(location.href);
+		for (const [key, value] of Object.entries({ name: search, category })) {
+			if (value) url.searchParams.set(key, value);
+			else url.searchParams.delete(key);
+		}
+		replaceState(url, page.state);
+	}
+
+	function update(next: { name?: string; category?: string }, debounce = false) {
+		if (next.name !== undefined) search = next.name;
+		if (next.category !== undefined) category = next.category;
+		clearTimeout(historyTimer);
+		if (debounce) historyTimer = setTimeout(commit, HISTORY_DEBOUNCE_MS);
+		else commit();
+	}
+
+	// A pending write would stamp these filters onto the next page's URL.
+	$effect(() => () => clearTimeout(historyTimer));
 </script>
 
 <MetaTags {...pageMeta({ title: seo.title, description: seo.description, canonical })} />
-
 <JsonLd
 	schema={collectionPageSchema({
 		canonical,
@@ -112,150 +108,112 @@
 	})}
 />
 
-<main container m="x-auto t-8 b-24" p="x-4" class="max-w-6xl">
-	<header
-		class="clip-corner bg-card {t.border} relative mb-10 overflow-hidden border-2 px-6 py-10 md:px-10"
-	>
-		<CornerAccents tlSize="3rem" brSize="2rem" {...t.accents} />
-		<div
-			class="{t.wash} pointer-events-none absolute inset-0 bg-gradient-to-br to-transparent"
-		></div>
-		<div relative class="max-w-3xl">
-			<div class="{t.text} mb-3 flex items-center gap-2">
-				<Icon class="size-4" />
-				<span font="mono bold" uppercase class="text-[10px] tracking-[0.2em]"
-					>{eyebrow}</span
-				>
-			</div>
+<main class="container mx-auto mt-8 mb-24 max-w-6xl px-4">
+	<header class="mb-6">
+		<div class="flex items-baseline gap-3">
 			<h1
-				font="display medium"
-				text="foreground 4xl"
-				class="heading-glow leading-tight tracking-wide md:text-6xl"
+				class="font-display text-foreground text-4xl font-medium tracking-wide sm:text-5xl"
 			>
 				{heading}
 			</h1>
-			<p text="muted-foreground" m="t-4" class="max-w-2xl leading-relaxed">{lede}</p>
+			<span
+				id="{kind}-directory-count"
+				class="text-muted-foreground font-mono text-xs"
+				role="status"
+				>{filtered.length}{search || category ? ` / ${entries.length}` : ''}
+				{listing.label.toLowerCase()}</span
+			>
+		</div>
+		<p class="text-muted-foreground mt-2 max-w-2xl text-sm leading-relaxed">{lede}</p>
+		<div class="js-only mt-5 flex flex-wrap items-center gap-3">
+			<div
+				class="border-border bg-card focus-within:border-signal relative w-full max-w-md rounded-md border"
+			>
+				<label for="{kind}-directory-search" class="sr-only"
+					>Filter {listing.label.toLowerCase()} by name</label
+				>
+				<Search
+					class="text-muted-foreground pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2"
+				/>
+				<input
+					id="{kind}-directory-search"
+					type="search"
+					value={search}
+					oninput={(event) => update({ name: event.currentTarget.value }, true)}
+					aria-describedby="{kind}-directory-count"
+					placeholder="Find {kind === 'hero' ? 'a hero' : 'an item'}…"
+					class="placeholder:text-muted-foreground min-h-11 w-full bg-transparent py-2 pr-3 pl-10 text-base outline-none"
+				/>
+			</div>
+			{#if kind === 'item'}
+				<div class="flex flex-wrap gap-1" role="group" aria-label="Item category">
+					{#each ['', ...ITEM_CATEGORIES] as value (value)}
+						<button
+							type="button"
+							aria-pressed={category === value}
+							onclick={() => update({ category: value })}
+							class="ui-focus-ring min-h-11 rounded-md px-3 text-sm capitalize {category ===
+							value
+								? 'bg-signal/10 text-signal'
+								: 'text-muted-foreground hover:text-foreground'}">{value || 'All'}</button
+						>
+					{/each}
+				</div>
+			{/if}
 		</div>
 	</header>
-
-	<section aria-labelledby="{kind}-directory-heading">
-		<div flex="~" m="b-5" items="end" justify="between" gap="4">
-			<div>
-				<p text="muted-foreground" kicker-sm>
-					{listEyebrow}
-				</p>
-				<h2
-					id="{kind}-directory-heading"
-					font="display medium"
-					text="foreground 2xl"
-					m="t-1"
-					class="tracking-wide"
-				>
-					{t.title}
-				</h2>
-			</div>
-			<span id="{kind}-directory-count" class="{t.text} font-mono text-xs font-bold">
-				{filtered.length}{search ? ` / ${entries.length}` : ''}
-				{t.plural.toUpperCase()}
-			</span>
-		</div>
-
-		<label for="{kind}-directory-search" class="sr-only">Filter {t.plural} by name</label>
-		<div class="border-border bg-card {t.focus} relative mb-5 max-w-md border">
-			<Search
-				class="text-muted-foreground pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2"
-			/>
-			<input
-				id="{kind}-directory-search"
-				type="search"
-				bind:value={search}
-				aria-describedby="{kind}-directory-count"
-				placeholder="Filter {t.plural}..."
-				w="full"
-				bg="transparent"
-				p="y-3 r-3 l-10"
-				text="sm"
-				class="placeholder:text-muted-foreground outline-none"
-			/>
-		</div>
-
-		{#if filtered.length > 0}
+	<section aria-label="{listing.label} directory">
+		{#if filtered.length}
 			<ul
-				grid="~ cols-1"
-				gap="3"
-				class="min-[360px]:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
+				class="grid grid-cols-1 gap-3 min-[360px]:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
 			>
 				{#each filtered as entry, index (entry.id)}
 					<li>
 						<a
 							href={entry.href}
-							class="clip-corner-sm border-border bg-card {t.card} group relative flex h-full min-h-20 items-center gap-3 overflow-hidden border p-3 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+							class="clip-corner-sm border-subtle bg-card hover:border-signal/60 flex h-full min-h-24 flex-col items-start gap-3 border p-3 transition-colors sm:flex-row sm:items-center"
 						>
-							<CornerAccents tlSize="1rem" {...t.cardAccents} />
-							{#if kind === 'item'}
-								<div
-									flex="~"
-									border="border ~"
-									bg="background"
-									shrink="0"
-									items="center"
-									justify="center"
-									rounded="md"
-									p="1.5"
-									class="size-12"
+							<img
+								src={entry.image}
+								alt=""
+								width="48"
+								height="48"
+								loading={index < 10 ? 'eager' : 'lazy'}
+								decoding="async"
+								class="bg-background size-12 shrink-0 rounded-md {kind === 'item'
+									? 'object-contain p-1'
+									: 'object-cover'}"
+							/>
+							<div class="min-w-0">
+								<h2
+									class="text-foreground text-sm leading-snug font-semibold break-words"
 								>
-									<img
-										src={entry.image}
-										alt=""
-										width="48"
-										height="48"
-										loading={index < 10 ? 'eager' : 'lazy'}
-										decoding="async"
-										class="max-h-full max-w-full object-contain"
-									/>
-								</div>
-							{:else}
-								<img
-									src={entry.image}
-									alt=""
-									width="56"
-									height="56"
-									loading={index < 10 ? 'eager' : 'lazy'}
-									decoding="async"
-									border="border ~"
-									bg="background"
-									shrink="0"
-									rounded="md"
-									class="size-14 object-cover"
-								/>
-							{/if}
-							<div flex="1" class="min-w-0">
-								<h3 text="foreground sm" font="semibold" class="leading-tight">
 									{entry.name}
-								</h3>
-								{#if entry.subtitle}
-									<p
-										text="muted-foreground"
-										m="t-0.5"
-										font="mono"
-										uppercase
-										class="text-[9px] tracking-wider"
+								</h2>
+								{#if entry.subtitle}<p
+										class="text-muted-foreground mt-1 font-mono text-xs capitalize"
 									>
 										{entry.subtitle}
-									</p>
-								{/if}
+									</p>{/if}
 							</div>
-							<ArrowRight
-								class="{t.text} size-3.5 shrink-0 -translate-x-1 opacity-0 transition-all group-hover:(translate-x-0 opacity-100)"
-							/>
 						</a>
 					</li>
 				{/each}
 			</ul>
 		{:else}
-			<p border="border ~" bg="card" text="muted-foreground center" p="8">
-				No {t.plural} match "{search}".
-			</p>
+			<div class="border-subtle border-t py-8" role="status">
+				<p class="text-muted-foreground text-sm">
+					No {listing.label.toLowerCase()} match {search
+						? `“${search}”`
+						: 'this category'}{search && category ? ` in ${category}` : ''}.
+				</p>
+				<button
+					type="button"
+					onclick={() => update({ name: '', category: '' })}
+					class="ui-focus-ring text-signal mt-2 min-h-11 rounded-sm text-sm hover:underline"
+					>Clear directory filters</button
+				>
+			</div>
 		{/if}
 	</section>
 </main>

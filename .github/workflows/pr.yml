@@ -7,10 +7,6 @@ on:
 jobs:
   pull-request:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        task: [check, lint, test, build, e2e]
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v7.0.1
@@ -20,31 +16,24 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Run check
-        if: matrix.task == 'check'
-        run: pnpm run check
+      - name: Check types and lint
+        run: pnpm run check && pnpm run lint
 
-      - name: Run lint
-        if: matrix.task == 'lint'
-        run: pnpm run lint
+      - name: Generate database once
+        run: pnpm run build:db
 
       - name: Run tests
-        if: matrix.task == 'test'
-        run: pnpm run build:db && pnpm run test
+        run: pnpm run test
         env:
           NODE_ENV: test
 
       - name: Build web
-        if: matrix.task == 'build'
-        run: pnpm run build:db && pnpm run build
+        run: pnpm run build
         env:
           NODE_ENV: production
 
-      - name: Run browser tests
-        if: matrix.task == 'e2e'
-        run: pnpm run build:db && pnpm run build && pnpm run test:e2e
-        env:
-          NODE_ENV: test
+      - name: Run browser tests against the build
+        run: pnpm run test:e2e
 
   auto-merge:
     needs: pull-request

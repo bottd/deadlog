@@ -3,8 +3,9 @@ import {
 	getAllHeroes,
 	getAllItems,
 	getHeroLastModified,
-	getItemLastModified
-} from '@deadlog/scraper';
+	getItemLastModified,
+	getReleasedAbilities
+} from '@deadlog/db';
 import { absoluteUrl, changePath, SITE_URL } from '$lib/seo';
 import type { RequestHandler } from './$types';
 
@@ -37,11 +38,12 @@ function renderEntry({ url, lastModified }: SitemapEntry): string {
 }
 
 export const GET: RequestHandler = async ({ locals }) => {
-	const [changelogs, heroes, items, heroLastModified, itemLastModified] =
+	const [changelogs, heroes, items, abilities, heroLastModified, itemLastModified] =
 		await Promise.all([
 			getAllChangelogs(locals.db),
 			getAllHeroes(locals.db),
 			getAllItems(locals.db),
+			getReleasedAbilities(locals.db),
 			getHeroLastModified(locals.db),
 			getItemLastModified(locals.db)
 		]);
@@ -57,6 +59,8 @@ export const GET: RequestHandler = async ({ locals }) => {
 		// the newest patch just like the homepage does.
 		{ url: absoluteUrl('/heroes'), lastModified: latestUpdate },
 		{ url: absoluteUrl('/items'), lastModified: latestUpdate },
+		// So does the archive, which lists every patch.
+		{ url: absoluteUrl('/archive'), lastModified: latestUpdate },
 		...sortedChangelogs
 			.filter((changelog) => changelog.contentText?.trim())
 			.map((changelog) => ({
@@ -76,7 +80,13 @@ export const GET: RequestHandler = async ({ locals }) => {
 			.map((item) => ({
 				url: absoluteUrl(`/item/${encodeURIComponent(item.slug)}`),
 				lastModified: toIsoDate(itemLastModified.get(item.id))
-			}))
+			})),
+		// Abilities have no changelog rows of their own: their history is their hero's,
+		// narrowed, so the hero's last patch is also the ability page's last change.
+		...abilities.map((ability) => ({
+			url: absoluteUrl(`/ability/${encodeURIComponent(ability.slug)}`),
+			lastModified: toIsoDate(heroLastModified.get(ability.heroId))
+		}))
 	];
 
 	const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

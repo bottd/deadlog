@@ -1,24 +1,5 @@
 import { z } from 'zod';
 
-export type EntityType = 'hero' | 'item';
-
-export interface EntityIcon {
-	id: number;
-	src: string;
-	alt: string;
-	/** Entity-page slug, e.g. `/hero/{slug}`. */
-	slug: string;
-	type: EntityType;
-	heroType?: string | null;
-	itemCategory?: 'weapon' | 'vitality' | 'spirit';
-}
-
-/** An entity as it appears in one patch. */
-export interface ChangelogEntityIcon extends EntityIcon {
-	/** Bullets this patch aimed at the entity; null when merely mentioned. */
-	changeCount: number | null;
-}
-
 // The API returns far more than the build reads; zod strips unknown keys, so the
 // schemas list only the fields consumers actually use.
 const heroSchema = z.object({

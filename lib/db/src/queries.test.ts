@@ -11,9 +11,7 @@ import {
 import { existsSync } from 'fs';
 import { resolve } from 'path';
 
-// These run against the database the repo actually builds. The previous path
-// ("dist/data/deadlog.db", resolved against lib/scraper's cwd) never existed, so the
-// whole suite reported as skipped rather than failed — silently, in CI and locally.
+// Integration coverage against the database the repository builds.
 const dbUrl =
 	process.env.DATABASE_URL ??
 	`file:${resolve(process.cwd(), '../../app/static/deadlog.db')}`;

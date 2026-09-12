@@ -20,16 +20,16 @@ content_text "Bebop Hyper Beam cooldown increased from 117 to 130 Hyper Beam T1 
 [[/hero/bebop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop patch history))
 ## [[/hero/bebop]]((Bebop))
 ==ability:hyper-beam:
-[[/hero/bebop?ability=hyper-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hyper_beam.webp]] Hyper Beam change history))
-### [[/hero/bebop?ability=hyper-beam]]((Hyper Beam))
+[[/ability/hyper-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hyper_beam.webp]] Hyper Beam change history))
+### [[/ability/hyper-beam]]((Hyper Beam))
 - Hyper Beam cooldown increased from 117 to 130
 - Hyper Beam T1 reduced from -38s to -30s
 - Hyper Beam end radius reduced from 5m to 4m
 - Hyper Beam slow reduced from 40% to 30%
 ==
 ==ability:hyper-beam-dps:
-[[/hero/bebop?ability=hyper-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hyper_beam.webp]] Hyper Beam DPS change history))
-### [[/hero/bebop?ability=hyper-beam]]((Hyper Beam DPS))
+[[/ability/hyper-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bebop/bebop_hyper_beam.webp]] Hyper Beam DPS change history))
+### [[/ability/hyper-beam]]((Hyper Beam DPS))
 - Hyper Beam DPS reduced from 220 to 205
 - Hyper Beam DPS spirit scaling reduced from 3 to 2.7
 ==
@@ -39,8 +39,8 @@ content_text "Bebop Hyper Beam cooldown increased from 117 to 130 Hyper Beam T1 
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 ==ability:medicinal-specter:
-[[/hero/mcginnis?ability=medicinal-specter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_resupply.webp]] Medicinal Specter change history))
-### [[/hero/mcginnis?ability=medicinal-specter]]((Medicinal Specter))
+[[/ability/medicinal-specter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/engineer_resupply.webp]] Medicinal Specter change history))
+### [[/ability/medicinal-specter]]((Medicinal Specter))
 - Medicinal Specter radius spirit power reduced from 0.07 to 0.05
 ==
 =

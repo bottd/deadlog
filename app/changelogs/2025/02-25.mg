@@ -365,14 +365,14 @@ content_text "The map has been redesigned around being 3 lanes rather than 4. Th
 [[/hero/holliday]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]] Holliday patch history))
 ## [[/hero/holliday]]((Holliday))
 ==ability:bounce-pad:
-[[/hero/holliday?ability=bounce-pad]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_bounce_pad.webp]] Bounce Pad change history))
-### [[/hero/holliday?ability=bounce-pad]]((Bounce Pad))
+[[/ability/bounce-pad]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_bounce_pad.webp]] Bounce Pad change history))
+### [[/ability/bounce-pad]]((Bounce Pad))
 - Bounce Pad damage reduced from 120 to 90.
 - Bounce Pad T3 stun duration reduced from +1.25s to +1s.
 ==
 ==ability:spirit-lasso:
-[[/hero/holliday?ability=spirit-lasso]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_spirit_lasso.webp]] Spirit Lasso change history))
-### [[/hero/holliday?ability=spirit-lasso]]((Spirit Lasso))
+[[/ability/spirit-lasso]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_spirit_lasso.webp]] Spirit Lasso change history))
+### [[/ability/spirit-lasso]]((Spirit Lasso))
 - Spirit Lasso damage reduced from 120 to 90.
 ==
 =

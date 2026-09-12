@@ -1,161 +1,86 @@
 <script lang="ts">
-	import * as Avatar from '$lib/components/ui/avatar';
 	import CornerAccents from '$lib/components/ui/corner-accents/CornerAccents.svelte';
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
-	import Zap from '@lucide/svelte/icons/zap';
-	import { backOut } from 'svelte/easing';
-	import { fly, scale } from 'svelte/transition';
 	import { patchCardHrefs, patchCardView, type PatchCardProps } from './patchCard';
-
 	let patch: PatchCardProps = $props();
-
 	const view = $derived(patchCardView(patch, true));
 	const links = $derived(patchCardHrefs(patch));
 </script>
 
-<div relative m="b-8" block class="group">
-	<div
-		border="primary/40 2"
-		bg="card"
-		relative
-		flex="~ col"
-		class="clip-corner-lg card-glow overflow-hidden transition-all duration-200 hover:(border-primary/70 shadow-2xl) active:scale-[0.99] md:(flex-row items-stretch)"
+<div class="mb-7">
+	<article
+		class="clip-corner-lg card-glow border-primary/40 bg-card group relative overflow-hidden border md:flex"
 	>
-		<div
-			absolute
-			bg="gradient-to-r"
-			op="0"
-			class="from-primary/0 via-signal/5 to-signal/10 pointer-events-none inset-0 transition-opacity duration-200 group-hover:opacity-100"
-		></div>
 		<CornerAccents
-			tlSize="4rem"
-			brSize="3rem"
+			tlSize="2rem"
+			brSize="1.5rem"
 			tlColor="bg-primary"
-			brColor="bg-signal/70"
-			thickness="0.125rem"
-			class="z-20"
+			brColor="bg-signal/60"
 		/>
-
-		<div z="10" flex="~ 1 col" gap="5" p="6" class="md:p-8">
-			<div flex="~" items="center" gap="4">
-				<div
-					border="primary/30 ~"
-					bg="primary/15"
-					items="center"
-					gap="2"
-					p="x-4 y-1.5"
-					class="pulse-glow clip-corner-sm inline-flex"
-					in:fly={{ x: -20, duration: 500, easing: backOut }}
+		<div class="min-w-0 flex-1 p-5 sm:p-6">
+			<div class="flex flex-wrap items-center gap-x-4 gap-y-2">
+				<h2
+					class="font-display text-foreground group-hover:text-primary text-3xl leading-tight font-medium tracking-wide transition-colors sm:text-4xl"
 				>
-					<Zap class="text-primary size-4" />
-					<span text="primary xs" font="bold" class="kicker">Latest Patch</span>
-				</div>
-				<div bg="signal/30" h="px" flex="1"></div>
-			</div>
-
-			<h2
-				font="display medium"
-				text="foreground 3xl"
-				class="group-hover:text-primary tracking-wide break-words transition-colors duration-300 md:text-4xl"
-				in:fly={{ y: 20, duration: 400, delay: 100 }}
-			>
-				<a href={links.href} aria-label={view.accessibleLabel} class="stretched-link">
-					{view.heading}
-				</a>
-			</h2>
-
-			<div flex="~" items="center" gap="3">
-				<Avatar.Root
-					class="border-primary/30 group-hover:border-primary size-8 border-2 transition-all duration-300"
+					<a href={links.href} aria-label={view.accessibleLabel} class="stretched-link"
+						>{view.heading}</a
+					>
+				</h2>
+				<span class="bg-primary/10 text-primary rounded-sm px-2 py-1 font-mono text-xs"
+					>Latest Patch</span
 				>
-					<Avatar.Image src={patch.authorImage} alt="" />
-					<Avatar.Fallback text="muted-foreground xs" font="mono" class="tracking-wide"
-						>{view.initials}</Avatar.Fallback
-					>
-				</Avatar.Root>
-				<span text="foreground sm" font="medium">{patch.author}</span>
-				{#if view.named}
-					<span text="muted-foreground" aria-hidden="true">&middot;</span>
-					<time
-						datetime={patch.date.toISOString()}
-						text="muted-foreground xs"
-						font="mono"
-						class="tracking-wide"
-					>
-						{view.date}
-					</time>
-				{/if}
 			</div>
-
-			{#if patch.summary}
-				<p text="muted-foreground sm" class="max-w-2xl leading-relaxed">
+			<p class="text-muted-foreground mt-2 text-xs">
+				By {patch.author}{#if view.named}
+					· <time datetime={patch.date}>{view.date}</time>{/if}
+			</p>
+			{#if patch.summary}<p
+					class="text-foreground/90 mt-4 max-w-[72ch] text-sm leading-relaxed"
+				>
 					{patch.summary}
-				</p>
-			{/if}
-
-			{#if view.rows.length > 0}
-				<div m="t-2" flex="~ col" gap="3">
+				</p>{/if}
+			{#if view.rows.length}
+				<div class="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2">
 					{#each view.rows as row (row.type)}
-						<div flex="~" items="center" gap="3">
-							<span class="w-14 font-mono text-xs tracking-wider uppercase {row.tone}"
-								>{row.label}</span
-							>
-							<div class="flex min-w-0 flex-wrap gap-y-2 pl-2 [&>*]:-ml-2">
-								{#each row.list as icon, i (icon.id)}
+						<div class="flex items-center gap-3">
+							<span class="w-12 shrink-0 text-xs {row.tone}">{row.label}</span>
+							<div class="flex flex-wrap gap-1.5">
+								{#each row.list as icon (icon.id)}
 									<a
 										href={links.entityHref(icon)}
 										aria-label="Jump to {icon.alt} in this patch"
-										relative
-										z="10"
-										rounded="lg"
-										class="group/icon ui-focus-outline transition-all duration-300 hover:(z-20 -translate-y-1 scale-110)"
+										class="ui-focus-outline relative z-10 flex size-11 items-center justify-center rounded-md hover:bg-signal/10"
 									>
 										<img
 											src={icon.src}
 											alt=""
-											width="40"
-											height="40"
+											width="32"
+											height="32"
 											loading="lazy"
 											decoding="async"
-											border="primary/20 2"
-											bg="card"
-											rounded="lg"
-											shadow="md"
-											class="group-hover/icon:border-primary size-9 object-cover transition-colors duration-300"
-											in:scale={{
-												start: 0,
-												duration: 400,
-												delay: 100 + (row.offset + i) * 40,
-												easing: backOut
-											}}
+											class="border-subtle bg-background size-8 rounded border object-cover"
 										/>
 									</a>
 								{/each}
 							</div>
-							{#if row.extra > 0}
-								<span class="font-mono text-sm font-bold {row.tone}">+{row.extra}</span>
-							{/if}
+							{#if row.extra > 0}<span class="text-muted-foreground font-mono text-xs"
+									>+{row.extra}</span
+								>{/if}
 						</div>
 					{/each}
 				</div>
 			{/if}
-
-			<div flex="~" border="border/50 t" m="t-auto" items="center" gap="6" p="t-4">
-				{#each view.counts as count (count.noun)}
-					<span flex="~" items="baseline" gap="1.5">
-						<span class="font-mono text-2xl font-bold {count.tone}">{count.n}</span>
-						<span text="muted-foreground sm">{count.noun}</span>
-					</span>
-				{/each}
+			<div
+				class="border-subtle mt-4 flex flex-wrap items-center justify-between gap-3 border-t pt-3"
+			>
+				<span class="text-muted-foreground text-xs">{view.totals}</span>
+				<span class="text-signal inline-flex items-center gap-2 text-sm"
+					>View full patch <ArrowRight class="size-4" /></span
+				>
 			</div>
 		</div>
-
-		<div
-			class="border-signal/20 from-signal/5 to-primary/5 group-hover:(from-signal/10 to-primary/10) relative z-0 flex min-h-44 shrink-0 items-center justify-center overflow-hidden border-t bg-gradient-to-r p-6 transition-colors duration-300 md:(min-h-0 border-t-0 border-l p-8) {patch.previewImage
-				? 'md:w-80'
-				: 'md:w-56'}"
-		>
-			{#if patch.previewImage}
+		{#if patch.previewImage}
+			<div class="relative h-40 shrink-0 md:h-auto md:w-64">
 				<img
 					data-patch-preview
 					src={patch.previewImage}
@@ -163,51 +88,11 @@
 					width="640"
 					height="360"
 					decoding="async"
-					absolute
-					class="inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-105"
+					fetchpriority="high"
+					class="absolute inset-0 size-full object-cover"
 				/>
-				<div
-					absolute
-					bg="gradient-to-t"
-					class="from-card/10 via-card/55 to-card/95 inset-0 md:bg-gradient-to-r"
-					aria-hidden="true"
-				></div>
-			{:else}
-				<img
-					src={view.fallbackImage}
-					alt=""
-					width="640"
-					height="360"
-					loading="lazy"
-					decoding="async"
-					absolute
-					op="25"
-					class="inset-0 size-full object-cover"
-				/>
-			{/if}
-			<div relative z="10" flex="~ col" items="center" gap="3" text="center">
-				<div
-					flex="~"
-					bg="primary"
-					text="primary-foreground"
-					items="center"
-					justify="center"
-					rounded="xl"
-					shadow="lg"
-					class="size-14 transition-all duration-300 group-hover:(scale-110 shadow-xl)"
-				>
-					<ArrowRight
-						class="size-6 transition-transform duration-300 group-hover:translate-x-1"
-					/>
-				</div>
-				<span text="foreground sm" font="semibold">View Full Patch</span>
 			</div>
-		</div>
-	</div>
-
-	<div flex="~" m="t-2" items="center" gap="4" p="x-4">
-		<div bg="signal/35" h="px" flex="1"></div>
-		<span text="muted-foreground" kicker-sm>Previous Updates</span>
-		<div bg="primary/30" h="px" flex="1"></div>
-	</div>
+		{/if}
+	</article>
+	<p class="text-muted-foreground mt-6 text-sm">Previous patches</p>
 </div>

@@ -1,7 +1,7 @@
 import { searchParams } from '$lib/stores/searchParams.svelte';
 import type { EntityKind } from '$lib/entityTone';
 import type { EnrichedHero, EnrichedItem } from '$lib/types';
-import { entityNamesMatch } from '@deadlog/utils';
+import { entityNamesMatch, findEntityName, indexEntityNames } from '@deadlog/utils';
 
 export type MergedEntity = {
 	/** Doubles as the each-key and the combobox option value. */
@@ -42,18 +42,19 @@ export class FilterState {
 		this.inputValue = this.#params.q;
 	}
 
-	#matchesInput(name: string): boolean {
-		return !this.inputValue || name.toLowerCase().includes(this.inputValue.toLowerCase());
-	}
-
 	mergedList = $derived.by((): MergedEntity[] => {
+		const needle = this.inputValue.toLowerCase();
+		const matchesInput = (name: string) => !needle || name.toLowerCase().includes(needle);
+		const selectedHeroes = indexEntityNames(this.#params.hero, (name) => name);
+		const selectedItems = indexEntityNames(this.#params.item, (name) => name);
+
 		const heroes: MergedEntity[] = this.#getHeroes()
-			.filter((hero) => hero.isReleased && this.#matchesInput(hero.name))
+			.filter((hero) => hero.isReleased && matchesInput(hero.name))
 			.map((hero) => ({
 				type: 'hero',
 				data: hero,
 				key: `hero-${hero.id}`,
-				isSelected: hasEntity(this.#params.hero, hero.name)
+				isSelected: findEntityName(selectedHeroes, hero.name) !== undefined
 			}));
 
 		const items: MergedEntity[] = this.#getItems()
@@ -62,13 +63,13 @@ export class FilterState {
 					item.isReleased &&
 					item.name.trim() !== '' &&
 					!item.name.includes('_') &&
-					this.#matchesInput(item.name)
+					matchesInput(item.name)
 			)
 			.map((item) => ({
 				type: 'item',
 				data: item,
 				key: `item-${item.id}`,
-				isSelected: hasEntity(this.#params.item, item.name)
+				isSelected: findEntityName(selectedItems, item.name) !== undefined
 			}));
 
 		return [...heroes, ...items].sort((a, b) => {
@@ -82,12 +83,6 @@ export class FilterState {
 	toggle(kind: EntityKind, name: string) {
 		this.inputValue = '';
 		toggleEntityFilter(kind, name);
-	}
-
-	selectById(kind: EntityKind, id: number) {
-		const entities = kind === 'hero' ? this.#getHeroes() : this.#getItems();
-		const entity = entities.find((candidate) => candidate.id === id);
-		if (entity) this.toggle(kind, entity.name);
 	}
 
 	clearAll() {

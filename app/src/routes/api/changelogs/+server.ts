@@ -1,8 +1,8 @@
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
-import { queryChangelogs, getAllHeroes, getAllItems } from '@deadlog/scraper';
+import { queryChangelogs, getEntityNames } from '@deadlog/db';
 import {
-	enrichChangelogs,
+	buildPatchSummaries,
 	resolveEntityIds,
 	parseApiParams,
 	splitPage
@@ -12,8 +12,8 @@ export const GET: RequestHandler = async ({ url, locals }) => {
 	const { limit, offset, hero, item, q, major } = parseApiParams(url);
 
 	const [heroes, items] = await Promise.all([
-		hero.length > 0 ? getAllHeroes(locals.db) : [],
-		item.length > 0 ? getAllItems(locals.db) : []
+		hero.length > 0 ? getEntityNames(locals.db, 'hero') : [],
+		item.length > 0 ? getEntityNames(locals.db, 'item') : []
 	]);
 
 	const heroIds = resolveEntityIds(hero, heroes);
@@ -29,7 +29,12 @@ export const GET: RequestHandler = async ({ url, locals }) => {
 	});
 	const page = splitPage(changelogs, limit);
 
-	const enriched = await enrichChangelogs(locals.db, page.rows);
+	const enriched = await buildPatchSummaries(locals.db, page.rows, {
+		heroIds,
+		itemIds,
+		q,
+		isFirstPage: offset === 0
+	});
 
 	return json({
 		changelogs: enriched,

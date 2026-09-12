@@ -21,3 +21,27 @@ export function entityNamesMatch(left: string, right: string): boolean {
 	const rightAliases = new Set(entityNameAliases(right));
 	return entityNameAliases(left).some((alias) => rightAliases.has(alias));
 }
+
+export function indexEntityNames<T>(
+	entities: readonly T[],
+	name: (entity: T) => string
+): Map<string, T> {
+	const index = new Map<string, T>();
+	for (const entity of entities) {
+		for (const alias of entityNameAliases(name(entity))) {
+			if (!index.has(alias)) index.set(alias, entity);
+		}
+	}
+	return index;
+}
+
+export function findEntityName<T>(
+	index: ReadonlyMap<string, T> | undefined,
+	name: string
+): T | undefined {
+	for (const alias of entityNameAliases(name)) {
+		const entity = index?.get(alias);
+		if (entity !== undefined) return entity;
+	}
+	return undefined;
+}

@@ -20,10 +20,8 @@
 
 <EntityDirectory
 	kind="hero"
-	eyebrow="Hero roster"
 	heading="Heroes"
-	lede="Browse every released hero, then open a chronological record of their buffs, nerfs, and balance changes."
-	listEyebrow="Select a combatant"
+	lede="Find a hero to read every recorded buff, nerf, and balance change."
 	{entries}
 	seo={{
 		title: 'Deadlock Heroes: Balance Change History | Deadlog',

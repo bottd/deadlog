@@ -1,9 +1,5 @@
 import { test, expect } from 'playwright/test';
-
-async function gotoApp(page: import('playwright/test').Page, path: string) {
-	await page.goto(path);
-	await expect(page.locator('[data-app-ready="true"]')).toBeAttached();
-}
+import { gotoApp } from './helpers';
 
 test.describe('Changelog filtering', () => {
 	test('shows changelog entries on the main page', async ({ page }) => {

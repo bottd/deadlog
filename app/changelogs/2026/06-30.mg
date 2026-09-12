@@ -68,13 +68,13 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 [[/hero/abrams]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams patch history))
 ## [[/hero/abrams]]((Abrams))
 ==ability:siphon-life:
-[[/hero/abrams?ability=siphon-life]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_drain.webp]] Siphon Life change history))
-### [[/hero/abrams?ability=siphon-life]]((Siphon Life))
+[[/ability/siphon-life]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_drain.webp]] Siphon Life change history))
+### [[/ability/siphon-life]]((Siphon Life))
 - Siphon Life T3 reduced from +3m Radius to +2m
 ==
 ==ability:shoulder-charge:
-[[/hero/abrams?ability=shoulder-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_charge.webp]] Shoulder Charge change history))
-### [[/hero/abrams?ability=shoulder-charge]]((Shoulder Charge))
+[[/ability/shoulder-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_charge.webp]] Shoulder Charge change history))
+### [[/ability/shoulder-charge]]((Shoulder Charge))
 - Shoulder Charge T3 reduced from -20s Cooldown to -18s
 ==
 =
@@ -83,21 +83,21 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 [[/hero/apollo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/fencer_sm.webp]] Apollo patch history))
 ## [[/hero/apollo]]((Apollo))
 ==ability:riposte:
-[[/hero/apollo?ability=riposte]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/fencer/fencer_riposte.webp]] Riposte change history))
-### [[/hero/apollo?ability=riposte]]((Riposte))
+[[/ability/riposte]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/fencer/fencer_riposte.webp]] Riposte change history))
+### [[/ability/riposte]]((Riposte))
 - Riposte T1 increased from -7s Cooldown to -8s
 - Riposte grace window to target after channel increased from +1s to +1.3s
 - Riposte cast range increased from 25m to 35m
 - Riposte targeting angle increased from 70 to 90
 ==
 ==ability:flawless-advance:
-[[/hero/apollo?ability=flawless-advance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/fencer/fencer_lungingstab.webp]] Flawless Advance change history))
-### [[/hero/apollo?ability=flawless-advance]]((Flawless Advance))
+[[/ability/flawless-advance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/fencer/fencer_lungingstab.webp]] Flawless Advance change history))
+### [[/ability/flawless-advance]]((Flawless Advance))
 - Flawless Advance Heal on hero hit spirit scaling increased from 1 to 1.3
 ==
 ==ability:itani-lo-sahn:
-[[/hero/apollo?ability=itani-lo-sahn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/fencer/fencer_ult.webp]] Itani Lo Sahn change history))
-### [[/hero/apollo?ability=itani-lo-sahn]]((Itani Lo Sahn))
+[[/ability/itani-lo-sahn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/fencer/fencer_ult.webp]] Itani Lo Sahn change history))
+### [[/ability/itani-lo-sahn]]((Itani Lo Sahn))
 - Itani Lo Sahn T3 increased from +40% Bonus Damage to +50%
 ==
 =
@@ -107,14 +107,14 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 ## [[/hero/billy]]((Billy))
 - Bullet damage per boon reduced by 10%
 ==ability:bashdown:
-[[/hero/billy?ability=bashdown]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/punkgoat/goat_sigilslam.webp]] Bashdown change history))
-### [[/hero/billy?ability=bashdown]]((Bashdown))
+[[/ability/bashdown]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/punkgoat/goat_sigilslam.webp]] Bashdown change history))
+### [[/ability/bashdown]]((Bashdown))
 - Bashdown melee scaling reduced from 1.1 to 0.9
 - Bashdown T3 reduced from 60% Heavy Melee damage to 50%
 ==
 ==ability:rising-ram:
-[[/hero/billy?ability=rising-ram]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/punkgoat/goat_risingram.webp]] Rising Ram change history))
-### [[/hero/billy?ability=rising-ram]]((Rising Ram))
+[[/ability/rising-ram]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/punkgoat/goat_risingram.webp]] Rising Ram change history))
+### [[/ability/rising-ram]]((Rising Ram))
 - Rising Ram T3 Max HP Damage reduced from 10% to 8%
 - Rising Ram T3 Max HP Damage spirit scaling increased from 0.017 to 0.035 (break even at 111 spirit power)
 ==
@@ -124,19 +124,19 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 [[/hero/celeste]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/unicorn_sm.webp]] Celeste patch history))
 ## [[/hero/celeste]]((Celeste))
 ==ability:dazzling-trick:
-[[/hero/celeste?ability=dazzling-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_shield.webp]] Dazzling Trick change history))
-### [[/hero/celeste?ability=dazzling-trick]]((Dazzling Trick))
+[[/ability/dazzling-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_shield.webp]] Dazzling Trick change history))
+### [[/ability/dazzling-trick]]((Dazzling Trick))
 - Dazzling Trick cooldown reduced from 35s to 32s
 ==
 ==ability:radiant-daggers:
-[[/hero/celeste?ability=radiant-daggers]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_luminousflux.webp]] Radiant Daggers change history))
-### [[/hero/celeste?ability=radiant-daggers]]((Radiant Daggers))
+[[/ability/radiant-daggers]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_luminousflux.webp]] Radiant Daggers change history))
+### [[/ability/radiant-daggers]]((Radiant Daggers))
 - Radiant Daggers buff duration increased from 25s to 30s
 - Radiant Daggers spirit scaling increased from 0.56 to 0.63
 ==
 ==ability:shining-wonder:
-[[/hero/celeste?ability=shining-wonder]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_orb.webp]] Shining Wonder change history))
-### [[/hero/celeste?ability=shining-wonder]]((Shining Wonder))
+[[/ability/shining-wonder]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_orb.webp]] Shining Wonder change history))
+### [[/ability/shining-wonder]]((Shining Wonder))
 - Shining Wonder bounce range increased from 15.5m to 16.5m
 - Shining Wonder damage increased by 10%
 ==
@@ -146,8 +146,8 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 [[/hero/the-doorman]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/doorman_sm.webp]] Doorman patch history))
 ## [[/hero/the-doorman]]((Doorman))
 ==ability:doorway:
-[[/hero/the-doorman?ability=doorway]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_doorway.webp]] Doorway change history))
-### [[/hero/the-doorman?ability=doorway]]((Doorway))
+[[/ability/doorway]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_doorway.webp]] Doorway change history))
+### [[/ability/doorway]]((Doorway))
 - Doorway cooldown increased from 40s to 45s
 ==
 =
@@ -157,15 +157,15 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 ## [[/hero/drifter]]((Drifter))
 - Health per boon increased from 41 to 43 (global hp boon reduction is after this)
 ==ability:rend:
-[[/hero/drifter?ability=rend]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/drifter/drifter_claw.webp]] Rend change history))
-### [[/hero/drifter?ability=rend]]((Rend))
+[[/ability/rend]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/drifter/drifter_claw.webp]] Rend change history))
+### [[/ability/rend]]((Rend))
 - Rend cast time reduced from 0.5s to 0.4s
 - Rend post cast time reduced from 0.5s to 0.4s
 - Rend T2 increased from -7s Cooldown to -8s
 ==
 ==ability:bloodscent:
-[[/hero/drifter?ability=bloodscent]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/drifter/drifter_thehunger.webp]] Bloodscent change history))
-### [[/hero/drifter?ability=bloodscent]]((Bloodscent))
+[[/ability/bloodscent]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/drifter/drifter_thehunger.webp]] Bloodscent change history))
+### [[/ability/bloodscent]]((Bloodscent))
 - Bloodscent T1 increased from +2m/s while near an isolated enemy to +3m/s
 - Bloodscent T2 increased from 18% missing health heal to +24%
 ==
@@ -175,8 +175,8 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 ==ability:rejuvenating-aurora:
-[[/hero/dynamo?ability=rejuvenating-aurora]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_pork_bun.webp]] Rejuvenating Aurora change history))
-### [[/hero/dynamo?ability=rejuvenating-aurora]]((Rejuvenating Aurora))
+[[/ability/rejuvenating-aurora]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_pork_bun.webp]] Rejuvenating Aurora change history))
+### [[/ability/rejuvenating-aurora]]((Rejuvenating Aurora))
 - Rejuvenating Aurora regeneration increased from 25/s to 30/s
 ==
 =
@@ -185,13 +185,13 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 [[/hero/grey-talon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon patch history))
 ## [[/hero/grey-talon]]((Grey Talon))
 ==ability:rain-of-arrows:
-[[/hero/grey-talon?ability=rain-of-arrows]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_power_jump.webp]] Rain of Arrows change history))
-### [[/hero/grey-talon?ability=rain-of-arrows]]((Rain of Arrows))
+[[/ability/rain-of-arrows]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_power_jump.webp]] Rain of Arrows change history))
+### [[/ability/rain-of-arrows]]((Rain of Arrows))
 - Rain of Arrows cooldown increased from 23s to 25s
 ==
 ==ability:guided-owl:
-[[/hero/grey-talon?ability=guided-owl]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_guided_arrow.webp]] Guided Owl change history))
-### [[/hero/grey-talon?ability=guided-owl]]((Guided Owl))
+[[/ability/guided-owl]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_guided_arrow.webp]] Guided Owl change history))
+### [[/ability/guided-owl]]((Guided Owl))
 - Guided Owl permanent spirit bonus reduced from 10 to 8
 ==
 =
@@ -200,14 +200,14 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 ==ability:sleep-dagger:
-[[/hero/haze?ability=sleep-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger change history))
-### [[/hero/haze?ability=sleep-dagger]]((Sleep Dagger))
+[[/ability/sleep-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger change history))
+### [[/ability/sleep-dagger]]((Sleep Dagger))
 - Sleep Dagger T1 increased from -8% Bullet Resist to -10%
 - Sleep Dagger T2 increased from -17s Cooldown to -18s
 ==
 ==ability:smoke-bomb:
-[[/hero/haze?ability=smoke-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_smoke_bomb.webp]] Smoke Bomb change history))
-### [[/hero/haze?ability=smoke-bomb]]((Smoke Bomb))
+[[/ability/smoke-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_smoke_bomb.webp]] Smoke Bomb change history))
+### [[/ability/smoke-bomb]]((Smoke Bomb))
 - Smoke Bomb T3 increased from +40% Bullet Lifesteal to +50%
 ==
 =
@@ -216,8 +216,8 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 [[/hero/holliday]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]] Holliday patch history))
 ## [[/hero/holliday]]((Holliday))
 ==ability:powder-keg:
-[[/hero/holliday?ability=powder-keg]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_powder_keg.webp]] Powder Keg change history))
-### [[/hero/holliday?ability=powder-keg]]((Powder Keg))
+[[/ability/powder-keg]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/astro/holliday_powder_keg.webp]] Powder Keg change history))
+### [[/ability/powder-keg]]((Powder Keg))
 - Powder Keg velocity reduced slightly
 - Powder Keg charge delay increased from 7s to 7.5s
 - Powder Keg spirit scaling reduced from 1.4 to 1.2
@@ -229,18 +229,18 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 [[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
 ## [[/hero/ivy]]((Ivy))
 ==ability:entangling-thorns:
-[[/hero/ivy?ability=entangling-thorns]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_storm_flask.webp]] Entangling Thorns change history))
-### [[/hero/ivy?ability=entangling-thorns]]((Entangling Thorns))
+[[/ability/entangling-thorns]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_storm_flask.webp]] Entangling Thorns change history))
+### [[/ability/entangling-thorns]]((Entangling Thorns))
 - Entangling Thorns spirit scaling increased from 0.45 to 0.55
 ==
 ==ability:kudzu-connection:
-[[/hero/ivy?ability=kudzu-connection]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_tether.webp]] Kudzu Connection change history))
-### [[/hero/ivy?ability=kudzu-connection]]((Kudzu Connection))
+[[/ability/kudzu-connection]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_tether.webp]] Kudzu Connection change history))
+### [[/ability/kudzu-connection]]((Kudzu Connection))
 - Kudzu Connection Replicated Healing per boon scale increased from +0.5 to +0.85
 ==
 ==ability:air-drop:
-[[/hero/ivy?ability=air-drop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_lightning_crash.webp]] Air Drop change history))
-### [[/hero/ivy?ability=air-drop]]((Air Drop))
+[[/ability/air-drop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_lightning_crash.webp]] Air Drop change history))
+### [[/ability/air-drop]]((Air Drop))
 - Air Drop cooldown reduction when used on allies increased from -25% to -30%
 ==
 =
@@ -249,13 +249,13 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 [[/hero/lash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp]] Lash patch history))
 ## [[/hero/lash]]((Lash))
 ==ability:ground-strike:
-[[/hero/lash?ability=ground-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_death_slam.webp]] Ground Strike change history))
-### [[/hero/lash?ability=ground-strike]]((Ground Strike))
+[[/ability/ground-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_death_slam.webp]] Ground Strike change history))
+### [[/ability/ground-strike]]((Ground Strike))
 - Ground Strike cooldown reduced from 21s to 18s
 ==
 ==ability:flog:
-[[/hero/lash?ability=flog]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_flog.webp]] Flog change history))
-### [[/hero/lash?ability=flog]]((Flog))
+[[/ability/flog]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_flog.webp]] Flog change history))
+### [[/ability/flog]]((Flog))
 - Flog angle increased from 30 to 38
 ==
 =
@@ -264,18 +264,18 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 [[/hero/mina]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/vampirebat_sm.webp]] Mina patch history))
 ## [[/hero/mina]]((Mina))
 ==ability:rake:
-[[/hero/mina?ability=rake]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_rake.webp]] Rake change history))
-### [[/hero/mina?ability=rake]]((Rake))
+[[/ability/rake]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_rake.webp]] Rake change history))
+### [[/ability/rake]]((Rake))
 - Rake missing health as damage increased from 5% to 6%
 ==
 ==ability:sanguine-retreat:
-[[/hero/mina?ability=sanguine-retreat]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_sanguine_retreat.webp]] Sanguine Retreat change history))
-### [[/hero/mina?ability=sanguine-retreat]]((Sanguine Retreat))
+[[/ability/sanguine-retreat]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_sanguine_retreat.webp]] Sanguine Retreat change history))
+### [[/ability/sanguine-retreat]]((Sanguine Retreat))
 - Sanguine Retreat T3 now also increases range by +3m
 ==
 ==ability:nox-nostra:
-[[/hero/mina?ability=nox-nostra]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_nox_nostra.webp]] Nox Nostra change history))
-### [[/hero/mina?ability=nox-nostra]]((Nox Nostra))
+[[/ability/nox-nostra]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_nox_nostra.webp]] Nox Nostra change history))
+### [[/ability/nox-nostra]]((Nox Nostra))
 - Nox Nostra damage increased from 4.45 to 4.6
 - Nox Nostra T1 damage increased from +1.74 to +1.9
 ==
@@ -285,14 +285,14 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 [[/hero/mo-krill]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]] Mo & Krill patch history))
 ## [[/hero/mo-krill]]((Mo & Krill))
 ==ability:sand-blast:
-[[/hero/mo-krill?ability=sand-blast]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_throw_sand.webp]] Sand Blast change history))
-### [[/hero/mo-krill?ability=sand-blast]]((Sand Blast))
+[[/ability/sand-blast]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_throw_sand.webp]] Sand Blast change history))
+### [[/ability/sand-blast]]((Sand Blast))
 - Sand Blast T2 slow increased from -25% to -30%
 - Sand Blast T3 increased from -20s Cooldown to -25s
 ==
 ==ability:combo:
-[[/hero/mo-krill?ability=combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo change history))
-### [[/hero/mo-krill?ability=combo]]((Combo))
+[[/ability/combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo change history))
+### [[/ability/combo]]((Combo))
 - Combo bonus max health per kill increased from 30+1/boon to 40+2/boon
 ==
 =
@@ -302,25 +302,25 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 ## [[/hero/paige]]((Paige))
 - Health per boon increased from 29 to 33
 ==ability:bookwyrm:
-[[/hero/paige?ability=bookwyrm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bookworm/bookworm_dragon.webp]] Bookwyrm change history))
-### [[/hero/paige?ability=bookwyrm]]((Bookwyrm))
+[[/ability/bookwyrm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bookworm/bookworm_dragon.webp]] Bookwyrm change history))
+### [[/ability/bookwyrm]]((Bookwyrm))
 - Bookwyrm T1 changed from "+2s Trail Duration and +1m Radius" to "-12s Cooldown"
 - Bookwyrm T2 changed from "+10m Range and -12s Cooldown" to "+1 Charge, +1m Radius and +2s Trail Duration"
 ==
 ==ability:bookworm:
-[[/hero/paige?ability=bookwyrm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bookworm/bookworm_dragon.webp]] Bookworm change history))
-### [[/hero/paige?ability=bookwyrm]]((Bookworm))
+[[/ability/bookwyrm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bookworm/bookworm_dragon.webp]] Bookworm change history))
+### [[/ability/bookwyrm]]((Bookworm))
 - Bookworm T3 changed from "+100 Damage, +30 DPS and +1 Charge" to "+100 Damage, +30 DPS and +12m Travel Range"
 ==
 ==ability:plot-armor:
-[[/hero/paige?ability=plot-armor]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bookworm/bookworm_defendandfight.webp]] Plot Armor change history))
-### [[/hero/paige?ability=plot-armor]]((Plot Armor))
+[[/ability/plot-armor]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bookworm/bookworm_defendandfight.webp]] Plot Armor change history))
+### [[/ability/plot-armor]]((Plot Armor))
 - Plot Armor T1 fire rate spirit scaling increased from 0.13 to 0.16
 - Plot Armor T3 increased from 75% Barrier to 100%
 ==
 ==ability:rallying-charge:
-[[/hero/paige?ability=rallying-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bookworm/bookworm_charge.webp]] Rallying Charge change history))
-### [[/hero/paige?ability=rallying-charge]]((Rallying Charge))
+[[/ability/rallying-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bookworm/bookworm_charge.webp]] Rallying Charge change history))
+### [[/ability/rallying-charge]]((Rallying Charge))
 - Rallying Charge is now properly counted as a "miss" (for the -50% CD Reduction) if the only thing that was impacted were non-heroes
 - Rallying Charge T3 Max Amp increased from +50% to +70%
 ==
@@ -330,8 +330,8 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 [[/hero/paradox]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox patch history))
 ## [[/hero/paradox]]((Paradox))
 ==ability:kinetic-carbine:
-[[/hero/paradox?ability=kinetic-carbine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/duo/duo_attack.webp]] Kinetic Carbine change history))
-### [[/hero/paradox?ability=kinetic-carbine]]((Kinetic Carbine))
+[[/ability/kinetic-carbine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/duo/duo_attack.webp]] Kinetic Carbine change history))
+### [[/ability/kinetic-carbine]]((Kinetic Carbine))
 - Kinetic Carbine T2 now also increases move speed spirit scaling (0.06)
 - Kinetic Carbine T3 changed from affecting Max Damage Scaling to affecting both Min and Max Damage Scaling
 ==
@@ -342,8 +342,8 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 ## [[/hero/pocket]]((Pocket))
 - Bullet damage per boon reduced from 0.16 to 0.14
 ==ability:flying-cloak:
-[[/hero/pocket?ability=flying-cloak]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_plasma_flux.webp]] Flying Cloak change history))
-### [[/hero/pocket?ability=flying-cloak]]((Flying Cloak))
+[[/ability/flying-cloak]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_plasma_flux.webp]] Flying Cloak change history))
+### [[/ability/flying-cloak]]((Flying Cloak))
 - Flying Cloak T3 reduced from -12s Cooldown to -11s
 ==
 =
@@ -352,19 +352,19 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 [[/hero/rem]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/familiar_sm.webp]] Rem patch history))
 ## [[/hero/rem]]((Rem))
 ==ability:tag-along:
-[[/hero/rem?ability=tag-along]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/familiar/familiar_tag_along.webp]] Tag Along change history))
-### [[/hero/rem?ability=tag-along]]((Tag Along))
+[[/ability/tag-along]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/familiar/familiar_tag_along.webp]] Tag Along change history))
+### [[/ability/tag-along]]((Tag Along))
 - Tag Along healing per second spirit scaling reduced from 0.66 to 0.4
 - Tag Along T3 missing health spirit scaling reduced from +0.02 to +0.016
 ==
 ==ability:lil-helpers-spirit-resist:
-[[/hero/rem?ability=lil-helpers]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/familiar/familiar_helpers.webp]] Lil Helpers Spirit Resist change history))
-### [[/hero/rem?ability=lil-helpers]]((Lil Helpers Spirit Resist))
+[[/ability/lil-helpers]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/familiar/familiar_helpers.webp]] Lil Helpers Spirit Resist change history))
+### [[/ability/lil-helpers]]((Lil Helpers Spirit Resist))
 - Lil Helpers Spirit Resist reduced from 15% to 12%
 ==
 ==ability:lil-helpers:
-[[/hero/rem?ability=lil-helpers]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/familiar/familiar_helpers.webp]] Lil Helpers change history))
-### [[/hero/rem?ability=lil-helpers]]((Lil Helpers))
+[[/ability/lil-helpers]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/familiar/familiar_helpers.webp]] Lil Helpers change history))
+### [[/ability/lil-helpers]]((Lil Helpers))
 - Lil Helpers T1 changed from "+1 Helper" to "+1 Helper and +1.5m/s Move Speed"
 - Lil Helpers T2 changed from "+8% Spirit Resist and +1.5m/s Move Speed" to "+1 Helper and +15% Trooper Damage and Resist"
 - Lil Helpers T3 changed from "+2 Helpers and +20% Trooper Damage and Resist" to "+1 Helper and +15% Spirit Resist"
@@ -375,13 +375,13 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 [[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
 ## [[/hero/seven]]((Seven))
 ==ability:lightning-ball:
-[[/hero/seven?ability=lightning-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_ball.webp]] Lightning Ball change history))
-### [[/hero/seven?ability=lightning-ball]]((Lightning Ball))
+[[/ability/lightning-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_ball.webp]] Lightning Ball change history))
+### [[/ability/lightning-ball]]((Lightning Ball))
 - Lightning Ball charge delay reduced from 7s to 6s
 ==
 ==ability:storm-cloud:
-[[/hero/seven?ability=storm-cloud]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_storm.webp]] Storm Cloud change history))
-### [[/hero/seven?ability=storm-cloud]]((Storm Cloud))
+[[/ability/storm-cloud]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_storm.webp]] Storm Cloud change history))
+### [[/ability/storm-cloud]]((Storm Cloud))
 - Storm Cloud time to expand increased from 1.5s to 3.5s
 - Storm Cloud damage interval increased from 0.25s to 0.3s (DPS unchanged)
 - Storm Cloud T2 now also increases Initial Radius by +5m
@@ -395,37 +395,37 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 - Alt Fire ammo consumed per shot increased from 3 to 5
 - Alt Fire knockback movement is now disabled by slowing hex state
 ==ability:serrated-knives:
-[[/hero/shiv?ability=serrated-knives]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_toss.webp]] Serrated Knives change history))
-### [[/hero/shiv?ability=serrated-knives]]((Serrated Knives))
+[[/ability/serrated-knives]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_toss.webp]] Serrated Knives change history))
+### [[/ability/serrated-knives]]((Serrated Knives))
 - Serrated Knives cooldown reduced from 18s to 16s
 ==
 ==ability:slice-and-dice:
-[[/hero/shiv?ability=slice-and-dice]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_flash.webp]] Slice and Dice change history))
-### [[/hero/shiv?ability=slice-and-dice]]((Slice and Dice))
+[[/ability/slice-and-dice]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_flash.webp]] Slice and Dice change history))
+### [[/ability/slice-and-dice]]((Slice and Dice))
 - Slice and Dice now deals +25 light melee damage (75 total) instead of 60 spirit damage
 - Slice and Dice changed from -6% Spirit Resist to +4% Damage Amp
 ==
 ==ability:bloodletting:
-[[/hero/shiv?ability=bloodletting]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_bloodletting.webp]] Bloodletting change history))
-### [[/hero/shiv?ability=bloodletting]]((Bloodletting))
+[[/ability/bloodletting]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_bloodletting.webp]] Bloodletting change history))
+### [[/ability/bloodletting]]((Bloodletting))
 - Bloodletting T2 changed from "+15% Incoming Damage Deferred" to "+35% Deferred Damage Cleared"
 - Bloodletting T3 changed from "+50% Deferred Damage Cleared" to "+15% Incoming Damage Deferred"
 ==
 ==ability:killing-blow:
-[[/hero/shiv?ability=killing-blow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp]] Killing Blow change history))
-### [[/hero/shiv?ability=killing-blow]]((Killing Blow))
+[[/ability/killing-blow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp]] Killing Blow change history))
+### [[/ability/killing-blow]]((Killing Blow))
 - Killing Blow now deals damage to troopers and neutrals along the way
 - Killing Blow executing a hero now instantly fills the rage bar
 - Killing Blow now has the T3 "recast within 20s on a hero kill" as part of the base ability
 ==
 ==ability:killing-blow-full-rage-damage-bonus:
-[[/hero/shiv?ability=killing-blow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp]] Killing Blow Full Rage Damage Bonus change history))
-### [[/hero/shiv?ability=killing-blow]]((Killing Blow Full Rage Damage Bonus))
+[[/ability/killing-blow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp]] Killing Blow Full Rage Damage Bonus change history))
+### [[/ability/killing-blow]]((Killing Blow Full Rage Damage Bonus))
 - Killing Blow Full Rage Damage Bonus reduced from +12% to +8%
 ==
 ==ability:killing-blow:
-[[/hero/shiv?ability=killing-blow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp]] Killing Blow change history))
-### [[/hero/shiv?ability=killing-blow]]((Killing Blow))
+[[/ability/killing-blow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp]] Killing Blow change history))
+### [[/ability/killing-blow]]((Killing Blow))
 - Killing Blow range reduced from 18m to 12m
 - Killing Blow T1 now also increases range by +6m
 - Killing Blow T2 increased from +10% Full Rage Bonus Damage to +16%
@@ -437,19 +437,19 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
 ==ability:stake:
-[[/hero/vindicta?ability=stake]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_stake.webp]] Stake change history))
-### [[/hero/vindicta?ability=stake]]((Stake))
+[[/ability/stake]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_stake.webp]] Stake change history))
+### [[/ability/stake]]((Stake))
 - Stake T2 reduced from -20s Cooldown to -22s
 ==
 ==ability:crow-familiar:
-[[/hero/vindicta?ability=crow-familiar]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_crow.webp]] Crow Familiar change history))
-### [[/hero/vindicta?ability=crow-familiar]]((Crow Familiar))
+[[/ability/crow-familiar]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_crow.webp]] Crow Familiar change history))
+### [[/ability/crow-familiar]]((Crow Familiar))
 - Crow Familiar T2 increased from -12s Cooldown to -16s
 - Crow Familiar collision radius between each crow increased slightly
 ==
 ==ability:assassinate-max-bonus-damage:
-[[/hero/vindicta?ability=assassinate]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_assassinate.webp]] Assassinate Max Bonus Damage change history))
-### [[/hero/vindicta?ability=assassinate]]((Assassinate Max Bonus Damage))
+[[/ability/assassinate]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_assassinate.webp]] Assassinate Max Bonus Damage change history))
+### [[/ability/assassinate]]((Assassinate Max Bonus Damage))
 - Assassinate Max Bonus Damage spirit scaling increased from 2 to 2.3
 ==
 =
@@ -458,18 +458,18 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 [[/hero/viscous]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous patch history))
 ## [[/hero/viscous]]((Viscous))
 ==ability:splatter:
-[[/hero/viscous?ability=splatter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_ball.webp]] Splatter change history))
-### [[/hero/viscous?ability=splatter]]((Splatter))
+[[/ability/splatter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_ball.webp]] Splatter change history))
+### [[/ability/splatter]]((Splatter))
 - Splatter T3 spirit scaling reduced from +1.1 to +1.0
 ==
 ==ability:puddle-punch:
-[[/hero/viscous?ability=puddle-punch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp]] Puddle Punch change history))
-### [[/hero/viscous?ability=puddle-punch]]((Puddle Punch))
+[[/ability/puddle-punch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp]] Puddle Punch change history))
+### [[/ability/puddle-punch]]((Puddle Punch))
 - Puddle Punch T3 increased from -12s Cooldown to -14s
 ==
 ==ability:goo-ball:
-[[/hero/viscous?ability=goo-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_sphere.webp]] Goo Ball change history))
-### [[/hero/viscous?ability=goo-ball]]((Goo Ball))
+[[/ability/goo-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_sphere.webp]] Goo Ball change history))
+### [[/ability/goo-ball]]((Goo Ball))
 - Goo Ball T3 increased from +6s Duration to +7s
 ==
 =
@@ -478,13 +478,13 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 [[/hero/vyper]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kali_sm.webp]] Vyper patch history))
 ## [[/hero/vyper]]((Vyper))
 ==ability:screwjab-dagger:
-[[/hero/vyper?ability=screwjab-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viper/viper_debuffdagger.webp]] Screwjab Dagger change history))
-### [[/hero/vyper?ability=screwjab-dagger]]((Screwjab Dagger))
+[[/ability/screwjab-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viper/viper_debuffdagger.webp]] Screwjab Dagger change history))
+### [[/ability/screwjab-dagger]]((Screwjab Dagger))
 - Screwjab Dagger T3 now also reduces charge delay from 4s to 2s
 ==
 ==ability:slither:
-[[/hero/vyper?ability=slither]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viper/viper_snakedash.webp]] Slither change history))
-### [[/hero/vyper?ability=slither]]((Slither))
+[[/ability/slither]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viper/viper_snakedash.webp]] Slither change history))
+### [[/ability/slither]]((Slither))
 - Slither T3 spirit scaling increased from 0.6 to 0.8
 ==
 =
@@ -494,8 +494,8 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 ## [[/hero/warden]]((Warden))
 - Bullet damage per boon reduced from 0.34 to 0.28
 ==ability:willpower:
-[[/hero/warden?ability=willpower]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_high_alert.webp]] Willpower change history))
-### [[/hero/warden?ability=willpower]]((Willpower))
+[[/ability/willpower]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_high_alert.webp]] Willpower change history))
+### [[/ability/willpower]]((Willpower))
 - Willpower T2 increased from -22s Cooldown to -24s
 - Willpower T3 increased from +2.5 spirit power scaling to +2.7
 ==

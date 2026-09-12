@@ -25,8 +25,8 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 [[/hero/apollo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/fencer_sm.webp]] Apollo patch history))
 ## [[/hero/apollo]]((Apollo))
 ==ability:riposte:
-[[/hero/apollo?ability=riposte]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/fencer/fencer_riposte.webp]] Riposte change history))
-### [[/hero/apollo?ability=riposte]]((Riposte))
+[[/ability/riposte]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/fencer/fencer_riposte.webp]] Riposte change history))
+### [[/ability/riposte]]((Riposte))
 - Riposte base stun duration increased from 0.6s to 0.8s
 - Riposte T3 changed from +1.6s Stun Duration to +60% Bullet, Spirit and Melee Lifesteal against the target for 7s
 ==
@@ -36,8 +36,8 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 [[/hero/billy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/punkgoat_sm.webp]] Billy patch history))
 ## [[/hero/billy]]((Billy))
 ==ability:rising-ram:
-[[/hero/billy?ability=rising-ram]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/punkgoat/goat_risingram.webp]] Rising Ram change history))
-### [[/hero/billy?ability=rising-ram]]((Rising Ram))
+[[/ability/rising-ram]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/punkgoat/goat_risingram.webp]] Rising Ram change history))
+### [[/ability/rising-ram]]((Rising Ram))
 - Rising Ram T3 reduced from 8% Max Health to 7%
 ==
 =
@@ -46,8 +46,8 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 [[/hero/calico]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp]] Calico patch history))
 ## [[/hero/calico]]((Calico))
 ==ability:ava:
-[[/hero/calico?ability=ava]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_catform.webp]] Ava change history))
-### [[/hero/calico?ability=ava]]((Ava))
+[[/ability/ava]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_catform.webp]] Ava change history))
+### [[/ability/ava]]((Ava))
 - Ava T2 reduced from +45% Move Speed to +40%
 - Ava T3 reduced from +20% damage amp to +18%
 ==
@@ -57,8 +57,8 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 [[/hero/celeste]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/unicorn_sm.webp]] Celeste patch history))
 ## [[/hero/celeste]]((Celeste))
 ==ability:shining-wonder:
-[[/hero/celeste?ability=shining-wonder]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_orb.webp]] Shining Wonder change history))
-### [[/hero/celeste?ability=shining-wonder]]((Shining Wonder))
+[[/ability/shining-wonder]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/unicorn/unicorn_orb.webp]] Shining Wonder change history))
+### [[/ability/shining-wonder]]((Shining Wonder))
 - Shining Wonder radius increased from 16.5m to 17.5m
 - Shining Wonder damage increased by 10%
 - Shining Wonder buffer duration increased from 3s to 3.25s
@@ -70,20 +70,20 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 ## [[/hero/the-doorman]]((Doorman))
 - Bullet damage rescaled from 26 + 1.19/boon to 24 + 1.25
 ==ability:call-bell-charge-time:
-[[/hero/the-doorman?ability=call-bell]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_bell.webp]] Call Bell Charge Time change history))
-### [[/hero/the-doorman?ability=call-bell]]((Call Bell Charge Time))
+[[/ability/call-bell]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_bell.webp]] Call Bell Charge Time change history))
+### [[/ability/call-bell]]((Call Bell Charge Time))
 - Call Bell Charge Time increased from 6s to 7s
 ==
 ==ability:doorway:
-[[/hero/the-doorman?ability=doorway]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_doorway.webp]] Doorway change history))
-### [[/hero/the-doorman?ability=doorway]]((Doorway))
+[[/ability/doorway]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_doorway.webp]] Doorway change history))
+### [[/ability/doorway]]((Doorway))
 - Doorway duration reduced from 20s to 15s
 - Doorway T1 duration increased from +15s to +20s
 - Doorway T3 range reduced from +45m to +40m
 ==
 ==ability:luggage-cart:
-[[/hero/the-doorman?ability=luggage-cart]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_luggagetrolley.webp]] Luggage Cart change history))
-### [[/hero/the-doorman?ability=luggage-cart]]((Luggage Cart))
+[[/ability/luggage-cart]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_luggagetrolley.webp]] Luggage Cart change history))
+### [[/ability/luggage-cart]]((Luggage Cart))
 - Luggage Cart damage reduced from 80 to 60
 - Luggage Cart T1 increased from +60 Damage to +80
 - Luggage Cart range reduced from 25m to 20m
@@ -95,8 +95,8 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 [[/hero/drifter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/drifter_sm.webp]] Drifter patch history))
 ## [[/hero/drifter]]((Drifter))
 ==ability:rend:
-[[/hero/drifter?ability=rend]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/drifter/drifter_claw.webp]] Rend change history))
-### [[/hero/drifter?ability=rend]]((Rend))
+[[/ability/rend]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/drifter/drifter_claw.webp]] Rend change history))
+### [[/ability/rend]]((Rend))
 - Rend spirit scaling reduced from 1.8 to 1.7
 - Rend T3 silence duration reduced from 2.3s to 2s
 ==
@@ -106,8 +106,8 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 ==ability:singularity:
-[[/hero/dynamo?ability=singularity]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_vacuum.webp]] Singularity change history))
-### [[/hero/dynamo?ability=singularity]]((Singularity))
+[[/ability/singularity]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_vacuum.webp]] Singularity change history))
+### [[/ability/singularity]]((Singularity))
 - Singularity cooldown reduced from 265s to 250s
 ==
 =
@@ -116,16 +116,16 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 ==ability:sleep-dagger:
-[[/hero/haze?ability=sleep-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger change history))
-### [[/hero/haze?ability=sleep-dagger]]((Sleep Dagger))
+[[/ability/sleep-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_sleep_dagger.webp]] Sleep Dagger change history))
+### [[/ability/sleep-dagger]]((Sleep Dagger))
 - Sleep Dagger wake up time spirit scaling reduced from 0.003 to 0.002
 - Sleep Dagger damage spirit scaling reduced from 2.8 to 2.2
 - Sleep Dagger T2 changed from “-17s Cooldown and Applies 15 Fixation Stacks” to “+1s Sleep Duration and Applies 15 Fixation Stacks”
 - Sleep Dagger T3 changed from “+1s Sleep Duration and -50% Move and Dash Speed for 3s on wake-up” to “-17s Cooldown and -50% Move and Dash Speed for 3s on wake-up”
 ==
 ==ability:fixation:
-[[/hero/haze?ability=fixation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_fixation.webp]] Fixation change history))
-### [[/hero/haze?ability=fixation]]((Fixation))
+[[/ability/fixation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/haze/haze_fixation.webp]] Fixation change history))
+### [[/ability/fixation]]((Fixation))
 - Fixation T3 reduced from +0.14 per Stack to +0.11
 - Fixation T3 now also scales with Weapon Damage (0.0003)
 ==
@@ -135,8 +135,8 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 [[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
 ## [[/hero/ivy]]((Ivy))
 ==ability:stone-form:
-[[/hero/ivy?ability=stone-form]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_stone_form.webp]] Stone Form change history))
-### [[/hero/ivy?ability=stone-form]]((Stone Form))
+[[/ability/stone-form]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_stone_form.webp]] Stone Form change history))
+### [[/ability/stone-form]]((Stone Form))
 - Stone Form T3 spirit scaling reduced from +1.7 to +1.5
 ==
 =
@@ -145,8 +145,8 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 ==ability:frozen-shelter:
-[[/hero/kelvin?ability=frozen-shelter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/frozen_shelter.webp]] Frozen Shelter change history))
-### [[/hero/kelvin?ability=frozen-shelter]]((Frozen Shelter))
+[[/ability/frozen-shelter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/kelvin/frozen_shelter.webp]] Frozen Shelter change history))
+### [[/ability/frozen-shelter]]((Frozen Shelter))
 - Frozen Shelter cooldown reduced from 195s to 185s
 ==
 =
@@ -155,18 +155,18 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 [[/hero/lady-geist]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]] Lady Geist patch history))
 ## [[/hero/lady-geist]]((Lady Geist))
 ==ability:life-drain:
-[[/hero/lady-geist?ability=life-drain]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/life_drain.webp]] Life Drain change history))
-### [[/hero/lady-geist?ability=life-drain]]((Life Drain))
+[[/ability/life-drain]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/life_drain.webp]] Life Drain change history))
+### [[/ability/life-drain]]((Life Drain))
 - Life Drain changed from 75% Damage to Heal to 100%
 ==
 ==ability:life-drain-dps:
-[[/hero/lady-geist?ability=life-drain]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/life_drain.webp]] Life Drain DPS change history))
-### [[/hero/lady-geist?ability=life-drain]]((Life Drain DPS))
+[[/ability/life-drain]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/life_drain.webp]] Life Drain DPS change history))
+### [[/ability/life-drain]]((Life Drain DPS))
 - Life Drain DPS reduced to provide the same effective heal as before but with less DPS
 ==
 ==ability:malice:
-[[/hero/lady-geist?ability=malice]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/geist_dagger.webp]] Malice change history))
-### [[/hero/lady-geist?ability=malice]]((Malice))
+[[/ability/malice]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/geist_dagger.webp]] Malice change history))
+### [[/ability/malice]]((Malice))
 - Malice Damage amplification reduced from 8% to 7%
 - Malice T3 increased from +7% Damage Amp to +8%
 ==
@@ -176,8 +176,8 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 [[/hero/mina]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/vampirebat_sm.webp]] Mina patch history))
 ## [[/hero/mina]]((Mina))
 ==ability:sanguine-retreat:
-[[/hero/mina?ability=sanguine-retreat]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_sanguine_retreat.webp]] Sanguine Retreat change history))
-### [[/hero/mina?ability=sanguine-retreat]]((Sanguine Retreat))
+[[/ability/sanguine-retreat]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_sanguine_retreat.webp]] Sanguine Retreat change history))
+### [[/ability/sanguine-retreat]]((Sanguine Retreat))
 - Sanguine Retreat recast time increased from 3.5s to 4s
 - Sanguine Retreat T3 cast range increased from +3m to +4m
 ==
@@ -187,20 +187,20 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 [[/hero/mirage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage patch history))
 ## [[/hero/mirage]]((Mirage))
 ==ability:fire-scarabs:
-[[/hero/mirage?ability=fire-scarabs]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_fire_beetles.webp]] Fire Scarabs change history))
-### [[/hero/mirage?ability=fire-scarabs]]((Fire Scarabs))
+[[/ability/fire-scarabs]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_fire_beetles.webp]] Fire Scarabs change history))
+### [[/ability/fire-scarabs]]((Fire Scarabs))
 - Fire Scarabs duration reduced from 7s to 5s
 - Fire Scarabs T2 reduced from +2 Charges to +1 Charge
 - Fire Scarabs T2 now also increases duration by 2s
 ==
 ==ability:dust-devil:
-[[/hero/mirage?ability=dust-devil]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_tornado.webp]] Dust Devil change history))
-### [[/hero/mirage?ability=dust-devil]]((Dust Devil))
+[[/ability/dust-devil]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_tornado.webp]] Dust Devil change history))
+### [[/ability/dust-devil]]((Dust Devil))
 - Dust Devil T3 no longer increases Lift Duration by +0.3s
 ==
 ==ability:djinn-s-mark:
-[[/hero/mirage?ability=djinns-mark]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_sand_phantom.webp]] Djinn's Mark change history))
-### [[/hero/mirage?ability=djinns-mark]]((Djinn's Mark))
+[[/ability/djinns-mark]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_sand_phantom.webp]] Djinn's Mark change history))
+### [[/ability/djinns-mark]]((Djinn's Mark))
 - Fixed Djinn's Mark T3 still being -1s Cooldown instead of -0.75s
 ==
 =
@@ -209,13 +209,13 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 [[/hero/mo-krill]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]] Mo & Krill patch history))
 ## [[/hero/mo-krill]]((Mo & Krill))
 ==ability:burrow:
-[[/hero/mo-krill?ability=burrow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_spin.webp]] Burrow change history))
-### [[/hero/mo-krill?ability=burrow]]((Burrow))
+[[/ability/burrow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_spin.webp]] Burrow change history))
+### [[/ability/burrow]]((Burrow))
 - Burrow cooldown no longer starts after the conclusion of the ability, now starts immediately
 ==
 ==ability:combo:
-[[/hero/mo-krill?ability=combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo change history))
-### [[/hero/mo-krill?ability=combo]]((Combo))
+[[/ability/combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo change history))
+### [[/ability/combo]]((Combo))
 - Combo now lets you cast items while using it
 ==
 =
@@ -224,8 +224,8 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 [[/hero/paige]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bookworm_sm.webp]] Paige patch history))
 ## [[/hero/paige]]((Paige))
 ==ability:rallying-charge:
-[[/hero/paige?ability=rallying-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bookworm/bookworm_charge.webp]] Rallying Charge change history))
-### [[/hero/paige?ability=rallying-charge]]((Rallying Charge))
+[[/ability/rallying-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bookworm/bookworm_charge.webp]] Rallying Charge change history))
+### [[/ability/rallying-charge]]((Rallying Charge))
 - Rallying Charge cooldown reduced from 220s to 210s
 ==
 =
@@ -234,13 +234,13 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 [[/hero/pocket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket patch history))
 ## [[/hero/pocket]]((Pocket))
 ==ability:flying-cloak:
-[[/hero/pocket?ability=flying-cloak]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_plasma_flux.webp]] Flying Cloak change history))
-### [[/hero/pocket?ability=flying-cloak]]((Flying Cloak))
+[[/ability/flying-cloak]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_plasma_flux.webp]] Flying Cloak change history))
+### [[/ability/flying-cloak]]((Flying Cloak))
 - Flying Cloak T3 reduced from -11s Cooldown to -10s
 ==
 ==ability:affliction-dps:
-[[/hero/pocket?ability=affliction]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_affliction.webp]] Affliction DPS change history))
-### [[/hero/pocket?ability=affliction]]((Affliction DPS))
+[[/ability/affliction]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/synth/synth_affliction.webp]] Affliction DPS change history))
+### [[/ability/affliction]]((Affliction DPS))
 - Affliction DPS reduced by ~6% (also reduces the spirit scaling and the upgrades)
 ==
 =
@@ -250,8 +250,8 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 ## [[/hero/shiv]]((Shiv))
 - Stamina regen increased from 5.5s to 6s
 ==ability:killing-blow:
-[[/hero/shiv?ability=killing-blow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp]] Killing Blow change history))
-### [[/hero/shiv?ability=killing-blow]]((Killing Blow))
+[[/ability/killing-blow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp]] Killing Blow change history))
+### [[/ability/killing-blow]]((Killing Blow))
 - Killing Blow recast window reduced from 20s to 16s
 ==
 =
@@ -261,13 +261,13 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 ## [[/hero/silver]]((Silver))
 - Gun falloff range reduced from 20m->46m to 17m→42m
 ==ability:slam-fire:
-[[/hero/silver?ability=slam-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/werewolf/werewolf_slamfire.webp]] Slam Fire change history))
-### [[/hero/silver?ability=slam-fire]]((Slam Fire))
+[[/ability/slam-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/werewolf/werewolf_slamfire.webp]] Slam Fire change history))
+### [[/ability/slam-fire]]((Slam Fire))
 - Slam Fire now does 100% bonus damage against NPCs (troopers and neutrals, not objectives)
 ==
 ==ability:lycan-curse:
-[[/hero/silver?ability=lycan-curse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/werewolf/werewolf_lycancurse.webp]] Lycan Curse change history))
-### [[/hero/silver?ability=lycan-curse]]((Lycan Curse))
+[[/ability/lycan-curse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/werewolf/werewolf_lycancurse.webp]] Lycan Curse change history))
+### [[/ability/lycan-curse]]((Lycan Curse))
 - Lycan Curse precast time increased from 0.2 to 0.3
 - Lycan Curse precast movespeed reduced from 7.6m to 2.5m
 - Lycan Curse T1 reduced from +20% Resists to +15%
@@ -280,8 +280,8 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 - Sprint speed reduced from 1.5m to 1m
 - Bullet falloff range reduced from 20m-51m to 18m-47m
 ==ability:ira-domini:
-[[/hero/venator?ability=ira-domini]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/priest/priest_crossbow.webp]] Ira Domini change history))
-### [[/hero/venator?ability=ira-domini]]((Ira Domini))
+[[/ability/ira-domini]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/priest/priest_crossbow.webp]] Ira Domini change history))
+### [[/ability/ira-domini]]((Ira Domini))
 - Ira Domini cooldown no longer starts after the conclusion of the ability, now starts immediately
 - Ira Domini blessed stakes damage increased from 100 to 115
 ==
@@ -291,28 +291,28 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 [[/hero/viscous]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous patch history))
 ## [[/hero/viscous]]((Viscous))
 ==ability:splatter:
-[[/hero/viscous?ability=splatter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_ball.webp]] Splatter change history))
-### [[/hero/viscous?ability=splatter]]((Splatter))
+[[/ability/splatter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_ball.webp]] Splatter change history))
+### [[/ability/splatter]]((Splatter))
 - Splatter damage reduced from 70 to 55
 - Splatter spirit ratio reduced from 0.8 to 0.7
 - Splatter base bounce count increased from 1 to 2
 - Splatter T3 bounce count reduced from +2 to +1
 ==
 ==ability:the-cube:
-[[/hero/viscous?ability=the-cube]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_restorative_goo.webp]] The Cube change history))
-### [[/hero/viscous?ability=the-cube]]((The Cube))
+[[/ability/the-cube]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_restorative_goo.webp]] The Cube change history))
+### [[/ability/the-cube]]((The Cube))
 - The Cube T3 reduced from -25s Cooldown to -20s
 ==
 ==ability:puddle-punch:
-[[/hero/viscous?ability=puddle-punch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp]] Puddle Punch change history))
-### [[/hero/viscous?ability=puddle-punch]]((Puddle Punch))
+[[/ability/puddle-punch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_punch.webp]] Puddle Punch change history))
+### [[/ability/puddle-punch]]((Puddle Punch))
 - Puddle Punch slow duration reduced from 4s to 3s
 - Puddle Punch slow increased from -20% to -30%
 - Puddle Punch cooldown reduced from 24s to 21s
 ==
 ==ability:goo-ball:
-[[/hero/viscous?ability=goo-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_sphere.webp]] Goo Ball change history))
-### [[/hero/viscous?ability=goo-ball]]((Goo Ball))
+[[/ability/goo-ball]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_sphere.webp]] Goo Ball change history))
+### [[/ability/goo-ball]]((Goo Ball))
 - Goo Ball T2 increased from +10% Resists to +20%
 ==
 =
@@ -321,8 +321,8 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 ==ability:flying-slash:
-[[/hero/yamato?ability=flying-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_flying_strike.webp]] Flying Slash change history))
-### [[/hero/yamato?ability=flying-slash]]((Flying Slash))
+[[/ability/flying-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_flying_strike.webp]] Flying Slash change history))
+### [[/ability/flying-slash]]((Flying Slash))
 - Flying Slash T2 reduced from +40 Spirit Power to +35
 - Flying Slash T3 charges from +2 to +1
 - Flying Slash T3 Charge Time increased from 4s to 5s

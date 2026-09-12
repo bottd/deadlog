@@ -68,7 +68,7 @@
 		@apply max-w-none text-base leading-relaxed;
 
 		:global(h2[data-mog-section]) {
-			@apply font-display text-foreground mt-12 mb-6 text-[28px] leading-tight font-semibold tracking-wide first:mt-0;
+			@apply font-display text-foreground mt-8 mb-4 text-[28px] leading-tight font-semibold tracking-wide first:mt-0;
 		}
 
 		:global(h2) {
@@ -89,7 +89,7 @@
 		:global(div.hero),
 		:global(div.item) {
 			@apply mt-8 grid pt-6;
-			grid-template-columns: auto 1fr;
+			grid-template-columns: auto minmax(0, 1fr);
 			column-gap: 1rem;
 		}
 
@@ -131,7 +131,7 @@
 
 		:global(div.ability) {
 			@apply mt-4 grid;
-			grid-template-columns: auto 1fr;
+			grid-template-columns: auto minmax(0, 1fr);
 			column-gap: 0.625rem;
 		}
 
@@ -179,7 +179,7 @@
 		}
 
 		:global(li) {
-			@apply text-foreground/90 relative leading-relaxed;
+			@apply text-foreground/90 relative max-w-[72ch] leading-relaxed;
 		}
 
 		:global(ul > li::before) {
@@ -279,6 +279,18 @@
 
 		:global(th) {
 			@apply bg-muted/50 font-semibold;
+		}
+
+		@media (max-width: 639px) {
+			:global(div.hero > :not(p:has(img)):not(h3)),
+			:global(div.item > :not(p:has(img)):not(h3)),
+			:global(div.ability > :not(p:has(img)):not(h4)) {
+				grid-column: 1 / -1;
+			}
+			:global(ul),
+			:global(ol) {
+				margin-left: 1rem;
+			}
 		}
 	}
 </style>

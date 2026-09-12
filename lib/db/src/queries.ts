@@ -12,8 +12,11 @@ import {
 	type SQL
 } from 'drizzle-orm';
 import type { SQLiteColumn } from 'drizzle-orm/sqlite-core';
-import type { ChangelogEntityIcon, EntityIcon } from './types/deadlockApi';
-import { getLibsqlDb, type DrizzleDB, type SelectChangelog, schema } from '@deadlog/db';
+import type { ChangelogEntityIcon, EntityChangeGroup, EntityType } from './types';
+import type { DrizzleDB } from './client';
+import type { SelectChangelog } from './schema';
+import * as schema from './schema';
+import { countBullets, HERO_IMAGE_KEYS } from '@deadlog/utils';
 
 export type ScrapedChangelog = SelectChangelog;
 export type ScrapedItem = typeof schema.items.$inferSelect;
@@ -66,6 +69,19 @@ export async function getAllChangelogSlugs(db: DrizzleDB): Promise<string[]> {
 		.from(schema.changelogs)
 		.all();
 	return rows.map((r) => r.slug);
+}
+
+export function getPatchArchive(db: DrizzleDB) {
+	return db
+		.select({
+			title: schema.changelogs.title,
+			slug: schema.changelogs.slug,
+			pubDate: schema.changelogs.pubDate
+		})
+		.from(schema.changelogs)
+		.where(isMainChangelog())
+		.orderBy(desc(schema.changelogs.pubDate))
+		.all();
 }
 
 export async function queryChangelogs(
@@ -145,20 +161,6 @@ export async function getChangelogsCount(db: DrizzleDB): Promise<number> {
 	return result?.count ?? 0;
 }
 
-export async function getUpdatesForChangelogs(
-	db: DrizzleDB,
-	parentIds: string[]
-): Promise<ScrapedChangelog[]> {
-	if (parentIds.length === 0) return [];
-
-	return db
-		.select()
-		.from(schema.changelogs)
-		.where(inArray(schema.changelogs.parentChange, parentIds))
-		.orderBy(desc(schema.changelogs.pubDate))
-		.all();
-}
-
 export async function getChangelogBySlug(db: DrizzleDB, slug: string) {
 	const changelog = await db
 		.select()
@@ -199,6 +201,11 @@ export async function getAllHeroes(db: DrizzleDB): Promise<EnrichedHero[]> {
 
 export async function getAllItems(db: DrizzleDB): Promise<ScrapedItem[]> {
 	return db.select().from(schema.items).all();
+}
+
+export async function getEntityNames(db: DrizzleDB, kind: EntityType) {
+	const table = kind === 'hero' ? schema.heroes : schema.items;
+	return db.select({ id: table.id, name: table.name }).from(table).all();
 }
 
 const SLUG_ARTICLES = ['the', 'a', 'an'] as const;
@@ -273,21 +280,6 @@ export async function getReleasedItemSlugs(db: DrizzleDB): Promise<string[]> {
 	return results.map((r) => r.slug);
 }
 
-/** Newest-first main-changelog ids, for streak math against an entity's patch set. */
-export async function getMainChangelogIdSequence(db: DrizzleDB): Promise<string[]> {
-	const rows = await db
-		.select({ id: schema.changelogs.id })
-		.from(schema.changelogs)
-		.where(isMainChangelog())
-		.orderBy(desc(schema.changelogs.pubDate))
-		.all();
-	return rows.map((r) => r.id);
-}
-
-function countGroupBullets(groups: ChangeGroups | null): number | null {
-	return groups?.reduce((total, group) => total + group.bullets.length, 0) ?? null;
-}
-
 export type HeroAbility = Pick<
 	typeof schema.heroAbilities.$inferSelect,
 	'name' | 'slug' | 'image' | 'description'
@@ -314,6 +306,85 @@ export async function getHeroAbilities(
 		.where(eq(schema.heroAbilities.heroId, heroId))
 		.orderBy(schema.heroAbilities.position)
 		.all();
+}
+
+export interface ReleasedAbility {
+	slug: string;
+	heroId: number;
+}
+
+export interface AbilityWithHero {
+	ability: HeroAbility;
+	hero: Pick<
+		typeof schema.heroes.$inferSelect,
+		'id' | 'name' | 'slug' | 'heroType' | 'images'
+	>;
+}
+
+/**
+ * Released heroes only, and that filter is load-bearing rather than cosmetic: three
+ * ability slugs are shared with unreleased heroes (`full-auto`, `pulse-grenade`,
+ * `demontrigger-blitz`). Restricted to released heroes the set is 152 slugs, all
+ * distinct, which is what lets `/ability/<slug>` be a flat route with no tiebreak.
+ */
+export async function getReleasedAbilities(db: DrizzleDB): Promise<ReleasedAbility[]> {
+	return db
+		.select({
+			slug: schema.heroAbilities.slug,
+			heroId: schema.heroAbilities.heroId
+		})
+		.from(schema.heroAbilities)
+		.innerJoin(schema.heroes, eq(schema.heroes.id, schema.heroAbilities.heroId))
+		.where(eq(schema.heroes.isReleased, true))
+		.orderBy(schema.heroAbilities.slug)
+		.all();
+}
+
+export async function getAbilityBySlug(
+	db: DrizzleDB,
+	slug: string
+): Promise<AbilityWithHero | null> {
+	const matches = await db
+		.select({
+			name: schema.heroAbilities.name,
+			slug: schema.heroAbilities.slug,
+			image: schema.heroAbilities.image,
+			description: schema.heroAbilities.description,
+			heroId: schema.heroes.id,
+			heroName: schema.heroes.name,
+			heroSlug: schema.heroes.slug,
+			heroType: schema.heroes.heroType,
+			heroImages: schema.heroes.images
+		})
+		.from(schema.heroAbilities)
+		.innerJoin(schema.heroes, eq(schema.heroes.id, schema.heroAbilities.heroId))
+		.where(
+			and(
+				eq(schema.heroes.isReleased, true),
+				inArray(schema.heroAbilities.slug, slugCandidates(slug))
+			)
+		)
+		.all();
+
+	// See getHeroBySlug: prefer the exact slug so a real row beats an article variant.
+	const match = matches.find((row) => row.slug === slug) ?? matches[0];
+	if (!match) return null;
+
+	return {
+		ability: {
+			name: match.name,
+			slug: match.slug,
+			image: match.image,
+			description: match.description
+		},
+		hero: {
+			id: match.heroId,
+			name: match.heroName,
+			slug: match.heroSlug,
+			heroType: match.heroType,
+			images: match.heroImages
+		}
+	};
 }
 
 export async function getChangelogAbilityIcons(
@@ -360,7 +431,7 @@ export async function getChangelogsByHeroId(
 		.all();
 	return rows.map((row) => ({
 		...row,
-		changeCount: countGroupBullets(row.changeGroups)
+		changeCount: countBullets(row.changeGroups)
 	}));
 }
 
@@ -384,7 +455,7 @@ export async function getChangelogsByItemId(
 		.all();
 	return rows.map((row) => ({
 		...row,
-		changeCount: countGroupBullets(row.changeGroups)
+		changeCount: countBullets(row.changeGroups)
 	}));
 }
 
@@ -423,56 +494,150 @@ interface ChangelogIcons {
 	items: ChangelogEntityIcon[];
 }
 
+// D1 permits 100 bindings per query.
+const D1_MAX_BINDINGS = 100;
+// Room for the json paths and literals the query builder binds around the ids.
+const BINDING_HEADROOM = 25;
+
+/** Runs a query over id batches that stay under D1's binding cap. `otherBindings` is what
+ * the same query binds besides these ids. */
+async function inBatches<T>(
+	ids: string[],
+	otherBindings: number,
+	run: (batch: string[]) => Promise<T>
+): Promise<T[]> {
+	if (ids.length === 0) return [];
+	const size = Math.max(1, D1_MAX_BINDINGS - BINDING_HEADROOM - otherBindings);
+	if (ids.length <= size) return [await run(ids)];
+
+	const batches: string[][] = [];
+	for (let start = 0; start < ids.length; start += size) {
+		batches.push(ids.slice(start, start + size));
+	}
+	return Promise.all(batches.map(run));
+}
+
+function heroIconImage() {
+	const preferred = HERO_IMAGE_KEYS.icon.map(
+		(key) => sql`NULLIF(json_extract(${schema.heroes.images}, ${`$.${key}`}), '')`
+	);
+	return sql<string>`COALESCE(${sql.join(preferred, sql`, `)},
+		(SELECT value FROM json_each(${schema.heroes.images}) WHERE value != '' LIMIT 1), '')`;
+}
+
+function groupBulletCount(column: SQLiteColumn) {
+	return sql<number | null>`CASE WHEN ${column} IS NULL THEN NULL ELSE COALESCE(
+		(SELECT SUM(json_array_length(json_extract(value, '$.bullets'))) FROM json_each(${column})), 0
+	) END`;
+}
+
 export async function getChangelogIcons(
 	db: DrizzleDB,
 	changelogIds: string[]
 ): Promise<Record<string, ChangelogIcons>> {
-	const heroRows = await db
-		.select()
-		.from(schema.changelogHeroes)
-		.innerJoin(schema.heroes, eq(schema.changelogHeroes.heroId, schema.heroes.id))
-		.where(inArray(schema.changelogHeroes.changelogId, changelogIds))
-		.all();
+	const batches = await inBatches(changelogIds, 0, (ids) =>
+		selectChangelogIcons(db, ids)
+	);
+	return Object.assign({}, ...batches);
+}
 
-	const itemRows = await db
-		.select()
-		.from(schema.changelogItems)
-		.innerJoin(schema.items, eq(schema.changelogItems.itemId, schema.items.id))
-		.where(inArray(schema.changelogItems.changelogId, changelogIds))
-		.all();
+async function selectChangelogIcons(
+	db: DrizzleDB,
+	changelogIds: string[]
+): Promise<Record<string, ChangelogIcons>> {
+	const [heroRows, itemRows] = await Promise.all([
+		db
+			.select({
+				changelogId: schema.changelogHeroes.changelogId,
+				id: schema.heroes.id,
+				src: heroIconImage(),
+				alt: schema.heroes.name,
+				slug: schema.heroes.slug,
+				heroType: schema.heroes.heroType,
+				changeCount: groupBulletCount(schema.changelogHeroes.changeGroups)
+			})
+			.from(schema.changelogHeroes)
+			.innerJoin(schema.heroes, eq(schema.changelogHeroes.heroId, schema.heroes.id))
+			.where(inArray(schema.changelogHeroes.changelogId, changelogIds))
+			.orderBy(schema.heroes.name)
+			.all(),
+		db
+			.select({
+				changelogId: schema.changelogItems.changelogId,
+				id: schema.items.id,
+				src: schema.items.image,
+				alt: schema.items.name,
+				slug: schema.items.slug,
+				itemCategory: schema.items.category,
+				changeCount: groupBulletCount(schema.changelogItems.changeGroups)
+			})
+			.from(schema.changelogItems)
+			.innerJoin(schema.items, eq(schema.changelogItems.itemId, schema.items.id))
+			.where(inArray(schema.changelogItems.changelogId, changelogIds))
+			.orderBy(schema.items.name)
+			.all()
+	]);
 
 	const result: Record<string, ChangelogIcons> = {};
 
-	for (const r of heroRows) {
-		const icons = (result[r.changelog_heroes.changelogId] ??= { heroes: [], items: [] });
-		const images = r.heroes.images;
-		icons.heroes.push({
-			id: r.heroes.id,
-			src:
-				images.icon_image_small_webp ??
-				images.icon_image_small ??
-				Object.values(images)[0] ??
-				'',
-			alt: r.heroes.name,
-			slug: r.heroes.slug,
-			type: 'hero',
-			heroType: r.heroes.heroType,
-			changeCount: countGroupBullets(r.changelog_heroes.changeGroups)
-		});
+	for (const { changelogId, ...hero } of heroRows) {
+		const icons = (result[changelogId] ??= { heroes: [], items: [] });
+		icons.heroes.push({ ...hero, type: 'hero' });
 	}
 
-	for (const r of itemRows) {
-		const icons = (result[r.changelog_items.changelogId] ??= { heroes: [], items: [] });
-		icons.items.push({
-			id: r.items.id,
-			src: r.items.image,
-			alt: r.items.name,
-			slug: r.items.slug,
-			type: 'item',
-			itemCategory: r.items.category ?? undefined,
-			changeCount: countGroupBullets(r.changelog_items.changeGroups)
-		});
+	for (const { changelogId, itemCategory, ...item } of itemRows) {
+		const icons = (result[changelogId] ??= { heroes: [], items: [] });
+		icons.items.push({ ...item, type: 'item', itemCategory: itemCategory ?? undefined });
 	}
 
+	return result;
+}
+
+/** Only selected entities' prose is needed for relevant feed excerpts. */
+export async function getSelectedChangeGroups(
+	db: DrizzleDB,
+	changelogIds: string[],
+	heroIds: number[],
+	itemIds: number[]
+): Promise<Map<string, EntityChangeGroup[] | null>> {
+	// Each batch also binds one entity list, so the widest of the two sets the reserve.
+	const batches = await inBatches(
+		changelogIds,
+		Math.max(heroIds.length, itemIds.length),
+		(ids) => selectChangeGroups(db, ids, heroIds, itemIds)
+	);
+	return new Map(batches.flatMap((batch) => [...batch]));
+}
+
+async function selectChangeGroups(
+	db: DrizzleDB,
+	changelogIds: string[],
+	heroIds: number[],
+	itemIds: number[]
+): Promise<Map<string, EntityChangeGroup[] | null>> {
+	const result = new Map<string, EntityChangeGroup[] | null>();
+	const collect = async (
+		type: EntityType,
+		link: typeof schema.changelogHeroes | typeof schema.changelogItems,
+		entityId: SQLiteColumn,
+		ids: number[]
+	) => {
+		if (ids.length === 0) return;
+		const rows = await db
+			.select({
+				changelogId: link.changelogId,
+				entityId,
+				groups: link.changeGroups
+			})
+			.from(link)
+			.where(and(inArray(link.changelogId, changelogIds), inArray(entityId, ids)))
+			.all();
+		for (const row of rows)
+			result.set(`${row.changelogId}:${type}:${row.entityId}`, row.groups);
+	};
+	await Promise.all([
+		collect('hero', schema.changelogHeroes, schema.changelogHeroes.heroId, heroIds),
+		collect('item', schema.changelogItems, schema.changelogItems.itemId, itemIds)
+	]);
 	return result;
 }

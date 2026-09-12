@@ -1,4 +1,4 @@
-export { fetchHeroes, fetchItems } from './deadlock';
+export { fetchEntitySnapshot, type EntitySnapshot } from './deadlock';
 export {
 	scrapeChangelogPage,
 	scrapeMultipleChangelogPosts,

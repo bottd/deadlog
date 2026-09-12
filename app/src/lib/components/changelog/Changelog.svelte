@@ -8,13 +8,10 @@
 	import { useChangelogQuery } from '$lib/hooks/useChangelogQuery.svelte';
 	import CornerAccents from '$lib/components/ui/corner-accents/CornerAccents.svelte';
 	import Frown from '@lucide/svelte/icons/frown';
-	import { scale, fly } from 'svelte/transition';
-	import { quintOut } from 'svelte/easing';
-	import type { ChangelogEntry } from '$lib/types';
+	import type { PatchSummary } from '$lib/types';
 
 	const changelogs = $derived(page.data.changelogs ?? []);
 	const totalCount = $derived(page.data.totalCount ?? 0);
-	const lastUpdate = $derived(page.data.lastUpdate as string | undefined);
 
 	// Page data is prerendered without query parameters; filters remain URL-derived.
 	const filters = $derived(params.filters);
@@ -49,7 +46,7 @@
 			removeEventListener('pagehide', commit);
 		};
 	});
-	const isNew = (entry: ChangelogEntry) =>
+	const isNew = (entry: PatchSummary) =>
 		lastVisit !== null && new Date(entry.date).getTime() > lastVisit;
 
 	// Keep every fetched page in one grid so new cards fill the final incomplete row.
@@ -114,43 +111,48 @@
 {/snippet}
 
 <main container m="x-auto t-8 b-24" p="x-4">
-	<header m="b-7" class="max-w-3xl">
+	<header m="b-5" class="max-w-3xl">
 		<h1
 			font="display medium"
 			text="foreground 3xl"
 			class="heading-glow tracking-wide sm:text-4xl"
 		>
-			Deadlock Patch Notes &amp; Changelog
+			{isSearching ? 'Matching patch notes' : 'Deadlock Patch Notes & Changelog'}
 		</h1>
 		<p text="muted-foreground sm" m="t-2" class="max-w-2xl leading-relaxed">
-			Search every gameplay update, hero adjustment, and item balance change in one log.
+			{isSearching
+				? 'Changes for your selected heroes, items, and keywords.'
+				: 'Every gameplay update, hero adjustment, and item balance change.'}
 		</p>
 		{#if totalCount > 0}
 			<p flex="~" text="muted-foreground" m="t-3" items="center" gap="2" kicker-sm>
 				<span text="primary" font="bold">{totalCount}</span>
-				<span>{plural(totalCount, 'patch', 'patches')} indexed</span>
-				{#if lastUpdate}
-					<span bg="border" h="px" w="3" aria-hidden="true"></span>
-					<span>
-						latest <time datetime={lastUpdate}>{formatDate(lastUpdate)}</time>
-					</span>
-				{/if}
+				<a href="/archive" class="underline-offset-4 hover:text-signal hover:underline"
+					>{plural(totalCount, 'patch', 'patches')} in the archive</a
+				>
 			</p>
 		{/if}
 	</header>
 
-	<HeroRail />
-
-	<button
-		type="button"
-		onclick={() => params.update({ major: !params.major })}
-		aria-pressed={params.major}
-		class="kicker-sm clip-corner-sm mb-6 border px-3 py-1.5 font-bold transition-colors {params.major
-			? 'border-primary/60 bg-primary/15 text-primary'
-			: 'border-border text-muted-foreground hover:border-primary/40 hover:text-foreground'}"
-	>
-		Major updates only
-	</button>
+	<div class="js-only mb-5 flex flex-wrap items-start gap-x-4 gap-y-2">
+		<details>
+			<summary
+				class="ui-focus-ring text-muted-foreground cursor-pointer rounded-sm py-3 text-sm"
+				>Quick hero filters</summary
+			>
+			<HeroRail />
+		</details>
+		<button
+			type="button"
+			onclick={() => params.update({ major: !params.major })}
+			aria-pressed={params.major}
+			class="ui-focus-ring min-h-11 rounded-md border px-3 text-xs font-medium transition-colors {params.major
+				? 'border-primary/60 bg-primary/15 text-primary'
+				: 'border-border text-muted-foreground hover:border-primary/40 hover:text-foreground'}"
+		>
+			Major updates only
+		</button>
+	</div>
 
 	{#if isFilterPending}
 		<div
@@ -174,19 +176,24 @@
 					role="status"
 					aria-live="polite"
 				>
-					&mdash; {allChangelogs.length}{query.hasNextPage ? '+' : ''}
+					{allChangelogs.length}{query.hasNextPage ? '+' : ''} matching
 					{query.hasNextPage
 						? 'patches'
-						: plural(allChangelogs.length, 'patch', 'patches')} matching all
-					{filterCount}
-					{plural(filterCount, 'filter')}
+						: plural(allChangelogs.length, 'patch', 'patches')}
+					{#if filterCount > 1}
+						· all {filterCount} filters{/if}
+					{#if isSearching && allChangelogs[0]}
+						<span class="mt-1 block normal-case"
+							>Latest matching patch: <time datetime={allChangelogs[0].date}
+								>{formatDate(allChangelogs[0].date)}</time
+							></span
+						>
+					{/if}
 				</p>
 			{/if}
 
 			{#if !isSearching}
-				<div in:fly={{ y: 20, duration: 350, easing: quintOut }}>
-					<FeaturedPatchCard {...allChangelogs[0]} />
-				</div>
+				<FeaturedPatchCard {...allChangelogs[0]} />
 			{/if}
 
 			{#if newCount > 0}
@@ -206,10 +213,11 @@
 
 			<div
 				data-patch-grid
-				grid="~ cols-1"
 				gap="4"
 				aria-busy={isFilterPending}
-				class="transition-opacity duration-200 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 {isFilterPending
+				class="grid grid-cols-1 transition-opacity duration-200 {isSearching
+					? 'max-w-3xl'
+					: 'sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'} {isFilterPending
 					? 'pointer-events-none opacity-60'
 					: ''}"
 			>
@@ -229,16 +237,7 @@
 							<div bg="primary/30" h="px" flex="1"></div>
 						</div>
 					{/if}
-					<div
-						data-patch-card
-						h="full"
-						in:fly={{
-							y: 20,
-							delay: Math.min(i, 8) * 30,
-							duration: 350,
-							easing: quintOut
-						}}
-					>
+					<div data-patch-card h="full">
 						<PatchCard {...entry} isNew={isNew(entry)} />
 					</div>
 				{/each}
@@ -251,7 +250,6 @@
 				p="12"
 				text="center"
 				class="clip-corner overflow-hidden"
-				in:scale={{ start: 0.95, duration: 400 }}
 				role="status"
 			>
 				<CornerAccents tlSize="2rem" tlColor="bg-muted-foreground/30" />
@@ -293,7 +291,7 @@
 						text="primary sm"
 						p="x-6 y-3"
 						font="mono semibold"
-						class="clip-corner-sm transition-all hover:(bg-primary/20 scale-105)"
+						class="ui-focus-ring min-h-11 rounded-md transition-all hover:bg-primary/20 active:scale-[0.97]"
 					>
 						Clear Filters
 					</button>
@@ -329,7 +327,7 @@
 						{@attach loadMoreWhenVisible}
 					></div>
 				{:else}
-					<div flex="~" items="center" gap="4" in:fly={{ y: 10, duration: 400 }}>
+					<div flex="~" items="center" gap="4">
 						<div bg="primary/30" h="px" w="16"></div>
 						<p text="muted-foreground xs" font="mono" uppercase class="tracking-wider">
 							End of Log
@@ -344,9 +342,16 @@
 			{@render retryPrompt('Failed to load patches.', () => query.refetch())}
 		</div>
 	{:else}
-		<div p="y-16">
+		<div p="y-16" class="js-only">
 			{@render loadingSpinner()}
 		</div>
+		<noscript
+			><p class="text-muted-foreground py-6 text-sm">
+				Open the <a href="/archive" class="text-signal underline"
+					>complete patch archive</a
+				> to browse without search.
+			</p></noscript
+		>
 	{/if}
 </main>
 

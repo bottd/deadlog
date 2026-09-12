@@ -3,6 +3,12 @@
 	"version": "1.0.0",
 	"type": "module",
 	"private": true,
+	"scripts": {
+		"test": "vitest run --config vite.config.ts"
+	},
+	"dependencies": {
+		"@deadlog/utils": "workspace:*"
+	},
 	"exports": {
 		".": "./src/index.ts"
 	}

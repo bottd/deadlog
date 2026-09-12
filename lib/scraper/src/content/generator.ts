@@ -3,6 +3,9 @@ import {
 	abilityFragmentId,
 	entityFragmentId,
 	entityNameAliases,
+	indexEntityNames,
+	findEntityName,
+	heroImage,
 	escapeMogDelimiters,
 	mogImage,
 	mogLink,
@@ -63,28 +66,20 @@ function indexByAlias<T>(
 	name: (row: T) => string,
 	image: (row: T) => string
 ) {
-	const map = new Map<string, EntityAsset>();
-	for (const row of rows) {
-		const canonicalName = name(row);
-		const asset = {
-			name: canonicalName,
+	return indexEntityNames(
+		rows.map((row) => ({
+			name: name(row),
 			src: image(row) || undefined,
-			slug: toSlug(canonicalName)
-		};
-		for (const alias of entityNameAliases(canonicalName)) map.set(alias, asset);
-	}
-	return map;
+			slug: toSlug(name(row))
+		})),
+		(asset) => asset.name
+	);
 }
 
 export function buildEntityAssets(
 	heroes: HeroesApiResponse,
 	items: ItemsApiResponse
 ): EntityAssets {
-	const heroImage = (h: HeroesApiResponse[number]) =>
-		h.images.icon_image_small_webp ||
-		h.images.icon_image_small ||
-		Object.values(h.images)[0] ||
-		'';
 	const abilitiesByHero = new Map<string, EntityAsset[]>();
 	const abilitySlots = resolveAbilitySlots(heroes, items);
 	for (const hero of heroes) {
@@ -98,7 +93,11 @@ export function buildEntityAssets(
 	}
 
 	return {
-		hero: indexByAlias(heroes, (h) => h.name, heroImage),
+		hero: indexByAlias(
+			heroes,
+			(h) => h.name,
+			(h) => heroImage(h.images, 'icon')
+		),
 		item: indexByAlias(
 			items.filter((item) => item.type !== 'ability' && itemImage(item)),
 			(i) => i.name,
@@ -108,23 +107,12 @@ export function buildEntityAssets(
 	};
 }
 
-function byAlias<T>(
-	rows: ReadonlyMap<string, T> | undefined,
-	name: string
-): T | undefined {
-	for (const alias of entityNameAliases(name)) {
-		const row = rows?.get(alias);
-		if (row) return row;
-	}
-	return undefined;
-}
-
 function entityTarget(
 	assets: EntityAssets | undefined,
 	type: 'hero' | 'item',
 	name: string
 ): LinkTarget | undefined {
-	const asset = byAlias(assets?.[type], name);
+	const asset = findEntityName(assets?.[type], name);
 	return asset ? { href: `/${type}/${asset.slug}`, src: asset.src } : undefined;
 }
 
@@ -132,7 +120,7 @@ function abilitiesFor(
 	assets: EntityAssets | undefined,
 	heroName: string
 ): readonly EntityAsset[] {
-	return byAlias(assets?.abilitiesByHero, heroName) ?? [];
+	return findEntityName(assets?.abilitiesByHero, heroName) ?? [];
 }
 
 const EMPTY_CHANGELOG = `# Changelog\n\nNo structured changes were parsed for this update.`;
@@ -244,9 +232,12 @@ export function generateStructuredContent(
 				}
 				const slug = resolveHeroAbilitySlug(group.ability, abilities);
 				const ability = abilities.find((candidate) => candidate.slug === slug);
+				// The ability's own page, not the hero page filtered to it. The query form
+				// gave every ability heading its own crawlable URL that only ever
+				// canonicalised back to the bare patch page.
 				const target =
 					hero && ability
-						? { href: `${hero.href}?ability=${ability.slug}`, src: ability.src }
+						? { href: `/ability/${ability.slug}`, src: ability.src }
 						: undefined;
 				body.push(
 					...entityBlock(

@@ -10,8 +10,8 @@ import { basename, dirname, join, relative } from 'path';
 import {
 	scrapeChangelogPage,
 	scrapeMultipleChangelogPosts,
-	fetchHeroes,
-	fetchItems,
+	fetchEntitySnapshot,
+	type EntitySnapshot,
 	fetchSteamAnnouncements,
 	extractDateFromTitle,
 	isSteamUnfurl,
@@ -40,6 +40,13 @@ export const CHANGELOGS_DIR = process.env.CHANGELOGS_DIR || 'app/changelogs';
 
 interface ScrapeOptions {
 	overwrite?: boolean;
+	snapshot?: EntitySnapshot;
+}
+
+export interface ScrapeResult {
+	created: number;
+	updated: number;
+	changed: boolean;
 }
 
 function slugify(title: string): string {
@@ -58,13 +65,18 @@ function skipReason(filepath: string, overwrite: boolean): string | null {
 	return null;
 }
 
-function writeMogFile(filepath: string, content: string): 'created' | 'updated' {
+function writeMogFile(
+	filepath: string,
+	content: string
+): 'created' | 'updated' | 'unchanged' {
 	mkdirSync(dirname(filepath), { recursive: true });
 	const isUpdate = existsSync(filepath);
+	const previous = isUpdate ? readFileSync(filepath, 'utf-8') : null;
 	if (isUpdate && !/^alias /m.test(content)) {
-		const alias = readFileSync(filepath, 'utf-8').match(/^alias .+$/m)?.[0];
+		const alias = previous?.match(/^alias .+$/m)?.[0];
 		if (alias) content = content.replace(/^title .+$/m, (title) => `${title}\n${alias}`);
 	}
+	if (previous === content) return 'unchanged';
 	writeFileSync(filepath, content, 'utf-8');
 	return isUpdate ? 'updated' : 'created';
 }
@@ -256,11 +268,13 @@ export function matchSteamNotesToForumPosts(
 	};
 }
 
-export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<void> {
+export async function scrapeChangelogs(
+	options: ScrapeOptions = {}
+): Promise<ScrapeResult> {
 	const { overwrite = false } = options;
 
 	console.log('🌐 Fetching hero and item lists...');
-	const [heroes, items] = await Promise.all([fetchHeroes(), fetchItems()]);
+	const { heroes, items } = options.snapshot ?? (await fetchEntitySnapshot());
 	const assets = buildEntityAssets(heroes, items);
 
 	const entities: EntityLists = {
@@ -329,7 +343,7 @@ export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<voi
 
 	if (newPosts.length === 0 && steamOnlyNotes.length === 0) {
 		console.log('\n✨ All changelogs up to date!');
-		return;
+		return { created: 0, updated: 0, changed: false };
 	}
 
 	let created = 0;
@@ -376,7 +390,7 @@ export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<voi
 				`   ${result === 'created' ? '✨ Created' : '📄 Updated'}: ${filepath}`
 			);
 			if (result === 'created') created++;
-			else updated++;
+			else if (result === 'updated' || migratedSteamPath) updated++;
 		}
 	}
 
@@ -392,9 +406,10 @@ export async function scrapeChangelogs(options: ScrapeOptions = {}): Promise<voi
 				`   ${result === 'created' ? '✨ Created' : '📄 Updated'}: ${filepath}`
 			);
 			if (result === 'created') created++;
-			else updated++;
+			else if (result === 'updated') updated++;
 		}
 	}
 
 	console.log(`\n✅ Done! Created ${created}, updated ${updated} changelogs.`);
+	return { created, updated, changed: created + updated > 0 };
 }

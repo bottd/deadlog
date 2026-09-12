@@ -59,15 +59,13 @@
 					block
 					font="mono"
 					uppercase
-					class="text-[9px] tracking-wider"
+					class="text-xs tracking-wide"
 				>
 					{tone.label}
 				</span>
 			</span>
 			{#if isSelected}
-				<span class="font-mono text-[9px] tracking-wider uppercase {tone.text}"
-					>Selected</span
-				>
+				<span class="font-mono text-xs tracking-wide {tone.text}">Selected</span>
 				<span class="size-2 rounded-full {tone.dot}" aria-hidden="true"></span>
 			{/if}
 		</div>

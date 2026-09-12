@@ -13,7 +13,9 @@ async function fetchAndValidate<T>(
 	schema: z.ZodType<T>,
 	resourceName: string
 ): Promise<T> {
-	const response = await fetch(`${ASSETS_API_BASE}/${endpoint}`);
+	const response = await fetch(`${ASSETS_API_BASE}/${endpoint}`, {
+		signal: AbortSignal.timeout(30_000)
+	});
 
 	if (!response.ok) {
 		throw new Error(`Failed to fetch ${resourceName}: ${response.statusText}`);
@@ -35,3 +37,13 @@ export const fetchHeroes = (): Promise<HeroesApiResponse> =>
 
 export const fetchItems = (): Promise<ItemsApiResponse> =>
 	fetchAndValidate('items', itemsApiResponseSchema, 'items');
+
+export interface EntitySnapshot {
+	heroes: HeroesApiResponse;
+	items: ItemsApiResponse;
+}
+
+export async function fetchEntitySnapshot(): Promise<EntitySnapshot> {
+	const [heroes, items] = await Promise.all([fetchHeroes(), fetchItems()]);
+	return { heroes, items };
+}

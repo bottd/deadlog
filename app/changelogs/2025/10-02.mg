@@ -45,14 +45,14 @@ content_text "Weapon Investment bonus increased from 7/9/13/20/29/40/58/72/83/93
 [[/hero/abrams]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams patch history))
 ## [[/hero/abrams]]((Abrams))
 ==ability:siphon-life:
-[[/hero/abrams?ability=siphon-life]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_drain.webp]] Siphon Life change history))
-### [[/hero/abrams?ability=siphon-life]]((Siphon Life))
+[[/ability/siphon-life]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_drain.webp]] Siphon Life change history))
+### [[/ability/siphon-life]]((Siphon Life))
 - Siphon Life damage and spirit scaling reduced by 10%
 - Siphon Life heal ratio increased by 10%
 ==
 ==ability:shoulder-charge:
-[[/hero/abrams?ability=shoulder-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_charge.webp]] Shoulder Charge change history))
-### [[/hero/abrams?ability=shoulder-charge]]((Shoulder Charge))
+[[/ability/shoulder-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bull_charge.webp]] Shoulder Charge change history))
+### [[/ability/shoulder-charge]]((Shoulder Charge))
 - Shoulder Charge T1 changed from +25% Weapon Power to +20 Bullet Damage Per Shot (results in a weaker followup melee hit)
 ==
 =
@@ -63,8 +63,8 @@ content_text "Weapon Investment bonus increased from 7/9/13/20/29/40/58/72/83/93
 - Add footsteps to Billy's out of combat run animations
 - Base move speed reduced from 7.3 to 7.1
 ==ability:blasted:
-[[/hero/billy?ability=blasted]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/punkgoat/goat_blasted.webp]] Blasted change history))
-### [[/hero/billy?ability=blasted]]((Blasted))
+[[/ability/blasted]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/punkgoat/goat_blasted.webp]] Blasted change history))
+### [[/ability/blasted]]((Blasted))
 - Blasted T1 movespeed increased from +1.75 to +2.25m
 ==
 =
@@ -74,23 +74,23 @@ content_text "Weapon Investment bonus increased from 7/9/13/20/29/40/58/72/83/93
 ## [[/hero/calico]]((Calico))
 - Base bullet damage increased from 1.9 to 2.0
 ==ability:gloom-bombs:
-[[/hero/calico?ability=gloom-bombs]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_clustergrenade.webp]] Gloom Bombs change history))
-### [[/hero/calico?ability=gloom-bombs]]((Gloom Bombs))
+[[/ability/gloom-bombs]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_clustergrenade.webp]] Gloom Bombs change history))
+### [[/ability/gloom-bombs]]((Gloom Bombs))
 - Gloom Bombs radius increased from 2.5m to 3m
 ==
 ==ability:ava:
-[[/hero/calico?ability=ava]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_catform.webp]] Ava change history))
-### [[/hero/calico?ability=ava]]((Ava))
+[[/ability/ava]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_catform.webp]] Ava change history))
+### [[/ability/ava]]((Ava))
 - Ava duration increased from 14s to 16s
 ==
 ==ability:leaping-slash:
-[[/hero/calico?ability=leaping-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_dash.webp]] Leaping Slash change history))
-### [[/hero/calico?ability=leaping-slash]]((Leaping Slash))
+[[/ability/leaping-slash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_dash.webp]] Leaping Slash change history))
+### [[/ability/leaping-slash]]((Leaping Slash))
 - Leaping Slash height increased from 1.5m to 2.5m
 ==
 ==ability:return-to-shadows:
-[[/hero/calico?ability=return-to-shadows]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_shadow_pulse.webp]] Return to Shadows change history))
-### [[/hero/calico?ability=return-to-shadows]]((Return to Shadows))
+[[/ability/return-to-shadows]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/nano/nano_shadow_pulse.webp]] Return to Shadows change history))
+### [[/ability/return-to-shadows]]((Return to Shadows))
 - Return to Shadows cooldown reduced from 100s to 90s
 - Return to Shadows radius increased from 7m to 7.5m
 ==
@@ -100,8 +100,8 @@ content_text "Weapon Investment bonus increased from 7/9/13/20/29/40/58/72/83/93
 [[/hero/the-doorman]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/doorman_sm.webp]] Doorman patch history))
 ## [[/hero/the-doorman]]((Doorman))
 ==ability:doorway:
-[[/hero/the-doorman?ability=doorway]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_doorway.webp]] Doorway change history))
-### [[/hero/the-doorman?ability=doorway]]((Doorway))
+[[/ability/doorway]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/doorman/doorman_doorway.webp]] Doorway change history))
+### [[/ability/doorway]]((Doorway))
 - Doorway placement has been improved
 - Doorway can now be placed through veils again
 - Improved performance when placing Doorway
@@ -112,8 +112,8 @@ content_text "Weapon Investment bonus increased from 7/9/13/20/29/40/58/72/83/93
 [[/hero/drifter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/drifter_sm.webp]] Drifter patch history))
 ## [[/hero/drifter]]((Drifter))
 ==ability:stalker-s-mark:
-[[/hero/drifter?ability=stalkers-mark]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/drifter/drifter_stalkersmark.webp]] Stalker's Mark change history))
-### [[/hero/drifter?ability=stalkers-mark]]((Stalker's Mark))
+[[/ability/stalkers-mark]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/drifter/drifter_stalkersmark.webp]] Stalker's Mark change history))
+### [[/ability/stalkers-mark]]((Stalker's Mark))
 - Stalker's Mark new sound added for teleport precast
 - Stalker's Mark replaced temp whizby sound with an updated version
 - Stalker's Mark ambush cast delay increased from 0.0s to 0.35s
@@ -124,13 +124,13 @@ content_text "Weapon Investment bonus increased from 7/9/13/20/29/40/58/72/83/93
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 ==ability:kinetic-pulse:
-[[/hero/dynamo?ability=kinetic-pulse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_stomp.webp]] Kinetic Pulse change history))
-### [[/hero/dynamo?ability=kinetic-pulse]]((Kinetic Pulse))
+[[/ability/kinetic-pulse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_stomp.webp]] Kinetic Pulse change history))
+### [[/ability/kinetic-pulse]]((Kinetic Pulse))
 - Kinetic Pulse height increased from 0.7m to 1.0m
 ==
 ==ability:rejuvenating-aurora:
-[[/hero/dynamo?ability=rejuvenating-aurora]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_pork_bun.webp]] Rejuvenating Aurora change history))
-### [[/hero/dynamo?ability=rejuvenating-aurora]]((Rejuvenating Aurora))
+[[/ability/rejuvenating-aurora]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/sumo/sumo_pork_bun.webp]] Rejuvenating Aurora change history))
+### [[/ability/rejuvenating-aurora]]((Rejuvenating Aurora))
 - Rejuvenating Aurora spirit scaling per level increased from 0.372 to 0.4
 ==
 =
@@ -139,14 +139,14 @@ content_text "Weapon Investment bonus increased from 7/9/13/20/29/40/58/72/83/93
 [[/hero/grey-talon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon patch history))
 ## [[/hero/grey-talon]]((Grey Talon))
 ==ability:charged-shot:
-[[/hero/grey-talon?ability=charged-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_charged_shot.webp]] Charged Shot change history))
-### [[/hero/grey-talon?ability=charged-shot]]((Charged Shot))
+[[/ability/charged-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_charged_shot.webp]] Charged Shot change history))
+### [[/ability/charged-shot]]((Charged Shot))
 - Charged Shot spirit scaling reduced from 1.11 to 1.0
 - Charged Shot T3 spirit scaling reduced from 1.11 to 1.0
 ==
 ==ability:rain-of-arrows:
-[[/hero/grey-talon?ability=rain-of-arrows]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_power_jump.webp]] Rain of Arrows change history))
-### [[/hero/grey-talon?ability=rain-of-arrows]]((Rain of Arrows))
+[[/ability/rain-of-arrows]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/archer/archer_power_jump.webp]] Rain of Arrows change history))
+### [[/ability/rain-of-arrows]]((Rain of Arrows))
 - Rain of Arrows no longer lingers the air benefits like unlimited air dash once the ability is canceled or runs out
 ==
 =
@@ -157,23 +157,23 @@ content_text "Weapon Investment bonus increased from 7/9/13/20/29/40/58/72/83/93
 - Bullet damage growth reduced from 0.15 to 0.11
 - Spirit scaling per boon increased from 1.1 to 1.2
 ==ability:kudzu-bomb-dps:
-[[/hero/ivy?ability=entangling-thorns]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_storm_flask.webp]] Kudzu Bomb DPS change history))
-### [[/hero/ivy?ability=entangling-thorns]]((Kudzu Bomb DPS))
+[[/ability/entangling-thorns]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_storm_flask.webp]] Kudzu Bomb DPS change history))
+### [[/ability/entangling-thorns]]((Kudzu Bomb DPS))
 - Kudzu Bomb DPS reduced from 55 to 50
 ==
 ==ability:kudzu-bomb:
-[[/hero/ivy?ability=entangling-thorns]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_storm_flask.webp]] Kudzu Bomb change history))
-### [[/hero/ivy?ability=entangling-thorns]]((Kudzu Bomb))
+[[/ability/entangling-thorns]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_storm_flask.webp]] Kudzu Bomb change history))
+### [[/ability/entangling-thorns]]((Kudzu Bomb))
 - Kudzu Bomb T3 DPS reduced from +46 to +40
 ==
 ==ability:stone-form:
-[[/hero/ivy?ability=stone-form]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_stone_form.webp]] Stone Form change history))
-### [[/hero/ivy?ability=stone-form]]((Stone Form))
+[[/ability/stone-form]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_stone_form.webp]] Stone Form change history))
+### [[/ability/stone-form]]((Stone Form))
 - Stone Form damage spirit scaling increased from 1.0 to 1.5
 ==
 ==ability:air-drop:
-[[/hero/ivy?ability=air-drop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_lightning_crash.webp]] Air Drop change history))
-### [[/hero/ivy?ability=air-drop]]((Air Drop))
+[[/ability/air-drop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_lightning_crash.webp]] Air Drop change history))
+### [[/ability/air-drop]]((Air Drop))
 - Air Drop no longer grants allied bullet resistance (still grants barrier on drop)
 ==
 =
@@ -190,8 +190,8 @@ content_text "Weapon Investment bonus increased from 7/9/13/20/29/40/58/72/83/93
 [[/hero/lady-geist]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]] Lady Geist patch history))
 ## [[/hero/lady-geist]]((Lady Geist))
 ==ability:essence-bomb:
-[[/hero/lady-geist?ability=essence-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/blood_bomb.webp]] Essence Bomb change history))
-### [[/hero/lady-geist?ability=essence-bomb]]((Essence Bomb))
+[[/ability/essence-bomb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/spectre/blood_bomb.webp]] Essence Bomb change history))
+### [[/ability/essence-bomb]]((Essence Bomb))
 - Essence Bomb spirit scaling increased from 1.07 to 1.22
 ==
 =
@@ -200,8 +200,8 @@ content_text "Weapon Investment bonus increased from 7/9/13/20/29/40/58/72/83/93
 [[/hero/lash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp]] Lash patch history))
 ## [[/hero/lash]]((Lash))
 ==ability:ground-strike:
-[[/hero/lash?ability=ground-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_death_slam.webp]] Ground Strike change history))
-### [[/hero/lash?ability=ground-strike]]((Ground Strike))
+[[/ability/ground-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/lash/lash_death_slam.webp]] Ground Strike change history))
+### [[/ability/ground-strike]]((Ground Strike))
 - Ground Strike range reduced from 11m to 10m
 - Ground Strike cooldown increased from 19s to 21s
 - Ground Strike damage reduced from 70 to 60
@@ -213,21 +213,21 @@ content_text "Weapon Investment bonus increased from 7/9/13/20/29/40/58/72/83/93
 ## [[/hero/mina]]((Mina))
 - New heavy melee animation
 ==ability:rake:
-[[/hero/mina?ability=rake]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_rake.webp]] Rake change history))
-### [[/hero/mina?ability=rake]]((Rake))
+[[/ability/rake]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_rake.webp]] Rake change history))
+### [[/ability/rake]]((Rake))
 - Rake now passively lets you float in the air with the umbrella for up to 2.5s with right click
 - Rake heal spirit scale reduced from 1.5 to 0.5
 - Rake T2 now also increases heal spirit scale by 1.0
 - Rake T3 damage increased from 6% to 7%
 ==
 ==ability:sanguine-retreat:
-[[/hero/mina?ability=sanguine-retreat]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_sanguine_retreat.webp]] Sanguine Retreat change history))
-### [[/hero/mina?ability=sanguine-retreat]]((Sanguine Retreat))
+[[/ability/sanguine-retreat]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_sanguine_retreat.webp]] Sanguine Retreat change history))
+### [[/ability/sanguine-retreat]]((Sanguine Retreat))
 - Sanguine Retreat cooldown increased from 27s to 30s
 ==
 ==ability:nox-nostra:
-[[/hero/mina?ability=nox-nostra]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_nox_nostra.webp]] Nox Nostra change history))
-### [[/hero/mina?ability=nox-nostra]]((Nox Nostra))
+[[/ability/nox-nostra]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/vampirebat/vampirebat_nox_nostra.webp]] Nox Nostra change history))
+### [[/ability/nox-nostra]]((Nox Nostra))
 - Nox Nostra now has 50% reduction in damage against objectives
 - Nox Nostra reduced the Cap on objective damage from the T3 from +50 Damage per Bat to +20 Damage (only a nerf against objectives)
 ==
@@ -237,8 +237,8 @@ content_text "Weapon Investment bonus increased from 7/9/13/20/29/40/58/72/83/93
 [[/hero/mirage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage patch history))
 ## [[/hero/mirage]]((Mirage))
 ==ability:djinn-s-mark:
-[[/hero/mirage?ability=djinns-mark]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_sand_phantom.webp]] Djinn's Mark change history))
-### [[/hero/mirage?ability=djinns-mark]]((Djinn's Mark))
+[[/ability/djinns-mark]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/mirage/mirage_sand_phantom.webp]] Djinn's Mark change history))
+### [[/ability/djinns-mark]]((Djinn's Mark))
 - Djinn's Mark is now affected by cooldown reduction
 ==
 =
@@ -248,13 +248,13 @@ content_text "Weapon Investment bonus increased from 7/9/13/20/29/40/58/72/83/93
 ## [[/hero/mo-krill]]((Mo & Krill))
 - Bullet damage growth per boon increased from 0.063 to 0.07
 ==ability:burrow:
-[[/hero/mo-krill?ability=burrow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_spin.webp]] Burrow change history))
-### [[/hero/mo-krill?ability=burrow]]((Burrow))
+[[/ability/burrow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_spin.webp]] Burrow change history))
+### [[/ability/burrow]]((Burrow))
 - Burrow bullet resistance reduced from 80% to 60%
 ==
 ==ability:combo:
-[[/hero/mo-krill?ability=combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo change history))
-### [[/hero/mo-krill?ability=combo]]((Combo))
+[[/ability/combo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/grappler/grappler_combo.webp]] Combo change history))
+### [[/ability/combo]]((Combo))
 - Combo duration reduced from 2.5s to 2.4s
 - Combo T2 duration reduced from 0.75s to 0.7s
 ==
@@ -268,20 +268,20 @@ content_text "Weapon Investment bonus increased from 7/9/13/20/29/40/58/72/83/93
 - Defend and Fight! duration increased from 5s to 7s
 - Defend and Fight! cooldown increased from 26s to 30s
 ==ability:captivating-read:
-[[/hero/paige?ability=captivating-read]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bookworm/bookworm_blindinglight.webp]] Captivating Read change history))
-### [[/hero/paige?ability=captivating-read]]((Captivating Read))
+[[/ability/captivating-read]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bookworm/bookworm_blindinglight.webp]] Captivating Read change history))
+### [[/ability/captivating-read]]((Captivating Read))
 - Captivating Read reduced cooldown from 30s to 25s
 - Captivating Read moved the UI element to the bottom of the screen so it's more noticeable when you get hit
 - Captivating Read radius increased from 7m to 7.5m
 ==
 ==ability:conjure-dragon:
-[[/hero/paige?ability=bookwyrm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bookworm/bookworm_dragon.webp]] Conjure Dragon change history))
-### [[/hero/paige?ability=bookwyrm]]((Conjure Dragon))
+[[/ability/bookwyrm]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bookworm/bookworm_dragon.webp]] Conjure Dragon change history))
+### [[/ability/bookwyrm]]((Conjure Dragon))
 - Conjure Dragon now properly applies burning effect below the dragon if the dragon is far off the ground
 ==
 ==ability:rallying-charge:
-[[/hero/paige?ability=rallying-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bookworm/bookworm_charge.webp]] Rallying Charge change history))
-### [[/hero/paige?ability=rallying-charge]]((Rallying Charge))
+[[/ability/rallying-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/bookworm/bookworm_charge.webp]] Rallying Charge change history))
+### [[/ability/rallying-charge]]((Rallying Charge))
 - Rallying Charge damage reduced from 150 (+1.2) to 125 (+1.0)
 - Rallying Charge healing reduced from 150 (+2) to 125 (+1.6)
 - Rallying Charge both damage & healing now grows as the horses travel, up to a max +100% of both at 350m
@@ -295,18 +295,18 @@ content_text "Weapon Investment bonus increased from 7/9/13/20/29/40/58/72/83/93
 [[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
 ## [[/hero/seven]]((Seven))
 ==ability:static-charge:
-[[/hero/seven?ability=static-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_static.webp]] Static Charge change history))
-### [[/hero/seven?ability=static-charge]]((Static Charge))
+[[/ability/static-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_static.webp]] Static Charge change history))
+### [[/ability/static-charge]]((Static Charge))
 - Static Charge T2 reduced from +8m to +7m
 ==
 ==ability:power-surge:
-[[/hero/seven?ability=power-surge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_chain.webp]] Power Surge change history))
-### [[/hero/seven?ability=power-surge]]((Power Surge))
+[[/ability/power-surge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_chain.webp]] Power Surge change history))
+### [[/ability/power-surge]]((Power Surge))
 - Power Surge spirit power scaling reduced by 10%
 ==
 ==ability:storm-cloud:
-[[/hero/seven?ability=storm-cloud]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_storm.webp]] Storm Cloud change history))
-### [[/hero/seven?ability=storm-cloud]]((Storm Cloud))
+[[/ability/storm-cloud]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/giga_storm.webp]] Storm Cloud change history))
+### [[/ability/storm-cloud]]((Storm Cloud))
 - Storm Cloud’s Lightning Strike damage reduced from 90 to 75
 - Storm Cloud’s Lightning Strike spirit power reduced from 1.4 to 0.5
 ==
@@ -317,20 +317,20 @@ content_text "Weapon Investment bonus increased from 7/9/13/20/29/40/58/72/83/93
 ## [[/hero/victor]]((Victor))
 - Base health changed from 680 (+41 per boon, max of 1992) to 720 (+39 per boon, max of 1968)
 ==ability:pain-battery:
-[[/hero/victor?ability=pain-battery]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_pain_battery.webp]] Pain Battery change history))
-### [[/hero/victor?ability=pain-battery]]((Pain Battery))
+[[/ability/pain-battery]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_pain_battery.webp]] Pain Battery change history))
+### [[/ability/pain-battery]]((Pain Battery))
 - Pain Battery fixed the bolts hitting world geometry more often than intended
 - Pain Battery damage required to charge up reduced from 50% max health to 40%
 ==
 ==ability:aura-of-suffering:
-[[/hero/victor?ability=aura-of-suffering]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_aura_of_suffering.webp]] Aura of Suffering change history))
-### [[/hero/victor?ability=aura-of-suffering]]((Aura of Suffering))
+[[/ability/aura-of-suffering]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_aura_of_suffering.webp]] Aura of Suffering change history))
+### [[/ability/aura-of-suffering]]((Aura of Suffering))
 - Aura of Suffering reduced DPS spirit scaling on the minimum damage from 0.25 to 0.22 and on the maximum damage from 1.25 to 1.1
 - Aura of Suffering self damage reduced from 100% to 85%
 ==
 ==ability:shocking-reanimation:
-[[/hero/victor?ability=shocking-reanimation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_shocking_reanimation.webp]] Shocking Reanimation change history))
-### [[/hero/victor?ability=shocking-reanimation]]((Shocking Reanimation))
+[[/ability/shocking-reanimation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_shocking_reanimation.webp]] Shocking Reanimation change history))
+### [[/ability/shocking-reanimation]]((Shocking Reanimation))
 - Shocking Reanimation increased stun duration from 1s to 1.5s
 - Shocking Reanimation damage spirit scaling increased from 1.8 to 2.0
 - Shocking Reanimation T1 changed from "+10 spirit damage per bullet and 25% fire rate until reload" to "
@@ -339,18 +339,18 @@ content_text "Weapon Investment bonus increased from 7/9/13/20/29/40/58/72/83/93
 - Fixed Shocking Reanimation sometimes not hitting targets that are in the Z axis
 ==
 ==ability:pain-battery:
-[[/hero/victor?ability=pain-battery]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_pain_battery.webp]] Pain Battery change history))
-### [[/hero/victor?ability=pain-battery]]((Pain Battery))
+[[/ability/pain-battery]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_pain_battery.webp]] Pain Battery change history))
+### [[/ability/pain-battery]]((Pain Battery))
 - Pain Battery T3 heal reduced from 20% to 18%
 ==
 ==ability:jumpstart:
-[[/hero/victor?ability=jumpstart]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_jump_start.webp]] Jumpstart change history))
-### [[/hero/victor?ability=jumpstart]]((Jumpstart))
+[[/ability/jumpstart]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_jump_start.webp]] Jumpstart change history))
+### [[/ability/jumpstart]]((Jumpstart))
 - Jumpstart cooldown increased from 22s to 23s
 ==
 ==ability:aura-of-suffering:
-[[/hero/victor?ability=aura-of-suffering]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_aura_of_suffering.webp]] Aura of Suffering change history))
-### [[/hero/victor?ability=aura-of-suffering]]((Aura of Suffering))
+[[/ability/aura-of-suffering]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_aura_of_suffering.webp]] Aura of Suffering change history))
+### [[/ability/aura-of-suffering]]((Aura of Suffering))
 - Aura of Suffering self damage can no longer be reduced by spirit resistance (same as Jumpstart)
 - Aura of Suffering self damage reduced from 85% to 80%
 - Aura of Suffering self damage reduced from 80% to 70%
@@ -358,13 +358,13 @@ content_text "Weapon Investment bonus increased from 7/9/13/20/29/40/58/72/83/93
 - Aura of Suffering MinDPS, MaxDPS and spirit scaling increased by ~5-6%
 ==
 ==ability:jumpstart:
-[[/hero/victor?ability=jumpstart]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_jump_start.webp]] Jumpstart change history))
-### [[/hero/victor?ability=jumpstart]]((Jumpstart))
+[[/ability/jumpstart]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_jump_start.webp]] Jumpstart change history))
+### [[/ability/jumpstart]]((Jumpstart))
 - Jumpstart duration increased from 4s to 4.5s
 ==
 ==ability:shocking-reanimation:
-[[/hero/victor?ability=shocking-reanimation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_shocking_reanimation.webp]] Shocking Reanimation change history))
-### [[/hero/victor?ability=shocking-reanimation]]((Shocking Reanimation))
+[[/ability/shocking-reanimation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/frank/frank_shocking_reanimation.webp]] Shocking Reanimation change history))
+### [[/ability/shocking-reanimation]]((Shocking Reanimation))
 - Shocking Reanimation radius increased from 12m to 13m
 ==
 =
@@ -374,15 +374,15 @@ content_text "Weapon Investment bonus increased from 7/9/13/20/29/40/58/72/83/93
 ## [[/hero/vindicta]]((Vindicta))
 - Base bullet damage increased from 11.4 to 11.8
 ==ability:flight:
-[[/hero/vindicta?ability=flight]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_flight.webp]] Flight change history))
-### [[/hero/vindicta?ability=flight]]((Flight))
+[[/ability/flight]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/vindicta_flight.webp]] Flight change history))
+### [[/ability/flight]]((Flight))
 - Flight duration increased from 13s to 15s
 - Flight T2 increased from 7s to 8s
 - Flight spirit damage scaling increased from 0.19 to 0.22
 ==
 ==ability:assassinate:
-[[/hero/vindicta?ability=assassinate]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_assassinate.webp]] Assassinate change history))
-### [[/hero/vindicta?ability=assassinate]]((Assassinate))
+[[/ability/assassinate]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/hornet/hornet_assassinate.webp]] Assassinate change history))
+### [[/ability/assassinate]]((Assassinate))
 - Assassinate bonus damage spirit scaling increased from 1.4 to 1.7
 - Assassinate cooldown reduced from 60s to 50s
 ==
@@ -394,8 +394,8 @@ content_text "Weapon Investment bonus increased from 7/9/13/20/29/40/58/72/83/93
 - Alt fire base damage reduced from 48 to 42
 - Alt fire damage growth increased from 1.25 to 1.6
 ==ability:splatter:
-[[/hero/viscous?ability=splatter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_ball.webp]] Splatter change history))
-### [[/hero/viscous?ability=splatter]]((Splatter))
+[[/ability/splatter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viscous/viscous_goo_ball.webp]] Splatter change history))
+### [[/ability/splatter]]((Splatter))
 - Splatter damage reduced from 80 to 70
 - Splatter T1 increased from -5.75s to -6s
 ==
@@ -405,8 +405,8 @@ content_text "Weapon Investment bonus increased from 7/9/13/20/29/40/58/72/83/93
 [[/hero/vyper]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kali_sm.webp]] Vyper patch history))
 ## [[/hero/vyper]]((Vyper))
 ==ability:screwjab-dagger:
-[[/hero/vyper?ability=screwjab-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viper/viper_debuffdagger.webp]] Screwjab Dagger change history))
-### [[/hero/vyper?ability=screwjab-dagger]]((Screwjab Dagger))
+[[/ability/screwjab-dagger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viper/viper_debuffdagger.webp]] Screwjab Dagger change history))
+### [[/ability/screwjab-dagger]]((Screwjab Dagger))
 - Screwjab Dagger has been reworked
 - Screwjab Dagger now stacks in both damage and slows the more daggers you hit against the same target
 - Screwjab Dagger is now charge-based, with a 4.5s time between charges. Starts with 2 charges.
@@ -423,15 +423,15 @@ content_text "Weapon Investment bonus increased from 7/9/13/20/29/40/58/72/83/93
 - Screwjab Dagger added a pitch incrementor to impact sound. The sound will slightly increment in pitch relative to each stack that gets applied to a target.
 ==
 ==ability:lethal-venom:
-[[/hero/vyper?ability=lethal-venom]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viper/viper_venom.webp]] Lethal Venom change history))
-### [[/hero/vyper?ability=lethal-venom]]((Lethal Venom))
+[[/ability/lethal-venom]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viper/viper_venom.webp]] Lethal Venom change history))
+### [[/ability/lethal-venom]]((Lethal Venom))
 - Lethal Venom can now be cast on non-trooper enemies (neutrals and objectives)
 - Lethal Venom T3 upgrade can now trigger on all enemies, including troopers
 - Lethal Venom T3 build-up per shot reduced from 5 to 4.5 (a nerf)
 ==
 ==ability:slither:
-[[/hero/vyper?ability=slither]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viper/viper_snakedash.webp]] Slither change history))
-### [[/hero/vyper?ability=slither]]((Slither))
+[[/ability/slither]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/viper/viper_snakedash.webp]] Slither change history))
+### [[/ability/slither]]((Slither))
 - Slither is no longer leveled up by default at the start of the game
 - Slither T3 changed from 20% resists to “180 health barrier when initiating a slide”, has 0.6 spirit scaling, lasts 5s and 8s cd.
 - Slither now leaves a green trail
@@ -442,8 +442,8 @@ content_text "Weapon Investment bonus increased from 7/9/13/20/29/40/58/72/83/93
 [[/hero/warden]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden patch history))
 ## [[/hero/warden]]((Warden))
 ==ability:last-stand-dps:
-[[/hero/warden?ability=last-stand]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_riot_protocol.webp]] Last Stand DPS change history))
-### [[/hero/warden?ability=last-stand]]((Last Stand DPS))
+[[/ability/last-stand]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/warden/warden_riot_protocol.webp]] Last Stand DPS change history))
+### [[/ability/last-stand]]((Last Stand DPS))
 - Last Stand DPS spirit scaling reduced from 1.45 to 1.3
 ==
 - Fire rate spirit scaling increased from 0.22 to 0.25
@@ -455,8 +455,8 @@ content_text "Weapon Investment bonus increased from 7/9/13/20/29/40/58/72/83/93
 - Base bullet damage increased from 5.115 to 5.4
 - Bullet damage growth per boon reduced from 0.175 to 0.155
 ==ability:card-trick:
-[[/hero/wraith?ability=card-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_card_trick.webp]] Card Trick change history))
-### [[/hero/wraith?ability=card-trick]]((Card Trick))
+[[/ability/card-trick]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/wraith_card_trick.webp]] Card Trick change history))
+### [[/ability/card-trick]]((Card Trick))
 - Card Trick delay reduced from 0.75 to 0.7
 ==
 =

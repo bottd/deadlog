@@ -24,8 +24,8 @@ content_text "Unstoppable state no longer blocks anti-heal effects Yamato Bullet
 ## [[/hero/yamato]]((Yamato))
 - Bullet damage growth reduced from 0.33 to 0.27
 ==ability:shadow-transformation:
-[[/hero/yamato?ability=shadow-transformation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]] Shadow Transformation change history))
-### [[/hero/yamato?ability=shadow-transformation]]((Shadow Transformation))
+[[/ability/shadow-transformation]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/yamato/yamato_blinding_steel.webp]] Shadow Transformation change history))
+### [[/ability/shadow-transformation]]((Shadow Transformation))
 - Shadow Transformation T1 reduced from +20% Fire Rate to +15%
 ==
 =

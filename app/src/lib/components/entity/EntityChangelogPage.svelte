@@ -1,10 +1,9 @@
 <script lang="ts">
-	import { PatchTimeline } from '$lib/components/changelog';
+	import { RecentPatches } from '$lib/components/changelog';
 	import {
 		changeCountLabel,
 		entityPatchHref
 	} from '$lib/components/changelog/entityContext';
-	import CornerAccents from '$lib/components/ui/corner-accents/CornerAccents.svelte';
 	import {
 		absoluteUrl,
 		ENTITY_LISTING,
@@ -12,11 +11,11 @@
 		pageMeta
 	} from '$lib/seo';
 	import { JsonLd, MetaTags } from 'svelte-meta-tags';
-	import { formatDate, plural } from '@deadlog/utils';
-	import Activity from '@lucide/svelte/icons/activity';
+	import { countBullets, formatDate, formatYear, plural } from '@deadlog/utils';
 	import ArrowLeft from '@lucide/svelte/icons/arrow-left';
-	import Package from '@lucide/svelte/icons/package';
-	import XIcon from '@lucide/svelte/icons/x';
+	import ArrowRight from '@lucide/svelte/icons/arrow-right';
+	import CornerAccents from '$lib/components/ui/corner-accents/CornerAccents.svelte';
+	import EntityHistoryToc from './EntityHistoryToc.svelte';
 	import type { Snippet } from 'svelte';
 	import { replaceState } from '$app/navigation';
 	import { page } from '$app/state';
@@ -28,7 +27,6 @@
 		icon?: string | null;
 		bullets: string[];
 	}
-
 	interface EntityPatch {
 		id: string;
 		slug: string;
@@ -38,29 +36,33 @@
 		changeCount: number | null;
 		changeGroups?: ChangeGroup[] | null;
 	}
-
 	interface Ability {
 		name: string;
 		slug: string;
 		image: string;
 		description: string | null;
 	}
-
-	interface Props {
-		entity: { type: 'hero' | 'item'; name: string; image?: string };
+	let {
+		entity,
+		parent,
+		accent,
+		label,
+		changelogs,
+		abilities = [],
+		currentAbilitySlug,
+		labelSuffix,
+		seo
+	}: {
+		entity: { type: 'hero' | 'item' | 'ability'; name: string; image?: string };
+		/** Set on an ability page: the hero the ability belongs to, shown above its name. */
+		parent?: { name: string; slug: string; image?: string };
+		/** Set on an ability page: which rail entry is the page you are on. */
+		currentAbilitySlug?: string;
 		accent: string;
 		label: string;
-		lede: string;
 		changelogs: EntityPatch[];
 		abilities?: Ability[];
-		streaks: { current: number; longest: number };
 		labelSuffix?: Snippet;
-		/**
-		 * Hero and item pages wire up meta tags and structured data identically, so the
-		 * page owns it and each route passes only what actually differs.
-		 * `indexable` deliberately tracks release, not patch count: the sitemap lists every
-		 * released entity, and a new one has no patches yet — exactly when its page matters.
-		 */
 		seo: {
 			path: string;
 			title: string;
@@ -68,20 +70,11 @@
 			image: string;
 			indexable: boolean;
 		};
-	}
+	} = $props();
 
-	let {
-		entity,
-		accent,
-		label,
-		lede,
-		changelogs,
-		abilities = [],
-		streaks,
-		labelSuffix,
-		seo
-	}: Props = $props();
-
+	// An ability page shows one ability already, so its rail navigates between siblings
+	// instead of filtering. That also makes it work without JS, unlike the filter rail.
+	const abilityLinkMode = $derived(entity.type === 'ability');
 	const requestedAbility = $derived(
 		'ability' in page.state
 			? page.state.ability
@@ -90,67 +83,69 @@
 				: page.url.searchParams.get('ability')
 	);
 	const selectedAbility = $derived(
-		abilities.some((ability) => ability.slug === requestedAbility)
-			? (requestedAbility ?? null)
-			: null
+		abilities.find((ability) => ability.slug === requestedAbility) ?? null
 	);
-
 	function toggleAbility(slug: string) {
-		const ability = selectedAbility === slug ? null : slug;
+		const ability = selectedAbility?.slug === slug ? null : slug;
 		const url = new URL(location.href);
 		if (ability) url.searchParams.set('ability', ability);
 		else url.searchParams.delete('ability');
 		replaceState(url, { ...page.state, ability });
 	}
-
-	const selectedAbilityName = $derived(
-		abilities.find((ability) => ability.slug === selectedAbility)?.name ?? null
-	);
-
 	const visibleChangelogs = $derived.by(() => {
 		if (!selectedAbility) return changelogs;
-		return changelogs.flatMap((changelog) => {
+		return changelogs.flatMap((patch) => {
 			const changeGroups =
-				changelog.changeGroups?.filter(
-					(group) => group.abilitySlug === selectedAbility
+				patch.changeGroups?.filter(
+					(group) => group.abilitySlug === selectedAbility.slug
 				) ?? [];
 			return changeGroups.length
 				? [
 						{
-							...changelog,
+							...patch,
 							changeGroups,
-							changeCount: changeGroups.reduce(
-								(total, group) => total + group.bullets.length,
-								0
-							)
+							changeCount: countBullets(changeGroups)
 						}
 					]
 				: [];
 		});
 	});
-
-	const isItem = $derived(entity.type === 'item');
+	const historyYears = $derived([
+		...visibleChangelogs.reduce((groups, patch) => {
+			const year = formatYear(patch.date);
+			const group = groups.get(year);
+			if (group) group.push(patch);
+			else groups.set(year, [patch]);
+			return groups;
+		}, new Map<string, EntityPatch[]>())
+	]);
+	const showToc = $derived(visibleChangelogs.length >= 6);
+	const tocYears = $derived(
+		historyYears.map(
+			([year, patches]) =>
+				[
+					year,
+					patches.map((patch) => ({
+						id: patch.id,
+						label: formatDate(patch.date),
+						changeCount: patch.changeCount
+					}))
+				] as [string, { id: string; label: string; changeCount: number | null }[]]
+		)
+	);
 	const listing = $derived(ENTITY_LISTING[entity.type]);
-	const EmptyIcon = $derived(isItem ? Package : Activity);
-
-	// "N+" once any patch is missing a count, "N/A" when none of them have one.
+	const latest = $derived(changelogs[0]);
+	const oldest = $derived(changelogs.at(-1));
 	const changes = $derived.by(() => {
-		const counted = changelogs.filter((c) => c.changeCount !== null);
+		const counted = changelogs.filter((patch) => patch.changeCount !== null);
+		const total = counted.reduce((sum, patch) => sum + (patch.changeCount ?? 0), 0);
 		const unknown = changelogs.length - counted.length;
-		const total = counted.reduce((sum, c) => sum + (c.changeCount ?? 0), 0);
 		return {
 			unknown,
-			value: unknown === 0 ? String(total) : counted.length > 0 ? `${total}+` : 'N/A'
+			value: unknown === 0 ? String(total) : counted.length ? `${total}+` : null
 		};
 	});
-	const oldestPatch = $derived(changelogs.at(-1));
 </script>
-
-{#snippet statLabel(text: string)}
-	<dt text="muted-foreground" kicker-xs>
-		{text}
-	</dt>
-{/snippet}
 
 <MetaTags
 	{...pageMeta({
@@ -161,11 +156,11 @@
 		indexable: seo.indexable
 	})}
 />
-
 {#if seo.indexable}
 	<JsonLd
 		schema={entityCollectionSchema({
 			entity,
+			parent: parent ? { name: parent.name, path: `/hero/${parent.slug}` } : undefined,
 			path: seo.path,
 			title: seo.title,
 			description: seo.description,
@@ -175,426 +170,344 @@
 	/>
 {/if}
 
-<main class="bg-wire-grid min-h-screen">
-	<div container m="x-auto t-6 b-24" p="x-3" class="max-w-6xl sm:mt-8 sm:px-4">
-		<a
-			href={listing.path}
-			text="muted-foreground sm"
-			m="b-6"
-			items="center"
-			gap="2"
-			class="hover:text-signal inline-flex min-h-6 transition-colors sm:mb-8"
-		>
-			<ArrowLeft class="size-4" />
-			<span>Back to {listing.label.toLowerCase()}</span>
-		</a>
-
-		<header
-			bg="card"
-			relative
-			m="b-10"
-			p="5"
-			class="border-2 clip-corner-lg overflow-hidden sm:p-8 lg:p-10"
-			style:border-color="color-mix(in oklab, {accent} 42%, var(--border))"
-		>
-			<CornerAccents
-				tlSize="4rem"
-				brSize="3rem"
-				thickness="2px"
-				tlColor="bg-signal/60"
-				brColor="bg-primary/35"
-			/>
-			<div
-				absolute
-				class="pointer-events-none inset-0"
-				style:background="radial-gradient(circle at 12% 20%, color-mix(in oklab, {accent} 18%,
-				transparent), transparent 42%)"
-				aria-hidden="true"
-			></div>
-			<div
-				absolute
-				h="px"
-				class="pointer-events-none inset-x-0 top-0"
-				style:background="linear-gradient(to right, {accent}, var(--signal), transparent
-				78%)"
-				aria-hidden="true"
-			></div>
-
-			<div
-				relative
-				z="10"
-				gap="7"
-				class="grid md:grid-cols-[auto_minmax(0,1fr)] md:items-center"
+<main class="container mx-auto mt-6 mb-24 max-w-4xl px-4 sm:mt-8 xl:max-w-6xl">
+	<div class="xl:flex xl:gap-8">
+		<div class="min-w-0 xl:flex-1">
+			<a
+				href={listing.path}
+				class="ui-focus-ring text-muted-foreground hover:text-signal mb-5 inline-flex min-h-11 items-center gap-2 rounded-sm text-sm"
 			>
-				{#if entity.image}
-					<div relative m="x-auto" shrink="0" class="md:mx-0">
-						<div
-							absolute
-							class="inset-2 -z-10 blur-2xl"
-							style:background-color={accent}
-							style:opacity={isItem ? '0.22' : '0.24'}
-							aria-hidden="true"
-						></div>
-						{#if isItem}
-							<div
-								flex="~"
-								bg="muted/30"
-								items="center"
-								justify="center"
-								p="3"
-								class="border-2 clip-corner-sm size-32 sm:size-40 lg:size-44"
-								style:border-color={accent}
-							>
-								<img
-									src={entity.image}
-									alt="{entity.name} in Deadlock"
-									width="176"
-									height="176"
-									fetchpriority="high"
-									class="max-h-full max-w-full object-contain drop-shadow-lg"
-								/>
-							</div>
-						{:else}
-							<div
-								bg="muted/30"
-								relative
-								p="1.5"
-								class="border-2 clip-corner-sm"
-								style:border-color={accent}
-							>
-								<img
-									src={entity.image}
-									alt="{entity.name} in Deadlock"
-									width="160"
-									height="160"
-									fetchpriority="high"
-									class="clip-corner-sm size-28 object-cover sm:size-36 lg:size-40"
-								/>
+				<ArrowLeft class="size-4" /> Back to {listing.label.toLowerCase()}
+			</a>
+			<header class="border-subtle mb-6 border-b pb-5">
+				<div class="flex items-start gap-4">
+					{#if entity.image}
+						<img
+							src={entity.image}
+							alt=""
+							width="80"
+							height="80"
+							decoding="async"
+							fetchpriority="high"
+							class="clip-corner-sm bg-card size-16 shrink-0 border sm:size-20 {entity.type ===
+							'item'
+								? 'object-contain p-2'
+								: 'object-cover'}"
+							style:border-color={accent}
+						/>
+					{/if}
+					<div class="min-w-0">
+						{#if parent}
+							<p class="mb-1 font-mono text-xs">
+								<a
+									href="/hero/{parent.slug}"
+									class="ui-focus-ring text-muted-foreground hover:text-foreground rounded-sm underline-offset-4 hover:underline"
+									>{parent.name}</a
+								>
+							</p>
+						{/if}
+						<h1
+							class="font-display text-foreground text-4xl leading-tight font-medium tracking-wide break-words sm:text-5xl"
+						>
+							{entity.name}
+						</h1>
+						<p
+							class="mt-1 flex flex-wrap items-center gap-2 font-mono text-xs capitalize"
+							style:color={accent}
+						>
+							<span>{label}</span>
+							{@render labelSuffix?.()}
+						</p>
+						{#if latest}
+							<p class="text-muted-foreground mt-3 text-sm">
+								{latest.changeCount === null ? 'Last mentioned' : 'Last changed'}
+								<a
+									href={entityPatchHref(latest, entity)}
+									class="text-foreground underline-offset-4 hover:underline"
+									><time datetime={latest.date.toISOString()}
+										>{formatDate(latest.date)}</time
+									></a
+								>
+							</p>
+						{/if}
+					</div>
+				</div>
+				<details class="mt-3">
+					<summary
+						class="ui-focus-ring text-muted-foreground w-fit cursor-pointer rounded-sm py-3 text-sm"
+					>
+						{changelogs.length}
+						{plural(changelogs.length, 'patch', 'patches')}{#if changes.value !== null}
+							· {changes.value} changes{/if}
+						<span class="ml-2 text-xs">Archive details</span>
+					</summary>
+					<div class="space-y-4 pt-2">
+						{#if oldest}<p class="text-muted-foreground text-sm">
+								First recorded: <time datetime={oldest.date.toISOString()}
+									>{formatDate(oldest.date)}</time
+								>.
+							</p>{/if}
+						{#if changes.unknown > 0}<p class="text-muted-foreground text-sm">
+								{changes.unknown}
+								{plural(changes.unknown, 'patch', 'patches')} mention {entity.name} without
+								a separate change count.
+							</p>{/if}
+						<RecentPatches patches={changelogs} {entity} />
+						{#if abilities.some((ability) => ability.description)}
+							<div>
+								<h2 class="mb-3 text-sm font-semibold">Ability descriptions</h2>
+								<dl class="max-w-[72ch] space-y-3 text-sm leading-relaxed">
+									{#each abilities as ability (ability.slug)}
+										{#if ability.description}<div>
+												<dt class="font-semibold">{ability.name}</dt>
+												<dd class="text-muted-foreground mt-1">{ability.description}</dd>
+											</div>{/if}
+									{/each}
+								</dl>
 							</div>
 						{/if}
 					</div>
-				{/if}
+				</details>
+			</header>
 
-				<div text="center" class="min-w-0 md:text-left">
-					<div
-						m="b-3"
-						flex="~ wrap"
-						items="center"
-						justify="center"
-						gap="2"
-						class="md:justify-start"
-					>
-						<span h="px" w="7" style:background-color={accent} aria-hidden="true"></span>
-						<span
-							font="mono bold"
-							uppercase
-							class="text-[10px] tracking-[0.22em]"
-							style:color={accent}
-						>
-							{label}
-						</span>
-						{@render labelSuffix?.()}
-					</div>
-					<h1
-						font="display medium"
-						text="foreground 4xl"
-						class="heading-glow leading-none tracking-wide break-words sm:text-5xl lg:text-6xl"
-					>
-						{entity.name}
-					</h1>
-					<p text="muted-foreground sm" m="t-3" class="max-w-2xl leading-relaxed">
-						{lede}
+			{#if abilities.length}
+				{#snippet railEntry(ability: Ability)}
+					<img
+						src={ability.image}
+						alt=""
+						width="24"
+						height="24"
+						loading="lazy"
+						decoding="async"
+						class="size-6 rounded object-cover"
+					/>
+					{ability.name}
+				{/snippet}
+				<section aria-label="Abilities" class="mb-6 {abilityLinkMode ? '' : 'js-only'}">
+					<p class="text-muted-foreground mb-2 text-sm">
+						{abilityLinkMode ? 'Other abilities' : 'Filter by ability'}
 					</p>
-
-					<dl
-						m="t-6"
-						grid="~ cols-2"
-						gap="px"
-						class="overflow-hidden sm:grid-cols-5 border"
-					>
-						<div bg="muted/30" p="3" text="left">
-							{@render statLabel('Patches')}
-							<dd text="foreground xl" m="t-1" font="mono bold">
-								{changelogs.length}
-							</dd>
-						</div>
-						<div bg="muted/30" p="3" text="left">
-							{@render statLabel('Changes')}
-							<dd m="t-1" font="mono bold" text="xl" style:color={accent}>
-								{changes.value}
-							</dd>
-						</div>
-						<div bg="muted/30" p="3" text="left">
-							{@render statLabel('Current streak')}
-							<dd text="foreground xl" m="t-1" font="mono bold">
-								{streaks.current}
-							</dd>
-						</div>
-						<div bg="muted/30" p="3" text="left">
-							{@render statLabel('Longest run')}
-							<dd text="foreground xl" m="t-1" font="mono bold">
-								{streaks.longest}
-							</dd>
-						</div>
-						<div bg="muted/30" p="3" text="left" class="col-span-2 sm:col-span-1">
-							{@render statLabel('Tracked since')}
-							<dd text="foreground sm" m="t-1" font="semibold">
-								{oldestPatch ? formatDate(oldestPatch.date) : 'No patches yet'}
-							</dd>
-						</div>
-					</dl>
-					{#if changes.unknown > 0}
-						<p
-							text="muted-foreground"
-							m="t-2"
-							font="mono"
-							uppercase
-							class="text-[9px] tracking-wide"
-						>
-							{changes.unknown}
-							{plural(changes.unknown, 'patch', 'patches')} awaiting a reliable count
+					<div class="flex flex-wrap gap-2">
+						{#each abilities as ability (ability.slug)}
+							{@const isCurrent = ability.slug === currentAbilitySlug}
+							{#if abilityLinkMode}
+								<a
+									href="/ability/{ability.slug}"
+									aria-current={isCurrent ? 'page' : undefined}
+									class="ui-focus-ring flex min-h-11 items-center gap-2 rounded-md border px-3 py-2 text-left text-sm transition-colors {isCurrent
+										? 'border-signal bg-signal/10 text-signal'
+										: 'border-subtle bg-card text-foreground hover:border-signal/60'}"
+								>
+									{@render railEntry(ability)}
+								</a>
+							{:else}
+								<button
+									type="button"
+									onclick={() => toggleAbility(ability.slug)}
+									aria-pressed={selectedAbility?.slug === ability.slug}
+									class="ui-focus-ring flex min-h-11 items-center gap-2 rounded-md border px-3 py-2 text-left text-sm transition-colors {selectedAbility?.slug ===
+									ability.slug
+										? 'border-signal bg-signal/10 text-signal'
+										: 'border-subtle bg-card text-foreground hover:border-signal/60'}"
+								>
+									{@render railEntry(ability)}
+								</button>
+							{/if}
+						{/each}
+					</div>
+					{#if selectedAbility && !abilityLinkMode}
+						<p class="mt-2 text-sm">
+							<a
+								href="/ability/{selectedAbility.slug}"
+								class="ui-focus-ring text-signal rounded-sm underline-offset-4 hover:underline"
+								>{selectedAbility.name} full history</a
+							>
 						</p>
 					{/if}
-				</div>
-			</div>
-
-			{#if changelogs.length > 1}
-				<div border="border/60 t" relative z="10" m="t-7" p="t-5">
-					<div flex="~" m="b-2" items="center" justify="between" gap="3">
-						<span text="muted-foreground" font="bold" kicker-xs> Patch cadence </span>
-						<span text="muted-foreground" font="mono" class="text-[9px]">
-							{changelogs.length} points
-						</span>
-					</div>
-					<PatchTimeline patches={changelogs} {entity} {accent} />
-				</div>
+				</section>
 			{/if}
-		</header>
 
-		{#if abilities.length > 0}
-			<section aria-label="Abilities" m="b-10">
-				<p
-					text="signal"
-					m="b-3"
-					font="mono bold"
-					uppercase
-					class="text-[10px] tracking-[0.2em]"
-				>
-					Abilities — click to filter the log
-				</p>
-				<div
-					grid="~ cols-1"
-					items="stretch"
-					gap="3"
-					class="auto-rows-fr sm:grid-cols-2 lg:grid-cols-4"
-				>
-					{#each abilities as ability (ability.slug)}
-						{@const selected = selectedAbility === ability.slug}
-						<button
-							type="button"
-							onclick={() => toggleAbility(ability.slug)}
-							aria-pressed={selected}
-							class="clip-corner-sm bg-card relative flex h-full flex-col items-stretch justify-start overflow-hidden border p-3 text-left transition-all hover:-translate-y-0.5 {selected
-								? 'border-signal ring-signal/35 ring-2'
-								: 'hover:border-signal/50'}"
-							style:border-color={selected
-								? undefined
-								: 'color-mix(in oklab, ' + accent + ' 24%, var(--border))'}
-						>
-							<div flex="~" items="center" gap="2.5">
-								<img
-									src={ability.image}
-									alt=""
-									width="32"
-									height="32"
-									loading="lazy"
-									decoding="async"
-									class="size-8 rounded object-cover"
-								/>
-								<span text="foreground sm" font="semibold">
-									{ability.name}
-								</span>
-							</div>
-							{#if ability.description}
-								<span
-									text="muted-foreground xs"
-									m="t-2"
-									block
-									class="line-clamp-2 leading-relaxed"
-								>
-									{ability.description}
-								</span>
-							{/if}
-						</button>
-					{/each}
-				</div>
-			</section>
-		{/if}
-
-		<section aria-labelledby="history-heading">
-			<div flex="~" m="b-6" items="end" justify="between" gap="4">
-				<div>
-					<p
-						text="signal"
-						font="mono bold"
-						uppercase
-						class="text-[10px] tracking-[0.2em]"
-					>
-						Entity log
-					</p>
+			<section aria-labelledby="history-heading">
+				<div class="mb-2 flex flex-wrap items-baseline justify-between gap-3">
 					<h2
 						id="history-heading"
-						font="display medium"
-						text="foreground 2xl"
-						m="t-1"
-						class="tracking-wide sm:text-3xl"
+						class="font-display text-foreground text-2xl font-medium tracking-wide"
 					>
 						Change History
 					</h2>
-				</div>
-				<span text="muted-foreground xs" font="mono">
-					{visibleChangelogs.length}
-					{plural(visibleChangelogs.length, 'patch', 'patches')}
-				</span>
-			</div>
-
-			{#if selectedAbilityName}
-				<div
-					border="signal/30 ~"
-					bg="signal/5"
-					m="b-6"
-					flex="~ wrap"
-					items="center"
-					gap="x-3 y-1"
-					p="x-4 y-2.5"
-					text="sm"
-					class="clip-corner-sm"
-				>
-					<span text="muted-foreground" kicker-sm> Filtered to </span>
-					<span text="foreground" font="medium">{selectedAbilityName}</span>
-					<button
-						type="button"
-						onclick={() => toggleAbility(selectedAbility ?? '')}
-						text="signal xs"
-						m="l-auto"
-						items="center"
-						gap="1"
-						font="mono semibold"
-						class="inline-flex hover:underline"
+					<span class="text-muted-foreground font-mono text-xs"
+						>{visibleChangelogs.length}
+						{plural(visibleChangelogs.length, 'patch', 'patches')}</span
 					>
-						<XIcon class="size-3.5" />
-						Show all changes
-					</button>
 				</div>
-			{/if}
-
-			{#if visibleChangelogs.length > 0}
-				<ol m="0" list="none" space="y-4" p="0">
-					{#each visibleChangelogs as changelog (changelog.id)}
-						<li
-							bg="card"
-							relative
-							p="4"
-							class="clip-corner-sm overflow-hidden sm:p-5 border"
-							style:border-color="color-mix(in oklab, {accent} 24%, var(--border))"
+				{#if selectedAbility}
+					<div
+						class="text-muted-foreground mb-4 flex flex-wrap items-center justify-between gap-2 text-sm"
+						role="status"
+					>
+						<span
+							>Showing <strong class="text-foreground font-medium"
+								>{selectedAbility.name}</strong
+							> changes</span
 						>
-							<div
-								absolute
-								h="px"
-								class="pointer-events-none inset-x-0 top-0"
-								style:background="linear-gradient(to right, {accent}, transparent 75%)"
-								aria-hidden="true"
-							></div>
-							<div flex="~ wrap" items="baseline" gap="x-3 y-1">
-								<h3>
-									<a
-										href={entityPatchHref(changelog, entity)}
-										text="foreground sm"
-										font="semibold"
-										class="hover:text-signal transition-colors"
-									>
-										<time datetime={changelog.date.toISOString()}>
-											{formatDate(changelog.date)}
-										</time>
-									</a>
-								</h3>
-								<span font="mono" text="xs" style:color={accent}>
-									{changeCountLabel(changelog.changeCount)}
-								</span>
-								<span text="muted-foreground xs" m="l-auto" truncate>
-									by {changelog.author}
-								</span>
-							</div>
-							{#if changelog.changeGroups?.length}
-								<div m="t-3" space="y-3">
-									{#each changelog.changeGroups as group, gi (gi)}
-										<div>
-											{#if group.ability}
-												<div flex="~" m="b-1.5" items="center" gap="2">
-													{#if group.icon}
-														<img
-															src={group.icon}
-															alt=""
-															width="24"
-															height="24"
-															loading="lazy"
-															decoding="async"
-															class="size-6 rounded object-cover"
-														/>
-													{/if}
-													<h4 text="foreground sm" font="semibold">
-														{group.ability}
-													</h4>
-												</div>
-											{/if}
-											<ul
-												class="list-none space-y-1.5 {group.ability ? 'ml-12' : 'ml-4'}"
+						<button
+							type="button"
+							onclick={() => toggleAbility(selectedAbility?.slug ?? '')}
+							class="ui-focus-ring text-signal min-h-11 rounded-sm px-1 text-sm underline-offset-4 hover:underline"
+							>Show all changes</button
+						>
+					</div>
+				{/if}
+				{#if visibleChangelogs.length}
+					{#each historyYears as [year, patches] (year)}
+						<section aria-labelledby="year-{year}">
+							<h3
+								id="year-{year}"
+								class="bg-background/95 border-subtle text-signal sticky top-[7rem] z-10 -mx-1 mb-1 flex items-baseline gap-3 border-b px-1 pt-5 pb-2 font-mono text-lg backdrop-blur-sm"
+							>
+								{year}
+								<span class="text-muted-foreground ml-auto text-xs"
+									>{patches.length}
+									{plural(patches.length, 'patch', 'patches')}</span
+								>
+							</h3>
+							<!-- `border`, not `subtle`: `subtle` measures 1.54:1 here, under the 3:1 floor. -->
+							<ol class="divide-border divide-y">
+								{#each patches as patch (patch.id)}
+									<li class="scroll-mt-44 py-5" id="history-{patch.id}" data-entity-patch>
+										<div class="mb-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+											<h4 class="text-foreground text-base font-semibold">
+												<!-- Padding plus matching negative margin: a 44px hit box that leaves
+										     the shared baseline where it is. -->
+												<a
+													href={entityPatchHref(patch, entity)}
+													class="ui-focus-ring hover:text-signal -my-3.5 inline-block rounded-sm py-3.5 underline-offset-4 hover:underline"
+													><time datetime={patch.date.toISOString()}
+														>{formatDate(patch.date)}</time
+													></a
+												>
+											</h4>
+											<span class="text-muted-foreground text-xs"
+												>{changeCountLabel(patch.changeCount)}</span
 											>
-												{#each group.bullets as bullet, i (i)}
-													<li
-														text="foreground/90 sm"
-														relative
-														class="before:bg-primary/40 leading-relaxed before:absolute before:top-[0.55em] before:-left-4 before:size-1.5 before:rounded-full before:content-['']"
-													>
-														{bullet}
-													</li>
-												{/each}
-											</ul>
 										</div>
-									{/each}
-								</div>
-							{:else}
-								<p text="muted-foreground sm" m="t-3">
-									{entity.name} was mentioned in this patch —
-									<a
-										href={entityPatchHref(changelog, entity)}
-										text="signal"
-										class="hover:underline">details in the full notes</a
-									>.
-								</p>
-							{/if}
-						</li>
+										{#if patch.changeGroups?.length}
+											<div class="max-w-[72ch] space-y-4">
+												{#each patch.changeGroups as group, groupIndex (groupIndex)}
+													<div>
+														{#if group.ability}
+															<div class="mb-2 flex items-center gap-2">
+																{#if group.icon}<img
+																		src={group.icon}
+																		alt=""
+																		width="24"
+																		height="24"
+																		loading="lazy"
+																		decoding="async"
+																		class="size-6 rounded object-cover"
+																	/>{/if}
+																<h5 class="text-foreground text-sm font-semibold">
+																	{group.ability}
+																</h5>
+															</div>
+														{/if}
+														<ul
+															class="marker:text-primary/60 ml-4 list-disc space-y-2 text-base leading-relaxed"
+														>
+															{#each group.bullets as bullet, index (index)}<li
+																	class="pl-1"
+																>
+																	{bullet}
+																</li>{/each}
+														</ul>
+													</div>
+												{/each}
+											</div>
+										{:else}
+											<p
+												class="text-muted-foreground max-w-[72ch] text-sm leading-relaxed"
+											>
+												{entity.name} was mentioned in this patch. See the full notes for context.
+											</p>
+										{/if}
+										<a
+											href={entityPatchHref(patch, entity)}
+											class="ui-focus-ring text-signal mt-2 inline-flex min-h-11 items-center gap-1.5 rounded-sm text-xs underline-offset-4 hover:underline"
+											>Full patch <ArrowRight class="size-3.5" /></a
+										>
+									</li>
+								{/each}
+							</ol>
+						</section>
 					{/each}
-				</ol>
-			{:else}
+				{:else}
+					<div
+						border="border/50 2"
+						bg="card"
+						relative
+						p="x-6 y-10"
+						text="center"
+						class="clip-corner my-4 overflow-hidden"
+						role="status"
+					>
+						<CornerAccents
+							tlSize="1.5rem"
+							brSize="1.25rem"
+							tlColor="bg-muted-foreground/30"
+							brColor="bg-muted-foreground/20"
+							thickness="2px"
+						/>
+						<h3 font="display medium" text="foreground xl" m="b-2" class="tracking-wide">
+							Nothing recorded for {selectedAbility?.name ?? entity.name}
+						</h3>
+						<p text="muted-foreground sm" m="x-auto b-6" class="max-w-md leading-relaxed">
+							{#if selectedAbility}
+								{entity.name} has changes in the archive, but none of them touch this ability.
+							{:else}
+								{entity.name} has not appeared in any patch notes yet. It shows up here the
+								first time it is changed.
+							{/if}
+						</p>
+						{#if selectedAbility}
+							<button
+								type="button"
+								onclick={() => toggleAbility(selectedAbility?.slug ?? '')}
+								border="signal/25 ~"
+								bg="signal/10"
+								text="signal sm"
+								class="ui-focus-ring inline-flex min-h-11 items-center rounded-md px-4 transition-colors hover:(bg-signal/20 border-signal/50)"
+							>
+								Show all {entity.name} changes
+							</button>
+						{:else}
+							<a
+								href={listing.path}
+								border="signal/25 ~"
+								bg="signal/10"
+								text="signal sm"
+								class="ui-focus-ring inline-flex min-h-11 items-center gap-1.5 rounded-md px-4 transition-colors hover:(bg-signal/20 border-signal/50)"
+							>
+								Browse all {listing.label.toLowerCase()}
+								<ArrowRight class="size-3.5" />
+							</a>
+						{/if}
+					</div>
+				{/if}
+			</section>
+		</div>
+
+		{#if showToc}
+			<aside
+				class="hidden xl:block xl:w-52 xl:shrink-0"
+				aria-label="Change history index"
+			>
 				<div
-					border="border 2"
-					bg="card"
-					relative
-					p="8"
-					text="center"
-					class="clip-corner overflow-hidden sm:p-12"
+					class="sticky top-[8rem] max-h-[calc(100dvh-9rem)] overflow-y-auto overscroll-contain pr-1"
+					style="scrollbar-gutter: stable"
 				>
-					<CornerAccents tlSize="2rem" tlColor="bg-signal/50" />
-					<EmptyIcon class="text-signal/60 mx-auto mb-4 size-8" />
-					<p text="muted-foreground xs" font="mono" uppercase class="tracking-wide">
-						No log entries
-					</p>
-					<p text="foreground lg" m="t-2">
-						No recorded changes for {selectedAbilityName ?? entity.name}.
-					</p>
+					<EntityHistoryToc years={tocYears} />
 				</div>
-			{/if}
-		</section>
+			</aside>
+		{/if}
 	</div>
 </main>

@@ -28,8 +28,8 @@ content_text "Fixed spectating ending 1 minute before the game ended Fixed Hero 
 ## [[/hero/ivy]]((Ivy))
 - Restored previous audio processing
 ==ability:air-drop:
-[[/hero/ivy?ability=air-drop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_lightning_crash.webp]] Air Drop change history))
-### [[/hero/ivy?ability=air-drop]]((Air Drop))
+[[/ability/air-drop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/tengu/tengu_lightning_crash.webp]] Air Drop change history))
+### [[/ability/air-drop]]((Air Drop))
 - Air Drop cooldown increased from 70s to 80s
 - Air Drop duration reduced from 20s to 17s
 - Air Drop bomb no longer silences in the base (now part of t3)
@@ -46,33 +46,33 @@ content_text "Fixed spectating ending 1 minute before the game ended Fixed Hero 
 ## [[/hero/shiv]]((Shiv))
 - Gun base damage reduced from 6.3 to 5.7
 ==ability:serrated-knives:
-[[/hero/shiv?ability=serrated-knives]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_toss.webp]] Serrated Knives change history))
-### [[/hero/shiv?ability=serrated-knives]]((Serrated Knives))
+[[/ability/serrated-knives]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_toss.webp]] Serrated Knives change history))
+### [[/ability/serrated-knives]]((Serrated Knives))
 - Serrated Knives collision size reduced by 10%
 - Serrated Knives projectile speed reduced by 10%
 - Serrated Knives base damage reduced from 75 to 35
 - Serrated Knives spirit scaling reduced from 1 to 0.6
 ==
 ==ability:serrated-knives-dps:
-[[/hero/shiv?ability=serrated-knives]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_toss.webp]] Serrated Knives DPS change history))
-### [[/hero/shiv?ability=serrated-knives]]((Serrated Knives DPS))
+[[/ability/serrated-knives]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_toss.webp]] Serrated Knives DPS change history))
+### [[/ability/serrated-knives]]((Serrated Knives DPS))
 - Serrated Knives DPS spirit scaling reduced from 0.2 to 0.16
 ==
 ==ability:serrated-knives:
-[[/hero/shiv?ability=serrated-knives]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_toss.webp]] Serrated Knives change history))
-### [[/hero/shiv?ability=serrated-knives]]((Serrated Knives))
+[[/ability/serrated-knives]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_toss.webp]] Serrated Knives change history))
+### [[/ability/serrated-knives]]((Serrated Knives))
 - Serrated Knives T3 reduced from +75 Damage and +5 Bleed to +40 Damage and +5 Bleed
 - Fixed Serrated Knives bouncing to other units even if it did not impact the target
 ==
 ==ability:bloodletting:
-[[/hero/shiv?ability=bloodletting]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_bloodletting.webp]] Bloodletting change history))
-### [[/hero/shiv?ability=bloodletting]]((Bloodletting))
+[[/ability/bloodletting]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_bloodletting.webp]] Bloodletting change history))
+### [[/ability/bloodletting]]((Bloodletting))
 - Fixed Rage and Bloodletting not clearing out on death
 - Fixed Bloodletting deferred damage waking him up from sleep
 ==
 ==ability:killing-blow:
-[[/hero/shiv?ability=killing-blow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp]] Killing Blow change history))
-### [[/hero/shiv?ability=killing-blow]]((Killing Blow))
+[[/ability/killing-blow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/shiv/shiv_killing_blow.webp]] Killing Blow change history))
+### [[/ability/killing-blow]]((Killing Blow))
 - Fixed Killing Blow falling through the world sometimes
 ==
 =

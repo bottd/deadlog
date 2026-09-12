@@ -2,10 +2,9 @@ import {
 	getReleasedHeroSlugs,
 	getHeroBySlug,
 	getHeroAbilities,
-	getChangelogsByHeroId,
-	getMainChangelogIdSequence
-} from '@deadlog/scraper';
-import { computeStreaks, resolveHeroAbilitySlug } from '@deadlog/utils';
+	getChangelogsByHeroId
+} from '@deadlog/db';
+import { resolveHeroAbilitySlug } from '@deadlog/utils';
 import { error, redirect } from '@sveltejs/kit';
 import { getHeroCardImage } from '$lib/utils/entityImages';
 import { absoluteUrl } from '$lib/seo';
@@ -28,9 +27,8 @@ export const load: PageServerLoad = async ({ params, locals, url }) => {
 	}
 	if (hero.slug !== params.slug) redirect(308, `/hero/${hero.slug}${url.search}`);
 
-	const [changelogs, patchSequence, abilities] = await Promise.all([
+	const [changelogs, abilities] = await Promise.all([
 		getChangelogsByHeroId(locals.db, hero.id),
-		getMainChangelogIdSequence(locals.db),
 		getHeroAbilities(locals.db, hero.id)
 	]);
 
@@ -64,7 +62,6 @@ export const load: PageServerLoad = async ({ params, locals, url }) => {
 		},
 		changelogs: enrichedChangelogs,
 		abilities,
-		streaks: computeStreaks(patchSequence, new Set(changelogs.map((c) => c.id))),
 		title: `${hero.name} Deadlock Changes: Buffs & Nerfs | Deadlog`,
 		description: `Track every ${hero.name} buff, nerf, and balance change across Deadlock patch notes in chronological order.`,
 		image: absoluteUrl(`/assets/meta/hero/${params.slug}.png`)

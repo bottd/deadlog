@@ -1,6 +1,6 @@
-import { queryChangelogs, getChangelogsCount } from '@deadlog/scraper';
+import { queryChangelogs, getChangelogsCount } from '@deadlog/db';
 import type { PageServerLoad } from './$types';
-import { enrichChangelogs } from '$lib/server/changelog-utils';
+import { buildPatchSummaries } from '$lib/server/changelog-utils';
 import { INITIAL_LOAD_COUNT } from '$lib/queries/keys';
 
 // The default (unfiltered) feed is baked at build time. Filtered views are noindex
@@ -14,11 +14,13 @@ export const load: PageServerLoad = async ({ locals }) => {
 		queryChangelogs(locals.db, { limit: INITIAL_LOAD_COUNT, offset: 0 }),
 		getChangelogsCount(locals.db)
 	]);
-	const enriched = await enrichChangelogs(locals.db, changelogs);
+	const enriched = await buildPatchSummaries(locals.db, changelogs, {
+		isFirstPage: true
+	});
 
 	return {
 		changelogs: enriched,
 		totalCount,
-		lastUpdate: (enriched[0]?.date ?? new Date()).toISOString()
+		lastUpdate: enriched[0]?.date ?? new Date().toISOString()
 	};
 };

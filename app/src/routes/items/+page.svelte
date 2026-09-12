@@ -12,17 +12,17 @@
 			id: item.id,
 			name: item.name,
 			href: `/item/${item.slug}`,
-			image: getItemImage(item)
+			image: getItemImage(item),
+			subtitle: item.category,
+			category: item.category
 		}))
 	);
 </script>
 
 <EntityDirectory
 	kind="item"
-	eyebrow="Item catalog"
 	heading="Items"
-	lede="Browse every released item, then open a chronological record of its buffs, nerfs, and balance changes."
-	listEyebrow="Select equipment"
+	lede="Find an item to trace its balance changes across the patch archive."
 	{entries}
 	seo={{
 		title: 'Deadlock Items: Balance Change History | Deadlog',
