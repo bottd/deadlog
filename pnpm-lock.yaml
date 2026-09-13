@@ -67,7 +67,7 @@ importers:
         version: 2.19.2(@internationalized/date@3.12.4)(@sveltejs/kit@2.70.3(@sveltejs/vite-plugin-svelte@7.3.0(svelte@5.57.0(@typescript-eslint/types@8.70.0))(vite@8.3.0(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.13)))(svelte@5.57.0(@typescript-eslint/types@8.70.0))(typescript@6.0.3)(vite@8.3.0(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.13)))(svelte@5.57.0(@typescript-eslint/types@8.70.0))
       deadlock-api-client:
         specifier: github:deadlock-api/openapi-clients#path:typescript
-        version: deadlock_api_client@https://codeload.github.com/deadlock-api/openapi-clients/tar.gz/05597be07b266b0977368506cf357c34ecb1d887#path:typescript(debug@4.4.3(supports-color@10.2.2))(supports-color@10.2.2)
+        version: deadlock_api_client@https://codeload.github.com/deadlock-api/openapi-clients/tar.gz/1c2e3607d8b162fb9b01734a2a9721e41afde2c3#path:typescript(debug@4.4.3(supports-color@10.2.2))(supports-color@10.2.2)
       drizzle-kit:
         specifier: 0.31.10
         version: 0.31.10
@@ -204,7 +204,7 @@ importers:
         version: link:../utils
       deadlock-api-client:
         specifier: github:deadlock-api/openapi-clients#path:typescript
-        version: deadlock_api_client@https://codeload.github.com/deadlock-api/openapi-clients/tar.gz/05597be07b266b0977368506cf357c34ecb1d887#path:typescript(debug@4.4.3(supports-color@10.2.2))(supports-color@10.2.2)
+        version: deadlock_api_client@https://codeload.github.com/deadlock-api/openapi-clients/tar.gz/1c2e3607d8b162fb9b01734a2a9721e41afde2c3#path:typescript(debug@4.4.3(supports-color@10.2.2))(supports-color@10.2.2)
     devDependencies:
       '@types/node':
         specifier: 26.2.0
@@ -2424,8 +2424,8 @@ packages:
   csstype@3.2.3:
     resolution: {integrity: sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ==}
 
-  deadlock_api_client@https://codeload.github.com/deadlock-api/openapi-clients/tar.gz/05597be07b266b0977368506cf357c34ecb1d887#path:typescript:
-    resolution: {gitHosted: true, integrity: sha512-Ekd/JPWc1V6CWNwiNb4zf6yoJE39HsuG9PI4J2F3TH3bz9JuzLOWkLwoF/X2h+k5l5NkWHB/09fpmWcUgq+Uew==, path: typescript, tarball: https://codeload.github.com/deadlock-api/openapi-clients/tar.gz/05597be07b266b0977368506cf357c34ecb1d887}
+  deadlock_api_client@https://codeload.github.com/deadlock-api/openapi-clients/tar.gz/1c2e3607d8b162fb9b01734a2a9721e41afde2c3#path:typescript:
+    resolution: {gitHosted: true, integrity: sha512-lcbRHb5fIpkj4BtkeG/59gjlEEFsfBJEp6JKtMwYipDkoW462hlcg6dW/KcrKvelldH0v+lknMyCj//DO4urJA==, path: typescript, tarball: https://codeload.github.com/deadlock-api/openapi-clients/tar.gz/1c2e3607d8b162fb9b01734a2a9721e41afde2c3}
     version: 0.1.0
 
   debug@4.4.3:
@@ -5798,7 +5798,7 @@ snapshots:
 
   csstype@3.2.3: {}
 
-  deadlock_api_client@https://codeload.github.com/deadlock-api/openapi-clients/tar.gz/05597be07b266b0977368506cf357c34ecb1d887#path:typescript(debug@4.4.3(supports-color@10.2.2))(supports-color@10.2.2):
+  deadlock_api_client@https://codeload.github.com/deadlock-api/openapi-clients/tar.gz/1c2e3607d8b162fb9b01734a2a9721e41afde2c3#path:typescript(debug@4.4.3(supports-color@10.2.2))(supports-color@10.2.2):
     dependencies:
       axios: 1.20.0(debug@4.4.3(supports-color@10.2.2))(supports-color@10.2.2)
     transitivePeerDependencies:
