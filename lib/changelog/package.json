@@ -13,7 +13,7 @@
 		"@deadlog/utils": "workspace:*"
 	},
 	"devDependencies": {
-		"@types/node": "26.2.0",
-		"zod": "4.6.2"
+		"@types/node": "26.5.1",
+		"zod": "4.6.5"
 	}
 }
