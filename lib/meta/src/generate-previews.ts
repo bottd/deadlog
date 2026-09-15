@@ -6,45 +6,32 @@ import {
 	type EnrichedHero,
 	type EnrichedItem
 } from '@deadlog/db';
-import { formatDate, heroImage } from '@deadlog/utils';
+import { formatDateShort, heroImage, patchHeading } from '@deadlog/utils';
 import { getLibsqlDb as getDb } from '@deadlog/db';
 import { fromJsx } from '@takumi-rs/helpers/jsx';
-import { mkdir, readFile, writeFile } from 'fs/promises';
-import { extname, join, resolve } from 'path';
+import { mkdir, writeFile } from 'fs/promises';
+import { join, resolve } from 'path';
 import { fileURLToPath } from 'url';
 import React from 'react';
 
-import { renderer, fetchImageAsDataUri } from './renderer';
-import { Theme } from './theme';
+import { renderer, fetchImageAsDataUri, fontsReady } from './renderer';
+import { Theme, heroTone, itemTone } from './theme';
+import { countLabel, displayName, isRenderableSlug } from './text';
+import type { RowIcon } from './components/Entities';
 import { ChangelogLayout } from './layouts/ChangelogLayout';
 import { HomeLayout } from './layouts/HomeLayout';
 import { HeroLayout } from './layouts/HeroLayout';
 import { ItemLayout } from './layouts/ItemLayout';
 
 const OUTPUT_DIR = 'app/static/assets/meta';
-// Anchored to this file, not to cwd: every changelog now carries a root-relative
-// author_image, so a cwd-relative lookup would fail every preview when build:meta runs
-// from anywhere but the repo root.
-const STATIC_DIR = resolve(import.meta.dirname, '../../../app/static');
 
-const MIME_TYPES: Record<string, string> = {
-	'.png': 'image/png',
-	'.jpg': 'image/jpeg',
-	'.jpeg': 'image/jpeg',
-	'.webp': 'image/webp'
-};
+const ROW_ICONS = 8;
 
-/** Author avatars are root-relative site paths, not URLs, so they come off disk. */
-async function readStaticAsDataUri(path: string): Promise<string> {
-	const base64 = await readFile(join(STATIC_DIR, path), 'base64');
-	const mime = MIME_TYPES[extname(path).toLowerCase()] ?? 'image/png';
-	return `data:${mime};base64,${base64}`;
-}
+const CONCURRENCY = 8;
 
 export async function convertImageUrl(url?: string | null): Promise<string> {
 	if (!url) return '';
 	if (url.startsWith('data:')) return url;
-	if (url.startsWith('/')) return await readStaticAsDataUri(url);
 	const dataUri = await fetchImageAsDataUri(url);
 	if (!dataUri) throw new Error(`Failed to fetch image: ${url}`);
 	return dataUri;
@@ -53,15 +40,16 @@ export async function convertImageUrl(url?: string | null): Promise<string> {
 type ImageConverter = typeof convertImageUrl;
 type ChangelogIcons = Awaited<ReturnType<typeof getChangelogIcons>>[string];
 
-export async function renderToFile(element: React.ReactElement, outputPath: string) {
+async function renderToFile(element: React.ReactElement, outputPath: string) {
 	try {
-		const { node, stylesheets } = await fromJsx(element);
+		await fontsReady;
+		const { node, css } = await fromJsx(element);
 		const { width, height } = Theme.size;
 		const imageBuffer = await renderer.render(node, {
 			width,
 			height,
 			format: 'png',
-			stylesheets
+			css
 		});
 
 		await mkdir(join(outputPath, '..'), { recursive: true });
@@ -72,48 +60,159 @@ export async function renderToFile(element: React.ReactElement, outputPath: stri
 	}
 }
 
-async function generateChangelogOG(
-	changeId: string,
-	data: { title: string; author: string; authorIcon: string; itemIcons: string[] },
-	convert: ImageConverter,
-	outputDir = OUTPUT_DIR
-) {
-	const [authorIcon, itemIcons] = await Promise.all([
-		convert(data.authorIcon),
-		Promise.all(data.itemIcons.map(convert))
-	]);
-
-	const element = React.createElement(ChangelogLayout, {
-		...data,
-		authorIcon,
-		itemIcons
-	});
-	await renderToFile(element, join(outputDir, 'change', `${changeId}.png`));
+interface EntityStats {
+	changeCount: number;
+	patchCount: number;
+	uncountedPatchCount: number;
+	latestDate?: string;
+	latestPatch?: string;
+	latestNamed?: boolean;
+	latestMention?: boolean;
 }
 
-async function generateHomeOG(
-	latestChangelog: {
-		id: string;
+const NO_CHANGES: Readonly<EntityStats> = Object.freeze({
+	changeCount: 0,
+	patchCount: 0,
+	uncountedPatchCount: 0
+});
+
+function changeLabel(stats: Readonly<EntityStats>): string {
+	if (stats.uncountedPatchCount === 0) return countLabel(stats.changeCount, 'CHANGE');
+	if (stats.uncountedPatchCount === stats.patchCount) return '';
+	return `${stats.changeCount}+ CHANGES`;
+}
+
+function historyLine(stats: Readonly<EntityStats>): string {
+	if (stats.patchCount === 0 || !stats.latestDate) return 'No changes recorded yet.';
+	const action = stats.latestMention ? 'mentioned' : 'changed';
+	if (!stats.latestNamed) {
+		return `Last ${action} in the ${stats.latestPatch} patch.`;
+	}
+	return `Last ${action} ${formatDateShort(stats.latestDate)} in ${stats.latestPatch}.`;
+}
+
+function fold(
+	entities: readonly { slug: string; changeCount?: number | null }[],
+	into: Map<string, EntityStats>,
+	changelog: { title: string; pubDate: string }
+) {
+	for (const entity of entities) {
+		const stats = into.get(entity.slug) ?? { ...NO_CHANGES };
+		// A mention without its own change section has an unknown count, not zero.
+		if (entity.changeCount == null) stats.uncountedPatchCount += 1;
+		else stats.changeCount += entity.changeCount;
+		stats.patchCount += 1;
+		if (!stats.latestDate || changelog.pubDate > stats.latestDate) {
+			const { named, heading } = patchHeading({ ...changelog, date: changelog.pubDate });
+			stats.latestDate = changelog.pubDate;
+			stats.latestPatch = heading;
+			stats.latestNamed = named;
+			stats.latestMention = entity.changeCount == null;
+		}
+		into.set(entity.slug, stats);
+	}
+}
+
+function collectEntityStats(
+	changelogs: { id: string; title: string; pubDate: string }[],
+	iconsByPatch: Record<string, ChangelogIcons>
+) {
+	const heroes = new Map<string, EntityStats>();
+	const items = new Map<string, EntityStats>();
+
+	for (const changelog of changelogs) {
+		const icons = iconsByPatch[changelog.id];
+		if (!icons) continue;
+
+		fold(icons.heroes, heroes, changelog);
+		fold(icons.items, items, changelog);
+	}
+
+	return { heroes, items };
+}
+
+function heroRowIcons(icons: ChangelogIcons['heroes']): RowIcon[] {
+	return icons.slice(0, ROW_ICONS).map((icon) => ({
+		src: icon.src,
+		tone: heroTone(icon.heroType)
+	}));
+}
+
+function itemRowIcons(icons: ChangelogIcons['items']): RowIcon[] {
+	return icons.slice(0, ROW_ICONS).map((icon) => ({
+		src: icon.src,
+		tone: itemTone(icon.itemCategory)
+	}));
+}
+
+async function convertRowIcons(icons: RowIcon[], convert: ImageConverter) {
+	const resolved = await Promise.all(
+		icons.map(async (icon) => ({ ...icon, src: await convert(icon.src) }))
+	);
+	return resolved.filter((icon) => icon.src);
+}
+
+async function resolveRows(icons: ChangelogIcons, convert: ImageConverter) {
+	return Promise.all([
+		convertRowIcons(heroRowIcons(icons.heroes), convert),
+		convertRowIcons(itemRowIcons(icons.items), convert)
+	]);
+}
+
+async function generateChangelogOG(
+	changeId: string,
+	changelog: {
+		title: string;
 		pubDate: string;
 		author: string;
-		authorImage?: string | null;
+		majorUpdate: boolean;
+		contentText?: string | null;
+		previewImage?: string | null;
 	},
 	icons: ChangelogIcons,
 	convert: ImageConverter,
 	outputDir = OUTPUT_DIR
 ) {
-	const [authorImage, heroIcons, itemIcons] = await Promise.all([
-		convert(latestChangelog.authorImage),
-		Promise.all(icons.heroes.slice(0, 8).map((hero) => convert(hero.src))),
-		Promise.all(icons.items.slice(0, 8).map((item) => convert(item.src)))
+	const [[heroIcons, itemIcons], art] = await Promise.all([
+		resolveRows(icons, convert),
+		convertImageUrl(changelog.previewImage).catch(() => '')
 	]);
 
-	const element = React.createElement(HomeLayout, {
-		lastUpdated: formatDate(latestChangelog.pubDate),
-		author: latestChangelog.author,
-		authorImage,
+	const { named, heading } = patchHeading({ ...changelog, date: changelog.pubDate });
+
+	const element = React.createElement(ChangelogLayout, {
+		heading,
+		date: named ? formatDateShort(changelog.pubDate) : '',
+		author: changelog.author,
+		majorUpdate: changelog.majorUpdate,
+		heroCount: icons.heroes.length,
+		itemCount: icons.items.length,
 		heroIcons,
-		itemIcons
+		itemIcons,
+		summary: changelog.contentText,
+		art
+	});
+	await renderToFile(element, join(outputDir, 'change', `${changeId}.png`));
+}
+
+async function generateHomeOG(
+	latest: { pubDate: string },
+	totals: { patches: number; heroes: number; items: number },
+	icons: ChangelogIcons,
+	convert: ImageConverter,
+	outputDir = OUTPUT_DIR
+) {
+	const [heroIcons, itemIcons] = await resolveRows(icons, convert);
+
+	const element = React.createElement(HomeLayout, {
+		lastUpdated: formatDateShort(latest.pubDate).toUpperCase(),
+		patchCount: totals.patches,
+		heroCount: totals.heroes,
+		itemCount: totals.items,
+		heroIcons,
+		itemIcons,
+		latestHeroCount: icons.heroes.length,
+		latestItemCount: icons.items.length
 	});
 
 	await renderToFile(element, join(outputDir, 'index.png'));
@@ -121,6 +220,7 @@ async function generateHomeOG(
 
 async function generateHeroOG(
 	hero: EnrichedHero,
+	stats: EntityStats,
 	convert: ImageConverter,
 	outputDir = OUTPUT_DIR
 ) {
@@ -129,12 +229,13 @@ async function generateHeroOG(
 		throw new Error(`Hero ${hero.name} has no images`);
 	}
 
-	const imageUri = await convert(image);
-
 	const element = React.createElement(HeroLayout, {
-		name: hero.name,
+		name: displayName(hero.name),
 		heroType: hero.heroType,
-		image: imageUri
+		image: await convert(image),
+		changes: changeLabel(stats),
+		patchCount: stats.patchCount,
+		history: historyLine(stats)
 	});
 
 	await renderToFile(element, join(outputDir, 'hero', `${hero.slug}.png`));
@@ -142,6 +243,7 @@ async function generateHeroOG(
 
 async function generateItemOG(
 	item: EnrichedItem,
+	stats: EntityStats,
 	convert: ImageConverter,
 	outputDir = OUTPUT_DIR
 ) {
@@ -150,25 +252,43 @@ async function generateItemOG(
 		throw new Error(`Item ${item.name} has no images`);
 	}
 
-	const imageUri = await convert(image);
-
 	const element = React.createElement(ItemLayout, {
-		name: item.name,
+		name: displayName(item.name),
 		type: item.type,
-		image: imageUri
+		category: item.category,
+		tier: item.tier,
+		image: await convert(image),
+		changes: changeLabel(stats),
+		patchCount: stats.patchCount,
+		history: historyLine(stats)
 	});
 
 	await renderToFile(element, join(outputDir, 'item', `${item.slug}.png`));
 }
 
 export interface GeneratePreviewsOptions {
-	args?: string[];
 	outputDir?: string;
 }
 
 export interface GeneratePreviewsResult {
 	totalCount: number;
 	failures: string[];
+}
+
+async function pooled<T>(items: readonly T[], task: (item: T) => Promise<boolean>) {
+	const done: boolean[] = new Array(items.length);
+	let next = 0;
+
+	async function worker() {
+		while (true) {
+			const index = next++;
+			if (index >= items.length) return;
+			done[index] = await task(items[index]);
+		}
+	}
+
+	await Promise.all(Array.from({ length: Math.min(CONCURRENCY, items.length) }, worker));
+	return done.filter(Boolean).length;
 }
 
 async function generateOne(
@@ -186,28 +306,22 @@ async function generateOne(
 	}
 }
 
-export async function generatePreviews(
+async function generatePreviews(
 	options: GeneratePreviewsOptions = {}
 ): Promise<GeneratePreviewsResult> {
-	const args = options.args ?? process.argv.slice(2);
 	const outputDir = options.outputDir ?? OUTPUT_DIR;
-	const changelogOnly = args.includes('--changelog-only');
-	const heroesOnly = args.includes('--heroes-only');
-	const itemsOnly = args.includes('--items-only');
-	const includeChangelogs = !heroesOnly && !itemsOnly;
-	const includeHeroes = !changelogOnly && !itemsOnly;
-	const includeItems = !changelogOnly && !heroesOnly;
 
 	const db = getDb();
 	const [allChangelogs, heroes, items] = await Promise.all([
-		includeChangelogs ? getAllChangelogs(db) : Promise.resolve([]),
-		includeHeroes ? getAllHeroes(db) : Promise.resolve([]),
-		includeItems ? getAllItems(db) : Promise.resolve([])
+		getAllChangelogs(db),
+		getAllHeroes(db),
+		getAllItems(db)
 	]);
 	const iconsByPatch = await getChangelogIcons(
 		db,
 		allChangelogs.map((patch) => patch.id)
 	);
+	const stats = collectEntityStats(allChangelogs, iconsByPatch);
 	const imageCache = new Map<string, Promise<string>>();
 	const convert: ImageConverter = (url) => {
 		if (!url) return Promise.resolve('');
@@ -227,94 +341,80 @@ export async function generatePreviews(
 	let totalCount = 0;
 	const failures: string[] = [];
 
-	if (includeChangelogs) {
-		if (allChangelogs.length > 0) {
-			const latest = allChangelogs.reduce((mostRecent, current) => {
-				return current.pubDate > mostRecent.pubDate ? current : mostRecent;
-			}, allChangelogs[0]);
+	const releasedHeroes = heroes.filter((hero) => hero.isReleased);
+	const releasedItems = items.filter((item) => item.isReleased);
 
-			if (
-				await generateOne('home preview', failures, () =>
-					generateHomeOG(
-						{
-							id: latest.id,
-							pubDate: latest.pubDate,
-							author: latest.author,
-							authorImage: latest.authorImage
-						},
-						iconsByPatch[latest.id] ?? { heroes: [], items: [] },
-						convert,
-						outputDir
-					)
+	if (allChangelogs.length > 0) {
+		const latest = allChangelogs.reduce((mostRecent, current) => {
+			return current.pubDate > mostRecent.pubDate ? current : mostRecent;
+		}, allChangelogs[0]);
+
+		if (
+			await generateOne('home preview', failures, () =>
+				generateHomeOG(
+					latest,
+					{
+						patches: allChangelogs.length,
+						heroes: releasedHeroes.length,
+						items: releasedItems.length
+					},
+					iconsByPatch[latest.id] ?? { heroes: [], items: [] },
+					convert,
+					outputDir
 				)
-			) {
-				totalCount++;
-			}
+			)
+		) {
+			totalCount++;
 		}
-
-		let changelogCount = 0;
-		for (const changelog of allChangelogs) {
-			if (
-				await generateOne(`changelog preview ${changelog.id}`, failures, async () => {
-					const icons = iconsByPatch[changelog.id] ?? { heroes: [], items: [] };
-
-					await generateChangelogOG(
-						changelog.id,
-						{
-							title: changelog.title,
-							author: changelog.author,
-							authorIcon: changelog.authorImage,
-							itemIcons: icons.items.slice(0, 6).map((i) => i.src)
-						},
-						convert,
-						outputDir
-					);
-				})
-			) {
-				changelogCount++;
-				totalCount++;
-			}
-		}
-
-		console.log(`Generated ${changelogCount} changelog images`);
 	}
 
-	if (includeHeroes) {
-		let heroCount = 0;
-
-		for (const hero of heroes.filter((h) => h.isReleased)) {
-			if (
-				await generateOne(`hero preview ${hero.name}`, failures, () =>
-					generateHeroOG(hero, convert, outputDir)
-				)
-			) {
-				heroCount++;
-				totalCount++;
-			}
+	const changelogCount = await pooled(allChangelogs, (changelog) => {
+		if (!isRenderableSlug(changelog.id)) {
+			failures.push(`changelog preview ${changelog.id} (unroutable id)`);
+			return Promise.resolve(false);
 		}
+		return generateOne(`changelog preview ${changelog.id}`, failures, () =>
+			generateChangelogOG(
+				changelog.id,
+				changelog,
+				iconsByPatch[changelog.id] ?? { heroes: [], items: [] },
+				convert,
+				outputDir
+			)
+		);
+	});
+	totalCount += changelogCount;
 
-		console.log(`Generated ${heroCount} hero images`);
-	}
+	console.log(`Generated ${changelogCount} changelog images`);
 
-	if (includeItems) {
-		let itemCount = 0;
-
-		for (const item of items.filter((item) => item.isReleased)) {
-			if (
-				await generateOne(`item preview ${item.name}`, failures, () =>
-					generateItemOG(item, convert, outputDir)
-				)
-			) {
-				itemCount++;
-				totalCount++;
-			}
+	const heroCount = await pooled(releasedHeroes, (hero) => {
+		if (!isRenderableSlug(hero.slug)) {
+			failures.push(`hero preview ${hero.name} (unroutable slug "${hero.slug}")`);
+			return Promise.resolve(false);
 		}
+		return generateOne(`hero preview ${hero.name}`, failures, () =>
+			generateHeroOG(hero, stats.heroes.get(hero.slug) ?? NO_CHANGES, convert, outputDir)
+		);
+	});
+	totalCount += heroCount;
 
-		console.log(`Generated ${itemCount} item images`);
-	}
+	console.log(`Generated ${heroCount} hero images`);
+
+	const itemCount = await pooled(releasedItems, (item) => {
+		if (!isRenderableSlug(item.slug)) {
+			failures.push(`item preview ${item.name} (unroutable slug "${item.slug}")`);
+			return Promise.resolve(false);
+		}
+		return generateOne(`item preview ${item.name}`, failures, () =>
+			generateItemOG(item, stats.items.get(item.slug) ?? NO_CHANGES, convert, outputDir)
+		);
+	});
+	totalCount += itemCount;
+
+	console.log(`Generated ${itemCount} item images`);
 
 	console.log(`✅ Total: ${totalCount} images generated`);
-	return { totalCount, failures };
+	return { totalCount, failures: failures.sort() };
 }
 
 export async function runPreviewGenerator(

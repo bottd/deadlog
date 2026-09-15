@@ -10,7 +10,7 @@
 	import Button from '$lib/components/ui/button/button.svelte';
 	import { formatDate, formatTime } from '@deadlog/utils';
 	import { hasEntity } from '$lib/components/filter-bar/filterState.svelte';
-	import { patchHeading } from '$lib/components/changelog/patchCard';
+	import { patchHeading } from '@deadlog/utils';
 	import { tocLinkCount } from '$lib/components/changelog/toc';
 	import CornerAccents from '$lib/components/ui/corner-accents/CornerAccents.svelte';
 	import ArrowLeft from '@lucide/svelte/icons/arrow-left';

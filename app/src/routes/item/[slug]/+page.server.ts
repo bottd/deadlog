@@ -1,7 +1,7 @@
 import { getReleasedItemSlugs, getItemBySlug, getChangelogsByItemId } from '@deadlog/db';
 import { error, redirect } from '@sveltejs/kit';
 import type { PageServerLoad, EntryGenerator } from './$types';
-import { absoluteUrl } from '$lib/seo';
+import { DEFAULT_SOCIAL_IMAGE, absoluteUrl } from '$lib/seo';
 
 export const prerender = 'auto';
 
@@ -32,6 +32,8 @@ export const load: PageServerLoad = async ({ params, locals, url }) => {
 		changelogs: enrichedChangelogs,
 		title: `${item.name} Deadlock Changes: Buffs & Nerfs | Deadlog`,
 		description: `Track every ${item.name} buff, nerf, and balance change across Deadlock patch notes in chronological order.`,
-		image: absoluteUrl(`/assets/meta/item/${params.slug}.png`)
+		image: item.isReleased
+			? absoluteUrl(`/assets/meta/item/${params.slug}.png`)
+			: DEFAULT_SOCIAL_IMAGE
 	};
 };

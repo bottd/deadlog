@@ -1,77 +1,50 @@
 import React from 'react';
-import { LayoutContainer } from '../components/LayoutContainer';
-import { Header } from '../components/Header';
-import { Theme } from '../theme';
+import { EntityCard } from '../components/EntityCard';
+import { countLabel } from '../text';
+import { Theme, itemTone } from '../theme';
 
-interface ItemLayoutProps {
+const { colors } = Theme;
+
+const ICON = { width: 264, height: 264 };
+
+export interface ItemLayoutProps {
 	name: string;
 	type: string;
+	category?: string | null;
+	tier?: number | null;
 	image: string;
+	/** Formatted count, or empty when every patch is mention-only. */
+	changes: string;
+	patchCount: number;
+	history: string;
 }
 
-export function ItemLayout({ name, type, image }: ItemLayoutProps) {
+export function ItemLayout({
+	name,
+	type,
+	category,
+	tier,
+	image,
+	changes,
+	patchCount,
+	history
+}: ItemLayoutProps) {
 	return (
-		<LayoutContainer>
-			<Header />
-			<div
-				style={{
-					display: 'flex',
-					gap: '48px',
-					flex: 1,
-					alignItems: 'flex-start',
-					paddingTop: '40px'
-				}}
-			>
-				<div
-					style={{
-						display: 'flex',
-						alignItems: 'center',
-						justifyContent: 'center'
-					}}
-				>
-					<img
-						src={image}
-						style={{
-							width: '240px',
-							height: '240px',
-							borderRadius: '24px',
-							border: `8px solid ${Theme.colors.primary}`,
-							objectFit: 'contain',
-							backgroundColor: Theme.colors.bgLight,
-							padding: '24px'
-						}}
-					/>
-				</div>
-				<div
-					style={{
-						display: 'flex',
-						flexDirection: 'column',
-						flex: 1,
-						gap: '24px'
-					}}
-				>
-					<div
-						style={{
-							fontSize: name.length > 20 ? Theme.font['3xl'] : Theme.font['4xl'],
-							fontWeight: 'bold',
-							color: Theme.colors.textPrimary,
-							lineHeight: 1.1
-						}}
-					>
-						{name}
-					</div>
-					<div
-						style={{
-							fontSize: Theme.font.md,
-							color: Theme.colors.textSecondary,
-							textTransform: 'uppercase',
-							letterSpacing: '0.05em'
-						}}
-					>
-						{type}
-					</div>
-				</div>
-			</div>
-		</LayoutContainer>
+		<EntityCard
+			name={name}
+			image={image}
+			thumb={ICON}
+			fit="contain"
+			history={history}
+			segments={[
+				{ text: (category ?? type).toUpperCase(), color: itemTone(category) },
+				{ text: tier ? `TIER ${tier}` : '' },
+				{
+					text: changes,
+					color: colors.amber
+				},
+				{ text: countLabel(patchCount, 'PATCH', 'PATCHES') }
+			]}
+		/>
 	);
 }

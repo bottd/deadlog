@@ -1,4 +1,4 @@
-import { entityFragmentId, formatDate, plural } from '@deadlog/utils';
+import { entityFragmentId, patchHeading, plural } from '@deadlog/utils';
 import { searchParams } from '$lib/stores/searchParams.svelte';
 import { hasEntity } from '$lib/components/filter-bar/filterState.svelte';
 import { MAX_ENTITY_FILTERS } from '$lib/queries/keys';
@@ -8,17 +8,6 @@ import { authorInitials } from '$lib/author';
 import { ENTITY_TONE } from '$lib/entityTone';
 
 export type PatchCardProps = PatchSummary;
-
-/**
- * Most patches are titled by their date, which would read as a duplicate next to the
- * date line — those show a formatted date as the heading instead. Cards and the patch
- * page share this so a patch is headed the same way wherever it appears.
- */
-export function patchHeading(patch: { title: string; date: Date | string }) {
-	const date = formatDate(patch.date);
-	const named = !/\d{2}-\d{2}-\d{4}/.test(patch.title);
-	return { named, date, heading: named ? patch.title : date };
-}
 
 const NO_MATCHES: PatchCardMatches = {
 	searching: false,

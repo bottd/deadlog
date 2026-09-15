@@ -283,3 +283,9 @@ const timeFormatter = new Intl.DateTimeFormat('en-US', {
 export function formatTime(date: Date | string): string {
 	return timeFormatter.format(toDate(date));
 }
+
+export function patchHeading(patch: { title: string; date: Date | string }) {
+	const date = formatDate(patch.date);
+	const named = !/\d{2}-\d{2}-\d{4}/.test(patch.title);
+	return { named, date, heading: named ? patch.title : date };
+}

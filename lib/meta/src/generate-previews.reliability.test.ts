@@ -2,8 +2,11 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { mkdtemp, readFile, rm } from 'fs/promises';
 import { tmpdir } from 'os';
 import { join } from 'path';
+import type { ReactElement } from 'react';
 
 import type { EnrichedHero } from '@deadlog/db';
+import { HeroLayout } from './layouts/HeroLayout';
+import { ItemLayout } from './layouts/ItemLayout';
 
 const mocks = vi.hoisted(() => ({
 	getAllChangelogs: vi.fn(),
@@ -30,7 +33,9 @@ vi.mock('@takumi-rs/helpers/jsx', () => ({
 
 vi.mock('./renderer', () => ({
 	renderer: { render: mocks.render },
-	fetchImageAsDataUri: mocks.fetchImageAsDataUri
+	fetchImageAsDataUri: mocks.fetchImageAsDataUri,
+	// Vitest throws on exports the factory omits.
+	fontsReady: Promise.resolve()
 }));
 
 import {
@@ -56,7 +61,7 @@ describe('preview generation reliability', () => {
 		mocks.getChangelogIcons.mockResolvedValue({});
 		mocks.fromJsx.mockResolvedValue({
 			node: { type: 'container', children: [] },
-			stylesheets: ['body { margin: 0; }']
+			css: ['body { margin: 0; }']
 		});
 		mocks.render.mockResolvedValue(Buffer.from('rendered image'));
 		mocks.fetchImageAsDataUri.mockResolvedValue('data:image/png;base64,AA==');
@@ -104,22 +109,21 @@ describe('preview generation reliability', () => {
 		);
 
 		const result = (await runPreviewGenerator({
-			args: ['--heroes-only'],
 			outputDir
 		})) as GeneratePreviewsResult;
 
 		expect(result.totalCount).toBe(1);
 		expect(result.failures).toEqual(['hero preview Broken Hero']);
 		expect(process.exitCode).toBe(1);
-		expect(mocks.getAllChangelogs).not.toHaveBeenCalled();
-		expect(mocks.getAllItems).not.toHaveBeenCalled();
+		expect(mocks.getAllChangelogs).toHaveBeenCalledTimes(1);
+		expect(mocks.getAllItems).toHaveBeenCalledTimes(1);
 		expect(mocks.render).toHaveBeenCalledWith(
 			{ type: 'container', children: [] },
 			{
 				width: 1200,
 				height: 630,
 				format: 'png',
-				stylesheets: ['body { margin: 0; }']
+				css: ['body { margin: 0; }']
 			}
 		);
 		await expect(
@@ -146,16 +150,153 @@ describe('preview generation reliability', () => {
 		]);
 
 		const result = (await runPreviewGenerator({
-			args: ['--changelog-only'],
 			outputDir
 		})) as GeneratePreviewsResult;
 
 		expect(result).toEqual({ totalCount: 2, failures: [] });
 		expect(mocks.fromJsx).toHaveBeenCalledWith(
 			expect.objectContaining({
-				props: expect.objectContaining({ title: 'Six New Heroes' })
+				props: expect.objectContaining({ heading: 'Six New Heroes' })
 			})
 		);
+	});
+
+	it.each<{
+		name: string;
+		counts: (number | null)[];
+		named?: boolean;
+		changes: string;
+		history: string;
+	}>([
+		{
+			name: 'fully counted history',
+			counts: [1, 1],
+			changes: '2 CHANGES',
+			history: 'Last changed in the September 15th, 2026 patch.'
+		},
+		{
+			name: 'newest patch only mentions the entity',
+			counts: [2, null],
+			changes: '2+ CHANGES',
+			history: 'Last mentioned in the September 15th, 2026 patch.'
+		},
+		{
+			name: 'older mention and a newer counted change',
+			counts: [null, 1],
+			named: true,
+			changes: '1+ CHANGES',
+			history: 'Last changed Sep 15, 2026 in Matchmaking Update.'
+		},
+		{
+			name: 'mention-only history',
+			counts: [null, null],
+			named: true,
+			changes: '',
+			history: 'Last mentioned Sep 15, 2026 in Matchmaking Update.'
+		},
+		{
+			name: 'one known change',
+			counts: [1],
+			changes: '1 CHANGE',
+			history: 'Last changed in the September 1st, 2026 patch.'
+		},
+		{
+			name: 'known zero is not an unknown count',
+			counts: [0],
+			changes: '0 CHANGES',
+			history: 'Last changed in the September 1st, 2026 patch.'
+		},
+		{
+			name: 'known zero and an unknown count',
+			counts: [0, null],
+			changes: '0+ CHANGES',
+			history: 'Last mentioned in the September 15th, 2026 patch.'
+		},
+		{
+			name: 'no recorded history',
+			counts: [],
+			changes: '0 CHANGES',
+			history: 'No changes recorded yet.'
+		}
+	])('renders honest hero and item labels for $name', async (scenario) => {
+		const image = 'https://images.example/entity.png';
+		mocks.getAllHeroes.mockResolvedValue([
+			{
+				id: 1,
+				name: 'Abrams',
+				slug: 'abrams',
+				className: 'hero_abrams',
+				heroType: 'brawler',
+				images: { card: image },
+				isReleased: true
+			}
+		]);
+		mocks.getAllItems.mockResolvedValue([
+			{
+				id: 1,
+				name: 'Headshot Booster',
+				slug: 'headshot-booster',
+				className: 'upgrade_headshot_booster',
+				type: 'upgrade',
+				category: 'weapon',
+				tier: 1,
+				image,
+				isReleased: true
+			}
+		]);
+		const patches = scenario.counts.map((_, index) => ({
+			id: `patch-${index}`,
+			title: scenario.named
+				? 'Matchmaking Update'
+				: `09-${index === 0 ? '01' : '15'}-2026`,
+			pubDate: `2026-09-${index === 0 ? '01' : '15'}T20:00:00.000Z`,
+			author: 'Yoshi'
+		}));
+		// The newest entry must keep its mention status when an older patch is folded later.
+		mocks.getAllChangelogs.mockResolvedValue([...patches].reverse());
+		mocks.getChangelogIcons.mockResolvedValue(
+			Object.fromEntries(
+				patches.map((patch, index) => [
+					patch.id,
+					{
+						heroes: [{ slug: 'abrams', src: image, changeCount: scenario.counts[index] }],
+						items: [
+							{
+								slug: 'headshot-booster',
+								src: image,
+								changeCount: scenario.counts[index]
+							}
+						]
+					}
+				])
+			)
+		);
+
+		const result = await runPreviewGenerator({ outputDir });
+		expect(result).toEqual({
+			totalCount: patches.length + (patches.length > 0 ? 1 : 0) + 2,
+			failures: []
+		});
+
+		// Exercise the real layouts as well as aggregation: an empty count must actually
+		// disappear from the annotation row, and a partial count must retain its plus.
+		const { fromJsx } = await vi.importActual<typeof import('@takumi-rs/helpers/jsx')>(
+			'@takumi-rs/helpers/jsx'
+		);
+		for (const layout of [HeroLayout, ItemLayout]) {
+			const element = mocks.fromJsx.mock.calls
+				.map(([element]) => element as ReactElement)
+				.find((element) => element.type === layout);
+			if (!element) throw new Error(`Missing ${layout.name} preview`);
+			const { node } = await fromJsx(element);
+			const rendered = JSON.stringify(node);
+			expect(rendered).toContain(scenario.history);
+			expect(rendered).toContain(
+				`${patches.length} ${patches.length === 1 ? 'PATCH' : 'PATCHES'}`
+			);
+			if (scenario.changes) expect(rendered).toContain(scenario.changes);
+			else expect(rendered).not.toContain(' CHANGES');
+		}
 	});
 
 	it('batches icon reads and fetches shared artwork once per generation run', async () => {
@@ -176,11 +317,11 @@ describe('preview generation reliability', () => {
 			]
 		};
 		mocks.getChangelogIcons.mockResolvedValue({ first: icons, second: icons });
-		await runPreviewGenerator({ args: ['--changelog-only'], outputDir });
+		await runPreviewGenerator({ outputDir });
 		expect(mocks.getChangelogIcons).toHaveBeenCalledTimes(1);
 		expect(mocks.getChangelogIcons).toHaveBeenCalledWith({}, ['first', 'second']);
 		expect(mocks.fetchImageAsDataUri).toHaveBeenCalledTimes(1);
-		await runPreviewGenerator({ args: ['--changelog-only'], outputDir });
+		await runPreviewGenerator({ outputDir });
 		expect(mocks.fetchImageAsDataUri).toHaveBeenCalledTimes(2);
 	});
 
@@ -192,15 +333,21 @@ describe('preview generation reliability', () => {
 				title: id,
 				pubDate: '2026-09-01T20:00:00.000Z',
 				author: 'Yoshi',
-				authorImage: image
+				authorImage: ''
 			}))
 		);
+		const icons = {
+			heroes: [],
+			items: [
+				{ id: 1, src: image, alt: 'Item', slug: 'item', type: 'item', changeCount: 1 }
+			]
+		};
+		mocks.getChangelogIcons.mockResolvedValue({ first: icons, second: icons });
 		mocks.fetchImageAsDataUri
 			.mockResolvedValueOnce('')
 			.mockResolvedValue('data:image/png;base64,AA==');
 
 		const result = (await runPreviewGenerator({
-			args: ['--changelog-only'],
 			outputDir
 		})) as GeneratePreviewsResult;
 

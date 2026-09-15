@@ -13,10 +13,10 @@
 		"@deadlog/changelog": "workspace:*",
 		"@deadlog/db": "workspace:*",
 		"@deadlog/utils": "workspace:*",
-		"deadlock-api-client": "github:deadlock-api/openapi-clients#path:typescript"
+		"deadlock-api-client": "github:deadlock-api/openapi-clients#4b45412fd49f08410630c1bd5ccccb8e455bcbc4&path:typescript"
 	},
 	"devDependencies": {
-		"@types/node": "26.2.0",
-		"happy-dom": "20.14.3"
+		"@types/node": "26.5.1",
+		"happy-dom": "20.14.5"
 	}
 }

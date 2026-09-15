@@ -1,61 +1,44 @@
 import React from 'react';
-import { LayoutContainer } from '../components/LayoutContainer';
-import { Header } from '../components/Header';
-import { RoundIcon } from '../components/CircularImage';
-import { Theme } from '../theme';
+import { EntityCard } from '../components/EntityCard';
+import { countLabel } from '../text';
+import { Theme, heroTone } from '../theme';
 
-interface HeroLayoutProps {
+const { colors } = Theme;
+
+const PORTRAIT = { width: 264, height: 368 };
+
+export interface HeroLayoutProps {
 	name: string;
 	heroType?: string | null;
 	image: string;
+	/** Formatted count, or empty when every patch is mention-only. */
+	changes: string;
+	patchCount: number;
+	history: string;
 }
 
-export function HeroLayout({ name, heroType, image }: HeroLayoutProps) {
+export function HeroLayout({
+	name,
+	heroType,
+	image,
+	changes,
+	patchCount,
+	history
+}: HeroLayoutProps) {
 	return (
-		<LayoutContainer>
-			<Header />
-			<div
-				style={{
-					display: 'flex',
-					gap: '48px',
-					flex: 1,
-					alignItems: 'flex-start',
-					paddingTop: '40px'
-				}}
-			>
-				<RoundIcon src={image} size="280px" />
-				<div
-					style={{
-						display: 'flex',
-						flexDirection: 'column',
-						flex: 1,
-						gap: '24px'
-					}}
-				>
-					<div
-						style={{
-							fontSize: Theme.font['4xl'],
-							fontWeight: 'bold',
-							color: Theme.colors.textPrimary,
-							lineHeight: 1
-						}}
-					>
-						{name}
-					</div>
-					{heroType && (
-						<div
-							style={{
-								fontSize: Theme.font.md,
-								color: Theme.colors.textSecondary,
-								textTransform: 'uppercase',
-								letterSpacing: '0.05em'
-							}}
-						>
-							{heroType}
-						</div>
-					)}
-				</div>
-			</div>
-		</LayoutContainer>
+		<EntityCard
+			name={name}
+			image={image}
+			thumb={PORTRAIT}
+			history={history}
+			segments={[
+				{ text: heroType ? heroType.toUpperCase() : '', color: heroTone(heroType) },
+				{
+					text: changes,
+					color: colors.amber
+				},
+				{ text: countLabel(patchCount, 'PATCH', 'PATCHES') }
+			]}
+		/>
 	);
 }

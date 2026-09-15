@@ -7,7 +7,7 @@ import {
 import { resolveHeroAbilitySlug } from '@deadlog/utils';
 import { error, redirect } from '@sveltejs/kit';
 import { getHeroCardImage } from '$lib/utils/entityImages';
-import { absoluteUrl } from '$lib/seo';
+import { DEFAULT_SOCIAL_IMAGE, absoluteUrl } from '$lib/seo';
 import type { PageServerLoad, EntryGenerator } from './$types';
 
 export const prerender = 'auto';
@@ -64,6 +64,8 @@ export const load: PageServerLoad = async ({ params, locals, url }) => {
 		abilities,
 		title: `${hero.name} Deadlock Changes: Buffs & Nerfs | Deadlog`,
 		description: `Track every ${hero.name} buff, nerf, and balance change across Deadlock patch notes in chronological order.`,
-		image: absoluteUrl(`/assets/meta/hero/${params.slug}.png`)
+		image: hero.isReleased
+			? absoluteUrl(`/assets/meta/hero/${params.slug}.png`)
+			: DEFAULT_SOCIAL_IMAGE
 	};
 };
