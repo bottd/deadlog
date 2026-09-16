@@ -1,5 +1,7 @@
 ``meta:
 title "Minor Update - 09-16-2026"
+alias "2026/minor-09-16"
+thread_id "162572"
 steam_gid "1844115010490072"
 published "2026-09-16T20:16:43.000Z"
 author "IceFrog"
@@ -11,6 +13,7 @@ content_text "Unstable Rift comeback resist max values now scale over the course
 
 # General Changes
 
+[[!:https://clan.akamai.steamstatic.com/images/45164767/568ff640318c8a81e2b5b4a22bf29e100ee144d9.png]]((store.steampowered))
 - Unstable Rift comeback resist max values now scale over the course of the game. Previously the max values were 35%. Now it is 10% + 1% per minute (around ~20% for the first one), with an upper limit of 40% at 30 minutes.
 - Removed a fixed amount of extra bonus souls you would get for being behind even a very slightly amount in net worth for both hero kill bounties as well as Unstable Rift bounties (this had a larger impact on the early to mid game)
 - Slightly reduced comeback bounties in general (this is in addition to the above change)
