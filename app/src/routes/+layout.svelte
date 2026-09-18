@@ -8,7 +8,6 @@
 	import * as Tooltip from '$lib/components/ui/tooltip';
 	import { QueryClient, QueryClientProvider } from '@tanstack/svelte-query';
 	import { browser } from '$app/environment';
-	import { onMount } from 'svelte';
 
 	const queryClient = new QueryClient({
 		defaultOptions: {
@@ -25,16 +24,20 @@
 	});
 
 	let { children } = $props();
-	let appReady = $state(false);
 
-	onMount(() => {
-		appReady = true;
-	});
+	const markReady = (node: HTMLElement) => {
+		node.dataset.appReady = 'true';
+	};
 </script>
 
 <QueryClientProvider client={queryClient}>
 	<Tooltip.Provider>
-		<div bg="background" class="bg-wire-grid min-h-screen" data-app-ready={appReady}>
+		<div
+			bg="background"
+			class="bg-wire-grid min-h-screen"
+			data-app-ready="false"
+			{@attach markReady}
+		>
 			<a
 				href="#main-content"
 				class="focus:bg-primary focus:text-primary-foreground sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:font-mono focus:text-xs focus:font-bold focus:tracking-wider focus:uppercase"

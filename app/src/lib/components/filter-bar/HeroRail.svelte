@@ -45,9 +45,7 @@
 							title={blocked ? `${hero.name} — filter limit reached` : hero.name}
 							aria-label={blocked ? `${hero.name} — filter limit reached` : hero.name}
 							aria-pressed={selected}
-							class="clip-corner-sm relative size-11 shrink-0 overflow-hidden border transition-colors disabled:cursor-not-allowed disabled:opacity-30 hover:z-10 {selected
-								? 'border-primary ring-primary/45 ring-2'
-								: 'border-border hover:border-primary/55 opacity-70 hover:opacity-100'}"
+							class="clip-corner-sm border-border relative size-11 shrink-0 overflow-hidden border opacity-70 transition-colors disabled:cursor-not-allowed disabled:opacity-30 hover:z-10 idle-hover:(border-primary/55 opacity-100) selected:(border-primary ring-primary/45 opacity-100 ring-2)"
 						>
 							<img
 								src={getHeroCardImage(hero)}

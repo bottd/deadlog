@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { afterNavigate } from '$app/navigation';
 	import SearchIcon from '@lucide/svelte/icons/search';
 	import XIcon from '@lucide/svelte/icons/x';
 	import * as Sheet from '$lib/components/ui/sheet';
@@ -53,8 +52,6 @@
 		});
 	}
 	const selected = $derived([...selectedEntities('hero'), ...selectedEntities('item')]);
-
-	afterNavigate(({ to }) => filterState.syncSearch(to?.url.searchParams.get('q') ?? ''));
 
 	function close() {
 		open = false;
@@ -128,10 +125,7 @@
 					<button
 						type="button"
 						class="ui-focus-ring text-signal flex min-h-11 shrink-0 items-center gap-1 rounded px-2 text-xs"
-						onclick={() => {
-							filterState.syncSearch('');
-							params.update({ q: '' });
-						}}
+						onclick={() => params.update({ q: '' })}
 						aria-label="Remove keyword filter: {params.q}"
 					>
 						Keyword: “{params.q}” <XIcon class="size-3.5" />

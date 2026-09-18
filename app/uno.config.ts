@@ -39,11 +39,30 @@ const semanticColors = [
 	'ring'
 ];
 
+const SELECTED = '[aria-pressed=true],[aria-current=page]';
+const SELECTED_VARIANTS = [
+	['selected:', `:is(${SELECTED})`],
+	['idle-hover:', `:hover:not(${SELECTED})`]
+] as const;
+
 const colors = Object.fromEntries(semanticColors.map((name) => [name, `var(--${name})`]));
 
 export default defineConfig({
 	presets: [presetWind4(), presetAttributify()],
 	transformers: [transformerDirectives(), transformerVariantGroup()],
+
+	variants: [
+		(matcher) => {
+			for (const [prefix, suffix] of SELECTED_VARIANTS) {
+				if (matcher.startsWith(prefix))
+					return {
+						matcher: matcher.slice(prefix.length),
+						selector: (selector) => `${selector}${suffix}`
+					};
+			}
+			return matcher;
+		}
+	],
 
 	theme: {
 		colors: { ...colors, subtle: 'var(--border-subtle)' },

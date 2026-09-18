@@ -17,9 +17,7 @@
 	import CornerAccents from '$lib/components/ui/corner-accents/CornerAccents.svelte';
 	import EntityHistoryToc from './EntityHistoryToc.svelte';
 	import type { Snippet } from 'svelte';
-	import { replaceState } from '$app/navigation';
-	import { page } from '$app/state';
-	import { building } from '$app/environment';
+	import { shallowParams } from '$lib/stores/shallowParams.svelte';
 
 	interface ChangeGroup {
 		ability: string | null;
@@ -75,22 +73,14 @@
 	// An ability page shows one ability already, so its rail navigates between siblings
 	// instead of filtering. That also makes it work without JS, unlike the filter rail.
 	const abilityLinkMode = $derived(entity.type === 'ability');
-	const requestedAbility = $derived(
-		'ability' in page.state
-			? page.state.ability
-			: building
-				? null
-				: page.url.searchParams.get('ability')
-	);
+	const railChip =
+		'ui-focus-ring border-subtle bg-card text-foreground flex min-h-11 items-center gap-2 rounded-md border px-3 py-2 text-left text-sm transition-colors idle-hover:border-signal/60 selected:(border-signal bg-signal/10 text-signal)';
+	const params = shallowParams({ ability: 0 });
 	const selectedAbility = $derived(
-		abilities.find((ability) => ability.slug === requestedAbility) ?? null
+		abilities.find((ability) => ability.slug === params.ability) ?? null
 	);
 	function toggleAbility(slug: string) {
-		const ability = selectedAbility?.slug === slug ? null : slug;
-		const url = new URL(location.href);
-		if (ability) url.searchParams.set('ability', ability);
-		else url.searchParams.delete('ability');
-		replaceState(url, { ...page.state, ability });
+		params.ability = selectedAbility?.slug === slug ? '' : slug;
 	}
 	const visibleChangelogs = $derived.by(() => {
 		if (!selectedAbility) return changelogs;
@@ -289,14 +279,11 @@
 					</p>
 					<div class="flex flex-wrap gap-2">
 						{#each abilities as ability (ability.slug)}
-							{@const isCurrent = ability.slug === currentAbilitySlug}
 							{#if abilityLinkMode}
 								<a
 									href="/ability/{ability.slug}"
-									aria-current={isCurrent ? 'page' : undefined}
-									class="ui-focus-ring flex min-h-11 items-center gap-2 rounded-md border px-3 py-2 text-left text-sm transition-colors {isCurrent
-										? 'border-signal bg-signal/10 text-signal'
-										: 'border-subtle bg-card text-foreground hover:border-signal/60'}"
+									aria-current={ability.slug === currentAbilitySlug ? 'page' : undefined}
+									class={railChip}
 								>
 									{@render railEntry(ability)}
 								</a>
@@ -305,10 +292,7 @@
 									type="button"
 									onclick={() => toggleAbility(ability.slug)}
 									aria-pressed={selectedAbility?.slug === ability.slug}
-									class="ui-focus-ring flex min-h-11 items-center gap-2 rounded-md border px-3 py-2 text-left text-sm transition-colors {selectedAbility?.slug ===
-									ability.slug
-										? 'border-signal bg-signal/10 text-signal'
-										: 'border-subtle bg-card text-foreground hover:border-signal/60'}"
+									class={railChip}
 								>
 									{@render railEntry(ability)}
 								</button>

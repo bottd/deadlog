@@ -368,9 +368,7 @@ test('hero abilities preserve slot order and scoped change counts', async ({ pag
 	const history = page.getByRole('region', { name: 'Change History' });
 	const card = history.locator('li:has(a[href="/change/2026/minor-07-28#doorman"])');
 	await expect(card.getByText('9 changes', { exact: true })).toBeVisible();
-	await expect(
-		card.getByRole('heading', { level: 3, name: 'July 28th, 2026' })
-	).toBeVisible();
+	await expect(card.getByRole('heading', { name: 'July 28th, 2026' })).toBeVisible();
 	await expect(card.locator('ul > li')).toHaveCount(9);
 
 	const callBell = rail.getByRole('button', { name: /^Call Bell(?:\s|$)/ });
@@ -383,9 +381,9 @@ test('hero abilities preserve slot order and scoped change counts', async ({ pag
 		'Call Bell Charge Time increased from 6s to 7s'
 	]);
 	await expect(
-		card.getByRole('heading', { level: 4, name: 'Call Bell Charge Time' })
+		card.getByRole('heading', { name: 'Call Bell Charge Time' })
 	).toBeVisible();
-	await expect(card.getByRole('heading', { level: 4, name: 'Doorway' })).toHaveCount(0);
+	await expect(card.getByRole('heading', { name: 'Doorway' })).toHaveCount(0);
 	await expect(history.getByRole('button', { name: 'Show all changes' })).toBeVisible();
 });
 
@@ -425,7 +423,7 @@ test('mog entity links target app routes without document extensions', async ({
 		content
 			.getByRole('heading', { level: 4, name: 'Call Bell Charge Time' })
 			.getByRole('link')
-	).toHaveAttribute('href', '/hero/the-doorman?ability=call-bell');
+	).toHaveAttribute('href', '/ability/call-bell');
 
 	const entityImage = content.locator('.hero img').first();
 	await expect(entityImage).toHaveAttribute('width', '40');

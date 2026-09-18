@@ -8,9 +8,8 @@
 	import { authorInitials } from '$lib/author';
 	import * as Sheet from '$lib/components/ui/sheet';
 	import Button from '$lib/components/ui/button/button.svelte';
-	import { formatDate, formatTime } from '@deadlog/utils';
+	import { formatDate, formatTime, patchHeading, plural } from '@deadlog/utils';
 	import { hasEntity } from '$lib/components/filter-bar/filterState.svelte';
-	import { patchHeading } from '@deadlog/utils';
 	import { tocLinkCount } from '$lib/components/changelog/toc';
 	import CornerAccents from '$lib/components/ui/corner-accents/CornerAccents.svelte';
 	import ArrowLeft from '@lucide/svelte/icons/arrow-left';
@@ -32,13 +31,15 @@
 
 	let { data }: PageProps = $props();
 
-	const changelog = $derived(data.changelog);
-	const title = $derived(data.title);
-	const description = $derived(data.description);
-	const image = $derived(data.image);
-	const isIndexable = $derived(data.isIndexable);
-	const MogComponent = $derived(data.MogComponent);
-	const mogToc = $derived(data.mogToc ?? []);
+	const {
+		changelog,
+		title,
+		description,
+		image,
+		isIndexable,
+		MogComponent,
+		mogToc = []
+	} = $derived(data);
 
 	let tocOpen = $state(false);
 
@@ -89,6 +90,13 @@
 	const showToc = $derived(
 		tocLinkCount({ toc: mogToc, heroes: tocHeroes, items: tocItems, hideGeneral }) > 1
 	);
+	const tocProps = $derived({
+		heroes: tocHeroes,
+		items: tocItems,
+		abilityIcons,
+		toc: mogToc,
+		hideGeneral
+	});
 	const patchPath = $derived(changePath(changelog));
 	const canonical = $derived(absoluteUrl(patchPath));
 	const publishedTime = $derived(changelog.date.toISOString());
@@ -257,13 +265,7 @@
 					style="scrollbar-gutter: stable"
 					data-toc-scroll
 				>
-					<ChangelogToc
-						heroes={tocHeroes}
-						items={tocItems}
-						{abilityIcons}
-						toc={mogToc}
-						{hideGeneral}
-					/>
+					<ChangelogToc {...tocProps} />
 				</div>
 			</aside>
 		{/if}
@@ -331,16 +333,12 @@
 										{#if heroCount > 0}
 											{@render stat(
 												heroCount,
-												heroCount !== 1 ? 'heroes' : 'hero',
+												plural(heroCount, 'hero', 'heroes'),
 												'text-primary'
 											)}
 										{/if}
 										{#if itemCount > 0}
-											{@render stat(
-												itemCount,
-												itemCount !== 1 ? 'items' : 'item',
-												'text-signal'
-											)}
+											{@render stat(itemCount, plural(itemCount, 'item'), 'text-signal')}
 										{/if}
 									</div>
 								{/if}
@@ -393,15 +391,7 @@
 				<Sheet.Description>Jump to a section or affected entity.</Sheet.Description>
 			</Sheet.Header>
 			<div p="x-2 b-6" class="overflow-y-auto">
-				<ChangelogToc
-					heroes={tocHeroes}
-					items={tocItems}
-					{abilityIcons}
-					toc={mogToc}
-					{hideGeneral}
-					onnavigate={() => (tocOpen = false)}
-					size="lg"
-				/>
+				<ChangelogToc {...tocProps} onnavigate={() => (tocOpen = false)} size="lg" />
 			</div>
 		</Sheet.Content>
 	</Sheet.Root>

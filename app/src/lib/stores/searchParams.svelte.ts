@@ -40,7 +40,7 @@ class SearchParamsStore {
 	}
 
 	get q(): string {
-		return this.filters.q;
+		return this.#q;
 	}
 
 	get major(): boolean {
@@ -75,6 +75,8 @@ class SearchParamsStore {
 			item: filters.item.slice(0, MAX_ENTITY_FILTERS)
 		};
 	});
+
+	#q = $derived(this.#filters.q);
 
 	get filters(): Required<ChangelogFilters> {
 		return this.#filters;

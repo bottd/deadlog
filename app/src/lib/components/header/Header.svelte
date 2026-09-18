@@ -2,10 +2,17 @@
 	import { page } from '$app/state';
 	import { FilterInput } from '$lib/components/filter-bar';
 	import Crosshair from '@lucide/svelte/icons/crosshair';
-
-	const heroesActive = $derived(page.url.pathname.startsWith('/hero'));
-	const itemsActive = $derived(page.url.pathname.startsWith('/item'));
 </script>
+
+{#snippet navLink(href: string, section: string, label: string)}
+	<a
+		{href}
+		aria-current={page.url.pathname.startsWith(section) ? 'page' : undefined}
+		class="ui-focus-ring text-muted-foreground inline-flex min-h-11 items-center rounded px-3 font-mono text-xs font-semibold tracking-wider uppercase transition-colors hover:(bg-signal/10 text-signal) selected:(bg-signal/10 text-signal)"
+	>
+		{label}
+	</a>
+{/snippet}
 
 <header
 	border="signal/15 b"
@@ -84,24 +91,8 @@
 				</a>
 
 				<div flex="~" items="center" gap="1" class="sm:gap-2">
-					<a
-						href="/heroes"
-						aria-current={heroesActive ? 'page' : undefined}
-						class="ui-focus-ring inline-flex min-h-11 items-center rounded px-3 font-mono text-xs font-semibold tracking-wider uppercase transition-colors {heroesActive
-							? 'bg-signal/10 text-signal'
-							: 'text-muted-foreground hover:bg-signal/10 hover:text-signal'}"
-					>
-						Heroes
-					</a>
-					<a
-						href="/items"
-						aria-current={itemsActive ? 'page' : undefined}
-						class="ui-focus-ring inline-flex min-h-11 items-center rounded px-3 font-mono text-xs font-semibold tracking-wider uppercase transition-colors {itemsActive
-							? 'bg-signal/10 text-signal'
-							: 'text-muted-foreground hover:bg-signal/10 hover:text-signal'}"
-					>
-						Items
-					</a>
+					{@render navLink('/heroes', '/hero', 'Heroes')}
+					{@render navLink('/items', '/item', 'Items')}
 				</div>
 			</div>
 		</nav>

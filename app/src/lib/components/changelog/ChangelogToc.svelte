@@ -24,21 +24,6 @@
 		toc = []
 	}: Props = $props();
 
-	// Level-2 headings are entities, level-3 their abilities; heading ids share the
-	// entityFragmentId slug rule, so the entity's id keys its ability bucket.
-	const abilityEntries = $derived.by(() => {
-		const buckets = new Map<string, MogTocEntry[]>();
-		let open: MogTocEntry[] | undefined;
-		for (const entry of toc) {
-			if (entry.level === 2) {
-				open = [];
-				buckets.set(entry.id, open);
-			} else if (entry.level === 3) open?.push(entry);
-			else open = undefined;
-		}
-		return buckets;
-	});
-
 	const abilityIconsByHero = $derived.by(() => {
 		const icons = new Map<number, ChangelogAbilityIcon[]>();
 		for (const ability of abilityIcons) {
@@ -56,89 +41,61 @@
 		size === 'lg' ? { entity: 28, ability: 20 } : { entity: 16, ability: 14 }
 	);
 
-	function abilityImage(heroId: number, entry: MogTocEntry): string | undefined {
-		const icons = abilityIconsByHero.get(heroId) ?? [];
-		const slug = resolveHeroAbilitySlug(entry.title, icons);
-		return icons.find((ability) => ability.slug === slug)?.image;
-	}
-
-	function orderEntities(sectionId: string, entities: EntityIcon[]): EntityIcon[] {
-		const positions = new Map<string, number>();
-		let inSection = false;
+	// Level-2 headings are entities, level-3 their abilities; heading ids share the
+	// entityFragmentId slug rule, so the entity's id keys its ability bucket.
+	const groups = $derived.by(() => {
+		const positions = new Map<string, Map<string, number>>();
+		const abilities = new Map<string, MogTocEntry[]>();
+		let section: Map<string, number> | undefined;
+		let open: MogTocEntry[] | undefined;
 		for (const entry of toc) {
-			if (entry.level === 1) {
-				inSection = entry.id === sectionId;
+			if (entry.level === 3) {
+				open?.push(entry);
 				continue;
 			}
-			if (inSection && entry.level === 2) positions.set(entry.id, positions.size);
+			open = undefined;
+			if (entry.level === 1) {
+				section = new Map();
+				positions.set(entry.id, section);
+			} else if (entry.level === 2) {
+				section?.set(entry.id, section.size);
+				open = [];
+				abilities.set(entry.id, open);
+			}
 		}
 
-		return [...entities].sort(
-			(a, b) =>
-				(positions.get(entityFragmentId(a.alt)) ?? Number.MAX_SAFE_INTEGER) -
-				(positions.get(entityFragmentId(b.alt)) ?? Number.MAX_SAFE_INTEGER)
-		);
-	}
+		return [
+			{ id: 'hero-changes', label: 'Heroes', entities: heroes },
+			{ id: 'item-changes', label: 'Items', entities: items }
+		]
+			.filter((group) => group.entities.length > 0)
+			.map((group) => {
+				const order = positions.get(group.id);
+				const rank = (entity: EntityIcon) =>
+					order?.get(entityFragmentId(entity.alt)) ?? Number.MAX_SAFE_INTEGER;
+				return {
+					...group,
+					entities: group.entities
+						.toSorted((a, b) => rank(a) - rank(b))
+						.map((entity) => {
+							const fragment = entityFragmentId(entity.alt);
+							const icons = abilityIconsByHero.get(entity.id) ?? [];
+							return {
+								...entity,
+								fragment,
+								abilities: (abilities.get(fragment) ?? []).map((ability) => {
+									const slug = resolveHeroAbilitySlug(ability.title, icons);
+									return {
+										...ability,
+										image: icons.find((icon) => icon.slug === slug)?.image
+									};
+								})
+							};
+						})
+				};
+			});
+	});
 </script>
-
-{#snippet tocGroup(href: string, label: string, count: number, entities: EntityIcon[])}
-	{@const orderedEntities = orderEntities(href.slice(1), entities)}
-	<div class="toc-group">
-		<a {href} class="toc-section" onclick={onnavigate}>
-			<span class="toc-marker" aria-hidden="true"></span>
-			{label}
-			<span class="toc-count">{count}</span>
-		</a>
-		<ul class="toc-entities">
-			{#each orderedEntities as entity (entity.id)}
-				{@const abilities = abilityEntries.get(entityFragmentId(entity.alt)) ?? []}
-				<li>
-					<a
-						href="#{entityFragmentId(entity.alt)}"
-						class="toc-entity min-w-0"
-						onclick={onnavigate}
-					>
-						<img
-							src={entity.src}
-							alt=""
-							width={iconPx.entity}
-							height={iconPx.entity}
-							loading="lazy"
-							decoding="async"
-							class="toc-entity-img"
-						/>
-						<span truncate>{entity.alt}</span>
-					</a>
-					{#if abilities.length > 0}
-						<ul space="y-px">
-							{#each abilities as ability, i (i)}
-								{@const image = abilityImage(entity.id, ability)}
-								<li>
-									<a href="#{ability.id}" class="toc-ability" onclick={onnavigate}>
-										{#if image}
-											<img
-												src={image}
-												alt=""
-												width={iconPx.ability}
-												height={iconPx.ability}
-												loading="lazy"
-												decoding="async"
-												class="toc-ability-icon toc-ability-img"
-											/>
-										{:else}
-											<span class="toc-ability-icon" aria-hidden="true"></span>
-										{/if}
-										<span truncate>{ability.title}</span>
-									</a>
-								</li>
-							{/each}
-						</ul>
-					{/if}
-				</li>
-			{/each}
-		</ul>
-	</div>
-{/snippet}
 
 <nav
 	class="toc {size} clip-corner-sm border-border/60 bg-card/80 border p-3 shadow-sm backdrop-blur-sm"
@@ -177,13 +134,61 @@
 			</a>
 		{/each}
 
-		{#if heroes.length > 0}
-			{@render tocGroup('#hero-changes', 'Heroes', heroes.length, heroes)}
-		{/if}
-
-		{#if items.length > 0}
-			{@render tocGroup('#item-changes', 'Items', items.length, items)}
-		{/if}
+		{#each groups as group (group.id)}
+			<div class="toc-group">
+				<a href="#{group.id}" class="toc-section" onclick={onnavigate}>
+					<span class="toc-marker" aria-hidden="true"></span>
+					{group.label}
+					<span class="toc-count">{group.entities.length}</span>
+				</a>
+				<ul class="toc-entities">
+					{#each group.entities as entity (entity.id)}
+						<li>
+							<a
+								href="#{entity.fragment}"
+								class="toc-entity min-w-0"
+								onclick={onnavigate}
+							>
+								<img
+									src={entity.src}
+									alt=""
+									width={iconPx.entity}
+									height={iconPx.entity}
+									loading="lazy"
+									decoding="async"
+									class="toc-entity-img"
+								/>
+								<span truncate>{entity.alt}</span>
+							</a>
+							{#if entity.abilities.length > 0}
+								<ul space="y-px">
+									{#each entity.abilities as ability, i (i)}
+										<li>
+											<a href="#{ability.id}" class="toc-ability" onclick={onnavigate}>
+												{#if ability.image}
+													<img
+														src={ability.image}
+														alt=""
+														width={iconPx.ability}
+														height={iconPx.ability}
+														loading="lazy"
+														decoding="async"
+														class="toc-ability-icon toc-ability-img"
+													/>
+												{:else}
+													<span class="toc-ability-icon" aria-hidden="true"></span>
+												{/if}
+												<span truncate>{ability.title}</span>
+											</a>
+										</li>
+									{/each}
+								</ul>
+							{/if}
+						</li>
+					{/each}
+				</ul>
+			</div>
+		{/each}
 	</div>
 </nav>
 

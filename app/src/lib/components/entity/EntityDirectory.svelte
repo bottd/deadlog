@@ -19,9 +19,7 @@
 </script>
 
 <script lang="ts">
-	import { page } from '$app/state';
-	import { replaceState } from '$app/navigation';
-	import { building } from '$app/environment';
+	import { shallowParams } from '$lib/stores/shallowParams.svelte';
 	import { ITEM_CATEGORIES, isItemCategory } from '@deadlog/utils';
 	import Search from '@lucide/svelte/icons/search';
 	import { JsonLd, MetaTags } from 'svelte-meta-tags';
@@ -49,15 +47,12 @@
 	} = $props();
 	const listing = $derived(ENTITY_LISTING[kind]);
 	const canonical = $derived(absoluteUrl(listing.path));
-	const initial = (key: string) =>
-		building ? '' : (page.url.searchParams.get(key) ?? '');
-	function initialCategory(): string {
-		const value = initial('category');
-		return kind === 'item' && isItemCategory(value) ? value : '';
-	}
-	let search = $state(initial('name'));
-	let category = $state(initialCategory());
-	const needle = $derived(search.trim().toLowerCase());
+	// Safari throws past roughly 100 replaceState calls in 30 seconds.
+	const params = shallowParams({ name: 250, category: 0 });
+	const category = $derived(
+		kind === 'item' && isItemCategory(params.category) ? params.category : ''
+	);
+	const needle = $derived(params.name.trim().toLowerCase());
 	const searchable = $derived(
 		entries.map((entry) => ({ ...entry, haystack: entry.name.toLowerCase() }))
 	);
@@ -67,29 +62,6 @@
 				entry.haystack.includes(needle) && (!category || entry.category === category)
 		)
 	);
-	// Safari throws past roughly 100 replaceState calls in 30 seconds.
-	const HISTORY_DEBOUNCE_MS = 250;
-	let historyTimer: ReturnType<typeof setTimeout> | undefined;
-
-	function commit() {
-		const url = new URL(location.href);
-		for (const [key, value] of Object.entries({ name: search, category })) {
-			if (value) url.searchParams.set(key, value);
-			else url.searchParams.delete(key);
-		}
-		replaceState(url, page.state);
-	}
-
-	function update(next: { name?: string; category?: string }, debounce = false) {
-		if (next.name !== undefined) search = next.name;
-		if (next.category !== undefined) category = next.category;
-		clearTimeout(historyTimer);
-		if (debounce) historyTimer = setTimeout(commit, HISTORY_DEBOUNCE_MS);
-		else commit();
-	}
-
-	// A pending write would stamp these filters onto the next page's URL.
-	$effect(() => () => clearTimeout(historyTimer));
 </script>
 
 <MetaTags {...pageMeta({ title: seo.title, description: seo.description, canonical })} />
@@ -120,7 +92,7 @@
 				id="{kind}-directory-count"
 				class="text-muted-foreground font-mono text-xs"
 				role="status"
-				>{filtered.length}{search || category ? ` / ${entries.length}` : ''}
+				>{filtered.length}{params.name || category ? ` / ${entries.length}` : ''}
 				{listing.label.toLowerCase()}</span
 			>
 		</div>
@@ -138,8 +110,7 @@
 				<input
 					id="{kind}-directory-search"
 					type="search"
-					value={search}
-					oninput={(event) => update({ name: event.currentTarget.value }, true)}
+					bind:value={params.name}
 					aria-describedby="{kind}-directory-count"
 					placeholder="Find {kind === 'hero' ? 'a hero' : 'an item'}…"
 					class="placeholder:text-muted-foreground min-h-11 w-full bg-transparent py-2 pr-3 pl-10 text-base outline-none"
@@ -151,11 +122,9 @@
 						<button
 							type="button"
 							aria-pressed={category === value}
-							onclick={() => update({ category: value })}
-							class="ui-focus-ring min-h-11 rounded-md px-3 text-sm capitalize {category ===
-							value
-								? 'bg-signal/10 text-signal'
-								: 'text-muted-foreground hover:text-foreground'}">{value || 'All'}</button
+							onclick={() => (params.category = value)}
+							class="ui-focus-ring text-muted-foreground min-h-11 rounded-md px-3 text-sm capitalize idle-hover:text-foreground selected:(bg-signal/10 text-signal)"
+							>{value || 'All'}</button
 						>
 					{/each}
 				</div>
@@ -203,13 +172,16 @@
 		{:else}
 			<div class="border-subtle border-t py-8" role="status">
 				<p class="text-muted-foreground text-sm">
-					No {listing.label.toLowerCase()} match {search
-						? `“${search}”`
-						: 'this category'}{search && category ? ` in ${category}` : ''}.
+					No {listing.label.toLowerCase()} match {params.name
+						? `“${params.name}”`
+						: 'this category'}{params.name && category ? ` in ${category}` : ''}.
 				</p>
 				<button
 					type="button"
-					onclick={() => update({ name: '', category: '' })}
+					onclick={() => {
+						params.name = '';
+						params.category = '';
+					}}
 					class="ui-focus-ring text-signal mt-2 min-h-11 rounded-sm text-sm hover:underline"
 					>Clear directory filters</button
 				>

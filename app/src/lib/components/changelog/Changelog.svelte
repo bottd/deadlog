@@ -26,25 +26,19 @@
 	const isFilterPending = $derived(params.isPending);
 
 	// "new since last visit": client-only high-water mark, null until a prior visit exists
+	const LAST_VISIT_KEY = 'deadlog:lastVisited';
 	let lastVisit = $state<number | null>(null);
+	let visitCommitted = false;
+	function commitVisit() {
+		if (visitCommitted) return;
+		visitCommitted = true;
+		localStorage.setItem(LAST_VISIT_KEY, String(Date.now()));
+	}
 	onMount(() => {
-		const KEY = 'deadlog:lastVisited';
-		const stored = localStorage.getItem(KEY);
+		const stored = localStorage.getItem(LAST_VISIT_KEY);
 		lastVisit = stored ? Number(stored) : null;
-
-		let committed = false;
-		const commit = () => {
-			if (committed) return;
-			committed = true;
-			localStorage.setItem(KEY, String(Date.now()));
-		};
-		const dwell = setTimeout(commit, 10_000);
-		addEventListener('pagehide', commit);
-
-		return () => {
-			clearTimeout(dwell);
-			removeEventListener('pagehide', commit);
-		};
+		const dwell = setTimeout(commitVisit, 10_000);
+		return () => clearTimeout(dwell);
 	});
 	const isNew = (entry: PatchSummary) =>
 		lastVisit !== null && new Date(entry.date).getTime() > lastVisit;
@@ -62,14 +56,7 @@
 	function loadMoreWhenVisible(node: HTMLElement) {
 		const observer = new IntersectionObserver(
 			([entry]) => {
-				if (
-					entry?.isIntersecting &&
-					query.hasNextPage &&
-					!query.isFetchingNextPage &&
-					!query.isFetchNextPageError
-				) {
-					void query.fetchNextPage();
-				}
+				if (entry?.isIntersecting) void query.fetchNextPage({ cancelRefetch: false });
 			},
 			{ rootMargin: '0px 0px 200px 0px' }
 		);
@@ -79,6 +66,8 @@
 		return () => observer.disconnect();
 	}
 </script>
+
+<svelte:window onpagehide={commitVisit} />
 
 {#snippet retryPrompt(message: string, retry: () => void)}
 	<div flex="~ col" items="center" gap="3" text="center" role="alert">
@@ -146,9 +135,7 @@
 			type="button"
 			onclick={() => params.update({ major: !params.major })}
 			aria-pressed={params.major}
-			class="ui-focus-ring min-h-11 rounded-md border px-3 text-xs font-medium transition-colors {params.major
-				? 'border-primary/60 bg-primary/15 text-primary'
-				: 'border-border text-muted-foreground hover:border-primary/40 hover:text-foreground'}"
+			class="ui-focus-ring border-border text-muted-foreground min-h-11 rounded-md border px-3 text-xs font-medium transition-colors idle-hover:(border-primary/40 text-foreground) selected:(border-primary/60 bg-primary/15 text-primary)"
 		>
 			Major updates only
 		</button>

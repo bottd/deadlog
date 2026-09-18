@@ -24,10 +24,7 @@
 		new Set([...(filter?.heroes ?? []), ...(filter?.items ?? [])].map(entityFragmentId))
 	);
 
-	function filterMogContent(node: HTMLElement) {
-		void Content;
-		applyEntityFilter(node, selectedSlugs);
-	}
+	const filterMogContent = (node: HTMLElement) => applyEntityFilter(node, selectedSlugs);
 
 	/** `=hero:abrams:` renders as `<div class="hero abrams">`, so the slug is a class. */
 	const isSelectedEntity = (el: HTMLElement, selected: Set<string>) =>
@@ -59,9 +56,11 @@
 	}
 </script>
 
-<section class="mog-content" aria-label="Changelog details" {@attach filterMogContent}>
-	<Content />
-</section>
+{#key Content}
+	<section class="mog-content" aria-label="Changelog details" {@attach filterMogContent}>
+		<Content />
+	</section>
+{/key}
 
 <style lang="postcss">
 	.mog-content {

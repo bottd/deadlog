@@ -30,23 +30,21 @@ export function toggleEntityFilter(kind: EntityKind, name: string) {
 }
 
 export class FilterState {
-	inputValue = $state('');
+	inputValue = $derived(searchParams.q);
 
-	#params = searchParams;
 	#getHeroes: () => EnrichedHero[];
 	#getItems: () => EnrichedItem[];
 
 	constructor(getHeroes: () => EnrichedHero[], getItems: () => EnrichedItem[]) {
 		this.#getHeroes = getHeroes;
 		this.#getItems = getItems;
-		this.inputValue = this.#params.q;
 	}
 
 	mergedList = $derived.by((): MergedEntity[] => {
 		const needle = this.inputValue.toLowerCase();
 		const matchesInput = (name: string) => !needle || name.toLowerCase().includes(needle);
-		const selectedHeroes = indexEntityNames(this.#params.hero, (name) => name);
-		const selectedItems = indexEntityNames(this.#params.item, (name) => name);
+		const selectedHeroes = indexEntityNames(searchParams.hero, (name) => name);
+		const selectedItems = indexEntityNames(searchParams.item, (name) => name);
 
 		const heroes: MergedEntity[] = this.#getHeroes()
 			.filter((hero) => hero.isReleased && matchesInput(hero.name))
@@ -81,20 +79,16 @@ export class FilterState {
 
 	/** Picking an option from the list clears the typed query — the choice replaces it. */
 	toggle(kind: EntityKind, name: string) {
-		this.inputValue = '';
+		this.inputValue = searchParams.q;
 		toggleEntityFilter(kind, name);
 	}
 
 	clearAll() {
 		this.inputValue = '';
-		this.#params.reset();
-	}
-
-	syncSearch(value: string) {
-		this.inputValue = value;
+		searchParams.reset();
 	}
 
 	updateSearch() {
-		this.#params.update({ q: this.inputValue.trim() });
+		searchParams.update({ q: this.inputValue.trim() });
 	}
 }

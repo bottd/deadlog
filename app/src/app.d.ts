@@ -4,7 +4,9 @@ import type { AttributifyAttributes } from 'unocss/preset-attributify';
 declare global {
 	namespace App {
 		interface PageState {
-			ability?: string | null;
+			ability?: string;
+			name?: string;
+			category?: string;
 		}
 
 		interface Locals {
