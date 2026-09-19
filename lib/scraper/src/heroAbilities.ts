@@ -12,7 +12,7 @@ export interface AbilitySlot {
 	description: string | null;
 }
 
-const isReleased = (hero: HeroesApiResponse[number]) =>
+export const isReleasedHero = (hero: HeroesApiResponse[number]) =>
 	hero.player_selectable === true &&
 	hero.disabled !== true &&
 	hero.in_development !== true;
@@ -36,6 +36,7 @@ export function resolveAbilitySlots(
 ): Map<number, AbilitySlot[]> {
 	const itemsByClass = new Map(items.map((item) => [item.class_name, item]));
 	const slotsByHero = new Map<number, AbilitySlot[]>();
+	const routedSlugs = new Map<string, string>();
 	const errors: string[] = [];
 
 	for (const hero of heroes) {
@@ -52,17 +53,24 @@ export function resolveAbilitySlots(
 				'';
 
 			if (!ability || ability.type !== 'ability' || !image) {
-				if (isReleased(hero)) {
+				if (isReleasedHero(hero)) {
 					errors.push(`${hero.name} signature${position} (${className ?? 'missing'})`);
 				}
 				continue;
+			}
+
+			const slug = toSlug(ability.name);
+			if (isReleasedHero(hero)) {
+				const owner = routedSlugs.get(slug);
+				if (owner) errors.push(`/ability/${slug} claimed by ${owner} and ${hero.name}`);
+				else routedSlugs.set(slug, hero.name);
 			}
 
 			slots.push({
 				heroId: hero.id,
 				position,
 				name: ability.name,
-				slug: toSlug(ability.name),
+				slug,
 				image,
 				description: descriptionText(ability.description?.desc)
 			});

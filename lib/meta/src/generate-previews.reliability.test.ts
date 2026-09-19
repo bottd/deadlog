@@ -141,10 +141,8 @@ describe('preview generation reliability', () => {
 				author: 'simonne',
 				authorImage: '',
 				previewImage: null,
-				category: 'patch',
 				pubDate: '2025-08-18T20:42:20.000Z',
 				majorUpdate: false,
-				parentChange: null,
 				contentText: 'Meet the new heroes.'
 			}
 		]);

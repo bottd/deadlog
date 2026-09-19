@@ -57,17 +57,6 @@ describe.skipIf(!existsSync(dbPath))('Database Static Reader', () => {
 			expect(typeof firstPatch.pubDate).toBe('string');
 			expect(typeof firstPatch.majorUpdate).toBe('boolean');
 		});
-
-		it('should parse categories from JSON', async () => {
-			const db = getDb();
-			const patches = await getAllChangelogs(db);
-			const patchWithCategory = patches.find((p) => p.category);
-
-			if (patchWithCategory) {
-				// Category can be string or array depending on the data
-				expect(['string', 'object']).toContain(typeof patchWithCategory.category);
-			}
-		});
 	});
 
 	describe('getChangelogBySlug', () => {
@@ -92,9 +81,6 @@ describe.skipIf(!existsSync(dbPath))('Database Static Reader', () => {
 			const hero = heroes[0];
 			const results = await queryChangelogs(db, { heroIds: [hero.id], limit: 50 });
 			expect(results.length).toBeGreaterThan(0);
-			for (const r of results) {
-				expect(!r.parentChange || r.parentChange === '').toBe(true);
-			}
 		});
 
 		it('returns fewer or equal results for two heroes AND than either alone', async () => {

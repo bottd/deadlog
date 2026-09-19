@@ -1,18 +1,11 @@
-import {
-	eq,
-	sql,
-	desc,
-	and,
-	or,
-	ne,
-	isNull,
-	isNotNull,
-	count,
-	inArray,
-	type SQL
-} from 'drizzle-orm';
+import { eq, sql, desc, and, count, inArray, type SQL } from 'drizzle-orm';
 import type { SQLiteColumn } from 'drizzle-orm/sqlite-core';
-import type { ChangelogEntityIcon, EntityChangeGroup, EntityType } from './types';
+import type {
+	ChangelogEntityIcon,
+	EntityChangeGroup,
+	EntityType,
+	HeroChangeGroup
+} from './types';
 import type { DrizzleDB } from './client';
 import type { SelectChangelog } from './schema';
 import * as schema from './schema';
@@ -36,23 +29,14 @@ const ENTITY_HISTORY_COLUMNS = {
 	author: schema.changelogs.author
 } as const;
 
-type ChangeGroups = NonNullable<typeof schema.changelogHeroes.$inferSelect.changeGroups>;
-
-export type EntityChangelog = Pick<
+export type EntityChangelog<Group = EntityChangeGroup> = Pick<
 	SelectChangelog,
 	keyof typeof ENTITY_HISTORY_COLUMNS
 > & {
 	/** Derived from changeGroups — null when the patch mentions the entity without its own section. */
 	changeCount: number | null;
-	changeGroups: ChangeGroups | null;
+	changeGroups: Group[] | null;
 };
-
-function isMainChangelog() {
-	return or(
-		isNull(schema.changelogs.parentChange),
-		eq(schema.changelogs.parentChange, '')
-	);
-}
 
 function buildTextSearchCondition(searchQuery: string): SQL {
 	const pattern = `%${searchQuery.replace(/[!%_]/g, '!$&')}%`;
@@ -79,7 +63,6 @@ export function getPatchArchive(db: DrizzleDB) {
 			pubDate: schema.changelogs.pubDate
 		})
 		.from(schema.changelogs)
-		.where(isMainChangelog())
 		.orderBy(desc(schema.changelogs.pubDate))
 		.all();
 }
@@ -104,7 +87,7 @@ export async function queryChangelogs(
 		offset = 0
 	} = options;
 
-	const conditions = [isMainChangelog()];
+	const conditions: SQL[] = [];
 
 	if (searchQuery?.trim()) {
 		conditions.push(buildTextSearchCondition(searchQuery));
@@ -153,11 +136,7 @@ export async function queryChangelogs(
 }
 
 export async function getChangelogsCount(db: DrizzleDB): Promise<number> {
-	const result = await db
-		.select({ count: count() })
-		.from(schema.changelogs)
-		.where(isMainChangelog())
-		.get();
+	const result = await db.select({ count: count() }).from(schema.changelogs).get();
 	return result?.count ?? 0;
 }
 
@@ -269,13 +248,7 @@ export async function getReleasedItemSlugs(db: DrizzleDB): Promise<string[]> {
 	const results = await db
 		.select({ slug: schema.items.slug })
 		.from(schema.items)
-		.where(
-			and(
-				eq(schema.items.isReleased, true),
-				isNotNull(schema.items.slug),
-				ne(schema.items.slug, '')
-			)
-		)
+		.where(eq(schema.items.isReleased, true))
 		.all();
 	return results.map((r) => r.slug);
 }
@@ -415,7 +388,7 @@ export async function getChangelogAbilityIcons(
 export async function getChangelogsByHeroId(
 	db: DrizzleDB,
 	heroId: number
-): Promise<EntityChangelog[]> {
+): Promise<EntityChangelog<HeroChangeGroup>[]> {
 	const rows = await db
 		.select({
 			...ENTITY_HISTORY_COLUMNS,

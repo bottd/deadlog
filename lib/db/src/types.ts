@@ -22,6 +22,10 @@ export interface EntityChangeGroup {
 	bullets: string[];
 }
 
+export interface HeroChangeGroup extends EntityChangeGroup {
+	abilitySlug: string | null;
+}
+
 export interface ChangelogMatch {
 	id: number;
 	type: EntityType;

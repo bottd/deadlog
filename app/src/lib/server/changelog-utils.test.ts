@@ -30,10 +30,8 @@ function makeRow(overrides: Partial<ScrapedChangelog> = {}): ScrapedChangelog {
 		author: 'Yoshi',
 		authorImage: '',
 		previewImage: null,
-		category: 'patch',
 		pubDate: '2026-01-01T00:00:00.000Z',
 		majorUpdate: false,
-		parentChange: null,
 		contentText: 'The full prose of the patch body.',
 		...overrides
 	};
@@ -178,13 +176,7 @@ describe('feed summaries', () => {
 
 		expect(entry.summary).toBe('The full prose of the patch body.');
 		expect(entry.date).toBe('2026-01-01T00:00:00.000Z');
-		for (const field of [
-			'contentText',
-			'pubDate',
-			'parentChange',
-			'updates',
-			'sourceUrl'
-		]) {
+		for (const field of ['contentText', 'pubDate', 'updates', 'sourceUrl']) {
 			expect(entry).not.toHaveProperty(field);
 		}
 	});

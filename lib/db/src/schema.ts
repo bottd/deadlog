@@ -8,6 +8,7 @@ import {
 } from 'drizzle-orm/sqlite-core';
 import { createInsertSchema } from 'drizzle-zod';
 import { z } from 'zod';
+import type { EntityChangeGroup, HeroChangeGroup } from './types';
 
 export const changelogs = sqliteTable(
 	'changelogs',
@@ -19,21 +20,15 @@ export const changelogs = sqliteTable(
 		author: text('author').notNull(),
 		authorImage: text('author_image').notNull(),
 		previewImage: text('preview_image'),
-		category: text('category'),
 		pubDate: text('pub_date').notNull(),
 		majorUpdate: integer('major_update', { mode: 'boolean' }).notNull().default(false),
-		parentChange: text('parent_change'),
 		contentText: text('content_text')
 	},
 	// SQLite serves ORDER BY … DESC from an ASC index via a backward scan, so no
 	// ordering modifiers here.
 	(table) => ({
 		pubDateIdx: index('idx_changelogs_pub_date').on(table.pubDate),
-		slugIdx: index('idx_changelogs_slug').on(table.slug),
-		parentChangeIdx: index('idx_changelogs_parent_change').on(
-			table.parentChange,
-			table.pubDate
-		)
+		slugIdx: uniqueIndex('idx_changelogs_slug').on(table.slug)
 	})
 );
 
@@ -97,6 +92,7 @@ export const items = sqliteTable('items', {
 });
 
 export const insertItemSchema = createInsertSchema(items, {
+	slug: z.string().min(1),
 	image: z.string().min(1, 'Image URL must be provided'),
 	type: z.enum(['weapon', 'ability', 'upgrade']),
 	category: z.enum(['weapon', 'vitality', 'spirit']).nullable(),
@@ -117,9 +113,7 @@ export const changelogHeroes = sqliteTable(
 		heroId: integer('hero_id')
 			.notNull()
 			.references(() => heroes.id),
-		changeGroups: text('change_groups', { mode: 'json' }).$type<
-			{ ability: string | null; bullets: string[] }[]
-		>()
+		changeGroups: text('change_groups', { mode: 'json' }).$type<HeroChangeGroup[]>()
 	},
 	(table) => ({
 		pk: primaryKey({ columns: [table.changelogId, table.heroId] }),
@@ -127,12 +121,15 @@ export const changelogHeroes = sqliteTable(
 	})
 );
 
-const changeGroupsSchema = z
-	.array(z.object({ ability: z.string().nullable(), bullets: z.array(z.string()) }))
-	.nullable();
+const changeGroupSchema = z.object({
+	ability: z.string().nullable(),
+	bullets: z.array(z.string())
+});
 
 export const insertChangelogHeroSchema = createInsertSchema(changelogHeroes, {
-	changeGroups: changeGroupsSchema
+	changeGroups: z
+		.array(changeGroupSchema.extend({ abilitySlug: z.string().min(1).nullable() }))
+		.nullable()
 });
 
 export const changelogItems = sqliteTable(
@@ -144,9 +141,7 @@ export const changelogItems = sqliteTable(
 		itemId: integer('item_id')
 			.notNull()
 			.references(() => items.id),
-		changeGroups: text('change_groups', { mode: 'json' }).$type<
-			{ ability: string | null; bullets: string[] }[]
-		>()
+		changeGroups: text('change_groups', { mode: 'json' }).$type<EntityChangeGroup[]>()
 	},
 	(table) => ({
 		pk: primaryKey({ columns: [table.changelogId, table.itemId] }),
@@ -155,5 +150,5 @@ export const changelogItems = sqliteTable(
 );
 
 export const insertChangelogItemSchema = createInsertSchema(changelogItems, {
-	changeGroups: changeGroupsSchema
+	changeGroups: z.array(changeGroupSchema).nullable()
 });

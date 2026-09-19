@@ -20,8 +20,13 @@ import {
 	type EntityBulletGroup,
 	type EntityChange
 } from '@deadlog/changelog';
-import { indexEntityNames, findEntityName, toSlug } from '@deadlog/utils';
-import { resolveAbilitySlots } from './heroAbilities';
+import {
+	indexEntityNames,
+	findEntityName,
+	resolveHeroAbilitySlug,
+	toSlug
+} from '@deadlog/utils';
+import { isReleasedHero, resolveAbilitySlots } from './heroAbilities';
 
 interface BuildOptions {
 	outputDir: string;
@@ -71,6 +76,9 @@ function assertEntityLinks(
 		}
 	}
 }
+
+const isReleasedItem = (item: EntitySnapshot['items'][number]) =>
+	item.item_slot_type != null && item.shopable === true && item.disabled !== true;
 
 async function writeBatches<T>(rows: T[], write: (batch: T[]) => PromiseLike<unknown>) {
 	// Small enough for SQLite's conservative parameter limit even on the widest table.
@@ -175,10 +183,7 @@ export async function buildDatabaseFromMog(options: BuildOptions): Promise<Build
 						className: hero.class_name,
 						heroType: hero.hero_type ?? null,
 						images: hero.images,
-						isReleased:
-							hero.player_selectable === true &&
-							hero.disabled !== true &&
-							hero.in_development !== true
+						isReleased: isReleasedHero(hero)
 					})
 				),
 				(batch) => db.insert(schema.heroes).values(batch).onConflictDoNothing()
@@ -205,7 +210,7 @@ export async function buildDatabaseFromMog(options: BuildOptions): Promise<Build
 				})
 				.filter((item) => {
 					const slug = toSlug(item.name);
-					if (seenItemSlugs.has(slug)) return false;
+					if (!slug || seenItemSlugs.has(slug)) return false;
 					seenItemSlugs.add(slug);
 					return true;
 				});
@@ -221,10 +226,7 @@ export async function buildDatabaseFromMog(options: BuildOptions): Promise<Build
 						category: item.item_slot_type ?? null,
 						tier: item.item_tier ?? null,
 						image: itemImage(item),
-						isReleased:
-							item.item_slot_type != null &&
-							item.shopable === true &&
-							item.disabled !== true
+						isReleased: isReleasedItem(item)
 					})
 				),
 				(batch) => db.insert(schema.items).values(batch).onConflictDoNothing()
@@ -301,10 +303,8 @@ export async function buildDatabaseFromMog(options: BuildOptions): Promise<Build
 					author: metadata.author,
 					authorImage: metadata.author_image ?? '',
 					previewImage: previewImage ?? null,
-					category: metadata.category,
 					pubDate: new Date(metadata.published).toISOString(),
 					majorUpdate: isMajorUpdate,
-					parentChange: metadata.parent_id ?? null,
 					contentText: plainText
 				});
 				for (const alias of aliases) {
@@ -312,12 +312,19 @@ export async function buildDatabaseFromMog(options: BuildOptions): Promise<Build
 					aliasRows.push({ slug: alias, changelogId });
 				}
 
-				for (const [heroId, changeGroups] of heroMatchesForPatch) {
+				for (const [heroId, groups] of heroMatchesForPatch) {
+					const abilities = abilitySlots.get(heroId) ?? [];
 					heroRows.push(
 						insertChangelogHeroSchema.parse({
 							changelogId,
 							heroId,
-							changeGroups
+							changeGroups:
+								groups?.map((group) => ({
+									...group,
+									abilitySlug: group.ability
+										? resolveHeroAbilitySlug(group.ability, abilities)
+										: null
+								})) ?? null
 						})
 					);
 					heroMatches++;
@@ -353,6 +360,27 @@ export async function buildDatabaseFromMog(options: BuildOptions): Promise<Build
 				{ key: 'patch_count', value: String(patchCount) }
 			]);
 		});
+		for (const [failure, query] of [
+			[
+				'foreign key violations',
+				'SELECT "table", rowid, parent FROM pragma_foreign_key_check'
+			],
+			[
+				'aliases shadowing a live slug',
+				'SELECT a.slug FROM changelog_aliases a JOIN changelogs c ON c.slug = a.slug'
+			],
+			[
+				'changelogs dropped on conflict',
+				`SELECT 1 WHERE (SELECT COUNT(*) FROM changelogs) != ${patchCount}`
+			]
+		] as const) {
+			const { rows } = await client.execute(query);
+			if (rows.length > 0) {
+				throw new Error(
+					`Built database has ${failure}: ${JSON.stringify(rows.slice(0, 5))}`
+				);
+			}
+		}
 	} finally {
 		client.close();
 	}

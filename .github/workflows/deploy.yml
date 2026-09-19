@@ -61,10 +61,7 @@ jobs:
 
       - name: Export database to SQL
         if: steps.data.outputs.changed == 'true'
-        run: |
-          sqlite3 app/static/deadlog.db .dump > deadlog.sql
-          grep -v -E "^(BEGIN|COMMIT|ROLLBACK|SAVEPOINT)" deadlog.sql > deadlog-clean.sql
-          cat lib/db/drop-tables.sql deadlog-clean.sql > deadlog-replace.sql
+        run: lib/db/export-d1.sh app/static/deadlog.db deadlog-replace.sql
 
       - name: Replace D1 database
         if: steps.data.outputs.changed == 'true'

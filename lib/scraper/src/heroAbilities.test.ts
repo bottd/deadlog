@@ -66,7 +66,7 @@ describe('resolveAbilitySlots', () => {
 	});
 
 	it('allows one API ability row to occupy slots for multiple heroes', () => {
-		const second = hero({ id: 2, name: 'Second Hero' });
+		const second = hero({ id: 2, name: 'Second Hero', in_development: true });
 		const items = [
 			ability(1, 'ability_one', 'Shared One'),
 			ability(2, 'ability_two', 'Two'),
@@ -76,6 +76,18 @@ describe('resolveAbilitySlots', () => {
 		const map = resolveAbilitySlots([hero(), second], items);
 		expect(map.get(1)?.[0].image).toBe('/ability_one.png');
 		expect(map.get(2)?.[0].image).toBe('/ability_one.png');
+	});
+
+	it('fails when two released heroes claim the same ability route', () => {
+		const items = [
+			ability(1, 'ability_one', 'Shared One'),
+			ability(2, 'ability_two', 'Two'),
+			ability(3, 'ability_three', 'Three'),
+			ability(4, 'ability_four', 'Four')
+		];
+		expect(() =>
+			resolveAbilitySlots([hero(), hero({ id: 2, name: 'Second Hero' })], items)
+		).toThrow(/\/ability\/shared-one claimed by Test Hero and Second Hero/);
 	});
 
 	it('fails when a released hero slot cannot be resolved', () => {

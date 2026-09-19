@@ -10,8 +10,7 @@ export const ChangelogMetadataSchema = z.object({
 	author_image: z.string().optional(),
 	preview_image: z.string().url().optional(),
 	category: z.enum(['patch', 'hotfix', 'major']).default('patch'),
-	major_update: z.coerce.boolean().default(false),
-	parent_id: z.coerce.string().optional() // For reply posts
+	major_update: z.coerce.boolean().default(false)
 });
 
 export type ChangelogMetadata = z.infer<typeof ChangelogMetadataSchema>;

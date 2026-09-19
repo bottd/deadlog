@@ -19,8 +19,14 @@ test('entity result excerpts answer the selected question with a bounded payload
 		expect(patch).not.toHaveProperty('pubDate');
 	}
 	await gotoApp(page, '/?hero=Abrams');
-	const result = page.locator('[data-patch-card]').first();
-	await expect(result.locator('[data-matched-changes]')).toContainText('Siphon Life');
+	const [top] = changelogs;
+	const result = page
+		.locator('[data-patch-card]')
+		.filter({ has: page.locator(`a[href^="/change/${top.slug}"]`) })
+		.first();
+	for (const change of top.matches[0].changes) {
+		await expect(result.locator('[data-matched-changes]')).toContainText(change.text);
+	}
 	await expect(result.locator('[data-matched-changes]')).not.toContainText(
 		'Unstable Rift'
 	);

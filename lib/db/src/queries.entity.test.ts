@@ -34,10 +34,8 @@ describe('entity history queries', () => {
 				author TEXT NOT NULL,
 				author_image TEXT NOT NULL,
 				preview_image TEXT,
-				category TEXT,
 				pub_date TEXT NOT NULL,
 				major_update INTEGER NOT NULL DEFAULT 0,
-				parent_change TEXT,
 				content_text TEXT
 			);
 			CREATE TABLE changelog_aliases (
@@ -174,8 +172,12 @@ describe('entity history queries', () => {
 				changelogId: 'new',
 				heroId: 69,
 				changeGroups: [
-					{ ability: null, bullets: ['Base bullet damage increased'] },
-					{ ability: 'Doorway', bullets: ['Cooldown reduced from 40s to 32s'] }
+					{ ability: null, abilitySlug: null, bullets: ['Base bullet damage increased'] },
+					{
+						ability: 'Doorway',
+						abilitySlug: 'doorway',
+						bullets: ['Cooldown reduced from 40s to 32s']
+					}
 				]
 			},
 			{ changelogId: 'old', heroId: 69, changeGroups: null }
@@ -215,8 +217,12 @@ describe('entity history queries', () => {
 		const [item] = await getChangelogsByItemId(db, 1);
 
 		expect(hero.changeGroups).toEqual([
-			{ ability: null, bullets: ['Base bullet damage increased'] },
-			{ ability: 'Doorway', bullets: ['Cooldown reduced from 40s to 32s'] }
+			{ ability: null, abilitySlug: null, bullets: ['Base bullet damage increased'] },
+			{
+				ability: 'Doorway',
+				abilitySlug: 'doorway',
+				bullets: ['Cooldown reduced from 40s to 32s']
+			}
 		]);
 		expect(item.changeGroups).toEqual([
 			{ ability: null, bullets: ['Proc chance increased'] }
@@ -266,8 +272,12 @@ describe('entity history queries', () => {
 		const groups = await getSelectedChangeGroups(db, ['new'], [69], []);
 		expect([...groups.keys()]).toEqual(['new:hero:69']);
 		expect(groups.get('new:hero:69')).toEqual([
-			{ ability: null, bullets: ['Base bullet damage increased'] },
-			{ ability: 'Doorway', bullets: ['Cooldown reduced from 40s to 32s'] }
+			{ ability: null, abilitySlug: null, bullets: ['Base bullet damage increased'] },
+			{
+				ability: 'Doorway',
+				abilitySlug: 'doorway',
+				bullets: ['Cooldown reduced from 40s to 32s']
+			}
 		]);
 		const empty = await getSelectedChangeGroups(db, [], [69], [1]);
 		expect(empty.size).toBe(0);

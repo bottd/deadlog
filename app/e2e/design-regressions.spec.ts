@@ -619,19 +619,22 @@ test('patch cards navigate from their full card surfaces', async ({ page }) => {
 	await expect(page).toHaveURL(new URL(cardHref!, page.url()).href);
 });
 
-test('patch cards show preserved post image previews', async ({ page }) => {
+test('patch cards show preserved post image previews', async ({ page, request }) => {
+	const { changelogs } = await (await request.get('/api/changelogs?limit=15')).json();
+	const patch = changelogs
+		.slice(1)
+		.find((entry: { previewImage: string | null }) => entry.previewImage);
+	expect(patch).toBeDefined();
+
 	await gotoApp(page, '/');
 	// The card's link is a stretched anchor around the heading, so the preview image
 	// is a sibling of it rather than a descendant — scope to the card instead.
 	const preview = page
 		.locator('[data-patch-card]')
-		.filter({ has: page.locator('a[href^="/change/2026/05-22"]') })
+		.filter({ has: page.locator(`a[href^="/change/${patch.slug}"]`) })
+		.first()
 		.locator('img[data-patch-preview]');
-	await expect(preview).toBeVisible();
-	await expect(preview).toHaveAttribute(
-		'src',
-		/686d522ba79a25d36cf53ef92f7b0499501f7d2f/
-	);
+	await expect(preview).toHaveAttribute('src', patch.previewImage);
 });
 
 test('patch cards use responsive grid columns', async ({ page }, testInfo) => {

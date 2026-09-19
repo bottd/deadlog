@@ -4,7 +4,7 @@ import {
 	getHeroAbilities,
 	getChangelogsByHeroId
 } from '@deadlog/db';
-import { heroImage, resolveHeroAbilitySlug } from '@deadlog/utils';
+import { heroImage } from '@deadlog/utils';
 import { error, redirect } from '@sveltejs/kit';
 import { absoluteUrl } from '$lib/seo';
 import type { PageServerLoad, EntryGenerator } from './$types';
@@ -42,13 +42,7 @@ export const load: PageServerLoad = async ({ params, locals, url }) => {
 		.map((changelog) => {
 			const changeGroups =
 				changelog.changeGroups
-					?.map((group) => ({
-						...group,
-						abilitySlug: group.ability
-							? resolveHeroAbilitySlug(group.ability, abilities)
-							: null
-					}))
-					.filter((group) => group.abilitySlug === ability.slug)
+					?.filter((group) => group.abilitySlug === ability.slug)
 					.map((group) => ({ ...group, icon: ability.image })) ?? [];
 
 			return {

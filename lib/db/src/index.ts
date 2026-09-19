@@ -7,6 +7,7 @@ export type {
 	EntityIcon,
 	ChangelogEntityIcon,
 	EntityChangeGroup,
+	HeroChangeGroup,
 	ChangelogMatch,
 	PatchSummary
 } from './types';

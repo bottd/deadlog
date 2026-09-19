@@ -4,7 +4,6 @@ import {
 	getHeroAbilities,
 	getChangelogsByHeroId
 } from '@deadlog/db';
-import { resolveHeroAbilitySlug } from '@deadlog/utils';
 import { error, redirect } from '@sveltejs/kit';
 import { getHeroCardImage } from '$lib/utils/entityImages';
 import { DEFAULT_SOCIAL_IMAGE, absoluteUrl } from '$lib/seo';
@@ -36,17 +35,11 @@ export const load: PageServerLoad = async ({ params, locals, url }) => {
 		...changelog,
 		date: new Date(changelog.pubDate),
 		changeGroups:
-			changelog.changeGroups?.map((group) => {
-				const slug = group.ability
-					? resolveHeroAbilitySlug(group.ability, abilities)
-					: null;
-				const ability = abilities.find((candidate) => candidate.slug === slug);
-				return {
-					...group,
-					abilitySlug: ability?.slug ?? null,
-					icon: ability?.image ?? null
-				};
-			}) ?? null
+			changelog.changeGroups?.map((group) => ({
+				...group,
+				icon:
+					abilities.find((ability) => ability.slug === group.abilitySlug)?.image ?? null
+			})) ?? null
 	}));
 
 	return {
