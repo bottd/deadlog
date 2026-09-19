@@ -209,15 +209,15 @@ export const handlers = [
 		return HttpResponse.json<typeof mockBigPatchDays>(mockBigPatchDays);
 	}),
 
-	http.get('https://assets.deadlock-api.com/v2/heroes', () => {
+	http.get('https://api.deadlock-api.com/v1/assets/heroes', () => {
 		return HttpResponse.json<typeof mockHeroes>(mockHeroes);
 	}),
 
-	http.get('https://assets.deadlock-api.com/v2/items', () => {
+	http.get('https://api.deadlock-api.com/v1/assets/items', () => {
 		return HttpResponse.json<typeof mockItems>(mockItems);
 	}),
 
-	http.get('https://assets.deadlock-api.com/v2/ranks', () => {
+	http.get('https://api.deadlock-api.com/v1/assets/ranks', () => {
 		return HttpResponse.json<typeof mockRanks>(mockRanks);
 	}),
 

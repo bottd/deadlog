@@ -6,7 +6,7 @@ import {
 } from '../types/deadlockApi';
 import { z } from 'zod';
 
-const ASSETS_API_BASE = 'https://assets.deadlock-api.com/v2';
+const ASSETS_API_BASE = 'https://api.deadlock-api.com/v1/assets';
 
 async function fetchAndValidate<T>(
 	endpoint: string,

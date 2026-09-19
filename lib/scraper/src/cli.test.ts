@@ -3,7 +3,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 const mocks = vi.hoisted(() => ({ scrape: vi.fn(), build: vi.fn(), snapshot: vi.fn() }));
 vi.mock('./pipeline', () => ({ scrapeChangelogs: mocks.scrape }));
 vi.mock('./buildDatabase', () => ({ buildDatabaseFromMog: mocks.build }));
-vi.mock('./api', () => ({ fetchEntitySnapshot: mocks.snapshot }));
+vi.mock('./api', () => ({ loadEntitySnapshot: mocks.snapshot }));
 import { runPipeline } from './cli';
 
 describe('build orchestration', () => {

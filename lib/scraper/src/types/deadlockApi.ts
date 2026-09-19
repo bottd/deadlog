@@ -41,6 +41,11 @@ const itemSchema = z.object({
 export const heroesApiResponseSchema = z.array(heroSchema);
 export const itemsApiResponseSchema = z.array(itemSchema);
 
+export const entitySnapshotSchema = z.object({
+	heroes: heroesApiResponseSchema,
+	items: itemsApiResponseSchema
+});
+
 export type HeroesApiResponse = z.infer<typeof heroesApiResponseSchema>;
 export type ItemsApiResponse = z.infer<typeof itemsApiResponseSchema>;
 

@@ -1,12 +1,12 @@
 import { scrapeChangelogs } from './pipeline';
 import { buildDatabaseFromMog } from './buildDatabase';
-import { fetchEntitySnapshot } from './api';
+import { loadEntitySnapshot } from './api';
 import { appendFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 export async function runPipeline(args = process.argv.slice(2)) {
-	const snapshot = await fetchEntitySnapshot();
+	const snapshot = await loadEntitySnapshot();
 
 	// `--db-only` rebuilds from the .mg files already on disk (pnpm build:db).
 	if (!args.includes('--db-only')) {

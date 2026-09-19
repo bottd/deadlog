@@ -1,5 +1,12 @@
 export { fetchEntitySnapshot, type EntitySnapshot } from './deadlock';
 export {
+	loadEntitySnapshot,
+	readEntitySnapshot,
+	writeEntitySnapshot,
+	serializeEntitySnapshot,
+	entitySnapshotPath
+} from './snapshot';
+export {
 	scrapeChangelogPage,
 	scrapeMultipleChangelogPosts,
 	POST_CACHE_DIR,
