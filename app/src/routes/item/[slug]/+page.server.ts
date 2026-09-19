@@ -1,24 +1,27 @@
-import { getReleasedItemSlugs, getItemBySlug, getChangelogsByItemId } from '@deadlog/db';
-import { error, redirect } from '@sveltejs/kit';
+import {
+	getRenderableItemSlugs,
+	getItemBySlug,
+	getChangelogsByItemId
+} from '@deadlog/db';
+import { error } from '@sveltejs/kit';
 import type { PageServerLoad, EntryGenerator } from './$types';
 import { DEFAULT_SOCIAL_IMAGE, absoluteUrl } from '$lib/seo';
 
-export const prerender = 'auto';
+export const prerender = true;
 
 export const entries: EntryGenerator = async () => {
 	const { getLibsqlDb } = await import('@deadlog/db');
 	const db = getLibsqlDb();
-	const slugs = await getReleasedItemSlugs(db);
+	const slugs = await getRenderableItemSlugs(db);
 	return slugs.map((slug) => ({ slug }));
 };
 
-export const load: PageServerLoad = async ({ params, locals, url }) => {
+export const load: PageServerLoad = async ({ params, locals }) => {
 	const item = await getItemBySlug(locals.db, params.slug);
 
 	if (!item) {
 		throw error(404, 'Item not found');
 	}
-	if (item.slug !== params.slug) redirect(308, `/item/${item.slug}${url.search}`);
 
 	const changelogs = await getChangelogsByItemId(locals.db, item.id);
 

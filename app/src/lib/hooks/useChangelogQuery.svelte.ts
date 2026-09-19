@@ -1,24 +1,26 @@
 import { createInfiniteQuery, type InfiniteData } from '@tanstack/svelte-query';
 import type { PatchSummary } from '$lib/types';
 import { searchParams } from '$lib/stores/searchParams.svelte';
+import { assembleSummaries, queryFeed, resolveEntityIds } from '$lib/feed/assemble';
+import {
+	loadFeedGroups,
+	loadFeedIndex,
+	loadFeedPage,
+	loadFeedText
+} from '$lib/feed/load';
+import { feedWindow, type FeedPage } from '$lib/feed/pages';
 import {
 	changelogsListKey,
 	filtersToSearchParams,
-	INITIAL_LOAD_COUNT,
 	type ChangelogFilters
 } from '$lib/queries/keys';
 
-interface PageData {
-	changelogs: PatchSummary[];
-	hasMore: boolean;
-}
+type PageData = FeedPage;
 
 /** The prerendered feed the query starts from, read fresh so it stays reactive. */
 interface UseChangelogQueryOptions {
 	getSeed: () => { changelogs: PatchSummary[]; totalCount: number };
 }
-
-const PAGE_SIZE = 12;
 
 /** The prerendered page data holds only the unfiltered feed, so it may only seed the unfiltered query. */
 function isUnfiltered(filters: ChangelogFilters): boolean {
@@ -50,22 +52,37 @@ export function useChangelogQuery(options: UseChangelogQueryOptions) {
 					}
 				: undefined,
 			queryFn: async ({ pageParam, signal }) => {
-				const limit = pageParam === 0 ? INITIAL_LOAD_COUNT : PAGE_SIZE;
-				const offset =
-					pageParam === 0 ? 0 : INITIAL_LOAD_COUNT + (pageParam - 1) * PAGE_SIZE;
-				const searchParams = filtersToSearchParams(filters);
-				searchParams.set('limit', String(limit));
-				searchParams.set('offset', String(offset));
+				if (isUnfiltered(filters)) return loadFeedPage(pageParam, signal);
 
-				const response = await fetch(`/api/changelogs?${searchParams.toString()}`, {
-					signal
-				});
+				const { limit, offset } = feedWindow(pageParam);
+				const selectsEntities = filters.hero.length + filters.item.length > 0;
+				const [index, text, groups] = await Promise.all([
+					loadFeedIndex(),
+					filters.q ? loadFeedText() : null,
+					selectsEntities ? loadFeedGroups() : null
+				]);
+				if (signal.aborted) throw new DOMException('Aborted', 'AbortError');
 
-				if (!response.ok) {
-					throw new Error(`Failed to fetch changelogs: ${response.statusText}`);
-				}
+				const heroIds = resolveEntityIds(filters.hero, index.heroes);
+				const itemIds = resolveEntityIds(filters.item, index.items);
+				const scope = { heroIds, itemIds, q: filters.q, majorOnly: filters.major };
 
-				return (await response.json()) as PageData;
+				const page = queryFeed(index, text, scope, { limit, offset });
+
+				return {
+					changelogs: assembleSummaries(
+						page.rows,
+						index,
+						{ text, groups },
+						{
+							heroIds,
+							itemIds,
+							q: filters.q,
+							isFirstPage: offset === 0
+						}
+					),
+					hasMore: page.hasMore
+				};
 			},
 			getNextPageParam: (lastPage, _pages, lastPageParam) =>
 				lastPage.hasMore ? lastPageParam + 1 : undefined,

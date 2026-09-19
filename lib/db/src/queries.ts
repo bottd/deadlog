@@ -4,12 +4,22 @@ import type {
 	ChangelogEntityIcon,
 	EntityChangeGroup,
 	EntityType,
-	HeroChangeGroup
+	FeedEntityRef,
+	FeedIndex,
+	FeedText,
+	FeedGroups,
+	HeroChangeGroup,
+	RedirectSlugs
 } from './types';
 import type { DrizzleDB } from './client';
 import type { SelectChangelog } from './schema';
 import * as schema from './schema';
-import { countBullets, HERO_IMAGE_KEYS } from '@deadlog/utils';
+import {
+	countBullets,
+	makeSummary,
+	canonicalSlug,
+	HERO_IMAGE_KEYS
+} from '@deadlog/utils';
 
 export type ScrapedChangelog = SelectChangelog;
 export type ScrapedItem = typeof schema.items.$inferSelect;
@@ -187,25 +197,6 @@ export async function getEntityNames(db: DrizzleDB, kind: EntityType) {
 	return db.select({ id: table.id, name: table.name }).from(table).all();
 }
 
-const SLUG_ARTICLES = ['the', 'a', 'an'] as const;
-const SLUG_ARTICLE_RE = new RegExp(`^(${SLUG_ARTICLES.join('|')})-`);
-
-function canonicalSlug(slug: string): string {
-	return slug.toLowerCase().trim().replace(SLUG_ARTICLE_RE, '');
-}
-
-/**
- * Every slug that could canonicalise to the same entity, so an alias lookup stays an
- * indexed query. Slug misses are mostly bots and typos; scanning the table for each
- * one made a 404 the most expensive request on the site.
- */
-function slugCandidates(slug: string): string[] {
-	const canonical = canonicalSlug(slug);
-	return [
-		...new Set([slug, canonical, ...SLUG_ARTICLES.map((a) => `${a}-${canonical}`)])
-	];
-}
-
 export async function getHeroBySlug(
 	db: DrizzleDB,
 	slug: string
@@ -213,21 +204,10 @@ export async function getHeroBySlug(
 	const matches = await db
 		.select()
 		.from(schema.heroes)
-		.where(inArray(schema.heroes.slug, slugCandidates(slug)))
+		.where(eq(schema.heroes.slug, canonicalSlug(slug)))
 		.all();
 
-	// Every candidate shares one canonical form, so any match is a valid alias —
-	// prefer the exact slug so a real row always beats its own article variant.
-	return matches.find((hero) => hero.slug === slug) ?? matches[0] ?? null;
-}
-
-export async function getReleasedHeroSlugs(db: DrizzleDB): Promise<string[]> {
-	const results = await db
-		.select({ slug: schema.heroes.slug })
-		.from(schema.heroes)
-		.where(eq(schema.heroes.isReleased, true))
-		.all();
-	return results.map((r) => r.slug);
+	return matches[0] ?? null;
 }
 
 export async function getItemBySlug(
@@ -237,20 +217,10 @@ export async function getItemBySlug(
 	const matches = await db
 		.select()
 		.from(schema.items)
-		.where(inArray(schema.items.slug, slugCandidates(slug)))
+		.where(eq(schema.items.slug, canonicalSlug(slug)))
 		.all();
 
-	// See getHeroBySlug.
-	return matches.find((item) => item.slug === slug) ?? matches[0] ?? null;
-}
-
-export async function getReleasedItemSlugs(db: DrizzleDB): Promise<string[]> {
-	const results = await db
-		.select({ slug: schema.items.slug })
-		.from(schema.items)
-		.where(eq(schema.items.isReleased, true))
-		.all();
-	return results.map((r) => r.slug);
+	return matches[0] ?? null;
 }
 
 export type HeroAbility = Pick<
@@ -334,13 +304,12 @@ export async function getAbilityBySlug(
 		.where(
 			and(
 				eq(schema.heroes.isReleased, true),
-				inArray(schema.heroAbilities.slug, slugCandidates(slug))
+				eq(schema.heroAbilities.slug, canonicalSlug(slug))
 			)
 		)
 		.all();
 
-	// See getHeroBySlug: prefer the exact slug so a real row beats an article variant.
-	const match = matches.find((row) => row.slug === slug) ?? matches[0];
+	const match = matches[0];
 	if (!match) return null;
 
 	return {
@@ -483,29 +452,6 @@ interface ChangelogIcons {
 	items: ChangelogEntityIcon[];
 }
 
-// D1 permits 100 bindings per query.
-const D1_MAX_BINDINGS = 100;
-// Room for the json paths and literals the query builder binds around the ids.
-const BINDING_HEADROOM = 25;
-
-/** Runs a query over id batches that stay under D1's binding cap. `otherBindings` is what
- * the same query binds besides these ids. */
-async function inBatches<T>(
-	ids: string[],
-	otherBindings: number,
-	run: (batch: string[]) => Promise<T>
-): Promise<T[]> {
-	if (ids.length === 0) return [];
-	const size = Math.max(1, D1_MAX_BINDINGS - BINDING_HEADROOM - otherBindings);
-	if (ids.length <= size) return [await run(ids)];
-
-	const batches: string[][] = [];
-	for (let start = 0; start < ids.length; start += size) {
-		batches.push(ids.slice(start, start + size));
-	}
-	return Promise.all(batches.map(run));
-}
-
 function heroIconImage() {
 	const preferred = HERO_IMAGE_KEYS.icon.map(
 		(key) => sql`NULLIF(json_extract(${schema.heroes.images}, ${`$.${key}`}), '')`
@@ -521,16 +467,6 @@ function groupBulletCount(column: SQLiteColumn) {
 }
 
 export async function getChangelogIcons(
-	db: DrizzleDB,
-	changelogIds: string[]
-): Promise<Record<string, ChangelogIcons>> {
-	const batches = await inBatches(changelogIds, 0, (ids) =>
-		selectChangelogIcons(db, ids)
-	);
-	return Object.assign({}, ...batches);
-}
-
-async function selectChangelogIcons(
 	db: DrizzleDB,
 	changelogIds: string[]
 ): Promise<Record<string, ChangelogIcons>> {
@@ -582,51 +518,199 @@ async function selectChangelogIcons(
 	return result;
 }
 
-/** Only selected entities' prose is needed for relevant feed excerpts. */
-export async function getSelectedChangeGroups(
-	db: DrizzleDB,
-	changelogIds: string[],
-	heroIds: number[],
-	itemIds: number[]
-): Promise<Map<string, EntityChangeGroup[] | null>> {
-	// Each batch also binds one entity list, so the widest of the two sets the reserve.
-	const batches = await inBatches(
-		changelogIds,
-		Math.max(heroIds.length, itemIds.length),
-		(ids) => selectChangeGroups(db, ids, heroIds, itemIds)
-	);
-	return new Map(batches.flatMap((batch) => [...batch]));
+const feedIndexes = new WeakMap<DrizzleDB, Promise<FeedIndex>>();
+
+export function getFeedIndex(db: DrizzleDB): Promise<FeedIndex> {
+	let index = feedIndexes.get(db);
+	if (!index) {
+		index = buildFeedIndex(db);
+		feedIndexes.set(db, index);
+	}
+	return index;
 }
 
-async function selectChangeGroups(
-	db: DrizzleDB,
-	changelogIds: string[],
-	heroIds: number[],
-	itemIds: number[]
-): Promise<Map<string, EntityChangeGroup[] | null>> {
-	const result = new Map<string, EntityChangeGroup[] | null>();
-	const collect = async (
-		type: EntityType,
-		link: typeof schema.changelogHeroes | typeof schema.changelogItems,
-		entityId: SQLiteColumn,
-		ids: number[]
-	) => {
-		if (ids.length === 0) return;
-		const rows = await db
+async function buildFeedIndex(db: DrizzleDB): Promise<FeedIndex> {
+	const [rows, heroRefs, itemRefs, heroes, items] = await Promise.all([
+		db
 			.select({
-				changelogId: link.changelogId,
-				entityId,
-				groups: link.changeGroups
+				id: schema.changelogs.id,
+				slug: schema.changelogs.slug,
+				title: schema.changelogs.title,
+				date: schema.changelogs.pubDate,
+				author: schema.changelogs.author,
+				authorImage: schema.changelogs.authorImage,
+				previewImage: schema.changelogs.previewImage,
+				majorUpdate: schema.changelogs.majorUpdate,
+				contentText: schema.changelogs.contentText
 			})
-			.from(link)
-			.where(and(inArray(link.changelogId, changelogIds), inArray(entityId, ids)))
-			.all();
-		for (const row of rows)
-			result.set(`${row.changelogId}:${type}:${row.entityId}`, row.groups);
-	};
-	await Promise.all([
-		collect('hero', schema.changelogHeroes, schema.changelogHeroes.heroId, heroIds),
-		collect('item', schema.changelogItems, schema.changelogItems.itemId, itemIds)
+			.from(schema.changelogs)
+			.orderBy(desc(schema.changelogs.pubDate))
+			.all(),
+		db
+			.select({
+				changelogId: schema.changelogHeroes.changelogId,
+				id: schema.changelogHeroes.heroId,
+				groups: schema.changelogHeroes.changeGroups
+			})
+			.from(schema.changelogHeroes)
+			.all(),
+		db
+			.select({
+				changelogId: schema.changelogItems.changelogId,
+				id: schema.changelogItems.itemId,
+				groups: schema.changelogItems.changeGroups
+			})
+			.from(schema.changelogItems)
+			.all(),
+		db
+			.select({
+				id: schema.heroes.id,
+				name: schema.heroes.name,
+				slug: schema.heroes.slug,
+				src: heroIconImage(),
+				heroType: schema.heroes.heroType
+			})
+			.from(schema.heroes)
+			.where(
+				inArray(
+					schema.heroes.id,
+					db.select({ id: schema.changelogHeroes.heroId }).from(schema.changelogHeroes)
+				)
+			)
+			.orderBy(schema.heroes.name)
+			.all(),
+		db
+			.select({
+				id: schema.items.id,
+				name: schema.items.name,
+				slug: schema.items.slug,
+				src: schema.items.image,
+				category: schema.items.category
+			})
+			.from(schema.items)
+			.where(
+				inArray(
+					schema.items.id,
+					db.select({ id: schema.changelogItems.itemId }).from(schema.changelogItems)
+				)
+			)
+			.orderBy(schema.items.name)
+			.all()
 	]);
-	return result;
+
+	const group = (
+		refs: { changelogId: string; id: number; groups: EntityChangeGroup[] | null }[]
+	) => {
+		const byChangelog = new Map<string, FeedEntityRef[]>();
+		for (const { changelogId, id, groups } of refs) {
+			const list = byChangelog.get(changelogId) ?? [];
+			list.push({ id, changeCount: countBullets(groups) });
+			byChangelog.set(changelogId, list);
+		}
+		return byChangelog;
+	};
+
+	const heroesByChangelog = group(heroRefs);
+	const itemsByChangelog = group(itemRefs);
+
+	return {
+		rows: rows.map(({ contentText, ...row }) => ({
+			...row,
+			summary: makeSummary(contentText),
+			heroes: heroesByChangelog.get(row.id) ?? [],
+			items: itemsByChangelog.get(row.id) ?? []
+		})),
+		heroes: heroes.map((hero) => ({ ...hero, type: 'hero' as const })),
+		items: items.map(({ category, ...item }) => ({
+			...item,
+			type: 'item' as const,
+			itemCategory: category ?? undefined
+		}))
+	};
+}
+
+export async function getFeedText(db: DrizzleDB): Promise<FeedText> {
+	const rows = await db
+		.select({ id: schema.changelogs.id, text: schema.changelogs.contentText })
+		.from(schema.changelogs)
+		.all();
+	return Object.fromEntries(rows.map((row) => [row.id, row.text ?? '']));
+}
+
+export async function getRedirectSlugs(db: DrizzleDB): Promise<RedirectSlugs> {
+	const [heroes, items, abilities, changelogs, aliases] = await Promise.all([
+		getRenderableHeroSlugs(db),
+		getRenderableItemSlugs(db),
+		getReleasedAbilities(db),
+		getAllChangelogSlugs(db),
+		db
+			.select({
+				alias: schema.changelogAliases.slug,
+				canonical: schema.changelogs.slug
+			})
+			.from(schema.changelogAliases)
+			.innerJoin(
+				schema.changelogs,
+				eq(schema.changelogAliases.changelogId, schema.changelogs.id)
+			)
+			.all()
+	]);
+
+	return {
+		hero: heroes,
+		item: items,
+		ability: abilities.map((entry) => entry.slug),
+		changelog: changelogs,
+		changelogAliases: Object.fromEntries(aliases.map((row) => [row.alias, row.canonical]))
+	};
+}
+
+async function renderableSlugs(
+	db: DrizzleDB,
+	table: typeof schema.heroes | typeof schema.items,
+	link: SQLiteColumn
+): Promise<string[]> {
+	const rows = await db
+		.selectDistinct({ slug: table.slug })
+		.from(table)
+		.where(
+			sql`${table.isReleased} = 1 OR ${table.id} IN (SELECT ${link} FROM ${link.table})`
+		)
+		.orderBy(table.slug)
+		.all();
+	return rows.map((row) => row.slug);
+}
+
+export function getRenderableHeroSlugs(db: DrizzleDB): Promise<string[]> {
+	return renderableSlugs(db, schema.heroes, schema.changelogHeroes.heroId);
+}
+
+export function getRenderableItemSlugs(db: DrizzleDB): Promise<string[]> {
+	return renderableSlugs(db, schema.items, schema.changelogItems.itemId);
+}
+
+export async function getFeedGroups(db: DrizzleDB): Promise<FeedGroups> {
+	const [heroRows, itemRows] = await Promise.all([
+		db
+			.select({
+				changelogId: schema.changelogHeroes.changelogId,
+				id: schema.changelogHeroes.heroId,
+				groups: schema.changelogHeroes.changeGroups
+			})
+			.from(schema.changelogHeroes)
+			.all(),
+		db
+			.select({
+				changelogId: schema.changelogItems.changelogId,
+				id: schema.changelogItems.itemId,
+				groups: schema.changelogItems.changeGroups
+			})
+			.from(schema.changelogItems)
+			.all()
+	]);
+
+	const groups: FeedGroups = {};
+	for (const row of heroRows) groups[`${row.changelogId}:hero:${row.id}`] = row.groups;
+	for (const row of itemRows) groups[`${row.changelogId}:item:${row.id}`] = row.groups;
+	return groups;
 }

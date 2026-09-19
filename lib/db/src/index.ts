@@ -1,4 +1,4 @@
-export { getDb, getLibsqlDb, type DrizzleDB } from './client';
+export { getLibsqlDb, type DrizzleDB } from './client';
 export * as schema from './schema';
 export type { SelectChangelog } from './schema';
 export * from './queries';
@@ -9,7 +9,15 @@ export type {
 	EntityChangeGroup,
 	HeroChangeGroup,
 	ChangelogMatch,
-	PatchSummary
+	PatchSummary,
+	FeedEntity,
+	FeedEntityRef,
+	FeedRow,
+	FeedIndex,
+	FeedText,
+	FeedGroups,
+	FeedFilters,
+	RedirectSlugs
 } from './types';
 
 export {

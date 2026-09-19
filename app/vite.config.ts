@@ -7,6 +7,8 @@ import path from 'path';
 
 const changelogsDir = path.resolve(import.meta.dirname, 'changelogs');
 
+process.env.DATABASE_URL ??= `file:${path.resolve(import.meta.dirname, 'static/deadlog.db')}`;
+
 /**
  * The Mog parser reports malformed markup as a plugin warning — a dropped unsafe link,
  * an unclosed block. In a build that prints a hundred lines of chunk sizes those scroll

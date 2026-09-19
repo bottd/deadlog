@@ -189,6 +189,22 @@ function buildSteamChangelogSource(steamNote: SteamAnnouncement): ChangelogSourc
 const STEAM_FORUM_MATCH_WINDOW_MS = 15 * 60 * 1000;
 const STEAM_TITLE_DATE_MATCH_WINDOW_MS = 6 * 60 * 60 * 1000;
 const STEAM_EXACT_TITLE_MATCH_WINDOW_MS = 24 * 60 * 60 * 1000;
+const STEAM_TITLE_DATE_TOLERANCE_MS = 36 * 60 * 60 * 1000;
+const STEAM_BACKFILL_MATCH_WINDOW_MS = 90 * 24 * 60 * 60 * 1000;
+
+function isPublishedOnTitleDate(title: string, published: string): boolean {
+	const titleDate = extractDateFromTitle(title);
+	if (!titleDate) return false;
+	const [month, day, year] = titleDate.split('-').map(Number);
+	const titleNoon = Date.UTC(year, month - 1, day, 12);
+	return (
+		Math.abs(new Date(published).getTime() - titleNoon) <= STEAM_TITLE_DATE_TOLERANCE_MS
+	);
+}
+
+function forumDelayMs(post: ChangelogPost, note: SteamAnnouncement): number {
+	return new Date(post.pubDate).getTime() - new Date(note.date).getTime();
+}
 
 export function matchSteamNotesToForumPosts(
 	posts: ChangelogPost[],
@@ -209,58 +225,62 @@ export function matchSteamNotesToForumPosts(
 			(note) =>
 				!consumedGids.has(note.gid) &&
 				toSlug(note.title) === toSlug(post.title) &&
-				Math.abs(new Date(post.pubDate).getTime() - new Date(note.date).getTime()) <=
-					STEAM_EXACT_TITLE_MATCH_WINDOW_MS
+				Math.abs(forumDelayMs(post, note)) <= STEAM_EXACT_TITLE_MATCH_WINDOW_MS
 		);
 		if (candidates.length === 1) claim(post, candidates[0]);
 	}
 
 	const unmatchedPosts = posts.filter((post) => !steamByForumPostId.has(post.postId));
 	const unmatchedNotes = steamNotes.filter((note) => !consumedGids.has(note.gid));
-	const hasMatchingTitleDate = (post: ChangelogPost, note: SteamAnnouncement) => {
+	const claimUniquePairs = (
+		matches: (post: ChangelogPost, note: SteamAnnouncement) => boolean
+	) => {
+		for (const post of unmatchedPosts) {
+			if (steamByForumPostId.has(post.postId)) continue;
+			const noteCandidates = unmatchedNotes.filter(
+				(note) => !consumedGids.has(note.gid) && matches(post, note)
+			);
+			if (noteCandidates.length !== 1) continue;
+
+			const [note] = noteCandidates;
+			const postCandidates = unmatchedPosts.filter(
+				(candidate) =>
+					!steamByForumPostId.has(candidate.postId) && matches(candidate, note)
+			);
+			if (postCandidates.length === 1) claim(post, note);
+		}
+	};
+
+	const hasSameTitleDate = (post: ChangelogPost, note: SteamAnnouncement) => {
 		const postDate = extractDateFromTitle(post.title);
 		return (
 			postDate !== null &&
 			postDate === extractDateFromTitle(note.title) &&
 			/\bupdate\b/i.test(post.title) &&
-			/\bupdate\b/i.test(note.title) &&
-			Math.abs(new Date(post.pubDate).getTime() - new Date(note.date).getTime()) <=
-				STEAM_TITLE_DATE_MATCH_WINDOW_MS
+			/\bupdate\b/i.test(note.title)
 		);
 	};
 
-	for (const post of unmatchedPosts) {
-		if (steamByForumPostId.has(post.postId)) continue;
-		const noteCandidates = unmatchedNotes.filter(
-			(note) => !consumedGids.has(note.gid) && hasMatchingTitleDate(post, note)
-		);
-		if (noteCandidates.length !== 1) continue;
+	claimUniquePairs(
+		(post, note) =>
+			hasSameTitleDate(post, note) &&
+			Math.abs(forumDelayMs(post, note)) <= STEAM_TITLE_DATE_MATCH_WINDOW_MS
+	);
 
-		const [note] = noteCandidates;
-		const postCandidates = unmatchedPosts.filter(
-			(candidate) =>
-				!steamByForumPostId.has(candidate.postId) && hasMatchingTitleDate(candidate, note)
-		);
-		if (postCandidates.length === 1) claim(post, note);
-	}
+	claimUniquePairs(
+		(post, note) =>
+			/\bupdate\b/i.test(`${note.title}\n${note.content}`) &&
+			Math.abs(forumDelayMs(post, note)) <= STEAM_FORUM_MATCH_WINDOW_MS
+	);
 
-	const isClose = (post: ChangelogPost, note: SteamAnnouncement) =>
-		/\bupdate\b/i.test(`${note.title}\n${note.content}`) &&
-		Math.abs(new Date(post.pubDate).getTime() - new Date(note.date).getTime()) <=
-			STEAM_FORUM_MATCH_WINDOW_MS;
-
-	for (const post of unmatchedPosts) {
-		const noteCandidates = unmatchedNotes.filter(
-			(note) => !consumedGids.has(note.gid) && isClose(post, note)
-		);
-		if (noteCandidates.length !== 1) continue;
-
-		const [note] = noteCandidates;
-		const postCandidates = unmatchedPosts.filter(
-			(candidate) => !steamByForumPostId.has(candidate.postId) && isClose(candidate, note)
-		);
-		if (postCandidates.length === 1) claim(post, note);
-	}
+	claimUniquePairs(
+		(post, note) =>
+			hasSameTitleDate(post, note) &&
+			forumDelayMs(post, note) > 0 &&
+			forumDelayMs(post, note) <= STEAM_BACKFILL_MATCH_WINDOW_MS &&
+			!isPublishedOnTitleDate(post.title, post.pubDate) &&
+			isPublishedOnTitleDate(note.title, note.date)
+	);
 
 	return {
 		steamByForumPostId,

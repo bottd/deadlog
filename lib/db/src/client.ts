@@ -1,4 +1,3 @@
-import { drizzle as drizzleD1 } from 'drizzle-orm/d1';
 import { drizzle as drizzleLibsql } from 'drizzle-orm/libsql';
 import { createClient } from '@libsql/client';
 import { BaseSQLiteDatabase } from 'drizzle-orm/sqlite-core';
@@ -19,8 +18,4 @@ export function getLibsqlDb(): DrizzleDB {
 		libsqlInstance = drizzleLibsql(createClient({ url: DATABASE_URL }), { schema });
 	}
 	return libsqlInstance;
-}
-
-export function getDb(d1Database?: D1Database): DrizzleDB {
-	return d1Database ? drizzleD1(d1Database, { schema }) : getLibsqlDb();
 }

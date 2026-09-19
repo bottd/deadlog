@@ -43,7 +43,7 @@ test('directory search narrows items without horizontal overflow', async ({ page
 });
 
 test('canonical aliases and profile history preserve entity scope', async ({ page }) => {
-	await gotoApp(page, '/hero/doorman?ability=call-bell');
+	await gotoApp(page, '/hero/THE-DOORMAN?ability=call-bell');
 	await expect(page).toHaveURL(/\/hero\/the-doorman\?ability=call-bell$/);
 	await expect(
 		page.getByRole('heading', { level: 1, name: 'The Doorman' })
@@ -325,14 +325,6 @@ test('filtered results retain scope and expose direct entity histories', async (
 	await expect(entityLink).toHaveAttribute('href', /\/change\/[^?]+#abrams$/);
 	await entityLink.click();
 	await expect(page.locator('#abrams')).toBeVisible();
-});
-
-test('the changelog API rejects invalid pagination', async ({ request }) => {
-	const negative = await request.get('/api/changelogs?limit=-1');
-	const infinite = await request.get('/api/changelogs?limit=Infinity');
-
-	expect(negative.status()).toBe(400);
-	expect(infinite.status()).toBe(400);
 });
 
 test('entity histories deduplicate shared forum and Steam sources', async ({ page }) => {
@@ -620,8 +612,8 @@ test('patch cards navigate from their full card surfaces', async ({ page }) => {
 });
 
 test('patch cards show preserved post image previews', async ({ page, request }) => {
-	const { changelogs } = await (await request.get('/api/changelogs?limit=15')).json();
-	const patch = changelogs
+	const { rows } = await (await request.get('/feed-index.json')).json();
+	const patch = rows
 		.slice(1)
 		.find((entry: { previewImage: string | null }) => entry.previewImage);
 	expect(patch).toBeDefined();

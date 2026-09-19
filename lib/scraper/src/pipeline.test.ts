@@ -80,6 +80,41 @@ describe('matchSteamNotesToForumPosts', () => {
 		]);
 	});
 
+	it('matches a forum thread backfilled weeks after its Steam note by title date', () => {
+		const result = matchSteamNotesToForumPosts(
+			[
+				forumPost('162570', '08-12-2026 Update', '2026-09-16T22:41:13Z'),
+				forumPost('162571', '08-22-2026 Update', '2026-09-16T22:41:28Z')
+			],
+			[
+				steamNote('gid-22', 'Minor Update - 08-22-2026', '2026-08-22T21:40:46Z'),
+				steamNote('gid-12', 'Minor Update - 08-12-2026', '2026-08-12T22:57:44Z')
+			]
+		);
+
+		expect(result.steamByForumPostId.get('162570')?.gid).toBe('gid-12');
+		expect(result.steamByForumPostId.get('162571')?.gid).toBe('gid-22');
+		expect(result.unmatchedSteamNotes).toEqual([]);
+	});
+
+	it('does not backfill-match a note whose publish date disagrees with its title date', () => {
+		const result = matchSteamNotesToForumPosts(
+			[forumPost('forum', '08-22-2026 Update', '2026-09-16T22:41:28Z')],
+			[steamNote('gid', 'Minor Update - 08-22-2026', '2026-08-30T21:40:46Z')]
+		);
+
+		expect(result.steamByForumPostId.size).toBe(0);
+	});
+
+	it('does not backfill-match a forum thread posted months after its Steam note', () => {
+		const result = matchSteamNotesToForumPosts(
+			[forumPost('forum', '08-22-2026 Update', '2026-12-16T22:41:28Z')],
+			[steamNote('gid', 'Minor Update - 08-22-2026', '2026-08-22T21:40:46Z')]
+		);
+
+		expect(result.steamByForumPostId.size).toBe(0);
+	});
+
 	it('does not match an exact title reused on a different day', () => {
 		const result = matchSteamNotesToForumPosts(
 			[forumPost('forum', 'Matchmaking Update', '2026-07-31T12:00:00Z')],

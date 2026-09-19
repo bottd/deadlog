@@ -5,11 +5,11 @@ import {
 	getChangelogsByHeroId
 } from '@deadlog/db';
 import { heroImage } from '@deadlog/utils';
-import { error, redirect } from '@sveltejs/kit';
+import { error } from '@sveltejs/kit';
 import { absoluteUrl } from '$lib/seo';
 import type { PageServerLoad, EntryGenerator } from './$types';
 
-export const prerender = 'auto';
+export const prerender = true;
 
 export const entries: EntryGenerator = async () => {
 	const { getLibsqlDb } = await import('@deadlog/db');
@@ -18,7 +18,7 @@ export const entries: EntryGenerator = async () => {
 	return abilities.map(({ slug }) => ({ slug }));
 };
 
-export const load: PageServerLoad = async ({ params, locals, url }) => {
+export const load: PageServerLoad = async ({ params, locals }) => {
 	const match = await getAbilityBySlug(locals.db, params.slug);
 
 	if (!match) {
@@ -26,9 +26,6 @@ export const load: PageServerLoad = async ({ params, locals, url }) => {
 	}
 
 	const { ability, hero } = match;
-	if (ability.slug !== params.slug) {
-		redirect(308, `/ability/${ability.slug}${url.search}`);
-	}
 
 	const [changelogs, abilities] = await Promise.all([
 		getChangelogsByHeroId(locals.db, hero.id),

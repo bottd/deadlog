@@ -89,14 +89,7 @@
 					class="items-stretch sm:items-center"
 				>
 					<li>
-						<a
-							href="/heroes"
-							border="signal/25 ~"
-							bg="signal/10"
-							text="signal sm"
-							flex="~"
-							class="ui-focus-ring min-h-11 items-center justify-center gap-1.5 rounded-md px-4 transition-colors hover:(bg-signal/20 border-signal/50)"
-						>
+						<a href="/heroes" class="pill-signal flex justify-center gap-1.5">
 							Browse heroes
 							{#if heroCount}<span text="muted-foreground xs" font="mono"
 									>{heroCount}</span
@@ -104,14 +97,7 @@
 						</a>
 					</li>
 					<li>
-						<a
-							href="/items"
-							border="signal/25 ~"
-							bg="signal/10"
-							text="signal sm"
-							flex="~"
-							class="ui-focus-ring min-h-11 items-center justify-center gap-1.5 rounded-md px-4 transition-colors hover:(bg-signal/20 border-signal/50)"
-						>
+						<a href="/items" class="pill-signal flex justify-center gap-1.5">
 							Browse items
 							{#if itemCount}<span text="muted-foreground xs" font="mono"
 									>{itemCount}</span
@@ -119,14 +105,7 @@
 						</a>
 					</li>
 					<li>
-						<a
-							href="/archive"
-							border="signal/25 ~"
-							bg="signal/10"
-							text="signal sm"
-							flex="~"
-							class="ui-focus-ring min-h-11 items-center justify-center gap-1.5 rounded-md px-4 transition-colors hover:(bg-signal/20 border-signal/50)"
-						>
+						<a href="/archive" class="pill-signal flex justify-center gap-1.5">
 							Complete archive
 							<ArrowRight class="size-3.5" />
 						</a>

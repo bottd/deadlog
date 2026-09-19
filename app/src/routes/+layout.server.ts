@@ -1,9 +1,12 @@
 import { schema } from '@deadlog/db';
 import { eq } from 'drizzle-orm';
+import { building, dev } from '$app/environment';
 import { pickHeroImages } from '$lib/utils/entityImages';
 import type { LayoutServerLoad } from './$types';
 
 export const load: LayoutServerLoad = async ({ locals }) => {
+	if (!building && !dev) return { heroes: [], items: [] };
+
 	const [heroes, items] = await Promise.all([
 		locals.db
 			.select()

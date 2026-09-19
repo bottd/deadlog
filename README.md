@@ -7,8 +7,7 @@ A searchable Deadlock patch archive with per-hero, per-item, and per-ability his
 ## Tech Stack
 
 - Drizzle ORM
-  - SQLite (`@libsql/client`)
-  - Cloudflare D1 (`drizzle-orm/d1`)
+  - SQLite (`@libsql/client`), read at build time only
 - PNPM
 - SvelteKit
 - UnoCSS

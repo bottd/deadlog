@@ -79,12 +79,9 @@
 	--popover-foreground: var(--base-10);
 	--primary: var(--accent-500);
 	--primary-foreground: var(--base-950);
-	--primary-subtle: var(--accent-100);
 	--signal: var(--sea-500);
 	--signal-foreground: var(--base-950);
-	--signal-subtle: var(--sea-100);
 	--secondary: var(--base-100);
-	--secondary-foreground: var(--base-10);
 	--muted: var(--base-50);
 	--muted-foreground: var(--base-500);
 	--accent: var(--accent-500);
@@ -92,9 +89,7 @@
 	--destructive: #da806f;
 	--border: var(--border-default);
 	--border-subtle: var(--border-light);
-	--input: var(--border-default);
 	--ring: var(--accent-500);
-	--editorial-divider: var(--border-default);
 
 	/* Category accents remain distinct and legible when used as small text on cards. */
 	--type-marksman: #ebc06d;

@@ -23,19 +23,15 @@ const semanticColors = [
 	'popover-foreground',
 	'primary',
 	'primary-foreground',
-	'primary-subtle',
 	'signal',
 	'signal-foreground',
-	'signal-subtle',
 	'secondary',
-	'secondary-foreground',
 	'muted',
 	'muted-foreground',
 	'accent',
 	'accent-foreground',
 	'destructive',
 	'border',
-	'input',
 	'ring'
 ];
 
@@ -77,7 +73,7 @@ export default defineConfig({
 		 * Unitless leadings, as Tailwind 4 wrote them. `text-[10px]` sets font-size and
 		 * nothing else, so its line box comes from whatever an ancestor established — and
 		 * a ratio re-scales on inherit where presetWind4's absolute `1.25rem` would not.
-		 * The small mono labels (41 `text-[Npx]` sites) sit inside `text-sm`/`text-xs`
+		 * The small mono labels (12 `text-[Npx]` sites) sit inside `text-sm`/`text-xs`
 		 * containers and depend on that. Each entry still computes to presetWind4's own
 		 * value at its own size, so nothing else moves.
 		 */
@@ -148,16 +144,28 @@ export default defineConfig({
 			'badge border-transparent bg-primary text-primary-foreground hover:bg-primary/90',
 		'badge-signal': 'badge border-signal/25 bg-signal/15 text-signal hover:bg-signal/25',
 
+		'pill-signal':
+			'ui-focus-ring min-h-11 items-center rounded-md border border-signal/25 bg-signal/10 px-4 text-sm text-signal transition-colors hover:(bg-signal/20 border-signal/50)',
+
 		/** Floating surfaces: one step above `--card` so they read as elevated. */
 		overlay: 'fixed inset-0 z-50 bg-black/60',
 		sheet: 'fixed z-50 flex flex-col gap-4 bg-background shadow-lg',
 		'sheet-bottom': 'sheet inset-x-0 bottom-0 h-auto border-t',
 		popover: 'z-50 rounded-md border bg-popover text-popover-foreground shadow-md',
 
+		'toc-panel': 'border border-border/60 bg-card/80 p-3 shadow-sm backdrop-blur-sm',
+		'toc-group': 'pt-2',
+		'toc-section':
+			'relative flex items-center gap-2 py-1 pl-3 text-xs font-semibold tracking-tight text-foreground/80 transition-colors hover:text-signal [&:hover_.toc-marker]:(h-4 bg-signal)',
+		'toc-marker':
+			'absolute top-1/2 left-[-0.5px] h-3 w-px -translate-y-1/2 bg-signal/0 transition-all duration-200',
+		'toc-count': 'ml-auto font-mono text-[11px] text-signal',
+		'toc-link':
+			'flex items-center rounded-sm text-muted-foreground transition-colors hover:(bg-muted/50 text-foreground)',
+
 		/**
-		 * The small mono all-caps section label. `kicker` is the typography alone, for the
-		 * two sites that set their own size; the sized variants cover the rest, so no call
-		 * site has to pair the shortcut with a loose `text-[Npx]`.
+		 * The small mono all-caps section label. `kicker` is the typography alone; the sized
+		 * variants cover every call site, so none has to pair it with a loose `text-[Npx]`.
 		 *
 		 * Sizes stay arbitrary rather than joining `theme.text`: that scale's entries carry
 		 * a unitless leading, and these labels deliberately inherit their line box from the

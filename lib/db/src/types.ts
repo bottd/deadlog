@@ -50,3 +50,57 @@ export interface PatchSummary {
 	counts: { heroes: number; items: number };
 	matches: ChangelogMatch[];
 }
+
+export interface FeedEntity {
+	id: number;
+	type: EntityType;
+	name: string;
+	slug: string;
+	src: string;
+	heroType?: string | null;
+	itemCategory?: ItemCategory;
+}
+
+export interface FeedEntityRef {
+	id: number;
+	changeCount: number | null;
+}
+
+export interface FeedRow {
+	id: string;
+	slug: string;
+	title: string;
+	date: string;
+	author: string;
+	authorImage: string;
+	previewImage: string | null;
+	majorUpdate: boolean;
+	summary: string;
+	heroes: FeedEntityRef[];
+	items: FeedEntityRef[];
+}
+
+export interface FeedIndex {
+	rows: FeedRow[];
+	heroes: FeedEntity[];
+	items: FeedEntity[];
+}
+
+export type FeedText = Record<string, string>;
+
+export type FeedGroups = Record<string, EntityChangeGroup[] | null>;
+
+export interface FeedFilters {
+	heroIds: number[];
+	itemIds: number[];
+	q: string;
+	majorOnly: boolean;
+}
+
+export interface RedirectSlugs {
+	hero: string[];
+	item: string[];
+	ability: string[];
+	changelog: string[];
+	changelogAliases: Record<string, string>;
+}

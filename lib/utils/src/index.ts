@@ -11,6 +11,7 @@ export function toSlug(name: string): string {
 import { entityNameAliases } from './entityNames';
 
 export {
+	canonicalSlug,
 	decodeEntityName,
 	entityNameAliases,
 	entityNamesMatch,
@@ -268,7 +269,6 @@ const yearFormatter = new Intl.DateTimeFormat('en-US', {
 	year: 'numeric'
 });
 
-/** The year {@link formatDate} would print. */
 export function formatYear(date: Date | string): string {
 	return yearFormatter.format(toDate(date));
 }

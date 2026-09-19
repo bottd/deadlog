@@ -16,11 +16,11 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Check types and lint
-        run: pnpm run check && pnpm run lint
-
       - name: Generate database once
         run: pnpm run build:db
+
+      - name: Check types and lint
+        run: pnpm run check && pnpm run lint
 
       - name: Run tests
         run: pnpm run test

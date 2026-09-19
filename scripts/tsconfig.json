@@ -7,7 +7,13 @@
 		"skipLibCheck": true,
 		"strict": true,
 		"target": "ES2022",
-		"types": ["node"]
+		"types": ["node"],
+		"paths": {
+			"@deadlog/changelog": ["../lib/changelog/src/index.ts"],
+			"@deadlog/scraper": ["../lib/scraper/src/index.ts"],
+			"@deadlog/db": ["../lib/db/src/index.ts"],
+			"@deadlog/utils": ["../lib/utils/src/index.ts"]
+		}
 	},
 	"include": ["./**/*.ts"]
 }

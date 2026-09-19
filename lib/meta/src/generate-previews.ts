@@ -433,5 +433,6 @@ export async function runPreviewGenerator(
 
 const entryPoint = process.argv[1];
 if (entryPoint && resolve(entryPoint) === fileURLToPath(import.meta.url)) {
+	process.env.DATABASE_URL ??= `file:${resolve(import.meta.dirname, '../../../app/static/deadlog.db')}`;
 	void runPreviewGenerator();
 }

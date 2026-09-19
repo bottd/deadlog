@@ -34,7 +34,6 @@ jobs:
         id: data
         env:
           EVENT_NAME: ${{ github.event_name }}
-          DATABASE_URL: file:app/static/deadlog.db
         run: |
           if [[ "$EVENT_NAME" == "schedule" ]]; then
             pnpm run build:scraper --if-changed
@@ -49,26 +48,12 @@ jobs:
       - name: Generate social preview images
         if: steps.data.outputs.changed == 'true'
         run: pnpm run build:meta
-        env:
-          DATABASE_URL: file:app/static/deadlog.db
 
       - name: Build web project
         if: steps.data.outputs.changed == 'true'
         run: pnpm run build
         env:
           CLOUDFLARE: true
-          DATABASE_URL: file:app/static/deadlog.db
-
-      - name: Export database to SQL
-        if: steps.data.outputs.changed == 'true'
-        run: lib/db/export-d1.sh app/static/deadlog.db deadlog-replace.sql
-
-      - name: Replace D1 database
-        if: steps.data.outputs.changed == 'true'
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        run: pnpm exec wrangler d1 execute deadlog --remote --file=deadlog-replace.sql --config=app/wrangler.toml
 
       - name: Deploy to Cloudflare Workers
         if: steps.data.outputs.changed == 'true'

@@ -456,21 +456,12 @@
 							<button
 								type="button"
 								onclick={() => toggleAbility(selectedAbility?.slug ?? '')}
-								border="signal/25 ~"
-								bg="signal/10"
-								text="signal sm"
-								class="ui-focus-ring inline-flex min-h-11 items-center rounded-md px-4 transition-colors hover:(bg-signal/20 border-signal/50)"
+								class="pill-signal inline-flex"
 							>
 								Show all {entity.name} changes
 							</button>
 						{:else}
-							<a
-								href={listing.path}
-								border="signal/25 ~"
-								bg="signal/10"
-								text="signal sm"
-								class="ui-focus-ring inline-flex min-h-11 items-center gap-1.5 rounded-md px-4 transition-colors hover:(bg-signal/20 border-signal/50)"
-							>
+							<a href={listing.path} class="pill-signal inline-flex gap-1.5">
 								Browse all {listing.label.toLowerCase()}
 								<ArrowRight class="size-3.5" />
 							</a>

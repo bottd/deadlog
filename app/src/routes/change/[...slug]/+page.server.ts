@@ -1,9 +1,9 @@
 import { getAllChangelogSlugs, getChangelogBySlug } from '@deadlog/db';
-import { error, redirect } from '@sveltejs/kit';
+import { error } from '@sveltejs/kit';
 import type { PageServerLoad, EntryGenerator } from './$types';
 import { buildChangePageData } from '$lib/server/changelog-utils';
 
-export const prerender = 'auto';
+export const prerender = true;
 
 export const entries: EntryGenerator = async () => {
 	const { getLibsqlDb } = await import('@deadlog/db');
@@ -12,14 +12,11 @@ export const entries: EntryGenerator = async () => {
 	return slugs.map((slug) => ({ slug }));
 };
 
-export const load: PageServerLoad = async ({ params, locals, url }) => {
+export const load: PageServerLoad = async ({ params, locals }) => {
 	const changelog = await getChangelogBySlug(locals.db, params.slug);
 
 	if (!changelog) {
 		throw error(404, 'Changelog not found');
-	}
-	if (changelog.slug !== params.slug) {
-		redirect(308, `/change/${changelog.slug}${url.search}`);
 	}
 
 	return buildChangePageData(locals.db, changelog);

@@ -97,20 +97,11 @@
 	});
 </script>
 
-<nav
-	class="toc {size} clip-corner-sm border-border/60 bg-card/80 border p-3 shadow-sm backdrop-blur-sm"
-	aria-label="Table of contents"
->
+<nav class="toc {size} toc-panel clip-corner-sm" aria-label="Table of contents">
 	{#if size === 'sm'}
 		<div bg="signal/50" m="b-4" h="px" w="8" aria-hidden="true"></div>
 
-		<p
-			text="muted-foreground"
-			m="b-4"
-			font="mono bold"
-			uppercase
-			class="text-[11px] tracking-[0.2em]"
-		>
+		<p text="muted-foreground" m="b-4" font="bold" class="kicker-xs tracking-[0.2em]">
 			Contents
 		</p>
 	{/if}
@@ -146,7 +137,7 @@
 						<li>
 							<a
 								href="#{entity.fragment}"
-								class="toc-entity min-w-0"
+								class="toc-entity toc-link min-w-0"
 								onclick={onnavigate}
 							>
 								<img
@@ -164,7 +155,11 @@
 								<ul space="y-px">
 									{#each entity.abilities as ability, i (i)}
 										<li>
-											<a href="#{ability.id}" class="toc-ability" onclick={onnavigate}>
+											<a
+												href="#{ability.id}"
+												class="toc-ability toc-link"
+												onclick={onnavigate}
+											>
 												{#if ability.image}
 													<img
 														src={ability.image}
@@ -198,28 +193,8 @@
 		@apply space-y-1;
 	}
 
-	.toc-group {
-		@apply pt-2;
-	}
-
-	.toc-section {
-		@apply text-foreground/80 hover:text-signal relative flex items-center gap-2 py-1 pl-3 text-xs font-semibold tracking-tight transition-colors;
-	}
-
 	.toc-subsection {
 		@apply text-muted-foreground pl-6 font-normal;
-	}
-
-	.toc-count {
-		@apply text-signal ml-auto font-mono text-[11px];
-	}
-
-	.toc-marker {
-		@apply bg-signal/0 absolute top-1/2 left-[-0.5px] h-3 w-px -translate-y-1/2 transition-all duration-200;
-	}
-
-	.toc-section:hover .toc-marker {
-		@apply bg-signal h-4;
 	}
 
 	.toc-entities {
@@ -227,7 +202,7 @@
 	}
 
 	.toc-entity {
-		@apply text-muted-foreground hover:bg-muted/50 hover:text-foreground flex items-center gap-1.5 rounded-sm py-0.5 pl-3 text-xs transition-colors;
+		@apply gap-1.5 py-0.5 pl-3 text-xs;
 	}
 
 	.toc-entity-img {
@@ -235,7 +210,7 @@
 	}
 
 	.toc-ability {
-		@apply text-muted-foreground hover:bg-muted/50 hover:text-foreground ml-4 flex items-center gap-1.5 rounded-sm py-0.5 pl-3 text-[11px] transition-colors;
+		@apply ml-4 gap-1.5 py-0.5 pl-3 text-[11px];
 	}
 
 	.toc-ability-icon {

@@ -8,14 +8,11 @@ import {
 	getChangelogsByHeroId,
 	getChangelogsByItemId,
 	getChangelogIcons,
-	getSelectedChangeGroups,
 	getHeroAbilities,
 	getHeroBySlug,
 	getAbilityLastModified,
 	getHeroLastModified,
 	getItemLastModified,
-	getReleasedHeroSlugs,
-	getReleasedItemSlugs,
 	queryChangelogs
 } from './queries';
 
@@ -269,45 +266,6 @@ describe('entity history queries', () => {
 		expect(icons.new.heroes[0]).not.toHaveProperty('changeGroups');
 	});
 
-	it('loads excerpt groups only for requested entities and patches', async () => {
-		const groups = await getSelectedChangeGroups(db, ['new'], [69], []);
-		expect([...groups.keys()]).toEqual(['new:hero:69']);
-		expect(groups.get('new:hero:69')).toEqual([
-			{ ability: null, abilitySlug: null, bullets: ['Base bullet damage increased'] },
-			{
-				ability: 'Doorway',
-				abilitySlug: 'doorway',
-				bullets: ['Cooldown reduced from 40s to 32s']
-			}
-		]);
-		const empty = await getSelectedChangeGroups(db, [], [69], [1]);
-		expect(empty.size).toBe(0);
-	});
-
-	it('keeps large feed/preview reads within D1 binding limits without losing results', async () => {
-		const bindingCounts: number[] = [];
-		const checked = drizzle(client, {
-			schema,
-			logger: {
-				logQuery: (_query, params) => {
-					bindingCounts.push(params.length);
-				}
-			}
-		});
-		const ids = [...Array.from({ length: 100 }, (_, index) => `missing-${index}`), 'new'];
-		const icons = await getChangelogIcons(checked, ids);
-		const groups = await getSelectedChangeGroups(
-			checked,
-			ids,
-			[69, ...Array.from({ length: 19 }, (_, index) => index)],
-			[]
-		);
-		expect(icons.new.heroes[0].alt).toBe('The Doorman');
-		expect(groups.get('new:hero:69')).toHaveLength(2);
-		expect(bindingCounts.length).toBeGreaterThan(0);
-		expect(Math.max(...bindingCounts)).toBeLessThanOrEqual(100);
-	});
-
 	it('reports the newest patch date per entity for the sitemap', async () => {
 		const heroes = await getHeroLastModified(db);
 		const items = await getItemLastModified(db);
@@ -324,14 +282,14 @@ describe('entity history queries', () => {
 		expect([...abilities]).toEqual([['doorway', '2026-02-02T20:00:00.000Z']]);
 	});
 
-	it('resolves article aliases without scanning the table', async () => {
-		// Both directions: bare slug -> "the-" row, and an unknown slug -> null.
-		await expect(getHeroBySlug(db, 'doorman')).resolves.toMatchObject({
+	it('resolves a slug case-insensitively without scanning the table', async () => {
+		await expect(getHeroBySlug(db, 'THE-DOORMAN')).resolves.toMatchObject({
 			slug: 'the-doorman'
 		});
 		await expect(getHeroBySlug(db, 'the-doorman')).resolves.toMatchObject({
 			slug: 'the-doorman'
 		});
+		await expect(getHeroBySlug(db, 'doorman')).resolves.toBeNull();
 		await expect(getHeroBySlug(db, 'not-a-hero')).resolves.toBeNull();
 	});
 
@@ -340,18 +298,6 @@ describe('entity history queries', () => {
 		expect(history).toHaveLength(2);
 		// oldest last — the page reads .at(-1) for "Tracked since"
 		expect(history.at(-1)?.id).toBe('old');
-	});
-
-	it('resolves article aliases to the canonical hero row', async () => {
-		await expect(getHeroBySlug(db, 'doorman')).resolves.toMatchObject({
-			name: 'The Doorman',
-			slug: 'the-doorman'
-		});
-	});
-
-	it('only returns released entities for prerendered profile routes', async () => {
-		await expect(getReleasedHeroSlugs(db)).resolves.toEqual(['the-doorman']);
-		await expect(getReleasedItemSlugs(db)).resolves.toEqual(['tesla-bullets']);
 	});
 
 	it('treats SQL LIKE wildcard characters as literal search text', async () => {

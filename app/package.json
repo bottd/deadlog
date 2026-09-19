@@ -4,11 +4,12 @@
 	"type": "module",
 	"private": true,
 	"scripts": {
-		"dev": "DATABASE_URL=file:static/deadlog.db vite dev --port 5173",
-		"build": "DATABASE_URL=file:static/deadlog.db vite build",
-		"preview": "DATABASE_URL=file:static/deadlog.db vite preview --port 4173",
-		"check": "svelte-kit sync && svelte-check --tsconfig tsconfig.json && tsc --project tsconfig.worker.json",
-		"test": "vitest run",
+		"redirects": "tsx ../scripts/generate-redirects.ts",
+		"dev": "pnpm run redirects && vite dev --port 5173",
+		"build": "pnpm run redirects && vite build",
+		"preview": "vite preview --port 4173",
+		"check": "pnpm run redirects && svelte-kit sync && svelte-check --tsconfig tsconfig.json && tsc --project tsconfig.worker.json",
+		"test": "pnpm run redirects && vitest run",
 		"test:e2e": "playwright test --config playwright.config.ts",
 		"lint": "eslint ."
 	},

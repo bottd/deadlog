@@ -14,7 +14,8 @@ declare global {
 		}
 
 		interface CloudflareEnv {
-			DB: D1Database;
+			PUBLIC_COUNTERSCALE_REPORTER_URL: string;
+			PUBLIC_COUNTERSCALE_SITE_ID: string;
 		}
 
 		interface Platform {
@@ -33,7 +34,6 @@ declare global {
  * are meant to be used this way.
  */
 interface ShortcutAttributes {
-	kicker?: boolean | '';
 	'kicker-sm'?: boolean | '';
 	'kicker-xs'?: boolean | '';
 }

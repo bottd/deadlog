@@ -1,35 +1,14 @@
 import { expect, test } from 'playwright/test';
 import { gotoApp, openEntityFilter } from './helpers';
 
-test('entity result excerpts answer the selected question with a bounded payload', async ({
-	page,
-	request
-}) => {
-	const response = await request.get('/api/changelogs?hero=Abrams&limit=15');
-	expect(response.ok()).toBe(true);
-	const body = await response.text();
-	expect(Buffer.byteLength(body)).toBeLessThan(40_000);
-	const { changelogs } = JSON.parse(body);
-	expect(changelogs.length).toBeGreaterThan(0);
-	for (const patch of changelogs) {
-		expect(patch.matches.map((entity: { name: string }) => entity.name)).toEqual([
-			'Abrams'
-		]);
-		expect(patch).not.toHaveProperty('updates');
-		expect(patch).not.toHaveProperty('pubDate');
-	}
+test('entity result excerpts answer the selected question', async ({ page }) => {
 	await gotoApp(page, '/?hero=Abrams');
-	const [top] = changelogs;
-	const result = page
-		.locator('[data-patch-card]')
-		.filter({ has: page.locator(`a[href^="/change/${top.slug}"]`) })
-		.first();
-	for (const change of top.matches[0].changes) {
-		await expect(result.locator('[data-matched-changes]')).toContainText(change.text);
-	}
-	await expect(result.locator('[data-matched-changes]')).not.toContainText(
-		'Unstable Rift'
-	);
+	const result = page.locator('[data-patch-card]').first();
+	await expect(result).toBeVisible();
+
+	const matched = result.locator('[data-matched-changes]');
+	await expect(matched).not.toBeEmpty();
+	await expect(matched).not.toContainText('Unstable Rift');
 	await expect(result.getByRole('link', { name: 'Abrams full history' })).toHaveAttribute(
 		'href',
 		'/hero/abrams'
@@ -117,4 +96,28 @@ test('mobile entity lookup exposes the first actual change in the initial viewpo
 	const box = await bullet.boundingBox();
 	expect(box).not.toBeNull();
 	expect(box!.y + box!.height).toBeLessThan(844);
+});
+
+test('scrolling the unfiltered feed loads small pages, not the feed index', async ({
+	page
+}) => {
+	const requested: string[] = [];
+	page.on('request', (request) => requested.push(new URL(request.url()).pathname));
+
+	await gotoApp(page, '/');
+	const cards = page.locator('[data-patch-card]');
+	await expect(cards.first()).toBeVisible();
+	const initial = await cards.count();
+
+	const nextPage = page.waitForResponse((response) =>
+		response.url().endsWith('/feed-page/1.json')
+	);
+	await page.mouse.wheel(0, 100_000);
+	await cards.last().scrollIntoViewIfNeeded();
+	const body = await (await nextPage).body();
+
+	await expect.poll(() => cards.count()).toBeGreaterThan(initial);
+	expect(body.byteLength).toBeLessThan(40_000);
+	expect(requested).not.toContain('/feed-index.json');
+	expect(requested).not.toContain('/feed-groups.json');
 });

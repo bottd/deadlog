@@ -20,7 +20,6 @@
 	const filterCount = $derived(params.activeFilterCount);
 	const isSearching = $derived(params.isSearching);
 
-	// All filtering (text search, hero, item) is server-side — just flatten pages
 	const allChangelogs = $derived((query.data?.pages ?? []).flatMap((p) => p.changelogs));
 
 	const isFilterPending = $derived(params.isPending);

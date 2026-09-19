@@ -1,30 +1,29 @@
 import {
-	getReleasedHeroSlugs,
+	getRenderableHeroSlugs,
 	getHeroBySlug,
 	getHeroAbilities,
 	getChangelogsByHeroId
 } from '@deadlog/db';
-import { error, redirect } from '@sveltejs/kit';
+import { error } from '@sveltejs/kit';
 import { getHeroCardImage } from '$lib/utils/entityImages';
 import { DEFAULT_SOCIAL_IMAGE, absoluteUrl } from '$lib/seo';
 import type { PageServerLoad, EntryGenerator } from './$types';
 
-export const prerender = 'auto';
+export const prerender = true;
 
 export const entries: EntryGenerator = async () => {
 	const { getLibsqlDb } = await import('@deadlog/db');
 	const db = getLibsqlDb();
-	const slugs = await getReleasedHeroSlugs(db);
+	const slugs = await getRenderableHeroSlugs(db);
 	return slugs.map((slug) => ({ slug }));
 };
 
-export const load: PageServerLoad = async ({ params, locals, url }) => {
+export const load: PageServerLoad = async ({ params, locals }) => {
 	const hero = await getHeroBySlug(locals.db, params.slug);
 
 	if (!hero) {
 		throw error(404, 'Hero not found');
 	}
-	if (hero.slug !== params.slug) redirect(308, `/hero/${hero.slug}${url.search}`);
 
 	const [changelogs, abilities] = await Promise.all([
 		getChangelogsByHeroId(locals.db, hero.id),

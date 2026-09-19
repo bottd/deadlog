@@ -1,5 +1,9 @@
 const ARTICLE_RE = /^(the|a|an)\s+/;
 
+export function canonicalSlug(slug: string): string {
+	return slug.toLowerCase().trim();
+}
+
 export function decodeEntityName(name: string): string {
 	return name
 		.replace(/&amp;/g, '&')
