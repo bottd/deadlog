@@ -24,17 +24,17 @@ A searchable Deadlock patch archive with per-hero, per-item, and per-ability his
 This is a pnpm workspace with the following structure:
 
 ```
-app/
-  src/         # SvelteKit routes and UI
-  changelogs/  # Authored/generated .mg patch notes
-  static/      # Site assets and generated deadlog.db
+app/           # SvelteKit App
+  src/         # routes and components
+  changelogs/  # generated patch notes
+  static/      # assets and generated deadlog.db
 lib/
-  db/          # Schema, SQLite/D1 clients, read queries, and feed types
-  changelog/   # Mog metadata and structured change extraction
-  scraper/     # Forum/Steam ingestion and transactional database builder
-  meta/        # Social preview generation
-  utils/       # Shared entity names/images, dates, and content helpers
-scripts/       # Development utilities
+  db/          # schema, queries, and types
+  changelog/   # change extraction
+  scraper/     # forum/steam ingestion
+  meta/        # social preview image generation
+  utils/
+scripts/
 ```
 
 ### Set up
@@ -55,13 +55,13 @@ pnpm build:db
 # Fetch new patch notes and rebuild using one entity-data snapshot
 pnpm build:scraper
 
-# Skip rebuilding when scraping finds no content changes (used by the scheduler)
+# Skip rebuilding when scraping finds no content changes
 pnpm build:scraper --if-changed
 
 # Generate preview images
 pnpm build:meta
 
-# Refresh the README screenshot (prod)
+# Refresh the README screenshot (targets prod)
 pnpm screenshot
 
 # Screenshot local instead
