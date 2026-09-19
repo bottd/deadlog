@@ -4,7 +4,6 @@ steam_gid "1822556746160429"
 published "2026-01-22T22:56:33.000Z"
 author "simonne"
 author_image "/assets/authors/deadlock.webp"
-category "patch"
 major_update #false
 content_text "The ritual takes form... Overhauled Patrons and bases, six new heroes, a fast-paced game mode 'Street Brawl', HUD updates, many quality-of-life additions, revamped postgame with an MVP screen and more. View the Old Gods, New Blood update page."
 ``

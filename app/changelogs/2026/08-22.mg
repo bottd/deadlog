@@ -4,7 +4,6 @@ thread_id "162571"
 published "2026-09-16T15:41:28-0700"
 author "Yoshi"
 author_image "/assets/authors/yoshi.webp"
-category "patch"
 major_update #false
 content_text "Radiant Regeneration Heal on cast reduced from 70 to 65 - Restorative Locket: Spirit Resistance reduced from 10% to 8% - Celeste: Dazzling Trick cooldown increased from 32s to 34s - Celeste: Dazzling Trick T2 barrier rescaled from \"+80 and +0.7 scaling\" to \"+70 and +0.76\" - Celeste: Dazzling..."
 ``

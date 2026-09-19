@@ -9,7 +9,6 @@ export const ChangelogMetadataSchema = z.object({
 	author: z.string(),
 	author_image: z.string().optional(),
 	preview_image: z.string().url().optional(),
-	category: z.enum(['patch', 'hotfix', 'major']).default('patch'),
 	major_update: z.coerce.boolean().default(false)
 });
 

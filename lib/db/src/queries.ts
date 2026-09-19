@@ -462,6 +462,22 @@ export function getItemLastModified(db: DrizzleDB): Promise<Map<number, string>>
 	return lastModifiedByEntity(db, schema.changelogItems, schema.changelogItems.itemId);
 }
 
+export async function getAbilityLastModified(
+	db: DrizzleDB
+): Promise<Map<string, string>> {
+	const rows = await db.all<{ abilitySlug: string; lastModified: string }>(sql`
+		SELECT json_extract(groups.value, '$.abilitySlug') AS abilitySlug,
+			MAX(${schema.changelogs.pubDate}) AS lastModified
+		FROM ${schema.changelogHeroes}
+		JOIN ${schema.heroes} ON ${schema.heroes.id} = ${schema.changelogHeroes.heroId}
+		JOIN ${schema.changelogs} ON ${schema.changelogs.id} = ${schema.changelogHeroes.changelogId},
+			json_each(${schema.changelogHeroes.changeGroups}) AS groups
+		WHERE ${schema.heroes.isReleased} = 1 AND abilitySlug IS NOT NULL
+		GROUP BY abilitySlug
+	`);
+	return new Map(rows.map((row) => [row.abilitySlug, row.lastModified]));
+}
+
 interface ChangelogIcons {
 	heroes: ChangelogEntityIcon[];
 	items: ChangelogEntityIcon[];

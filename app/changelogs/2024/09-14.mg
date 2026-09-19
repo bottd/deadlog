@@ -4,7 +4,6 @@ thread_id "29586"
 published "2024-09-14T21:05:26-0700"
 author "Yoshi"
 author_image "/assets/authors/yoshi.webp"
-category "patch"
 major_update #false
 content_text "Bebop Hyper Beam cooldown increased from 117 to 130 Hyper Beam T1 reduced from -38s to -30s Hyper Beam end radius reduced from 5m to 4m Hyper Beam slow reduced from 40% to 30% Hyper Beam DPS reduced from 220 to 205 Hyper Beam DPS spirit scaling reduced from 3 to 2.7 McGinnis Medicinal Specter radius spirit power reduced from 0.07 to 0.05 Ammo Scavenger Buff duration reduced from 40s to 35s"
 ``

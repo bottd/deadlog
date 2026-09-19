@@ -11,6 +11,7 @@ import {
 	getSelectedChangeGroups,
 	getHeroAbilities,
 	getHeroBySlug,
+	getAbilityLastModified,
 	getHeroLastModified,
 	getItemLastModified,
 	getReleasedHeroSlugs,
@@ -316,6 +317,11 @@ describe('entity history queries', () => {
 		expect(heroes.get(69)).toBe('2026-02-02T20:00:00.000Z');
 		expect(items.get(1)).toBe('2026-02-02T20:00:00.000Z');
 		expect(heroes.get(70)).toBeUndefined();
+	});
+
+	it('dates an ability by the newest patch that attributes a group to it', async () => {
+		const abilities = await getAbilityLastModified(db);
+		expect([...abilities]).toEqual([['doorway', '2026-02-02T20:00:00.000Z']]);
 	});
 
 	it('resolves article aliases without scanning the table', async () => {

@@ -4,7 +4,6 @@ thread_id "34541"
 published "2024-09-29T12:38:55-0700"
 author "Yoshi"
 author_image "/assets/authors/yoshi.webp"
-category "patch"
 major_update #false
 content_text "Outer ziplines hero speed increased by 20% relative to inner lanes (same as troopers on outer lanes zipline being faster) Initial respawn reduced from 12s to 8s Urn now drops when teleporting with Mirage's Traveler Fixed Wraith Cards, Shiv Rage and lifesteal from increasing by shooting the shop"
 ``

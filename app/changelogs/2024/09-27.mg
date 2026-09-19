@@ -4,7 +4,6 @@ thread_id "33816"
 published "2024-09-27T17:33:18-0700"
 author "Yoshi"
 author_image "/assets/authors/yoshi.webp"
-category "patch"
 major_update #false
 content_text "Mirage Tornado lift duration reduced from 1.5s to 1.2s Tornado T1 bonus lift duration reduced from +0.5s to +0.4s Tornado base bullet evasion reduced from 30% to 25% Djinn's Mark T3 now also reduces Multiplier Cooldown by 0.5s"
 ``

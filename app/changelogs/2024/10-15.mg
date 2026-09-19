@@ -4,7 +4,6 @@ thread_id "38925"
 published "2024-10-15T17:07:44-0700"
 author "Yoshi"
 author_image "/assets/authors/yoshi.webp"
-category "patch"
 major_update #false
 content_text "Urn now reveals you after 20s from initial pickup Urn sprint changed from +3/5 for winning/losing team to +2/6 First flex slot is now granted after 3 Guardians die instead of 4 Base kill bounty reduced from 225 to 150 (still scales to 1400 over time) Respawn time at 20 minutes reduced from 45s to 40s T3 Golden Statues spawn time moved from 25 min to 30 min Range to attack lane Guardians increased from 19m to 20m Seven Lightning Ball T3 reduced from +2m Radius to +1m Shiv Rage decay rate increased from 0.25 to 0.3 Rage buffer duration reduced from 12s to 10s"
 ``

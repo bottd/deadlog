@@ -4,7 +4,6 @@ thread_id "46391"
 published "2024-11-13T17:10:08-0800"
 author "Yoshi"
 author_image "/assets/authors/yoshi.webp"
-category "patch"
 major_update #false
 content_text "Troopers now do 20% more damage to each other Soul Sharing ratios post-lane reduced from 100/75/50/35/28/22% to 100/70/45/33/25/20% (for 1/2/3/4/5/6 players) First Urn is now always neutral regardless of NW lead Guardian resistance changed from -35% at 8 minutes to -50% at 10 minutes Heavy Melee canceling can no longer be done with some abilities (only items atm) Team vs Team NW comeback formula toned down Haze Bullet Dance bonus bullet damage increased from +2 to +5 Paradox Time Wall Time Stop duration reduced from 0.7s to 0.6s Time Wall duration reduced from 7s to 6s Vindicta Assassinate damage reduced by 5% Yamato Shadow Transformation Bullet and Spirit resist reduced from 50% to 45% Shadow Transformation duration reduced from 5.5s to 5s Shadow Transformation heal reduced from 25% to 20%"
 ``

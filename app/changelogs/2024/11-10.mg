@@ -4,7 +4,6 @@ thread_id "45689"
 published "2024-11-10T08:19:27-0800"
 author "Yoshi"
 author_image "/assets/authors/yoshi.webp"
-category "patch"
 major_update #false
 content_text "Soul Sharing ratios post-lane reduced from 100/100/66/50/40/33% to 100/75/50/35/28/22% (for 1/2/3/4/5/6 players) Yamato Shadow Transformation Bullet and Spirit Resist reduced from 60% to 50% Shadow Transformation Heal reduced from 30% to 25% Shadow Transformation duration reduced from 6s to 5.5s Paradox Paradoxical Swap time increased by 0.1s (to help with camera)"
 ``

@@ -4,7 +4,6 @@ thread_id "42492"
 published "2024-10-27T18:43:19-0700"
 author "Yoshi"
 author_image "/assets/authors/yoshi.webp"
-category "patch"
 major_update #false
 content_text "Urn NW lead requirement increased from 8% to 10% Shiv Killing Blow cast range increased from 13m to 14m Killing Blow rage per weapon damage increased from 0.015 to 0.017 Killing Blow drain rate reduced from 0.3 to 0.25 Bebop Sticky Bomb stacks no longer decrease on death Sticky Bomb now gives stacks based on dying heroes hurt by Sticky Bomb damage with a 12 second buffer (previously anyone hit by the bomb would automatically grant stacks) Sticky Bomb damage per stack increased from 3% to 5% Sticky Bomb spirit power damage scaling increased from 0.9 to 1.2 Sticky Bomb T1 improved from -7.5s to -8s Sticky Bomb cooldown reduced from 19s to 18s Grey Talon Movespeed spirit scaling reduced from 0.04 to 0.032 Bullet damage spirit scaling reduced from 0.13 to 0.12 Kelvin Ice Path cooldown increased from 38s to 42s McGinnis Mini Turrets Spirit Resist reduced from 80% to 70% Spectral Wall cooldown increased from 37s to 46s Spectral Wall T2 cooldown improved from -14s to -23s Paradox Pulse Grenade T3 reduced from +1m per Pulse to +0.75m Seven Storm Cloud DPS increased from 110 to 120 Yamato Shadow Transformation cooldown reduced from 90s to 85s Majestic Leap Cooldown reduced from 45s to 40s"
 ``

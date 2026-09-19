@@ -4,7 +4,6 @@ thread_id "58880"
 published "2025-03-16T17:30:59-0700"
 author "Yoshi"
 author_image "/assets/authors/yoshi.webp"
-category "patch"
 major_update #false
 content_text "Neutral bounty increased by 5% Sinner's Sacrifice initial spawn time reduced from 10 min to 8 min (respawn rate is still 5 min) Fixed a bug with Neutral bounty later in the game being reduced by more than the initial intended -15% (this fix was released yesterday) Restorative Locket No longer grants +10% Spirit Resist Divine Barrier Shields reduced from 260 to 230"
 ``

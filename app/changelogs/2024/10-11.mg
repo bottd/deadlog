@@ -4,7 +4,6 @@ thread_id "37641"
 published "2024-10-11T16:54:46-0700"
 author "Yoshi"
 author_image "/assets/authors/yoshi.webp"
-category "patch"
 major_update #false
 content_text "Torment Pulse now scales with cooldown again Torment Pulse Spirit power scaling reduced from 0.33 to 0.3 Fixed Ethereal Shift scaling with duration Pause no longer restricted before 3 minutes (we plan to bring this back in the future, but we want to allow this for now while we are early and have technical issues sometimes) Updated Heavy Barrage sound Bebop Sticky Bomb no longer has a cap (was 15 stacks) Sticky Bomb scaling per hero reduced from 4% to 3% (previous uncapped was 2.5%) Sticky Bomb still loses 2 stacks on death Fixed some hook bugs causing it to sometimes not grab heroes near cover but still in collision range Hook collision against troopers reduced to 12 (default is 33) Hook no longer kills troopers (so you can bomb/uppercut/melee them) Hyper Beam duration increased from 10s to 11s Vindicta Movespeed increased from 8.3 to 9"
 ``

@@ -4,7 +4,6 @@ thread_id "162570"
 published "2026-09-16T15:41:13-0700"
 author "Yoshi"
 author_image "/assets/authors/yoshi.webp"
-category "patch"
 major_update #false
 content_text "Apollo Riposte melee resist reduction increased from -22% to -25% - Apollo: Riposte T2 changed from \"-30% Melee Resist\" to \"-25% Melee Resist and +0.4s Stun Duration\" - Apollo: Riposte T3 increased from 60% Lifesteal for 7s to 75% Lifesteal for 13s - Apollo: Fixed Itani Lo Sahn being canceled..."
 ``

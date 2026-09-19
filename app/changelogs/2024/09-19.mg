@@ -4,7 +4,6 @@ thread_id "31166"
 published "2024-09-19T17:58:06-0700"
 author "Yoshi"
 author_image "/assets/authors/yoshi.webp"
-category "patch"
 major_update #false
 content_text "Replaced the recent soul duplication hotfix with new behavior. Pre 10 min, lanes now always split orbs when there are more heroes than the assigned participants for that lane (3+ people in a dual lane, 2+ people in a solo). Previously it only split with 3+ people regardless of the lane, which is what allowed soul abuses when dipping into a solo lane. Private lobbies can now assign players to duo and solo lanes Fixed some recent bugs with Vindicta Flight that could cause some large bursts in a direction Fixed being able to shoot while using Ethereal Shift and flying with Vindicta Veil Walker Fire Rate reduced from 30% to 20%"
 ``

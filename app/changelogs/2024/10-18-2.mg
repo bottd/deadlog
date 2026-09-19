@@ -4,7 +4,6 @@ thread_id "39693"
 published "2024-10-18T16:30:16-0700"
 author "Yoshi"
 author_image "/assets/authors/yoshi.webp"
-category "patch"
 major_update #false
 content_text "Ranked now has weekend specific hours (starts 5 hours earlier) Fixed some regions (South America, Oceania, Asia) that were off by 1-2 hours from their intended times"
 ``

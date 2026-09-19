@@ -4,7 +4,6 @@ thread_id "52769"
 published "2024-12-31T00:52:42-0800"
 author "Yoshi"
 author_image "/assets/authors/yoshi.webp"
-category "patch"
 major_update #false
 content_text "Yamato Bullet damage growth reduced from 0.35 to 0.33 Shadow Transformation cooldown increased from 85s to 100s Mirage Fire Scarabs base damage reduced from 90 to 75 Infernus Flame Dash cooldown increased from 35s to 38s Flame Dash spirit scaling increased from 0.7 to 0.8 Flame Dash T2 reduced from +45 to +40 Flame Dash T3 Charge Time increased from 18s to 20s Kelvin Base Spirit Resistance increased from 10% to 15% Ice Path cooldown increased from 42s to 46s Warden Base bullet damage reduced from 19.8 to 19.5 Last Stand base DPS reduced from 100 to 90 Last Stand DPS spirit power scaling increased from 1.2 to 1.4 Vindicta Bullet Velocity reduced from 889 to 810 Assassinate T2 reduced from +130 to +120 Assassinate Charge Time increased from 2s to 2.5s Shiv Bullet growth reduced from +0.31 to +0.27 Serrated Knives T3 increased from +5 Bleed DPS to +7 Rapid Recharge Charge Time reduced from -60% to -45% Weapon Power increased from 12% to 18%"
 ``

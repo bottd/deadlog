@@ -380,7 +380,6 @@ export function generateChangelog(
 	}
 
 	out.push(
-		'category "patch"',
 		'major_update #false',
 		`content_text ${kdlString(contentText)}`,
 		'``',

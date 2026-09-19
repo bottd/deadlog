@@ -4,7 +4,6 @@ thread_id "7705"
 published "2024-06-23T16:23:36-0700"
 author "Yoshi"
 author_image "/assets/authors/yoshi.webp"
-category "patch"
 major_update #false
 content_text "There is no longer a reinforcement trooper wave after Guardians and Walkers die Yamato Shadow Transformation now causes you to be unable to die during the buff Spirit Strike Melee damage reduced from 20% to 15% Melee Charge No longer grants +15% Melee Damage Veil Walker Bullet Shield reduced from +200 to +150 Shield restore now takes 5s to fully regen Cooldown increased from 20s to 25s"
 ``

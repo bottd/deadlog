@@ -4,7 +4,6 @@ thread_id "18377"
 published "2024-08-18T22:46:34-0700"
 author "Yoshi"
 author_image "/assets/authors/yoshi.webp"
-category "patch"
 major_update #false
 content_text "Restorative Locket Spirit Resist reduced from 10% to 8% Cooldown increased from 24s to 28s Heal reduced from 40 per stack to 35 Stamina restore changed from max stamina to 1 charge"
 ``

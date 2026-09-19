@@ -1,6 +1,7 @@
 import {
 	getAllChangelogs,
 	getAllHeroes,
+	getAbilityLastModified,
 	getAllItems,
 	getHeroLastModified,
 	getItemLastModified,
@@ -38,15 +39,23 @@ function renderEntry({ url, lastModified }: SitemapEntry): string {
 }
 
 export const GET: RequestHandler = async ({ locals }) => {
-	const [changelogs, heroes, items, abilities, heroLastModified, itemLastModified] =
-		await Promise.all([
-			getAllChangelogs(locals.db),
-			getAllHeroes(locals.db),
-			getAllItems(locals.db),
-			getReleasedAbilities(locals.db),
-			getHeroLastModified(locals.db),
-			getItemLastModified(locals.db)
-		]);
+	const [
+		changelogs,
+		heroes,
+		items,
+		abilities,
+		heroLastModified,
+		itemLastModified,
+		abilityLastModified
+	] = await Promise.all([
+		getAllChangelogs(locals.db),
+		getAllHeroes(locals.db),
+		getAllItems(locals.db),
+		getReleasedAbilities(locals.db),
+		getHeroLastModified(locals.db),
+		getItemLastModified(locals.db),
+		getAbilityLastModified(locals.db)
+	]);
 
 	const sortedChangelogs = [...changelogs].sort(
 		(a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime()
@@ -81,11 +90,9 @@ export const GET: RequestHandler = async ({ locals }) => {
 				url: absoluteUrl(`/item/${encodeURIComponent(item.slug)}`),
 				lastModified: toIsoDate(itemLastModified.get(item.id))
 			})),
-		// Abilities have no changelog rows of their own: their history is their hero's,
-		// narrowed, so the hero's last patch is also the ability page's last change.
 		...abilities.map((ability) => ({
 			url: absoluteUrl(`/ability/${encodeURIComponent(ability.slug)}`),
-			lastModified: toIsoDate(heroLastModified.get(ability.heroId))
+			lastModified: toIsoDate(abilityLastModified.get(ability.slug))
 		}))
 	];
 
