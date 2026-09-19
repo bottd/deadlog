@@ -1,9 +1,19 @@
 <script lang="ts">
 	import { formatDate, formatYear } from '@deadlog/utils';
-	import { MetaTags } from 'svelte-meta-tags';
-	import { absoluteUrl, pageMeta } from '$lib/seo';
+	import { JsonLd, MetaTags } from 'svelte-meta-tags';
+	import {
+		absoluteUrl,
+		collectionPageSchema,
+		DEADLOCK_GAME,
+		DEFAULT_SOCIAL_IMAGE,
+		pageMeta,
+		SITE_NAME
+	} from '$lib/seo';
 	import type { PageProps } from './$types';
 	let { data }: PageProps = $props();
+	const title = 'Deadlock Patch Archive | Deadlog';
+	const description = 'Browse every recorded Deadlock patch in chronological order.';
+	const canonical = absoluteUrl('/archive');
 	// Grouped on the printed year, not the UTC one. A Map keeps the newest-first order
 	// that plain object keys would renumber.
 	const years = $derived([
@@ -17,11 +27,23 @@
 	]);
 </script>
 
-<MetaTags
-	{...pageMeta({
-		title: 'Deadlock Patch Archive | Deadlog',
-		description: 'Browse every recorded Deadlock patch in chronological order.',
-		canonical: absoluteUrl('/archive')
+<MetaTags {...pageMeta({ title, description, canonical })} />
+<JsonLd
+	schema={collectionPageSchema({
+		canonical,
+		title,
+		description,
+		image: DEFAULT_SOCIAL_IMAGE,
+		dateModified: data.patches[0]?.pubDate,
+		about: [DEADLOCK_GAME],
+		items: data.patches.map((patch) => ({
+			name: patch.title,
+			url: absoluteUrl(`/change/${patch.slug}`)
+		})),
+		breadcrumbs: [
+			{ name: SITE_NAME, path: '/' },
+			{ name: 'Patch archive', path: '/archive' }
+		]
 	})}
 />
 
