@@ -128,7 +128,7 @@ function buildChangelogSource(
 		.filter((reply) => !isSteamUnfurl(reply.content))
 		.map((reply) => extractContent(reply.content))
 		.filter((reply) => reply.trim());
-	let rawContent = '';
+	let rawContent: string;
 	let renderedContent: ChangelogSource['renderedContent'];
 	let steamMeta: SteamAnnouncement | undefined;
 

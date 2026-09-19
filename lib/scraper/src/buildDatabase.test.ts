@@ -7,7 +7,7 @@ import { buildDatabaseFromMog } from './buildDatabase';
 import type { EntitySnapshot } from './api';
 
 vi.mock('deadlock-api-client', () => ({
-	Configuration: class {},
+	Configuration: vi.fn(),
 	PatchesApi: class {
 		async bigPatchDays() {
 			return { data: [] };
