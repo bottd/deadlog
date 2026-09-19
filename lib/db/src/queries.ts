@@ -201,26 +201,26 @@ export async function getHeroBySlug(
 	db: DrizzleDB,
 	slug: string
 ): Promise<EnrichedHero | null> {
-	const matches = await db
+	const hero = await db
 		.select()
 		.from(schema.heroes)
 		.where(eq(schema.heroes.slug, canonicalSlug(slug)))
-		.all();
+		.get();
 
-	return matches[0] ?? null;
+	return hero ?? null;
 }
 
 export async function getItemBySlug(
 	db: DrizzleDB,
 	slug: string
 ): Promise<ScrapedItem | null> {
-	const matches = await db
+	const item = await db
 		.select()
 		.from(schema.items)
 		.where(eq(schema.items.slug, canonicalSlug(slug)))
-		.all();
+		.get();
 
-	return matches[0] ?? null;
+	return item ?? null;
 }
 
 export type HeroAbility = Pick<
@@ -287,7 +287,7 @@ export async function getAbilityBySlug(
 	db: DrizzleDB,
 	slug: string
 ): Promise<AbilityWithHero | null> {
-	const matches = await db
+	const match = await db
 		.select({
 			name: schema.heroAbilities.name,
 			slug: schema.heroAbilities.slug,
@@ -307,9 +307,8 @@ export async function getAbilityBySlug(
 				eq(schema.heroAbilities.slug, canonicalSlug(slug))
 			)
 		)
-		.all();
+		.get();
 
-	const match = matches[0];
 	if (!match) return null;
 
 	return {

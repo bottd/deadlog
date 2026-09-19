@@ -7,6 +7,13 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@deadlog/db':
+        specifier: workspace:*
+        version: link:lib/db
+      '@deadlog/utils':
+        specifier: workspace:*
+        version: link:lib/utils
     devDependencies:
       '@cloudflare/workers-types':
         specifier: 5.20260919.1

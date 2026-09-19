@@ -14,19 +14,14 @@ describe('resolveSlugRoute', () => {
 		expect(resolveSlugRoute('/hero/a-seven')).toEqual({ kind: 'unknown' });
 	});
 
-	it('redirects case variants', () => {
-		expect(resolveSlugRoute('/hero/SEVEN')).toEqual({
-			kind: 'redirect',
-			path: '/hero/seven'
-		});
+	it('matches slugs exactly, like every other route on the site', () => {
+		expect(resolveSlugRoute('/hero/SEVEN')).toEqual({ kind: 'unknown' });
+		expect(resolveSlugRoute('/item/Decay')).toEqual({ kind: 'unknown' });
+		expect(resolveSlugRoute('/change/2026/GAMEPLAY-03-06')).toEqual({ kind: 'unknown' });
 	});
 
 	it('keeps a real article-prefixed slug canonical', () => {
 		expect(resolveSlugRoute('/hero/the-doorman')).toEqual({ kind: 'ok' });
-		expect(resolveSlugRoute('/hero/THE-DOORMAN')).toEqual({
-			kind: 'redirect',
-			path: '/hero/the-doorman'
-		});
 		expect(resolveSlugRoute('/hero/doorman')).toEqual({ kind: 'unknown' });
 	});
 
@@ -62,10 +57,10 @@ describe('resolveSlugRoute', () => {
 	});
 
 	it('decodes percent-encoded slugs', () => {
-		expect(resolveSlugRoute('/hero/%53EVEN')).toEqual({
-			kind: 'redirect',
-			path: '/hero/seven'
-		});
 		expect(resolveSlugRoute('/ability/shoulder%2Dcharge')).toEqual({ kind: 'ok' });
+		expect(resolveSlugRoute('/change/2026/gameplay%2D03%2D06')).toEqual({
+			kind: 'redirect',
+			path: '/change/2026/03-06'
+		});
 	});
 });

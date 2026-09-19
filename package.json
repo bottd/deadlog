@@ -26,6 +26,10 @@
 		"clean:meta": "rm -rf app/static/assets/meta",
 		"build:meta": "pnpm run clean:meta && UV_THREADPOOL_SIZE=8 tsx lib/meta/src/generate-previews.ts"
 	},
+	"dependencies": {
+		"@deadlog/db": "workspace:*",
+		"@deadlog/utils": "workspace:*"
+	},
 	"devDependencies": {
 		"@cloudflare/workers-types": "5.20260919.1",
 		"@counterscale/tracker": "3.4.1",

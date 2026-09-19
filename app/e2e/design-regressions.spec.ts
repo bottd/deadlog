@@ -42,8 +42,10 @@ test('directory search narrows items without horizontal overflow', async ({ page
 	expect(hasOverflow).toBe(false);
 });
 
-test('canonical aliases and profile history preserve entity scope', async ({ page }) => {
-	await gotoApp(page, '/hero/THE-DOORMAN?ability=call-bell');
+test('an ability deep link keeps its entity scope and profile history', async ({
+	page
+}) => {
+	await gotoApp(page, '/hero/the-doorman?ability=call-bell');
 	await expect(page).toHaveURL(/\/hero\/the-doorman\?ability=call-bell$/);
 	await expect(
 		page.getByRole('heading', { level: 1, name: 'The Doorman' })
@@ -58,6 +60,11 @@ test('canonical aliases and profile history preserve entity scope', async ({ pag
 		.getByRole('link')
 		.first();
 	await expect(patchLink).toHaveAttribute('href', /\/change\/[^?]+#doorman$/);
+});
+
+test('a changelog alias redirect keeps the query string', async ({ page }) => {
+	await gotoApp(page, '/change/2026/gameplay-03-06?ref=test');
+	await expect(page).toHaveURL(/\/change\/2026\/03-06\?ref=test$/);
 });
 
 test('keyword search from a patch navigates to the changelog list', async ({

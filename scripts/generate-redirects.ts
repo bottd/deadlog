@@ -12,17 +12,22 @@ process.env.DATABASE_URL ??= `file:${fileURLToPath(new URL('../app/static/deadlo
 
 const slugs = await getRedirectSlugs(getLibsqlDb());
 
-for (const kind of ['hero', 'item', 'ability'] as const) {
-	const seen = new Map<string, string>();
-	for (const slug of slugs[kind]) {
-		const canonical = canonicalSlug(slug);
-		const other = seen.get(canonical);
-		if (other) {
+const routes: Record<string, readonly string[]> = {
+	hero: slugs.hero,
+	item: slugs.item,
+	ability: slugs.ability,
+	changelog: slugs.changelog,
+	'changelog alias': Object.keys(slugs.changelogAliases),
+	'changelog alias target': Object.values(slugs.changelogAliases)
+};
+
+for (const [kind, list] of Object.entries(routes)) {
+	for (const slug of list) {
+		if (slug !== canonicalSlug(slug)) {
 			throw new Error(
-				`Ambiguous ${kind} slugs "${other}" and "${slug}" share the canonical form "${canonical}"`
+				`${kind} slug "${slug}" is not lowercase — routes are matched exactly, so nothing could ever reach it`
 			);
 		}
-		seen.set(canonical, slug);
 	}
 }
 
