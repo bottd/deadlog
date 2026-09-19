@@ -1,0 +1,19 @@
+{
+	"name": "@deadlog/stats",
+	"version": "1.0.0",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"test": "vitest run --config vite.config.ts"
+	},
+	"exports": {
+		".": "./src/index.ts"
+	},
+	"dependencies": {
+		"@deadlog/db": "workspace:*",
+		"zod": "4.6.5"
+	},
+	"devDependencies": {
+		"@types/node": "26.6.1"
+	}
+}

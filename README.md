@@ -27,11 +27,13 @@ app/           # SvelteKit App
   src/         # routes and components
   changelogs/  # generated patch notes
   static/      # assets and generated deadlog.db
+  stats/       # committed impact.json snapshot
 lib/
   db/          # schema, queries, and types
   changelog/   # change extraction
   scraper/     # forum/steam ingestion
   meta/        # social preview image generation
+  stats/       # patch impact windows from Deadlock API match data
   utils/
 scripts/
 ```
@@ -59,6 +61,12 @@ pnpm build:scraper --if-changed
 
 # Generate preview images
 pnpm build:meta
+
+# Refresh open patch impact windows in app/stats/impact.json
+pnpm build:stats
+
+# Recompute every window from the full match history
+pnpm build:stats --rebuild
 
 # Refresh the README screenshot (targets prod)
 pnpm screenshot

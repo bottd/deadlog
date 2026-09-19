@@ -104,6 +104,7 @@ const config = {
 		alias: {
 			'@deadlog/changelog': '../lib/changelog/src/index.ts',
 			'@deadlog/db': '../lib/db/src/index.ts',
+			'@deadlog/stats': '../lib/stats/src/index.ts',
 			'@deadlog/utils': '../lib/utils/src/index.ts',
 			$changelogs: './changelogs'
 		}

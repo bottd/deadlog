@@ -4,6 +4,7 @@ import {
 	getChangelogsByItemId
 } from '@deadlog/db';
 import { error } from '@sveltejs/kit';
+import { impactFor } from '$lib/server/impact';
 import type { PageServerLoad, EntryGenerator } from './$types';
 import { DEFAULT_SOCIAL_IMAGE, absoluteUrl } from '$lib/seo';
 
@@ -27,7 +28,8 @@ export const load: PageServerLoad = async ({ params, locals }) => {
 
 	const enrichedChangelogs = changelogs.map((changelog) => ({
 		...changelog,
-		date: new Date(changelog.pubDate)
+		date: new Date(changelog.pubDate),
+		impact: impactFor(changelog.id, 'item', item.id)
 	}));
 
 	return {

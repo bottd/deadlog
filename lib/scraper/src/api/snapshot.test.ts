@@ -45,7 +45,7 @@ describe('entity snapshot cache', () => {
 		directory = await mkdtemp(join(tmpdir(), 'deadlog-snapshot-'));
 		vi.stubEnv('CHANGELOGS_DIR', directory);
 		mocks.fetch.mockReset();
-		vi.spyOn(console, 'warn').mockImplementation(() => {});
+		vi.spyOn(console, 'warn').mockImplementation(() => undefined);
 	});
 	afterEach(async () => {
 		vi.unstubAllEnvs();

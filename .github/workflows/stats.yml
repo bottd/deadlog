@@ -1,0 +1,57 @@
+name: Update patch impact stats
+
+on:
+  schedule:
+    - cron: '30 5 * * *'
+  workflow_dispatch:
+    inputs:
+      rebuild:
+        description: Recompute every window from the full history
+        type: boolean
+        default: false
+
+concurrency:
+  group: deploy
+  queue: max
+  cancel-in-progress: false
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - name: Checkout current main
+        uses: actions/checkout@v7.0.1
+        with:
+          ref: main
+
+      - name: Setup pipeline
+        uses: ./.github/actions/setup-pipeline
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build database
+        run: pnpm run build:db
+
+      - name: Refresh stats snapshot
+        env:
+          REBUILD: ${{ inputs.rebuild }}
+        run: |
+          if [[ "$REBUILD" == "true" ]]; then
+            pnpm run build:stats --rebuild
+          else
+            pnpm run build:stats
+          fi
+
+      - name: Persist snapshot and deploy
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [[ -n "$(git status --porcelain -- app/stats)" ]]; then
+            git add app/stats
+            git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Update patch impact stats [skip ci]'
+            git push origin HEAD:main
+            gh workflow run deploy.yml --ref main
+          fi

@@ -12,7 +12,7 @@
 		"test:all": "pnpm -r --if-present run test",
 		"test:e2e": "pnpm --filter 'deadlog-web' test:e2e",
 		"check": "pnpm --filter 'deadlog-web' check && pnpm check:libs && pnpm check:scripts",
-		"check:libs": "tsc --noEmit --project lib/scraper/tsconfig.json && tsc --noEmit --project lib/meta/tsconfig.json",
+		"check:libs": "tsc --noEmit --project lib/scraper/tsconfig.json && tsc --noEmit --project lib/meta/tsconfig.json && tsc --noEmit --project lib/stats/tsconfig.json",
 		"check:scripts": "tsc --noEmit --project scripts/tsconfig.json",
 		"lint": "pnpm --filter 'deadlog-web' lint && pnpm lint:scripts",
 		"lint:scripts": "eslint scripts",
@@ -22,6 +22,7 @@
 		"fmt:check:scripts": "prettier --check scripts",
 		"build:scraper": "tsx lib/scraper/src/cli.ts",
 		"build:db": "tsx lib/scraper/src/cli.ts --db-only && pnpm run build:redirects",
+		"build:stats": "tsx lib/stats/src/cli.ts",
 		"build:redirects": "pnpm --filter 'deadlog-web' redirects",
 		"clean:meta": "rm -rf app/static/assets/meta",
 		"build:meta": "pnpm run clean:meta && UV_THREADPOOL_SIZE=8 tsx lib/meta/src/generate-previews.ts"

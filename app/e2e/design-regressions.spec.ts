@@ -748,3 +748,46 @@ test('timeline date labels do not collide at responsive breakpoints', async ({
 		}
 	}
 });
+
+test('hero histories report measured patch impact without a direction cue', async ({
+	page
+}) => {
+	await gotoApp(page, '/hero/abrams');
+
+	const impact = page.locator('[data-patch-impact]');
+	await expect(impact.first()).toBeVisible();
+
+	const line = impact.first().locator('p').first();
+	await expect(line.locator('[aria-hidden="true"]')).toHaveText(
+		/^WIN [\d.—]+ → [\d.—]+ · PICK [\d.—]+ → [\d.—]+/
+	);
+	await expect(line.locator('.sr-only')).toHaveText(/^All ranks\. Win rate /);
+
+	const colors = await impact.locator('p').evaluateAll((lines) => {
+		const probe = document.createElement('span');
+		probe.style.color = 'var(--primary)';
+		document.body.append(probe);
+		const primary = getComputedStyle(probe).color;
+		probe.remove();
+		return { primary, used: [...new Set(lines.map((el) => getComputedStyle(el).color))] };
+	});
+	expect(colors.used).not.toContain(colors.primary);
+	expect(colors.used.length).toBeLessThanOrEqual(2);
+
+	await expect(page.getByRole('link', { name: 'Deadlock API' }).first()).toHaveAttribute(
+		'href',
+		'https://deadlock-api.com'
+	);
+
+	const overflow = await page.evaluate(
+		() => document.documentElement.scrollWidth - document.documentElement.clientWidth
+	);
+	expect(overflow).toBeLessThanOrEqual(0);
+});
+
+test('ability histories carry no patch impact lines', async ({ page }) => {
+	await gotoApp(page, '/ability/affliction');
+
+	await expect(page.locator('[data-patch-impact]')).toHaveCount(0);
+	await expect(page.getByText('Win and pick rates are measured')).toHaveCount(0);
+});

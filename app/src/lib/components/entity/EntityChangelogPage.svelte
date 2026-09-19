@@ -16,7 +16,9 @@
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
 	import CornerAccents from '$lib/components/ui/corner-accents/CornerAccents.svelte';
 	import EntityHistoryToc from './EntityHistoryToc.svelte';
+	import PatchImpact from './PatchImpact.svelte';
 	import type { Snippet } from 'svelte';
+	import type { EntityImpact } from '@deadlog/stats';
 	import { shallowParams } from '$lib/stores/shallowParams.svelte';
 
 	interface ChangeGroup {
@@ -33,6 +35,7 @@
 		author: string;
 		changeCount: number | null;
 		changeGroups?: ChangeGroup[] | null;
+		impact?: EntityImpact | null;
 	}
 	interface Ability {
 		name: string;
@@ -100,6 +103,7 @@
 				: [];
 		});
 	});
+	const hasImpact = $derived(visibleChangelogs.some((patch) => patch.impact));
 	const historyYears = $derived([
 		...visibleChangelogs.reduce((groups, patch) => {
 			const year = formatYear(patch.date);
@@ -414,6 +418,7 @@
 												{entity.name} was mentioned in this patch. See the full notes for context.
 											</p>
 										{/if}
+										{#if patch.impact}<PatchImpact impact={patch.impact} />{/if}
 										<a
 											href={entityPatchHref(patch, entity)}
 											class="ui-focus-ring text-signal mt-2 inline-flex min-h-11 items-center gap-1.5 rounded-sm text-xs underline-offset-4 hover:underline"
@@ -424,6 +429,24 @@
 							</ol>
 						</section>
 					{/each}
+					{#if hasImpact}
+						<p
+							class="text-muted-foreground border-subtle mt-6 max-w-[72ch] border-t pt-4 text-xs leading-relaxed"
+						>
+							Win and pick rates are measured between neighbouring patches, up to 14 days
+							each side, and shown as observed. {#if entity.type === 'item'}Item pick rate
+								is the share of players who bought it, and item win rates depend on which
+								heroes buy the item.{:else}Pick rate is the share of matches the hero
+								appeared in.{/if}
+							Match data from the
+							<a
+								href="https://deadlock-api.com"
+								rel="noopener"
+								class="ui-focus-ring text-signal rounded-sm underline-offset-4 hover:underline"
+								>Deadlock API</a
+							>.
+						</p>
+					{/if}
 				{:else}
 					<div
 						border="border/50 2"

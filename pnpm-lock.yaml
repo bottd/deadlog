@@ -162,6 +162,9 @@ importers:
       '@deadlog/db':
         specifier: workspace:*
         version: link:../lib/db
+      '@deadlog/stats':
+        specifier: workspace:*
+        version: link:../lib/stats
       '@deadlog/utils':
         specifier: workspace:*
         version: link:../lib/utils
@@ -219,6 +222,19 @@ importers:
       happy-dom:
         specifier: 20.14.5
         version: 20.14.5
+
+  lib/stats:
+    dependencies:
+      '@deadlog/db':
+        specifier: workspace:*
+        version: link:../db
+      zod:
+        specifier: 4.6.5
+        version: 4.6.5
+    devDependencies:
+      '@types/node':
+        specifier: 26.6.1
+        version: 26.6.1
 
   lib/utils: {}
 

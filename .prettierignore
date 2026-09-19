@@ -12,3 +12,5 @@ node_modules
 
 pnpm-lock.yaml
 /drizzle/
+
+/app/stats/
