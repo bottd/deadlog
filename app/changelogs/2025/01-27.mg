@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "01-27-2025 Update"
 thread_id "54590"
 published "2025-01-27T18:10:06-0800"
@@ -23,6 +23,18 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 ``
 
 =hero:abrams:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5025 pick=0.3866 matches=67448 days=7
+    after win=0.5109 pick=0.4093 matches=125340 days=14
+  }
+  high {
+    before win=0.5357 pick=0.4026 matches=2382 days=7
+    after win=0.4981 pick=0.3957 matches=4885 days=14
+  }
+}
+``
 [[/hero/abrams]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams patch history))
 ## [[/hero/abrams]]((Abrams))
 ==ability:infernal-resilience:
@@ -33,6 +45,18 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 =
 
 =hero:bebop:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5214 pick=0.7213 matches=125834 days=7
+    after win=0.5085 pick=0.7794 matches=238666 days=14
+  }
+  high {
+    before win=0.4951 pick=0.7309 matches=4324 days=7
+    after win=0.4933 pick=0.7529 matches=9294 days=14
+  }
+}
+``
 [[/hero/bebop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop patch history))
 ## [[/hero/bebop]]((Bebop))
 ==ability:exploding-uppercut:
@@ -43,6 +67,18 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 =
 
 =hero:calico:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5481 pick=0.9472 matches=165251 days=7
+    after win=0.5241 pick=0.7662 matches=234611 days=14
+  }
+  high {
+    before win=0.558 pick=0.9694 matches=5735 days=7
+    after win=0.5246 pick=0.7759 matches=9578 days=14
+  }
+}
+``
 [[/hero/calico]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp]] Calico patch history))
 ## [[/hero/calico]]((Calico))
 ==ability:gloom-bombs:
@@ -82,6 +118,18 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 =
 
 =hero:dynamo:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5031 pick=0.3528 matches=61558 days=7
+    after win=0.5123 pick=0.5032 matches=154067 days=14
+  }
+  high {
+    before win=0.4901 pick=0.2549 matches=1508 days=7
+    after win=0.5048 pick=0.437 matches=5394 days=14
+  }
+}
+``
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 ==ability:kinetic-pulse:
@@ -93,6 +141,18 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 =
 
 =hero:grey-talon:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4894 pick=0.3406 matches=59421 days=7
+    after win=0.497 pick=0.4479 matches=137137 days=14
+  }
+  high {
+    before win=0.4857 pick=0.3132 matches=1853 days=7
+    after win=0.497 pick=0.4639 matches=5726 days=14
+  }
+}
+``
 [[/hero/grey-talon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon patch history))
 ## [[/hero/grey-talon]]((Grey Talon))
 ==ability:spirit-snare:
@@ -104,6 +164,18 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 =
 
 =hero:haze:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5098 pick=0.8322 matches=145194 days=7
+    after win=0.5087 pick=0.8646 matches=264752 days=14
+  }
+  high {
+    before win=0.4797 pick=0.7894 matches=4670 days=7
+    after win=0.4789 pick=0.8014 matches=9893 days=14
+  }
+}
+``
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 ==ability:bullet-dance:
@@ -115,6 +187,18 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 =
 
 =hero:holliday:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4437 pick=0.7991 matches=139420 days=7
+    after win=0.4524 pick=0.4866 matches=148986 days=14
+  }
+  high {
+    before win=0.4885 pick=0.7972 matches=4716 days=7
+    after win=0.5112 pick=0.5237 matches=6465 days=14
+  }
+}
+``
 [[/hero/holliday]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]] Holliday patch history))
 ## [[/hero/holliday]]((Holliday))
 ==ability:powder-keg:
@@ -151,6 +235,18 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 =
 
 =hero:kelvin:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4671 pick=0.2225 matches=38823 days=7
+    after win=0.4686 pick=0.2537 matches=77678 days=14
+  }
+  high {
+    before win=0.4966 pick=0.1978 matches=1170 days=7
+    after win=0.5068 pick=0.2339 matches=2887 days=14
+  }
+}
+``
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 ==ability:arctic-beam:
@@ -161,6 +257,18 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 =
 
 =hero:seven:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5391 pick=0.4948 matches=86316 days=7
+    after win=0.5495 pick=0.6272 matches=192065 days=14
+  }
+  high {
+    before win=0.5244 pick=0.3043 matches=1800 days=7
+    after win=0.5193 pick=0.4755 matches=5870 days=14
+  }
+}
+``
 [[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
 ## [[/hero/seven]]((Seven))
 ==ability:storm-cloud:
@@ -171,6 +279,18 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 =
 
 =hero:shiv:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4559 pick=0.4362 matches=76109 days=7
+    after win=0.4636 pick=0.5084 matches=155688 days=14
+  }
+  high {
+    before win=0.4408 pick=0.4912 matches=2906 days=7
+    after win=0.4645 pick=0.5485 matches=6771 days=14
+  }
+}
+``
 [[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
 ## [[/hero/shiv]]((Shiv))
 ==ability:serrated-knives:
@@ -181,6 +301,18 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 =
 
 =hero:sinclair:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4476 pick=0.4363 matches=76111 days=7
+    after win=0.3898 pick=0.148 matches=45308 days=14
+  }
+  high {
+    before win=0.4834 pick=0.32 matches=1893 days=7
+    after win=#null pick=#null matches=777 days=14
+  }
+}
+``
 [[/hero/sinclair]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/magician_sm.webp]] Sinclair patch history))
 ## [[/hero/sinclair]]((Sinclair))
 - No longer has -35% Headshot Damage Reduction
@@ -213,6 +345,18 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 =
 
 =hero:vindicta:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4959 pick=0.4648 matches=81096 days=7
+    after win=0.4911 pick=0.4486 matches=137364 days=14
+  }
+  high {
+    before win=0.492 pick=0.5524 matches=3268 days=7
+    after win=0.5084 pick=0.4596 matches=5673 days=14
+  }
+}
+``
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
 - Bullet damage reduced from 11.7 to 11.4
@@ -229,6 +373,18 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 =
 
 =hero:viscous:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4735 pick=0.2705 matches=47193 days=7
+    after win=0.4705 pick=0.3138 matches=96096 days=14
+  }
+  high {
+    before win=0.4893 pick=0.3016 matches=1784 days=7
+    after win=0.4886 pick=0.3296 matches=4069 days=14
+  }
+}
+``
 [[/hero/viscous]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous patch history))
 ## [[/hero/viscous]]((Viscous))
 ==ability:goo-ball:
@@ -239,6 +395,18 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 =
 
 =hero:vyper:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4585 pick=0.5726 matches=99899 days=7
+    after win=0.4837 pick=0.3331 matches=101991 days=14
+  }
+  high {
+    before win=0.4505 pick=0.2747 matches=1625 days=7
+    after win=0.519 pick=0.2045 matches=2524 days=14
+  }
+}
+``
 [[/hero/vyper]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kali_sm.webp]] Vyper patch history))
 ## [[/hero/vyper]]((Vyper))
 - Bullet damage growth increased from 0.32 to 0.36
@@ -262,6 +430,18 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 ``
 
 =item:alchemical-fire:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5338 pick=0.0576 matches=120509 days=7
+    after win=0.5268 pick=0.0637 matches=233928 days=14
+  }
+  high {
+    before win=0.5241 pick=0.1086 matches=7712 days=7
+    after win=0.5304 pick=0.1055 matches=15628 days=14
+  }
+}
+``
 [[/item/alchemical-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/alchemical_fire.webp]] Alchemical Fire patch history))
 ## [[/item/alchemical-fire]]((Alchemical Fire))
 - Base damage reduced from 50 to 45
@@ -274,24 +454,72 @@ content_text "All objectives now take 50% less damage from Spirit Damage (abilit
 =
 
 =item:berserker:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5246 pick=0.1736 matches=363482 days=7
+    after win=0.5187 pick=0.1714 matches=629663 days=14
+  }
+  high {
+    before win=0.522 pick=0.1911 matches=13566 days=7
+    after win=0.5177 pick=0.1755 matches=25993 days=14
+  }
+}
+``
 [[/item/berserker]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/berserker.webp]] Berserker patch history))
 ## [[/item/berserker]]((Berserker))
 - Damage to gain stack increased from 100 to 120
 =
 
 =item:bullet-lifesteal:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4918 pick=0.3048 matches=638052 days=7
+    after win=0.499 pick=0.2682 matches=985533 days=14
+  }
+  high {
+    before win=0.4864 pick=0.2258 matches=16027 days=7
+    after win=0.5009 pick=0.2141 matches=31711 days=14
+  }
+}
+``
 [[/item/bullet-lifesteal]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/bullet_lifesteal.webp]] Bullet Lifesteal patch history))
 ## [[/item/bullet-lifesteal]]((Bullet Lifesteal))
 - Lifesteal reduced from 26% to 24%
 =
 
 =item:heroic-aura:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5403 pick=0.0251 matches=52573 days=7
+    after win=0.5344 pick=0.026 matches=95619 days=14
+  }
+  high {
+    before win=0.5618 pick=0.0352 matches=2501 days=7
+    after win=0.5387 pick=0.0361 matches=5344 days=14
+  }
+}
+``
 [[/item/heroic-aura]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/heroic_aura.webp]] Heroic Aura patch history))
 ## [[/item/heroic-aura]]((Heroic Aura))
 - Lifesteal reduced from 18% to 16%
 =
 
 =item:swift-striker:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4972 pick=0.2358 matches=493616 days=7
+    after win=0.5023 pick=0.222 matches=815541 days=14
+  }
+  high {
+    before win=0.5011 pick=0.2318 matches=16453 days=7
+    after win=0.5038 pick=0.2258 matches=33445 days=14
+  }
+}
+``
 [[/item/swift-striker]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/swift_striker.webp]] Swift Striker patch history))
 ## [[/item/swift-striker]]((Swift Striker))
 - Fire Rate reduced from 22% to 20%

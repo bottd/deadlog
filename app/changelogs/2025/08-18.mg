@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "Six New Heroes"
 thread_id "75046"
 steam_gid "1808061939479652"
@@ -139,6 +139,18 @@ Killing enemies has never looked better. Mina is a glass cannon that delivers qu
 =
 
 =hero:mina:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5173 pick=0.9975 matches=36476 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=949 days=1
+  }
+}
+``
 [[/hero/mina]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/vampirebat_sm.webp]] Mina patch history))
 ## [[/hero/mina]]((Mina))
 ==ability:sanguine-retreat:

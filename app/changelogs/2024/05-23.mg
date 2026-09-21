@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "05-23-2024 Update"
 thread_id "1245"
 published "2024-05-23T14:39:49-0700"
@@ -97,6 +97,18 @@ content_text "Playtesting times are now starting 1 hour earlier. Weekdays are 5P
 ``
 
 =hero:abrams:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=23 days=3
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/abrams]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams patch history))
 ## [[/hero/abrams]]((Abrams))
 ==ability:siphon-life:
@@ -112,6 +124,18 @@ content_text "Playtesting times are now starting 1 hour earlier. Weekdays are 5P
 =
 
 =hero:bebop:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=31 days=3
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/bebop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop patch history))
 ## [[/hero/bebop]]((Bebop))
 ==ability:sticky-bomb:
@@ -132,6 +156,18 @@ content_text "Playtesting times are now starting 1 hour earlier. Weekdays are 5P
 =
 
 =hero:dynamo:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=31 days=3
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 - Base gun damage reduced from 18 to 15
@@ -139,6 +175,18 @@ content_text "Playtesting times are now starting 1 hour earlier. Weekdays are 5P
 =
 
 =hero:grey-talon:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=24 days=3
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/grey-talon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon patch history))
 ## [[/hero/grey-talon]]((Grey Talon))
 ==ability:guided-owl-spirit:
@@ -154,6 +202,18 @@ content_text "Playtesting times are now starting 1 hour earlier. Weekdays are 5P
 =
 
 =hero:haze:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=32 days=3
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 ==ability:sleep-dagger:
@@ -181,6 +241,18 @@ content_text "Playtesting times are now starting 1 hour earlier. Weekdays are 5P
 =
 
 =hero:ivy:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=14 days=3
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
 ## [[/hero/ivy]]((Ivy))
 ==ability:kudzu-bomb:
@@ -207,6 +279,18 @@ content_text "Playtesting times are now starting 1 hour earlier. Weekdays are 5P
 =
 
 =hero:kelvin:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=11 days=3
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 ==ability:frost-grenade:
@@ -228,6 +312,18 @@ content_text "Playtesting times are now starting 1 hour earlier. Weekdays are 5P
 =
 
 =hero:lady-geist:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=27 days=3
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/lady-geist]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]] Lady Geist patch history))
 ## [[/hero/lady-geist]]((Lady Geist))
 ==ability:soul-exchange:
@@ -243,6 +339,18 @@ content_text "Playtesting times are now starting 1 hour earlier. Weekdays are 5P
 =
 
 =hero:lash:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=14 days=3
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/lash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp]] Lash patch history))
 ## [[/hero/lash]]((Lash))
 - Base Stamina increased from 2 to 3
@@ -261,6 +369,18 @@ content_text "Playtesting times are now starting 1 hour earlier. Weekdays are 5P
 =
 
 =hero:mcginnis:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=27 days=3
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 ==ability:mini-turret:
@@ -271,6 +391,18 @@ content_text "Playtesting times are now starting 1 hour earlier. Weekdays are 5P
 =
 
 =hero:mo-krill:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=15 days=3
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/mo-krill]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]] Mo & Krill patch history))
 ## [[/hero/mo-krill]]((Mo & Krill))
 ==ability:scorn:
@@ -286,6 +418,18 @@ content_text "Playtesting times are now starting 1 hour earlier. Weekdays are 5P
 =
 
 =hero:paradox:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=26 days=3
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/paradox]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox patch history))
 ## [[/hero/paradox]]((Paradox))
 ==ability:kinetic-carbine-max-damage-amp:
@@ -301,6 +445,18 @@ content_text "Playtesting times are now starting 1 hour earlier. Weekdays are 5P
 =
 
 =hero:pocket:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=24 days=3
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/pocket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket patch history))
 ## [[/hero/pocket]]((Pocket))
 ==ability:barrage:
@@ -317,6 +473,18 @@ content_text "Playtesting times are now starting 1 hour earlier. Weekdays are 5P
 =
 
 =hero:vindicta:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=30 days=3
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
 ==ability:flight:
@@ -332,6 +500,18 @@ content_text "Playtesting times are now starting 1 hour earlier. Weekdays are 5P
 =
 
 =hero:warden:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=16 days=3
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/warden]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden patch history))
 ## [[/hero/warden]]((Warden))
 ==ability:alchemical-flask:
@@ -342,6 +522,18 @@ content_text "Playtesting times are now starting 1 hour earlier. Weekdays are 5P
 =
 
 =hero:wraith:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=23 days=3
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/wraith]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp]] Wraith patch history))
 ## [[/hero/wraith]]((Wraith))
 ==ability:royal-flush:
@@ -362,6 +554,18 @@ content_text "Playtesting times are now starting 1 hour earlier. Weekdays are 5P
 =
 
 =hero:yamato:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=19 days=3
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 ==ability:shadow-transformation:
@@ -421,6 +625,18 @@ content_text "Playtesting times are now starting 1 hour earlier. Weekdays are 5P
 =
 
 =item:leech:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=33 days=1
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/leech]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/leech.webp]] Leech patch history))
 ## [[/item/leech]]((Leech))
 - Spirit bonus reduced from 12 to 8
@@ -440,6 +656,18 @@ content_text "Playtesting times are now starting 1 hour earlier. Weekdays are 5P
 =
 
 =item:mystic-burst:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=117 days=3
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/mystic-burst]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mystic_burst.webp]] Mystic Burst patch history))
 ## [[/item/mystic-burst]]((Mystic Burst))
 - No longer has +1 HP Regen
@@ -448,6 +676,18 @@ content_text "Playtesting times are now starting 1 hour earlier. Weekdays are 5P
 =
 
 =item:mystic-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=108 days=3
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/mystic-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/mystic_shot.webp]] Mystic Shot patch history))
 ## [[/item/mystic-shot]]((Mystic Shot))
 - Now requires that shotguns middle pellet hit the target
@@ -498,6 +738,18 @@ content_text "Playtesting times are now starting 1 hour earlier. Weekdays are 5P
 =
 
 =item:superior-cooldown:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=95 days=3
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/superior-cooldown]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/superior_cooldown.webp]] Superior Cooldown patch history))
 ## [[/item/superior-cooldown]]((Superior Cooldown))
 - HP regen reduced from 6 to 4

@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "10-02-2024 Update"
 thread_id "35439"
 published "2024-10-02T17:18:25-0700"
@@ -21,6 +21,18 @@ content_text "Respawn time at 20min reduced from 50s to 45s (was 40s previous pa
 ``
 
 =hero:ivy:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5533 pick=0.5172 matches=34711 days=3
+    after win=0.519 pick=0.4374 matches=45754 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
 ## [[/hero/ivy]]((Ivy))
 ==ability:kudzu-bomb:
@@ -42,6 +54,18 @@ content_text "Respawn time at 20min reduced from 50s to 45s (was 40s previous pa
 =
 
 =hero:mirage:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5074 pick=0.7549 matches=50662 days=3
+    after win=0.4754 pick=0.5673 matches=59344 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/mirage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage patch history))
 ## [[/hero/mirage]]((Mirage))
 - Bullet radius reduced from 8 to 6
@@ -62,6 +86,18 @@ content_text "Respawn time at 20min reduced from 50s to 45s (was 40s previous pa
 =
 
 =hero:pocket:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.489 pick=0.5087 matches=34141 days=3
+    after win=0.4953 pick=0.5231 matches=54716 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/pocket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket patch history))
 ## [[/hero/pocket]]((Pocket))
 ==ability:affliction:

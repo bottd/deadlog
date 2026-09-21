@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "05-16-2024 Update"
 thread_id "902"
 published "2024-05-16T12:36:56-0700"
@@ -78,6 +78,18 @@ content_text "Playtesting times are now starting 1 hour earlier. Weekdays are 6P
 =
 
 =hero:grey-talon:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=1 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/grey-talon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon patch history))
 ## [[/hero/grey-talon]]((Grey Talon))
 ==ability:charged-shot:
@@ -88,6 +100,18 @@ content_text "Playtesting times are now starting 1 hour earlier. Weekdays are 6P
 =
 
 =hero:haze:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=1 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 ==ability:sleep-dagger:
@@ -105,6 +129,18 @@ content_text "Playtesting times are now starting 1 hour earlier. Weekdays are 6P
 =
 
 =hero:infernus:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=1 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/infernus]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus patch history))
 ## [[/hero/infernus]]((Infernus))
 ==ability:afterburn:
@@ -115,6 +151,18 @@ content_text "Playtesting times are now starting 1 hour earlier. Weekdays are 6P
 =
 
 =hero:ivy:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=1 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
 ## [[/hero/ivy]]((Ivy))
 ==ability:true-form:
@@ -176,6 +224,18 @@ content_text "Playtesting times are now starting 1 hour earlier. Weekdays are 6P
 =
 
 =hero:mcginnis:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=1 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 ==ability:mini-turret:
@@ -202,6 +262,18 @@ content_text "Playtesting times are now starting 1 hour earlier. Weekdays are 6P
 =
 
 =hero:paradox:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=1 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/paradox]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox patch history))
 ## [[/hero/paradox]]((Paradox))
 ==ability:kinetic-carbine:
@@ -212,6 +284,18 @@ content_text "Playtesting times are now starting 1 hour earlier. Weekdays are 6P
 =
 
 =hero:vindicta:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=1 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
 ==ability:flight:
@@ -234,6 +318,18 @@ content_text "Playtesting times are now starting 1 hour earlier. Weekdays are 6P
 =
 
 =hero:yamato:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=1 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 ==ability:shadow-explosion:

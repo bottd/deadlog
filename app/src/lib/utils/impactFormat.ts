@@ -1,11 +1,9 @@
-import type { EntityImpact, RankTier, TierImpact } from '@deadlog/stats';
+import { plural, type EntityImpact, type TierImpact } from '@deadlog/utils';
+
+export type RankTier = 'all' | 'high';
 
 export interface ImpactLine {
 	tier: RankTier;
-	win: [string, string];
-	pick: [string, string];
-	matches: string;
-	note: string | null;
 	text: string;
 	label: string;
 }
@@ -31,49 +29,49 @@ function spoken(name: string, before: number | null, after: number | null): stri
 	return `${name} ${side(before, 'before')}, ${side(after, 'after')}.`;
 }
 
-export function tierLine(tier: RankTier, impact: TierImpact): ImpactLine | null {
+function noteFor({ before, after }: TierImpact, closed: boolean): string | null {
+	if (before.win === null) return 'not enough matches before';
+	if (after.win === null) return 'not enough matches after';
+	if (closed) return null;
+	return `after: ${after.days} ${plural(after.days, 'day')} so far`;
+}
+
+const arrow = (before: number | null, after: number | null): string =>
+	`${formatRate(before)} → ${formatRate(after)}`;
+
+export function tierLine(
+	tier: RankTier,
+	impact: TierImpact,
+	closed: boolean
+): ImpactLine | null {
 	const { before, after } = impact;
-	if (before.winRate === null && after.winRate === null) return null;
+	if (before.win === null && after.win === null) return null;
 
-	const note =
-		before.winRate === null
-			? 'not enough matches before'
-			: after.winRate === null
-				? 'not enough matches after'
-				: after.closed
-					? null
-					: `after: ${after.days} ${after.days === 1 ? 'day' : 'days'} so far`;
-
-	const win: [string, string] = [formatRate(before.winRate), formatRate(after.winRate)];
-	const pick: [string, string] = [
-		formatRate(before.pickRate),
-		formatRate(after.pickRate)
-	];
-	const matches = formatMatches(after.matches);
-	const sample = after.winRate === null ? null : `${matches} matches`;
+	const sample = after.win === null ? null : `${formatMatches(after.matches)} matches`;
 
 	return {
 		tier,
-		win,
-		pick,
-		matches,
-		note,
 		text:
 			TIER_PREFIX[tier] +
-			[`WIN ${win[0]} → ${win[1]}`, `PICK ${pick[0]} → ${pick[1]}`, sample, note]
+			[
+				`WIN ${arrow(before.win, after.win)}`,
+				`PICK ${arrow(before.pick, after.pick)}`,
+				sample,
+				noteFor(impact, closed)
+			]
 				.filter(Boolean)
 				.join(' · '),
 		label: [
 			`${TIER_NAME[tier]}.`,
-			spoken('Win rate', before.winRate, after.winRate),
-			spoken('Pick rate', before.pickRate, after.pickRate),
-			`${after.matches.toLocaleString('en-US')} matches after the patch${after.closed ? '.' : ' so far.'}`
+			spoken('Win rate', before.win, after.win),
+			spoken('Pick rate', before.pick, after.pick),
+			`${after.matches.toLocaleString('en-US')} matches after the patch${closed ? '.' : ' so far.'}`
 		].join(' ')
 	};
 }
 
 export function impactLines(impact: EntityImpact): ImpactLine[] {
 	return (['all', 'high'] as const)
-		.map((tier) => tierLine(tier, impact[tier]))
+		.map((tier) => tierLine(tier, impact[tier], impact.closed))
 		.filter((line) => line !== null);
 }

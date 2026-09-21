@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "12-16-2025 Update"
 thread_id "93983"
 published "2025-12-16T10:33:38-0800"
@@ -62,6 +62,18 @@ content_text "The 10% move speed slow from taking damage is now a 20% slow only 
 ``
 
 =hero:billy:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5145 pick=0.5022 matches=119519 days=14
+    after win=0.5047 pick=0.425 matches=104436 days=13
+  }
+  high {
+    before win=0.5168 pick=0.4697 matches=22950 days=14
+    after win=0.5153 pick=0.3782 matches=17447 days=13
+  }
+}
+``
 [[/hero/billy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/punkgoat_sm.webp]] Billy patch history))
 ## [[/hero/billy]]((Billy))
 - Health regen reduced from 3 to 2.5
@@ -79,6 +91,18 @@ content_text "The 10% move speed slow from taking damage is now a 20% slow only 
 =
 
 =hero:dynamo:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5469 pick=0.6149 matches=146333 days=14
+    after win=0.5268 pick=0.4566 matches=112192 days=13
+  }
+  high {
+    before win=0.5479 pick=0.5987 matches=29253 days=14
+    after win=0.5209 pick=0.4119 matches=19002 days=13
+  }
+}
+``
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 ==ability:kinetic-pulse:
@@ -90,6 +114,18 @@ content_text "The 10% move speed slow from taking damage is now a 20% slow only 
 =
 
 =hero:lady-geist:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4883 pick=0.3527 matches=83922 days=14
+    after win=0.4775 pick=0.341 matches=83793 days=13
+  }
+  high {
+    before win=0.4894 pick=0.3243 matches=15848 days=14
+    after win=0.4702 pick=0.3279 matches=15126 days=13
+  }
+}
+``
 [[/hero/lady-geist]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]] Lady Geist patch history))
 ## [[/hero/lady-geist]]((Lady Geist))
 - Stamina dash distance moved to bucket 3 (slower)
@@ -106,6 +142,18 @@ content_text "The 10% move speed slow from taking damage is now a 20% slow only 
 =
 
 =hero:mirage:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4816 pick=0.372 matches=88531 days=14
+    after win=0.4704 pick=0.321 matches=78863 days=13
+  }
+  high {
+    before win=0.483 pick=0.4572 matches=22342 days=14
+    after win=0.4746 pick=0.3416 matches=15759 days=13
+  }
+}
+``
 [[/hero/mirage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage patch history))
 ## [[/hero/mirage]]((Mirage))
 - Move speed reduced by 0.2
@@ -125,6 +173,18 @@ content_text "The 10% move speed slow from taking damage is now a 20% slow only 
 =
 
 =hero:shiv:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4646 pick=0.4178 matches=99414 days=14
+    after win=0.4611 pick=0.3993 matches=98121 days=13
+  }
+  high {
+    before win=0.4704 pick=0.5113 matches=24982 days=14
+    after win=0.465 pick=0.4775 matches=22028 days=13
+  }
+}
+``
 [[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
 ## [[/hero/shiv]]((Shiv))
 ==ability:bloodletting:
@@ -142,6 +202,18 @@ content_text "The 10% move speed slow from taking damage is now a 20% slow only 
 =
 
 =hero:vindicta:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4651 pick=0.4086 matches=97243 days=14
+    after win=0.4725 pick=0.3824 matches=93966 days=13
+  }
+  high {
+    before win=0.4632 pick=0.4151 matches=20282 days=14
+    after win=0.4689 pick=0.368 matches=16977 days=13
+  }
+}
+``
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
 ==ability:assassinate:
@@ -152,6 +224,18 @@ content_text "The 10% move speed slow from taking damage is now a 20% slow only 
 =
 
 =hero:wraith:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5292 pick=0.5141 matches=122346 days=14
+    after win=0.497 pick=0.4013 matches=98612 days=13
+  }
+  high {
+    before win=0.5371 pick=0.56 matches=27363 days=14
+    after win=0.5032 pick=0.3999 matches=18450 days=13
+  }
+}
+``
 [[/hero/wraith]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp]] Wraith patch history))
 ## [[/hero/wraith]]((Wraith))
 - Sprint speed spirit power scaling reduced from 0.6 to 0.5
@@ -170,12 +254,36 @@ content_text "The 10% move speed slow from taking damage is now a 20% slow only 
 ``
 
 =item:active-reload:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5068 pick=0.0766 matches=218845 days=14
+    after win=0.5232 pick=0.0776 matches=228714 days=13
+  }
+  high {
+    before win=0.4987 pick=0.0787 matches=46141 days=14
+    after win=0.5195 pick=0.0863 matches=47759 days=13
+  }
+}
+``
 [[/item/active-reload]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/active_reload.webp]] Active Reload patch history))
 ## [[/item/active-reload]]((Active Reload))
 - Move speed reduced from 1 to 0.75​- Backstabber: Move speed reduced from 1.75 to 1.5​- Fleetfoot: Move speed reduced from 3.5 to 3.25​- Enduring Speed: Move speed reduced from 2.25 to 2.0​- Guardian Ward: Move speed reduced from 3 to 2.75​- Spirit Shielding: Move speed reduced from 1.75 to 1.5​- Weapon Shielding: Move speed reduced from 1.75 to 1.5​- Blood Tribute: Move speed reduced from 2.25 to 2​- Burst Fire: Move speed reduced from 1.5 to 1.25​- Headhunter: Move speed reduced from 2 to 1.75​- Heroic Aura: Move speed reduced from 2.5 to 2.25​- Counterspell: Move speed reduced from 2 to 1.75​- Debuff Remover: Move speed reduced from 2.5 to 2.25​- Fortitude: Move speed reduced from 1.5 to 1.25​- Veil Walker: Invis move speed reduced from 4 to 3.5​- Radiant Regeneration: Move speed reduced from 2 to 1.75​- Surge of Power: Move speed reduced from 2 to 1.75​- Frenzy: Move speed reduced from 1 to 0.75​- Frenzy: Active move speed reduced from 3 to 2.5​- Divine Barrier: Move speed reduced from 3 to 2.75​- Healing Tempo: Move speed reduced from 1.5 to 1.25​- Juggernaut: Move speed reduced from 2.25 to 2​- Ethereal Shift: Move speed reduced from 3 to 2.5​- Sprint ramp rate reduced from 0.75/sec to 0.6/sec
 =
 
 =item:colossus:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5588 pick=0.0096 matches=27401 days=14
+    after win=0.5561 pick=0.0211 matches=62177 days=13
+  }
+  high {
+    before win=0.5848 pick=0.0091 matches=5354 days=14
+    after win=0.5831 pick=0.0247 matches=13658 days=13
+  }
+}
+``
 [[/item/colossus]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/colossus.webp]] Colossus patch history))
 ## [[/item/colossus]]((Colossus))
 - Bonus Health reduced from +600 to +300
@@ -183,30 +291,90 @@ content_text "The 10% move speed slow from taking damage is now a 20% slow only 
 =
 
 =item:crippling-headshot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5741 pick=0.0573 matches=163536 days=14
+    after win=0.5653 pick=0.0579 matches=170816 days=13
+  }
+  high {
+    before win=0.5803 pick=0.0559 matches=32797 days=14
+    after win=0.5714 pick=0.0572 matches=31652 days=13
+  }
+}
+``
 [[/item/crippling-headshot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/crippling_headshot.webp]] Crippling Headshot patch history))
 ## [[/item/crippling-headshot]]((Crippling Headshot))
 - Bullet and Spirit Resist reduction from -18% to -16%
 =
 
 =item:cultist-sacrifice:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5088 pick=0.2252 matches=643033 days=14
+    after win=0.5036 pick=0.2447 matches=721577 days=13
+  }
+  high {
+    before win=0.5106 pick=0.2955 matches=173239 days=14
+    after win=0.5034 pick=0.3177 matches=175874 days=13
+  }
+}
+``
 [[/item/cultist-sacrifice]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/cultist_sacrifice.webp]] Cultist Sacrifice patch history))
 ## [[/item/cultist-sacrifice]]((Cultist Sacrifice))
 - Cooldown increased from 260s to 270s
 =
 
 =item:fleetfoot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5298 pick=0.2595 matches=740922 days=14
+    after win=0.5255 pick=0.2128 matches=627536 days=13
+  }
+  high {
+    before win=0.5254 pick=0.2757 matches=161639 days=14
+    after win=0.5208 pick=0.215 matches=118997 days=13
+  }
+}
+``
 [[/item/fleetfoot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/fleetfoot.webp]] Fleetfoot patch history))
 ## [[/item/fleetfoot]]((Fleetfoot))
 - Active slow resist reduced from 40% to 35%
 =
 
 =item:focus-lens:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5229 pick=0.0512 matches=146352 days=14
+    after win=0.5294 pick=0.0292 matches=86213 days=13
+  }
+  high {
+    before win=0.5297 pick=0.0526 matches=30860 days=14
+    after win=0.5412 pick=0.0245 matches=13547 days=13
+  }
+}
+``
 [[/item/focus-lens]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/focus_lens.webp]] Focus Lens patch history))
 ## [[/item/focus-lens]]((Focus Lens))
 - Spirit Resist reduction reduced from -12% to -9% (affects Spirit Sap)
 =
 
 =item:majestic-leap:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5066 pick=0.0732 matches=208913 days=14
+    after win=0.5067 pick=0.0695 matches=204871 days=13
+  }
+  high {
+    before win=0.5076 pick=0.0976 matches=57253 days=14
+    after win=0.5046 pick=0.0882 matches=48815 days=13
+  }
+}
+``
 [[/item/majestic-leap]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/majestic_leap.webp]] Majestic Leap patch history))
 ## [[/item/majestic-leap]]((Majestic Leap))
 - Cooldown increased from 34s to 45s
@@ -214,24 +382,72 @@ content_text "The 10% move speed slow from taking damage is now a 20% slow only 
 =
 
 =item:siphon-bullets:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5674 pick=0.0734 matches=209528 days=14
+    after win=0.5733 pick=0.0425 matches=125365 days=13
+  }
+  high {
+    before win=0.5664 pick=0.0716 matches=41983 days=14
+    after win=0.5701 pick=0.0339 matches=18791 days=13
+  }
+}
+``
 [[/item/siphon-bullets]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/siphon_bullets.webp]] Siphon Bullets patch history))
 ## [[/item/siphon-bullets]]((Siphon Bullets))
 - Cooldown increased from 0.8s to 1.2s
 =
 
 =item:spirit-snatch:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5059 pick=0.1322 matches=377563 days=14
+    after win=0.5018 pick=0.1177 matches=346926 days=13
+  }
+  high {
+    before win=0.5052 pick=0.1503 matches=88131 days=14
+    after win=0.5042 pick=0.1239 matches=68573 days=13
+  }
+}
+``
 [[/item/spirit-snatch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/spirit_snatch.webp]] Spirit Snatch patch history))
 ## [[/item/spirit-snatch]]((Spirit Snatch))
 - Spirit Resist steal reduced from 15% to 12%
 =
 
 =item:sprint-boots:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5163 pick=0.3991 matches=1139728 days=14
+    after win=0.5146 pick=0.376 matches=1108618 days=13
+  }
+  high {
+    before win=0.5135 pick=0.4264 matches=250010 days=14
+    after win=0.5136 pick=0.3908 matches=216340 days=13
+  }
+}
+``
 [[/item/sprint-boots]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/sprint_boots.webp]] Sprint Boots patch history))
 ## [[/item/sprint-boots]]((Sprint Boots))
 - Sprint reduced from 2.2 to 2.0​- Long Range: Sprint reduced from 1 to 0.75​- Swift Striker: Sprint reduced from 1 to 0.75​- Mystic Slow: Sprint reduced from 1 to 0.75​- Heroic Aura: Sprint reduced from 2 to 1.5​- Hunter's Aura: Sprint reduced from 1 to 0.75​- Sharpshooter: Sprint reduced from 1.5 to 1​- Rescue Beam: Sprint reduced from 1 to 0.75​- Trophy Collector: Sprint reduced from 2.2 to 2.0​- Disarming Hex: Sprint reduced from 1 to 0.75​- Shadow Weave: Sprint reduced from 2 to 1.5​- Lightning Scroll: Sprint reduced from 1 to 0.75​- Vortex Web: Sprint reduced from 1 to 0.75​- Enduring Speed: Slow resist reduced from 30% to 25%
 =
 
 =item:tankbuster:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4891 pick=0.2682 matches=765984 days=14
+    after win=0.4844 pick=0.2697 matches=795367 days=13
+  }
+  high {
+    before win=0.4952 pick=0.2398 matches=140589 days=14
+    after win=0.4907 pick=0.2428 matches=134390 days=13
+  }
+}
+``
 [[/item/tankbuster]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/tankbuster.webp]] Tankbuster patch history))
 ## [[/item/tankbuster]]((Tankbuster))
 - Changed from doing % of Max Health to a % of Current Health

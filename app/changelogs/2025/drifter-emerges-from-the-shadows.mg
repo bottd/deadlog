@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "Drifter Emerges from the Shadows"
 steam_gid "1809235871564856"
 published "2025-08-27T21:00:11.000Z"

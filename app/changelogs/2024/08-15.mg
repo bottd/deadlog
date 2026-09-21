@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "08-15-2024 Update"
 thread_id "16378"
 published "2024-08-15T14:18:32-0700"
@@ -171,6 +171,18 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 ``
 
 =hero:abrams:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=376 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/abrams]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams patch history))
 ## [[/hero/abrams]]((Abrams))
 ==ability:seismic-impact:
@@ -191,6 +203,18 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =hero:bebop:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=429 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/bebop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop patch history))
 ## [[/hero/bebop]]((Bebop))
 - Gun range reduced from 50m to 30m + 2.5m/boon (max of 58m)
@@ -234,6 +258,18 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =hero:dynamo:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=329 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 ==ability:rejuvenating-aurora:
@@ -260,6 +296,18 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =hero:grey-talon:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=433 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/grey-talon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon patch history))
 ## [[/hero/grey-talon]]((Grey Talon))
 ==ability:charged-shot:
@@ -275,6 +323,18 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =hero:haze:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=582 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 ==ability:sleep-dagger:
@@ -296,6 +356,18 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =hero:ivy:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=300 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
 ## [[/hero/ivy]]((Ivy))
 ==ability:stone-form:
@@ -317,6 +389,18 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =hero:kelvin:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=351 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 ==ability:arctic-beam:
@@ -335,6 +419,18 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =hero:lash:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=212 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/lash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp]] Lash patch history))
 ## [[/hero/lash]]((Lash))
 - Health per boon increased from 37 to 42
@@ -348,6 +444,18 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =hero:mcginnis:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=421 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 - Speed while shooting increased from 55% to 70%
@@ -369,6 +477,18 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =hero:mo-krill:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=220 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/mo-krill]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]] Mo & Krill patch history))
 ## [[/hero/mo-krill]]((Mo & Krill))
 ==ability:scorn:
@@ -379,6 +499,18 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =hero:paradox:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=416 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/paradox]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox patch history))
 ## [[/hero/paradox]]((Paradox))
 - Base ammo reduced from 45 to 40
@@ -405,6 +537,18 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =hero:pocket:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=281 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/pocket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket patch history))
 ## [[/hero/pocket]]((Pocket))
 ==ability:barrage:
@@ -429,6 +573,18 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =hero:seven:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=583 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
 ## [[/hero/seven]]((Seven))
 ==ability:static-charge:
@@ -449,6 +605,18 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =hero:vindicta:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=578 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
 ==ability:stake:
@@ -460,6 +628,18 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =hero:viscous:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=309 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/viscous]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous patch history))
 ## [[/hero/viscous]]((Viscous))
 ==ability:splatter:
@@ -504,6 +684,18 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =hero:warden:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=302 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/warden]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden patch history))
 ## [[/hero/warden]]((Warden))
 ==ability:binding-word:
@@ -527,6 +719,18 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =hero:wraith:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=518 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/wraith]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp]] Wraith patch history))
 ## [[/hero/wraith]]((Wraith))
 ==ability:card-trick:
@@ -552,6 +756,18 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =hero:yamato:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=319 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 - Base melee damage increased by 10%
@@ -569,6 +785,18 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 ``
 
 =item:active-reload:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5074 pick=0.1567 matches=1224 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/active-reload]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/active_reload.webp]] Active Reload patch history))
 ## [[/item/active-reload]]((Active Reload))
 - Lifesteal reduced from 40% to 30%
@@ -588,18 +816,54 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =item:berserker:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=914 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/berserker]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/berserker.webp]] Berserker patch history))
 ## [[/item/berserker]]((Berserker))
 - Fixed gaining stacks much faster than intended when taking damage from troopers
 =
 
 =item:bullet-lifesteal:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5169 pick=0.2613 matches=2041 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/bullet-lifesteal]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/bullet_lifesteal.webp]] Bullet Lifesteal patch history))
 ## [[/item/bullet-lifesteal]]((Bullet Lifesteal))
 - Lifesteal increased from +26% to 28%
 =
 
 =item:cold-front:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=346 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/cold-front]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/cold_front.webp]] Cold Front patch history))
 ## [[/item/cold-front]]((Cold Front))
 - Damage reduced from 100 to 75
@@ -614,6 +878,18 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =item:decay:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=21 days=1
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/decay]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/decay.webp]] Decay patch history))
 ## [[/item/decay]]((Decay))
 - Healing Reduction reduced from -70% to -50%
@@ -629,24 +905,72 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =item:diviner-s-kevlar:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=250 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/diviners-kevlar]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/diviners_kevlar.webp]] Diviner's Kevlar patch history))
 ## [[/item/diviners-kevlar]]((Diviner's Kevlar))
 - Cooldown increased from 30s to 60s
 =
 
 =item:escalating-exposure:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=226 days=7
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/escalating-exposure]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/escalating_exposure.webp]] Escalating Exposure patch history))
 ## [[/item/escalating-exposure]]((Escalating Exposure))
 - Max Interval improved from 1s to 0.7s
 =
 
 =item:escalating-resilience:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=55 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/escalating-resilience]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/escalating_resilience.webp]] Escalating Resilience patch history))
 ## [[/item/escalating-resilience]]((Escalating Resilience))
 - Max Bullet Resist increased from 30% to 36%
 =
 
 =item:ethereal-shift:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=110 days=4
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/ethereal-shift]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/ethereal_shift.webp]] Ethereal Shift patch history))
 ## [[/item/ethereal-shift]]((Ethereal Shift))
 - No longer provides +10% Fire Rate
@@ -654,18 +978,54 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =item:extra-regen:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4802 pick=0.2551 matches=1993 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/extra-regen]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_regen.webp]] Extra Regen patch history))
 ## [[/item/extra-regen]]((Extra Regen))
 - Regen increased from 2.7 to 2.8
 =
 
 =item:fortitude:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=834 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/fortitude]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/fortitude.webp]] Fortitude patch history))
 ## [[/item/fortitude]]((Fortitude))
 - Out of combat regen timer reduced from 13s to 12s
 =
 
 =item:glass-cannon:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=469 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/glass-cannon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/glass_cannon.webp]] Glass Cannon patch history))
 ## [[/item/glass-cannon]]((Glass Cannon))
 - Now gives +1 Movement Speed
@@ -676,6 +1036,18 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =item:headshot-booster:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4786 pick=0.2597 matches=2029 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/headshot-booster]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/headshot_booster.webp]] Headshot Booster patch history))
 ## [[/item/headshot-booster]]((Headshot Booster))
 - No longer has +40 Bonus Health
@@ -683,6 +1055,18 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =item:healing-booster:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=951 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/healing-booster]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healing_booster.webp]] Healing Booster patch history))
 ## [[/item/healing-booster]]((Healing Booster))
 - Spirit Resist reduced from +7% to +6%
@@ -690,6 +1074,18 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =item:healing-rite:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.519 pick=0.1519 matches=1187 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/healing-rite]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healing_rite.webp]] Healing Rite patch history))
 ## [[/item/healing-rite]]((Healing Rite))
 - Cooldown reduced from 75s to 65s
@@ -697,12 +1093,36 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =item:heroic-aura:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=208 days=7
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/heroic-aura]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/heroic_aura.webp]] Heroic Aura patch history))
 ## [[/item/heroic-aura]]((Heroic Aura))
 - Lifesteal increased from 18% to 20%
 =
 
 =item:infuser:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=563 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/infuser]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/infuser.webp]] Infuser patch history))
 ## [[/item/infuser]]((Infuser))
 - No longer gives +7% Spirit Resist
@@ -710,24 +1130,72 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =item:inhibitor:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=125 days=5
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/inhibitor]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/inhibitor.webp]] Inhibitor patch history))
 ## [[/item/inhibitor]]((Inhibitor))
 - Weapon Damage increased from 20% to 25%
 =
 
 =item:intensifying-magazine:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=685 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/intensifying-magazine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/intensifying_magazine.webp]] Intensifying Magazine patch history))
 ## [[/item/intensifying-magazine]]((Intensifying Magazine))
 - Time for Max Damage reduced from 3.5s to 3s (this is a buff)
 =
 
 =item:kinetic-dash:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=440 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/kinetic-dash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/kinetic_dash.webp]] Kinetic Dash patch history))
 ## [[/item/kinetic-dash]]((Kinetic Dash))
 - HP regen increased from 1 to 1.5
 =
 
 =item:lifestrike:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=169 days=6
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/lifestrike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/lifestrike.webp]] Lifestrike patch history))
 ## [[/item/lifestrike]]((Lifestrike))
 - Heal effectiveness vs non-heroes increased from 25% to 35%
@@ -735,12 +1203,36 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =item:long-range:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4514 pick=0.137 matches=1070 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/long-range]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/long_range.webp]] Long Range patch history))
 ## [[/item/long-range]]((Long Range))
 - Min distance reduced from 18m to 15m
 =
 
 =item:majestic-leap:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=322 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/majestic-leap]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/majestic_leap.webp]] Majestic Leap patch history))
 ## [[/item/majestic-leap]]((Majestic Leap))
 - Health increased from +100 to +125
@@ -748,6 +1240,18 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =item:melee-lifesteal:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=507 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/melee-lifesteal]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/melee_lifesteal.webp]] Melee Lifesteal patch history))
 ## [[/item/melee-lifesteal]]((Melee Lifesteal))
 - Heal effectiveness vs non-heroes increased from 25% to 35%
@@ -761,6 +1265,18 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =item:monster-rounds:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.507 pick=0.1921 matches=1501 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/monster-rounds]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/monster_rounds.webp]] Monster Rounds patch history))
 ## [[/item/monster-rounds]]((Monster Rounds))
 - Health reduced from +65 to +50
@@ -768,12 +1284,36 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =item:mystic-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4882 pick=0.2111 matches=1649 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/mystic-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/mystic_shot.webp]] Mystic Shot patch history))
 ## [[/item/mystic-shot]]((Mystic Shot))
 - Cooldown increased from 5s to 6s
 =
 
 =item:mystic-slow:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=517 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/mystic-slow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mystic_slow.webp]] Mystic Slow patch history))
 ## [[/item/mystic-slow]]((Mystic Slow))
 - Fire Rate reduction increased from -30% to -40%
@@ -786,6 +1326,18 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =item:point-blank:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=887 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/point-blank]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/point_blank.webp]] Point Blank patch history))
 ## [[/item/point-blank]]((Point Blank))
 - No longer grants +300 Bullet Shield
@@ -793,12 +1345,36 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =item:quicksilver-reload:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5142 pick=0.1531 matches=1196 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/quicksilver-reload]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/quicksilver_reload.webp]] Quicksilver Reload patch history))
 ## [[/item/quicksilver-reload]]((Quicksilver Reload))
 - Infused ability bonus damage increased from +30 to +50
 =
 
 =item:refresher:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=43 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/refresher]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/refresher.webp]] Refresher patch history))
 ## [[/item/refresher]]((Refresher))
 - Spirit Resist increased from 14% to 16%
@@ -818,12 +1394,36 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =item:restorative-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4817 pick=0.1467 matches=1146 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/restorative-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/restorative_shot.webp]] Restorative Shot patch history))
 ## [[/item/restorative-shot]]((Restorative Shot))
 - Weapon Damage increased from 6% to 8%
 =
 
 =item:ricochet:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=274 days=7
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/ricochet]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/ricochet.webp]] Ricochet patch history))
 ## [[/item/ricochet]]((Ricochet))
 - Fire Rate increased from +8% to +12%
@@ -831,6 +1431,18 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =item:sharpshooter:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=671 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/sharpshooter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/sharp_shooter.webp]] Sharpshooter patch history))
 ## [[/item/sharpshooter]]((Sharpshooter))
 - Min distance reduced from 18m to 15m
@@ -843,18 +1455,54 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =item:siphon-bullets:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=240 days=7
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/siphon-bullets]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/siphon_bullets.webp]] Siphon Bullets patch history))
 ## [[/item/siphon-bullets]]((Siphon Bullets))
 - You permanently steal 1 stack (45 HP) from the enemy if they die under the debuff. If an enemy you stole a stack from kills you, they regain 1 stack back.
 =
 
 =item:slowing-bullets:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5123 pick=0.1659 matches=1296 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/slowing-bullets]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/slowing_bullets.webp]] Slowing Bullets patch history))
 ## [[/item/slowing-bullets]]((Slowing Bullets))
 - Now grants +5 Spirit
 =
 
 =item:slowing-hex:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=497 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/slowing-hex]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/slowing_hex.webp]] Slowing Hex patch history))
 ## [[/item/slowing-hex]]((Slowing Hex))
 - Debuff no longer cancels active mobility spells, it only prevents them from being casted
@@ -872,6 +1520,18 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =item:spirit-strike:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=389 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/spirit-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/spirit_strike.webp]] Spirit Strike patch history))
 ## [[/item/spirit-strike]]((Spirit Strike))
 - Spirit damage increased from 40 to 50
@@ -879,18 +1539,54 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =item:superior-cooldown:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5198 pick=0.1682 matches=1314 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/superior-cooldown]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/superior_cooldown.webp]] Superior Cooldown patch history))
 ## [[/item/superior-cooldown]]((Superior Cooldown))
 - Non-Imbued ability cd reduction increased from 22% to 24%
 =
 
 =item:superior-duration:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=457 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/superior-duration]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/superior_duration.webp]] Superior Duration patch history))
 ## [[/item/superior-duration]]((Superior Duration))
 - Now provides +15% Weapon Damage
 =
 
 =item:surge-of-power:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=370 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/surge-of-power]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/surge_of_power.webp]] Surge of Power patch history))
 ## [[/item/surge-of-power]]((Surge of Power))
 - Movespeed duration increased from 5s to 6s
@@ -899,6 +1595,18 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =item:titanic-magazine:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=793 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/titanic-magazine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/titanic_magazine.webp]] Titanic Magazine patch history))
 ## [[/item/titanic-magazine]]((Titanic Magazine))
 - Weapon Damage increased from 16% to 18%
@@ -906,6 +1614,18 @@ content_text "Added a new hero, Shiv Games can now be watched by an unlimited nu
 =
 
 =item:warp-stone:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=394 days=8
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/warp-stone]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/warp_stone.webp]] Warp Stone patch history))
 ## [[/item/warp-stone]]((Warp Stone))
 - Active Bullet Resist reduced from +60% to +40%

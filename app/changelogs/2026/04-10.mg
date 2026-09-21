@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "04-10-2026 Update"
 thread_id "125825"
 published "2026-04-10T21:03:53-0700"
@@ -24,6 +24,18 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 ``
 
 =hero:bebop:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4455 pick=0.3532 matches=340675 days=14
+    after win=0.4569 pick=0.4056 matches=321953 days=14
+  }
+  high {
+    before win=0.4426 pick=0.4459 matches=66484 days=14
+    after win=0.473 pick=0.5731 matches=73513 days=14
+  }
+}
+``
 [[/hero/bebop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop patch history))
 ## [[/hero/bebop]]((Bebop))
 - Weapon windup time reduced from 0.5s to 0.3s and fast windup time reduced from 0.1s to 0.05s
@@ -41,6 +53,18 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 =
 
 =hero:billy:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4874 pick=0.3039 matches=293158 days=14
+    after win=0.4774 pick=0.2969 matches=235681 days=14
+  }
+  high {
+    before win=0.4984 pick=0.2247 matches=33512 days=14
+    after win=0.4894 pick=0.218 matches=27970 days=14
+  }
+}
+``
 [[/hero/billy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/punkgoat_sm.webp]] Billy patch history))
 ## [[/hero/billy]]((Billy))
 ==ability:bashdown:
@@ -56,6 +80,18 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 =
 
 =hero:celeste:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4627 pick=0.3298 matches=318126 days=14
+    after win=0.4642 pick=0.2689 matches=213475 days=14
+  }
+  high {
+    before win=0.475 pick=0.2871 matches=42816 days=14
+    after win=0.4636 pick=0.1954 matches=25068 days=14
+  }
+}
+``
 [[/hero/celeste]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/unicorn_sm.webp]] Celeste patch history))
 ## [[/hero/celeste]]((Celeste))
 - Base health reduced from 790 to 700
@@ -94,6 +130,18 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 =
 
 =hero:doorman:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5039 pick=0.38 matches=366511 days=14
+    after win=0.5137 pick=0.3434 matches=272576 days=14
+  }
+  high {
+    before win=0.4988 pick=0.3296 matches=49150 days=14
+    after win=0.5014 pick=0.2928 matches=37553 days=14
+  }
+}
+``
 [[/hero/the-doorman]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/doorman_sm.webp]] Doorman patch history))
 ## [[/hero/the-doorman]]((Doorman))
 ==ability:doorways:
@@ -110,6 +158,18 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 =
 
 =hero:dynamo:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5646 pick=0.4784 matches=461438 days=14
+    after win=0.5515 pick=0.5036 matches=399724 days=14
+  }
+  high {
+    before win=0.5672 pick=0.4877 matches=72724 days=14
+    after win=0.547 pick=0.4959 matches=63613 days=14
+  }
+}
+``
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 ==ability:quantum-entanglement:
@@ -120,6 +180,18 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 =
 
 =hero:grey-talon:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4606 pick=0.1508 matches=145476 days=14
+    after win=0.4765 pick=0.1947 matches=154520 days=14
+  }
+  high {
+    before win=0.4452 pick=0.1616 matches=24091 days=14
+    after win=0.4588 pick=0.2447 matches=31387 days=14
+  }
+}
+``
 [[/hero/grey-talon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon patch history))
 ## [[/hero/grey-talon]]((Grey Talon))
 - Spirit power per boon increased from 1.1 to 1.6
@@ -138,6 +210,18 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 =
 
 =hero:haze:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.57 pick=0.5274 matches=508705 days=14
+    after win=0.5161 pick=0.4154 matches=329772 days=14
+  }
+  high {
+    before win=0.5525 pick=0.5531 matches=82479 days=14
+    after win=0.4891 pick=0.4213 matches=54040 days=14
+  }
+}
+``
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 ==ability:sleep-dagger:
@@ -185,12 +269,36 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 =
 
 =hero:holliday:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4426 pick=0.158 matches=152391 days=14
+    after win=0.4615 pick=0.2203 matches=174861 days=14
+  }
+  high {
+    before win=0.4393 pick=0.1532 matches=22843 days=14
+    after win=0.4646 pick=0.2291 matches=29392 days=14
+  }
+}
+``
 [[/hero/holliday]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]] Holliday patch history))
 ## [[/hero/holliday]]((Holliday))
 - Various behavior and feel improvements to her gun
 =
 
 =hero:kelvin:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5449 pick=0.2556 matches=246586 days=14
+    after win=0.5338 pick=0.2516 matches=199739 days=14
+  }
+  high {
+    before win=0.5406 pick=0.3065 matches=45711 days=14
+    after win=0.5263 pick=0.274 matches=35142 days=14
+  }
+}
+``
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 ==ability:frost-grenade:
@@ -202,6 +310,18 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 =
 
 =hero:lady-geist:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5138 pick=0.3141 matches=302971 days=14
+    after win=0.5151 pick=0.3126 matches=248145 days=14
+  }
+  high {
+    before win=0.5038 pick=0.319 matches=47571 days=14
+    after win=0.5031 pick=0.3033 matches=38904 days=14
+  }
+}
+``
 [[/hero/lady-geist]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]] Lady Geist patch history))
 ## [[/hero/lady-geist]]((Lady Geist))
 - Bullet damage rescaled from 21.94 + 0.946/boon to 20.7+1.0/boon
@@ -213,6 +333,18 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 =
 
 =hero:mcginnis:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5025 pick=0.2055 matches=198252 days=14
+    after win=0.5147 pick=0.2015 matches=159932 days=14
+  }
+  high {
+    before win=0.5118 pick=0.1624 matches=24219 days=14
+    after win=0.5257 pick=0.1554 matches=19934 days=14
+  }
+}
+``
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 - Bullet damage increased from 6.2 + 0.16/boon to 6.4 + 0.17/boon
@@ -225,6 +357,18 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 =
 
 =hero:mirage:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5068 pick=0.3051 matches=294275 days=14
+    after win=0.4875 pick=0.2364 matches=187677 days=14
+  }
+  high {
+    before win=0.5107 pick=0.3364 matches=50155 days=14
+    after win=0.497 pick=0.231 matches=29632 days=14
+  }
+}
+``
 [[/hero/mirage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage patch history))
 ## [[/hero/mirage]]((Mirage))
 ==ability:fire-scarabs:
@@ -241,6 +385,18 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 =
 
 =hero:paradox:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4671 pick=0.2299 matches=221761 days=14
+    after win=0.4746 pick=0.2502 matches=198585 days=14
+  }
+  high {
+    before win=0.462 pick=0.273 matches=40703 days=14
+    after win=0.4828 pick=0.2947 matches=37798 days=14
+  }
+}
+``
 [[/hero/paradox]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox patch history))
 ## [[/hero/paradox]]((Paradox))
 - Bullet damage increased from 6.42 + 0.242/boon to 6.8 + 0.26/boon
@@ -258,6 +414,18 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 =
 
 =hero:rem:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4566 pick=0.5676 matches=547480 days=14
+    after win=0.4686 pick=0.5399 matches=428575 days=14
+  }
+  high {
+    before win=0.4443 pick=0.3882 matches=57880 days=14
+    after win=0.4574 pick=0.3483 matches=44682 days=14
+  }
+}
+``
 [[/hero/rem]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/familiar_sm.webp]] Rem patch history))
 ## [[/hero/rem]]((Rem))
 - Fixed souls bug with breakables
@@ -275,12 +443,36 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 =
 
 =hero:shiv:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4629 pick=0.2786 matches=268700 days=14
+    after win=0.4702 pick=0.3028 matches=240376 days=14
+  }
+  high {
+    before win=0.4624 pick=0.3771 matches=56231 days=14
+    after win=0.475 pick=0.4259 matches=54635 days=14
+  }
+}
+``
 [[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
 ## [[/hero/shiv]]((Shiv))
 - Fixed Rage not building up against Barriers
 =
 
 =hero:venator:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4672 pick=0.43 matches=414733 days=14
+    after win=0.4708 pick=0.4211 matches=334264 days=14
+  }
+  high {
+    before win=0.4713 pick=0.4696 matches=70017 days=14
+    after win=0.4766 pick=0.461 matches=59140 days=14
+  }
+}
+``
 [[/hero/venator]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/priest_sm.webp]] Venator patch history))
 ## [[/hero/venator]]((Venator))
 ==ability:hex-lined-snap-trap:
@@ -294,6 +486,18 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 =
 
 =hero:victor:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4912 pick=0.1728 matches=166684 days=14
+    after win=0.5294 pick=0.2596 matches=206064 days=14
+  }
+  high {
+    before win=0.4662 pick=0.1027 matches=15312 days=14
+    after win=0.5019 pick=0.1976 matches=25352 days=14
+  }
+}
+``
 [[/hero/victor]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/frank_sm.webp]] Victor patch history))
 ## [[/hero/victor]]((Victor))
 - Bullet damage increased from 12 to 13
@@ -319,6 +523,18 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 =
 
 =hero:vyper:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4841 pick=0.1671 matches=161233 days=14
+    after win=0.511 pick=0.232 matches=184179 days=14
+  }
+  high {
+    before win=0.5175 pick=0.1488 matches=22189 days=14
+    after win=0.5385 pick=0.2476 matches=31767 days=14
+  }
+}
+``
 [[/hero/vyper]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kali_sm.webp]] Vyper patch history))
 ## [[/hero/vyper]]((Vyper))
 ==ability:screwjab-dagger:
@@ -336,6 +552,18 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 =
 
 =hero:yamato:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4883 pick=0.2534 matches=244392 days=14
+    after win=0.4846 pick=0.2657 matches=210884 days=14
+  }
+  high {
+    before win=0.4962 pick=0.2661 matches=39684 days=14
+    after win=0.4909 pick=0.283 matches=36303 days=14
+  }
+}
+``
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 ==ability:crimson-slash:
@@ -352,36 +580,108 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 ``
 
 =item:armor-piercing-rounds:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5703 pick=0.0141 matches=163293 days=14
+    after win=0.5787 pick=0.0141 matches=133921 days=14
+  }
+  high {
+    before win=0.5825 pick=0.0084 matches=15108 days=14
+    after win=0.5988 pick=0.0092 matches=14119 days=14
+  }
+}
+``
 [[/item/armor-piercing-rounds]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/armor_piercing_rounds.webp]] Armor Piercing Rounds patch history))
 ## [[/item/armor-piercing-rounds]]((Armor Piercing Rounds))
 - Chance increased from 50% to 55%
 =
 
 =item:cultist-sacrifice:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4928 pick=0.0713 matches=825102 days=14
+    after win=0.4998 pick=0.0834 matches=794205 days=14
+  }
+  high {
+    before win=0.4932 pick=0.0896 matches=160296 days=14
+    after win=0.4995 pick=0.1093 matches=168254 days=14
+  }
+}
+``
 [[/item/cultist-sacrifice]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/cultist_sacrifice.webp]] Cultist Sacrifice patch history))
 ## [[/item/cultist-sacrifice]]((Cultist Sacrifice))
 - Bonus Souls increased from 150% to 170%
 =
 
 =item:decay:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4674 pick=0.0253 matches=292425 days=14
+    after win=0.4641 pick=0.0183 matches=174777 days=14
+  }
+  high {
+    before win=0.4667 pick=0.0337 matches=60387 days=14
+    after win=0.4669 pick=0.0212 matches=32599 days=14
+  }
+}
+``
 [[/item/decay]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/decay.webp]] Decay patch history))
 ## [[/item/decay]]((Decay))
 - Spirit scaling reduced from 0.0055 to 0.004
 =
 
 =item:echo-shard:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5226 pick=0.0601 matches=695322 days=14
+    after win=0.5284 pick=0.0476 matches=453551 days=14
+  }
+  high {
+    before win=0.5137 pick=0.0699 matches=125037 days=14
+    after win=0.5233 pick=0.0498 matches=76611 days=14
+  }
+}
+``
 [[/item/echo-shard]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/echo_shard.webp]] Echo Shard patch history))
 ## [[/item/echo-shard]]((Echo Shard))
 - Cooldown increased from 30s to 35s
 =
 
 =item:express-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4815 pick=0.0281 matches=325045 days=14
+    after win=0.4876 pick=0.0295 matches=280554 days=14
+  }
+  high {
+    before win=0.4949 pick=0.0226 matches=40494 days=14
+    after win=0.4989 pick=0.0234 matches=35985 days=14
+  }
+}
+``
 [[/item/express-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/express_shot.webp]] Express Shot patch history))
 ## [[/item/express-shot]]((Express Shot))
 - Secondary Fire Weapon Damage increased from 35% + 1%/boon to 40% + 1.3%/boon
 =
 
 =item:golden-goose-egg:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5034 pick=0.0743 matches=860068 days=14
+    after win=0.5059 pick=0.072 matches=685907 days=14
+  }
+  high {
+    before win=0.5004 pick=0.0751 matches=134334 days=14
+    after win=0.4957 pick=0.06 matches=92385 days=14
+  }
+}
+``
 [[/item/golden-goose-egg]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/goose_egg.webp]] Golden Goose Egg patch history))
 ## [[/item/golden-goose-egg]]((Golden Goose Egg))
 - Souls required for permanent buff reduced from 150 to 100
@@ -389,24 +689,72 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 =
 
 =item:lightning-scroll:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5426 pick=0.0431 matches=498681 days=14
+    after win=0.5584 pick=0.0328 matches=311988 days=14
+  }
+  high {
+    before win=0.5446 pick=0.0325 matches=58149 days=14
+    after win=0.5635 pick=0.0227 matches=34877 days=14
+  }
+}
+``
 [[/item/lightning-scroll]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/lightning_scroll.webp]] Lightning Scroll patch history))
 ## [[/item/lightning-scroll]]((Lightning Scroll))
 - Fixed the stun delay being affected by debuff reducer making the stun go off faster
 =
 
 =item:plated-armor:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4878 pick=0.0303 matches=351307 days=14
+    after win=0.5147 pick=0.0293 matches=279240 days=14
+  }
+  high {
+    before win=0.5074 pick=0.0355 matches=63593 days=14
+    after win=0.5368 pick=0.0344 matches=52900 days=14
+  }
+}
+``
 [[/item/plated-armor]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/plated_armor.webp]] Plated Armor patch history))
 ## [[/item/plated-armor]]((Plated Armor))
 - Bonus health increased from +100 to +130
 =
 
 =item:recharging-rush:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5087 pick=0.1199 matches=1388053 days=14
+    after win=0.5081 pick=0.1399 matches=1332863 days=14
+  }
+  high {
+    before win=0.5102 pick=0.1316 matches=235529 days=14
+    after win=0.5094 pick=0.166 matches=255593 days=14
+  }
+}
+``
 [[/item/recharging-rush]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/recharging_rounds.webp]] Recharging Rush patch history))
 ## [[/item/recharging-rush]]((Recharging Rush))
 - Cooldown increased from 20s to 24s
 =
 
 =item:return-fire:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.391 pick=0.0047 matches=54106 days=14
+    after win=0.4106 pick=0.0069 matches=65709 days=14
+  }
+  high {
+    before win=0.4056 pick=0.0052 matches=9308 days=14
+    after win=0.4312 pick=0.0118 matches=18124 days=14
+  }
+}
+``
 [[/item/return-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/return_fire.webp]] Return Fire patch history))
 ## [[/item/return-fire]]((Return Fire))
 - Bullet damage returned increased from 50% to 60%
@@ -414,12 +762,36 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 =
 
 =item:sharpshooter:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4756 pick=0.0242 matches=279908 days=14
+    after win=0.49 pick=0.0288 matches=274765 days=14
+  }
+  high {
+    before win=0.485 pick=0.0197 matches=35338 days=14
+    after win=0.4986 pick=0.025 matches=38451 days=14
+  }
+}
+``
 [[/item/sharpshooter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/sharp_shooter.webp]] Sharpshooter patch history))
 ## [[/item/sharpshooter]]((Sharpshooter))
 - Movement Speed penalty reduced from -1m to -0.7m
 =
 
 =item:silence-wave:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.483 pick=0.0533 matches=616568 days=14
+    after win=0.4701 pick=0.0412 matches=392176 days=14
+  }
+  high {
+    before win=0.4906 pick=0.0878 matches=157119 days=14
+    after win=0.4737 pick=0.0556 matches=85647 days=14
+  }
+}
+``
 [[/item/silence-wave]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/silence_glyph.webp]] Silence Wave patch history))
 ## [[/item/silence-wave]]((Silence Wave))
 - Damage reduced from 100 to 75
@@ -428,6 +800,18 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 =
 
 =item:spirit-shielding:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4668 pick=0.0324 matches=374496 days=14
+    after win=0.4601 pick=0.0268 matches=255385 days=14
+  }
+  high {
+    before win=0.4755 pick=0.024 matches=42931 days=14
+    after win=0.4696 pick=0.0195 matches=29957 days=14
+  }
+}
+``
 [[/item/spirit-shielding]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/spirit_shielding.webp]] Spirit Shielding patch history))
 ## [[/item/spirit-shielding]]((Spirit Shielding))
 - Move Speed increased from 1.5m to 1.75m
@@ -435,6 +819,18 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 =
 
 =item:titanic-magazine:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5021 pick=0.1046 matches=1211295 days=14
+    after win=0.5037 pick=0.1168 matches=1112847 days=14
+  }
+  high {
+    before win=0.5096 pick=0.0702 matches=125548 days=14
+    after win=0.5115 pick=0.0817 matches=125788 days=14
+  }
+}
+``
 [[/item/titanic-magazine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/titanic_magazine.webp]] Titanic Magazine patch history))
 ## [[/item/titanic-magazine]]((Titanic Magazine))
 - Ammo increased from 90% to 100%
@@ -442,6 +838,18 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 =
 
 =item:toxic-bullets:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5176 pick=0.2135 matches=2471358 days=14
+    after win=0.5105 pick=0.1835 matches=1747524 days=14
+  }
+  high {
+    before win=0.5155 pick=0.2243 matches=401334 days=14
+    after win=0.5083 pick=0.1712 matches=263480 days=14
+  }
+}
+``
 [[/item/toxic-bullets]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/toxic_bullets.webp]] Toxic Bullets patch history))
 ## [[/item/toxic-bullets]]((Toxic Bullets))
 - Buildup is now 10% slower
@@ -450,6 +858,18 @@ content_text "Parrying is now allowed while ground dashing in order to bring it 
 =
 
 =item:weapon-shielding:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4052 pick=0.0052 matches=59857 days=14
+    after win=0.4078 pick=0.0048 matches=45523 days=14
+  }
+  high {
+    before win=0.4304 pick=0.0021 matches=3708 days=14
+    after win=0.417 pick=0.002 matches=3050 days=14
+  }
+}
+``
 [[/item/weapon-shielding]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/weapon_shielding.webp]] Weapon Shielding patch history))
 ## [[/item/weapon-shielding]]((Weapon Shielding))
 - Move Speed increased from 1.5m to 1.75m

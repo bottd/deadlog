@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "Minor Update - 08-22-2026"
 alias "2026/minor-08-22"
 thread_id "162571"
@@ -21,6 +21,18 @@ content_text "Celeste Dazzling Trick cooldown increased from 32s to 34s Dazzling
 ``
 
 =hero:celeste:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5221 pick=0.4431 matches=189875 days=9
+    after win=0.52 pick=0.3911 matches=258740 days=14
+  }
+  high {
+    before win=0.5534 pick=0.3842 matches=3677 days=9
+    after win=0.5504 pick=0.2379 matches=5380 days=14
+  }
+}
+``
 [[/hero/celeste]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/unicorn_sm.webp]] Celeste patch history))
 ## [[/hero/celeste]]((Celeste))
 ==ability:dazzling-trick:
@@ -54,12 +66,36 @@ content_text "Celeste Dazzling Trick cooldown increased from 32s to 34s Dazzling
 ``
 
 =item:radiant-regeneration:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5104 pick=0.1203 matches=618473 days=9
+    after win=0.5059 pick=0.1203 matches=954924 days=14
+  }
+  high {
+    before win=0.5111 pick=0.0982 matches=11281 days=9
+    after win=0.5053 pick=0.0905 matches=24570 days=14
+  }
+}
+``
 [[/item/radiant-regeneration]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/radiant_regeneration.webp]] Radiant Regeneration patch history))
 ## [[/item/radiant-regeneration]]((Radiant Regeneration))
 - Heal on cast reduced from 70 to 65
 =
 
 =item:restorative-locket:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5037 pick=0.0958 matches=492710 days=9
+    after win=0.5026 pick=0.096 matches=761865 days=14
+  }
+  high {
+    before win=0.5159 pick=0.1825 matches=20956 days=9
+    after win=0.5094 pick=0.1614 matches=43792 days=14
+  }
+}
+``
 [[/item/restorative-locket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/restorative_locket.webp]] Restorative Locket patch history))
 ## [[/item/restorative-locket]]((Restorative Locket))
 - Spirit Resistance reduced from 10% to 8%

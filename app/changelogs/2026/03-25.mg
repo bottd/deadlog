@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "03-25-2026 Update"
 thread_id "121766"
 published "2026-03-25T17:36:42-0700"
@@ -19,12 +19,36 @@ content_text "Street Brawl: You now have all AP unlocked by round 5 Bebop Base h
 ``
 
 =hero:bebop:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4482 pick=0.3206 matches=87259 days=4
+    after win=0.4463 pick=0.3529 matches=343693 days=14
+  }
+  high {
+    before win=0.4399 pick=0.3725 matches=15675 days=4
+    after win=0.444 pick=0.445 matches=66960 days=14
+  }
+}
+``
 [[/hero/bebop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop patch history))
 ## [[/hero/bebop]]((Bebop))
 - Base health regen increased from 1.5 to 2.5
 =
 
 =hero:calico:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4774 pick=0.1951 matches=53100 days=4
+    after win=0.4834 pick=0.1815 matches=176817 days=14
+  }
+  high {
+    before win=0.4757 pick=0.2544 matches=10707 days=4
+    after win=0.4847 pick=0.2281 matches=34326 days=14
+  }
+}
+``
 [[/hero/calico]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp]] Calico patch history))
 ## [[/hero/calico]]((Calico))
 ==ability:leaping-slash:
@@ -35,6 +59,18 @@ content_text "Street Brawl: You now have all AP unlocked by round 5 Bebop Base h
 =
 
 =hero:celeste:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4739 pick=0.3394 matches=92355 days=4
+    after win=0.4625 pick=0.3306 matches=321960 days=14
+  }
+  high {
+    before win=0.4881 pick=0.3039 matches=12788 days=4
+    after win=0.4746 pick=0.2878 matches=43314 days=14
+  }
+}
+``
 [[/hero/celeste]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/unicorn_sm.webp]] Celeste patch history))
 ## [[/hero/celeste]]((Celeste))
 - Base regen reduced from 2 to 1
@@ -46,6 +82,18 @@ content_text "Street Brawl: You now have all AP unlocked by round 5 Bebop Base h
 =
 
 =hero:doorman:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4761 pick=0.3434 matches=93447 days=4
+    after win=0.503 pick=0.3795 matches=369631 days=14
+  }
+  high {
+    before win=0.4529 pick=0.2773 matches=11669 days=4
+    after win=0.4967 pick=0.3288 matches=49474 days=14
+  }
+}
+``
 [[/hero/the-doorman]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/doorman_sm.webp]] Doorman patch history))
 ## [[/hero/the-doorman]]((Doorman))
 ==ability:call-bell:
@@ -68,6 +116,18 @@ content_text "Street Brawl: You now have all AP unlocked by round 5 Bebop Base h
 =
 
 =hero:graves:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5819 pick=0.631 matches=171719 days=4
+    after win=0.5253 pick=0.5661 matches=551380 days=14
+  }
+  high {
+    before win=0.5921 pick=0.6085 matches=25610 days=4
+    after win=0.5294 pick=0.5 matches=75235 days=14
+  }
+}
+``
 [[/hero/graves]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/necro_sm.webp]] Graves patch history))
 ## [[/hero/graves]]((Graves))
 ==ability:grasping-hands:
@@ -101,6 +161,18 @@ content_text "Street Brawl: You now have all AP unlocked by round 5 Bebop Base h
 =
 
 =hero:holliday:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4403 pick=0.1461 matches=39763 days=4
+    after win=0.443 pick=0.1596 matches=155468 days=14
+  }
+  high {
+    before win=0.44 pick=0.1322 matches=5564 days=4
+    after win=0.4398 pick=0.1559 matches=23457 days=14
+  }
+}
+``
 [[/hero/holliday]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]] Holliday patch history))
 ## [[/hero/holliday]]((Holliday))
 ==ability:bounce-pad:
@@ -116,6 +188,18 @@ content_text "Street Brawl: You now have all AP unlocked by round 5 Bebop Base h
 =
 
 =hero:infernus:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5248 pick=0.392 matches=106675 days=4
+    after win=0.5366 pick=0.4809 matches=468345 days=14
+  }
+  high {
+    before win=0.5017 pick=0.369 matches=15528 days=4
+    after win=0.5135 pick=0.4979 matches=74924 days=14
+  }
+}
+``
 [[/hero/infernus]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus patch history))
 ## [[/hero/infernus]]((Infernus))
 ==ability:afterburn-dps:
@@ -137,6 +221,18 @@ content_text "Street Brawl: You now have all AP unlocked by round 5 Bebop Base h
 =
 
 =hero:kelvin:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5502 pick=0.2579 matches=70178 days=4
+    after win=0.5448 pick=0.255 matches=248357 days=14
+  }
+  high {
+    before win=0.5538 pick=0.3272 matches=13771 days=4
+    after win=0.5414 pick=0.3061 matches=46055 days=14
+  }
+}
+``
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 ==ability:frost-grenade:
@@ -148,6 +244,18 @@ content_text "Street Brawl: You now have all AP unlocked by round 5 Bebop Base h
 =
 
 =hero:lady-geist:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5184 pick=0.3326 matches=90513 days=4
+    after win=0.514 pick=0.3149 matches=306698 days=14
+  }
+  high {
+    before win=0.5082 pick=0.3579 matches=15063 days=4
+    after win=0.5044 pick=0.3207 matches=48262 days=14
+  }
+}
+``
 [[/hero/lady-geist]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]] Lady Geist patch history))
 ## [[/hero/lady-geist]]((Lady Geist))
 - Gun Falloff reduced from 20->52 to 17->48
@@ -160,6 +268,18 @@ content_text "Street Brawl: You now have all AP unlocked by round 5 Bebop Base h
 =
 
 =hero:mcginnis:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4853 pick=0.2073 matches=56410 days=4
+    after win=0.5009 pick=0.2052 matches=199874 days=14
+  }
+  high {
+    before win=0.4881 pick=0.1655 matches=6966 days=4
+    after win=0.5113 pick=0.1623 matches=24423 days=14
+  }
+}
+``
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 ==ability:medicinal-specter:
@@ -175,6 +295,18 @@ content_text "Street Brawl: You now have all AP unlocked by round 5 Bebop Base h
 =
 
 =hero:mirage:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5165 pick=0.3405 matches=92668 days=4
+    after win=0.5068 pick=0.3067 matches=298695 days=14
+  }
+  high {
+    before win=0.527 pick=0.4416 matches=18585 days=4
+    after win=0.5104 pick=0.3374 matches=50772 days=14
+  }
+}
+``
 [[/hero/mirage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage patch history))
 ## [[/hero/mirage]]((Mirage))
 ==ability:fire-scarabs:
@@ -199,6 +331,18 @@ content_text "Street Brawl: You now have all AP unlocked by round 5 Bebop Base h
 =
 
 =hero:rem:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4587 pick=0.5967 matches=162390 days=4
+    after win=0.4562 pick=0.5697 matches=554827 days=14
+  }
+  high {
+    before win=0.4504 pick=0.4183 matches=17604 days=4
+    after win=0.4436 pick=0.3905 matches=58756 days=14
+  }
+}
+``
 [[/hero/rem]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/familiar_sm.webp]] Rem patch history))
 ## [[/hero/rem]]((Rem))
 ==ability:naptime:
@@ -209,6 +353,18 @@ content_text "Street Brawl: You now have all AP unlocked by round 5 Bebop Base h
 =
 
 =hero:silver:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4746 pick=0.3389 matches=92225 days=4
+    after win=0.4804 pick=0.3306 matches=322030 days=14
+  }
+  high {
+    before win=0.492 pick=0.3026 matches=12735 days=4
+    after win=0.493 pick=0.2914 matches=43845 days=14
+  }
+}
+``
 [[/hero/silver]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/werewolf_sm.webp]] Silver patch history))
 ## [[/hero/silver]]((Silver))
 - Bullet damage rescaled from 5.5+0.1206 to 5.4+0.124
@@ -221,6 +377,18 @@ content_text "Street Brawl: You now have all AP unlocked by round 5 Bebop Base h
 =
 
 =hero:venator:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4661 pick=0.4442 matches=120880 days=4
+    after win=0.4669 pick=0.4302 matches=419037 days=14
+  }
+  high {
+    before win=0.4791 pick=0.4722 matches=19872 days=4
+    after win=0.4704 pick=0.4676 matches=70362 days=14
+  }
+}
+``
 [[/hero/venator]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/priest_sm.webp]] Venator patch history))
 ## [[/hero/venator]]((Venator))
 ==ability:consecrating-grenade:
@@ -241,6 +409,18 @@ content_text "Street Brawl: You now have all AP unlocked by round 5 Bebop Base h
 =
 
 =hero:victor:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5247 pick=0.2161 matches=58803 days=4
+    after win=0.4915 pick=0.1761 matches=171560 days=14
+  }
+  high {
+    before win=0.5142 pick=0.1459 matches=6141 days=4
+    after win=0.4667 pick=0.1068 matches=16074 days=14
+  }
+}
+``
 [[/hero/victor]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/frank_sm.webp]] Victor patch history))
 ## [[/hero/victor]]((Victor))
 - Restored health per boon back to 46

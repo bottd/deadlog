@@ -27,7 +27,6 @@ app/           # SvelteKit App
   src/         # routes and components
   changelogs/  # generated patch notes
   static/      # assets and generated deadlog.db
-  stats/       # committed impact.json snapshot
 lib/
   db/          # schema, queries, and types
   changelog/   # change extraction
@@ -62,7 +61,7 @@ pnpm build:scraper --if-changed
 # Generate preview images
 pnpm build:meta
 
-# Refresh open patch impact windows in app/stats/impact.json
+# Refresh open patch impact windows in the changelog .mg files
 pnpm build:stats
 
 # Recompute every window from the full match history

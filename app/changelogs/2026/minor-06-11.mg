@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "Minor Update - 06-11-2026"
 steam_gid "1835236783562074"
 published "2026-06-12T00:59:18.000Z"
@@ -23,6 +23,18 @@ content_text "Urn give up time reduced from 75s to 60s Urn bounty reduced by 10%
 ``
 
 =hero:apollo:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4875 pick=0.2028 matches=69472 days=7
+    after win=0.4847 pick=0.264 matches=164088 days=14
+  }
+  high {
+    before win=0.4839 pick=0.1496 matches=8372 days=7
+    after win=0.4656 pick=0.224 matches=22811 days=14
+  }
+}
+``
 [[/hero/apollo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/fencer_sm.webp]] Apollo patch history))
 ## [[/hero/apollo]]((Apollo))
 ==ability:disengaging-sigil:
@@ -43,6 +55,18 @@ content_text "Urn give up time reduced from 75s to 60s Urn bounty reduced by 10%
 =
 
 =hero:bebop:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4625 pick=0.4005 matches=137208 days=7
+    after win=0.4706 pick=0.4483 matches=278614 days=14
+  }
+  high {
+    before win=0.4712 pick=0.4569 matches=25574 days=7
+    after win=0.4688 pick=0.5042 matches=51344 days=14
+  }
+}
+``
 [[/hero/bebop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop patch history))
 ## [[/hero/bebop]]((Bebop))
 ==ability:exploding-uppercut:
@@ -59,6 +83,18 @@ content_text "Urn give up time reduced from 75s to 60s Urn bounty reduced by 10%
 =
 
 =hero:calico:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5154 pick=0.1861 matches=63772 days=7
+    after win=0.5166 pick=0.3059 matches=190117 days=14
+  }
+  high {
+    before win=0.5248 pick=0.2676 matches=14979 days=7
+    after win=0.5207 pick=0.4826 matches=49147 days=14
+  }
+}
+``
 [[/hero/calico]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp]] Calico patch history))
 ## [[/hero/calico]]((Calico))
 ==ability:gloom-bombs:
@@ -78,6 +114,18 @@ content_text "Urn give up time reduced from 75s to 60s Urn bounty reduced by 10%
 =
 
 =hero:doorman:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5114 pick=0.2486 matches=85151 days=7
+    after win=0.5032 pick=0.2304 matches=143195 days=14
+  }
+  high {
+    before win=0.5141 pick=0.2273 matches=12723 days=7
+    after win=0.4994 pick=0.2015 matches=20518 days=14
+  }
+}
+``
 [[/hero/the-doorman]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/doorman_sm.webp]] Doorman patch history))
 ## [[/hero/the-doorman]]((Doorman))
 ==ability:call-bell:
@@ -89,6 +137,18 @@ content_text "Urn give up time reduced from 75s to 60s Urn bounty reduced by 10%
 =
 
 =hero:graves:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.558 pick=0.4299 matches=147296 days=7
+    after win=0.5336 pick=0.3527 matches=219221 days=14
+  }
+  high {
+    before win=0.5421 pick=0.3241 matches=18143 days=7
+    after win=0.5136 pick=0.1976 matches=20124 days=14
+  }
+}
+``
 [[/hero/graves]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/necro_sm.webp]] Graves patch history))
 ## [[/hero/graves]]((Graves))
 ==ability:jar-of-dead:
@@ -106,6 +166,18 @@ content_text "Urn give up time reduced from 75s to 60s Urn bounty reduced by 10%
 =
 
 =hero:grey-talon:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5105 pick=0.3249 matches=111303 days=7
+    after win=0.4885 pick=0.2541 matches=157959 days=14
+  }
+  high {
+    before win=0.5065 pick=0.4212 matches=23577 days=7
+    after win=0.4789 pick=0.3034 matches=30899 days=14
+  }
+}
+``
 [[/hero/grey-talon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon patch history))
 ## [[/hero/grey-talon]]((Grey Talon))
 - Gun cycle time increased from 0.5775 to 0.6 (~4% DPS nerf)
@@ -119,6 +191,18 @@ content_text "Urn give up time reduced from 75s to 60s Urn bounty reduced by 10%
 =
 
 =hero:holliday:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4583 pick=0.1761 matches=60325 days=7
+    after win=0.5026 pick=0.3664 matches=227762 days=14
+  }
+  high {
+    before win=0.4765 pick=0.1818 matches=10176 days=7
+    after win=0.5232 pick=0.4551 matches=46343 days=14
+  }
+}
+``
 [[/hero/holliday]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]] Holliday patch history))
 ## [[/hero/holliday]]((Holliday))
 ==ability:powder-keg:
@@ -150,6 +234,18 @@ content_text "Urn give up time reduced from 75s to 60s Urn bounty reduced by 10%
 =
 
 =hero:infernus:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4973 pick=0.4322 matches=148082 days=7
+    after win=0.5018 pick=0.4684 matches=291129 days=14
+  }
+  high {
+    before win=0.4804 pick=0.379 matches=21214 days=7
+    after win=0.4845 pick=0.4236 matches=43137 days=14
+  }
+}
+``
 [[/hero/infernus]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus patch history))
 ## [[/hero/infernus]]((Infernus))
 ==ability:afterburn:
@@ -165,6 +261,18 @@ content_text "Urn give up time reduced from 75s to 60s Urn bounty reduced by 10%
 =
 
 =hero:ivy:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5244 pick=0.2685 matches=91984 days=7
+    after win=0.5257 pick=0.2658 matches=165218 days=14
+  }
+  high {
+    before win=0.5225 pick=0.3096 matches=17329 days=7
+    after win=0.5279 pick=0.2977 matches=30316 days=14
+  }
+}
+``
 [[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
 ## [[/hero/ivy]]((Ivy))
 ==ability:stone-form:
@@ -175,6 +283,18 @@ content_text "Urn give up time reduced from 75s to 60s Urn bounty reduced by 10%
 =
 
 =hero:mcginnis:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5242 pick=0.2215 matches=75892 days=7
+    after win=0.5233 pick=0.1907 matches=118543 days=14
+  }
+  high {
+    before win=0.5406 pick=0.2122 matches=11876 days=7
+    after win=0.5355 pick=0.1691 matches=17221 days=14
+  }
+}
+``
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 ==ability:mini-turret:
@@ -200,6 +320,18 @@ content_text "Urn give up time reduced from 75s to 60s Urn bounty reduced by 10%
 =
 
 =hero:paige:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5169 pick=0.2967 matches=101656 days=7
+    after win=0.5254 pick=0.3124 matches=194181 days=14
+  }
+  high {
+    before win=0.4986 pick=0.2154 matches=12058 days=7
+    after win=0.5159 pick=0.2413 matches=24571 days=14
+  }
+}
+``
 [[/hero/paige]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bookworm_sm.webp]] Paige patch history))
 ## [[/hero/paige]]((Paige))
 ==ability:rallying-charge:
@@ -217,6 +349,18 @@ content_text "Urn give up time reduced from 75s to 60s Urn bounty reduced by 10%
 =
 
 =hero:pocket:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4764 pick=0.2688 matches=92105 days=7
+    after win=0.4703 pick=0.2359 matches=146630 days=14
+  }
+  high {
+    before win=0.483 pick=0.3447 matches=19293 days=7
+    after win=0.4782 pick=0.2947 matches=30005 days=14
+  }
+}
+``
 [[/hero/pocket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket patch history))
 ## [[/hero/pocket]]((Pocket))
 - Bullet damage growth reduced from +0.2 to +0.16
@@ -233,6 +377,18 @@ content_text "Urn give up time reduced from 75s to 60s Urn bounty reduced by 10%
 =
 
 =hero:seven:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5751 pick=0.5511 matches=188805 days=7
+    after win=0.5609 pick=0.472 matches=293352 days=14
+  }
+  high {
+    before win=0.5736 pick=0.57 matches=31904 days=7
+    after win=0.5578 pick=0.4308 matches=43867 days=14
+  }
+}
+``
 [[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
 ## [[/hero/seven]]((Seven))
 - Bullet damage growth reduced from 0.337 to 0.24
@@ -249,6 +405,18 @@ content_text "Urn give up time reduced from 75s to 60s Urn bounty reduced by 10%
 =
 
 =hero:shiv:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4623 pick=0.3377 matches=115699 days=7
+    after win=0.4764 pick=0.3661 matches=227577 days=14
+  }
+  high {
+    before win=0.4599 pick=0.4481 matches=25082 days=7
+    after win=0.4838 pick=0.4741 matches=48277 days=14
+  }
+}
+``
 [[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
 ## [[/hero/shiv]]((Shiv))
 ==ability:killing-blow:
@@ -259,6 +427,18 @@ content_text "Urn give up time reduced from 75s to 60s Urn bounty reduced by 10%
 =
 
 =hero:silver:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4779 pick=0.4273 matches=146375 days=7
+    after win=0.4452 pick=0.2636 matches=163811 days=14
+  }
+  high {
+    before win=0.5013 pick=0.4708 matches=26350 days=7
+    after win=0.4653 pick=0.2352 matches=23947 days=14
+  }
+}
+``
 [[/hero/silver]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/werewolf_sm.webp]] Silver patch history))
 ## [[/hero/silver]]((Silver))
 ==ability:lycan-curse:
@@ -270,6 +450,18 @@ content_text "Urn give up time reduced from 75s to 60s Urn bounty reduced by 10%
 =
 
 =hero:victor:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5607 pick=0.417 matches=142875 days=7
+    after win=0.5444 pick=0.3645 matches=226575 days=14
+  }
+  high {
+    before win=0.5398 pick=0.3841 matches=21502 days=7
+    after win=0.5206 pick=0.3079 matches=31349 days=14
+  }
+}
+``
 [[/hero/victor]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/frank_sm.webp]] Victor patch history))
 ## [[/hero/victor]]((Victor))
 ==ability:aura-of-suffering:
@@ -289,6 +481,18 @@ content_text "Urn give up time reduced from 75s to 60s Urn bounty reduced by 10%
 =
 
 =hero:vindicta:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4789 pick=0.2575 matches=88208 days=7
+    after win=0.4885 pick=0.2831 matches=175944 days=14
+  }
+  high {
+    before win=0.4952 pick=0.2381 matches=13327 days=7
+    after win=0.4987 pick=0.2824 matches=28754 days=14
+  }
+}
+``
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
 ==ability:assassinate-max-bonus-damage:
@@ -299,6 +503,18 @@ content_text "Urn give up time reduced from 75s to 60s Urn bounty reduced by 10%
 =
 
 =hero:viscous:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4763 pick=0.1997 matches=68431 days=7
+    after win=0.4811 pick=0.2257 matches=140277 days=14
+  }
+  high {
+    before win=0.4767 pick=0.2111 matches=11817 days=7
+    after win=0.4825 pick=0.2626 matches=26742 days=14
+  }
+}
+``
 [[/hero/viscous]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous patch history))
 ## [[/hero/viscous]]((Viscous))
 ==ability:puddle-punch:
@@ -314,6 +530,18 @@ content_text "Urn give up time reduced from 75s to 60s Urn bounty reduced by 10%
 =
 
 =hero:warden:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4914 pick=0.2596 matches=88926 days=7
+    after win=0.5015 pick=0.2661 matches=165391 days=14
+  }
+  high {
+    before win=0.4881 pick=0.2727 matches=15264 days=7
+    after win=0.504 pick=0.2794 matches=28451 days=14
+  }
+}
+``
 [[/hero/warden]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden patch history))
 ## [[/hero/warden]]((Warden))
 - Bullet falloff reduced from 20m->58m to 18m->47m
@@ -350,12 +578,36 @@ content_text "Urn give up time reduced from 75s to 60s Urn bounty reduced by 10%
 ``
 
 =item:arcane-surge:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.521 pick=0.112 matches=460258 days=7
+    after win=0.5157 pick=0.1141 matches=850728 days=14
+  }
+  high {
+    before win=0.5181 pick=0.1355 matches=91021 days=7
+    after win=0.5122 pick=0.1301 matches=158988 days=14
+  }
+}
+``
 [[/item/arcane-surge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/arcane_surge.webp]] Arcane Surge patch history))
 ## [[/item/arcane-surge]]((Arcane Surge))
 - Fixed various cases with the bonuses not working
 =
 
 =item:opening-rounds:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4925 pick=0.2087 matches=857898 days=7
+    after win=0.4922 pick=0.196 matches=1461635 days=14
+  }
+  high {
+    before win=0.4966 pick=0.2424 matches=162844 days=7
+    after win=0.4976 pick=0.2164 matches=264444 days=14
+  }
+}
+``
 [[/item/opening-rounds]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/opening_rounds.webp]] Opening Rounds patch history))
 ## [[/item/opening-rounds]]((Opening Rounds))
 - Conditional Weapon Damage bonus reduced from 30% to 25%

@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "09-14-2024 Update"
 thread_id "29586"
 published "2024-09-14T21:05:26-0700"
@@ -16,6 +16,18 @@ content_text "Bebop Hyper Beam cooldown increased from 117 to 130 Hyper Beam T1 
 ``
 
 =hero:bebop:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5144 pick=0.7849 matches=1215 days=2
+    after win=#null pick=#null matches=534 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/bebop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop patch history))
 ## [[/hero/bebop]]((Bebop))
 ==ability:hyper-beam:
@@ -35,6 +47,18 @@ content_text "Bebop Hyper Beam cooldown increased from 117 to 130 Hyper Beam T1 
 =
 
 =hero:mcginnis:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=901 days=2
+    after win=#null pick=#null matches=389 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 ==ability:medicinal-specter:

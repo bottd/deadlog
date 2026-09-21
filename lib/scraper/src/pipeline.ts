@@ -22,6 +22,7 @@ import {
 	type PostContentResult,
 	type SteamAnnouncement
 } from './api';
+import { carryImpact } from '@deadlog/changelog';
 import { parseAuthorName } from './authorParser';
 import { extractContent, deduplicateLines, type EntityLists } from './content/parser';
 import {
@@ -76,6 +77,7 @@ function writeMogFile(
 		const alias = previous?.match(/^alias .+$/m)?.[0];
 		if (alias) content = content.replace(/^title .+$/m, (title) => `${title}\n${alias}`);
 	}
+	if (previous) content = carryImpact(previous, content);
 	if (previous === content) return 'unchanged';
 	writeFileSync(filepath, content, 'utf-8');
 	return isUpdate ? 'updated' : 'created';

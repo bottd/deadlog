@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "Old Gods, New Blood"
 steam_gid "1822556746160429"
 published "2026-01-22T22:56:33.000Z"

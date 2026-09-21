@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "04-04-2025 Update"
 thread_id "60284"
 published "2025-04-04T16:35:38-0700"
@@ -41,6 +41,18 @@ content_text "Added an option to allow canceling abilities with the ability key 
 ``
 
 =hero:calico:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5175 pick=0.5573 matches=167544 days=14
+    after win=0.5076 pick=0.4938 matches=125269 days=13
+  }
+  high {
+    before win=0.5138 pick=0.6107 matches=7764 days=14
+    after win=0.4985 pick=0.5348 matches=5773 days=13
+  }
+}
+``
 [[/hero/calico]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp]] Calico patch history))
 ## [[/hero/calico]]((Calico))
 - Health growth per boon reduced from 41 to 34
@@ -57,6 +69,18 @@ content_text "Added an option to allow canceling abilities with the ability key 
 =
 
 =hero:holliday:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4673 pick=0.2943 matches=88489 days=14
+    after win=0.4688 pick=0.2795 matches=70908 days=13
+  }
+  high {
+    before win=0.5143 pick=0.4014 matches=5104 days=14
+    after win=0.4968 pick=0.4008 matches=4326 days=13
+  }
+}
+``
 [[/hero/holliday]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]] Holliday patch history))
 ## [[/hero/holliday]]((Holliday))
 ==ability:powder-keg:
@@ -72,6 +96,18 @@ content_text "Added an option to allow canceling abilities with the ability key 
 =
 
 =hero:mirage:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4924 pick=0.3538 matches=106363 days=14
+    after win=0.4988 pick=0.3726 matches=94520 days=13
+  }
+  high {
+    before win=0.5002 pick=0.4963 matches=6310 days=14
+    after win=0.5165 pick=0.534 matches=5764 days=13
+  }
+}
+``
 [[/hero/mirage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage patch history))
 ## [[/hero/mirage]]((Mirage))
 ==ability:djinn-s-mark:
@@ -82,12 +118,36 @@ content_text "Added an option to allow canceling abilities with the ability key 
 =
 
 =hero:seven:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.557 pick=0.7483 matches=224978 days=14
+    after win=0.551 pick=0.7105 matches=180257 days=13
+  }
+  high {
+    before win=0.5397 pick=0.6977 matches=8871 days=14
+    after win=0.5253 pick=0.6128 matches=6615 days=13
+  }
+}
+``
 [[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
 ## [[/hero/seven]]((Seven))
 - Health Regen reduced from 3 to 1.5
 =
 
 =hero:sinclair:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4679 pick=0.186 matches=55937 days=14
+    after win=0.4732 pick=0.1851 matches=46968 days=13
+  }
+  high {
+    before win=0.4922 pick=0.206 matches=2619 days=14
+    after win=0.5078 pick=0.2317 matches=2501 days=13
+  }
+}
+``
 [[/hero/sinclair]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/magician_sm.webp]] Sinclair patch history))
 ## [[/hero/sinclair]]((Sinclair))
 ==ability:vexing-bolt:
@@ -100,6 +160,18 @@ content_text "Added an option to allow canceling abilities with the ability key 
 =
 
 =hero:vindicta:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5008 pick=0.4443 matches=133575 days=14
+    after win=0.4936 pick=0.4367 matches=110789 days=13
+  }
+  high {
+    before win=0.5228 pick=0.5141 matches=6536 days=14
+    after win=0.5007 pick=0.4994 matches=5390 days=13
+  }
+}
+``
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
 ==ability:crow-familiar:
@@ -121,6 +193,18 @@ content_text "Added an option to allow canceling abilities with the ability key 
 ``
 
 =item:infuser:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5159 pick=0.1889 matches=681524 days=14
+    after win=0.5096 pick=0.18 matches=548059 days=13
+  }
+  high {
+    before win=0.5042 pick=0.2972 matches=45338 days=14
+    after win=0.5008 pick=0.2695 matches=34906 days=13
+  }
+}
+``
 [[/item/infuser]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/infuser.webp]] Infuser patch history))
 ## [[/item/infuser]]((Infuser))
 - Spirit Lifesteal reduced from 20% to 15%

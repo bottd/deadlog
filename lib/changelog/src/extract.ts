@@ -1,4 +1,5 @@
-import type { ChangelogEntities, EntityChange } from './schema';
+import { ATTR_OPEN, VERBATIM_CLOSE, readImpactBlock } from './impactBlock';
+import type { ChangelogEntities, EntityBlock, EntityChange } from './schema';
 import {
 	MOG_IMAGE_RE,
 	decodeEntityName,
@@ -6,6 +7,7 @@ import {
 	stripMogLinks,
 	unescapeMogDelimiters
 } from '@deadlog/utils';
+import type { EntityImpact } from '@deadlog/utils';
 
 /** Only what `extractEntities` needs. Heading anchors come from the renderer's own toc
  * (see the `.mg` module's `toc` export), so deriving ids here would be a second rule. */
@@ -26,10 +28,15 @@ const HEADING_RE = /^(#+)[ \t]*(.+)$/;
 
 type Kind = 'hero' | 'item' | 'ability';
 
+export const changeKey = (kind: Kind, name: string) =>
+	`${kind}:${entityNameAliases(name).at(-1)}`;
+
 interface Frame {
 	kind: Kind;
 	name: string | null;
 	level: number;
+	fenceLine: number;
+	impact: { value: EntityImpact; lines: [number, number] } | null;
 }
 
 /**
@@ -42,17 +49,36 @@ export function parseStructure(content: string): {
 	changes: EntityChange[];
 	/** Only images outside every block — an entity's own portrait is chrome, not content. */
 	images: string[];
+	blocks: EntityBlock[];
 } {
 	const toc: TocEntry[] = [];
 	const images: string[] = [];
 	const changes = new Map<string, EntityChange>();
 	const stack: Frame[] = [];
+	const blocks: EntityBlock[] = [];
 
 	const innermost = (kind: Kind) =>
 		[...stack].reverse().find((f) => f.kind === kind && f.name);
 
-	for (const rawLine of content.split('\n')) {
-		const line = rawLine.trim();
+	const lines = content.split('\n');
+	for (let index = 0; index < lines.length; index++) {
+		const line = lines[index].trim();
+
+		if (line === ATTR_OPEN) {
+			let end = index + 1;
+			while (end < lines.length && lines[end].trim() !== VERBATIM_CLOSE) end++;
+			const open = stack.at(-1);
+			// Directly under the fence is the one place the renderer also reads it as
+			// the block's own; after a bullet it would belong to that list item.
+			if (open && open.kind !== 'ability' && index === open.fenceLine + 1) {
+				open.impact = {
+					value: readImpactBlock(lines.slice(index + 1, end)),
+					lines: [index, end]
+				};
+			}
+			index = end;
+			continue;
+		}
 
 		const block = line.match(BLOCK_RE);
 		if (block) {
@@ -60,9 +86,14 @@ export function parseStructure(content: string): {
 			const [kind] = attrs;
 			// A bare fence closes the innermost block of its depth.
 			if (!attrs.length) stack.pop();
-			else if (kind === 'hero' || kind === 'item' || kind === 'ability')
-				stack.push({ kind, name: null, level: block[1].length });
-			else stack.push({ kind: 'ability', name: null, level: block[1].length });
+			else
+				stack.push({
+					kind: kind === 'hero' || kind === 'item' ? kind : 'ability',
+					name: null,
+					level: block[1].length,
+					fenceLine: index,
+					impact: null
+				});
 			continue;
 		}
 
@@ -77,13 +108,22 @@ export function parseStructure(content: string): {
 			toc.push({ level: heading[1].length, title, attrs });
 
 			if (open && attrs[0] && attrs[0] !== 'ability') {
-				const key = `${open.kind}:${entityNameAliases(title).at(-1)}`;
-				if (!changes.has(key))
+				const key = changeKey(open.kind, title);
+				if (!changes.has(key)) {
+					const type = open.kind as 'hero' | 'item';
 					changes.set(key, {
 						name: title,
-						type: open.kind as 'hero' | 'item',
-						groups: []
+						type,
+						groups: [],
+						...(open.impact && { impact: open.impact.value })
 					});
+					blocks.push({
+						name: title,
+						type,
+						fenceLine: open.fenceLine,
+						impactLines: open.impact?.lines ?? null
+					});
+				}
 			}
 			continue;
 		}
@@ -98,9 +138,7 @@ export function parseStructure(content: string): {
 
 		const entity = innermost('hero') ?? innermost('item');
 		if (!entity?.name) continue;
-		const current = changes.get(
-			`${entity.kind}:${entityNameAliases(entity.name).at(-1)}`
-		);
+		const current = changes.get(changeKey(entity.kind, entity.name));
 		if (!current) continue;
 
 		// .mg carries escaped delimiters and [[target]]((label)) links; the rendered
@@ -116,7 +154,7 @@ export function parseStructure(content: string): {
 		else current.groups.push({ ability, bullets: [text] });
 	}
 
-	return { toc, images, changes: [...changes.values()] };
+	return { toc, images, changes: [...changes.values()], blocks };
 }
 
 export function extractEntityChanges(content: string): EntityChange[] {

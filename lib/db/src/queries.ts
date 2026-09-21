@@ -18,7 +18,8 @@ import {
 	countBullets,
 	makeSummary,
 	canonicalSlug,
-	HERO_IMAGE_KEYS
+	HERO_IMAGE_KEYS,
+	type EntityImpact
 } from '@deadlog/utils';
 
 export type ScrapedChangelog = SelectChangelog;
@@ -46,6 +47,7 @@ export type EntityChangelog<Group = EntityChangeGroup> = Pick<
 	/** Derived from changeGroups — null when the patch mentions the entity without its own section. */
 	changeCount: number | null;
 	changeGroups: Group[] | null;
+	impact: EntityImpact | null;
 };
 
 function buildTextSearchCondition(searchQuery: string): SQL {
@@ -360,7 +362,8 @@ export async function getChangelogsByHeroId(
 	const rows = await db
 		.select({
 			...ENTITY_HISTORY_COLUMNS,
-			changeGroups: schema.changelogHeroes.changeGroups
+			changeGroups: schema.changelogHeroes.changeGroups,
+			impact: schema.changelogHeroes.impact
 		})
 		.from(schema.changelogs)
 		.innerJoin(
@@ -384,7 +387,8 @@ export async function getChangelogsByItemId(
 	const rows = await db
 		.select({
 			...ENTITY_HISTORY_COLUMNS,
-			changeGroups: schema.changelogItems.changeGroups
+			changeGroups: schema.changelogItems.changeGroups,
+			impact: schema.changelogItems.impact
 		})
 		.from(schema.changelogs)
 		.innerJoin(

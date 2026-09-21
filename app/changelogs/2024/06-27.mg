@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "06-27-2024 Update"
 thread_id "8486"
 published "2024-06-27T13:58:44-0700"
@@ -70,6 +70,18 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 ``
 
 =hero:dynamo:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=49 days=3
+    after win=#null pick=#null matches=54 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 ==ability:quantum-entanglement:
@@ -85,6 +97,18 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 =
 
 =hero:haze:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=73 days=3
+    after win=#null pick=#null matches=95 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 ==ability:bullet-dance:
@@ -96,6 +120,18 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 =
 
 =hero:infernus:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=67 days=3
+    after win=#null pick=#null matches=79 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/infernus]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus patch history))
 ## [[/hero/infernus]]((Infernus))
 ==ability:afterburn:
@@ -107,6 +143,18 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 =
 
 =hero:kelvin:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=34 days=3
+    after win=#null pick=#null matches=44 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 ==ability:arctic-beam:
@@ -118,6 +166,18 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 =
 
 =hero:lash:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=46 days=3
+    after win=#null pick=#null matches=50 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/lash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp]] Lash patch history))
 ## [[/hero/lash]]((Lash))
 ==ability:ground-strike:
@@ -133,6 +193,18 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 =
 
 =hero:mcginnis:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=66 days=3
+    after win=#null pick=#null matches=70 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 - Fixed her gun having a recent regression that caused it to not have any spread
@@ -158,6 +230,18 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 =
 
 =hero:mo-krill:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=30 days=3
+    after win=#null pick=#null matches=47 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/mo-krill]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]] Mo & Krill patch history))
 ## [[/hero/mo-krill]]((Mo & Krill))
 - Base HP regen increased from 2.5 to 3
@@ -185,6 +269,18 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 =
 
 =hero:paradox:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=61 days=3
+    after win=#null pick=#null matches=72 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/paradox]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox patch history))
 ## [[/hero/paradox]]((Paradox))
 - Base movement speed reduced from 7 to 6.5
@@ -213,6 +309,18 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 =
 
 =hero:pocket:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=43 days=3
+    after win=#null pick=#null matches=48 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/pocket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket patch history))
 ## [[/hero/pocket]]((Pocket))
 ==ability:enchanter-s-satchel:
@@ -223,6 +331,18 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 =
 
 =hero:seven:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=77 days=3
+    after win=#null pick=#null matches=94 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
 ## [[/hero/seven]]((Seven))
 ==ability:power-surge:
@@ -241,6 +361,18 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 =
 
 =hero:vindicta:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=63 days=3
+    after win=#null pick=#null matches=72 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
 - Base movement speed increased from 7 to 8
@@ -257,6 +389,18 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 =
 
 =hero:warden:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=36 days=3
+    after win=#null pick=#null matches=39 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/warden]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden patch history))
 ## [[/hero/warden]]((Warden))
 ==ability:willpower:
@@ -268,6 +412,18 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 =
 
 =hero:wraith:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=72 days=3
+    after win=#null pick=#null matches=91 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/wraith]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp]] Wraith patch history))
 ## [[/hero/wraith]]((Wraith))
 ==ability:card-trick:
@@ -278,6 +434,18 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 =
 
 =hero:yamato:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=29 days=3
+    after win=#null pick=#null matches=53 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 ==ability:power-slash:
@@ -330,12 +498,36 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 =
 
 =item:bullet-lifesteal:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=264 days=3
+    after win=#null pick=#null matches=325 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/bullet-lifesteal]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/bullet_lifesteal.webp]] Bullet Lifesteal patch history))
 ## [[/item/bullet-lifesteal]]((Bullet Lifesteal))
 - Increased from 20% to 22%
 =
 
 =item:burst-fire:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=111 days=2
+    after win=#null pick=#null matches=170 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/burst-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/burst_fire.webp]] Burst Fire patch history))
 ## [[/item/burst-fire]]((Burst Fire))
 - Cooldown reduced from 9s to 8s
@@ -343,6 +535,18 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 =
 
 =item:crippling-headshot:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=21 days=1
+    after win=#null pick=#null matches=29 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/crippling-headshot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/crippling_headshot.webp]] Crippling Headshot patch history))
 ## [[/item/crippling-headshot]]((Crippling Headshot))
 - Weapon Damage reduced from 25% to 20%
@@ -357,6 +561,18 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 =
 
 =item:duration-extender:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=155 days=3
+    after win=#null pick=#null matches=175 days=5
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/duration-extender]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/duration_extender.webp]] Duration Extender patch history))
 ## [[/item/duration-extender]]((Duration Extender))
 - Health increased from +50 to +75
@@ -377,18 +593,54 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 =
 
 =item:extra-charge:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=308 days=3
+    after win=#null pick=#null matches=352 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/extra-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/extra_charge.webp]] Extra Charge patch history))
 ## [[/item/extra-charge]]((Extra Charge))
 - CD reduction increased from +7% to +8%
 =
 
 =item:extra-health:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=159 days=3
+    after win=#null pick=#null matches=186 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/extra-health]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_health.webp]] Extra Health patch history))
 ## [[/item/extra-health]]((Extra Health))
 - Health increased from +135 to +140
 =
 
 =item:extra-spirit:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=358 days=3
+    after win=#null pick=#null matches=419 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/extra-spirit]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/extra_spirit.webp]] Extra Spirit patch history))
 ## [[/item/extra-spirit]]((Extra Spirit))
 - Spirit bonus increased from +7 to +8
@@ -402,6 +654,18 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 =
 
 =item:healing-rite:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=208 days=3
+    after win=#null pick=#null matches=228 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/healing-rite]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healing_rite.webp]] Healing Rite patch history))
 ## [[/item/healing-rite]]((Healing Rite))
 - Cooldown reduced from 80s to 75s
@@ -422,6 +686,18 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 =
 
 =item:leech:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=58 days=2
+    after win=#null pick=#null matches=86 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/leech]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/leech.webp]] Leech patch history))
 ## [[/item/leech]]((Leech))
 - Now grants +8% Weapon Damage
@@ -434,12 +710,36 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 =
 
 =item:long-range:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=199 days=3
+    after win=#null pick=#null matches=233 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/long-range]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/long_range.webp]] Long Range patch history))
 ## [[/item/long-range]]((Long Range))
 - Ammo increased from +15% to +20%
 =
 
 =item:melee-charge:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=20 days=1
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/melee-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/melee_charge.webp]] Melee Charge patch history))
 ## [[/item/melee-charge]]((Melee Charge))
 - Weapon Damage increased from 10% to 15%
@@ -453,12 +753,36 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 =
 
 =item:mystic-slow:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=50 days=2
+    after win=#null pick=#null matches=67 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/mystic-slow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mystic_slow.webp]] Mystic Slow patch history))
 ## [[/item/mystic-slow]]((Mystic Slow))
 - Fire Rate reduction reduced from -35% to -30%
 =
 
 =item:point-blank:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=127 days=3
+    after win=#null pick=#null matches=194 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/point-blank]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/point_blank.webp]] Point Blank patch history))
 ## [[/item/point-blank]]((Point Blank))
 - Bullet Shield health increased from +200 to +225
@@ -498,24 +822,72 @@ content_text "Added a hero based mmr system, so when you join a match with a spe
 =
 
 =item:suppressor:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=110 days=3
+    after win=#null pick=#null matches=92 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/suppressor]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/suppressor.webp]] Suppressor patch history))
 ## [[/item/suppressor]]((Suppressor))
 - Fire Rate reduction reduced from -35% to -30%
 =
 
 =item:surge-of-power:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=49 days=2
+    after win=#null pick=#null matches=25 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/surge-of-power]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/surge_of_power.webp]] Surge of Power patch history))
 ## [[/item/surge-of-power]]((Surge of Power))
 - Imbued Ability Spirit Power increased from +20 to +24
 =
 
 =item:swift-striker:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=79 days=3
+    after win=#null pick=#null matches=64 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/swift-striker]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/swift_striker.webp]] Swift Striker patch history))
 ## [[/item/swift-striker]]((Swift Striker))
 - Fire Rate increased from +20% to +22%
 =
 
 =item:titanic-magazine:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=63 days=2
+    after win=#null pick=#null matches=49 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/titanic-magazine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/titanic_magazine.webp]] Titanic Magazine patch history))
 ## [[/item/titanic-magazine]]((Titanic Magazine))
 - Ammo increased from +75% to +90%

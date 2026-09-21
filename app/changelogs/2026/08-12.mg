@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "Minor Update - 08-12-2026"
 alias "2026/minor-08-12"
 thread_id "162570"
@@ -21,6 +21,18 @@ content_text "Apollo Riposte melee resist reduction increased from -22% to -25% 
 ``
 
 =hero:apollo:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5019 pick=0.2586 matches=172412 days=12
+    after win=0.5056 pick=0.3125 matches=133906 days=9
+  }
+  high {
+    before win=#null pick=#null matches=814 days=11
+    after win=0.4971 pick=0.2861 matches=2738 days=9
+  }
+}
+``
 [[/hero/apollo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/fencer_sm.webp]] Apollo patch history))
 ## [[/hero/apollo]]((Apollo))
 ==ability:riposte:
@@ -38,6 +50,18 @@ content_text "Apollo Riposte melee resist reduction increased from -22% to -25% 
 =
 
 =hero:billy:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4947 pick=0.423 matches=282013 days=12
+    after win=0.4806 pick=0.3808 matches=163168 days=9
+  }
+  high {
+    before win=0.5289 pick=0.5497 matches=2350 days=12
+    after win=0.4961 pick=0.3886 matches=3719 days=9
+  }
+}
+``
 [[/hero/billy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/punkgoat_sm.webp]] Billy patch history))
 ## [[/hero/billy]]((Billy))
 - Base health regen reduced from 2.5 to 2.0
@@ -54,6 +78,18 @@ content_text "Apollo Riposte melee resist reduction increased from -22% to -25% 
 =
 
 =hero:doorman:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4595 pick=0.1838 matches=122544 days=12
+    after win=0.461 pick=0.1774 matches=75996 days=9
+  }
+  high {
+    before win=#null pick=#null matches=676 days=11
+    after win=0.4714 pick=0.1478 matches=1415 days=9
+  }
+}
+``
 [[/hero/the-doorman]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/doorman_sm.webp]] Doorman patch history))
 ## [[/hero/the-doorman]]((Doorman))
 ==ability:doorway:
@@ -70,6 +106,18 @@ content_text "Apollo Riposte melee resist reduction increased from -22% to -25% 
 =
 
 =hero:drifter:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5156 pick=0.5083 matches=338898 days=12
+    after win=0.5026 pick=0.4656 matches=199490 days=9
+  }
+  high {
+    before win=0.5031 pick=0.683 matches=2920 days=11
+    after win=0.5059 pick=0.5718 matches=5473 days=9
+  }
+}
+``
 [[/hero/drifter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/drifter_sm.webp]] Drifter patch history))
 ## [[/hero/drifter]]((Drifter))
 ==ability:rend:
@@ -86,6 +134,18 @@ content_text "Apollo Riposte melee resist reduction increased from -22% to -25% 
 =
 
 =hero:holliday:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4863 pick=0.2409 matches=160601 days=12
+    after win=0.4668 pick=0.2333 matches=99960 days=9
+  }
+  high {
+    before win=0.5135 pick=0.3289 matches=1406 days=11
+    after win=0.4861 pick=0.248 matches=2374 days=9
+  }
+}
+``
 [[/hero/holliday]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]] Holliday patch history))
 ## [[/hero/holliday]]((Holliday))
 ==ability:powder-keg:
@@ -96,6 +156,18 @@ content_text "Apollo Riposte melee resist reduction increased from -22% to -25% 
 =
 
 =hero:ivy:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5384 pick=0.3139 matches=209267 days=12
+    after win=0.5359 pick=0.3224 matches=138144 days=9
+  }
+  high {
+    before win=0.5429 pick=0.4007 matches=1713 days=12
+    after win=0.5484 pick=0.3887 matches=3720 days=9
+  }
+}
+``
 [[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
 ## [[/hero/ivy]]((Ivy))
 ==ability:stone-form:
@@ -106,12 +178,36 @@ content_text "Apollo Riposte melee resist reduction increased from -22% to -25% 
 =
 
 =hero:lash:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5196 pick=0.4633 matches=308883 days=12
+    after win=0.5179 pick=0.4623 matches=198088 days=9
+  }
+  high {
+    before win=0.5264 pick=0.6297 matches=2692 days=12
+    after win=0.5119 pick=0.652 matches=6240 days=9
+  }
+}
+``
 [[/hero/lash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp]] Lash patch history))
 ## [[/hero/lash]]((Lash))
 - Falloff range reduced from 20m->58m to 18m->54m
 =
 
 =hero:mcginnis:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5395 pick=0.2474 matches=164971 days=12
+    after win=0.4967 pick=0.1906 matches=81683 days=9
+  }
+  high {
+    before win=0.5756 pick=0.4299 matches=1838 days=11
+    after win=0.5097 pick=0.2253 matches=2156 days=9
+  }
+}
+``
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 - Bullet damage base and growth values reduced by 5%
@@ -133,6 +229,18 @@ content_text "Apollo Riposte melee resist reduction increased from -22% to -25% 
 =
 
 =hero:paige:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5402 pick=0.3249 matches=216638 days=12
+    after win=0.5421 pick=0.3319 matches=142216 days=9
+  }
+  high {
+    before win=#null pick=#null matches=952 days=11
+    after win=0.5173 pick=0.2721 matches=2604 days=9
+  }
+}
+``
 [[/hero/paige]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bookworm_sm.webp]] Paige patch history))
 ## [[/hero/paige]]((Paige))
 ==ability:plot-armor:
@@ -143,6 +251,18 @@ content_text "Apollo Riposte melee resist reduction increased from -22% to -25% 
 =
 
 =hero:seven:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5518 pick=0.3922 matches=261512 days=12
+    after win=0.5496 pick=0.3863 matches=165527 days=9
+  }
+  high {
+    before win=#null pick=#null matches=854 days=11
+    after win=0.534 pick=0.2782 matches=2663 days=9
+  }
+}
+``
 [[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
 ## [[/hero/seven]]((Seven))
 ==ability:lightning-ball:
@@ -153,6 +273,18 @@ content_text "Apollo Riposte melee resist reduction increased from -22% to -25% 
 =
 
 =hero:vindicta:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5193 pick=0.3354 matches=223609 days=12
+    after win=0.5124 pick=0.3542 matches=151791 days=9
+  }
+  high {
+    before win=0.4963 pick=0.4704 matches=2011 days=11
+    after win=0.4963 pick=0.4406 matches=4217 days=9
+  }
+}
+``
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
 ==ability:stake:
@@ -163,6 +295,18 @@ content_text "Apollo Riposte melee resist reduction increased from -22% to -25% 
 =
 
 =hero:vyper:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4888 pick=0.1619 matches=107927 days=12
+    after win=0.5021 pick=0.2151 matches=92164 days=9
+  }
+  high {
+    before win=#null pick=#null matches=732 days=11
+    after win=0.5637 pick=0.2541 matches=2432 days=9
+  }
+}
+``
 [[/hero/vyper]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kali_sm.webp]] Vyper patch history))
 ## [[/hero/vyper]]((Vyper))
 ==ability:petrifying-bola:
@@ -174,6 +318,18 @@ content_text "Apollo Riposte melee resist reduction increased from -22% to -25% 
 =
 
 =hero:wraith:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5083 pick=0.4188 matches=279236 days=12
+    after win=0.5119 pick=0.4201 matches=180014 days=9
+  }
+  high {
+    before win=0.5037 pick=0.7343 matches=3139 days=12
+    after win=0.5021 pick=0.6343 matches=6071 days=9
+  }
+}
+``
 [[/hero/wraith]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp]] Wraith patch history))
 ## [[/hero/wraith]]((Wraith))
 ==ability:card-trick-heart:

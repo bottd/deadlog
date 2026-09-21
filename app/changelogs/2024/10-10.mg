@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "10-10-2024 Update"
 thread_id "36958"
 published "2024-10-10T13:24:45-0700"
@@ -166,6 +166,18 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 ``
 
 =hero:abrams:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5203 pick=0.5053 matches=48671 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/abrams]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams patch history))
 ## [[/hero/abrams]]((Abrams))
 - Base health reduced from 600 to 570
@@ -183,6 +195,18 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 =
 
 =hero:bebop:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4851 pick=0.6302 matches=60699 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/bebop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop patch history))
 ## [[/hero/bebop]]((Bebop))
 ==ability:sticky-bomb:
@@ -218,6 +242,18 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 =
 
 =hero:dynamo:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4862 pick=0.3393 matches=32683 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 ==ability:quantum-entanglement:
@@ -234,6 +270,18 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 =
 
 =hero:grey-talon:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4719 pick=0.5224 matches=50324 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/grey-talon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon patch history))
 ## [[/hero/grey-talon]]((Grey Talon))
 - Arrow cycle time increased from 0.45s to 0.55s (overall dps unchanged)
@@ -260,6 +308,18 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 =
 
 =hero:haze:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5145 pick=0.9468 matches=91200 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 ==ability:fixation:
@@ -279,6 +339,18 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 =
 
 =hero:infernus:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5182 pick=0.8993 matches=86628 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/infernus]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus patch history))
 ## [[/hero/infernus]]((Infernus))
 ==ability:catalyst-damage-amp:
@@ -294,6 +366,18 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 =
 
 =hero:ivy:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5158 pick=0.3905 matches=37610 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
 ## [[/hero/ivy]]((Ivy))
 - Improved default camera position
@@ -302,6 +386,18 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 =
 
 =hero:lady-geist:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5347 pick=0.5963 matches=57441 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/lady-geist]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]] Lady Geist patch history))
 ## [[/hero/lady-geist]]((Lady Geist))
 ==ability:essence-bomb:
@@ -325,6 +421,18 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 =
 
 =hero:lash:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4868 pick=0.6191 matches=59638 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/lash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp]] Lash patch history))
 ## [[/hero/lash]]((Lash))
 - Base bullet damage reduced from 10 to 9
@@ -337,6 +445,18 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 =
 
 =hero:mcginnis:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5418 pick=0.5968 matches=57490 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 - No longer has +25% Spirit Resist
@@ -368,6 +488,18 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 =
 
 =hero:mirage:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4779 pick=0.4546 matches=43785 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/mirage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage patch history))
 ## [[/hero/mirage]]((Mirage))
 ==ability:tornado:
@@ -398,6 +530,18 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 =
 
 =hero:mo-krill:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5176 pick=0.4131 matches=39788 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/mo-krill]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]] Mo & Krill patch history))
 ## [[/hero/mo-krill]]((Mo & Krill))
 ==ability:combo:
@@ -409,6 +553,18 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 =
 
 =hero:paradox:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4642 pick=0.3598 matches=34658 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/paradox]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox patch history))
 ## [[/hero/paradox]]((Paradox))
 - Bullet growth per boon increased from 0.33 to 0.45
@@ -437,6 +593,18 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 =
 
 =hero:pocket:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4956 pick=0.5232 matches=50394 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/pocket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket patch history))
 ## [[/hero/pocket]]((Pocket))
 - Shotgun falloff start reduced from 22m to 16m
@@ -460,6 +628,18 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 =
 
 =hero:seven:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5036 pick=0.7244 matches=69776 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
 ## [[/hero/seven]]((Seven))
 - Base regen increased from 1.5 to 3
@@ -472,6 +652,18 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 =
 
 =hero:shiv:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4843 pick=0.5086 matches=48988 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
 ## [[/hero/shiv]]((Shiv))
 ==ability:slice-and-dice:
@@ -485,6 +677,18 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 =
 
 =hero:vindicta:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4817 pick=0.6186 matches=59588 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
 - Reverted recent falloff damage changes
@@ -524,6 +728,18 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 =
 
 =hero:viscous:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4994 pick=0.3771 matches=36327 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/viscous]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous patch history))
 ## [[/hero/viscous]]((Viscous))
 ==ability:goo-ball:
@@ -552,6 +768,18 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 =
 
 =hero:warden:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4963 pick=0.3439 matches=33125 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/warden]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden patch history))
 ## [[/hero/warden]]((Warden))
 ==ability:alchemical-flask:
@@ -571,6 +799,18 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 =
 
 =hero:wraith:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4813 pick=0.8185 matches=78844 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/wraith]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp]] Wraith patch history))
 ## [[/hero/wraith]]((Wraith))
 ==ability:card-trick:
@@ -582,6 +822,18 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 =
 
 =hero:yamato:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4988 pick=0.5019 matches=48348 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 ==ability:power-slash:
@@ -605,6 +857,18 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 ``
 
 =item:alchemical-fire:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4969 pick=0.014 matches=16171 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/alchemical-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/alchemical_fire.webp]] Alchemical Fire patch history))
 ## [[/item/alchemical-fire]]((Alchemical Fire))
 - Now behaves like other grenades and does not bounce off walls
@@ -619,12 +883,36 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 =
 
 =item:cold-front:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5054 pick=0.0401 matches=46339 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/cold-front]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/cold_front.webp]] Cold Front patch history))
 ## [[/item/cold-front]]((Cold Front))
 - Cooldown reduced from 34s to 28s
 =
 
 =item:enduring-speed:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5123 pick=0.6117 matches=707001 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/enduring-speed]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/enduring_speed.webp]] Enduring Speed patch history))
 ## [[/item/enduring-speed]]((Enduring Speed))
 - Movespeed bonus reduced from 1.4 to 1.1 (all heroes movement speed increased by 0.3)
@@ -632,6 +920,18 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 =
 
 =item:escalating-exposure:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5543 pick=0.1839 matches=212595 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/escalating-exposure]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/escalating_exposure.webp]] Escalating Exposure patch history))
 ## [[/item/escalating-exposure]]((Escalating Exposure))
 - Spirit Resist On Damage reduced from -15% to -12%
@@ -640,18 +940,54 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 =
 
 =item:ethereal-shift:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5075 pick=0.0435 matches=50275 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/ethereal-shift]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/ethereal_shift.webp]] Ethereal Shift patch history))
 ## [[/item/ethereal-shift]]((Ethereal Shift))
 - Can no longer end it early
 =
 
 =item:extra-health:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4913 pick=0.1291 matches=149278 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/extra-health]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_health.webp]] Extra Health patch history))
 ## [[/item/extra-health]]((Extra Health))
 - Weapon Damage increased from 5% to 6%
 =
 
 =item:extra-regen:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4925 pick=0.3089 matches=357087 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/extra-regen]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_regen.webp]] Extra Regen patch history))
 ## [[/item/extra-regen]]((Extra Regen))
 - Regen increased from 2.8 to 3
@@ -659,12 +995,36 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 =
 
 =item:extra-spirit:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4949 pick=0.3539 matches=409041 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/extra-spirit]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/extra_spirit.webp]] Extra Spirit patch history))
 ## [[/item/extra-spirit]]((Extra Spirit))
 - Spirit Power increased from 9 to 10
 =
 
 =item:extra-stamina:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5016 pick=0.4462 matches=515765 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/extra-stamina]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_stamina.webp]] Extra Stamina patch history))
 ## [[/item/extra-stamina]]((Extra Stamina))
 - Stamina Recovery increased from 14% to 16%
@@ -673,36 +1033,108 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 =
 
 =item:fortitude:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5115 pick=0.0706 matches=81613 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/fortitude]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/fortitude.webp]] Fortitude patch history))
 ## [[/item/fortitude]]((Fortitude))
 - Health increased from +300 to +325
 =
 
 =item:frenzy:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5358 pick=0.027 matches=31231 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/frenzy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/frenzy.webp]] Frenzy patch history))
 ## [[/item/frenzy]]((Frenzy))
 - Low HP threshold increased from 40% to 50%
 =
 
 =item:healing-rite:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4959 pick=0.2724 matches=314865 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/healing-rite]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healing_rite.webp]] Healing Rite patch history))
 ## [[/item/healing-rite]]((Healing Rite))
 - Regen duration increased from 17s to 19s (same total heal)
 =
 
 =item:improved-spirit:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5011 pick=0.2946 matches=340576 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/improved-spirit]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/improved_spirit.webp]] Improved Spirit patch history))
 ## [[/item/improved-spirit]]((Improved Spirit))
 - Spirit Power increased from +23 to +28
 =
 
 =item:knockdown:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4765 pick=0.0298 matches=34411 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/knockdown]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/knockdown.webp]] Knockdown patch history))
 ## [[/item/knockdown]]((Knockdown))
 - Cooldown reduced from 48s to 40s
 =
 
 =item:leech:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5484 pick=0.1951 matches=225522 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/leech]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/leech.webp]] Leech patch history))
 ## [[/item/leech]]((Leech))
 - Weapon Damage increase from +15% to +20%
@@ -710,30 +1142,90 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 =
 
 =item:lifestrike:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5202 pick=0.0504 matches=58253 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/lifestrike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/lifestrike.webp]] Lifestrike patch history))
 ## [[/item/lifestrike]]((Lifestrike))
 - Heal increased from 55% of melee damage to 65%
 =
 
 =item:long-range:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4788 pick=0.0785 matches=90766 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/long-range]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/long_range.webp]] Long Range patch history))
 ## [[/item/long-range]]((Long Range))
 - Ammo increase from 20% to 25%
 =
 
 =item:majestic-leap:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5068 pick=0.0839 matches=96970 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/majestic-leap]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/majestic_leap.webp]] Majestic Leap patch history))
 ## [[/item/majestic-leap]]((Majestic Leap))
 - Cooldown increased from 23s to 26s
 =
 
 =item:melee-charge:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5154 pick=0.0768 matches=88805 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/melee-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/melee_charge.webp]] Melee Charge patch history))
 ## [[/item/melee-charge]]((Melee Charge))
 - Cooldown increased from 10.5s to 16s
 =
 
 =item:monster-rounds:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5056 pick=0.2022 matches=233737 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/monster-rounds]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/monster_rounds.webp]] Monster Rounds patch history))
 ## [[/item/monster-rounds]]((Monster Rounds))
 - Weapon Damage vs NPCs reduced from 35% to 30%
@@ -746,24 +1238,72 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 =
 
 =item:mystic-vulnerability:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5214 pick=0.4069 matches=470286 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/mystic-vulnerability]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mystic_vulnerability.webp]] Mystic Vulnerability patch history))
 ## [[/item/mystic-vulnerability]]((Mystic Vulnerability))
 - Fixed it stacking with Escalating Exposure
 =
 
 =item:refresher:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5635 pick=0.0408 matches=47175 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/refresher]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/refresher.webp]] Refresher patch history))
 ## [[/item/refresher]]((Refresher))
 - Cooldown increased from 212s to 230s
 =
 
 =item:rescue-beam:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5286 pick=0.0123 matches=14208 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/rescue-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/rescue_beam.webp]] Rescue Beam patch history))
 ## [[/item/rescue-beam]]((Rescue Beam))
 - Cast range reduced from 36m to 32m
 =
 
 =item:restorative-locket:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4982 pick=0.0019 matches=2222 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/restorative-locket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/restorative_locket.webp]] Restorative Locket patch history))
 ## [[/item/restorative-locket]]((Restorative Locket))
 - Spirit Resist increased from 8% to 10%
@@ -771,12 +1311,36 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 =
 
 =item:restorative-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5053 pick=0.1733 matches=200351 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/restorative-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/restorative_shot.webp]] Restorative Shot patch history))
 ## [[/item/restorative-shot]]((Restorative Shot))
 - Weapon Damage reduced from 8% to 7%
 =
 
 =item:return-fire:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4727 pick=0.0399 matches=46103 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/return-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/return_fire.webp]] Return Fire patch history))
 ## [[/item/return-fire]]((Return Fire))
 - Cooldown increased from 25s to 30s
@@ -784,6 +1348,18 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 =
 
 =item:ricochet:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5404 pick=0.1559 matches=180219 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/ricochet]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/ricochet.webp]] Ricochet patch history))
 ## [[/item/ricochet]]((Ricochet))
 - Range reduced from 14m to 11m
@@ -796,18 +1372,54 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 =
 
 =item:siphon-bullets:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.528 pick=0.0236 matches=27311 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/siphon-bullets]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/siphon_bullets.webp]] Siphon Bullets patch history))
 ## [[/item/siphon-bullets]]((Siphon Bullets))
 - HP Steal Per Bullet increased from 45 to 50
 =
 
 =item:slowing-hex:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5013 pick=0.0661 matches=76395 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/slowing-hex]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/slowing_hex.webp]] Slowing Hex patch history))
 ## [[/item/slowing-hex]]((Slowing Hex))
 - Slow reduced from 30% to 25%
 =
 
 =item:spiritual-overflow:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5367 pick=0.0985 matches=113857 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/spiritual-overflow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/spiritual_overflow.webp]] Spiritual Overflow patch history))
 ## [[/item/spiritual-overflow]]((Spiritual Overflow))
 - No longer grants +20% Fire Rate
@@ -816,30 +1428,90 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 =
 
 =item:superior-cooldown:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5086 pick=0.3527 matches=407636 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/superior-cooldown]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/superior_cooldown.webp]] Superior Cooldown patch history))
 ## [[/item/superior-cooldown]]((Superior Cooldown))
 - Now grants +100 Spirit Shield
 =
 
 =item:tesla-bullets:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4956 pick=0.095 matches=109842 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/tesla-bullets]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/tesla_bullets.webp]] Tesla Bullets patch history))
 ## [[/item/tesla-bullets]]((Tesla Bullets))
 - Spirit scaling increased from 0.13 to 0.16
 =
 
 =item:torment-pulse:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5328 pick=0.1069 matches=123596 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/torment-pulse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/torment_pulse.webp]] Torment Pulse patch history))
 ## [[/item/torment-pulse]]((Torment Pulse))
 - Pulse interval is now fixed and does not get reduced with cooldown reduction
 =
 
 =item:toxic-bullets:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5064 pick=0.1327 matches=153403 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/toxic-bullets]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/toxic_bullets.webp]] Toxic Bullets patch history))
 ## [[/item/toxic-bullets]]((Toxic Bullets))
 - Buildup is now 15% slower
 =
 
 =item:vampiric-burst:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5615 pick=0.0217 matches=25137 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/vampiric-burst]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/vampiric_burst.webp]] Vampiric Burst patch history))
 ## [[/item/vampiric-burst]]((Vampiric Burst))
 - Added ammo on active increased from +50% to +75%
@@ -847,6 +1519,18 @@ content_text "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows rang
 =
 
 =item:veil-walker:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4982 pick=0.0359 matches=41530 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/veil-walker]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/veil_walker.webp]] Veil Walker patch history))
 ## [[/item/veil-walker]]((Veil Walker))
 - Speed increased from 3 to 4

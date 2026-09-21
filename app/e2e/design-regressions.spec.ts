@@ -1,5 +1,5 @@
 import { expect, test } from 'playwright/test';
-import { gotoApp, openEntityFilter } from './helpers';
+import { expectNoHorizontalOverflow, gotoApp, openEntityFilter } from './helpers';
 
 const LATEST_CHANGE = '/change/2026/minor-06-11';
 
@@ -36,10 +36,7 @@ test('directory search narrows items without horizontal overflow', async ({ page
 		.fill('Active Reload');
 	await expect(page.getByRole('link', { name: /Active Reload/ })).toBeVisible();
 	await expect(page.getByRole('link', { name: /Berserker/ })).toHaveCount(0);
-	const hasOverflow = await page.evaluate(
-		() => document.documentElement.scrollWidth > window.innerWidth
-	);
-	expect(hasOverflow).toBe(false);
+	await expectNoHorizontalOverflow(page);
 });
 
 test('an ability deep link keeps its entity scope and profile history', async ({
@@ -779,10 +776,7 @@ test('hero histories report measured patch impact without a direction cue', asyn
 		'https://deadlock-api.com'
 	);
 
-	const overflow = await page.evaluate(
-		() => document.documentElement.scrollWidth - document.documentElement.clientWidth
-	);
-	expect(overflow).toBeLessThanOrEqual(0);
+	await expectNoHorizontalOverflow(page);
 });
 
 test('ability histories carry no patch impact lines', async ({ page }) => {

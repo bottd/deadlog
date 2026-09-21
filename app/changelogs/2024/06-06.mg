@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "06-06-2024 Update"
 thread_id "4096"
 published "2024-06-06T14:56:14-0700"
@@ -110,6 +110,18 @@ content_text "Reworked how friend invites work inside the client. You must now b
 ``
 
 =hero:abrams:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=35 days=4
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/abrams]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams patch history))
 ## [[/hero/abrams]]((Abrams))
 - Base HP growth reduced from 36 to 32
@@ -126,6 +138,18 @@ content_text "Reworked how friend invites work inside the client. You must now b
 =
 
 =hero:bebop:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=40 days=4
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/bebop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop patch history))
 ## [[/hero/bebop]]((Bebop))
 ==ability:hyper-beam:
@@ -136,6 +160,18 @@ content_text "Reworked how friend invites work inside the client. You must now b
 =
 
 =hero:dynamo:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=28 days=4
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 - Base HP growth reduced from 48 to 44
@@ -152,6 +188,18 @@ content_text "Reworked how friend invites work inside the client. You must now b
 =
 
 =hero:haze:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=48 days=4
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 ==ability:sleep-dagger:
@@ -174,6 +222,18 @@ content_text "Reworked how friend invites work inside the client. You must now b
 =
 
 =hero:infernus:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=40 days=4
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/infernus]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus patch history))
 ## [[/hero/infernus]]((Infernus))
 ==ability:flame-dash:
@@ -184,6 +244,18 @@ content_text "Reworked how friend invites work inside the client. You must now b
 =
 
 =hero:ivy:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=24 days=4
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
 ## [[/hero/ivy]]((Ivy))
 ==ability:watcher-s-covenant:
@@ -194,6 +266,18 @@ content_text "Reworked how friend invites work inside the client. You must now b
 =
 
 =hero:kelvin:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=28 days=4
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 ==ability:ice-path:
@@ -212,6 +296,18 @@ content_text "Reworked how friend invites work inside the client. You must now b
 =
 
 =hero:mcginnis:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=34 days=4
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 ==ability:spectral-wall:
@@ -222,6 +318,18 @@ content_text "Reworked how friend invites work inside the client. You must now b
 =
 
 =hero:pocket:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=26 days=4
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/pocket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket patch history))
 ## [[/hero/pocket]]((Pocket))
 ==ability:barrage:
@@ -238,6 +346,18 @@ content_text "Reworked how friend invites work inside the client. You must now b
 =
 
 =hero:seven:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=48 days=4
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
 ## [[/hero/seven]]((Seven))
 ==ability:storm-cloud:
@@ -248,6 +368,18 @@ content_text "Reworked how friend invites work inside the client. You must now b
 =
 
 =hero:vindicta:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=43 days=4
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
 ==ability:flight:
@@ -272,6 +404,18 @@ content_text "Reworked how friend invites work inside the client. You must now b
 =
 
 =hero:warden:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=27 days=4
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/warden]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden patch history))
 ## [[/hero/warden]]((Warden))
 - Base ammo increased from 14 to 16
@@ -312,6 +456,18 @@ content_text "Reworked how friend invites work inside the client. You must now b
 =
 
 =item:extra-regen:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=220 days=3
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/extra-regen]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_regen.webp]] Extra Regen patch history))
 ## [[/item/extra-regen]]((Extra Regen))
 - Regen increased from 1.75 to 2
@@ -331,6 +487,18 @@ content_text "Reworked how friend invites work inside the client. You must now b
 =
 
 =item:leech:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=31 days=1
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/leech]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/leech.webp]] Leech patch history))
 ## [[/item/leech]]((Leech))
 - Spirit Lifesteal reduced from +35% to +33%
@@ -362,12 +530,36 @@ content_text "Reworked how friend invites work inside the client. You must now b
 =
 
 =item:sharpshooter:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=62 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/sharpshooter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/sharp_shooter.webp]] Sharpshooter patch history))
 ## [[/item/sharpshooter]]((Sharpshooter))
 - Damage falloff bonus reduced from 20% to 15%
 =
 
 =item:spirit-lifesteal:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=116 days=3
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/spirit-lifesteal]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/spirit_lifesteal.webp]] Spirit Lifesteal patch history))
 ## [[/item/spirit-lifesteal]]((Spirit Lifesteal))
 - Reduced from +25% to +23%

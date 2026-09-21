@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "11-21-2024 Update"
 thread_id "47476"
 published "2024-11-21T15:21:49-0800"
@@ -192,6 +192,18 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 ``
 
 =hero:abrams:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5274 pick=0.5368 matches=91496 days=6
+    after win=0.5212 pick=0.5322 matches=244402 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5073 pick=0.5867 matches=10711 days=7
+  }
+}
+``
 [[/hero/abrams]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams patch history))
 ## [[/hero/abrams]]((Abrams))
 ==ability:infernal-resilience:
@@ -220,6 +232,18 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 =
 
 =hero:bebop:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5006 pick=0.6903 matches=117642 days=6
+    after win=0.5018 pick=0.7034 matches=323023 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4858 pick=0.5871 matches=10717 days=7
+  }
+}
+``
 [[/hero/bebop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop patch history))
 ## [[/hero/bebop]]((Bebop))
 ==ability:hyper-beam:
@@ -240,6 +264,18 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 =
 
 =hero:dynamo:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5092 pick=0.4868 matches=82966 days=6
+    after win=0.4992 pick=0.4938 matches=226788 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5112 pick=0.4805 matches=8772 days=7
+  }
+}
+``
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 ==ability:rejuvenating-aurora:
@@ -284,6 +320,18 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 =
 
 =hero:grey-talon:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4615 pick=0.4552 matches=77574 days=6
+    after win=0.4574 pick=0.4586 matches=210616 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4593 pick=0.2828 matches=5162 days=7
+  }
+}
+``
 [[/hero/grey-talon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon patch history))
 ## [[/hero/grey-talon]]((Grey Talon))
 ==ability:rain-of-arrows:
@@ -320,6 +368,18 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 =
 
 =hero:haze:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5057 pick=0.9223 matches=157190 days=6
+    after win=0.5338 pick=0.9669 matches=444046 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5068 pick=0.9686 matches=17681 days=7
+  }
+}
+``
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 ==ability:bullet-dance:
@@ -350,6 +410,18 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 =
 
 =hero:infernus:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.475 pick=0.7648 matches=130344 days=6
+    after win=0.4717 pick=0.7487 matches=343820 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4429 pick=0.6362 matches=11614 days=7
+  }
+}
+``
 [[/hero/infernus]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus patch history))
 ## [[/hero/infernus]]((Infernus))
 ==ability:catalyst:
@@ -377,6 +449,18 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 =
 
 =hero:ivy:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5119 pick=0.4797 matches=81762 days=6
+    after win=0.5226 pick=0.4973 matches=228369 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5328 pick=0.5505 matches=10050 days=7
+  }
+}
+``
 [[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
 ## [[/hero/ivy]]((Ivy))
 ==ability:watcher-s-covenant-bullet-lifesteal:
@@ -415,6 +499,18 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 =
 
 =hero:kelvin:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4736 pick=0.2859 matches=48735 days=6
+    after win=0.468 pick=0.2761 matches=126801 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.497 pick=0.2882 matches=5262 days=7
+  }
+}
+``
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 ==ability:frost-grenade:
@@ -436,6 +532,18 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 =
 
 =hero:lady-geist:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5038 pick=0.5368 matches=91481 days=6
+    after win=0.5054 pick=0.5237 matches=240498 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5052 pick=0.5606 matches=10234 days=7
+  }
+}
+``
 [[/hero/lady-geist]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]] Lady Geist patch history))
 ## [[/hero/lady-geist]]((Lady Geist))
 ==ability:essence-bomb-self-damage:
@@ -446,6 +554,18 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 =
 
 =hero:lash:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5004 pick=0.615 matches=104820 days=6
+    after win=0.5001 pick=0.6127 matches=281385 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4922 pick=0.7475 matches=13646 days=7
+  }
+}
+``
 [[/hero/lash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp]] Lash patch history))
 ## [[/hero/lash]]((Lash))
 ==ability:flog:
@@ -462,6 +582,18 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 =
 
 =hero:mcginnis:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4838 pick=0.4958 matches=84492 days=6
+    after win=0.495 pick=0.536 matches=246139 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5044 pick=0.3046 matches=5561 days=7
+  }
+}
+``
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 ==ability:medicinal-specter:
@@ -506,6 +638,18 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 =
 
 =hero:mirage:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4933 pick=0.3636 matches=61964 days=6
+    after win=0.4702 pick=0.3139 matches=144165 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4789 pick=0.3847 matches=7022 days=7
+  }
+}
+``
 [[/hero/mirage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage patch history))
 ## [[/hero/mirage]]((Mirage))
 ==ability:tornado:
@@ -529,6 +673,18 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 =
 
 =hero:mo-krill:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5169 pick=0.4211 matches=71771 days=6
+    after win=0.5192 pick=0.4463 matches=204954 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5302 pick=0.4712 matches=8601 days=7
+  }
+}
+``
 [[/hero/mo-krill]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]] Mo & Krill patch history))
 ## [[/hero/mo-krill]]((Mo & Krill))
 ==ability:scorn:
@@ -558,6 +714,18 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 =
 
 =hero:paradox:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.492 pick=0.4903 matches=83561 days=6
+    after win=0.4887 pick=0.4854 matches=222910 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5128 pick=0.6532 matches=11924 days=7
+  }
+}
+``
 [[/hero/paradox]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox patch history))
 ## [[/hero/paradox]]((Paradox))
 ==ability:kinetic-carbine:
@@ -578,6 +746,18 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 =
 
 =hero:pocket:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5138 pick=0.4936 matches=84117 days=6
+    after win=0.4978 pick=0.48 matches=220424 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5259 pick=0.7708 matches=14071 days=7
+  }
+}
+``
 [[/hero/pocket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket patch history))
 ## [[/hero/pocket]]((Pocket))
 ==ability:affliction:
@@ -588,6 +768,18 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 =
 
 =hero:seven:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4943 pick=0.6412 matches=109285 days=6
+    after win=0.5153 pick=0.6724 matches=308789 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4981 pick=0.4586 matches=8371 days=7
+  }
+}
+``
 [[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
 ## [[/hero/seven]]((Seven))
 ==ability:storm-cloud:
@@ -599,6 +791,18 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 =
 
 =hero:shiv:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4774 pick=0.3598 matches=61318 days=6
+    after win=0.4694 pick=0.4299 matches=197440 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4571 pick=0.5054 matches=9226 days=7
+  }
+}
+``
 [[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
 ## [[/hero/shiv]]((Shiv))
 ==ability:bloodletting:
@@ -652,6 +856,18 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 =
 
 =hero:vindicta:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4833 pick=0.633 matches=107889 days=6
+    after win=0.5042 pick=0.6774 matches=311100 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5066 pick=0.6457 matches=11787 days=7
+  }
+}
+``
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
 ==ability:crow-familiar:
@@ -679,6 +895,18 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 =
 
 =hero:viscous:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4966 pick=0.3767 matches=64195 days=6
+    after win=0.4842 pick=0.3567 matches=163799 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4954 pick=0.4078 matches=7444 days=7
+  }
+}
+``
 [[/hero/viscous]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous patch history))
 ## [[/hero/viscous]]((Viscous))
 ==ability:the-cube:
@@ -696,6 +924,18 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 =
 
 =hero:warden:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5459 pick=0.6225 matches=106095 days=6
+    after win=0.5365 pick=0.6272 matches=288017 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5393 pick=0.6879 matches=12557 days=7
+  }
+}
+``
 [[/hero/warden]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden patch history))
 ## [[/hero/warden]]((Warden))
 ==ability:last-stand:
@@ -719,6 +959,18 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 =
 
 =hero:wraith:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4908 pick=0.7475 matches=127396 days=6
+    after win=0.4819 pick=0.7003 matches=321617 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4626 pick=0.455 matches=8306 days=7
+  }
+}
+``
 [[/hero/wraith]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp]] Wraith patch history))
 ## [[/hero/wraith]]((Wraith))
 ==ability:full-auto:
@@ -736,6 +988,18 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 =
 
 =hero:yamato:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5236 pick=0.5814 matches=99091 days=6
+    after win=0.4915 pick=0.4612 matches=211790 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5 pick=0.5665 matches=10341 days=7
+  }
+}
+``
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 ==ability:power-slash:
@@ -759,12 +1023,36 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 ``
 
 =item:active-reload:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4946 pick=0.0722 matches=147646 days=6
+    after win=0.5049 pick=0.0628 matches=345923 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5044 pick=0.0521 matches=11420 days=7
+  }
+}
+``
 [[/item/active-reload]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/active_reload.webp]] Active Reload patch history))
 ## [[/item/active-reload]]((Active Reload))
 - Bullet Lifesteal reduced from 20% to 18%
 =
 
 =item:alchemical-fire:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5202 pick=0.0158 matches=32252 days=6
+    after win=0.5296 pick=0.0215 matches=118329 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5494 pick=0.0363 matches=7947 days=7
+  }
+}
+``
 [[/item/alchemical-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/alchemical_fire.webp]] Alchemical Fire patch history))
 ## [[/item/alchemical-fire]]((Alchemical Fire))
 - DPS burn lingers on targets for 1s
@@ -777,18 +1065,54 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 =
 
 =item:berserker:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5233 pick=0.0805 matches=164662 days=6
+    after win=0.5206 pick=0.0859 matches=473453 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.522 pick=0.1136 matches=24885 days=7
+  }
+}
+``
 [[/item/berserker]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/berserker.webp]] Berserker patch history))
 ## [[/item/berserker]]((Berserker))
 - Weapon Damage per stack increased from 5% to 6%
 =
 
 =item:bullet-lifesteal:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5039 pick=0.2558 matches=523178 days=6
+    after win=0.5124 pick=0.2528 matches=1393006 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5099 pick=0.1963 matches=42991 days=7
+  }
+}
+``
 [[/item/bullet-lifesteal]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/bullet_lifesteal.webp]] Bullet Lifesteal patch history))
 ## [[/item/bullet-lifesteal]]((Bullet Lifesteal))
 - Lifesteal reduced from 28% to 26%
 =
 
 =item:debuff-reducer:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5071 pick=0.0627 matches=128221 days=6
+    after win=0.508 pick=0.07 matches=385886 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5271 pick=0.1267 matches=27750 days=7
+  }
+}
+``
 [[/item/debuff-reducer]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/debuff_reducer.webp]] Debuff Reducer patch history))
 ## [[/item/debuff-reducer]]((Debuff Reducer))
 - Debuff Resist reduced from 30% to 28%
@@ -796,6 +1120,18 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 =
 
 =item:decay:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4808 pick=0.0272 matches=55721 days=6
+    after win=0.4747 pick=0.0244 matches=134710 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.485 pick=0.0473 matches=10357 days=7
+  }
+}
+``
 [[/item/decay]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/decay.webp]] Decay patch history))
 ## [[/item/decay]]((Decay))
 - Cast delay changed from 0.25s to 0.1s, to match other similar actives
@@ -812,6 +1148,18 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 =
 
 =item:diviner-s-kevlar:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5702 pick=0.0648 matches=132479 days=6
+    after win=0.5667 pick=0.0685 matches=377468 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.578 pick=0.0963 matches=21106 days=7
+  }
+}
+``
 [[/item/diviners-kevlar]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/diviners_kevlar.webp]] Diviner's Kevlar patch history))
 ## [[/item/diviners-kevlar]]((Diviner's Kevlar))
 - No longer grants +20% Spirit Lifesteal
@@ -819,24 +1167,72 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 =
 
 =item:echo-shard:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5465 pick=0.0272 matches=55610 days=6
+    after win=0.5379 pick=0.0332 matches=183193 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5235 pick=0.0289 matches=6340 days=7
+  }
+}
+``
 [[/item/echo-shard]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/echo_shard.webp]] Echo Shard patch history))
 ## [[/item/echo-shard]]((Echo Shard))
 - Cast delay reduced from 0.3s to 0.25s
 =
 
 =item:ethereal-shift:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5088 pick=0.0222 matches=45485 days=6
+    after win=0.5092 pick=0.0257 matches=141705 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5483 pick=0.0567 matches=12430 days=7
+  }
+}
+``
 [[/item/ethereal-shift]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/ethereal_shift.webp]] Ethereal Shift patch history))
 ## [[/item/ethereal-shift]]((Ethereal Shift))
 - Post Shift now also grants +20 Spirit Power
 =
 
 =item:glass-cannon:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.566 pick=0.0513 matches=105004 days=6
+    after win=0.5741 pick=0.0628 matches=346209 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5915 pick=0.0412 matches=9028 days=7
+  }
+}
+``
 [[/item/glass-cannon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/glass_cannon.webp]] Glass Cannon patch history))
 ## [[/item/glass-cannon]]((Glass Cannon))
 - Now requires Slowing Bullets and grants the slow passive
 =
 
 =item:headhunter:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5143 pick=0.1606 matches=328387 days=6
+    after win=0.5087 pick=0.1601 matches=882448 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5118 pick=0.1889 matches=41370 days=7
+  }
+}
+``
 [[/item/headhunter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/headhunter.webp]] Headhunter patch history))
 ## [[/item/headhunter]]((Headhunter))
 - Heal per Headshot reduced from 8% to 7%
@@ -844,6 +1240,18 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 =
 
 =item:healbane:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5088 pick=0.1695 matches=346693 days=6
+    after win=0.505 pick=0.1722 matches=949212 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5108 pick=0.2423 matches=53083 days=7
+  }
+}
+``
 [[/item/healbane]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healbane.webp]] Healbane patch history))
 ## [[/item/healbane]]((Healbane))
 - Healing Reduction reduced from 45% to 40%
@@ -851,12 +1259,36 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 =
 
 =item:healing-nova:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5199 pick=0.0599 matches=122463 days=6
+    after win=0.5087 pick=0.0491 matches=270816 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5157 pick=0.0585 matches=12811 days=7
+  }
+}
+``
 [[/item/healing-nova]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healing_nova.webp]] Healing Nova patch history))
 ## [[/item/healing-nova]]((Healing Nova))
 - No longer has +6% Ability Range
 =
 
 =item:heroic-aura:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5326 pick=0.027 matches=55283 days=6
+    after win=0.5375 pick=0.0326 matches=179529 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.555 pick=0.042 matches=9205 days=7
+  }
+}
+``
 [[/item/heroic-aura]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/heroic_aura.webp]] Heroic Aura patch history))
 ## [[/item/heroic-aura]]((Heroic Aura))
 - Bullet Lifesteal reduced from 20% to 18%
@@ -864,24 +1296,72 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 =
 
 =item:hunter-s-aura:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5545 pick=0.0559 matches=114225 days=6
+    after win=0.5487 pick=0.0542 matches=298830 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.538 pick=0.068 matches=14904 days=7
+  }
+}
+``
 [[/item/hunters-aura]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/hunters_aura.webp]] Hunter's Aura patch history))
 ## [[/item/hunters-aura]]((Hunter's Aura))
 - Fire Rate slow reduced from 10% to 9%
 =
 
 =item:improved-spirit:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5078 pick=0.2438 matches=498621 days=6
+    after win=0.5071 pick=0.27 matches=1487845 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5077 pick=0.2046 matches=44813 days=7
+  }
+}
+``
 [[/item/improved-spirit]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/improved_spirit.webp]] Improved Spirit patch history))
 ## [[/item/improved-spirit]]((Improved Spirit))
 - Health increased from 100 to 125
 =
 
 =item:infuser:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.482 pick=0.0574 matches=117420 days=6
+    after win=0.4799 pick=0.0579 matches=319290 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4651 pick=0.0752 matches=16483 days=7
+  }
+}
+``
 [[/item/infuser]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/infuser.webp]] Infuser patch history))
 ## [[/item/infuser]]((Infuser))
 - Cooldown reduced from 37s to 32s
 =
 
 =item:knockdown:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4979 pick=0.038 matches=77704 days=6
+    after win=0.4866 pick=0.0449 matches=247704 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4942 pick=0.0543 matches=11901 days=7
+  }
+}
+``
 [[/item/knockdown]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/knockdown.webp]] Knockdown patch history))
 ## [[/item/knockdown]]((Knockdown))
 - Cast delay changed from 0.25s to 0.1s, to match other similar actives
@@ -889,6 +1369,18 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 =
 
 =item:leech:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5546 pick=0.1023 matches=209308 days=6
+    after win=0.5555 pick=0.1172 matches=645635 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5726 pick=0.06 matches=13148 days=7
+  }
+}
+``
 [[/item/leech]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/leech.webp]] Leech patch history))
 ## [[/item/leech]]((Leech))
 - Bullet Lifesteal reduced from 35% to 32%
@@ -896,12 +1388,36 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 =
 
 =item:lifestrike:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.534 pick=0.0434 matches=88704 days=6
+    after win=0.5209 pick=0.0488 matches=268971 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.504 pick=0.0413 matches=9046 days=7
+  }
+}
+``
 [[/item/lifestrike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/lifestrike.webp]] Lifestrike patch history))
 ## [[/item/lifestrike]]((Lifestrike))
 - Lifesteal reduced from 65% to 55%
 =
 
 =item:lucky-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5698 pick=0.0681 matches=139250 days=6
+    after win=0.5866 pick=0.0826 matches=455386 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5849 pick=0.0696 matches=15244 days=7
+  }
+}
+``
 [[/item/lucky-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/lucky_shot.webp]] Lucky Shot patch history))
 ## [[/item/lucky-shot]]((Lucky Shot))
 - Damage multiplier increased from 90% to 110%
@@ -909,12 +1425,36 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 =
 
 =item:majestic-leap:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5229 pick=0.0392 matches=80092 days=6
+    after win=0.5184 pick=0.0371 matches=204308 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5091 pick=0.0434 matches=9502 days=7
+  }
+}
+``
 [[/item/majestic-leap]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/majestic_leap.webp]] Majestic Leap patch history))
 ## [[/item/majestic-leap]]((Majestic Leap))
 - Now grants +6% Spirit Resist
 =
 
 =item:melee-lifesteal:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5124 pick=0.1099 matches=224824 days=6
+    after win=0.5018 pick=0.116 matches=639416 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4921 pick=0.1223 matches=26793 days=7
+  }
+}
+``
 [[/item/melee-lifesteal]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/melee_lifesteal.webp]] Melee Lifesteal patch history))
 ## [[/item/melee-lifesteal]]((Melee Lifesteal))
 - Lifesteal reduced from 20% to 18%
@@ -922,12 +1462,36 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 =
 
 =item:metal-skin:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4406 pick=0.0357 matches=73081 days=6
+    after win=0.4168 pick=0.0339 matches=186731 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4317 pick=0.0559 matches=12256 days=7
+  }
+}
+``
 [[/item/metal-skin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/metal_skin.webp]] Metal Skin patch history))
 ## [[/item/metal-skin]]((Metal Skin))
 - Active now reduces your Move Speed by 1.5
 =
 
 =item:monster-rounds:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5041 pick=0.2154 matches=440575 days=6
+    after win=0.5043 pick=0.2116 matches=1166240 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5106 pick=0.2119 matches=46409 days=7
+  }
+}
+``
 [[/item/monster-rounds]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/monster_rounds.webp]] Monster Rounds patch history))
 ## [[/item/monster-rounds]]((Monster Rounds))
 - Bonus Health reduced from 50 to 30
@@ -940,6 +1504,18 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 =
 
 =item:mystic-slow:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5189 pick=0.0626 matches=128036 days=6
+    after win=0.5295 pick=0.0757 matches=416991 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5378 pick=0.0567 matches=12423 days=7
+  }
+}
+``
 [[/item/mystic-slow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mystic_slow.webp]] Mystic Slow patch history))
 ## [[/item/mystic-slow]]((Mystic Slow))
 - Now grants +1 Sprint
@@ -947,36 +1523,108 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 =
 
 =item:phantom-strike:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5849 pick=0.0121 matches=24649 days=6
+    after win=0.574 pick=0.0143 matches=78992 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.577 pick=0.0232 matches=5088 days=7
+  }
+}
+``
 [[/item/phantom-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/phantom_strike.webp]] Phantom Strike patch history))
 ## [[/item/phantom-strike]]((Phantom Strike))
 - Cast range now ignores the Z height (similar to Lash's Death Slam)
 =
 
 =item:rapid-recharge:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4975 pick=0.1813 matches=370858 days=6
+    after win=0.5004 pick=0.1981 matches=1091629 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.506 pick=0.1655 matches=36256 days=7
+  }
+}
+``
 [[/item/rapid-recharge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/rapid_recharge.webp]] Rapid Recharge patch history))
 ## [[/item/rapid-recharge]]((Rapid Recharge))
 - Time between charges reduced from 65% to 60%
 =
 
 =item:rapid-rounds:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4907 pick=0.1729 matches=353640 days=6
+    after win=0.504 pick=0.1848 matches=1018470 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4946 pick=0.1885 matches=41283 days=7
+  }
+}
+``
 [[/item/rapid-rounds]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/rapid_rounds.webp]] Rapid Rounds patch history))
 ## [[/item/rapid-rounds]]((Rapid Rounds))
 - Fire Rate increased from 10% to 11%
 =
 
 =item:reactive-barrier:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4994 pick=0.0576 matches=117793 days=6
+    after win=0.4933 pick=0.0617 matches=340233 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5035 pick=0.0767 matches=16795 days=7
+  }
+}
+``
 [[/item/reactive-barrier]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/reactive_barrier.webp]] Reactive Barrier patch history))
 ## [[/item/reactive-barrier]]((Reactive Barrier))
 - Bullet Shield health reduced from 400 to 350
 =
 
 =item:refresher:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5794 pick=0.0243 matches=49675 days=6
+    after win=0.5661 pick=0.0233 matches=128307 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5885 pick=0.0305 matches=6690 days=7
+  }
+}
+``
 [[/item/refresher]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/refresher.webp]] Refresher patch history))
 ## [[/item/refresher]]((Refresher))
 - Cooldown increased from 230s to 260s
 =
 
 =item:rescue-beam:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5267 pick=0.018 matches=36788 days=6
+    after win=0.5249 pick=0.0184 matches=101210 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5325 pick=0.0364 matches=7970 days=7
+  }
+}
+``
 [[/item/rescue-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/rescue_beam.webp]] Rescue Beam patch history))
 ## [[/item/rescue-beam]]((Rescue Beam))
 - Heal reduced from 26% to 24%
@@ -986,48 +1634,144 @@ content_text "This update includes a new version of the matchmaker. The matchmak
 =
 
 =item:restorative-locket:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5233 pick=0.0101 matches=20602 days=6
+    after win=0.5047 pick=0.0098 matches=53889 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5148 pick=0.0227 matches=4969 days=7
+  }
+}
+``
 [[/item/restorative-locket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/restorative_locket.webp]] Restorative Locket patch history))
 ## [[/item/restorative-locket]]((Restorative Locket))
 - Regen per stack reduced from 35 to 32
 =
 
 =item:return-fire:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4884 pick=0.0625 matches=127793 days=6
+    after win=0.4652 pick=0.0681 matches=375089 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4735 pick=0.1149 matches=25178 days=7
+  }
+}
+``
 [[/item/return-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/return_fire.webp]] Return Fire patch history))
 ## [[/item/return-fire]]((Return Fire))
 - Now requires Extra Regen
 =
 
 =item:silencer:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.6001 pick=0.0169 matches=92920 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.6041 pick=0.023 matches=5036 days=7
+  }
+}
+``
 [[/item/silencer]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/silencer.webp]] Silencer patch history))
 ## [[/item/silencer]]((Silencer))
 - Reworked item. Passively builds up on enemies, silencing for 2s and then reducing spirit damage output by 40% for 4s. Enemies affected cannot be affected again for 12s. Grants +20% Weapon Damage, +15% Spirit Resist and 20% Debuff Reduction. (Buildup is a bit slower than Toxic Bullets)
 =
 
 =item:slowing-hex:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5223 pick=0.0982 matches=200812 days=6
+    after win=0.517 pick=0.0991 matches=546034 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5167 pick=0.1779 matches=38967 days=7
+  }
+}
+``
 [[/item/slowing-hex]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/slowing_hex.webp]] Slowing Hex patch history))
 ## [[/item/slowing-hex]]((Slowing Hex))
 - No longer interrupts sliding, to match other similar actives
 =
 
 =item:spirit-lifesteal:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5007 pick=0.2272 matches=464589 days=6
+    after win=0.5007 pick=0.2494 matches=1374597 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4995 pick=0.2126 matches=46580 days=7
+  }
+}
+``
 [[/item/spirit-lifesteal]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/spirit_lifesteal.webp]] Spirit Lifesteal patch history))
 ## [[/item/spirit-lifesteal]]((Spirit Lifesteal))
 - Lifesteal reduced from 23% to 22%
 =
 
 =item:torment-pulse:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5453 pick=0.0981 matches=200559 days=6
+    after win=0.5309 pick=0.0997 matches=549544 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5219 pick=0.1191 matches=26091 days=7
+  }
+}
+``
 [[/item/torment-pulse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/torment_pulse.webp]] Torment Pulse patch history))
 ## [[/item/torment-pulse]]((Torment Pulse))
 - Now grants +15% Melee Resistance
 =
 
 =item:toxic-bullets:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.495 pick=0.1146 matches=234358 days=6
+    after win=0.4929 pick=0.1141 matches=628838 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4741 pick=0.0975 matches=21362 days=7
+  }
+}
+``
 [[/item/toxic-bullets]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/toxic_bullets.webp]] Toxic Bullets patch history))
 ## [[/item/toxic-bullets]]((Toxic Bullets))
 - Healing Reduction reduced from 65% to 50%
 =
 
 =item:vampiric-burst:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5922 pick=0.0159 matches=32419 days=6
+    after win=0.5978 pick=0.0176 matches=97197 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.6258 pick=0.0175 matches=3824 days=7
+  }
+}
+``
 [[/item/vampiric-burst]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/vampiric_burst.webp]] Vampiric Burst patch history))
 ## [[/item/vampiric-burst]]((Vampiric Burst))
 - Bullet Lifesteal reduced from 100% to 80%

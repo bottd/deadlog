@@ -8,36 +8,14 @@ export interface DailyRow {
 	matches: number;
 }
 
-export interface DailySeries {
-	rows: DailyRow[];
-	totalMatches: Map<number, number>;
-}
+export type DailyTotals = Map<number, number>;
 
-export type AllSeries = Record<EntityKind, Record<RankTier, DailySeries>>;
+export interface AllSeries {
+	rows: Record<EntityKind, Record<RankTier, DailyRow[]>>;
+	totals: Record<RankTier, DailyTotals>;
+}
 
 export interface TimeRange {
 	from: number;
 	to: number;
-}
-
-export interface ImpactWindow {
-	winRate: number | null;
-	pickRate: number | null;
-	matches: number;
-	days: number;
-	closed: boolean;
-}
-
-export interface TierImpact {
-	before: ImpactWindow;
-	after: ImpactWindow;
-}
-
-export type EntityImpact = Record<RankTier, TierImpact>;
-
-export interface ImpactSnapshot {
-	generatedAt: string;
-	highRankMinBadge: number;
-	minWindowMatches: number;
-	impact: Record<string, Record<string, EntityImpact>>;
 }

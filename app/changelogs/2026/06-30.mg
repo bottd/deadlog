@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "Minor Update - 06-30-2026"
 alias "2026/minor-06-30"
 thread_id "146261"
@@ -64,6 +64,18 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 ``
 
 =hero:abrams:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5218 pick=0.3828 matches=227006 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=0.5163 pick=0.4329 matches=42669 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/abrams]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams patch history))
 ## [[/hero/abrams]]((Abrams))
 ==ability:siphon-life:
@@ -79,6 +91,18 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 =
 
 =hero:apollo:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4856 pick=0.2383 matches=141315 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=0.4696 pick=0.1876 matches=18488 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/apollo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/fencer_sm.webp]] Apollo patch history))
 ## [[/hero/apollo]]((Apollo))
 ==ability:riposte:
@@ -102,6 +126,18 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 =
 
 =hero:billy:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5123 pick=0.4715 matches=279561 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=0.515 pick=0.4735 matches=46663 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/billy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/punkgoat_sm.webp]] Billy patch history))
 ## [[/hero/billy]]((Billy))
 - Bullet damage per boon reduced by 10%
@@ -120,6 +156,18 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 =
 
 =hero:celeste:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4679 pick=0.2803 matches=166182 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=0.4625 pick=0.1808 matches=17821 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/celeste]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/unicorn_sm.webp]] Celeste patch history))
 ## [[/hero/celeste]]((Celeste))
 ==ability:dazzling-trick:
@@ -142,6 +190,18 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 =
 
 =hero:doorman:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5023 pick=0.234 matches=138780 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=0.4977 pick=0.2068 matches=20380 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/the-doorman]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/doorman_sm.webp]] Doorman patch history))
 ## [[/hero/the-doorman]]((Doorman))
 ==ability:doorway:
@@ -152,6 +212,18 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 =
 
 =hero:drifter:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5039 pick=0.37 matches=219408 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=0.4973 pick=0.3681 matches=36282 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/drifter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/drifter_sm.webp]] Drifter patch history))
 ## [[/hero/drifter]]((Drifter))
 - Health per boon increased from 41 to 43 (global hp boon reduction is after this)
@@ -171,6 +243,18 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 =
 
 =hero:dynamo:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5176 pick=0.2954 matches=175146 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=0.5156 pick=0.2253 matches=22200 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 ==ability:rejuvenating-aurora:
@@ -181,6 +265,18 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 =
 
 =hero:grey-talon:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4889 pick=0.2503 matches=148395 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=0.4797 pick=0.2997 matches=29541 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/grey-talon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon patch history))
 ## [[/hero/grey-talon]]((Grey Talon))
 ==ability:rain-of-arrows:
@@ -196,6 +292,18 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 =
 
 =hero:haze:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5285 pick=0.4924 matches=291997 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=0.5018 pick=0.4255 matches=41936 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 ==ability:sleep-dagger:
@@ -212,6 +320,18 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 =
 
 =hero:holliday:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5059 pick=0.346 matches=205144 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=0.5285 pick=0.4271 matches=42088 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/holliday]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]] Holliday patch history))
 ## [[/hero/holliday]]((Holliday))
 ==ability:powder-keg:
@@ -225,6 +345,18 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 =
 
 =hero:ivy:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5255 pick=0.2668 matches=158193 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=0.5256 pick=0.2984 matches=29408 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
 ## [[/hero/ivy]]((Ivy))
 ==ability:entangling-thorns:
@@ -245,6 +377,18 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 =
 
 =hero:lash:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5021 pick=0.3855 matches=228613 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=0.4996 pick=0.4678 matches=46102 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/lash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp]] Lash patch history))
 ## [[/hero/lash]]((Lash))
 ==ability:ground-strike:
@@ -260,6 +404,18 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 =
 
 =hero:mina:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4507 pick=0.3266 matches=193649 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=0.4621 pick=0.2278 matches=22450 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/mina]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/vampirebat_sm.webp]] Mina patch history))
 ## [[/hero/mina]]((Mina))
 ==ability:rake:
@@ -281,6 +437,18 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 =
 
 =hero:mo-krill:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5046 pick=0.2373 matches=140738 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=0.4981 pick=0.2487 matches=24511 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/mo-krill]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]] Mo & Krill patch history))
 ## [[/hero/mo-krill]]((Mo & Krill))
 ==ability:sand-blast:
@@ -297,6 +465,18 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 =
 
 =hero:paige:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5256 pick=0.3095 matches=183505 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=0.5165 pick=0.2361 matches=23270 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/paige]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bookworm_sm.webp]] Paige patch history))
 ## [[/hero/paige]]((Paige))
 - Health per boon increased from 29 to 33
@@ -326,6 +506,18 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 =
 
 =hero:paradox:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.464 pick=0.2373 matches=140738 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=0.4704 pick=0.2747 matches=27070 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/paradox]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox patch history))
 ## [[/hero/paradox]]((Paradox))
 ==ability:kinetic-carbine:
@@ -337,6 +529,18 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 =
 
 =hero:pocket:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4696 pick=0.2353 matches=139555 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=0.4751 pick=0.2944 matches=29013 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/pocket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket patch history))
 ## [[/hero/pocket]]((Pocket))
 - Bullet damage per boon reduced from 0.16 to 0.14
@@ -348,6 +552,18 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 =
 
 =hero:rem:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4888 pick=0.4368 matches=259013 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=0.4937 pick=0.3571 matches=35193 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/rem]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/familiar_sm.webp]] Rem patch history))
 ## [[/hero/rem]]((Rem))
 ==ability:tag-along:
@@ -371,6 +587,18 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 =
 
 =hero:seven:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.562 pick=0.4673 matches=277092 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=0.5621 pick=0.4266 matches=42043 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
 ## [[/hero/seven]]((Seven))
 ==ability:lightning-ball:
@@ -388,6 +616,18 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 =
 
 =hero:shiv:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4765 pick=0.373 matches=221157 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=0.4853 pick=0.4785 matches=47160 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
 ## [[/hero/shiv]]((Shiv))
 - Alt Fire damage now has a custom value per boon (+0.2)
@@ -433,6 +673,18 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 =
 
 =hero:vindicta:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4889 pick=0.2833 matches=168011 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=0.4995 pick=0.2825 matches=27844 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
 ==ability:stake:
@@ -454,6 +706,18 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 =
 
 =hero:viscous:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4795 pick=0.232 matches=137540 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=0.4783 pick=0.276 matches=27199 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/viscous]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous patch history))
 ## [[/hero/viscous]]((Viscous))
 ==ability:splatter:
@@ -474,6 +738,18 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 =
 
 =hero:vyper:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4678 pick=0.1574 matches=93361 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=0.5001 pick=0.1586 matches=15631 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/vyper]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kali_sm.webp]] Vyper patch history))
 ## [[/hero/vyper]]((Vyper))
 ==ability:screwjab-dagger:
@@ -489,6 +765,18 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 =
 
 =hero:warden:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5019 pick=0.2624 matches=155585 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=0.503 pick=0.2691 matches=26523 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/warden]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden patch history))
 ## [[/hero/warden]]((Warden))
 - Bullet damage per boon reduced from 0.34 to 0.28
@@ -507,18 +795,54 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 ``
 
 =item:cursed-relic:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5034 pick=0.0334 matches=237513 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=0.5109 pick=0.0423 matches=50027 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/cursed-relic]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/curse.webp]] Cursed Relic patch history))
 ## [[/item/cursed-relic]]((Cursed Relic))
 - Damage Penalty increased from -10% to -14%
 =
 
 =item:mystic-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5017 pick=0.147 matches=1045879 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=0.5088 pick=0.1862 matches=220211 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/mystic-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/mystic_shot.webp]] Mystic Shot patch history))
 ## [[/item/mystic-shot]]((Mystic Shot))
 - Cooldown increased from 8s to 9s
 =
 
 =item:scourge:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.6005 pick=0.0502 matches=357340 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=0.5985 pick=0.0784 matches=92748 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/scourge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/scourge.webp]] Scourge patch history))
 ## [[/item/scourge]]((Scourge))
 - Max Health DPS reduced from 3.5% to 2.6%
@@ -526,6 +850,18 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 =
 
 =item:toxic-bullets:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5087 pick=0.1062 matches=755580 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=0.5016 pick=0.0835 matches=98799 days=14
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/toxic-bullets]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/toxic_bullets.webp]] Toxic Bullets patch history))
 ## [[/item/toxic-bullets]]((Toxic Bullets))
 - Bleed damage increased from 1.7% to 1.9%

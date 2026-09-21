@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "Some Are Merciful, The Venator Is Not"
 steam_gid "1823825466497894"
 published "2026-02-05T22:00:06.000Z"

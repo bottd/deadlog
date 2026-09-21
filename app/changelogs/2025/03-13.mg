@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "03-13-2025 Update"
 thread_id "58592"
 published "2025-03-13T11:40:11-0700"
@@ -33,6 +33,18 @@ content_text "Increased horizontal soul orb movement a bit Soul Orb spawn delay 
 ``
 
 =hero:haze:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5239 pick=0.8899 matches=285865 days=14
+    after win=0.4855 pick=0.859 matches=61121 days=3
+  }
+  high {
+    before win=0.496 pick=0.8609 matches=11025 days=14
+    after win=0.4214 pick=0.7385 matches=2112 days=3
+  }
+}
+``
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 ==ability:bullet-dance:
@@ -43,6 +55,18 @@ content_text "Increased horizontal soul orb movement a bit Soul Orb spawn delay 
 =
 
 =hero:holliday:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4563 pick=0.3506 matches=112630 days=14
+    after win=0.4475 pick=0.271 matches=19283 days=3
+  }
+  high {
+    before win=0.4937 pick=0.4335 matches=5552 days=14
+    after win=#null pick=#null matches=785 days=3
+  }
+}
+``
 [[/hero/holliday]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]] Holliday patch history))
 ## [[/hero/holliday]]((Holliday))
 ==ability:powder-keg:
@@ -69,6 +93,18 @@ content_text "Increased horizontal soul orb movement a bit Soul Orb spawn delay 
 =
 
 =hero:sinclair:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4629 pick=0.2689 matches=86372 days=14
+    after win=0.4564 pick=0.2117 matches=15063 days=3
+  }
+  high {
+    before win=0.5006 pick=0.2522 matches=3230 days=14
+    after win=#null pick=#null matches=579 days=3
+  }
+}
+``
 [[/hero/sinclair]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/magician_sm.webp]] Sinclair patch history))
 ## [[/hero/sinclair]]((Sinclair))
 ==ability:assistant:
@@ -90,6 +126,18 @@ content_text "Increased horizontal soul orb movement a bit Soul Orb spawn delay 
 ``
 
 =item:cold-front:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5224 pick=0.2713 matches=1045605 days=14
+    after win=0.5179 pick=0.2197 matches=187618 days=3
+  }
+  high {
+    before win=0.5129 pick=0.4402 matches=67647 days=14
+    after win=0.5091 pick=0.2966 matches=10181 days=3
+  }
+}
+``
 [[/item/cold-front]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/cold_front.webp]] Cold Front patch history))
 ## [[/item/cold-front]]((Cold Front))
 - No longer does double damage to creeps

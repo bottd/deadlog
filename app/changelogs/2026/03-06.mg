@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "Gameplay Update - 03-06-2026"
 alias "2026/gameplay-03-06"
 thread_id "114328"
@@ -80,6 +80,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 ``
 
 =hero:abrams:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5251 pick=0.3625 matches=309176 days=14
+    after win=0.4863 pick=0.2452 matches=234662 days=14
+  }
+  high {
+    before win=0.5218 pick=0.4125 matches=48124 days=14
+    after win=0.4837 pick=0.2488 matches=36344 days=14
+  }
+}
+``
 [[/hero/abrams]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams patch history))
 ## [[/hero/abrams]]((Abrams))
 - Bullet damage reduced from 3.86+0.13/boon to 3.6+0.1/boon
@@ -167,6 +179,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =hero:apollo:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4929 pick=0.5639 matches=481001 days=14
+    after win=0.5032 pick=0.3495 matches=334474 days=14
+  }
+  high {
+    before win=0.4928 pick=0.6907 matches=80586 days=14
+    after win=0.51 pick=0.3345 matches=48853 days=14
+  }
+}
+``
 [[/hero/apollo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/fencer_sm.webp]] Apollo patch history))
 ## [[/hero/apollo]]((Apollo))
 ==ability:riposte:
@@ -202,6 +226,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =hero:bebop:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4887 pick=0.4033 matches=343957 days=14
+    after win=0.4523 pick=0.3314 matches=317185 days=14
+  }
+  high {
+    before win=0.4721 pick=0.5045 matches=58862 days=14
+    after win=0.4362 pick=0.3682 matches=53778 days=14
+  }
+}
+``
 [[/hero/bebop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop patch history))
 ## [[/hero/bebop]]((Bebop))
 ==ability:grapple-arm:
@@ -212,6 +248,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =hero:billy:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.481 pick=0.3169 matches=270271 days=14
+    after win=0.4751 pick=0.2828 matches=270670 days=14
+  }
+  high {
+    before win=0.4863 pick=0.1992 matches=23246 days=14
+    after win=0.4736 pick=0.1951 matches=28497 days=14
+  }
+}
+``
 [[/hero/billy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/punkgoat_sm.webp]] Billy patch history))
 ## [[/hero/billy]]((Billy))
 ==ability:bashdown:
@@ -261,6 +309,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =hero:calico:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5015 pick=0.1891 matches=161282 days=14
+    after win=0.5258 pick=0.3424 matches=327728 days=14
+  }
+  high {
+    before win=0.5068 pick=0.2382 matches=27794 days=14
+    after win=0.5375 pick=0.5053 matches=73804 days=14
+  }
+}
+``
 [[/hero/calico]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp]] Calico patch history))
 ## [[/hero/calico]]((Calico))
 ==ability:bullets:
@@ -343,6 +403,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =hero:celeste:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4878 pick=0.5001 matches=426524 days=14
+    after win=0.464 pick=0.307 matches=293786 days=14
+  }
+  high {
+    before win=0.5021 pick=0.5284 matches=61645 days=14
+    after win=0.4812 pick=0.2385 matches=34841 days=14
+  }
+}
+``
 [[/hero/celeste]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/unicorn_sm.webp]] Celeste patch history))
 ## [[/hero/celeste]]((Celeste))
 - Gravity reduced from -20% to -28% (less gravity)
@@ -401,6 +473,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =hero:doorman:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4548 pick=0.2629 matches=224246 days=14
+    after win=0.5011 pick=0.4602 matches=440449 days=14
+  }
+  high {
+    before win=0.4483 pick=0.1749 matches=20407 days=14
+    after win=0.4915 pick=0.4213 matches=61543 days=14
+  }
+}
+``
 [[/hero/the-doorman]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/doorman_sm.webp]] Doorman patch history))
 ## [[/hero/the-doorman]]((Doorman))
 - Gun now pierces through targets at 50% reduced damage
@@ -479,6 +563,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =hero:drifter:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5273 pick=0.4227 matches=360497 days=14
+    after win=0.4959 pick=0.3983 matches=381237 days=14
+  }
+  high {
+    before win=0.5277 pick=0.4512 matches=52644 days=14
+    after win=0.5007 pick=0.4394 matches=64178 days=14
+  }
+}
+``
 [[/hero/drifter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/drifter_sm.webp]] Drifter patch history))
 ## [[/hero/drifter]]((Drifter))
 ==ability:rend:
@@ -534,6 +630,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =hero:dynamo:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5096 pick=0.3096 matches=264094 days=14
+    after win=0.5352 pick=0.3297 matches=315498 days=14
+  }
+  high {
+    before win=0.5145 pick=0.2724 matches=31779 days=14
+    after win=0.5287 pick=0.2839 matches=41470 days=14
+  }
+}
+``
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 - Bullet damage increased from 12.2+0.44 to 12.6+0.5
@@ -608,6 +716,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =hero:graves:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5292 pick=0.6063 matches=517152 days=14
+    after win=0.5054 pick=0.4381 matches=419284 days=14
+  }
+  high {
+    before win=0.5218 pick=0.5148 matches=60058 days=14
+    after win=0.5052 pick=0.2568 matches=37503 days=14
+  }
+}
+``
 [[/hero/graves]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/necro_sm.webp]] Graves patch history))
 ## [[/hero/graves]]((Graves))
 ==ability:grasping-hands:
@@ -656,6 +776,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =hero:haze:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5456 pick=0.4856 matches=414220 days=14
+    after win=0.5596 pick=0.4582 matches=438504 days=14
+  }
+  high {
+    before win=0.5268 pick=0.518 matches=60432 days=14
+    after win=0.5381 pick=0.4801 matches=70130 days=14
+  }
+}
+``
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 - Spirit per boon reduced from 1.1 to 0.5
@@ -719,6 +851,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =hero:infernus:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4817 pick=0.2863 matches=244198 days=14
+    after win=0.5103 pick=0.3624 matches=346852 days=14
+  }
+  high {
+    before win=0.4606 pick=0.2576 matches=30051 days=14
+    after win=0.487 pick=0.3464 matches=50589 days=14
+  }
+}
+``
 [[/hero/infernus]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus patch history))
 ## [[/hero/infernus]]((Infernus))
 ==ability:napalm:
@@ -778,6 +922,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =hero:ivy:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5151 pick=0.2346 matches=200092 days=14
+    after win=0.5423 pick=0.3745 matches=358460 days=14
+  }
+  high {
+    before win=0.5305 pick=0.2664 matches=31077 days=14
+    after win=0.549 pick=0.495 matches=72305 days=14
+  }
+}
+``
 [[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
 ## [[/hero/ivy]]((Ivy))
 - Now has -10% Gravity
@@ -893,6 +1049,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =hero:kelvin:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4607 pick=0.1257 matches=107206 days=14
+    after win=0.5247 pick=0.2114 matches=202312 days=14
+  }
+  high {
+    before win=0.4556 pick=0.1059 matches=12352 days=14
+    after win=0.5276 pick=0.2541 matches=37120 days=14
+  }
+}
+``
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 ==ability:frost-grenade:
@@ -974,6 +1142,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =hero:lady-geist:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4843 pick=0.2173 matches=185349 days=14
+    after win=0.5288 pick=0.2719 matches=260218 days=14
+  }
+  high {
+    before win=0.4655 pick=0.1761 matches=20545 days=14
+    after win=0.5197 pick=0.2724 matches=39791 days=14
+  }
+}
+``
 [[/hero/lady-geist]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]] Lady Geist patch history))
 ## [[/hero/lady-geist]]((Lady Geist))
 ==ability:essence-bomb:
@@ -1007,6 +1187,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =hero:lash:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5105 pick=0.4103 matches=349986 days=14
+    after win=0.4917 pick=0.3799 matches=363581 days=14
+  }
+  high {
+    before win=0.5056 pick=0.5558 matches=64844 days=14
+    after win=0.4871 pick=0.4732 matches=69120 days=14
+  }
+}
+``
 [[/hero/lash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp]] Lash patch history))
 ## [[/hero/lash]]((Lash))
 - Increased Sparkles
@@ -1058,6 +1250,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =hero:mcginnis:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4973 pick=0.195 matches=166314 days=14
+    after win=0.5317 pick=0.2553 matches=244337 days=14
+  }
+  high {
+    before win=0.4974 pick=0.1184 matches=13812 days=14
+    after win=0.5557 pick=0.2549 matches=37230 days=14
+  }
+}
+``
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 - Stamina speed bucket 3 to 2
@@ -1156,6 +1360,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =hero:mina:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.46 pick=0.3888 matches=331593 days=14
+    after win=0.4495 pick=0.3639 matches=348241 days=14
+  }
+  high {
+    before win=0.4778 pick=0.2418 matches=28213 days=14
+    after win=0.4616 pick=0.2594 matches=37895 days=14
+  }
+}
+``
 [[/hero/mina]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/vampirebat_sm.webp]] Mina patch history))
 ## [[/hero/mina]]((Mina))
 - Stamina cooldown increased from 3.9s to 4.2s
@@ -1221,6 +1437,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =hero:mirage:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4784 pick=0.1634 matches=139371 days=14
+    after win=0.4255 pick=0.2029 matches=194186 days=14
+  }
+  high {
+    before win=0.4607 pick=0.1768 matches=20622 days=14
+    after win=0.3991 pick=0.2388 matches=34883 days=14
+  }
+}
+``
 [[/hero/mirage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage patch history))
 ## [[/hero/mirage]]((Mirage))
 - Bullet damage reduced from 15.2+0.5 to 14.8+0.3
@@ -1322,6 +1550,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =hero:mo-krill:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.521 pick=0.2743 matches=233914 days=14
+    after win=0.5137 pick=0.3452 matches=330354 days=14
+  }
+  high {
+    before win=0.5304 pick=0.359 matches=41888 days=14
+    after win=0.5213 pick=0.4715 matches=68862 days=14
+  }
+}
+``
 [[/hero/mo-krill]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]] Mo & Krill patch history))
 ## [[/hero/mo-krill]]((Mo & Krill))
 ==ability:scorn:
@@ -1406,6 +1646,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =hero:paige:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5184 pick=0.432 matches=368492 days=14
+    after win=0.5292 pick=0.3931 matches=376193 days=14
+  }
+  high {
+    before win=0.5152 pick=0.3473 matches=40517 days=14
+    after win=0.5017 pick=0.2831 matches=41347 days=14
+  }
+}
+``
 [[/hero/paige]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bookworm_sm.webp]] Paige patch history))
 ## [[/hero/paige]]((Paige))
 ==ability:bookwyrm:
@@ -1445,6 +1697,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =hero:paradox:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4559 pick=0.193 matches=164653 days=14
+    after win=0.4737 pick=0.2888 matches=276400 days=14
+  }
+  high {
+    before win=0.4605 pick=0.24 matches=27996 days=14
+    after win=0.4748 pick=0.3894 matches=56882 days=14
+  }
+}
+``
 [[/hero/paradox]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox patch history))
 ## [[/hero/paradox]]((Paradox))
 ==ability:pulse-grenade:
@@ -1526,6 +1790,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =hero:pocket:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4813 pick=0.1909 matches=162838 days=14
+    after win=0.4893 pick=0.2313 matches=221328 days=14
+  }
+  high {
+    before win=0.4858 pick=0.2061 matches=24044 days=14
+    after win=0.4883 pick=0.2669 matches=38979 days=14
+  }
+}
+``
 [[/hero/pocket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket patch history))
 ## [[/hero/pocket]]((Pocket))
 ==ability:barrage:
@@ -1594,6 +1870,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =hero:rem:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5023 pick=0.7453 matches=635662 days=14
+    after win=0.4633 pick=0.6069 matches=580830 days=14
+  }
+  high {
+    before win=0.4928 pick=0.7094 matches=82763 days=14
+    after win=0.4499 pick=0.4318 matches=63071 days=14
+  }
+}
+``
 [[/hero/rem]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/familiar_sm.webp]] Rem patch history))
 ## [[/hero/rem]]((Rem))
 ==ability:lil-helpers:
@@ -1614,6 +1902,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =hero:seven:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5626 pick=0.4089 matches=348730 days=14
+    after win=0.5623 pick=0.3731 matches=357052 days=14
+  }
+  high {
+    before win=0.5515 pick=0.3451 matches=40264 days=14
+    after win=0.5611 pick=0.3112 matches=45452 days=14
+  }
+}
+``
 [[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
 ## [[/hero/seven]]((Seven))
 - Move Speed no longer scales with spirit power
@@ -1666,6 +1966,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =hero:shiv:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.434 pick=0.1907 matches=162694 days=14
+    after win=0.4419 pick=0.2173 matches=208007 days=14
+  }
+  high {
+    before win=0.4397 pick=0.2732 matches=31869 days=14
+    after win=0.4458 pick=0.3278 matches=47873 days=14
+  }
+}
+``
 [[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
 ## [[/hero/shiv]]((Shiv))
 - Stamina reduced from 3 to 2
@@ -1747,6 +2059,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =hero:silver:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5074 pick=0.5236 matches=446598 days=14
+    after win=0.4647 pick=0.3043 matches=291216 days=14
+  }
+  high {
+    before win=0.5154 pick=0.5487 matches=64021 days=14
+    after win=0.4768 pick=0.2328 matches=33998 days=14
+  }
+}
+``
 [[/hero/silver]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/werewolf_sm.webp]] Silver patch history))
 ## [[/hero/silver]]((Silver))
 ==ability:mauling-leap:
@@ -1811,6 +2135,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =hero:victor:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5468 pick=0.2479 matches=211416 days=14
+    after win=0.5737 pick=0.3337 matches=319402 days=14
+  }
+  high {
+    before win=0.5201 pick=0.1697 matches=19793 days=14
+    after win=0.5535 pick=0.2907 matches=42458 days=14
+  }
+}
+``
 [[/hero/victor]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/frank_sm.webp]] Victor patch history))
 ## [[/hero/victor]]((Victor))
 - Bullet damage increased from 12.3 to 12.5
@@ -1904,6 +2240,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =hero:vindicta:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4734 pick=0.2169 matches=185003 days=14
+    after win=0.4923 pick=0.298 matches=285200 days=14
+  }
+  high {
+    before win=0.4749 pick=0.143 matches=16681 days=14
+    after win=0.4942 pick=0.2948 matches=43053 days=14
+  }
+}
+``
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
 - Fire Rate no longer scales with Spirit Power
@@ -1956,6 +2304,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =hero:viscous:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4892 pick=0.2013 matches=171720 days=14
+    after win=0.5077 pick=0.2971 matches=284301 days=14
+  }
+  high {
+    before win=0.5012 pick=0.1785 matches=20827 days=14
+    after win=0.5131 pick=0.3279 matches=47900 days=14
+  }
+}
+``
 [[/hero/viscous]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous patch history))
 ## [[/hero/viscous]]((Viscous))
 ==ability:splatter:
@@ -2039,6 +2399,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =hero:warden:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5141 pick=0.237 matches=202104 days=14
+    after win=0.5087 pick=0.2141 matches=204904 days=14
+  }
+  high {
+    before win=0.518 pick=0.2325 matches=27127 days=14
+    after win=0.5074 pick=0.2082 matches=30409 days=14
+  }
+}
+``
 [[/hero/warden]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden patch history))
 ## [[/hero/warden]]((Warden))
 - Bullet growth per boon reduced from 0.44 to 0.38
@@ -2091,6 +2463,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =hero:wraith:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.493 pick=0.2042 matches=174186 days=14
+    after win=0.5169 pick=0.4442 matches=425080 days=14
+  }
+  high {
+    before win=0.5044 pick=0.1697 matches=19798 days=14
+    after win=0.5309 pick=0.519 matches=75805 days=14
+  }
+}
+``
 [[/hero/wraith]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp]] Wraith patch history))
 ## [[/hero/wraith]]((Wraith))
 ==ability:card-trick:
@@ -2210,6 +2594,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =hero:yamato:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4853 pick=0.2338 matches=199403 days=14
+    after win=0.4911 pick=0.261 matches=249745 days=14
+  }
+  high {
+    before win=0.4993 pick=0.2368 matches=27627 days=14
+    after win=0.499 pick=0.2723 matches=39772 days=14
+  }
+}
+``
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 ==ability:power-slash:
@@ -2277,12 +2673,36 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 ``
 
 =item:active-reload:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5194 pick=0.0787 matches=805352 days=14
+    after win=0.5194 pick=0.0659 matches=756643 days=14
+  }
+  high {
+    before win=0.5135 pick=0.077 matches=107835 days=14
+    after win=0.5164 pick=0.0596 matches=104411 days=14
+  }
+}
+``
 [[/item/active-reload]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/active_reload.webp]] Active Reload patch history))
 ## [[/item/active-reload]]((Active Reload))
 - You can now reload while already full when carrying this item
 =
 
 =item:arcane-surge:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4957 pick=0.05 matches=512088 days=14
+    after win=0.5078 pick=0.0589 matches=676706 days=14
+  }
+  high {
+    before win=0.4989 pick=0.0486 matches=68057 days=14
+    after win=0.5133 pick=0.0768 matches=134644 days=14
+  }
+}
+``
 [[/item/arcane-surge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/arcane_surge.webp]] Arcane Surge patch history))
 ## [[/item/arcane-surge]]((Arcane Surge))
 - Spirit Power increased from +15 to +20
@@ -2290,6 +2710,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =item:ballistic-enchantment:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5199 pick=0.0772 matches=789995 days=14
+    after win=0.5266 pick=0.0871 matches=1000743 days=14
+  }
+  high {
+    before win=0.5171 pick=0.0654 matches=91538 days=14
+    after win=0.5295 pick=0.0858 matches=150338 days=14
+  }
+}
+``
 [[/item/ballistic-enchantment]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/alchemical_seal.webp]] Ballistic Enchantment patch history))
 ## [[/item/ballistic-enchantment]]((Ballistic Enchantment))
 - Weapon damage per stack increased from 18% to 20%
@@ -2299,6 +2731,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =item:blood-tribute:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5241 pick=0.0041 matches=42148 days=14
+    after win=0.5436 pick=0.0109 matches=125467 days=14
+  }
+  high {
+    before win=0.5538 pick=0.0053 matches=7387 days=14
+    after win=0.5532 pick=0.0158 matches=27755 days=14
+  }
+}
+``
 [[/item/blood-tribute]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/blood_tribute.webp]] Blood Tribute patch history))
 ## [[/item/blood-tribute]]((Blood Tribute))
 - No longer has healing reduction
@@ -2307,12 +2751,36 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =item:boundless-spirit:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5288 pick=0.3921 matches=4013100 days=14
+    after win=0.5325 pick=0.4076 matches=4681217 days=14
+  }
+  high {
+    before win=0.533 pick=0.3484 matches=487774 days=14
+    after win=0.5385 pick=0.3586 matches=628530 days=14
+  }
+}
+``
 [[/item/boundless-spirit]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/boundless_spirit.webp]] Boundless Spirit patch history))
 ## [[/item/boundless-spirit]]((Boundless Spirit))
 - Constant spirit bonus reduced from 35 to 30
 =
 
 =item:bullet-resilience:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4599 pick=0.0766 matches=784486 days=14
+    after win=0.4544 pick=0.0595 matches=683621 days=14
+  }
+  high {
+    before win=0.4742 pick=0.0797 matches=111553 days=14
+    after win=0.4657 pick=0.0497 matches=87169 days=14
+  }
+}
+``
 [[/item/bullet-resilience]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/bullet_resilience.webp]] Bullet Resilience patch history))
 ## [[/item/bullet-resilience]]((Bullet Resilience))
 - Low Health threshold increased from 40% to 50%
@@ -2320,6 +2788,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =item:burst-fire:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5183 pick=0.124 matches=1268868 days=14
+    after win=0.513 pick=0.1101 matches=1264822 days=14
+  }
+  high {
+    before win=0.5236 pick=0.1019 matches=142699 days=14
+    after win=0.5205 pick=0.0919 matches=161131 days=14
+  }
+}
+``
 [[/item/burst-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/burst_fire.webp]] Burst Fire patch history))
 ## [[/item/burst-fire]]((Burst Fire))
 - Duration increased from 3.5s to 4.5s
@@ -2335,6 +2815,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =item:cheat-death:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5687 pick=0.0099 matches=101715 days=14
+    after win=0.5657 pick=0.0149 matches=170755 days=14
+  }
+  high {
+    before win=0.5979 pick=0.0114 matches=16000 days=14
+    after win=0.584 pick=0.0169 matches=29547 days=14
+  }
+}
+``
 [[/item/cheat-death]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/cheat_death.webp]] Cheat Death patch history))
 ## [[/item/cheat-death]]((Cheat Death))
 - No longer reduces movement speed by -2m during the death immunity phase
@@ -2348,66 +2840,198 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =item:colossus:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5581 pick=0.0188 matches=192498 days=14
+    after win=0.5655 pick=0.0264 matches=302954 days=14
+  }
+  high {
+    before win=0.5918 pick=0.0135 matches=18906 days=14
+    after win=0.59 pick=0.0254 matches=44551 days=14
+  }
+}
+``
 [[/item/colossus]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/colossus.webp]] Colossus patch history))
 ## [[/item/colossus]]((Colossus))
 - Active now grants you an additional +30% Melee Damage
 =
 
 =item:counterspell:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4909 pick=0.1049 matches=1073690 days=14
+    after win=0.489 pick=0.1011 matches=1160814 days=14
+  }
+  high {
+    before win=0.5054 pick=0.2034 matches=284816 days=14
+    after win=0.5002 pick=0.161 matches=282163 days=14
+  }
+}
+``
 [[/item/counterspell]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/counterspell.webp]] Counterspell patch history))
 ## [[/item/counterspell]]((Counterspell))
 - Bonus Health reduced from 100 to 75
 =
 
 =item:crushing-fists:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5433 pick=0.0525 matches=537266 days=14
+    after win=0.5329 pick=0.0503 matches=577117 days=14
+  }
+  high {
+    before win=0.5509 pick=0.045 matches=63056 days=14
+    after win=0.5436 pick=0.0387 matches=67804 days=14
+  }
+}
+``
 [[/item/crushing-fists]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/crushing_fists.webp]] Crushing Fists patch history))
 ## [[/item/crushing-fists]]((Crushing Fists))
 - Heavy Melee Bonus damage now works with heavy melee abilities
 =
 
 =item:cultist-sacrifice:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5 pick=0.0913 matches=934556 days=14
+    after win=0.5046 pick=0.0779 matches=894928 days=14
+  }
+  high {
+    before win=0.5019 pick=0.1204 matches=168605 days=14
+    after win=0.5039 pick=0.0979 matches=171612 days=14
+  }
+}
+``
 [[/item/cultist-sacrifice]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/cultist_sacrifice.webp]] Cultist Sacrifice patch history))
 ## [[/item/cultist-sacrifice]]((Cultist Sacrifice))
 - Ability Range reduced from +15% to +12%
 =
 
 =item:cursed-relic:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4906 pick=0.0402 matches=411417 days=14
+    after win=0.4683 pick=0.0295 matches=339210 days=14
+  }
+  high {
+    before win=0.5005 pick=0.0637 matches=89209 days=14
+    after win=0.4727 pick=0.0415 matches=72808 days=14
+  }
+}
+``
 [[/item/cursed-relic]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/curse.webp]] Cursed Relic patch history))
 ## [[/item/cursed-relic]]((Cursed Relic))
 - Damage penalty increased from -8% to -10%
 =
 
 =item:decay:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4405 pick=0.0119 matches=122267 days=14
+    after win=0.4428 pick=0.0155 matches=178225 days=14
+  }
+  high {
+    before win=0.4559 pick=0.017 matches=23785 days=14
+    after win=0.4538 pick=0.0215 matches=37706 days=14
+  }
+}
+``
 [[/item/decay]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/decay.webp]] Decay patch history))
 ## [[/item/decay]]((Decay))
 - Healing Reduction increased from -45% to -50%
 =
 
 =item:disarming-hex:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.3986 pick=0.0229 matches=234163 days=14
+    after win=0.4026 pick=0.0204 matches=234708 days=14
+  }
+  high {
+    before win=0.3908 pick=0.0261 matches=36549 days=14
+    after win=0.3918 pick=0.022 matches=38476 days=14
+  }
+}
+``
 [[/item/disarming-hex]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/disarming_hex.webp]] Disarming Hex patch history))
 ## [[/item/disarming-hex]]((Disarming Hex))
 - Cooldown reduced from 20s to 16s
 =
 
 =item:dispel-magic:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4803 pick=0.0499 matches=511006 days=14
+    after win=0.4939 pick=0.067 matches=769175 days=14
+  }
+  high {
+    before win=0.4898 pick=0.075 matches=105068 days=14
+    after win=0.5051 pick=0.1187 matches=208067 days=14
+  }
+}
+``
 [[/item/dispel-magic]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/debuff_remover.webp]] Dispel Magic patch history))
 ## [[/item/dispel-magic]]((Dispel Magic))
 - Cooldown reduced from 50s to 40s
 =
 
 =item:divine-barrier:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5436 pick=0.0465 matches=476260 days=14
+    after win=0.5393 pick=0.0407 matches=467797 days=14
+  }
+  high {
+    before win=0.5468 pick=0.055 matches=77005 days=14
+    after win=0.5423 pick=0.0445 matches=77939 days=14
+  }
+}
+``
 [[/item/divine-barrier]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/divine_barrier.webp]] Divine Barrier patch history))
 ## [[/item/divine-barrier]]((Divine Barrier))
 - Ability Range reduced from +15% to +10%
 =
 
 =item:diviner-s-kevlar:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5672 pick=0.0162 matches=166158 days=14
+    after win=0.5711 pick=0.0152 matches=174820 days=14
+  }
+  high {
+    before win=0.5952 pick=0.0123 matches=17263 days=14
+    after win=0.5974 pick=0.0137 matches=24019 days=14
+  }
+}
+``
 [[/item/diviners-kevlar]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/diviners_kevlar.webp]] Diviner's Kevlar patch history))
 ## [[/item/diviners-kevlar]]((Diviner's Kevlar))
 - Cooldown reduced from 64s to 40s
 =
 
 =item:echo-shard:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5487 pick=0.0603 matches=617293 days=14
+    after win=0.532 pick=0.0605 matches=694761 days=14
+  }
+  high {
+    before win=0.5498 pick=0.0789 matches=110452 days=14
+    after win=0.526 pick=0.0735 matches=128880 days=14
+  }
+}
+``
 [[/item/echo-shard]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/echo_shard.webp]] Echo Shard patch history))
 ## [[/item/echo-shard]]((Echo Shard))
 - No longer grants +5% Ability Range
@@ -2421,48 +3045,144 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =item:enchanter-s-emblem:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4968 pick=0.1846 matches=1889246 days=14
+    after win=0.4955 pick=0.1778 matches=2042193 days=14
+  }
+  high {
+    before win=0.4989 pick=0.1978 matches=276915 days=14
+    after win=0.4951 pick=0.192 matches=336492 days=14
+  }
+}
+``
 [[/item/enchanters-emblem]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/enchanters_emblem.webp]] Enchanter's Emblem patch history))
 ## [[/item/enchanters-emblem]]((Enchanter's Emblem))
 - Spirit Resist increased from 15% to 18%
 =
 
 =item:enduring-speed:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5168 pick=0.3719 matches=3806776 days=14
+    after win=0.5175 pick=0.3917 matches=4498919 days=14
+  }
+  high {
+    before win=0.5133 pick=0.3882 matches=543515 days=14
+    after win=0.5161 pick=0.4233 matches=741958 days=14
+  }
+}
+``
 [[/item/enduring-speed]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/enduring_speed.webp]] Enduring Speed patch history))
 ## [[/item/enduring-speed]]((Enduring Speed))
 - Fixed slow resistance interaction with dash slows
 =
 
 =item:ethereal-shift:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5647 pick=0.0072 matches=74022 days=14
+    after win=0.5744 pick=0.0119 matches=136583 days=14
+  }
+  high {
+    before win=0.5811 pick=0.0102 matches=14229 days=14
+    after win=0.5894 pick=0.0204 matches=35746 days=14
+  }
+}
+``
 [[/item/ethereal-shift]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/ethereal_shift.webp]] Ethereal Shift patch history))
 ## [[/item/ethereal-shift]]((Ethereal Shift))
 - Cooldown reduced from 45s to 35s
 =
 
 =item:express-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4991 pick=0.0401 matches=410122 days=14
+    after win=0.4694 pick=0.0262 matches=300776 days=14
+  }
+  high {
+    before win=0.5112 pick=0.038 matches=53209 days=14
+    after win=0.4797 pick=0.0175 matches=30741 days=14
+  }
+}
+``
 [[/item/express-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/express_shot.webp]] Express Shot patch history))
 ## [[/item/express-shot]]((Express Shot))
 - Ammo consumed changed from -30% to 2 Ammo
 =
 
 =item:extended-magazine:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4904 pick=0.1195 matches=1222906 days=14
+    after win=0.494 pick=0.1158 matches=1330433 days=14
+  }
+  high {
+    before win=0.5001 pick=0.0879 matches=123110 days=14
+    after win=0.5011 pick=0.0897 matches=157155 days=14
+  }
+}
+``
 [[/item/extended-magazine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/basic_magazine.webp]] Extended Magazine patch history))
 ## [[/item/extended-magazine]]((Extended Magazine))
 - Weapon Damage increased from +6% to +8%
 =
 
 =item:extra-health:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4825 pick=0.0868 matches=888088 days=14
+    after win=0.4953 pick=0.1252 matches=1437625 days=14
+  }
+  high {
+    before win=0.4992 pick=0.0635 matches=88886 days=14
+    after win=0.5109 pick=0.1428 matches=250345 days=14
+  }
+}
+``
 [[/item/extra-health]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_health.webp]] Extra Health patch history))
 ## [[/item/extra-health]]((Extra Health))
 - Increased from 185 to 210
 =
 
 =item:fortitude:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4942 pick=0.0663 matches=678801 days=14
+    after win=0.5084 pick=0.1032 matches=1185713 days=14
+  }
+  high {
+    before win=0.5101 pick=0.047 matches=65809 days=14
+    after win=0.5185 pick=0.1184 matches=207486 days=14
+  }
+}
+``
 [[/item/fortitude]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/fortitude.webp]] Fortitude patch history))
 ## [[/item/fortitude]]((Fortitude))
 - Time to regen reduced from 13s to 10s
 =
 
 =item:frenzy:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.6004 pick=0.0268 matches=273999 days=14
+    after win=0.5903 pick=0.0188 matches=216167 days=14
+  }
+  high {
+    before win=0.6143 pick=0.0236 matches=33099 days=14
+    after win=0.6096 pick=0.0155 matches=27246 days=14
+  }
+}
+``
 [[/item/frenzy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/frenzy.webp]] Frenzy patch history))
 ## [[/item/frenzy]]((Frenzy))
 - Base Fire Rate increased from 8% to 10%
@@ -2472,6 +3192,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =item:golden-goose-egg:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5055 pick=0.0686 matches=788039 days=14
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5011 pick=0.0843 matches=147731 days=14
+  }
+}
+``
 [[/item/golden-goose-egg]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/goose_egg.webp]] Golden Goose Egg patch history))
 ## [[/item/golden-goose-egg]]((Golden Goose Egg))
 - souls per buff improved from every 200 souls to every 150
@@ -2479,24 +3211,72 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =item:greater-expansion:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5185 pick=0.3188 matches=3263426 days=14
+    after win=0.5264 pick=0.3486 matches=4002964 days=14
+  }
+  high {
+    before win=0.5243 pick=0.303 matches=424144 days=14
+    after win=0.5314 pick=0.3294 matches=577419 days=14
+  }
+}
+``
 [[/item/greater-expansion]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/greater_expansion.webp]] Greater Expansion patch history))
 ## [[/item/greater-expansion]]((Greater Expansion))
 - Ability Range reduced from 35% to 30%
 =
 
 =item:guardian-ward:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5021 pick=0.0839 matches=858982 days=14
+    after win=0.4928 pick=0.0733 matches=841439 days=14
+  }
+  high {
+    before win=0.4994 pick=0.0911 matches=127490 days=14
+    after win=0.489 pick=0.075 matches=131406 days=14
+  }
+}
+``
 [[/item/guardian-ward]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/guardian_ward.webp]] Guardian Ward patch history))
 ## [[/item/guardian-ward]]((Guardian Ward))
 - Ability Range reduced from 10% to 8%
 =
 
 =item:healing-nova:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5185 pick=0.0481 matches=492318 days=14
+    after win=0.509 pick=0.0424 matches=486874 days=14
+  }
+  high {
+    before win=0.5274 pick=0.0442 matches=61925 days=14
+    after win=0.523 pick=0.0384 matches=67338 days=14
+  }
+}
+``
 [[/item/healing-nova]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healing_nova.webp]] Healing Nova patch history))
 ## [[/item/healing-nova]]((Healing Nova))
 - Ability Range reduced from +6% to +5%
 =
 
 =item:high-velocity-rounds:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4958 pick=0.0877 matches=897299 days=14
+    after win=0.4919 pick=0.0851 matches=977900 days=14
+  }
+  high {
+    before win=0.5133 pick=0.0888 matches=124310 days=14
+    after win=0.4966 pick=0.0712 matches=124721 days=14
+  }
+}
+``
 [[/item/high-velocity-rounds]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/high_velocity_rounds.webp]] High-Velocity Rounds patch history))
 ## [[/item/high-velocity-rounds]]((High-Velocity Rounds))
 - No longer grants +5% Fire Rate
@@ -2505,6 +3285,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =item:hunter-s-aura:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5415 pick=0.0797 matches=815748 days=14
+    after win=0.5158 pick=0.0645 matches=740821 days=14
+  }
+  high {
+    before win=0.5477 pick=0.0884 matches=123748 days=14
+    after win=0.5327 pick=0.0667 matches=116876 days=14
+  }
+}
+``
 [[/item/hunters-aura]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/hunters_aura.webp]] Hunter's Aura patch history))
 ## [[/item/hunters-aura]]((Hunter's Aura))
 - Solo hero multiplier reduced from 3x to 2x
@@ -2519,6 +3311,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =item:inhibitor:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5785 pick=0.0638 matches=653388 days=14
+    after win=0.5569 pick=0.051 matches=585245 days=14
+  }
+  high {
+    before win=0.5873 pick=0.0665 matches=93149 days=14
+    after win=0.5654 pick=0.044 matches=77164 days=14
+  }
+}
+``
 [[/item/inhibitor]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/inhibitor.webp]] Inhibitor patch history))
 ## [[/item/inhibitor]]((Inhibitor))
 - Damage Penalty reduced from -35% to -30%
@@ -2526,6 +3330,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =item:knockdown:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4748 pick=0.0599 matches=612849 days=14
+    after win=0.4724 pick=0.0642 matches=736983 days=14
+  }
+  high {
+    before win=0.4841 pick=0.0577 matches=80734 days=14
+    after win=0.4752 pick=0.061 matches=106933 days=14
+  }
+}
+``
 [[/item/knockdown]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/knockdown.webp]] Knockdown patch history))
 ## [[/item/knockdown]]((Knockdown))
 - Gravity increased from +50% to +100% when the stun hits the target (causes airborne targets to fall faster)
@@ -2533,6 +3349,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =item:lifestrike:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.513 pick=0.1368 matches=1400659 days=14
+    after win=0.4964 pick=0.1139 matches=1307982 days=14
+  }
+  high {
+    before win=0.5144 pick=0.1473 matches=206177 days=14
+    after win=0.5035 pick=0.1115 matches=195459 days=14
+  }
+}
+``
 [[/item/lifestrike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/lifestrike.webp]] Lifestrike patch history))
 ## [[/item/lifestrike]]((Lifestrike))
 - Heal on melee hit reduced from 160 to 100 + 1.5/boon
@@ -2540,12 +3368,36 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =item:long-range:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4712 pick=0.024 matches=245568 days=14
+    after win=0.4869 pick=0.0236 matches=270914 days=14
+  }
+  high {
+    before win=0.4767 pick=0.0191 matches=26696 days=14
+    after win=0.492 pick=0.0221 matches=38652 days=14
+  }
+}
+``
 [[/item/long-range]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/long_range.webp]] Long Range patch history))
 ## [[/item/long-range]]((Long Range))
 - Fall-off Range increased from +4% to +8%
 =
 
 =item:magic-carpet:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5708 pick=0.0033 matches=33660 days=14
+    after win=0.5703 pick=0.0034 matches=38959 days=14
+  }
+  high {
+    before win=0.5538 pick=0.0035 matches=4854 days=14
+    after win=0.561 pick=0.0033 matches=5799 days=14
+  }
+}
+``
 [[/item/magic-carpet]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/magic_carpet.webp]] Magic Carpet patch history))
 ## [[/item/magic-carpet]]((Magic Carpet))
 - Duration increased from 8s to 12s
@@ -2553,24 +3405,72 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =item:majestic-leap:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5127 pick=0.028 matches=286446 days=14
+    after win=0.5056 pick=0.0265 matches=304759 days=14
+  }
+  high {
+    before win=0.5044 pick=0.0395 matches=55338 days=14
+    after win=0.5046 pick=0.037 matches=64887 days=14
+  }
+}
+``
 [[/item/majestic-leap]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/majestic_leap.webp]] Majestic Leap patch history))
 ## [[/item/majestic-leap]]((Majestic Leap))
 - Barrier increased from 140 to 200
 =
 
 =item:melee-charge:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5114 pick=0.0729 matches=745941 days=14
+    after win=0.4966 pick=0.0738 matches=847819 days=14
+  }
+  high {
+    before win=0.5125 pick=0.0777 matches=108831 days=14
+    after win=0.4968 pick=0.0688 matches=120636 days=14
+  }
+}
+``
 [[/item/melee-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/melee_charge.webp]] Melee Charge patch history))
 ## [[/item/melee-charge]]((Melee Charge))
 - Heavy Melee Bonus damage now works with heavy melee abilities
 =
 
 =item:metal-skin:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4035 pick=0.0471 matches=482437 days=14
+    after win=0.3864 pick=0.0386 matches=443150 days=14
+  }
+  high {
+    before win=0.4121 pick=0.0658 matches=92155 days=14
+    after win=0.3924 pick=0.0478 matches=83845 days=14
+  }
+}
+``
 [[/item/metal-skin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/metal_skin.webp]] Metal Skin patch history))
 ## [[/item/metal-skin]]((Metal Skin))
 - Bullet Resist reduced from 15% to 12%
 =
 
 =item:mystic-regeneration:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4757 pick=0.0682 matches=698261 days=14
+    after win=0.4926 pick=0.0731 matches=839065 days=14
+  }
+  high {
+    before win=0.4721 pick=0.0526 matches=73615 days=14
+    after win=0.4883 pick=0.066 matches=115736 days=14
+  }
+}
+``
 [[/item/mystic-regeneration]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mystic_regen.webp]] Mystic Regeneration patch history))
 ## [[/item/mystic-regeneration]]((Mystic Regeneration))
 - Health bonus increased from +40 to +50
@@ -2578,6 +3478,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =item:mystic-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4938 pick=0.0614 matches=628128 days=14
+    after win=0.489 pick=0.0648 matches=744327 days=14
+  }
+  high {
+    before win=0.5015 pick=0.0665 matches=93158 days=14
+    after win=0.4928 pick=0.0722 matches=126619 days=14
+  }
+}
+``
 [[/item/mystic-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/mystic_shot.webp]] Mystic Shot patch history))
 ## [[/item/mystic-shot]]((Mystic Shot))
 - Damage spirit scaling increased from 0.8 to 1.0
@@ -2597,6 +3509,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =item:opening-rounds:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4635 pick=0.0336 matches=344322 days=14
+    after win=0.4834 pick=0.0498 matches=572287 days=14
+  }
+  high {
+    before win=0.4723 pick=0.0257 matches=36037 days=14
+    after win=0.4918 pick=0.0526 matches=92220 days=14
+  }
+}
+``
 [[/item/opening-rounds]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/opening_rounds.webp]] Opening Rounds patch history))
 ## [[/item/opening-rounds]]((Opening Rounds))
 - Spirit Power increased from +8 to +10
@@ -2604,6 +3528,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =item:radiant-regeneration:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4873 pick=0.0649 matches=664697 days=14
+    after win=0.5053 pick=0.0735 matches=844036 days=14
+  }
+  high {
+    before win=0.4785 pick=0.0508 matches=71162 days=14
+    after win=0.4982 pick=0.064 matches=112220 days=14
+  }
+}
+``
 [[/item/radiant-regeneration]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/radiant_regeneration.webp]] Radiant Regeneration patch history))
 ## [[/item/radiant-regeneration]]((Radiant Regeneration))
 - Health bonus increased from +65 to +90
@@ -2612,12 +3548,36 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =item:rescue-beam:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4972 pick=0.0289 matches=295943 days=14
+    after win=0.5074 pick=0.0297 matches=341298 days=14
+  }
+  high {
+    before win=0.4987 pick=0.0323 matches=45239 days=14
+    after win=0.5096 pick=0.0333 matches=58447 days=14
+  }
+}
+``
 [[/item/rescue-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/rescue_beam.webp]] Rescue Beam patch history))
 ## [[/item/rescue-beam]]((Rescue Beam))
 - Ability Range reduced from +8% to +6%
 =
 
 =item:restorative-locket:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.483 pick=0.0146 matches=149804 days=14
+    after win=0.4902 pick=0.0118 matches=135364 days=14
+  }
+  high {
+    before win=0.4914 pick=0.0152 matches=21307 days=14
+    after win=0.4861 pick=0.0134 matches=23411 days=14
+  }
+}
+``
 [[/item/restorative-locket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/restorative_locket.webp]] Restorative Locket patch history))
 ## [[/item/restorative-locket]]((Restorative Locket))
 - Range increased from 30m to 35m
@@ -2627,6 +3587,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =item:return-fire:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4101 pick=0.008 matches=82187 days=14
+    after win=0.3974 pick=0.0058 matches=66464 days=14
+  }
+  high {
+    before win=0.4283 pick=0.0085 matches=11867 days=14
+    after win=0.4082 pick=0.0059 matches=10258 days=14
+  }
+}
+``
 [[/item/return-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/return_fire.webp]] Return Fire patch history))
 ## [[/item/return-fire]]((Return Fire))
 - Returning damage now always hits the target's body (some amount would naturally miss before, and some would be headshots)
@@ -2634,6 +3606,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =item:rusted-barrel:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4413 pick=0.0252 matches=257684 days=14
+    after win=0.4522 pick=0.0277 matches=317952 days=14
+  }
+  high {
+    before win=0.4291 pick=0.0268 matches=37518 days=14
+    after win=0.4503 pick=0.0316 matches=55313 days=14
+  }
+}
+``
 [[/item/rusted-barrel]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/rusted_barrel.webp]] Rusted Barrel patch history))
 ## [[/item/rusted-barrel]]((Rusted Barrel))
 - Cooldown reduced from 20s to 16s
@@ -2663,6 +3647,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =item:silence-wave:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4647 pick=0.0169 matches=173397 days=14
+    after win=0.4806 pick=0.0313 matches=359308 days=14
+  }
+  high {
+    before win=0.4792 pick=0.0229 matches=32017 days=14
+    after win=0.5032 pick=0.0509 matches=89275 days=14
+  }
+}
+``
 [[/item/silence-wave]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/silence_glyph.webp]] Silence Wave patch history))
 ## [[/item/silence-wave]]((Silence Wave))
 - Damage spirit scaling increased from 0.6 to 1.0
@@ -2670,12 +3666,36 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =item:siphon-bullets:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5717 pick=0.0132 matches=135358 days=14
+    after win=0.5711 pick=0.0289 matches=331510 days=14
+  }
+  high {
+    before win=0.5723 pick=0.0085 matches=11930 days=14
+    after win=0.5754 pick=0.0342 matches=60011 days=14
+  }
+}
+``
 [[/item/siphon-bullets]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/siphon_bullets.webp]] Siphon Bullets patch history))
 ## [[/item/siphon-bullets]]((Siphon Bullets))
 - Now steals 2.5% of enemy max HP per bullet instead of a fixed amount
 =
 
 =item:slowing-hex:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4985 pick=0.0918 matches=939508 days=14
+    after win=0.5034 pick=0.1044 matches=1198495 days=14
+  }
+  high {
+    before win=0.4976 pick=0.1383 matches=193611 days=14
+    after win=0.5002 pick=0.1547 matches=271118 days=14
+  }
+}
+``
 [[/item/slowing-hex]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/slowing_hex.webp]] Slowing Hex patch history))
 ## [[/item/slowing-hex]]((Slowing Hex))
 - Now sets the gravity of an enemy to a fixed +20% (heavier) regardless of their own base values
@@ -2684,18 +3704,54 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =item:spellbreaker:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5427 pick=0.083 matches=849782 days=14
+    after win=0.5316 pick=0.066 matches=758025 days=14
+  }
+  high {
+    before win=0.5588 pick=0.0984 matches=137790 days=14
+    after win=0.5496 pick=0.0672 matches=117865 days=14
+  }
+}
+``
 [[/item/spellbreaker]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/spellbreaker.webp]] Spellbreaker patch history))
 ## [[/item/spellbreaker]]((Spellbreaker))
 - High instant damage reduction reduced from -75% to -65%
 =
 
 =item:spirit-burn:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5666 pick=0.1434 matches=1468140 days=14
+    after win=0.5697 pick=0.1415 matches=1624801 days=14
+  }
+  high {
+    before win=0.5769 pick=0.1202 matches=168267 days=14
+    after win=0.5782 pick=0.109 matches=191097 days=14
+  }
+}
+``
 [[/item/spirit-burn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/spirit_burn.webp]] Spirit Burn patch history))
 ## [[/item/spirit-burn]]((Spirit Burn))
 - Ability Range reduced from +8% to +6%
 =
 
 =item:spirit-rend:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4952 pick=0.0305 matches=312270 days=14
+    after win=0.5016 pick=0.0323 matches=370845 days=14
+  }
+  high {
+    before win=0.5165 pick=0.0196 matches=27407 days=14
+    after win=0.5139 pick=0.0215 matches=37682 days=14
+  }
+}
+``
 [[/item/spirit-rend]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/spellslinger_headshots.webp]] Spirit Rend patch history))
 ## [[/item/spirit-rend]]((Spirit Rend))
 - Cooldown reduced from 2.2s to 2s
@@ -2703,6 +3759,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =item:spirit-resilience:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5078 pick=0.2575 matches=2635728 days=14
+    after win=0.4935 pick=0.2603 matches=2989112 days=14
+  }
+  high {
+    before win=0.5132 pick=0.3052 matches=427275 days=14
+    after win=0.496 pick=0.29 matches=508344 days=14
+  }
+}
+``
 [[/item/spirit-resilience]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/spirit_resilience.webp]] Spirit Resilience patch history))
 ## [[/item/spirit-resilience]]((Spirit Resilience))
 - Low Health threshold increased from 40% to 50%
@@ -2710,6 +3778,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =item:spirit-sap:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4829 pick=0.0115 matches=118019 days=14
+    after win=0.4737 pick=0.0157 matches=180509 days=14
+  }
+  high {
+    before win=0.5169 pick=0.0101 matches=14089 days=14
+    after win=0.499 pick=0.019 matches=33383 days=14
+  }
+}
+``
 [[/item/spirit-sap]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/spirit_sap.webp]] Spirit Sap patch history))
 ## [[/item/spirit-sap]]((Spirit Sap))
 - Spirit Power loss increased from -24 to -30
@@ -2717,12 +3797,36 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =item:spirit-shredder-bullets:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4809 pick=0.038 matches=389103 days=14
+    after win=0.4989 pick=0.0439 matches=503604 days=14
+  }
+  high {
+    before win=0.5008 pick=0.0266 matches=37272 days=14
+    after win=0.5077 pick=0.0349 matches=61150 days=14
+  }
+}
+``
 [[/item/spirit-shredder-bullets]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/spirit_shredder_bullets.webp]] Spirit Shredder Bullets patch history))
 ## [[/item/spirit-shredder-bullets]]((Spirit Shredder Bullets))
 - Spirit Lifesteal increased from 8% to 12%
 =
 
 =item:spiritual-overflow:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.568 pick=0.0324 matches=331376 days=14
+    after win=0.5741 pick=0.0292 matches=335532 days=14
+  }
+  high {
+    before win=0.6027 pick=0.0199 matches=27877 days=14
+    after win=0.5999 pick=0.0218 matches=38228 days=14
+  }
+}
+``
 [[/item/spiritual-overflow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/spiritual_overflow.webp]] Spiritual Overflow patch history))
 ## [[/item/spiritual-overflow]]((Spiritual Overflow))
 - Spirit Power increased from 30 to 40
@@ -2730,6 +3834,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =item:split-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.499 pick=0.0152 matches=155537 days=14
+    after win=0.4841 pick=0.0116 matches=132681 days=14
+  }
+  high {
+    before win=0.5153 pick=0.0124 matches=17403 days=14
+    after win=0.5042 pick=0.0079 matches=13869 days=14
+  }
+}
+``
 [[/item/split-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/split_shot.webp]] Split Shot patch history))
 ## [[/item/split-shot]]((Split Shot))
 - Cooldown reduced from 32s to 24s
@@ -2738,6 +3854,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =item:stalker:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.518 pick=0.0388 matches=397577 days=14
+    after win=0.5119 pick=0.0612 matches=703041 days=14
+  }
+  high {
+    before win=0.5217 pick=0.0531 matches=74408 days=14
+    after win=0.5242 pick=0.0817 matches=143121 days=14
+  }
+}
+``
 [[/item/stalker]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/backstabber.webp]] Stalker patch history))
 ## [[/item/stalker]]((Stalker))
 - No longer procs based on angles of attack, but instead based on doing bullet or melee damage within 8m of a hero target
@@ -2745,24 +3873,72 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =item:suppressor:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5067 pick=0.037 matches=378988 days=14
+    after win=0.5133 pick=0.0355 matches=407756 days=14
+  }
+  high {
+    before win=0.4983 pick=0.0374 matches=52394 days=14
+    after win=0.5091 pick=0.0353 matches=61794 days=14
+  }
+}
+``
 [[/item/suppressor]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/suppressor.webp]] Suppressor patch history))
 ## [[/item/suppressor]]((Suppressor))
 - Debuff duration increased from 4s to 5s
 =
 
 =item:swift-striker:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4955 pick=0.13 matches=1330131 days=14
+    after win=0.501 pick=0.1567 matches=1799898 days=14
+  }
+  high {
+    before win=0.4986 pick=0.1119 matches=156700 days=14
+    after win=0.5039 pick=0.1565 matches=274245 days=14
+  }
+}
+``
 [[/item/swift-striker]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/swift_striker.webp]] Swift Striker patch history))
 ## [[/item/swift-striker]]((Swift Striker))
 - Fire Rate increased from 18% to 20%
 =
 
 =item:tankbuster:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4875 pick=0.2715 matches=2778901 days=14
+    after win=0.491 pick=0.2721 matches=3124506 days=14
+  }
+  high {
+    before win=0.4903 pick=0.2334 matches=326824 days=14
+    after win=0.4928 pick=0.23 matches=403161 days=14
+  }
+}
+``
 [[/item/tankbuster]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/tankbuster.webp]] Tankbuster patch history))
 ## [[/item/tankbuster]]((Tankbuster))
 - Current Health Bonus Damage increased from 7.5% to 8%
 =
 
 =item:torment-pulse:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5156 pick=0.2196 matches=2247591 days=14
+    after win=0.5167 pick=0.197 matches=2262487 days=14
+  }
+  high {
+    before win=0.5086 pick=0.2541 matches=355800 days=14
+    after win=0.5166 pick=0.22 matches=385576 days=14
+  }
+}
+``
 [[/item/torment-pulse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/torment_pulse.webp]] Torment Pulse patch history))
 ## [[/item/torment-pulse]]((Torment Pulse))
 - Damage spirit scaling reduced from 0.28 to 0.25
@@ -2771,6 +3947,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =item:trophy-collector:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5222 pick=0.0776 matches=794328 days=14
+    after win=0.5209 pick=0.0747 matches=858161 days=14
+  }
+  high {
+    before win=0.5085 pick=0.0642 matches=89837 days=14
+    after win=0.5084 pick=0.064 matches=112101 days=14
+  }
+}
+``
 [[/item/trophy-collector]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/trophy_collector.webp]] Trophy Collector patch history))
 ## [[/item/trophy-collector]]((Trophy Collector))
 - Souls per minute increased from 22 to 25
@@ -2784,6 +3972,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =item:vortex-web:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5285 pick=0.029 matches=296531 days=14
+    after win=0.5358 pick=0.0416 matches=477491 days=14
+  }
+  high {
+    before win=0.5341 pick=0.037 matches=51792 days=14
+    after win=0.5373 pick=0.0598 matches=104821 days=14
+  }
+}
+``
 [[/item/vortex-web]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/vortex_web.webp]] Vortex Web patch history))
 ## [[/item/vortex-web]]((Vortex Web))
 - Now has a unit target option where it will vacuum enemies around that target
@@ -2792,12 +3992,36 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =item:weakening-headshot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5316 pick=0.0443 matches=453431 days=14
+    after win=0.5295 pick=0.0371 matches=426514 days=14
+  }
+  high {
+    before win=0.5434 pick=0.0529 matches=74067 days=14
+    after win=0.5404 pick=0.0426 matches=74704 days=14
+  }
+}
+``
 [[/item/weakening-headshot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/weakening_headshot.webp]] Weakening Headshot patch history))
 ## [[/item/weakening-headshot]]((Weakening Headshot))
 - Bonus health increased from +50 to +60
 =
 
 =item:weapon-shielding:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4332 pick=0.0106 matches=108848 days=14
+    after win=0.4264 pick=0.0071 matches=81405 days=14
+  }
+  high {
+    before win=0.447 pick=0.0054 matches=7619 days=14
+    after win=0.4597 pick=0.0035 matches=6204 days=14
+  }
+}
+``
 [[/item/weapon-shielding]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/weapon_shielding.webp]] Weapon Shielding patch history))
 ## [[/item/weapon-shielding]]((Weapon Shielding))
 - Damage threshold increased from 150 to 250
@@ -2805,6 +4029,18 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =item:weighted-shots:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5124 pick=0.0383 matches=391741 days=14
+    after win=0.5004 pick=0.06 matches=688668 days=14
+  }
+  high {
+    before win=0.5271 pick=0.0502 matches=70211 days=14
+    after win=0.5099 pick=0.0628 matches=110072 days=14
+  }
+}
+``
 [[/item/weighted-shots]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/weighted_shots.webp]] Weighted Shots patch history))
 ## [[/item/weighted-shots]]((Weighted Shots))
 - Now builds from Slowing Bullets. Has Slowing Bullets passive

@@ -43,7 +43,11 @@ export const load: PageServerLoad = async ({ params, locals }) => {
 					.map((group) => ({ ...group, icon: ability.image })) ?? [];
 
 			return {
-				...changelog,
+				id: changelog.id,
+				title: changelog.title,
+				slug: changelog.slug,
+				pubDate: changelog.pubDate,
+				author: changelog.author,
 				date: new Date(changelog.pubDate),
 				changeCount: changeGroups.reduce((total, g) => total + g.bullets.length, 0),
 				changeGroups

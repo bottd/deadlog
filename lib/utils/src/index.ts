@@ -289,3 +289,21 @@ export function patchHeading(patch: { title: string; date: Date | string }) {
 	const named = !/\d{2}-\d{2}-\d{4}/.test(patch.title);
 	return { named, date, heading: named ? patch.title : date };
 }
+
+export interface ImpactWindow {
+	win: number | null;
+	pick: number | null;
+	matches: number;
+	days: number;
+}
+
+export interface TierImpact {
+	before: ImpactWindow;
+	after: ImpactWindow;
+}
+
+export interface EntityImpact {
+	closed: boolean;
+	all: TierImpact;
+	high: TierImpact;
+}

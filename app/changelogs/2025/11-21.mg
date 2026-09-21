@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "11-21-2025 Update"
 thread_id "90383"
 steam_gid "1816849002015766"
@@ -119,6 +119,18 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 ``
 
 =hero:abrams:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5109 pick=0.3577 matches=87278 days=14
+    after win=0.5151 pick=0.3785 matches=97685 days=14
+  }
+  high {
+    before win=0.5101 pick=0.3803 matches=18855 days=14
+    after win=0.5233 pick=0.4182 matches=22863 days=14
+  }
+}
+``
 [[/hero/abrams]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams patch history))
 ## [[/hero/abrams]]((Abrams))
 ==ability:shoulder-charge:
@@ -135,6 +147,18 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =hero:bebop:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4826 pick=0.5912 matches=144249 days=14
+    after win=0.4434 pick=0.5581 matches=144054 days=14
+  }
+  high {
+    before win=0.479 pick=0.697 matches=34558 days=14
+    after win=0.4342 pick=0.6288 matches=34375 days=14
+  }
+}
+``
 [[/hero/bebop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop patch history))
 ## [[/hero/bebop]]((Bebop))
 - Health growth reduced from 54 to 46
@@ -162,6 +186,18 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =hero:billy:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5024 pick=0.4032 matches=98371 days=14
+    after win=0.5207 pick=0.5094 matches=131471 days=14
+  }
+  high {
+    before win=0.4956 pick=0.3397 matches=16842 days=14
+    after win=0.5227 pick=0.4806 matches=26273 days=14
+  }
+}
+``
 [[/hero/billy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/punkgoat_sm.webp]] Billy patch history))
 ## [[/hero/billy]]((Billy))
 ==ability:rising-ram:
@@ -185,6 +221,18 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =hero:calico:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5141 pick=0.3303 matches=80586 days=14
+    after win=0.5039 pick=0.276 matches=71246 days=14
+  }
+  high {
+    before win=0.5069 pick=0.3853 matches=19106 days=14
+    after win=0.5015 pick=0.3125 matches=17086 days=14
+  }
+}
+``
 [[/hero/calico]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp]] Calico patch history))
 ## [[/hero/calico]]((Calico))
 - Clip size increased from 10 to 12
@@ -203,6 +251,18 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =hero:doorman:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4749 pick=0.3433 matches=83764 days=14
+    after win=0.4766 pick=0.303 matches=78213 days=14
+  }
+  high {
+    before win=0.4629 pick=0.2783 matches=13801 days=14
+    after win=0.4761 pick=0.238 matches=13010 days=14
+  }
+}
+``
 [[/hero/the-doorman]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/doorman_sm.webp]] Doorman patch history))
 ## [[/hero/the-doorman]]((Doorman))
 - Base regen from 2 to 1
@@ -217,6 +277,18 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =hero:drifter:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5224 pick=0.3715 matches=90644 days=14
+    after win=0.5449 pick=0.5305 matches=136918 days=14
+  }
+  high {
+    before win=0.512 pick=0.3107 matches=15404 days=14
+    after win=0.533 pick=0.5365 matches=29330 days=14
+  }
+}
+``
 [[/hero/drifter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/drifter_sm.webp]] Drifter patch history))
 ## [[/hero/drifter]]((Drifter))
 ==ability:rend:
@@ -230,6 +302,18 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =hero:dynamo:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5254 pick=0.415 matches=101259 days=14
+    after win=0.5557 pick=0.5816 matches=150119 days=14
+  }
+  high {
+    before win=0.5207 pick=0.3616 matches=17929 days=14
+    after win=0.559 pick=0.5736 matches=31360 days=14
+  }
+}
+``
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 - Base regen increased from 2 to 2.5
@@ -243,6 +327,18 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =hero:holliday:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4758 pick=0.3343 matches=81567 days=14
+    after win=0.4478 pick=0.1988 matches=51312 days=14
+  }
+  high {
+    before win=0.4878 pick=0.3815 matches=18918 days=14
+    after win=0.4694 pick=0.2008 matches=10979 days=14
+  }
+}
+``
 [[/hero/holliday]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]] Holliday patch history))
 ## [[/hero/holliday]]((Holliday))
 - Base regen reduced from 2.0 to 1.0
@@ -257,6 +353,18 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =hero:infernus:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4941 pick=0.6999 matches=170768 days=14
+    after win=0.478 pick=0.6499 matches=167745 days=14
+  }
+  high {
+    before win=0.4864 pick=0.7153 matches=35469 days=14
+    after win=0.4633 pick=0.6255 matches=34197 days=14
+  }
+}
+``
 [[/hero/infernus]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus patch history))
 ## [[/hero/infernus]]((Infernus))
 ==ability:afterburn:
@@ -279,6 +387,18 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =hero:ivy:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5161 pick=0.3386 matches=82622 days=14
+    after win=0.5032 pick=0.328 matches=84648 days=14
+  }
+  high {
+    before win=0.5234 pick=0.3678 matches=18236 days=14
+    after win=0.5011 pick=0.3149 matches=17216 days=14
+  }
+}
+``
 [[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
 ## [[/hero/ivy]]((Ivy))
 ==ability:kudzu-bomb:
@@ -306,6 +426,18 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =hero:kelvin:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4988 pick=0.2857 matches=69712 days=14
+    after win=0.4816 pick=0.1813 matches=46795 days=14
+  }
+  high {
+    before win=0.5096 pick=0.2928 matches=14520 days=14
+    after win=0.4821 pick=0.1632 matches=8923 days=14
+  }
+}
+``
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 - Bullet Velocity reduced from 254 to 160
@@ -323,6 +455,18 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =hero:lady-geist:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.505 pick=0.3828 matches=93388 days=14
+    after win=0.4872 pick=0.3614 matches=93276 days=14
+  }
+  high {
+    before win=0.5064 pick=0.3429 matches=17002 days=14
+    after win=0.4865 pick=0.3181 matches=17391 days=14
+  }
+}
+``
 [[/hero/lady-geist]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]] Lady Geist patch history))
 ## [[/hero/lady-geist]]((Lady Geist))
 ==ability:soul-exchange:
@@ -333,6 +477,18 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =hero:lash:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5012 pick=0.406 matches=99060 days=14
+    after win=0.5249 pick=0.5339 matches=137798 days=14
+  }
+  high {
+    before win=0.4938 pick=0.4603 matches=22823 days=14
+    after win=0.523 pick=0.6548 matches=35801 days=14
+  }
+}
+``
 [[/hero/lash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp]] Lash patch history))
 ## [[/hero/lash]]((Lash))
 ==ability:grapple:
@@ -356,6 +512,18 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =hero:mcginnis:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5227 pick=0.3505 matches=85514 days=14
+    after win=0.5278 pick=0.3762 matches=97099 days=14
+  }
+  high {
+    before win=0.5286 pick=0.281 matches=13932 days=14
+    after win=0.5295 pick=0.3071 matches=16787 days=14
+  }
+}
+``
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 ==ability:mini-turrets:
@@ -371,6 +539,18 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =hero:mina:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4664 pick=0.5996 matches=146305 days=14
+    after win=0.4609 pick=0.5006 matches=129207 days=14
+  }
+  high {
+    before win=0.4755 pick=0.4842 matches=24007 days=14
+    after win=0.4768 pick=0.3695 matches=20203 days=14
+  }
+}
+``
 [[/hero/mina]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/vampirebat_sm.webp]] Mina patch history))
 ## [[/hero/mina]]((Mina))
 ==ability:sanguine-retreat:
@@ -388,6 +568,18 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =hero:mirage:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4468 pick=0.2028 matches=49485 days=14
+    after win=0.4707 pick=0.3076 matches=79397 days=14
+  }
+  high {
+    before win=0.4533 pick=0.2014 matches=9988 days=14
+    after win=0.4673 pick=0.3631 matches=19852 days=14
+  }
+}
+``
 [[/hero/mirage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage patch history))
 ## [[/hero/mirage]]((Mirage))
 ==ability:fire-scarabs:
@@ -405,12 +597,36 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =hero:mo-krill:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.511 pick=0.3145 matches=76746 days=14
+    after win=0.5005 pick=0.2868 matches=74031 days=14
+  }
+  high {
+    before win=0.5093 pick=0.3422 matches=16966 days=14
+    after win=0.5028 pick=0.2954 matches=16152 days=14
+  }
+}
+``
 [[/hero/mo-krill]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]] Mo & Krill patch history))
 ## [[/hero/mo-krill]]((Mo & Krill))
 - Health Regen reduced from 3 to 1
 =
 
 =hero:paige:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.539 pick=0.5909 matches=144173 days=14
+    after win=0.5292 pick=0.4995 matches=128919 days=14
+  }
+  high {
+    before win=0.5331 pick=0.5351 matches=26533 days=14
+    after win=0.5234 pick=0.431 matches=23563 days=14
+  }
+}
+``
 [[/hero/paige]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bookworm_sm.webp]] Paige patch history))
 ## [[/hero/paige]]((Paige))
 - Bullet damage growth reduced from 0.66 to 0.52
@@ -422,6 +638,18 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =hero:paradox:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4871 pick=0.3424 matches=83545 days=14
+    after win=0.4532 pick=0.2271 matches=58613 days=14
+  }
+  high {
+    before win=0.5001 pick=0.4309 matches=21367 days=14
+    after win=0.4567 pick=0.266 matches=14543 days=14
+  }
+}
+``
 [[/hero/paradox]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox patch history))
 ## [[/hero/paradox]]((Paradox))
 - Base regen reduced from 2.0 to 1.0
@@ -442,6 +670,18 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =hero:pocket:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4854 pick=0.3329 matches=81228 days=14
+    after win=0.4658 pick=0.2549 matches=65776 days=14
+  }
+  high {
+    before win=0.4992 pick=0.4182 matches=20737 days=14
+    after win=0.4755 pick=0.3143 matches=17185 days=14
+  }
+}
+``
 [[/hero/pocket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket patch history))
 ## [[/hero/pocket]]((Pocket))
 - Base regen reduced from 2 to 1
@@ -454,6 +694,18 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =hero:seven:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.522 pick=0.3104 matches=75723 days=14
+    after win=0.5527 pick=0.3952 matches=101996 days=14
+  }
+  high {
+    before win=0.5117 pick=0.2001 matches=9923 days=14
+    after win=0.561 pick=0.3391 matches=18541 days=14
+  }
+}
+``
 [[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
 ## [[/hero/seven]]((Seven))
 ==ability:lightning-ball:
@@ -465,6 +717,18 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =hero:shiv:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4716 pick=0.4377 matches=106804 days=14
+    after win=0.4601 pick=0.4012 matches=103539 days=14
+  }
+  high {
+    before win=0.479 pick=0.5741 matches=28467 days=14
+    after win=0.4695 pick=0.4959 matches=27113 days=14
+  }
+}
+``
 [[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
 ## [[/hero/shiv]]((Shiv))
 - Alt fire knockback reduced by 10%
@@ -481,6 +745,18 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =hero:sinclair:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4733 pick=0.162 matches=39529 days=14
+    after win=0.4723 pick=0.1931 matches=49835 days=14
+  }
+  high {
+    before win=0.4821 pick=0.1596 matches=7913 days=14
+    after win=0.4723 pick=0.1996 matches=10915 days=14
+  }
+}
+``
 [[/hero/sinclair]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/magician_sm.webp]] Sinclair patch history))
 ## [[/hero/sinclair]]((Sinclair))
 - Health reduced from 700 to 650
@@ -498,6 +774,18 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =hero:viscous:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4778 pick=0.2467 matches=60186 days=14
+    after win=0.4734 pick=0.2366 matches=61063 days=14
+  }
+  high {
+    before win=0.4958 pick=0.2662 matches=13198 days=14
+    after win=0.4898 pick=0.2392 matches=13080 days=14
+  }
+}
+``
 [[/hero/viscous]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous patch history))
 ## [[/hero/viscous]]((Viscous))
 ==ability:splatter:
@@ -518,12 +806,36 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =hero:vyper:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4789 pick=0.1861 matches=45412 days=14
+    after win=0.4943 pick=0.2184 matches=56377 days=14
+  }
+  high {
+    before win=0.4952 pick=0.1544 matches=7657 days=14
+    after win=0.5085 pick=0.1974 matches=10790 days=14
+  }
+}
+``
 [[/hero/vyper]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kali_sm.webp]] Vyper patch history))
 ## [[/hero/vyper]]((Vyper))
 - Health per boon increased from 33 to 35
 =
 
 =hero:warden:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5133 pick=0.2454 matches=59877 days=14
+    after win=0.511 pick=0.3503 matches=90421 days=14
+  }
+  high {
+    before win=0.5105 pick=0.2207 matches=10945 days=14
+    after win=0.512 pick=0.3593 matches=19645 days=14
+  }
+}
+``
 [[/hero/warden]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden patch history))
 ## [[/hero/warden]]((Warden))
 - Bullet damage increased from 16.2 to 16.6
@@ -539,6 +851,18 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =hero:wraith:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5144 pick=0.4092 matches=99848 days=14
+    after win=0.536 pick=0.5068 matches=130805 days=14
+  }
+  high {
+    before win=0.5257 pick=0.3957 matches=19622 days=14
+    after win=0.5452 pick=0.5462 matches=29864 days=14
+  }
+}
+``
 [[/hero/wraith]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp]] Wraith patch history))
 ## [[/hero/wraith]]((Wraith))
 ==ability:card-trick:
@@ -564,6 +888,18 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =hero:yamato:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4888 pick=0.3082 matches=75206 days=14
+    after win=0.4493 pick=0.2091 matches=53961 days=14
+  }
+  high {
+    before win=0.5054 pick=0.3639 matches=18042 days=14
+    after win=0.4629 pick=0.2283 matches=12479 days=14
+  }
+}
+``
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 - Base regen reduced from 2.0 to 1.0
@@ -588,18 +924,54 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 ``
 
 =item:blood-tribute:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5576 pick=0.0194 matches=56937 days=14
+    after win=0.5539 pick=0.0295 matches=91244 days=14
+  }
+  high {
+    before win=0.5557 pick=0.0281 matches=16697 days=14
+    after win=0.5539 pick=0.0405 matches=26540 days=14
+  }
+}
+``
 [[/item/blood-tribute]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/blood_tribute.webp]] Blood Tribute patch history))
 ## [[/item/blood-tribute]]((Blood Tribute))
 - Debuff Resistance reduced from +50% to +40%
 =
 
 =item:bullet-resist-shredder:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.527 pick=0.0525 matches=153820 days=14
+    after win=0.5266 pick=0.1017 matches=314979 days=14
+  }
+  high {
+    before win=0.5362 pick=0.0719 matches=42775 days=14
+    after win=0.5265 pick=0.1293 matches=84849 days=14
+  }
+}
+``
 [[/item/bullet-resist-shredder]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/bullet_resist_shredder.webp]] Bullet Resist Shredder patch history))
 ## [[/item/bullet-resist-shredder]]((Bullet Resist Shredder))
 - Bullet Resist Reduction reduced from 13% to 12%
 =
 
 =item:capacitor:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5291 pick=0.0699 matches=204636 days=14
+    after win=0.5286 pick=0.0711 matches=220327 days=14
+  }
+  high {
+    before win=0.5331 pick=0.0799 matches=47569 days=14
+    after win=0.5279 pick=0.0753 matches=49422 days=14
+  }
+}
+``
 [[/item/capacitor]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/capacitor.webp]] Capacitor patch history))
 ## [[/item/capacitor]]((Capacitor))
 - Shock damage reduced from 50 to 43
@@ -611,36 +983,108 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =item:cheat-death:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5872 pick=0.0027 matches=7900 days=14
+    after win=0.5855 pick=0.0038 matches=11665 days=14
+  }
+  high {
+    before win=0.6208 pick=0.0023 matches=1358 days=14
+    after win=0.6073 pick=0.0039 matches=2587 days=14
+  }
+}
+``
 [[/item/cheat-death]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/cheat_death.webp]] Cheat Death patch history))
 ## [[/item/cheat-death]]((Cheat Death))
 - Removes all non-stun debuffs on proc
 =
 
 =item:compress-cooldown:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5058 pick=0.4051 matches=1185954 days=14
+    after win=0.5043 pick=0.3741 matches=1158587 days=14
+  }
+  high {
+    before win=0.5062 pick=0.388 matches=230870 days=14
+    after win=0.5075 pick=0.3452 matches=226467 days=14
+  }
+}
+``
 [[/item/compress-cooldown]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/improved_cooldown.webp]] Compress Cooldown patch history))
 ## [[/item/compress-cooldown]]((Compress Cooldown))
 - Cooldown Reduction reduced from +22% to +18%
 =
 
 =item:crippling-headshot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5594 pick=0.0452 matches=132392 days=14
+    after win=0.5673 pick=0.0597 matches=184802 days=14
+  }
+  high {
+    before win=0.5706 pick=0.0466 matches=27739 days=14
+    after win=0.576 pick=0.0595 matches=39006 days=14
+  }
+}
+``
 [[/item/crippling-headshot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/crippling_headshot.webp]] Crippling Headshot patch history))
 ## [[/item/crippling-headshot]]((Crippling Headshot))
 - Healing Reduction increased from -30% to -35%
 =
 
 =item:cultist-sacrifice:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.502 pick=0.2192 matches=641813 days=14
+    after win=0.5058 pick=0.2127 matches=658758 days=14
+  }
+  high {
+    before win=0.5042 pick=0.289 matches=171980 days=14
+    after win=0.5077 pick=0.2695 matches=176827 days=14
+  }
+}
+``
 [[/item/cultist-sacrifice]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/cultist_sacrifice.webp]] Cultist Sacrifice patch history))
 ## [[/item/cultist-sacrifice]]((Cultist Sacrifice))
 - Now provides Weapon Damage instead of Fire Rate
 =
 
 =item:decay:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4738 pick=0.018 matches=52728 days=14
+    after win=0.4553 pick=0.0129 matches=40027 days=14
+  }
+  high {
+    before win=0.4796 pick=0.0191 matches=11385 days=14
+    after win=0.4674 pick=0.0134 matches=8798 days=14
+  }
+}
+``
 [[/item/decay]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/decay.webp]] Decay patch history))
 ## [[/item/decay]]((Decay))
 - Healing Reduction increased from -40% to -45%
 =
 
 =item:echo-shard:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5217 pick=0.037 matches=108334 days=14
+    after win=0.5038 pick=0.0423 matches=130954 days=14
+  }
+  high {
+    before win=0.5172 pick=0.032 matches=19025 days=14
+    after win=0.4943 pick=0.0392 matches=25701 days=14
+  }
+}
+``
 [[/item/echo-shard]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/echo_shard.webp]] Echo Shard patch history))
 ## [[/item/echo-shard]]((Echo Shard))
 - No longer grants +5% Cooldown Reduction
@@ -648,18 +1092,54 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =item:enchanter-s-emblem:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5039 pick=0.3228 matches=945247 days=14
+    after win=0.5014 pick=0.2811 matches=870562 days=14
+  }
+  high {
+    before win=0.5005 pick=0.3479 matches=207006 days=14
+    after win=0.501 pick=0.2943 matches=193099 days=14
+  }
+}
+``
 [[/item/enchanters-emblem]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/enchanters_emblem.webp]] Enchanter's Emblem patch history))
 ## [[/item/enchanters-emblem]]((Enchanter's Emblem))
 - Cooldown Reduction reduced from +7% to +5%
 =
 
 =item:escalating-resilience:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5107 pick=0.057 matches=166949 days=14
+    after win=0.5051 pick=0.0637 matches=197318 days=14
+  }
+  high {
+    before win=0.512 pick=0.0416 matches=24775 days=14
+    after win=0.5024 pick=0.0495 matches=32486 days=14
+  }
+}
+``
 [[/item/escalating-resilience]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/escalating_resilience.webp]] Escalating Resilience patch history))
 ## [[/item/escalating-resilience]]((Escalating Resilience))
 - Bonus Health reduced from 125 to 100
 =
 
 =item:express-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5042 pick=0.0387 matches=113418 days=14
+    after win=0.4807 pick=0.0306 matches=94901 days=14
+  }
+  high {
+    before win=0.51 pick=0.0364 matches=21675 days=14
+    after win=0.4962 pick=0.0266 matches=17451 days=14
+  }
+}
+``
 [[/item/express-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/express_shot.webp]] Express Shot patch history))
 ## [[/item/express-shot]]((Express Shot))
 - Weapon Damage now scales with boons (+2)
@@ -675,12 +1155,36 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =item:fleetfoot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5277 pick=0.1931 matches=565258 days=14
+    after win=0.5304 pick=0.2539 matches=786202 days=14
+  }
+  high {
+    before win=0.5256 pick=0.2068 matches=123059 days=14
+    after win=0.5239 pick=0.2742 matches=179860 days=14
+  }
+}
+``
 [[/item/fleetfoot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/fleetfoot.webp]] Fleetfoot patch history))
 ## [[/item/fleetfoot]]((Fleetfoot))
 - Speed duration reduced from 6s to 5s
 =
 
 =item:focus-lens:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5723 pick=0.0112 matches=32867 days=14
+    after win=0.5257 pick=0.0668 matches=206890 days=14
+  }
+  high {
+    before win=0.5761 pick=0.0125 matches=7467 days=14
+    after win=0.5343 pick=0.0828 matches=54322 days=14
+  }
+}
+``
 [[/item/focus-lens]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/focus_lens.webp]] Focus Lens patch history))
 ## [[/item/focus-lens]]((Focus Lens))
 - Now builds from Spirit Sap
@@ -693,36 +1197,108 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =item:glass-cannon:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.589 pick=0.0644 matches=188585 days=14
+    after win=0.579 pick=0.0569 matches=176075 days=14
+  }
+  high {
+    before win=0.5933 pick=0.0515 matches=30642 days=14
+    after win=0.5878 pick=0.0382 matches=25085 days=14
+  }
+}
+``
 [[/item/glass-cannon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/glass_cannon.webp]] Glass Cannon patch history))
 ## [[/item/glass-cannon]]((Glass Cannon))
 - Max Health reduced from -10% to -13%
 =
 
 =item:headshot-booster:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4894 pick=0.1299 matches=380321 days=14
+    after win=0.4949 pick=0.1411 matches=436967 days=14
+  }
+  high {
+    before win=0.494 pick=0.1402 matches=83397 days=14
+    after win=0.5003 pick=0.1584 matches=103927 days=14
+  }
+}
+``
 [[/item/headshot-booster]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/headshot_booster.webp]] Headshot Booster patch history))
 ## [[/item/headshot-booster]]((Headshot Booster))
 - Cooldown increased from 8 to 9
 =
 
 =item:inhibitor:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5612 pick=0.0085 matches=24939 days=14
+    after win=0.5526 pick=0.0137 matches=42322 days=14
+  }
+  high {
+    before win=0.566 pick=0.0063 matches=3730 days=14
+    after win=0.5615 pick=0.0113 matches=7393 days=14
+  }
+}
+``
 [[/item/inhibitor]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/inhibitor.webp]] Inhibitor patch history))
 ## [[/item/inhibitor]]((Inhibitor))
 - Healing Reduction increased from -35% to -40%
 =
 
 =item:lucky-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.6055 pick=0.0614 matches=179731 days=14
+    after win=0.5918 pick=0.0682 matches=211135 days=14
+  }
+  high {
+    before win=0.6174 pick=0.0518 matches=30818 days=14
+    after win=0.6031 pick=0.0563 matches=36968 days=14
+  }
+}
+``
 [[/item/lucky-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/lucky_shot.webp]] Lucky Shot patch history))
 ## [[/item/lucky-shot]]((Lucky Shot))
 - Damage reduced from 125% to 110%
 =
 
 =item:majestic-leap:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5058 pick=0.0676 matches=197799 days=14
+    after win=0.5094 pick=0.0673 matches=208525 days=14
+  }
+  high {
+    before win=0.5058 pick=0.0891 matches=53000 days=14
+    after win=0.5084 pick=0.0899 matches=58983 days=14
+  }
+}
+``
 [[/item/majestic-leap]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/majestic_leap.webp]] Majestic Leap patch history))
 ## [[/item/majestic-leap]]((Majestic Leap))
 - Cooldown increased from 32s to 34s
 =
 
 =item:mystic-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.479 pick=0.1602 matches=468944 days=14
+    after win=0.4748 pick=0.1275 matches=394824 days=14
+  }
+  high {
+    before win=0.4851 pick=0.1758 matches=104592 days=14
+    after win=0.4867 pick=0.1367 matches=89695 days=14
+  }
+}
+``
 [[/item/mystic-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/mystic_shot.webp]] Mystic Shot patch history))
 ## [[/item/mystic-shot]]((Mystic Shot))
 - Proc damage reduced from 45 to 40
@@ -730,18 +1306,54 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =item:mystic-vulnerability:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5292 pick=0.1081 matches=316410 days=14
+    after win=0.5296 pick=0.1103 matches=341609 days=14
+  }
+  high {
+    before win=0.5266 pick=0.0888 matches=52831 days=14
+    after win=0.5346 pick=0.0982 matches=64415 days=14
+  }
+}
+``
 [[/item/mystic-vulnerability]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mystic_vulnerability.webp]] Mystic Vulnerability patch history))
 ## [[/item/mystic-vulnerability]]((Mystic Vulnerability))
 - Duration increased from 6s to 7s
 =
 
 =item:opening-rounds:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4765 pick=0.0457 matches=133880 days=14
+    after win=0.4633 pick=0.0342 matches=105860 days=14
+  }
+  high {
+    before win=0.4876 pick=0.0445 matches=26506 days=14
+    after win=0.4741 pick=0.0334 matches=21892 days=14
+  }
+}
+``
 [[/item/opening-rounds]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/opening_rounds.webp]] Opening Rounds patch history))
 ## [[/item/opening-rounds]]((Opening Rounds))
 - Spirit Power increased from +7 to +8
 =
 
 =item:reactive-barrier:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4974 pick=0.091 matches=266312 days=14
+    after win=0.4875 pick=0.0672 matches=208067 days=14
+  }
+  high {
+    before win=0.5079 pick=0.13 matches=77327 days=14
+    after win=0.4984 pick=0.0864 matches=56679 days=14
+  }
+}
+``
 [[/item/reactive-barrier]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/reactive_barrier.webp]] Reactive Barrier patch history))
 ## [[/item/reactive-barrier]]((Reactive Barrier))
 - Cooldown increased from 26s to 40s
@@ -749,12 +1361,36 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =item:return-fire:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.3907 pick=0.0063 matches=18559 days=14
+    after win=0.4004 pick=0.0072 matches=22164 days=14
+  }
+  high {
+    before win=0.3951 pick=0.0076 matches=4493 days=14
+    after win=0.4129 pick=0.0089 matches=5858 days=14
+  }
+}
+``
 [[/item/return-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/return_fire.webp]] Return Fire patch history))
 ## [[/item/return-fire]]((Return Fire))
 - Bullet damage returned increased from 50% to 60%
 =
 
 =item:scourge:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.606 pick=0.0109 matches=32041 days=14
+    after win=0.5872 pick=0.0115 matches=35586 days=14
+  }
+  high {
+    before win=0.6103 pick=0.0101 matches=6015 days=14
+    after win=0.6073 pick=0.0109 matches=7156 days=14
+  }
+}
+``
 [[/item/scourge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/scourge.webp]] Scourge patch history))
 ## [[/item/scourge]]((Scourge))
 - Cooldown Reduction reduced from +6% to +4%
@@ -763,6 +1399,18 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =item:shadow-weave:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.6318 pick=0.0017 matches=4984 days=14
+    after win=0.5801 pick=0.0043 matches=13207 days=14
+  }
+  high {
+    before win=0.6384 pick=0.0017 matches=1026 days=14
+    after win=0.6025 pick=0.0043 matches=2838 days=14
+  }
+}
+``
 [[/item/shadow-weave]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/shadow_weave.webp]] Shadow Weave patch history))
 ## [[/item/shadow-weave]]((Shadow Weave))
 - Reveal distance reduced from 20m to 18m
@@ -770,6 +1418,18 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =item:silence-wave:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4925 pick=0.0645 matches=188766 days=14
+    after win=0.4705 pick=0.0192 matches=59539 days=14
+  }
+  high {
+    before win=0.5016 pick=0.0838 matches=49882 days=14
+    after win=0.4833 pick=0.0189 matches=12390 days=14
+  }
+}
+``
 [[/item/silence-wave]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/silence_glyph.webp]] Silence Wave patch history))
 ## [[/item/silence-wave]]((Silence Wave))
 - No longer upgrades from Spirit Sap
@@ -778,18 +1438,54 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =item:silencer:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.616 pick=0.0097 matches=28271 days=14
+    after win=0.5997 pick=0.014 matches=43405 days=14
+  }
+  high {
+    before win=0.6235 pick=0.0088 matches=5222 days=14
+    after win=0.6189 pick=0.0131 matches=8605 days=14
+  }
+}
+``
 [[/item/silencer]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/silencer.webp]] Silencer patch history))
 ## [[/item/silencer]]((Silencer))
 - Spirit Resist increased from 14% to 15%
 =
 
 =item:spellbreaker:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5683 pick=0.0453 matches=132721 days=14
+    after win=0.5649 pick=0.0565 matches=175098 days=14
+  }
+  high {
+    before win=0.5875 pick=0.0446 matches=26523 days=14
+    after win=0.5858 pick=0.0565 matches=37041 days=14
+  }
+}
+``
 [[/item/spellbreaker]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/spellbreaker.webp]] Spellbreaker patch history))
 ## [[/item/spellbreaker]]((Spellbreaker))
 - Cooldown reduced from 10s to 9s
 =
 
 =item:spellslinger:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5893 pick=0.0121 matches=35407 days=14
+    after win=0.5868 pick=0.0252 matches=78006 days=14
+  }
+  high {
+    before win=0.5991 pick=0.0138 matches=8207 days=14
+    after win=0.5939 pick=0.028 matches=18387 days=14
+  }
+}
+``
 [[/item/spellslinger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/spell_slinger.webp]] Spellslinger patch history))
 ## [[/item/spellslinger]]((Spellslinger))
 - Cooldown Reduction reduced from +12% to +6%
@@ -797,12 +1493,36 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =item:spirit-sap:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4927 pick=0.0459 matches=134319 days=14
+    after win=0.493 pick=0.0911 matches=282207 days=14
+  }
+  high {
+    before win=0.5031 pick=0.0592 matches=35214 days=14
+    after win=0.4986 pick=0.1195 matches=78396 days=14
+  }
+}
+``
 [[/item/spirit-sap]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/spirit_sap.webp]] Spirit Sap patch history))
 ## [[/item/spirit-sap]]((Spirit Sap))
 - Cooldown reduced from 35s to 25s (matches Focus Lens)
 =
 
 =item:spirit-shielding:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.502 pick=0.1925 matches=563632 days=14
+    after win=0.4897 pick=0.1334 matches=413125 days=14
+  }
+  high {
+    before win=0.5078 pick=0.2487 matches=147953 days=14
+    after win=0.4931 pick=0.1416 matches=92877 days=14
+  }
+}
+``
 [[/item/spirit-shielding]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/spirit_shielding.webp]] Spirit Shielding patch history))
 ## [[/item/spirit-shielding]]((Spirit Shielding))
 - Cooldown increased from 35s to 45s
@@ -811,12 +1531,36 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =item:spirit-snatch:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5151 pick=0.1506 matches=440795 days=14
+    after win=0.5097 pick=0.1379 matches=427114 days=14
+  }
+  high {
+    before win=0.5125 pick=0.1793 matches=106677 days=14
+    after win=0.5106 pick=0.156 matches=102335 days=14
+  }
+}
+``
 [[/item/spirit-snatch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/spirit_snatch.webp]] Spirit Snatch patch history))
 ## [[/item/spirit-snatch]]((Spirit Snatch))
 - Instead of increasing CD to 2x on light melee hit, the effects of Spirit Snatch are reduced to 70% effectiveness (Damage, Spirit Power, Spirit Resist)
 =
 
 =item:spiritual-overflow:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5793 pick=0.0318 matches=93136 days=14
+    after win=0.5709 pick=0.0364 matches=112778 days=14
+  }
+  high {
+    before win=0.5858 pick=0.0223 matches=13286 days=14
+    after win=0.5907 pick=0.0265 matches=17400 days=14
+  }
+}
+``
 [[/item/spiritual-overflow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/spiritual_overflow.webp]] Spiritual Overflow patch history))
 ## [[/item/spiritual-overflow]]((Spiritual Overflow))
 - Cooldown Reduction reduced from +20% to +12%
@@ -824,18 +1568,54 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =item:split-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5207 pick=0.0379 matches=110913 days=14
+    after win=0.4911 pick=0.0183 matches=56650 days=14
+  }
+  high {
+    before win=0.5224 pick=0.0299 matches=17812 days=14
+    after win=0.4931 pick=0.0101 matches=6637 days=14
+  }
+}
+``
 [[/item/split-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/split_shot.webp]] Split Shot patch history))
 ## [[/item/split-shot]]((Split Shot))
 - Cooldown increased from 14s to 32s
 =
 
 =item:superior-cooldown:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5117 pick=0.4377 matches=1281527 days=14
+    after win=0.5096 pick=0.4062 matches=1258135 days=14
+  }
+  high {
+    before win=0.5157 pick=0.4317 matches=256873 days=14
+    after win=0.5154 pick=0.3928 matches=257691 days=14
+  }
+}
+``
 [[/item/superior-cooldown]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/superior_cooldown.webp]] Superior Cooldown patch history))
 ## [[/item/superior-cooldown]]((Superior Cooldown))
 - Cooldown Reduction reduced from +25% to +20%
 =
 
 =item:tesla-bullets:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5166 pick=0.1395 matches=408554 days=14
+    after win=0.5159 pick=0.1324 matches=410030 days=14
+  }
+  high {
+    before win=0.516 pick=0.1562 matches=92961 days=14
+    after win=0.5136 pick=0.1369 matches=89804 days=14
+  }
+}
+``
 [[/item/tesla-bullets]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/tesla_bullets.webp]] Tesla Bullets patch history))
 ## [[/item/tesla-bullets]]((Tesla Bullets))
 - Shock damage reduced from 40 to 33
@@ -843,12 +1623,36 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =item:transcendent-cooldown:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5329 pick=0.2417 matches=707765 days=14
+    after win=0.5248 pick=0.2374 matches=735317 days=14
+  }
+  high {
+    before win=0.553 pick=0.2148 matches=127783 days=14
+    after win=0.5422 pick=0.202 matches=132550 days=14
+  }
+}
+``
 [[/item/transcendent-cooldown]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/transcendent_cooldown.webp]] Transcendent Cooldown patch history))
 ## [[/item/transcendent-cooldown]]((Transcendent Cooldown))
 - Cooldown Reduction reduced from +30% to +25%
 =
 
 =item:trophy-collector:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5287 pick=0.1205 matches=352705 days=14
+    after win=0.5231 pick=0.1299 matches=402258 days=14
+  }
+  high {
+    before win=0.5207 pick=0.1207 matches=71844 days=14
+    after win=0.5151 pick=0.1216 matches=79783 days=14
+  }
+}
+``
 [[/item/trophy-collector]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/trophy_collector.webp]] Trophy Collector patch history))
 ## [[/item/trophy-collector]]((Trophy Collector))
 - Souls per minute reduced from 30 to 22
@@ -856,12 +1660,36 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =item:warp-stone:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5318 pick=0.0808 matches=236691 days=14
+    after win=0.5296 pick=0.0844 matches=261291 days=14
+  }
+  high {
+    before win=0.5286 pick=0.1264 matches=75190 days=14
+    after win=0.5304 pick=0.128 matches=83998 days=14
+  }
+}
+``
 [[/item/warp-stone]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/warp_stone.webp]] Warp Stone patch history))
 ## [[/item/warp-stone]]((Warp Stone))
 - Bullet Resist reduced from 35% to 30%
 =
 
 =item:weapon-shielding:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4541 pick=0.0153 matches=44798 days=14
+    after win=0.4749 pick=0.0268 matches=83117 days=14
+  }
+  high {
+    before win=0.4708 pick=0.0152 matches=9073 days=14
+    after win=0.4878 pick=0.0232 matches=15208 days=14
+  }
+}
+``
 [[/item/weapon-shielding]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/weapon_shielding.webp]] Weapon Shielding patch history))
 ## [[/item/weapon-shielding]]((Weapon Shielding))
 - Cooldown increased from 35s to 45s
@@ -869,6 +1697,18 @@ content_text "Trooper bounty mechanics have been reworked. The first half of the
 =
 
 =item:weighted-shots:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.532 pick=0.031 matches=90657 days=14
+    after win=0.5318 pick=0.034 matches=105214 days=14
+  }
+  high {
+    before win=0.5331 pick=0.0355 matches=21146 days=14
+    after win=0.5318 pick=0.0397 matches=26055 days=14
+  }
+}
+``
 [[/item/weighted-shots]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/weighted_shots.webp]] Weighted Shots patch history))
 ## [[/item/weighted-shots]]((Weighted Shots))
 - Weapon Damage increased from +30% to +35%

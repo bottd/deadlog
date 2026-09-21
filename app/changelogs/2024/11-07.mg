@@ -1,4 +1,4 @@
-``meta:
+``attr:
 // Not reproducible offline: this body came from the Steam API, which no longer serves
 // a note this old, so regenerate-from-cache.ts skips it and a forum-cache regeneration
 // would replace real patch notes with the unfurl summary. The brace escaping that was
@@ -117,6 +117,18 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 ``
 
 =hero:abrams:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5528 pick=0.5691 matches=285016 days=5
+    after win=0.5321 pick=0.5824 matches=115116 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/abrams]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams patch history))
 ## [[/hero/abrams]]((Abrams))
 
@@ -155,6 +167,18 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 ==
 =
 =hero:bebop:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4992 pick=0.673 matches=337044 days=5
+    after win=0.4929 pick=0.6921 matches=136798 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/bebop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop patch history))
 ## [[/hero/bebop]]((Bebop))
 
@@ -182,6 +206,18 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 ==
 =
 =hero:dynamo:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4878 pick=0.3985 matches=199563 days=5
+    after win=0.5175 pick=0.4237 matches=83749 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 
@@ -207,6 +243,18 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 ==
 =
 =hero:grey-talon:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4766 pick=0.6763 matches=338669 days=5
+    after win=0.4562 pick=0.5565 matches=109994 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/grey-talon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon patch history))
 ## [[/hero/grey-talon]]((Grey Talon))
 
@@ -228,6 +276,18 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 ==
 =
 =hero:haze:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5426 pick=0.9368 matches=469153 days=5
+    after win=0.4967 pick=0.9227 matches=182369 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 
@@ -247,6 +307,18 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 ==
 =
 =hero:infernus:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.495 pick=0.8417 matches=421541 days=5
+    after win=0.4845 pick=0.7977 matches=157653 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/infernus]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus patch history))
 ## [[/hero/infernus]]((Infernus))
 
@@ -263,6 +335,18 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 ==
 =
 =hero:ivy:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5094 pick=0.4487 matches=224691 days=5
+    after win=0.5301 pick=0.4615 matches=91219 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
 ## [[/hero/ivy]]((Ivy))
 
@@ -278,6 +362,18 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 ==
 =
 =hero:lash:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4882 pick=0.5181 matches=259480 days=5
+    after win=0.5024 pick=0.5663 matches=111919 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/lash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp]] Lash patch history))
 ## [[/hero/lash]]((Lash))
 
@@ -301,6 +397,18 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 ==
 =
 =hero:mcginnis:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5366 pick=0.653 matches=327009 days=5
+    after win=0.4998 pick=0.5806 matches=114752 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 
@@ -316,6 +424,18 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 ==
 =
 =hero:mirage:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5009 pick=0.4808 matches=240781 days=5
+    after win=0.484 pick=0.4086 matches=80765 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/mirage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage patch history))
 ## [[/hero/mirage]]((Mirage))
 
@@ -339,6 +459,18 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 ==
 =
 =hero:paradox:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4824 pick=0.4902 matches=245481 days=5
+    after win=0.4782 pick=0.5003 matches=98873 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/paradox]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox patch history))
 ## [[/hero/paradox]]((Paradox))
 
@@ -366,6 +498,18 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 ==
 =
 =hero:pocket:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.466 pick=0.3414 matches=170977 days=5
+    after win=0.4937 pick=0.3838 matches=75848 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/pocket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket patch history))
 ## [[/hero/pocket]]((Pocket))
 
@@ -379,6 +523,18 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 - Light melee damage increased from 63 to 75.
 =
 =hero:vindicta:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4783 pick=0.7331 matches=367153 days=5
+    after win=0.4754 pick=0.6813 matches=134659 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
 
@@ -411,6 +567,18 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 ==
 =
 =hero:viscous:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.463 pick=0.2847 matches=142593 days=5
+    after win=0.4887 pick=0.3663 matches=72388 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/viscous]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous patch history))
 ## [[/hero/viscous]]((Viscous))
 
@@ -430,6 +598,18 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 ==
 =
 =hero:warden:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5241 pick=0.4811 matches=240920 days=5
+    after win=0.5338 pick=0.5049 matches=99793 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/warden]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden patch history))
 ## [[/hero/warden]]((Warden))
 
@@ -446,6 +626,18 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 ==
 =
 =hero:wraith:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4932 pick=0.8053 matches=403277 days=5
+    after win=0.4924 pick=0.77 matches=152183 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/wraith]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp]] Wraith patch history))
 ## [[/hero/wraith]]((Wraith))
 
@@ -458,6 +650,18 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 ==
 =
 =hero:yamato:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4802 pick=0.3797 matches=190177 days=5
+    after win=0.5544 pick=0.5599 matches=110657 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 
@@ -480,12 +684,36 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 ``
 
 =item:active-reload:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5101 pick=0.0762 matches=458065 days=5
+    after win=0.4926 pick=0.075 matches=177866 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/active-reload]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/active_reload.webp]] Active Reload patch history))
 ## [[/item/active-reload]]((Active Reload))
 
 - Now grants +50 Health.
 =
 =item:alchemical-fire:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4961 pick=0.0147 matches=88578 days=5
+    after win=0.5066 pick=0.0176 matches=41714 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/alchemical-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/alchemical_fire.webp]] Alchemical Fire patch history))
 ## [[/item/alchemical-fire]]((Alchemical Fire))
 
@@ -498,6 +726,18 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 - Duration increased from 35s to 45s.
 =
 =item:berserker:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5224 pick=0.0776 matches=466463 days=5
+    after win=0.5251 pick=0.0815 matches=193364 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/berserker]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/berserker.webp]] Berserker patch history))
 ## [[/item/berserker]]((Berserker))
 
@@ -510,6 +750,18 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 - Bullet Resist increased from 25% to 26%.
 =
 =item:close-quarters:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5034 pick=0.2064 matches=1240419 days=5
+    after win=0.5103 pick=0.2165 matches=513479 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/close-quarters]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/close_quarters.webp]] Close Quarters patch history))
 ## [[/item/close-quarters]]((Close Quarters))
 
@@ -517,12 +769,36 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 - Now grants +5% Bullet Resist.
 =
 =item:debuff-reducer:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.497 pick=0.0586 matches=351994 days=5
+    after win=0.5046 pick=0.0625 matches=148293 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/debuff-reducer]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/debuff_reducer.webp]] Debuff Reducer patch history))
 ## [[/item/debuff-reducer]]((Debuff Reducer))
 
 - Health increased from +75 to +125.
 =
 =item:decay:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.469 pick=0.0224 matches=134399 days=5
+    after win=0.4839 pick=0.0254 matches=60327 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/decay]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/decay.webp]] Decay patch history))
 ## [[/item/decay]]((Decay))
 
@@ -540,72 +816,216 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 - Now grants +6 Spirit Power.
 =
 =item:extra-health:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5003 pick=0.236 matches=1418067 days=5
+    after win=0.5004 pick=0.2434 matches=577392 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/extra-health]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_health.webp]] Extra Health patch history))
 ## [[/item/extra-health]]((Extra Health))
 
 - Weapon Damage increased from 6% to 7%.
 =
 =item:fortitude:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5142 pick=0.1115 matches=669915 days=5
+    after win=0.5082 pick=0.1215 matches=288156 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/fortitude]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/fortitude.webp]] Fortitude patch history))
 ## [[/item/fortitude]]((Fortitude))
 
 - Health increased from 365 to 400.
 =
 =item:frenzy:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5563 pick=0.0305 matches=183533 days=5
+    after win=0.5513 pick=0.0416 matches=98705 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/frenzy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/frenzy.webp]] Frenzy patch history))
 ## [[/item/frenzy]]((Frenzy))
 
 - Low HP bullet resist increased from 45% to 55%.
 =
 =item:glass-cannon:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5385 pick=0.0663 matches=398344 days=5
+    after win=0.5315 pick=0.072 matches=170838 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/glass-cannon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/glass_cannon.webp]] Glass Cannon patch history))
 ## [[/item/glass-cannon]]((Glass Cannon))
 
 - Health loss reduced from -15% to -12%.
 =
 =item:healbane:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4927 pick=0.162 matches=973444 days=5
+    after win=0.5088 pick=0.1773 matches=420466 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/healbane]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healbane.webp]] Healbane patch history))
 ## [[/item/healbane]]((Healbane))
 
 - Healing reduction increased from -40% to -45%.
 =
 =item:healing-nova:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4986 pick=0.0292 matches=175389 days=5
+    after win=0.5187 pick=0.0432 matches=102350 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/healing-nova]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healing_nova.webp]] Healing Nova patch history))
 ## [[/item/healing-nova]]((Healing Nova))
 
 - Now grants +6% Ability Range.
 =
 =item:healing-rite:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4945 pick=0.2403 matches=1444357 days=5
+    after win=0.5006 pick=0.2483 matches=588806 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/healing-rite]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healing_rite.webp]] Healing Rite patch history))
 ## [[/item/healing-rite]]((Healing Rite))
 
 - Duration increased from 19s to 20s (total health restored unchanged).
 =
 =item:heroic-aura:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5517 pick=0.0321 matches=193172 days=5
+    after win=0.5268 pick=0.0291 matches=69111 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/heroic-aura]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/heroic_aura.webp]] Heroic Aura patch history))
 ## [[/item/heroic-aura]]((Heroic Aura))
 
 - Cooldown reduced from 32s to 25s.
 =
 =item:inhibitor:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5659 pick=0.037 matches=222495 days=5
+    after win=0.5426 pick=0.0398 matches=94499 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/inhibitor]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/inhibitor.webp]] Inhibitor patch history))
 ## [[/item/inhibitor]]((Inhibitor))
 
 - Slow reduced from 25% to 20%.
 =
 =item:intensifying-magazine:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.512 pick=0.0906 matches=544514 days=5
+    after win=0.5084 pick=0.0969 matches=229747 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/intensifying-magazine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/intensifying_magazine.webp]] Intensifying Magazine patch history))
 ## [[/item/intensifying-magazine]]((Intensifying Magazine))
 
 - Time to reach Max Damage reduced from 3s to 2.7s.
 =
 =item:lifestrike:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5371 pick=0.0521 matches=312945 days=5
+    after win=0.5256 pick=0.0539 matches=127853 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/lifestrike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/lifestrike.webp]] Lifestrike patch history))
 ## [[/item/lifestrike]]((Lifestrike))
 
 - Bullet resistance increased from 8% to 10%.
 =
 =item:long-range:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4847 pick=0.1135 matches=681992 days=5
+    after win=0.4771 pick=0.1216 matches=288491 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/long-range]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/long_range.webp]] Long Range patch history))
 ## [[/item/long-range]]((Long Range))
 
@@ -613,18 +1033,54 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 - Now grants +10% Weapon Damage.
 =
 =item:lucky-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5683 pick=0.1033 matches=620950 days=5
+    after win=0.5345 pick=0.0956 matches=226790 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/lucky-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/lucky_shot.webp]] Lucky Shot patch history))
 ## [[/item/lucky-shot]]((Lucky Shot))
 
 - Fixed it causing proc effects to roll twice whenever it procced.
 =
 =item:magic-carpet:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5581 pick=0.003 matches=18123 days=5
+    after win=0.5807 pick=0.0052 matches=12261 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/magic-carpet]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/magic_carpet.webp]] Magic Carpet patch history))
 ## [[/item/magic-carpet]]((Magic Carpet))
 
 - Now grants +10% Ability Range.
 =
 =item:melee-charge:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5318 pick=0.081 matches=486522 days=5
+    after win=0.5197 pick=0.0819 matches=194346 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/melee-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/melee_charge.webp]] Melee Charge patch history))
 ## [[/item/melee-charge]]((Melee Charge))
 
@@ -632,30 +1088,90 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 - Weapon Damage reduced from 12% to 10%.
 =
 =item:metal-skin:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4263 pick=0.0556 matches=334428 days=5
+    after win=0.4509 pick=0.045 matches=106840 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/metal-skin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/metal_skin.webp]] Metal Skin patch history))
 ## [[/item/metal-skin]]((Metal Skin))
 
 - No longer blocks melee damage.
 =
 =item:mystic-burst:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4863 pick=0.4082 matches=2453105 days=5
+    after win=0.4957 pick=0.417 matches=989086 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/mystic-burst]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mystic_burst.webp]] Mystic Burst patch history))
 ## [[/item/mystic-burst]]((Mystic Burst))
 
 - Now triggers on your base damage, rather than how much the target receives.
 =
 =item:phantom-strike:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5527 pick=0.0114 matches=68274 days=5
+    after win=0.5532 pick=0.0179 matches=42397 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/phantom-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/phantom_strike.webp]] Phantom Strike patch history))
 ## [[/item/phantom-strike]]((Phantom Strike))
 
 - Now grounds any flying targets on impact (similar to how Slowing Hex used to work).
 =
 =item:reactive-barrier:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4864 pick=0.0449 matches=269559 days=5
+    after win=0.4931 pick=0.0488 matches=115780 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/reactive-barrier]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/reactive_barrier.webp]] Reactive Barrier patch history))
 ## [[/item/reactive-barrier]]((Reactive Barrier))
 
 - Restores 1 stamina on proc.
 =
 =item:restorative-locket:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5101 pick=0.01 matches=59987 days=5
+    after win=0.5187 pick=0.0106 matches=25228 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/restorative-locket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/restorative_locket.webp]] Restorative Locket patch history))
 ## [[/item/restorative-locket]]((Restorative Locket))
 
@@ -663,6 +1179,18 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 - Now grants +25% Melee Resistance.
 =
 =item:restorative-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4948 pick=0.1636 matches=983191 days=5
+    after win=0.503 pick=0.1707 matches=404777 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/restorative-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/restorative_shot.webp]] Restorative Shot patch history))
 ## [[/item/restorative-shot]]((Restorative Shot))
 
@@ -671,18 +1199,54 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 - Now procs on orb shots for NPC heal value.
 =
 =item:return-fire:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4815 pick=0.0587 matches=353031 days=5
+    after win=0.4928 pick=0.0616 matches=146061 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/return-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/return_fire.webp]] Return Fire patch history))
 ## [[/item/return-fire]]((Return Fire))
 
 - Duration reduced from 7s to 6s.
 =
 =item:shadow-weave:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5303 pick=0.0183 matches=109953 days=5
+    after win=0.5219 pick=0.0184 matches=43631 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/shadow-weave]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/shadow_weave.webp]] Shadow Weave patch history))
 ## [[/item/shadow-weave]]((Shadow Weave))
 
 - Detection range increased from 18m to 22m.
 =
 =item:sharpshooter:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4787 pick=0.0739 matches=443922 days=5
+    after win=0.4697 pick=0.0781 matches=185259 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/sharpshooter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/sharp_shooter.webp]] Sharpshooter patch history))
 ## [[/item/sharpshooter]]((Sharpshooter))
 
@@ -696,18 +1260,54 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 - Now grants +12% Spirit Resist.
 =
 =item:siphon-bullets:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.535 pick=0.0344 matches=206682 days=5
+    after win=0.5351 pick=0.0428 matches=101498 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/siphon-bullets]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/siphon_bullets.webp]] Siphon Bullets patch history))
 ## [[/item/siphon-bullets]]((Siphon Bullets))
 
 - Now grants +15% Weapon Damage.
 =
 =item:slowing-bullets:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5043 pick=0.1135 matches=681977 days=5
+    after win=0.5016 pick=0.1087 matches=257827 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/slowing-bullets]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/slowing_bullets.webp]] Slowing Bullets patch history))
 ## [[/item/slowing-bullets]]((Slowing Bullets))
 
 - Spirit Power increased from +5 to +6.
 =
 =item:slowing-hex:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5207 pick=0.0782 matches=469673 days=5
+    after win=0.5109 pick=0.0886 matches=210093 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/slowing-hex]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/slowing_hex.webp]] Slowing Hex patch history))
 ## [[/item/slowing-hex]]((Slowing Hex))
 
@@ -730,24 +1330,72 @@ content_text "Added Trapper to Hero Labs. Added support for Hero Labs in Private
 - Spirit Resist increased from 20% to 22%.
 =
 =item:superior-cooldown:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5002 pick=0.2755 matches=1655488 days=5
+    after win=0.5026 pick=0.2974 matches=705398 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/superior-cooldown]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/superior_cooldown.webp]] Superior Cooldown patch history))
 ## [[/item/superior-cooldown]]((Superior Cooldown))
 
 - Now grants +15% Ammo.
 =
 =item:toxic-bullets:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4977 pick=0.1343 matches=806946 days=5
+    after win=0.4917 pick=0.1333 matches=316162 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/toxic-bullets]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/toxic_bullets.webp]] Toxic Bullets patch history))
 ## [[/item/toxic-bullets]]((Toxic Bullets))
 
 - Damage changed from 5% of Current Health to 2.5% of Max Health.
 =
 =item:vampiric-burst:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5673 pick=0.0233 matches=140152 days=5
+    after win=0.5522 pick=0.0256 matches=60659 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/vampiric-burst]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/vampiric_burst.webp]] Vampiric Burst patch history))
 ## [[/item/vampiric-burst]]((Vampiric Burst))
 
 - Cooldown reduced from 34s to 30s.
 =
 =item:veil-walker:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.507 pick=0.0322 matches=193632 days=5
+    after win=0.5131 pick=0.0369 matches=87405 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/veil-walker]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/veil_walker.webp]] Veil Walker patch history))
 ## [[/item/veil-walker]]((Veil Walker))
 

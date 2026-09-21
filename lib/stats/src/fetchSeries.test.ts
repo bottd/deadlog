@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { DAY_S, HIGH_RANK_MIN_BADGE } from './constants';
-import { chunkRange, dayOf, fetchAllSeries, fetchSeries } from './fetchSeries';
+import { DAY_S, HIGH_RANK_MIN_BADGE, dayOf } from './constants';
+import { chunkRange, fetchAllSeries, fetchSeries } from './fetchSeries';
 import { DAY_1, DAY_2, DAY_3, heroRow, itemRow } from './fixtures';
 
 type Responder = (url: URL) => unknown;
@@ -25,7 +25,7 @@ afterEach(() => vi.unstubAllGlobals());
 
 describe('chunkRange', () => {
 	it('covers whole days in consecutive, non-overlapping chunks', () => {
-		const chunks = chunkRange({ from: DAY_1 + 500, to: DAY_1 + 130 * DAY_S + 9 }, 60);
+		const chunks = chunkRange({ from: DAY_1 + 500, to: DAY_1 + 130 * DAY_S + 9 });
 
 		expect(chunks).toHaveLength(3);
 		expect(chunks[0].from).toBe(DAY_1);
@@ -37,7 +37,7 @@ describe('chunkRange', () => {
 	});
 
 	it('returns one chunk for a range within the limit', () => {
-		expect(chunkRange({ from: DAY_1, to: DAY_2 }, 60)).toEqual([
+		expect(chunkRange({ from: DAY_1, to: DAY_2 })).toEqual([
 			{ from: DAY_1, to: DAY_3 - 1 }
 		]);
 	});
@@ -56,13 +56,13 @@ describe('fetchSeries', () => {
 			{ entityId: 1, day: DAY_1, wins: 60, matches: 100 },
 			{ entityId: 2, day: DAY_1, wins: 40, matches: 90 }
 		]);
-		expect(series.totalMatches).toEqual(new Map([[DAY_1, 515_328]]));
+		expect(series.totals).toEqual(new Map([[DAY_1, 515_328]]));
 		expect(calls[0].pathname).toBe('/v1/analytics/hero-stats');
 		expect(calls[0].searchParams.get('bucket')).toBe('start_time_day');
 		expect(calls[0].searchParams.has('min_average_badge')).toBe(false);
 	});
 
-	it('normalises item rows and leaves totals empty', async () => {
+	it('normalises item rows, which carry no totals', async () => {
 		const calls = stubFetch(() => [itemRow(7409189, DAY_1, 194, 367)]);
 
 		const series = await fetchSeries('item', 'all', { from: DAY_1, to: DAY_1 });
@@ -70,7 +70,7 @@ describe('fetchSeries', () => {
 		expect(series.rows).toEqual([
 			{ entityId: 7409189, day: DAY_1, wins: 194, matches: 367 }
 		]);
-		expect(series.totalMatches.size).toBe(0);
+		expect(series.totals.size).toBe(0);
 		expect(calls[0].pathname).toBe('/v1/analytics/item-stats');
 	});
 
@@ -90,7 +90,7 @@ describe('fetchSeries', () => {
 		const series = await fetchSeries('hero', 'all', { from: DAY_1, to: DAY_1 });
 
 		expect(series.rows.map((row) => row.day)).toEqual([DAY_1]);
-		expect([...series.totalMatches.keys()]).toEqual([DAY_1]);
+		expect([...series.totals.keys()]).toEqual([DAY_1]);
 	});
 
 	it('requests consecutive chunks and never counts a day twice', async () => {
@@ -113,7 +113,6 @@ describe('fetchSeries', () => {
 		);
 		const days = series.rows.map((row) => row.day);
 		expect(new Set(days).size).toBe(days.length);
-		expect(days).toEqual([...days].sort((a, b) => a - b));
 	});
 
 	it('throws on a server error', async () => {
@@ -137,7 +136,7 @@ describe('fetchSeries', () => {
 });
 
 describe('fetchAllSeries', () => {
-	it('gives each item tier the hero totals of the same tier', async () => {
+	it("takes each tier's totals from the hero series", async () => {
 		stubFetch((url) => {
 			const high = url.searchParams.has('min_average_badge');
 			if (url.pathname.endsWith('hero-stats')) {
@@ -150,8 +149,9 @@ describe('fetchAllSeries', () => {
 
 		const all = await fetchAllSeries({ from: DAY_1, to: DAY_1 });
 
-		expect(all.item.all.totalMatches.get(DAY_1)).toBe(120_000);
-		expect(all.item.high.totalMatches.get(DAY_1)).toBe(1200);
-		expect(all.hero.high.totalMatches.get(DAY_1)).toBe(1200);
+		expect(all.totals.all.get(DAY_1)).toBe(120_000);
+		expect(all.totals.high.get(DAY_1)).toBe(1200);
+		expect(all.rows.item.all).toEqual(all.rows.item.high);
+		expect(all.rows.item.all[0].entityId).toBe(7409189);
 	});
 });

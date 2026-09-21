@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "09-19-2024 Update"
 thread_id "31166"
 published "2024-09-19T17:58:06-0700"
@@ -22,6 +22,18 @@ content_text "Replaced the recent soul duplication hotfix with new behavior. Pre
 ``
 
 =item:veil-walker:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5102 pick=0.0628 matches=1033 days=2
+    after win=0.5079 pick=0.0676 matches=2910 days=5
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/veil-walker]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/veil_walker.webp]] Veil Walker patch history))
 ## [[/item/veil-walker]]((Veil Walker))
 - Fire Rate reduced from 30% to 20%

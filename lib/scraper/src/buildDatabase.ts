@@ -24,7 +24,8 @@ import {
 	indexEntityNames,
 	findEntityName,
 	resolveHeroAbilitySlug,
-	toSlug
+	toSlug,
+	type EntityImpact
 } from '@deadlog/utils';
 import { isReleasedHero, resolveAbilitySlots } from './heroAbilities';
 
@@ -114,6 +115,20 @@ function collectEntityMatches(
 	}
 
 	return matches;
+}
+
+function collectEntityImpact(
+	changes: EntityChange[],
+	type: 'hero' | 'item',
+	entityMap: Map<string, { id: number }>
+): Map<number, EntityImpact> {
+	const impacts = new Map<number, EntityImpact>();
+	for (const change of changes) {
+		if (change.type !== type || !change.impact) continue;
+		const id = findEntityName(entityMap, change.name)?.id;
+		if (id !== undefined && !impacts.has(id)) impacts.set(id, change.impact);
+	}
+	return impacts;
 }
 
 export async function buildDatabaseFromMog(options: BuildOptions): Promise<BuildResult> {
@@ -294,6 +309,8 @@ export async function buildDatabaseFromMog(options: BuildOptions): Promise<Build
 					'item',
 					itemMap
 				);
+				const heroImpact = collectEntityImpact(entityChanges, 'hero', heroMap);
+				const itemImpact = collectEntityImpact(entityChanges, 'item', itemMap);
 
 				patchRows.push({
 					id: changelogId,
@@ -324,7 +341,8 @@ export async function buildDatabaseFromMog(options: BuildOptions): Promise<Build
 									abilitySlug: group.ability
 										? resolveHeroAbilitySlug(group.ability, abilities)
 										: null
-								})) ?? null
+								})) ?? null,
+							impact: heroImpact.get(heroId) ?? null
 						})
 					);
 					heroMatches++;
@@ -332,7 +350,12 @@ export async function buildDatabaseFromMog(options: BuildOptions): Promise<Build
 
 				for (const [itemId, changeGroups] of itemMatchesForPatch) {
 					itemRows.push(
-						insertChangelogItemSchema.parse({ changelogId, itemId, changeGroups })
+						insertChangelogItemSchema.parse({
+							changelogId,
+							itemId,
+							changeGroups,
+							impact: itemImpact.get(itemId) ?? null
+						})
 					);
 					itemMatches++;
 				}

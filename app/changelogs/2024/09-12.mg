@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "09-12-2024 Update"
 thread_id "27974"
 published "2024-09-12T14:51:49-0700"
@@ -147,6 +147,18 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 ``
 
 =hero:abrams:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5213 pick=0.5608 matches=4318 days=10
+    after win=#null pick=#null matches=953 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/abrams]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams patch history))
 ## [[/hero/abrams]]((Abrams))
 ==ability:seismic-impact:
@@ -172,6 +184,18 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 =
 
 =hero:bebop:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4861 pick=0.7443 matches=5731 days=10
+    after win=0.5144 pick=0.7849 matches=1215 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/bebop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop patch history))
 ## [[/hero/bebop]]((Bebop))
 ==ability:uppercut:
@@ -201,6 +225,18 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 =
 
 =hero:dynamo:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4765 pick=0.4222 matches=3251 days=10
+    after win=#null pick=#null matches=679 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 ==ability:rejuvenating-aurora:
@@ -222,6 +258,18 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 =
 
 =hero:grey-talon:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4566 pick=0.6394 matches=4923 days=10
+    after win=0.5054 pick=0.6596 matches=1021 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/grey-talon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon patch history))
 ## [[/hero/grey-talon]]((Grey Talon))
 ==ability:charged-shot:
@@ -249,6 +297,18 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 =
 
 =hero:haze:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5286 pick=0.9277 matches=7143 days=10
+    after win=0.5377 pick=0.9335 matches=1445 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 ==ability:sleep-dagger:
@@ -259,6 +319,18 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 =
 
 =hero:infernus:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4868 pick=0.7747 matches=5965 days=10
+    after win=0.4845 pick=0.7733 matches=1197 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/infernus]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus patch history))
 ## [[/hero/infernus]]((Infernus))
 - Base health reduced from 625 to 600
@@ -270,6 +342,18 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 =
 
 =hero:ivy:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4938 pick=0.3471 matches=2673 days=10
+    after win=#null pick=#null matches=556 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
 ## [[/hero/ivy]]((Ivy))
 - Fixed some control issues when flying near a wall
@@ -281,6 +365,18 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 =
 
 =hero:kelvin:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5164 pick=0.4622 matches=3559 days=10
+    after win=#null pick=#null matches=670 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 ==ability:arctic-beam:
@@ -302,6 +398,18 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 =
 
 =hero:lady-geist:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5195 pick=0.4703 matches=3621 days=10
+    after win=#null pick=#null matches=827 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/lady-geist]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]] Lady Geist patch history))
 ## [[/hero/lady-geist]]((Lady Geist))
 ==ability:essence-bomb:
@@ -322,6 +430,18 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 =
 
 =hero:lash:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5007 pick=0.4386 matches=3377 days=10
+    after win=#null pick=#null matches=786 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/lash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp]] Lash patch history))
 ## [[/hero/lash]]((Lash))
 ==ability:ground-slam:
@@ -343,6 +463,18 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 =
 
 =hero:mcginnis:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5048 pick=0.5631 matches=4336 days=10
+    after win=#null pick=#null matches=901 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 ==ability:medicinal-spectre:
@@ -372,6 +504,18 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 =
 
 =hero:mo-krill:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5027 pick=0.3421 matches=2634 days=10
+    after win=#null pick=#null matches=522 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/mo-krill]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]] Mo & Krill patch history))
 ## [[/hero/mo-krill]]((Mo & Krill))
 - Camera zooms out a little bit more when un-burrowing
@@ -388,6 +532,18 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 =
 
 =hero:paradox:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4555 pick=0.479 matches=3688 days=10
+    after win=#null pick=#null matches=740 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/paradox]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox patch history))
 ## [[/hero/paradox]]((Paradox))
 ==ability:paradoxical-swap:
@@ -398,6 +554,18 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 =
 
 =hero:pocket:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5038 pick=0.5132 matches=3952 days=10
+    after win=#null pick=#null matches=858 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/pocket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket patch history))
 ## [[/hero/pocket]]((Pocket))
 ==ability:barrage:
@@ -418,6 +586,18 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 =
 
 =hero:seven:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.574 pick=0.9091 matches=7000 days=10
+    after win=0.5381 pick=0.8475 matches=1312 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
 ## [[/hero/seven]]((Seven))
 - Base bullet resist reduced from 8% to 0%
@@ -434,6 +614,18 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 =
 
 =hero:shiv:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4779 pick=0.4769 matches=3672 days=10
+    after win=#null pick=#null matches=757 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
 ## [[/hero/shiv]]((Shiv))
 ==ability:serrated-knives:
@@ -460,6 +652,18 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 =
 
 =hero:vindicta:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4637 pick=0.8038 matches=6189 days=10
+    after win=#null pick=#null matches=951 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
 - Base bullet damage reduced from 14 to 13
@@ -496,6 +700,18 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 =
 
 =hero:viscous:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4861 pick=0.374 matches=2880 days=10
+    after win=#null pick=#null matches=462 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/viscous]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous patch history))
 ## [[/hero/viscous]]((Viscous))
 ==ability:puddle-punch:
@@ -529,6 +745,18 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 =
 
 =hero:warden:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5244 pick=0.471 matches=3627 days=10
+    after win=#null pick=#null matches=726 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/warden]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden patch history))
 ## [[/hero/warden]]((Warden))
 - Bullet growth reduced from 1.31 to 1.2
@@ -546,6 +774,18 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 =
 
 =hero:wraith:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4878 pick=0.7904 matches=6086 days=10
+    after win=0.4719 pick=0.7926 matches=1227 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/wraith]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp]] Wraith patch history))
 ## [[/hero/wraith]]((Wraith))
 ==ability:card-trick:
@@ -558,6 +798,18 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 =
 
 =hero:yamato:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4922 pick=0.4903 matches=3775 days=10
+    after win=#null pick=#null matches=771 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 - Ammo now scales with Spirit Power (0.15)
@@ -591,12 +843,36 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 ``
 
 =item:active-reload:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5067 pick=0.1464 matches=13531 days=10
+    after win=0.5114 pick=0.1322 matches=2456 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/active-reload]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/active_reload.webp]] Active Reload patch history))
 ## [[/item/active-reload]]((Active Reload))
 - Lifesteal reduced from 22% to 20%
 =
 
 =item:alchemical-fire:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=601 days=10
+    after win=#null pick=#null matches=111 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/alchemical-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/alchemical_fire.webp]] Alchemical Fire patch history))
 ## [[/item/alchemical-fire]]((Alchemical Fire))
 - Spirit Power increased from +7 to +11
@@ -610,18 +886,54 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 =
 
 =item:berserker:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5152 pick=0.1074 matches=9921 days=10
+    after win=0.5084 pick=0.1094 matches=2032 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/berserker]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/berserker.webp]] Berserker patch history))
 ## [[/item/berserker]]((Berserker))
 - Bullet Resist reduced from 8% to 7%
 =
 
 =item:burst-fire:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5155 pick=0.1277 matches=11796 days=10
+    after win=0.52 pick=0.1196 matches=2221 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/burst-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/burst_fire.webp]] Burst Fire patch history))
 ## [[/item/burst-fire]]((Burst Fire))
 - Now provides +70 Health
 =
 
 =item:colossus:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=648 days=10
+    after win=#null pick=#null matches=164 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/colossus]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/colossus.webp]] Colossus patch history))
 ## [[/item/colossus]]((Colossus))
 - Radius increased from 10m to 12m
@@ -629,6 +941,18 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 =
 
 =item:crippling-headshot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5446 pick=0.0403 matches=3726 days=10
+    after win=#null pick=#null matches=958 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/crippling-headshot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/crippling_headshot.webp]] Crippling Headshot patch history))
 ## [[/item/crippling-headshot]]((Crippling Headshot))
 - Debuff duration reduced from 5s to 4s
@@ -642,6 +966,18 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 =
 
 =item:echo-shard:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5369 pick=0.0227 matches=2101 days=10
+    after win=#null pick=#null matches=558 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/echo-shard]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/echo_shard.webp]] Echo Shard patch history))
 ## [[/item/echo-shard]]((Echo Shard))
 - Spirit Power increased from +8 to +12
@@ -654,12 +990,36 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 =
 
 =item:extra-spirit:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4904 pick=0.313 matches=28923 days=10
+    after win=0.5031 pick=0.3255 matches=6047 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/extra-spirit]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/extra_spirit.webp]] Extra Spirit patch history))
 ## [[/item/extra-spirit]]((Extra Spirit))
 - Spirit increased from 8 to 9
 =
 
 =item:fleetfoot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5342 pick=0.1086 matches=10038 days=10
+    after win=0.5345 pick=0.1209 matches=2245 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/fleetfoot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/fleetfoot.webp]] Fleetfoot patch history))
 ## [[/item/fleetfoot]]((Fleetfoot))
 - Active move speed reduced from 4 to 3
@@ -668,78 +1028,234 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 =
 
 =item:fortitude:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4978 pick=0.0811 matches=7497 days=10
+    after win=0.4863 pick=0.0768 matches=1427 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/fortitude]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/fortitude.webp]] Fortitude patch history))
 ## [[/item/fortitude]]((Fortitude))
 - Lane troopers do not reset the passive regen timer
 =
 
 =item:frenzy:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5626 pick=0.0201 matches=1861 days=10
+    after win=#null pick=#null matches=437 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/frenzy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/frenzy.webp]] Frenzy patch history))
 ## [[/item/frenzy]]((Frenzy))
 - Linger duration increased from 4s to 6s
 =
 
 =item:glass-cannon:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5451 pick=0.0811 matches=7491 days=10
+    after win=0.5314 pick=0.0882 matches=1639 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/glass-cannon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/glass_cannon.webp]] Glass Cannon patch history))
 ## [[/item/glass-cannon]]((Glass Cannon))
 - Max stacks increased from 5 to 7
 =
 
 =item:headshot-booster:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4942 pick=0.2694 matches=24892 days=10
+    after win=0.4886 pick=0.2676 matches=4971 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/headshot-booster]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/headshot_booster.webp]] Headshot Booster patch history))
 ## [[/item/headshot-booster]]((Headshot Booster))
 - Bonus damage reduced from 45 to 40
 =
 
 =item:healing-rite:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.499 pick=0.1818 matches=16796 days=10
+    after win=0.4964 pick=0.2171 matches=4033 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/healing-rite]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healing_rite.webp]] Healing Rite patch history))
 ## [[/item/healing-rite]]((Healing Rite))
 - Now grants +3 Spirit Power
 =
 
 =item:heroic-aura:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5324 pick=0.0388 matches=3582 days=10
+    after win=#null pick=#null matches=768 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/heroic-aura]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/heroic_aura.webp]] Heroic Aura patch history))
 ## [[/item/heroic-aura]]((Heroic Aura))
 - Active movement speed bonus reduced from 3 to 2
 =
 
 =item:hunter-s-aura:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5393 pick=0.0463 matches=4280 days=10
+    after win=0.523 pick=0.062 matches=1151 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/hunters-aura]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/hunters_aura.webp]] Hunter's Aura patch history))
 ## [[/item/hunters-aura]]((Hunter's Aura))
 - Bullet Resist reduction reduced from -10% to -9%
 =
 
 =item:inhibitor:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5498 pick=0.0211 matches=1946 days=10
+    after win=#null pick=#null matches=468 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/inhibitor]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/inhibitor.webp]] Inhibitor patch history))
 ## [[/item/inhibitor]]((Inhibitor))
 - Fixed damage reduction on bullets not being reduced by a percentage properly
 =
 
 =item:lifestrike:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5292 pick=0.0426 matches=3940 days=10
+    after win=#null pick=#null matches=823 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/lifestrike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/lifestrike.webp]] Lifestrike patch history))
 ## [[/item/lifestrike]]((Lifestrike))
 - Melee damage reduced from 40% to 35%
 =
 
 =item:long-range:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4671 pick=0.1285 matches=11876 days=10
+    after win=0.4676 pick=0.1148 matches=2132 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/long-range]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/long_range.webp]] Long Range patch history))
 ## [[/item/long-range]]((Long Range))
 - Bullet Shield increased from +90 to +140
 =
 
 =item:lucky-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5506 pick=0.0853 matches=7878 days=10
+    after win=0.5605 pick=0.0926 matches=1720 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/lucky-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/lucky_shot.webp]] Lucky Shot patch history))
 ## [[/item/lucky-shot]]((Lucky Shot))
 - Bonus Damage increased from 80% to 90%
 =
 
 =item:majestic-leap:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5322 pick=0.0301 matches=2777 days=10
+    after win=#null pick=#null matches=763 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/majestic-leap]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/majestic_leap.webp]] Majestic Leap patch history))
 ## [[/item/majestic-leap]]((Majestic Leap))
 - Cooldown reduced from 24s to 22s
 =
 
 =item:melee-charge:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5259 pick=0.0534 matches=4936 days=10
+    after win=0.5416 pick=0.055 matches=1021 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/melee-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/melee_charge.webp]] Melee Charge patch history))
 ## [[/item/melee-charge]]((Melee Charge))
 - Charge distance bonus is moved to innate section
@@ -749,18 +1265,54 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 =
 
 =item:melee-lifesteal:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5145 pick=0.0962 matches=8885 days=10
+    after win=0.5126 pick=0.1001 matches=1859 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/melee-lifesteal]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/melee_lifesteal.webp]] Melee Lifesteal patch history))
 ## [[/item/melee-lifesteal]]((Melee Lifesteal))
 - Melee damage reduced from 15% to 13%
 =
 
 =item:metal-skin:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4404 pick=0.0253 matches=2339 days=10
+    after win=#null pick=#null matches=487 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/metal-skin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/metal_skin.webp]] Metal Skin patch history))
 ## [[/item/metal-skin]]((Metal Skin))
 - Cooldown reduced from 22s to 20s
 =
 
 =item:mystic-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4857 pick=0.1789 matches=16532 days=10
+    after win=0.4772 pick=0.1901 matches=3531 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/mystic-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/mystic_shot.webp]] Mystic Shot patch history))
 ## [[/item/mystic-shot]]((Mystic Shot))
 - Spirit damage now considers bullet falloff
@@ -768,6 +1320,18 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 =
 
 =item:phantom-strike:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5846 pick=0.0145 matches=1336 days=10
+    after win=#null pick=#null matches=378 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/phantom-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/phantom_strike.webp]] Phantom Strike patch history))
 ## [[/item/phantom-strike]]((Phantom Strike))
 - Damage reduced from 150 to 75
@@ -775,18 +1339,54 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 =
 
 =item:quicksilver-reload:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5026 pick=0.2412 matches=22284 days=10
+    after win=0.5057 pick=0.2466 matches=4580 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/quicksilver-reload]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/quicksilver_reload.webp]] Quicksilver Reload patch history))
 ## [[/item/quicksilver-reload]]((Quicksilver Reload))
 - Damage increased from 50 to 65
 =
 
 =item:rapid-recharge:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4935 pick=0.1201 matches=11100 days=10
+    after win=0.4956 pick=0.1277 matches=2373 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/rapid-recharge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/rapid_recharge.webp]] Rapid Recharge patch history))
 ## [[/item/rapid-recharge]]((Rapid Recharge))
 - Now gains +12% Weapon Damage (T1 Extra Charge gives +6%)
 =
 
 =item:rapid-rounds:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5014 pick=0.1725 matches=15943 days=10
+    after win=0.5162 pick=0.178 matches=3307 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/rapid-rounds]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/rapid_rounds.webp]] Rapid Rounds patch history))
 ## [[/item/rapid-rounds]]((Rapid Rounds))
 - Fire Rate reduced from 12% to 9%
@@ -794,6 +1394,18 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 =
 
 =item:rescue-beam:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5299 pick=0.0121 matches=1121 days=10
+    after win=#null pick=#null matches=197 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/rescue-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/rescue_beam.webp]] Rescue Beam patch history))
 ## [[/item/rescue-beam]]((Rescue Beam))
 - Heal reduced from 30% to 26%
@@ -802,6 +1414,18 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 =
 
 =item:restorative-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4859 pick=0.0929 matches=8580 days=10
+    after win=0.4936 pick=0.096 matches=1783 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/restorative-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/restorative_shot.webp]] Restorative Shot patch history))
 ## [[/item/restorative-shot]]((Restorative Shot))
 - Healing from heroes increased from 35 to 40
@@ -809,6 +1433,18 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 =
 
 =item:sharpshooter:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.467 pick=0.0901 matches=8323 days=10
+    after win=0.461 pick=0.0801 matches=1488 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/sharpshooter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/sharp_shooter.webp]] Sharpshooter patch history))
 ## [[/item/sharpshooter]]((Sharpshooter))
 - Bullet Health increased from +175 to +200
@@ -821,6 +1457,18 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 =
 
 =item:slowing-hex:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4973 pick=0.0479 matches=4428 days=10
+    after win=#null pick=#null matches=902 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/slowing-hex]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/slowing_hex.webp]] Slowing Hex patch history))
 ## [[/item/slowing-hex]]((Slowing Hex))
 - Projectile speed increased by 20%
@@ -834,6 +1482,18 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 =
 
 =item:spirit-strike:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5085 pick=0.1145 matches=10576 days=10
+    after win=0.5154 pick=0.1221 matches=2268 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/spirit-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/spirit_strike.webp]] Spirit Strike patch history))
 ## [[/item/spirit-strike]]((Spirit Strike))
 - Melee damage reduced from 15% to 12%
@@ -843,24 +1503,72 @@ content_text "Matchmaking is now open 24/7 for all regions Added new minimap Add
 =
 
 =item:surge-of-power:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5138 pick=0.0688 matches=6353 days=10
+    after win=0.5378 pick=0.1124 matches=2088 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/surge-of-power]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/surge_of_power.webp]] Surge of Power patch history))
 ## [[/item/surge-of-power]]((Surge of Power))
 - Imbued ability now grants +10% Fire Rate when used (same 6s duration as the movespeed buff)
 =
 
 =item:titanic-magazine:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5059 pick=0.1353 matches=12505 days=10
+    after win=0.5014 pick=0.1347 matches=2503 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/titanic-magazine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/titanic_magazine.webp]] Titanic Magazine patch history))
 ## [[/item/titanic-magazine]]((Titanic Magazine))
 - Bullet Resist increased from 15% to 18%
 =
 
 =item:torment-pulse:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5336 pick=0.0642 matches=5929 days=10
+    after win=0.5461 pick=0.0655 matches=1216 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/torment-pulse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/torment_pulse.webp]] Torment Pulse patch history))
 ## [[/item/torment-pulse]]((Torment Pulse))
 - Health increased from +125 to +140
 =
 
 =item:unstoppable:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5651 pick=0.0225 matches=2081 days=10
+    after win=#null pick=#null matches=598 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/unstoppable]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/unstoppable.webp]] Unstoppable patch history))
 ## [[/item/unstoppable]]((Unstoppable))
 - Fixed not preventing Disarm properly

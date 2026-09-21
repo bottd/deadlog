@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "09-01-2024 Update"
 thread_id "24093"
 published "2024-09-01T13:40:48-0700"
@@ -21,6 +21,18 @@ content_text "Rope climb speed increased from 11 to 13 Rope activation range inc
 ``
 
 =hero:infernus:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=945 days=2
+    after win=0.4868 pick=0.7747 matches=5965 days=10
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/infernus]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus patch history))
 ## [[/hero/infernus]]((Infernus))
 ==ability:flame-dash:
@@ -31,6 +43,18 @@ content_text "Rope climb speed increased from 11 to 13 Rope activation range inc
 =
 
 =hero:ivy:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=488 days=2
+    after win=0.4938 pick=0.3471 matches=2673 days=10
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
 ## [[/hero/ivy]]((Ivy))
 ==ability:air-drop:
@@ -41,6 +65,18 @@ content_text "Rope climb speed increased from 11 to 13 Rope activation range inc
 =
 
 =hero:seven:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5923 pick=0.885 matches=1008 days=2
+    after win=0.574 pick=0.9091 matches=7000 days=10
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
 ## [[/hero/seven]]((Seven))
 ==ability:storm-cloud:
@@ -51,6 +87,18 @@ content_text "Rope climb speed increased from 11 to 13 Rope activation range inc
 =
 
 =hero:viscous:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=420 days=2
+    after win=0.4861 pick=0.374 matches=2880 days=10
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/viscous]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous patch history))
 ## [[/hero/viscous]]((Viscous))
 ==ability:puddle-punch:

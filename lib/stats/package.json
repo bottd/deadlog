@@ -10,7 +10,9 @@
 		".": "./src/index.ts"
 	},
 	"dependencies": {
+		"@deadlog/changelog": "workspace:*",
 		"@deadlog/db": "workspace:*",
+		"@deadlog/utils": "workspace:*",
 		"zod": "4.6.5"
 	},
 	"devDependencies": {

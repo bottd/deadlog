@@ -29,7 +29,7 @@ describe('database artifact publication', () => {
 		await mkdir(changelogsDir);
 		const note = (published: string) =>
 			[
-				'``meta:',
+				'``attr:',
 				'title "Test patch"',
 				'thread_id "1"',
 				`published "${published}"`,

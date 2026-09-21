@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "03-16-2025 Update"
 thread_id "58880"
 published "2025-03-16T17:30:59-0700"
@@ -27,6 +27,18 @@ content_text "Neutral bounty increased by 5% Sinner's Sacrifice initial spawn ti
 =
 
 =item:restorative-locket:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5155 pick=0.0593 matches=50671 days=3
+    after win=0.4932 pick=0.0526 matches=26104 days=2
+  }
+  high {
+    before win=0.5145 pick=0.1296 matches=4449 days=3
+    after win=0.483 pick=0.1025 matches=2317 days=2
+  }
+}
+``
 [[/item/restorative-locket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/restorative_locket.webp]] Restorative Locket patch history))
 ## [[/item/restorative-locket]]((Restorative Locket))
 - No longer grants +10% Spirit Resist

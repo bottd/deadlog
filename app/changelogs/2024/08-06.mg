@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "08-06-2024 Update"
 thread_id "14283"
 published "2024-08-06T16:19:49-0700"
@@ -22,6 +22,18 @@ content_text "Various adjustments to orb spawning behavior (a bit less horizonta
 ``
 
 =hero:viscous:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=62 days=4
+    after win=#null pick=#null matches=309 days=8
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/viscous]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous patch history))
 ## [[/hero/viscous]]((Viscous))
 ==ability:goo-ball:

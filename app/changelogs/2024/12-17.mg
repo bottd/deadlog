@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "12-17-2024 Update"
 thread_id "52008"
 steam_gid "1785774543697622"

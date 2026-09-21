@@ -5,8 +5,8 @@ import { fetchAllSeries } from './fetchSeries';
 import { readPatches } from './readPatches';
 import { run } from './run';
 
-const snapshotPath = fileURLToPath(
-	new URL('../../../app/stats/impact.json', import.meta.url)
+const defaultChangelogsDir = fileURLToPath(
+	new URL('../../../app/changelogs', import.meta.url)
 );
 const defaultDbPath = fileURLToPath(
 	new URL('../../../app/static/deadlog.db', import.meta.url)
@@ -23,8 +23,8 @@ if (dbFile && !existsSync(dbFile)) {
 }
 
 try {
-	process.exitCode = await run({
-		snapshotPath,
+	await run({
+		changelogsDir: process.env.CHANGELOGS_DIR ?? defaultChangelogsDir,
 		rebuild: process.argv.includes('--rebuild'),
 		now: Math.floor(Date.now() / 1000),
 		loadPatches: () => readPatches(getLibsqlDb()),

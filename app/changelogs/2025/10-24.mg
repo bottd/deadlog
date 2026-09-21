@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "10-24-2025 Update"
 thread_id "87198"
 published "2025-10-24T16:54:51-0700"
@@ -20,6 +20,18 @@ content_text "Getting damaged during the initial launch window (0.6s) after usin
 ``
 
 =hero:calico:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5294 pick=0.3893 matches=201387 days=14
+    after win=0.5165 pick=0.325 matches=109497 days=14
+  }
+  high {
+    before win=0.5244 pick=0.4783 matches=43122 days=14
+    after win=0.518 pick=0.3852 matches=23444 days=14
+  }
+}
+``
 [[/hero/calico]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp]] Calico patch history))
 ## [[/hero/calico]]((Calico))
 ==ability:gloom-bombs:
@@ -38,6 +50,18 @@ content_text "Getting damaged during the initial launch window (0.6s) after usin
 =
 
 =hero:doorman:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4983 pick=0.45 matches=232808 days=14
+    after win=0.4775 pick=0.3694 matches=124476 days=14
+  }
+  high {
+    before win=0.4991 pick=0.4129 matches=37223 days=14
+    after win=0.4632 pick=0.3055 matches=18591 days=14
+  }
+}
+``
 [[/hero/the-doorman]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/doorman_sm.webp]] Doorman patch history))
 ## [[/hero/the-doorman]]((Doorman))
 - Bullet damage growth per boon reduced from 1.15 to 1.0
@@ -50,6 +74,18 @@ content_text "Getting damaged during the initial launch window (0.6s) after usin
 =
 
 =hero:drifter:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5099 pick=0.3842 matches=198792 days=14
+    after win=0.52 pick=0.3988 matches=134385 days=14
+  }
+  high {
+    before win=0.4921 pick=0.3138 matches=28294 days=14
+    after win=0.509 pick=0.343 matches=20872 days=14
+  }
+}
+``
 [[/hero/drifter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/drifter_sm.webp]] Drifter patch history))
 ## [[/hero/drifter]]((Drifter))
 ==ability:bloodscent:
@@ -62,6 +98,18 @@ content_text "Getting damaged during the initial launch window (0.6s) after usin
 =
 
 =hero:dynamo:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5281 pick=0.41 matches=212101 days=14
+    after win=0.5289 pick=0.4172 matches=140557 days=14
+  }
+  high {
+    before win=0.5198 pick=0.3563 matches=32125 days=14
+    after win=0.5245 pick=0.3653 matches=22234 days=14
+  }
+}
+``
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 ==ability:quantum-entanglement-fire-rate:
@@ -77,6 +125,18 @@ content_text "Getting damaged during the initial launch window (0.6s) after usin
 =
 
 =hero:infernus:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5135 pick=0.7294 matches=377351 days=14
+    after win=0.4963 pick=0.6976 matches=235050 days=14
+  }
+  high {
+    before win=0.5081 pick=0.7838 matches=70670 days=14
+    after win=0.4899 pick=0.7266 matches=44219 days=14
+  }
+}
+``
 [[/hero/infernus]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus patch history))
 ## [[/hero/infernus]]((Infernus))
 - Bullet damage growth per boon reduced from 0.12 to 0.08
@@ -94,6 +154,18 @@ content_text "Getting damaged during the initial launch window (0.6s) after usin
 =
 
 =hero:kelvin:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5111 pick=0.3036 matches=157064 days=14
+    after win=0.502 pick=0.2888 matches=97316 days=14
+  }
+  high {
+    before win=0.5237 pick=0.3395 matches=30608 days=14
+    after win=0.5076 pick=0.306 matches=18621 days=14
+  }
+}
+``
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 - Base regen reduced from 2 to 1
@@ -106,6 +178,18 @@ content_text "Getting damaged during the initial launch window (0.6s) after usin
 =
 
 =hero:mcginnis:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5137 pick=0.3249 matches=168094 days=14
+    after win=0.5278 pick=0.349 matches=117602 days=14
+  }
+  high {
+    before win=0.5165 pick=0.2264 matches=20413 days=14
+    after win=0.5329 pick=0.2683 matches=16327 days=14
+  }
+}
+``
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 ==ability:medicinal-specter:
@@ -116,6 +200,18 @@ content_text "Getting damaged during the initial launch window (0.6s) after usin
 =
 
 =hero:paradox:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4908 pick=0.3736 matches=193298 days=14
+    after win=0.483 pick=0.358 matches=120627 days=14
+  }
+  high {
+    before win=0.4981 pick=0.4888 matches=44070 days=14
+    after win=0.4942 pick=0.4575 matches=27843 days=14
+  }
+}
+``
 [[/hero/paradox]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox patch history))
 ## [[/hero/paradox]]((Paradox))
 - Base bullet damage reduced from 6.48 to 6.15
@@ -127,6 +223,18 @@ content_text "Getting damaged during the initial launch window (0.6s) after usin
 =
 
 =hero:seven:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5249 pick=0.3477 matches=179873 days=14
+    after win=0.5253 pick=0.3425 matches=115411 days=14
+  }
+  high {
+    before win=0.5133 pick=0.2335 matches=21056 days=14
+    after win=0.5124 pick=0.2331 matches=14183 days=14
+  }
+}
+``
 [[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
 ## [[/hero/seven]]((Seven))
 ==ability:lightning-ball:
@@ -137,12 +245,36 @@ content_text "Getting damaged during the initial launch window (0.6s) after usin
 =
 
 =hero:shiv:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4608 pick=0.3917 matches=202631 days=14
+    after win=0.4661 pick=0.4118 matches=138739 days=14
+  }
+  high {
+    before win=0.4606 pick=0.5048 matches=45510 days=14
+    after win=0.4688 pick=0.5329 matches=32429 days=14
+  }
+}
+``
 [[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
 ## [[/hero/shiv]]((Shiv))
 - Alt fire knockback reduced by 10%
 =
 
 =hero:victor:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5401 pick=0.3775 matches=195282 days=14
+    after win=0.5326 pick=0.3201 matches=107841 days=14
+  }
+  high {
+    before win=0.5389 pick=0.4241 matches=38235 days=14
+    after win=0.5137 pick=0.2847 matches=17324 days=14
+  }
+}
+``
 [[/hero/victor]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/frank_sm.webp]] Victor patch history))
 ## [[/hero/victor]]((Victor))
 ==ability:pain-battery:
@@ -159,6 +291,18 @@ content_text "Getting damaged during the initial launch window (0.6s) after usin
 =
 
 =hero:vyper:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4724 pick=0.192 matches=99342 days=14
+    after win=0.4798 pick=0.1937 matches=65275 days=14
+  }
+  high {
+    before win=0.4929 pick=0.1498 matches=13503 days=14
+    after win=0.4994 pick=0.1653 matches=10062 days=14
+  }
+}
+``
 [[/hero/vyper]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kali_sm.webp]] Vyper patch history))
 ## [[/hero/vyper]]((Vyper))
 ==ability:screwjab-dagger:
@@ -169,6 +313,18 @@ content_text "Getting damaged during the initial launch window (0.6s) after usin
 =
 
 =hero:warden:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4922 pick=0.1994 matches=103138 days=14
+    after win=0.5141 pick=0.2573 matches=86678 days=14
+  }
+  high {
+    before win=0.4829 pick=0.1509 matches=13606 days=14
+    after win=0.5155 pick=0.2471 matches=15040 days=14
+  }
+}
+``
 [[/hero/warden]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden patch history))
 ## [[/hero/warden]]((Warden))
 - Base bullet damage increased from 15 to 16.2
@@ -186,6 +342,18 @@ content_text "Getting damaged during the initial launch window (0.6s) after usin
 ``
 
 =item:capacitor:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5284 pick=0.057 matches=354184 days=14
+    after win=0.5265 pick=0.0634 matches=256221 days=14
+  }
+  high {
+    before win=0.5326 pick=0.063 matches=68158 days=14
+    after win=0.5337 pick=0.0752 matches=54888 days=14
+  }
+}
+``
 [[/item/capacitor]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/capacitor.webp]] Capacitor patch history))
 ## [[/item/capacitor]]((Capacitor))
 - Fire Rate reduced from 8% to 5%
@@ -193,12 +361,36 @@ content_text "Getting damaged during the initial launch window (0.6s) after usin
 =
 
 =item:divine-barrier:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5625 pick=0.0264 matches=163953 days=14
+    after win=0.5548 pick=0.0314 matches=126988 days=14
+  }
+  high {
+    before win=0.5701 pick=0.0292 matches=31574 days=14
+    after win=0.5673 pick=0.0375 matches=27354 days=14
+  }
+}
+``
 [[/item/divine-barrier]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/divine_barrier.webp]] Divine Barrier patch history))
 ## [[/item/divine-barrier]]((Divine Barrier))
 - Cooldown increased from 40s to 45s
 =
 
 =item:ethereal-shift:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5813 pick=0.0462 matches=286871 days=14
+    after win=0.5773 pick=0.0287 matches=116187 days=14
+  }
+  high {
+    before win=0.5791 pick=0.069 matches=74706 days=14
+    after win=0.5821 pick=0.0341 matches=24887 days=14
+  }
+}
+``
 [[/item/ethereal-shift]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/ethereal_shift.webp]] Ethereal Shift patch history))
 ## [[/item/ethereal-shift]]((Ethereal Shift))
 - Cooldown increased from 20s to 45s
@@ -207,24 +399,72 @@ content_text "Getting damaged during the initial launch window (0.6s) after usin
 =
 
 =item:fortitude:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5183 pick=0.1175 matches=729787 days=14
+    after win=0.5199 pick=0.1042 matches=421243 days=14
+  }
+  high {
+    before win=0.5332 pick=0.1116 matches=120750 days=14
+    after win=0.5394 pick=0.1 matches=73027 days=14
+  }
+}
+``
 [[/item/fortitude]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/fortitude.webp]] Fortitude patch history))
 ## [[/item/fortitude]]((Fortitude))
 - Damage taken duration to regen reduced from 14s to 13s
 =
 
 =item:guardian-ward:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5221 pick=0.0501 matches=311114 days=14
+    after win=0.5143 pick=0.0564 matches=227939 days=14
+  }
+  high {
+    before win=0.5211 pick=0.0563 matches=60884 days=14
+    after win=0.5138 pick=0.0672 matches=49084 days=14
+  }
+}
+``
 [[/item/guardian-ward]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/guardian_ward.webp]] Guardian Ward patch history))
 ## [[/item/guardian-ward]]((Guardian Ward))
 - Cooldown increased from 40s to 45s
 =
 
 =item:majestic-leap:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5059 pick=0.0621 matches=385505 days=14
+    after win=0.5051 pick=0.0644 matches=260558 days=14
+  }
+  high {
+    before win=0.5064 pick=0.0844 matches=91347 days=14
+    after win=0.503 pick=0.0867 matches=63349 days=14
+  }
+}
+``
 [[/item/majestic-leap]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/majestic_leap.webp]] Majestic Leap patch history))
 ## [[/item/majestic-leap]]((Majestic Leap))
 - Cooldown increased from 28s to 32s
 =
 
 =item:mystic-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.48 pick=0.1755 matches=1089588 days=14
+    after win=0.4784 pick=0.1642 matches=663985 days=14
+  }
+  high {
+    before win=0.4831 pick=0.2016 matches=218104 days=14
+    after win=0.4859 pick=0.1793 matches=130934 days=14
+  }
+}
+``
 [[/item/mystic-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/mystic_shot.webp]] Mystic Shot patch history))
 ## [[/item/mystic-shot]]((Mystic Shot))
 - Base damage reduced from 55 to 45
@@ -232,24 +472,72 @@ content_text "Getting damaged during the initial launch window (0.6s) after usin
 =
 
 =item:reactive-barrier:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4959 pick=0.043 matches=267031 days=14
+    after win=0.496 pick=0.0709 matches=286659 days=14
+  }
+  high {
+    before win=0.5129 pick=0.0661 matches=71560 days=14
+    after win=0.5082 pick=0.1066 matches=77842 days=14
+  }
+}
+``
 [[/item/reactive-barrier]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/reactive_barrier.webp]] Reactive Barrier patch history))
 ## [[/item/reactive-barrier]]((Reactive Barrier))
 - Cooldown increased from 24s to 26s
 =
 
 =item:rusted-barrel:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4184 pick=0.0113 matches=70072 days=14
+    after win=0.4159 pick=0.0141 matches=57054 days=14
+  }
+  high {
+    before win=0.4202 pick=0.0173 matches=18679 days=14
+    after win=0.4139 pick=0.0207 matches=15116 days=14
+  }
+}
+``
 [[/item/rusted-barrel]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/rusted_barrel.webp]] Rusted Barrel patch history))
 ## [[/item/rusted-barrel]]((Rusted Barrel))
 - Bonus health increased from 60 to 70
 =
 
 =item:silence-wave:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.491 pick=0.0601 matches=372984 days=14
+    after win=0.4883 pick=0.0617 matches=249368 days=14
+  }
+  high {
+    before win=0.5006 pick=0.0887 matches=95946 days=14
+    after win=0.5023 pick=0.0873 matches=63721 days=14
+  }
+}
+``
 [[/item/silence-wave]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/silence_glyph.webp]] Silence Wave patch history))
 ## [[/item/silence-wave]]((Silence Wave))
 - Cooldown increased from 30s to 35s (affects component)
 =
 
 =item:spirit-shielding:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4941 pick=0.1122 matches=696784 days=14
+    after win=0.498 pick=0.1426 matches=576492 days=14
+  }
+  high {
+    before win=0.5029 pick=0.1387 matches=150090 days=14
+    after win=0.5059 pick=0.1886 matches=137705 days=14
+  }
+}
+``
 [[/item/spirit-shielding]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/spirit_shielding.webp]] Spirit Shielding patch history))
 ## [[/item/spirit-shielding]]((Spirit Shielding))
 - Barrier reduced from 325 to 300
@@ -257,6 +545,18 @@ content_text "Getting damaged during the initial launch window (0.6s) after usin
 =
 
 =item:spirit-snatch:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5151 pick=0.1411 matches=876093 days=14
+    after win=0.5105 pick=0.1473 matches=595544 days=14
+  }
+  high {
+    before win=0.5146 pick=0.1658 matches=179344 days=14
+    after win=0.5122 pick=0.1735 matches=126712 days=14
+  }
+}
+``
 [[/item/spirit-snatch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/spirit_snatch.webp]] Spirit Snatch patch history))
 ## [[/item/spirit-snatch]]((Spirit Snatch))
 - Duration reduced from 14s to 10s
@@ -264,18 +564,54 @@ content_text "Getting damaged during the initial launch window (0.6s) after usin
 =
 
 =item:trophy-collector:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.523 pick=0.0823 matches=511054 days=14
+    after win=0.5288 pick=0.0988 matches=399533 days=14
+  }
+  high {
+    before win=0.5165 pick=0.0666 matches=72092 days=14
+    after win=0.5218 pick=0.0893 matches=65212 days=14
+  }
+}
+``
 [[/item/trophy-collector]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/trophy_collector.webp]] Trophy Collector patch history))
 ## [[/item/trophy-collector]]((Trophy Collector))
 - Souls per Minute increased from 25 to 30
 =
 
 =item:warp-stone:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5292 pick=0.0723 matches=448967 days=14
+    after win=0.5275 pick=0.0755 matches=305113 days=14
+  }
+  high {
+    before win=0.5286 pick=0.1168 matches=126395 days=14
+    after win=0.5238 pick=0.1209 matches=88279 days=14
+  }
+}
+``
 [[/item/warp-stone]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/warp_stone.webp]] Warp Stone patch history))
 ## [[/item/warp-stone]]((Warp Stone))
 - Bullet Resist reduced from 40% to 35%
 =
 
 =item:weapon-shielding:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4301 pick=0.0105 matches=65348 days=14
+    after win=0.4416 pick=0.0124 matches=49953 days=14
+  }
+  high {
+    before win=0.4471 pick=0.0072 matches=7746 days=14
+    after win=0.4624 pick=0.0115 matches=8410 days=14
+  }
+}
+``
 [[/item/weapon-shielding]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/weapon_shielding.webp]] Weapon Shielding patch history))
 ## [[/item/weapon-shielding]]((Weapon Shielding))
 - Barrier reduced from 325 to 300

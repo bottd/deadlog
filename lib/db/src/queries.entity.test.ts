@@ -1,3 +1,4 @@
+import type { EntityImpact } from '@deadlog/utils';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { createClient, type Client } from '@libsql/client';
 import { drizzle } from 'drizzle-orm/libsql';
@@ -15,6 +16,13 @@ import {
 	getItemLastModified,
 	queryChangelogs
 } from './queries';
+
+const window = { win: 0.5, pick: 0.1, matches: 2800, days: 14 };
+const impact: EntityImpact = {
+	closed: true,
+	all: { before: window, after: { ...window, win: 0.52 } },
+	high: { before: window, after: { win: null, pick: null, matches: 12, days: 2 } }
+};
 
 describe('entity history queries', () => {
 	let client: Client;
@@ -74,12 +82,14 @@ describe('entity history queries', () => {
 				changelog_id TEXT NOT NULL,
 				hero_id INTEGER NOT NULL,
 				change_groups TEXT,
+				impact TEXT,
 				PRIMARY KEY (changelog_id, hero_id)
 			);
 			CREATE TABLE changelog_items (
 				changelog_id TEXT NOT NULL,
 				item_id INTEGER NOT NULL,
 				change_groups TEXT,
+				impact TEXT,
 				PRIMARY KEY (changelog_id, item_id)
 			);
 		`);
@@ -176,7 +186,8 @@ describe('entity history queries', () => {
 						abilitySlug: 'doorway',
 						bullets: ['Cooldown reduced from 40s to 32s']
 					}
-				]
+				],
+				impact
 			},
 			{ changelogId: 'old', heroId: 69, changeGroups: null }
 		]);
@@ -188,6 +199,14 @@ describe('entity history queries', () => {
 	});
 
 	afterEach(() => client.close());
+
+	it('returns recorded patch impact with the history, and null where none was written', async () => {
+		const heroHistory = await getChangelogsByHeroId(db, 69);
+		const [itemHistory] = await getChangelogsByItemId(db, 1);
+
+		expect(heroHistory.map((row) => row.impact)).toEqual([impact, null]);
+		expect(itemHistory.impact).toBeNull();
+	});
 
 	it('derives hero counts from bullets and keeps a bullet-less mention null', async () => {
 		const history = await getChangelogsByHeroId(db, 69);

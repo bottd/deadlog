@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "The Doorman, at your Service"
 steam_gid "1808601382489176"
 published "2025-08-22T21:00:03.000Z"

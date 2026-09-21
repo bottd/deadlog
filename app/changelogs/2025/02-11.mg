@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "02-11-2025 Update"
 thread_id "55677"
 published "2025-02-11T16:23:52-0800"
@@ -16,6 +16,18 @@ content_text "Calico Leaping Slash T2 damage decreased from +75 to +60 Return to
 ``
 
 =hero:calico:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5241 pick=0.7662 matches=234611 days=14
+    after win=0.5194 pick=0.5945 matches=152835 days=12
+  }
+  high {
+    before win=0.5246 pick=0.7759 matches=9578 days=14
+    after win=0.5198 pick=0.6184 matches=6785 days=12
+  }
+}
+``
 [[/hero/calico]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp]] Calico patch history))
 ## [[/hero/calico]]((Calico))
 ==ability:leaping-slash:
@@ -33,6 +45,18 @@ content_text "Calico Leaping Slash T2 damage decreased from +75 to +60 Return to
 =
 
 =hero:holliday:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4524 pick=0.4866 matches=148986 days=14
+    after win=0.4665 pick=0.3987 matches=102502 days=12
+  }
+  high {
+    before win=0.5112 pick=0.5237 matches=6465 days=14
+    after win=0.5257 pick=0.4832 matches=5302 days=12
+  }
+}
+``
 [[/hero/holliday]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]] Holliday patch history))
 ## [[/hero/holliday]]((Holliday))
 ==ability:powder-keg:
@@ -48,6 +72,18 @@ content_text "Calico Leaping Slash T2 damage decreased from +75 to +60 Return to
 =
 
 =hero:sinclair:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.3898 pick=0.148 matches=45308 days=14
+    after win=0.4617 pick=0.2337 matches=60079 days=12
+  }
+  high {
+    before win=#null pick=#null matches=777 days=14
+    after win=0.499 pick=0.2627 matches=2882 days=12
+  }
+}
+``
 [[/hero/sinclair]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/magician_sm.webp]] Sinclair patch history))
 ## [[/hero/sinclair]]((Sinclair))
 - Bullet Damage reduced by 15%
@@ -73,6 +109,18 @@ content_text "Calico Leaping Slash T2 damage decreased from +75 to +60 Return to
 =
 
 =hero:wraith:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5115 pick=0.5111 matches=156496 days=14
+    after win=0.5017 pick=0.4946 matches=127162 days=12
+  }
+  high {
+    before win=0.5319 pick=0.6505 matches=8030 days=14
+    after win=0.5122 pick=0.5783 matches=6345 days=12
+  }
+}
+``
 [[/hero/wraith]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp]] Wraith patch history))
 ## [[/hero/wraith]]((Wraith))
 ==ability:card-trick:
@@ -101,12 +149,36 @@ content_text "Calico Leaping Slash T2 damage decreased from +75 to +60 Return to
 =
 
 =item:extra-stamina:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.503 pick=0.6362 matches=2337529 days=14
+    after win=0.5026 pick=0.6327 matches=1952037 days=12
+  }
+  high {
+    before win=0.5037 pick=0.7154 matches=105973 days=14
+    after win=0.5003 pick=0.6997 matches=92127 days=12
+  }
+}
+``
 [[/item/extra-stamina]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_stamina.webp]] Extra Stamina patch history))
 ## [[/item/extra-stamina]]((Extra Stamina))
 - No longer grants +4% Fire Rate
 =
 
 =item:restorative-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4984 pick=0.2113 matches=776537 days=14
+    after win=0.4946 pick=0.1936 matches=597374 days=12
+  }
+  high {
+    before win=0.4964 pick=0.2815 matches=41692 days=14
+    after win=0.4908 pick=0.241 matches=31730 days=12
+  }
+}
+``
 [[/item/restorative-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/restorative_shot.webp]] Restorative Shot patch history))
 ## [[/item/restorative-shot]]((Restorative Shot))
 - No longer grants +3% Weapon Damage

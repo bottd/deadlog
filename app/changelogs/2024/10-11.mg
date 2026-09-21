@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "10-11-2024 Update"
 thread_id "37641"
 published "2024-10-11T16:54:46-0700"
@@ -23,6 +23,18 @@ content_text "Torment Pulse now scales with cooldown again Torment Pulse Spirit 
 ``
 
 =hero:bebop:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4822 pick=0.6131 matches=94434 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/bebop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop patch history))
 ## [[/hero/bebop]]((Bebop))
 ==ability:sticky-bomb:
@@ -51,6 +63,18 @@ content_text "Torment Pulse now scales with cooldown again Torment Pulse Spirit 
 =
 
 =hero:vindicta:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4579 pick=0.5516 matches=84968 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
 - Movespeed increased from 8.3 to 9

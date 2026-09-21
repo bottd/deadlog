@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "03-21-2026 Update"
 thread_id "120256"
 published "2026-03-21T12:34:30-0700"
@@ -28,6 +28,18 @@ content_text "Vitality investment tree bonus reverted back to % base hp increase
 ``
 
 =hero:abrams:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4863 pick=0.2452 matches=234662 days=14
+    after win=0.5095 pick=0.3041 matches=82769 days=4
+  }
+  high {
+    before win=0.4837 pick=0.2488 matches=36344 days=14
+    after win=0.5112 pick=0.3492 matches=14696 days=4
+  }
+}
+``
 [[/hero/abrams]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams patch history))
 ## [[/hero/abrams]]((Abrams))
 - Melee damage per boon increased by 10%
@@ -52,6 +64,18 @@ content_text "Vitality investment tree bonus reverted back to % base hp increase
 =
 
 =hero:apollo:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5032 pick=0.3495 matches=334474 days=14
+    after win=0.5007 pick=0.3695 matches=100552 days=4
+  }
+  high {
+    before win=0.51 pick=0.3345 matches=48853 days=14
+    after win=0.4999 pick=0.3859 matches=16241 days=4
+  }
+}
+``
 [[/hero/apollo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/fencer_sm.webp]] Apollo patch history))
 ## [[/hero/apollo]]((Apollo))
 - Bullet damage increased from 17 to 18.5
@@ -64,6 +88,18 @@ content_text "Vitality investment tree bonus reverted back to % base hp increase
 =
 
 =hero:billy:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4751 pick=0.2828 matches=270670 days=14
+    after win=0.4826 pick=0.2871 matches=78132 days=4
+  }
+  high {
+    before win=0.4736 pick=0.1951 matches=28497 days=14
+    after win=0.4855 pick=0.2038 matches=8577 days=4
+  }
+}
+``
 [[/hero/billy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/punkgoat_sm.webp]] Billy patch history))
 ## [[/hero/billy]]((Billy))
 ==ability:rising-ram:
@@ -74,6 +110,18 @@ content_text "Vitality investment tree bonus reverted back to % base hp increase
 =
 
 =hero:calico:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5258 pick=0.3424 matches=327728 days=14
+    after win=0.4774 pick=0.1951 matches=53100 days=4
+  }
+  high {
+    before win=0.5375 pick=0.5053 matches=73804 days=14
+    after win=0.4757 pick=0.2544 matches=10707 days=4
+  }
+}
+``
 [[/hero/calico]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp]] Calico patch history))
 ## [[/hero/calico]]((Calico))
 ==ability:leaping-slash:
@@ -97,6 +145,18 @@ content_text "Vitality investment tree bonus reverted back to % base hp increase
 =
 
 =hero:celeste:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.464 pick=0.307 matches=293786 days=14
+    after win=0.4739 pick=0.3394 matches=92355 days=4
+  }
+  high {
+    before win=0.4812 pick=0.2385 matches=34841 days=14
+    after win=0.4881 pick=0.3039 matches=12788 days=4
+  }
+}
+``
 [[/hero/celeste]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/unicorn_sm.webp]] Celeste patch history))
 ## [[/hero/celeste]]((Celeste))
 - Bullet/Melee resistance reduced from -6% to -8%
@@ -129,6 +189,18 @@ content_text "Vitality investment tree bonus reverted back to % base hp increase
 =
 
 =hero:doorman:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5011 pick=0.4602 matches=440449 days=14
+    after win=0.4761 pick=0.3434 matches=93447 days=4
+  }
+  high {
+    before win=0.4915 pick=0.4213 matches=61543 days=14
+    after win=0.4529 pick=0.2773 matches=11669 days=4
+  }
+}
+``
 [[/hero/the-doorman]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/doorman_sm.webp]] Doorman patch history))
 ## [[/hero/the-doorman]]((Doorman))
 ==ability:call-bell:
@@ -159,6 +231,18 @@ content_text "Vitality investment tree bonus reverted back to % base hp increase
 =
 
 =hero:dynamo:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5352 pick=0.3297 matches=315498 days=14
+    after win=0.5619 pick=0.4001 matches=108898 days=4
+  }
+  high {
+    before win=0.5287 pick=0.2839 matches=41470 days=14
+    after win=0.556 pick=0.3725 matches=15677 days=4
+  }
+}
+``
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 - Ammo increased from 18 to 20
@@ -182,6 +266,18 @@ content_text "Vitality investment tree bonus reverted back to % base hp increase
 =
 
 =hero:graves:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5054 pick=0.4381 matches=419284 days=14
+    after win=0.5819 pick=0.631 matches=171719 days=4
+  }
+  high {
+    before win=0.5052 pick=0.2568 matches=37503 days=14
+    after win=0.5921 pick=0.6085 matches=25610 days=4
+  }
+}
+``
 [[/hero/graves]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/necro_sm.webp]] Graves patch history))
 ## [[/hero/graves]]((Graves))
 ==ability:jar-of-dead:
@@ -213,6 +309,18 @@ content_text "Vitality investment tree bonus reverted back to % base hp increase
 =
 
 =hero:infernus:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5103 pick=0.3624 matches=346852 days=14
+    after win=0.5248 pick=0.392 matches=106675 days=4
+  }
+  high {
+    before win=0.487 pick=0.3464 matches=50589 days=14
+    after win=0.5017 pick=0.369 matches=15528 days=4
+  }
+}
+``
 [[/hero/infernus]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus patch history))
 ## [[/hero/infernus]]((Infernus))
 - Reload time reduced from 2.491 to 2.25
@@ -229,6 +337,18 @@ content_text "Vitality investment tree bonus reverted back to % base hp increase
 =
 
 =hero:ivy:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5423 pick=0.3745 matches=358460 days=14
+    after win=0.5191 pick=0.3174 matches=86375 days=4
+  }
+  high {
+    before win=0.549 pick=0.495 matches=72305 days=14
+    after win=0.5188 pick=0.3757 matches=15810 days=4
+  }
+}
+``
 [[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
 ## [[/hero/ivy]]((Ivy))
 ==ability:stone-form:
@@ -248,6 +368,18 @@ content_text "Vitality investment tree bonus reverted back to % base hp increase
 =
 
 =hero:kelvin:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5247 pick=0.2114 matches=202312 days=14
+    after win=0.5502 pick=0.2579 matches=70178 days=4
+  }
+  high {
+    before win=0.5276 pick=0.2541 matches=37120 days=14
+    after win=0.5538 pick=0.3272 matches=13771 days=4
+  }
+}
+``
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 ==ability:frost-grenade:
@@ -271,6 +403,18 @@ content_text "Vitality investment tree bonus reverted back to % base hp increase
 =
 
 =hero:mcginnis:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5317 pick=0.2553 matches=244337 days=14
+    after win=0.4853 pick=0.2073 matches=56410 days=4
+  }
+  high {
+    before win=0.5557 pick=0.2549 matches=37230 days=14
+    after win=0.4881 pick=0.1655 matches=6966 days=4
+  }
+}
+``
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 - Bullet damage increased from 6.0+0.15/boon to 6.2+0.16/boon
@@ -300,6 +444,18 @@ content_text "Vitality investment tree bonus reverted back to % base hp increase
 =
 
 =hero:mina:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4495 pick=0.3639 matches=348241 days=14
+    after win=0.4603 pick=0.4146 matches=112841 days=4
+  }
+  high {
+    before win=0.4616 pick=0.2594 matches=37895 days=14
+    after win=0.4593 pick=0.3154 matches=13272 days=4
+  }
+}
+``
 [[/hero/mina]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/vampirebat_sm.webp]] Mina patch history))
 ## [[/hero/mina]]((Mina))
 ==ability:rake:
@@ -320,6 +476,18 @@ content_text "Vitality investment tree bonus reverted back to % base hp increase
 =
 
 =hero:mirage:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4255 pick=0.2029 matches=194186 days=14
+    after win=0.5165 pick=0.3405 matches=92668 days=4
+  }
+  high {
+    before win=0.3991 pick=0.2388 matches=34883 days=14
+    after win=0.527 pick=0.4416 matches=18585 days=4
+  }
+}
+``
 [[/hero/mirage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage patch history))
 ## [[/hero/mirage]]((Mirage))
 ==ability:fire-scarabs:
@@ -357,6 +525,18 @@ content_text "Vitality investment tree bonus reverted back to % base hp increase
 =
 
 =hero:mo-krill:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5137 pick=0.3452 matches=330354 days=14
+    after win=0.5025 pick=0.2855 matches=77711 days=4
+  }
+  high {
+    before win=0.5213 pick=0.4715 matches=68862 days=14
+    after win=0.5156 pick=0.3592 matches=15116 days=4
+  }
+}
+``
 [[/hero/mo-krill]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]] Mo & Krill patch history))
 ## [[/hero/mo-krill]]((Mo & Krill))
 ==ability:combo:
@@ -381,6 +561,18 @@ content_text "Vitality investment tree bonus reverted back to % base hp increase
 =
 
 =hero:shiv:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4419 pick=0.2173 matches=208007 days=14
+    after win=0.4501 pick=0.2851 matches=77576 days=4
+  }
+  high {
+    before win=0.4458 pick=0.3278 matches=47873 days=14
+    after win=0.4437 pick=0.3841 matches=16165 days=4
+  }
+}
+``
 [[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
 ## [[/hero/shiv]]((Shiv))
 - Stamina increased from 2 to 3
@@ -400,6 +592,18 @@ content_text "Vitality investment tree bonus reverted back to % base hp increase
 =
 
 =hero:silver:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4647 pick=0.3043 matches=291216 days=14
+    after win=0.4746 pick=0.3389 matches=92225 days=4
+  }
+  high {
+    before win=0.4768 pick=0.2328 matches=33998 days=14
+    after win=0.492 pick=0.3026 matches=12735 days=4
+  }
+}
+``
 [[/hero/silver]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/werewolf_sm.webp]] Silver patch history))
 ## [[/hero/silver]]((Silver))
 ==ability:slam-fire-weapon-accuracy:
@@ -433,6 +637,18 @@ content_text "Vitality investment tree bonus reverted back to % base hp increase
 =
 
 =hero:victor:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5737 pick=0.3337 matches=319402 days=14
+    after win=0.5247 pick=0.2161 matches=58803 days=4
+  }
+  high {
+    before win=0.5535 pick=0.2907 matches=42458 days=14
+    after win=0.5142 pick=0.1459 matches=6141 days=4
+  }
+}
+``
 [[/hero/victor]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/frank_sm.webp]] Victor patch history))
 ## [[/hero/victor]]((Victor))
 - Health per boon increased from 46 to 50
@@ -449,6 +665,18 @@ content_text "Vitality investment tree bonus reverted back to % base hp increase
 =
 
 =hero:viscous:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5077 pick=0.2971 matches=284301 days=14
+    after win=0.4601 pick=0.2151 matches=58543 days=4
+  }
+  high {
+    before win=0.5131 pick=0.3279 matches=47900 days=14
+    after win=0.4599 pick=0.2258 matches=9503 days=4
+  }
+}
+``
 [[/hero/viscous]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous patch history))
 ## [[/hero/viscous]]((Viscous))
 ==ability:puddle-punch:
@@ -469,6 +697,18 @@ content_text "Vitality investment tree bonus reverted back to % base hp increase
 =
 
 =hero:wraith:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5169 pick=0.4442 matches=425080 days=14
+    after win=0.4871 pick=0.3318 matches=90288 days=4
+  }
+  high {
+    before win=0.5309 pick=0.519 matches=75805 days=14
+    after win=0.4904 pick=0.3476 matches=14631 days=4
+  }
+}
+``
 [[/hero/wraith]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp]] Wraith patch history))
 ## [[/hero/wraith]]((Wraith))
 ==ability:card-trick:
@@ -499,6 +739,18 @@ content_text "Vitality investment tree bonus reverted back to % base hp increase
 =
 
 =hero:yamato:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4911 pick=0.261 matches=249745 days=14
+    after win=0.4807 pick=0.2486 matches=67668 days=4
+  }
+  high {
+    before win=0.499 pick=0.2723 matches=39772 days=14
+    after win=0.4869 pick=0.2669 matches=11232 days=4
+  }
+}
+``
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 ==ability:flying-slash:
@@ -515,30 +767,90 @@ content_text "Vitality investment tree bonus reverted back to % base hp increase
 ``
 
 =item:arcane-surge:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5078 pick=0.0589 matches=676706 days=14
+    after win=0.529 pick=0.0855 matches=279195 days=4
+  }
+  high {
+    before win=0.5133 pick=0.0768 matches=134644 days=14
+    after win=0.5301 pick=0.1288 matches=65028 days=4
+  }
+}
+``
 [[/item/arcane-surge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/arcane_surge.webp]] Arcane Surge patch history))
 ## [[/item/arcane-surge]]((Arcane Surge))
 - Ability Range reduced from 15% to 12%
 =
 
 =item:ballistic-enchantment:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5266 pick=0.0871 matches=1000743 days=14
+    after win=0.508 pick=0.0684 matches=223363 days=4
+  }
+  high {
+    before win=0.5295 pick=0.0858 matches=150338 days=14
+    after win=0.5063 pick=0.0598 matches=30179 days=4
+  }
+}
+``
 [[/item/ballistic-enchantment]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/alchemical_seal.webp]] Ballistic Enchantment patch history))
 ## [[/item/ballistic-enchantment]]((Ballistic Enchantment))
 - Ability Range reduced from 25% to 20%
 =
 
 =item:blood-tribute:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5436 pick=0.0109 matches=125467 days=14
+    after win=0.5372 pick=0.011 matches=35928 days=4
+  }
+  high {
+    before win=0.5532 pick=0.0158 matches=27755 days=14
+    after win=0.533 pick=0.0157 matches=7914 days=4
+  }
+}
+``
 [[/item/blood-tribute]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/blood_tribute.webp]] Blood Tribute patch history))
 ## [[/item/blood-tribute]]((Blood Tribute))
 - Spirit Resist reduced from 10% to 8%
 =
 
 =item:boundless-spirit:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5325 pick=0.4076 matches=4681217 days=14
+    after win=0.5301 pick=0.407 matches=1329319 days=4
+  }
+  high {
+    before win=0.5385 pick=0.3586 matches=628530 days=14
+    after win=0.5348 pick=0.3564 matches=179992 days=4
+  }
+}
+``
 [[/item/boundless-spirit]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/boundless_spirit.webp]] Boundless Spirit patch history))
 ## [[/item/boundless-spirit]]((Boundless Spirit))
 - Constant spirit bonus reduced from 35 to 30
 =
 
 =item:burst-fire:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.513 pick=0.1101 matches=1264822 days=14
+    after win=0.5148 pick=0.1119 matches=365343 days=4
+  }
+  high {
+    before win=0.5205 pick=0.0919 matches=161131 days=14
+    after win=0.5189 pick=0.0929 matches=46920 days=4
+  }
+}
+``
 [[/item/burst-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/burst_fire.webp]] Burst Fire patch history))
 ## [[/item/burst-fire]]((Burst Fire))
 - Duration increased from 3.5s to 4.5s
@@ -561,24 +873,72 @@ content_text "Vitality investment tree bonus reverted back to % base hp increase
 =
 
 =item:counterspell:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.489 pick=0.1011 matches=1160814 days=14
+    after win=0.4889 pick=0.0948 matches=309436 days=4
+  }
+  high {
+    before win=0.5002 pick=0.161 matches=282163 days=14
+    after win=0.504 pick=0.1423 matches=71847 days=4
+  }
+}
+``
 [[/item/counterspell]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/counterspell.webp]] Counterspell patch history))
 ## [[/item/counterspell]]((Counterspell))
 - Bonus Health reduced from 100 to 75
 =
 
 =item:cultist-sacrifice:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5046 pick=0.0779 matches=894928 days=14
+    after win=0.496 pick=0.0728 matches=237654 days=4
+  }
+  high {
+    before win=0.5039 pick=0.0979 matches=171612 days=14
+    after win=0.4981 pick=0.0906 matches=45769 days=4
+  }
+}
+``
 [[/item/cultist-sacrifice]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/cultist_sacrifice.webp]] Cultist Sacrifice patch history))
 ## [[/item/cultist-sacrifice]]((Cultist Sacrifice))
 - Ability Range reduced from +15% to +12%
 =
 
 =item:divine-barrier:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5393 pick=0.0407 matches=467797 days=14
+    after win=0.5315 pick=0.0392 matches=127898 days=4
+  }
+  high {
+    before win=0.5423 pick=0.0445 matches=77939 days=14
+    after win=0.5336 pick=0.0427 matches=21560 days=4
+  }
+}
+``
 [[/item/divine-barrier]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/divine_barrier.webp]] Divine Barrier patch history))
 ## [[/item/divine-barrier]]((Divine Barrier))
 - Ability Range reduced from +15% to +10%
 =
 
 =item:echo-shard:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.532 pick=0.0605 matches=694761 days=14
+    after win=0.54 pick=0.0665 matches=217060 days=4
+  }
+  high {
+    before win=0.526 pick=0.0735 matches=128880 days=14
+    after win=0.54 pick=0.0847 matches=42781 days=4
+  }
+}
+``
 [[/item/echo-shard]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/echo_shard.webp]] Echo Shard patch history))
 ## [[/item/echo-shard]]((Echo Shard))
 - No longer grants +5% Ability Range
@@ -592,30 +952,90 @@ content_text "Vitality investment tree bonus reverted back to % base hp increase
 =
 
 =item:enchanter-s-emblem:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4955 pick=0.1778 matches=2042193 days=14
+    after win=0.5077 pick=0.1928 matches=629780 days=4
+  }
+  high {
+    before win=0.4951 pick=0.192 matches=336492 days=14
+    after win=0.511 pick=0.2195 matches=110877 days=4
+  }
+}
+``
 [[/item/enchanters-emblem]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/enchanters_emblem.webp]] Enchanter's Emblem patch history))
 ## [[/item/enchanters-emblem]]((Enchanter's Emblem))
 - Spirit Resist increased from 15% to 18%
 =
 
 =item:golden-goose-egg:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5055 pick=0.0686 matches=788039 days=14
+    after win=0.5008 pick=0.0716 matches=233937 days=4
+  }
+  high {
+    before win=0.5011 pick=0.0843 matches=147731 days=14
+    after win=0.4965 pick=0.0762 matches=38474 days=4
+  }
+}
+``
 [[/item/golden-goose-egg]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/goose_egg.webp]] Golden Goose Egg patch history))
 ## [[/item/golden-goose-egg]]((Golden Goose Egg))
 - Now has a 2 second channel to hatch
 =
 
 =item:greater-expansion:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5264 pick=0.3486 matches=4002964 days=14
+    after win=0.5153 pick=0.33 matches=1077743 days=4
+  }
+  high {
+    before win=0.5314 pick=0.3294 matches=577419 days=14
+    after win=0.517 pick=0.3024 matches=152730 days=4
+  }
+}
+``
 [[/item/greater-expansion]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/greater_expansion.webp]] Greater Expansion patch history))
 ## [[/item/greater-expansion]]((Greater Expansion))
 - Ability Range reduced from 35% to 30%
 =
 
 =item:guardian-ward:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4928 pick=0.0733 matches=841439 days=14
+    after win=0.4888 pick=0.0691 matches=225557 days=4
+  }
+  high {
+    before win=0.489 pick=0.075 matches=131406 days=14
+    after win=0.4856 pick=0.0694 matches=35031 days=4
+  }
+}
+``
 [[/item/guardian-ward]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/guardian_ward.webp]] Guardian Ward patch history))
 ## [[/item/guardian-ward]]((Guardian Ward))
 - Ability Range reduced from 10% to 8%
 =
 
 =item:healing-nova:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.509 pick=0.0424 matches=486874 days=14
+    after win=0.4986 pick=0.0391 matches=127804 days=4
+  }
+  high {
+    before win=0.523 pick=0.0384 matches=67338 days=14
+    after win=0.5073 pick=0.0341 matches=17218 days=4
+  }
+}
+``
 [[/item/healing-nova]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healing_nova.webp]] Healing Nova patch history))
 ## [[/item/healing-nova]]((Healing Nova))
 - Ability Range reduced from +6% to +5%
@@ -628,12 +1048,36 @@ content_text "Vitality investment tree bonus reverted back to % base hp increase
 =
 
 =item:knockdown:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4724 pick=0.0642 matches=736983 days=14
+    after win=0.4725 pick=0.062 matches=202471 days=4
+  }
+  high {
+    before win=0.4752 pick=0.061 matches=106933 days=14
+    after win=0.47 pick=0.0567 matches=28645 days=4
+  }
+}
+``
 [[/item/knockdown]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/knockdown.webp]] Knockdown patch history))
 ## [[/item/knockdown]]((Knockdown))
 - Ability Range reduced from +6% to +5%
 =
 
 =item:metal-skin:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.3864 pick=0.0386 matches=443150 days=14
+    after win=0.3782 pick=0.0449 matches=146735 days=4
+  }
+  high {
+    before win=0.3924 pick=0.0478 matches=83845 days=14
+    after win=0.3857 pick=0.0586 matches=29591 days=4
+  }
+}
+``
 [[/item/metal-skin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/metal_skin.webp]] Metal Skin patch history))
 ## [[/item/metal-skin]]((Metal Skin))
 - Bullet Resist reduced from 15% to 12%
@@ -653,12 +1097,36 @@ content_text "Vitality investment tree bonus reverted back to % base hp increase
 =
 
 =item:rescue-beam:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5074 pick=0.0297 matches=341298 days=14
+    after win=0.5069 pick=0.0297 matches=96958 days=4
+  }
+  high {
+    before win=0.5096 pick=0.0333 matches=58447 days=14
+    after win=0.5058 pick=0.0362 matches=18306 days=4
+  }
+}
+``
 [[/item/rescue-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/rescue_beam.webp]] Rescue Beam patch history))
 ## [[/item/rescue-beam]]((Rescue Beam))
 - Ability Range reduced from +8% to +6%
 =
 
 =item:restorative-locket:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4902 pick=0.0118 matches=135364 days=14
+    after win=0.499 pick=0.0113 matches=36745 days=4
+  }
+  high {
+    before win=0.4861 pick=0.0134 matches=23411 days=14
+    after win=0.5187 pick=0.013 matches=6590 days=4
+  }
+}
+``
 [[/item/restorative-locket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/restorative_locket.webp]] Restorative Locket patch history))
 ## [[/item/restorative-locket]]((Restorative Locket))
 - Spirit Resist increased from 8% to 10%
@@ -688,6 +1156,18 @@ content_text "Vitality investment tree bonus reverted back to % base hp increase
 =
 
 =item:spirit-burn:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5697 pick=0.1415 matches=1624801 days=14
+    after win=0.5665 pick=0.1323 matches=431999 days=4
+  }
+  high {
+    before win=0.5782 pick=0.109 matches=191097 days=14
+    after win=0.5711 pick=0.1005 matches=50736 days=4
+  }
+}
+``
 [[/item/spirit-burn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/spirit_burn.webp]] Spirit Burn patch history))
 ## [[/item/spirit-burn]]((Spirit Burn))
 - Ability Range reduced from +8% to +6%
@@ -701,12 +1181,36 @@ content_text "Vitality investment tree bonus reverted back to % base hp increase
 =
 
 =item:vortex-web:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5358 pick=0.0416 matches=477491 days=14
+    after win=0.52 pick=0.0341 matches=111293 days=4
+  }
+  high {
+    before win=0.5373 pick=0.0598 matches=104821 days=14
+    after win=0.5121 pick=0.0463 matches=23390 days=4
+  }
+}
+``
 [[/item/vortex-web]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/vortex_web.webp]] Vortex Web patch history))
 ## [[/item/vortex-web]]((Vortex Web))
 - Ability Range reduced from +10% to +8%
 =
 
 =item:weighted-shots:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5004 pick=0.06 matches=688668 days=14
+    after win=0.5015 pick=0.0651 matches=212572 days=4
+  }
+  high {
+    before win=0.5099 pick=0.0628 matches=110072 days=14
+    after win=0.5071 pick=0.0647 matches=32698 days=4
+  }
+}
+``
 [[/item/weighted-shots]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/weighted_shots.webp]] Weighted Shots patch history))
 ## [[/item/weighted-shots]]((Weighted Shots))
 - Debuff Resist increased from 18% to 20%

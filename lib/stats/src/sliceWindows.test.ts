@@ -1,17 +1,28 @@
 import { describe, expect, it } from 'vitest';
 import { DAY_S } from './constants';
 import { indexSeries, sliceWindows, summarise, windowDays } from './sliceWindows';
-import type { AllSeries, DailyRow, DailySeries } from './types';
+import { DAY_1, allSeries, day, type HeroPart } from './fixtures';
+import type { DailyRow, EntityKind } from './types';
 
-const D0 = 1788825600;
-const day = (n: number) => D0 + n * DAY_S;
 const NOON = DAY_S / 2;
 const patchAt = (id: string, n: number, offset = NOON) => ({ id, at: day(n) + offset });
-const offsets = (days: number[]) => days.map((d) => (d - D0) / DAY_S);
+const offsets = (days: number[]) => days.map((d) => (d - DAY_1) / DAY_S);
 const range = (from: number, to: number) =>
 	Array.from({ length: to - from + 1 }, (_, i) => from + i);
 
 const FAR_FUTURE = day(1000);
+
+const impactOf = (
+	sliced: ReturnType<typeof sliceWindows>,
+	patch: string,
+	key: string
+) => {
+	const found = sliced.get(patch)?.find((entry) => `${entry.kind}:${entry.id}` === key);
+	if (!found) throw new Error(`no ${key} in ${patch}`);
+	return found.impact;
+};
+const keysOf = (sliced: ReturnType<typeof sliceWindows>, patch: string) =>
+	(sliced.get(patch) ?? []).map((entry) => `${entry.kind}:${entry.id}`);
 
 function uniformSeries(
 	entityIds: number[],
@@ -19,26 +30,18 @@ function uniformSeries(
 	to: number,
 	perDay: { wins: number; matches: number },
 	totalPerDay: number
-): DailySeries {
+): HeroPart {
 	const rows: DailyRow[] = [];
-	const totalMatches = new Map<number, number>();
+	const totals = new Map<number, number>();
 	for (const n of range(from, to)) {
-		totalMatches.set(day(n), totalPerDay);
+		totals.set(day(n), totalPerDay);
 		for (const entityId of entityIds) rows.push({ entityId, day: day(n), ...perDay });
 	}
-	return { rows, totalMatches };
+	return { rows, totals };
 }
 
-const EMPTY: DailySeries = { rows: [], totalMatches: new Map() };
-
-function allSeries(
-	parts: Partial<Record<'heroAll' | 'heroHigh' | 'itemAll' | 'itemHigh', DailySeries>>
-): AllSeries {
-	return {
-		hero: { all: parts.heroAll ?? EMPTY, high: parts.heroHigh ?? EMPTY },
-		item: { all: parts.itemAll ?? EMPTY, high: parts.itemHigh ?? EMPTY }
-	};
-}
+const indexed = (part: HeroPart, kind: EntityKind = 'hero') =>
+	indexSeries(part.rows, part.totals, kind);
 
 describe('windowDays', () => {
 	it('gives a lone patch 14 days on each side', () => {
@@ -128,35 +131,34 @@ describe('windowDays', () => {
 });
 
 describe('summarise', () => {
-	const hero = indexSeries(uniformSeries([1], 0, 9, { wins: 110, matches: 200 }, 24_000));
+	const part = uniformSeries([1], 0, 9, { wins: 110, matches: 200 }, 24_000);
+	const hero = indexed(part);
 
 	it('sums the window and scales hero pick rate to share of matches', () => {
-		const window = summarise(hero, 'hero', 1, range(0, 9).map(day), true);
+		const window = summarise(hero, 1, range(0, 9).map(day));
 
 		expect(window).toEqual({
-			winRate: 0.55,
-			pickRate: 0.1,
+			win: 0.55,
+			pick: 0.1,
 			matches: 2000,
-			days: 10,
-			closed: true
+			days: 10
 		});
 	});
 
 	it('leaves item pick rate as share of players', () => {
-		const window = summarise(hero, 'item', 1, range(0, 9).map(day), true);
+		const window = summarise(indexed(part, 'item'), 1, range(0, 9).map(day));
 
-		expect(window.pickRate).toBe(0.0083);
+		expect(window.pick).toBe(0.0083);
 	});
 
 	it('nulls the rates under the match floor but keeps the count', () => {
-		const window = summarise(hero, 'hero', 1, range(0, 3).map(day), false);
+		const window = summarise(hero, 1, range(0, 3).map(day));
 
 		expect(window).toEqual({
-			winRate: null,
-			pickRate: null,
+			win: null,
+			pick: null,
 			matches: 800,
-			days: 4,
-			closed: false
+			days: 4
 		});
 	});
 
@@ -164,33 +166,32 @@ describe('summarise', () => {
 		const series = uniformSeries([1], 0, 9, { wins: 150, matches: 300 }, 24_000);
 		series.rows = series.rows.filter((row) => row.day !== day(4));
 
-		const window = summarise(indexSeries(series), 'hero', 1, range(0, 9).map(day), true);
+		const window = summarise(indexed(series), 1, range(0, 9).map(day));
 
 		expect(window.days).toBe(9);
 		expect(window.matches).toBe(2700);
-		expect(window.pickRate).toBe(0.135);
+		expect(window.pick).toBe(0.135);
 	});
 
 	it('returns an empty window for an unknown entity or no days', () => {
-		expect(summarise(hero, 'hero', 99, range(0, 9).map(day), true).matches).toBe(0);
-		expect(summarise(hero, 'hero', 1, [], true)).toEqual({
-			winRate: null,
-			pickRate: null,
+		expect(summarise(hero, 99, range(0, 9).map(day)).matches).toBe(0);
+		expect(summarise(hero, 1, [])).toEqual({
+			win: null,
+			pick: null,
 			matches: 0,
-			days: 0,
-			closed: true
+			days: 0
 		});
 	});
 
 	it('rounds rates to four decimal places', () => {
-		const series = indexSeries(
+		const series = indexed(
 			uniformSeries([1], 0, 0, { wins: 1234, matches: 3000 }, 36_001)
 		);
 
-		const window = summarise(series, 'hero', 1, [day(0)], true);
+		const window = summarise(series, 1, [day(0)]);
 
-		expect(window.winRate).toBe(0.4113);
-		expect(window.pickRate).toBe(1);
+		expect(window.win).toBe(0.4113);
+		expect(window.pick).toBe(1);
 	});
 });
 
@@ -201,7 +202,7 @@ describe('sliceWindows', () => {
 	const series = allSeries({
 		heroAll,
 		heroHigh,
-		itemAll: { ...itemAll, totalMatches: heroAll.totalMatches }
+		itemAll: itemAll.rows
 	});
 
 	const patches = [patchAt('p1', 20), patchAt('p2', 40)];
@@ -217,9 +218,9 @@ describe('sliceWindows', () => {
 			now: FAR_FUTURE
 		});
 
-		expect(Object.keys(impact)).toEqual(['p1', 'p2']);
-		expect(Object.keys(impact.p1)).toEqual(['hero:1']);
-		expect(Object.keys(impact.p2)).toEqual(['item:500']);
+		expect([...impact.keys()]).toEqual(['p1', 'p2']);
+		expect(keysOf(impact, 'p1')).toEqual(['hero:1']);
+		expect(keysOf(impact, 'p2')).toEqual(['item:500']);
 	});
 
 	it('reports both tiers, nulling the thin one', () => {
@@ -230,18 +231,17 @@ describe('sliceWindows', () => {
 			now: FAR_FUTURE
 		});
 
-		const entry = impact.p1['hero:1'];
+		const entry = impactOf(impact, 'p1', 'hero:1');
 		expect(entry.all.before).toEqual({
-			winRate: 0.5,
-			pickRate: 0.1,
+			win: 0.5,
+			pick: 0.1,
 			matches: 2800,
-			days: 14,
-			closed: true
+			days: 14
 		});
 		expect(entry.all.after.matches).toBe(2800);
 		expect(entry.high.before).toMatchObject({
-			winRate: null,
-			pickRate: null,
+			win: null,
+			pick: null,
 			matches: 280
 		});
 	});
@@ -254,8 +254,8 @@ describe('sliceWindows', () => {
 			now: FAR_FUTURE
 		});
 
-		expect(impact.p2['item:500'].all.before.pickRate).toBe(0.0208);
-		expect(impact.p2['item:500'].all.before.winRate).toBe(0.6);
+		expect(impactOf(impact, 'p2', 'item:500').all.before.pick).toBe(0.0208);
+		expect(impactOf(impact, 'p2', 'item:500').all.before.win).toBe(0.6);
 	});
 
 	it('skips entities with no data and patches left with no entries', () => {
@@ -275,8 +275,8 @@ describe('sliceWindows', () => {
 			now: FAR_FUTURE
 		});
 
-		expect(Object.keys(impact)).toEqual(['p2']);
-		expect(Object.keys(impact.p2)).toEqual(['hero:2']);
+		expect([...impact.keys()]).toEqual(['p2']);
+		expect(keysOf(impact, 'p2')).toEqual(['hero:2']);
 	});
 
 	it('marks the newest patch open and closes the ones before it', () => {
@@ -290,22 +290,22 @@ describe('sliceWindows', () => {
 			now: day(44) + NOON
 		});
 
-		expect(impact.p1['hero:1'].all.after.closed).toBe(true);
-		expect(impact.p2['hero:1'].all.after).toMatchObject({
-			closed: false,
+		expect(impactOf(impact, 'p1', 'hero:1').closed).toBe(true);
+		expect(impactOf(impact, 'p2', 'hero:1').closed).toBe(false);
+		expect(impactOf(impact, 'p2', 'hero:1').all.after).toEqual({
+			win: null,
+			pick: null,
 			days: 3,
 			matches: 600
 		});
-		expect(impact.p2['hero:1'].all.before.closed).toBe(true);
 	});
 
 	it('tolerates a day missing from one tier only', () => {
 		const gappy = {
-			...heroHigh,
-			rows: heroHigh.rows.filter((row) => row.day !== day(25))
+			rows: heroHigh.rows.filter((row) => row.day !== day(25)),
+			totals: new Map(heroHigh.totals)
 		};
-		gappy.totalMatches = new Map(heroHigh.totalMatches);
-		gappy.totalMatches.delete(day(25));
+		gappy.totals.delete(day(25));
 
 		const impact = sliceWindows({
 			patches,
@@ -314,7 +314,7 @@ describe('sliceWindows', () => {
 			now: FAR_FUTURE
 		});
 
-		expect(impact.p1['hero:1'].all.after.days).toBe(14);
-		expect(impact.p1['hero:1'].high.after.days).toBe(13);
+		expect(impactOf(impact, 'p1', 'hero:1').all.after.days).toBe(14);
+		expect(impactOf(impact, 'p1', 'hero:1').high.after.days).toBe(13);
 	});
 });

@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "07-18-2024 Update"
 thread_id "11831"
 published "2024-07-18T14:44:15-0700"
@@ -94,6 +94,18 @@ content_text "Accounts that are banned for cheating will now have all their invi
 ``
 
 =hero:abrams:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=62 days=6
+    after win=#null pick=#null matches=55 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/abrams]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams patch history))
 ## [[/hero/abrams]]((Abrams))
 ==ability:shoulder-charge:
@@ -120,6 +132,18 @@ content_text "Accounts that are banned for cheating will now have all their invi
 =
 
 =hero:bebop:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=61 days=6
+    after win=#null pick=#null matches=45 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/bebop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop patch history))
 ## [[/hero/bebop]]((Bebop))
 - Base HP regen increased from 1 to 2.5
@@ -154,6 +178,18 @@ content_text "Accounts that are banned for cheating will now have all their invi
 =
 
 =hero:dynamo:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=48 days=6
+    after win=#null pick=#null matches=35 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 - Gun damage growth increased from 0.8 to 0.9
@@ -170,6 +206,18 @@ content_text "Accounts that are banned for cheating will now have all their invi
 =
 
 =hero:grey-talon:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=65 days=6
+    after win=#null pick=#null matches=52 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/grey-talon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon patch history))
 ## [[/hero/grey-talon]]((Grey Talon))
 ==ability:charged-shot:
@@ -181,6 +229,18 @@ content_text "Accounts that are banned for cheating will now have all their invi
 =
 
 =hero:haze:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=96 days=6
+    after win=#null pick=#null matches=68 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 ==ability:sleep-dagger:
@@ -205,6 +265,18 @@ content_text "Accounts that are banned for cheating will now have all their invi
 =
 
 =hero:ivy:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=51 days=6
+    after win=#null pick=#null matches=27 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
 ## [[/hero/ivy]]((Ivy))
 - Base damage reduced from 5.0 to 4.5
@@ -221,6 +293,18 @@ content_text "Accounts that are banned for cheating will now have all their invi
 =
 
 =hero:kelvin:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=49 days=6
+    after win=#null pick=#null matches=31 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 ==ability:frost-grenade:
@@ -241,6 +325,18 @@ content_text "Accounts that are banned for cheating will now have all their invi
 =
 
 =hero:lady-geist:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=60 days=6
+    after win=#null pick=#null matches=47 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/lady-geist]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]] Lady Geist patch history))
 ## [[/hero/lady-geist]]((Lady Geist))
 - Base bullet damage reduced from 28 to 25
@@ -264,6 +360,18 @@ content_text "Accounts that are banned for cheating will now have all their invi
 =
 
 =hero:lash:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=53 days=6
+    after win=#null pick=#null matches=29 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/lash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp]] Lash patch history))
 ## [[/hero/lash]]((Lash))
 ==ability:grapple:
@@ -287,6 +395,18 @@ content_text "Accounts that are banned for cheating will now have all their invi
 =
 
 =hero:mcginnis:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=69 days=6
+    after win=#null pick=#null matches=40 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 ==ability:spectral-wall:
@@ -303,6 +423,18 @@ content_text "Accounts that are banned for cheating will now have all their invi
 =
 
 =hero:paradox:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=67 days=6
+    after win=#null pick=#null matches=52 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/paradox]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox patch history))
 ## [[/hero/paradox]]((Paradox))
 ==ability:time-wall:
@@ -323,6 +455,18 @@ content_text "Accounts that are banned for cheating will now have all their invi
 =
 
 =hero:pocket:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=63 days=6
+    after win=#null pick=#null matches=47 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/pocket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket patch history))
 ## [[/hero/pocket]]((Pocket))
 - Base bullet resistance improved from -20% to -15%
@@ -331,6 +475,18 @@ content_text "Accounts that are banned for cheating will now have all their invi
 =
 
 =hero:seven:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=93 days=6
+    after win=#null pick=#null matches=65 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
 ## [[/hero/seven]]((Seven))
 - Base regen increased from 1 to 1.5
@@ -369,18 +525,54 @@ content_text "Accounts that are banned for cheating will now have all their invi
 =
 
 =item:berserker:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=117 days=4
+    after win=#null pick=#null matches=125 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/berserker]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/berserker.webp]] Berserker patch history))
 ## [[/item/berserker]]((Berserker))
 - Bullet Resist reduced from 10% to 8%
 =
 
 =item:bullet-lifesteal:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=327 days=6
+    after win=#null pick=#null matches=213 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/bullet-lifesteal]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/bullet_lifesteal.webp]] Bullet Lifesteal patch history))
 ## [[/item/bullet-lifesteal]]((Bullet Lifesteal))
 - Health increased from +50 to +75
 =
 
 =item:burst-fire:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=24 days=1
+    after win=#null pick=#null matches=60 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/burst-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/burst_fire.webp]] Burst Fire patch history))
 ## [[/item/burst-fire]]((Burst Fire))
 - Now gives +2 m/s Move Speed during the 3s active
@@ -430,30 +622,90 @@ content_text "Accounts that are banned for cheating will now have all their invi
 =
 
 =item:extra-health:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=141 days=5
+    after win=#null pick=#null matches=131 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/extra-health]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_health.webp]] Extra Health patch history))
 ## [[/item/extra-health]]((Extra Health))
 - Health increased from +150 to +160
 =
 
 =item:extra-regen:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=308 days=6
+    after win=#null pick=#null matches=184 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/extra-regen]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_regen.webp]] Extra Regen patch history))
 ## [[/item/extra-regen]]((Extra Regen))
 - Regen increased from 2.3 to 2.5
 =
 
 =item:extra-stamina:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=361 days=6
+    after win=#null pick=#null matches=271 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/extra-stamina]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_stamina.webp]] Extra Stamina patch history))
 ## [[/item/extra-stamina]]((Extra Stamina))
 - Fire Rate reduced from 8% to 7%
 =
 
 =item:fleetfoot:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=56 days=2
+    after win=#null pick=#null matches=83 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/fleetfoot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/fleetfoot.webp]] Fleetfoot patch history))
 ## [[/item/fleetfoot]]((Fleetfoot))
 - Now gives +25% Slide Distance
 =
 
 =item:fortitude:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=204 days=6
+    after win=#null pick=#null matches=131 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/fortitude]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/fortitude.webp]] Fortitude patch history))
 ## [[/item/fortitude]]((Fortitude))
 - Bonus health increased from +250 to +275
@@ -466,24 +718,72 @@ content_text "Accounts that are banned for cheating will now have all their invi
 =
 
 =item:headshot-booster:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=291 days=6
+    after win=#null pick=#null matches=209 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/headshot-booster]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/headshot_booster.webp]] Headshot Booster patch history))
 ## [[/item/headshot-booster]]((Headshot Booster))
 - Fire Rate reduced from 6% to 5%
 =
 
 =item:healbane:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=156 days=6
+    after win=#null pick=#null matches=130 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/healbane]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healbane.webp]] Healbane patch history))
 ## [[/item/healbane]]((Healbane))
 - Heal on hero kill reduced from 400 to 350
 =
 
 =item:healing-rite:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=244 days=6
+    after win=#null pick=#null matches=209 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/healing-rite]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healing_rite.webp]] Healing Rite patch history))
 ## [[/item/healing-rite]]((Healing Rite))
 - Active now gives +2 Sprint
 =
 
 =item:improved-spirit:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=266 days=6
+    after win=#null pick=#null matches=178 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/improved-spirit]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/improved_spirit.webp]] Improved Spirit patch history))
 ## [[/item/improved-spirit]]((Improved Spirit))
 - Spirit Power increased from +18 to +21
@@ -496,6 +796,18 @@ content_text "Accounts that are banned for cheating will now have all their invi
 =
 
 =item:kinetic-dash:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=47 days=2
+    after win=#null pick=#null matches=74 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/kinetic-dash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/kinetic_dash.webp]] Kinetic Dash patch history))
 ## [[/item/kinetic-dash]]((Kinetic Dash))
 - Cooldown reduced from 12s to 10s
@@ -508,6 +820,18 @@ content_text "Accounts that are banned for cheating will now have all their invi
 =
 
 =item:leech:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=50 days=2
+    after win=#null pick=#null matches=20 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/leech]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/leech.webp]] Leech patch history))
 ## [[/item/leech]]((Leech))
 - Bonus health increased from 150 to 175
@@ -528,6 +852,18 @@ content_text "Accounts that are banned for cheating will now have all their invi
 =
 
 =item:melee-lifesteal:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=41 days=2
+    after win=#null pick=#null matches=22 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/melee-lifesteal]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/melee_lifesteal.webp]] Melee Lifesteal patch history))
 ## [[/item/melee-lifesteal]]((Melee Lifesteal))
 - Works against creeps for 25% effectiveness
@@ -541,6 +877,18 @@ content_text "Accounts that are banned for cheating will now have all their invi
 =
 
 =item:mystic-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=238 days=6
+    after win=#null pick=#null matches=193 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/mystic-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/mystic_shot.webp]] Mystic Shot patch history))
 ## [[/item/mystic-shot]]((Mystic Shot))
 - Now gives +4 Spirit
@@ -557,12 +905,36 @@ content_text "Accounts that are banned for cheating will now have all their invi
 =
 
 =item:point-blank:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=179 days=6
+    after win=#null pick=#null matches=125 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/point-blank]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/point_blank.webp]] Point Blank patch history))
 ## [[/item/point-blank]]((Point Blank))
 - Bullet Shield Health increased from 225 to 250
 =
 
 =item:rapid-recharge:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=85 days=3
+    after win=#null pick=#null matches=100 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/rapid-recharge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/rapid_recharge.webp]] Rapid Recharge patch history))
 ## [[/item/rapid-recharge]]((Rapid Recharge))
 - Bonus Ability Charges increased from +2 to +3
@@ -576,6 +948,18 @@ content_text "Accounts that are banned for cheating will now have all their invi
 =
 
 =item:restorative-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=220 days=6
+    after win=#null pick=#null matches=128 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/restorative-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/restorative_shot.webp]] Restorative Shot patch history))
 ## [[/item/restorative-shot]]((Restorative Shot))
 - Bullet Resist reduced from 8% to 7%
@@ -594,6 +978,18 @@ content_text "Accounts that are banned for cheating will now have all their invi
 =
 
 =item:sharpshooter:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=131 days=5
+    after win=#null pick=#null matches=60 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/sharpshooter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/sharp_shooter.webp]] Sharpshooter patch history))
 ## [[/item/sharpshooter]]((Sharpshooter))
 - Ammo increased from 15% to 20%
@@ -612,12 +1008,36 @@ content_text "Accounts that are banned for cheating will now have all their invi
 =
 
 =item:slowing-hex:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=22 days=1
+    after win=#null pick=#null matches=82 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/slowing-hex]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/slowing_hex.webp]] Slowing Hex patch history))
 ## [[/item/slowing-hex]]((Slowing Hex))
 - Sprint reduced from +2 to +1
 =
 
 =item:spirit-lifesteal:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=302 days=6
+    after win=#null pick=#null matches=196 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/spirit-lifesteal]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/spirit_lifesteal.webp]] Spirit Lifesteal patch history))
 ## [[/item/spirit-lifesteal]]((Spirit Lifesteal))
 - No longer grants +8 Spirit Power
@@ -625,12 +1045,36 @@ content_text "Accounts that are banned for cheating will now have all their invi
 =
 
 =item:spirit-strike:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=20 days=1
+    after win=#null pick=#null matches=44 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/spirit-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/spirit_strike.webp]] Spirit Strike patch history))
 ## [[/item/spirit-strike]]((Spirit Strike))
 - Passive replaced. Now causes your melee against heroes to deal +30 Spirit damage and applies -10% Spirit Resist to the target for 8 seconds. Cooldown: 8
 =
 
 =item:superior-cooldown:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=213 days=6
+    after win=#null pick=#null matches=139 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/superior-cooldown]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/superior_cooldown.webp]] Superior Cooldown patch history))
 ## [[/item/superior-cooldown]]((Superior Cooldown))
 - Imbued Cooldown Reduction increased from +30% to +32%
@@ -644,6 +1088,18 @@ content_text "Accounts that are banned for cheating will now have all their invi
 =
 
 =item:titanic-magazine:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=148 days=6
+    after win=#null pick=#null matches=69 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/titanic-magazine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/titanic_magazine.webp]] Titanic Magazine patch history))
 ## [[/item/titanic-magazine]]((Titanic Magazine))
 - Ammo increased from 90% to 100%
@@ -664,6 +1120,18 @@ content_text "Accounts that are banned for cheating will now have all their invi
 =
 
 =item:veil-walker:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=47 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/veil-walker]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/veil_walker.webp]] Veil Walker patch history))
 ## [[/item/veil-walker]]((Veil Walker))
 - Moved to T3 Vitality

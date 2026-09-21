@@ -37,20 +37,15 @@ jobs:
 
       - name: Refresh stats snapshot
         env:
-          REBUILD: ${{ inputs.rebuild }}
-        run: |
-          if [[ "$REBUILD" == "true" ]]; then
-            pnpm run build:stats --rebuild
-          else
-            pnpm run build:stats
-          fi
+          REBUILD_FLAG: ${{ inputs.rebuild && '--rebuild' || '' }}
+        run: pnpm run build:stats $REBUILD_FLAG
 
       - name: Persist snapshot and deploy
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          if [[ -n "$(git status --porcelain -- app/stats)" ]]; then
-            git add app/stats
+          if [[ -n "$(git status --porcelain -- app/changelogs)" ]]; then
+            git add app/changelogs
             git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Update patch impact stats [skip ci]'
             git push origin HEAD:main
             gh workflow run deploy.yml --ref main

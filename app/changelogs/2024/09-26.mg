@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "09-26-2024 Update"
 thread_id "33015"
 published "2024-09-26T14:17:58-0700"
@@ -159,6 +159,18 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 ``
 
 =hero:abrams:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5098 pick=0.5955 matches=2136 days=5
+    after win=#null pick=#null matches=458 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/abrams]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams patch history))
 ## [[/hero/abrams]]((Abrams))
 ==ability:infernal-resilience:
@@ -180,6 +192,18 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 =
 
 =hero:bebop:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4954 pick=0.7326 matches=2628 days=5
+    after win=#null pick=#null matches=544 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/bebop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop patch history))
 ## [[/hero/bebop]]((Bebop))
 ==ability:hook:
@@ -195,6 +219,18 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 =
 
 =hero:dynamo:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4848 pick=0.4134 matches=1483 days=5
+    after win=#null pick=#null matches=291 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 ==ability:singularity:
@@ -205,6 +241,18 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 =
 
 =hero:grey-talon:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4565 pick=0.5765 matches=2068 days=5
+    after win=#null pick=#null matches=441 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/grey-talon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon patch history))
 ## [[/hero/grey-talon]]((Grey Talon))
 - Arrow cycle time reduced from 0.4s to 0.45s (overall dps unchanged)
@@ -224,6 +272,18 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 =
 
 =hero:haze:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5466 pick=0.9518 matches=3414 days=5
+    after win=#null pick=#null matches=754 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 ==ability:sleep-dagger:
@@ -249,6 +309,18 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 =
 
 =hero:ivy:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4933 pick=0.3351 matches=1202 days=5
+    after win=#null pick=#null matches=292 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
 ## [[/hero/ivy]]((Ivy))
 ==ability:stone-form:
@@ -275,6 +347,18 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 =
 
 =hero:kelvin:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5052 pick=0.4801 matches=1722 days=5
+    after win=#null pick=#null matches=312 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 - Headshot bonus damage reduced by 20%
@@ -292,6 +376,18 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 =
 
 =hero:lady-geist:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5166 pick=0.5358 matches=1922 days=5
+    after win=#null pick=#null matches=459 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/lady-geist]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]] Lady Geist patch history))
 ## [[/hero/lady-geist]]((Lady Geist))
 ==ability:life-drain:
@@ -314,6 +410,18 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 =
 
 =hero:mcginnis:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5251 pick=0.5559 matches=1994 days=5
+    after win=#null pick=#null matches=418 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 - Fixed looking up circumventing the min range on Wall and Barrage
@@ -329,6 +437,18 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 =
 
 =hero:mo-krill:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5277 pick=0.3524 matches=1264 days=5
+    after win=#null pick=#null matches=307 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/mo-krill]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]] Mo & Krill patch history))
 ## [[/hero/mo-krill]]((Mo & Krill))
 ==ability:combo:
@@ -353,6 +473,18 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 =
 
 =hero:paradox:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4487 pick=0.4399 matches=1578 days=5
+    after win=#null pick=#null matches=336 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/paradox]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox patch history))
 ## [[/hero/paradox]]((Paradox))
 ==ability:pulse-grenade:
@@ -368,6 +500,18 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 =
 
 =hero:pocket:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4945 pick=0.5102 matches=1830 days=5
+    after win=#null pick=#null matches=383 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/pocket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket patch history))
 ## [[/hero/pocket]]((Pocket))
 ==ability:affliction:
@@ -383,6 +527,18 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 =
 
 =hero:seven:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5242 pick=0.8004 matches=2871 days=5
+    after win=#null pick=#null matches=581 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
 ## [[/hero/seven]]((Seven))
 ==ability:static-charge:
@@ -402,6 +558,18 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 =
 
 =hero:shiv:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.472 pick=0.5169 matches=1854 days=5
+    after win=#null pick=#null matches=381 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
 ## [[/hero/shiv]]((Shiv))
 ==ability:slice-and-dice:
@@ -428,6 +596,18 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 =
 
 =hero:vindicta:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4795 pick=0.775 matches=2780 days=5
+    after win=#null pick=#null matches=584 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
 - Gun cycle time increased from 0.19s to 0.22s (same overall dps)
@@ -465,6 +645,18 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 =
 
 =hero:viscous:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4906 pick=0.3858 matches=1384 days=5
+    after win=#null pick=#null matches=322 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/viscous]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous patch history))
 ## [[/hero/viscous]]((Viscous))
 ==ability:the-cube:
@@ -492,6 +684,18 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 =
 
 =hero:warden:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.502 pick=0.4115 matches=1476 days=5
+    after win=#null pick=#null matches=283 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/warden]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden patch history))
 ## [[/hero/warden]]((Warden))
 ==ability:binding-word:
@@ -507,6 +711,18 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 =
 
 =hero:yamato:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5061 pick=0.5266 matches=1889 days=5
+    after win=#null pick=#null matches=378 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 - Bullet damage growth reduced from 0.5 to 0.45
@@ -545,6 +761,18 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 =
 
 =item:berserker:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.517 pick=0.1089 matches=4687 days=5
+    after win=#null pick=#null matches=971 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/berserker]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/berserker.webp]] Berserker patch history))
 ## [[/item/berserker]]((Berserker))
 - Damage required per stack reduced from 110 to 100
@@ -557,12 +785,36 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 =
 
 =item:colossus:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=491 days=5
+    after win=#null pick=#null matches=111 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/colossus]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/colossus.webp]] Colossus patch history))
 ## [[/item/colossus]]((Colossus))
 - Slow radius increased from 12m to 14m
 =
 
 =item:decay:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5033 pick=0.0246 matches=1059 days=5
+    after win=#null pick=#null matches=257 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/decay]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/decay.webp]] Decay patch history))
 ## [[/item/decay]]((Decay))
 - Cooldown increased from 32s to 45s
@@ -576,42 +828,126 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 =
 
 =item:echo-shard:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5552 pick=0.0341 matches=1468 days=5
+    after win=#null pick=#null matches=333 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/echo-shard]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/echo_shard.webp]] Echo Shard patch history))
 ## [[/item/echo-shard]]((Echo Shard))
 - Now has a 0.3s cast delay (like Refresher)
 =
 
 =item:escalating-exposure:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5694 pick=0.0741 matches=3191 days=5
+    after win=#null pick=#null matches=831 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/escalating-exposure]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/escalating_exposure.webp]] Escalating Exposure patch history))
 ## [[/item/escalating-exposure]]((Escalating Exposure))
 - Fixed the bonus damage being reduced twice by resistance
 =
 
 =item:escalating-resilience:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5744 pick=0.0543 matches=2338 days=5
+    after win=#null pick=#null matches=472 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/escalating-resilience]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/escalating_resilience.webp]] Escalating Resilience patch history))
 ## [[/item/escalating-resilience]]((Escalating Resilience))
 - Fire Rate reduced from 14% to 12%
 =
 
 =item:extra-stamina:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5039 pick=0.4078 matches=17553 days=5
+    after win=0.5119 pick=0.4245 matches=4208 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/extra-stamina]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_stamina.webp]] Extra Stamina patch history))
 ## [[/item/extra-stamina]]((Extra Stamina))
 - Stamina Recovery increased from 10% to 14%
 =
 
 =item:fortitude:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5042 pick=0.0745 matches=3205 days=5
+    after win=#null pick=#null matches=656 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/fortitude]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/fortitude.webp]] Fortitude patch history))
 ## [[/item/fortitude]]((Fortitude))
 - Bonus Health increased from 275 to 300
 =
 
 =item:frenzy:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5645 pick=0.0245 matches=1054 days=5
+    after win=#null pick=#null matches=234 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/frenzy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/frenzy.webp]] Frenzy patch history))
 ## [[/item/frenzy]]((Frenzy))
 - Low HP Spirit Resist changed to Bullet Resist
 =
 
 =item:headhunter:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5049 pick=0.1281 matches=5516 days=5
+    after win=0.5095 pick=0.1374 matches=1362 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/headhunter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/headhunter.webp]] Headhunter patch history))
 ## [[/item/headhunter]]((Headhunter))
 - Now requires Headshot Booster
@@ -621,24 +957,72 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 =
 
 =item:headshot-booster:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5025 pick=0.2602 matches=11200 days=5
+    after win=0.5032 pick=0.331 matches=3281 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/headshot-booster]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/headshot_booster.webp]] Headshot Booster patch history))
 ## [[/item/headshot-booster]]((Headshot Booster))
 - Fire Rate reduced from +5% to +4%
 =
 
 =item:improved-spirit:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.514 pick=0.217 matches=9342 days=5
+    after win=0.4977 pick=0.2434 matches=2413 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/improved-spirit]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/improved_spirit.webp]] Improved Spirit patch history))
 ## [[/item/improved-spirit]]((Improved Spirit))
 - Spirit Power increased from +21 to +23
 =
 
 =item:intensifying-magazine:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.521 pick=0.1145 matches=4927 days=5
+    after win=0.5103 pick=0.1079 matches=1070 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/intensifying-magazine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/intensifying_magazine.webp]] Intensifying Magazine patch history))
 ## [[/item/intensifying-magazine]]((Intensifying Magazine))
 - Max Weapon Damage reduced from 75% to 60%
 =
 
 =item:kinetic-dash:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5167 pick=0.1449 matches=6238 days=5
+    after win=0.5083 pick=0.158 matches=1566 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/kinetic-dash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/kinetic_dash.webp]] Kinetic Dash patch history))
 ## [[/item/kinetic-dash]]((Kinetic Dash))
 - Fire Rate reduced from 25% to 20%
@@ -646,12 +1030,36 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 =
 
 =item:knockdown:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=856 days=5
+    after win=#null pick=#null matches=201 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/knockdown]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/knockdown.webp]] Knockdown patch history))
 ## [[/item/knockdown]]((Knockdown))
 - Now causes enemies to fall down faster
 =
 
 =item:lifestrike:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.521 pick=0.0498 matches=2144 days=5
+    after win=#null pick=#null matches=498 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/lifestrike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/lifestrike.webp]] Lifestrike patch history))
 ## [[/item/lifestrike]]((Lifestrike))
 - Cooldown reduced from 5.25s to 5s
@@ -659,12 +1067,36 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 =
 
 =item:magic-carpet:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=21 days=1
+    after win=#null pick=#null matches=25 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/magic-carpet]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/magic_carpet.webp]] Magic Carpet patch history))
 ## [[/item/magic-carpet]]((Magic Carpet))
 - Fixed it consuming stamina when jumping off
 =
 
 =item:melee-charge:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5144 pick=0.0564 matches=2426 days=5
+    after win=#null pick=#null matches=603 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/melee-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/melee_charge.webp]] Melee Charge patch history))
 ## [[/item/melee-charge]]((Melee Charge))
 - Impact now increases your ammo for that mag instead of reloading (so if your ammo is 2/8, it becomes 10/8). Reloads you instantly if in the middle of a reload.
@@ -672,6 +1104,18 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 =
 
 =item:melee-lifesteal:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5115 pick=0.1213 matches=5222 days=5
+    after win=0.529 pick=0.1287 matches=1276 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/melee-lifesteal]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/melee_lifesteal.webp]] Melee Lifesteal patch history))
 ## [[/item/melee-lifesteal]]((Melee Lifesteal))
 - Melee Damage reduced from 13% to 12%
@@ -679,24 +1123,72 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 =
 
 =item:monster-rounds:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5027 pick=0.1387 matches=5972 days=5
+    after win=0.4865 pick=0.1499 matches=1486 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/monster-rounds]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/monster_rounds.webp]] Monster Rounds patch history))
 ## [[/item/monster-rounds]]((Monster Rounds))
 - Bullet Resist vs NPCs reduced from 35% to 30%
 =
 
 =item:mystic-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.49 pick=0.1837 matches=7908 days=5
+    after win=0.4797 pick=0.2108 matches=2089 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/mystic-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/mystic_shot.webp]] Mystic Shot patch history))
 ## [[/item/mystic-shot]]((Mystic Shot))
 - Damage spirit scaling increased from 0.6 to 0.8
 =
 
 =item:quicksilver-reload:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5025 pick=0.272 matches=11710 days=5
+    after win=0.5026 pick=0.2718 matches=2694 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/quicksilver-reload]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/quicksilver_reload.webp]] Quicksilver Reload patch history))
 ## [[/item/quicksilver-reload]]((Quicksilver Reload))
 - No longer triggers if your ammo is at max value already
 =
 
 =item:rapid-recharge:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4895 pick=0.1311 matches=5644 days=5
+    after win=0.5112 pick=0.1395 matches=1383 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/rapid-recharge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/rapid_recharge.webp]] Rapid Recharge patch history))
 ## [[/item/rapid-recharge]]((Rapid Recharge))
 - Faster Time Between Charges increased from +55% to +65%
@@ -704,6 +1196,18 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 =
 
 =item:refresher:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=764 days=5
+    after win=#null pick=#null matches=191 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/refresher]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/refresher.webp]] Refresher patch history))
 ## [[/item/refresher]]((Refresher))
 - Bullet Resist increased from 8% to 16%
@@ -717,12 +1221,36 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 =
 
 =item:restorative-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.484 pick=0.0986 matches=4244 days=5
+    after win=0.4814 pick=0.1331 matches=1319 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/restorative-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/restorative_shot.webp]] Restorative Shot patch history))
 ## [[/item/restorative-shot]]((Restorative Shot))
 - Cooldown reduced from 6.2s to 5.5s
 =
 
 =item:return-fire:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=521 days=5
+    after win=#null pick=#null matches=171 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/return-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/return_fire.webp]] Return Fire patch history))
 ## [[/item/return-fire]]((Return Fire))
 - While active grants +25% Bullet Resistance
@@ -733,12 +1261,36 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 =
 
 =item:ricochet:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5818 pick=0.0859 matches=3697 days=5
+    after win=0.586 pick=0.1079 matches=1070 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/ricochet]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/ricochet.webp]] Ricochet patch history))
 ## [[/item/ricochet]]((Ricochet))
 - Fire Rate reduced from 12% to 10%
 =
 
 =item:shadow-weave:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=199 days=5
+    after win=#null pick=#null matches=90 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/shadow-weave]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/shadow_weave.webp]] Shadow Weave patch history))
 ## [[/item/shadow-weave]]((Shadow Weave))
 - Now a T4 Weapon Item
@@ -746,6 +1298,18 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 =
 
 =item:sharpshooter:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4697 pick=0.0793 matches=3413 days=5
+    after win=#null pick=#null matches=670 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/sharpshooter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/sharp_shooter.webp]] Sharpshooter patch history))
 ## [[/item/sharpshooter]]((Sharpshooter))
 - Fixed falloff reduction not working properly
@@ -758,6 +1322,18 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 =
 
 =item:siphon-bullets:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.569 pick=0.0404 matches=1738 days=5
+    after win=#null pick=#null matches=257 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/siphon-bullets]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/siphon_bullets.webp]] Siphon Bullets patch history))
 ## [[/item/siphon-bullets]]((Siphon Bullets))
 - Moved to T4 Vitality
@@ -773,24 +1349,72 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 =
 
 =item:spirit-strike:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4985 pick=0.135 matches=5812 days=5
+    after win=0.517 pick=0.1308 matches=1296 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/spirit-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/spirit_strike.webp]] Spirit Strike patch history))
 ## [[/item/spirit-strike]]((Spirit Strike))
 - No longer grants +0.8 Health Regen
 =
 
 =item:spiritual-overflow:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5642 pick=0.0425 matches=1829 days=5
+    after win=#null pick=#null matches=524 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/spiritual-overflow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/spiritual_overflow.webp]] Spiritual Overflow patch history))
 ## [[/item/spiritual-overflow]]((Spiritual Overflow))
 - Now grants +250 Bullet Shield
 =
 
 =item:titanic-magazine:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5034 pick=0.1152 matches=4958 days=5
+    after win=0.4969 pick=0.1303 matches=1292 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/titanic-magazine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/titanic_magazine.webp]] Titanic Magazine patch history))
 ## [[/item/titanic-magazine]]((Titanic Magazine))
 - Ammo increased from 100% to 120%
 =
 
 =item:torment-pulse:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5341 pick=0.0606 matches=2608 days=5
+    after win=#null pick=#null matches=702 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/torment-pulse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/torment_pulse.webp]] Torment Pulse patch history))
 ## [[/item/torment-pulse]]((Torment Pulse))
 - Health Bonus increased from 140 to 160
@@ -798,24 +1422,72 @@ content_text "Added new hero, Mirage. Added an initial Anti-Cheat detection syst
 =
 
 =item:unstoppable:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5868 pick=0.0352 matches=1515 days=5
+    after win=#null pick=#null matches=275 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/unstoppable]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/unstoppable.webp]] Unstoppable patch history))
 ## [[/item/unstoppable]]((Unstoppable))
 - Can no longer be cast during channels
 =
 
 =item:vampiric-burst:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=990 days=5
+    after win=#null pick=#null matches=189 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/vampiric-burst]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/vampiric_burst.webp]] Vampiric Burst patch history))
 ## [[/item/vampiric-burst]]((Vampiric Burst))
 - Fixed casting it interrupting sliding
 =
 
 =item:veil-walker:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5079 pick=0.0676 matches=2910 days=5
+    after win=#null pick=#null matches=541 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/veil-walker]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/veil_walker.webp]] Veil Walker patch history))
 ## [[/item/veil-walker]]((Veil Walker))
 - No longer grants +20% Fire Rate
 =
 
 =item:warp-stone:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5216 pick=0.0893 matches=3844 days=5
+    after win=#null pick=#null matches=833 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/warp-stone]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/warp_stone.webp]] Warp Stone patch history))
 ## [[/item/warp-stone]]((Warp Stone))
 - Casting while on the ground will no longer stop the player in place, will try to move forward along the ground instead

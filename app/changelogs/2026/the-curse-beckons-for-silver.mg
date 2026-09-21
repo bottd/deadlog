@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "The Curse Beckons for Silver"
 steam_gid "1823191198612358"
 published "2026-02-02T21:59:55.000Z"

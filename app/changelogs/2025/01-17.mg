@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "Holliday, Vyper, Calico, and The Magnificent Sinclair"
 thread_id "53607"
 steam_gid "1789039014375669"

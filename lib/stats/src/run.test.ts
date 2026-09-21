@@ -1,56 +1,76 @@
-import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
-import { existsSync } from 'node:fs';
+import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { parseStructure, splitFrontMatter } from '@deadlog/changelog';
+import type { EntityImpact } from '@deadlog/utils';
 import { DAY_S } from './constants';
+import { allSeries, day, type HeroPart } from './fixtures';
+import type { PatchInputs, RecordedEntity } from './readPatches';
 import { run, stalePatchIds, type RunOptions } from './run';
-import type { PatchInputs } from './readPatches';
-import type { AllSeries, DailyRow, DailySeries, TimeRange } from './types';
+import type { DailyRow, TimeRange } from './types';
 
-const D0 = 1788825600;
-const day = (n: number) => D0 + n * DAY_S;
 const NOW = day(44) + DAY_S / 2;
 
-const inputs: PatchInputs = {
-	patches: [
-		{ id: 'p1', at: day(20) + 100 },
-		{ id: 'p2', at: day(40) + 100 }
-	],
-	touched: new Map([
-		['p1', [{ kind: 'hero', id: 1 }]],
-		['p2', [{ kind: 'hero', id: 1 }]]
-	])
-};
+const patches = [
+	{ id: 'p1', slug: '2026/p1', at: day(20) + 100 },
+	{ id: 'p2', slug: '2026/p2', at: day(40) + 100 }
+];
 
-function heroSeries(range: TimeRange, wins: number): DailySeries {
+const changelog = (title: string) =>
+	[
+		'``attr:',
+		`title "${title}"`,
+		'``',
+		'',
+		'=hero:infernus:',
+		'## Infernus',
+		'- Afterburn reduced',
+		'=',
+		''
+	].join('\n');
+
+function heroSeries(range: TimeRange, wins: number): HeroPart {
 	const rows: DailyRow[] = [];
-	const totalMatches = new Map<number, number>();
+	const totals = new Map<number, number>();
 	for (let d = day(0); d <= day(60); d += DAY_S) {
 		if (d < range.from - DAY_S || d > range.to) continue;
 		rows.push({ entityId: 1, day: d, wins, matches: 1000 });
-		totalMatches.set(d, 120_000);
+		totals.set(d, 120_000);
 	}
-	return { rows, totalMatches };
+	return { rows, totals };
 }
 
-const fetchWith =
-	(wins: number) =>
-	async (range: TimeRange): Promise<AllSeries> => {
-		const empty: DailySeries = { rows: [], totalMatches: new Map() };
-		return {
-			hero: { all: heroSeries(range, wins), high: empty },
-			item: { all: empty, high: empty }
-		};
-	};
+const fetchWith = (wins: number) => async (range: TimeRange) =>
+	allSeries({ heroAll: heroSeries(range, wins) });
 
 let dir: string;
-let snapshotPath: string;
+const file = (slug: string) => join(dir, `${slug}.mg`);
+
+async function recordedImpact(slug: string): Promise<EntityImpact | null> {
+	const { body } = splitFrontMatter(await readFile(file(slug), 'utf8'));
+	return parseStructure(body).changes[0].impact ?? null;
+}
+
+async function inputs(): Promise<PatchInputs> {
+	const touched = new Map<string, RecordedEntity[]>();
+	for (const patch of patches) {
+		touched.set(patch.id, [
+			{ kind: 'hero', id: 1, recorded: await recordedImpact(patch.slug) }
+		]);
+	}
+	return {
+		patches,
+		touched,
+		entities: { hero: [{ id: 1, name: 'Infernus' }], item: [] }
+	};
+}
+
 const options = (overrides: Partial<RunOptions> = {}): RunOptions => ({
-	snapshotPath,
+	changelogsDir: dir,
 	rebuild: false,
 	now: NOW,
-	loadPatches: async () => inputs,
+	loadPatches: inputs,
 	fetchAll: fetchWith(500),
 	log: () => undefined,
 	...overrides
@@ -58,7 +78,9 @@ const options = (overrides: Partial<RunOptions> = {}): RunOptions => ({
 
 beforeEach(async () => {
 	dir = await mkdtemp(join(tmpdir(), 'deadlog-stats-'));
-	snapshotPath = join(dir, 'stats', 'impact.json');
+	await mkdir(join(dir, '2026'));
+	await writeFile(file('2026/p1'), changelog('One'));
+	await writeFile(file('2026/p2'), changelog('Two'));
 });
 
 afterEach(async () => {
@@ -67,36 +89,37 @@ afterEach(async () => {
 });
 
 describe('stalePatchIds', () => {
-	it('flags open windows and entries recorded as open', async () => {
-		await run(options());
-		const recorded = JSON.parse(await readFile(snapshotPath, 'utf8'));
+	it('flags open windows, and entries recorded as open after their window closed', async () => {
+		expect([...stalePatchIds(patches, (await inputs()).touched, NOW)]).toEqual(['p2']);
 
-		expect([...stalePatchIds(inputs.patches, null, NOW)]).toEqual(['p2']);
-		expect([...stalePatchIds(inputs.patches, recorded, day(90))]).toEqual(['p2']);
+		await run(options());
+
+		expect([...stalePatchIds(patches, (await inputs()).touched, day(90))]).toEqual([
+			'p2'
+		]);
 	});
 });
 
 describe('run', () => {
-	it('builds the whole history on the first run', async () => {
+	it('writes the whole history on the first run', async () => {
 		const fetchAll = vi.fn(fetchWith(500));
 
-		expect(await run(options({ fetchAll }))).toBe(0);
+		await run(options({ fetchAll }));
 
-		const written = JSON.parse(await readFile(snapshotPath, 'utf8'));
-		expect(Object.keys(written.impact)).toEqual(['p1', 'p2']);
-		expect(written.impact.p1['hero:1'].all.after).toMatchObject({
-			winRate: 0.5,
-			closed: true
+		expect(await recordedImpact('2026/p1')).toMatchObject({
+			closed: true,
+			all: { after: { win: 0.5, days: 14 } }
 		});
-		expect(written.impact.p2['hero:1'].all.after).toMatchObject({
-			days: 3,
-			closed: false
+		expect(await recordedImpact('2026/p2')).toMatchObject({
+			closed: false,
+			all: { after: { days: 3 } }
 		});
 		expect(fetchAll.mock.calls[0][0].from).toBeLessThan(day(20) - 14 * DAY_S);
 	});
 
-	it('fetches only from the open patches on a routine run and freezes the rest', async () => {
+	it('refreshes only the open patch on a routine run and leaves closed files alone', async () => {
 		await run(options());
+		const closedFile = await readFile(file('2026/p1'), 'utf8');
 		const fetchAll = vi.fn(fetchWith(600));
 
 		await run(options({ fetchAll, now: NOW + DAY_S }));
@@ -104,53 +127,41 @@ describe('run', () => {
 		const range = fetchAll.mock.calls[0][0];
 		expect(range.from).toBeGreaterThan(day(20));
 		expect(range.from).toBeLessThan(day(40) - 14 * DAY_S);
-		const written = JSON.parse(await readFile(snapshotPath, 'utf8'));
-		expect(written.impact.p1['hero:1'].all.after.winRate).toBe(0.5);
-		expect(written.impact.p2['hero:1'].all.after).toMatchObject({
-			winRate: 0.6,
-			days: 4
+		expect(await readFile(file('2026/p1'), 'utf8')).toBe(closedFile);
+		expect(await recordedImpact('2026/p2')).toMatchObject({
+			closed: false,
+			all: { after: { win: 0.6, days: 4 } }
 		});
 	});
 
-	it('leaves the file untouched and exits 0 when the fetch fails', async () => {
+	it('leaves every file untouched when the fetch fails', async () => {
 		await run(options());
-		const before = await readFile(snapshotPath, 'utf8');
+		const before = await readFile(file('2026/p2'), 'utf8');
 		vi.spyOn(console, 'error').mockImplementation(() => undefined);
 
-		const code = await run(
-			options({
-				now: NOW + DAY_S,
-				fetchAll: async () => {
-					throw new Error('Failed to fetch: 500');
-				}
-			})
-		);
+		await expect(
+			run(
+				options({
+					now: NOW + DAY_S,
+					fetchAll: async () => {
+						throw new Error('Failed to fetch: 500');
+					}
+				})
+			)
+		).resolves.toBeUndefined();
 
-		expect(code).toBe(0);
-		expect(await readFile(snapshotPath, 'utf8')).toBe(before);
+		expect(await readFile(file('2026/p2'), 'utf8')).toBe(before);
 	});
 
-	it('does not create a file when the first fetch fails', async () => {
-		vi.spyOn(console, 'error').mockImplementation(() => undefined);
-
-		await run(
-			options({
-				fetchAll: async () => {
-					throw new Error('offline');
-				}
-			})
-		);
-
-		expect(existsSync(snapshotPath)).toBe(false);
-	});
-
-	it('does not rewrite the file when only generatedAt would change', async () => {
+	it('writes nothing when the numbers have not changed', async () => {
 		await run(options());
-		const before = await readFile(snapshotPath, 'utf8');
+		const before = await readFile(file('2026/p2'), 'utf8');
+		const log = vi.fn();
 
-		await run(options({ now: NOW + 60 }));
+		await run(options({ now: NOW + 60, log }));
 
-		expect(await readFile(snapshotPath, 'utf8')).toBe(before);
+		expect(await readFile(file('2026/p2'), 'utf8')).toBe(before);
+		expect(log).toHaveBeenCalledWith('   Stats: no change');
 	});
 
 	it('skips the fetch once every window is closed', async () => {
@@ -162,19 +173,41 @@ describe('run', () => {
 		expect(fetchAll).not.toHaveBeenCalled();
 	});
 
-	it('recomputes closed windows on --rebuild', async () => {
+	it('recomputes closed blocks on --rebuild', async () => {
 		await run(options());
 
 		await run(options({ rebuild: true, fetchAll: fetchWith(700) }));
 
-		const written = JSON.parse(await readFile(snapshotPath, 'utf8'));
-		expect(written.impact.p1['hero:1'].all.after.winRate).toBe(0.7);
+		expect((await recordedImpact('2026/p1'))?.all.after.win).toBe(0.7);
 	});
 
-	it('rejects a malformed snapshot', async () => {
-		await run(options());
-		await writeFile(snapshotPath, '{"impact": []}');
+	it('names the file when a touched entity has no block', async () => {
+		await writeFile(
+			file('2026/p2'),
+			'``attr:\ntitle "Two"\n``\n\n# Notes\n- Nothing here\n'
+		);
 
-		await expect(run(options())).rejects.toThrow(/Malformed snapshot/);
+		await expect(run(options({ loadPatches: baseInputs }))).rejects.toThrow(
+			/2026\/p2\.mg/
+		);
+	});
+
+	it('fails when a changelog file is missing', async () => {
+		await rm(file('2026/p1'));
+
+		await expect(run(options({ loadPatches: baseInputs }))).rejects.toThrow(/not found/);
 	});
 });
+
+async function baseInputs(): Promise<PatchInputs> {
+	return {
+		patches,
+		touched: new Map(
+			patches.map((patch) => [
+				patch.id,
+				[{ kind: 'hero' as const, id: 1, recorded: null }]
+			])
+		),
+		entities: { hero: [{ id: 1, name: 'Infernus' }], item: [] }
+	};
+}

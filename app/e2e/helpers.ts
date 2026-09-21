@@ -15,3 +15,10 @@ export async function openEntityFilter(page: Page, mobile: boolean) {
 		name: 'Search by hero, item, or keyword'
 	});
 }
+
+export async function expectNoHorizontalOverflow(page: Page) {
+	const hasOverflow = await page.evaluate(
+		() => document.documentElement.scrollWidth > window.innerWidth
+	);
+	expect(hasOverflow).toBe(false);
+}

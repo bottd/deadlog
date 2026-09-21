@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "Matchmaking Update"
 steam_gid "1839676055886206"
 published "2026-07-30T19:14:37.000Z"

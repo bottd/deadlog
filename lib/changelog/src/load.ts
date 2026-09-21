@@ -61,8 +61,15 @@ function findMogFiles(dir: string): string[] {
 		.map((entry) => join(dir, entry));
 }
 
+const FRONT_MATTER_RE = /^``attr:[ \t]*\n([\s\S]*?)\n``/;
+
+export function splitFrontMatter(content: string): { frontMatter: string; body: string } {
+	const frontMatter = content.match(FRONT_MATTER_RE)?.[0] ?? '';
+	return { frontMatter, body: content.slice(frontMatter.length) };
+}
+
 /**
- * The leading `meta` verbatim block, whose body is KDL. The generator only ever emits
+ * The leading `attr` verbatim block, whose body is KDL. The generator only ever emits
  * `key "string"`, `key #bool` and `//` comments, so a line reader stays cheaper than a
  * KDL dependency — anything richer than that has to grow one.
  */
@@ -70,7 +77,7 @@ function parseMogMetadata(content: string): {
 	metadata: Record<string, unknown>;
 	body: string;
 } {
-	const metaMatch = content.match(/^``meta:[ \t]*\n([\s\S]*?)\n``/);
+	const metaMatch = content.match(FRONT_MATTER_RE);
 	const metadata: Record<string, unknown> = {};
 
 	if (metaMatch) {
@@ -87,7 +94,7 @@ function parseMogMetadata(content: string): {
 		}
 	}
 
-	// The meta block was matched from position 0, so it is just a prefix to drop.
+	// The attr block was matched from position 0, so it is just a prefix to drop.
 	return { metadata, body: content.slice(metaMatch?.[0].length ?? 0) };
 }
 

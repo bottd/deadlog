@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "12-31-2024 Update"
 thread_id "52769"
 published "2024-12-31T00:52:42-0800"
@@ -16,6 +16,18 @@ content_text "Yamato Bullet damage growth reduced from 0.35 to 0.33 Shadow Trans
 ``
 
 =hero:infernus:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5078 pick=0.7706 matches=200601 days=9
+    after win=0.4846 pick=0.709 matches=238948 days=12
+  }
+  high {
+    before win=0.4838 pick=0.7344 matches=4454 days=9
+    after win=0.4741 pick=0.61 matches=6501 days=12
+  }
+}
+``
 [[/hero/infernus]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus patch history))
 ## [[/hero/infernus]]((Infernus))
 ==ability:flame-dash:
@@ -29,6 +41,18 @@ content_text "Yamato Bullet damage growth reduced from 0.35 to 0.33 Shadow Trans
 =
 
 =hero:kelvin:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4338 pick=0.3163 matches=82354 days=9
+    after win=0.4466 pick=0.2926 matches=98607 days=12
+  }
+  high {
+    before win=0.4736 pick=0.2562 matches=1554 days=9
+    after win=0.4832 pick=0.2484 matches=2647 days=12
+  }
+}
+``
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 - Base Spirit Resistance increased from 10% to 15%
@@ -40,6 +64,18 @@ content_text "Yamato Bullet damage growth reduced from 0.35 to 0.33 Shadow Trans
 =
 
 =hero:mirage:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.502 pick=0.3842 matches=100028 days=9
+    after win=0.5064 pick=0.4083 matches=137606 days=12
+  }
+  high {
+    before win=0.5255 pick=0.5927 matches=3595 days=9
+    after win=0.5291 pick=0.5878 matches=6264 days=12
+  }
+}
+``
 [[/hero/mirage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage patch history))
 ## [[/hero/mirage]]((Mirage))
 ==ability:fire-scarabs:
@@ -50,6 +86,18 @@ content_text "Yamato Bullet damage growth reduced from 0.35 to 0.33 Shadow Trans
 =
 
 =hero:shiv:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4873 pick=0.5388 matches=140255 days=9
+    after win=0.4859 pick=0.5943 matches=200290 days=12
+  }
+  high {
+    before win=0.4887 pick=0.7227 matches=4383 days=9
+    after win=0.481 pick=0.7478 matches=7969 days=12
+  }
+}
+``
 [[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
 ## [[/hero/shiv]]((Shiv))
 - Bullet growth reduced from +0.31 to +0.27
@@ -61,6 +109,18 @@ content_text "Yamato Bullet damage growth reduced from 0.35 to 0.33 Shadow Trans
 =
 
 =hero:vindicta:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5207 pick=0.7008 matches=182449 days=9
+    after win=0.5138 pick=0.6699 matches=225784 days=12
+  }
+  high {
+    before win=0.5409 pick=0.7563 matches=4587 days=9
+    after win=0.5324 pick=0.7288 matches=7767 days=12
+  }
+}
+``
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
 - Bullet Velocity reduced from 889 to 810
@@ -77,6 +137,18 @@ content_text "Yamato Bullet damage growth reduced from 0.35 to 0.33 Shadow Trans
 =
 
 =hero:warden:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5267 pick=0.6972 matches=181505 days=9
+    after win=0.5196 pick=0.6568 matches=221347 days=12
+  }
+  high {
+    before win=0.5186 pick=0.6613 matches=4011 days=9
+    after win=0.5015 pick=0.586 matches=6245 days=12
+  }
+}
+``
 [[/hero/warden]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden patch history))
 ## [[/hero/warden]]((Warden))
 - Base bullet damage reduced from 19.8 to 19.5
@@ -93,6 +165,18 @@ content_text "Yamato Bullet damage growth reduced from 0.35 to 0.33 Shadow Trans
 =
 
 =hero:yamato:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5328 pick=0.581 matches=151247 days=9
+    after win=0.5221 pick=0.6111 matches=205964 days=12
+  }
+  high {
+    before win=0.5484 pick=0.8018 matches=4863 days=9
+    after win=0.5236 pick=0.7335 matches=7817 days=12
+  }
+}
+``
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 - Bullet damage growth reduced from 0.35 to 0.33
@@ -110,6 +194,18 @@ content_text "Yamato Bullet damage growth reduced from 0.35 to 0.33 Shadow Trans
 ``
 
 =item:rapid-recharge:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5029 pick=0.237 matches=740312 days=9
+    after win=0.4984 pick=0.2107 matches=852348 days=12
+  }
+  high {
+    before win=0.5024 pick=0.1926 matches=14014 days=9
+    after win=0.4964 pick=0.1521 matches=19457 days=12
+  }
+}
+``
 [[/item/rapid-recharge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/rapid_recharge.webp]] Rapid Recharge patch history))
 ## [[/item/rapid-recharge]]((Rapid Recharge))
 - Charge Time reduced from -60% to -45%

@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "06-23-2024 Update"
 thread_id "7705"
 published "2024-06-23T16:23:36-0700"
@@ -19,6 +19,18 @@ content_text "There is no longer a reinforcement trooper wave after Guardians an
 ``
 
 =hero:yamato:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=21 days=2
+    after win=#null pick=#null matches=29 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 ==ability:shadow-transformation:
@@ -35,18 +47,54 @@ content_text "There is no longer a reinforcement trooper wave after Guardians an
 ``
 
 =item:melee-charge:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=64 days=2
+    after win=#null pick=#null matches=20 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/melee-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/melee_charge.webp]] Melee Charge patch history))
 ## [[/item/melee-charge]]((Melee Charge))
 - No longer grants +15% Melee Damage
 =
 
 =item:spirit-strike:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=67 days=2
+    after win=#null pick=#null matches=53 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/spirit-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/spirit_strike.webp]] Spirit Strike patch history))
 ## [[/item/spirit-strike]]((Spirit Strike))
 - Melee damage reduced from 20% to 15%
 =
 
 =item:veil-walker:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=22 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/veil-walker]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/veil_walker.webp]] Veil Walker patch history))
 ## [[/item/veil-walker]]((Veil Walker))
 - Bullet Shield reduced from +200 to +150

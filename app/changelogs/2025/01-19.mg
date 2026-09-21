@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "01-19-2025 Update"
 thread_id "53961"
 published "2025-01-19T16:02:37-0800"
@@ -27,6 +27,18 @@ content_text "The Magnificent Sinclair: Rabbit Hex movespeed increased from 25% 
 ``
 
 =hero:bebop:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5368 pick=0.6416 matches=41831 days=2
+    after win=0.5214 pick=0.7213 matches=125834 days=7
+  }
+  high {
+    before win=0.5085 pick=0.7479 matches=1062 days=2
+    after win=0.4951 pick=0.7309 matches=4324 days=7
+  }
+}
+``
 [[/hero/bebop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop patch history))
 ## [[/hero/bebop]]((Bebop))
 ==ability:hook:
@@ -48,6 +60,18 @@ content_text "The Magnificent Sinclair: Rabbit Hex movespeed increased from 25% 
 =
 
 =hero:calico:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.491 pick=0.9635 matches=62818 days=2
+    after win=0.5481 pick=0.9472 matches=165251 days=7
+  }
+  high {
+    before win=0.5089 pick=0.988 matches=1403 days=2
+    after win=0.558 pick=0.9694 matches=5735 days=7
+  }
+}
+``
 [[/hero/calico]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp]] Calico patch history))
 ## [[/hero/calico]]((Calico))
 - Bullet Damage increased from 2 to 2.2
@@ -70,6 +94,18 @@ content_text "The Magnificent Sinclair: Rabbit Hex movespeed increased from 25% 
 =
 
 =hero:holliday:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4237 pick=0.9728 matches=63427 days=2
+    after win=0.4437 pick=0.7991 matches=139420 days=7
+  }
+  high {
+    before win=0.4221 pick=0.9859 matches=1400 days=2
+    after win=0.4885 pick=0.7972 matches=4716 days=7
+  }
+}
+``
 [[/hero/holliday]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]] Holliday patch history))
 ## [[/hero/holliday]]((Holliday))
 - Bullet damage growth increased from 1.5 to 1.7
@@ -101,12 +137,36 @@ content_text "The Magnificent Sinclair: Rabbit Hex movespeed increased from 25% 
 =
 
 =hero:kelvin:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.458 pick=0.1949 matches=12705 days=2
+    after win=0.4671 pick=0.2225 matches=38823 days=7
+  }
+  high {
+    before win=#null pick=#null matches=223 days=2
+    after win=0.4966 pick=0.1978 matches=1170 days=7
+  }
+}
+``
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 - Health increased from 600 to 650
 =
 
 =hero:mirage:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5088 pick=0.239 matches=15586 days=2
+    after win=0.4971 pick=0.2452 matches=42773 days=7
+  }
+  high {
+    before win=#null pick=#null matches=489 days=2
+    after win=0.5035 pick=0.3595 matches=2127 days=7
+  }
+}
+``
 [[/hero/mirage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage patch history))
 ## [[/hero/mirage]]((Mirage))
 ==ability:fire-scarabs:
@@ -118,6 +178,18 @@ content_text "The Magnificent Sinclair: Rabbit Hex movespeed increased from 25% 
 =
 
 =hero:shiv:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4844 pick=0.3946 matches=25729 days=2
+    after win=0.4559 pick=0.4362 matches=76109 days=7
+  }
+  high {
+    before win=#null pick=#null matches=625 days=2
+    after win=0.4408 pick=0.4912 matches=2906 days=7
+  }
+}
+``
 [[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
 ## [[/hero/shiv]]((Shiv))
 - Bullet Damage reduced from 5.7 to 5.5
@@ -137,6 +209,18 @@ content_text "The Magnificent Sinclair: Rabbit Hex movespeed increased from 25% 
 =
 
 =hero:vindicta:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5216 pick=0.4514 matches=29429 days=2
+    after win=0.4959 pick=0.4648 matches=81096 days=7
+  }
+  high {
+    before win=#null pick=#null matches=770 days=2
+    after win=0.492 pick=0.5524 matches=3268 days=7
+  }
+}
+``
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
 - Movespeed reduced from 9 to 8
@@ -144,6 +228,18 @@ content_text "The Magnificent Sinclair: Rabbit Hex movespeed increased from 25% 
 =
 
 =hero:vyper:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5554 pick=0.9939 matches=64804 days=2
+    after win=0.4585 pick=0.5726 matches=99899 days=7
+  }
+  high {
+    before win=0.5727 pick=0.9923 matches=1409 days=2
+    after win=0.4505 pick=0.2747 matches=1625 days=7
+  }
+}
+``
 [[/hero/vyper]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kali_sm.webp]] Vyper patch history))
 ## [[/hero/vyper]]((Vyper))
 - Bullet Damage decreased from 9 to 7
@@ -161,6 +257,18 @@ content_text "The Magnificent Sinclair: Rabbit Hex movespeed increased from 25% 
 =
 
 =hero:wraith:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4978 pick=0.3898 matches=25414 days=2
+    after win=0.5065 pick=0.4213 matches=73503 days=7
+  }
+  high {
+    before win=#null pick=#null matches=527 days=2
+    after win=0.5212 pick=0.514 matches=3041 days=7
+  }
+}
+``
 [[/hero/wraith]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp]] Wraith patch history))
 ## [[/hero/wraith]]((Wraith))
 ==ability:card-trick:
@@ -180,6 +288,18 @@ content_text "The Magnificent Sinclair: Rabbit Hex movespeed increased from 25% 
 =
 
 =hero:yamato:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4889 pick=0.3117 matches=20324 days=2
+    after win=0.498 pick=0.3359 matches=58594 days=7
+  }
+  high {
+    before win=#null pick=#null matches=486 days=2
+    after win=0.5129 pick=0.465 matches=2751 days=7
+  }
+}
+``
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 - Bullet damage growth reduced from 0.27 to 0.24
@@ -192,6 +312,18 @@ content_text "The Magnificent Sinclair: Rabbit Hex movespeed increased from 25% 
 ``
 
 =item:alchemical-fire:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5476 pick=0.0422 matches=32994 days=2
+    after win=0.5338 pick=0.0576 matches=120509 days=7
+  }
+  high {
+    before win=0.552 pick=0.0841 matches=1433 days=2
+    after win=0.5241 pick=0.1086 matches=7712 days=7
+  }
+}
+``
 [[/item/alchemical-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/alchemical_fire.webp]] Alchemical Fire patch history))
 ## [[/item/alchemical-fire]]((Alchemical Fire))
 - Reduced from -40% Effectiveness vs non-heroes to -50%
@@ -199,12 +331,36 @@ content_text "The Magnificent Sinclair: Rabbit Hex movespeed increased from 25% 
 =
 
 =item:extra-stamina:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5039 pick=0.6201 matches=485185 days=2
+    after win=0.5017 pick=0.6286 matches=1316097 days=7
+  }
+  high {
+    before win=0.5034 pick=0.7012 matches=11948 days=2
+    after win=0.5008 pick=0.6997 matches=49671 days=7
+  }
+}
+``
 [[/item/extra-stamina]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_stamina.webp]] Extra Stamina patch history))
 ## [[/item/extra-stamina]]((Extra Stamina))
 - Fire Rate reduced from 5% to 4%
 =
 
 =item:hunter-s-aura:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5599 pick=0.0879 matches=68748 days=2
+    after win=0.549 pick=0.0829 matches=173600 days=7
+  }
+  high {
+    before win=0.5511 pick=0.1188 matches=2025 days=2
+    after win=0.5367 pick=0.111 matches=7880 days=7
+  }
+}
+``
 [[/item/hunters-aura]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/hunters_aura.webp]] Hunter's Aura patch history))
 ## [[/item/hunters-aura]]((Hunter's Aura))
 - Bullet Resist Reduction reduced from -9% to -8%
@@ -212,6 +368,18 @@ content_text "The Magnificent Sinclair: Rabbit Hex movespeed increased from 25% 
 =
 
 =item:sharpshooter:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4895 pick=0.0913 matches=71470 days=2
+    after win=0.4845 pick=0.0736 matches=154129 days=7
+  }
+  high {
+    before win=0.5024 pick=0.0993 matches=1692 days=2
+    after win=0.5005 pick=0.0828 matches=5878 days=7
+  }
+}
+``
 [[/item/sharpshooter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/sharp_shooter.webp]] Sharpshooter patch history))
 ## [[/item/sharpshooter]]((Sharpshooter))
 - Weapon Damage reduced from 30% to 20%

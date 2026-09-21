@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "08-01-2024 Update"
 thread_id "13369"
 published "2024-08-01T14:47:26-0700"
@@ -142,6 +142,18 @@ content_text "Added a new hero, Viscous. He's green. Improved client performance
 ``
 
 =hero:abrams:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=88 days=8
+    after win=#null pick=#null matches=47 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/abrams]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams patch history))
 ## [[/hero/abrams]]((Abrams))
 ==ability:shoulder-charge:
@@ -168,6 +180,18 @@ content_text "Added a new hero, Viscous. He's green. Improved client performance
 =
 
 =hero:bebop:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=92 days=8
+    after win=#null pick=#null matches=55 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/bebop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop patch history))
 ## [[/hero/bebop]]((Bebop))
 - Bullet Resistance growth per boon increased from 2% to 2.5%
@@ -185,6 +209,18 @@ content_text "Added a new hero, Viscous. He's green. Improved client performance
 =
 
 =hero:dynamo:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=74 days=8
+    after win=#null pick=#null matches=35 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 ==ability:kinetic-pulse:
@@ -201,6 +237,18 @@ content_text "Added a new hero, Viscous. He's green. Improved client performance
 =
 
 =hero:grey-talon:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=95 days=8
+    after win=#null pick=#null matches=53 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/grey-talon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon patch history))
 ## [[/hero/grey-talon]]((Grey Talon))
 ==ability:charged-shot:
@@ -217,6 +265,18 @@ content_text "Added a new hero, Viscous. He's green. Improved client performance
 =
 
 =hero:haze:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=136 days=8
+    after win=#null pick=#null matches=67 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 - Bullet damage falloff is now 20% more falloff than default
@@ -228,6 +288,18 @@ content_text "Added a new hero, Viscous. He's green. Improved client performance
 =
 
 =hero:infernus:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=124 days=8
+    after win=#null pick=#null matches=71 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/infernus]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus patch history))
 ## [[/hero/infernus]]((Infernus))
 ==ability:flame-dash:
@@ -246,6 +318,18 @@ content_text "Added a new hero, Viscous. He's green. Improved client performance
 =
 
 =hero:kelvin:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=69 days=8
+    after win=#null pick=#null matches=34 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 ==ability:arctic-beam:
@@ -277,12 +361,36 @@ content_text "Added a new hero, Viscous. He's green. Improved client performance
 =
 
 =hero:lady-geist:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=75 days=8
+    after win=#null pick=#null matches=39 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/lady-geist]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]] Lady Geist patch history))
 ## [[/hero/lady-geist]]((Lady Geist))
 - Base sprint reduced from 2 to 1
 =
 
 =hero:lash:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=64 days=8
+    after win=#null pick=#null matches=25 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/lash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp]] Lash patch history))
 ## [[/hero/lash]]((Lash))
 - Base sprint reduced from 3 to 1
@@ -294,6 +402,18 @@ content_text "Added a new hero, Viscous. He's green. Improved client performance
 =
 
 =hero:mcginnis:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=86 days=8
+    after win=#null pick=#null matches=56 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 ==ability:mini-turrets:
@@ -316,6 +436,18 @@ content_text "Added a new hero, Viscous. He's green. Improved client performance
 =
 
 =hero:mo-krill:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=66 days=8
+    after win=#null pick=#null matches=23 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/mo-krill]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]] Mo & Krill patch history))
 ## [[/hero/mo-krill]]((Mo & Krill))
 ==ability:can:
@@ -325,6 +457,18 @@ content_text "Added a new hero, Viscous. He's green. Improved client performance
 =
 
 =hero:paradox:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=97 days=8
+    after win=#null pick=#null matches=50 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/paradox]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox patch history))
 ## [[/hero/paradox]]((Paradox))
 ==ability:kinetic-carbine:
@@ -337,6 +481,18 @@ content_text "Added a new hero, Viscous. He's green. Improved client performance
 =
 
 =hero:pocket:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=83 days=8
+    after win=#null pick=#null matches=44 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/pocket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket patch history))
 ## [[/hero/pocket]]((Pocket))
 ==ability:affliction:
@@ -352,6 +508,18 @@ content_text "Added a new hero, Viscous. He's green. Improved client performance
 =
 
 =hero:seven:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=128 days=8
+    after win=#null pick=#null matches=69 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
 ## [[/hero/seven]]((Seven))
 ==ability:static-charge:
@@ -365,6 +533,18 @@ content_text "Added a new hero, Viscous. He's green. Improved client performance
 =
 
 =hero:vindicta:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=117 days=8
+    after win=#null pick=#null matches=65 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
 ==ability:flight:
@@ -376,6 +556,18 @@ content_text "Added a new hero, Viscous. He's green. Improved client performance
 =
 
 =hero:wraith:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=112 days=8
+    after win=#null pick=#null matches=63 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/wraith]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp]] Wraith patch history))
 ## [[/hero/wraith]]((Wraith))
 ==ability:card-trick:
@@ -387,6 +579,18 @@ content_text "Added a new hero, Viscous. He's green. Improved client performance
 =
 
 =hero:yamato:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=72 days=8
+    after win=#null pick=#null matches=40 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 ==ability:power-slash:
@@ -410,12 +614,36 @@ content_text "Added a new hero, Viscous. He's green. Improved client performance
 =
 
 =item:berserker:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=257 days=8
+    after win=#null pick=#null matches=119 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/berserker]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/berserker.webp]] Berserker patch history))
 ## [[/item/berserker]]((Berserker))
 - Damage required to earn a stack increased from 100 to 110
 =
 
 =item:cold-front:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=75 days=3
+    after win=#null pick=#null matches=22 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/cold-front]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/cold_front.webp]] Cold Front patch history))
 ## [[/item/cold-front]]((Cold Front))
 - Damage reduced from 115 to 100
@@ -442,6 +670,18 @@ content_text "Added a new hero, Viscous. He's green. Improved client performance
 =
 
 =item:duration-extender:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=311 days=8
+    after win=#null pick=#null matches=144 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/duration-extender]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/duration_extender.webp]] Duration Extender patch history))
 ## [[/item/duration-extender]]((Duration Extender))
 - Bonus HP increased from 75 to 100
@@ -461,12 +701,36 @@ content_text "Added a new hero, Viscous. He's green. Improved client performance
 =
 
 =item:extra-regen:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=411 days=8
+    after win=#null pick=#null matches=224 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/extra-regen]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_regen.webp]] Extra Regen patch history))
 ## [[/item/extra-regen]]((Extra Regen))
 - Regen increased from 2.5 to 2.7
 =
 
 =item:glass-cannon:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=43 days=2
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/glass-cannon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/glass_cannon.webp]] Glass Cannon patch history))
 ## [[/item/glass-cannon]]((Glass Cannon))
 - Weapon Damage increased from 70% to 75%
@@ -479,6 +743,18 @@ content_text "Added a new hero, Viscous. He's green. Improved client performance
 =
 
 =item:hunter-s-aura:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=25 days=1
+    after win=#null pick=#null matches=31 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/hunters-aura]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/hunters_aura.webp]] Hunter's Aura patch history))
 ## [[/item/hunters-aura]]((Hunter's Aura))
 - No longer grants +16% Ammo
@@ -492,18 +768,54 @@ content_text "Added a new hero, Viscous. He's green. Improved client performance
 =
 
 =item:intensifying-magazine:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=133 days=6
+    after win=#null pick=#null matches=60 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/intensifying-magazine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/intensifying_magazine.webp]] Intensifying Magazine patch history))
 ## [[/item/intensifying-magazine]]((Intensifying Magazine))
 - Fixed a bug that allowed you to gain weapon damage without firing
 =
 
 =item:kinetic-dash:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=86 days=4
+    after win=#null pick=#null matches=21 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/kinetic-dash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/kinetic_dash.webp]] Kinetic Dash patch history))
 ## [[/item/kinetic-dash]]((Kinetic Dash))
 - Now gives 1 HP regen
 =
 
 =item:leech:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=76 days=3
+    after win=#null pick=#null matches=32 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/leech]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/leech.webp]] Leech patch history))
 ## [[/item/leech]]((Leech))
 - Now provides +30% Degen Resistance (reduces anti heal effects by 30%)
@@ -516,6 +828,18 @@ content_text "Added a new hero, Viscous. He's green. Improved client performance
 =
 
 =item:melee-lifesteal:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=27 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/melee-lifesteal]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/melee_lifesteal.webp]] Melee Lifesteal patch history))
 ## [[/item/melee-lifesteal]]((Melee Lifesteal))
 - Bonus health increased from +50 to +70
@@ -528,12 +852,36 @@ content_text "Added a new hero, Viscous. He's green. Improved client performance
 =
 
 =item:monster-rounds:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=280 days=8
+    after win=#null pick=#null matches=161 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/monster-rounds]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/monster_rounds.webp]] Monster Rounds patch history))
 ## [[/item/monster-rounds]]((Monster Rounds))
 - HP Bonus increased from +50 to +65
 =
 
 =item:mystic-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=384 days=8
+    after win=#null pick=#null matches=204 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/mystic-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/mystic_shot.webp]] Mystic Shot patch history))
 ## [[/item/mystic-shot]]((Mystic Shot))
 - Base Spirit Damage reduced from +70 to +65
@@ -546,6 +894,18 @@ content_text "Added a new hero, Viscous. He's green. Improved client performance
 =
 
 =item:point-blank:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=220 days=7
+    after win=#null pick=#null matches=114 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/point-blank]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/point_blank.webp]] Point Blank patch history))
 ## [[/item/point-blank]]((Point Blank))
 - Bullet Shield increased from 250 to 300
@@ -553,6 +913,18 @@ content_text "Added a new hero, Viscous. He's green. Improved client performance
 =
 
 =item:rapid-rounds:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=79 days=3
+    after win=#null pick=#null matches=126 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/rapid-rounds]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/rapid_rounds.webp]] Rapid Rounds patch history))
 ## [[/item/rapid-rounds]]((Rapid Rounds))
 - HP Penalty increased from -40 HP to -50 HP
@@ -612,6 +984,18 @@ content_text "Added a new hero, Viscous. He's green. Improved client performance
 =
 
 =item:slowing-bullets:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=343 days=8
+    after win=#null pick=#null matches=145 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/slowing-bullets]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/slowing_bullets.webp]] Slowing Bullets patch history))
 ## [[/item/slowing-bullets]]((Slowing Bullets))
 - Weapon Damage increased from 14% to 16%
@@ -624,6 +1008,18 @@ content_text "Added a new hero, Viscous. He's green. Improved client performance
 =
 
 =item:spirit-strike:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=66 days=3
+    after win=#null pick=#null matches=23 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/spirit-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/spirit_strike.webp]] Spirit Strike patch history))
 ## [[/item/spirit-strike]]((Spirit Strike))
 - Spirit Damage increased from 30 to 40
@@ -636,18 +1032,54 @@ content_text "Added a new hero, Viscous. He's green. Improved client performance
 =
 
 =item:superior-duration:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=20 days=1
+    after win=#null pick=#null matches=24 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/superior-duration]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/superior_duration.webp]] Superior Duration patch history))
 ## [[/item/superior-duration]]((Superior Duration))
 - Bonus HP increased from 125 to 175
 =
 
 =item:surge-of-power:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=28 days=1
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/surge-of-power]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/surge_of_power.webp]] Surge of Power patch history))
 ## [[/item/surge-of-power]]((Surge of Power))
 - Imbued Spirit Power increased from +24 to +26
 =
 
 =item:titanic-magazine:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=97 days=3
+    after win=#null pick=#null matches=44 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/titanic-magazine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/titanic_magazine.webp]] Titanic Magazine patch history))
 ## [[/item/titanic-magazine]]((Titanic Magazine))
 - Now gives +8% Bullet resistance

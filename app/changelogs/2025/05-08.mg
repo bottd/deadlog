@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "Shop Rework Update"
 thread_id "63133"
 steam_gid "1799088287841594"

@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "07-11-2024 Update"
 thread_id "10871"
 published "2024-07-11T13:46:25-0700"
@@ -103,6 +103,18 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 ``
 
 =hero:abrams:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=54 days=6
+    after win=#null pick=#null matches=62 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/abrams]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams patch history))
 ## [[/hero/abrams]]((Abrams))
 ==ability:shoulder-charge:
@@ -127,6 +139,18 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 =
 
 =hero:dynamo:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=51 days=6
+    after win=#null pick=#null matches=48 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 ==ability:quantum-entanglement:
@@ -137,6 +161,18 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 =
 
 =hero:grey-talon:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=59 days=6
+    after win=#null pick=#null matches=65 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/grey-talon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon patch history))
 ## [[/hero/grey-talon]]((Grey Talon))
 ==ability:rain-of-arrows:
@@ -156,12 +192,36 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 =
 
 =hero:haze:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=92 days=6
+    after win=#null pick=#null matches=96 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 - Ammo scaling with spirit power reduced from 0.6 to 0.5
 =
 
 =hero:ivy:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=34 days=6
+    after win=#null pick=#null matches=51 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
 ## [[/hero/ivy]]((Ivy))
 - Base damage growth increased from 0.35 to 0.55
@@ -185,6 +245,18 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 =
 
 =hero:lash:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=48 days=6
+    after win=#null pick=#null matches=53 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/lash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp]] Lash patch history))
 ## [[/hero/lash]]((Lash))
 - Base bullet damage reduced from 11.5 to 10
@@ -208,6 +280,18 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 =
 
 =hero:mcginnis:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=61 days=6
+    after win=#null pick=#null matches=69 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 ==ability:mini-turret:
@@ -224,6 +308,18 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 =
 
 =hero:mo-krill:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=51 days=6
+    after win=#null pick=#null matches=52 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/mo-krill]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]] Mo & Krill patch history))
 ## [[/hero/mo-krill]]((Mo & Krill))
 ==ability:scorn:
@@ -240,6 +336,18 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 =
 
 =hero:paradox:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=79 days=6
+    after win=#null pick=#null matches=67 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/paradox]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox patch history))
 ## [[/hero/paradox]]((Paradox))
 ==ability:time-wall:
@@ -260,6 +368,18 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 =
 
 =hero:pocket:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=43 days=6
+    after win=#null pick=#null matches=63 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/pocket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket patch history))
 ## [[/hero/pocket]]((Pocket))
 ==ability:enchanter-s-satchel:
@@ -271,6 +391,18 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 =
 
 =hero:seven:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=89 days=6
+    after win=#null pick=#null matches=93 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
 ## [[/hero/seven]]((Seven))
 ==ability:static-charge:
@@ -283,6 +415,18 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 =
 
 =hero:vindicta:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=72 days=6
+    after win=#null pick=#null matches=80 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
 ==ability:crow-familiar:
@@ -294,6 +438,18 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 =
 
 =hero:warden:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=59 days=6
+    after win=#null pick=#null matches=59 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/warden]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden patch history))
 ## [[/hero/warden]]((Warden))
 - Reload time no longer scales with spirit power
@@ -301,6 +457,18 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 =
 
 =hero:yamato:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=38 days=6
+    after win=#null pick=#null matches=43 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 ==ability:shadow-transformation:
@@ -318,6 +486,18 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 ``
 
 =item:active-reload:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=21 days=1
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/active-reload]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/active_reload.webp]] Active Reload patch history))
 ## [[/item/active-reload]]((Active Reload))
 - Added 0.2s grace period where the reload start does not count any button presses
@@ -332,12 +512,36 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 =
 
 =item:bullet-lifesteal:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=290 days=6
+    after win=#null pick=#null matches=327 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/bullet-lifesteal]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/bullet_lifesteal.webp]] Bullet Lifesteal patch history))
 ## [[/item/bullet-lifesteal]]((Bullet Lifesteal))
 - Lifesteal increased from 24% to 26%
 =
 
 =item:burst-fire:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=24 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/burst-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/burst_fire.webp]] Burst Fire patch history))
 ## [[/item/burst-fire]]((Burst Fire))
 - Now innately gives +12% fire rate
@@ -351,18 +555,54 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 =
 
 =item:extra-charge:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=289 days=6
+    after win=#null pick=#null matches=349 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/extra-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/extra_charge.webp]] Extra Charge patch history))
 ## [[/item/extra-charge]]((Extra Charge))
 - Now grants +6% weapon damage
 =
 
 =item:extra-regen:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=273 days=6
+    after win=#null pick=#null matches=308 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/extra-regen]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_regen.webp]] Extra Regen patch history))
 ## [[/item/extra-regen]]((Extra Regen))
 - Health regen increased from 2 to 2.3
 =
 
 =item:fortitude:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=186 days=5
+    after win=#null pick=#null matches=204 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/fortitude]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/fortitude.webp]] Fortitude patch history))
 ## [[/item/fortitude]]((Fortitude))
 - Health increased from 225 to 250
@@ -375,18 +615,54 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 =
 
 =item:glass-cannon:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=54 days=2
+    after win=#null pick=#null matches=67 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/glass-cannon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/glass_cannon.webp]] Glass Cannon patch history))
 ## [[/item/glass-cannon]]((Glass Cannon))
 - Weapon damage increased from 65% to 70%
 =
 
 =item:headshot-booster:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=306 days=6
+    after win=#null pick=#null matches=291 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/headshot-booster]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/headshot_booster.webp]] Headshot Booster patch history))
 ## [[/item/headshot-booster]]((Headshot Booster))
 - Bonus health reduced from +50 to +40
 =
 
 =item:healing-rite:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=221 days=6
+    after win=#null pick=#null matches=244 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/healing-rite]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healing_rite.webp]] Healing Rite patch history))
 ## [[/item/healing-rite]]((Healing Rite))
 - Bonus health increased from 35 to 45
@@ -402,12 +678,36 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 =
 
 =item:kinetic-dash:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=45 days=2
+    after win=#null pick=#null matches=47 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/kinetic-dash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/kinetic_dash.webp]] Kinetic Dash patch history))
 ## [[/item/kinetic-dash]]((Kinetic Dash))
 - Cooldown reduced from 14s to 12s
 =
 
 =item:leech:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=28 days=1
+    after win=#null pick=#null matches=50 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/leech]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/leech.webp]] Leech patch history))
 ## [[/item/leech]]((Leech))
 - Spirit Lifesteal increased from 33% to 35%
@@ -421,6 +721,18 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 =
 
 =item:long-range:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=148 days=4
+    after win=#null pick=#null matches=207 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/long-range]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/long_range.webp]] Long Range patch history))
 ## [[/item/long-range]]((Long Range))
 - Min distance reduced from 20m to 18m
@@ -439,6 +751,18 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 =
 
 =item:melee-lifesteal:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=41 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/melee-lifesteal]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/melee_lifesteal.webp]] Melee Lifesteal patch history))
 ## [[/item/melee-lifesteal]]((Melee Lifesteal))
 - Cooldown reduced from 8s to 7s
@@ -458,6 +782,18 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 =
 
 =item:restorative-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=175 days=4
+    after win=#null pick=#null matches=220 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/restorative-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/restorative_shot.webp]] Restorative Shot patch history))
 ## [[/item/restorative-shot]]((Restorative Shot))
 - Weapon damage reduced from +8% to +6%
@@ -473,18 +809,54 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 =
 
 =item:spirit-strike:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=22 days=1
+    after win=#null pick=#null matches=20 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/spirit-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/spirit_strike.webp]] Spirit Strike patch history))
 ## [[/item/spirit-strike]]((Spirit Strike))
 - Spirit shield increased from +75 to +85
 =
 
 =item:surge-of-power:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=20 days=1
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/surge-of-power]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/surge_of_power.webp]] Surge of Power patch history))
 ## [[/item/surge-of-power]]((Surge of Power))
 - Active movement speed increased from 2 to 3
 =
 
 =item:titanic-magazine:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=50 days=2
+    after win=#null pick=#null matches=148 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/titanic-magazine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/titanic_magazine.webp]] Titanic Magazine patch history))
 ## [[/item/titanic-magazine]]((Titanic Magazine))
 - No longer has 10% reload penalty
@@ -507,6 +879,18 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 =
 
 =item:veil-walker:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=35 days=1
+    after win=#null pick=#null matches=47 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/veil-walker]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/veil_walker.webp]] Veil Walker patch history))
 ## [[/item/veil-walker]]((Veil Walker))
 - Ammo reduced from 15% to 12%

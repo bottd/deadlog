@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "Minor Update - 07-01-2026"
 steam_gid "1836506165566600"
 published "2026-07-01T22:54:59.000Z"
@@ -16,6 +16,18 @@ content_text "Shiv Alt Fire ammo cost reduced from 5 to 4 Weapon now has fixed p
 ``
 
 =hero:shiv:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4978 pick=0.5381 matches=153853 days=7
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.496 pick=0.6638 matches=33503 days=7
+  }
+}
+``
 [[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
 ## [[/hero/shiv]]((Shiv))
 - Alt Fire ammo cost reduced from 5 to 4

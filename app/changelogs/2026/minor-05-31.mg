@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "Minor Update - 05-31-2026"
 steam_gid "1833968530895860"
 published "2026-05-31T19:45:54.000Z"
@@ -16,6 +16,18 @@ content_text "Apollo Disengaging Sigil T2 increased from +20% Fire Rate to +30% 
 ``
 
 =hero:apollo:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4622 pick=0.1519 matches=16014 days=2
+    after win=0.4782 pick=0.2414 matches=35799 days=3
+  }
+  high {
+    before win=0.4412 pick=0.0843 matches=1496 days=2
+    after win=0.4749 pick=0.2033 matches=4976 days=3
+  }
+}
+``
 [[/hero/apollo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/fencer_sm.webp]] Apollo patch history))
 ## [[/hero/apollo]]((Apollo))
 ==ability:disengaging-sigil:
@@ -38,6 +50,18 @@ content_text "Apollo Disengaging Sigil T2 increased from +20% Fire Rate to +30% 
 =
 
 =hero:graves:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.6008 pick=0.5588 matches=58923 days=2
+    after win=0.5621 pick=0.4622 matches=68538 days=3
+  }
+  high {
+    before win=0.5858 pick=0.5306 matches=9416 days=2
+    after win=0.5409 pick=0.3742 matches=9160 days=3
+  }
+}
+``
 [[/hero/graves]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/necro_sm.webp]] Graves patch history))
 ## [[/hero/graves]]((Graves))
 ==ability:jar-of-dead:
@@ -58,6 +82,18 @@ content_text "Apollo Disengaging Sigil T2 increased from +20% Fire Rate to +30% 
 =
 
 =hero:mcginnis:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5525 pick=0.2896 matches=30538 days=2
+    after win=0.5474 pick=0.246 matches=36476 days=3
+  }
+  high {
+    before win=0.5525 pick=0.3025 matches=5367 days=2
+    after win=0.5466 pick=0.2379 matches=5823 days=3
+  }
+}
+``
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 ==ability:heavy-barrage:
@@ -70,6 +106,18 @@ content_text "Apollo Disengaging Sigil T2 increased from +20% Fire Rate to +30% 
 =
 
 =hero:pocket:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4733 pick=0.2618 matches=27600 days=2
+    after win=0.4789 pick=0.2642 matches=39174 days=3
+  }
+  high {
+    before win=0.4844 pick=0.3331 matches=5911 days=2
+    after win=0.4825 pick=0.3293 matches=8062 days=3
+  }
+}
+``
 [[/hero/pocket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket patch history))
 ## [[/hero/pocket]]((Pocket))
 ==ability:flying-cloak:
@@ -85,6 +133,18 @@ content_text "Apollo Disengaging Sigil T2 increased from +20% Fire Rate to +30% 
 =
 
 =hero:silver:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4733 pick=0.3824 matches=40317 days=2
+    after win=0.4712 pick=0.3762 matches=55783 days=3
+  }
+  high {
+    before win=0.4885 pick=0.3756 matches=6665 days=2
+    after win=0.4931 pick=0.3847 matches=9418 days=3
+  }
+}
+``
 [[/hero/silver]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/werewolf_sm.webp]] Silver patch history))
 ## [[/hero/silver]]((Silver))
 ==ability:slam-fire:
@@ -107,6 +167,18 @@ content_text "Apollo Disengaging Sigil T2 increased from +20% Fire Rate to +30% 
 =
 
 =hero:victor:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5698 pick=0.4153 matches=43784 days=2
+    after win=0.5684 pick=0.4199 matches=62276 days=3
+  }
+  high {
+    before win=0.5778 pick=0.3829 matches=6795 days=2
+    after win=0.5595 pick=0.387 matches=9474 days=3
+  }
+}
+``
 [[/hero/victor]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/frank_sm.webp]] Victor patch history))
 ## [[/hero/victor]]((Victor))
 ==ability:shocking-reanimation:
@@ -117,6 +189,18 @@ content_text "Apollo Disengaging Sigil T2 increased from +20% Fire Rate to +30% 
 =
 
 =hero:yamato:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5061 pick=0.4422 matches=46625 days=2
+    after win=0.4981 pick=0.359 matches=53236 days=3
+  }
+  high {
+    before win=0.5165 pick=0.5155 matches=9148 days=2
+    after win=0.5109 pick=0.3924 matches=9606 days=3
+  }
+}
+``
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 ==ability:power-slash:

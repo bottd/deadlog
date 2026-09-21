@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "Apollo - A Cut Above"
 steam_gid "1824459501608168"
 published "2026-02-12T22:00:11.000Z"

@@ -18,7 +18,8 @@
 	import EntityHistoryToc from './EntityHistoryToc.svelte';
 	import PatchImpact from './PatchImpact.svelte';
 	import type { Snippet } from 'svelte';
-	import type { EntityImpact } from '@deadlog/stats';
+	import { WINDOW_CAP_DAYS } from '@deadlog/stats';
+	import type { EntityImpact } from '@deadlog/utils';
 	import { shallowParams } from '$lib/stores/shallowParams.svelte';
 
 	interface ChangeGroup {
@@ -433,11 +434,11 @@
 						<p
 							class="text-muted-foreground border-subtle mt-6 max-w-[72ch] border-t pt-4 text-xs leading-relaxed"
 						>
-							Win and pick rates are measured between neighbouring patches, up to 14 days
-							each side, and shown as observed. {#if entity.type === 'item'}Item pick rate
-								is the share of players who bought it, and item win rates depend on which
-								heroes buy the item.{:else}Pick rate is the share of matches the hero
-								appeared in.{/if}
+							Win and pick rates are measured between neighbouring patches, up to {WINDOW_CAP_DAYS}
+							days each side, and shown as observed. {#if entity.type === 'item'}Item pick
+								rate is the share of players who bought it, and item win rates depend on
+								which heroes buy the item.{:else}Pick rate is the share of matches the
+								hero appeared in.{/if}
 							Match data from the
 							<a
 								href="https://deadlock-api.com"

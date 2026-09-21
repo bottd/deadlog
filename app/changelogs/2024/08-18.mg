@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "08-18-2024 Update"
 thread_id "18377"
 published "2024-08-18T22:46:34-0700"
@@ -16,6 +16,18 @@ content_text "Restorative Locket Spirit Resist reduced from 10% to 8% Cooldown i
 ``
 
 =item:restorative-locket:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=56 days=2
+    after win=#null pick=#null matches=126 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/restorative-locket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/restorative_locket.webp]] Restorative Locket patch history))
 ## [[/item/restorative-locket]]((Restorative Locket))
 - Spirit Resist reduced from 10% to 8%

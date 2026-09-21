@@ -4,54 +4,75 @@ import {
 	DAY_S,
 	HIGH_RANK_MIN_BADGE,
 	MAX_RANGE_DAYS,
-	REQUEST_TIMEOUT_MS
+	REQUEST_TIMEOUT_MS,
+	dayOf
 } from './constants';
 import type {
 	AllSeries,
 	DailyRow,
-	DailySeries,
+	DailyTotals,
 	EntityKind,
 	RankTier,
 	TimeRange
 } from './types';
 
-const heroRowSchema = z.object({
-	hero_id: z.number(),
-	bucket: z.number(),
-	wins: z.number(),
-	matches: z.number(),
-	matches_per_bucket: z.number()
-});
+interface FetchedRow extends DailyRow {
+	total?: number;
+}
 
-const itemRowSchema = z.object({
-	item_id: z.number(),
-	bucket: z.number(),
-	wins: z.number(),
-	matches: z.number()
-});
-
-const ENDPOINTS: Record<EntityKind, string> = {
-	hero: 'hero-stats',
-	item: 'item-stats'
+const SOURCES: Record<EntityKind, { endpoint: string; schema: z.ZodType<FetchedRow> }> = {
+	hero: {
+		endpoint: 'hero-stats',
+		schema: z
+			.object({
+				hero_id: z.number(),
+				bucket: z.number(),
+				wins: z.number(),
+				matches: z.number(),
+				matches_per_bucket: z.number()
+			})
+			.transform((row) => ({
+				entityId: row.hero_id,
+				day: row.bucket,
+				wins: row.wins,
+				matches: row.matches,
+				total: row.matches_per_bucket
+			}))
+	},
+	item: {
+		endpoint: 'item-stats',
+		schema: z
+			.object({
+				item_id: z.number(),
+				bucket: z.number(),
+				wins: z.number(),
+				matches: z.number()
+			})
+			.transform((row) => ({
+				entityId: row.item_id,
+				day: row.bucket,
+				wins: row.wins,
+				matches: row.matches
+			}))
+	}
 };
 
-export const dayOf = (t: number): number => Math.floor(t / DAY_S) * DAY_S;
-
-export function chunkRange(range: TimeRange, maxDays = MAX_RANGE_DAYS): TimeRange[] {
+export function chunkRange(range: TimeRange): TimeRange[] {
 	const chunks: TimeRange[] = [];
+	const span = MAX_RANGE_DAYS * DAY_S;
 	const end = dayOf(range.to) + DAY_S - 1;
-	for (let from = dayOf(range.from); from <= end; from += maxDays * DAY_S) {
-		chunks.push({ from, to: Math.min(from + maxDays * DAY_S - 1, end) });
+	for (let from = dayOf(range.from); from <= end; from += span) {
+		chunks.push({ from, to: Math.min(from + span - 1, end) });
 	}
 	return chunks;
 }
 
-async function fetchRows<T>(
+async function fetchRows(
 	kind: EntityKind,
 	tier: RankTier,
-	chunk: TimeRange,
-	schema: z.ZodType<T>
-): Promise<T[]> {
+	chunk: TimeRange
+): Promise<FetchedRow[]> {
+	const { endpoint, schema } = SOURCES[kind];
 	const params = new URLSearchParams({
 		bucket: 'start_time_day',
 		min_unix_timestamp: String(chunk.from),
@@ -59,7 +80,7 @@ async function fetchRows<T>(
 	});
 	if (tier === 'high') params.set('min_average_badge', String(HIGH_RANK_MIN_BADGE));
 
-	const url = `${ANALYTICS_API_BASE}/${ENDPOINTS[kind]}?${params}`;
+	const url = `${ANALYTICS_API_BASE}/${endpoint}?${params}`;
 	const response = await fetch(url, { signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS) });
 	if (!response.ok) {
 		throw new Error(`Failed to fetch ${url}: ${response.status} ${response.statusText}`);
@@ -67,7 +88,7 @@ async function fetchRows<T>(
 
 	const result = z.array(schema).safeParse(await response.json());
 	if (!result.success) {
-		throw new Error(`Invalid ${ENDPOINTS[kind]} response: ${result.error.message}`);
+		throw new Error(`Invalid ${endpoint} response: ${result.error.message}`);
 	}
 	return result.data;
 }
@@ -76,33 +97,19 @@ export async function fetchSeries(
 	kind: EntityKind,
 	tier: RankTier,
 	range: TimeRange
-): Promise<DailySeries> {
-	const rows = new Map<string, DailyRow>();
-	const totalMatches = new Map<number, number>();
+): Promise<{ rows: DailyRow[]; totals: DailyTotals }> {
+	const rows: DailyRow[] = [];
+	const totals: DailyTotals = new Map();
 
 	for (const chunk of chunkRange(range)) {
-		const inChunk = (day: number) => day >= chunk.from && day <= chunk.to;
-		const add = (entityId: number, day: number, wins: number, matches: number) =>
-			rows.set(`${entityId}:${day}`, { entityId, day, wins, matches });
-
-		if (kind === 'hero') {
-			for (const row of await fetchRows(kind, tier, chunk, heroRowSchema)) {
-				if (!inChunk(row.bucket)) continue;
-				add(row.hero_id, row.bucket, row.wins, row.matches);
-				totalMatches.set(row.bucket, row.matches_per_bucket);
-			}
-		} else {
-			for (const row of await fetchRows(kind, tier, chunk, itemRowSchema)) {
-				if (!inChunk(row.bucket)) continue;
-				add(row.item_id, row.bucket, row.wins, row.matches);
-			}
+		for (const { total, ...row } of await fetchRows(kind, tier, chunk)) {
+			if (row.day < chunk.from || row.day > chunk.to) continue;
+			rows.push(row);
+			if (total !== undefined) totals.set(row.day, total);
 		}
 	}
 
-	return {
-		rows: [...rows.values()].sort((a, b) => a.day - b.day || a.entityId - b.entityId),
-		totalMatches
-	};
+	return { rows, totals };
 }
 
 export async function fetchAllSeries(range: TimeRange): Promise<AllSeries> {
@@ -112,10 +119,10 @@ export async function fetchAllSeries(range: TimeRange): Promise<AllSeries> {
 	const itemHigh = await fetchSeries('item', 'high', range);
 
 	return {
-		hero: { all: heroAll, high: heroHigh },
-		item: {
-			all: { rows: itemAll.rows, totalMatches: heroAll.totalMatches },
-			high: { rows: itemHigh.rows, totalMatches: heroHigh.totalMatches }
-		}
+		rows: {
+			hero: { all: heroAll.rows, high: heroHigh.rows },
+			item: { all: itemAll.rows, high: itemHigh.rows }
+		},
+		totals: { all: heroAll.totals, high: heroHigh.totals }
 	};
 }

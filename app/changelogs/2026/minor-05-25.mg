@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "Minor Update - 05-25-2026"
 steam_gid "1833968530888746"
 published "2026-05-28T16:28:44.000Z"

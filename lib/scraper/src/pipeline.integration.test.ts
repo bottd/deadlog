@@ -131,7 +131,7 @@ describe('scrapeChangelogs', () => {
 		await mkdir(dir, { recursive: true });
 		await writeFile(
 			filepath,
-			'``meta:\ntitle "Legacy Shop Update"\nalias "2025/shop-rework"\n``\n'
+			'``attr:\ntitle "Legacy Shop Update"\nalias "2025/shop-rework"\n``\n'
 		);
 
 		apiMocks.scrapeChangelogPage.mockResolvedValue([

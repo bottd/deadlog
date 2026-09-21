@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "08-22-2024 Update"
 thread_id "19716"
 published "2024-08-22T18:55:55-0700"
@@ -28,6 +28,18 @@ content_text "Fixed High-Velocity Mag affecting some abilities Silence Glyph: Da
 ``
 
 =hero:ivy:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=253 days=3
+    after win=0.497 pick=0.4837 matches=1008 days=5
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
 ## [[/hero/ivy]]((Ivy))
 ==ability:air-drop:
@@ -38,6 +50,18 @@ content_text "Fixed High-Velocity Mag affecting some abilities Silence Glyph: Da
 =
 
 =hero:shiv:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=273 days=3
+    after win=#null pick=#null matches=989 days=5
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
 ## [[/hero/shiv]]((Shiv))
 ==ability:bloodletting:
@@ -54,12 +78,36 @@ content_text "Fixed High-Velocity Mag affecting some abilities Silence Glyph: Da
 ``
 
 =item:reactive-barrier:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=292 days=3
+    after win=0.5046 pick=0.0657 matches=1643 days=5
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/reactive-barrier]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/reactive_barrier.webp]] Reactive Barrier patch history))
 ## [[/item/reactive-barrier]]((Reactive Barrier))
 - Cooldown increased from 20s to 30s
 =
 
 =item:return-fire:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=94 days=3
+    after win=#null pick=#null matches=307 days=5
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/return-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/return_fire.webp]] Return Fire patch history))
 ## [[/item/return-fire]]((Return Fire))
 - Bullet damage returned reduced form 80% to 70%

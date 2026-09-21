@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "10-24-2024 Update"
 thread_id "40951"
 steam_gid "6212245217911837451"
@@ -147,6 +147,18 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 ``
 
 =hero:abrams:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5471 pick=0.5444 matches=78453 days=5
+    after win=0.5527 pick=0.5336 matches=36234 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/abrams]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams patch history))
 ## [[/hero/abrams]]((Abrams))
 - Melee attack rate reduced by 15% (time between attacks)
@@ -165,6 +177,18 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =hero:bebop:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4809 pick=0.6099 matches=87897 days=5
+    after win=0.4735 pick=0.5059 matches=34353 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/bebop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop patch history))
 ## [[/hero/bebop]]((Bebop))
 - Bullet damage growth increased from 0.29 to 0.33
@@ -183,6 +207,18 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =hero:grey-talon:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4465 pick=0.467 matches=67299 days=5
+    after win=0.5019 pick=0.6898 matches=46838 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/grey-talon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon patch history))
 ## [[/hero/grey-talon]]((Grey Talon))
 - Base regen increased from 2 to 2.5
@@ -196,6 +232,18 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =hero:infernus:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5022 pick=0.8602 matches=123964 days=5
+    after win=0.4966 pick=0.8462 matches=57458 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/infernus]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus patch history))
 ## [[/hero/infernus]]((Infernus))
 ==ability:napalm:
@@ -217,6 +265,18 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =hero:ivy:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5177 pick=0.4056 matches=58456 days=5
+    after win=0.5123 pick=0.4209 matches=28576 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
 ## [[/hero/ivy]]((Ivy))
 - Base bullet damage increased from 4.5 to 5
@@ -229,6 +289,18 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =hero:kelvin:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4884 pick=0.3402 matches=49027 days=5
+    after win=0.4763 pick=0.3099 matches=21043 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 ==ability:arctic-beam:
@@ -249,6 +321,18 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =hero:lady-geist:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5253 pick=0.632 matches=91085 days=5
+    after win=0.4964 pick=0.5546 matches=37660 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/lady-geist]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]] Lady Geist patch history))
 ## [[/hero/lady-geist]]((Lady Geist))
 ==ability:malice:
@@ -271,6 +355,18 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =hero:mcginnis:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5147 pick=0.5971 matches=86049 days=5
+    after win=0.5494 pick=0.5837 matches=39634 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 - Gun spin decay rate improved from 0.65 to 0.25
@@ -297,6 +393,18 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =hero:mirage:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4923 pick=0.3917 matches=56448 days=5
+    after win=0.5099 pick=0.5384 matches=36560 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/mirage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage patch history))
 ## [[/hero/mirage]]((Mirage))
 ==ability:fire-scarabs:
@@ -323,6 +431,18 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =hero:mo-krill:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5065 pick=0.3855 matches=55562 days=5
+    after win=0.5222 pick=0.4383 matches=29757 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/mo-krill]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]] Mo & Krill patch history))
 ## [[/hero/mo-krill]]((Mo & Krill))
 - Now has 20% Headshot Crit reduction
@@ -334,6 +454,18 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =hero:paradox:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4608 pick=0.3971 matches=57226 days=5
+    after win=0.4855 pick=0.573 matches=38907 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/paradox]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox patch history))
 ## [[/hero/paradox]]((Paradox))
 ==ability:pulse-grenade:
@@ -355,6 +487,18 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =hero:seven:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5382 pick=0.8958 matches=129089 days=5
+    after win=0.4956 pick=0.7392 matches=50189 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
 ## [[/hero/seven]]((Seven))
 ==ability:lightning-ball:
@@ -374,6 +518,18 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =hero:shiv:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5152 pick=0.6607 matches=95215 days=5
+    after win=0.4511 pick=0.3868 matches=26265 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
 ## [[/hero/shiv]]((Shiv))
 - Base speed reduced from 7.3 to 7.0
@@ -410,6 +566,18 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =hero:vindicta:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4499 pick=0.5185 matches=74715 days=5
+    after win=0.4766 pick=0.7133 matches=48430 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
 - Gun cycle time improved from 0.26s to 0.22s
@@ -435,6 +603,18 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =hero:viscous:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4848 pick=0.3487 matches=50247 days=5
+    after win=0.4603 pick=0.3055 matches=20740 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/viscous]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous patch history))
 ## [[/hero/viscous]]((Viscous))
 - cleaner effect for viscous alt-fire
@@ -459,6 +639,18 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =hero:warden:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5242 pick=0.4664 matches=67221 days=5
+    after win=0.5247 pick=0.4625 matches=31401 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/warden]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden patch history))
 ## [[/hero/warden]]((Warden))
 ==ability:alchemical-flask:
@@ -481,6 +673,18 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =hero:wraith:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4887 pick=0.8197 matches=118123 days=5
+    after win=0.4926 pick=0.7656 matches=51982 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/wraith]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp]] Wraith patch history))
 ## [[/hero/wraith]]((Wraith))
 ==ability:card-trick:
@@ -498,6 +702,18 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =hero:yamato:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4687 pick=0.3953 matches=56968 days=5
+    after win=0.4755 pick=0.3836 matches=26045 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 ==ability:flying-slash:
@@ -529,6 +745,18 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 ``
 
 =item:active-reload:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4963 pick=0.0647 matches=111934 days=5
+    after win=0.505 pick=0.075 matches=61128 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/active-reload]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/active_reload.webp]] Active Reload patch history))
 ## [[/item/active-reload]]((Active Reload))
 - No longer grants -20% Reload Time
@@ -550,6 +778,18 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =item:bullet-resist-shredder:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.515 pick=0.2256 matches=390220 days=5
+    after win=0.52 pick=0.2519 matches=205277 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/bullet-resist-shredder]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/bullet_resist_shredder.webp]] Bullet Resist Shredder patch history))
 ## [[/item/bullet-resist-shredder]]((Bullet Resist Shredder))
 - No longer grants +5% Bullet Resist
@@ -557,12 +797,36 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =item:burst-fire:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5174 pick=0.1268 matches=219275 days=5
+    after win=0.5231 pick=0.1565 matches=127521 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/burst-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/burst_fire.webp]] Burst Fire patch history))
 ## [[/item/burst-fire]]((Burst Fire))
 - Now grants +20% Slow Resistance
 =
 
 =item:colossus:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5781 pick=0.0253 matches=43825 days=5
+    after win=0.5655 pick=0.0175 matches=14224 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/colossus]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/colossus.webp]] Colossus patch history))
 ## [[/item/colossus]]((Colossus))
 - Slow reduced from 35% to 30%
@@ -570,6 +834,18 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =item:duration-extender:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5237 pick=0.2379 matches=411347 days=5
+    after win=0.5205 pick=0.2476 matches=201748 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/duration-extender]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/duration_extender.webp]] Duration Extender patch history))
 ## [[/item/duration-extender]]((Duration Extender))
 - Ability Duration reduced from 16% to 14%
@@ -577,18 +853,54 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =item:enduring-speed:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5144 pick=0.5747 matches=993897 days=5
+    after win=0.5096 pick=0.5592 matches=455643 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/enduring-speed]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/enduring_speed.webp]] Enduring Speed patch history))
 ## [[/item/enduring-speed]]((Enduring Speed))
 - Slow Resist reduced from 35% to 30%
 =
 
 =item:escalating-exposure:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5545 pick=0.1755 matches=303441 days=5
+    after win=0.5256 pick=0.1123 matches=91537 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/escalating-exposure]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/escalating_exposure.webp]] Escalating Exposure patch history))
 ## [[/item/escalating-exposure]]((Escalating Exposure))
 - Spirit Amp Per Stack reduced from 5% to 4%
 =
 
 =item:ethereal-shift:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4869 pick=0.0206 matches=35648 days=5
+    after win=0.4953 pick=0.024 matches=19591 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/ethereal-shift]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/ethereal_shift.webp]] Ethereal Shift patch history))
 ## [[/item/ethereal-shift]]((Ethereal Shift))
 - Active no longer grants 14 spirit power or reloads
@@ -598,24 +910,72 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =item:extra-health:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4888 pick=0.1369 matches=236712 days=5
+    after win=0.5003 pick=0.2246 matches=183028 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/extra-health]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_health.webp]] Extra Health patch history))
 ## [[/item/extra-health]]((Extra Health))
 - Now upgrades into Fortitude
 =
 
 =item:extra-regen:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5002 pick=0.3923 matches=678346 days=5
+    after win=0.4981 pick=0.3986 matches=324737 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/extra-regen]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_regen.webp]] Extra Regen patch history))
 ## [[/item/extra-regen]]((Extra Regen))
 - No longer grants +25 Health
 =
 
 =item:extra-stamina:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4992 pick=0.4224 matches=730448 days=5
+    after win=0.5055 pick=0.4504 matches=366992 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/extra-stamina]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_stamina.webp]] Extra Stamina patch history))
 ## [[/item/extra-stamina]]((Extra Stamina))
 - Bonus Health increased from +25 to +35
 =
 
 =item:fortitude:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5105 pick=0.0741 matches=128127 days=5
+    after win=0.5174 pick=0.116 matches=94483 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/fortitude]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/fortitude.webp]] Fortitude patch history))
 ## [[/item/fortitude]]((Fortitude))
 - Now upgrades from Extra Health
@@ -625,18 +985,54 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =item:improved-spirit:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5016 pick=0.3021 matches=522442 days=5
+    after win=0.4928 pick=0.2838 matches=231243 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/improved-spirit]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/improved_spirit.webp]] Improved Spirit patch history))
 ## [[/item/improved-spirit]]((Improved Spirit))
 - Spirit Power increased from 28 to 30
 =
 
 =item:knockdown:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4877 pick=0.0254 matches=43866 days=5
+    after win=0.4899 pick=0.0433 matches=35261 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/knockdown]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/knockdown.webp]] Knockdown patch history))
 ## [[/item/knockdown]]((Knockdown))
 - updated effect animation to alert when it will stun
 =
 
 =item:leech:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5612 pick=0.199 matches=344125 days=5
+    after win=0.5431 pick=0.1371 matches=111721 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/leech]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/leech.webp]] Leech patch history))
 ## [[/item/leech]]((Leech))
 - Now has 12% Cooldown Reduction
@@ -644,6 +1040,18 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =item:long-range:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4564 pick=0.0823 matches=142338 days=5
+    after win=0.4911 pick=0.1108 matches=90242 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/long-range]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/long_range.webp]] Long Range patch history))
 ## [[/item/long-range]]((Long Range))
 - No longer grants +25% Ammo
@@ -651,12 +1059,36 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =item:lucky-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.57 pick=0.0917 matches=158579 days=5
+    after win=0.5681 pick=0.0938 matches=76441 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/lucky-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/lucky_shot.webp]] Lucky Shot patch history))
 ## [[/item/lucky-shot]]((Lucky Shot))
 - Proc now pierces evasion
 =
 
 =item:majestic-leap:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5063 pick=0.0868 matches=150033 days=5
+    after win=0.5008 pick=0.0709 matches=57743 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/majestic-leap]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/majestic_leap.webp]] Majestic Leap patch history))
 ## [[/item/majestic-leap]]((Majestic Leap))
 - Cooldown increased from 26s to 45s
@@ -664,6 +1096,18 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =item:melee-charge:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5321 pick=0.0876 matches=151576 days=5
+    after win=0.5308 pick=0.0788 matches=64180 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/melee-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/melee_charge.webp]] Melee Charge patch history))
 ## [[/item/melee-charge]]((Melee Charge))
 - Weapon Damage reduced from 15% to 12%
@@ -671,6 +1115,18 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =item:monster-rounds:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5107 pick=0.2527 matches=437081 days=5
+    after win=0.5072 pick=0.2395 matches=195114 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/monster-rounds]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/monster_rounds.webp]] Monster Rounds patch history))
 ## [[/item/monster-rounds]]((Monster Rounds))
 - Resist vs NPCs reduced from 30% to 25%
@@ -684,6 +1140,18 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =item:mystic-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4889 pick=0.2426 matches=419582 days=5
+    after win=0.4918 pick=0.2558 matches=208398 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/mystic-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/mystic_shot.webp]] Mystic Shot patch history))
 ## [[/item/mystic-shot]]((Mystic Shot))
 - Proc cannot miss due to evasion
@@ -691,6 +1159,18 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =item:mystic-slow:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5356 pick=0.1231 matches=212847 days=5
+    after win=0.5219 pick=0.0962 matches=78382 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/mystic-slow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mystic_slow.webp]] Mystic Slow patch history))
 ## [[/item/mystic-slow]]((Mystic Slow))
 - Slow reduced from 30% to 25%
@@ -698,6 +1178,18 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =item:phantom-strike:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5629 pick=0.0148 matches=25543 days=5
+    after win=0.5577 pick=0.014 matches=11442 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/phantom-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/phantom_strike.webp]] Phantom Strike patch history))
 ## [[/item/phantom-strike]]((Phantom Strike))
 - No longer grants 15% Bullet Resist
@@ -705,18 +1197,54 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =item:rapid-rounds:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5008 pick=0.1498 matches=259114 days=5
+    after win=0.5036 pick=0.1607 matches=130959 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/rapid-rounds]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/rapid_rounds.webp]] Rapid Rounds patch history))
 ## [[/item/rapid-rounds]]((Rapid Rounds))
 - Fire Rate increased from 9% to 10%
 =
 
 =item:reactive-barrier:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4805 pick=0.0505 matches=87365 days=5
+    after win=0.4875 pick=0.046 matches=37461 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/reactive-barrier]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/reactive_barrier.webp]] Reactive Barrier patch history))
 ## [[/item/reactive-barrier]]((Reactive Barrier))
 - Ammo increased from 15% to 20%
 =
 
 =item:rescue-beam:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5313 pick=0.0138 matches=23828 days=5
+    after win=0.5181 pick=0.0184 matches=15018 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/rescue-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/rescue_beam.webp]] Rescue Beam patch history))
 ## [[/item/rescue-beam]]((Rescue Beam))
 - fixed some visual bugs on the effects
@@ -725,6 +1253,18 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =item:restorative-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5045 pick=0.1911 matches=330434 days=5
+    after win=0.495 pick=0.1822 matches=148447 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/restorative-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/restorative_shot.webp]] Restorative Shot patch history))
 ## [[/item/restorative-shot]]((Restorative Shot))
 - Weapon Damage reduced from 7% to 6%
@@ -732,6 +1272,18 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =item:sharpshooter:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4567 pick=0.0602 matches=104057 days=5
+    after win=0.4833 pick=0.0761 matches=62008 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/sharpshooter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/sharp_shooter.webp]] Sharpshooter patch history))
 ## [[/item/sharpshooter]]((Sharpshooter))
 - No longer grants +20% Ammo
@@ -739,12 +1291,36 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =item:siphon-bullets:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5486 pick=0.0238 matches=41127 days=5
+    after win=0.545 pick=0.0231 matches=18838 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/siphon-bullets]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/siphon_bullets.webp]] Siphon Bullets patch history))
 ## [[/item/siphon-bullets]]((Siphon Bullets))
 - Max HP Steal Per Bullet increased from 50 to 55
 =
 
 =item:slowing-hex:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5126 pick=0.0658 matches=113788 days=5
+    after win=0.5168 pick=0.0883 matches=71953 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/slowing-hex]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/slowing_hex.webp]] Slowing Hex patch history))
 ## [[/item/slowing-hex]]((Slowing Hex))
 - Slow reduced from 25% to 20%
@@ -758,12 +1334,36 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =item:superior-cooldown:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.512 pick=0.3387 matches=585684 days=5
+    after win=0.4992 pick=0.2876 matches=234304 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/superior-cooldown]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/superior_cooldown.webp]] Superior Cooldown patch history))
 ## [[/item/superior-cooldown]]((Superior Cooldown))
 - Spirit Shield increased from 100 to 150
 =
 
 =item:superior-duration:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5305 pick=0.1547 matches=267615 days=5
+    after win=0.5143 pick=0.1316 matches=107234 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/superior-duration]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/superior_duration.webp]] Superior Duration patch history))
 ## [[/item/superior-duration]]((Superior Duration))
 - Non-Imbued duration increased from 26% to 27%
@@ -771,6 +1371,18 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =item:surge-of-power:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5201 pick=0.1724 matches=298166 days=5
+    after win=0.5078 pick=0.159 matches=129563 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/surge-of-power]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/surge_of_power.webp]] Surge of Power patch history))
 ## [[/item/surge-of-power]]((Surge of Power))
 - When the passive procs, you no longer get slowed when shooting (similar to Fleetfoot)
@@ -778,12 +1390,36 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =item:tesla-bullets:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5073 pick=0.1077 matches=186188 days=5
+    after win=0.5064 pick=0.1083 matches=88267 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/tesla-bullets]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/tesla_bullets.webp]] Tesla Bullets patch history))
 ## [[/item/tesla-bullets]]((Tesla Bullets))
 - Proc cooldown can now be reduced by cooldown reduction
 =
 
 =item:titanic-magazine:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.501 pick=0.1321 matches=228395 days=5
+    after win=0.5035 pick=0.1289 matches=105053 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/titanic-magazine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/titanic_magazine.webp]] Titanic Magazine patch history))
 ## [[/item/titanic-magazine]]((Titanic Magazine))
 - Now grants +12% Spirit Resist
@@ -792,6 +1428,18 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =item:unstoppable:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5775 pick=0.048 matches=83020 days=5
+    after win=0.5699 pick=0.0421 matches=34328 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/unstoppable]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/unstoppable.webp]] Unstoppable patch history))
 ## [[/item/unstoppable]]((Unstoppable))
 - No longer grants +15% Spirit Resist
@@ -800,12 +1448,36 @@ content_text "Added 6 new heroes to Hero Labs, a new experimental hero matchmaki
 =
 
 =item:vampiric-burst:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.582 pick=0.0249 matches=42988 days=5
+    after win=0.5704 pick=0.0237 matches=19330 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/vampiric-burst]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/vampiric_burst.webp]] Vampiric Burst patch history))
 ## [[/item/vampiric-burst]]((Vampiric Burst))
 - Health increased from 150 to 175
 =
 
 =item:veil-walker:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4974 pick=0.0323 matches=55899 days=5
+    after win=0.5079 pick=0.033 matches=26905 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/veil-walker]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/veil_walker.webp]] Veil Walker patch history))
 ## [[/item/veil-walker]]((Veil Walker))
 - Bullet Shield increased from 200 to 250

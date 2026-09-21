@@ -8,6 +8,7 @@ import {
 } from 'drizzle-orm/sqlite-core';
 import { createInsertSchema } from 'drizzle-zod';
 import { z } from 'zod';
+import type { EntityImpact } from '@deadlog/utils';
 import type { EntityChangeGroup, HeroChangeGroup } from './types';
 
 export const changelogs = sqliteTable(
@@ -113,13 +114,29 @@ export const changelogHeroes = sqliteTable(
 		heroId: integer('hero_id')
 			.notNull()
 			.references(() => heroes.id),
-		changeGroups: text('change_groups', { mode: 'json' }).$type<HeroChangeGroup[]>()
+		changeGroups: text('change_groups', { mode: 'json' }).$type<HeroChangeGroup[]>(),
+		impact: text('impact', { mode: 'json' }).$type<EntityImpact>()
 	},
 	(table) => ({
 		pk: primaryKey({ columns: [table.changelogId, table.heroId] }),
 		heroIdIdx: index('changelog_heroes_hero_id_idx').on(table.heroId)
 	})
 );
+
+const impactWindowSchema = z.object({
+	win: z.number().nullable(),
+	pick: z.number().nullable(),
+	matches: z.number(),
+	days: z.number()
+});
+const tierImpactSchema = z.object({
+	before: impactWindowSchema,
+	after: impactWindowSchema
+});
+const impactSchema = z
+	.object({ closed: z.boolean(), all: tierImpactSchema, high: tierImpactSchema })
+	.nullable()
+	.optional();
 
 const changeGroupSchema = z.object({
 	ability: z.string().nullable(),
@@ -129,7 +146,8 @@ const changeGroupSchema = z.object({
 export const insertChangelogHeroSchema = createInsertSchema(changelogHeroes, {
 	changeGroups: z
 		.array(changeGroupSchema.extend({ abilitySlug: z.string().min(1).nullable() }))
-		.nullable()
+		.nullable(),
+	impact: impactSchema
 });
 
 export const changelogItems = sqliteTable(
@@ -141,7 +159,8 @@ export const changelogItems = sqliteTable(
 		itemId: integer('item_id')
 			.notNull()
 			.references(() => items.id),
-		changeGroups: text('change_groups', { mode: 'json' }).$type<EntityChangeGroup[]>()
+		changeGroups: text('change_groups', { mode: 'json' }).$type<EntityChangeGroup[]>(),
+		impact: text('impact', { mode: 'json' }).$type<EntityImpact>()
 	},
 	(table) => ({
 		pk: primaryKey({ columns: [table.changelogId, table.itemId] }),
@@ -150,5 +169,6 @@ export const changelogItems = sqliteTable(
 );
 
 export const insertChangelogItemSchema = createInsertSchema(changelogItems, {
-	changeGroups: z.array(changeGroupSchema).nullable()
+	changeGroups: z.array(changeGroupSchema).nullable(),
+	impact: impactSchema
 });

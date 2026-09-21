@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "08-16-2024 Update"
 thread_id "17251"
 published "2024-08-16T15:28:51-0700"
@@ -23,6 +23,18 @@ content_text "Fixed spectating ending 1 minute before the game ended Fixed Hero 
 ``
 
 =hero:ivy:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=161 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
 ## [[/hero/ivy]]((Ivy))
 - Restored previous audio processing
@@ -41,6 +53,18 @@ content_text "Fixed spectating ending 1 minute before the game ended Fixed Hero 
 =
 
 =hero:shiv:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=211 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
 ## [[/hero/shiv]]((Shiv))
 - Gun base damage reduced from 6.3 to 5.7

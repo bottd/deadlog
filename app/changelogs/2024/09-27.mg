@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "09-27-2024 Update"
 thread_id "33816"
 published "2024-09-27T17:33:18-0700"
@@ -16,6 +16,18 @@ content_text "Mirage Tornado lift duration reduced from 1.5s to 1.2s Tornado T1 
 ``
 
 =hero:mirage:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=746 days=1
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/mirage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage patch history))
 ## [[/hero/mirage]]((Mirage))
 ==ability:dust-devil:

@@ -1,3 +1,4 @@
+import type { EntityImpact } from '@deadlog/utils';
 import { z } from 'zod';
 
 export const ChangelogMetadataSchema = z.object({
@@ -30,6 +31,15 @@ export interface EntityChange {
 	name: string;
 	type: 'hero' | 'item';
 	groups: EntityBulletGroup[];
+	impact?: EntityImpact;
+}
+
+/** Where an entity's block sits in the parsed text, as line indices. */
+export interface EntityBlock {
+	name: string;
+	type: 'hero' | 'item';
+	fenceLine: number;
+	impactLines: [start: number, end: number] | null;
 }
 
 export interface ParsedChangelog {

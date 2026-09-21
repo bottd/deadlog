@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "Minor Update - 07-09-2026"
 steam_gid "1836506165584438"
 published "2026-07-09T19:26:55.000Z"
@@ -30,6 +30,18 @@ content_text "Urn Runner sprint bonus reduced from +2m to 0 (trailing bonus redu
 ``
 
 =hero:billy:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5018 pick=0.3834 matches=109634 days=7
+    after win=0.5043 pick=0.3979 matches=223597 days=14
+  }
+  high {
+    before win=0.514 pick=0.3543 matches=17885 days=7
+    after win=0.5135 pick=0.3582 matches=34293 days=14
+  }
+}
+``
 [[/hero/billy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/punkgoat_sm.webp]] Billy patch history))
 ## [[/hero/billy]]((Billy))
 ==ability:rising-ram:
@@ -40,6 +52,18 @@ content_text "Urn Runner sprint bonus reduced from +2m to 0 (trailing bonus redu
 =
 
 =hero:doorman:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5073 pick=0.2353 matches=67280 days=7
+    after win=0.4941 pick=0.2276 matches=127902 days=14
+  }
+  high {
+    before win=0.5118 pick=0.2084 matches=10517 days=7
+    after win=0.497 pick=0.1969 matches=18854 days=14
+  }
+}
+``
 [[/hero/the-doorman]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/doorman_sm.webp]] Doorman patch history))
 ## [[/hero/the-doorman]]((Doorman))
 - Bullet damage rescaled from 29.26 + 1.1/boon to 26 + 1.19
@@ -52,6 +76,18 @@ content_text "Urn Runner sprint bonus reduced from +2m to 0 (trailing bonus redu
 =
 
 =hero:drifter:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5487 pick=0.5494 matches=157087 days=7
+    after win=0.514 pick=0.4715 matches=264962 days=14
+  }
+  high {
+    before win=0.5481 pick=0.6578 matches=33203 days=7
+    after win=0.5099 pick=0.551 matches=52754 days=14
+  }
+}
+``
 [[/hero/drifter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/drifter_sm.webp]] Drifter patch history))
 ## [[/hero/drifter]]((Drifter))
 - Bullet damage per boon reduced from +0.616 to +0.49
@@ -70,6 +106,18 @@ content_text "Urn Runner sprint bonus reduced from +2m to 0 (trailing bonus redu
 =
 
 =hero:graves:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5301 pick=0.3215 matches=91938 days=7
+    after win=0.5527 pick=0.3807 matches=213923 days=14
+  }
+  high {
+    before win=0.5083 pick=0.1604 matches=8095 days=7
+    after win=0.5353 pick=0.2494 matches=23880 days=14
+  }
+}
+``
 [[/hero/graves]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/necro_sm.webp]] Graves patch history))
 ## [[/hero/graves]]((Graves))
 ==ability:jar-of-dead:
@@ -99,6 +147,18 @@ content_text "Urn Runner sprint bonus reduced from +2m to 0 (trailing bonus redu
 =
 
 =hero:haze:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.518 pick=0.4481 matches=128142 days=7
+    after win=0.5373 pick=0.5862 matches=329421 days=14
+  }
+  high {
+    before win=0.4909 pick=0.3769 matches=19024 days=7
+    after win=0.5193 pick=0.6207 matches=59428 days=14
+  }
+}
+``
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 ==ability:sleep-dagger:
@@ -110,6 +170,18 @@ content_text "Urn Runner sprint bonus reduced from +2m to 0 (trailing bonus redu
 =
 
 =hero:holliday:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4844 pick=0.2518 matches=72001 days=7
+    after win=0.4772 pick=0.2121 matches=119197 days=14
+  }
+  high {
+    before win=0.5 pick=0.2919 matches=14736 days=7
+    after win=0.4928 pick=0.2399 matches=22965 days=14
+  }
+}
+``
 [[/hero/holliday]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]] Holliday patch history))
 ## [[/hero/holliday]]((Holliday))
 ==ability:powder-keg:
@@ -120,6 +192,18 @@ content_text "Urn Runner sprint bonus reduced from +2m to 0 (trailing bonus redu
 =
 
 =hero:mirage:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4885 pick=0.2526 matches=72216 days=7
+    after win=0.4848 pick=0.254 matches=142723 days=14
+  }
+  high {
+    before win=0.5007 pick=0.3117 matches=15733 days=7
+    after win=0.4954 pick=0.2898 matches=27744 days=14
+  }
+}
+``
 [[/hero/mirage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage patch history))
 ## [[/hero/mirage]]((Mirage))
 ==ability:fire-scarabs:
@@ -146,6 +230,18 @@ content_text "Urn Runner sprint bonus reduced from +2m to 0 (trailing bonus redu
 =
 
 =hero:pocket:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4682 pick=0.2106 matches=60214 days=7
+    after win=0.4649 pick=0.2299 matches=129182 days=14
+  }
+  high {
+    before win=0.4803 pick=0.2506 matches=12647 days=7
+    after win=0.4709 pick=0.291 matches=27859 days=14
+  }
+}
+``
 [[/hero/pocket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket patch history))
 ## [[/hero/pocket]]((Pocket))
 ==ability:affliction:
@@ -156,6 +252,18 @@ content_text "Urn Runner sprint bonus reduced from +2m to 0 (trailing bonus redu
 =
 
 =hero:shiv:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4978 pick=0.5381 matches=153853 days=7
+    after win=0.4758 pick=0.3908 matches=219635 days=14
+  }
+  high {
+    before win=0.496 pick=0.6638 matches=33503 days=7
+    after win=0.4769 pick=0.4766 matches=45631 days=14
+  }
+}
+``
 [[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
 ## [[/hero/shiv]]((Shiv))
 ==ability:serrated-knives:
@@ -198,6 +306,18 @@ content_text "Urn Runner sprint bonus reduced from +2m to 0 (trailing bonus redu
 =
 
 =hero:silver:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4388 pick=0.2224 matches=63606 days=7
+    after win=0.4565 pick=0.2684 matches=150840 days=14
+  }
+  high {
+    before win=0.4577 pick=0.1822 matches=9195 days=7
+    after win=0.4833 pick=0.2621 matches=25094 days=14
+  }
+}
+``
 [[/hero/silver]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/werewolf_sm.webp]] Silver patch history))
 ## [[/hero/silver]]((Silver))
 ==ability:lycan-curse:
@@ -208,6 +328,18 @@ content_text "Urn Runner sprint bonus reduced from +2m to 0 (trailing bonus redu
 =
 
 =hero:victor:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.518 pick=0.3039 matches=86896 days=7
+    after win=0.551 pick=0.3283 matches=184504 days=14
+  }
+  high {
+    before win=0.4855 pick=0.2151 matches=10858 days=7
+    after win=0.5282 pick=0.2467 matches=23616 days=14
+  }
+}
+``
 [[/hero/victor]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/frank_sm.webp]] Victor patch history))
 ## [[/hero/victor]]((Victor))
 ==ability:shocking-reanimation:
@@ -218,6 +350,18 @@ content_text "Urn Runner sprint bonus reduced from +2m to 0 (trailing bonus redu
 =
 
 =hero:viscous:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4763 pick=0.2454 matches=70178 days=7
+    after win=0.472 pick=0.2572 matches=144550 days=14
+  }
+  high {
+    before win=0.4778 pick=0.29 matches=14639 days=7
+    after win=0.4703 pick=0.2908 matches=27839 days=14
+  }
+}
+``
 [[/hero/viscous]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous patch history))
 ## [[/hero/viscous]]((Viscous))
 ==ability:splatter:
@@ -228,6 +372,18 @@ content_text "Urn Runner sprint bonus reduced from +2m to 0 (trailing bonus redu
 =
 
 =hero:yamato:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4973 pick=0.2965 matches=84786 days=7
+    after win=0.4986 pick=0.302 matches=169711 days=14
+  }
+  high {
+    before win=0.5164 pick=0.3495 matches=17642 days=7
+    after win=0.5152 pick=0.3437 matches=32909 days=14
+  }
+}
+``
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 ==ability:flying-slash:
@@ -246,6 +402,18 @@ content_text "Urn Runner sprint bonus reduced from +2m to 0 (trailing bonus redu
 ``
 
 =item:scourge:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5874 pick=0.0597 matches=204811 days=7
+    after win=0.5913 pick=0.0608 matches=409990 days=14
+  }
+  high {
+    before win=0.5876 pick=0.0805 matches=48775 days=7
+    after win=0.5909 pick=0.0814 matches=93472 days=14
+  }
+}
+``
 [[/item/scourge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/scourge.webp]] Scourge patch history))
 ## [[/item/scourge]]((Scourge))
 - Max Health Per Second reduced from 2.6% to 2.5%

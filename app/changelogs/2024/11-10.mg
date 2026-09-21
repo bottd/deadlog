@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "11-10-2024 Update"
 thread_id "45689"
 published "2024-11-10T08:19:27-0800"
@@ -19,6 +19,18 @@ content_text "Soul Sharing ratios post-lane reduced from 100/100/66/50/40/33% to
 ``
 
 =hero:paradox:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4782 pick=0.5003 matches=98873 days=2
+    after win=0.487 pick=0.4979 matches=117419 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/paradox]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox patch history))
 ## [[/hero/paradox]]((Paradox))
 ==ability:paradoxical-swap:
@@ -29,6 +41,18 @@ content_text "Soul Sharing ratios post-lane reduced from 100/100/66/50/40/33% to
 =
 
 =hero:yamato:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5544 pick=0.5599 matches=110657 days=2
+    after win=0.5335 pick=0.6552 matches=154495 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 ==ability:shadow-transformation:

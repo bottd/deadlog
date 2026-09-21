@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "12-21-2024 Update"
 thread_id "52206"
 published "2024-12-21T01:54:51-0800"
@@ -28,6 +28,18 @@ content_text "Fixed some cases where slows could cause your speed to fall below 
 ``
 
 =hero:infernus:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5095 pick=0.7889 matches=67701 days=3
+    after win=0.5078 pick=0.7706 matches=200601 days=9
+  }
+  high {
+    before win=0.5203 pick=0.7949 matches=1353 days=3
+    after win=0.4838 pick=0.7344 matches=4454 days=9
+  }
+}
+``
 [[/hero/infernus]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus patch history))
 ## [[/hero/infernus]]((Infernus))
 ==ability:flame-dash:
@@ -38,6 +50,18 @@ content_text "Fixed some cases where slows could cause your speed to fall below 
 =
 
 =hero:mirage:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4995 pick=0.3637 matches=31213 days=3
+    after win=0.502 pick=0.3842 matches=100028 days=9
+  }
+  high {
+    before win=#null pick=#null matches=899 days=3
+    after win=0.5255 pick=0.5927 matches=3595 days=9
+  }
+}
+``
 [[/hero/mirage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage patch history))
 ## [[/hero/mirage]]((Mirage))
 ==ability:fire-scarabs:
@@ -48,6 +72,18 @@ content_text "Fixed some cases where slows could cause your speed to fall below 
 =
 
 =hero:vindicta:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5301 pick=0.7101 matches=60938 days=3
+    after win=0.5207 pick=0.7008 matches=182449 days=9
+  }
+  high {
+    before win=0.5492 pick=0.7585 matches=1291 days=3
+    after win=0.5409 pick=0.7563 matches=4587 days=9
+  }
+}
+``
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
 ==ability:assassinate:
@@ -59,6 +95,18 @@ content_text "Fixed some cases where slows could cause your speed to fall below 
 =
 
 =hero:warden:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5307 pick=0.74 matches=63504 days=3
+    after win=0.5267 pick=0.6972 matches=181505 days=9
+  }
+  high {
+    before win=0.52 pick=0.7039 matches=1198 days=3
+    after win=0.5186 pick=0.6613 matches=4011 days=9
+  }
+}
+``
 [[/hero/warden]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden patch history))
 ## [[/hero/warden]]((Warden))
 - Bullet damage growth reduced from 0.94 to 0.9
@@ -70,6 +118,18 @@ content_text "Fixed some cases where slows could cause your speed to fall below 
 =
 
 =hero:yamato:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5249 pick=0.4951 matches=42488 days=3
+    after win=0.5328 pick=0.581 matches=151247 days=9
+  }
+  high {
+    before win=0.5325 pick=0.6322 matches=1076 days=3
+    after win=0.5484 pick=0.8018 matches=4863 days=9
+  }
+}
+``
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 ==ability:shadow-transformation:
@@ -87,24 +147,72 @@ content_text "Fixed some cases where slows could cause your speed to fall below 
 ``
 
 =item:alchemical-fire:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5293 pick=0.0421 matches=43359 days=3
+    after win=0.5225 pick=0.0403 matches=126026 days=9
+  }
+  high {
+    before win=0.556 pick=0.09 matches=1838 days=3
+    after win=0.5412 pick=0.0945 matches=6881 days=9
+  }
+}
+``
 [[/item/alchemical-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/alchemical_fire.webp]] Alchemical Fire patch history))
 ## [[/item/alchemical-fire]]((Alchemical Fire))
 - Base DPS reduced from 55 to 50
 =
 
 =item:knockdown:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4718 pick=0.0528 matches=54342 days=3
+    after win=0.4671 pick=0.0473 matches=147652 days=9
+  }
+  high {
+    before win=0.5133 pick=0.0754 matches=1539 days=3
+    after win=0.4691 pick=0.0558 matches=4063 days=9
+  }
+}
+``
 [[/item/knockdown]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/knockdown.webp]] Knockdown patch history))
 ## [[/item/knockdown]]((Knockdown))
 - Stun duration reduced form 0.75s to 0.5s for ground targets (airborne values adjusted to be similar to before)
 =
 
 =item:restorative-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4946 pick=0.1895 matches=195144 days=3
+    after win=0.4965 pick=0.2064 matches=644631 days=9
+  }
+  high {
+    before win=0.5028 pick=0.2653 matches=5418 days=3
+    after win=0.5045 pick=0.306 matches=22274 days=9
+  }
+}
+``
 [[/item/restorative-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/restorative_shot.webp]] Restorative Shot patch history))
 ## [[/item/restorative-shot]]((Restorative Shot))
 - Cooldown increased from 6s to 7s
 =
 
 =item:veil-walker:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5352 pick=0.0629 matches=64792 days=3
+    after win=0.5372 pick=0.0146 matches=45623 days=9
+  }
+  high {
+    before win=0.5542 pick=0.1373 matches=2804 days=3
+    after win=#null pick=#null matches=904 days=9
+  }
+}
+``
 [[/item/veil-walker]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/veil_walker.webp]] Veil Walker patch history))
 ## [[/item/veil-walker]]((Veil Walker))
 - Now a T4 item

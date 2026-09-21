@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "Minor Update - 07-28-2026"
 steam_gid "1839041357039193"
 published "2026-07-28T20:24:35.000Z"
@@ -21,6 +21,18 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 ``
 
 =hero:apollo:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4902 pick=0.2424 matches=138084 days=14
+    after win=0.4958 pick=0.2835 matches=12009 days=1
+  }
+  high {
+    before win=0.4851 pick=0.2348 matches=22337 days=14
+    after win=0.4691 pick=0.2862 matches=1925 days=1
+  }
+}
+``
 [[/hero/apollo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/fencer_sm.webp]] Apollo patch history))
 ## [[/hero/apollo]]((Apollo))
 ==ability:riposte:
@@ -32,6 +44,18 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 =
 
 =hero:billy:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5057 pick=0.4068 matches=231744 days=14
+    after win=0.493 pick=0.3895 matches=16497 days=1
+  }
+  high {
+    before win=0.5143 pick=0.3731 matches=35494 days=14
+    after win=0.4956 pick=0.3561 matches=2395 days=1
+  }
+}
+``
 [[/hero/billy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/punkgoat_sm.webp]] Billy patch history))
 ## [[/hero/billy]]((Billy))
 ==ability:rising-ram:
@@ -42,6 +66,18 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 =
 
 =hero:calico:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5086 pick=0.2629 matches=149760 days=14
+    after win=0.5089 pick=0.2587 matches=10959 days=1
+  }
+  high {
+    before win=0.5142 pick=0.4005 matches=38105 days=14
+    after win=0.5215 pick=0.3806 matches=2560 days=1
+  }
+}
+``
 [[/hero/calico]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp]] Calico patch history))
 ## [[/hero/calico]]((Calico))
 ==ability:ava:
@@ -53,6 +89,18 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 =
 
 =hero:celeste:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.487 pick=0.3315 matches=188833 days=14
+    after win=0.5128 pick=0.4046 matches=17138 days=1
+  }
+  high {
+    before win=0.4895 pick=0.2436 matches=23180 days=14
+    after win=0.5195 pick=0.3431 matches=2308 days=1
+  }
+}
+``
 [[/hero/celeste]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/unicorn_sm.webp]] Celeste patch history))
 ## [[/hero/celeste]]((Celeste))
 ==ability:shining-wonder:
@@ -65,6 +113,18 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 =
 
 =hero:doorman:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4941 pick=0.2255 matches=128470 days=14
+    after win=0.4573 pick=0.1922 matches=8139 days=1
+  }
+  high {
+    before win=0.4953 pick=0.1993 matches=18958 days=14
+    after win=0.4537 pick=0.1668 matches=1122 days=1
+  }
+}
+``
 [[/hero/the-doorman]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/doorman_sm.webp]] Doorman patch history))
 ## [[/hero/the-doorman]]((Doorman))
 - Bullet damage rescaled from 26 + 1.19/boon to 24 + 1.25
@@ -91,6 +151,18 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 =
 
 =hero:drifter:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5116 pick=0.4927 matches=280700 days=14
+    after win=0.5168 pick=0.5534 matches=23441 days=1
+  }
+  high {
+    before win=0.5068 pick=0.5817 matches=55341 days=14
+    after win=0.5007 pick=0.6363 matches=4280 days=1
+  }
+}
+``
 [[/hero/drifter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/drifter_sm.webp]] Drifter patch history))
 ## [[/hero/drifter]]((Drifter))
 ==ability:rend:
@@ -102,6 +174,18 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 =
 
 =hero:dynamo:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5234 pick=0.312 matches=177740 days=14
+    after win=0.528 pick=0.2843 matches=12040 days=1
+  }
+  high {
+    before win=0.5287 pick=0.2634 matches=25064 days=14
+    after win=0.5493 pick=0.255 matches=1715 days=1
+  }
+}
+``
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 ==ability:singularity:
@@ -112,6 +196,18 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 =
 
 =hero:haze:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5374 pick=0.5765 matches=328427 days=14
+    after win=0.5014 pick=0.4622 matches=19576 days=1
+  }
+  high {
+    before win=0.5147 pick=0.5997 matches=57057 days=14
+    after win=0.4712 pick=0.4847 matches=3260 days=1
+  }
+}
+``
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 ==ability:sleep-dagger:
@@ -131,6 +227,18 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 =
 
 =hero:ivy:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5424 pick=0.3092 matches=176138 days=14
+    after win=0.5408 pick=0.2691 matches=11397 days=1
+  }
+  high {
+    before win=0.5386 pick=0.3607 matches=34323 days=14
+    after win=0.5411 pick=0.3042 matches=2046 days=1
+  }
+}
+``
 [[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
 ## [[/hero/ivy]]((Ivy))
 ==ability:stone-form:
@@ -141,6 +249,18 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 =
 
 =hero:kelvin:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5397 pick=0.1768 matches=100693 days=14
+    after win=0.5364 pick=0.1792 matches=7591 days=1
+  }
+  high {
+    before win=0.5351 pick=0.1952 matches=18568 days=14
+    after win=0.5644 pick=0.1905 matches=1281 days=1
+  }
+}
+``
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 ==ability:frozen-shelter:
@@ -151,6 +271,18 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 =
 
 =hero:lady-geist:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5158 pick=0.3346 matches=190641 days=14
+    after win=0.4867 pick=0.3368 matches=14264 days=1
+  }
+  high {
+    before win=0.4992 pick=0.2759 matches=26254 days=14
+    after win=0.4573 pick=0.2679 matches=1802 days=1
+  }
+}
+``
 [[/hero/lady-geist]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]] Lady Geist patch history))
 ## [[/hero/lady-geist]]((Lady Geist))
 ==ability:life-drain:
@@ -172,6 +304,18 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 =
 
 =hero:mina:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4454 pick=0.3339 matches=190246 days=14
+    after win=0.4567 pick=0.3595 matches=15227 days=1
+  }
+  high {
+    before win=0.4639 pick=0.2481 matches=23604 days=14
+    after win=0.4765 pick=0.3005 matches=2021 days=1
+  }
+}
+``
 [[/hero/mina]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/vampirebat_sm.webp]] Mina patch history))
 ## [[/hero/mina]]((Mina))
 ==ability:sanguine-retreat:
@@ -183,6 +327,18 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 =
 
 =hero:mirage:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4823 pick=0.2562 matches=145944 days=14
+    after win=0.4368 pick=0.1886 matches=7987 days=1
+  }
+  high {
+    before win=0.4935 pick=0.2928 matches=27858 days=14
+    after win=0.4353 pick=0.1793 matches=1206 days=1
+  }
+}
+``
 [[/hero/mirage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage patch history))
 ## [[/hero/mirage]]((Mirage))
 ==ability:fire-scarabs:
@@ -205,6 +361,18 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 =
 
 =hero:mo-krill:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5118 pick=0.2563 matches=145996 days=14
+    after win=0.5104 pick=0.4277 matches=18115 days=1
+  }
+  high {
+    before win=0.5043 pick=0.2837 matches=26996 days=14
+    after win=0.5135 pick=0.5446 matches=3663 days=1
+  }
+}
+``
 [[/hero/mo-krill]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]] Mo & Krill patch history))
 ## [[/hero/mo-krill]]((Mo & Krill))
 ==ability:burrow:
@@ -220,6 +388,18 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 =
 
 =hero:paige:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5322 pick=0.3238 matches=184444 days=14
+    after win=0.5389 pick=0.3211 matches=13600 days=1
+  }
+  high {
+    before win=0.5179 pick=0.2552 matches=24279 days=14
+    after win=0.5217 pick=0.2505 matches=1685 days=1
+  }
+}
+``
 [[/hero/paige]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bookworm_sm.webp]] Paige patch history))
 ## [[/hero/paige]]((Paige))
 ==ability:rallying-charge:
@@ -230,6 +410,18 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 =
 
 =hero:pocket:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.466 pick=0.2361 matches=134484 days=14
+    after win=0.464 pick=0.2266 matches=9597 days=1
+  }
+  high {
+    before win=0.4713 pick=0.3028 matches=28810 days=14
+    after win=0.47 pick=0.2755 matches=1853 days=1
+  }
+}
+``
 [[/hero/pocket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket patch history))
 ## [[/hero/pocket]]((Pocket))
 ==ability:flying-cloak:
@@ -245,6 +437,18 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 =
 
 =hero:shiv:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4752 pick=0.3866 matches=220257 days=14
+    after win=0.4808 pick=0.3714 matches=15730 days=1
+  }
+  high {
+    before win=0.4749 pick=0.4694 matches=44662 days=14
+    after win=0.484 pick=0.4362 matches=2934 days=1
+  }
+}
+``
 [[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
 ## [[/hero/shiv]]((Shiv))
 - Stamina regen increased from 5.5s to 6s
@@ -256,6 +460,18 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 =
 
 =hero:silver:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4581 pick=0.2674 matches=152309 days=14
+    after win=0.4354 pick=0.2634 matches=11156 days=1
+  }
+  high {
+    before win=0.4816 pick=0.2608 matches=24813 days=14
+    after win=0.4474 pick=0.2233 matches=1502 days=1
+  }
+}
+``
 [[/hero/silver]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/werewolf_sm.webp]] Silver patch history))
 ## [[/hero/silver]]((Silver))
 - Gun falloff range reduced from 20m->46m to 17m→42m
@@ -274,6 +490,18 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 =
 
 =hero:venator:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4558 pick=0.4231 matches=241010 days=14
+    after win=0.4491 pick=0.3992 matches=16910 days=1
+  }
+  high {
+    before win=0.463 pick=0.4248 matches=40414 days=14
+    after win=0.4761 pick=0.3953 matches=2659 days=1
+  }
+}
+``
 [[/hero/venator]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/priest_sm.webp]] Venator patch history))
 ## [[/hero/venator]]((Venator))
 - Sprint speed reduced from 1.5m to 1m
@@ -287,6 +515,18 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 =
 
 =hero:viscous:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4714 pick=0.2633 matches=149977 days=14
+    after win=0.4718 pick=0.2563 matches=10855 days=1
+  }
+  high {
+    before win=0.4715 pick=0.2989 matches=28435 days=14
+    after win=0.4642 pick=0.2905 matches=1954 days=1
+  }
+}
+``
 [[/hero/viscous]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous patch history))
 ## [[/hero/viscous]]((Viscous))
 ==ability:splatter:
@@ -317,6 +557,18 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 =
 
 =hero:yamato:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5002 pick=0.2974 matches=169400 days=14
+    after win=0.4861 pick=0.2616 matches=11081 days=1
+  }
+  high {
+    before win=0.5204 pick=0.3342 matches=31795 days=14
+    after win=0.4959 pick=0.2725 matches=1833 days=1
+  }
+}
+``
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 ==ability:flying-slash:
@@ -335,6 +587,18 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 ``
 
 =item:crushing-fists:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5492 pick=0.041 matches=280332 days=14
+    after win=0.5454 pick=0.0478 matches=24288 days=1
+  }
+  high {
+    before win=0.5792 pick=0.0213 matches=24299 days=14
+    after win=0.55 pick=0.0326 matches=2631 days=1
+  }
+}
+``
 [[/item/crushing-fists]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/crushing_fists.webp]] Crushing Fists patch history))
 ## [[/item/crushing-fists]]((Crushing Fists))
 - Max stacks stun duration increased from 0.5s to 0.75s
@@ -342,6 +606,18 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 =
 
 =item:cursed-relic:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4749 pick=0.0279 matches=190904 days=14
+    after win=0.4863 pick=0.0332 matches=16894 days=1
+  }
+  high {
+    before win=0.4818 pick=0.0303 matches=34616 days=14
+    after win=0.5025 pick=0.0395 matches=3190 days=1
+  }
+}
+``
 [[/item/cursed-relic]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/curse.webp]] Cursed Relic patch history))
 ## [[/item/cursed-relic]]((Cursed Relic))
 - No longer has -14% Damage Output innate
@@ -349,12 +625,36 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 =
 
 =item:diviner-s-kevlar:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.579 pick=0.0186 matches=127048 days=14
+    after win=0.5786 pick=0.0204 matches=10363 days=1
+  }
+  high {
+    before win=0.6011 pick=0.0143 matches=16309 days=14
+    after win=0.5934 pick=0.0157 matches=1264 days=1
+  }
+}
+``
 [[/item/diviners-kevlar]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/diviners_kevlar.webp]] Diviner's Kevlar patch history))
 ## [[/item/diviners-kevlar]]((Diviner's Kevlar))
 - Spirit power increased from +35 to +40
 =
 
 =item:echo-shard:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5407 pick=0.1083 matches=740269 days=14
+    after win=0.5224 pick=0.0771 matches=39194 days=1
+  }
+  high {
+    before win=0.5353 pick=0.1111 matches=126797 days=14
+    after win=0.5011 pick=0.0615 matches=4965 days=1
+  }
+}
+``
 [[/item/echo-shard]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/echo_shard.webp]] Echo Shard patch history))
 ## [[/item/echo-shard]]((Echo Shard))
 - Now has a 0.5s post-cast time
@@ -363,18 +663,54 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 =
 
 =item:ethereal-shift:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5736 pick=0.0314 matches=214364 days=14
+    after win=0.5715 pick=0.0319 matches=16196 days=1
+  }
+  high {
+    before win=0.5821 pick=0.0437 matches=49856 days=14
+    after win=0.5804 pick=0.044 matches=3549 days=1
+  }
+}
+``
 [[/item/ethereal-shift]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/ethereal_shift.webp]] Ethereal Shift patch history))
 ## [[/item/ethereal-shift]]((Ethereal Shift))
 - Cooldown increased from 35s to 37s
 =
 
 =item:frenzy:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5909 pick=0.0122 matches=83302 days=14
+    after win=0.5883 pick=0.022 matches=11170 days=1
+  }
+  high {
+    before win=0.625 pick=0.0077 matches=8811 days=14
+    after win=0.6196 pick=0.0209 matches=1685 days=1
+  }
+}
+``
 [[/item/frenzy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/frenzy.webp]] Frenzy patch history))
 ## [[/item/frenzy]]((Frenzy))
 - Now has +10% Bullet Lifesteal as an innate
 =
 
 =item:fury-trance:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5039 pick=0.0065 matches=44204 days=14
+    after win=0.4988 pick=0.0164 matches=8312 days=1
+  }
+  high {
+    before win=0.5082 pick=0.0056 matches=6428 days=14
+    after win=0.495 pick=0.0295 matches=2384 days=1
+  }
+}
+``
 [[/item/fury-trance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/fury_trance.webp]] Fury Trance patch history))
 ## [[/item/fury-trance]]((Fury Trance))
 - Active now grants +1m Move Speed
@@ -382,12 +718,36 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 =
 
 =item:lifestrike:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4995 pick=0.0522 matches=356528 days=14
+    after win=0.499 pick=0.0535 matches=27167 days=1
+  }
+  high {
+    before win=0.5172 pick=0.0302 matches=34478 days=14
+    after win=0.4973 pick=0.0318 matches=2570 days=1
+  }
+}
+``
 [[/item/lifestrike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/lifestrike.webp]] Lifestrike patch history))
 ## [[/item/lifestrike]]((Lifestrike))
 - When hitting a trooper and a hero at the same time, it now always prioritizes healing off the hero (same change for Melee Lifesteal)
 =
 
 =item:mystic-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4991 pick=0.1755 matches=1199998 days=14
+    after win=0.4906 pick=0.1608 matches=81746 days=1
+  }
+  high {
+    before win=0.5014 pick=0.2172 matches=248021 days=14
+    after win=0.4918 pick=0.1769 matches=14275 days=1
+  }
+}
+``
 [[/item/mystic-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/mystic_shot.webp]] Mystic Shot patch history))
 ## [[/item/mystic-shot]]((Mystic Shot))
 - Cooldown reduced from 9s to 8s
@@ -395,12 +755,36 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 =
 
 =item:restorative-locket:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5001 pick=0.0125 matches=85325 days=14
+    after win=0.506 pick=0.0194 matches=9876 days=1
+  }
+  high {
+    before win=0.5039 pick=0.0126 matches=14381 days=14
+    after win=0.509 pick=0.0318 matches=2564 days=1
+  }
+}
+``
 [[/item/restorative-locket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/restorative_locket.webp]] Restorative Locket patch history))
 ## [[/item/restorative-locket]]((Restorative Locket))
 - Heal per boon increased from 0.32 to 0.5
 =
 
 =item:scourge:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5895 pick=0.0612 matches=418240 days=14
+    after win=0.5785 pick=0.0603 matches=30633 days=1
+  }
+  high {
+    before win=0.5901 pick=0.0822 matches=93813 days=14
+    after win=0.5801 pick=0.0746 matches=6025 days=1
+  }
+}
+``
 [[/item/scourge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/scourge.webp]] Scourge patch history))
 ## [[/item/scourge]]((Scourge))
 - No longer grants +17% Debuff Resist innate bonus
@@ -409,12 +793,36 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 =
 
 =item:slowing-bullets:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4986 pick=0.1613 matches=1102886 days=14
+    after win=0.4881 pick=0.1048 matches=53267 days=1
+  }
+  high {
+    before win=0.5044 pick=0.1898 matches=216741 days=14
+    after win=0.4877 pick=0.092 matches=7426 days=1
+  }
+}
+``
 [[/item/slowing-bullets]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/slowing_bullets.webp]] Slowing Bullets patch history))
 ## [[/item/slowing-bullets]]((Slowing Bullets))
 - No longer grants +15% Weapon Damage
 =
 
 =item:spirit-burn:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5637 pick=0.1893 matches=1294191 days=14
+    after win=0.5583 pick=0.1704 matches=86631 days=1
+  }
+  high {
+    before win=0.5652 pick=0.1674 matches=191175 days=14
+    after win=0.5645 pick=0.1426 matches=11512 days=1
+  }
+}
+``
 [[/item/spirit-burn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/spirit_burn.webp]] Spirit Burn patch history))
 ## [[/item/spirit-burn]]((Spirit Burn))
 - No longer hits enemies in a 12m radius, only affects primary target now
@@ -424,6 +832,18 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 =
 
 =item:spiritual-overflow:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5746 pick=0.1323 matches=904181 days=14
+    after win=0.5675 pick=0.1345 matches=68366 days=1
+  }
+  high {
+    before win=0.5871 pick=0.1224 matches=139798 days=14
+    after win=0.5814 pick=0.1205 matches=9723 days=1
+  }
+}
+``
 [[/item/spiritual-overflow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/spiritual_overflow.webp]] Spiritual Overflow patch history))
 ## [[/item/spiritual-overflow]]((Spiritual Overflow))
 - Now provides a bonus +10% Spirit Lifesteal on proc
@@ -432,18 +852,54 @@ content_text "Stamina bucket 3 heroes (slowest) have their ground dash time incr
 =
 
 =item:suppressor:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5002 pick=0.0623 matches=426003 days=14
+    after win=0.5037 pick=0.0615 matches=31271 days=1
+  }
+  high {
+    before win=0.5047 pick=0.0837 matches=95555 days=14
+    after win=0.4995 pick=0.0781 matches=6304 days=1
+  }
+}
+``
 [[/item/suppressor]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/suppressor.webp]] Suppressor patch history))
 ## [[/item/suppressor]]((Suppressor))
 - Duration reduced from 5s to 4.5s
 =
 
 =item:tankbuster:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4992 pick=0.2919 matches=1995626 days=14
+    after win=0.4969 pick=0.3015 matches=153226 days=1
+  }
+  high {
+    before win=0.5038 pick=0.2796 matches=319224 days=14
+    after win=0.5 pick=0.2897 matches=23382 days=1
+  }
+}
+``
 [[/item/tankbuster]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/tankbuster.webp]] Tankbuster patch history))
 ## [[/item/tankbuster]]((Tankbuster))
 - No longer procs off of items
 =
 
 =item:weighted-shots:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4998 pick=0.1404 matches=959967 days=14
+    after win=0.4927 pick=0.1 matches=50827 days=1
+  }
+  high {
+    before win=0.5103 pick=0.159 matches=181500 days=14
+    after win=0.4967 pick=0.0877 matches=7077 days=1
+  }
+}
+``
 [[/item/weighted-shots]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/weighted_shots.webp]] Weighted Shots patch history))
 ## [[/item/weighted-shots]]((Weighted Shots))
 - Weapon Damage reduced from +40% to +30%

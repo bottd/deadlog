@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "Gameplay Update - 04-30-2026"
 alias "2026/gameplay-04-30"
 thread_id "129989"
@@ -45,6 +45,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 ``
 
 =hero:abrams:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5046 pick=0.2808 matches=220119 days=14
+    after win=0.5028 pick=0.2659 matches=203345 days=14
+  }
+  high {
+    before win=0.5102 pick=0.3209 matches=41362 days=14
+    after win=0.5027 pick=0.2676 matches=37270 days=14
+  }
+}
+``
 [[/hero/abrams]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams patch history))
 ## [[/hero/abrams]]((Abrams))
 ==ability:siphon-life:
@@ -60,6 +72,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =hero:apollo:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5073 pick=0.3307 matches=259234 days=14
+    after win=0.5009 pick=0.3269 matches=250048 days=14
+  }
+  high {
+    before win=0.5079 pick=0.3192 matches=41136 days=14
+    after win=0.5026 pick=0.3096 matches=43108 days=14
+  }
+}
+``
 [[/hero/apollo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/fencer_sm.webp]] Apollo patch history))
 ## [[/hero/apollo]]((Apollo))
 ==ability:disengaging-sigil:
@@ -70,6 +94,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =hero:billy:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4753 pick=0.2889 matches=226483 days=14
+    after win=0.4804 pick=0.311 matches=237869 days=14
+  }
+  high {
+    before win=0.4848 pick=0.2092 matches=26962 days=14
+    after win=0.4812 pick=0.2297 matches=31982 days=14
+  }
+}
+``
 [[/hero/billy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/punkgoat_sm.webp]] Billy patch history))
 ## [[/hero/billy]]((Billy))
 ==ability:rising-ram:
@@ -80,6 +116,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =hero:celeste:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4638 pick=0.2588 matches=202874 days=14
+    after win=0.4852 pick=0.338 matches=258536 days=14
+  }
+  high {
+    before win=0.468 pick=0.1845 matches=23774 days=14
+    after win=0.4922 pick=0.2875 matches=40040 days=14
+  }
+}
+``
 [[/hero/celeste]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/unicorn_sm.webp]] Celeste patch history))
 ## [[/hero/celeste]]((Celeste))
 - Bullet cycle time reduced from 0.65 to 0.58
@@ -92,6 +140,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =hero:doorman:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.514 pick=0.3482 matches=272951 days=14
+    after win=0.5225 pick=0.3235 matches=247458 days=14
+  }
+  high {
+    before win=0.5014 pick=0.3052 matches=39332 days=14
+    after win=0.5173 pick=0.3076 matches=42832 days=14
+  }
+}
+``
 [[/hero/the-doorman]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/doorman_sm.webp]] Doorman patch history))
 ## [[/hero/the-doorman]]((Doorman))
 ==ability:doorway:
@@ -102,6 +162,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =hero:drifter:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5078 pick=0.3879 matches=304027 days=14
+    after win=0.507 pick=0.4147 matches=317202 days=14
+  }
+  high {
+    before win=0.5045 pick=0.3927 matches=50604 days=14
+    after win=0.5021 pick=0.4577 matches=63732 days=14
+  }
+}
+``
 [[/hero/drifter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/drifter_sm.webp]] Drifter patch history))
 ## [[/hero/drifter]]((Drifter))
 ==ability:rend:
@@ -117,6 +189,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =hero:dynamo:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5509 pick=0.5074 matches=397742 days=14
+    after win=0.5433 pick=0.3986 matches=304868 days=14
+  }
+  high {
+    before win=0.5434 pick=0.4913 matches=63313 days=14
+    after win=0.534 pick=0.3621 matches=50429 days=14
+  }
+}
+``
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 ==ability:kinetic-pulse:
@@ -132,6 +216,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =hero:haze:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5153 pick=0.4065 matches=318598 days=14
+    after win=0.5298 pick=0.4595 matches=351426 days=14
+  }
+  high {
+    before win=0.4853 pick=0.3921 matches=50526 days=14
+    after win=0.5064 pick=0.4438 matches=61795 days=14
+  }
+}
+``
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 ==ability:bullet-dance:
@@ -146,6 +242,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =hero:holliday:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4636 pick=0.2117 matches=165964 days=14
+    after win=0.4666 pick=0.1975 matches=151033 days=14
+  }
+  high {
+    before win=0.4678 pick=0.2149 matches=27697 days=14
+    after win=0.4749 pick=0.2135 matches=29725 days=14
+  }
+}
+``
 [[/hero/holliday]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]] Holliday patch history))
 ## [[/hero/holliday]]((Holliday))
 ==ability:spirit-lasso:
@@ -158,6 +266,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =hero:infernus:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5516 pick=0.5116 matches=401028 days=14
+    after win=0.4865 pick=0.3834 matches=293291 days=14
+  }
+  high {
+    before win=0.5433 pick=0.5303 matches=68338 days=14
+    after win=0.4682 pick=0.3333 matches=46411 days=14
+  }
+}
+``
 [[/hero/infernus]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus patch history))
 ## [[/hero/infernus]]((Infernus))
 ==ability:flame-dash-dps:
@@ -169,6 +289,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =hero:lady-geist:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.515 pick=0.3071 matches=240716 days=14
+    after win=0.521 pick=0.309 matches=236344 days=14
+  }
+  high {
+    before win=0.4988 pick=0.2914 matches=37560 days=14
+    after win=0.5077 pick=0.2572 matches=35822 days=14
+  }
+}
+``
 [[/hero/lady-geist]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]] Lady Geist patch history))
 ## [[/hero/lady-geist]]((Lady Geist))
 ==ability:life-drain:
@@ -179,6 +311,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =hero:mcginnis:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.514 pick=0.201 matches=157579 days=14
+    after win=0.5434 pick=0.2216 matches=169507 days=14
+  }
+  high {
+    before win=0.5252 pick=0.1578 matches=20333 days=14
+    after win=0.5597 pick=0.1986 matches=27652 days=14
+  }
+}
+``
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 ==ability:mini-turret:
@@ -195,6 +339,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =hero:mina:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4877 pick=0.4772 matches=374077 days=14
+    after win=0.4919 pick=0.5306 matches=405877 days=14
+  }
+  high {
+    before win=0.5116 pick=0.4242 matches=54674 days=14
+    after win=0.5106 pick=0.4909 matches=68358 days=14
+  }
+}
+``
 [[/hero/mina]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/vampirebat_sm.webp]] Mina patch history))
 ## [[/hero/mina]]((Mina))
 ==ability:nox-nostra-dps:
@@ -205,6 +361,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =hero:mirage:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4878 pick=0.2296 matches=179939 days=14
+    after win=0.4775 pick=0.2202 matches=168459 days=14
+  }
+  high {
+    before win=0.4967 pick=0.2241 matches=28880 days=14
+    after win=0.4914 pick=0.2137 matches=29761 days=14
+  }
+}
+``
 [[/hero/mirage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage patch history))
 ## [[/hero/mirage]]((Mirage))
 - Base health regen reduced from 2 to 1.5
@@ -216,6 +384,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =hero:mo-krill:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4904 pick=0.2294 matches=179846 days=14
+    after win=0.5055 pick=0.2426 matches=185580 days=14
+  }
+  high {
+    before win=0.5 pick=0.2698 matches=34773 days=14
+    after win=0.503 pick=0.2869 matches=39950 days=14
+  }
+}
+``
 [[/hero/mo-krill]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]] Mo & Krill patch history))
 ## [[/hero/mo-krill]]((Mo & Krill))
 ==ability:burrow:
@@ -226,6 +406,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =hero:paige:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5094 pick=0.4089 matches=320476 days=14
+    after win=0.5089 pick=0.3445 matches=263505 days=14
+  }
+  high {
+    before win=0.4918 pick=0.3012 matches=38818 days=14
+    after win=0.4926 pick=0.2655 matches=36967 days=14
+  }
+}
+``
 [[/hero/paige]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bookworm_sm.webp]] Paige patch history))
 ## [[/hero/paige]]((Paige))
 - Stamina increased from 2 to 3
@@ -246,6 +438,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =hero:paradox:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4731 pick=0.2498 matches=195829 days=14
+    after win=0.4821 pick=0.2782 matches=212784 days=14
+  }
+  high {
+    before win=0.4799 pick=0.2974 matches=38324 days=14
+    after win=0.491 pick=0.3584 matches=49902 days=14
+  }
+}
+``
 [[/hero/paradox]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox patch history))
 ## [[/hero/paradox]]((Paradox))
 ==ability:kinetic-carbine:
@@ -266,6 +470,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =hero:pocket:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4803 pick=0.2079 matches=162993 days=14
+    after win=0.4871 pick=0.2486 matches=190149 days=14
+  }
+  high {
+    before win=0.4925 pick=0.2375 matches=30609 days=14
+    after win=0.4971 pick=0.3 matches=41772 days=14
+  }
+}
+``
 [[/hero/pocket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket patch history))
 ## [[/hero/pocket]]((Pocket))
 ==ability:enchanter-s-satchel:
@@ -281,6 +497,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =hero:rem:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4683 pick=0.5326 matches=417499 days=14
+    after win=0.4564 pick=0.3918 matches=299661 days=14
+  }
+  high {
+    before win=0.4566 pick=0.3403 matches=43854 days=14
+    after win=0.4529 pick=0.243 matches=33844 days=14
+  }
+}
+``
 [[/hero/rem]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/familiar_sm.webp]] Rem patch history))
 ## [[/hero/rem]]((Rem))
 ==ability:naptime:
@@ -296,6 +524,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =hero:shiv:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4724 pick=0.3147 matches=246696 days=14
+    after win=0.4659 pick=0.3273 matches=250361 days=14
+  }
+  high {
+    before win=0.4732 pick=0.4398 matches=56682 days=14
+    after win=0.465 pick=0.428 matches=59604 days=14
+  }
+}
+``
 [[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
 ## [[/hero/shiv]]((Shiv))
 - Alt fire knockback reduced by 10%
@@ -308,6 +548,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =hero:silver:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4845 pick=0.3248 matches=254547 days=14
+    after win=0.4828 pick=0.3625 matches=277283 days=14
+  }
+  high {
+    before win=0.496 pick=0.309 matches=39828 days=14
+    after win=0.4952 pick=0.3362 matches=46816 days=14
+  }
+}
+``
 [[/hero/silver]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/werewolf_sm.webp]] Silver patch history))
 ## [[/hero/silver]]((Silver))
 ==ability:boot-kick:
@@ -323,6 +575,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =hero:venator:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4696 pick=0.4172 matches=327036 days=14
+    after win=0.4397 pick=0.3945 matches=301760 days=14
+  }
+  high {
+    before win=0.4762 pick=0.4563 matches=58811 days=14
+    after win=0.4393 pick=0.3796 matches=52856 days=14
+  }
+}
+``
 [[/hero/venator]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/priest_sm.webp]] Venator patch history))
 ## [[/hero/venator]]((Venator))
 ==ability:gutshot:
@@ -334,6 +598,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =hero:victor:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5264 pick=0.2494 matches=195480 days=14
+    after win=0.5591 pick=0.3671 matches=280765 days=14
+  }
+  high {
+    before win=0.4998 pick=0.178 matches=22941 days=14
+    after win=0.5535 pick=0.3425 matches=47689 days=14
+  }
+}
+``
 [[/hero/victor]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/frank_sm.webp]] Victor patch history))
 ## [[/hero/victor]]((Victor))
 ==ability:aura-of-suffering:
@@ -349,6 +625,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =hero:viscous:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4584 pick=0.171 matches=134048 days=14
+    after win=0.4682 pick=0.1807 matches=138236 days=14
+  }
+  high {
+    before win=0.4544 pick=0.1709 matches=22021 days=14
+    after win=0.4724 pick=0.1961 matches=27306 days=14
+  }
+}
+``
 [[/hero/viscous]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous patch history))
 ## [[/hero/viscous]]((Viscous))
 ==ability:goo-ball:
@@ -364,6 +652,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =hero:vyper:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5126 pick=0.2371 matches=185832 days=14
+    after win=0.4873 pick=0.1772 matches=135533 days=14
+  }
+  high {
+    before win=0.5425 pick=0.2504 matches=32269 days=14
+    after win=0.5202 pick=0.1728 matches=24059 days=14
+  }
+}
+``
 [[/hero/vyper]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kali_sm.webp]] Vyper patch history))
 ## [[/hero/vyper]]((Vyper))
 ==ability:lethal-venom:
@@ -387,6 +687,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 ``
 
 =item:active-reload:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5055 pick=0.062 matches=583468 days=14
+    after win=0.5111 pick=0.0652 matches=598268 days=14
+  }
+  high {
+    before win=0.4949 pick=0.0551 matches=85142 days=14
+    after win=0.5011 pick=0.0621 matches=103723 days=14
+  }
+}
+``
 [[/item/active-reload]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/active_reload.webp]] Active Reload patch history))
 ## [[/item/active-reload]]((Active Reload))
 - Fire Rate increased from +22% to +25%
@@ -394,18 +706,54 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =item:alchemical-fire:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4904 pick=0.016 matches=150576 days=14
+    after win=0.4942 pick=0.0148 matches=135460 days=14
+  }
+  high {
+    before win=0.4955 pick=0.0185 matches=28589 days=14
+    after win=0.4949 pick=0.0167 matches=27873 days=14
+  }
+}
+``
 [[/item/alchemical-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/alchemical_fire.webp]] Alchemical Fire patch history))
 ## [[/item/alchemical-fire]]((Alchemical Fire))
 - Spirit Power increased from +8 to +10
 =
 
 =item:arctic-blast:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5457 pick=0.0385 matches=361991 days=14
+    after win=0.543 pick=0.0444 matches=407655 days=14
+  }
+  high {
+    before win=0.5595 pick=0.0322 matches=49761 days=14
+    after win=0.555 pick=0.0395 matches=66085 days=14
+  }
+}
+``
 [[/item/arctic-blast]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/arctic_blast.webp]] Arctic Blast patch history))
 ## [[/item/arctic-blast]]((Arctic Blast))
 - Damage Height increased from 3.5m to 5m
 =
 
 =item:blood-tribute:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5441 pick=0.0112 matches=105381 days=14
+    after win=0.55 pick=0.0117 matches=107411 days=14
+  }
+  high {
+    before win=0.5488 pick=0.0156 matches=24182 days=14
+    after win=0.5635 pick=0.0167 matches=27976 days=14
+  }
+}
+``
 [[/item/blood-tribute]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/blood_tribute.webp]] Blood Tribute patch history))
 ## [[/item/blood-tribute]]((Blood Tribute))
 - Now has an innate 8% Debuff Resistance
@@ -413,24 +761,72 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =item:bullet-lifesteal:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5139 pick=0.2005 matches=1885683 days=14
+    after win=0.5115 pick=0.1888 matches=1732761 days=14
+  }
+  high {
+    before win=0.5234 pick=0.1953 matches=301969 days=14
+    after win=0.5202 pick=0.1791 matches=299282 days=14
+  }
+}
+``
 [[/item/bullet-lifesteal]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/bullet_lifesteal.webp]] Bullet Lifesteal patch history))
 ## [[/item/bullet-lifesteal]]((Bullet Lifesteal))
 - Lifesteal reduced from 16% to 13%
 =
 
 =item:bullet-resilience:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4594 pick=0.0548 matches=515688 days=14
+    after win=0.4658 pick=0.0508 matches=466386 days=14
+  }
+  high {
+    before win=0.4735 pick=0.0464 matches=71760 days=14
+    after win=0.4717 pick=0.0395 matches=66078 days=14
+  }
+}
+``
 [[/item/bullet-resilience]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/bullet_resilience.webp]] Bullet Resilience patch history))
 ## [[/item/bullet-resilience]]((Bullet Resilience))
 - Now grants +3 Out of Combat Regen
 =
 
 =item:cold-front:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4934 pick=0.1354 matches=1273388 days=14
+    after win=0.4966 pick=0.1446 matches=1326819 days=14
+  }
+  high {
+    before win=0.4949 pick=0.16 matches=247402 days=14
+    after win=0.4982 pick=0.1691 matches=282581 days=14
+  }
+}
+``
 [[/item/cold-front]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/cold_front.webp]] Cold Front patch history))
 ## [[/item/cold-front]]((Cold Front))
 - Damage Height increased from 3.5m to 5m
 =
 
 =item:colossus:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5737 pick=0.0189 matches=177749 days=14
+    after win=0.5817 pick=0.0265 matches=243007 days=14
+  }
+  high {
+    before win=0.6116 pick=0.0134 matches=20777 days=14
+    after win=0.6007 pick=0.0251 matches=41859 days=14
+  }
+}
+``
 [[/item/colossus]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/colossus.webp]] Colossus patch history))
 ## [[/item/colossus]]((Colossus))
 - No longer grants +300 Bonus Health
@@ -438,6 +834,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =item:counterspell:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4933 pick=0.0816 matches=767947 days=14
+    after win=0.488 pick=0.0667 matches=611824 days=14
+  }
+  high {
+    before win=0.4989 pick=0.1203 matches=186107 days=14
+    after win=0.496 pick=0.0949 matches=158535 days=14
+  }
+}
+``
 [[/item/counterspell]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/counterspell.webp]] Counterspell patch history))
 ## [[/item/counterspell]]((Counterspell))
 - Cooldown increased from 20s to 23s
@@ -445,12 +853,36 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =item:dispel-magic:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5056 pick=0.1416 matches=1332228 days=14
+    after win=0.4995 pick=0.1323 matches=1214044 days=14
+  }
+  high {
+    before win=0.5119 pick=0.2366 matches=365923 days=14
+    after win=0.5043 pick=0.2083 matches=348127 days=14
+  }
+}
+``
 [[/item/dispel-magic]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/debuff_remover.webp]] Dispel Magic patch history))
 ## [[/item/dispel-magic]]((Dispel Magic))
 - Spirit Resistance reduced from 16% to 10%
 =
 
 =item:frenzy:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.6067 pick=0.0122 matches=114619 days=14
+    after win=0.6114 pick=0.0157 matches=144444 days=14
+  }
+  high {
+    before win=0.6297 pick=0.0086 matches=13364 days=14
+    after win=0.6475 pick=0.0136 matches=22653 days=14
+  }
+}
+``
 [[/item/frenzy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/frenzy.webp]] Frenzy patch history))
 ## [[/item/frenzy]]((Frenzy))
 - No longer grants +20% Spirit Resistance when below 50% Health
@@ -465,12 +897,36 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =item:fury-trance:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5016 pick=0.016 matches=150574 days=14
+    after win=0.5167 pick=0.0181 matches=165997 days=14
+  }
+  high {
+    before win=0.4834 pick=0.0176 matches=27151 days=14
+    after win=0.4969 pick=0.0196 matches=32737 days=14
+  }
+}
+``
 [[/item/fury-trance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/fury_trance.webp]] Fury Trance patch history))
 ## [[/item/fury-trance]]((Fury Trance))
 - Lifesteal reduced from 18% to 14%
 =
 
 =item:heroic-aura:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5235 pick=0.0175 matches=165073 days=14
+    after win=0.5453 pick=0.0221 matches=202512 days=14
+  }
+  high {
+    before win=0.5335 pick=0.0165 matches=25536 days=14
+    after win=0.5551 pick=0.0232 matches=38847 days=14
+  }
+}
+``
 [[/item/heroic-aura]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/heroic_aura.webp]] Heroic Aura patch history))
 ## [[/item/heroic-aura]]((Heroic Aura))
 - Cooldown reduced from 25s to 22s
@@ -478,6 +934,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =item:infuser:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5739 pick=0.0453 matches=425875 days=14
+    after win=0.5631 pick=0.0456 matches=418863 days=14
+  }
+  high {
+    before win=0.5824 pick=0.0382 matches=59079 days=14
+    after win=0.5635 pick=0.0314 matches=52548 days=14
+  }
+}
+``
 [[/item/infuser]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/infuser.webp]] Infuser patch history))
 ## [[/item/infuser]]((Infuser))
 - Lifesteal reduced from 16% to 13%
@@ -485,12 +953,36 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =item:inhibitor:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5819 pick=0.0571 matches=537035 days=14
+    after win=0.5697 pick=0.0519 matches=476583 days=14
+  }
+  high {
+    before win=0.5982 pick=0.0536 matches=82868 days=14
+    after win=0.5824 pick=0.0447 matches=74771 days=14
+  }
+}
+``
 [[/item/inhibitor]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/inhibitor.webp]] Inhibitor patch history))
 ## [[/item/inhibitor]]((Inhibitor))
 - Weapon Damage reduced from 25% to 10%
 =
 
 =item:leech:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5578 pick=0.1398 matches=1315215 days=14
+    after win=0.5562 pick=0.1261 matches=1157133 days=14
+  }
+  high {
+    before win=0.5793 pick=0.0932 matches=144115 days=14
+    after win=0.5775 pick=0.0815 matches=136240 days=14
+  }
+}
+``
 [[/item/leech]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/leech.webp]] Leech patch history))
 ## [[/item/leech]]((Leech))
 - Bonus Health increased from 120 to 160 (the sum of the two components)
@@ -498,6 +990,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =item:mystic-reverb:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5788 pick=0.0983 matches=924503 days=14
+    after win=0.5748 pick=0.1098 matches=1007470 days=14
+  }
+  high {
+    before win=0.582 pick=0.0848 matches=131176 days=14
+    after win=0.5793 pick=0.0936 matches=156350 days=14
+  }
+}
+``
 [[/item/mystic-reverb]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mystic_reverb.webp]] Mystic Reverb patch history))
 ## [[/item/mystic-reverb]]((Mystic Reverb))
 - Lifesteal reduced from 10% to 8%
@@ -505,6 +1009,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =item:opening-rounds:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4981 pick=0.0928 matches=873201 days=14
+    after win=0.4999 pick=0.1837 matches=1685705 days=14
+  }
+  high {
+    before win=0.5036 pick=0.1033 matches=159791 days=14
+    after win=0.506 pick=0.226 matches=377593 days=14
+  }
+}
+``
 [[/item/opening-rounds]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/opening_rounds.webp]] Opening Rounds patch history))
 ## [[/item/opening-rounds]]((Opening Rounds))
 - Weapon Damage reduced from +45% to +30%
@@ -513,6 +1029,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =item:reactive-barrier:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.484 pick=0.0499 matches=469484 days=14
+    after win=0.5002 pick=0.1238 matches=1135962 days=14
+  }
+  high {
+    before win=0.5005 pick=0.0626 matches=96777 days=14
+    after win=0.5103 pick=0.1534 matches=256294 days=14
+  }
+}
+``
 [[/item/reactive-barrier]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/reactive_barrier.webp]] Reactive Barrier patch history))
 ## [[/item/reactive-barrier]]((Reactive Barrier))
 - No longer restores 1 stamina on trigger
@@ -523,12 +1051,36 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =item:rescue-beam:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4997 pick=0.0281 matches=264347 days=14
+    after win=0.5005 pick=0.0262 matches=240712 days=14
+  }
+  high {
+    before win=0.4954 pick=0.0332 matches=51301 days=14
+    after win=0.4979 pick=0.0294 matches=49101 days=14
+  }
+}
+``
 [[/item/rescue-beam]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/rescue_beam.webp]] Rescue Beam patch history))
 ## [[/item/rescue-beam]]((Rescue Beam))
 - Cast range increased from 32m to 35m
 =
 
 =item:restorative-locket:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5115 pick=0.0636 matches=598407 days=14
+    after win=0.5054 pick=0.0791 matches=725843 days=14
+  }
+  high {
+    before win=0.5195 pick=0.1118 matches=172838 days=14
+    after win=0.5124 pick=0.103 matches=172157 days=14
+  }
+}
+``
 [[/item/restorative-locket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/restorative_locket.webp]] Restorative Locket patch history))
 ## [[/item/restorative-locket]]((Restorative Locket))
 - Max Stacks increased from 20 to 25 (max stamina restore happens at 25 stacks now)
@@ -536,6 +1088,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =item:return-fire:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4093 pick=0.007 matches=65608 days=14
+    after win=0.4501 pick=0.0119 matches=109619 days=14
+  }
+  high {
+    before win=0.4251 pick=0.0116 matches=17987 days=14
+    after win=0.4626 pick=0.0221 matches=36910 days=14
+  }
+}
+``
 [[/item/return-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/return_fire.webp]] Return Fire patch history))
 ## [[/item/return-fire]]((Return Fire))
 - Bullet Resistance increased from 8% to 10%
@@ -543,6 +1107,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =item:scourge:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5869 pick=0.0115 matches=108463 days=14
+    after win=0.6 pick=0.0136 matches=125231 days=14
+  }
+  high {
+    before win=0.6021 pick=0.0127 matches=19601 days=14
+    after win=0.6091 pick=0.0162 matches=27050 days=14
+  }
+}
+``
 [[/item/scourge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/scourge.webp]] Scourge patch history))
 ## [[/item/scourge]]((Scourge))
 - No longer grants -4% Cooldown Reduction
@@ -550,6 +1126,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =item:shadow-weave:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.6013 pick=0.0026 matches=24521 days=14
+    after win=0.5189 pick=0.0178 matches=163666 days=14
+  }
+  high {
+    before win=0.6347 pick=0.0025 matches=3832 days=14
+    after win=0.5246 pick=0.028 matches=46707 days=14
+  }
+}
+``
 [[/item/shadow-weave]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/shadow_weave.webp]] Shadow Weave patch history))
 ## [[/item/shadow-weave]]((Shadow Weave))
 - Moved from T4 to T3
@@ -564,42 +1152,126 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =item:spirit-burn:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5855 pick=0.1289 matches=1212490 days=14
+    after win=0.5823 pick=0.151 matches=1385876 days=14
+  }
+  high {
+    before win=0.5924 pick=0.1005 matches=155453 days=14
+    after win=0.5885 pick=0.1309 matches=218690 days=14
+  }
+}
+``
 [[/item/spirit-burn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/spirit_burn.webp]] Spirit Burn patch history))
 ## [[/item/spirit-burn]]((Spirit Burn))
 - DPS Spirit scaling increased from 0.05 to 0.06
 =
 
 =item:spirit-lifesteal:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5264 pick=0.2383 matches=2241731 days=14
+    after win=0.5248 pick=0.2185 matches=2005176 days=14
+  }
+  high {
+    before win=0.5314 pick=0.2002 matches=309650 days=14
+    after win=0.5266 pick=0.1688 matches=282073 days=14
+  }
+}
+``
 [[/item/spirit-lifesteal]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/spirit_lifesteal.webp]] Spirit Lifesteal patch history))
 ## [[/item/spirit-lifesteal]]((Spirit Lifesteal))
 - Lifesteal reduced from 16% to 13%
 =
 
 =item:spirit-rend:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5144 pick=0.0487 matches=457829 days=14
+    after win=0.5134 pick=0.0557 matches=510849 days=14
+  }
+  high {
+    before win=0.5346 pick=0.0419 matches=64767 days=14
+    after win=0.5299 pick=0.0475 matches=79418 days=14
+  }
+}
+``
 [[/item/spirit-rend]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/spellslinger_headshots.webp]] Spirit Rend patch history))
 ## [[/item/spirit-rend]]((Spirit Rend))
 - Lifesteal reduced from 12% to 10%
 =
 
 =item:spirit-resilience:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4984 pick=0.2186 matches=2056209 days=14
+    after win=0.4953 pick=0.2118 matches=1944063 days=14
+  }
+  high {
+    before win=0.5029 pick=0.2201 matches=340347 days=14
+    after win=0.4977 pick=0.2087 matches=348818 days=14
+  }
+}
+``
 [[/item/spirit-resilience]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/spirit_resilience.webp]] Spirit Resilience patch history))
 ## [[/item/spirit-resilience]]((Spirit Resilience))
 - Now grants +3 Out of Combat Regen
 =
 
 =item:spirit-shredder-bullets:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5125 pick=0.0724 matches=681438 days=14
+    after win=0.5115 pick=0.0786 matches=721226 days=14
+  }
+  high {
+    before win=0.5218 pick=0.0775 matches=119903 days=14
+    after win=0.521 pick=0.0837 matches=139818 days=14
+  }
+}
+``
 [[/item/spirit-shredder-bullets]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/spirit_shredder_bullets.webp]] Spirit Shredder Bullets patch history))
 ## [[/item/spirit-shredder-bullets]]((Spirit Shredder Bullets))
 - Lifesteal reduced from 12% to 10%
 =
 
 =item:spirit-snatch:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4947 pick=0.0611 matches=574318 days=14
+    after win=0.5051 pick=0.0711 matches=652494 days=14
+  }
+  high {
+    before win=0.5004 pick=0.0566 matches=87544 days=14
+    after win=0.5091 pick=0.0716 matches=119707 days=14
+  }
+}
+``
 [[/item/spirit-snatch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/spirit_snatch.webp]] Spirit Snatch patch history))
 ## [[/item/spirit-snatch]]((Spirit Snatch))
 - Spirit Power Steal increased from 15 to 20
 =
 
 =item:spiritual-overflow:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.6053 pick=0.0357 matches=335903 days=14
+    after win=0.6037 pick=0.0427 matches=392275 days=14
+  }
+  high {
+    before win=0.6281 pick=0.0276 matches=42744 days=14
+    after win=0.6238 pick=0.0362 matches=60546 days=14
+  }
+}
+``
 [[/item/spiritual-overflow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/spiritual_overflow.webp]] Spiritual Overflow patch history))
 ## [[/item/spiritual-overflow]]((Spiritual Overflow))
 - No longer grants +15% Spirit Lifesteal as base stat
@@ -610,6 +1282,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =item:split-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5095 pick=0.0306 matches=287755 days=14
+    after win=0.5022 pick=0.026 matches=238224 days=14
+  }
+  high {
+    before win=0.5314 pick=0.0258 matches=39948 days=14
+    after win=0.515 pick=0.0205 matches=34312 days=14
+  }
+}
+``
 [[/item/split-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/split_shot.webp]] Split Shot patch history))
 ## [[/item/split-shot]]((Split Shot))
 - Max Stacks reduced from 6 to 5
@@ -618,6 +1302,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =item:suppressor:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5053 pick=0.0308 matches=290065 days=14
+    after win=0.5171 pick=0.0416 matches=381473 days=14
+  }
+  high {
+    before win=0.5048 pick=0.0333 matches=51492 days=14
+    after win=0.5202 pick=0.0487 matches=81297 days=14
+  }
+}
+``
 [[/item/suppressor]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/suppressor.webp]] Suppressor patch history))
 ## [[/item/suppressor]]((Suppressor))
 - No longer grants +50 Bonus Health
@@ -625,6 +1321,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =item:trophy-collector:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5122 pick=0.0515 matches=484591 days=14
+    after win=0.5102 pick=0.2238 matches=2053984 days=14
+  }
+  high {
+    before win=0.4951 pick=0.0371 matches=57398 days=14
+    after win=0.5048 pick=0.2794 matches=466938 days=14
+  }
+}
+``
 [[/item/trophy-collector]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/trophy_collector.webp]] Trophy Collector patch history))
 ## [[/item/trophy-collector]]((Trophy Collector))
 - Moved from T3 Item to T2
@@ -636,6 +1344,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =item:vampiric-burst:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5424 pick=0.0917 matches=862897 days=14
+    after win=0.5351 pick=0.0896 matches=822733 days=14
+  }
+  high {
+    before win=0.5542 pick=0.0921 matches=142466 days=14
+    after win=0.5481 pick=0.089 matches=148710 days=14
+  }
+}
+``
 [[/item/vampiric-burst]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/vampiric_burst.webp]] Vampiric Burst patch history))
 ## [[/item/vampiric-burst]]((Vampiric Burst))
 - Lifesteal reduced from 16% to 13%
@@ -643,6 +1363,18 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =item:veil-walker:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4965 pick=0.0086 matches=81076 days=14
+    after win=0.4894 pick=0.0134 matches=122990 days=14
+  }
+  high {
+    before win=0.5033 pick=0.0095 matches=14700 days=14
+    after win=0.4877 pick=0.0158 matches=26464 days=14
+  }
+}
+``
 [[/item/veil-walker]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/veil_walker.webp]] Veil Walker patch history))
 ## [[/item/veil-walker]]((Veil Walker))
 - Now upgrades from Sprint Boots (includes it's stats)

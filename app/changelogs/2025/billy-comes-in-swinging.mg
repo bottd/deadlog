@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "Billy Comes in Swinging"
 steam_gid "1808601382422164"
 published "2025-08-20T21:00:31.000Z"

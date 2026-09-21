@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { EntityImpact } from '@deadlog/stats';
+	import type { EntityImpact } from '@deadlog/utils';
 	import { impactLines } from '$lib/utils/impactFormat';
 
 	let { impact }: { impact: EntityImpact } = $props();

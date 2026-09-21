@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "Graves Prefers The Dead"
 steam_gid "1823191198603629"
 published "2026-01-29T22:00:06.000Z"

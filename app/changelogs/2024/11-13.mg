@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "11-13-2024 Update"
 thread_id "46391"
 published "2024-11-13T17:10:08-0800"
@@ -24,6 +24,18 @@ content_text "Troopers now do 20% more damage to each other Soul Sharing ratios 
 ``
 
 =hero:haze:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5037 pick=0.9144 matches=215627 days=3
+    after win=0.5057 pick=0.9223 matches=157190 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 ==ability:bullet-dance:
@@ -34,6 +46,18 @@ content_text "Troopers now do 20% more damage to each other Soul Sharing ratios 
 =
 
 =hero:paradox:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.487 pick=0.4979 matches=117419 days=3
+    after win=0.492 pick=0.4903 matches=83561 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/paradox]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox patch history))
 ## [[/hero/paradox]]((Paradox))
 ==ability:time-wall-time-stop:
@@ -49,6 +73,18 @@ content_text "Troopers now do 20% more damage to each other Soul Sharing ratios 
 =
 
 =hero:vindicta:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4776 pick=0.6563 matches=154765 days=3
+    after win=0.4833 pick=0.633 matches=107889 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
 ==ability:assassinate:
@@ -59,6 +95,18 @@ content_text "Troopers now do 20% more damage to each other Soul Sharing ratios 
 =
 
 =hero:yamato:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5335 pick=0.6552 matches=154495 days=3
+    after win=0.5236 pick=0.5814 matches=99091 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 ==ability:shadow-transformation:

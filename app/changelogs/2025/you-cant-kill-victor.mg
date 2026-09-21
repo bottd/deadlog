@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "You Can't Kill Victor"
 steam_gid "1809235871630816"
 published "2025-08-29T21:00:02.000Z"

@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "01-30-2026 Update"
 thread_id "102822"
 published "2026-01-30T15:57:51-0800"
@@ -50,6 +50,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 ``
 
 =hero:abrams:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5126 pick=0.3761 matches=30988 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5137 pick=0.4533 matches=4664 days=2
+  }
+}
+``
 [[/hero/abrams]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams patch history))
 ## [[/hero/abrams]]((Abrams))
 - Gun Falloff range reduced from 20m-46m to 17m-40m
@@ -133,6 +145,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =hero:bebop:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5385 pick=0.4944 matches=40743 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5259 pick=0.6165 matches=6344 days=2
+  }
+}
+``
 [[/hero/bebop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop patch history))
 ## [[/hero/bebop]]((Bebop))
 ==ability:exploding-uppercut:
@@ -177,6 +201,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =hero:billy:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4699 pick=0.4164 matches=34315 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4663 pick=0.2753 matches=2833 days=2
+  }
+}
+``
 [[/hero/billy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/punkgoat_sm.webp]] Billy patch history))
 ## [[/hero/billy]]((Billy))
 - Bullet damage growth reduced from 0.18 to 0.165
@@ -200,6 +236,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =hero:calico:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5048 pick=0.2734 matches=22528 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5101 pick=0.3702 matches=3809 days=2
+  }
+}
+``
 [[/hero/calico]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp]] Calico patch history))
 ## [[/hero/calico]]((Calico))
 ==ability:return-to-shadows:
@@ -270,6 +318,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =hero:drifter:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5221 pick=0.4374 matches=36043 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5448 pick=0.4331 matches=4457 days=2
+  }
+}
+``
 [[/hero/drifter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/drifter_sm.webp]] Drifter patch history))
 ## [[/hero/drifter]]((Drifter))
 ==ability:bloodscent-isolation-range:
@@ -296,6 +356,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =hero:dynamo:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5175 pick=0.3403 matches=28040 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5154 pick=0.2743 matches=2823 days=2
+  }
+}
+``
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 ==ability:rejuvenating-aurora:
@@ -311,6 +383,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =hero:graves:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.556 pick=0.9751 matches=80351 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5364 pick=0.9939 matches=10227 days=2
+  }
+}
+``
 [[/hero/graves]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/necro_sm.webp]] Graves patch history))
 ## [[/hero/graves]]((Graves))
 ==ability:borrowed-decree:
@@ -372,6 +456,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =hero:grey-talon:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4797 pick=0.2112 matches=17405 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4776 pick=0.2776 matches=2856 days=2
+  }
+}
+``
 [[/hero/grey-talon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon patch history))
 ## [[/hero/grey-talon]]((Grey Talon))
 ==ability:rain-of-arrows:
@@ -393,6 +489,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =hero:holliday:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4597 pick=0.2015 matches=16607 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4655 pick=0.2125 matches=2187 days=2
+  }
+}
+``
 [[/hero/holliday]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]] Holliday patch history))
 ## [[/hero/holliday]]((Holliday))
 ==ability:crackshot-spirit-scaling:
@@ -408,6 +516,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =hero:ivy:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5265 pick=0.2752 matches=22678 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5296 pick=0.2859 matches=2942 days=2
+  }
+}
+``
 [[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
 ## [[/hero/ivy]]((Ivy))
 - No longer has reduced melee damage
@@ -419,6 +539,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =hero:kelvin:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4841 pick=0.1445 matches=11905 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4977 pick=0.1289 matches=1326 days=2
+  }
+}
+``
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 ==ability:ice-path:
@@ -436,6 +568,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =hero:lash:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5267 pick=0.4128 matches=34016 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5256 pick=0.6004 matches=6178 days=2
+  }
+}
+``
 [[/hero/lash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp]] Lash patch history))
 ## [[/hero/lash]]((Lash))
 ==ability:ground-strike:
@@ -467,6 +611,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =hero:mcginnis:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4919 pick=0.263 matches=21673 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5097 pick=0.1645 matches=1693 days=2
+  }
+}
+``
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 ==ability:mini-turret:
@@ -482,6 +638,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =hero:mina:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4376 pick=0.5221 matches=43026 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4504 pick=0.3819 matches=3930 days=2
+  }
+}
+``
 [[/hero/mina]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/vampirebat_sm.webp]] Mina patch history))
 ## [[/hero/mina]]((Mina))
 - Move speed reduced from 6.6 to 6.5
@@ -500,6 +668,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =hero:mirage:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4647 pick=0.1571 matches=12948 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.461 pick=0.1619 matches=1666 days=2
+  }
+}
+``
 [[/hero/mirage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage patch history))
 ## [[/hero/mirage]]((Mirage))
 ==ability:traveler-cooldown:
@@ -510,6 +690,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =hero:paige:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5354 pick=0.5018 matches=41350 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5566 pick=0.3939 matches=4053 days=2
+  }
+}
+``
 [[/hero/paige]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bookworm_sm.webp]] Paige patch history))
 ## [[/hero/paige]]((Paige))
 - Defend and Fight barrier reduced from 150 to 125
@@ -521,6 +713,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =hero:rem:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4777 pick=0.8986 matches=74049 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4368 pick=0.94 matches=9673 days=2
+  }
+}
+``
 [[/hero/rem]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/familiar_sm.webp]] Rem patch history))
 ## [[/hero/rem]]((Rem))
 ==ability:pillow-toss:
@@ -571,6 +775,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =hero:seven:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.54 pick=0.3941 matches=32472 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5284 pick=0.2955 matches=3041 days=2
+  }
+}
+``
 [[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
 ## [[/hero/seven]]((Seven))
 ==ability:storm-cloud:
@@ -581,6 +797,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =hero:shiv:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4447 pick=0.2862 matches=23586 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4456 pick=0.4442 matches=4571 days=2
+  }
+}
+``
 [[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
 ## [[/hero/shiv]]((Shiv))
 ==ability:serrated-knives:
@@ -717,6 +945,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =hero:victor:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5454 pick=0.3555 matches=29294 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5273 pick=0.2704 matches=2782 days=2
+  }
+}
+``
 [[/hero/victor]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/frank_sm.webp]] Victor patch history))
 ## [[/hero/victor]]((Victor))
 ==ability:aura-of-suffering:
@@ -727,6 +967,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =hero:vindicta:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4653 pick=0.3391 matches=27944 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4815 pick=0.2909 matches=2993 days=2
+  }
+}
+``
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
 ==ability:stake-tether-length:
@@ -743,6 +995,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =hero:viscous:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4743 pick=0.2306 matches=19001 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4908 pick=0.2214 matches=2278 days=2
+  }
+}
+``
 [[/hero/viscous]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous patch history))
 ## [[/hero/viscous]]((Viscous))
 - Spirit per boon increased from 1.1 to 1.3
@@ -760,6 +1024,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =hero:vyper:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.468 pick=0.1988 matches=16385 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4793 pick=0.1736 matches=1786 days=2
+  }
+}
+``
 [[/hero/vyper]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kali_sm.webp]] Vyper patch history))
 ## [[/hero/vyper]]((Vyper))
 ==ability:lethal-venom-max-venom:
@@ -791,6 +1067,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =hero:warden:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4919 pick=0.3022 matches=24901 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4902 pick=0.2924 matches=3009 days=2
+  }
+}
+``
 [[/hero/warden]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden patch history))
 ## [[/hero/warden]]((Warden))
 - Bullet damage growth reduced from 0.47 to 0.44
@@ -808,6 +1096,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 ``
 
 =item:alchemical-fire:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5163 pick=0.0324 matches=32085 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5169 pick=0.04 matches=4941 days=2
+  }
+}
+``
 [[/item/alchemical-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/alchemical_fire.webp]] Alchemical Fire patch history))
 ## [[/item/alchemical-fire]]((Alchemical Fire))
 - Bullet Resist Reduction reduced from -8% to -7%
@@ -816,6 +1116,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =item:arctic-blast:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5285 pick=0.0545 matches=53858 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5311 pick=0.0697 matches=8612 days=2
+  }
+}
+``
 [[/item/arctic-blast]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/arctic_blast.webp]] Arctic Blast patch history))
 ## [[/item/arctic-blast]]((Arctic Blast))
 - Vertical hitbox increased from 2.5m to 3.5m
@@ -823,6 +1135,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =item:bullet-resilience:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4755 pick=0.046 matches=45532 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4994 pick=0.0434 matches=5362 days=2
+  }
+}
+``
 [[/item/bullet-resilience]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/bullet_resilience.webp]] Bullet Resilience patch history))
 ## [[/item/bullet-resilience]]((Bullet Resilience))
 - Low HP threshold increased from 30% to 35% health
@@ -831,6 +1155,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =item:bullet-resist-shredder:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5096 pick=0.1042 matches=103044 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5272 pick=0.116 matches=14324 days=2
+  }
+}
+``
 [[/item/bullet-resist-shredder]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/bullet_resist_shredder.webp]] Bullet Resist Shredder patch history))
 ## [[/item/bullet-resist-shredder]]((Bullet Resist Shredder))
 - Bullet Resistance increased from 7% to 8%
@@ -838,6 +1174,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =item:capacitor:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5254 pick=0.0607 matches=60017 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5309 pick=0.0665 matches=8214 days=2
+  }
+}
+``
 [[/item/capacitor]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/capacitor.webp]] Capacitor patch history))
 ## [[/item/capacitor]]((Capacitor))
 - Debuff duration reduced from 4s to 3s
@@ -845,6 +1193,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =item:cold-front:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4933 pick=0.121 matches=119665 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4961 pick=0.1589 matches=19621 days=2
+  }
+}
+``
 [[/item/cold-front]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/cold_front.webp]] Cold Front patch history))
 ## [[/item/cold-front]]((Cold Front))
 - Vertical hitbox increased from 2.5m to 3.5m
@@ -852,6 +1212,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =item:debuff-reducer:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5012 pick=0.0649 matches=64154 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5239 pick=0.1124 matches=13875 days=2
+  }
+}
+``
 [[/item/debuff-reducer]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/debuff_reducer.webp]] Debuff Reducer patch history))
 ## [[/item/debuff-reducer]]((Debuff Reducer))
 - Debuff Resistance increased from 20% to 25%
@@ -859,6 +1231,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =item:dispel-magic:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4848 pick=0.0781 matches=77248 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4959 pick=0.1255 matches=15502 days=2
+  }
+}
+``
 [[/item/dispel-magic]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/debuff_remover.webp]] Dispel Magic patch history))
 ## [[/item/dispel-magic]]((Dispel Magic))
 - No longer builds from Debuff Reducer
@@ -870,18 +1254,54 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =item:echo-shard:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5683 pick=0.0496 matches=49031 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5451 pick=0.0614 matches=7584 days=2
+  }
+}
+``
 [[/item/echo-shard]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/echo_shard.webp]] Echo Shard patch history))
 ## [[/item/echo-shard]]((Echo Shard))
 - Removed cast time
 =
 
 =item:extra-regen:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4971 pick=0.2247 matches=222161 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5023 pick=0.2191 matches=27056 days=2
+  }
+}
+``
 [[/item/extra-regen]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_regen.webp]] Extra Regen patch history))
 ## [[/item/extra-regen]]((Extra Regen))
 - Now provides +1 Out of Combat Regen
 =
 
 =item:fury-trance:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5099 pick=0.0346 matches=34258 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5332 pick=0.0404 matches=4994 days=2
+  }
+}
+``
 [[/item/fury-trance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/fury_trance.webp]] Fury Trance patch history))
 ## [[/item/fury-trance]]((Fury Trance))
 - Bullet Lifesteal reduced from 22% to 18%
@@ -889,30 +1309,90 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =item:glass-cannon:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5571 pick=0.0554 matches=54761 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5493 pick=0.0467 matches=5769 days=2
+  }
+}
+``
 [[/item/glass-cannon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/glass_cannon.webp]] Glass Cannon patch history))
 ## [[/item/glass-cannon]]((Glass Cannon))
 - Max Health penalty increased from -13% to -15%
 =
 
 =item:healing-booster:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5067 pick=0.16 matches=158257 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5021 pick=0.1578 matches=19479 days=2
+  }
+}
+``
 [[/item/healing-booster]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healing_booster.webp]] Healing Booster patch history))
 ## [[/item/healing-booster]]((Healing Booster))
 - Now provides +1 Out of Combat Regen
 =
 
 =item:healing-tempo:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5506 pick=0.0614 matches=60683 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.561 pick=0.0449 matches=5547 days=2
+  }
+}
+``
 [[/item/healing-tempo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healing_tempo.webp]] Healing Tempo patch history))
 ## [[/item/healing-tempo]]((Healing Tempo))
 - Now provides +4 Out of Combat Regen
 =
 
 =item:hollow-point:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5083 pick=0.0785 matches=77608 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5212 pick=0.0794 matches=9810 days=2
+  }
+}
+``
 [[/item/hollow-point]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/hollow_point.webp]] Hollow Point patch history))
 ## [[/item/hollow-point]]((Hollow Point))
 - Bullet Resist Reduction reduced from -12% to -9%
 =
 
 =item:inhibitor:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5795 pick=0.0257 matches=25451 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.588 pick=0.0321 matches=3968 days=2
+  }
+}
+``
 [[/item/inhibitor]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/inhibitor.webp]] Inhibitor patch history))
 ## [[/item/inhibitor]]((Inhibitor))
 - Weapon Damage increased from 15% to 22%
@@ -920,30 +1400,90 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =item:intensifying-magazine:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4902 pick=0.0502 matches=49652 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5032 pick=0.0402 matches=4964 days=2
+  }
+}
+``
 [[/item/intensifying-magazine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/intensifying_magazine.webp]] Intensifying Magazine patch history))
 ## [[/item/intensifying-magazine]]((Intensifying Magazine))
 - Time for Max Damage reduced from 3s to 2.5s
 =
 
 =item:kinetic-dash:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4933 pick=0.1569 matches=155160 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5017 pick=0.1903 matches=23495 days=2
+  }
+}
+``
 [[/item/kinetic-dash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/kinetic_dash.webp]] Kinetic Dash patch history))
 ## [[/item/kinetic-dash]]((Kinetic Dash))
 - Bonus ammo no longer scales with % increase
 =
 
 =item:lifestrike:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5113 pick=0.0795 matches=78562 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5304 pick=0.0744 matches=9182 days=2
+  }
+}
+``
 [[/item/lifestrike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/lifestrike.webp]] Lifestrike patch history))
 ## [[/item/lifestrike]]((Lifestrike))
 - Light Melee cooldown penalty reduced from 2x to 1.5x
 =
 
 =item:lightning-scroll:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5459 pick=0.0333 matches=32968 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.557 pick=0.0264 matches=3266 days=2
+  }
+}
+``
 [[/item/lightning-scroll]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/lightning_scroll.webp]] Lightning Scroll patch history))
 ## [[/item/lightning-scroll]]((Lightning Scroll))
 - Dash distance increased from -10% to -12%
 =
 
 =item:lucky-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5809 pick=0.0591 matches=58405 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.6028 pick=0.0518 matches=6399 days=2
+  }
+}
+``
 [[/item/lucky-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/lucky_shot.webp]] Lucky Shot patch history))
 ## [[/item/lucky-shot]]((Lucky Shot))
 - Ammo reduced from +40% to +30%
@@ -951,24 +1491,72 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =item:melee-lifesteal:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4992 pick=0.1149 matches=113572 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5215 pick=0.1089 matches=13449 days=2
+  }
+}
+``
 [[/item/melee-lifesteal]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/melee_lifesteal.webp]] Melee Lifesteal patch history))
 ## [[/item/melee-lifesteal]]((Melee Lifesteal))
 - Light Melee cooldown penalty reduced from 2x to 1.5x
 =
 
 =item:mercurial-magnum:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5341 pick=0.0926 matches=91604 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5367 pick=0.0843 matches=10406 days=2
+  }
+}
+``
 [[/item/mercurial-magnum]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mercurial_magnum.webp]] Mercurial Magnum patch history))
 ## [[/item/mercurial-magnum]]((Mercurial Magnum))
 - Bonus damage now has spirit scaling (0.16)
 =
 
 =item:metal-skin:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4243 pick=0.0374 matches=36981 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4213 pick=0.061 matches=7529 days=2
+  }
+}
+``
 [[/item/metal-skin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/metal_skin.webp]] Metal Skin patch history))
 ## [[/item/metal-skin]]((Metal Skin))
 - Cooldown increased from 20s to 24s
 =
 
 =item:mystic-regeneration:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4732 pick=0.0742 matches=73363 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4876 pick=0.0552 matches=6813 days=2
+  }
+}
+``
 [[/item/mystic-regeneration]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mystic_regen.webp]] Mystic Regeneration patch history))
 ## [[/item/mystic-regeneration]]((Mystic Regeneration))
 - Now provides +40 Health
@@ -983,6 +1571,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =item:mystic-slow:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5269 pick=0.0664 matches=65618 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5342 pick=0.0478 matches=5902 days=2
+  }
+}
+``
 [[/item/mystic-slow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mystic_slow.webp]] Mystic Slow patch history))
 ## [[/item/mystic-slow]]((Mystic Slow))
 - Dash distance increased from -10% to -12%
@@ -995,18 +1595,54 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =item:quicksilver-reload:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4939 pick=0.2173 matches=214881 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4996 pick=0.2063 matches=25472 days=2
+  }
+}
+``
 [[/item/quicksilver-reload]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/quicksilver_reload.webp]] Quicksilver Reload patch history))
 ## [[/item/quicksilver-reload]]((Quicksilver Reload))
 - Bonus damage now has spirit scaling (0.16)
 =
 
 =item:radiant-regeneration:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.495 pick=0.0628 matches=62127 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4902 pick=0.0524 matches=6469 days=2
+  }
+}
+``
 [[/item/radiant-regeneration]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/radiant_regeneration.webp]] Radiant Regeneration patch history))
 ## [[/item/radiant-regeneration]]((Radiant Regeneration))
 - Now provides +65 Health
 =
 
 =item:rapid-recharge:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5085 pick=0.3336 matches=329906 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4937 pick=0.2963 matches=36591 days=2
+  }
+}
+``
 [[/item/rapid-recharge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/rapid_recharge.webp]] Rapid Recharge patch history))
 ## [[/item/rapid-recharge]]((Rapid Recharge))
 - Bonus Spirit Power for Charged Abilities reduced from +16 to +10
@@ -1015,6 +1651,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =item:restorative-locket:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.477 pick=0.0083 matches=8253 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5072 pick=0.0124 matches=1536 days=2
+  }
+}
+``
 [[/item/restorative-locket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/restorative_locket.webp]] Restorative Locket patch history))
 ## [[/item/restorative-locket]]((Restorative Locket))
 - Cooldown reduced from 30s to 20s
@@ -1024,12 +1672,36 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =item:silence-wave:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4641 pick=0.0112 matches=11033 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.4982 pick=0.0134 matches=1656 days=2
+  }
+}
+``
 [[/item/silence-wave]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/silence_glyph.webp]] Silence Wave patch history))
 ## [[/item/silence-wave]]((Silence Wave))
 - Spirit damage scaling increased from 0.3 to 0.6
 =
 
 =item:slowing-bullets:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5005 pick=0.0278 matches=27506 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5471 pick=0.0281 matches=3475 days=2
+  }
+}
+``
 [[/item/slowing-bullets]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/slowing_bullets.webp]] Slowing Bullets patch history))
 ## [[/item/slowing-bullets]]((Slowing Bullets))
 - No longer provides Fire Rate
@@ -1039,6 +1711,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =item:spellbreaker:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5448 pick=0.071 matches=70224 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5658 pick=0.1132 matches=13973 days=2
+  }
+}
+``
 [[/item/spellbreaker]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/spellbreaker.webp]] Spellbreaker patch history))
 ## [[/item/spellbreaker]]((Spellbreaker))
 - Now builds out of Debuff Reducer
@@ -1046,12 +1730,36 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =item:spirit-burn:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5717 pick=0.1203 matches=118949 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5721 pick=0.1127 matches=13922 days=2
+  }
+}
+``
 [[/item/spirit-burn]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/spirit_burn.webp]] Spirit Burn patch history))
 ## [[/item/spirit-burn]]((Spirit Burn))
 - Burn DPS now scales with spirit power (0.05)
 =
 
 =item:spirit-resilience:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5043 pick=0.1764 matches=174455 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.519 pick=0.2282 matches=28175 days=2
+  }
+}
+``
 [[/item/spirit-resilience]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/spirit_resilience.webp]] Spirit Resilience patch history))
 ## [[/item/spirit-resilience]]((Spirit Resilience))
 - Low HP threshold increased from 30% to 35% health
@@ -1060,6 +1768,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =item:stamina-mastery:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5124 pick=0.208 matches=205712 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5091 pick=0.2463 matches=30412 days=2
+  }
+}
+``
 [[/item/stamina-mastery]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/stamina_mastery.webp]] Stamina Mastery patch history))
 ## [[/item/stamina-mastery]]((Stamina Mastery))
 - Air Dash distance reduced from 30% to 23%
@@ -1067,6 +1787,18 @@ content_text "Added hero banning to Standard Mode and Street Brawl. You can now 
 =
 
 =item:unstoppable:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.5528 pick=0.0234 matches=23143 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=0.556 pick=0.0418 matches=5158 days=2
+  }
+}
+``
 [[/item/unstoppable]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/unstoppable.webp]] Unstoppable patch history))
 ## [[/item/unstoppable]]((Unstoppable))
 - Bonus Health increased from +75 to +125

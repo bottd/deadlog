@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "Introducing The Dazzling Celeste"
 steam_gid "1823825466506693"
 published "2026-02-09T22:00:07.000Z"

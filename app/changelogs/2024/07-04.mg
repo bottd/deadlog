@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "07-04-2024 Update"
 thread_id "9652"
 published "2024-07-04T14:16:32-0700"
@@ -81,6 +81,18 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 ``
 
 =hero:abrams:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=67 days=6
+    after win=#null pick=#null matches=54 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/abrams]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams patch history))
 ## [[/hero/abrams]]((Abrams))
 ==ability:seismic-impact:
@@ -91,6 +103,18 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 =
 
 =hero:bebop:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=68 days=6
+    after win=#null pick=#null matches=71 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/bebop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop patch history))
 ## [[/hero/bebop]]((Bebop))
 - Base HP regen reduced from 2 to 1
@@ -102,6 +126,18 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 =
 
 =hero:grey-talon:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=60 days=6
+    after win=#null pick=#null matches=59 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/grey-talon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon patch history))
 ## [[/hero/grey-talon]]((Grey Talon))
 ==ability:guided-owl:
@@ -117,6 +153,18 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 =
 
 =hero:haze:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=95 days=6
+    after win=#null pick=#null matches=92 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 ==ability:smoke-bomb:
@@ -136,6 +184,18 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 =
 
 =hero:infernus:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=79 days=6
+    after win=#null pick=#null matches=79 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/infernus]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus patch history))
 ## [[/hero/infernus]]((Infernus))
 ==ability:flame-dash:
@@ -146,6 +206,18 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 =
 
 =hero:ivy:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=47 days=6
+    after win=#null pick=#null matches=34 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
 ## [[/hero/ivy]]((Ivy))
 ==ability:kudzu-connection:
@@ -158,6 +230,18 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 =
 
 =hero:kelvin:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=44 days=6
+    after win=#null pick=#null matches=49 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 ==ability:frost-grenade:
@@ -173,6 +257,18 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 =
 
 =hero:lash:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=50 days=6
+    after win=#null pick=#null matches=48 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/lash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp]] Lash patch history))
 ## [[/hero/lash]]((Lash))
 ==ability:death-slam:
@@ -183,6 +279,18 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 =
 
 =hero:mcginnis:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=70 days=6
+    after win=#null pick=#null matches=61 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 ==ability:mini-turret:
@@ -203,6 +311,18 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 =
 
 =hero:mo-krill:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=47 days=6
+    after win=#null pick=#null matches=51 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/mo-krill]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]] Mo & Krill patch history))
 ## [[/hero/mo-krill]]((Mo & Krill))
 ==ability:combo:
@@ -219,6 +339,18 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 =
 
 =hero:seven:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=94 days=6
+    after win=#null pick=#null matches=89 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
 ## [[/hero/seven]]((Seven))
 ==ability:static-charge:
@@ -229,6 +361,18 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 =
 
 =hero:vindicta:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=72 days=6
+    after win=#null pick=#null matches=72 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/vindicta]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp]] Vindicta patch history))
 ## [[/hero/vindicta]]((Vindicta))
 ==ability:flight:
@@ -240,6 +384,18 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 =
 
 =hero:warden:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=39 days=6
+    after win=#null pick=#null matches=59 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/warden]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden patch history))
 ## [[/hero/warden]]((Warden))
 ==ability:binding-word:
@@ -250,6 +406,18 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 =
 
 =hero:wraith:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=91 days=6
+    after win=#null pick=#null matches=85 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/wraith]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp]] Wraith patch history))
 ## [[/hero/wraith]]((Wraith))
 ==ability:project-mind:
@@ -266,6 +434,18 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 ``
 
 =item:active-reload:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=21 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/active-reload]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/active_reload.webp]] Active Reload patch history))
 ## [[/item/active-reload]]((Active Reload))
 - Cooldown reduced from 25s to 23s
@@ -273,6 +453,18 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 =
 
 =item:berserker:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=48 days=2
+    after win=#null pick=#null matches=120 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/berserker]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/berserker.webp]] Berserker patch history))
 ## [[/item/berserker]]((Berserker))
 - Weapon Damage per stack reduced from +6% to +5%
@@ -286,12 +478,36 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 =
 
 =item:bullet-lifesteal:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=325 days=6
+    after win=#null pick=#null matches=290 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/bullet-lifesteal]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/bullet_lifesteal.webp]] Bullet Lifesteal patch history))
 ## [[/item/bullet-lifesteal]]((Bullet Lifesteal))
 - Increased from 22% to 24%
 =
 
 =item:bullet-resist-shredder:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=195 days=6
+    after win=#null pick=#null matches=177 days=5
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/bullet-resist-shredder]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/bullet_resist_shredder.webp]] Bullet Resist Shredder patch history))
 ## [[/item/bullet-resist-shredder]]((Bullet Resist Shredder))
 - Debuff duration increased from 6s to 8s
@@ -299,6 +515,18 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 =
 
 =item:burst-fire:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=170 days=6
+    after win=#null pick=#null matches=0 days=0
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/burst-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/burst_fire.webp]] Burst Fire patch history))
 ## [[/item/burst-fire]]((Burst Fire))
 - Slide distance increased from +35% to +50%
@@ -312,6 +540,18 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 =
 
 =item:crippling-headshot:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=29 days=1
+    after win=#null pick=#null matches=29 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/crippling-headshot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/crippling_headshot.webp]] Crippling Headshot patch history))
 ## [[/item/crippling-headshot]]((Crippling Headshot))
 - Bullet and Spirit Resist reductions reduced from -30% to -24%
@@ -343,12 +583,36 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 =
 
 =item:duration-extender:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=175 days=5
+    after win=#null pick=#null matches=212 days=5
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/duration-extender]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/duration_extender.webp]] Duration Extender patch history))
 ## [[/item/duration-extender]]((Duration Extender))
 - Now grants +1.5 hp regen
 =
 
 =item:enduring-speed:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=166 days=6
+    after win=#null pick=#null matches=233 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/enduring-speed]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/enduring_speed.webp]] Enduring Speed patch history))
 ## [[/item/enduring-speed]]((Enduring Speed))
 - Now requires Sprint Boots
@@ -368,30 +632,90 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 =
 
 =item:extra-health:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=186 days=6
+    after win=#null pick=#null matches=111 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/extra-health]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_health.webp]] Extra Health patch history))
 ## [[/item/extra-health]]((Extra Health))
 - Increased from +140 to +150
 =
 
 =item:extra-spirit:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=419 days=6
+    after win=#null pick=#null matches=369 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/extra-spirit]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/extra_spirit.webp]] Extra Spirit patch history))
 ## [[/item/extra-spirit]]((Extra Spirit))
 - Now gives +25 Health
 =
 
 =item:extra-stamina:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=301 days=6
+    after win=#null pick=#null matches=310 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/extra-stamina]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_stamina.webp]] Extra Stamina patch history))
 ## [[/item/extra-stamina]]((Extra Stamina))
 - Now provides +10% Stamina Recovery
 =
 
 =item:fortitude:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=173 days=6
+    after win=#null pick=#null matches=186 days=5
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/fortitude]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/fortitude.webp]] Fortitude patch history))
 ## [[/item/fortitude]]((Fortitude))
 - Duration required to start regenerating reduced from 14s to 13s
 =
 
 =item:headshot-booster:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=254 days=6
+    after win=#null pick=#null matches=306 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/headshot-booster]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/headshot_booster.webp]] Headshot Booster patch history))
 ## [[/item/headshot-booster]]((Headshot Booster))
 - Cooldown increased from 5s to 7s
@@ -399,12 +723,36 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 =
 
 =item:healbane:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=152 days=5
+    after win=#null pick=#null matches=156 days=5
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/healbane]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healbane.webp]] Healbane patch history))
 ## [[/item/healbane]]((Healbane))
 - Debuff duration reduced from 7s to 6s
 =
 
 =item:hunter-s-aura:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=63 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/hunters-aura]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/hunters_aura.webp]] Hunter's Aura patch history))
 ## [[/item/hunters-aura]]((Hunter's Aura))
 - Bullet Resist reduction reduced from -15% to -10%
@@ -413,18 +761,54 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 =
 
 =item:improved-spirit:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=212 days=6
+    after win=#null pick=#null matches=214 days=5
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/improved-spirit]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/improved_spirit.webp]] Improved Spirit patch history))
 ## [[/item/improved-spirit]]((Improved Spirit))
 - Now grants +75 Health
 =
 
 =item:infuser:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=23 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/infuser]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/infuser.webp]] Infuser patch history))
 ## [[/item/infuser]]((Infuser))
 - Spirit Power reduced from +18 to +16
 =
 
 =item:inhibitor:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=21 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/inhibitor]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/inhibitor.webp]] Inhibitor patch history))
 ## [[/item/inhibitor]]((Inhibitor))
 - No longer grants +10% Fire Rate
@@ -432,6 +816,18 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 =
 
 =item:intensifying-magazine:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=25 days=1
+    after win=#null pick=#null matches=58 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/intensifying-magazine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/intensifying_magazine.webp]] Intensifying Magazine patch history))
 ## [[/item/intensifying-magazine]]((Intensifying Magazine))
 - Ammo reduced from 30% to 25%
@@ -444,6 +840,18 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 =
 
 =item:leech:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=86 days=4
+    after win=#null pick=#null matches=28 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/leech]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/leech.webp]] Leech patch history))
 ## [[/item/leech]]((Leech))
 - Spirit Power increased from +7 to +10
@@ -452,6 +860,18 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 =
 
 =item:lucky-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=31 days=1
+    after win=#null pick=#null matches=21 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/lucky-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/lucky_shot.webp]] Lucky Shot patch history))
 ## [[/item/lucky-shot]]((Lucky Shot))
 - Slow duration reduced from 2s to 1.5s
@@ -465,6 +885,18 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 =
 
 =item:monster-rounds:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=208 days=6
+    after win=#null pick=#null matches=177 days=5
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/monster-rounds]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/monster_rounds.webp]] Monster Rounds patch history))
 ## [[/item/monster-rounds]]((Monster Rounds))
 - Damage vs NPCs increased from +30% to +35%
@@ -477,18 +909,54 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 =
 
 =item:mystic-slow:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=67 days=3
+    after win=#null pick=#null matches=87 days=3
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/mystic-slow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mystic_slow.webp]] Mystic Slow patch history))
 ## [[/item/mystic-slow]]((Mystic Slow))
 - Duration reduced from 2.5s to 2s
 =
 
 =item:point-blank:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=194 days=6
+    after win=#null pick=#null matches=168 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/point-blank]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/point_blank.webp]] Point Blank patch history))
 ## [[/item/point-blank]]((Point Blank))
 - Now gives +1 Stamina
 =
 
 =item:quicksilver-reload:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=297 days=6
+    after win=#null pick=#null matches=244 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/quicksilver-reload]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/quicksilver_reload.webp]] Quicksilver Reload patch history))
 ## [[/item/quicksilver-reload]]((Quicksilver Reload))
 - Cooldown increased from 5s to 12s
@@ -515,6 +983,18 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 =
 
 =item:restorative-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=178 days=6
+    after win=#null pick=#null matches=175 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/restorative-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/restorative_shot.webp]] Restorative Shot patch history))
 ## [[/item/restorative-shot]]((Restorative Shot))
 - Cooldown increased from 4s to 6s
@@ -554,6 +1034,18 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 =
 
 =item:sprint-boots:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=326 days=6
+    after win=#null pick=#null matches=381 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/sprint-boots]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/sprint_boots.webp]] Sprint Boots patch history))
 ## [[/item/sprint-boots]]((Sprint Boots))
 - Sprint Speed reduced from +3 to +2
@@ -561,6 +1053,18 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 =
 
 =item:superior-duration:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=23 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/superior-duration]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/superior_duration.webp]] Superior Duration patch history))
 ## [[/item/superior-duration]]((Superior Duration))
 - Imbued duration increased from +30% to +32%
@@ -568,12 +1072,36 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 =
 
 =item:suppressor:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=92 days=3
+    after win=#null pick=#null matches=137 days=4
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/suppressor]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/suppressor.webp]] Suppressor patch history))
 ## [[/item/suppressor]]((Suppressor))
 - Duration reduced from 2.5s to 2s
 =
 
 =item:tesla-bullets:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=207 days=6
+    after win=#null pick=#null matches=227 days=6
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/tesla-bullets]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/tesla_bullets.webp]] Tesla Bullets patch history))
 ## [[/item/tesla-bullets]]((Tesla Bullets))
 - Damage is now affected by falloff
@@ -582,6 +1110,18 @@ content_text "Added Asia servers and matchmaking region. Testing times for this 
 =
 
 =item:titanic-magazine:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=49 days=2
+    after win=#null pick=#null matches=50 days=2
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/titanic-magazine]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/titanic_magazine.webp]] Titanic Magazine patch history))
 ## [[/item/titanic-magazine]]((Titanic Magazine))
 - Reload penalty reduced from -15% to -10%

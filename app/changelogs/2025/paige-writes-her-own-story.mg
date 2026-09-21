@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "Paige Writes Her Own Story"
 steam_gid "1808601382586972"
 published "2025-08-25T20:59:47.000Z"

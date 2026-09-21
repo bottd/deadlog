@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "10-15-2024 Update"
 thread_id "38925"
 published "2024-10-15T17:07:44-0700"
@@ -25,6 +25,18 @@ content_text "Urn now reveals you after 20s from initial pickup Urn sprint chang
 ``
 
 =hero:seven:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.558 pick=0.8998 matches=138596 days=4
+    after win=0.5409 pick=0.9068 matches=75743 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
 ## [[/hero/seven]]((Seven))
 ==ability:lightning-ball:
@@ -35,6 +47,18 @@ content_text "Urn now reveals you after 20s from initial pickup Urn sprint chang
 =
 
 =hero:shiv:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5184 pick=0.6593 matches=101561 days=4
+    after win=0.514 pick=0.6624 matches=55330 days=1
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
 ## [[/hero/shiv]]((Shiv))
 - Rage decay rate increased from 0.25 to 0.3

@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "Map Rework Update"
 thread_id "56683"
 steam_gid "1792116353369036"
@@ -361,6 +361,18 @@ content_text "The map has been redesigned around being 3 lanes rather than 4. Th
 ``
 
 =hero:holliday:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4665 pick=0.3987 matches=102502 days=12
+    after win=0.4555 pick=0.3535 matches=115697 days=14
+  }
+  high {
+    before win=0.5257 pick=0.4832 matches=5302 days=12
+    after win=0.4984 pick=0.4326 matches=5690 days=14
+  }
+}
+``
 [[/hero/holliday]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]] Holliday patch history))
 ## [[/hero/holliday]]((Holliday))
 ==ability:bounce-pad:

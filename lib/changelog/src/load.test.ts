@@ -95,7 +95,7 @@ describe('loadAllChangelogs', () => {
 		await writeFile(
 			join(yearDir, '03-06.mg'),
 			[
-				'``meta:',
+				'``attr:',
 				'title "Gameplay Update - 03-06-2026"',
 				'alias "2026/gameplay-03-06"',
 				'published "2026-03-06T21:37:00.000Z"',

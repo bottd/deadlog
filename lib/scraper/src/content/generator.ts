@@ -358,7 +358,7 @@ export function generateChangelog(
 		contentText = collectPlainText(grouped);
 	}
 
-	const out: string[] = ['``meta:', `title ${kdlString(source.title)}`];
+	const out: string[] = ['``attr:', `title ${kdlString(source.title)}`];
 
 	if (source.alias) {
 		out.push(`alias ${kdlString(source.alias)}`);

@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "11-01-2024 Update"
 thread_id "43705"
 published "2024-11-01T16:12:33-0700"
@@ -19,6 +19,18 @@ content_text "Improved Burst: Damage threshold requirement reduced from 200 to 1
 ``
 
 =hero:bebop:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4797 pick=0.5981 matches=118648 days=2
+    after win=0.4992 pick=0.673 matches=337044 days=5
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/bebop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop patch history))
 ## [[/hero/bebop]]((Bebop))
 ==ability:sticky-bomb:
@@ -29,6 +41,18 @@ content_text "Improved Burst: Damage threshold requirement reduced from 200 to 1
 =
 
 =hero:grey-talon:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.495 pick=0.708 matches=140458 days=2
+    after win=0.4766 pick=0.6763 matches=338669 days=5
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/grey-talon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon patch history))
 ## [[/hero/grey-talon]]((Grey Talon))
 - Base bullet damage reduced from 30 to 27
@@ -36,6 +60,18 @@ content_text "Improved Burst: Damage threshold requirement reduced from 200 to 1
 =
 
 =hero:mirage:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5113 pick=0.4995 matches=99099 days=2
+    after win=0.5009 pick=0.4808 matches=240781 days=5
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/mirage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage patch history))
 ## [[/hero/mirage]]((Mirage))
 ==ability:fire-scarabs:
@@ -47,6 +83,18 @@ content_text "Improved Burst: Damage threshold requirement reduced from 200 to 1
 =
 
 =hero:paradox:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4773 pick=0.498 matches=98796 days=2
+    after win=0.4824 pick=0.4902 matches=245481 days=5
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/hero/paradox]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox patch history))
 ## [[/hero/paradox]]((Paradox))
 ==ability:time-wall:
@@ -63,12 +111,36 @@ content_text "Improved Burst: Damage threshold requirement reduced from 200 to 1
 ``
 
 =item:metal-skin:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4289 pick=0.0518 matches=123433 days=2
+    after win=0.4263 pick=0.0556 matches=334428 days=5
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/metal-skin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/metal_skin.webp]] Metal Skin patch history))
 ## [[/item/metal-skin]]((Metal Skin))
 - Cooldown increased from 21s to 28s
 =
 
 =item:siphon-bullets:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5515 pick=0.0318 matches=75642 days=2
+    after win=0.535 pick=0.0344 matches=206682 days=5
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0
+    after win=#null pick=#null matches=0 days=0
+  }
+}
+``
 [[/item/siphon-bullets]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/siphon_bullets.webp]] Siphon Bullets patch history))
 ## [[/item/siphon-bullets]]((Siphon Bullets))
 - Max HP Steal is now affected by falloff

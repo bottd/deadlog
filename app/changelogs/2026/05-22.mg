@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "Gameplay Update - 05-22-2026"
 alias "2026/gameplay-05-22"
 thread_id "135477"
@@ -84,6 +84,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 ``
 
 =hero:abrams:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5063 pick=0.268 matches=197914 days=14
+    after win=0.5172 pick=0.3512 matches=102366 days=5
+  }
+  high {
+    before win=0.4989 pick=0.2565 matches=33824 days=14
+    after win=0.5108 pick=0.4142 matches=21302 days=5
+  }
+}
+``
 [[/hero/abrams]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams patch history))
 ## [[/hero/abrams]]((Abrams))
 ==ability:infernal-resilience:
@@ -101,6 +113,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =hero:apollo:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5012 pick=0.3384 matches=249868 days=14
+    after win=0.458 pick=0.1727 matches=50327 days=5
+  }
+  high {
+    before win=0.5013 pick=0.3292 matches=43405 days=14
+    after win=0.4331 pick=0.1143 matches=5878 days=5
+  }
+}
+``
 [[/hero/apollo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/fencer_sm.webp]] Apollo patch history))
 ## [[/hero/apollo]]((Apollo))
 - Improved the hero's hitboxes (easier to hit)
@@ -120,6 +144,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =hero:bebop:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4581 pick=0.4264 matches=314830 days=14
+    after win=0.4559 pick=0.3719 matches=108408 days=5
+  }
+  high {
+    before win=0.4694 pick=0.5417 matches=71434 days=14
+    after win=0.4633 pick=0.4305 matches=22140 days=5
+  }
+}
+``
 [[/hero/bebop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop patch history))
 ## [[/hero/bebop]]((Bebop))
 - Bullet damage per boon reduced from 0.139 to 0.115
@@ -136,6 +172,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =hero:billy:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4836 pick=0.3248 matches=239844 days=14
+    after win=0.5133 pick=0.4194 matches=122240 days=5
+  }
+  high {
+    before win=0.4814 pick=0.2291 matches=30209 days=14
+    after win=0.521 pick=0.392 matches=20156 days=5
+  }
+}
+``
 [[/hero/billy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/punkgoat_sm.webp]] Billy patch history))
 ## [[/hero/billy]]((Billy))
 - Health per boon increased from +48 to +59
@@ -150,6 +198,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =hero:calico:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5038 pick=0.1767 matches=130449 days=14
+    after win=0.4934 pick=0.1778 matches=51822 days=5
+  }
+  high {
+    before win=0.5063 pick=0.225 matches=29662 days=14
+    after win=0.4917 pick=0.2238 matches=11511 days=5
+  }
+}
+``
 [[/hero/calico]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp]] Calico patch history))
 ## [[/hero/calico]]((Calico))
 ==ability:gloom-bomb:
@@ -160,6 +220,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =hero:celeste:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.482 pick=0.3592 matches=265220 days=14
+    after win=0.4697 pick=0.3479 matches=101398 days=5
+  }
+  high {
+    before win=0.487 pick=0.3085 matches=40683 days=14
+    after win=0.4628 pick=0.2842 matches=14615 days=5
+  }
+}
+``
 [[/hero/celeste]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/unicorn_sm.webp]] Celeste patch history))
 ## [[/hero/celeste]]((Celeste))
 - Improved the hero's hitboxes (easier to hit)
@@ -177,6 +249,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =hero:doorman:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.536 pick=0.2878 matches=212524 days=14
+    after win=0.5014 pick=0.2014 matches=58705 days=5
+  }
+  high {
+    before win=0.5286 pick=0.272 matches=35860 days=14
+    after win=0.4955 pick=0.1568 matches=8065 days=5
+  }
+}
+``
 [[/hero/the-doorman]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/doorman_sm.webp]] Doorman patch history))
 ## [[/hero/the-doorman]]((Doorman))
 ==ability:call-bell:
@@ -202,6 +286,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =hero:drifter:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5114 pick=0.3931 matches=290253 days=14
+    after win=0.5023 pick=0.3701 matches=107886 days=5
+  }
+  high {
+    before win=0.5049 pick=0.4224 matches=55696 days=14
+    after win=0.495 pick=0.3856 matches=19829 days=5
+  }
+}
+``
 [[/hero/drifter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/drifter_sm.webp]] Drifter patch history))
 ## [[/hero/drifter]]((Drifter))
 ==ability:rend:
@@ -213,6 +309,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =hero:dynamo:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5372 pick=0.3506 matches=258893 days=14
+    after win=0.5094 pick=0.3121 matches=90968 days=5
+  }
+  high {
+    before win=0.5303 pick=0.3144 matches=41461 days=14
+    after win=0.4992 pick=0.2504 matches=12878 days=5
+  }
+}
+``
 [[/hero/dynamo]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp]] Dynamo patch history))
 ## [[/hero/dynamo]]((Dynamo))
 ==ability:kinetic-pulse:
@@ -229,6 +337,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =hero:graves:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.525 pick=0.3717 matches=274481 days=14
+    after win=0.5952 pick=0.5853 matches=170600 days=5
+  }
+  high {
+    before win=0.5098 pick=0.2045 matches=26964 days=14
+    after win=0.5857 pick=0.5377 matches=27652 days=5
+  }
+}
+``
 [[/hero/graves]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/necro_sm.webp]] Graves patch history))
 ## [[/hero/graves]]((Graves))
 - Sprint speed increased from 1.6 to 2.2
@@ -256,6 +376,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =hero:grey-talon:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4905 pick=0.2372 matches=175128 days=14
+    after win=0.5011 pick=0.272 matches=79271 days=5
+  }
+  high {
+    before win=0.4822 pick=0.3009 matches=39674 days=14
+    after win=0.4956 pick=0.3362 matches=17288 days=5
+  }
+}
+``
 [[/hero/grey-talon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon patch history))
 ## [[/hero/grey-talon]]((Grey Talon))
 ==ability:rain-of-arrows:
@@ -273,6 +405,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =hero:haze:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5306 pick=0.4846 matches=357841 days=14
+    after win=0.5215 pick=0.495 matches=144284 days=5
+  }
+  high {
+    before win=0.5081 pick=0.4763 matches=62811 days=14
+    after win=0.5026 pick=0.4754 matches=24448 days=5
+  }
+}
+``
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
 ## [[/hero/haze]]((Haze))
 ==ability:fixation:
@@ -283,6 +427,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =hero:holliday:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4732 pick=0.18 matches=132887 days=14
+    after win=0.4468 pick=0.1854 matches=54034 days=5
+  }
+  high {
+    before win=0.4881 pick=0.1938 matches=25558 days=14
+    after win=0.4672 pick=0.2007 matches=10323 days=5
+  }
+}
+``
 [[/hero/holliday]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]] Holliday patch history))
 ## [[/hero/holliday]]((Holliday))
 - Base bullet damage increased from 18.8 to 19.7
@@ -290,6 +446,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =hero:infernus:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4775 pick=0.3649 matches=269440 days=14
+    after win=0.4983 pick=0.3902 matches=113743 days=5
+  }
+  high {
+    before win=0.4565 pick=0.2999 matches=39546 days=14
+    after win=0.4833 pick=0.3427 matches=17624 days=5
+  }
+}
+``
 [[/hero/infernus]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp]] Infernus patch history))
 ## [[/hero/infernus]]((Infernus))
 - Bullet size increased from 3 to 4
@@ -301,6 +469,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =hero:kelvin:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5401 pick=0.2146 matches=158466 days=14
+    after win=0.5207 pick=0.1869 matches=54466 days=5
+  }
+  high {
+    before win=0.5321 pick=0.2604 matches=34338 days=14
+    after win=0.5116 pick=0.2066 matches=10626 days=5
+  }
+}
+``
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 ==ability:frost-grenade:
@@ -321,6 +501,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =hero:lash:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5054 pick=0.4127 matches=304761 days=14
+    after win=0.498 pick=0.3989 matches=116268 days=5
+  }
+  high {
+    before win=0.5086 pick=0.5333 matches=70323 days=14
+    after win=0.4922 pick=0.4915 matches=25276 days=5
+  }
+}
+``
 [[/hero/lash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp]] Lash patch history))
 ## [[/hero/lash]]((Lash))
 - Bullet damage per boon reduced from 0.341 to 0.31
@@ -338,6 +530,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =hero:mcginnis:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5436 pick=0.2301 matches=169890 days=14
+    after win=0.5584 pick=0.2663 matches=77630 days=5
+  }
+  high {
+    before win=0.5566 pick=0.2167 matches=28575 days=14
+    after win=0.5729 pick=0.2676 matches=13759 days=5
+  }
+}
+``
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 - Bullet damage per boon increased from 0.17 to 0.18
@@ -354,6 +558,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =hero:mina:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4929 pick=0.5208 matches=384538 days=14
+    after win=0.4463 pick=0.3904 matches=113788 days=5
+  }
+  high {
+    before win=0.5091 pick=0.4649 matches=61302 days=14
+    after win=0.4555 pick=0.2961 matches=15226 days=5
+  }
+}
+``
 [[/hero/mina]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/vampirebat_sm.webp]] Mina patch history))
 ## [[/hero/mina]]((Mina))
 - Innate -8% Debuff Resist
@@ -376,6 +592,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =hero:mirage:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4802 pick=0.2432 matches=179571 days=14
+    after win=0.4717 pick=0.2201 matches=64169 days=5
+  }
+  high {
+    before win=0.4943 pick=0.2606 matches=34363 days=14
+    after win=0.4871 pick=0.2341 matches=12040 days=5
+  }
+}
+``
 [[/hero/mirage]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp]] Mirage patch history))
 ## [[/hero/mirage]]((Mirage))
 ==ability:djinn-s-mark:
@@ -386,6 +614,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =hero:mo-krill:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5126 pick=0.2498 matches=184478 days=14
+    after win=0.4991 pick=0.2405 matches=70115 days=5
+  }
+  high {
+    before win=0.5083 pick=0.2887 matches=38062 days=14
+    after win=0.4944 pick=0.2685 matches=13807 days=5
+  }
+}
+``
 [[/hero/mo-krill]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]] Mo & Krill patch history))
 ## [[/hero/mo-krill]]((Mo & Krill))
 - Getting hit with a melee no longer knocks you up when you are burrowed
@@ -397,6 +637,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =hero:paige:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5029 pick=0.2746 matches=202737 days=14
+    after win=0.5071 pick=0.2772 matches=80791 days=5
+  }
+  high {
+    before win=0.491 pick=0.2049 matches=27018 days=14
+    after win=0.4854 pick=0.1928 matches=9912 days=5
+  }
+}
+``
 [[/hero/paige]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bookworm_sm.webp]] Paige patch history))
 ## [[/hero/paige]]((Paige))
 ==ability:bookwyrm:
@@ -413,6 +665,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =hero:paradox:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4829 pick=0.2612 matches=192877 days=14
+    after win=0.476 pick=0.2996 matches=87341 days=5
+  }
+  high {
+    before win=0.4943 pick=0.3344 matches=44089 days=14
+    after win=0.4816 pick=0.3965 matches=20392 days=5
+  }
+}
+``
 [[/hero/paradox]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox patch history))
 ## [[/hero/paradox]]((Paradox))
 ==ability:time-wall:
@@ -435,6 +699,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =hero:pocket:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4873 pick=0.2725 matches=201231 days=14
+    after win=0.4748 pick=0.253 matches=73746 days=5
+  }
+  high {
+    before win=0.4968 pick=0.3423 matches=45131 days=14
+    after win=0.485 pick=0.3176 matches=16332 days=5
+  }
+}
+``
 [[/hero/pocket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp]] Pocket patch history))
 ## [[/hero/pocket]]((Pocket))
 ==ability:flying-cloak:
@@ -450,6 +726,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =hero:rem:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4555 pick=0.3188 matches=235363 days=14
+    after win=0.478 pick=0.4408 matches=128479 days=5
+  }
+  high {
+    before win=0.4526 pick=0.1982 matches=26129 days=14
+    after win=0.4866 pick=0.3922 matches=20166 days=5
+  }
+}
+``
 [[/hero/rem]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/familiar_sm.webp]] Rem patch history))
 ## [[/hero/rem]]((Rem))
 ==ability:pillow-toss:
@@ -482,6 +770,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =hero:seven:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5562 pick=0.459 matches=338935 days=14
+    after win=0.5636 pick=0.4925 matches=143553 days=5
+  }
+  high {
+    before win=0.5514 pick=0.4163 matches=54892 days=14
+    after win=0.568 pick=0.4816 matches=24768 days=5
+  }
+}
+``
 [[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
 ## [[/hero/seven]]((Seven))
 - Bullet damage growth reduced from 0.374 to 0.337
@@ -489,6 +789,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =hero:shiv:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4699 pick=0.3635 matches=268437 days=14
+    after win=0.4691 pick=0.317 matches=92414 days=5
+  }
+  high {
+    before win=0.4724 pick=0.4779 matches=63014 days=14
+    after win=0.4716 pick=0.4149 matches=21335 days=5
+  }
+}
+``
 [[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
 ## [[/hero/shiv]]((Shiv))
 ==ability:slice-and-dice:
@@ -517,6 +829,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =hero:silver:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4785 pick=0.3813 matches=281579 days=14
+    after win=0.4741 pick=0.3525 matches=102764 days=5
+  }
+  high {
+    before win=0.491 pick=0.351 matches=46282 days=14
+    after win=0.491 pick=0.3179 matches=16349 days=5
+  }
+}
+``
 [[/hero/silver]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/werewolf_sm.webp]] Silver patch history))
 ## [[/hero/silver]]((Silver))
 - Bullet Cycle Time reduced from 0.9s to 0.85s (overall DPS adjusted to remain the same)
@@ -536,6 +860,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =hero:venator:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4244 pick=0.3789 matches=279789 days=14
+    after win=0.4514 pick=0.4008 matches=116822 days=5
+  }
+  high {
+    before win=0.4227 pick=0.3414 matches=45021 days=14
+    after win=0.4662 pick=0.4008 matches=20611 days=5
+  }
+}
+``
 [[/hero/venator]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/priest_sm.webp]] Venator patch history))
 ## [[/hero/venator]]((Venator))
 - Health increased from 790+43/boon to 830+48/boon
@@ -548,6 +884,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =hero:victor:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5581 pick=0.4538 matches=335091 days=14
+    after win=0.5622 pick=0.3696 matches=107734 days=5
+  }
+  high {
+    before win=0.553 pick=0.4451 matches=58694 days=14
+    after win=0.5525 pick=0.3008 matches=15466 days=5
+  }
+}
+``
 [[/hero/victor]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/frank_sm.webp]] Victor patch history))
 ## [[/hero/victor]]((Victor))
 - Bullet damage reduced from 13+0.3135 to 12+0.26
@@ -564,6 +912,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =hero:viscous:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4695 pick=0.1896 matches=139998 days=14
+    after win=0.4657 pick=0.1989 matches=57974 days=5
+  }
+  high {
+    before win=0.4709 pick=0.2034 matches=26818 days=14
+    after win=0.4649 pick=0.1998 matches=10277 days=5
+  }
+}
+``
 [[/hero/viscous]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous patch history))
 ## [[/hero/viscous]]((Viscous))
 ==ability:puddle-punch:
@@ -576,6 +936,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =hero:vyper:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4828 pick=0.1769 matches=130640 days=14
+    after win=0.4604 pick=0.1737 matches=50629 days=5
+  }
+  high {
+    before win=0.5195 pick=0.1809 matches=23851 days=14
+    after win=0.4738 pick=0.1739 matches=8943 days=5
+  }
+}
+``
 [[/hero/vyper]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kali_sm.webp]] Vyper patch history))
 ## [[/hero/vyper]]((Vyper))
 ==ability:screwjab-dagger:
@@ -587,6 +959,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =hero:warden:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.518 pick=0.3599 matches=265729 days=14
+    after win=0.495 pick=0.2605 matches=75925 days=5
+  }
+  high {
+    before win=0.5087 pick=0.413 matches=54459 days=14
+    after win=0.4936 pick=0.2447 matches=12582 days=5
+  }
+}
+``
 [[/hero/warden]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden patch history))
 ## [[/hero/warden]]((Warden))
 - Bullet damage per boon reduced from 0.38 to 0.34
@@ -603,6 +987,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =hero:yamato:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5084 pick=0.3132 matches=231233 days=14
+    after win=0.5078 pick=0.493 matches=143705 days=5
+  }
+  high {
+    before win=0.522 pick=0.3517 matches=46370 days=14
+    after win=0.5191 pick=0.5923 matches=30459 days=5
+  }
+}
+``
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 ==ability:power-slash:
@@ -638,24 +1034,72 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 ``
 
 =item:active-reload:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5138 pick=0.0669 matches=592979 days=14
+    after win=0.5145 pick=0.0659 matches=230557 days=5
+  }
+  high {
+    before win=0.5042 pick=0.0643 matches=101775 days=14
+    after win=0.5088 pick=0.065 matches=40134 days=5
+  }
+}
+``
 [[/item/active-reload]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/active_reload.webp]] Active Reload patch history))
 ## [[/item/active-reload]]((Active Reload))
 - Lifesteal increased from 14% to 16%
 =
 
 =item:alchemical-fire:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4946 pick=0.0126 matches=111330 days=14
+    after win=0.5085 pick=0.024 matches=84011 days=5
+  }
+  high {
+    before win=0.4966 pick=0.0146 matches=23120 days=14
+    after win=0.5168 pick=0.0396 matches=24429 days=5
+  }
+}
+``
 [[/item/alchemical-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/alchemical_fire.webp]] Alchemical Fire patch history))
 ## [[/item/alchemical-fire]]((Alchemical Fire))
 - Damage per Second spirit scaling increased from 0.152 to 0.2
 =
 
 =item:arcane-surge:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5091 pick=0.0749 matches=663350 days=14
+    after win=0.5348 pick=0.1115 matches=390075 days=5
+  }
+  high {
+    before win=0.5072 pick=0.0862 matches=136377 days=14
+    after win=0.5305 pick=0.138 matches=85153 days=5
+  }
+}
+``
 [[/item/arcane-surge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/arcane_surge.webp]] Arcane Surge patch history))
 ## [[/item/arcane-surge]]((Arcane Surge))
 - Fixed various interaction bugs with different abilities
 =
 
 =item:arctic-blast:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5437 pick=0.0464 matches=411110 days=14
+    after win=0.554 pick=0.0556 matches=194505 days=5
+  }
+  high {
+    before win=0.5544 pick=0.0411 matches=65094 days=14
+    after win=0.5664 pick=0.0571 matches=35216 days=5
+  }
+}
+``
 [[/item/arctic-blast]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/arctic_blast.webp]] Arctic Blast patch history))
 ## [[/item/arctic-blast]]((Arctic Blast))
 - Slowed targets now have their stamina regen frozen for the 4s slow duration
@@ -666,18 +1110,54 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =item:battle-vest:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4889 pick=0.1003 matches=888526 days=14
+    after win=0.4895 pick=0.1003 matches=350925 days=5
+  }
+  high {
+    before win=0.4945 pick=0.1156 matches=182933 days=14
+    after win=0.4983 pick=0.1187 matches=73245 days=5
+  }
+}
+``
 [[/item/battle-vest]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/battle_vest.webp]] Battle Vest patch history))
 ## [[/item/battle-vest]]((Battle Vest))
 - Weapon Damage increased from 15% to 18%
 =
 
 =item:bullet-lifesteal:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5104 pick=0.191 matches=1692246 days=14
+    after win=0.5096 pick=0.1751 matches=612588 days=5
+  }
+  high {
+    before win=0.52 pick=0.1794 matches=283939 days=14
+    after win=0.5202 pick=0.1532 matches=94527 days=5
+  }
+}
+``
 [[/item/bullet-lifesteal]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/bullet_lifesteal.webp]] Bullet Lifesteal patch history))
 ## [[/item/bullet-lifesteal]]((Bullet Lifesteal))
 - Now grants +6% Weapon Damage
 =
 
 =item:bullet-resist-shredder:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5261 pick=0.0652 matches=577854 days=14
+    after win=0.519 pick=0.0775 matches=271117 days=5
+  }
+  high {
+    before win=0.5326 pick=0.0832 matches=131671 days=14
+    after win=0.5216 pick=0.0998 matches=61579 days=5
+  }
+}
+``
 [[/item/bullet-resist-shredder]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/bullet_resist_shredder.webp]] Bullet Resist Shredder patch history))
 ## [[/item/bullet-resist-shredder]]((Bullet Resist Shredder))
 - No longer grants +65 Bonus Health
@@ -686,12 +1166,36 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =item:capacitor:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.533 pick=0.0331 matches=293521 days=14
+    after win=0.5367 pick=0.0351 matches=122857 days=5
+  }
+  high {
+    before win=0.5346 pick=0.0282 matches=44605 days=14
+    after win=0.5452 pick=0.0346 matches=21346 days=5
+  }
+}
+``
 [[/item/capacitor]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/capacitor.webp]] Capacitor patch history))
 ## [[/item/capacitor]]((Capacitor))
 - Proc cooldown reduced from 0.25s to 0.2s
 =
 
 =item:cold-front:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4985 pick=0.1522 matches=1348637 days=14
+    after win=0.4908 pick=0.1527 matches=534269 days=5
+  }
+  high {
+    before win=0.5005 pick=0.1799 matches=284675 days=14
+    after win=0.4913 pick=0.1833 matches=113092 days=5
+  }
+}
+``
 [[/item/cold-front]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/cold_front.webp]] Cold Front patch history))
 ## [[/item/cold-front]]((Cold Front))
 - Radius reduced from 12m to 10m
@@ -699,18 +1203,54 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =item:counterspell:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4859 pick=0.0648 matches=573771 days=14
+    after win=0.4898 pick=0.062 matches=216873 days=5
+  }
+  high {
+    before win=0.4975 pick=0.094 matches=148704 days=14
+    after win=0.4999 pick=0.0935 matches=57690 days=5
+  }
+}
+``
 [[/item/counterspell]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/counterspell.webp]] Counterspell patch history))
 ## [[/item/counterspell]]((Counterspell))
 - Spirit Power reduced from +8 to +5
 =
 
 =item:crippling-headshot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5844 pick=0.0496 matches=439318 days=14
+    after win=0.582 pick=0.0472 matches=165263 days=5
+  }
+  high {
+    before win=0.6025 pick=0.0532 matches=84255 days=14
+    after win=0.5992 pick=0.0482 matches=29736 days=5
+  }
+}
+``
 [[/item/crippling-headshot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/crippling_headshot.webp]] Crippling Headshot patch history))
 ## [[/item/crippling-headshot]]((Crippling Headshot))
 - Now works vs NPCs
 =
 
 =item:crushing-fists:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5384 pick=0.0363 matches=321466 days=14
+    after win=0.5606 pick=0.0466 matches=162939 days=5
+  }
+  high {
+    before win=0.5553 pick=0.0179 matches=28271 days=14
+    after win=0.5842 pick=0.0322 matches=19890 days=5
+  }
+}
+``
 [[/item/crushing-fists]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/crushing_fists.webp]] Crushing Fists patch history))
 ## [[/item/crushing-fists]]((Crushing Fists))
 - Cooldown reduced from 7s to 5s
@@ -718,6 +1258,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =item:cultist-sacrifice:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4876 pick=0.0787 matches=697475 days=14
+    after win=0.495 pick=0.0953 matches=333252 days=5
+  }
+  high {
+    before win=0.4892 pick=0.101 matches=159775 days=14
+    after win=0.5016 pick=0.1351 matches=83384 days=5
+  }
+}
+``
 [[/item/cultist-sacrifice]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/cultist_sacrifice.webp]] Cultist Sacrifice patch history))
 ## [[/item/cultist-sacrifice]]((Cultist Sacrifice))
 - Weapon Damage increased from 8% to 10%
@@ -726,36 +1278,108 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =item:debuff-reducer:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5128 pick=0.0547 matches=484523 days=14
+    after win=0.5132 pick=0.0567 matches=198212 days=5
+  }
+  high {
+    before win=0.5259 pick=0.0663 matches=104930 days=14
+    after win=0.5314 pick=0.0717 matches=44245 days=5
+  }
+}
+``
 [[/item/debuff-reducer]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/debuff_reducer.webp]] Debuff Reducer patch history))
 ## [[/item/debuff-reducer]]((Debuff Reducer))
 - Now grants +90 Health
 =
 
 =item:decay:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4512 pick=0.0111 matches=98706 days=14
+    after win=0.4539 pick=0.0093 matches=32507 days=5
+  }
+  high {
+    before win=0.454 pick=0.0123 matches=19499 days=14
+    after win=0.4703 pick=0.0112 matches=6938 days=5
+  }
+}
+``
 [[/item/decay]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/decay.webp]] Decay patch history))
 ## [[/item/decay]]((Decay))
 - Cooldown reduced from 32s to 30s
 =
 
 =item:disarming-hex:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4004 pick=0.0241 matches=213470 days=14
+    after win=0.4123 pick=0.0223 matches=77962 days=5
+  }
+  high {
+    before win=0.402 pick=0.0232 matches=36668 days=14
+    after win=0.42 pick=0.021 matches=12970 days=5
+  }
+}
+``
 [[/item/disarming-hex]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/disarming_hex.webp]] Disarming Hex patch history))
 ## [[/item/disarming-hex]]((Disarming Hex))
 - Duration increased from 4s to 4.25s
 =
 
 =item:dispel-magic:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5002 pick=0.141 matches=1249437 days=14
+    after win=0.492 pick=0.1262 matches=441298 days=5
+  }
+  high {
+    before win=0.5059 pick=0.2216 matches=350700 days=14
+    after win=0.4979 pick=0.1909 matches=117826 days=5
+  }
+}
+``
 [[/item/dispel-magic]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/debuff_remover.webp]] Dispel Magic patch history))
 ## [[/item/dispel-magic]]((Dispel Magic))
 - Cooldown increased from 40s to 45s
 =
 
 =item:divine-barrier:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5322 pick=0.0235 matches=208470 days=14
+    after win=0.5402 pick=0.0271 matches=94892 days=5
+  }
+  high {
+    before win=0.5474 pick=0.0247 matches=39019 days=14
+    after win=0.5476 pick=0.0288 matches=17758 days=5
+  }
+}
+``
 [[/item/divine-barrier]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/divine_barrier.webp]] Divine Barrier patch history))
 ## [[/item/divine-barrier]]((Divine Barrier))
 - Now grants +1.5 Out of Combat Regen (from components)
 =
 
 =item:escalating-resilience:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4983 pick=0.0375 matches=331867 days=14
+    after win=0.516 pick=0.0341 matches=119249 days=5
+  }
+  high {
+    before win=0.4975 pick=0.0215 matches=34088 days=14
+    after win=0.5331 pick=0.0207 matches=12798 days=5
+  }
+}
+``
 [[/item/escalating-resilience]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/escalating_resilience.webp]] Escalating Resilience patch history))
 ## [[/item/escalating-resilience]]((Escalating Resilience))
 - Max Ammo increased from 30% to 35%
@@ -763,6 +1387,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =item:extra-regen:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5017 pick=0.3213 matches=2846933 days=14
+    after win=0.5006 pick=0.321 matches=1122928 days=5
+  }
+  high {
+    before win=0.5015 pick=0.3526 matches=557898 days=14
+    after win=0.5014 pick=0.3428 matches=211511 days=5
+  }
+}
+``
 [[/item/extra-regen]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_regen.webp]] Extra Regen patch history))
 ## [[/item/extra-regen]]((Extra Regen))
 - Regen reduced from 3 to 2.5
@@ -770,6 +1406,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =item:fleetfoot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5201 pick=0.0504 matches=446666 days=14
+    after win=0.5249 pick=0.054 matches=188899 days=5
+  }
+  high {
+    before win=0.5213 pick=0.0604 matches=95537 days=14
+    after win=0.5368 pick=0.0622 matches=38353 days=5
+  }
+}
+``
 [[/item/fleetfoot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/fleetfoot.webp]] Fleetfoot patch history))
 ## [[/item/fleetfoot]]((Fleetfoot))
 - Now grants +6% Weapon Damage
@@ -777,24 +1425,72 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =item:focus-lens:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5398 pick=0.0133 matches=118016 days=14
+    after win=0.5453 pick=0.0122 matches=42815 days=5
+  }
+  high {
+    before win=0.564 pick=0.0106 matches=16736 days=14
+    after win=0.5715 pick=0.0086 matches=5319 days=5
+  }
+}
+``
 [[/item/focus-lens]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/focus_lens.webp]] Focus Lens patch history))
 ## [[/item/focus-lens]]((Focus Lens))
 - Duration increased from 4s to 4.5s
 =
 
 =item:fortitude:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5134 pick=0.1055 matches=934970 days=14
+    after win=0.5079 pick=0.1114 matches=389585 days=5
+  }
+  high {
+    before win=0.5226 pick=0.1149 matches=181833 days=14
+    after win=0.5144 pick=0.1179 matches=72778 days=5
+  }
+}
+``
 [[/item/fortitude]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/fortitude.webp]] Fortitude patch history))
 ## [[/item/fortitude]]((Fortitude))
 - Move speed increased from 1.25m to 1.5m
 =
 
 =item:frenzy:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.6119 pick=0.0185 matches=163529 days=14
+    after win=0.618 pick=0.0172 matches=60055 days=5
+  }
+  high {
+    before win=0.6436 pick=0.0152 matches=23973 days=14
+    after win=0.6533 pick=0.0125 matches=7715 days=5
+  }
+}
+``
 [[/item/frenzy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/frenzy.webp]] Frenzy patch history))
 ## [[/item/frenzy]]((Frenzy))
 - Triggered debuff resistance increased from 30% to 40%
 =
 
 =item:fury-trance:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5164 pick=0.0178 matches=158157 days=14
+    after win=0.5073 pick=0.019 matches=66596 days=5
+  }
+  high {
+    before win=0.502 pick=0.0191 matches=30269 days=14
+    after win=0.4984 pick=0.022 matches=13553 days=5
+  }
+}
+``
 [[/item/fury-trance]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/fury_trance.webp]] Fury Trance patch history))
 ## [[/item/fury-trance]]((Fury Trance))
 - Active duration increased from 6s to 6.5s
@@ -803,18 +1499,54 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =item:glass-cannon:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5645 pick=0.0403 matches=357500 days=14
+    after win=0.5738 pick=0.0395 matches=138142 days=5
+  }
+  high {
+    before win=0.5723 pick=0.024 matches=38020 days=14
+    after win=0.5885 pick=0.0238 matches=14677 days=5
+  }
+}
+``
 [[/item/glass-cannon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/glass_cannon.webp]] Glass Cannon patch history))
 ## [[/item/glass-cannon]]((Glass Cannon))
 - Max Health reduction reduced from -15% to -13%
 =
 
 =item:golden-goose-egg:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5058 pick=0.0445 matches=394331 days=14
+    after win=0.5108 pick=0.0482 matches=168732 days=5
+  }
+  high {
+    before win=0.498 pick=0.0314 matches=49613 days=14
+    after win=0.5065 pick=0.0394 matches=24316 days=5
+  }
+}
+``
 [[/item/golden-goose-egg]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/goose_egg.webp]] Golden Goose Egg patch history))
 ## [[/item/golden-goose-egg]]((Golden Goose Egg))
 - Permanent buff from every 100 souls to every 80
 =
 
 =item:guardian-ward:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.486 pick=0.0368 matches=326402 days=14
+    after win=0.4888 pick=0.0458 matches=160192 days=5
+  }
+  high {
+    before win=0.4916 pick=0.0356 matches=56407 days=14
+    after win=0.4926 pick=0.0477 matches=29457 days=5
+  }
+}
+``
 [[/item/guardian-ward]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/guardian_ward.webp]] Guardian Ward patch history))
 ## [[/item/guardian-ward]]((Guardian Ward))
 - Barrier increased from 200 to 250
@@ -823,30 +1555,90 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =item:healing-booster:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5097 pick=0.1458 matches=1291479 days=14
+    after win=0.5113 pick=0.1585 matches=554245 days=5
+  }
+  high {
+    before win=0.5121 pick=0.1413 matches=223559 days=14
+    after win=0.5128 pick=0.1577 matches=97318 days=5
+  }
+}
+``
 [[/item/healing-booster]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healing_booster.webp]] Healing Booster patch history))
 ## [[/item/healing-booster]]((Healing Booster))
 - Fixed various abilities and items not being boosted correctly
 =
 
 =item:healing-rite:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4879 pick=0.1276 matches=1130460 days=14
+    after win=0.4868 pick=0.1144 matches=400047 days=5
+  }
+  high {
+    before win=0.4916 pick=0.1035 matches=163750 days=14
+    after win=0.4902 pick=0.094 matches=57979 days=5
+  }
+}
+``
 [[/item/healing-rite]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healing_rite.webp]] Healing Rite patch history))
 ## [[/item/healing-rite]]((Healing Rite))
 - Spirit scaling increased from 0.93 to 1.1
 =
 
 =item:heroic-aura:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5492 pick=0.0239 matches=211416 days=14
+    after win=0.5927 pick=0.0472 matches=165031 days=5
+  }
+  high {
+    before win=0.5567 pick=0.0249 matches=39470 days=14
+    after win=0.5879 pick=0.0569 matches=35142 days=5
+  }
+}
+``
 [[/item/heroic-aura]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/heroic_aura.webp]] Heroic Aura patch history))
 ## [[/item/heroic-aura]]((Heroic Aura))
 - Radius increased from 30m to 35m
 =
 
 =item:hunter-s-aura:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5128 pick=0.0654 matches=579383 days=14
+    after win=0.5167 pick=0.0605 matches=211616 days=5
+  }
+  high {
+    before win=0.5165 pick=0.0799 matches=126446 days=14
+    after win=0.5221 pick=0.0688 matches=42439 days=5
+  }
+}
+``
 [[/item/hunters-aura]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/hunters_aura.webp]] Hunter's Aura patch history))
 ## [[/item/hunters-aura]]((Hunter's Aura))
 - Fire Rate reduction increased from -14% to -15%
 =
 
 =item:indomitable:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5522 pick=0.085 matches=753242 days=14
+    after win=0.5673 pick=0.082 matches=286972 days=5
+  }
+  high {
+    before win=0.5675 pick=0.0773 matches=122387 days=14
+    after win=0.5834 pick=0.0728 matches=44938 days=5
+  }
+}
+``
 [[/item/indomitable]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/indomitable.webp]] Indomitable patch history))
 ## [[/item/indomitable]]((Indomitable))
 - Barrier scaling increased from 1.8 to 2.0
@@ -856,6 +1648,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =item:infuser:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5616 pick=0.0454 matches=402431 days=14
+    after win=0.5847 pick=0.0499 matches=174509 days=5
+  }
+  high {
+    before win=0.5656 pick=0.0296 matches=46763 days=14
+    after win=0.588 pick=0.0389 matches=24028 days=5
+  }
+}
+``
 [[/item/infuser]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/infuser.webp]] Infuser patch history))
 ## [[/item/infuser]]((Infuser))
 - Duration increased from 6s to 7s
@@ -863,6 +1667,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =item:juggernaut:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5413 pick=0.0698 matches=618443 days=14
+    after win=0.5526 pick=0.0671 matches=234872 days=5
+  }
+  high {
+    before win=0.5453 pick=0.0418 matches=66096 days=14
+    after win=0.5608 pick=0.0394 matches=24315 days=5
+  }
+}
+``
 [[/item/juggernaut]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/juggernaut.webp]] Juggernaut patch history))
 ## [[/item/juggernaut]]((Juggernaut))
 - Fire Rate reduction increased from -36% to -40%
@@ -870,18 +1686,54 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =item:leech:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5533 pick=0.1258 matches=1114748 days=14
+    after win=0.5633 pick=0.1065 matches=372499 days=5
+  }
+  high {
+    before win=0.5737 pick=0.0807 matches=127734 days=14
+    after win=0.5895 pick=0.0641 matches=39581 days=5
+  }
+}
+``
 [[/item/leech]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/leech.webp]] Leech patch history))
 ## [[/item/leech]]((Leech))
 - Updated bonus HP to match the components
 =
 
 =item:magic-carpet:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5583 pick=0.006 matches=53078 days=14
+    after win=0.5941 pick=0.014 matches=48950 days=5
+  }
+  high {
+    before win=0.5509 pick=0.0058 matches=9236 days=14
+    after win=0.6027 pick=0.0135 matches=8356 days=5
+  }
+}
+``
 [[/item/magic-carpet]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/magic_carpet.webp]] Magic Carpet patch history))
 ## [[/item/magic-carpet]]((Magic Carpet))
 - Now innately grants -15% Gravity and Air Control by +25%
 =
 
 =item:majestic-leap:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5054 pick=0.021 matches=185854 days=14
+    after win=0.5076 pick=0.0221 matches=77298 days=5
+  }
+  high {
+    before win=0.5084 pick=0.0261 matches=41368 days=14
+    after win=0.51 pick=0.0302 matches=18635 days=5
+  }
+}
+``
 [[/item/majestic-leap]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/majestic_leap.webp]] Majestic Leap patch history))
 ## [[/item/majestic-leap]]((Majestic Leap))
 - Now grants +50% air control for the duration of the barrier
@@ -889,72 +1741,216 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =item:melee-charge:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4879 pick=0.0567 matches=502593 days=14
+    after win=0.5072 pick=0.07 matches=244997 days=5
+  }
+  high {
+    before win=0.4826 pick=0.0402 matches=63682 days=14
+    after win=0.5117 pick=0.0646 matches=39877 days=5
+  }
+}
+``
 [[/item/melee-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/melee_charge.webp]] Melee Charge patch history))
 ## [[/item/melee-charge]]((Melee Charge))
 - Cooldown reduced from 7s to 5s
 =
 
 =item:mercurial-magnum:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5503 pick=0.1151 matches=1019487 days=14
+    after win=0.5461 pick=0.0984 matches=344143 days=5
+  }
+  high {
+    before win=0.5599 pick=0.107 matches=169358 days=14
+    after win=0.5505 pick=0.0863 matches=53234 days=5
+  }
+}
+``
 [[/item/mercurial-magnum]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mercurial_magnum.webp]] Mercurial Magnum patch history))
 ## [[/item/mercurial-magnum]]((Mercurial Magnum))
 - Base Bullet Damage spirit scaling increased from 0.465 to 0.49
 =
 
 =item:mystic-regeneration:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.495 pick=0.0846 matches=749203 days=14
+    after win=0.4934 pick=0.0769 matches=268923 days=5
+  }
+  high {
+    before win=0.4859 pick=0.0764 matches=120850 days=14
+    after win=0.482 pick=0.0669 matches=41265 days=5
+  }
+}
+``
 [[/item/mystic-regeneration]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mystic_regen.webp]] Mystic Regeneration patch history))
 ## [[/item/mystic-regeneration]]((Mystic Regeneration))
 - Regen duration increased from 6s to 7s
 =
 
 =item:mystic-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5061 pick=0.0883 matches=781974 days=14
+    after win=0.5141 pick=0.1338 matches=467853 days=5
+  }
+  high {
+    before win=0.5147 pick=0.1055 matches=166917 days=14
+    after win=0.5175 pick=0.169 matches=104267 days=5
+  }
+}
+``
 [[/item/mystic-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/mystic_shot.webp]] Mystic Shot patch history))
 ## [[/item/mystic-shot]]((Mystic Shot))
 - Spirit scaling increased from 1 to 1.2
 =
 
 =item:mystic-slow:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5269 pick=0.0605 matches=535935 days=14
+    after win=0.5346 pick=0.0635 matches=222256 days=5
+  }
+  high {
+    before win=0.5309 pick=0.0496 matches=78497 days=14
+    after win=0.5465 pick=0.0548 matches=33817 days=5
+  }
+}
+``
 [[/item/mystic-slow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/mystic_slow.webp]] Mystic Slow patch history))
 ## [[/item/mystic-slow]]((Mystic Slow))
 - Bonus Health increased from +30 to +50
 =
 
 =item:opening-rounds:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5019 pick=0.2158 matches=1912325 days=14
+    after win=0.4915 pick=0.2067 matches=723133 days=5
+  }
+  high {
+    before win=0.5072 pick=0.2612 matches=413251 days=14
+    after win=0.4929 pick=0.2332 matches=143934 days=5
+  }
+}
+``
 [[/item/opening-rounds]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/opening_rounds.webp]] Opening Rounds patch history))
 ## [[/item/opening-rounds]]((Opening Rounds))
 - Spirit Power reduced from +7 to +4
 =
 
 =item:radiant-regeneration:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5012 pick=0.0888 matches=786400 days=14
+    after win=0.4997 pick=0.0806 matches=281981 days=5
+  }
+  high {
+    before win=0.489 pick=0.0786 matches=124363 days=14
+    after win=0.4872 pick=0.069 matches=42566 days=5
+  }
+}
+``
 [[/item/radiant-regeneration]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/radiant_regeneration.webp]] Radiant Regeneration patch history))
 ## [[/item/radiant-regeneration]]((Radiant Regeneration))
 - Regen duration increased from 6s to 7s
 =
 
 =item:rapid-recharge:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5079 pick=0.2788 matches=2470577 days=14
+    after win=0.5153 pick=0.2932 matches=1025587 days=5
+  }
+  high {
+    before win=0.5056 pick=0.2316 matches=366415 days=14
+    after win=0.5163 pick=0.2425 matches=149669 days=5
+  }
+}
+``
 [[/item/rapid-recharge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/rapid_recharge.webp]] Rapid Recharge patch history))
 ## [[/item/rapid-recharge]]((Rapid Recharge))
 - Spirit Power for Charged Abilities increased from +10 to +14
 =
 
 =item:reactive-barrier:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5007 pick=0.1079 matches=955633 days=14
+    after win=0.5055 pick=0.1076 matches=376317 days=5
+  }
+  high {
+    before win=0.5103 pick=0.1213 matches=191910 days=14
+    after win=0.5157 pick=0.1241 matches=76570 days=5
+  }
+}
+``
 [[/item/reactive-barrier]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/reactive_barrier.webp]] Reactive Barrier patch history))
 ## [[/item/reactive-barrier]]((Reactive Barrier))
 - Now grants +1 Out of Combat Regen (from components)
 =
 
 =item:rebuttal:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4782 pick=0.02 matches=176783 days=14
+    after win=0.4917 pick=0.033 matches=115471 days=5
+  }
+  high {
+    before win=0.4932 pick=0.0174 matches=27599 days=14
+    after win=0.5055 pick=0.0406 matches=25076 days=5
+  }
+}
+``
 [[/item/rebuttal]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/rebuttal.webp]] Rebuttal patch history))
 ## [[/item/rebuttal]]((Rebuttal))
 - Parry cooldown reduced from -2s to -1.75s
 =
 
 =item:recharging-rush:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4983 pick=0.1398 matches=1238907 days=14
+    after win=0.4963 pick=0.1276 matches=446308 days=5
+  }
+  high {
+    before win=0.5 pick=0.1656 matches=261979 days=14
+    after win=0.4954 pick=0.1385 matches=85495 days=5
+  }
+}
+``
 [[/item/recharging-rush]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/recharging_rounds.webp]] Recharging Rush patch history))
 ## [[/item/recharging-rush]]((Recharging Rush))
 - Cooldown increased from 24s to 25s
 =
 
 =item:restorative-locket:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5033 pick=0.0726 matches=642867 days=14
+    after win=0.4829 pick=0.0377 matches=131727 days=5
+  }
+  high {
+    before win=0.5108 pick=0.0934 matches=147754 days=14
+    after win=0.4842 pick=0.0353 matches=21813 days=5
+  }
+}
+``
 [[/item/restorative-locket]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/restorative_locket.webp]] Restorative Locket patch history))
 ## [[/item/restorative-locket]]((Restorative Locket))
 - No longer has a minimum of 1 stamina restore
@@ -962,30 +1958,90 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =item:restorative-shot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4833 pick=0.079 matches=700063 days=14
+    after win=0.525 pick=0.1003 matches=350670 days=5
+  }
+  high {
+    before win=0.4811 pick=0.0603 matches=95368 days=14
+    after win=0.5314 pick=0.0972 matches=59951 days=5
+  }
+}
+``
 [[/item/restorative-shot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/restorative_shot.webp]] Restorative Shot patch history))
 ## [[/item/restorative-shot]]((Restorative Shot))
 - NPC Healing increased from 15 to 20
 =
 
 =item:return-fire:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4572 pick=0.0133 matches=118248 days=14
+    after win=0.449 pick=0.0117 matches=40874 days=5
+  }
+  high {
+    before win=0.4685 pick=0.0242 matches=38282 days=14
+    after win=0.4681 pick=0.0198 matches=12246 days=5
+  }
+}
+``
 [[/item/return-fire]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/return_fire.webp]] Return Fire patch history))
 ## [[/item/return-fire]]((Return Fire))
 - Duration increased from 6s to 6.5s
 =
 
 =item:rusted-barrel:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4372 pick=0.0216 matches=191477 days=14
+    after win=0.4569 pick=0.0216 matches=75436 days=5
+  }
+  high {
+    before win=0.4423 pick=0.0243 matches=38413 days=14
+    after win=0.4627 pick=0.0243 matches=15012 days=5
+  }
+}
+``
 [[/item/rusted-barrel]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/rusted_barrel.webp]] Rusted Barrel patch history))
 ## [[/item/rusted-barrel]]((Rusted Barrel))
 - Bonus health increased from 50 to 60
 =
 
 =item:scourge:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.6021 pick=0.014 matches=124053 days=14
+    after win=0.6074 pick=0.0172 matches=60226 days=5
+  }
+  high {
+    before win=0.6076 pick=0.0167 matches=26449 days=14
+    after win=0.612 pick=0.0222 matches=13725 days=5
+  }
+}
+``
 [[/item/scourge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/scourge.webp]] Scourge patch history))
 ## [[/item/scourge]]((Scourge))
 - Debuff resist increased from 15% to 17%
 =
 
 =item:shadow-weave:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5122 pick=0.014 matches=123752 days=14
+    after win=0.5266 pick=0.0167 matches=58283 days=5
+  }
+  high {
+    before win=0.5256 pick=0.0179 matches=28303 days=14
+    after win=0.5364 pick=0.0223 matches=13741 days=5
+  }
+}
+``
 [[/item/shadow-weave]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/shadow_weave.webp]] Shadow Weave patch history))
 ## [[/item/shadow-weave]]((Shadow Weave))
 - Duration increased from 10s to 13s
@@ -995,6 +2051,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =item:sharpshooter:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4919 pick=0.022 matches=194589 days=14
+    after win=0.4951 pick=0.0279 matches=97610 days=5
+  }
+  high {
+    before win=0.5047 pick=0.0181 matches=28608 days=14
+    after win=0.5138 pick=0.0246 matches=15172 days=5
+  }
+}
+``
 [[/item/sharpshooter]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/sharp_shooter.webp]] Sharpshooter patch history))
 ## [[/item/sharpshooter]]((Sharpshooter))
 - Now upgrades from High-Velocity Rounds (in addition to Long Range). Grants +60% Bullet Velocity.
@@ -1003,36 +2071,108 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =item:silencer:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.6032 pick=0.0566 matches=501540 days=14
+    after win=0.6089 pick=0.0472 matches=165190 days=5
+  }
+  high {
+    before win=0.6143 pick=0.0544 matches=86148 days=14
+    after win=0.6286 pick=0.0414 matches=25537 days=5
+  }
+}
+``
 [[/item/silencer]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/silencer.webp]] Silencer patch history))
 ## [[/item/silencer]]((Silencer))
 - Spirit Resistance reduced from 15% to 12%
 =
 
 =item:slowing-bullets:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5045 pick=0.1898 matches=1681979 days=14
+    after win=0.4997 pick=0.1747 matches=610976 days=5
+  }
+  high {
+    before win=0.5056 pick=0.2319 matches=366864 days=14
+    after win=0.502 pick=0.1938 matches=119607 days=5
+  }
+}
+``
 [[/item/slowing-bullets]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/slowing_bullets.webp]] Slowing Bullets patch history))
 ## [[/item/slowing-bullets]]((Slowing Bullets))
 - Dash Distance slow reduced from -25% to -22%
 =
 
 =item:spellbreaker:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5354 pick=0.0418 matches=370455 days=14
+    after win=0.5389 pick=0.0403 matches=141107 days=5
+  }
+  high {
+    before win=0.553 pick=0.0336 matches=53214 days=14
+    after win=0.5507 pick=0.0343 matches=21183 days=5
+  }
+}
+``
 [[/item/spellbreaker]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/spellbreaker.webp]] Spellbreaker patch history))
 ## [[/item/spellbreaker]]((Spellbreaker))
 - Now grants +90 Health (from components)
 =
 
 =item:spellslinger:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5773 pick=0.0558 matches=494002 days=14
+    after win=0.5765 pick=0.042 matches=146914 days=5
+  }
+  high {
+    before win=0.5885 pick=0.0676 matches=106952 days=14
+    after win=0.5865 pick=0.0439 matches=27091 days=5
+  }
+}
+``
 [[/item/spellslinger]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/spell_slinger.webp]] Spellslinger patch history))
 ## [[/item/spellslinger]]((Spellslinger))
 - Cooldown Reduction reduced from 6% to 5%
 =
 
 =item:spirit-lifesteal:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5232 pick=0.2169 matches=1921625 days=14
+    after win=0.5364 pick=0.2349 matches=821641 days=5
+  }
+  high {
+    before win=0.5241 pick=0.165 matches=261120 days=14
+    after win=0.5419 pick=0.1949 matches=120290 days=5
+  }
+}
+``
 [[/item/spirit-lifesteal]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/spirit_lifesteal.webp]] Spirit Lifesteal patch history))
 ## [[/item/spirit-lifesteal]]((Spirit Lifesteal))
 - Bonus Health increased from +70 to +90
 =
 
 =item:spirit-shielding:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4523 pick=0.017 matches=150590 days=14
+    after win=0.5089 pick=0.0505 matches=176743 days=5
+  }
+  high {
+    before win=0.4626 pick=0.0109 matches=17303 days=14
+    after win=0.5217 pick=0.0673 matches=41560 days=5
+  }
+}
+``
 [[/item/spirit-shielding]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/spirit_shielding.webp]] Spirit Shielding patch history))
 ## [[/item/spirit-shielding]]((Spirit Shielding))
 - No longer grants +1.75m Move Speed on activation
@@ -1040,6 +2180,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =item:spirit-snatch:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5095 pick=0.0742 matches=657846 days=14
+    after win=0.5166 pick=0.1094 matches=382655 days=5
+  }
+  high {
+    before win=0.5127 pick=0.0739 matches=116926 days=14
+    after win=0.5176 pick=0.1304 matches=80444 days=5
+  }
+}
+``
 [[/item/spirit-snatch]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/spirit_snatch.webp]] Spirit Snatch patch history))
 ## [[/item/spirit-snatch]]((Spirit Snatch))
 - Bonus damage spirit scaling increased from 0.744 to 0.84
@@ -1047,6 +2199,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =item:spiritual-overflow:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.6 pick=0.0447 matches=396251 days=14
+    after win=0.597 pick=0.0767 matches=268389 days=5
+  }
+  high {
+    before win=0.6209 pick=0.0363 matches=57490 days=14
+    after win=0.6126 pick=0.0699 matches=43108 days=5
+  }
+}
+``
 [[/item/spiritual-overflow]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/spiritual_overflow.webp]] Spiritual Overflow patch history))
 ## [[/item/spiritual-overflow]]((Spiritual Overflow))
 - Spirit Lifesteal moved from Active to Innate (reduced from 16% to 13%)
@@ -1054,36 +2218,108 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =item:surge-of-power:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5152 pick=0.1704 matches=1510085 days=14
+    after win=0.5106 pick=0.1531 matches=535518 days=5
+  }
+  high {
+    before win=0.5117 pick=0.1491 matches=235922 days=14
+    after win=0.5102 pick=0.1284 matches=79249 days=5
+  }
+}
+``
 [[/item/surge-of-power]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/surge_of_power.webp]] Surge of Power patch history))
 ## [[/item/surge-of-power]]((Surge of Power))
 - Imbued Spirit Power increased from 24 to 25
 =
 
 =item:tesla-bullets:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.51 pick=0.0539 matches=477250 days=14
+    after win=0.5148 pick=0.0558 matches=195257 days=5
+  }
+  high {
+    before win=0.5063 pick=0.0456 matches=72133 days=14
+    after win=0.5172 pick=0.055 matches=33943 days=5
+  }
+}
+``
 [[/item/tesla-bullets]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/tesla_bullets.webp]] Tesla Bullets patch history))
 ## [[/item/tesla-bullets]]((Tesla Bullets))
 - Proc cooldown reduced from 0.25s to 0.2s
 =
 
 =item:torment-pulse:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5183 pick=0.1582 matches=1401714 days=14
+    after win=0.5174 pick=0.1541 matches=539148 days=5
+  }
+  high {
+    before win=0.5161 pick=0.1595 matches=252332 days=14
+    after win=0.5125 pick=0.1538 matches=94929 days=5
+  }
+}
+``
 [[/item/torment-pulse]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/torment_pulse.webp]] Torment Pulse patch history))
 ## [[/item/torment-pulse]]((Torment Pulse))
 - Melee Resist increased from 15% to 18%
 =
 
 =item:toxic-bullets:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5067 pick=0.1398 matches=1238318 days=14
+    after win=0.5218 pick=0.1312 matches=458850 days=5
+  }
+  high {
+    before win=0.5014 pick=0.1223 matches=193585 days=14
+    after win=0.5212 pick=0.1155 matches=71278 days=5
+  }
+}
+``
 [[/item/toxic-bullets]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/toxic_bullets.webp]] Toxic Bullets patch history))
 ## [[/item/toxic-bullets]]((Toxic Bullets))
 - No longer builds up from melee attacks
 =
 
 =item:unstoppable:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.562 pick=0.0415 matches=367698 days=14
+    after win=0.5676 pick=0.0424 matches=148197 days=5
+  }
+  high {
+    before win=0.5679 pick=0.0561 matches=88820 days=14
+    after win=0.5719 pick=0.0589 matches=36355 days=5
+  }
+}
+``
 [[/item/unstoppable]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/unstoppable.webp]] Unstoppable patch history))
 ## [[/item/unstoppable]]((Unstoppable))
 - Cooldown reduced from 65s to 60s
 =
 
 =item:vampiric-burst:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5343 pick=0.0892 matches=790306 days=14
+    after win=0.5361 pick=0.0792 matches=277031 days=5
+  }
+  high {
+    before win=0.5502 pick=0.0875 matches=138517 days=14
+    after win=0.5511 pick=0.069 matches=42587 days=5
+  }
+}
+``
 [[/item/vampiric-burst]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/vampiric_burst.webp]] Vampiric Burst patch history))
 ## [[/item/vampiric-burst]]((Vampiric Burst))
 - Duration increased from 4.5s to 5s
@@ -1091,6 +2327,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =item:veil-walker:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4901 pick=0.0113 matches=99689 days=14
+    after win=0.4939 pick=0.015 matches=52302 days=5
+  }
+  high {
+    before win=0.4888 pick=0.0121 matches=19162 days=14
+    after win=0.4977 pick=0.0214 matches=13229 days=5
+  }
+}
+``
 [[/item/veil-walker]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/veil_walker.webp]] Veil Walker patch history))
 ## [[/item/veil-walker]]((Veil Walker))
 - Heal per boon increased from 6 to 8
@@ -1098,18 +2346,54 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =item:vortex-web:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5331 pick=0.0261 matches=231568 days=14
+    after win=0.5362 pick=0.0216 matches=75565 days=5
+  }
+  high {
+    before win=0.5307 pick=0.0314 matches=49684 days=14
+    after win=0.5389 pick=0.0253 matches=15599 days=5
+  }
+}
+``
 [[/item/vortex-web]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/vortex_web.webp]] Vortex Web patch history))
 ## [[/item/vortex-web]]((Vortex Web))
 - Fixed the debuff losing gravity modification when upgraded from Slowing Hex
 =
 
 =item:weakening-headshot:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.537 pick=0.0417 matches=369145 days=14
+    after win=0.5206 pick=0.0512 matches=178986 days=5
+  }
+  high {
+    before win=0.5531 pick=0.0534 matches=84486 days=14
+    after win=0.5347 pick=0.0636 matches=39252 days=5
+  }
+}
+``
 [[/item/weakening-headshot]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/weakening_headshot.webp]] Weakening Headshot patch history))
 ## [[/item/weakening-headshot]]((Weakening Headshot))
 - Now works vs NPCs
 =
 
 =item:weapon-shielding:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4212 pick=0.0034 matches=30179 days=14
+    after win=0.4682 pick=0.0149 matches=52139 days=5
+  }
+  high {
+    before win=0.451 pick=0.0013 matches=2133 days=14
+    after win=0.4867 pick=0.0214 matches=13217 days=5
+  }
+}
+``
 [[/item/weapon-shielding]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/weapon_shielding.webp]] Weapon Shielding patch history))
 ## [[/item/weapon-shielding]]((Weapon Shielding))
 - No longer grants +1.75m Move Speed on activation
@@ -1117,6 +2401,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =item:weighted-shots:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5026 pick=0.1528 matches=1353970 days=14
+    after win=0.4997 pick=0.1365 matches=477287 days=5
+  }
+  high {
+    before win=0.5078 pick=0.1697 matches=268514 days=14
+    after win=0.5081 pick=0.1374 matches=84792 days=5
+  }
+}
+``
 [[/item/weighted-shots]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/weighted_shots.webp]] Weighted Shots patch history))
 ## [[/item/weighted-shots]]((Weighted Shots))
 - Dash Distance slow reduced from -25% to -22%
@@ -1124,6 +2420,18 @@ content_text "Base HP reduced by 10 for all heroes HP per boon reduced by 3 Guar
 =
 
 =item:witchmail:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5798 pick=0.042 matches=371868 days=14
+    after win=0.5884 pick=0.0428 matches=149595 days=5
+  }
+  high {
+    before win=0.5912 pick=0.0371 matches=58728 days=14
+    after win=0.5973 pick=0.0396 matches=24441 days=5
+  }
+}
+``
 [[/item/witchmail]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/witchmail.webp]] Witchmail patch history))
 ## [[/item/witchmail]]((Witchmail))
 - Spirit Resist increased from 20% to 22%

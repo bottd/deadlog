@@ -1,4 +1,4 @@
-``meta:
+``attr:
 title "12-29-2025 Update"
 thread_id "95233"
 published "2025-12-29T22:33:52-0800"
@@ -30,6 +30,18 @@ content_text "Respawn time at 19 minutes reduced from 35s to 30s Respawn time at
 ``
 
 =hero:bebop:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4477 pick=0.4709 matches=115719 days=13
+    after win=0.4825 pick=0.7051 matches=227544 days=14
+  }
+  high {
+    before win=0.4399 pick=0.4797 matches=22131 days=13
+    after win=0.4592 pick=0.7963 matches=45015 days=14
+  }
+}
+``
 [[/hero/bebop]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp]] Bebop patch history))
 ## [[/hero/bebop]]((Bebop))
 - Stamina increased from 2 to 3
@@ -63,12 +75,36 @@ content_text "Respawn time at 19 minutes reduced from 35s to 30s Respawn time at
 =
 
 =hero:billy:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5047 pick=0.425 matches=104436 days=13
+    after win=0.4863 pick=0.3739 matches=120682 days=14
+  }
+  high {
+    before win=0.5153 pick=0.3782 matches=17447 days=13
+    after win=0.4861 pick=0.3102 matches=17536 days=14
+  }
+}
+``
 [[/hero/billy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/punkgoat_sm.webp]] Billy patch history))
 ## [[/hero/billy]]((Billy))
 - Base bullet damage reduced from 6.79 to 6.3
 =
 
 =hero:grey-talon:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4447 pick=0.2629 matches=64593 days=13
+    after win=0.4705 pick=0.2419 matches=78084 days=14
+  }
+  high {
+    before win=0.4266 pick=0.232 matches=10704 days=13
+    after win=0.4668 pick=0.2192 matches=12393 days=14
+  }
+}
+``
 [[/hero/grey-talon]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp]] Grey Talon patch history))
 ## [[/hero/grey-talon]]((Grey Talon))
 ==ability:rain-of-arrows:
@@ -87,6 +123,18 @@ content_text "Respawn time at 19 minutes reduced from 35s to 30s Respawn time at
 =
 
 =hero:holliday:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.442 pick=0.2779 matches=68288 days=13
+    after win=0.4543 pick=0.2669 matches=86128 days=14
+  }
+  high {
+    before win=0.4516 pick=0.2822 matches=13016 days=13
+    after win=0.4632 pick=0.2754 matches=15570 days=14
+  }
+}
+``
 [[/hero/holliday]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]] Holliday patch history))
 ## [[/hero/holliday]]((Holliday))
 ==ability:powder-keg:
@@ -102,6 +150,18 @@ content_text "Respawn time at 19 minutes reduced from 35s to 30s Respawn time at
 =
 
 =hero:ivy:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5171 pick=0.2985 matches=73349 days=13
+    after win=0.5249 pick=0.3215 matches=103761 days=14
+  }
+  high {
+    before win=0.5128 pick=0.2979 matches=13744 days=13
+    after win=0.5287 pick=0.325 matches=18375 days=14
+  }
+}
+``
 [[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
 ## [[/hero/ivy]]((Ivy))
 ==ability:watcher-s-covenant-replicated-healing:
@@ -118,6 +178,18 @@ content_text "Respawn time at 19 minutes reduced from 35s to 30s Respawn time at
 =
 
 =hero:kelvin:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4708 pick=0.241 matches=59225 days=13
+    after win=0.4601 pick=0.1923 matches=62052 days=14
+  }
+  high {
+    before win=0.4778 pick=0.2347 matches=10829 days=13
+    after win=0.458 pick=0.1656 matches=9361 days=14
+  }
+}
+``
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
 ## [[/hero/kelvin]]((Kelvin))
 ==ability:frost-grenade:
@@ -134,6 +206,18 @@ content_text "Respawn time at 19 minutes reduced from 35s to 30s Respawn time at
 =
 
 =hero:lady-geist:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4775 pick=0.341 matches=83793 days=13
+    after win=0.4681 pick=0.2938 matches=94831 days=14
+  }
+  high {
+    before win=0.4702 pick=0.3279 matches=15126 days=13
+    after win=0.4685 pick=0.2488 matches=14066 days=14
+  }
+}
+``
 [[/hero/lady-geist]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]] Lady Geist patch history))
 ## [[/hero/lady-geist]]((Lady Geist))
 - Ammo reduced from 10 to 9
@@ -141,6 +225,18 @@ content_text "Respawn time at 19 minutes reduced from 35s to 30s Respawn time at
 =
 
 =hero:mcginnis:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5557 pick=0.3987 matches=97965 days=13
+    after win=0.4979 pick=0.3508 matches=113216 days=14
+  }
+  high {
+    before win=0.5618 pick=0.3686 matches=17003 days=13
+    after win=0.4927 pick=0.2677 matches=15132 days=14
+  }
+}
+``
 [[/hero/mcginnis]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp]] McGinnis patch history))
 ## [[/hero/mcginnis]]((McGinnis))
 ==ability:medicinal-specter:
@@ -159,6 +255,18 @@ content_text "Respawn time at 19 minutes reduced from 35s to 30s Respawn time at
 =
 
 =hero:mo-krill:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4979 pick=0.3042 matches=74753 days=13
+    after win=0.5079 pick=0.3028 matches=97710 days=14
+  }
+  high {
+    before win=0.4908 pick=0.3102 matches=14310 days=13
+    after win=0.5112 pick=0.3012 matches=17029 days=14
+  }
+}
+``
 [[/hero/mo-krill]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp]] Mo & Krill patch history))
 ## [[/hero/mo-krill]]((Mo & Krill))
 ==ability:burrow:
@@ -177,6 +285,18 @@ content_text "Respawn time at 19 minutes reduced from 35s to 30s Respawn time at
 =
 
 =hero:paradox:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4638 pick=0.2926 matches=71897 days=13
+    after win=0.4692 pick=0.2785 matches=89869 days=14
+  }
+  high {
+    before win=0.4765 pick=0.329 matches=15177 days=13
+    after win=0.4843 pick=0.3286 matches=18578 days=14
+  }
+}
+``
 [[/hero/paradox]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox patch history))
 ## [[/hero/paradox]]((Paradox))
 ==ability:kinetic-carbine:
@@ -192,6 +312,18 @@ content_text "Respawn time at 19 minutes reduced from 35s to 30s Respawn time at
 =
 
 =hero:seven:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5477 pick=0.3867 matches=95024 days=13
+    after win=0.5448 pick=0.4219 matches=136149 days=14
+  }
+  high {
+    before win=0.5422 pick=0.3507 matches=16176 days=13
+    after win=0.5315 pick=0.3655 matches=20664 days=14
+  }
+}
+``
 [[/hero/seven]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp]] Seven patch history))
 ## [[/hero/seven]]((Seven))
 ==ability:lightning-ball:
@@ -218,6 +350,18 @@ content_text "Respawn time at 19 minutes reduced from 35s to 30s Respawn time at
 =
 
 =hero:sinclair:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4458 pick=0.2327 matches=57188 days=13
+    after win=0.4566 pick=0.2121 matches=68443 days=14
+  }
+  high {
+    before win=0.4409 pick=0.2306 matches=10637 days=13
+    after win=0.459 pick=0.2135 matches=12069 days=14
+  }
+}
+``
 [[/hero/sinclair]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/magician_sm.webp]] Sinclair patch history))
 ## [[/hero/sinclair]]((Sinclair))
 - Spirit power growth increased from 1.1 to 1.3
@@ -238,6 +382,18 @@ content_text "Respawn time at 19 minutes reduced from 35s to 30s Respawn time at
 =
 
 =hero:yamato:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.4498 pick=0.294 matches=72246 days=13
+    after win=0.4642 pick=0.3107 matches=100269 days=14
+  }
+  high {
+    before win=0.4617 pick=0.3264 matches=15059 days=13
+    after win=0.4793 pick=0.361 matches=20406 days=14
+  }
+}
+``
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
 ## [[/hero/yamato]]((Yamato))
 ==ability:power-slash:
@@ -260,12 +416,36 @@ content_text "Respawn time at 19 minutes reduced from 35s to 30s Respawn time at
 ``
 
 =item:kinetic-dash:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5018 pick=0.1605 matches=473300 days=13
+    after win=0.5074 pick=0.1875 matches=726143 days=14
+  }
+  high {
+    before win=0.5046 pick=0.2012 matches=111377 days=13
+    after win=0.5136 pick=0.2293 matches=155521 days=14
+  }
+}
+``
 [[/item/kinetic-dash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/kinetic_dash.webp]] Kinetic Dash patch history))
 ## [[/item/kinetic-dash]]((Kinetic Dash))
 - Ammo count reduced from +8 to +6
 =
 
 =item:toxic-bullets:
+``attr:
+impact closed=#true {
+  all {
+    before win=0.5014 pick=0.1604 matches=472849 days=13
+    after win=0.4954 pick=0.1521 matches=589074 days=14
+  }
+  high {
+    before win=0.502 pick=0.1755 matches=97132 days=13
+    after win=0.4998 pick=0.1563 matches=106020 days=14
+  }
+}
+``
 [[/item/toxic-bullets]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/toxic_bullets.webp]] Toxic Bullets patch history))
 ## [[/item/toxic-bullets]]((Toxic Bullets))
 - Bleed damage reduced from 2.2% to 2%
