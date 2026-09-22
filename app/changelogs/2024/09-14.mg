@@ -6,6 +6,10 @@ author "Yoshi"
 author_image "/assets/authors/yoshi.webp"
 major_update #false
 content_text "Bebop Hyper Beam cooldown increased from 117 to 130 Hyper Beam T1 reduced from -38s to -30s Hyper Beam end radius reduced from 5m to 4m Hyper Beam slow reduced from 40% to 30% Hyper Beam DPS reduced from 220 to 205 Hyper Beam DPS spirit scaling reduced from 3 to 2.7 McGinnis Medicinal Specter radius spirit power reduced from 0.07 to 0.05 Ammo Scavenger Buff duration reduced from 40s to 35s"
+stats schema=2 method=2 collected="2026-09-21T21:41:20.000Z" {
+  before from="2024-09-13" to="2024-09-15"
+  after from="2024-09-16" to="2024-09-17"
+}
 ``
 
 
@@ -19,12 +23,12 @@ content_text "Bebop Hyper Beam cooldown increased from 117 to 130 Hyper Beam T1 
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5144 pick=0.7849 matches=1215 days=2
-    after win=#null pick=#null matches=534 days=1
+    before win=0.5144 pick=0.7849 matches=1215 days=2 total=18576 covered=2 coverage="complete"
+    after win=#null pick=#null matches=534 days=1 total=8412 covered=1 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -50,12 +54,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=901 days=2
-    after win=#null pick=#null matches=389 days=1
+    before win=#null pick=#null matches=901 days=2 total=18576 covered=2 coverage="complete"
+    after win=#null pick=#null matches=389 days=1 total=8412 covered=1 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``

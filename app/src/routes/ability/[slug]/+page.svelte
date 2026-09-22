@@ -23,6 +23,7 @@
 	parent={{ name: hero.name, slug: hero.slug, image: hero.image }}
 	changelogs={data.changelogs}
 	abilities={data.abilities}
+	about={data.about}
 	currentAbilitySlug={ability.slug}
 	label={`${hero.name} ability`}
 	seo={{

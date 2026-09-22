@@ -1,6 +1,12 @@
 import { describe, expect, it } from 'vitest';
 import { DAY_S } from './constants';
-import { indexSeries, sliceWindows, summarise, windowDays } from './sliceWindows';
+import {
+	indexSeries,
+	patchBounds,
+	sliceWindows,
+	summarise,
+	windowDays
+} from './sliceWindows';
 import { DAY_1, allSeries, day, type HeroPart } from './fixtures';
 import type { DailyRow, EntityKind } from './types';
 
@@ -137,7 +143,7 @@ describe('summarise', () => {
 	it('sums the window and scales hero pick rate to share of matches', () => {
 		const window = summarise(hero, 1, range(0, 9).map(day));
 
-		expect(window).toEqual({
+		expect(window).toMatchObject({
 			win: 0.55,
 			pick: 0.1,
 			matches: 2000,
@@ -154,7 +160,7 @@ describe('summarise', () => {
 	it('nulls the rates under the match floor but keeps the count', () => {
 		const window = summarise(hero, 1, range(0, 3).map(day));
 
-		expect(window).toEqual({
+		expect(window).toMatchObject({
 			win: null,
 			pick: null,
 			matches: 800,
@@ -175,7 +181,7 @@ describe('summarise', () => {
 
 	it('returns an empty window for an unknown entity or no days', () => {
 		expect(summarise(hero, 99, range(0, 9).map(day)).matches).toBe(0);
-		expect(summarise(hero, 1, [])).toEqual({
+		expect(summarise(hero, 1, [])).toMatchObject({
 			win: null,
 			pick: null,
 			matches: 0,
@@ -192,6 +198,57 @@ describe('summarise', () => {
 
 		expect(window.win).toBe(0.4113);
 		expect(window.pick).toBe(1);
+	});
+});
+
+describe('coverage', () => {
+	it('counts the cohort days the series has and refuses a rate when one is missing', () => {
+		const days = range(0, 9).map(day);
+		const rows = days.map((d) => ({ entityId: 1, day: d, wins: 150, matches: 300 }));
+		const full = new Map(days.map((d) => [d, 120_000]));
+		const gapped = new Map([...full].slice(1));
+
+		expect(summarise(indexSeries(rows, full, 'hero'), 1, days)).toMatchObject({
+			win: 0.5,
+			total: 1_200_000,
+			covered: 10,
+			coverage: 'complete'
+		});
+		expect(summarise(indexSeries(rows, gapped, 'hero'), 1, days)).toMatchObject({
+			win: null,
+			pick: null,
+			matches: 3000,
+			covered: 9,
+			coverage: 'incomplete'
+		});
+	});
+
+	it('keeps a covered day the entity sat out as a real zero', () => {
+		const days = range(0, 9).map(day);
+		const rows = days
+			.slice(0, 5)
+			.map((d) => ({ entityId: 1, day: d, wins: 150, matches: 300 }));
+		const totals = new Map(days.map((d) => [d, 120_000]));
+
+		expect(summarise(indexSeries(rows, totals, 'hero'), 1, days)).toMatchObject({
+			win: 0.5,
+			days: 5,
+			covered: 10,
+			coverage: 'complete'
+		});
+	});
+});
+
+describe('patchBounds', () => {
+	it('reports end-exclusive day intervals and the patches sharing the day', () => {
+		const patches = [patchAt('a', 20), { id: 'b', at: day(20) + 7200 }, patchAt('c', 30)];
+
+		expect(patchBounds(patches, 0, FAR_FUTURE)).toEqual({
+			before: { from: '2026-09-14', to: '2026-09-28' },
+			after: { from: '2026-09-29', to: '2026-10-08' },
+			siblings: ['b']
+		});
+		expect(patchBounds([patchAt('p', 20)], 0, day(21) + 60).after).toBeNull();
 	});
 });
 
@@ -232,7 +289,7 @@ describe('sliceWindows', () => {
 		});
 
 		const entry = impactOf(impact, 'p1', 'hero:1');
-		expect(entry.all.before).toEqual({
+		expect(entry.all.before).toMatchObject({
 			win: 0.5,
 			pick: 0.1,
 			matches: 2800,
@@ -292,7 +349,7 @@ describe('sliceWindows', () => {
 
 		expect(impactOf(impact, 'p1', 'hero:1').closed).toBe(true);
 		expect(impactOf(impact, 'p2', 'hero:1').closed).toBe(false);
-		expect(impactOf(impact, 'p2', 'hero:1').all.after).toEqual({
+		expect(impactOf(impact, 'p2', 'hero:1').all.after).toMatchObject({
 			win: null,
 			pick: null,
 			days: 3,

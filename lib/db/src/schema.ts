@@ -8,7 +8,12 @@ import {
 } from 'drizzle-orm/sqlite-core';
 import { createInsertSchema } from 'drizzle-zod';
 import { z } from 'zod';
-import type { EntityImpact } from '@deadlog/utils';
+import type {
+	EntityContext,
+	EntityImpact,
+	PatchStats,
+	RelatedItems
+} from '@deadlog/utils';
 import type { EntityChangeGroup, HeroChangeGroup } from './types';
 
 export const changelogs = sqliteTable(
@@ -23,7 +28,8 @@ export const changelogs = sqliteTable(
 		previewImage: text('preview_image'),
 		pubDate: text('pub_date').notNull(),
 		majorUpdate: integer('major_update', { mode: 'boolean' }).notNull().default(false),
-		contentText: text('content_text')
+		contentText: text('content_text'),
+		stats: text('stats', { mode: 'json' }).$type<PatchStats>()
 	},
 	// SQLite serves ORDER BY … DESC from an ASC index via a backward scan, so no
 	// ordering modifiers here.
@@ -67,7 +73,10 @@ export const heroAbilities = sqliteTable(
 		name: text('name').notNull(),
 		slug: text('slug').notNull(),
 		image: text('image').notNull(),
-		description: text('description')
+		description: text('description'),
+		assetId: integer('asset_id'),
+		className: text('class_name'),
+		context: text('context', { mode: 'json' }).$type<EntityContext>()
 	},
 	(table) => ({
 		pk: primaryKey({ columns: [table.heroId, table.position] }),
@@ -89,7 +98,8 @@ export const items = sqliteTable('items', {
 	category: text('category', { enum: ['weapon', 'vitality', 'spirit'] }),
 	tier: integer('tier'),
 	image: text('image').notNull(),
-	isReleased: integer('is_released', { mode: 'boolean' }).notNull().default(false)
+	isReleased: integer('is_released', { mode: 'boolean' }).notNull().default(false),
+	context: text('context', { mode: 'json' }).$type<EntityContext>()
 });
 
 export const insertItemSchema = createInsertSchema(items, {
@@ -115,7 +125,8 @@ export const changelogHeroes = sqliteTable(
 			.notNull()
 			.references(() => heroes.id),
 		changeGroups: text('change_groups', { mode: 'json' }).$type<HeroChangeGroup[]>(),
-		impact: text('impact', { mode: 'json' }).$type<EntityImpact>()
+		impact: text('impact', { mode: 'json' }).$type<EntityImpact>(),
+		relatedItems: text('related_items', { mode: 'json' }).$type<RelatedItems>()
 	},
 	(table) => ({
 		pk: primaryKey({ columns: [table.changelogId, table.heroId] }),
@@ -127,7 +138,10 @@ const impactWindowSchema = z.object({
 	win: z.number().nullable(),
 	pick: z.number().nullable(),
 	matches: z.number(),
-	days: z.number()
+	days: z.number(),
+	total: z.number().optional(),
+	covered: z.number().optional(),
+	coverage: z.enum(['complete', 'incomplete']).optional()
 });
 const tierImpactSchema = z.object({
 	before: impactWindowSchema,
@@ -142,6 +156,41 @@ const changeGroupSchema = z.object({
 	ability: z.string().nullable(),
 	bullets: z.array(z.string())
 });
+
+export const propertyEvents = sqliteTable(
+	'property_events',
+	{
+		changelogId: text('changelog_id')
+			.notNull()
+			.references(() => changelogs.id),
+		entityType: text('entity_type', { enum: ['hero', 'item'] }).notNull(),
+		entityId: integer('entity_id').notNull(),
+		abilitySlug: text('ability_slug'),
+		groupIndex: integer('group_index').notNull(),
+		bulletIndex: integer('bullet_index').notNull(),
+		property: text('property').notNull(),
+		qualifier: text('qualifier').notNull(),
+		oldValue: text('old_value').notNull(),
+		newValue: text('new_value').notNull(),
+		digest: text('digest').notNull(),
+		extractionVersion: integer('extraction_version').notNull(),
+		previousChangelogId: text('previous_changelog_id').references(() => changelogs.id),
+		previousOld: text('previous_old'),
+		previousNew: text('previous_new')
+	},
+	(table) => ({
+		pk: primaryKey({
+			columns: [
+				table.changelogId,
+				table.entityType,
+				table.entityId,
+				table.groupIndex,
+				table.bulletIndex
+			]
+		}),
+		entityIdx: index('idx_property_events_entity').on(table.entityType, table.entityId)
+	})
+);
 
 export const insertChangelogHeroSchema = createInsertSchema(changelogHeroes, {
 	changeGroups: z

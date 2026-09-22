@@ -6,6 +6,10 @@ author "Yoshi"
 author_image "/assets/authors/yoshi.webp"
 major_update #false
 content_text "There is no longer a reinforcement trooper wave after Guardians and Walkers die Yamato Shadow Transformation now causes you to be unable to die during the buff Spirit Strike Melee damage reduced from 20% to 15% Melee Charge No longer grants +15% Melee Damage Veil Walker Bullet Shield reduced from +200 to +150 Shield restore now takes 5s to fully regen Cooldown increased from 20s to 25s"
+stats schema=2 method=2 collected="2026-09-21T21:41:20.000Z" {
+  before from="2024-06-21" to="2024-06-23"
+  after from="2024-06-24" to="2024-06-27"
+}
 ``
 
 # General Changes
@@ -22,12 +26,12 @@ content_text "There is no longer a reinforcement trooper wave after Guardians an
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=21 days=2
-    after win=#null pick=#null matches=29 days=3
+    before win=#null pick=#null matches=21 days=2 total=648 covered=2 coverage="complete"
+    after win=#null pick=#null matches=29 days=3 total=996 covered=3 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -50,12 +54,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=64 days=2
-    after win=#null pick=#null matches=20 days=1
+    before win=#null pick=#null matches=64 days=2 total=648 covered=2 coverage="complete"
+    after win=#null pick=#null matches=47 days=3 total=996 covered=3 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -68,12 +72,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=67 days=2
-    after win=#null pick=#null matches=53 days=2
+    before win=#null pick=#null matches=67 days=2 total=648 covered=2 coverage="complete"
+    after win=#null pick=#null matches=72 days=3 total=996 covered=3 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -86,12 +90,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=22 days=1
+    before win=#null pick=#null matches=33 days=2 total=648 covered=2 coverage="complete"
+    after win=#null pick=#null matches=54 days=3 total=996 covered=3 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``

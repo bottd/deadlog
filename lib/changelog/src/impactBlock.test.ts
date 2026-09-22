@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import type { EntityImpact } from '@deadlog/utils';
-import { readImpactBlock, writeImpactBlock } from './impactBlock';
-import { parseMog } from '../../../node_modules/vite-plugin-mog/dist/napi/index.js';
+import { parseStructure } from './extract';
+import { parseImpact, writeImpactBlock } from './impactBlock';
 
 const closed: EntityImpact = {
 	closed: true,
@@ -27,7 +27,11 @@ const open: EntityImpact = {
 	}
 };
 
-const body = (impact: EntityImpact) => writeImpactBlock(impact).slice(1, -1);
+const inBlock = (attr: string[]) =>
+	['=hero:abrams:', ...attr, '## Abrams', '- Change', '=', ''].join('\n');
+
+const recorded = async (attr: string[]) =>
+	(await parseStructure(inBlock(attr))).changes[0].impact;
 
 describe('writeImpactBlock', () => {
 	it('writes the fixed shape between verbatim fences', () => {
@@ -46,13 +50,15 @@ describe('writeImpactBlock', () => {
 			'``'
 		]);
 	});
+
+	it('round-trips through the Mog parser, nulls and zeroes included', async () => {
+		expect(await recorded(writeImpactBlock(closed))).toEqual(closed);
+		expect(await recorded(writeImpactBlock(open))).toEqual(open);
+	});
 });
 
-describe('readImpactBlock', () => {
-	it('round-trips closed and open entities, nulls and zeroes included', () => {
-		expect(readImpactBlock(body(closed))).toEqual(closed);
-		expect(readImpactBlock(body(open))).toEqual(open);
-	});
+describe('reading a block back', () => {
+	const corrupt = (edit: (lines: string[]) => string[]) => edit(writeImpactBlock(closed));
 
 	it.each([
 		['an unknown key', (l: string[]) => l.map((x) => x.replace('days=', 'dayz='))],
@@ -60,12 +66,7 @@ describe('readImpactBlock', () => {
 			'a missing window',
 			(l: string[]) => l.filter((x) => !x.includes('after win=0.524'))
 		],
-		['an extra tier', (l: string[]) => [...l.slice(0, -1), '  low {', '  }', '}']],
-		['unbalanced braces', (l: string[]) => l.slice(0, -1)],
-		[
-			'tiers out of order',
-			(l: string[]) => l.map((x) => x.replace('  all {', '  high {'))
-		],
+		['an extra tier', (l: string[]) => [...l.slice(0, -2), '  low {', '  }', '}', '``']],
 		[
 			'a fractional match count',
 			(l: string[]) => l.map((x) => x.replace('21734', '2.5'))
@@ -82,43 +83,21 @@ describe('readImpactBlock', () => {
 			'a missing closed flag',
 			(l: string[]) => l.map((x) => x.replace(' closed=#true', ''))
 		],
-		['trailing content', (l: string[]) => [...l, 'note "x"']]
-	])('throws on %s', (_, corrupt) => {
-		expect(() => readImpactBlock(corrupt(body(closed)))).toThrow(
-			/Malformed impact block/
+		['invalid KDL', (l: string[]) => l.filter((x) => x !== '}')],
+		['a second key beside impact', (l: string[]) => [...l.slice(0, -1), 'note "x"', '``']]
+	])('rejects %s', async (_, edit) => {
+		await expect(parseStructure(inBlock(corrupt(edit)))).rejects.toThrow(
+			/Malformed impact block|holds only impact and related/
 		);
 	});
-});
 
-describe('parity with the Mog parser', () => {
-	const unescape = (value: string) =>
-		value
-			.replaceAll('&quot;', '"')
-			.replaceAll('&#x27;', "'")
-			.replaceAll('&lt;', '<')
-			.replaceAll('&gt;', '>')
-			.replaceAll('&amp;', '&');
+	it('rejects two attr blocks on one entity', async () => {
+		const twice = [...writeImpactBlock(closed), ...writeImpactBlock(open)];
 
-	it.each([
-		['closed', closed],
-		['open', open]
-	])('reads a %s block to the same value the renderer emits', async (_, impact) => {
-		const source = [
-			'=hero:abrams:',
-			...writeImpactBlock(impact),
-			'## Abrams',
-			'- Change',
-			'='
-		];
+		await expect(parseStructure(inBlock(twice))).rejects.toThrow(/one attr block/);
+	});
 
-		const result = await parseMog(source.join('\n') + '\n', 'svelte');
-
-		expect(result.diagnostics).toEqual([]);
-		const html = result.segments.map((s) => (s.kind === 'html' ? s.html : '')).join('');
-		const attribute = html.match(/<div class="hero abrams" data-impact="([^"]*)">/);
-		expect(JSON.parse(unescape(attribute?.[1] ?? ''))).toEqual(
-			readImpactBlock(body(impact))
-		);
-		expect(html).not.toContain('<pre>');
+	it('names what is wrong with a value', () => {
+		expect(() => parseImpact({ closed: true })).toThrow(/Malformed impact block/);
 	});
 });

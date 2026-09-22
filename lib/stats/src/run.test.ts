@@ -2,7 +2,7 @@ import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { parseStructure, splitFrontMatter } from '@deadlog/changelog';
+import { parseStructure } from '@deadlog/changelog';
 import type { EntityImpact } from '@deadlog/utils';
 import { DAY_S } from './constants';
 import { allSeries, day, type HeroPart } from './fixtures';
@@ -48,8 +48,8 @@ let dir: string;
 const file = (slug: string) => join(dir, `${slug}.mg`);
 
 async function recordedImpact(slug: string): Promise<EntityImpact | null> {
-	const { body } = splitFrontMatter(await readFile(file(slug), 'utf8'));
-	return parseStructure(body).changes[0].impact ?? null;
+	const { changes } = await parseStructure(await readFile(file(slug), 'utf8'));
+	return changes[0].impact ?? null;
 }
 
 async function inputs(): Promise<PatchInputs> {
@@ -59,12 +59,38 @@ async function inputs(): Promise<PatchInputs> {
 			{ kind: 'hero', id: 1, recorded: await recordedImpact(patch.slug) }
 		]);
 	}
+	const recorded = await Promise.all(
+		patches.map(async (patch) => ({
+			...patch,
+			stats: (await parseStructure(await readFile(file(patch.slug), 'utf8'))).stats
+		}))
+	);
 	return {
-		patches,
+		patches: recorded,
 		touched,
 		entities: { hero: [{ id: 1, name: 'Infernus' }], item: [] }
 	};
 }
+
+const legacyBlock = [
+	'``attr:',
+	'impact closed=#true {',
+	'  all {',
+	'    before win=0.4 pick=0.1 matches=14000 days=14',
+	'    after win=0.4 pick=0.1 matches=14000 days=14',
+	'  }',
+	'  high {',
+	'    before win=#null pick=#null matches=0 days=0',
+	'    after win=#null pick=#null matches=0 days=0',
+	'  }',
+	'}',
+	'``'
+].join('\n');
+const legacyChangelog = (title: string, closed: boolean) =>
+	changelog(title).replace(
+		'=hero:infernus:',
+		`=hero:infernus:\n${closed ? legacyBlock : legacyBlock.replace('#true', '#false')}`
+	);
 
 const options = (overrides: Partial<RunOptions> = {}): RunOptions => ({
 	changelogsDir: dir,
@@ -179,6 +205,73 @@ describe('run', () => {
 		await run(options({ rebuild: true, fetchAll: fetchWith(700) }));
 
 		expect((await recordedImpact('2026/p1'))?.all.after.win).toBe(0.7);
+	});
+
+	it('records the sampled intervals and method once per file', async () => {
+		await run(options());
+
+		const { stats } = await parseStructure(await readFile(file('2026/p2'), 'utf8'));
+		expect(stats).toEqual({
+			schemaVersion: 2,
+			methodVersion: 2,
+			collectedAt: new Date(NOW * 1000).toISOString(),
+			before: { from: '2026-10-04', to: '2026-10-18' },
+			after: { from: '2026-10-19', to: '2026-10-22' },
+			siblings: []
+		});
+		expect((await recordedImpact('2026/p2'))?.all.before).toMatchObject({
+			total: 14 * 120_000,
+			covered: 14,
+			coverage: 'complete'
+		});
+	});
+
+	it('keeps the collection time when a later run changes nothing', async () => {
+		await run(options());
+		await run(options({ now: NOW + 3600 }));
+
+		const { stats } = await parseStructure(await readFile(file('2026/p2'), 'utf8'));
+		expect(stats?.collectedAt).toBe(new Date(NOW * 1000).toISOString());
+	});
+
+	it('leaves a closed legacy file alone on a routine run and says a rebuild is needed', async () => {
+		await writeFile(file('2026/p1'), legacyChangelog('One', true));
+		const log = vi.fn();
+
+		await run(options({ log }));
+
+		expect(await readFile(file('2026/p1'), 'utf8')).toBe(legacyChangelog('One', true));
+		expect(log).toHaveBeenCalledWith(expect.stringContaining('1 closed changelogs hold'));
+	});
+
+	it('upgrades a legacy file with an open window as a whole', async () => {
+		await writeFile(file('2026/p2'), legacyChangelog('Two', false));
+
+		await run(options());
+
+		const parsed = await parseStructure(await readFile(file('2026/p2'), 'utf8'));
+		expect(parsed.stats?.methodVersion).toBe(2);
+		expect(parsed.changes[0].impact?.all.before.coverage).toBe('complete');
+	});
+
+	it('suppresses rates when a cohort day is missing, and says so in the data', async () => {
+		const gap = day(30);
+		await run(
+			options({
+				fetchAll: async (range) => {
+					const part = heroSeries(range, 500);
+					part.totals.delete(gap);
+					return allSeries({ heroAll: part });
+				}
+			})
+		);
+
+		expect((await recordedImpact('2026/p1'))?.all.after).toMatchObject({
+			win: null,
+			matches: 14_000,
+			covered: 13,
+			coverage: 'incomplete'
+		});
 	});
 
 	it('names the file when a touched entity has no block', async () => {

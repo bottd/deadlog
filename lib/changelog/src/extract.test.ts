@@ -4,7 +4,7 @@ import { extractEntities, extractEntityChanges, parseStructure } from './extract
 import { writeImpactBlock } from './impactBlock';
 
 describe('extractEntityChanges', () => {
-	it('groups bullets per ability section within an entity', () => {
+	it('groups bullets per ability section within an entity', async () => {
 		const content = [
 			'# Hero Changes',
 			'=hero:doorman:',
@@ -23,7 +23,7 @@ describe('extractEntityChanges', () => {
 			'='
 		].join('\n');
 
-		expect(extractEntityChanges(content)).toEqual([
+		expect(await extractEntityChanges(content)).toEqual([
 			{
 				name: 'Doorman',
 				type: 'hero',
@@ -38,9 +38,42 @@ describe('extractEntityChanges', () => {
 				groups: [{ ability: null, bullets: ['Proc chance increased'] }]
 			}
 		]);
+		const parsed = await parseStructure(content);
+		expect(
+			parsed.bullets.map(({ name, ability, groupIndex, bulletIndex, startLine }) => [
+				name,
+				ability,
+				groupIndex,
+				bulletIndex,
+				startLine
+			])
+		).toEqual([
+			['Doorman', null, 0, 0, 4],
+			['Doorman', 'Call Bell', 1, 0, 7],
+			['Doorman', 'Call Bell', 1, 1, 8],
+			['Tesla Bullets', null, 0, 0, 13]
+		]);
+		expect(parsed.readingBlocks).toEqual([
+			{
+				kind: 'hero',
+				name: 'Doorman',
+				ability: 'Call Bell',
+				startLine: 5,
+				endLine: 9,
+				depth: 2
+			},
+			{
+				kind: 'item',
+				name: 'Tesla Bullets',
+				ability: null,
+				startLine: 11,
+				endLine: 14,
+				depth: 1
+			}
+		]);
 	});
 
-	it('merges repeated article aliases and decodes entity names', () => {
+	it('merges repeated article aliases and decodes entity names', async () => {
 		const content = `
 =hero:doorman:
 ## The Doorman
@@ -56,7 +89,7 @@ describe('extractEntityChanges', () => {
 =
 `;
 
-		expect(extractEntityChanges(content)).toEqual([
+		expect(await extractEntityChanges(content)).toEqual([
 			{
 				name: 'The Doorman',
 				type: 'hero',
@@ -71,7 +104,7 @@ describe('extractEntityChanges', () => {
 		]);
 	});
 
-	it('stops attributing bullets at a new top-level section', () => {
+	it('stops attributing bullets at a new top-level section', async () => {
 		const content = `
 =hero:abrams:
 ## Abrams
@@ -82,7 +115,7 @@ describe('extractEntityChanges', () => {
 - Not counted, a new top-level section
 `;
 
-		expect(extractEntityChanges(content)).toEqual([
+		expect(await extractEntityChanges(content)).toEqual([
 			{
 				name: 'Abrams',
 				type: 'hero',
@@ -91,15 +124,15 @@ describe('extractEntityChanges', () => {
 		]);
 	});
 
-	it('keeps an explicit empty list instead of inventing a change', () => {
-		expect(extractEntityChanges('=hero:abrams:\n## Abrams\n=')).toEqual([
+	it('keeps an explicit empty list instead of inventing a change', async () => {
+		expect(await extractEntityChanges('=hero:abrams:\n## Abrams\n=')).toEqual([
 			{ name: 'Abrams', type: 'hero', groups: [] }
 		]);
 	});
 });
 
 describe('entity identity extraction', () => {
-	it('reads entities off the toc by their heading attribute', () => {
+	it('reads entities off the toc by their heading attribute', async () => {
 		const entities = extractEntities([
 			{ level: 1, title: 'Hero Changes', attrs: [] },
 			{ level: 2, title: 'Doorman', attrs: ['hero', 'doorman'] },
@@ -142,9 +175,9 @@ describe('impact blocks', () => {
 		...plain.slice(10)
 	];
 
-	it('captures a block onto its hero and item, leaving bullets and toc untouched', () => {
-		const bare = parseStructure(plain.join('\n'));
-		const parsed = parseStructure(withImpact.join('\n'));
+	it('captures a block onto its hero and item, leaving bullets and toc untouched', async () => {
+		const bare = await parseStructure(plain.join('\n'));
+		const parsed = await parseStructure(withImpact.join('\n'));
 
 		expect(parsed.changes.map((change) => change.impact)).toEqual([impact, impact]);
 		expect(parsed.changes.map((change) => ({ ...change, impact: undefined }))).toEqual(
@@ -153,43 +186,47 @@ describe('impact blocks', () => {
 		expect(parsed.toc).toEqual(bare.toc);
 	});
 
-	it('reports each block by heading name with its fence and attr line range', () => {
-		const { blocks } = parseStructure(withImpact.join('\n'));
+	it('reports each block by heading name with its fence and attr line range', async () => {
+		const { blocks } = await parseStructure(withImpact.join('\n'));
 
-		expect(blocks).toEqual([
-			{ name: 'The Doorman', type: 'hero', fenceLine: 1, impactLines: [2, 13] },
-			{ name: 'Tesla Bullets', type: 'item', fenceLine: 21, impactLines: [22, 33] }
+		expect(blocks).toMatchObject([
+			{ name: 'The Doorman', type: 'hero', fenceLine: 1, attributeLines: [2, 13] },
+			{ name: 'Tesla Bullets', type: 'item', fenceLine: 21, attributeLines: [22, 33] }
 		]);
+		expect(Object.keys(blocks[0].enrichment)).toEqual(['impact']);
 		expect(withImpact[blocks[0].fenceLine]).toBe('=hero:doorman:');
-		expect(parseStructure(plain.join('\n')).blocks[1]).toEqual({
+		expect((await parseStructure(plain.join('\n'))).blocks[1]).toEqual({
 			name: 'Tesla Bullets',
 			type: 'item',
 			fenceLine: 9,
-			impactLines: null
+			attributeLines: null,
+			enrichment: {}
 		});
 	});
 
-	it('skips a block at the root, in an ability block, or under a bullet', () => {
-		const stray = [
-			...attr,
-			...plain.slice(0, 5),
-			...attr,
-			...plain.slice(5, 12),
-			...attr,
-			...plain.slice(12)
-		];
+	it('merges a root-level block into metadata and leaves the entities alone', async () => {
+		const parsed = await parseStructure([...attr, '', ...plain].join('\n'));
 
-		const parsed = parseStructure(stray.join('\n'));
-
-		expect(parsed.changes[0].impact).toBeUndefined();
-		expect(parsed.changes[0].groups).toEqual(
-			parseStructure(plain.join('\n')).changes[0].groups
-		);
-		expect(parsed.changes[1].impact).toBeUndefined();
-		expect(parsed.toc).toEqual(parseStructure(plain.join('\n')).toc);
+		expect(parsed.metadata).toHaveProperty('impact');
+		expect(parsed.changes).toEqual((await parseStructure(plain.join('\n'))).changes);
 	});
 
-	it('keeps the first block when an entity appears twice', () => {
+	it.each([
+		['in an ability block', 5],
+		['after the entity heading', 3],
+		['under a bullet', 12]
+	])(
+		'rejects a block %s, where the renderer would not read it as the entity',
+		async (_, at) => {
+			const misplaced = [...plain.slice(0, at), ...attr, ...plain.slice(at)];
+
+			await expect(parseStructure(misplaced.join('\n'))).rejects.toThrow(
+				/not directly under a hero or item fence/
+			);
+		}
+	);
+
+	it('keeps the first block when an entity appears twice', async () => {
 		const twice = [
 			...withImpact,
 			'=hero:doorman:',
@@ -199,15 +236,17 @@ describe('impact blocks', () => {
 			'='
 		];
 
-		const { blocks, changes } = parseStructure(twice.join('\n'));
+		const { blocks, changes } = await parseStructure(twice.join('\n'));
 
 		expect(blocks.filter((block) => block.name === 'The Doorman')).toHaveLength(1);
 		expect(changes[0].groups.at(-1)?.bullets).toContain('Again');
 	});
 
-	it('propagates a malformed block', () => {
+	it('propagates a malformed block', async () => {
 		const broken = [plain[1], '``attr:', 'impact {', '``', ...plain.slice(2)];
 
-		expect(() => parseStructure(broken.join('\n'))).toThrow(/Malformed impact block/);
+		await expect(parseStructure(broken.join('\n'))).rejects.toThrow(
+			/Malformed impact block/
+		);
 	});
 });

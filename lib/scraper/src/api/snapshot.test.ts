@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import type { EntitySnapshot } from './deadlock';
@@ -95,6 +95,92 @@ describe('entity snapshot cache', () => {
 		await loadEntitySnapshot();
 		const raw = await readFile(join(directory, 'entities.json'), 'utf-8');
 		expect(raw).toBe(serializeEntitySnapshot(snapshot));
+	});
+
+	const versioned: EntitySnapshot = {
+		...snapshot,
+		provenance: {
+			clientVersion: 6698,
+			language: 'english',
+			collectedAt: '2026-09-21T21:01:20.000Z'
+		}
+	};
+
+	it('writes provenance beside the arrays and reads it back', async () => {
+		await writeEntitySnapshot(versioned);
+
+		const written = JSON.parse(await readFile(join(directory, 'entities.json'), 'utf-8'));
+		expect(Object.keys(written)).toEqual([
+			'schemaVersion',
+			'clientVersion',
+			'language',
+			'collectedAt',
+			'heroes',
+			'items'
+		]);
+		expect(written.schemaVersion).toBe(2);
+		await expect(readEntitySnapshot()).resolves.toEqual(versioned);
+	});
+
+	it('gives a legacy snapshot no provenance', async () => {
+		await writeEntitySnapshot(snapshot);
+		const legacy = await readEntitySnapshot();
+		expect(legacy).toEqual(snapshot);
+		expect(legacy?.provenance).toBeUndefined();
+	});
+
+	it('leaves the file alone when only the collection time moved', async () => {
+		await writeEntitySnapshot(versioned);
+		mocks.fetch.mockResolvedValue({
+			...versioned,
+			provenance: { ...versioned.provenance, collectedAt: '2026-09-22T06:00:00.000Z' }
+		});
+
+		await expect(loadEntitySnapshot()).resolves.toEqual(versioned);
+		const raw = await readFile(join(directory, 'entities.json'), 'utf-8');
+		expect(raw).toBe(serializeEntitySnapshot(versioned));
+	});
+
+	it('rewrites the file when the client version moved', async () => {
+		await writeEntitySnapshot(versioned);
+		const next = {
+			...versioned,
+			provenance: { ...versioned.provenance, clientVersion: 6700 }
+		};
+		mocks.fetch.mockResolvedValue(next);
+
+		await expect(loadEntitySnapshot()).resolves.toEqual(next);
+		await expect(readEntitySnapshot()).resolves.toEqual(next);
+	});
+
+	it('keeps the last good pair, provenance included, when a refresh fails', async () => {
+		await writeEntitySnapshot(versioned);
+		mocks.fetch.mockRejectedValue(new Error('Failed to fetch items: Not Found'));
+		await expect(loadEntitySnapshot()).resolves.toEqual(versioned);
+	});
+
+	it('round-trips projected context fields in api order', async () => {
+		const widened: EntitySnapshot = {
+			...versioned,
+			items: [
+				{
+					...snapshot.items[0],
+					description: { desc: 'Second <span>item</span>', t1_desc: null },
+					properties: { Bonus: { value: '30', prefix: '{s:sign}', label: 'Ammo' } }
+				},
+				{ ...snapshot.items[1], properties: { Damage: { value: 40, scales: true } } }
+			]
+		};
+		await writeEntitySnapshot(widened);
+
+		const read = await readEntitySnapshot();
+		expect(read).toEqual(widened);
+		expect(read?.items.map((item) => item.id)).toEqual([20, 10]);
+	});
+
+	it('leaves no staging file behind', async () => {
+		await writeEntitySnapshot(versioned);
+		expect(await readdir(directory)).toEqual(['entities.json']);
 	});
 
 	it('rethrows when the api is unreachable and nothing is cached', async () => {

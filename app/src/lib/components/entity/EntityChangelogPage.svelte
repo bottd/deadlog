@@ -1,4 +1,5 @@
 <script lang="ts">
+	import PreviousChangeLink from './PreviousChangeLink.svelte';
 	import { RecentPatches } from '$lib/components/changelog';
 	import {
 		changeCountLabel,
@@ -11,15 +12,26 @@
 		pageMeta
 	} from '$lib/seo';
 	import { JsonLd, MetaTags } from 'svelte-meta-tags';
-	import { countBullets, formatDate, formatYear, plural } from '@deadlog/utils';
+	import { countBullets, formatDate, formatYear, plural, toSlug } from '@deadlog/utils';
 	import ArrowLeft from '@lucide/svelte/icons/arrow-left';
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
 	import CornerAccents from '$lib/components/ui/corner-accents/CornerAccents.svelte';
 	import EntityHistoryToc from './EntityHistoryToc.svelte';
+	import EntityContext from './EntityContext.svelte';
 	import PatchImpact from './PatchImpact.svelte';
+	import RelatedItemChanges from './RelatedItemChanges.svelte';
+	import type { RelatedChanges } from './relatedChanges';
+	import type { PreviousChange } from './previousChanges';
+	import type { PageContext } from './pageContext';
 	import type { Snippet } from 'svelte';
-	import { WINDOW_CAP_DAYS } from '@deadlog/stats';
-	import type { EntityImpact } from '@deadlog/utils';
+	import {
+		HIGH_RANK_LABEL,
+		HIGH_RANK_MIN_BADGE,
+		MIN_WINDOW_MATCHES,
+		WINDOW_CAP_DAYS
+	} from '@deadlog/stats';
+	import { IMPACT_HEADING } from '$lib/utils/impactFormat';
+	import type { EntityImpact, PatchStats } from '@deadlog/utils';
 	import { shallowParams } from '$lib/stores/shallowParams.svelte';
 
 	interface ChangeGroup {
@@ -27,6 +39,7 @@
 		abilitySlug?: string | null;
 		icon?: string | null;
 		bullets: string[];
+		previous?: (PreviousChange | null)[];
 	}
 	interface EntityPatch {
 		id: string;
@@ -37,6 +50,8 @@
 		changeCount: number | null;
 		changeGroups?: ChangeGroup[] | null;
 		impact?: EntityImpact | null;
+		stats?: PatchStats | null;
+		related?: RelatedChanges | null;
 	}
 	interface Ability {
 		name: string;
@@ -51,6 +66,8 @@
 		label,
 		changelogs,
 		abilities = [],
+		contexts = {},
+		about,
 		currentAbilitySlug,
 		labelSuffix,
 		seo
@@ -64,6 +81,8 @@
 		label: string;
 		changelogs: EntityPatch[];
 		abilities?: Ability[];
+		contexts?: Record<string, PageContext>;
+		about?: PageContext | null;
 		labelSuffix?: Snippet;
 		seo: {
 			path: string;
@@ -77,6 +96,15 @@
 	// An ability page shows one ability already, so its rail navigates between siblings
 	// instead of filtering. That also makes it work without JS, unlike the filter rail.
 	const abilityLinkMode = $derived(entity.type === 'ability');
+	function groupContext(group: ChangeGroup): PageContext | null {
+		if (!group.ability || !group.abilitySlug) return null;
+		if (toSlug(group.ability) !== group.abilitySlug) return null;
+		return contexts[group.abilitySlug] ?? null;
+	}
+	const hasContexts = $derived(Object.keys(contexts).length > 0);
+	const contextVersion = $derived(
+		about?.clientVersion ?? Object.values(contexts)[0]?.clientVersion ?? null
+	);
 	const railChip =
 		'ui-focus-ring border-subtle bg-card text-foreground flex min-h-11 items-center gap-2 rounded-md border px-3 py-2 text-left text-sm transition-colors idle-hover:border-signal/60 selected:(border-signal bg-signal/10 text-signal)';
 	const params = shallowParams({ ability: 0 });
@@ -105,6 +133,11 @@
 		});
 	});
 	const hasImpact = $derived(visibleChangelogs.some((patch) => patch.impact));
+	const hasRelated = $derived(changelogs.some((patch) => patch.related));
+	const hasLegacyImpact = $derived(
+		changelogs.some((patch) => patch.impact && !patch.stats)
+	);
+	const latestStats = $derived(changelogs.find((patch) => patch.stats)?.stats ?? null);
 	const historyYears = $derived([
 		...visibleChangelogs.reduce((groups, patch) => {
 			const year = formatYear(patch.date);
@@ -227,7 +260,12 @@
 						{/if}
 					</div>
 				</div>
-				<details class="mt-3">
+				{#if about}
+					<div class="mt-3">
+						<EntityContext context={about} name={entity.name} variant="header" />
+					</div>
+				{/if}
+				<details class={about ? '' : 'mt-3'}>
 					<summary
 						class="ui-focus-ring text-muted-foreground w-fit cursor-pointer rounded-sm py-3 text-sm"
 					>
@@ -381,8 +419,9 @@
 											>
 										</div>
 										{#if patch.changeGroups?.length}
-											<div class="max-w-[72ch] space-y-4">
+											<div class="max-w-[72ch] {hasContexts ? 'space-y-5' : 'space-y-4'}">
 												{#each patch.changeGroups as group, groupIndex (groupIndex)}
+													{@const context = groupContext(group)}
 													<div>
 														{#if group.ability}
 															<div class="mb-2 flex items-center gap-2">
@@ -407,10 +446,31 @@
 																	class="pl-1"
 																>
 																	{bullet}
+																	{#if group.previous?.[index]}
+																		{@const previous = group.previous[index]}
+																		<PreviousChangeLink {previous} />
+																	{/if}
 																</li>{/each}
 														</ul>
+														{#if context && group.ability}
+															<div class="mt-1 ml-5">
+																<EntityContext
+																	{context}
+																	name={group.ability}
+																	variant="group"
+																	historyHref="/ability/{group.abilitySlug}"
+																/>
+															</div>
+														{/if}
 													</div>
 												{/each}
+												{#if patch.related}
+													<RelatedItemChanges
+														related={patch.related}
+														heroName={entity.name}
+														entryYear={patch.date.getUTCFullYear()}
+													/>
+												{/if}
 											</div>
 										{:else}
 											<p
@@ -419,7 +479,12 @@
 												{entity.name} was mentioned in this patch. See the full notes for context.
 											</p>
 										{/if}
-										{#if patch.impact}<PatchImpact impact={patch.impact} />{/if}
+										{#if patch.impact && entity.type !== 'ability'}<PatchImpact
+												impact={patch.impact}
+												kind={entity.type}
+												stats={patch.stats}
+												entryYear={patch.date.getUTCFullYear()}
+											/>{/if}
 										<a
 											href={entityPatchHref(patch, entity)}
 											class="ui-focus-ring text-signal mt-2 inline-flex min-h-11 items-center gap-1.5 rounded-sm text-xs underline-offset-4 hover:underline"
@@ -430,23 +495,66 @@
 							</ol>
 						</section>
 					{/each}
-					{#if hasImpact}
-						<p
-							class="text-muted-foreground border-subtle mt-6 max-w-[72ch] border-t pt-4 text-xs leading-relaxed"
+					{#if hasImpact || hasRelated || contextVersion !== null}
+						<section
+							id="method"
+							aria-labelledby="method-heading"
+							class="text-muted-foreground border-subtle mt-6 max-w-[72ch] scroll-mt-44 space-y-2 border-t pt-4 text-xs leading-relaxed"
 						>
-							Win and pick rates are measured between neighbouring patches, up to {WINDOW_CAP_DAYS}
-							days each side, and shown as observed. {#if entity.type === 'item'}Item pick
-								rate is the share of players who bought it, and item win rates depend on
-								which heroes buy the item.{:else}Pick rate is the share of matches the
-								hero appeared in.{/if}
-							Match data from the
-							<a
-								href="https://deadlock-api.com"
-								rel="noopener"
-								class="ui-focus-ring text-signal rounded-sm underline-offset-4 hover:underline"
-								>Deadlock API</a
-							>.
-						</p>
+							{#if hasImpact}
+								<h2 id="method-heading" class="text-foreground text-sm font-semibold">
+									{IMPACT_HEADING}
+								</h2>
+								<p>
+									{#if entity.type === 'item'}Bought is the share of players who bought
+										the item, and buyer win is how often those players won, which depends
+										on which heroes buy it.{:else}Win is how often the hero won, and pick
+										is the share of matches the hero appeared in.{/if}
+									Each is measured over the complete days between this patch and its neighbours,
+									up to {WINDOW_CAP_DAYS} days each side, and shown as observed. A side with
+									fewer than {MIN_WINDOW_MATCHES.toLocaleString('en-US')}
+									{entity.type === 'item' ? 'player-matches' : 'matches'} shows a dash.
+								</p>
+								<p>
+									Patches released on the same day share their windows, and other changes
+									land in the same days, so a difference is not the effect of any one
+									line. High rank counts matches whose average badge across both teams is
+									{HIGH_RANK_LABEL} or higher (badge {HIGH_RANK_MIN_BADGE}).
+								</p>
+								{#if latestStats}
+									<p>
+										{`Normal-mode ranked and unranked matches. Method ${latestStats.methodVersion}, last collected ${formatDate(new Date(latestStats.collectedAt))}.`}
+										{#if hasLegacyImpact}Entries without a breakdown were measured with an
+											earlier method.{/if}
+									</p>
+								{/if}
+							{:else}
+								<h2 id="method-heading" class="sr-only">Sources</h2>
+							{/if}
+							{#if hasRelated}
+								<p>
+									Also changed lists up to three items changed in the same patch, by the
+									share of the hero's player-matches in which the item was bought, all
+									ranks, over the days before the patch. It needs 1,000 hero appearances
+									and 100 buyers, and it is not a recommendation.
+								</p>
+							{/if}
+							{#if contextVersion !== null}
+								<p>
+									Current details describe game client {contextVersion}, not the game as
+									it was when a patch shipped.
+								</p>
+							{/if}
+							<p>
+								{hasImpact ? 'Match data' : 'Details'} from the
+								<a
+									href="https://deadlock-api.com"
+									rel="noopener"
+									class="ui-focus-ring text-signal rounded-sm underline-offset-4 hover:underline"
+									>Deadlock API</a
+								>.
+							</p>
+						</section>
 					{/if}
 				{:else}
 					<div

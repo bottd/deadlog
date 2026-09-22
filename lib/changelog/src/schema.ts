@@ -1,4 +1,5 @@
-import type { EntityImpact } from '@deadlog/utils';
+import type { EntityImpact, PatchStats, RelatedItems } from '@deadlog/utils';
+import type { EntityEnrichment } from './entityEnrichment';
 import { z } from 'zod';
 
 export const ChangelogMetadataSchema = z.object({
@@ -10,7 +11,9 @@ export const ChangelogMetadataSchema = z.object({
 	author: z.string(),
 	author_image: z.string().optional(),
 	preview_image: z.string().url().optional(),
-	major_update: z.coerce.boolean().default(false)
+	major_update: z.coerce.boolean().default(false),
+	client_version_captured: z.number().int().positive().optional(),
+	client_version_captured_at: z.string().optional()
 });
 
 export type ChangelogMetadata = z.infer<typeof ChangelogMetadataSchema>;
@@ -32,6 +35,7 @@ export interface EntityChange {
 	type: 'hero' | 'item';
 	groups: EntityBulletGroup[];
 	impact?: EntityImpact;
+	related?: RelatedItems;
 }
 
 /** Where an entity's block sits in the parsed text, as line indices. */
@@ -39,7 +43,8 @@ export interface EntityBlock {
 	name: string;
 	type: 'hero' | 'item';
 	fenceLine: number;
-	impactLines: [start: number, end: number] | null;
+	attributeLines: [start: number, end: number] | null;
+	enrichment: EntityEnrichment;
 }
 
 export interface ParsedChangelog {
@@ -51,4 +56,5 @@ export interface ParsedChangelog {
 	entityChanges: EntityChange[];
 	plainText: string;
 	previewImage?: string;
+	stats?: PatchStats;
 }

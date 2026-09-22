@@ -22,8 +22,9 @@ import {
 	type PostContentResult,
 	type SteamAnnouncement
 } from './api';
-import { carryImpact } from '@deadlog/changelog';
+import { carryEnrichment } from '@deadlog/changelog';
 import { parseAuthorName } from './authorParser';
+import { withCapturedVersion, type VersionCapture } from './content/captureVersion';
 import { extractContent, deduplicateLines, type EntityLists } from './content/parser';
 import {
 	buildEntityAssets,
@@ -42,6 +43,7 @@ export const CHANGELOGS_DIR = process.env.CHANGELOGS_DIR || 'app/changelogs';
 interface ScrapeOptions {
 	overwrite?: boolean;
 	snapshot?: EntitySnapshot;
+	capture?: VersionCapture;
 }
 
 export interface ScrapeResult {
@@ -66,10 +68,11 @@ function skipReason(filepath: string, overwrite: boolean): string | null {
 	return null;
 }
 
-function writeMogFile(
+async function writeMogFile(
 	filepath: string,
-	content: string
-): 'created' | 'updated' | 'unchanged' {
+	content: string,
+	capture?: VersionCapture
+): Promise<'created' | 'updated' | 'unchanged'> {
 	mkdirSync(dirname(filepath), { recursive: true });
 	const isUpdate = existsSync(filepath);
 	const previous = isUpdate ? readFileSync(filepath, 'utf-8') : null;
@@ -77,7 +80,8 @@ function writeMogFile(
 		const alias = previous?.match(/^alias .+$/m)?.[0];
 		if (alias) content = content.replace(/^title .+$/m, (title) => `${title}\n${alias}`);
 	}
-	if (previous) content = carryImpact(previous, content);
+	content = withCapturedVersion(content, previous, capture);
+	if (previous) content = await carryEnrichment(previous, content);
 	if (previous === content) return 'unchanged';
 	writeFileSync(filepath, content, 'utf-8');
 	return isUpdate ? 'updated' : 'created';
@@ -405,7 +409,7 @@ export async function scrapeChangelogs(
 
 			const source = buildChangelogSource(content, post.postId, steamNote, alias);
 			const changelog = generateChangelog(source, entities, assets);
-			const result = writeMogFile(filepath, changelog);
+			const result = await writeMogFile(filepath, changelog, options.capture);
 			if (migratedSteamPath) unlinkSync(migratedSteamPath);
 
 			console.log(
@@ -422,7 +426,7 @@ export async function scrapeChangelogs(
 		for (const { note, filepath } of steamOnlyNotes) {
 			const source = buildSteamChangelogSource(note);
 			const changelog = generateChangelog(source, entities, assets);
-			const result = writeMogFile(filepath, changelog);
+			const result = await writeMogFile(filepath, changelog, options.capture);
 
 			console.log(
 				`   ${result === 'created' ? '✨ Created' : '📄 Updated'}: ${filepath}`

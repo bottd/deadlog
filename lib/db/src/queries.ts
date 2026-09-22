@@ -1,4 +1,13 @@
-import { eq, sql, desc, and, count, inArray, type SQL } from 'drizzle-orm';
+import {
+	eq,
+	sql,
+	desc,
+	and,
+	count,
+	inArray,
+	getTableColumns,
+	type SQL
+} from 'drizzle-orm';
 import type { SQLiteColumn } from 'drizzle-orm/sqlite-core';
 import type {
 	ChangelogEntityIcon,
@@ -19,11 +28,14 @@ import {
 	makeSummary,
 	canonicalSlug,
 	HERO_IMAGE_KEYS,
-	type EntityImpact
+	type EntityContext,
+	type EntityImpact,
+	type PatchStats,
+	type RelatedItems
 } from '@deadlog/utils';
 
 export type ScrapedChangelog = SelectChangelog;
-export type ScrapedItem = typeof schema.items.$inferSelect;
+export type ScrapedItem = Omit<typeof schema.items.$inferSelect, 'context'>;
 export type EnrichedHero = typeof schema.heroes.$inferSelect;
 export type EnrichedItem = ScrapedItem;
 
@@ -48,6 +60,8 @@ export type EntityChangelog<Group = EntityChangeGroup> = Pick<
 	changeCount: number | null;
 	changeGroups: Group[] | null;
 	impact: EntityImpact | null;
+	stats: PatchStats | null;
+	relatedItems?: RelatedItems | null;
 };
 
 function buildTextSearchCondition(searchQuery: string): SQL {
@@ -190,8 +204,49 @@ export async function getAllHeroes(db: DrizzleDB): Promise<EnrichedHero[]> {
 	return db.select().from(schema.heroes).all();
 }
 
+const itemColumns = Object.fromEntries(
+	Object.entries(getTableColumns(schema.items)).filter(([name]) => name !== 'context')
+) as Omit<ReturnType<typeof getTableColumns<typeof schema.items>>, 'context'>;
+
 export async function getAllItems(db: DrizzleDB): Promise<ScrapedItem[]> {
-	return db.select().from(schema.items).all();
+	return db.select(itemColumns).from(schema.items).all();
+}
+
+export async function getItemContext(
+	db: DrizzleDB,
+	itemId: number
+): Promise<EntityContext | null> {
+	const row = await db
+		.select({ context: schema.items.context })
+		.from(schema.items)
+		.where(eq(schema.items.id, itemId))
+		.get();
+	return row?.context ?? null;
+}
+
+export async function getHeroAbilityContexts(
+	db: DrizzleDB,
+	heroId: number
+): Promise<{ slug: string; context: EntityContext }[]> {
+	const rows = await db
+		.select({ slug: schema.heroAbilities.slug, context: schema.heroAbilities.context })
+		.from(schema.heroAbilities)
+		.where(eq(schema.heroAbilities.heroId, heroId))
+		.orderBy(schema.heroAbilities.position)
+		.all();
+	return rows.flatMap(({ slug, context }) => (context ? [{ slug, context }] : []));
+}
+
+export async function getAssetProvenance(
+	db: DrizzleDB
+): Promise<{ clientVersion: number; collectedAt: string } | null> {
+	const [version, collectedAt] = await Promise.all([
+		getMetadata(db, 'asset_client_version'),
+		getMetadata(db, 'asset_collected_at')
+	]);
+	const clientVersion = Number(version);
+	if (!Number.isInteger(clientVersion) || clientVersion <= 0 || !collectedAt) return null;
+	return { clientVersion, collectedAt };
 }
 
 export async function getEntityNames(db: DrizzleDB, kind: EntityType) {
@@ -217,7 +272,7 @@ export async function getItemBySlug(
 	slug: string
 ): Promise<ScrapedItem | null> {
 	const item = await db
-		.select()
+		.select(itemColumns)
 		.from(schema.items)
 		.where(eq(schema.items.slug, canonicalSlug(slug)))
 		.get();
@@ -363,7 +418,9 @@ export async function getChangelogsByHeroId(
 		.select({
 			...ENTITY_HISTORY_COLUMNS,
 			changeGroups: schema.changelogHeroes.changeGroups,
-			impact: schema.changelogHeroes.impact
+			impact: schema.changelogHeroes.impact,
+			stats: schema.changelogs.stats,
+			relatedItems: schema.changelogHeroes.relatedItems
 		})
 		.from(schema.changelogs)
 		.innerJoin(
@@ -379,6 +436,89 @@ export async function getChangelogsByHeroId(
 	}));
 }
 
+export interface PropertyLink {
+	changelogId: string;
+	groupIndex: number;
+	bulletIndex: number;
+	property: string;
+	previousOld: string;
+	previousNew: string;
+	previousSlug: string;
+	previousPubDate: string;
+}
+
+export async function getPropertyLinks(
+	db: DrizzleDB,
+	entityType: 'hero' | 'item',
+	entityId: number
+): Promise<PropertyLink[]> {
+	const rows = await db
+		.select({
+			changelogId: schema.propertyEvents.changelogId,
+			groupIndex: schema.propertyEvents.groupIndex,
+			bulletIndex: schema.propertyEvents.bulletIndex,
+			property: schema.propertyEvents.property,
+			previousOld: schema.propertyEvents.previousOld,
+			previousNew: schema.propertyEvents.previousNew,
+			previousSlug: schema.changelogs.slug,
+			previousPubDate: schema.changelogs.pubDate
+		})
+		.from(schema.propertyEvents)
+		.innerJoin(
+			schema.changelogs,
+			eq(schema.changelogs.id, schema.propertyEvents.previousChangelogId)
+		)
+		.where(
+			and(
+				eq(schema.propertyEvents.entityType, entityType),
+				eq(schema.propertyEvents.entityId, entityId)
+			)
+		)
+		.all();
+	return rows.flatMap((row) =>
+		row.previousOld !== null && row.previousNew !== null
+			? [{ ...row, previousOld: row.previousOld, previousNew: row.previousNew }]
+			: []
+	);
+}
+
+export interface PatchItemChange {
+	changelogId: string;
+	itemId: number;
+	name: string;
+	image: string;
+	changeGroups: EntityChangeGroup[];
+}
+
+export async function getItemChangesInPatches(
+	db: DrizzleDB,
+	pairs: { changelogId: string; itemId: number }[]
+): Promise<PatchItemChange[]> {
+	if (pairs.length === 0) return [];
+	const wanted = new Set(pairs.map((pair) => `${pair.changelogId}:${pair.itemId}`));
+	const rows = await db
+		.select({
+			changelogId: schema.changelogItems.changelogId,
+			itemId: schema.changelogItems.itemId,
+			name: schema.items.name,
+			image: schema.items.image,
+			changeGroups: schema.changelogItems.changeGroups
+		})
+		.from(schema.changelogItems)
+		.innerJoin(schema.items, eq(schema.items.id, schema.changelogItems.itemId))
+		.where(
+			inArray(schema.changelogItems.changelogId, [
+				...new Set(pairs.map((pair) => pair.changelogId))
+			])
+		)
+		.all();
+	return rows.flatMap((row) =>
+		wanted.has(`${row.changelogId}:${row.itemId}`) && row.changeGroups?.length
+			? [{ ...row, changeGroups: row.changeGroups }]
+			: []
+	);
+}
+
 /** See getChangelogsByHeroId — deliberately uncapped for the same reason. */
 export async function getChangelogsByItemId(
 	db: DrizzleDB,
@@ -388,7 +528,8 @@ export async function getChangelogsByItemId(
 		.select({
 			...ENTITY_HISTORY_COLUMNS,
 			changeGroups: schema.changelogItems.changeGroups,
-			impact: schema.changelogItems.impact
+			impact: schema.changelogItems.impact,
+			stats: schema.changelogs.stats
 		})
 		.from(schema.changelogs)
 		.innerJoin(

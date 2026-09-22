@@ -1,6 +1,13 @@
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { DAY_S, HIGH_RANK_MIN_BADGE, dayOf } from './constants';
-import { chunkRange, fetchAllSeries, fetchSeries } from './fetchSeries';
+import {
+	chunkRange,
+	fetchAllSeries,
+	fetchBuyerSeries,
+	fetchSeries,
+	setRetryDelayForTests
+} from './fetchSeries';
 import { DAY_1, DAY_2, DAY_3, heroRow, itemRow } from './fixtures';
 
 type Responder = (url: URL) => unknown;
@@ -21,6 +28,7 @@ function stubFetch(responder: Responder, status = 200) {
 	return calls;
 }
 
+beforeEach(() => setRetryDelayForTests(0));
 afterEach(() => vi.unstubAllGlobals());
 
 describe('chunkRange', () => {
@@ -72,6 +80,23 @@ describe('fetchSeries', () => {
 		]);
 		expect(series.totals.size).toBe(0);
 		expect(calls[0].pathname).toBe('/v1/analytics/item-stats');
+	});
+
+	it('pins the population on both endpoints and the row minimum on items only', async () => {
+		const calls = stubFetch(() => []);
+
+		await fetchSeries('hero', 'all', { from: DAY_1, to: DAY_1 });
+		await fetchSeries('item', 'high', { from: DAY_1, to: DAY_1 });
+
+		for (const url of calls) {
+			expect(url.searchParams.get('game_mode')).toBe('normal');
+			expect(url.searchParams.get('match_mode')).toBe('ranked,unranked');
+			expect(url.searchParams.get('min_unix_timestamp')).toBe(String(DAY_1));
+			expect(url.searchParams.get('max_unix_timestamp')).toBe(String(DAY_2 - 1));
+		}
+		expect(calls[0].searchParams.has('min_matches')).toBe(false);
+		expect(calls[1].searchParams.get('min_matches')).toBe('1');
+		expect(calls[1].searchParams.get('min_average_badge')).toBe('91');
 	});
 
 	it('sends the badge floor only for the high tier', async () => {
@@ -132,6 +157,78 @@ describe('fetchSeries', () => {
 		await expect(fetchSeries('hero', 'all', { from: DAY_1, to: DAY_1 })).rejects.toThrow(
 			/Invalid hero-stats response/
 		);
+	});
+});
+
+describe('fetchSeries against recorded responses', () => {
+	const recorded = JSON.parse(
+		readFileSync(
+			new URL('./fixtures/enrichment/min-matches-rank-reset.json', import.meta.url),
+			'utf8'
+		)
+	) as { itemDefault: unknown[]; itemMin1: unknown[]; hero: { bucket: number }[] };
+	const range = {
+		from: Date.parse('2026-07-29T00:00:00Z') / 1000,
+		to: Date.parse('2026-08-04T00:00:00Z') / 1000
+	};
+	const resetDay = Date.parse('2026-07-31T00:00:00Z') / 1000;
+
+	it('leaves a day the API omitted absent instead of inventing a zero row', async () => {
+		stubFetch(() => recorded.itemDefault);
+
+		const series = await fetchSeries('item', 'high', range);
+
+		expect(series.rows.length).toBeGreaterThan(0);
+		expect(series.rows.some((row) => row.day === resetDay)).toBe(false);
+		expect(series.rows.every((row) => row.day <= range.to)).toBe(true);
+	});
+
+	it('reads player slots, which exceed any one hero, as the daily total', async () => {
+		stubFetch(() => recorded.hero);
+
+		const series = await fetchSeries('hero', 'high', range);
+
+		expect(series.totals.has(range.to + DAY_S)).toBe(false);
+		for (const row of series.rows) {
+			expect(series.totals.get(row.day)).toBeGreaterThanOrEqual(row.matches);
+		}
+	});
+});
+
+describe('retries', () => {
+	it('tries a failing request three times, then gives up', async () => {
+		const calls = stubFetch(() => ({ error: 'Database error.' }), 500);
+
+		await expect(fetchSeries('item', 'all', { from: DAY_1, to: DAY_1 })).rejects.toThrow(
+			/500/
+		);
+		expect(calls).toHaveLength(3);
+	});
+
+	it('does not retry a request the API rejected outright', async () => {
+		const calls = stubFetch(() => ({ error: 'bad request' }), 400);
+
+		await expect(fetchSeries('hero', 'all', { from: DAY_1, to: DAY_1 })).rejects.toThrow(
+			/400/
+		);
+		expect(calls).toHaveLength(1);
+	});
+});
+
+describe('fetchBuyerSeries', () => {
+	it('asks hero-stats for one item and drops the filtered slot total', async () => {
+		const calls = stubFetch(() => [
+			{ ...heroRow(1, DAY_1, 60, 100), matches_per_bucket: 50_662 },
+			heroRow(1, DAY_2, 55, 90)
+		]);
+
+		const rows = await fetchBuyerSeries(3696726732, { from: DAY_1, to: DAY_1 });
+
+		expect(rows).toEqual([{ entityId: 1, day: DAY_1, wins: 60, matches: 100 }]);
+		expect(calls[0].pathname).toBe('/v1/analytics/hero-stats');
+		expect(calls[0].searchParams.get('include_item_ids')).toBe('3696726732');
+		expect(calls[0].searchParams.get('game_mode')).toBe('normal');
+		expect(calls[0].searchParams.has('min_matches')).toBe(false);
 	});
 });
 

@@ -5,7 +5,7 @@ import { describe, expect, it } from 'vitest';
 import { deduplicateChangelogs, extractPreviewImage, loadAllChangelogs } from './load';
 import { parseStructure } from './extract';
 
-const imagesIn = (content: string) => parseStructure(content).images;
+const imagesIn = async (content: string) => (await parseStructure(content)).images;
 
 describe('extractPreviewImage', () => {
 	it('returns the first non-favicon image', () => {
@@ -23,7 +23,7 @@ describe('extractPreviewImage', () => {
 		).toBeUndefined();
 	});
 
-	it('skips an entity portrait, which is chrome rather than patch content', () => {
+	it('skips an entity portrait, which is chrome rather than patch content', async () => {
 		const content = [
 			'# General Changes',
 			'[[!:https://cdn.example.com/screenshot.jpg]]((map changes))',
@@ -36,7 +36,7 @@ describe('extractPreviewImage', () => {
 			'='
 		].join('\n');
 
-		expect(imagesIn(content)).toEqual(['https://cdn.example.com/screenshot.jpg']);
+		expect(await imagesIn(content)).toEqual(['https://cdn.example.com/screenshot.jpg']);
 	});
 });
 

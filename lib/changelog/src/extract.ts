@@ -1,13 +1,9 @@
-import { ATTR_OPEN, VERBATIM_CLOSE, readImpactBlock } from './impactBlock';
+import { parseMogAst, type MogNode } from 'vite-plugin-mog/parser';
+import { decodeEntityName, entityNameAliases, type PatchStats } from '@deadlog/utils';
+import { chain, isImage, plainText } from './ast';
+import { parseEnrichment, type EntityEnrichment } from './entityEnrichment';
+import { parseStats, type ImpactSchemaVersion } from './impactBlock';
 import type { ChangelogEntities, EntityBlock, EntityChange } from './schema';
-import {
-	MOG_IMAGE_RE,
-	decodeEntityName,
-	entityNameAliases,
-	stripMogLinks,
-	unescapeMogDelimiters
-} from '@deadlog/utils';
-import type { EntityImpact } from '@deadlog/utils';
 
 /** Only what `extractEntities` needs. Heading anchors come from the renderer's own toc
  * (see the `.mg` module's `toc` export), so deriving ids here would be a second rule. */
@@ -18,14 +14,6 @@ export interface TocEntry {
 	attrs: string[];
 }
 
-/**
- * An entity section opens with `=hero:abrams:` and closes with a bare `=` at the same
- * depth; abilities nest one deeper. The attribute chain abuts the marker, so a space
- * after it means the colon is ordinary text — exactly as the renderer reads it.
- */
-const BLOCK_RE = /^(=+)((?:[^\s:]+:)*)$/;
-const HEADING_RE = /^(#+)[ \t]*(.+)$/;
-
 type Kind = 'hero' | 'item' | 'ability';
 
 export const changeKey = (kind: Kind, name: string) =>
@@ -34,131 +22,235 @@ export const changeKey = (kind: Kind, name: string) =>
 interface Frame {
 	kind: Kind;
 	name: string | null;
-	level: number;
-	fenceLine: number;
-	impact: { value: EntityImpact; lines: [number, number] } | null;
+	node: MogNode;
 }
 
-/**
- * One pass over the document, yielding both outputs the build needs. Walking it twice
- * would mean two implementations of the same block grammar, which is how the toc and
- * the entity list drift apart.
- */
-export function parseStructure(content: string): {
+export interface ParsedStructure {
+	/** The document's root-level `attr` blocks, as plain values. */
+	metadata: Record<string, unknown>;
 	toc: TocEntry[];
 	changes: EntityChange[];
 	/** Only images outside every block — an entity's own portrait is chrome, not content. */
 	images: string[];
 	blocks: EntityBlock[];
-} {
+	stats: PatchStats | null;
+	metadataLines: [start: number, end: number] | null;
+	/** Positions use the same group/bullet indices as `changes`, never a second walk. */
+	bullets: ParsedBullet[];
+	readingBlocks: {
+		kind: 'hero' | 'item';
+		name: string;
+		ability: string | null;
+		startLine: number;
+		endLine: number;
+		depth: number;
+	}[];
+}
+
+export interface ParsedBullet {
+	kind: 'hero' | 'item';
+	name: string;
+	ability: string | null;
+	groupIndex: number;
+	bulletIndex: number;
+	text: string;
+	startLine: number;
+	endLine: number;
+	depth: number;
+}
+
+function entityBlock(
+	frame: Frame,
+	name: string,
+	type: 'hero' | 'item',
+	version: ImpactSchemaVersion
+): EntityBlock {
+	const { node } = frame;
+	const attrBlocks = node.attributes?.blocks ?? [];
+	const keys = (node.attributes?.children ?? []).map((child) => child.name);
+	if (attrBlocks.length > 1) {
+		throw new Error(`${name}: an entity block takes one attr block`);
+	}
+	if (new Set(keys).size !== keys.length) {
+		throw new Error(`${name}: an attr key is set more than once`);
+	}
+	let enrichment: EntityEnrichment;
+	try {
+		enrichment = parseEnrichment(node.attributes?.plain, type, version);
+	} catch (error) {
+		throw new Error(
+			`${name}: ${error instanceof Error ? error.message : String(error)}`,
+			{
+				cause: error
+			}
+		);
+	}
+	const fence = node.fence ?? node.span;
+	if (!fence) throw new Error(`${name}: block has no source position`);
+	return {
+		name,
+		type,
+		fenceLine: fence.startLine,
+		attributeLines: attrBlocks[0]
+			? [attrBlocks[0].startLine, attrBlocks[0].endLine]
+			: null,
+		enrichment
+	};
+}
+
+/**
+ * One pass over the document, yielding every output the build needs. Walking it twice
+ * would mean two readings of the same tree, which is how the toc and the entity list
+ * drift apart.
+ */
+export async function parseStructure(content: string): Promise<ParsedStructure> {
+	const document = await parseMogAst(content, { plain: true });
+	const metadata = document.attributes?.plain ?? {};
+	const stats = metadata.stats === undefined ? null : parseStats(metadata.stats);
+	const impactVersion = stats ? 2 : 1;
+	const [rootBlock] = document.attributes?.blocks ?? [];
 	const toc: TocEntry[] = [];
 	const images: string[] = [];
 	const changes = new Map<string, EntityChange>();
-	const stack: Frame[] = [];
 	const blocks: EntityBlock[] = [];
+	const bullets: ParsedBullet[] = [];
+	const readingBlocks: ParsedStructure['readingBlocks'] = [];
+	const stack: Frame[] = [];
 
 	const innermost = (kind: Kind) =>
 		[...stack].reverse().find((f) => f.kind === kind && f.name);
 
-	const lines = content.split('\n');
-	for (let index = 0; index < lines.length; index++) {
-		const line = lines[index].trim();
+	const heading = (node: MogNode & { kind: 'marker' }) => {
+		// Entity headings can use native Mog links; their visible label remains the name.
+		const title = decodeEntityName(plainText(node.children).trim());
+		const open = stack.at(-1);
+		// A heading names the block it sits in; anything outside one is a section.
+		const attrs = open && !open.name ? [open.kind] : [];
+		if (open && !open.name) open.name = title;
+		toc.push({ level: node.depth, title, attrs });
 
-		if (line === ATTR_OPEN) {
-			let end = index + 1;
-			while (end < lines.length && lines[end].trim() !== VERBATIM_CLOSE) end++;
-			const open = stack.at(-1);
-			// Directly under the fence is the one place the renderer also reads it as
-			// the block's own; after a bullet it would belong to that list item.
-			if (open && open.kind !== 'ability' && index === open.fenceLine + 1) {
-				open.impact = {
-					value: readImpactBlock(lines.slice(index + 1, end)),
-					lines: [index, end]
-				};
-			}
-			index = end;
-			continue;
-		}
+		if (!open || !attrs[0] || open.kind === 'ability') return;
+		const key = changeKey(open.kind, title);
+		if (changes.has(key)) return;
 
-		const block = line.match(BLOCK_RE);
-		if (block) {
-			const attrs = block[2].split(':').filter(Boolean);
-			const [kind] = attrs;
-			// A bare fence closes the innermost block of its depth.
-			if (!attrs.length) stack.pop();
-			else
-				stack.push({
-					kind: kind === 'hero' || kind === 'item' ? kind : 'ability',
-					name: null,
-					level: block[1].length,
-					fenceLine: index,
-					impact: null
-				});
-			continue;
-		}
+		const block = entityBlock(open, title, open.kind, impactVersion);
+		changes.set(key, { name: title, type: open.kind, groups: [], ...block.enrichment });
+		blocks.push(block);
+	};
 
-		const heading = line.match(HEADING_RE);
-		if (heading) {
-			// Entity headings can use native Mog links; their visible label remains the name.
-			const title = decodeEntityName(stripMogLinks(heading[2].trim()));
-			const open = stack.at(-1);
-			// A heading names the block it sits in; anything outside one is a section.
-			const attrs = open && !open.name ? [open.kind] : [];
-			if (open && !open.name) open.name = title;
-			toc.push({ level: heading[1].length, title, attrs });
-
-			if (open && attrs[0] && attrs[0] !== 'ability') {
-				const key = changeKey(open.kind, title);
-				if (!changes.has(key)) {
-					const type = open.kind as 'hero' | 'item';
-					changes.set(key, {
-						name: title,
-						type,
-						groups: [],
-						...(open.impact && { impact: open.impact.value })
-					});
-					blocks.push({
-						name: title,
-						type,
-						fenceLine: open.fenceLine,
-						impactLines: open.impact?.lines ?? null
-					});
-				}
-			}
-			continue;
-		}
-
-		const image = line.match(MOG_IMAGE_RE);
-		if (image) {
-			if (!stack.length) images.push(image[1]);
-			continue;
-		}
-
-		if (!/^-\s+\S/.test(line)) continue;
-
+	const bullet = (node: MogNode) => {
 		const entity = innermost('hero') ?? innermost('item');
-		if (!entity?.name) continue;
+		if (!entity?.name) return;
 		const current = changes.get(changeKey(entity.kind, entity.name));
-		if (!current) continue;
+		const text = decodeEntityName(plainText(node.children).trim());
+		if (!current || !text) return;
 
-		// .mg carries escaped delimiters and [[target]]((label)) links; the rendered
-		// history wants neither the backslashes nor the markup.
-		const text = stripMogLinks(
-			decodeEntityName(unescapeMogDelimiters(line.replace(/^-\s+/, '').trim()))
-		);
 		// Bullets group per ability section, so the renderer can show the ability
 		// heading and icon instead of a text prefix.
 		const ability = innermost('ability')?.name ?? null;
-		const group = current.groups.at(-1);
-		if (group && group.ability === ability) group.bullets.push(text);
-		else current.groups.push({ ability, bullets: [text] });
-	}
+		let group = current.groups.at(-1);
+		if (!group || group.ability !== ability) {
+			group = { ability, bullets: [] };
+			current.groups.push(group);
+		}
+		group.bullets.push(text);
+		if (node.kind === 'marker' && node.span && entity.kind !== 'ability') {
+			bullets.push({
+				kind: entity.kind,
+				name: entity.name,
+				ability,
+				groupIndex: current.groups.length - 1,
+				bulletIndex: group.bullets.length - 1,
+				text,
+				startLine: node.span.startLine,
+				endLine: node.span.endLine,
+				depth: node.depth
+			});
+		}
+	};
 
-	return { toc, images, changes: [...changes.values()], blocks };
+	const ownsImpact = (node: MogNode) =>
+		node.kind === 'marker' &&
+		node.marker === 'free' &&
+		(chain(node)[0] === 'hero' || chain(node)[0] === 'item');
+
+	const walk = (nodes: MogNode[] = []) => {
+		for (const node of nodes) {
+			if (node.attributes?.children?.length && !ownsImpact(node)) {
+				const line = (node.attributes.blocks?.[0] ?? node.span)?.startLine ?? 0;
+				throw new Error(
+					`Malformed impact block: the attr block on line ${line + 1} is not directly under a hero or item fence`
+				);
+			}
+			if (node.kind === 'paragraph') {
+				const [first] = node.children ?? [];
+				if (first && isImage(first) && !stack.length) images.push(first.target);
+				continue;
+			}
+			if (node.kind === 'delimiter' && chain(node)[0] === 'attr') {
+				throw new Error(
+					`Malformed impact block: line ${(node.span?.startLine ?? 0) + 1} is not valid KDL`
+				);
+			}
+			if (node.kind !== 'marker') continue;
+
+			if (node.marker === 'heading') heading(node);
+			else if (node.marker === 'unordered-list') bullet(node);
+
+			if (node.marker !== 'free') {
+				walk(node.children);
+				continue;
+			}
+			const [kind] = chain(node);
+			// A bare fence groups without naming anything.
+			if (kind === undefined) {
+				walk(node.children);
+				continue;
+			}
+			const frame: Frame = {
+				kind: kind === 'hero' || kind === 'item' ? kind : 'ability',
+				name: null,
+				node
+			};
+			stack.push(frame);
+			walk(node.children);
+			const hero = innermost('hero');
+			const ownerName = frame.kind === 'item' ? frame.name : hero?.name;
+			if (
+				frame.name &&
+				ownerName &&
+				node.span &&
+				(frame.kind === 'item' || (frame.kind === 'ability' && hero?.name))
+			) {
+				readingBlocks.push({
+					kind: frame.kind === 'item' ? 'item' : 'hero',
+					name: ownerName,
+					ability: frame.kind === 'ability' ? frame.name : null,
+					startLine: node.span.startLine,
+					endLine: node.span.endLine,
+					depth: node.depth
+				});
+			}
+			stack.pop();
+		}
+	};
+	walk(document.body);
+
+	return {
+		metadata,
+		toc,
+		images,
+		changes: [...changes.values()],
+		blocks,
+		bullets,
+		readingBlocks,
+		stats,
+		metadataLines: rootBlock ? [rootBlock.startLine, rootBlock.endLine] : null
+	};
 }
 
-export function extractEntityChanges(content: string): EntityChange[] {
-	return parseStructure(content).changes;
+export async function extractEntityChanges(content: string): Promise<EntityChange[]> {
+	return (await parseStructure(content)).changes;
 }
 
 export function extractEntities(toc: TocEntry[]): ChangelogEntities {

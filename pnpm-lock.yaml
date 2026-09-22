@@ -168,6 +168,10 @@ importers:
       '@deadlog/utils':
         specifier: workspace:*
         version: link:../lib/utils
+    devDependencies:
+      '@deadlog/changelog':
+        specifier: workspace:*
+        version: link:../lib/changelog
 
   lib/changelog:
     dependencies:

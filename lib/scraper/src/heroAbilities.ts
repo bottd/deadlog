@@ -1,6 +1,11 @@
 import type { EntityBulletGroup } from '@deadlog/changelog';
-import { resolveHeroAbilitySlug, toSlug } from '@deadlog/utils';
+import { resolveHeroAbilitySlug, toSlug, type EntityContext } from '@deadlog/utils';
 import { detectAbilityPrefix } from './content/parser';
+import {
+	buildEntityContext,
+	descriptionText,
+	type ContextProvenance
+} from './entityContext';
 import type { HeroesApiResponse, ItemsApiResponse } from './types/deadlockApi';
 
 export interface AbilitySlot {
@@ -10,29 +15,24 @@ export interface AbilitySlot {
 	slug: string;
 	image: string;
 	description: string | null;
+	assetId: number;
+	className: string;
+	context: EntityContext | null;
 }
+
+export { descriptionText };
 
 export const isReleasedHero = (hero: HeroesApiResponse[number]) =>
 	hero.player_selectable === true &&
 	hero.disabled !== true &&
 	hero.in_development !== true;
 
-export function descriptionText(html: string | null | undefined): string | null {
-	if (!html) return null;
-	return (
-		html
-			.replace(/<br\s*\/?>/gi, ' ')
-			.replace(/<[^>]*>/g, '')
-			.replace(/\s+/g, ' ')
-			.trim() || null
-	);
-}
-
 const signatures = ['signature1', 'signature2', 'signature3', 'signature4'] as const;
 
 export function resolveAbilitySlots(
 	heroes: HeroesApiResponse,
-	items: ItemsApiResponse
+	items: ItemsApiResponse,
+	provenance?: ContextProvenance
 ): Map<number, AbilitySlot[]> {
 	const itemsByClass = new Map(items.map((item) => [item.class_name, item]));
 	const slotsByHero = new Map<number, AbilitySlot[]>();
@@ -72,7 +72,20 @@ export function resolveAbilitySlots(
 				name: ability.name,
 				slug,
 				image,
-				description: descriptionText(ability.description?.desc)
+				description: descriptionText(ability.description?.desc),
+				assetId: ability.id,
+				className: ability.class_name,
+				context: buildEntityContext(
+					{
+						assetId: ability.id,
+						className: ability.class_name,
+						type: ability.type,
+						heroId: hero.id,
+						slot: position
+					},
+					ability,
+					provenance
+				)
 			});
 		}
 

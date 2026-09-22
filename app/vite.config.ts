@@ -4,6 +4,7 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import { mogPlugin } from 'vite-plugin-mog';
 import { playwright } from '@vitest/browser-playwright';
 import path from 'path';
+import { inlineMogStatsPlugin } from './inlineMogStatsPlugin.js';
 
 const changelogsDir = path.resolve(import.meta.dirname, 'changelogs');
 
@@ -36,6 +37,7 @@ export default defineConfig({
 			componentDir: path.resolve(import.meta.dirname, 'src/lib/components/changelog'),
 			theme: { light: 'github-light', dark: 'github-dark' }
 		}),
+		inlineMogStatsPlugin(changelogsDir),
 		failOnMogDiagnostics,
 		UnoCSS(),
 		sveltekit()

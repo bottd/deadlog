@@ -2,6 +2,7 @@
 	import { page } from '$app/state';
 	import { building } from '$app/environment';
 	import { ChangelogToc, MogContent } from '$lib/components/changelog';
+	import PatchStatsMethod from '$lib/components/changelog/PatchStatsMethod.svelte';
 	import { searchParams } from '$lib/stores/searchParams.svelte';
 	import type { EntityIcon } from '$lib/types';
 	import * as Avatar from '$lib/components/ui/avatar';
@@ -38,8 +39,23 @@
 		image,
 		isIndexable,
 		MogComponent,
-		mogToc = []
+		mogToc = [],
+		mogMatchResults,
+		reading,
+		mogRelated
 	} = $derived(data);
+	const contextVersions = $derived(
+		[
+			...new Set(
+				Object.values(reading.details).flatMap(({ context }) =>
+					context.clientVersion === null ? [] : [context.clientVersion]
+				)
+			)
+		].sort((a, b) => a - b)
+	);
+	const hasDetails = $derived(Object.keys(reading.details).length > 0);
+	const hasPrevious = $derived(Object.keys(reading.previous).length > 0);
+	const hasRelated = $derived(Object.keys(mogRelated).length > 0);
 
 	let tocOpen = $state(false);
 
@@ -377,7 +393,24 @@
 					<hr border="none" class="editorial-divider" />
 				</header>
 
-				<MogContent content={MogComponent} {icons} filter={mogFilter} />
+				<MogContent
+					content={MogComponent}
+					{icons}
+					filter={mogFilter}
+					stats={mogMatchResults?.stats}
+					entryYear={changelog.date.getUTCFullYear()}
+					{reading}
+					related={mogRelated}
+				/>
+				{#if mogMatchResults || hasDetails || hasPrevious || hasRelated}
+					<PatchStatsMethod
+						results={mogMatchResults}
+						{hasDetails}
+						{hasPrevious}
+						{hasRelated}
+						{contextVersions}
+					/>
+				{/if}
 			</div>
 		</article>
 	</div>

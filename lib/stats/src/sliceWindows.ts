@@ -5,7 +5,7 @@ import {
 	WINDOW_CAP_DAYS,
 	dayOf
 } from './constants';
-import type { EntityImpact, ImpactWindow } from '@deadlog/utils';
+import type { DayInterval, EntityImpact, ImpactWindow } from '@deadlog/utils';
 import type { AllSeries, DailyRow, DailyTotals, EntityKind, RankTier } from './types';
 
 export interface PatchRef {
@@ -58,6 +58,35 @@ function daysBetween(lower: number, upper: number): number[] {
 	return days;
 }
 
+const isoDay = (day: number): string => new Date(day * 1000).toISOString().slice(0, 10);
+
+const interval = (days: number[]): DayInterval | null =>
+	days.length === 0
+		? null
+		: { from: isoDay(days[0]), to: isoDay(days[days.length - 1] + DAY_S) };
+
+export interface PatchBounds {
+	before: DayInterval | null;
+	after: DayInterval | null;
+	siblings: string[];
+}
+
+export function patchBounds(
+	patches: PatchRef[],
+	index: number,
+	now: number
+): PatchBounds {
+	const { before, after } = windowDays(patches, index, now);
+	const patchDay = dayOf(patches[index].at);
+	return {
+		before: interval(before),
+		after: interval(after),
+		siblings: patches
+			.filter((other, at) => at !== index && dayOf(other.at) === patchDay)
+			.map((other) => other.id)
+	};
+}
+
 export function windowDays(
 	patches: PatchRef[],
 	index: number,
@@ -92,9 +121,12 @@ export function summarise(
 	let matches = 0;
 	let total = 0;
 	let contributing = 0;
+	let covered = 0;
 
 	for (const day of days) {
-		total += series.totals.get(day) ?? 0;
+		const slots = series.totals.get(day);
+		if (slots !== undefined) covered++;
+		total += slots ?? 0;
 		const row = entityDays?.get(day);
 		if (!row) continue;
 		wins += row.wins;
@@ -102,12 +134,17 @@ export function summarise(
 		contributing++;
 	}
 
-	const reportable = matches >= MIN_WINDOW_MATCHES && total > 0;
+	const coverage = covered === days.length ? 'complete' : 'incomplete';
+	const reportable =
+		matches >= MIN_WINDOW_MATCHES && total > 0 && coverage === 'complete';
 	return {
 		win: reportable ? round4(wins / matches) : null,
 		pick: reportable ? round4((matches * series.pickMultiplier) / total) : null,
 		matches,
-		days: contributing
+		days: contributing,
+		total,
+		covered,
+		coverage
 	};
 }
 

@@ -3,7 +3,11 @@ import {
 	ANALYTICS_API_BASE,
 	DAY_S,
 	HIGH_RANK_MIN_BADGE,
+	MAX_ATTEMPTS,
 	MAX_RANGE_DAYS,
+	METHODS,
+	METHOD_VERSION,
+	POPULATION,
 	REQUEST_TIMEOUT_MS,
 	dayOf
 } from './constants';
@@ -67,21 +71,46 @@ export function chunkRange(range: TimeRange): TimeRange[] {
 	return chunks;
 }
 
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+async function request(url: string): Promise<Response> {
+	for (let attempt = 1; ; attempt++) {
+		const response = await fetch(url, {
+			signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS)
+		});
+		const retryable = response.status === 429 || response.status >= 500;
+		if (response.ok || !retryable || attempt === MAX_ATTEMPTS) return response;
+		const retryAfter = Number(response.headers.get('retry-after'));
+		await sleep(Math.min(retryAfter > 0 ? retryAfter : 2 * attempt, 30) * retryDelayMs);
+	}
+}
+
+let retryDelayMs = 1000;
+export function setRetryDelayForTests(ms: number): void {
+	retryDelayMs = ms;
+}
+
 async function fetchRows(
 	kind: EntityKind,
 	tier: RankTier,
-	chunk: TimeRange
+	chunk: TimeRange,
+	includeItemId?: number
 ): Promise<FetchedRow[]> {
 	const { endpoint, schema } = SOURCES[kind];
 	const params = new URLSearchParams({
 		bucket: 'start_time_day',
 		min_unix_timestamp: String(chunk.from),
-		max_unix_timestamp: String(chunk.to)
+		max_unix_timestamp: String(chunk.to),
+		...POPULATION
 	});
+	if (kind === 'item') {
+		params.set('min_matches', String(METHODS[METHOD_VERSION].itemMinMatches));
+	}
 	if (tier === 'high') params.set('min_average_badge', String(HIGH_RANK_MIN_BADGE));
+	if (includeItemId !== undefined) params.set('include_item_ids', String(includeItemId));
 
 	const url = `${ANALYTICS_API_BASE}/${endpoint}?${params}`;
-	const response = await fetch(url, { signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS) });
+	const response = await request(url);
 	if (!response.ok) {
 		throw new Error(`Failed to fetch ${url}: ${response.status} ${response.statusText}`);
 	}
@@ -110,6 +139,25 @@ export async function fetchSeries(
 	}
 
 	return { rows, totals };
+}
+
+export async function fetchBuyerSeries(
+	itemId: number,
+	range: TimeRange
+): Promise<DailyRow[]> {
+	const rows: DailyRow[] = [];
+	for (const chunk of chunkRange(range)) {
+		for (const row of await fetchRows('hero', 'all', chunk, itemId)) {
+			if (row.day < chunk.from || row.day > chunk.to) continue;
+			rows.push({
+				entityId: row.entityId,
+				day: row.day,
+				wins: row.wins,
+				matches: row.matches
+			});
+		}
+	}
+	return rows;
 }
 
 export async function fetchAllSeries(range: TimeRange): Promise<AllSeries> {

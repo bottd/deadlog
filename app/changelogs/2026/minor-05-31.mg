@@ -6,6 +6,10 @@ author "IceFrog"
 author_image "/assets/authors/icefrog.webp"
 major_update #false
 content_text "Apollo Disengaging Sigil T2 increased from +20% Fire Rate to +30% Flawless Advance T1 heal from 30+0.75 to 35+1.0 Flawless Advance T2 increased from -10s Cooldown to -12s Itani Lo Sahn damage increased from 190 to 200 Itani Lo Sahn spirit scaling increased from 2.3 to 2.6 Graves Jar of Dead damage reduced from 20 + 0.31/spirit to 17 + 0.27/spirit Ghouls damage reduced by 15% Ghouls bounty increased from 25+1/min to 35+2/min McGinnis Heavy Barrage range reduced from 50m to 36m Heavy Barrage T1 Dash Slow reduced from 30% to 18% (regular slow still 30%) Heavy Barrage T3 Damage Per Rocket reduced from +18 to +15 Pocket Flying Cloak T3 reduced from -14s Cooldown to -13s Affliction T3 reduced from +18 DPS to +14 Silver Slam Fire Current Health as Damage reduced from 3% to 2.5% Slam Fire T3 reduced from 8% Current Health as Damage to 7% Entangling Bola cooldown increased from 20s to 23s Entangling Bola T2 increased from -5s Cooldown to -8s Lycan Curse Fire Rate reduced from 65% to 60% Victor Shocking Reanimation T3 reduced from -130s Cooldown to -120s Yamato Power Slash spirit scaling reduced from 2.1 to 1.85 Flying Slash cast range reduced from 30m to 28m"
+stats schema=2 method=2 collected="2026-09-21T21:41:20.000Z" {
+  before from="2026-05-29" to="2026-05-31"
+  after from="2026-06-01" to="2026-06-04"
+}
 ``
 
 
@@ -19,12 +23,12 @@ content_text "Apollo Disengaging Sigil T2 increased from +20% Fire Rate to +30% 
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4622 pick=0.1519 matches=16014 days=2
-    after win=0.4782 pick=0.2414 matches=35799 days=3
+    before win=0.4622 pick=0.1519 matches=16016 days=2 total=1265662 covered=2 coverage="complete"
+    after win=0.4782 pick=0.2414 matches=35805 days=3 total=1779910 covered=3 coverage="complete"
   }
   high {
-    before win=0.4412 pick=0.0843 matches=1496 days=2
-    after win=0.4749 pick=0.2033 matches=4976 days=3
+    before win=0.4409 pick=0.0844 matches=1497 days=2 total=212952 covered=2 coverage="complete"
+    after win=0.475 pick=0.2033 matches=4977 days=3 total=293807 covered=3 coverage="complete"
   }
 }
 ``
@@ -53,12 +57,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.6008 pick=0.5588 matches=58923 days=2
-    after win=0.5621 pick=0.4622 matches=68538 days=3
+    before win=0.6009 pick=0.5588 matches=58942 days=2 total=1265662 covered=2 coverage="complete"
+    after win=0.562 pick=0.4622 matches=68552 days=3 total=1779910 covered=3 coverage="complete"
   }
   high {
-    before win=0.5858 pick=0.5306 matches=9416 days=2
-    after win=0.5409 pick=0.3742 matches=9160 days=3
+    before win=0.5858 pick=0.5306 matches=9416 days=2 total=212952 covered=2 coverage="complete"
+    after win=0.5409 pick=0.3741 matches=9160 days=3 total=293807 covered=3 coverage="complete"
   }
 }
 ``
@@ -85,12 +89,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5525 pick=0.2896 matches=30538 days=2
-    after win=0.5474 pick=0.246 matches=36476 days=3
+    before win=0.5524 pick=0.2896 matches=30548 days=2 total=1265662 covered=2 coverage="complete"
+    after win=0.5475 pick=0.246 matches=36485 days=3 total=1779910 covered=3 coverage="complete"
   }
   high {
-    before win=0.5525 pick=0.3025 matches=5367 days=2
-    after win=0.5466 pick=0.2379 matches=5823 days=3
+    before win=0.5525 pick=0.3024 matches=5367 days=2 total=212952 covered=2 coverage="complete"
+    after win=0.5466 pick=0.2378 matches=5823 days=3 total=293807 covered=3 coverage="complete"
   }
 }
 ``
@@ -109,12 +113,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4733 pick=0.2618 matches=27600 days=2
-    after win=0.4789 pick=0.2642 matches=39174 days=3
+    before win=0.4734 pick=0.2618 matches=27611 days=2 total=1265662 covered=2 coverage="complete"
+    after win=0.4789 pick=0.2641 matches=39180 days=3 total=1779910 covered=3 coverage="complete"
   }
   high {
-    before win=0.4844 pick=0.3331 matches=5911 days=2
-    after win=0.4825 pick=0.3293 matches=8062 days=3
+    before win=0.4843 pick=0.3331 matches=5912 days=2 total=212952 covered=2 coverage="complete"
+    after win=0.4826 pick=0.3293 matches=8063 days=3 total=293807 covered=3 coverage="complete"
   }
 }
 ``
@@ -136,12 +140,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4733 pick=0.3824 matches=40317 days=2
-    after win=0.4712 pick=0.3762 matches=55783 days=3
+    before win=0.4733 pick=0.3823 matches=40327 days=2 total=1265662 covered=2 coverage="complete"
+    after win=0.4712 pick=0.3762 matches=55794 days=3 total=1779910 covered=3 coverage="complete"
   }
   high {
-    before win=0.4885 pick=0.3756 matches=6665 days=2
-    after win=0.4931 pick=0.3847 matches=9418 days=3
+    before win=0.4885 pick=0.3756 matches=6665 days=2 total=212952 covered=2 coverage="complete"
+    after win=0.4932 pick=0.3847 matches=9419 days=3 total=293807 covered=3 coverage="complete"
   }
 }
 ``
@@ -170,12 +174,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5698 pick=0.4153 matches=43784 days=2
-    after win=0.5684 pick=0.4199 matches=62276 days=3
+    before win=0.5698 pick=0.4153 matches=43798 days=2 total=1265662 covered=2 coverage="complete"
+    after win=0.5684 pick=0.4199 matches=62288 days=3 total=1779910 covered=3 coverage="complete"
   }
   high {
-    before win=0.5778 pick=0.3829 matches=6795 days=2
-    after win=0.5595 pick=0.387 matches=9474 days=3
+    before win=0.5778 pick=0.3829 matches=6795 days=2 total=212952 covered=2 coverage="complete"
+    after win=0.5595 pick=0.3869 matches=9474 days=3 total=293807 covered=3 coverage="complete"
   }
 }
 ``
@@ -192,12 +196,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5061 pick=0.4422 matches=46625 days=2
-    after win=0.4981 pick=0.359 matches=53236 days=3
+    before win=0.506 pick=0.4422 matches=46641 days=2 total=1265662 covered=2 coverage="complete"
+    after win=0.4982 pick=0.359 matches=53248 days=3 total=1779910 covered=3 coverage="complete"
   }
   high {
-    before win=0.5165 pick=0.5155 matches=9148 days=2
-    after win=0.5109 pick=0.3924 matches=9606 days=3
+    before win=0.5165 pick=0.5155 matches=9148 days=2 total=212952 covered=2 coverage="complete"
+    after win=0.5109 pick=0.3925 matches=9609 days=3 total=293807 covered=3 coverage="complete"
   }
 }
 ``

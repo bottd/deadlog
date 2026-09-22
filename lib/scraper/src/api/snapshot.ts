@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, rename, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fetchEntitySnapshot, type EntitySnapshot } from './deadlock';
 import { entitySnapshotSchema } from '../types/deadlockApi';
@@ -7,15 +7,22 @@ export function entitySnapshotPath(): string {
 	return resolve(process.env.CHANGELOGS_DIR || 'app/changelogs', 'entities.json');
 }
 
+export const SNAPSHOT_SCHEMA_VERSION = 2;
+
 export function serializeEntitySnapshot(snapshot: EntitySnapshot): string {
-	const { heroes, items } = snapshot;
-	return `${JSON.stringify({ heroes, items }, null, '\t')}\n`;
+	const { heroes, items, provenance } = snapshot;
+	const envelope = provenance
+		? { schemaVersion: SNAPSHOT_SCHEMA_VERSION, ...provenance, heroes, items }
+		: { heroes, items };
+	return `${JSON.stringify(envelope, null, '\t')}\n`;
 }
 
 export async function writeEntitySnapshot(snapshot: EntitySnapshot): Promise<string> {
 	const target = entitySnapshotPath();
+	const staging = `${target}.${process.pid}.tmp`;
 	await mkdir(dirname(target), { recursive: true });
-	await writeFile(target, serializeEntitySnapshot(snapshot));
+	await writeFile(staging, serializeEntitySnapshot(snapshot));
+	await rename(staging, target);
 	return target;
 }
 
@@ -26,21 +33,45 @@ export async function readEntitySnapshot(): Promise<EntitySnapshot | null> {
 	} catch {
 		return null;
 	}
-	const parsed = entitySnapshotSchema.safeParse(JSON.parse(raw));
+	let json: unknown;
+	try {
+		json = JSON.parse(raw);
+	} catch {
+		json = null;
+	}
+	const parsed = entitySnapshotSchema.safeParse(json);
 	if (!parsed.success) {
 		console.warn(`   ⚠️  ${entitySnapshotPath()} is not a usable snapshot`);
 		return null;
 	}
-	return parsed.data;
+	const { heroes, items, schemaVersion, clientVersion, language, collectedAt } =
+		parsed.data;
+	if (schemaVersion === undefined || !clientVersion || !language || !collectedAt) {
+		return { heroes, items };
+	}
+	return { heroes, items, provenance: { clientVersion, language, collectedAt } };
 }
 
+const withoutCollectionTime = ({ heroes, items, provenance }: EntitySnapshot): string =>
+	JSON.stringify({
+		clientVersion: provenance?.clientVersion,
+		language: provenance?.language,
+		heroes,
+		items
+	});
+
 export async function loadEntitySnapshot(): Promise<EntitySnapshot> {
+	let cached: EntitySnapshot | null | undefined;
 	try {
 		const snapshot = await fetchEntitySnapshot();
+		cached = await readEntitySnapshot();
+		if (cached && withoutCollectionTime(cached) === withoutCollectionTime(snapshot)) {
+			return cached;
+		}
 		await writeEntitySnapshot(snapshot);
 		return snapshot;
 	} catch (error) {
-		const cached = await readEntitySnapshot();
+		cached ??= await readEntitySnapshot();
 		if (!cached) throw error;
 		const reason = error instanceof Error ? error.message : String(error);
 		console.warn(`   ⚠️  Deadlock asset API unreachable (${reason})`);

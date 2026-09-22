@@ -1,0 +1,459 @@
+{
+	"retrievedAt": "2026-09-21T21:04:12.351Z",
+	"requested": {
+		"from": "2026-09-13",
+		"to": "2026-09-15",
+		"heroes": [1, 13],
+		"items": [3696726732, 1710079648]
+	},
+	"reduction": "Heroes 1 (Infernus) and 13 (Haze), items 3696726732 (Toxic Bullets) and 1710079648 (Healing Rite); unused fields removed. Every daily response over-returned 2026-09-16, kept here. For bucket=hero the bucket field is the hero id.",
+	"urls": {
+		"heroDaily": "https://api.deadlock-api.com/v1/analytics/hero-stats?bucket=start_time_day&min_unix_timestamp=1789257600&max_unix_timestamp=1789516799&game_mode=normal&match_mode=ranked%2Cunranked",
+		"itemByHeroBucket": "https://api.deadlock-api.com/v1/analytics/item-stats?bucket=hero&min_unix_timestamp=1789257600&max_unix_timestamp=1789516799&game_mode=normal&match_mode=ranked%2Cunranked&min_matches=1",
+		"buyers": {
+			"3696726732": "https://api.deadlock-api.com/v1/analytics/hero-stats?bucket=start_time_day&min_unix_timestamp=1789257600&max_unix_timestamp=1789516799&game_mode=normal&match_mode=ranked%2Cunranked&include_item_ids=3696726732",
+			"1710079648": "https://api.deadlock-api.com/v1/analytics/hero-stats?bucket=start_time_day&min_unix_timestamp=1789257600&max_unix_timestamp=1789516799&game_mode=normal&match_mode=ranked%2Cunranked&include_item_ids=1710079648"
+		},
+		"itemDaily": {
+			"1": "https://api.deadlock-api.com/v1/analytics/item-stats?bucket=start_time_day&min_unix_timestamp=1789257600&max_unix_timestamp=1789516799&game_mode=normal&match_mode=ranked%2Cunranked&hero_ids=1&min_matches=1",
+			"13": "https://api.deadlock-api.com/v1/analytics/item-stats?bucket=start_time_day&min_unix_timestamp=1789257600&max_unix_timestamp=1789516799&game_mode=normal&match_mode=ranked%2Cunranked&hero_ids=13&min_matches=1"
+		},
+		"itemNoBucket": {
+			"1": "https://api.deadlock-api.com/v1/analytics/item-stats?bucket=no_bucket&min_unix_timestamp=1789257600&max_unix_timestamp=1789516799&game_mode=normal&match_mode=ranked%2Cunranked&hero_ids=1&min_matches=1",
+			"13": "https://api.deadlock-api.com/v1/analytics/item-stats?bucket=no_bucket&min_unix_timestamp=1789257600&max_unix_timestamp=1789516799&game_mode=normal&match_mode=ranked%2Cunranked&hero_ids=13&min_matches=1"
+		},
+		"buyersOfBoth": "https://api.deadlock-api.com/v1/analytics/hero-stats?bucket=start_time_day&min_unix_timestamp=1789257600&max_unix_timestamp=1789516799&game_mode=normal&match_mode=ranked%2Cunranked&include_item_ids=3696726732%2C1710079648"
+	},
+	"heroDaily": [
+		{
+			"hero_id": 1,
+			"bucket": 1789257600,
+			"wins": 10383,
+			"losses": 10605,
+			"matches": 20988,
+			"matches_per_bucket": 536650
+		},
+		{
+			"hero_id": 1,
+			"bucket": 1789344000,
+			"wins": 8609,
+			"losses": 8881,
+			"matches": 17490,
+			"matches_per_bucket": 443616
+		},
+		{
+			"hero_id": 1,
+			"bucket": 1789430400,
+			"wins": 8119,
+			"losses": 8471,
+			"matches": 16590,
+			"matches_per_bucket": 423727
+		},
+		{
+			"hero_id": 1,
+			"bucket": 1789516800,
+			"wins": 7247,
+			"losses": 7674,
+			"matches": 14921,
+			"matches_per_bucket": 389688
+		},
+		{
+			"hero_id": 13,
+			"bucket": 1789257600,
+			"wins": 10472,
+			"losses": 9956,
+			"matches": 20428,
+			"matches_per_bucket": 536650
+		},
+		{
+			"hero_id": 13,
+			"bucket": 1789344000,
+			"wins": 9141,
+			"losses": 8341,
+			"matches": 17482,
+			"matches_per_bucket": 443616
+		},
+		{
+			"hero_id": 13,
+			"bucket": 1789430400,
+			"wins": 8814,
+			"losses": 8267,
+			"matches": 17081,
+			"matches_per_bucket": 423727
+		},
+		{
+			"hero_id": 13,
+			"bucket": 1789516800,
+			"wins": 8519,
+			"losses": 7524,
+			"matches": 16043,
+			"matches_per_bucket": 389688
+		}
+	],
+	"buyers": {
+		"3696726732": [
+			{
+				"hero_id": 1,
+				"bucket": 1789257600,
+				"wins": 6848,
+				"losses": 7093,
+				"matches": 13941,
+				"matches_per_bucket": 50662
+			},
+			{
+				"hero_id": 1,
+				"bucket": 1789344000,
+				"wins": 5586,
+				"losses": 5819,
+				"matches": 11405,
+				"matches_per_bucket": 41711
+			},
+			{
+				"hero_id": 1,
+				"bucket": 1789430400,
+				"wins": 5288,
+				"losses": 5616,
+				"matches": 10904,
+				"matches_per_bucket": 39798
+			},
+			{
+				"hero_id": 1,
+				"bucket": 1789516800,
+				"wins": 0,
+				"losses": 1,
+				"matches": 1,
+				"matches_per_bucket": 1
+			},
+			{
+				"hero_id": 13,
+				"bucket": 1789257600,
+				"wins": 1412,
+				"losses": 1356,
+				"matches": 2768,
+				"matches_per_bucket": 50662
+			},
+			{
+				"hero_id": 13,
+				"bucket": 1789344000,
+				"wins": 1183,
+				"losses": 1086,
+				"matches": 2269,
+				"matches_per_bucket": 41711
+			},
+			{
+				"hero_id": 13,
+				"bucket": 1789430400,
+				"wins": 1067,
+				"losses": 1082,
+				"matches": 2149,
+				"matches_per_bucket": 39798
+			}
+		],
+		"1710079648": [
+			{
+				"hero_id": 1,
+				"bucket": 1789257600,
+				"wins": 358,
+				"losses": 423,
+				"matches": 781,
+				"matches_per_bucket": 37092
+			},
+			{
+				"hero_id": 1,
+				"bucket": 1789344000,
+				"wins": 316,
+				"losses": 348,
+				"matches": 664,
+				"matches_per_bucket": 30007
+			},
+			{
+				"hero_id": 1,
+				"bucket": 1789430400,
+				"wins": 333,
+				"losses": 321,
+				"matches": 654,
+				"matches_per_bucket": 28507
+			},
+			{
+				"hero_id": 13,
+				"bucket": 1789257600,
+				"wins": 328,
+				"losses": 307,
+				"matches": 635,
+				"matches_per_bucket": 37092
+			},
+			{
+				"hero_id": 13,
+				"bucket": 1789344000,
+				"wins": 274,
+				"losses": 247,
+				"matches": 521,
+				"matches_per_bucket": 30007
+			},
+			{
+				"hero_id": 13,
+				"bucket": 1789430400,
+				"wins": 234,
+				"losses": 273,
+				"matches": 507,
+				"matches_per_bucket": 28507
+			}
+		]
+	},
+	"buyersOfBoth": [
+		{
+			"hero_id": 1,
+			"bucket": 1789257600,
+			"wins": 233,
+			"losses": 280,
+			"matches": 513,
+			"matches_per_bucket": 1865
+		},
+		{
+			"hero_id": 1,
+			"bucket": 1789344000,
+			"wins": 200,
+			"losses": 222,
+			"matches": 422,
+			"matches_per_bucket": 1525
+		},
+		{
+			"hero_id": 1,
+			"bucket": 1789430400,
+			"wins": 206,
+			"losses": 210,
+			"matches": 416,
+			"matches_per_bucket": 1463
+		},
+		{
+			"hero_id": 13,
+			"bucket": 1789257600,
+			"wins": 56,
+			"losses": 55,
+			"matches": 111,
+			"matches_per_bucket": 1865
+		},
+		{
+			"hero_id": 13,
+			"bucket": 1789344000,
+			"wins": 50,
+			"losses": 36,
+			"matches": 86,
+			"matches_per_bucket": 1525
+		},
+		{
+			"hero_id": 13,
+			"bucket": 1789430400,
+			"wins": 44,
+			"losses": 37,
+			"matches": 81,
+			"matches_per_bucket": 1463
+		}
+	],
+	"itemDaily": {
+		"1": [
+			{
+				"item_id": 1710079648,
+				"bucket": 1789257600,
+				"wins": 359,
+				"losses": 425,
+				"matches": 784,
+				"players": 695
+			},
+			{
+				"item_id": 1710079648,
+				"bucket": 1789344000,
+				"wins": 318,
+				"losses": 351,
+				"matches": 669,
+				"players": 585
+			},
+			{
+				"item_id": 1710079648,
+				"bucket": 1789430400,
+				"wins": 339,
+				"losses": 328,
+				"matches": 667,
+				"players": 572
+			},
+			{
+				"item_id": 1710079648,
+				"bucket": 1789516800,
+				"wins": 303,
+				"losses": 281,
+				"matches": 584,
+				"players": 513
+			},
+			{
+				"item_id": 3696726732,
+				"bucket": 1789257600,
+				"wins": 6867,
+				"losses": 7109,
+				"matches": 13976,
+				"players": 10856
+			},
+			{
+				"item_id": 3696726732,
+				"bucket": 1789344000,
+				"wins": 5673,
+				"losses": 5902,
+				"matches": 11575,
+				"players": 9021
+			},
+			{
+				"item_id": 3696726732,
+				"bucket": 1789430400,
+				"wins": 5337,
+				"losses": 5674,
+				"matches": 11011,
+				"players": 8833
+			},
+			{
+				"item_id": 3696726732,
+				"bucket": 1789516800,
+				"wins": 4777,
+				"losses": 5094,
+				"matches": 9871,
+				"players": 8101
+			}
+		],
+		"13": [
+			{
+				"item_id": 1710079648,
+				"bucket": 1789257600,
+				"wins": 328,
+				"losses": 307,
+				"matches": 635,
+				"players": 547
+			},
+			{
+				"item_id": 1710079648,
+				"bucket": 1789344000,
+				"wins": 275,
+				"losses": 248,
+				"matches": 523,
+				"players": 469
+			},
+			{
+				"item_id": 1710079648,
+				"bucket": 1789430400,
+				"wins": 236,
+				"losses": 273,
+				"matches": 509,
+				"players": 433
+			},
+			{
+				"item_id": 1710079648,
+				"bucket": 1789516800,
+				"wins": 228,
+				"losses": 238,
+				"matches": 466,
+				"players": 423
+			},
+			{
+				"item_id": 3696726732,
+				"bucket": 1789257600,
+				"wins": 1414,
+				"losses": 1358,
+				"matches": 2772,
+				"players": 2335
+			},
+			{
+				"item_id": 3696726732,
+				"bucket": 1789344000,
+				"wins": 1191,
+				"losses": 1096,
+				"matches": 2287,
+				"players": 1963
+			},
+			{
+				"item_id": 3696726732,
+				"bucket": 1789430400,
+				"wins": 1072,
+				"losses": 1089,
+				"matches": 2161,
+				"players": 1819
+			},
+			{
+				"item_id": 3696726732,
+				"bucket": 1789516800,
+				"wins": 1014,
+				"losses": 954,
+				"matches": 1968,
+				"players": 1724
+			}
+		]
+	},
+	"itemNoBucket": {
+		"1": [
+			{
+				"item_id": 1710079648,
+				"bucket": 0,
+				"wins": 1319,
+				"losses": 1385,
+				"matches": 2704,
+				"players": 2058
+			},
+			{
+				"item_id": 3696726732,
+				"bucket": 0,
+				"wins": 22654,
+				"losses": 23779,
+				"matches": 46433,
+				"players": 29330
+			}
+		],
+		"13": [
+			{
+				"item_id": 1710079648,
+				"bucket": 0,
+				"wins": 1067,
+				"losses": 1066,
+				"matches": 2133,
+				"players": 1657
+			},
+			{
+				"item_id": 3696726732,
+				"bucket": 0,
+				"wins": 4691,
+				"losses": 4497,
+				"matches": 9188,
+				"players": 6604
+			}
+		]
+	},
+	"itemByHeroBucket": [
+		{
+			"item_id": 1710079648,
+			"bucket": 1,
+			"wins": 1319,
+			"losses": 1385,
+			"matches": 2704,
+			"players": 2058
+		},
+		{
+			"item_id": 1710079648,
+			"bucket": 13,
+			"wins": 1067,
+			"losses": 1066,
+			"matches": 2133,
+			"players": 1657
+		},
+		{
+			"item_id": 3696726732,
+			"bucket": 1,
+			"wins": 22654,
+			"losses": 23779,
+			"matches": 46433,
+			"players": 29330
+		},
+		{
+			"item_id": 3696726732,
+			"bucket": 13,
+			"wins": 4691,
+			"losses": 4497,
+			"matches": 9188,
+			"players": 6604
+		}
+	]
+}

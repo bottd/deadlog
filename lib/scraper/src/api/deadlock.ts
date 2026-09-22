@@ -32,18 +32,56 @@ async function fetchAndValidate<T>(
 	return result.data;
 }
 
-export const fetchHeroes = (): Promise<HeroesApiResponse> =>
-	fetchAndValidate('heroes', heroesApiResponseSchema, 'heroes');
+const clientVersionsSchema = z.array(z.number().int().positive()).min(1);
 
-export const fetchItems = (): Promise<ItemsApiResponse> =>
-	fetchAndValidate('items', itemsApiResponseSchema, 'items');
+export const SNAPSHOT_LANGUAGE = 'english';
+
+export async function fetchClientVersion(): Promise<number> {
+	const versions = await fetchAndValidate(
+		'client-versions',
+		clientVersionsSchema,
+		'client versions'
+	);
+	return Math.max(...versions);
+}
+
+const pinned = (endpoint: string, clientVersion: number) =>
+	`${endpoint}?${new URLSearchParams({
+		client_version: String(clientVersion),
+		language: SNAPSHOT_LANGUAGE
+	})}`;
+
+export const fetchHeroes = (clientVersion: number): Promise<HeroesApiResponse> =>
+	fetchAndValidate(pinned('heroes', clientVersion), heroesApiResponseSchema, 'heroes');
+
+export const fetchItems = (clientVersion: number): Promise<ItemsApiResponse> =>
+	fetchAndValidate(pinned('items', clientVersion), itemsApiResponseSchema, 'items');
+
+export interface SnapshotProvenance {
+	clientVersion: number;
+	language: string;
+	collectedAt: string;
+}
 
 export interface EntitySnapshot {
 	heroes: HeroesApiResponse;
 	items: ItemsApiResponse;
+	provenance?: SnapshotProvenance;
 }
 
 export async function fetchEntitySnapshot(): Promise<EntitySnapshot> {
-	const [heroes, items] = await Promise.all([fetchHeroes(), fetchItems()]);
-	return { heroes, items };
+	const clientVersion = await fetchClientVersion();
+	const [heroes, items] = await Promise.all([
+		fetchHeroes(clientVersion),
+		fetchItems(clientVersion)
+	]);
+	return {
+		heroes,
+		items,
+		provenance: {
+			clientVersion,
+			language: SNAPSHOT_LANGUAGE,
+			collectedAt: new Date().toISOString()
+		}
+	};
 }

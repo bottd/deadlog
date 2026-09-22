@@ -1,6 +1,7 @@
 import adapterCloudflare from '@sveltejs/adapter-cloudflare';
 import adapterNode from '@sveltejs/adapter-node';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import { parse } from 'svelte/compiler';
 
 const adapter =
 	process.env.CLOUDFLARE === 'true'
@@ -22,10 +23,9 @@ function mogBlockKind(tag) {
 	if (classes.includes('hero') || classes.includes('item')) return 'entity';
 }
 
-/** @param {string} html @param {{ seenTopLevelImage: boolean }} state */
+/** @param {string} html @param {{ seenTopLevelImage: boolean, blocks: Array<'entity' | 'ability' | undefined> }} state */
 function transformMogHtml(html, state) {
-	/** @type {Array<'entity' | 'ability' | undefined>} */
-	const blocks = [];
+	const { blocks } = state;
 
 	return (
 		html
@@ -81,13 +81,51 @@ const transformMogOutput = {
 	name: 'transform-mog-output',
 	markup({ content, filename }) {
 		if (!filename || !/\.mg(?:$|\?)/.test(filename)) return;
-		const state = { seenTopLevelImage: false };
-		return {
-			code: content.replace(/\{@html ("(?:\\.|[^"\\])*")\}/g, (_, serialized) => {
-				const html = transformMogHtml(JSON.parse(serialized), state);
-				return `{@html ${JSON.stringify(html)}}`;
-			})
-		};
+		/** @type {{ seenTopLevelImage: boolean, blocks: Array<'entity' | 'ability' | undefined> }} */
+		const state = { seenTopLevelImage: false, blocks: [] };
+		/** @type {Array<{ start: number, end: number, code: string }>} */
+		const replacements = [];
+		// Embeds lift their ancestors into real Svelte elements. Walk both those and
+		// raw HTML fragments so heading levels and image sizes keep their entity scope.
+		/** @param {import('svelte/compiler').AST.Fragment['nodes']} nodes */
+		function visit(nodes) {
+			for (const node of nodes) {
+				if (
+					node.type === 'HtmlTag' &&
+					node.expression.type === 'Literal' &&
+					typeof node.expression.value === 'string'
+				) {
+					const html = transformMogHtml(node.expression.value, state);
+					replacements.push({
+						start: node.start,
+						end: node.end,
+						code: `{@html ${JSON.stringify(html).replace(/</g, '\\u003c')}}`
+					});
+				} else if (node.type === 'RegularElement') {
+					if (node.name === 'div') {
+						const attr = node.attributes.find(
+							(attr) => attr.type === 'Attribute' && attr.name === 'class'
+						);
+						const value = attr?.type === 'Attribute' ? attr.value : undefined;
+						const classes =
+							value &&
+							typeof value === 'object' &&
+							!Array.isArray(value) &&
+							value.expression.type === 'Literal'
+								? String(value.expression.value)
+								: '';
+						state.blocks.push(mogBlockKind(`<div class="${classes}">`));
+					}
+					visit(node.fragment.nodes);
+					if (node.name === 'div') state.blocks.pop();
+				}
+			}
+		}
+		visit(parse(content, { modern: true }).fragment.nodes);
+		for (const { start, end, code } of replacements.reverse()) {
+			content = content.slice(0, start) + code + content.slice(end);
+		}
+		return { code: content };
 	}
 };
 

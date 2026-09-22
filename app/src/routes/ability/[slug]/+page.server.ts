@@ -2,11 +2,15 @@ import {
 	getAbilityBySlug,
 	getReleasedAbilities,
 	getHeroAbilities,
+	getHeroAbilityContexts,
+	getPropertyLinks,
 	getChangelogsByHeroId
 } from '@deadlog/db';
 import { heroImage } from '@deadlog/utils';
 import { error } from '@sveltejs/kit';
 import { absoluteUrl } from '$lib/seo';
+import { toPageContext } from '$lib/components/entity/pageContext';
+import { previousChangeLookup } from '$lib/components/entity/previousChanges';
 import type { PageServerLoad, EntryGenerator } from './$types';
 
 export const prerender = true;
@@ -27,10 +31,16 @@ export const load: PageServerLoad = async ({ params, locals }) => {
 
 	const { ability, hero } = match;
 
-	const [changelogs, abilities] = await Promise.all([
+	const [changelogs, abilities, abilityContexts] = await Promise.all([
 		getChangelogsByHeroId(locals.db, hero.id),
-		getHeroAbilities(locals.db, hero.id)
+		getHeroAbilities(locals.db, hero.id),
+		getHeroAbilityContexts(locals.db, hero.id)
 	]);
+	const own = abilityContexts.find(({ slug }) => slug === ability.slug);
+	const previousFor = previousChangeLookup(
+		await getPropertyLinks(locals.db, 'hero', hero.id),
+		hero.name
+	);
 
 	// The hero's history narrowed to one ability: drop the other abilities' groups,
 	// then drop the patches left with nothing. `changeCount` has to be recomputed,
@@ -39,8 +49,12 @@ export const load: PageServerLoad = async ({ params, locals }) => {
 		.map((changelog) => {
 			const changeGroups =
 				changelog.changeGroups
-					?.filter((group) => group.abilitySlug === ability.slug)
-					.map((group) => ({ ...group, icon: ability.image })) ?? [];
+					?.map((group, groupIndex) => ({
+						...group,
+						icon: ability.image,
+						previous: previousFor(changelog, group, groupIndex)
+					}))
+					.filter((group) => group.abilitySlug === ability.slug) ?? [];
 
 			return {
 				id: changelog.id,
@@ -67,6 +81,7 @@ export const load: PageServerLoad = async ({ params, locals }) => {
 		},
 		changelogs: enrichedChangelogs,
 		abilities,
+		about: own ? toPageContext(own.context) : null,
 		title: `${ability.name} Changes: ${hero.name} | Deadlog`,
 		description: `Track every ${ability.name} buff, nerf, and balance change for ${hero.name} across Deadlock patch notes in chronological order.`,
 		// Reuses the parent hero's preview rather than minting 152 more images.

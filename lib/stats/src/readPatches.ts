@@ -1,10 +1,11 @@
 import { schema, type DrizzleDB } from '@deadlog/db';
-import type { EntityImpact } from '@deadlog/utils';
+import type { EntityImpact, PatchStats } from '@deadlog/utils';
 import type { PatchRef, TouchedEntity } from './sliceWindows';
 import type { EntityKind } from './types';
 
 export interface StatsPatch extends PatchRef {
 	slug: string;
+	stats?: PatchStats | null;
 }
 
 export interface RecordedEntity extends TouchedEntity {
@@ -28,7 +29,8 @@ export async function readPatches(db: DrizzleDB): Promise<PatchInputs> {
 			.select({
 				id: schema.changelogs.id,
 				slug: schema.changelogs.slug,
-				pubDate: schema.changelogs.pubDate
+				pubDate: schema.changelogs.pubDate,
+				stats: schema.changelogs.stats
 			})
 			.from(schema.changelogs)
 			.all(),
@@ -56,9 +58,10 @@ export async function readPatches(db: DrizzleDB): Promise<PatchInputs> {
 	]);
 
 	const patches = changelogs
-		.map(({ id, slug, pubDate }) => ({
+		.map(({ id, slug, pubDate, stats }) => ({
 			id,
 			slug,
+			stats,
 			at: Math.floor(Date.parse(pubDate) / 1000)
 		}))
 		.sort((a, b) => a.at - b.at || (a.id < b.id ? -1 : 1));

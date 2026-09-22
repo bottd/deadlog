@@ -16,17 +16,20 @@ import {
 } from '@deadlog/db';
 import {
 	changelogSourceUrl,
+	linkPropertyChanges,
 	loadAllChangelogs,
+	PROPERTY_EXTRACTION_VERSION,
 	type EntityBulletGroup,
-	type EntityChange
+	type EntityChange,
+	type ScopedBullet
 } from '@deadlog/changelog';
 import {
 	indexEntityNames,
 	findEntityName,
 	resolveHeroAbilitySlug,
-	toSlug,
-	type EntityImpact
+	toSlug
 } from '@deadlog/utils';
+import { buildEntityContext } from './entityContext';
 import { isReleasedHero, resolveAbilitySlots } from './heroAbilities';
 
 interface BuildOptions {
@@ -117,18 +120,20 @@ function collectEntityMatches(
 	return matches;
 }
 
-function collectEntityImpact(
+function collectEnrichment<Field extends 'impact' | 'related'>(
 	changes: EntityChange[],
 	type: 'hero' | 'item',
-	entityMap: Map<string, { id: number }>
-): Map<number, EntityImpact> {
-	const impacts = new Map<number, EntityImpact>();
+	entityMap: Map<string, { id: number }>,
+	field: Field
+): Map<number, NonNullable<EntityChange[Field]>> {
+	const recorded = new Map<number, NonNullable<EntityChange[Field]>>();
 	for (const change of changes) {
-		if (change.type !== type || !change.impact) continue;
+		const value = change[field];
+		if (change.type !== type || !value) continue;
 		const id = findEntityName(entityMap, change.name)?.id;
-		if (id !== undefined && !impacts.has(id)) impacts.set(id, change.impact);
+		if (id !== undefined && !recorded.has(id)) recorded.set(id, value);
 	}
-	return impacts;
+	return recorded;
 }
 
 export async function buildDatabaseFromMog(options: BuildOptions): Promise<BuildResult> {
@@ -148,7 +153,7 @@ export async function buildDatabaseFromMog(options: BuildOptions): Promise<Build
 		patchesApi.bigPatchDays(),
 		options.snapshot ?? fetchEntitySnapshot()
 	]);
-	const { heroes, items } = snapshot;
+	const { heroes, items, provenance } = snapshot;
 
 	const bigDayDates = new Set(
 		(bigDaysResponse.data as string[]).map((d) => d.split('T')[0])
@@ -205,7 +210,7 @@ export async function buildDatabaseFromMog(options: BuildOptions): Promise<Build
 			);
 			console.log(`  ✅ Inserted ${heroes.length} heroes`);
 
-			const abilitySlots = resolveAbilitySlots(heroes, items);
+			const abilitySlots = resolveAbilitySlots(heroes, items, provenance);
 			const abilityRows = [...abilitySlots.values()]
 				.flat()
 				.map((ability) => insertHeroAbilitySchema.parse(ability));
@@ -241,7 +246,15 @@ export async function buildDatabaseFromMog(options: BuildOptions): Promise<Build
 						category: item.item_slot_type ?? null,
 						tier: item.item_tier ?? null,
 						image: itemImage(item),
-						isReleased: isReleasedItem(item)
+						isReleased: isReleasedItem(item),
+						context:
+							item.type === 'upgrade'
+								? buildEntityContext(
+										{ assetId: item.id, className: item.class_name, type: item.type },
+										item,
+										provenance
+									)
+								: null
 					})
 				),
 				(batch) => db.insert(schema.items).values(batch).onConflictDoNothing()
@@ -292,7 +305,8 @@ export async function buildDatabaseFromMog(options: BuildOptions): Promise<Build
 				slug,
 				aliases,
 				plainText,
-				previewImage
+				previewImage,
+				stats
 			} of changelogs) {
 				const dateOnly = metadata.published.split('T')[0];
 				const isMajorUpdate = bigDayDates.has(dateOnly) || metadata.major_update;
@@ -309,8 +323,9 @@ export async function buildDatabaseFromMog(options: BuildOptions): Promise<Build
 					'item',
 					itemMap
 				);
-				const heroImpact = collectEntityImpact(entityChanges, 'hero', heroMap);
-				const itemImpact = collectEntityImpact(entityChanges, 'item', itemMap);
+				const heroImpact = collectEnrichment(entityChanges, 'hero', heroMap, 'impact');
+				const itemImpact = collectEnrichment(entityChanges, 'item', itemMap, 'impact');
+				const heroRelated = collectEnrichment(entityChanges, 'hero', heroMap, 'related');
 
 				patchRows.push({
 					id: changelogId,
@@ -322,7 +337,8 @@ export async function buildDatabaseFromMog(options: BuildOptions): Promise<Build
 					previewImage: previewImage ?? null,
 					pubDate: new Date(metadata.published).toISOString(),
 					majorUpdate: isMajorUpdate,
-					contentText: plainText
+					contentText: plainText,
+					stats: stats ?? null
 				});
 				for (const alias of aliases) {
 					if (alias === slug) continue;
@@ -342,7 +358,8 @@ export async function buildDatabaseFromMog(options: BuildOptions): Promise<Build
 										? resolveHeroAbilitySlug(group.ability, abilities)
 										: null
 								})) ?? null,
-							impact: heroImpact.get(heroId) ?? null
+							impact: heroImpact.get(heroId) ?? null,
+							relatedItems: heroRelated.get(heroId) ?? null
 						})
 					);
 					heroMatches++;
@@ -373,6 +390,73 @@ export async function buildDatabaseFromMog(options: BuildOptions): Promise<Build
 			await writeBatches(itemRows, (batch) =>
 				db.insert(schema.changelogItems).values(batch).onConflictDoNothing()
 			);
+
+			const publishedAt = new Map(patchRows.map((patch) => [patch.id, patch.pubDate]));
+			const scoped = (
+				entityType: 'hero' | 'item',
+				changelogId: string,
+				entityId: number,
+				groups: {
+					ability: string | null;
+					abilitySlug?: string | null;
+					bullets: string[];
+				}[]
+			): ScopedBullet[] =>
+				groups.flatMap((group, groupIndex) =>
+					group.bullets.map((text, bulletIndex) => ({
+						patchId: changelogId,
+						publishedAt: publishedAt.get(changelogId) ?? '',
+						entityType,
+						entityId,
+						ability: group.ability,
+						abilitySlug: group.abilitySlug ?? null,
+						groupIndex,
+						bulletIndex,
+						text
+					}))
+				);
+			const firstOf = <Row extends { changelogId: string }>(
+				rows: Row[],
+				id: (row: Row) => number
+			) => {
+				const seen = new Set<string>();
+				return rows.filter((row) => {
+					const key = `${row.changelogId}:${id(row)}`;
+					if (seen.has(key)) return false;
+					seen.add(key);
+					return true;
+				});
+			};
+			const propertyRows = linkPropertyChanges([
+				...firstOf(heroRows, (row) => row.heroId).flatMap((row) =>
+					scoped('hero', row.changelogId, row.heroId, row.changeGroups ?? [])
+				),
+				...firstOf(itemRows, (row) => row.itemId).flatMap((row) =>
+					scoped('item', row.changelogId, row.itemId, row.changeGroups ?? [])
+				)
+			]).map((event) => ({
+				changelogId: event.patchId,
+				entityType: event.entityType,
+				entityId: event.entityId,
+				abilitySlug: event.abilitySlug,
+				groupIndex: event.groupIndex,
+				bulletIndex: event.bulletIndex,
+				property: event.property,
+				qualifier: event.qualifier,
+				oldValue: event.old.text,
+				newValue: event.new.text,
+				digest: event.digest,
+				extractionVersion: PROPERTY_EXTRACTION_VERSION,
+				previousChangelogId: event.previous?.patchId ?? null,
+				previousOld: event.previous?.old ?? null,
+				previousNew: event.previous?.new ?? null
+			}));
+			await writeBatches(propertyRows, (batch) =>
+				db.insert(schema.propertyEvents).values(batch)
+			);
+			console.log(
+				`  🔗 ${propertyRows.length} property changes, ${propertyRows.filter((row) => row.previousChangelogId).length} linked to a previous one`
+			);
 			console.log(`  ✅ Inserted ${changelogs.length} changelogs`);
 			console.log(`  🦸 ${heroMatches} hero references`);
 			console.log(`  ⚔️  ${itemMatches} item references`);
@@ -380,7 +464,14 @@ export async function buildDatabaseFromMog(options: BuildOptions): Promise<Build
 			console.log('📋 Adding metadata...');
 			await db.insert(schema.metadata).values([
 				{ key: 'built_at', value: new Date().toISOString() },
-				{ key: 'patch_count', value: String(patchCount) }
+				{ key: 'patch_count', value: String(patchCount) },
+				...(provenance
+					? [
+							{ key: 'asset_client_version', value: String(provenance.clientVersion) },
+							{ key: 'asset_language', value: provenance.language },
+							{ key: 'asset_collected_at', value: provenance.collectedAt }
+						]
+					: [])
 			]);
 		});
 		for (const [failure, query] of [

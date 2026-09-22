@@ -11,14 +11,37 @@ export {
 	extractEntities,
 	extractEntityChanges,
 	parseStructure,
+	type ParsedStructure,
+	type ParsedBullet,
 	type TocEntry
 } from './extract';
-export { extractPreviewImage, loadAllChangelogs, splitFrontMatter } from './load';
-export { carryImpact, spliceImpactBlocks } from './rewrite';
+export { extractPreviewImage, loadAllChangelogs } from './load';
+export {
+	carryEnrichment,
+	carryImpact,
+	spliceEntityBlocks,
+	spliceImpactBlocks
+} from './rewrite';
+export {
+	parseRelated,
+	writeEnrichmentBlock,
+	type EnrichmentUpdate,
+	type EntityEnrichment
+} from './entityEnrichment';
 export { changelogSourceUrl } from './source';
 export {
-	ATTR_OPEN,
-	VERBATIM_CLOSE,
-	readImpactBlock,
-	writeImpactBlock
+	LINKED_PROPERTIES,
+	PROPERTY_EXTRACTION_VERSION,
+	linkPropertyChanges,
+	readBullet,
+	type LinkedEvent,
+	type LinkedProperty,
+	type ScopedBullet
+} from './propertyChanges';
+export {
+	parseImpact,
+	parseStats,
+	writeImpactBlock,
+	writeStatsNode,
+	type ImpactSchemaVersion
 } from './impactBlock';

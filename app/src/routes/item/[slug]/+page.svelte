@@ -27,6 +27,7 @@
 <EntityChangelogPage
 	{entity}
 	changelogs={data.changelogs}
+	about={data.about}
 	accent={categoryMeta.accent}
 	label={item.isReleased
 		? categoryMeta.label

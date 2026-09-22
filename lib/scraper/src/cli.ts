@@ -1,6 +1,6 @@
 import { scrapeChangelogs } from './pipeline';
 import { buildDatabaseFromMog } from './buildDatabase';
-import { loadEntitySnapshot } from './api';
+import { fetchClientVersion, loadEntitySnapshot } from './api';
 import { appendFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -11,9 +11,13 @@ export async function runPipeline(args = process.argv.slice(2)) {
 	// `--db-only` rebuilds from the .mg files already on disk (pnpm build:db).
 	if (!args.includes('--db-only')) {
 		console.log('📝 Step 1: Scraping changelogs from forum...\n');
+		const clientVersion = await fetchClientVersion().catch(() => null);
 		const scrape = await scrapeChangelogs({
 			overwrite: args.includes('--overwrite'),
-			snapshot
+			snapshot,
+			...(clientVersion !== null && {
+				capture: { clientVersion, capturedAt: new Date().toISOString() }
+			})
 		});
 		if (args.includes('--if-changed') && !scrape.changed) {
 			console.log('No changelog changes; skipping the database build.');

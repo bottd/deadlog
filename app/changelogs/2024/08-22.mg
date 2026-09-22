@@ -6,6 +6,11 @@ author "Yoshi"
 author_image "/assets/authors/yoshi.webp"
 major_update #false
 content_text "Fixed High-Velocity Mag affecting some abilities Silence Glyph: Damage reduced from 150 to 100 Silence Glyph: Spirit damage scaling reduced from 1.5 to 1.0 Silence Glyph: Cast range reduced from 40m to 25m Silence Glyph: Sprint reduced from 2 to 1 Silence Glyph: Spirit Shield reduced from +225 to +200 Dying with Siphon Bullets stacks will now cause you to lose 2 stacks no matter who killed you (rather than returning 1 only if the victim killed you back) Fixed Siphon Bullets acting as spirit damage for procs Fixed shotgun heroes applying buildup effects like toxic bullets instantly on ricocheted enemies Parrying a Guardian now causes it to stop trying to repeatedly melee (and get parried over and over), and instead causes the boss to start shooting shortly there after Ivy Air Drop now silences the ally being carried until they are released Shiv Bloodletting incoming damage deferred reduced from 40% to 35% Reactive Barrier Cooldown increased from 20s to 30s Return Fire Bullet damage returned reduced form 80% to 70%"
+stats schema=2 method=2 collected="2026-09-21T21:41:20.000Z" {
+  before from="2024-08-20" to="2024-08-23"
+  after from="2024-08-24" to="2024-08-29"
+  siblings "19948"
+}
 ``
 
 # General Changes
@@ -31,12 +36,12 @@ content_text "Fixed High-Velocity Mag affecting some abilities Silence Glyph: Da
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=253 days=3
-    after win=0.497 pick=0.4837 matches=1008 days=5
+    before win=#null pick=#null matches=253 days=3 total=5808 covered=3 coverage="complete"
+    after win=0.497 pick=0.4837 matches=1008 days=5 total=25008 covered=5 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -53,12 +58,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=273 days=3
-    after win=#null pick=#null matches=989 days=5
+    before win=#null pick=#null matches=273 days=3 total=5808 covered=3 coverage="complete"
+    after win=#null pick=#null matches=989 days=5 total=25008 covered=5 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -81,12 +86,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=292 days=3
-    after win=0.5046 pick=0.0657 matches=1643 days=5
+    before win=#null pick=#null matches=292 days=3 total=5808 covered=3 coverage="complete"
+    after win=0.5046 pick=0.0657 matches=1643 days=5 total=25008 covered=5 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -99,12 +104,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=94 days=3
-    after win=#null pick=#null matches=307 days=5
+    before win=#null pick=#null matches=94 days=3 total=5808 covered=3 coverage="complete"
+    after win=#null pick=#null matches=307 days=5 total=25008 covered=5 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``

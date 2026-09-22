@@ -1,15 +1,23 @@
-import type { EntityImpact } from '@deadlog/utils';
+import type { EntityContext, EntityImpact } from '@deadlog/utils';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { createClient, type Client } from '@libsql/client';
 import { drizzle } from 'drizzle-orm/libsql';
 import { schema, type DrizzleDB } from '@deadlog/db';
+import { getPatchReadingData } from './patchReading';
 import {
 	getChangelogAbilityIcons,
 	getChangelogBySlug,
 	getChangelogsByHeroId,
 	getChangelogsByItemId,
 	getChangelogIcons,
+	getAllItems,
+	getAssetProvenance,
 	getHeroAbilities,
+	getHeroAbilityContexts,
+	getItemBySlug,
+	getItemChangesInPatches,
+	getItemContext,
+	getPropertyLinks,
 	getHeroBySlug,
 	getAbilityLastModified,
 	getHeroLastModified,
@@ -23,6 +31,15 @@ const impact: EntityImpact = {
 	all: { before: window, after: { ...window, win: 0.52 } },
 	high: { before: window, after: { win: null, pick: null, matches: 12, days: 2 } }
 };
+
+const context = (assetId: number, className: string): EntityContext => ({
+	identity: { assetId, className, type: 'upgrade' },
+	clientVersion: 6698,
+	language: 'english',
+	collectedAt: '2026-09-21T21:19:12.631Z',
+	sections: [{ kind: 'description', label: null, paragraphs: ['Chains lightning.'] }],
+	properties: []
+});
 
 describe('entity history queries', () => {
 	let client: Client;
@@ -42,7 +59,8 @@ describe('entity history queries', () => {
 				preview_image TEXT,
 				pub_date TEXT NOT NULL,
 				major_update INTEGER NOT NULL DEFAULT 0,
-				content_text TEXT
+				content_text TEXT,
+				stats TEXT
 			);
 			CREATE TABLE changelog_aliases (
 				slug TEXT PRIMARY KEY,
@@ -64,6 +82,9 @@ describe('entity history queries', () => {
 				slug TEXT NOT NULL,
 				image TEXT NOT NULL,
 				description TEXT,
+				asset_id INTEGER,
+				class_name TEXT,
+				context TEXT,
 				PRIMARY KEY (hero_id, position),
 				UNIQUE (hero_id, slug)
 			);
@@ -76,13 +97,37 @@ describe('entity history queries', () => {
 				category TEXT,
 				tier INTEGER,
 				image TEXT NOT NULL,
-				is_released INTEGER NOT NULL DEFAULT 0
+				is_released INTEGER NOT NULL DEFAULT 0,
+				context TEXT
+			);
+			CREATE TABLE property_events (
+				changelog_id TEXT NOT NULL,
+				entity_type TEXT NOT NULL,
+				entity_id INTEGER NOT NULL,
+				ability_slug TEXT,
+				group_index INTEGER NOT NULL,
+				bullet_index INTEGER NOT NULL,
+				property TEXT NOT NULL,
+				qualifier TEXT NOT NULL,
+				old_value TEXT NOT NULL,
+				new_value TEXT NOT NULL,
+				digest TEXT NOT NULL,
+				extraction_version INTEGER NOT NULL,
+				previous_changelog_id TEXT,
+				previous_old TEXT,
+				previous_new TEXT,
+				PRIMARY KEY (changelog_id, entity_type, entity_id, group_index, bullet_index)
+			);
+			CREATE TABLE metadata (
+				key TEXT PRIMARY KEY,
+				value TEXT
 			);
 			CREATE TABLE changelog_heroes (
 				changelog_id TEXT NOT NULL,
 				hero_id INTEGER NOT NULL,
 				change_groups TEXT,
 				impact TEXT,
+				related_items TEXT,
 				PRIMARY KEY (changelog_id, hero_id)
 			);
 			CREATE TABLE changelog_items (
@@ -121,7 +166,8 @@ describe('entity history queries', () => {
 			category: 'weapon',
 			tier: 3,
 			image: '/tesla.png',
-			isReleased: true
+			isReleased: true,
+			context: context(1, 'upgrade_chain_lightning')
 		});
 		await db.insert(schema.heroAbilities).values([
 			{
@@ -130,7 +176,10 @@ describe('entity history queries', () => {
 				name: 'Doorway',
 				slug: 'doorway',
 				image: '/doorway.png',
-				description: 'Opens a doorway.'
+				description: 'Opens a doorway.',
+				assetId: 902,
+				className: 'ability_doorway',
+				context: context(902, 'ability_doorway')
 			},
 			{
 				heroId: 69,
@@ -200,6 +249,41 @@ describe('entity history queries', () => {
 
 	afterEach(() => client.close());
 
+	it('scopes full-patch reading inputs to changed entities and linked events', async () => {
+		await db.insert(schema.propertyEvents).values({
+			changelogId: 'new',
+			entityType: 'hero',
+			entityId: 69,
+			abilitySlug: 'doorway',
+			groupIndex: 1,
+			bulletIndex: 0,
+			property: 'cooldown',
+			qualifier: '',
+			oldValue: '40s',
+			newValue: '32s',
+			digest: 'digest',
+			extractionVersion: 1,
+			previousChangelogId: 'old',
+			previousOld: '50s',
+			previousNew: '40s'
+		});
+		const data = await getPatchReadingData(db, 'new');
+		expect(data.heroes.map((hero) => hero.id)).toEqual([69]);
+		expect(data.items.map((item) => item.id)).toEqual([1]);
+		expect(data.abilities.every((ability) => ability.heroId === 69)).toBe(true);
+		expect(data.items[0].context?.clientVersion).toBe(6698);
+		expect(data.links).toMatchObject([
+			{ entityType: 'hero', entityId: 69, digest: 'digest', previousSlug: '2026/01-01' }
+		]);
+		expect((await getPatchReadingData(db, 'old')).links).toEqual([]);
+		expect(await getPatchReadingData(db, 'missing')).toEqual({
+			heroes: [],
+			items: [],
+			abilities: [],
+			links: []
+		});
+	});
+
 	it('returns recorded patch impact with the history, and null where none was written', async () => {
 		const heroHistory = await getChangelogsByHeroId(db, 69);
 		const [itemHistory] = await getChangelogsByItemId(db, 1);
@@ -268,6 +352,101 @@ describe('entity history queries', () => {
 				description: 'Opens a doorway.'
 			}
 		]);
+	});
+
+	it('returns only linked property changes, with where the earlier one lives', async () => {
+		const event = {
+			entityType: 'item' as const,
+			entityId: 1,
+			abilitySlug: null,
+			groupIndex: 0,
+			property: 'cooldown',
+			qualifier: '',
+			digest: 'abc',
+			extractionVersion: 1
+		};
+		await db.insert(schema.propertyEvents).values([
+			{ ...event, changelogId: 'old', bulletIndex: 0, oldValue: '55s', newValue: '50s' },
+			{
+				...event,
+				changelogId: 'new',
+				bulletIndex: 0,
+				oldValue: '50s',
+				newValue: '40s',
+				previousChangelogId: 'old',
+				previousOld: '55s',
+				previousNew: '50s'
+			}
+		]);
+
+		await expect(getPropertyLinks(db, 'item', 1)).resolves.toEqual([
+			{
+				changelogId: 'new',
+				groupIndex: 0,
+				bulletIndex: 0,
+				property: 'cooldown',
+				previousOld: '55s',
+				previousNew: '50s',
+				previousSlug: '2026/01-01',
+				previousPubDate: expect.stringMatching(/^2026-01-01T/)
+			}
+		]);
+		await expect(getPropertyLinks(db, 'hero', 1)).resolves.toEqual([]);
+	});
+
+	it("finds an item's own change section in a patch, and nothing for a bare mention", async () => {
+		await expect(
+			getItemChangesInPatches(db, [
+				{ changelogId: 'new', itemId: 1 },
+				{ changelogId: 'old', itemId: 1 }
+			])
+		).resolves.toEqual([
+			{
+				changelogId: 'new',
+				itemId: 1,
+				name: 'Tesla Bullets',
+				image: '/tesla.png',
+				changeGroups: [{ ability: null, bullets: ['Proc chance increased'] }]
+			}
+		]);
+		await expect(getItemChangesInPatches(db, [])).resolves.toEqual([]);
+	});
+
+	it('keeps stored context out of whole-row item reads', async () => {
+		const [all, bySlug] = await Promise.all([
+			getAllItems(db),
+			getItemBySlug(db, 'tesla-bullets')
+		]);
+
+		expect(all.length).toBeGreaterThan(0);
+		for (const item of [...all, bySlug]) expect(item).not.toHaveProperty('context');
+	});
+
+	it('returns item context only when asked for it by id', async () => {
+		await expect(getItemContext(db, 1)).resolves.toEqual(
+			context(1, 'upgrade_chain_lightning')
+		);
+		await expect(getItemContext(db, 404)).resolves.toBeNull();
+	});
+
+	it('returns ability contexts by slug and skips abilities without one', async () => {
+		await expect(getHeroAbilityContexts(db, 69)).resolves.toEqual([
+			{ slug: 'doorway', context: context(902, 'ability_doorway') }
+		]);
+	});
+
+	it('reports asset provenance only when the build recorded it', async () => {
+		await expect(getAssetProvenance(db)).resolves.toBeNull();
+
+		await db.insert(schema.metadata).values([
+			{ key: 'asset_client_version', value: '6698' },
+			{ key: 'asset_collected_at', value: '2026-09-21T21:19:12.631Z' }
+		]);
+
+		await expect(getAssetProvenance(db)).resolves.toEqual({
+			clientVersion: 6698,
+			collectedAt: '2026-09-21T21:19:12.631Z'
+		});
 	});
 
 	it('returns only the patch heroes ability icons in slot order', async () => {

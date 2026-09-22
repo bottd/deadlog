@@ -6,6 +6,10 @@ author "Yoshi"
 author_image "/assets/authors/yoshi.webp"
 major_update #false
 content_text "Torment Pulse now scales with cooldown again Torment Pulse Spirit power scaling reduced from 0.33 to 0.3 Fixed Ethereal Shift scaling with duration Pause no longer restricted before 3 minutes (we plan to bring this back in the future, but we want to allow this for now while we are early and have technical issues sometimes) Updated Heavy Barrage sound Bebop Sticky Bomb no longer has a cap (was 15 stacks) Sticky Bomb scaling per hero reduced from 4% to 3% (previous uncapped was 2.5%) Sticky Bomb still loses 2 stacks on death Fixed some hook bugs causing it to sometimes not grab heroes near cover but still in collision range Hook collision against troopers reduced to 12 (default is 33) Hook no longer kills troopers (so you can bomb/uppercut/melee them) Hyper Beam duration increased from 10s to 11s Vindicta Movespeed increased from 8.3 to 9"
+stats schema=2 method=2 collected="2026-09-21T21:41:20.000Z" {
+  before from=#null to=#null
+  after from="2024-10-12" to="2024-10-16"
+}
 ``
 
 # General Changes
@@ -26,12 +30,12 @@ content_text "Torment Pulse now scales with cooldown again Torment Pulse Spirit 
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=0 days=0
-    after win=0.4822 pick=0.6131 matches=94434 days=4
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
+    after win=0.4822 pick=0.6131 matches=94434 days=4 total=1848456 covered=4 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -66,12 +70,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=0 days=0
-    after win=0.4579 pick=0.5516 matches=84968 days=4
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
+    after win=0.4579 pick=0.5516 matches=84968 days=4 total=1848456 covered=4 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``

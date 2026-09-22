@@ -1,10 +1,11 @@
 import { existsSync } from 'node:fs';
-import { readFile, writeFile } from 'node:fs/promises';
+import { readFile, rename, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { DAY_S, WINDOW_CAP_DAYS } from './constants';
+import type { PatchStats } from '@deadlog/utils';
+import { DAY_S, METHOD_VERSION, WINDOW_CAP_DAYS } from './constants';
 import type { PatchInputs, RecordedEntity, StatsPatch } from './readPatches';
 import { indexEntities, upsertImpactBlocks } from './rewriteMog';
-import { sliceWindows, windowDays } from './sliceWindows';
+import { patchBounds, sliceWindows, windowDays } from './sliceWindows';
 import type { AllSeries, TimeRange } from './types';
 
 export interface RunOptions {
@@ -66,10 +67,14 @@ export async function run(options: RunOptions): Promise<void> {
 		return;
 	}
 
+	const isCurrent = (patch: StatsPatch) =>
+		patch.stats?.schemaVersion === 2 && patch.stats.methodVersion === METHOD_VERSION;
 	const refresh = new Map(
 		wanted.map((patch) => [
 			patch.id,
-			(touched.get(patch.id) ?? []).filter((entity) => rebuild || !isFrozen(entity))
+			(touched.get(patch.id) ?? []).filter(
+				(entity) => rebuild || !isCurrent(patch) || !isFrozen(entity)
+			)
 		])
 	);
 	const sliced = sliceWindows({ patches, touched: refresh, series, now });
@@ -77,24 +82,53 @@ export async function run(options: RunOptions): Promise<void> {
 
 	let files = 0;
 	let blocks = 0;
+	const collectedAt = new Date(now * 1000).toISOString();
 	for (const patch of wanted) {
-		const impacts = sliced.get(patch.id);
-		if (!impacts?.length) continue;
+		const impacts = sliced.get(patch.id) ?? [];
+		const wholeFile = rebuild || !isCurrent(patch);
+		const hasRecorded = (touched.get(patch.id) ?? []).some((entity) => entity.recorded);
+		if (!impacts.length && !(wholeFile && hasRecorded)) continue;
+		const bounds = patchBounds(patches, patches.indexOf(patch), now);
+		const statsAt = (at: string): PatchStats => ({
+			schemaVersion: 2,
+			methodVersion: METHOD_VERSION,
+			collectedAt: at,
+			...bounds
+		});
 
 		const path = join(changelogsDir, `${patch.slug}.mg`);
 		if (!existsSync(path)) throw new Error(`Changelog file not found: ${path}`);
 		const source = await readFile(path, 'utf8');
 		let next: string;
 		try {
-			next = upsertImpactBlocks(source, impacts, index);
+			const write = (at: string) =>
+				upsertImpactBlocks(source, impacts, index, {
+					stats: statsAt(at),
+					removeOthers: wholeFile
+				});
+			next = await write(patch.stats?.collectedAt ?? collectedAt);
+			if (next !== source) next = await write(collectedAt);
 		} catch (error) {
 			throw new Error(`Failed to write patch impact into ${path}`, { cause: error });
 		}
 		if (next === source) continue;
 
-		await writeFile(path, next);
+		await writeFile(`${path}.tmp`, next);
+		await rename(`${path}.tmp`, path);
 		files++;
 		blocks += impacts.length;
+	}
+
+	const legacy = patches.filter(
+		(patch) =>
+			!wantedIds.has(patch.id) &&
+			!isCurrent(patch) &&
+			(touched.get(patch.id) ?? []).some((entity) => entity.recorded)
+	).length;
+	if (legacy > 0) {
+		log(
+			`   Stats: ${legacy} closed changelogs hold an older method; run with --rebuild to recompute them`
+		);
 	}
 
 	log(

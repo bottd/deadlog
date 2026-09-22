@@ -61,43 +61,6 @@ function findMogFiles(dir: string): string[] {
 		.map((entry) => join(dir, entry));
 }
 
-const FRONT_MATTER_RE = /^``attr:[ \t]*\n([\s\S]*?)\n``/;
-
-export function splitFrontMatter(content: string): { frontMatter: string; body: string } {
-	const frontMatter = content.match(FRONT_MATTER_RE)?.[0] ?? '';
-	return { frontMatter, body: content.slice(frontMatter.length) };
-}
-
-/**
- * The leading `attr` verbatim block, whose body is KDL. The generator only ever emits
- * `key "string"`, `key #bool` and `//` comments, so a line reader stays cheaper than a
- * KDL dependency — anything richer than that has to grow one.
- */
-function parseMogMetadata(content: string): {
-	metadata: Record<string, unknown>;
-	body: string;
-} {
-	const metaMatch = content.match(FRONT_MATTER_RE);
-	const metadata: Record<string, unknown> = {};
-
-	if (metaMatch) {
-		for (const line of metaMatch[1].split('\n')) {
-			// A leading `/` is a KDL comment, not a key.
-			const match = line.trim().match(/^([^\s/]\S*)\s+(.+)$/);
-			if (!match) continue;
-
-			const [, key, raw] = match;
-			// The generator writes strings with JSON.stringify, so JSON.parse reverses it.
-			// A value that is neither shape is malformed; letting it throw beats guessing,
-			// since loadAllChangelogs reports the offending file.
-			metadata[key] = raw.startsWith('#') ? raw === '#true' : JSON.parse(raw);
-		}
-	}
-
-	// The attr block was matched from position 0, so it is just a prefix to drop.
-	return { metadata, body: content.slice(metaMatch?.[0].length ?? 0) };
-}
-
 /**
  * The patch's own screenshot, from the images `parseStructure` found outside every
  * block — an entity portrait is chrome and would otherwise win by being first.
@@ -129,9 +92,14 @@ export async function loadAllChangelogs(
 		const content = readFileSync(filepath, 'utf-8');
 
 		try {
-			const { metadata: rawMetadata, body } = parseMogMetadata(content);
+			const {
+				metadata: rawMetadata,
+				toc,
+				changes: entityChanges,
+				images,
+				stats
+			} = await parseStructure(content);
 			const metadata = ChangelogMetadataSchema.parse(rawMetadata);
-			const { toc, changes: entityChanges, images } = parseStructure(body);
 			const entities = extractEntities(toc);
 			const relativePath = relative(changelogsDir, filepath);
 			const slug = relativePath.replace(/\.mg$/, '');
@@ -147,7 +115,8 @@ export async function loadAllChangelogs(
 				entities,
 				entityChanges,
 				plainText,
-				previewImage
+				previewImage,
+				...(stats && { stats })
 			});
 		} catch (error) {
 			throw new Error(`Failed to parse changelog: ${filepath}`, { cause: error });

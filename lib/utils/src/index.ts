@@ -9,6 +9,7 @@ export function toSlug(name: string): string {
 }
 
 import { entityNameAliases } from './entityNames';
+export { PROPERTY_EXTRACTION_VERSION } from './propertyChanges';
 
 export {
 	canonicalSlug,
@@ -21,6 +22,16 @@ export {
 } from './entityNames';
 
 export { HERO_IMAGE_KEYS, heroImage } from './entityImages';
+
+export {
+	CONTEXT_SECTION_KINDS,
+	type AssetIdentity,
+	type AssetType,
+	type ContextProperty,
+	type ContextSection,
+	type ContextSectionKind,
+	type EntityContext
+} from './entityContext';
 
 /** Null groups mean the count is unknown. */
 export function countBullets(
@@ -290,20 +301,20 @@ export function patchHeading(patch: { title: string; date: Date | string }) {
 	return { named, date, heading: named ? patch.title : date };
 }
 
-export interface ImpactWindow {
-	win: number | null;
-	pick: number | null;
-	matches: number;
-	days: number;
-}
+export {
+	RELATED_ITEMS_LIMIT,
+	relatedShare,
+	type RelatedItem,
+	type RelatedItems,
+	type RelatedStatus
+} from './relatedItems';
 
-export interface TierImpact {
-	before: ImpactWindow;
-	after: ImpactWindow;
-}
-
-export interface EntityImpact {
-	closed: boolean;
-	all: TierImpact;
-	high: TierImpact;
-}
+export {
+	intervalDays,
+	type CoverageStatus,
+	type DayInterval,
+	type EntityImpact,
+	type ImpactWindow,
+	type PatchStats,
+	type TierImpact
+} from './impact';

@@ -1,0 +1,532 @@
+{
+	"retrievedAt": "2026-09-21T21:02:51.170Z",
+	"requested": {
+		"from": "2026-07-29",
+		"to": "2026-08-04",
+		"min_average_badge": 91
+	},
+	"reduction": "Four of 156 items (the two with the most matches on the reset day 2026-07-31, the two with the most dropped rows) and heroes [1, 6], which played that day; unused fields removed. The API over-returned 2026-08-05, kept here.",
+	"urls": {
+		"itemDefault": "https://api.deadlock-api.com/v1/analytics/item-stats?bucket=start_time_day&min_unix_timestamp=1785283200&max_unix_timestamp=1785887999&game_mode=normal&match_mode=ranked%2Cunranked&min_average_badge=91",
+		"itemMin1": "https://api.deadlock-api.com/v1/analytics/item-stats?bucket=start_time_day&min_unix_timestamp=1785283200&max_unix_timestamp=1785887999&game_mode=normal&match_mode=ranked%2Cunranked&min_average_badge=91&min_matches=1",
+		"hero": "https://api.deadlock-api.com/v1/analytics/hero-stats?bucket=start_time_day&min_unix_timestamp=1785283200&max_unix_timestamp=1785887999&game_mode=normal&match_mode=ranked%2Cunranked&min_average_badge=91"
+	},
+	"itemDefault": [
+		{
+			"item_id": 1414025773,
+			"bucket": 1785283200,
+			"wins": 5882,
+			"losses": 5937,
+			"matches": 11819,
+			"players": 7798
+		},
+		{
+			"item_id": 1414025773,
+			"bucket": 1785369600,
+			"wins": 4139,
+			"losses": 4143,
+			"matches": 8282,
+			"players": 5724
+		},
+		{
+			"item_id": 1414025773,
+			"bucket": 1785542400,
+			"wins": 20,
+			"losses": 17,
+			"matches": 37,
+			"players": 30
+		},
+		{
+			"item_id": 1414025773,
+			"bucket": 1785628800,
+			"wins": 58,
+			"losses": 39,
+			"matches": 97,
+			"players": 65
+		},
+		{
+			"item_id": 1414025773,
+			"bucket": 1785715200,
+			"wins": 175,
+			"losses": 145,
+			"matches": 320,
+			"players": 174
+		},
+		{
+			"item_id": 1414025773,
+			"bucket": 1785801600,
+			"wins": 326,
+			"losses": 264,
+			"matches": 590,
+			"players": 302
+		},
+		{
+			"item_id": 1414025773,
+			"bucket": 1785888000,
+			"wins": 420,
+			"losses": 408,
+			"matches": 828,
+			"players": 403
+		},
+		{
+			"item_id": 1798666702,
+			"bucket": 1785283200,
+			"wins": 361,
+			"losses": 359,
+			"matches": 720,
+			"players": 555
+		},
+		{
+			"item_id": 1798666702,
+			"bucket": 1785369600,
+			"wins": 272,
+			"losses": 217,
+			"matches": 489,
+			"players": 388
+		},
+		{
+			"item_id": 2142980412,
+			"bucket": 1785283200,
+			"wins": 442,
+			"losses": 306,
+			"matches": 748,
+			"players": 614
+		},
+		{
+			"item_id": 2142980412,
+			"bucket": 1785369600,
+			"wins": 303,
+			"losses": 262,
+			"matches": 565,
+			"players": 480
+		},
+		{
+			"item_id": 2603935618,
+			"bucket": 1785283200,
+			"wins": 11407,
+			"losses": 11448,
+			"matches": 22855,
+			"players": 13149
+		},
+		{
+			"item_id": 2603935618,
+			"bucket": 1785369600,
+			"wins": 7961,
+			"losses": 7970,
+			"matches": 15931,
+			"players": 9748
+		},
+		{
+			"item_id": 2603935618,
+			"bucket": 1785542400,
+			"wins": 24,
+			"losses": 29,
+			"matches": 53,
+			"players": 46
+		},
+		{
+			"item_id": 2603935618,
+			"bucket": 1785628800,
+			"wins": 72,
+			"losses": 74,
+			"matches": 146,
+			"players": 96
+		},
+		{
+			"item_id": 2603935618,
+			"bucket": 1785715200,
+			"wins": 267,
+			"losses": 244,
+			"matches": 511,
+			"players": 263
+		},
+		{
+			"item_id": 2603935618,
+			"bucket": 1785801600,
+			"wins": 415,
+			"losses": 442,
+			"matches": 857,
+			"players": 393
+		},
+		{
+			"item_id": 2603935618,
+			"bucket": 1785888000,
+			"wins": 583,
+			"losses": 574,
+			"matches": 1157,
+			"players": 508
+		}
+	],
+	"itemMin1": [
+		{
+			"item_id": 1414025773,
+			"bucket": 1785283200,
+			"wins": 5882,
+			"losses": 5937,
+			"matches": 11819,
+			"players": 7798
+		},
+		{
+			"item_id": 1414025773,
+			"bucket": 1785369600,
+			"wins": 4139,
+			"losses": 4143,
+			"matches": 8282,
+			"players": 5724
+		},
+		{
+			"item_id": 1414025773,
+			"bucket": 1785456000,
+			"wins": 5,
+			"losses": 1,
+			"matches": 6,
+			"players": 6
+		},
+		{
+			"item_id": 1414025773,
+			"bucket": 1785542400,
+			"wins": 20,
+			"losses": 17,
+			"matches": 37,
+			"players": 30
+		},
+		{
+			"item_id": 1414025773,
+			"bucket": 1785628800,
+			"wins": 58,
+			"losses": 39,
+			"matches": 97,
+			"players": 65
+		},
+		{
+			"item_id": 1414025773,
+			"bucket": 1785715200,
+			"wins": 175,
+			"losses": 145,
+			"matches": 320,
+			"players": 174
+		},
+		{
+			"item_id": 1414025773,
+			"bucket": 1785801600,
+			"wins": 326,
+			"losses": 264,
+			"matches": 590,
+			"players": 302
+		},
+		{
+			"item_id": 1414025773,
+			"bucket": 1785888000,
+			"wins": 420,
+			"losses": 408,
+			"matches": 828,
+			"players": 403
+		},
+		{
+			"item_id": 1798666702,
+			"bucket": 1785283200,
+			"wins": 361,
+			"losses": 359,
+			"matches": 720,
+			"players": 555
+		},
+		{
+			"item_id": 1798666702,
+			"bucket": 1785369600,
+			"wins": 272,
+			"losses": 217,
+			"matches": 489,
+			"players": 388
+		},
+		{
+			"item_id": 1798666702,
+			"bucket": 1785542400,
+			"wins": 1,
+			"losses": 0,
+			"matches": 1,
+			"players": 1
+		},
+		{
+			"item_id": 1798666702,
+			"bucket": 1785628800,
+			"wins": 1,
+			"losses": 0,
+			"matches": 1,
+			"players": 1
+		},
+		{
+			"item_id": 1798666702,
+			"bucket": 1785715200,
+			"wins": 1,
+			"losses": 2,
+			"matches": 3,
+			"players": 3
+		},
+		{
+			"item_id": 1798666702,
+			"bucket": 1785801600,
+			"wins": 7,
+			"losses": 5,
+			"matches": 12,
+			"players": 9
+		},
+		{
+			"item_id": 1798666702,
+			"bucket": 1785888000,
+			"wins": 7,
+			"losses": 8,
+			"matches": 15,
+			"players": 11
+		},
+		{
+			"item_id": 2142980412,
+			"bucket": 1785283200,
+			"wins": 442,
+			"losses": 306,
+			"matches": 748,
+			"players": 614
+		},
+		{
+			"item_id": 2142980412,
+			"bucket": 1785369600,
+			"wins": 303,
+			"losses": 262,
+			"matches": 565,
+			"players": 480
+		},
+		{
+			"item_id": 2142980412,
+			"bucket": 1785542400,
+			"wins": 1,
+			"losses": 0,
+			"matches": 1,
+			"players": 1
+		},
+		{
+			"item_id": 2142980412,
+			"bucket": 1785628800,
+			"wins": 1,
+			"losses": 0,
+			"matches": 1,
+			"players": 1
+		},
+		{
+			"item_id": 2142980412,
+			"bucket": 1785715200,
+			"wins": 0,
+			"losses": 1,
+			"matches": 1,
+			"players": 1
+		},
+		{
+			"item_id": 2142980412,
+			"bucket": 1785801600,
+			"wins": 7,
+			"losses": 1,
+			"matches": 8,
+			"players": 6
+		},
+		{
+			"item_id": 2142980412,
+			"bucket": 1785888000,
+			"wins": 13,
+			"losses": 6,
+			"matches": 19,
+			"players": 16
+		},
+		{
+			"item_id": 2603935618,
+			"bucket": 1785283200,
+			"wins": 11407,
+			"losses": 11448,
+			"matches": 22855,
+			"players": 13149
+		},
+		{
+			"item_id": 2603935618,
+			"bucket": 1785369600,
+			"wins": 7961,
+			"losses": 7970,
+			"matches": 15931,
+			"players": 9748
+		},
+		{
+			"item_id": 2603935618,
+			"bucket": 1785456000,
+			"wins": 3,
+			"losses": 3,
+			"matches": 6,
+			"players": 6
+		},
+		{
+			"item_id": 2603935618,
+			"bucket": 1785542400,
+			"wins": 24,
+			"losses": 29,
+			"matches": 53,
+			"players": 46
+		},
+		{
+			"item_id": 2603935618,
+			"bucket": 1785628800,
+			"wins": 72,
+			"losses": 74,
+			"matches": 146,
+			"players": 96
+		},
+		{
+			"item_id": 2603935618,
+			"bucket": 1785715200,
+			"wins": 267,
+			"losses": 244,
+			"matches": 511,
+			"players": 263
+		},
+		{
+			"item_id": 2603935618,
+			"bucket": 1785801600,
+			"wins": 415,
+			"losses": 442,
+			"matches": 857,
+			"players": 393
+		},
+		{
+			"item_id": 2603935618,
+			"bucket": 1785888000,
+			"wins": 583,
+			"losses": 574,
+			"matches": 1157,
+			"players": 508
+		}
+	],
+	"hero": [
+		{
+			"hero_id": 1,
+			"bucket": 1785283200,
+			"wins": 1242,
+			"losses": 1344,
+			"matches": 2586,
+			"matches_per_bucket": 80724
+		},
+		{
+			"hero_id": 1,
+			"bucket": 1785369600,
+			"wins": 880,
+			"losses": 1018,
+			"matches": 1898,
+			"matches_per_bucket": 56772
+		},
+		{
+			"hero_id": 1,
+			"bucket": 1785456000,
+			"wins": 1,
+			"losses": 0,
+			"matches": 1,
+			"matches_per_bucket": 12
+		},
+		{
+			"hero_id": 1,
+			"bucket": 1785542400,
+			"wins": 1,
+			"losses": 2,
+			"matches": 3,
+			"matches_per_bucket": 168
+		},
+		{
+			"hero_id": 1,
+			"bucket": 1785628800,
+			"wins": 5,
+			"losses": 3,
+			"matches": 8,
+			"matches_per_bucket": 492
+		},
+		{
+			"hero_id": 1,
+			"bucket": 1785715200,
+			"wins": 14,
+			"losses": 19,
+			"matches": 33,
+			"matches_per_bucket": 1608
+		},
+		{
+			"hero_id": 1,
+			"bucket": 1785801600,
+			"wins": 34,
+			"losses": 42,
+			"matches": 76,
+			"matches_per_bucket": 2916
+		},
+		{
+			"hero_id": 1,
+			"bucket": 1785888000,
+			"wins": 61,
+			"losses": 61,
+			"matches": 122,
+			"matches_per_bucket": 4236
+		},
+		{
+			"hero_id": 6,
+			"bucket": 1785283200,
+			"wins": 1146,
+			"losses": 1091,
+			"matches": 2237,
+			"matches_per_bucket": 80724
+		},
+		{
+			"hero_id": 6,
+			"bucket": 1785369600,
+			"wins": 832,
+			"losses": 824,
+			"matches": 1656,
+			"matches_per_bucket": 56772
+		},
+		{
+			"hero_id": 6,
+			"bucket": 1785456000,
+			"wins": 1,
+			"losses": 0,
+			"matches": 1,
+			"matches_per_bucket": 12
+		},
+		{
+			"hero_id": 6,
+			"bucket": 1785542400,
+			"wins": 2,
+			"losses": 1,
+			"matches": 3,
+			"matches_per_bucket": 168
+		},
+		{
+			"hero_id": 6,
+			"bucket": 1785628800,
+			"wins": 6,
+			"losses": 5,
+			"matches": 11,
+			"matches_per_bucket": 492
+		},
+		{
+			"hero_id": 6,
+			"bucket": 1785715200,
+			"wins": 24,
+			"losses": 28,
+			"matches": 52,
+			"matches_per_bucket": 1608
+		},
+		{
+			"hero_id": 6,
+			"bucket": 1785801600,
+			"wins": 56,
+			"losses": 47,
+			"matches": 103,
+			"matches_per_bucket": 2916
+		},
+		{
+			"hero_id": 6,
+			"bucket": 1785888000,
+			"wins": 58,
+			"losses": 59,
+			"matches": 117,
+			"matches_per_bucket": 4236
+		}
+	]
+}

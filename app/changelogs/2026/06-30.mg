@@ -8,6 +8,10 @@ author "IceFrog"
 author_image "/assets/authors/icefrog.webp"
 major_update #false
 content_text "King of the Hill objective has been rethemed and renamed to \"Unstable Rift\" Unstable Rift no longer requires an Urn delivery to trigger the start of the event. It now has a variable start time of +/- 1 minute. There is a global announcement 25s before it spawns. 60s before that there is also an in-world only visual effect to let you know which lane it'll randomly spawn in. Unstable Rift spawn interval increased from every 6 minutes to every 7 minutes Unstable Rift comeback bonuses (resists in the area, extra comeback bounty, and trailing/leading team claiming timer) now all scale linearly based on the amount of NW they are trailing (scales from no bonus at 0% NW behind to full bonus at 15% NW behind) The team that secures the Unstable Rift now also has a wave of 5 Rift Troopers sent down from the rift location. When trailing, spawns up to 12 troopers instead (using the same linear ramp from 0% NW to -15% NW) Rift Troopers drop no souls when killed Rift Troopers spawn with 100% extra health and damage (they also look larger and have custom VFX). Their bonus health and damage grow slightly per event (first one is 100%, then 120%, 140%, etc) Any players in the Unstable Rift Zone are now revealed on the minimap Unstable Rift bounty increased by 35% (to account for the 35% loss with no urn runner bounty, overall objective bounty is unchanged) Unstable Rift no longer grants +1 permanent buff to each player (there is also no +3 buffs to the urn runner) Urn running is now its own objective. Spawns on either end of the map (where the previous neutral pickup locations were), and gets delivered to the opposite end. Spawns at 10/15/20/25/etc. Urn runner is no longer revealed and is not disarmed or silenced (going through a doorway or mirage teleport still drops it) Urn cannot be manually dropped. It gets dropped when you get hit with a light or heavy melee, are stunned or are killed. It stays where it drops and does not walk back home. Urn runner can no longer parry Urn bounty value starts decaying after 45s from being picked up. It drains gradually over another 45s and then the urn is removed when the bounty is empty. Urn is deposited immediately at the drop off point. Urn bounty when deposited is worth 250 + 70/min for just the urn runner. Still has the comeback bounty component. Upon deposit all of the souls are released as orbs into the air (if another ally secures the orbs, they share the bounty with the urn runner). Urn runner gets +4 permanent buffs on deposit Urn is now louder when it talks and is easier to hear by nearby enemies After 3 Minutes from spawn the Urn will start walking very slowly on his own towards the deposit location Urn runner's passive bonuses while holding it now scales based on how behind you are, rather than being on or off (same as the Unstable Rift 0%-15% NW linear scaling). Bonuses are the same as the previous urn runner bonuses. citadel_force_spawn_idol - This spawns the Urn citadel_koth_dev_test_spawn - This moves your hero and spawns the Unstable Rift in the early warning state then quickly transitions to the 25s broadcasted timer Reworked Boon reward table Health per boon reduced by 5% All ultimate base and upgrade cooldowns nerfed by 15% (rounded to the nearest multiple of 5) Rejuv buff duration reduced from 4 minutes to 3 Respawn ramp changed from 8-30s from 5-19m to 8-35s from 5-20m Guardian bounty reduced from 1500 to 1250 Walker bounty reduced from 4000 to 3500 First blood bounty reduced from 150 to 125 Base kill bounty reduced from 250 to 200 (max is still 2200 at 40m) Trooper bounty rescaled from 116 + 1.16/m to 100 + 2/m (less before 20m, more after) Trooper bounty ratio in the deniable flying orb increased from 40% to 50% Minimum unsecured souls allowed to drop reduced from 150 to 50 + 5/min Dash Jump input window increased from 0.2s to 0.25s duration (start time: 0.3s to end time: 0.55s) Dash Jump distance increased from 18m to 19m Dash Jump vertical impulse increased from 400 to 425 Jump Pads on top of the double sinner buildings have been removed Hovering an item in the shop now shows you a preview for your investment bars Street Brawl: No longer locks you out of getting off the zipline in the first few seconds Street Brawl: Increased item randomness a bit Street Brawl: Fixed Enhanced Sharpshooter and Enhanced Spiritual Overflow not maintaining the bonuses from their enhanced components Abrams Siphon Life T3 reduced from +3m Radius to +2m Shoulder Charge T3 reduced from -20s Cooldown to -18s Apollo Riposte T1 increased from -7s Cooldown to -8s Riposte grace window to target after channel increased from +1s to +1.3s Riposte cast range increased from 25m to 35m Riposte targeting angle increased from 70 to 90 Flawless Advance Heal on hero hit spirit scaling increased from 1 to 1.3 Itani Lo Sahn T3 increased from +40% Bonus Damage to +50% Billy Bullet damage per boon reduced by 10% Bashdown melee scaling reduced from 1.1 to 0.9 Bashdown T3 reduced from 60% Heavy Melee damage to 50% Rising Ram T3 Max HP Damage reduced from 10% to 8% Rising Ram T3 Max HP Damage spirit scaling increased from 0.017 to 0.035 (break even at 111 spirit power) Celeste Dazzling Trick cooldown reduced from 35s to 32s Radiant Daggers buff duration increased from 25s to 30s Radiant Daggers spirit scaling increased from 0.56 to 0.63 Shining Wonder bounce range increased from 15.5m to 16.5m Shining Wonder damage increased by 10% Doorman Doorway cooldown increased from 40s to 45s Drifter Health per boon increased from 41 to 43 (global hp boon reduction is after this) Rend cast time reduced from 0.5s to 0.4s Rend post cast time reduced from 0.5s to 0.4s Rend T2 increased from -7s Cooldown to -8s Bloodscent T1 increased from +2m/s while near an isolated enemy to +3m/s Bloodscent T2 increased from 18% missing health heal to +24% Dynamo Rejuvenating Aurora regeneration increased from 25/s to 30/s Grey Talon Rain of Arrows cooldown increased from 23s to 25s Guided Owl permanent spirit bonus reduced from 10 to 8 Holliday Powder Keg velocity reduced slightly Powder Keg charge delay increased from 7s to 7.5s Powder Keg spirit scaling reduced from 1.4 to 1.2 Powder Keg T3 reduced from +100 Damage to +80 Haze Sleep Dagger T1 increased from -8% Bullet Resist to -10% Sleep Dagger T2 increased from -17s Cooldown to -18s Smoke Bomb T3 increased from +40% Bullet Lifesteal to +50% Ivy Entangling Thorns spirit scaling increased from 0.45 to 0.55 Kudzu Connection Replicated Healing per boon scale increased from +0.5 to +0.85 Air Drop cooldown reduction when used on allies increased from -25% to -30% Lash Ground Strike cooldown reduced from 21s to 18s Flog angle increased from 30 to 38 Mina Rake missing health as damage increased from 5% to 6% Sanguine Retreat T3 now also increases range by +3m Nox Nostra damage increased from 4.45 to 4.6 Nox Nostra T1 damage increased from +1.74 to +1.9 Mo & Krill Sand Blast T2 slow increased from -25% to -30% Sand Blast T3 increased from -20s Cooldown to -25s Combo bonus max health per kill increased from 30+1/boon to 40+2/boon Paige Health per boon increased from 29 to 33 Bookwyrm T1 changed from \"+2s Trail Duration and +1m Radius\" to \"-12s Cooldown\" Bookwyrm T2 changed from \"+10m Range and -12s Cooldown\" to \"+1 Charge, +1m Radius and +2s Trail Duration\" Bookworm T3 changed from \"+100 Damage, +30 DPS and +1 Charge\" to \"+100 Damage, +30 DPS and +12m Travel Range\" Plot Armor T1 fire rate spirit scaling increased from 0.13 to 0.16 Plot Armor T3 increased from 75% Barrier to 100% Rallying Charge is now properly counted as a \"miss\" (for the -50% CD Reduction) if the only thing that was impacted were non-heroes Rallying Charge T3 Max Amp increased from +50% to +70% Paradox Kinetic Carbine T2 now also increases move speed spirit scaling (0.06) Kinetic Carbine T3 changed from affecting Max Damage Scaling to affecting both Min and Max Damage Scaling Pocket Bullet damage per boon reduced from 0.16 to 0.14 Flying Cloak T3 reduced from -12s Cooldown to -11s Rem Tag Along healing per second spirit scaling reduced from 0.66 to 0.4 Tag Along T3 missing health spirit scaling reduced from +0.02 to +0.016 Lil Helpers Spirit Resist reduced from 15% to 12% Lil Helpers T1 changed from \"+1 Helper\" to \"+1 Helper and +1.5m/s Move Speed\" Lil Helpers T2 changed from \"+8% Spirit Resist and +1.5m/s Move Speed\" to \"+1 Helper and +15% Trooper Damage and Resist\" Lil Helpers T3 changed from \"+2 Helpers and +20% Trooper Damage and Resist\" to \"+1 Helper and +15% Spirit Resist\" Seven Lightning Ball charge delay reduced from 7s to 6s Storm Cloud time to expand increased from 1.5s to 3.5s Storm Cloud damage interval increased from 0.25s to 0.3s (DPS unchanged) Storm Cloud T2 now also increases Initial Radius by +5m Shiv Alt Fire damage now has a custom value per boon (+0.2) Alt Fire ammo consumed per shot increased from 3 to 5 Alt Fire knockback movement is now disabled by slowing hex state Serrated Knives cooldown reduced from 18s to 16s Slice and Dice now deals +25 light melee damage (75 total) instead of 60 spirit damage Slice and Dice changed from -6% Spirit Resist to +4% Damage Amp Bloodletting T2 changed from \"+15% Incoming Damage Deferred\" to \"+35% Deferred Damage Cleared\" Bloodletting T3 changed from \"+50% Deferred Damage Cleared\" to \"+15% Incoming Damage Deferred\" Killing Blow now deals damage to troopers and neutrals along the way Killing Blow executing a hero now instantly fills the rage bar Killing Blow now has the T3 \"recast within 20s on a hero kill\" as part of the base ability Killing Blow Full Rage Damage Bonus reduced from +12% to +8% Killing Blow range reduced from 18m to 12m Killing Blow T1 now also increases range by +6m Killing Blow T2 increased from +10% Full Rage Bonus Damage to +16% Killing Blow T3 increased from +5% Enemy health Threshold to +10% Vindicta Stake T2 reduced from -20s Cooldown to -22s Crow Familiar T2 increased from -12s Cooldown to -16s Crow Familiar collision radius between each crow increased slightly Assassinate Max Bonus Damage spirit scaling increased from 2 to 2.3 Viscous Splatter T3 spirit scaling reduced from +1.1 to +1.0 Puddle Punch T3 increased from -12s Cooldown to -14s Goo Ball T3 increased from +6s Duration to +7s Vyper Screwjab Dagger T3 now also reduces charge delay from 4s to 2s Slither T3 spirit scaling increased from 0.6 to 0.8 Warden Bullet damage per boon reduced from 0.34 to 0.28 Willpower T2 increased from -22s Cooldown to -24s Willpower T3 increased from +2.5 spirit power scaling to +2.7 Mystic Shot Cooldown increased from 8s to 9s Toxic Bullets Bleed damage increased from 1.7% to 1.9% Scourge Max Health DPS reduced from 3.5% to 2.6% Max Health DPS now scales with spirit power (0.0055) Cursed Relic Damage Penalty increased from -10% to -14%"
+stats schema=2 method=2 collected="2026-09-21T21:41:20.000Z" {
+  before from="2026-06-16" to="2026-06-30"
+  after from=#null to=#null
+}
 ``
 
 # General Changes
@@ -67,12 +71,12 @@ content_text "King of the Hill objective has been rethemed and renamed to \"Unst
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5218 pick=0.3828 matches=227006 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.5218 pick=0.3828 matches=227068 days=14 total=7117436 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
   high {
-    before win=0.5163 pick=0.4329 matches=42669 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.5163 pick=0.433 matches=42672 days=14 total=1182708 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
 }
 ``
@@ -94,12 +98,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4856 pick=0.2383 matches=141315 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.4856 pick=0.2383 matches=141347 days=14 total=7117436 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
   high {
-    before win=0.4696 pick=0.1876 matches=18488 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.4696 pick=0.1876 matches=18488 days=14 total=1182708 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
 }
 ``
@@ -129,12 +133,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5123 pick=0.4715 matches=279561 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.5123 pick=0.4715 matches=279644 days=14 total=7117436 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
   high {
-    before win=0.515 pick=0.4735 matches=46663 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.515 pick=0.4735 matches=46665 days=14 total=1182708 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
 }
 ``
@@ -159,12 +163,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4679 pick=0.2803 matches=166182 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.4679 pick=0.2802 matches=166221 days=14 total=7117436 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
   high {
-    before win=0.4625 pick=0.1808 matches=17821 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.4626 pick=0.1808 matches=17822 days=14 total=1182708 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
 }
 ``
@@ -193,12 +197,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5023 pick=0.234 matches=138780 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.5023 pick=0.2341 matches=138825 days=14 total=7117436 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
   high {
-    before win=0.4977 pick=0.2068 matches=20380 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.4977 pick=0.2068 matches=20381 days=14 total=1182708 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
 }
 ``
@@ -215,12 +219,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5039 pick=0.37 matches=219408 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.5039 pick=0.37 matches=219468 days=14 total=7117436 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
   high {
-    before win=0.4973 pick=0.3681 matches=36282 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.4973 pick=0.3681 matches=36283 days=14 total=1182708 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
 }
 ``
@@ -246,12 +250,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5176 pick=0.2954 matches=175146 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.5176 pick=0.2954 matches=175188 days=14 total=7117436 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
   high {
-    before win=0.5156 pick=0.2253 matches=22200 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.5156 pick=0.2253 matches=22202 days=14 total=1182708 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
 }
 ``
@@ -268,12 +272,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4889 pick=0.2503 matches=148395 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.4889 pick=0.2502 matches=148428 days=14 total=7117436 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
   high {
-    before win=0.4797 pick=0.2997 matches=29541 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.4797 pick=0.2997 matches=29543 days=14 total=1182708 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
 }
 ``
@@ -295,12 +299,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5285 pick=0.4924 matches=291997 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.5285 pick=0.4924 matches=292079 days=14 total=7117436 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
   high {
-    before win=0.5018 pick=0.4255 matches=41936 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.5018 pick=0.4255 matches=41938 days=14 total=1182708 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
 }
 ``
@@ -323,12 +327,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5059 pick=0.346 matches=205144 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.5059 pick=0.346 matches=205190 days=14 total=7117436 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
   high {
-    before win=0.5285 pick=0.4271 matches=42088 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.5285 pick=0.4271 matches=42090 days=14 total=1182708 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
 }
 ``
@@ -348,12 +352,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5255 pick=0.2668 matches=158193 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.5254 pick=0.2668 matches=158225 days=14 total=7117436 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
   high {
-    before win=0.5256 pick=0.2984 matches=29408 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.5257 pick=0.2984 matches=29409 days=14 total=1182708 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
 }
 ``
@@ -380,12 +384,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5021 pick=0.3855 matches=228613 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.5021 pick=0.3855 matches=228655 days=14 total=7117436 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
   high {
-    before win=0.4996 pick=0.4678 matches=46102 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.4995 pick=0.4678 matches=46104 days=14 total=1182708 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
 }
 ``
@@ -407,12 +411,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4507 pick=0.3266 matches=193649 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.4507 pick=0.3266 matches=193709 days=14 total=7117436 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
   high {
-    before win=0.4621 pick=0.2278 matches=22450 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.4621 pick=0.2278 matches=22452 days=14 total=1182708 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
 }
 ``
@@ -440,12 +444,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5046 pick=0.2373 matches=140738 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.5046 pick=0.2373 matches=140773 days=14 total=7117436 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
   high {
-    before win=0.4981 pick=0.2487 matches=24511 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.4981 pick=0.2487 matches=24513 days=14 total=1182708 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
 }
 ``
@@ -468,12 +472,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5256 pick=0.3095 matches=183505 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.5256 pick=0.3095 matches=183549 days=14 total=7117436 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
   high {
-    before win=0.5165 pick=0.2361 matches=23270 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.5165 pick=0.2361 matches=23271 days=14 total=1182708 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
 }
 ``
@@ -509,12 +513,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.464 pick=0.2373 matches=140738 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.464 pick=0.2373 matches=140771 days=14 total=7117436 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
   high {
-    before win=0.4704 pick=0.2747 matches=27070 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.4704 pick=0.2747 matches=27071 days=14 total=1182708 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
 }
 ``
@@ -532,12 +536,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4696 pick=0.2353 matches=139555 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.4697 pick=0.2354 matches=139591 days=14 total=7117436 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
   high {
-    before win=0.4751 pick=0.2944 matches=29013 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.4751 pick=0.2944 matches=29013 days=14 total=1182708 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
 }
 ``
@@ -555,12 +559,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4888 pick=0.4368 matches=259013 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.4888 pick=0.4368 matches=259084 days=14 total=7117436 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
   high {
-    before win=0.4937 pick=0.3571 matches=35193 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.4937 pick=0.3571 matches=35194 days=14 total=1182708 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
 }
 ``
@@ -590,12 +594,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.562 pick=0.4673 matches=277092 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.5619 pick=0.4673 matches=277161 days=14 total=7117436 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
   high {
-    before win=0.5621 pick=0.4266 matches=42043 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.5621 pick=0.4266 matches=42043 days=14 total=1182708 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
 }
 ``
@@ -619,12 +623,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4765 pick=0.373 matches=221157 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.4765 pick=0.3729 matches=221200 days=14 total=7117436 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
   high {
-    before win=0.4853 pick=0.4785 matches=47160 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.4853 pick=0.4785 matches=47160 days=14 total=1182708 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
 }
 ``
@@ -676,12 +680,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4889 pick=0.2833 matches=168011 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.4889 pick=0.2833 matches=168057 days=14 total=7117436 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
   high {
-    before win=0.4995 pick=0.2825 matches=27844 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.4994 pick=0.2825 matches=27847 days=14 total=1182708 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
 }
 ``
@@ -709,12 +713,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4795 pick=0.232 matches=137540 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.4795 pick=0.232 matches=137581 days=14 total=7117436 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
   high {
-    before win=0.4783 pick=0.276 matches=27199 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.4782 pick=0.276 matches=27200 days=14 total=1182708 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
 }
 ``
@@ -741,12 +745,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4678 pick=0.1574 matches=93361 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.4679 pick=0.1575 matches=93387 days=14 total=7117436 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
   high {
-    before win=0.5001 pick=0.1586 matches=15631 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.5001 pick=0.1586 matches=15631 days=14 total=1182708 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
 }
 ``
@@ -768,12 +772,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5019 pick=0.2624 matches=155585 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.5019 pick=0.2624 matches=155619 days=14 total=7117436 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
   high {
-    before win=0.503 pick=0.2691 matches=26523 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.503 pick=0.2691 matches=26525 days=14 total=1182708 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
 }
 ``
@@ -798,12 +802,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5034 pick=0.0334 matches=237513 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.5034 pick=0.0334 matches=237564 days=14 total=7117436 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
   high {
-    before win=0.5109 pick=0.0423 matches=50027 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.5109 pick=0.0423 matches=50033 days=14 total=1182708 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
 }
 ``
@@ -816,12 +820,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5017 pick=0.147 matches=1045879 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.5017 pick=0.147 matches=1046128 days=14 total=7117436 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
   high {
-    before win=0.5088 pick=0.1862 matches=220211 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.5088 pick=0.1862 matches=220224 days=14 total=1182708 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
 }
 ``
@@ -834,12 +838,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.6005 pick=0.0502 matches=357340 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.6005 pick=0.0502 matches=357413 days=14 total=7117436 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
   high {
-    before win=0.5985 pick=0.0784 matches=92748 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.5985 pick=0.0784 matches=92753 days=14 total=1182708 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
 }
 ``
@@ -853,12 +857,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5087 pick=0.1062 matches=755580 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.5087 pick=0.1062 matches=755784 days=14 total=7117436 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
   high {
-    before win=0.5016 pick=0.0835 matches=98799 days=14
-    after win=#null pick=#null matches=0 days=0
+    before win=0.5016 pick=0.0835 matches=98806 days=14 total=1182708 covered=14 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
 }
 ``

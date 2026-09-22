@@ -2,10 +2,16 @@ import {
 	getRenderableHeroSlugs,
 	getHeroBySlug,
 	getHeroAbilities,
+	getHeroAbilityContexts,
+	getItemChangesInPatches,
+	getPropertyLinks,
 	getChangelogsByHeroId
 } from '@deadlog/db';
 import { error } from '@sveltejs/kit';
 import { getHeroCardImage } from '$lib/utils/entityImages';
+import { toPageContext } from '$lib/components/entity/pageContext';
+import { relatedChanges } from '$lib/components/entity/relatedChanges';
+import { previousChangeLookup } from '$lib/components/entity/previousChanges';
 import { DEFAULT_SOCIAL_IMAGE, absoluteUrl } from '$lib/seo';
 import type { PageServerLoad, EntryGenerator } from './$types';
 
@@ -25,17 +31,47 @@ export const load: PageServerLoad = async ({ params, locals }) => {
 		throw error(404, 'Hero not found');
 	}
 
-	const [changelogs, abilities] = await Promise.all([
+	const [changelogs, abilities, abilityContexts] = await Promise.all([
 		getChangelogsByHeroId(locals.db, hero.id),
-		getHeroAbilities(locals.db, hero.id)
+		getHeroAbilities(locals.db, hero.id),
+		getHeroAbilityContexts(locals.db, hero.id)
 	]);
 
-	const enrichedChangelogs = changelogs.map((changelog) => ({
+	const changedSlugs = new Set(
+		changelogs.flatMap(
+			(changelog) => changelog.changeGroups?.map((group) => group.abilitySlug) ?? []
+		)
+	);
+	const contexts = Object.fromEntries(
+		abilityContexts
+			.filter(({ slug }) => changedSlugs.has(slug))
+			.map(({ slug, context }) => [slug, toPageContext(context)])
+	);
+
+	const itemChanges = await getItemChangesInPatches(
+		locals.db,
+		changelogs.flatMap(
+			(changelog) =>
+				changelog.relatedItems?.items.map((item) => ({
+					changelogId: changelog.id,
+					itemId: item.id
+				})) ?? []
+		)
+	);
+
+	const previousFor = previousChangeLookup(
+		await getPropertyLinks(locals.db, 'hero', hero.id),
+		hero.name
+	);
+
+	const enrichedChangelogs = changelogs.map(({ relatedItems, ...changelog }) => ({
 		...changelog,
+		related: relatedChanges({ ...changelog, relatedItems }, itemChanges),
 		date: new Date(changelog.pubDate),
 		changeGroups:
-			changelog.changeGroups?.map((group) => ({
+			changelog.changeGroups?.map((group, groupIndex) => ({
 				...group,
+				previous: previousFor(changelog, group, groupIndex),
 				icon:
 					abilities.find((ability) => ability.slug === group.abilitySlug)?.image ?? null
 			})) ?? null
@@ -54,6 +90,7 @@ export const load: PageServerLoad = async ({ params, locals }) => {
 		},
 		changelogs: enrichedChangelogs,
 		abilities,
+		contexts,
 		title: `${hero.name} Deadlock Changes: Buffs & Nerfs | Deadlog`,
 		description: `Track every ${hero.name} buff, nerf, and balance change across Deadlock patch notes in chronological order.`,
 		image: hero.isReleased

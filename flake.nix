@@ -45,6 +45,7 @@
             ./lib/db/package.json
             ./lib/meta/package.json
             ./lib/scraper/package.json
+            ./lib/stats/package.json
             ./lib/utils/package.json
           ];
         };
@@ -73,6 +74,9 @@
             runHook preInstall
             mkdir -p "$out/lib"
             cp -r . "$out/lib/deadlog"
+            # This local development dependency lives outside the flake and is
+            # not used by the formatter.
+            rm "$out/lib/deadlog/node_modules/vite-plugin-mog"
             runHook postInstall
           '';
         });

@@ -6,6 +6,10 @@ author "Yoshi"
 author_image "/assets/authors/yoshi.webp"
 major_update #false
 content_text "Respawn time at 20min reduced from 50s to 45s (was 40s previous patch) Zipline Boost cooldown reduced from 340s (5.6min) to 280s (4.6min) Fixed certain player name lengths not being reportable Ivy Kudzu Bomb damage spirit scaling reduced from 0.7 to 0.6 Kudzu Bomb T3 damage reduced from +60 to +50 Kudzu Bomb vertical radius is now a fixed 2m pancake shape instead of the full radius of the ability Air Drop explosion now respects line of sight Mirage Bullet radius reduced from 8 to 6 Tornado time for victims to reach max height reduced from 0.3s to 0.2s Tornado lift duration reduced from 1.2s to 1.1s Fixed Tornado being castable while busy (such as while channeling Traveler) Djinn's Mark T1 now only applies the slow when the multiplier is 2x or higher Djinn's Mark damage is now treated as a DoT in terms of zipline rules (doesn't prevent ziplining or knock you off) Fixed Djinn's Mark applying bullet procs with Return Fire Pocket Fixed Mystic Reverb causing Affliction damage be lethal"
+stats schema=2 method=2 collected="2026-09-21T21:41:20.000Z" {
+  before from="2024-09-30" to="2024-10-03"
+  after from="2024-10-04" to="2024-10-07"
+}
 ``
 
 # General Changes
@@ -24,12 +28,12 @@ content_text "Respawn time at 20min reduced from 50s to 45s (was 40s previous pa
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5533 pick=0.5172 matches=34711 days=3
-    after win=0.519 pick=0.4374 matches=45754 days=3
+    before win=0.5533 pick=0.5172 matches=34711 days=3 total=805296 covered=3 coverage="complete"
+    after win=0.519 pick=0.4374 matches=45754 days=3 total=1255224 covered=3 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -57,12 +61,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5074 pick=0.7549 matches=50662 days=3
-    after win=0.4754 pick=0.5673 matches=59344 days=3
+    before win=0.5074 pick=0.7549 matches=50662 days=3 total=805296 covered=3 coverage="complete"
+    after win=0.4754 pick=0.5673 matches=59344 days=3 total=1255224 covered=3 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -89,12 +93,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.489 pick=0.5087 matches=34141 days=3
-    after win=0.4953 pick=0.5231 matches=54716 days=3
+    before win=0.489 pick=0.5087 matches=34141 days=3 total=805296 covered=3 coverage="complete"
+    after win=0.4953 pick=0.5231 matches=54716 days=3 total=1255224 covered=3 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``

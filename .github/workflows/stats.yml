@@ -40,6 +40,13 @@ jobs:
           REBUILD_FLAG: ${{ inputs.rebuild && '--rebuild' || '' }}
         run: pnpm run build:stats $REBUILD_FLAG
 
+      - name: Rebuild database with the refreshed stats
+        run: pnpm run build:db
+
+      - name: Refresh related items
+        continue-on-error: true
+        run: pnpm run build:related
+
       - name: Persist snapshot and deploy
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

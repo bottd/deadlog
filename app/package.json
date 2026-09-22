@@ -17,5 +17,8 @@
 		"@deadlog/db": "workspace:*",
 		"@deadlog/stats": "workspace:*",
 		"@deadlog/utils": "workspace:*"
+	},
+	"devDependencies": {
+		"@deadlog/changelog": "workspace:*"
 	}
 }

@@ -16,6 +16,7 @@
 	{accent}
 	changelogs={data.changelogs}
 	abilities={data.abilities}
+	contexts={data.contexts}
 	label={hero.heroType ? `${hero.heroType} hero` : 'Hero profile'}
 	seo={{
 		path: `/hero/${hero.slug}`,

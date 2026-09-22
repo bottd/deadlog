@@ -1,4 +1,9 @@
-export { fetchEntitySnapshot, type EntitySnapshot } from './deadlock';
+export {
+	fetchClientVersion,
+	fetchEntitySnapshot,
+	type EntitySnapshot,
+	type SnapshotProvenance
+} from './deadlock';
 export {
 	loadEntitySnapshot,
 	readEntitySnapshot,

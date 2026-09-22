@@ -23,6 +23,7 @@
 		"build:scraper": "tsx lib/scraper/src/cli.ts",
 		"build:db": "tsx lib/scraper/src/cli.ts --db-only && pnpm run build:redirects",
 		"build:stats": "tsx lib/stats/src/cli.ts",
+		"build:related": "tsx lib/stats/src/relatedCli.ts",
 		"build:redirects": "pnpm --filter 'deadlog-web' redirects",
 		"clean:meta": "rm -rf app/static/assets/meta",
 		"build:meta": "pnpm run clean:meta && UV_THREADPOOL_SIZE=8 tsx lib/meta/src/generate-previews.ts"

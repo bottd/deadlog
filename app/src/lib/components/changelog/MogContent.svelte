@@ -1,15 +1,54 @@
 <script lang="ts">
 	import type { Component } from 'svelte';
-	import { entityFragmentId } from '@deadlog/utils';
+	import { entityFragmentId, type PatchStats } from '@deadlog/utils';
 	import { setEntityIcons, type EntityIconsContext } from './entityContext';
+	import { setPatchStats } from './patchStatsContext';
+	import {
+		setReadingContext,
+		type PatchReading,
+		type RelatedReading
+	} from './readingContext';
 
 	interface Props {
 		content: Component;
 		icons: EntityIconsContext;
 		filter?: { heroes: string[]; items: string[] };
+		stats?: PatchStats | null;
+		entryYear: number;
+		reading?: PatchReading;
+		related?: Record<string, RelatedReading>;
 	}
 
-	let { content: Content, icons, filter }: Props = $props();
+	let {
+		content: Content,
+		icons,
+		filter,
+		stats = null,
+		entryYear,
+		reading = { details: {}, previous: {} },
+		related = {}
+	}: Props = $props();
+
+	setReadingContext({
+		get details() {
+			return reading.details;
+		},
+		get previous() {
+			return reading.previous;
+		},
+		get related() {
+			return related;
+		}
+	});
+
+	setPatchStats({
+		get stats() {
+			return stats;
+		},
+		get entryYear() {
+			return entryYear;
+		}
+	});
 
 	setEntityIcons({
 		get heroes() {
@@ -70,15 +109,15 @@
 			@apply font-display text-foreground mt-8 mb-4 text-[28px] leading-tight font-semibold tracking-wide first:mt-0;
 		}
 
-		:global(h2) {
+		:global(h2:not(:where(.mog-enrichment *))) {
 			@apply text-primary mt-8 mb-4 text-xl leading-tight font-semibold tracking-tight;
 		}
 
-		:global(h3) {
+		:global(h3:not(:where(.mog-enrichment *))) {
 			@apply text-foreground mt-6 mb-3 text-lg leading-tight font-semibold tracking-tight;
 		}
 
-		:global(h4) {
+		:global(h4:not(:where(.mog-enrichment *))) {
 			@apply text-foreground mt-5 mb-2 text-base leading-snug font-semibold tracking-tight;
 		}
 
@@ -157,7 +196,7 @@
 			@apply mt-2 pt-0;
 		}
 
-		:global(p) {
+		:global(p:not(:where(.mog-enrichment *))) {
 			@apply text-foreground/90 my-3 max-w-[72ch] leading-relaxed;
 		}
 
@@ -169,19 +208,19 @@
 			@apply border-border bg-muted/20 h-auto max-h-[32rem] w-full rounded-lg border object-contain shadow-lg;
 		}
 
-		:global(ul) {
+		:global(ul:not(:where(.mog-enrichment *))) {
 			@apply my-3 ml-5 list-none space-y-2.5;
 		}
 
-		:global(ol) {
+		:global(ol:not(:where(.mog-enrichment *))) {
 			@apply marker:text-primary/40 my-3 ml-5 list-decimal space-y-2.5;
 		}
 
-		:global(li) {
+		:global(li:not(:where(.mog-enrichment *))) {
 			@apply text-foreground/90 relative max-w-[72ch] leading-relaxed;
 		}
 
-		:global(ul > li::before) {
+		:global(ul > li:not(:where(.mog-enrichment *))::before) {
 			content: '';
 			@apply bg-primary/40 absolute top-[0.55em] -left-4 size-1.5 rounded-full;
 		}
@@ -207,7 +246,7 @@
 		}
 
 		/* Links — but not the video cards, which are blocks, not body copy */
-		:global(a:not(.video-link)) {
+		:global(a:not(.video-link):not(:where(.mog-enrichment *))) {
 			@apply text-primary font-medium underline-offset-2 transition-all duration-200 hover:underline hover:opacity-80;
 		}
 
@@ -267,16 +306,16 @@
 			@apply border-border my-8;
 		}
 
-		:global(table) {
+		:global(table:not(:where(.mog-enrichment *))) {
 			@apply border-border my-4 w-full border-collapse border;
 		}
 
-		:global(th),
-		:global(td) {
+		:global(th:not(:where(.mog-enrichment *))),
+		:global(td:not(:where(.mog-enrichment *))) {
 			@apply border-border border px-3 py-2 text-left;
 		}
 
-		:global(th) {
+		:global(th:not(:where(.mog-enrichment *))) {
 			@apply bg-muted/50 font-semibold;
 		}
 
@@ -286,8 +325,8 @@
 			:global(div.ability > :not(p:has(img)):not(h4)) {
 				grid-column: 1 / -1;
 			}
-			:global(ul),
-			:global(ol) {
+			:global(ul:not(:where(.mog-enrichment *))),
+			:global(ol:not(:where(.mog-enrichment *))) {
 				margin-left: 1rem;
 			}
 		}

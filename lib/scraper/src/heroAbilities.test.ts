@@ -90,6 +90,61 @@ describe('resolveAbilitySlots', () => {
 		).toThrow(/\/ability\/shared-one claimed by Test Hero and Second Hero/);
 	});
 
+	const described = [
+		ability(10, 'ownerless_hex', 'Rabbit Hex', {
+			description: { desc: 'The wrong hex.' }
+		}),
+		ability(11, 'ability_one', 'Rabbit Hex', {
+			description: { desc: 'Hex a <span>target</span>.', t3_desc: 'Hex everyone' },
+			properties: { Radius: { value: '6m', postfix: 'm', label: 'Radius', scales: true } }
+		}),
+		ability(2, 'ability_two', 'Two'),
+		ability(3, 'ability_three', 'Three'),
+		ability(4, 'ability_four', 'Four')
+	];
+	const provenance = {
+		clientVersion: 6698,
+		language: 'english',
+		collectedAt: '2026-09-21T21:19:12.631Z'
+	};
+
+	it('identifies a slot by the asset its class name resolves to, not by its name', () => {
+		const [resolved] = resolveAbilitySlots([hero()], described, provenance).get(1) ?? [];
+
+		expect(resolved).toMatchObject({ assetId: 11, className: 'ability_one' });
+		expect(resolved.context).toEqual({
+			identity: {
+				assetId: 11,
+				className: 'ability_one',
+				type: 'ability',
+				heroId: 1,
+				slot: 1
+			},
+			...provenance,
+			sections: [
+				{ kind: 'description', label: null, paragraphs: ['Hex a target.'] },
+				{ kind: 'tier3', label: 'Tier 3', paragraphs: ['Hex everyone'] }
+			],
+			properties: [
+				{ key: 'Radius', label: 'Radius', display: '6', unit: 'm', scales: true }
+			]
+		});
+	});
+
+	it('gives a slot with nothing to say no context', () => {
+		const slots = resolveAbilitySlots([hero()], described, provenance).get(1) ?? [];
+		expect(slots[1]).toMatchObject({ assetId: 2, context: null });
+	});
+
+	it('never invents a client version for a legacy snapshot', () => {
+		const [resolved] = resolveAbilitySlots([hero()], described).get(1) ?? [];
+		expect(resolved.context).toMatchObject({
+			clientVersion: null,
+			language: null,
+			collectedAt: null
+		});
+	});
+
 	it('fails when a released hero slot cannot be resolved', () => {
 		expect(() => resolveAbilitySlots([hero()], [])).toThrow(/signature1/);
 	});

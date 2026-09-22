@@ -8,6 +8,10 @@ author "IceFrog"
 author_image "/assets/authors/icefrog.webp"
 major_update #false
 content_text "Unstable Rift comeback resist max values now scale over the course of the game. Previously the max values were 35%. Now it is 10% + 1% per minute (around ~20% for the first one), with an upper limit of 40% at 30 minutes. Removed a fixed amount of extra bonus souls you would get for being behind even a very slightly amount in net worth for both hero kill bounties as well as Unstable Rift bounties (this had a larger impact on the early to mid game) Slightly reduced comeback bounties in general (this is in addition to the above change) A portion of the comeback souls earned by players above enemy teams average net worth is instead distributed via the tick gold system that is given to the lowest 2 players (70% of the extra comeback value goes to them) Guardian bounty increased by 10% Walker bounty increased by 5% Share for objectives bounty to nearby heroes reduced from 30% to 25% (the remaining gets split between all 6 players) Respawn Time at 20 minutes increased from 35s to 38s (does not affect the max values later on, just a little higher earlier) Using parry now pauses reloading Parrying while doing a regular dash will now cancel the dash (and momentum) and parry on the spot Getting stunned now pauses your reload rather than restarting it Breakables in the underground tunnels initial spawn time increased from 3m to 5m Breakables in the underground tunnels respawn rate increased from 3m to 5m All move slow values reduced by ~20% globally All ground dash slows reduced by ~10% globally Slows now also affect air drag by 35% of the slow value (convar citadel_enable_slows_affect_air_drag Dashes and light melee's no longer pause your gun's cycle time (this is a general change that affects high-cycle time weapons the most like Silver or Abrams) Abrams Infernal Resilience T3 increased from +8% to +9% Seismic Impact T3 reduced from 6s Unstoppable to 5s Celeste Stamina cooldown increased from 5 to 5.3 Light Eater spirit lifesteal reduced from 20% to 18% Light Eater T3 decreased from +25 to +22 Dazzling Trick cooldown increased from 34s to 38s Radiant Daggers T2 reduced from +80 to +70 Shining Wonder radius reduced from 16.5m to 15.5m Shining Wonder T3 Max Bounces reduced from +8 to +6 Graves Health per boon increased from 33 to 35 Haze Fixation headshot stack count increased from +2 to +3 Fixation T3 weapon scaling increased from 0.0003 to 0.00035 Holliday Health per boon increased from 41 to 43 Crackshot T2 now also applies -6% Bullet Resistance for 5s Lasso duration extention by Bounce Pad increased from +1s to +1.25s Ivy Stone Form radius reduced from 6m to 5.75m Stone Form T1 max health heal reduced from 7% to 6% Kelvin Frozen Shelter base ability health regen now scales with spirit power (0.2) Lady Geist Life Drain T3 spirit scaling increased from +0.3 to +0.45 Essence Bomb T3 damage increased from 26% to 30% Lash Gun falloff range reduced from 18m->54m to 16m->48m Ground Strike T3 spirit scaling increased from +0.03 to +0.04 Ground Strike T3 damage per meter scaling increased from 110% to 120% Grapple T2 Weapon Damage buff duration reduced from 10s to 6s Flog heal reduced from 50% to 40% Flog angle increased from 38 to 40 Flog T3 reduced from +40 degrees angle to +25 Flog T3 reduced from +20% heal to +15% Paige Heavy Melee spirit scaling increased from 0.3 to 0.45 Captivating Read T1 increased from -11s Cooldown to -14s Captivating Read T3 increased from +1m to +2m Fixed some collision issues with Rallying Charge Paradox Kinetic Carbine min damage multiplier reduced from 25% to 10% (max damage multiplier unaffected) Kinetic Carbine min damage multiplier no longer gets increased by the T3 Rem Fixed a bug where multiple helpers could be sent to follow a single player for no effect Lil Helpers now have a target UI when instant cast mode is selected Shiv Alt fire base damage increased by 4% Alt fire damage per boon increased from +0.2 to +0.24 Serrated Knives while rage is full now deals 3.5% current HP damage on impact instead of ricocheting (0.01 spirit scaling) Silver Health per boon increased from 28 to 31 Sprint speed increased from 1.5 to 2.5 Dashes and light melee's no longer pause your gun's cycle time Boot Kick can only target heroes and objectives now Entangling Bola can only target heroes now Weighted Bola now increases gravity during the debuff duration, and interrupts flying abilities (same rules as Phantom Strike) Venator Ira Domini now works with Ricochet, all the shots will bounce Ira Domini can now split shot (releases 1 extra bolt on each side, 3 total) Viscous Alt fire damage growth reduced by 10% Splatter detonation cooldown reduced from 0.15 to 0.12 Splatter T1 reduced from +2m to +1.5m The Cube cast range reduced from 26m to 20m Puddle Punch cooldown increased from 21s to 24s Goo Ball T3 now also increases spirit scaling by 0.2 Vyper Slither T3 barrier duration reduced from 5s to 4s Petrifying Bola cooldown increased from 105s to 115s Warden Bullet damage per boon reduced from 0.28 to 0.25 Fire Rate spirit scaling reduced from 0.25 to 0.21 Alchemical Flask projectile range and speed reduced by 30% Willpower T3 spirit scaling reduced from +2.7 to +2.1 Willpower T3 debuff resistance reduced from 40% to 30% Wraith Card Trick heart heal reduced from 75 to 60 Card Trick heart heal spirit scaling reduced from 0.75 to 0.5 Card Trick Diamond Bullet and Spirit Resist reduction reduced from -8% to -7% Card Trick T3 Diamond Bullet and Spirit Resist reduction reduced from -5% to -4% Card Trick T3 Clubs slow from +20% to +15% Fixed Project Mind getting caught on edges/corners when aiming past it Full Auto spirit damage per bullet scaling increased from 0.03 to 0.045 Yamato Crimson Slash T3 now also increases the heal spirit scaling by +0.4 Flying Slash light melee scaling increased from 1.0 to 1.2 Weakening Headshot Bullet Resist Reduction reduced from -13% to -12% Hollow Point Bullet Resist Reduction increased from 9% to 10% Toxic Bullets Spirit scaling increased from 0.005% to 0.006% Shadow Weave Now builds from Sprint Boots Sprint speed increased from 1.5 to 2 Cooldown reduced from 45s to 37s Cultist Sacrifice Bounty reduced from 180% to 170% Ballistic Enchantment Duration increased from 14s to 20s Spiritual Overflow Buildup is 35% slower Spirit Power on proc reduced from 40 to 30 Fire Rate reduced from 30% to 25% Restorative Locket Heal per boon reduced from 0.5 to 0.45 Stack range reduced from 35m to 32m Trophy Collector Souls per minute reduced from 18 to 16 Veil Walker No longer builds from Sprint Boots No longer grants +2 Sprint and +2 Out of Combat Regen (due to loss of component) Movement speed bonus is now removed when the invisibility is removed Spirit Power reduced from 10 to 6 Fortitude Max Health regen increased from 2% to 2.25% Lifestrike Heal on Melee hit increased from 100+1.5 to 120+1.75 Melee hit heal increased from 30% to 35% Leech Bullet and Spirit Lifesteal increased from 25% to 28% Plated Armor Fixed on-hit damage prevention not blocking the following on-hit spirit damage effects: Mercurial Magnum, Vindicta's Flight, Wraith's Full Auto, and Tesla Bullets/Capacitor Diviner's Kevlar Now grants +10% Ultimate Ability Cooldown Reduction Golden Goose Egg Damage Penalty increased from -10% to -15% Stored souls now count towards net worth (affects comeback reward calculations) Souls per minute reduced from 90 to 80 Slowing Hex Cooldown increased from 27s to 29s Radiant Regeneration Healing on Ability Cast per boon scaling reduced from 2 to 1.7 Tankbuster Current Health Bonus damage reduced from 8% to 7.5% Decay DPS reduced by 25% Duration increased by 20% Mercurial Magnum Base bullet damage scaling reduced from 0.49 to 0.38 Base bullet damage reduced from 25% to 20% Focus Lens Damage increased from 30% to 35% Cast range increased from 20m to 25m"
+stats schema=2 method=2 collected="2026-09-21T21:41:20.000Z" {
+  before from="2026-09-02" to="2026-09-16"
+  after from="2026-09-17" to="2026-09-21"
+}
 ``
 
 # General Changes
@@ -41,13 +45,18 @@ content_text "Unstable Rift comeback resist max values now scale over the course
 ``attr:
 impact closed=#false {
   all {
-    before win=0.5055 pick=0.3374 matches=204945 days=14
-    after win=0.5233 pick=0.3369 matches=46094 days=4
+    before win=0.5055 pick=0.3373 matches=206094 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.5235 pick=0.3361 matches=49016 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.4968 pick=0.3773 matches=9433 days=14
-    after win=0.5129 pick=0.3547 matches=2644 days=4
+    before win=0.4968 pick=0.3773 matches=9442 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.5151 pick=0.3542 matches=2710 days=4 total=91812 covered=4 coverage="complete"
   }
+}
+related method=1 status="complete" appearances=206094 candidates="709540378,865846625,865958998,1252627263,1770441818,1798666702,1813726886,2059712766,2121044373,2142980412,2226497419,2462046703,2678489038,2820116164,2947183272,3074274290,3144988365,3294954488,3491236900,3585132399,3696726732,3919289022" {
+  item-1252627263 buyers=67786
+  item-2059712766 buyers=39132
+  item-3491236900 buyers=19353
 }
 ``
 [[/hero/abrams]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp]] Abrams patch history))
@@ -68,13 +77,18 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.518 pick=0.3684 matches=223751 days=14
-    after win=0.4953 pick=0.2716 matches=37163 days=4
+    before win=0.518 pick=0.3685 matches=225148 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.4955 pick=0.2727 matches=39765 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.5444 pick=0.2497 matches=6243 days=14
-    after win=0.5283 pick=0.2039 matches=1520 days=4
+    before win=0.5439 pick=0.2497 matches=6249 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.5267 pick=0.2035 matches=1557 days=4 total=91812 covered=4 coverage="complete"
   }
+}
+related method=1 status="complete" appearances=225148 candidates="709540378,865846625,865958998,1252627263,1770441818,1798666702,1813726886,2059712766,2121044373,2142980412,2226497419,2462046703,2678489038,2820116164,2947183272,3074274290,3144988365,3294954488,3491236900,3585132399,3696726732,3919289022" {
+  item-2947183272 buyers=192506
+  item-2059712766 buyers=121729
+  item-2226497419 buyers=84594
 }
 ``
 [[/hero/celeste]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/unicorn_sm.webp]] Celeste patch history))
@@ -108,13 +122,18 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.5669 pick=0.3927 matches=238558 days=14
-    after win=0.5677 pick=0.3946 matches=53984 days=4
+    before win=0.567 pick=0.3931 matches=240138 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.5671 pick=0.3963 matches=57792 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.5091 pick=0.2036 matches=5091 days=14
-    after win=0.516 pick=0.2225 matches=1659 days=4
+    before win=0.5093 pick=0.2036 matches=5095 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.5136 pick=0.2214 matches=1694 days=4 total=91812 covered=4 coverage="complete"
   }
+}
+related method=1 status="complete" appearances=240138 candidates="709540378,865846625,865958998,1252627263,1770441818,1798666702,1813726886,2059712766,2121044373,2142980412,2226497419,2462046703,2678489038,2820116164,2947183272,3074274290,3144988365,3294954488,3491236900,3585132399,3696726732,3919289022" {
+  item-3696726732 buyers=129552
+  item-2226497419 buyers=59479
+  item-2462046703 buyers=47174
 }
 ``
 [[/hero/graves]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/necro_sm.webp]] Graves patch history))
@@ -126,13 +145,18 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.5102 pick=0.4229 matches=256884 days=14
-    after win=0.5308 pick=0.5498 matches=75228 days=4
+    before win=0.5101 pick=0.423 matches=258401 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.5313 pick=0.5492 matches=80080 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.4911 pick=0.4476 matches=11189 days=14
-    after win=0.5068 pick=0.6913 matches=5154 days=4
+    before win=0.4909 pick=0.4475 matches=11198 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.5075 pick=0.693 matches=5302 days=4 total=91812 covered=4 coverage="complete"
   }
+}
+related method=1 status="complete" appearances=258401 candidates="709540378,865846625,865958998,1252627263,1770441818,1798666702,1813726886,2059712766,2121044373,2142980412,2226497419,2462046703,2678489038,2820116164,2947183272,3074274290,3144988365,3294954488,3491236900,3585132399,3696726732,3919289022" {
+  item-1813726886 buyers=101663
+  item-1770441818 buyers=70175
+  item-3585132399 buyers=61268
 }
 ``
 [[/hero/haze]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp]] Haze patch history))
@@ -149,13 +173,18 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.4728 pick=0.1961 matches=119082 days=14
-    after win=0.4798 pick=0.2272 matches=31089 days=4
+    before win=0.4727 pick=0.196 matches=119736 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.48 pick=0.2272 matches=33129 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.4859 pick=0.2 matches=4999 days=14
-    after win=0.5003 pick=0.263 matches=1961 days=4
+    before win=0.486 pick=0.1999 matches=5002 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.5025 pick=0.2635 matches=2016 days=4 total=91812 covered=4 coverage="complete"
   }
+}
+related method=1 status="complete" appearances=119736 candidates="709540378,865846625,865958998,1252627263,1770441818,1798666702,1813726886,2059712766,2121044373,2142980412,2226497419,2462046703,2678489038,2820116164,2947183272,3074274290,3144988365,3294954488,3491236900,3585132399,3696726732,3919289022" {
+  item-2121044373 buyers=71103
+  item-3074274290 buyers=56286
+  item-865958998 buyers=37067
 }
 ``
 [[/hero/holliday]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp]] Holliday patch history))
@@ -177,13 +206,18 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.5375 pick=0.3018 matches=183334 days=14
-    after win=0.5272 pick=0.2817 matches=38547 days=4
+    before win=0.5376 pick=0.3017 matches=184343 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.5271 pick=0.2813 matches=41026 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.5257 pick=0.3625 matches=9062 days=14
-    after win=0.5025 pick=0.3284 matches=2448 days=4
+    before win=0.5256 pick=0.3625 matches=9070 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.5018 pick=0.3277 matches=2507 days=4 total=91812 covered=4 coverage="complete"
   }
+}
+related method=1 status="complete" appearances=184343 candidates="709540378,865846625,865958998,1252627263,1770441818,1798666702,1813726886,2059712766,2121044373,2142980412,2226497419,2462046703,2678489038,2820116164,2947183272,3074274290,3144988365,3294954488,3491236900,3585132399,3696726732,3919289022" {
+  item-3074274290 buyers=51335
+  item-1813726886 buyers=43800
+  item-3919289022 buyers=30582
 }
 ``
 [[/hero/ivy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp]] Ivy patch history))
@@ -200,13 +234,18 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.5383 pick=0.1921 matches=116685 days=14
-    after win=0.5365 pick=0.2009 matches=27489 days=4
+    before win=0.5383 pick=0.192 matches=117301 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.5384 pick=0.2005 matches=29231 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.5166 pick=0.2088 matches=5221 days=14
-    after win=0.5266 pick=0.2295 matches=1711 days=4
+    before win=0.5165 pick=0.209 matches=5229 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.5262 pick=0.2295 matches=1756 days=4 total=91812 covered=4 coverage="complete"
   }
+}
+related method=1 status="complete" appearances=117301 candidates="709540378,865846625,865958998,1252627263,1770441818,1798666702,1813726886,2059712766,2121044373,2142980412,2226497419,2462046703,2678489038,2820116164,2947183272,3074274290,3144988365,3294954488,3491236900,3585132399,3696726732,3919289022" {
+  item-3074274290 buyers=53989
+  item-2121044373 buyers=35422
+  item-2947183272 buyers=29854
 }
 ``
 [[/hero/kelvin]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp]] Kelvin patch history))
@@ -222,13 +261,18 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.4984 pick=0.2447 matches=148630 days=14
-    after win=0.5185 pick=0.3283 matches=44912 days=4
+    before win=0.4984 pick=0.2447 matches=149525 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.5197 pick=0.3281 matches=47843 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.4523 pick=0.1145 matches=2863 days=14
-    after win=0.4774 pick=0.2461 matches=1835 days=4
+    before win=0.4525 pick=0.1145 matches=2866 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.4796 pick=0.2469 matches=1889 days=4 total=91812 covered=4 coverage="complete"
   }
+}
+related method=1 status="complete" appearances=149525 candidates="709540378,865846625,865958998,1252627263,1770441818,1798666702,1813726886,2059712766,2121044373,2142980412,2226497419,2462046703,2678489038,2820116164,2947183272,3074274290,3144988365,3294954488,3491236900,3585132399,3696726732,3919289022" {
+  item-2947183272 buyers=137533
+  item-2121044373 buyers=94083
+  item-865846625 buyers=53219
 }
 ``
 [[/hero/lady-geist]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp]] Lady Geist patch history))
@@ -249,13 +293,18 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.5176 pick=0.4341 matches=263648 days=14
-    after win=0.5137 pick=0.4799 matches=65662 days=4
+    before win=0.5176 pick=0.4337 matches=264990 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.514 pick=0.4782 matches=69735 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.5265 pick=0.5956 matches=14890 days=14
-    after win=0.5003 pick=0.6311 matches=4705 days=4
+    before win=0.5266 pick=0.5954 matches=14900 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.4991 pick=0.6312 matches=4829 days=4 total=91812 covered=4 coverage="complete"
   }
+}
+related method=1 status="complete" appearances=264990 candidates="709540378,865846625,865958998,1252627263,1770441818,1798666702,1813726886,2059712766,2121044373,2142980412,2226497419,2462046703,2678489038,2820116164,2947183272,3074274290,3144988365,3294954488,3491236900,3585132399,3696726732,3919289022" {
+  item-2121044373 buyers=241049
+  item-3074274290 buyers=81366
+  item-2059712766 buyers=66240
 }
 ``
 [[/hero/lash]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp]] Lash patch history))
@@ -286,13 +335,18 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.5423 pick=0.342 matches=207748 days=14
-    after win=0.5571 pick=0.3893 matches=53262 days=4
+    before win=0.5423 pick=0.3422 matches=209034 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.5572 pick=0.3897 matches=56824 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.5262 pick=0.282 matches=7051 days=14
-    after win=0.5377 pick=0.3383 matches=2522 days=4
+    before win=0.5259 pick=0.2823 matches=7064 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.5412 pick=0.3379 matches=2585 days=4 total=91812 covered=4 coverage="complete"
   }
+}
+related method=1 status="complete" appearances=209034 candidates="709540378,865846625,865958998,1252627263,1770441818,1798666702,1813726886,2059712766,2121044373,2142980412,2226497419,2462046703,2678489038,2820116164,2947183272,3074274290,3144988365,3294954488,3491236900,3585132399,3696726732,3919289022" {
+  item-3074274290 buyers=149936
+  item-1813726886 buyers=70273
+  item-2121044373 buyers=38251
 }
 ``
 [[/hero/paige]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bookworm_sm.webp]] Paige patch history))
@@ -318,13 +372,18 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.4673 pick=0.3896 matches=236626 days=14
-    after win=0.4557 pick=0.3369 matches=46095 days=4
+    before win=0.4674 pick=0.3894 matches=237917 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.4564 pick=0.3359 matches=48985 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.4739 pick=0.4798 matches=11995 days=14
-    after win=0.4533 pick=0.3636 matches=2711 days=4
+    before win=0.4741 pick=0.4797 matches=12005 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.4505 pick=0.3644 matches=2788 days=4 total=91812 covered=4 coverage="complete"
   }
+}
+related method=1 status="complete" appearances=237917 candidates="709540378,865846625,865958998,1252627263,1770441818,1798666702,1813726886,2059712766,2121044373,2142980412,2226497419,2462046703,2678489038,2820116164,2947183272,3074274290,3144988365,3294954488,3491236900,3585132399,3696726732,3919289022" {
+  item-2121044373 buyers=189380
+  item-865958998 buyers=141821
+  item-3074274290 buyers=91033
 }
 ``
 [[/hero/paradox]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp]] Paradox patch history))
@@ -341,13 +400,18 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.4803 pick=0.403 matches=244790 days=14
-    after win=0.4719 pick=0.3873 matches=52992 days=4
+    before win=0.4803 pick=0.4031 matches=246290 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.4721 pick=0.3886 matches=56666 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.4833 pick=0.2499 matches=6247 days=14
-    after win=0.4792 pick=0.222 matches=1655 days=4
+    before win=0.483 pick=0.2499 matches=6253 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.4784 pick=0.2213 matches=1693 days=4 total=91812 covered=4 coverage="complete"
   }
+}
+related method=1 status="complete" appearances=246290 candidates="709540378,865846625,865958998,1252627263,1770441818,1798666702,1813726886,2059712766,2121044373,2142980412,2226497419,2462046703,2678489038,2820116164,2947183272,3074274290,3144988365,3294954488,3491236900,3585132399,3696726732,3919289022" {
+  item-3074274290 buyers=141874
+  item-2121044373 buyers=114792
+  item-2462046703 buyers=50579
 }
 ``
 [[/hero/rem]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/familiar_sm.webp]] Rem patch history))
@@ -364,13 +428,18 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.4749 pick=0.3238 matches=196694 days=14
-    after win=0.4738 pick=0.3978 matches=54427 days=4
+    before win=0.4749 pick=0.3237 matches=197787 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.4734 pick=0.3968 matches=57867 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.4761 pick=0.3323 matches=8307 days=14
-    after win=0.4867 pick=0.4343 matches=3238 days=4
+    before win=0.476 pick=0.3323 matches=8315 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.4857 pick=0.4341 matches=3321 days=4 total=91812 covered=4 coverage="complete"
   }
+}
+related method=1 status="complete" appearances=197787 candidates="709540378,865846625,865958998,1252627263,1770441818,1798666702,1813726886,2059712766,2121044373,2142980412,2226497419,2462046703,2678489038,2820116164,2947183272,3074274290,3144988365,3294954488,3491236900,3585132399,3696726732,3919289022" {
+  item-2947183272 buyers=182479
+  item-2059712766 buyers=68433
+  item-3144988365 buyers=37349
 }
 ``
 [[/hero/shiv]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp]] Shiv patch history))
@@ -388,13 +457,18 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.4463 pick=0.2194 matches=133281 days=14
-    after win=0.469 pick=0.3651 matches=49947 days=4
+    before win=0.4463 pick=0.2195 matches=134123 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.4683 pick=0.3641 matches=53088 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.4731 pick=0.1259 matches=3147 days=14
-    after win=0.497 pick=0.308 matches=2296 days=4
+    before win=0.4733 pick=0.1259 matches=3150 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.4992 pick=0.3082 matches=2358 days=4 total=91812 covered=4 coverage="complete"
   }
+}
+related method=1 status="complete" appearances=134123 candidates="709540378,865846625,865958998,1252627263,1770441818,1798666702,1813726886,2059712766,2121044373,2142980412,2226497419,2462046703,2678489038,2820116164,2947183272,3074274290,3144988365,3294954488,3491236900,3585132399,3696726732,3919289022" {
+  item-2121044373 buyers=39640
+  item-1813726886 buyers=35999
+  item-865958998 buyers=30540
 }
 ``
 [[/hero/silver]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/werewolf_sm.webp]] Silver patch history))
@@ -422,13 +496,18 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.4474 pick=0.3859 matches=234386 days=14
-    after win=0.4539 pick=0.5108 matches=69886 days=4
+    before win=0.4475 pick=0.3859 matches=235772 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.4541 pick=0.5096 matches=74313 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.4388 pick=0.271 matches=6775 days=14
-    after win=0.4875 pick=0.4169 matches=3108 days=4
+    before win=0.4386 pick=0.271 matches=6781 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.4862 pick=0.4159 matches=3182 days=4 total=91812 covered=4 coverage="complete"
   }
+}
+related method=1 status="complete" appearances=235772 candidates="709540378,865846625,865958998,1252627263,1770441818,1798666702,1813726886,2059712766,2121044373,2142980412,2226497419,2462046703,2678489038,2820116164,2947183272,3074274290,3144988365,3294954488,3491236900,3585132399,3696726732,3919289022" {
+  item-1770441818 buyers=149236
+  item-2678489038 buyers=81768
+  item-3585132399 buyers=55937
 }
 ``
 [[/hero/venator]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/priest_sm.webp]] Venator patch history))
@@ -445,13 +524,18 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.4826 pick=0.2484 matches=150886 days=14
-    after win=0.456 pick=0.2042 matches=27937 days=4
+    before win=0.4826 pick=0.2484 matches=151739 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.4551 pick=0.2034 matches=29665 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.4938 pick=0.26 matches=6500 days=14
-    after win=0.4819 pick=0.2001 matches=1492 days=4
+    before win=0.4941 pick=0.26 matches=6505 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.4821 pick=0.2004 matches=1533 days=4 total=91812 covered=4 coverage="complete"
   }
+}
+related method=1 status="complete" appearances=151739 candidates="709540378,865846625,865958998,1252627263,1770441818,1798666702,1813726886,2059712766,2121044373,2142980412,2226497419,2462046703,2678489038,2820116164,2947183272,3074274290,3144988365,3294954488,3491236900,3585132399,3696726732,3919289022" {
+  item-2121044373 buyers=101267
+  item-3074274290 buyers=71236
+  item-1252627263 buyers=66923
 }
 ``
 [[/hero/viscous]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp]] Viscous patch history))
@@ -484,13 +568,18 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.5087 pick=0.202 matches=122678 days=14
-    after win=0.4953 pick=0.176 matches=24074 days=4
+    before win=0.5085 pick=0.2019 matches=123358 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.4943 pick=0.1754 matches=25582 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.5358 pick=0.2338 matches=5844 days=14
-    after win=0.5448 pick=0.2201 matches=1641 days=4
+    before win=0.5358 pick=0.2337 matches=5849 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.5435 pick=0.2193 matches=1678 days=4 total=91812 covered=4 coverage="complete"
   }
+}
+related method=1 status="complete" appearances=123358 candidates="709540378,865846625,865958998,1252627263,1770441818,1798666702,1813726886,2059712766,2121044373,2142980412,2226497419,2462046703,2678489038,2820116164,2947183272,3074274290,3144988365,3294954488,3491236900,3585132399,3696726732,3919289022" {
+  item-3919289022 buyers=101387
+  item-2226497419 buyers=48526
+  item-1770441818 buyers=32199
 }
 ``
 [[/hero/vyper]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kali_sm.webp]] Vyper patch history))
@@ -511,13 +600,18 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.5364 pick=0.4187 matches=254322 days=14
-    after win=0.483 pick=0.2028 matches=27743 days=4
+    before win=0.5363 pick=0.4185 matches=255674 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.4836 pick=0.2026 matches=29542 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.5267 pick=0.5302 matches=13255 days=14
-    after win=0.458 pick=0.1341 matches=1000 days=4
+    before win=0.5266 pick=0.5303 matches=13270 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.4611 pick=0.1327 matches=1015 days=4 total=91812 covered=4 coverage="complete"
   }
+}
+related method=1 status="complete" appearances=255674 candidates="709540378,865846625,865958998,1252627263,1770441818,1798666702,1813726886,2059712766,2121044373,2142980412,2226497419,2462046703,2678489038,2820116164,2947183272,3074274290,3144988365,3294954488,3491236900,3585132399,3696726732,3919289022" {
+  item-3919289022 buyers=234819
+  item-2226497419 buyers=191801
+  item-865958998 buyers=129850
 }
 ``
 [[/hero/warden]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp]] Warden patch history))
@@ -541,13 +635,18 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.5074 pick=0.3813 matches=231619 days=14
-    after win=0.4957 pick=0.3208 matches=43887 days=4
+    before win=0.5074 pick=0.3813 matches=232923 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.4947 pick=0.3208 matches=46786 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.5133 pick=0.5169 matches=12923 days=14
-    after win=0.5221 pick=0.4039 matches=3011 days=4
+    before win=0.5134 pick=0.5169 matches=12934 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.5228 pick=0.4048 matches=3097 days=4 total=91812 covered=4 coverage="complete"
   }
+}
+related method=1 status="complete" appearances=232923 candidates="709540378,865846625,865958998,1252627263,1770441818,1798666702,1813726886,2059712766,2121044373,2142980412,2226497419,2462046703,2678489038,2820116164,2947183272,3074274290,3144988365,3294954488,3491236900,3585132399,3696726732,3919289022" {
+  item-3919289022 buyers=200232
+  item-2226497419 buyers=141660
+  item-865846625 buyers=49499
 }
 ``
 [[/hero/wraith]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp]] Wraith patch history))
@@ -577,13 +676,18 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.482 pick=0.2402 matches=145888 days=14
-    after win=0.4965 pick=0.2782 matches=38058 days=4
+    before win=0.4819 pick=0.2402 matches=146770 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.496 pick=0.2784 matches=40598 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.4992 pick=0.2592 matches=6480 days=14
-    after win=0.5126 pick=0.3682 matches=2745 days=4
+    before win=0.4993 pick=0.2592 matches=6487 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.5131 pick=0.3691 matches=2824 days=4 total=91812 covered=4 coverage="complete"
   }
+}
+related method=1 status="complete" appearances=146770 candidates="709540378,865846625,865958998,1252627263,1770441818,1798666702,1813726886,2059712766,2121044373,2142980412,2226497419,2462046703,2678489038,2820116164,2947183272,3074274290,3144988365,3294954488,3491236900,3585132399,3696726732,3919289022" {
+  item-2121044373 buyers=85290
+  item-2059712766 buyers=50998
+  item-2226497419 buyers=30684
 }
 ``
 [[/hero/yamato]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp]] Yamato patch history))
@@ -610,12 +714,12 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.5012 pick=0.0374 matches=272652 days=14
-    after win=0.495 pick=0.0494 matches=81176 days=4
+    before win=0.5012 pick=0.0374 matches=274345 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.4943 pick=0.0495 matches=86565 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.492 pick=0.0131 matches=3925 days=14
-    after win=0.5009 pick=0.0319 matches=2857 days=4
+    before win=0.4917 pick=0.0131 matches=3927 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.5003 pick=0.0319 matches=2928 days=4 total=91812 covered=4 coverage="complete"
   }
 }
 ``
@@ -628,12 +732,12 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.4824 pick=0.0776 matches=565893 days=14
-    after win=0.4846 pick=0.0701 matches=115158 days=4
+    before win=0.4824 pick=0.0776 matches=568885 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.4842 pick=0.07 matches=122514 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.4803 pick=0.1121 matches=33636 days=14
-    after win=0.4922 pick=0.0886 matches=7922 days=4
+    before win=0.4804 pick=0.1121 matches=33666 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.4913 pick=0.0884 matches=8116 days=4 total=91812 covered=4 coverage="complete"
   }
 }
 ``
@@ -646,12 +750,12 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.4731 pick=0.0206 matches=150478 days=14
-    after win=0.4648 pick=0.0235 matches=38575 days=4
+    before win=0.473 pick=0.0206 matches=151228 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.4648 pick=0.0234 matches=40930 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.4932 pick=0.0298 matches=8926 days=14
-    after win=0.4992 pick=0.0288 matches=2576 days=4
+    before win=0.4932 pick=0.0298 matches=8934 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.4972 pick=0.0288 matches=2647 days=4 total=91812 covered=4 coverage="complete"
   }
 }
 ``
@@ -665,12 +769,12 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.564 pick=0.0193 matches=140682 days=14
-    after win=0.5767 pick=0.0472 matches=77513 days=4
+    before win=0.5639 pick=0.0193 matches=141521 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.5762 pick=0.0473 matches=82705 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.6072 pick=0.0126 matches=3781 days=14
-    after win=0.6098 pick=0.045 matches=4026 days=4
+    before win=0.6072 pick=0.0126 matches=3783 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.6106 pick=0.0449 matches=4122 days=4 total=91812 covered=4 coverage="complete"
   }
 }
 ``
@@ -683,12 +787,12 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.525 pick=0.013 matches=94743 days=14
-    after win=0.534 pick=0.0148 matches=24221 days=4
+    before win=0.5251 pick=0.013 matches=95260 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.533 pick=0.0147 matches=25804 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.5436 pick=0.0088 matches=2647 days=14
-    after win=0.5583 pick=0.0131 matches=1175 days=4
+    before win=0.5443 pick=0.0088 matches=2651 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.5578 pick=0.0131 matches=1203 days=4 total=91812 covered=4 coverage="complete"
   }
 }
 ``
@@ -702,12 +806,12 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.5034 pick=0.0875 matches=637501 days=14
-    after win=0.5086 pick=0.1112 matches=182636 days=4
+    before win=0.5034 pick=0.0875 matches=641450 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.5088 pick=0.111 matches=194276 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.517 pick=0.0456 matches=13680 days=14
-    after win=0.5313 pick=0.0969 matches=8673 days=4
+    before win=0.5169 pick=0.0456 matches=13690 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.5314 pick=0.0969 matches=8899 days=4 total=91812 covered=4 coverage="complete"
   }
 }
 ``
@@ -720,12 +824,12 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.5132 pick=0.0767 matches=558852 days=14
-    after win=0.4808 pick=0.0365 matches=59973 days=4
+    before win=0.5132 pick=0.0767 matches=562402 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.4808 pick=0.0365 matches=63919 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.4982 pick=0.1054 matches=31609 days=14
-    after win=0.4534 pick=0.017 matches=1524 days=4
+    before win=0.4981 pick=0.1054 matches=31655 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.4533 pick=0.0169 matches=1553 days=4 total=91812 covered=4 coverage="complete"
   }
 }
 ``
@@ -740,12 +844,12 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.4876 pick=0.0304 matches=221670 days=14
-    after win=0.4845 pick=0.0416 matches=68323 days=4
+    before win=0.4876 pick=0.0304 matches=223010 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.4851 pick=0.0416 matches=72768 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.4936 pick=0.0215 matches=6451 days=14
-    after win=0.514 pick=0.0339 matches=3035 days=4
+    before win=0.4933 pick=0.0215 matches=6458 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.513 pick=0.034 matches=3121 days=4 total=91812 covered=4 coverage="complete"
   }
 }
 ``
@@ -758,12 +862,12 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.5369 pick=0.0642 matches=467928 days=14
-    after win=0.5464 pick=0.0694 matches=114002 days=4
+    before win=0.5368 pick=0.0643 matches=471322 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.5458 pick=0.0701 matches=122624 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.583 pick=0.016 matches=4794 days=14
-    after win=0.5941 pick=0.0237 matches=2121 days=4
+    before win=0.5829 pick=0.016 matches=4802 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.594 pick=0.0237 matches=2175 days=4 total=91812 covered=4 coverage="complete"
   }
 }
 ``
@@ -776,12 +880,12 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.4975 pick=0.0532 matches=387988 days=14
-    after win=0.5023 pick=0.0918 matches=150689 days=4
+    before win=0.4975 pick=0.0533 matches=390575 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.5017 pick=0.092 matches=161074 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.504 pick=0.0158 matches=4744 days=14
-    after win=0.5249 pick=0.0852 matches=7620 days=4
+    before win=0.5044 pick=0.0158 matches=4752 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.5258 pick=0.0853 matches=7832 days=4 total=91812 covered=4 coverage="complete"
   }
 }
 ``
@@ -795,12 +899,12 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.5395 pick=0.157 matches=1144339 days=14
-    after win=0.5308 pick=0.1186 matches=194696 days=4
+    before win=0.5394 pick=0.157 matches=1150983 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.5303 pick=0.1187 matches=207776 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.5374 pick=0.1933 matches=57982 days=14
-    after win=0.5472 pick=0.0931 matches=8329 days=4
+    before win=0.5374 pick=0.1933 matches=58041 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.5472 pick=0.093 matches=8534 days=4 total=91812 covered=4 coverage="complete"
   }
 }
 ``
@@ -814,12 +918,12 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.5102 pick=0.0385 matches=280602 days=14
-    after win=0.519 pick=0.0529 matches=86814 days=4
+    before win=0.5101 pick=0.0385 matches=282253 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.5185 pick=0.0527 matches=92234 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.5454 pick=0.0432 matches=12956 days=14
-    after win=0.5455 pick=0.0641 matches=5738 days=4
+    before win=0.5453 pick=0.0432 matches=12965 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.5458 pick=0.064 matches=5876 days=4 total=91812 covered=4 coverage="complete"
   }
 }
 ``
@@ -832,12 +936,12 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.5045 pick=0.1253 matches=913472 days=14
-    after win=0.5042 pick=0.1243 matches=204071 days=4
+    before win=0.5045 pick=0.1253 matches=918956 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.5042 pick=0.1245 matches=217802 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.5009 pick=0.0925 matches=27747 days=14
-    after win=0.5022 pick=0.0973 matches=8707 days=4
+    before win=0.501 pick=0.0925 matches=27775 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.5026 pick=0.0974 matches=8944 days=4 total=91812 covered=4 coverage="complete"
   }
 }
 ``
@@ -850,12 +954,12 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.5007 pick=0.0913 matches=665549 days=14
-    after win=0.495 pick=0.0622 matches=102070 days=4
+    before win=0.5007 pick=0.0913 matches=669007 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.4951 pick=0.062 matches=108481 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.5044 pick=0.1374 matches=41223 days=14
-    after win=0.4993 pick=0.0667 matches=5970 days=4
+    before win=0.5044 pick=0.1374 matches=41263 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.4984 pick=0.0665 matches=6110 days=4 total=91812 covered=4 coverage="complete"
   }
 }
 ``
@@ -869,12 +973,12 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.5124 pick=0.0055 matches=40382 days=14
-    after win=0.506 pick=0.0241 matches=39594 days=4
+    before win=0.5122 pick=0.0055 matches=40610 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.5062 pick=0.024 matches=42002 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.5267 pick=0.0034 matches=1029 days=14
-    after win=0.5055 pick=0.0387 matches=3458 days=4
+    before win=0.5267 pick=0.0034 matches=1029 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.504 pick=0.0384 matches=3522 days=4 total=91812 covered=4 coverage="complete"
   }
 }
 ``
@@ -889,12 +993,12 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.4835 pick=0.1249 matches=910207 days=14
-    after win=0.4845 pick=0.1232 matches=202268 days=4
+    before win=0.4834 pick=0.1248 matches=914701 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.4849 pick=0.1227 matches=214704 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.4897 pick=0.2206 matches=66176 days=14
-    after win=0.4885 pick=0.1934 matches=17299 days=4
+    before win=0.4896 pick=0.2206 matches=66230 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.4891 pick=0.1933 matches=17747 days=4 total=91812 covered=4 coverage="complete"
   }
 }
 ``
@@ -907,12 +1011,12 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.5621 pick=0.1877 matches=1368001 days=14
-    after win=0.5553 pick=0.1364 matches=223995 days=4
+    before win=0.5621 pick=0.1877 matches=1375880 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.5549 pick=0.1366 matches=239066 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.5663 pick=0.2078 matches=62346 days=14
-    after win=0.5675 pick=0.0905 matches=8098 days=4
+    before win=0.5662 pick=0.2078 matches=62413 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.5672 pick=0.0905 matches=8309 days=4 total=91812 covered=4 coverage="complete"
   }
 }
 ``
@@ -927,12 +1031,12 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.4958 pick=0.3373 matches=2458697 days=14
-    after win=0.4981 pick=0.3365 matches=552406 days=4
+    before win=0.4958 pick=0.3373 matches=2472608 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.498 pick=0.3366 matches=588958 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.5069 pick=0.3615 matches=108458 days=14
-    after win=0.5024 pick=0.3117 matches=27884 days=4
+    before win=0.507 pick=0.3615 matches=108558 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.5019 pick=0.3118 matches=28626 days=4 total=91812 covered=4 coverage="complete"
   }
 }
 ``
@@ -945,12 +1049,12 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.5 pick=0.095 matches=692361 days=14
-    after win=0.5034 pick=0.0964 matches=158273 days=4
+    before win=0.5 pick=0.095 matches=696729 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.5032 pick=0.0966 matches=168994 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.4863 pick=0.0792 matches=23748 days=14
-    after win=0.4869 pick=0.0801 matches=7163 days=4
+    before win=0.4862 pick=0.0792 matches=23772 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.4874 pick=0.0802 matches=7364 days=4 total=91812 covered=4 coverage="complete"
   }
 }
 ``
@@ -963,12 +1067,12 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.5096 pick=0.2591 matches=1888230 days=14
-    after win=0.5107 pick=0.2489 matches=408599 days=4
+    before win=0.5096 pick=0.259 matches=1898735 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.511 pick=0.2489 matches=435618 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.5077 pick=0.2785 matches=83539 days=14
-    after win=0.51 pick=0.2254 matches=20164 days=4
+    before win=0.5078 pick=0.2785 matches=83625 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.5098 pick=0.2259 matches=20737 days=4 total=91812 covered=4 coverage="complete"
   }
 }
 ``
@@ -981,12 +1085,12 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.5035 pick=0.1356 matches=988715 days=14
-    after win=0.4906 pick=0.0691 matches=113508 days=4
+    before win=0.5035 pick=0.1355 matches=993620 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.4914 pick=0.069 matches=120670 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.5069 pick=0.2528 matches=75849 days=14
-    after win=0.4912 pick=0.0918 matches=8215 days=4
+    before win=0.5069 pick=0.2528 matches=75918 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.4927 pick=0.092 matches=8443 days=4 total=91812 covered=4 coverage="complete"
   }
 }
 ``
@@ -1002,12 +1106,12 @@ impact closed=#false {
 ``attr:
 impact closed=#false {
   all {
-    before win=0.5087 pick=0.0802 matches=584740 days=14
-    after win=0.5039 pick=0.0804 matches=132076 days=4
+    before win=0.5088 pick=0.0802 matches=587880 days=14 total=7331181 covered=14 coverage="complete"
+    after win=0.5036 pick=0.0802 matches=140352 days=4 total=1749862 covered=4 coverage="complete"
   }
   high {
-    before win=0.5217 pick=0.1037 matches=31116 days=14
-    after win=0.5203 pick=0.0857 matches=7665 days=4
+    before win=0.5216 pick=0.1037 matches=31150 days=14 total=300286 covered=14 coverage="complete"
+    after win=0.5211 pick=0.0856 matches=7859 days=4 total=91812 covered=4 coverage="complete"
   }
 }
 ``

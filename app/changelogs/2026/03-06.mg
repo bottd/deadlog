@@ -8,6 +8,10 @@ author "simonne"
 author_image "/assets/authors/deadlock.webp"
 major_update #false
 content_text "Can now jump during slide Dash jump grants a very brief period with increased air control (30% for 0.25s) Shrine is now easier to kill for the first one and harder for the second. HP from 8100 to 5000/10000 (HP updates after the first one dies, like Walkers) Shrines attack no longer hits heroes under the shrine Super troopers bonus DPS increased from +40% to +60% (the upgraded troopers when Shrine dies) Middle Lane troopers now gets upgraded when either of the shrines die, rather than only when both die Killing a pair of base guardians now spawns a zipline boosted trooper wave to reinforce your push Medic Troopers DPS grows by 3% per minute Troopers now gain 7 HP regen when out of combat Trooper wave interval increased from every 25s to every 20s starting at 35 minutes Guardians bounty increased from 1000 to 1500 Walkers bounty increased from 3500 to 4000 Walkers Health rescaled from 6800/9350/11900 to 6000/9000/12000 Walkers armor decay rescaled from \"+75% -> -50%\" to \"+65% -> -65%\", from over 20min to over 18min Base Guardians bounty from 750 to 1000 Shrines bounty increased from 0 to 2000 Mid Boss base bounty increased from 2000 to 3000 Mid Boss base HP increased from 11900 to 13000 Mid Boss global announcement health threshold reduced from 70% to 50% Mid Boss now has 35% Debuff Resistance Rejuv drop duration reduced from 7s to 6s Rejuv duration no longer refreshes when hitting a crystal later Minimap now indicates if the Urn is a favored, neutral or unfavored Added a neutral camp (2 Normal, 3 Weak) at Hidden King Park Walker Added a neutral camp (2 Normal, 3 Weak) at Archmother York Walker Added \"0 Way\" veils underneath the Shrine platforms in each base Moved the mid lane bridge above the Hidden King Base entrance more to the middle of the two edges Subsequent CC reduction increased from 8%/24% to 10/30% (window from 7s to 8s) Move speed diminishing ramp now occurs around 11m rather than 10m Fixed melee abilities not using conditional damage based on enemy state (close quarters, point blank, opening rounds) Street Brawl: Removed item slot limit (don't need to sell items in the final round sometimes) Added new T1 Spirit Item: Golden Goose Egg Backstabber: Renamed to Stalker Vindcita: Ammo reduced from 22 to 19 Vindcita: Crow Familiar cooldown increased from 28s to 32s Card Types: Spades: +70% Damage Diamond: Cuts enemy resistances by -8% for 5s. Does not stack. Hearts: Heals you for 75 HP (1.25 spirit scaling, half heal on non-heroes) Clubs: 30% Slow for 3s Joker: Has all of the above effects and bounces to an additional enemy within 20m. (Has 1/9th chance) Golden Egg Goose: Souls Per Minute increased from 75 to 90 Base Guardians HP reduced from 5500 to 4000 Zipline can now be captured a little bit more forward towards the enemy base The minimum always captured zipline distance in your base is now reduced a little bit inwards Super troopers (when a lane shrine is down) now have 15% less bounty Hero base health increased by 40 Hero health increased growth by +4 and 8% Vitality investment bonuses increased by 12% Vitality investment tree bonus reverted back to % base hp increase rather than raw constant bonus (back to how it was set up in december) Hero health growth increased by +3 and 4% Spirit investment rescaled from 7/11/15/19/38/52/64/76/89/101 to 7/11/15/19/38/48/57/66/75/100 Small neutrals spirit resist increased from 35% to 45% Improved the following Enhanced Items: Blood Tribute, Shadow Weave, Cultist Sacrifice, Magic Carpet, Healing Rite, Majestic Leap, Metal Skin, Monster Rounds, Veil Walker, Fury Trance, Return Fire, Restorative Locket, Rebuttal, Disarming Hex, Split Shot, Rescue Beam, Spirit Sap, Cursed Relic, Heroic Aura, Rusted Barrel, Weapon Shielding, Nullification Blast, Cloak of Opportunity Runed Gauntlet: Melee distance increased from 130% to 150% Runed Gauntlet: Cooldown on hit reduced from -12% to -16% Runed Gauntlet: Cooldown on hit reduced from -3s to -4s Brawl Victor: Aura of Suffering aura radius reduced by 2m Brawl Bebop: Hyper Beam duration from -4s to -5s Abrams Bullet damage reduced from 3.86+0.13/boon to 3.6+0.1/boon Siphon Life DPS reduced from 29 to 22 Siphon Life range reduced from 10m to 7.5m Siphon Life is now circular rather than just in front of him Siphon Life range no longer increases with Spirit Power Siphon Life visual range FX fixed to show larger than default radius values Siphon Life Lifesteal against heroes increased from 66% to 80% Siphon Life Lifesteal against non-heroes increased from 33% to 40% Siphon Life DPS spirit scaling increased from 0.5 to 0.6 Siphon Life T1 increased from -19s to -20s Siphon Life T3 now also increases radius by +3.5m Siphon Life T3 DPS reduced from 20 to 18 Shoulder Charge damage reduced from 37 to 30 Shoulder Charge wall stun duration reduced from 0.6s to 0.3s Should Charge spirit scaling reduced from 1.9 to 1.4 Shoulder Charge T1 changed from \"+2.2 Weapon Damage for 8s\" to \"+40% Slow for 3s\" Shoulder Charge T2 wall stun duration increased from 0.45s to 0.8s Shoulder Charge T3 cooldown increased from -18s to -20s Shoulder Charge T3 now also grants +1.5 Weapon Damage for 6s Infernal Resilience T2 increased from +150 Health to +200 Infernal Resilience T3 now also grants +20% Debuff Resistance Seismic Impact is a little faster to target the location when rising Seismic Impact damage increase from 75 to 100 Seismic Impact now allows you to use items during it Seismic Impact radius reduced from 10.5m to 9m Seismic Impact T2 changed from \"Per Hero Hit: +100 HP and +14% Fire Rate\" to \"+0.6s Stun Duration\" Seismic Impact T3 now also increases radius by 6m Melee damage per boon increased by 10% Siphon Life range increased from 7.5m to 8m Siphon Life T3 range reduced from +3.5m to +3m Infernal Resilience T3 increased from +7% Damage Regenerated to +8% Seismic Impact impact height increased from 4m to 6m Seismic Impact T2 increased from +0.6s Stun Duration to +0.7s Seismic Impact T3 Unstoppable duration increased from 4s to 5s Apollo Fixed Riposte not leaving the ground when started on the ground Riposte no longer triggers from trooper or neutral damage Flawless Advance T2 no longer increases Apollo's lunge speed Flawless Advance now gets interrupted by stun and sleep Itani Lo Sahn base damage reduced from 225 to 190 and spirit scaling increased from 1.6 to 2.3 Itani Lo Sahn's hit width no longer scales with radius increases Flawless Advance T3 now also increases Apollo's attacking lunge speed Bullet damage increased from 17 to 18.5 Riposte T2 melee resist reduction increased from -22% to -30% Riposte T3 increased from +1.2s Stun to +1.6s Bebop Hook can now be canceled Billy Bashdown radius reduced from 4.5m to 4m Bashdown T2 changed from \"+1.3m Radius\" to \"+1 Charge and +2m Radius\" Bashdown T3 now also reduces charge time by 2s Rising Ram damage reduced from 55 to 40 Rising Ram damage spirit scaling increased from 1.7 to 1.9 Rising Ram cooldown reduced by 50% on impact Rising Ram charge duration reduced from 0.51s to 0.3s Rising Ram T1 changed from \"On Impact: -50% Cooldown\" to \"On Impact: +25% Weapon Damage for 5s\" Rising Ram T2 changed from \"On Impact: +35% Weapon Damage for 5s\" to \"+0.3s Charge Duration\" Rising Ram T3 increased from 6.5% Max Health to 8% Blasted spirit scaling reduced from 0.8 to 0.6 Blasted active duration no longer slows down the decay when doing bullet damage (melee still extends it though) Blasted passive no longer reduces enemy fire rate by -14% Blasted tooltip simplified Blasted T3 now also increases spirit scaling by +0.6 Chain Gang radius reduced from 13m to 12m Chain Gang no longer grants +15% Spirit and Bullet Resist Chain Gang cooldown increased from 125s to 150s Chain Gang T1 changed from \"-25s Cooldown\" to \"+40% Spirit and Bullet Resist\" Chain Gang T2 changed from \"+15% Spirit and Bullet Resist\" to \"-50s Cooldown\" Chain Gang T3 changed from 2s Unstoppable to +1.3s Unstoppable for each hero pulled in Chain Gang T3 no longer grants +90 damage Chain Gang T3 now also increases the radius by +5m Rising Ram now uses a break-off angle when grounded, allowing upward movement if looking up enough Calico Bullets no longer have gravity Now fires an additional pellet right down the center (DPS is the same). The center pellet is now considered the primary pellet for headshots. Gloom Bombs changed so the first grenade always lands in the middle Gloom Bombs projectile sticky radius increased from 10 to 15 Gloom Bombs cast delay reduced from 0.15s to 0.1s Gloom Bombs T2 changed from +16.2 damage to +75 bonus damage vs barriers Leaping Slash improved targeting of dash to end early if near enemy heroes Leaping Slash can now dash vertically, even while on the ground Leaping Slash T2 changed from +40 damage to +300 souls on hero kill Leaping Slash T3 changed from -50% CDR on hit to -50% CDR and +60 damage Leaping Slash radius reduced from 4.5m to 4m Ava can no longer manipulate movement if meleeing while midair Ava now uses healthbar modifier style for duration Ava fixed camera not being centered around Ava Ava melee attack delay reduced from 0.4s to 0.0s Ava melee attack cooldown increased from 0.75 to 0.85 Ava melee attack now goes the way you are looking Ava now starts at a minimum speed, and increases to maximum speed over time, resetting on taking damage Ava now gradually recovers speed over time after taking damage, rather than being slowed for the entire duration Ava cooldown reduced from 45s to 30s Ava duration reduced from 16s to 15s Ava T1 duration increased from +14s to 15s Ava T2 changed from +45% Speed to +45% Speed and +15 Health Regen Ava T3 changed from -20s Cooldown and +35 Health Regen to a growing damage amp the longer you are transformed, up to 20% for 6s Return To Shadows now allows for some vertical flight movement during channel Return To Shadows now has new channel bar Return to Shadows T2 reduced from 67.5 Damage to 65 Return to Shadows T3 no longer grants +18% Damage Amp for 6s, but grants 350 healing instead Move speed reduced from 7.2 to 6.8 Fixed Gloom Bombs T2 giving an extra +15 flat bonus (released a couple days ago) Leaping Slash scaling reduced from 1.5 to 1.2 Leaping Slash T2 reduced from 300 Souls to 225 Leaping Slash scaling reduced from 1.2 to 0.8 Leaping Slash cooldown increased from 11s to 13s Leaping Slash T2 reduced from \"+225s within 4s\" to \"+200 within 3s\" Ava is no longer disabled by damage over time abilities (same as zipline rules) Return to Shadows move speed reduced from 30% to 20% Return to Shadows cooldown increased from 90s to 100s Celeste Gravity reduced from -20% to -28% (less gravity) Air Control/Acceleration reduced from +50/18% to +38/12% (less air control and acceleration) Shining Wonder bounce range reduced from 17m to 15m Shining Wonder linger duration reduced from 4.5s to 3.25s Gravity from 28% to 25% (was 20% previous patch) Air Control increased from 38% to 44% (was 50% previous patch) Light Eater on hit damage reduced from 25 to 20 Dazzling Trick barrier spirit scaling reduced from 1.1 to 0.8 Shining Wonder no longer refunds half cooldown on miss Shining Wonder linger time reduced from 3.25s to 3s Bullet/Melee resistance reduced from -6% to -8% Gun now has falloff 22m->60m Bullet damage increased from 18+0.6 to 22+0.7 Light Eater spirit scaling increased from 0.23 to 0.28 Dazzling Trick no longer grants +1m Move Speed Dazzling Trick T1 increased from +2.5m Move Speed to +3.5m Radiant Daggers spirit scaling increased from 0.42 to 0.56 Radiant Daggers T2 increased from \"-15s Cooldown and +60 Damage\" to \"-18s Cooldown and +70 Damage\" Radiant Daggers T3 fire rate increased from 6% to 7% Shining Wonder range reduced from 15m to 14m Shining Wonder T3 reduced from +10 Max Bounces to +8 Doorman Gun now pierces through targets at 50% reduced damage Call Bell time between charges increased from 4s to 6s Call Bell no longer has Impact Damage (was 40 with 1.0 scaling) Call Bell explosion damage increased from 55 to 85 Call Bell explosion damage spirit scaling reduced from 1.7 to 1.4 Call Bell T1 increased from +2m to +2.5m Call Bell T2 no longer has Impact Damage Call Bell T2 Explosion Damage increased from 40 to 75 Call Bell T2 now increases spirit scaling by +0.6 Call Bell T3 changed from \"Impact causes half radius explosions\" to \"+1 Charge and +22s Lifetime. Causes the radius to continuously apply it's slow\" Doorway now has a timer icon above the ability Doorway T1 duration increased from +10s to +15s Doorway T2 barrier duration increased from 8s to 12s Doorway T3 doorway distance now also scales with Spirit Power (0.25) Luggage Cart is now 20% larger (20% wider hitbox as well) Luggage Cart T1 changed from \"-8s Cooldown\" to \"+60 Damage\" Luggage Cart T2 increased from +15m Cast Range to +20m Luggage Cart T3 changed from \"+45 Cart Damage and 117 Wall Damage and 1.2s Wall Stun\" to \"+1.5s Wall Stun and -15s Cooldown\" Fixed issues where the cart would hit a target coming out of the hotel before they were supposed to be allowed to be hit, causing the cart to not properly drag the target Hotel Guest cast range increased from 6m to 7m Hotel Guest no longer goes on cooldown if the target dies during the cast Hotel Guest fixed enemies not always landing in the correct spot on return Hotel Guest now supports instant cast settings Hotel Guest returning guest now has a 100% time slow that decays to 0% over 1s Hotel Guest cost of stay damage reduced from 150 to 75 Hotel Guest failure to check-out damage reduced from 250 to 125 Hotel Guest T1 changed from \"+2m Cast Range\" to \"-1 Stamina and -25s Cooldown\" Hotel Guest T2 changed from \"Unstoppable while channeling\" to \"+1.5s Stun On Failure To Checkout and 150 Damage\" Hotel Guest T3 changed from \"-50s Cooldown\" to \"Unstoppable while Hotel is occupied. 10s Cooldown on Failure to Check Out\" Hotel Guest T3 late checkout cooldown increased from 10s to 13s Call Bell now has Impact Damage (40+1) and Explosion Damage (55+1.7) as separate components again (previous values for impact/explosion) Call Bell T2 is now \"+30 Impact Damage and +40 Explosion Damage\" Call Bell T3 now also increases slow by 15% Call Bell now continuously emits slow Call Bell impact damage spirit scaling reduced from 1 to 0.7 Call Bell T1 changed from \"+3m Radius\" to \"+1 Charge\" Call Bell T3 no longer grants +1 Charge Call Bell T3 now also grants +4m Radius Call Bell T3 duration increased from +22s to +26s Call Bell T3 now also increases spirit scaling by +0.4 Call Bell T3 no longer increases slow by -15% Doorway now shows the range of where the second door can be placed on the minimap. Doorway T3 distance spirit scaling reduced from 0.25 to 0.15 Doorway T3 reduced from +50m to +45m Fixed Luggage Cart moving targets with Unstoppable if it goes through a Doorway Drifter Rend damage range reduced from 18m to 16m Rend cooldown increased from 13s to 16s Rend damage spirit scaling increased from 1.4 to 1.8 Rend \"bonus\" damage is now the melee range at close range (so you only do melee damage at close range and spirit is the default) Rend T1 bonus damage increased from +32 to +40 Rend T3 changed from \"Gain 45% Bullet Lifesteal against affected enemies for 4s\" to \"Close range attack now silences enemies for 2.3s\" Stalker's Mark duration reduced from 6s to 5s Stalker's Mark T1 changed from \"+1% Bleed\" to \"-8% Bullet Resist\" Stalker's Mark T2 changed from \"+22% Fire Rate for 6s after ambush\" to \"+3s Duration and -8s Cooldown\" Stalker's Mark T3 changed from \"Enables 2 Charges and +2s Duration\" to \"+2% Bleed and -40% Healing\" Bloodscent now grants Drifter the same amount of permanent bonus weapon damage when an isolated hero dies nearby, whether Drifter gets the assist or the kill Bloodscent permanent bonus weapon damage gained per isolated hero death reduced from 4% to 3% Bloodscent T2 changed from \"Isolated kill reduces cooldowns by 15s and restores 3 stamina\" to \"Isolated death restores 18% Missing Health and restores 2 stamina\" Eternal Night now makes the targets be considered as isolated Eternal Night Sprint reduced from +3m to +2m Eternal Night no longer has 7 spirit damage proc Eternal Night cooldown increased from 120s to 125s Eternal Night duration reduced from 7s to 6.5s Eternal Night T1 changed from \"+6.3 Spirit Damage Proc\" to \"+10m Sprint\" (kicks in immediately) Eternal Night T2 changed from \"-30s Cooldown and +3m/s Sprint\" to \"-45s Cooldown\" Eternal Night T3 increased from \"+2s Duration and +1 Max Target\" to \"+2.5s Duration and +1 Max Target\" Fixed Quicksilver Reload dealing bonus multiple times with Rend Dynamo Bullet damage increased from 12.2+0.44 to 12.6+0.5 Kinetic Pulse cooldown increased from 22s to 26s Kinetic Pulse damage increased from 90 to 115 Kinetic Pulse range reduced from 20m to 16m Kinetic Pulse range no longer increases with spirit scaling Kinetic Pulse spirit scaling increased from 1.7 to 2.1 Kinetic Pulse T1 changed from \"35% Move Slow and -30% Fire Rate\" to \"+1 Charge\" Kinetic Pulse T2 changed from \"+30% Bullet Damage for 8s\" to \"Reduces enemy Bullet Resistance by -18% and Move Speed by -30% for 4s\" Kinetic Pulse T3 changed from \"+104 Damage and +1 Charge\" to \"+135 Damage and +16m Cast Range\" Quantum Entanglement no longer grants +26% Fire Rate Quantum Entanglement no longer reloads ammo Quantum Entanglement base ability now restores 1 stamina Quantum Entanglement ally distance increased from 10m to 13m Quantum Entanglement range increased from 9m to 10m Quantum Entanglement T1 increased from +4m Range to +6m Quantum Entanglement T2 changed from \"+22% Fire Rate\" to \"-6s Cooldown\" Quantum Entanglement T3 changed from \"-5s Cooldown and +120% Ammo\" to \"Dispells non-ult debuffs for you and your allies\" Rejuvenating Aurora cooldown increased from 45s to 48s Rejuvenating Aurora now has a 1s linger on allies Rejuvenating Aurora now lets you jump while using it Rejuvenating Aurora T1 changed from \"+4 Move Speed for 8s after full channel\" to \"Aura provides +4 Move Speed during channel\" Rejuvenating Aurora T2 cooldown from -14s to -20s Rejuvenating Aurora T2 now also increases duration by 1s Singularity no longer does 1.5% Max Health DPS Singularity DPS increased from 40 to 75 Singularity DPS spirit scaling increased from 0.19 to 0.28 Singularity T3 increased from 4% Max Health DPS to 5.5% Ammo increased from 18 to 20 Kinetic Pulse spirit scaling reduced from 2.1 to 1.8 Kinetic Pulse width increased from 5m to 5.5m Kinetic Pulse T3 increased from +16m Range to +20m Quantum Entanglement T3 now also replenishes 1 charge for charged abilities (half effect on allies) Singularity T3 Max health as damage increased from 5.5% to 6% Graves Grasping Hands is now set up to work through proper alternate cast methods and be more responsive Grasping Hands Immobilize duration reduced from 1.5s to 1.25s Grasping Hands cooldown reduced from 38s to 34s Grasping Hands T2 changed from \"+0.75s Immobilize Duration\" to \"+90 Damage and +10m Wall Length\" Grasping Hands T3 changed from \"+15m Wall Length and -10s Cooldown\" to \"+1s Immobilize Duration and -12s Cooldown\" Jar of Dead spirit scaling increased from 0.25 to 0.35 Jar of Dead health per boon increased from 1 to 1.3 Jar of Dead fixed colliding with the world sometimes Jar of Dead T2 now increases duration by +4s Grasping Hands deploy time reduced from 0.7s to 0.6s Grasping Hands T3 changed from \"+1s Immobilize and -12s Cooldown\" to \"+1s Immobilize and +2 Ghouls Summoned\" Essence Theft T3 fixed to latch onto targets nearby more readily Borrowed Decree now summons 2 Ghouls on cast Borrowed Decree T3 no longer summons 3 Ghouls on cast Borrowed Decree T3 increased from +5% Current Health to +6% Haze Spirit per boon reduced from 1.1 to 0.5 Sleep Dagger Sleep move speed reduced from 2m/s to 1.5m/s Sleep Dagger Wake Up delay no longer increases with spirit scaling Sleep Dagger cooldown increased from 26s to 30s Sleep Dagger Sleep duration reduced from 3s to 2.75s Sleep Dagger T1 changed from \"Removes 1 Stamina\" to \"-8% Bullet Resist Reduction for 6s\" Sleep Dagger T2 changed from \"-12s Cooldown and -60% Stamina for 6s\" to \"-15s Cooldown\" Sleep Dagger T3 changed from \"-12% Bullet Resist and -35% Fire Rate for 6s on wakeup\" to \"+0.75s Sleep Duration. -50% Move and Dash Slow for 2.5s on wakeup\" Smoke Bomb cooldown increased from 30s to 33s Smoke Bomb duration spirit scaling reduced from 0.18 to 0.08 Smoke Bomb no longer has base +2m Invis Sprint Speed Smoke Bomb T1 increased from +5m Invis Sprint Speed to +7m Smoke Bomb T2 changed from \"+10% Bullet Lifesteal\" to \"Enables 2 Ability Charges\" Smoke Bomb T3 changed from \"Enable 2 Charges and Grants +0.5s of Invincibility\" to \"Dispels non-ult debuffs and grants 30% Lifesteal for 5s\" Fixation reduced from +0.2 Weapon Damage per stack to +0.18 Fixation T1 spirit scaling increased from 0.37 to 0.8 Fixation T1 reduced from +50 Spirit Damage to +40 Fixation T3 increased from +0.12 Weapon Damage to +0.14 Bullet Dance Fire Rate bonus reduced from 30% to 20% Bullet Dance base ability now has 60% Evasion Bullet Dance duration spirit scaling increased from 0.06 to 0.08 Bullet Dance Bonus Bullet Damage reduced from 10 to 7 Bullet Dance T1 increased from +4 Bullet Damage to +7 Bullet Dance T2 now also increases Fire Rate by +10% Bullet Dance T3 no longer adds 60% Bullet Evasion Bullet Dance T3 now also fires at an additional target Infernus Napalm damage reduced from 46 to 40 Napalm damage spirit scaling increased from 0.3 to 0.6 Napalm amplified damage taken reduced from 20% to 16% Napalm T2 lifesteal increased from 10% to 15% Flame Dash DPS spirit scaling increased from 0.8 to 1.0 Flame Dash T1 changed from \"-25% Fire Rate\" to \"-12s Cooldown\" Flame Dash T2 DPS reduced from +27 to +20 Flame Dash T2 DPS now also increases trail duration by 1s Flame Dash T3 no longer reduces cooldown by 15s Flame Dash T3 now also grants +1 Charge Flame Dash T3 time between charges reduced from 20s to 14s Melee can now buildup afterburn (20% for light melee, 35% for heavy) Afterburn T1 changed from \"-20% Spirit Damage\" to \"+14 DPS\" Afterburn T2 changed from +1s Burn Duration to -35% Spirit Damage Afterburn T3 changed from \"+23 DPS\" to \"+3s Max Burn Duration\" (Base duration is the same, but can buildup after igniting to grow to max burn duration, abilities only refresh up to the base) Concussive Combustion cast now causes camera to move back a bit Concussive Combustion delay increased from 3s to 3.25s Concussive Combustion radius reduced from 13m to 12m Concussive Combustion cooldown increased from 140s to 165s Concussive Combustion damage reduced from 150 to 125 Concussive Combustion T1 changed from \"-35s Cooldown\" to \"+100 Damage\" Concussive Combustion T2 changed from \"+0.5s Stun and +3m Radius\" to \"-65s Cooldown and +65% Explosion Heal\" Concussive Combustion T3 changed from \"+94 Damage and Heal for 70% damage\" to \"+0.75s Stun and +10m Radius\" Reload time reduced from 2.491 to 2.25 Flame Dash speed now moves faster by the same amount of speed above your base Concussive Combustion T2 increased from +65% Explosion Lifesteal to +85% Ivy Now has -10% Gravity Bullet damage reduced from 4.59+0.12/boon to 4.45+0.06/boon Kudzu Bomb renamed to Entangling Thorns Entangling Thorns Recharge Time reduced from 8s to 5s Entangling Thorns spirit scaling reduced from 0.65 to 0.55 Entangling Thorns T2 changed from \"+2s Duration\" to \"+2m Radius and increases spirit scaling by +0.5\" Entangling Thorns T3 changed from \"+36 DPS and +2m Radius\" to \"Entangles enemies that remain in it for 2s. Lasts 1.6s\" Watcher's Covenant renamed to Kudzu Connection Kudzu Connection Fire Rate spirit scaling reduced from 0.25 to 0.18 Kudzu Connection Bullet Lifesteal spirit scaling reduced from 0.19 to 0.15 Kudzu Connection T1 changed from \"+8% Fire Rate\" to \"+2m Move Speed bonus\" Kudzu Connection T2 changed from \"+2m Move Speed Bonus\" to \"+8% Fire Rate and +8% Bullet Lifesteal\" Kudzu Connection T3 changed from \"+1 Tether Count\" to \"Ability is now always active\" Stone Form cooldown increased from 37s to 40s Stone Form damage spirit scaling reduced from 1.5 to 0.8 Stone Form T1 changed from \"-19s cooldown\" to \"+7% Max Health Heal\" Stone Form T2 changed from \"+68 Damage and +0.5s Stun\" to \"-25s Cooldown\" Stone Form T3 changed from \"+13% Max Health Heal\" to \"+1s Stun and Increased Spirit Scaling (2.0)\" Air Drop cast time removed. Instead, if you take damage the ability will be unable to be used for 3.5s Air Drop spirit damage scaling reduced from 2.3 to 1.0 Air Drop Cooldown reduced from 100s to 65s Air Drop duration increased from 16s to 21s Air Drop base/max speed increased from 11/18m to 10/22m Air Drop bomb radius increased from 14m to 20m Air Drop buff duration reduced from 12s to 8s Air Drop ally cast range increased from 14m to 18m Air Drop now grants you and your ally +20% Outgoing Damage after dropping Air Drop bomb no longer has a fast explode expanding behavior Air Drop bomb no longer causes a knockup Air Drop bomb no longer slows on explode by default Air Drop bomb no longer provides barrier by default Air Drop T1 changed from \"-20% Bullet Resist on enemies hit for 8s\" to \"Grants you and ally 300 Barrier (+1.0 Spirit Scaling)\" Lasts 12s. Air Drop T2 changed from \"+200 Barrier and +5m Explode Radius\" to \"Explode applies 50% Slow for 3s\" Air Drop T3 now also increases damage scaling by +1.5 and barrier scaling by +1.0 Entangling Thorns spirit scaling reduced from 0.55 to 0.45 Bullet damage growth increased from 0.06 to 0.08 Kudzu Connection now only gives you half the bonus if you aren't connected to an ally Air Drop damage spirit scaling reduced from 1 to 0.7 Air Drop T1 barrier spirit scaling reduced from 1 to 0.7 Air Drop T2 slow reduced from 50% to 40% Stone Form spirit scaling reduced from 0.8 to 0.6 Stone Form T3 spirit scaling reduced from +2 to +1.7 Air Drop ally cast range increased from 18m to 22m Air Drop is no longer disabled by damage over time abilities (same as zipline rules) Air Drop cooldown increased from 65s to 85s Air Drop cooldown is reduced by 25% when used on allies Kelvin Frost Grenade now impacts on Ice Path Frost Grenade radius reduced from 6.5m to 6m Frost Grenade cooldown increased from 20s to 30s Frost Grenade now comes with 2 charges Frost Grenade now heals in the base ability (60 + 0.9 Spirit Scaling) Frost Grenade no longer has -40% Stamina regen reduction Frost Grenade T1 changed from \"+1 Charge\" to \"Increases damage and heal by +30\" Frost Grenade T2 changed from \"Provides healing 80+1.5\" to \"Freezes stamina regen and -10s Cooldown\" Frost Grenade T3 changed from \"+144 Damage and -30% Stamina Regen\" to \"Increases damage and heal spirit scaling by 1.0 and Radius by +2m\" Ice Path is now cancelled on Ability Button Press instead of Space Ice Path cooldown increased from 46s to 50s Ice Path incline/decline speed increased Ice Path T1 changed from \"+4 Sprint\" to \"+2 Move Speed and +35% Bullet Resistance on Ice Path\" Ice Path T2 increased from -17s Cooldown to -20s Ice Path T3 now grants you +35% Spirit Power while on Ice Path Arctic Beam visual clarity on VFX improved Arctic Beam now lets you cast Frost Grenade and items while using it Arctic Beam Max Fire Rate Reduction reduced from -35% to -20% Arctic Beam Max Slow reduced from -40% to -20% Arctic Beam spirit scaling reduced from 0.8 to 0.5 Arctic Beam cooldown increased from 25s to 28s Arctic Beam T1 changed from \"-7s Cooldown\" to \"Increases Move Slow and Fire Rate Reduction by -25%\" Arctic Beam T2 changed from \"+33 DPS\" to \"+20 DPS and +0.6 Spirit Scaling\" Arctic Beam T3 now also reduces cooldown by 13s Frozen Shelter can now be canceled first without canceling Ice Beam Frozen Shelter is now 8m unit target, creates the dome around the center of both heroes. Can be self casted to create it around yourself. Frozen Shelter duration reduced from 5.25s to 5s Frozen Shelter T1 changed from \"-35% Enemy Fire Rate\" to \"-25s Cooldown\" Frozen Shelter T2 increased from +1s to +1.5s Frozen Shelter T3 now also dispels non-ult debuffs on cast (affects you and allies) Frost Grenade radius increased from 6m to 6.5m Frost Grenade damage spirit scaling reduced from 0.914 to 0.8 Frost Grenade T3 damage spirit scaling reduced from 1.0 to 0.9 Ice Path T2 increased from -20s Cooldown to -25s Ice Path T3 now also grants +20 Spirit Power Frozen Shelter T3 increased from 50 Health Regen to 65 Lady Geist Essence Bomb self damage changed from 30 + 1.8 scaling to 30% of the damage (base is 90 + 1.2 scaling) Essence Bomb radius reduced from 9m to 7m Essence Bomb cooldown reduced from 14.5s to 14s Essence Bomb T1 increased from -4s to -5s Essence Bomb T2 also increases radius by +2m Life Drain cooldown increased from 30s to 34s Life Drain break range reduced from 30m to 28m Life Drain T1 DPS increased from +16.2 to +18 Life Drain T2 duration increased from +2s to +2.5s Life Drain T3 charges increased from +1 to +2 Life Drain T3 now also increases spirit scaling by +0.3 Soul Exchange cast time reduced from 0.2s to 0.1s Soul Exchange post cast hold time reduced from 0.7s to 0.2s Soul Exchange T1 cooldown increased from -35s to -60s Soul Exchange T2 changed from \"On Cast: +35% Fire Rate for 8s\" to \"Silences enemies within 25m for 3s\" Soul Exchange T3 changed from \"Silences enemies within 25m for 3s\" to \"On Cast: +60 Spirit Power, +40% Fire Rate and +50% Spirit Resistance for 8s\" Lash Increased Sparkles Fixed Ground Strike against players brought down from mid air not doing damage Grapple T2 weapon damage increased from +6 to +7 Grapple T3 changed from \"+20% Fire Rate\" to \"+60% Air Control and +1 Stamina on Usage\" Flog cooldown increased from 24s to 26s Flog Attack Angle no longer increases with Spirit Power Flog heal vs heroes reduced from 60% to 50% Flog T2 increased from -12s Cooldown to -16s Flog T2 now also reduces Fire Rate by 30% Flog T3 no longer reduces Fire Rate Flog T3 damage reduced from +86 to +80 Flog T3 now also increases Attack Angle by 40 and Heal by +20% Fixed Death Slam camera sometimes being obstructed Death Slam throw distance no longer scales with Spirit Power (was 0.3) Death Slam cooldown increased from 145s to 150s Death Slam T1 throw distance increased from +8m to +12m Death Slam T2 cooldown increased from -25s to -40s Death Slam T3 now also increases cast range by +10m Death Slam throw range increased from 12m to 14m Death Slam throw range now scales with spirit power (+0.14) Death Slam T3 cast range reduced from +10m to +6m Death Slam T3 stun increased from 1s to 1.2s McGinnis Stamina speed bucket 3 to 2 Bullet damage reduced from 6.72 + 0.2/boon to 6.0 + 0.16/boon Mini Turret duration increased from 24s to 35s Mini Turret base health and health growth reduced by 40% Mini Turrets initial fading resist start value increased from 60% to 80% Mini Turrets now have 35% melee resist Mini Turret tracking, angle and projectile speeds significantly improved Mini Turret on the minimap now flash/turn red when they are attacking Mini Turret T1 changed from \"Turrets apply 25% slow\" to \"+10m Attack Range and +10 DPS\" Mini Turret T2 changed from \"+10m Attack Range and + 10% Fire Rate\" to \"+2 Charges\" Mini Turret T3 changed from \"+38 Turret DPS and +14s Turret Lifetime\" to \"+30% Turret Fire Rate and +12s Turret Lifetime\" Medicinal Specter duration no longer scales with spirit power Medicinal Specter radius no longer scales with spirit power Medicinal Specter regen now scales with spirit power (+0.3) Medicinal Specter cooldown increased from 48s to 50s Medicinal Specter no longer provides +15% Stamina Recovery Medicinal Specter T1 changed from \"+30% Fire Rate\" to \"+40% Spirit Resistance\" Medicinal Specter T2 increased from -17s Cooldown to -20s Medicinal Specter T2 now also increases Stamina Recovery by +100% Medicinal Specter T3 regen reduced from 2.5% Max HP to 2% Medicinal Specter T3 now also increases radius by 3m Medicinal Specter T3 now also increases duration by 1s Spectral Wall that is midcast will now fire when you are interrupted, rather than continue to expand outward Spectral Wall segments can now be destroyed with 2 heavy melee hits (destroys an individual segment) Spectral Wall min range reduced from 6m to 5m Spectral Wall applies it's slow to enemies it passes through while being summoned Spectral Wall T1 no longer drains 1 stamina Spectral Wall T1 Damage Amp increased from 15% to 20% Spectral Wall T2 also increases wall duration by +2s Spectral Wall T3 changed from \"0.75s Stun on Impact\" to \"Creates 2 Turrets for 8s and increases slow by 30%\" (creates them on the side facing you spread along the wall) Heavy Barrage duration reduced from 13s to 8s Heavy Barrage minimum range reduced from 9m to 8.5m Heavy Barrage T1 tooltip updated to clarify that it also reduces dash distance Heavy Barrage T1 move slow reduced from 40% to 30% Heavy Barrage T1 dash slow increased from 20% to 30% Heavy Barrage T1 slow duration reduced from 2s to 1.5s Heavy Barrage T2 cooldown reduction increased from -45s to -55s Heavy Barrage T2 now also increases duration by 6s Heavy Barrage T3 damage increased from +21 to +25 Heavy Barrage T3 spirit scaling from +0.2 to +0.25 Heavy Barrage T3 now also increases explosion radius by 2m Heavy Barrage radius reduced from 5m to 4.5m Heavy Barrage T1 slow duration reduced from 1.5s to 1s Heavy Barrage T3 spirit scaling reduced from +0.25 to +0.2 Heavy Barrage T3 damage reduced from +25 to +22 Bullet damage increased from 6.0+0.15/boon to 6.2+0.16/boon Mini Turret attack range increased from 25m to 30m Medicinal Specter radius increased from 5m to 5.5m Spectral Wall duration increased from 4.5s to 5s Heavy Barrage cooldown increased from 165s to 175s Heavy Barrage spirit scaling reduced from 0.23 to 0.2 Heavy Barrage T3 spirit scaling reduced from 0.2 to 0.16 Heavy Barrage T3 DPS reduced from 22 to 18 Mina Stamina cooldown increased from 3.9s to 4.2s Rake cooldown increased from 10s to 16s Rake hero hit missing health as damage increased from 3% to 5% Rake heal per kill reduced from 30 to 25 Rake heal per kill spirit scaling reduced from 0.43 to 0.3 Rake T1 changed from \"+20 Heal Per Kill\" to \"+60 Damage\" Rake T2 changed from \"+54 Damage and +1.0 Heal Per Kill spirit scaling\" to \"+30 Heal Per Kill and -8s Cooldown\" Rake T3 now also provides +1.2 Heal Per Kill spirit scaling Sanguine Retreat cast range reduced 10m to 9m Sanguine Retreat recast window increased from 3s to 3.5s Sanguine Retreat T1 changed from \"+3m Cast Range\" to \"+20% Fire Rate and 8 Bullets\" Sanguine Retreat T2 changed from \"+25% Fire Rate and 8 Bullets\" to \"-10s Cooldown\" Sanguine Retreat T3 changed from \"-12s Cooldown\" to \"+1 Recast\" Love Bites Cooldown increased from 8s to 10s Love Bites damage reduced from 6 to 4 Love Bites damage spirit scaling increased from 0.06 to 0.09 Love Bites bonus damage reduced from 55 to 45 Love Bites bonus damage spirit scaling increased from 1.6 to 1.85 Love Bites T1 changed from \"On Proc: +4 m/s Move Speed for 3s\" to \"On Proc: 30% Slow for 3s\" Love Bites T2 Damage/Bonus reduced from 3.6/50 to 3/45 Love Bites T3 changed from \"On Proc: -1 Stamina and 30% slow for 3s\" to \"-4s Cooldown and On Proc +25% Fire Rate for 5s\" Nox Nostra cooldown increased from 115s to 130s Nox Nostra damage reduced from 6 to 5.6 Nox Nostra T1 increased from +1.8 to +2.2 Nox Nostra T2 cooldown increased from -40s to -55s Fixed a bug with Rake with how the low hp bonus damage against non-hero targets was dealt (when they were low, the spirit resist didn't matter effectively) Float time with umbrella increased from 2.5s to 4s Can now zoom in again to continue floating if you let go of the zoom, as long as the total zoom time is still under the max Fixed various issues with Nox Nostra bats not hitting things properly (DPS values reduced to compensate for this indirect buff) Mirage Bullet damage reduced from 15.2+0.5 to 14.8+0.3 Fire Scarabs no longer have a limited duration to launch each one. Functions as a normal charged ability. Fire Scarabs collision and model size increased a bit Fire Scarabs base charges reduced from 4 to 2 Fire Scarabs spirit scaling reduced from 1.0 to 0.8 Fire Scarabs now immediately steal the health from the target Fire Scarabs Max Health steal increased from 45 to 70 Fire Scarabs changed from -8% Bullet Resist to +10% Damage Amp on that target from any damage you deal Fire Scarabs cooldown increased from 40s to 45s Fire Scarabs T1 changed from \"-15s Cooldown\" to \"+50 Max Health Steal\" Fire Scarabs T2 changed from \"-8% Bullet Resist\" to \"+2 Charges\" Fire Scarabs T3 changed from \"+63 Max Health Steal\" to \"+10% Damage Amp and +1.2 Spirit Scaling\" Fire Scarabs no longer has a reduced effect against non-heroes Tornado renamed to Dust Devil Dust Devil lift duration reduced from 1.0s to 0.4s Dust Devil spirit scaling reduced from 0.7 to 0.3 Dust Devil now slows affected enemies by 30% for 3s Dust Devil bullet evasion duration increased from 3.5s to 4s Dust Devil bullet evasion increased from 25% to 30% Dust Devil T1 changed from \"+0.4s Lift Duration\" to \"+60 Damage\" Dust Devil T2 changed from \"-14s Cooldown\" to \"-8s Cooldown and +30% Evasion\" Dust Devil T3 changed from \"+20% Bullet\" to \"Can Recast within 5s. Increases spirit scaling by 1.0\" Djinn's Mark cooldown increased from 2.6s to 3s Djinn's Mark multiplier duration increased from 4.5s to 5s Djinn's Mark reveal duration increased from 3s to 6s Djinn's Mark tooltip rewritten to be based on a \"per stack\" basis. A stack increases the damage by 200%. (this is just a tooltip change) Djinn's Mark T1 changed from \"60% slow for 0.5s on 2x stack\" to \"Fading 60% slow for 0.5s\" Djinn's Mark T2 increased from +8.1 Damage to +20 Djinn's Mark T3 cooldown increased from -0.75s to -1s Djinn's Mark T3 now also stuns for 0.5s at max stacks Traveler cooldown reduced from 155s to 145s Traveler can now be cast while on the zipline Traveler no longer channels. It now has a 3s delay before teleporting. Taking damage interrupts the ability and puts it on cooldown for 6s. Traveler now targets a location on the minimap rather than units. Places you at the ground level of that location. Traveler no longer grants +2m Move Speed and +26% Fire Rate Traveler T1 changed from \"+2m Move Speed and -35s Cooldown\" to \"3m Move Speed for 12s\" Traveler T2 changed from \"Grants Traveler Buffs to Ally\" to \"400 Barrier with spirit scaling for 12s\" Traveler T3 \"Unstoppable for 3s\" to \"-80s Cooldown\" Fire Scarabs cooldown reduced from 45s to 35s Traveler T1 now also increases Fire Rate by 20% Fire Scarabs no longer does max health steal Fire Scarabs now drains life from the enemy, dealing DPS to the enemy and healing you for 8s. Fire Scarabs no longer applies +10% Damage Amp Fire Scarabs now reduces enemy damage output by 20% (and +15% in T3) Dust Devil radius increased from 3.5m to 4m Dust Devil T3 window to recast increased from 5s to 6s Djinn's Mark spirit scaling reduced from 0.51 to 0.44 Djinn's Mark debuff visuals improved Djinn's Mark T1 slow duration increased from 0.5s to 0.8s Djinn's Mark T2 multiplier duration increased from 2.5s to 3s Traveler no longer gets interrupted by non-hero sources nor DOT damage Traveler wait time reduced from 3s to 2s Traveler interrupt cooldown reduced from 6s to 4s Traveler cooldown reduced from 145s to 120s Traveler can now be manually canceled Traveler can now also target units Mo & Krill Scorn damage reduced from 56 to 50 Scorn radius reduced from 10m to 9m Scorn spirit scaling increased from 0.42 to 0.75 Scorn T1 changed from \"-3.75s Cooldown\" to \"+35 Damage\" Scorn T2 changed from \"+21 Damage\" to \"-5s Cooldown and +1m Radius\" Burrow now lets you enter the tunnels Burrow cooldown increased from 37s to 40s Burrow T1 changed from \"+3s Duration\" to \"+50 Spin DPS\" Burrow T2 changed from \"+68 Spin DPS and +2 Radius\" to \"+2 Spin Radius and +4s Burrow Time\" Burrow T3 increased from +2 m/s Move Speed to +4 Burrow T3 increased from -19s Cooldown to -20s Sand Blast cooldown reduced from 42s to 40s Sand Blast duration reduced from 3s to 2.5s Sand Blast range reduced from 35m to 25m Sand Blast T1 changed from \"+1s\" to \"+50 Damage and +5m Range\" Sand Blast T2 changed from \"-23s Cooldown\" to \"Slows targets Move Speed and Dash Distance by -25%\" Sand Blast T3 changed from \"Slows targets Move Speed and Dash Distance by -40%\" to \"+1s Duration and -20s Cooldown\" Combo cooldown increased from 90s to 150s Combo DPS increased from 35 to 60 Combo T1 changed \"+30% Bullet Resist During Combo\" to \"+100% Lifesteal\" Combo T2 changed from \"+0.7s Duration\" to \"+60 DPS and +50% Bullet Resist\" Combo T3 changed from \"+32 DPS and 80% Lifesteal\" to \"+0.7s Duration and -60s Cooldown\" Scorn heal vs non-heroes reduced from 0.5x to 0.35x Scorn cooldown increased from 12.5s to 13s Combo DPS reduced from 60 to 45 Combo cooldown reduced from 150s to 140s Combo T2 changed from \"+60 DPS and +50% Bullet Resist\" to \"-35s Cooldown and +50% Bullet Resist\" Combo T3 changed from +0.7s Duration and -60s Cooldown\" to \"+0.7s Duration and +60 Damage\" Combo range reduced from 4.8m to 4m Combo DPS reduced from 45 to 40 Combo DPS spirit scaling reduced from 1.2 to 0.6 Combo cooldown reduced from 140s to 130s Combo T3 DPS reduced from +60 to +50 Combo T3 now also increases spirit scaling +0.4 Combo health rescaled from 50 to 30 + 1/Boon (not retroactive) Paige Conjure Dragon renamed to Bookwyrm Bookwyrm fixed initial location not starting where you click it Bookwyrm cooldown increased from 30s to 33s Bookwyrm T1 changed from \"-5s Cooldown\" to \"+2s Trail Duration and +1m Width\" Bookwyrm T2 changed from \"+2s Trail Duration\" to \"-8s Cooldown and +10m Travel Range\" Bookwyrm T3 Damage/DPS rescaled from 104/27 to 100/30 Bookwyrm T3 now also grants +1 Charge Defend and Fight! renamed to Plot Armor Plot Armor barrier spirit scaling reduced from 1.6 to 1.3 Plot Armor T3 now also increases spirit scaling (+0.3) Captivating Read height area no longer increases with range bonuses Captivating Read cooldown increased from 25s to 30s Captivating Read immobilize duration reduced from 1.25s to 1s Captivating Read T1 cooldown increased from -6s to -11s Captivating Read T2 immobilize duration increased from 0.75s to 1s Captivating Read T3 now also increases radius by 1m Rallying Charge T2 now also reduces cooldown by 30s Rallying Charge T3 now also increases Max Amp from +100% to +150% Paradox Pulse Grenade radius reduced from 6m to 5.5m Pulse Grenade radius increases by +1m per Pulse Pulse Grenade Amp Per Stack reduced from 6% to 4% Pulse Grenade cooldown increased from 28s to 32s Pulse Grenade spirit scaling reduced from 0.6 to 0.4 Pulse Grenade changed from -30% Move Speed for 2s to -20% Time Slow for 0.2s Pulse Grenade T1 changed from +0.8s Duration to -12s Cooldown Pulse Grenade T2 changed from \"-8s Cooldown\" to \"+20 Pulse Damage and +0.5 Spirit Scaling\" Pulse Grenade T3 changed from \"+36 Pulse Damage and +0.8m Radius per Pulse\" to \"+4% Damage Amp Per Stack and +1.6s Duration\" Time Wall duration reduced from 6s to 5.5 Time Wall no longer damages enemies going through it Time Wall now increases allied bullet speeds going through it by 100% Time Wall now increases adds +30% Weapon Damage to allied bullet damage (affects Carbine) Time Wall T1 increased from +2m Width to +3m Time Wall T2 changed from \"+9% Max Health Damage\" to \"+2.5s Duration and +30% Weapon Damage\" Time Wall T3 changed from silencing enemies to Allowing Charges and Granting +1 Charge (4s Charge Time) Kinetic Carbine cooldown increased from 27s to 30s Kinetic Carbine speed spirit scaling increased from 0.09 to 0.13 Kinetic Carbine base damage scale increased from 100% to 125% Kinetic Carbine T2 changed from \"-8s Cooldown and +2s Charge Hold\" to \"-12s Cooldown\" Kinetic Carbine T3 now also increases charge hold by 2s Paradoxical Swap cooldown increased from 75s to 95s Paradoxical Swap no longer has 80% Spirit Lifesteal Paradoxical Swap damage changed from 115 (0.6 spirit scaling) to 10% Current Health Paradoxical Swap T1 changed from \"-15s Cooldown\" to \"+200 Barrier (1.5 Spirit Scaling)\" Paradoxical Swap T2 changed from \"+81 Damage\" to \"+13m Cast Range and -35s Cooldown\" Paradoxical Swap T3 changed from \"+15m Cast Range\" to \"Swaps additional enemies in 7m radius and +10% Current Health Damage\" Pulse Grenade spirit scaling reduced from 0.4 to 0.3 Time Wall slow duration increased from 1.25s to 2s Time Wall T1 now also increases duration by +2.5s Time Wall T2 no longer increases duration by +2.5s Time Wall T2 now also silences enemies for 2.3s Paradoxical Swap damage changed from 10% Current Health to 125 with 1.1 spirit scaling Paradoxical Swap T3 changed from 10% Current Health to 10% Max Health Paradoxical Swap can now be alt casted to swap only a single target with the T3 Pulse Grenade does half damage to objectives Pocket Barrage projectile speed increased by 15% Barrage now lets you use stamina during the ability Barrage now lets you use Flying Cloak during the ability Barrage T1 increased from +12.6 Damage Per Projectile to +16 Barrage T2 cooldown increased from -14s to -16s Barrage T3 increased from +2m Radius to +3m Flying Cloak cooldown reduced from 32s to 26s Flying Cloak damage reduced from 70 to 60 Flying Cloak duration increased from 3.4s to 3.8s (travels slower, same total distance) Flying Cloak T1 changed from \"-14s Cooldown\" to \"+70 Damage\" Flying Cloak T2 changed from \"+76 Damage\" to \"+5 Weapon Damage upon cast for 8s\" Flying Cloak T3 changed from \"+7 Weapon Damage after teleporting for 10s\" to \"+1.6s Travel Time and -14s Cooldown\" Enchanter's Satchel spirit scaling increased from 0.61 to 0.9 Enchanter's Satchel T3 now also reduces movement speed by 40% Enchanter's Satchel T3 Fire Rate slow increased from 35% to 40% Enchanter's Satchel T3 Escape duration increased from +0.5s to +1.5s Enchanter's Satchel T3 now also increases radius by 4m Affliction no longer applies 12% Current Health Damage Affliction DPS increased from 28 to 32 Affliction spirit scaling increased from 0.17 to 0.2 Affliction cooldown increased from 140s to 150s Affliction T1 increased from -25s Cooldown to -40s Cooldown Affliction T2 no longer reduces healing by 40% Affliction T2 now also increases radius by 4m Affliction T3 no longer increases radius by 6m Affliction T3 now prevents all healing on targets Affliction T3 increases spirit scaling by +0.1 Affliction duration reduced from 12s to 11s (overall total damage is reduced slightly) Affliction DPS increased from 32+0.2 to 34+0.22 Affliction T2 duration reduced from +4s to +3s Affliction T3 DPS increased from 16+0.1 to 18+0.11 Rem Lil Helpers trooper base healing changed from 10/s to 8/s. The delay between heals has been reduced so the frequency of healing is more constant. (overall reduction) Lil Helpers trooper healing spirit scaling increased from 0.125 to 0.14 Naptime sleep move speed reduced from 2m/s to 1.5m/s Naptime sleep duration decreased from 4.25s to 4s Naptime radius decreased from 20m to 17.0m Naptime T2 changed from \"unstoppable and -35% Damage resist while channeling\" to \"+0.5s Sleep Duration and +3m Radius\" Naptime T3 now also grants +50% damage resist while channeling Seven Move Speed no longer scales with spirit power Sprint speed increased from 0.6m to 1.8m Lightning Ball slows down less vs non-heroes (previously was 2m/s for all, now 3.5m/s for non-heroes) Lightning Ball fixed now doing damage if another ball was already hitting a target Lightning Ball T2 now also increases lifetime by 1s Static Charge damage reduced from 38 to 35 Static Charge cast range reduced from 16m to 15m Static Charge cast range no longer increases with spirit power Static Charge T1 increased from -19s Cooldown to -20s Static Charge T2 now also increases cast range by +5m Static Charge T3 now also increases damage by +160 Power Surge duration no longer scales with spirit power Power Surge cooldown increased from 48s to 50s Power Surge max jumps increased from 3 to 4 Power Surge T1 increased from -15s to -18s Power Surge T2 changed from \"-10% Spirit Resist for 6s\" to \"+3m Move Speed, +8 Damage and increased Spirit Scaling (+0.23)\" Power Surge T3 changed from \"+11 Shock Damage, scaling and +3 max jumps\" to \"-15% Spirit Resist for 8s and +12s Duration\" Storm Cloud allows movement in the base ability (1.5m) Storm Cloud bullet resistance reduced from 20% to 0% Storm Cloud T1 bullet resist increased from 35% to 55% Storm Cloud T3 increases move speed by +3m (was +3.8m before) Lightning Ball charge time reduced from 8s to 7s Storm Cloud T3 increases speed from +3m to +4m Shiv Stamina reduced from 3 to 2 Stamina movement speed reduced from 6.7 to 6.5 Bullet damage growth increased from 0.154 to 0.165 Serrated Knives no longer has impact damage Serrated Knives Bleed DPS per knife increased from 4 to 10 Serrated Knives Bleed DPS spirit scaling increased from 0.13 to 0.15 Serrated Knives T1 changed from \"+1 Charge\" to \"+2s Duration\" Serrated Knives T2 changed from \"+2s Duration\" to \"+2 Charges\" Serrated Knives T3 no longer has +30 Impact Damage Serrated Knives T3 DPS increased from +5.5 to +12 Serrated Knives T3 increases spirit scaling by +0.10 Slice and Dice cooldown increased from 15s to 16s Slice and Dice Impact damage reduced from 75 to 60 Slice and Dice reduces Spirit Resistance by 6% for 16s. Multiple instances stack. Slice and Dice T1 increased from -3s Cooldown to -6s Cooldown Slice and Dice T2 changed from \"+50 Impact Damage\" to \"-8% Spirit Resistance and +2m Dash Range\" Slice and Dice T3 now also grants +50 Impact Damage Killing Blow is no longer unit targeted, you jump in the direction forward with some small control Killing Blow Damage Amp reduced from 15% to 14% Killing Blow T2 changed from \"+5% Enemy Health Threshold and +6% Damage Amp\" to \"+8% Damage Amp\" Killing Blow T3 now grants you 20s to recast the ultimate, rather than removing the cooldown Killing Blow T3 now also increases enemy health threshold by +5% Alt fire knockback increased by 10% Serrated Knives cooldown increased from 16s to 18s Killing Blow range increased from 13m to 18m Killing Blow travel speed increased a bit Stamina increased from 2 to 3 Stamina cooldown increased from 4.5s to 5.5s Bloodletting no longer interrupts sliding when cast Bloodletting is now affected by healing modifiers Fixed a bug with Killing Blow T3 causing the cooldown to be delayed if you failed to execute during the allowed window Killing Blow now continues forward (and dealing damage) until it reaches a target it can kill or runs out of range Silver Mauling Leap damage scaling reduced from 1.9 to 1.5 Fixed Tail Whack being considered a movement ability Tail Whack disarm duration reduced from 2.5s to 2s Tail Whack slow duration increased from 1.5s to 2s Tail Whack T3 changed from \"+1s Disarm Duration\" to \"1.5s Debuff Duration\" Lycan Curse cooldown increased from 35s to 50s Lycan Curse base health bonus reduced from 100 to 75 Lycan Curse no longer grants +14% Bullet and Spirit Resistance Lycan Curse no longer grants +2m Move Speed Lycan Curse T1 resist increased from +14% to +15% Lycan Curse T2 bonus health increased from 125 to 150 Lycan Curse base health bonus increased from +75 to +125 Lycan Curse T2 increased from +3m to +4m Lycan Curse cooldown reduced from 50s to 40s Lycan Curse T1 increased from 15% Resists to 18% Slam Fire Weapon Accuracy reduced from -25% to -30% Go For The Throat, Boot Kick and Mauling Leap now benefit from range increases Boot Kick now uses a break-off angle when grounded, allowing upward movement if looking up enough Tail Whack spirit scaling increased from 1 to 1.5 Lycan Curse now grants 1.5m Move Speed Lycan Curse T1 increased from +18% Resists to +20% Lycan Curse T2 increased from +150 Bonus Health to +200 Lycan Curse T3 now has a 1.5s buffer for kill credit Victor Bullet damage increased from 12.3 to 12.5 Pain Battery now starts charged Pain Battery range increased from 20m to 28m Pain Battery reduced randomness on the projectile paths Pain Battery bolt count from 5 to 7 Pain Battery T2 increased from +36 to +50 Pain Battery T3 now also increases spirit scaling by +0.6 Jumpstart cooldown increased from 23s to 30s Jumpstart Move Speed reduced from 4m to 3m Jumpstart spirit scaling reduced from 1.8 to 1.2 Jumpstart T1 increased from +1.5m to +3m Move Speed Jumpstart T2 now also reduces cooldown by -8s Jumpstart T3 now also provides +1 Charge Jumpstart T3 no longer reduces cooldown Jumpstart T3 now also increases spirit scaling by 0.8 Aura of Suffering time to max DPS reduced from 10s to 6s Aura of Suffering radius increased from 7.7m to 10m Aura of Suffering toggle cooldown reduced from 2.5s to 2s Aura of Suffering Min DPS reduced from 16 to 12 Aura of Suffering Min DPS spirit scaling reduced from 0.18 to 0.135 Aura of Suffering Max DPS reduced from 70 to 54 Aura of Suffering Max DPS spirit scaling reduced from 0.9 to 0.67 Aura of Suffering T2 Min/Max DPS reduced from 8/36 to 6/26 Aura of Suffering Text Progress bar indicates time to Max DPS Aura of Suffering T3 reduced from +13% Damage to +15% Shocking Reanimation radius reduced from 13m to 12m Shocking Reanimation rebirth health reduced from 60% to 50% Shocking Reanimation T1 changed from \"+3m Radius and +90 Damage\" to \"While on Cooldown: +15% Fire Rate and +6 Spirit Damage Per Bullet (0.06 scaling)\" Shocking Reanimation T2 rebirth health increased from 40% to 50% Shocking Reanimation T3 changed from \"While on Cooldown: +18% Fire Rate and +9 Spirit Damage Per Bullet (0.06 scaling)\" to \"+6m Radius, +1s Stun and -50s Cooldown\" Pain Battery T3 reduced from 18% Missing Health to 15% Jumpstart T3 spirit scaling reduced from 0.8 to 0.6 Aura of Suffering can now be activated on the zipline Aura of Suffering radius reduced from 10m to 9.5m Aura of Suffering Base and T2 Max DPS and scaling reduced by 10% Shocking Reanimation cooldown increased from 190s to 210s Shocking Reanimation T3 increased from -50s Cooldown to -70s Health per boon increased from 46 to 50 Now has 30% less effectiveness from lifesteal (Lifesteal Effectiveness stat added to Vitality tooltip) Shocking Reanimation radius increased from 12m to 18m Shocking Reanimation cooldown increased from 210s to 230s Shocking Reanimation T3 no longer increases radius by 6m Shocking Reanimation T3 cooldown from -70s to -100s Shocking Reanimation T3 now also deals +150 Damage Vindicta Fire Rate no longer scales with Spirit Power Bullet damage now scales with spirit power (0.022) Bullet Velocity increased from 557 to 660 Stake damage reduced from 55 to 40 Stake damage spirit scaling increased from 0.37 to 0.5 Stake projectile speed increased from 20m/s to 25m/s Stake T1 changed from \"-35% Fire Rate\" to \"+65 Damage\" Stake T3 Tether Duration increased from +0.5s to +0.75s Stake T3 capture radius increased from +1m to +2m Flight now allows you to use melee Flight now allows parry to be used Flight now grants you +50% Item Cast Range Flight spirit damage scaling reduced from 0.22 to 0.18 Flight duration reduced from 15s to 13s Flight T2 duration increased from +8s to +10s Flight T3 Spirit Damage Per Bullet reduced from 12.6 to 10 Flight T3 now increases spirit scaling by 0.1 Flight T3 now also refreshes duration on hero kill Crow Familiar now releases a swarm of crows in a cone forward, hitting all enemies along the path Crow Familiar debuff duration no longer scales with spirit power Crow Familiar debuff duration increased from 4s to 5s Crow Familiar bleed damage reduced from 2.7% to 2.2% Crow Familiar damage increased from 37 to 40 Crow Familiar T1 changed from \"Ricochet up to 2 times\" to \"Reduces healing by -35%\" Crow Familiar T2 now also increase bleed damage by +0.5% Crow Familiar T3 now also increases debuff duration by 2s Assassinate while scoped no longer un-scopes when using items Assassinate now has a 4s buffer on impact for bonus credit Assassinate while scoped now plays a sound for you when the it is fully charged Assassinate weapon damage bonus increased from 5% to 6% Fixed not gaining bonus damage if a proc bonus was the killing blow Viscous Splatter bounces once by default Splatter cooldown reduced from 30s to 26 Splatter spirit scaling reduced from 1.77 to 0.8 Splatter ground effect now increases slide distance by 60% for you and your allies Splatter multiple hit damage value reduced from 50% to 50/38/26% Splatter T1 radius increased from +1m to +2m Splatter T2 cooldown increased from -12s to -14s Splatter T3 spirit scaling increased from +0.4 to +1.3 Splatter T3 still adds 2 bounces The Cube now has a very brief period where allies cannot cancel to prevent accidental cancels The Cube healing spirit scaling increased from 0.14 to 0.3 The Cube T3 increased from -21s Cooldown to -25s Puddle Punch now grants +30% Air Control when affecting yourself or allies Puddle Punch Charge Time increased from 1.5s to 1.7s Puddle Punch Slow increased from 15% to 20% Puddle Punch now acts as if its close range with respect to item procs (like Point Blank) Puddle Punch radius reduced from 4.5m to 4m Puddle Punch T2 changed from \"+27 Damage and -15% Move Slow\" to \"+1.5m Radius and +30 Damage\" Goo Ball no longer can carry Urn Goo Ball turn rate improved a bit Goo Ball can now use abilities and items (rather than being locked behind T3) Goo Ball cooldown increased from 115s to 130s Goo Ball duration increased from 9s to 10s Goo Ball Bullet and Spirit resist reduced from 60% to 35% Goo Ball T1 changed from \"+5s Duration\" to \"-30s Cooldown\" Goo Ball T2 reduced from +72 Damage to +70 Goo Ball T3 changed from \"Can now use abilities and items\" to \"+6s duration and +0.3s Stun Duration\" Splatter T3 spirit scaling reduced from 1.3 to 1.1 Puddle Punch scaling reduced from 1.1 to 1.0 Fixed Puddle Punch T3 giving an extra +60 melee damage (released a couple days ago) Puddle Punch scaling reduced from 1 to 0.8 Puddle Punch scaling reduced from 0.8 to 0.6 Puddle Punch now has +20 bonus damage Puddle Punch wind up time increased from 0.15s to 0.2s Puddle Punch displacement duration reduced from 0.8s to 0.6s Goo Ball stun duration reduced from 0.7s to 0.5s Goo Ball lockout period from being affected again increased from 1.25s to 1.35s Goo Ball duration increased from 10s to 11s Warden Bullet growth per boon reduced from 0.44 to 0.38 Alchemical Flask Weapon Damage reduction reduced from -30% to -25% Alchemical Flask T2 damage increased from +36 to +40 Alchemical Flask T2 now also increases Weapon Damage Reduction by -20% Alchemical Flask T2 no longer increases radius by 1m Alchemical Flask T3 cooldown increased from -6.5s to -7s Alchemical Flask T3 now also increases radius by 2m Willpower duration reduced from 7s to 5s Willpower cooldown reduced from 42s to 40 Willpower barrier now scales with spirit power in the base ability (+0.5) Willpower T2 cooldown from -19s to -22s Willpower T2 now also increases duration by +2s Willpower T3 changed from \"+150 Barrier Health and improved scaling (3.7)\" to \"+40% Debuff Resistance and improved scaling (2.5)\" Binding Word cast range reduced from 20m to 15m Binding Word cooldown decreased from 37s to 34s Binding Word T1 changed from \"+1s Immobilize Duration\" to \"+20% Bullet Damage to Trapped heroes for 5s\" Binding Word T2 changed from \"-19s Cooldown\" to \"+0.75s Duration and +12m Cast Range\" Binding Word T2 now increases trap duration by 0.75s Binding Word T3 changed from \"+20% Bullet Damage\" to \"-18s Cooldown and Silences enemies until they escape or are trapped\" Last Stand Channeling bullet and spirit resist increased from 30% to 60% Last Stand radius reduced from 13m to 12m Last Stand T1 increased from +3m Radius to +4m Last Stand T3 no longer grants +50% Bullet and Spirit Resist Last Stand T3 duration increased from +2.5s to +3s Last Stand T3 now also grants you Unstoppable while channeling Last Stand Bullet and Spirit Resist while channeling reduced from 60% to 50% Last Stand T3 now also increases Bullet and Spirit Resist while channeling by +30% Wraith Card Trick cards now have specific suites with special bonuses. Card Trick base charge count increased from 1 to 2 Card Trick base damage reduced from 60 to 45 Card Trick spirit scaling reduced from 1.0 to 0.55 Card Trick buildup now takes 20% longer Card Trick cooldown reduced from 0.75s to 0.5s Card Trick post cast time reduced from 0.2s to 0.1 Card Trick now highlights the card that will be throw next. Card Trick now has unique sounds for each card suite that is summoned. Card Trick T1 increased from \"+1 Charges\" to \"+2 Charges\" Card Trick T2 changed from \"+35 Damage\" to \"+40 Damage and increased spirit scaling (+0.4)\" Card Trick T2 changed from \"+50% Card Summon Rate and 30% slow for 1s\" to \"Improves Card Suites and increased joker chances\" (new totals are Spades: 2.5x, Diamond: -13%, Heal: 150/2.0, Clubs: 50%, Joker: 1/5th chance) Fixed Project Mind interaction with stuns Full Auto no longer affects allies (previously gave half fire rate to allies) Full Auto duration no longer scales with Spirit Power Full Auto cooldown reduced from 48s to 45s Full Auto base ability now deals +2 Spirit Damage Per Bullet (0.03 Spirit Scaling) Full Auto T1 increased from -14s Cooldown to -20s Full Auto T2 changed from \"2.52 Spirit Damage per Bullet\" to \"+10% Fire Rate and +3s Duration\" Full Auto T3 changed from \"+15% Bullet and Spirit Lifesteal and increased spirit scaling\" to \"Unlimited Ammo and increased spirit scaling (+0.06)\" Telekinesis cooldown increased from 110s to 120s Telekinesis cast range reduced from 20m to 14m Telekinesis cast time increased from 0.1s to 0.3s Telekinesis no longer has a projectile, it now instantly lifts the target for 0.75s and gives you a location target on the ground. After the 0.75s is over, it'll throw the hero towards that location up to 15m away. The target will take 100 Damage, 40% move slow and prevent stamina/movement-item and ability usage for 3s. Telekinesis T1 changed from \"-25s Cooldown\" to \"+100 Damage\" Telekinesis T2 changed from \"+0.75s Silence and Disarm Duration\" to \"-50s Cooldown\" Telekinesis T3 changed from \"Bounces to nearby target\" to \"+1.5s Debuff duration and +6m Throw and Cast Range Card Trick Spade reduced from +70% to +60% Card Trick Heart scaling reduced from 1.25 to 1.0 Card Trick T3 Heart scaling increased from 0.5 to 0.75 Fixed Card Trick Heart heal doing full value for non-heroes (instead of half) Telekinesis debuff duration reduced from 3s to 2.75s Card Trick cooldown increased from 0.5s to 0.6s Card Trick Joker no longer bounces to other targets Card Trick gaining charges (AP or shop) no longer automatically builds them up Card Trick can now be alt casted to fire from the inverse order Card Trick T3 Spade bonus reduced from +50% to +40% Card Trick T3 Heart healing scale reduced from +0.75 to +0.5 Telekinesis cast range reduced from 14m to 13m Telekinesis throw range reduced from 14m to 13m Telekinesis cast delay increased from 0.3s to 0.35s Card Trick heart now only heals for half the amount for secondary targets in the area Card Trick now randomly pulls cards out of a 2 deck stack (lowers overall variance. Gets a new 2 deck stack after that is depleted) Project Mind cooldown increased from 42s to 46s Project Mind T3 cooldown increased from -28s to -32s Full Auto T3 now interrupts/finishes an ongoing reload Telekinesis cast time increased from 0.35s to 0.45s Telekinesis debuff duration reduced from 2.75s to 2.25s Telekinesis cast range reduced from 13m to 10m Telekinesis cooldown increased from 120s to 130s Yamato Power Slash being held down no longer automatically fires it You can now cast Parry directly while channeling Power Slash to fire the Power Slash and parry Power Slash base ability now has +60% Bullet Resist while channeling Power Slash cooldown increased from 10.5s to 12s Power Slash Slash Length reduced from 25m to 22m Power Slash T1 changed from \"+60% Bullet Resist while channeling\" to \"40% Slow for 3s\" Power Slash T2 changed from \"-2s Cooldown and 40% slow for 3s\" to \"-4s Cooldown\" Power Slash T3 now also grants +8m Range Flying Strike renamed to Flying Slash Flying Slash is now light melee damage rather than spirit Flying Slash slow increased from -30% to -50% Flying Slash cooldown increased from 21s to 36s Flying Slash range increased from 20m to 25m Flying Slash T1 changed from \"25% Slow\" to \"-18s Cooldown\" Flying Slash T2 changed from \"+20m Cast Range\" to \"+20m Cast Range and gain +40 Spirit for 6s\" Flying Slash T3 changed from \"Can Grapple to ally heroes and +6 Weapon Damage for 10s\" to \"Can Grapple to ally heroes. Becomes Charged and grants +2 charges (3s between charges).\" Fixed Flying Slash T3 ally cast stopping too soon before reaching the player Crimson Slash cooldown increased from 15s to 16s Crimson Slash Fire Rate reduction increased from -18% to -30% Crimson Slash T1 changed from \"-26% Fire Rate\" to \"On Hit: +30% Melee Damage for 4s\" Crimson Slash T3 increased from -9s Cooldown to -10s Crimson Slash T3 now also increases spirit scaling (+0.6) Shadow Transformation cooldown increased from 110s to 130s Shadow Transformation Bullet and Spirit Resist reduced from 40% to 30% Shadow Transformation T1 changed from \"+14% Fire Rate\" to \"+5 Weapon Damage\" Shadow Transformation T2 now also reduces cooldown by 25s Shadow Transformation T3 increased from +20% Bullet and Spirit Resist to +30% Fixed Flying Strike triggering heavy melee procs rather than light melee (damage amount was light melee still) Extended Magazine Weapon Damage increased from +6% to +8% High-Velocity Rounds No longer grants +5% Fire Rate Now grants +8% Weapon Damage Bullet Velocity increased from +50% to +60% (these changes affect upgrades) Long Range Fall-off Range increased from +4% to +8% Active Reload You can now reload while already full when carrying this item Opening Rounds Spirit Power increased from +8 to +10 Weapon Damage increased from +40% to +45% Swift Striker Fire Rate increased from 18% to 20% Mystic Shot Damage spirit scaling increased from 0.8 to 1.0 Split Shot Cooldown reduced from 32s to 24s Now supports custom count and angles per hero Enabled for Celeste (3 at 70 degrees) Stalker No longer procs based on angles of attack, but instead based on doing bullet or melee damage within 8m of a hero target No longer has a proximity requirement for the overtime bonuses (beyond the 8m proc proximity) Melee Charge Heavy Melee Bonus damage now works with heavy melee abilities Spirit Shredder Bullets Spirit Lifesteal increased from 8% to 12% Weakening Headshot Bonus health increased from +50 to +60 Ballistic Enchantment Weapon damage per stack increased from 18% to 20% Range reduced from 30% to 25% Non-hero weapon damage increased from 4% to 5% Ability Range reduced from 25% to 20% Hunter's Aura Solo hero multiplier reduced from 3x to 2x Bullet Resist Reduction increased from -8% to -10% Fire Rate Reduction increased from -11% to -14% Weighted Shots Now builds from Slowing Bullets. Has Slowing Bullets passive No longer grants +16% Spirit Resist Now grants -0.5m Move Speed No longer grants -30% Bullet Velocity Debuff Resist increased from 16% to 18% Weapon Damage increased from 35% to 40% Stamina Reduction reduced from -20% to -14% Debuff Resist increased from 18% to 20% Express Shot Ammo consumed changed from -30% to 2 Ammo Blood Tribute No longer has healing reduction Self damage increased from 40 to 50 Spirit Resist reduced from 10% to 8% Spirit Rend Cooldown reduced from 2.2s to 2s Spirit Lifesteal increased from 8% to 12% Crushing Fists Heavy Melee Bonus damage now works with heavy melee abilities Frenzy Base Fire Rate increased from 8% to 10% Base Spirit Resist increased from 10% to 15% Conditional Fire Rate reduced from 28% to 25% Conditional Spirit Resist reduced from 30% to 20% Spiritual Overflow Spirit Power increased from 30 to 40 Now grants +20% Duration instead of +12% CD Reduction Extra Health Increased from 185 to 210 Enduring Speed Fixed slow resistance interaction with dash slows Restorative Locket Range increased from 30m to 35m Max stamina regen increased from 3 to 4 Now always restores at least 1 stamina Spirit Resist increased from 8% to 10% Return Fire Returning damage now always hits the target's body (some amount would naturally miss before, and some would be headshots) Bullet Damage Returned reduced from 60% to 50% Weapon Shielding Damage threshold increased from 150 to 250 Cooldown reduced from 45s to 35s Bullet Resilience Low Health threshold increased from 40% to 50% Low Health resistance reduced from 22% to 15% Spirit Resilience Low Health threshold increased from 40% to 50% Low Health resistance reduced from 22% to 15% Lifestrike Heal on melee hit reduced from 160 to 100 + 1.5/boon Heal on melee hit percentage reduced from 50% to 30% + 0.5%/boon Majestic Leap Barrier increased from 140 to 200 Trophy Collector Souls per minute increased from 22 to 25 Dispel Magic Cooldown reduced from 50s to 40s Fortitude Time to regen reduced from 13s to 10s Spellbreaker High instant damage reduction reduced from -75% to -65% Diviner's Kevlar Cooldown reduced from 64s to 40s Inhibitor Damage Penalty reduced from -35% to -30% Weapon Damage bonus increased from +22% to +25% Cheat Death No longer reduces movement speed by -2m during the death immunity phase Colossus Active now grants you an additional +30% Melee Damage Siphon Bullets Now steals 2.5% of enemy max HP per bullet instead of a fixed amount Mystic Regeneration Health bonus increased from +40 to +50 Duration increased from 5s to 6s Rusted Barrel Cooldown reduced from 20s to 16s Arcane Surge Spirit Power increased from +15 to +20 Ability Range reduced from 15% to 12% Slowing Hex Now sets the gravity of an enemy to a fixed +20% (heavier) regardless of their own base values Projectile speed increased from 53m/s to 80m/s Cooldown reduced from 30s to 27s Suppressor Debuff duration increased from 4s to 5s Spirit Sap Spirit Power loss increased from -24 to -30 Cooldown reduced from 32s to 18s Decay Healing Reduction increased from -45% to -50% Silence Wave Damage spirit scaling increased from 0.6 to 1.0 Cooldown reduced from 35s to 30s Knockdown Gravity increased from +50% to +100% when the stun hits the target (causes airborne targets to fall faster) Ability Range reduced from +6% to +5% Radiant Regeneration Health bonus increased from +65 to +90 Duration increased from 5s to 6s Healing on Ability Cast boon scaling increased from 1.5 to 2.0 Tankbuster Current Health Bonus Damage increased from 7.5% to 8% Torment Pulse Damage spirit scaling reduced from 0.28 to 0.25 No longer hits sleeping enemies to avoid waking them up Pulse Damage reduced from 27+0.25 to 25+0.23 Disarming Hex Cooldown reduced from 20s to 16s Magic Carpet Duration increased from 8s to 12s Bonus health increased from 75 to 125 Ethereal Shift Cooldown reduced from 45s to 35s Cursed Relic Damage penalty increased from -8% to -10% Vortex Web Now has a unit target option where it will vacuum enemies around that target Will now only unit target when used with alt cast Ability Range reduced from +10% to +8% Golden Goose Egg souls per buff improved from every 200 souls to every 150 Now has a 2 second channel to hatch Greater Expansion Ability Range reduced from 35% to 30% Guardian Ward Ability Range reduced from 10% to 8% Cultist Sacrifice Ability Range reduced from +15% to +12% Healing Nova Ability Range reduced from +6% to +5% Rescue Beam Ability Range reduced from +8% to +6% Divine Barrier Ability Range reduced from +15% to +10% Echo Shard No longer grants +5% Ability Range Spirit Burn Ability Range reduced from +8% to +6% Burst Fire Duration increased from 3.5s to 4.5s Cooldown increased from 7s to 9s Enchanter's Emblem Spirit Resist increased from 15% to 18% Metal Skin Bullet Resist reduced from 15% to 12% Counterspell Bonus Health reduced from 100 to 75 Boundless Spirit Constant spirit bonus reduced from 35 to 30 Unstable Concoction Now grants you unstoppable during the pre explosion state Radius increased from 18m to 22m Shadow Strike Stamina increased from +2 to +3 Now grants +350 Health DPS increased from 75 to 125 DPS spirit scaling increased from 0.2 to 0.4 Invis duration increased from 2.5s to 3s Electric Slippers Damage radius increased from 8m to 12m Slide Fire Rate increased from 50% to 60% Nullification Burst Radius increased from 12m to 20m Now grants +40% Debuff Resistance Celestial Blessing Cooldown reduced from 50s to 30s Heal increased from up to 50% of your HP to 60% Heal min increased from 300 to 400 Seraphim Wings In Air Damage Reduction increased from -40% to -60% Additional air dash/jump increased from +1 to unlimited Cloak of Opportunity Barrier increased from 300 to 500 Cooldown reduced from 14s to 12s Infinite Rounds Fire Rate increased from 30% to 35% Mystical Piano Radius increased from 11m to 12m Shrink Ray Now grants +20% Fire Rate while shrunk"
+stats schema=2 method=2 collected="2026-09-21T21:41:20.000Z" {
+  before from="2026-02-20" to="2026-03-06"
+  after from="2026-03-07" to="2026-03-21"
+}
 ``
 
 # General Changes
@@ -83,12 +87,12 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5251 pick=0.3625 matches=309176 days=14
-    after win=0.4863 pick=0.2452 matches=234662 days=14
+    before win=0.5251 pick=0.3625 matches=309233 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4863 pick=0.2452 matches=234692 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5218 pick=0.4125 matches=48124 days=14
-    after win=0.4837 pick=0.2488 matches=36344 days=14
+    before win=0.5218 pick=0.4125 matches=48129 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.4837 pick=0.2488 matches=36346 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -182,12 +186,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4929 pick=0.5639 matches=481001 days=14
-    after win=0.5032 pick=0.3495 matches=334474 days=14
+    before win=0.4929 pick=0.5639 matches=481083 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5032 pick=0.3495 matches=334532 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4928 pick=0.6907 matches=80586 days=14
-    after win=0.51 pick=0.3345 matches=48853 days=14
+    before win=0.4928 pick=0.6907 matches=80590 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.51 pick=0.3345 matches=48856 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -229,12 +233,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4887 pick=0.4033 matches=343957 days=14
-    after win=0.4523 pick=0.3314 matches=317185 days=14
+    before win=0.4887 pick=0.4033 matches=344023 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4523 pick=0.3314 matches=317231 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4721 pick=0.5045 matches=58862 days=14
-    after win=0.4362 pick=0.3682 matches=53778 days=14
+    before win=0.4721 pick=0.5045 matches=58868 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.4362 pick=0.3682 matches=53784 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -251,12 +255,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.481 pick=0.3169 matches=270271 days=14
-    after win=0.4751 pick=0.2828 matches=270670 days=14
+    before win=0.481 pick=0.3169 matches=270332 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4751 pick=0.2828 matches=270697 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4863 pick=0.1992 matches=23246 days=14
-    after win=0.4736 pick=0.1951 matches=28497 days=14
+    before win=0.4864 pick=0.1993 matches=23249 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.4736 pick=0.1951 matches=28500 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -312,12 +316,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5015 pick=0.1891 matches=161282 days=14
-    after win=0.5258 pick=0.3424 matches=327728 days=14
+    before win=0.5015 pick=0.1891 matches=161300 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5258 pick=0.3424 matches=327768 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5068 pick=0.2382 matches=27794 days=14
-    after win=0.5375 pick=0.5053 matches=73804 days=14
+    before win=0.5068 pick=0.2382 matches=27794 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5375 pick=0.5053 matches=73809 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -406,12 +410,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4878 pick=0.5001 matches=426524 days=14
-    after win=0.464 pick=0.307 matches=293786 days=14
+    before win=0.4878 pick=0.5001 matches=426580 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.464 pick=0.307 matches=293838 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5021 pick=0.5284 matches=61645 days=14
-    after win=0.4812 pick=0.2385 matches=34841 days=14
+    before win=0.5021 pick=0.5284 matches=61650 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.4812 pick=0.2385 matches=34842 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -476,12 +480,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4548 pick=0.2629 matches=224246 days=14
-    after win=0.5011 pick=0.4602 matches=440449 days=14
+    before win=0.4548 pick=0.2629 matches=224293 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5011 pick=0.4602 matches=440518 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4483 pick=0.1749 matches=20407 days=14
-    after win=0.4915 pick=0.4213 matches=61543 days=14
+    before win=0.4483 pick=0.1749 matches=20408 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.4915 pick=0.4213 matches=61546 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -566,12 +570,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5273 pick=0.4227 matches=360497 days=14
-    after win=0.4959 pick=0.3983 matches=381237 days=14
+    before win=0.5274 pick=0.4227 matches=360561 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4959 pick=0.3983 matches=381292 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5277 pick=0.4512 matches=52644 days=14
-    after win=0.5007 pick=0.4394 matches=64178 days=14
+    before win=0.5277 pick=0.4512 matches=52646 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5007 pick=0.4394 matches=64181 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -633,12 +637,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5096 pick=0.3096 matches=264094 days=14
-    after win=0.5352 pick=0.3297 matches=315498 days=14
+    before win=0.5096 pick=0.3096 matches=264148 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5352 pick=0.3297 matches=315542 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5145 pick=0.2724 matches=31779 days=14
-    after win=0.5287 pick=0.2839 matches=41470 days=14
+    before win=0.5145 pick=0.2724 matches=31783 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5287 pick=0.2839 matches=41472 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -719,12 +723,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5292 pick=0.6063 matches=517152 days=14
-    after win=0.5054 pick=0.4381 matches=419284 days=14
+    before win=0.5292 pick=0.6063 matches=517244 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5054 pick=0.4381 matches=419351 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5218 pick=0.5148 matches=60058 days=14
-    after win=0.5052 pick=0.2568 matches=37503 days=14
+    before win=0.5218 pick=0.5148 matches=60064 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5053 pick=0.2568 matches=37506 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -779,12 +783,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5456 pick=0.4856 matches=414220 days=14
-    after win=0.5596 pick=0.4582 matches=438504 days=14
+    before win=0.5456 pick=0.4856 matches=414288 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5596 pick=0.4582 matches=438567 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5268 pick=0.518 matches=60432 days=14
-    after win=0.5381 pick=0.4801 matches=70130 days=14
+    before win=0.5268 pick=0.518 matches=60435 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5381 pick=0.4802 matches=70138 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -854,12 +858,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4817 pick=0.2863 matches=244198 days=14
-    after win=0.5103 pick=0.3624 matches=346852 days=14
+    before win=0.4817 pick=0.2863 matches=244243 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5103 pick=0.3624 matches=346901 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4606 pick=0.2576 matches=30051 days=14
-    after win=0.487 pick=0.3464 matches=50589 days=14
+    before win=0.4606 pick=0.2576 matches=30052 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.487 pick=0.3463 matches=50590 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -925,12 +929,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5151 pick=0.2346 matches=200092 days=14
-    after win=0.5423 pick=0.3745 matches=358460 days=14
+    before win=0.5151 pick=0.2346 matches=200133 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5423 pick=0.3746 matches=358517 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5305 pick=0.2664 matches=31077 days=14
-    after win=0.549 pick=0.495 matches=72305 days=14
+    before win=0.5306 pick=0.2664 matches=31079 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.549 pick=0.495 matches=72311 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -1052,12 +1056,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4607 pick=0.1257 matches=107206 days=14
-    after win=0.5247 pick=0.2114 matches=202312 days=14
+    before win=0.4606 pick=0.1257 matches=107221 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5247 pick=0.2114 matches=202338 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4556 pick=0.1059 matches=12352 days=14
-    after win=0.5276 pick=0.2541 matches=37120 days=14
+    before win=0.4556 pick=0.1059 matches=12354 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5275 pick=0.2541 matches=37123 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -1145,12 +1149,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4843 pick=0.2173 matches=185349 days=14
-    after win=0.5288 pick=0.2719 matches=260218 days=14
+    before win=0.4843 pick=0.2173 matches=185380 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5289 pick=0.2719 matches=260259 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4655 pick=0.1761 matches=20545 days=14
-    after win=0.5197 pick=0.2724 matches=39791 days=14
+    before win=0.4654 pick=0.1761 matches=20546 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5197 pick=0.2724 matches=39794 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -1190,12 +1194,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5105 pick=0.4103 matches=349986 days=14
-    after win=0.4917 pick=0.3799 matches=363581 days=14
+    before win=0.5104 pick=0.4103 matches=350037 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4917 pick=0.3799 matches=363626 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5056 pick=0.5558 matches=64844 days=14
-    after win=0.4871 pick=0.4732 matches=69120 days=14
+    before win=0.5057 pick=0.5558 matches=64849 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.4871 pick=0.4732 matches=69127 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -1253,12 +1257,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4973 pick=0.195 matches=166314 days=14
-    after win=0.5317 pick=0.2553 matches=244337 days=14
+    before win=0.4973 pick=0.195 matches=166352 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5317 pick=0.2553 matches=244378 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4974 pick=0.1184 matches=13812 days=14
-    after win=0.5557 pick=0.2549 matches=37230 days=14
+    before win=0.4974 pick=0.1184 matches=13813 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5557 pick=0.2549 matches=37233 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -1363,12 +1367,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.46 pick=0.3888 matches=331593 days=14
-    after win=0.4495 pick=0.3639 matches=348241 days=14
+    before win=0.46 pick=0.3888 matches=331640 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4495 pick=0.3639 matches=348299 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4778 pick=0.2418 matches=28213 days=14
-    after win=0.4616 pick=0.2594 matches=37895 days=14
+    before win=0.4778 pick=0.2418 matches=28215 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.4616 pick=0.2594 matches=37895 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -1440,12 +1444,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4784 pick=0.1634 matches=139371 days=14
-    after win=0.4255 pick=0.2029 matches=194186 days=14
+    before win=0.4784 pick=0.1634 matches=139388 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4255 pick=0.2029 matches=194209 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4607 pick=0.1768 matches=20622 days=14
-    after win=0.3991 pick=0.2388 matches=34883 days=14
+    before win=0.4607 pick=0.1768 matches=20623 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.3991 pick=0.2388 matches=34886 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -1553,12 +1557,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.521 pick=0.2743 matches=233914 days=14
-    after win=0.5137 pick=0.3452 matches=330354 days=14
+    before win=0.521 pick=0.2742 matches=233942 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5137 pick=0.3452 matches=330388 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5304 pick=0.359 matches=41888 days=14
-    after win=0.5213 pick=0.4715 matches=68862 days=14
+    before win=0.5304 pick=0.359 matches=41891 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5213 pick=0.4715 matches=68866 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -1649,12 +1653,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5184 pick=0.432 matches=368492 days=14
-    after win=0.5292 pick=0.3931 matches=376193 days=14
+    before win=0.5184 pick=0.432 matches=368562 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5292 pick=0.3931 matches=376256 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5152 pick=0.3473 matches=40517 days=14
-    after win=0.5017 pick=0.2831 matches=41347 days=14
+    before win=0.5152 pick=0.3473 matches=40519 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5017 pick=0.2831 matches=41348 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -1700,12 +1704,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4559 pick=0.193 matches=164653 days=14
-    after win=0.4737 pick=0.2888 matches=276400 days=14
+    before win=0.4559 pick=0.193 matches=164681 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4737 pick=0.2888 matches=276433 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4605 pick=0.24 matches=27996 days=14
-    after win=0.4748 pick=0.3894 matches=56882 days=14
+    before win=0.4605 pick=0.24 matches=27999 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.4748 pick=0.3894 matches=56884 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -1793,12 +1797,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4813 pick=0.1909 matches=162838 days=14
-    after win=0.4893 pick=0.2313 matches=221328 days=14
+    before win=0.4813 pick=0.1909 matches=162858 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4893 pick=0.2312 matches=221349 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4858 pick=0.2061 matches=24044 days=14
-    after win=0.4883 pick=0.2669 matches=38979 days=14
+    before win=0.4858 pick=0.2061 matches=24045 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.4883 pick=0.2669 matches=38981 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -1873,12 +1877,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5023 pick=0.7453 matches=635662 days=14
-    after win=0.4633 pick=0.6069 matches=580830 days=14
+    before win=0.5023 pick=0.7453 matches=635764 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4633 pick=0.6069 matches=580918 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4928 pick=0.7094 matches=82763 days=14
-    after win=0.4499 pick=0.4318 matches=63071 days=14
+    before win=0.4928 pick=0.7094 matches=82768 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.4499 pick=0.4318 matches=63080 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -1905,12 +1909,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5626 pick=0.4089 matches=348730 days=14
-    after win=0.5623 pick=0.3731 matches=357052 days=14
+    before win=0.5626 pick=0.4089 matches=348787 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5623 pick=0.3731 matches=357108 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5515 pick=0.3451 matches=40264 days=14
-    after win=0.5611 pick=0.3112 matches=45452 days=14
+    before win=0.5515 pick=0.3451 matches=40265 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.561 pick=0.3112 matches=45455 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -1969,12 +1973,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.434 pick=0.1907 matches=162694 days=14
-    after win=0.4419 pick=0.2173 matches=208007 days=14
+    before win=0.434 pick=0.1907 matches=162713 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4419 pick=0.2173 matches=208029 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4397 pick=0.2732 matches=31869 days=14
-    after win=0.4458 pick=0.3278 matches=47873 days=14
+    before win=0.4397 pick=0.2731 matches=31869 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.4458 pick=0.3278 matches=47876 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -2062,12 +2066,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5074 pick=0.5236 matches=446598 days=14
-    after win=0.4647 pick=0.3043 matches=291216 days=14
+    before win=0.5074 pick=0.5236 matches=446652 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4647 pick=0.3043 matches=291265 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5154 pick=0.5487 matches=64021 days=14
-    after win=0.4768 pick=0.2328 matches=33998 days=14
+    before win=0.5154 pick=0.5487 matches=64023 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.4768 pick=0.2327 matches=33998 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -2138,12 +2142,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5468 pick=0.2479 matches=211416 days=14
-    after win=0.5737 pick=0.3337 matches=319402 days=14
+    before win=0.5468 pick=0.2479 matches=211457 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5736 pick=0.3337 matches=319458 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5201 pick=0.1697 matches=19793 days=14
-    after win=0.5535 pick=0.2907 matches=42458 days=14
+    before win=0.5202 pick=0.1697 matches=19797 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5535 pick=0.2907 matches=42458 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -2243,12 +2247,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4734 pick=0.2169 matches=185003 days=14
-    after win=0.4923 pick=0.298 matches=285200 days=14
+    before win=0.4734 pick=0.2169 matches=185035 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4923 pick=0.298 matches=285247 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4749 pick=0.143 matches=16681 days=14
-    after win=0.4942 pick=0.2948 matches=43053 days=14
+    before win=0.4749 pick=0.143 matches=16683 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.4942 pick=0.2948 matches=43059 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -2307,12 +2311,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4892 pick=0.2013 matches=171720 days=14
-    after win=0.5077 pick=0.2971 matches=284301 days=14
+    before win=0.4892 pick=0.2013 matches=171749 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5077 pick=0.2971 matches=284336 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5012 pick=0.1785 matches=20827 days=14
-    after win=0.5131 pick=0.3279 matches=47900 days=14
+    before win=0.5012 pick=0.1785 matches=20827 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5132 pick=0.328 matches=47906 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -2402,12 +2406,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5141 pick=0.237 matches=202104 days=14
-    after win=0.5087 pick=0.2141 matches=204904 days=14
+    before win=0.5141 pick=0.237 matches=202133 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5087 pick=0.2141 matches=204945 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.518 pick=0.2325 matches=27127 days=14
-    after win=0.5074 pick=0.2082 matches=30409 days=14
+    before win=0.518 pick=0.2325 matches=27128 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5074 pick=0.2082 matches=30410 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -2466,12 +2470,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.493 pick=0.2042 matches=174186 days=14
-    after win=0.5169 pick=0.4442 matches=425080 days=14
+    before win=0.493 pick=0.2042 matches=174216 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5169 pick=0.4442 matches=425134 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5044 pick=0.1697 matches=19798 days=14
-    after win=0.5309 pick=0.519 matches=75805 days=14
+    before win=0.5044 pick=0.1697 matches=19801 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5309 pick=0.519 matches=75812 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -2597,12 +2601,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4853 pick=0.2338 matches=199403 days=14
-    after win=0.4911 pick=0.261 matches=249745 days=14
+    before win=0.4853 pick=0.2338 matches=199431 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4911 pick=0.2609 matches=249775 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4993 pick=0.2368 matches=27627 days=14
-    after win=0.499 pick=0.2723 matches=39772 days=14
+    before win=0.4993 pick=0.2368 matches=27629 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.4991 pick=0.2723 matches=39774 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -2676,12 +2680,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5194 pick=0.0787 matches=805352 days=14
-    after win=0.5194 pick=0.0659 matches=756643 days=14
+    before win=0.5194 pick=0.0787 matches=805476 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5194 pick=0.0659 matches=756781 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5135 pick=0.077 matches=107835 days=14
-    after win=0.5164 pick=0.0596 matches=104411 days=14
+    before win=0.5135 pick=0.077 matches=107844 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5164 pick=0.0596 matches=104422 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -2694,12 +2698,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4957 pick=0.05 matches=512088 days=14
-    after win=0.5078 pick=0.0589 matches=676706 days=14
+    before win=0.4957 pick=0.05 matches=512180 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5078 pick=0.0589 matches=676799 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4989 pick=0.0486 matches=68057 days=14
-    after win=0.5133 pick=0.0768 matches=134644 days=14
+    before win=0.4989 pick=0.0486 matches=68061 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5133 pick=0.0768 matches=134651 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -2713,12 +2717,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5199 pick=0.0772 matches=789995 days=14
-    after win=0.5266 pick=0.0871 matches=1000743 days=14
+    before win=0.5199 pick=0.0772 matches=790116 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5266 pick=0.0871 matches=1000883 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5171 pick=0.0654 matches=91538 days=14
-    after win=0.5295 pick=0.0858 matches=150338 days=14
+    before win=0.5171 pick=0.0654 matches=91543 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5294 pick=0.0858 matches=150349 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -2734,12 +2738,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5241 pick=0.0041 matches=42148 days=14
-    after win=0.5436 pick=0.0109 matches=125467 days=14
+    before win=0.5241 pick=0.0041 matches=42153 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5436 pick=0.0109 matches=125482 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5538 pick=0.0053 matches=7387 days=14
-    after win=0.5532 pick=0.0158 matches=27755 days=14
+    before win=0.5538 pick=0.0053 matches=7387 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5532 pick=0.0158 matches=27756 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -2754,12 +2758,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5288 pick=0.3921 matches=4013100 days=14
-    after win=0.5325 pick=0.4076 matches=4681217 days=14
+    before win=0.5288 pick=0.3921 matches=4013705 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5325 pick=0.4076 matches=4681918 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.533 pick=0.3484 matches=487774 days=14
-    after win=0.5385 pick=0.3586 matches=628530 days=14
+    before win=0.533 pick=0.3484 matches=487793 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5385 pick=0.3586 matches=628557 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -2772,12 +2776,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4599 pick=0.0766 matches=784486 days=14
-    after win=0.4544 pick=0.0595 matches=683621 days=14
+    before win=0.4599 pick=0.0766 matches=784606 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4544 pick=0.0595 matches=683742 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4742 pick=0.0797 matches=111553 days=14
-    after win=0.4657 pick=0.0497 matches=87169 days=14
+    before win=0.4742 pick=0.0797 matches=111563 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.4657 pick=0.0497 matches=87172 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -2791,12 +2795,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5183 pick=0.124 matches=1268868 days=14
-    after win=0.513 pick=0.1101 matches=1264822 days=14
+    before win=0.5183 pick=0.124 matches=1269054 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.513 pick=0.1101 matches=1265022 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5236 pick=0.1019 matches=142699 days=14
-    after win=0.5205 pick=0.0919 matches=161131 days=14
+    before win=0.5236 pick=0.1019 matches=142710 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5205 pick=0.0919 matches=161143 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -2818,12 +2822,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5687 pick=0.0099 matches=101715 days=14
-    after win=0.5657 pick=0.0149 matches=170755 days=14
+    before win=0.5687 pick=0.0099 matches=101729 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5657 pick=0.0149 matches=170782 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5979 pick=0.0114 matches=16000 days=14
-    after win=0.584 pick=0.0169 matches=29547 days=14
+    before win=0.5979 pick=0.0114 matches=16000 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.584 pick=0.0169 matches=29547 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -2843,12 +2847,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5581 pick=0.0188 matches=192498 days=14
-    after win=0.5655 pick=0.0264 matches=302954 days=14
+    before win=0.5581 pick=0.0188 matches=192531 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5655 pick=0.0264 matches=303003 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5918 pick=0.0135 matches=18906 days=14
-    after win=0.59 pick=0.0254 matches=44551 days=14
+    before win=0.5918 pick=0.0135 matches=18909 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5899 pick=0.0254 matches=44553 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -2861,12 +2865,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4909 pick=0.1049 matches=1073690 days=14
-    after win=0.489 pick=0.1011 matches=1160814 days=14
+    before win=0.4909 pick=0.1049 matches=1073795 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.489 pick=0.1011 matches=1160944 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5054 pick=0.2034 matches=284816 days=14
-    after win=0.5002 pick=0.161 matches=282163 days=14
+    before win=0.5054 pick=0.2034 matches=284822 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5002 pick=0.161 matches=282180 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -2879,12 +2883,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5433 pick=0.0525 matches=537266 days=14
-    after win=0.5329 pick=0.0503 matches=577117 days=14
+    before win=0.5433 pick=0.0525 matches=537344 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5328 pick=0.0503 matches=577207 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5509 pick=0.045 matches=63056 days=14
-    after win=0.5436 pick=0.0387 matches=67804 days=14
+    before win=0.5509 pick=0.045 matches=63060 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5436 pick=0.0387 matches=67810 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -2897,12 +2901,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5 pick=0.0913 matches=934556 days=14
-    after win=0.5046 pick=0.0779 matches=894928 days=14
+    before win=0.5 pick=0.0913 matches=934690 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5046 pick=0.0779 matches=895047 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5019 pick=0.1204 matches=168605 days=14
-    after win=0.5039 pick=0.0979 matches=171612 days=14
+    before win=0.5018 pick=0.1204 matches=168612 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5039 pick=0.0979 matches=171622 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -2915,12 +2919,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4906 pick=0.0402 matches=411417 days=14
-    after win=0.4683 pick=0.0295 matches=339210 days=14
+    before win=0.4906 pick=0.0402 matches=411466 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4683 pick=0.0295 matches=339246 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5005 pick=0.0637 matches=89209 days=14
-    after win=0.4727 pick=0.0415 matches=72808 days=14
+    before win=0.5005 pick=0.0637 matches=89209 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.4727 pick=0.0415 matches=72811 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -2933,12 +2937,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4405 pick=0.0119 matches=122267 days=14
-    after win=0.4428 pick=0.0155 matches=178225 days=14
+    before win=0.4405 pick=0.0119 matches=122287 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4428 pick=0.0155 matches=178236 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4559 pick=0.017 matches=23785 days=14
-    after win=0.4538 pick=0.0215 matches=37706 days=14
+    before win=0.4559 pick=0.017 matches=23787 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.4538 pick=0.0215 matches=37708 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -2951,12 +2955,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.3986 pick=0.0229 matches=234163 days=14
-    after win=0.4026 pick=0.0204 matches=234708 days=14
+    before win=0.3986 pick=0.0229 matches=234199 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4026 pick=0.0204 matches=234736 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.3908 pick=0.0261 matches=36549 days=14
-    after win=0.3918 pick=0.022 matches=38476 days=14
+    before win=0.3908 pick=0.0261 matches=36552 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.3918 pick=0.022 matches=38479 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -2969,12 +2973,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4803 pick=0.0499 matches=511006 days=14
-    after win=0.4939 pick=0.067 matches=769175 days=14
+    before win=0.4803 pick=0.0499 matches=511070 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4939 pick=0.067 matches=769250 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4898 pick=0.075 matches=105068 days=14
-    after win=0.5051 pick=0.1187 matches=208067 days=14
+    before win=0.4898 pick=0.075 matches=105073 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5051 pick=0.1187 matches=208072 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -2987,12 +2991,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5436 pick=0.0465 matches=476260 days=14
-    after win=0.5393 pick=0.0407 matches=467797 days=14
+    before win=0.5436 pick=0.0465 matches=476338 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5393 pick=0.0407 matches=467857 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5468 pick=0.055 matches=77005 days=14
-    after win=0.5423 pick=0.0445 matches=77939 days=14
+    before win=0.5467 pick=0.055 matches=77007 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5423 pick=0.0445 matches=77942 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3005,12 +3009,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5672 pick=0.0162 matches=166158 days=14
-    after win=0.5711 pick=0.0152 matches=174820 days=14
+    before win=0.5672 pick=0.0162 matches=166196 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5711 pick=0.0152 matches=174843 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5952 pick=0.0123 matches=17263 days=14
-    after win=0.5974 pick=0.0137 matches=24019 days=14
+    before win=0.5952 pick=0.0123 matches=17263 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5974 pick=0.0137 matches=24019 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3023,12 +3027,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5487 pick=0.0603 matches=617293 days=14
-    after win=0.532 pick=0.0605 matches=694761 days=14
+    before win=0.5487 pick=0.0603 matches=617375 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.532 pick=0.0605 matches=694853 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5498 pick=0.0789 matches=110452 days=14
-    after win=0.526 pick=0.0735 matches=128880 days=14
+    before win=0.5498 pick=0.0789 matches=110458 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.526 pick=0.0735 matches=128885 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3048,12 +3052,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4968 pick=0.1846 matches=1889246 days=14
-    after win=0.4955 pick=0.1778 matches=2042193 days=14
+    before win=0.4968 pick=0.1846 matches=1889536 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4955 pick=0.1778 matches=2042477 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4989 pick=0.1978 matches=276915 days=14
-    after win=0.4951 pick=0.192 matches=336492 days=14
+    before win=0.4989 pick=0.1978 matches=276924 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.4951 pick=0.192 matches=336511 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3066,12 +3070,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5168 pick=0.3719 matches=3806776 days=14
-    after win=0.5175 pick=0.3917 matches=4498919 days=14
+    before win=0.5168 pick=0.3719 matches=3807338 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5174 pick=0.3917 matches=4499558 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5133 pick=0.3882 matches=543515 days=14
-    after win=0.5161 pick=0.4233 matches=741958 days=14
+    before win=0.5133 pick=0.3882 matches=543548 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5161 pick=0.4233 matches=742000 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3084,12 +3088,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5647 pick=0.0072 matches=74022 days=14
-    after win=0.5744 pick=0.0119 matches=136583 days=14
+    before win=0.5647 pick=0.0072 matches=74033 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5744 pick=0.0119 matches=136602 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5811 pick=0.0102 matches=14229 days=14
-    after win=0.5894 pick=0.0204 matches=35746 days=14
+    before win=0.5811 pick=0.0102 matches=14231 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5894 pick=0.0204 matches=35748 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3102,12 +3106,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4991 pick=0.0401 matches=410122 days=14
-    after win=0.4694 pick=0.0262 matches=300776 days=14
+    before win=0.4991 pick=0.0401 matches=410183 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4693 pick=0.0262 matches=300834 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5112 pick=0.038 matches=53209 days=14
-    after win=0.4797 pick=0.0175 matches=30741 days=14
+    before win=0.5112 pick=0.038 matches=53211 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.4797 pick=0.0175 matches=30743 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3120,12 +3124,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4904 pick=0.1195 matches=1222906 days=14
-    after win=0.494 pick=0.1158 matches=1330433 days=14
+    before win=0.4904 pick=0.1195 matches=1223133 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.494 pick=0.1158 matches=1330664 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5001 pick=0.0879 matches=123110 days=14
-    after win=0.5011 pick=0.0897 matches=157155 days=14
+    before win=0.5001 pick=0.0879 matches=123118 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5011 pick=0.0897 matches=157167 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3138,12 +3142,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4825 pick=0.0868 matches=888088 days=14
-    after win=0.4953 pick=0.1252 matches=1437625 days=14
+    before win=0.4825 pick=0.0868 matches=888252 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4953 pick=0.1252 matches=1437815 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4992 pick=0.0635 matches=88886 days=14
-    after win=0.5109 pick=0.1428 matches=250345 days=14
+    before win=0.4992 pick=0.0635 matches=88890 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5109 pick=0.1428 matches=250356 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3156,12 +3160,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4942 pick=0.0663 matches=678801 days=14
-    after win=0.5084 pick=0.1032 matches=1185713 days=14
+    before win=0.4942 pick=0.0663 matches=678935 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5084 pick=0.1032 matches=1185873 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5101 pick=0.047 matches=65809 days=14
-    after win=0.5185 pick=0.1184 matches=207486 days=14
+    before win=0.5101 pick=0.047 matches=65813 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5185 pick=0.1184 matches=207495 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3174,12 +3178,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.6004 pick=0.0268 matches=273999 days=14
-    after win=0.5903 pick=0.0188 matches=216167 days=14
+    before win=0.6004 pick=0.0268 matches=274038 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5903 pick=0.0188 matches=216203 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.6143 pick=0.0236 matches=33099 days=14
-    after win=0.6096 pick=0.0155 matches=27246 days=14
+    before win=0.6143 pick=0.0236 matches=33099 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.6096 pick=0.0155 matches=27247 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3195,12 +3199,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=0 days=0
-    after win=0.5055 pick=0.0686 matches=788039 days=14
+    before win=#null pick=#null matches=0 days=0 total=10236730 covered=14 coverage="complete"
+    after win=0.5055 pick=0.0686 matches=788123 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=0.5011 pick=0.0843 matches=147731 days=14
+    before win=#null pick=#null matches=0 days=0 total=1400112 covered=14 coverage="complete"
+    after win=0.5011 pick=0.0843 matches=147732 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3214,12 +3218,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5185 pick=0.3188 matches=3263426 days=14
-    after win=0.5264 pick=0.3486 matches=4002964 days=14
+    before win=0.5185 pick=0.3188 matches=3263910 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5264 pick=0.3486 matches=4003563 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5243 pick=0.303 matches=424144 days=14
-    after win=0.5314 pick=0.3294 matches=577419 days=14
+    before win=0.5243 pick=0.3029 matches=424157 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5314 pick=0.3294 matches=577448 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3232,12 +3236,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5021 pick=0.0839 matches=858982 days=14
-    after win=0.4928 pick=0.0733 matches=841439 days=14
+    before win=0.5021 pick=0.0839 matches=859123 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4928 pick=0.0733 matches=841553 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4994 pick=0.0911 matches=127490 days=14
-    after win=0.489 pick=0.075 matches=131406 days=14
+    before win=0.4994 pick=0.0911 matches=127493 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.489 pick=0.075 matches=131411 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3250,12 +3254,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5185 pick=0.0481 matches=492318 days=14
-    after win=0.509 pick=0.0424 matches=486874 days=14
+    before win=0.5185 pick=0.0481 matches=492409 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5089 pick=0.0424 matches=486964 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5274 pick=0.0442 matches=61925 days=14
-    after win=0.523 pick=0.0384 matches=67338 days=14
+    before win=0.5274 pick=0.0442 matches=61928 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5231 pick=0.0384 matches=67341 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3268,12 +3272,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4958 pick=0.0877 matches=897299 days=14
-    after win=0.4919 pick=0.0851 matches=977900 days=14
+    before win=0.4958 pick=0.0877 matches=897439 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4919 pick=0.0852 matches=978083 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5133 pick=0.0888 matches=124310 days=14
-    after win=0.4966 pick=0.0712 matches=124721 days=14
+    before win=0.5133 pick=0.0888 matches=124315 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.4966 pick=0.0712 matches=124730 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3288,12 +3292,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5415 pick=0.0797 matches=815748 days=14
-    after win=0.5158 pick=0.0645 matches=740821 days=14
+    before win=0.5415 pick=0.0797 matches=815870 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5158 pick=0.0645 matches=740951 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5477 pick=0.0884 matches=123748 days=14
-    after win=0.5327 pick=0.0667 matches=116876 days=14
+    before win=0.5477 pick=0.0884 matches=123754 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5326 pick=0.0667 matches=116883 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3314,12 +3318,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5785 pick=0.0638 matches=653388 days=14
-    after win=0.5569 pick=0.051 matches=585245 days=14
+    before win=0.5785 pick=0.0638 matches=653468 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5569 pick=0.051 matches=585337 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5873 pick=0.0665 matches=93149 days=14
-    after win=0.5654 pick=0.044 matches=77164 days=14
+    before win=0.5873 pick=0.0665 matches=93155 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5654 pick=0.044 matches=77169 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3333,12 +3337,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4748 pick=0.0599 matches=612849 days=14
-    after win=0.4724 pick=0.0642 matches=736983 days=14
+    before win=0.4748 pick=0.0599 matches=612937 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4724 pick=0.0642 matches=737090 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4841 pick=0.0577 matches=80734 days=14
-    after win=0.4752 pick=0.061 matches=106933 days=14
+    before win=0.4841 pick=0.0577 matches=80736 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.4753 pick=0.061 matches=106937 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3352,12 +3356,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.513 pick=0.1368 matches=1400659 days=14
-    after win=0.4964 pick=0.1139 matches=1307982 days=14
+    before win=0.513 pick=0.1368 matches=1400860 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4964 pick=0.1139 matches=1308175 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5144 pick=0.1473 matches=206177 days=14
-    after win=0.5035 pick=0.1115 matches=195459 days=14
+    before win=0.5144 pick=0.1473 matches=206186 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5035 pick=0.1115 matches=195471 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3371,12 +3375,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4712 pick=0.024 matches=245568 days=14
-    after win=0.4869 pick=0.0236 matches=270914 days=14
+    before win=0.4713 pick=0.024 matches=245604 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4869 pick=0.0236 matches=270954 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4767 pick=0.0191 matches=26696 days=14
-    after win=0.492 pick=0.0221 matches=38652 days=14
+    before win=0.4767 pick=0.0191 matches=26698 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.492 pick=0.0221 matches=38656 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3389,12 +3393,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5708 pick=0.0033 matches=33660 days=14
-    after win=0.5703 pick=0.0034 matches=38959 days=14
+    before win=0.5708 pick=0.0033 matches=33663 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5703 pick=0.0034 matches=38961 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5538 pick=0.0035 matches=4854 days=14
-    after win=0.561 pick=0.0033 matches=5799 days=14
+    before win=0.5538 pick=0.0035 matches=4854 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.561 pick=0.0033 matches=5799 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3408,12 +3412,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5127 pick=0.028 matches=286446 days=14
-    after win=0.5056 pick=0.0265 matches=304759 days=14
+    before win=0.5127 pick=0.028 matches=286481 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5056 pick=0.0265 matches=304792 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5044 pick=0.0395 matches=55338 days=14
-    after win=0.5046 pick=0.037 matches=64887 days=14
+    before win=0.5044 pick=0.0395 matches=55338 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5046 pick=0.037 matches=64889 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3426,12 +3430,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5114 pick=0.0729 matches=745941 days=14
-    after win=0.4966 pick=0.0738 matches=847819 days=14
+    before win=0.5114 pick=0.0729 matches=746047 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4966 pick=0.0738 matches=847934 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5125 pick=0.0777 matches=108831 days=14
-    after win=0.4968 pick=0.0688 matches=120636 days=14
+    before win=0.5125 pick=0.0777 matches=108837 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.4968 pick=0.0688 matches=120644 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3444,12 +3448,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4035 pick=0.0471 matches=482437 days=14
-    after win=0.3864 pick=0.0386 matches=443150 days=14
+    before win=0.4035 pick=0.0471 matches=482493 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.3864 pick=0.0386 matches=443234 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4121 pick=0.0658 matches=92155 days=14
-    after win=0.3924 pick=0.0478 matches=83845 days=14
+    before win=0.4121 pick=0.0658 matches=92163 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.3924 pick=0.0478 matches=83853 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3462,12 +3466,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4757 pick=0.0682 matches=698261 days=14
-    after win=0.4926 pick=0.0731 matches=839065 days=14
+    before win=0.4757 pick=0.0682 matches=698377 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4925 pick=0.0731 matches=839197 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4721 pick=0.0526 matches=73615 days=14
-    after win=0.4883 pick=0.066 matches=115736 days=14
+    before win=0.4721 pick=0.0526 matches=73620 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.4883 pick=0.066 matches=115744 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3481,12 +3485,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4938 pick=0.0614 matches=628128 days=14
-    after win=0.489 pick=0.0648 matches=744327 days=14
+    before win=0.4939 pick=0.0614 matches=628225 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4891 pick=0.0648 matches=744438 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5015 pick=0.0665 matches=93158 days=14
-    after win=0.4928 pick=0.0722 matches=126619 days=14
+    before win=0.5015 pick=0.0665 matches=93162 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.4928 pick=0.0722 matches=126628 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3512,12 +3516,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4635 pick=0.0336 matches=344322 days=14
-    after win=0.4834 pick=0.0498 matches=572287 days=14
+    before win=0.4635 pick=0.0336 matches=344374 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4834 pick=0.0498 matches=572364 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4723 pick=0.0257 matches=36037 days=14
-    after win=0.4918 pick=0.0526 matches=92220 days=14
+    before win=0.4722 pick=0.0257 matches=36039 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.4918 pick=0.0526 matches=92229 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3531,12 +3535,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4873 pick=0.0649 matches=664697 days=14
-    after win=0.5053 pick=0.0735 matches=844036 days=14
+    before win=0.4873 pick=0.0649 matches=664802 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5053 pick=0.0735 matches=844185 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4785 pick=0.0508 matches=71162 days=14
-    after win=0.4982 pick=0.064 matches=112220 days=14
+    before win=0.4785 pick=0.0508 matches=71167 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.4982 pick=0.064 matches=112227 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3551,12 +3555,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4972 pick=0.0289 matches=295943 days=14
-    after win=0.5074 pick=0.0297 matches=341298 days=14
+    before win=0.4972 pick=0.0289 matches=296000 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5073 pick=0.0297 matches=341343 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4987 pick=0.0323 matches=45239 days=14
-    after win=0.5096 pick=0.0333 matches=58447 days=14
+    before win=0.4987 pick=0.0323 matches=45239 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5096 pick=0.0333 matches=58453 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3569,12 +3573,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.483 pick=0.0146 matches=149804 days=14
-    after win=0.4902 pick=0.0118 matches=135364 days=14
+    before win=0.483 pick=0.0146 matches=149826 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4902 pick=0.0118 matches=135399 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4914 pick=0.0152 matches=21307 days=14
-    after win=0.4861 pick=0.0134 matches=23411 days=14
+    before win=0.4914 pick=0.0152 matches=21308 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.4861 pick=0.0134 matches=23412 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3590,12 +3594,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4101 pick=0.008 matches=82187 days=14
-    after win=0.3974 pick=0.0058 matches=66464 days=14
+    before win=0.4101 pick=0.008 matches=82204 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.3974 pick=0.0058 matches=66475 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4283 pick=0.0085 matches=11867 days=14
-    after win=0.4082 pick=0.0059 matches=10258 days=14
+    before win=0.4283 pick=0.0085 matches=11867 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.4082 pick=0.0059 matches=10259 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3609,12 +3613,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4413 pick=0.0252 matches=257684 days=14
-    after win=0.4522 pick=0.0277 matches=317952 days=14
+    before win=0.4413 pick=0.0252 matches=257719 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4522 pick=0.0277 matches=317992 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4291 pick=0.0268 matches=37518 days=14
-    after win=0.4503 pick=0.0316 matches=55313 days=14
+    before win=0.4291 pick=0.0268 matches=37518 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.4503 pick=0.0316 matches=55316 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3650,12 +3654,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4647 pick=0.0169 matches=173397 days=14
-    after win=0.4806 pick=0.0313 matches=359308 days=14
+    before win=0.4647 pick=0.0169 matches=173412 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4805 pick=0.0313 matches=359333 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4792 pick=0.0229 matches=32017 days=14
-    after win=0.5032 pick=0.0509 matches=89275 days=14
+    before win=0.4792 pick=0.0229 matches=32017 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5032 pick=0.0509 matches=89276 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3669,12 +3673,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5717 pick=0.0132 matches=135358 days=14
-    after win=0.5711 pick=0.0289 matches=331510 days=14
+    before win=0.5717 pick=0.0132 matches=135392 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5711 pick=0.0289 matches=331551 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5723 pick=0.0085 matches=11930 days=14
-    after win=0.5754 pick=0.0342 matches=60011 days=14
+    before win=0.5723 pick=0.0085 matches=11930 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5754 pick=0.0342 matches=60015 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3687,12 +3691,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4985 pick=0.0918 matches=939508 days=14
-    after win=0.5034 pick=0.1044 matches=1198495 days=14
+    before win=0.4985 pick=0.0918 matches=939641 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5034 pick=0.1044 matches=1198647 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4976 pick=0.1383 matches=193611 days=14
-    after win=0.5002 pick=0.1547 matches=271118 days=14
+    before win=0.4976 pick=0.1383 matches=193620 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5003 pick=0.1547 matches=271131 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3707,12 +3711,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5427 pick=0.083 matches=849782 days=14
-    after win=0.5316 pick=0.066 matches=758025 days=14
+    before win=0.5427 pick=0.083 matches=849878 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5316 pick=0.066 matches=758130 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5588 pick=0.0984 matches=137790 days=14
-    after win=0.5496 pick=0.0672 matches=117865 days=14
+    before win=0.5588 pick=0.0984 matches=137791 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5496 pick=0.0672 matches=117867 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3725,12 +3729,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5666 pick=0.1434 matches=1468140 days=14
-    after win=0.5697 pick=0.1415 matches=1624801 days=14
+    before win=0.5666 pick=0.1434 matches=1468346 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5697 pick=0.1415 matches=1625074 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5769 pick=0.1202 matches=168267 days=14
-    after win=0.5782 pick=0.109 matches=191097 days=14
+    before win=0.5769 pick=0.1202 matches=168270 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5781 pick=0.109 matches=191107 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3743,12 +3747,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4952 pick=0.0305 matches=312270 days=14
-    after win=0.5016 pick=0.0323 matches=370845 days=14
+    before win=0.4952 pick=0.0305 matches=312314 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5016 pick=0.0323 matches=370923 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5165 pick=0.0196 matches=27407 days=14
-    after win=0.5139 pick=0.0215 matches=37682 days=14
+    before win=0.5165 pick=0.0196 matches=27407 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5139 pick=0.0215 matches=37682 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3762,12 +3766,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5078 pick=0.2575 matches=2635728 days=14
-    after win=0.4935 pick=0.2603 matches=2989112 days=14
+    before win=0.5078 pick=0.2575 matches=2636043 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4935 pick=0.2603 matches=2989500 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5132 pick=0.3052 matches=427275 days=14
-    after win=0.496 pick=0.29 matches=508344 days=14
+    before win=0.5132 pick=0.3052 matches=427290 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.496 pick=0.29 matches=508369 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3781,12 +3785,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4829 pick=0.0115 matches=118019 days=14
-    after win=0.4737 pick=0.0157 matches=180509 days=14
+    before win=0.4829 pick=0.0115 matches=118037 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4737 pick=0.0157 matches=180539 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5169 pick=0.0101 matches=14089 days=14
-    after win=0.499 pick=0.019 matches=33383 days=14
+    before win=0.5169 pick=0.0101 matches=14089 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.4991 pick=0.019 matches=33385 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3800,12 +3804,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4809 pick=0.038 matches=389103 days=14
-    after win=0.4989 pick=0.0439 matches=503604 days=14
+    before win=0.4809 pick=0.038 matches=389180 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4989 pick=0.0439 matches=503699 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5008 pick=0.0266 matches=37272 days=14
-    after win=0.5077 pick=0.0349 matches=61150 days=14
+    before win=0.5008 pick=0.0266 matches=37273 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5077 pick=0.0349 matches=61152 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3818,12 +3822,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.568 pick=0.0324 matches=331376 days=14
-    after win=0.5741 pick=0.0292 matches=335532 days=14
+    before win=0.568 pick=0.0324 matches=331418 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5741 pick=0.0292 matches=335583 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.6027 pick=0.0199 matches=27877 days=14
-    after win=0.5999 pick=0.0218 matches=38228 days=14
+    before win=0.6027 pick=0.0199 matches=27877 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5999 pick=0.0218 matches=38231 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3837,12 +3841,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.499 pick=0.0152 matches=155537 days=14
-    after win=0.4841 pick=0.0116 matches=132681 days=14
+    before win=0.499 pick=0.0152 matches=155560 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4841 pick=0.0116 matches=132699 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5153 pick=0.0124 matches=17403 days=14
-    after win=0.5042 pick=0.0079 matches=13869 days=14
+    before win=0.5153 pick=0.0124 matches=17403 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5042 pick=0.0079 matches=13869 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3857,12 +3861,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.518 pick=0.0388 matches=397577 days=14
-    after win=0.5119 pick=0.0612 matches=703041 days=14
+    before win=0.518 pick=0.0388 matches=397643 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5119 pick=0.0612 matches=703141 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5217 pick=0.0531 matches=74408 days=14
-    after win=0.5242 pick=0.0817 matches=143121 days=14
+    before win=0.5217 pick=0.0531 matches=74411 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5242 pick=0.0817 matches=143129 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3876,12 +3880,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5067 pick=0.037 matches=378988 days=14
-    after win=0.5133 pick=0.0355 matches=407756 days=14
+    before win=0.5067 pick=0.037 matches=379041 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5133 pick=0.0355 matches=407828 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4983 pick=0.0374 matches=52394 days=14
-    after win=0.5091 pick=0.0353 matches=61794 days=14
+    before win=0.4983 pick=0.0374 matches=52394 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5091 pick=0.0353 matches=61799 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3894,12 +3898,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4955 pick=0.13 matches=1330131 days=14
-    after win=0.501 pick=0.1567 matches=1799898 days=14
+    before win=0.4955 pick=0.13 matches=1330336 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.501 pick=0.1567 matches=1800176 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4986 pick=0.1119 matches=156700 days=14
-    after win=0.5039 pick=0.1565 matches=274245 days=14
+    before win=0.4985 pick=0.1119 matches=156709 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5039 pick=0.1565 matches=274262 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3912,12 +3916,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4875 pick=0.2715 matches=2778901 days=14
-    after win=0.491 pick=0.2721 matches=3124506 days=14
+    before win=0.4875 pick=0.2715 matches=2779327 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4911 pick=0.2721 matches=3124991 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.4903 pick=0.2334 matches=326824 days=14
-    after win=0.4928 pick=0.23 matches=403161 days=14
+    before win=0.4903 pick=0.2334 matches=326835 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.4928 pick=0.23 matches=403182 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3930,12 +3934,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5156 pick=0.2196 matches=2247591 days=14
-    after win=0.5167 pick=0.197 matches=2262487 days=14
+    before win=0.5156 pick=0.2196 matches=2247899 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5167 pick=0.197 matches=2262800 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5086 pick=0.2541 matches=355800 days=14
-    after win=0.5166 pick=0.22 matches=385576 days=14
+    before win=0.5086 pick=0.2541 matches=355815 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5166 pick=0.22 matches=385597 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3950,12 +3954,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5222 pick=0.0776 matches=794328 days=14
-    after win=0.5209 pick=0.0747 matches=858161 days=14
+    before win=0.5222 pick=0.0776 matches=794456 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5209 pick=0.0747 matches=858277 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5085 pick=0.0642 matches=89837 days=14
-    after win=0.5084 pick=0.064 matches=112101 days=14
+    before win=0.5085 pick=0.0642 matches=89839 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5084 pick=0.064 matches=112103 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3975,12 +3979,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5285 pick=0.029 matches=296531 days=14
-    after win=0.5358 pick=0.0416 matches=477491 days=14
+    before win=0.5285 pick=0.029 matches=296568 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5358 pick=0.0416 matches=477560 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5341 pick=0.037 matches=51792 days=14
-    after win=0.5373 pick=0.0598 matches=104821 days=14
+    before win=0.5341 pick=0.037 matches=51793 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5374 pick=0.0598 matches=104825 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -3995,12 +3999,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5316 pick=0.0443 matches=453431 days=14
-    after win=0.5295 pick=0.0371 matches=426514 days=14
+    before win=0.5316 pick=0.0443 matches=453505 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5295 pick=0.0371 matches=426581 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5434 pick=0.0529 matches=74067 days=14
-    after win=0.5404 pick=0.0426 matches=74704 days=14
+    before win=0.5434 pick=0.0529 matches=74070 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5404 pick=0.0426 matches=74712 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -4013,12 +4017,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.4332 pick=0.0106 matches=108848 days=14
-    after win=0.4264 pick=0.0071 matches=81405 days=14
+    before win=0.4332 pick=0.0106 matches=108868 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.4264 pick=0.0071 matches=81421 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.447 pick=0.0054 matches=7619 days=14
-    after win=0.4597 pick=0.0035 matches=6204 days=14
+    before win=0.447 pick=0.0054 matches=7619 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.4597 pick=0.0035 matches=6204 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``
@@ -4032,12 +4036,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=0.5124 pick=0.0383 matches=391741 days=14
-    after win=0.5004 pick=0.06 matches=688668 days=14
+    before win=0.5124 pick=0.0383 matches=391806 days=14 total=10236730 covered=14 coverage="complete"
+    after win=0.5004 pick=0.06 matches=688762 days=14 total=11486226 covered=14 coverage="complete"
   }
   high {
-    before win=0.5271 pick=0.0502 matches=70211 days=14
-    after win=0.5099 pick=0.0628 matches=110072 days=14
+    before win=0.5271 pick=0.0501 matches=70215 days=14 total=1400112 covered=14 coverage="complete"
+    after win=0.5099 pick=0.0628 matches=110078 days=14 total=1752862 covered=14 coverage="complete"
   }
 }
 ``

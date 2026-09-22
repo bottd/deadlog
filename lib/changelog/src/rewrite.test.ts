@@ -2,7 +2,6 @@ import { describe, expect, it } from 'vitest';
 import type { EntityImpact } from '@deadlog/utils';
 import { parseStructure } from './extract';
 import { writeImpactBlock } from './impactBlock';
-import { splitFrontMatter } from './load';
 import { carryImpact, spliceImpactBlocks } from './rewrite';
 
 const window = { win: 0.5, pick: 0.1, matches: 2800, days: 14 };
@@ -28,16 +27,16 @@ const generated = [
 	''
 ].join('\n');
 
-const impactsIn = (text: string) =>
-	parseStructure(splitFrontMatter(text).body).changes.map((change) => change.impact);
+const impactsIn = async (text: string) =>
+	(await parseStructure(text)).changes.map((change) => change.impact);
 
 describe('spliceImpactBlocks', () => {
-	it('writes under the fence of each block the callback answers for', () => {
-		const next = spliceImpactBlocks(generated, (block) =>
+	it('writes under the fence of each block the callback answers for', async () => {
+		const next = await spliceImpactBlocks(generated, (block) =>
 			block.type === 'item' ? impact : undefined
 		);
 
-		expect(impactsIn(next)).toEqual([undefined, impact]);
+		expect(await impactsIn(next)).toEqual([undefined, impact]);
 		expect(next.split('\n')[9]).toBe('``attr:');
 	});
 });
@@ -45,42 +44,45 @@ describe('spliceImpactBlocks', () => {
 describe('carryImpact', () => {
 	const withStats = spliceImpactBlocks(generated, () => impact);
 
-	it('restores recorded blocks onto a plain regeneration, byte for byte', () => {
-		expect(carryImpact(withStats, generated)).toBe(withStats);
+	it('restores recorded blocks onto a plain regeneration, byte for byte', async () => {
+		expect(await carryImpact(await withStats, generated)).toBe(await withStats);
 	});
 
-	it('follows an entity whose fence slug or heading markup changed', () => {
+	it('follows an entity whose fence slug or heading markup changed', async () => {
 		const regenerated = generated
 			.replace('=hero:doorman:', '=hero:the-doorman:')
 			.replace('## The Doorman', '## [[/hero/the-doorman]]((Doorman))');
 
-		const [doorman] = impactsIn(carryImpact(withStats, regenerated));
+		const [doorman] = await impactsIn(await carryImpact(await withStats, regenerated));
 
 		expect(doorman).toEqual(impact);
 	});
 
-	it('drops the block of an entity the regeneration no longer has', () => {
+	it('drops the block of an entity the regeneration no longer has', async () => {
 		const withoutItem = generated.split('\n').slice(0, 8).join('\n') + '\n';
 
-		const next = carryImpact(withStats, withoutItem);
+		const next = await carryImpact(await withStats, withoutItem);
 
-		expect(impactsIn(next)).toEqual([impact]);
+		expect(await impactsIn(next)).toEqual([impact]);
 		expect(next.match(/``attr:/g)).toHaveLength(2);
 	});
 
-	it('returns the new text untouched when nothing was recorded', () => {
-		expect(carryImpact(generated, generated)).toBe(generated);
+	it('returns the new text untouched when nothing was recorded', async () => {
+		expect(await carryImpact(generated, generated)).toBe(generated);
 	});
 
-	it('keeps a block the new text already carries', () => {
+	it('keeps a block the new text already carries', async () => {
 		const other = { ...impact, closed: false };
-		const already = spliceImpactBlocks(generated, () => other);
+		const already = await spliceImpactBlocks(generated, () => other);
 
-		expect(impactsIn(carryImpact(withStats, already))).toEqual([other, other]);
+		expect(await impactsIn(await carryImpact(await withStats, already))).toEqual([
+			other,
+			other
+		]);
 	});
 
-	it('writes exactly the lines of writeImpactBlock', () => {
-		const lines = carryImpact(withStats, generated).split('\n');
+	it('writes exactly the lines of writeImpactBlock', async () => {
+		const lines = (await carryImpact(await withStats, generated)).split('\n');
 
 		expect(lines.slice(5, 5 + 12)).toEqual(writeImpactBlock(impact));
 	});

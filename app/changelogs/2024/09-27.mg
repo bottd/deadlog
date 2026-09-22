@@ -6,6 +6,10 @@ author "Yoshi"
 author_image "/assets/authors/yoshi.webp"
 major_update #false
 content_text "Mirage Tornado lift duration reduced from 1.5s to 1.2s Tornado T1 bonus lift duration reduced from +0.5s to +0.4s Tornado base bullet evasion reduced from 30% to 25% Djinn's Mark T3 now also reduces Multiplier Cooldown by 0.5s"
+stats schema=2 method=2 collected="2026-09-21T21:41:20.000Z" {
+  before from="2024-09-27" to="2024-09-28"
+  after from=#null to=#null
+}
 ``
 
 
@@ -19,12 +23,12 @@ content_text "Mirage Tornado lift duration reduced from 1.5s to 1.2s Tornado T1 
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=746 days=1
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=747 days=1 total=9924 covered=1 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
   }
 }
 ``

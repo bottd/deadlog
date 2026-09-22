@@ -6,6 +6,10 @@ author "Yoshi"
 author_image "/assets/authors/yoshi.webp"
 major_update #false
 content_text "Fixed spectating ending 1 minute before the game ended Fixed Hero Demo starting you at max level Fixed Lady Geist not being able to jump during Life Drain Fixed the boon level display in the hero pages not working correctly Changed default shop music back to original Shiv Gun base damage reduced from 6.3 to 5.7 Serrated Knives collision size reduced by 10% Serrated Knives projectile speed reduced by 10% Serrated Knives base damage reduced from 75 to 35 Serrated Knives spirit scaling reduced from 1 to 0.6 Serrated Knives DPS spirit scaling reduced from 0.2 to 0.16 Serrated Knives T3 reduced from +75 Damage and +5 Bleed to +40 Damage and +5 Bleed Fixed Serrated Knives bouncing to other units even if it did not impact the target Fixed Rage and Bloodletting not clearing out on death Fixed Bloodletting deferred damage waking him up from sleep Fixed Killing Blow falling through the world sometimes Ivy Restored previous audio processing Air Drop cooldown increased from 70s to 80s Air Drop duration reduced from 20s to 17s Air Drop bomb no longer silences in the base (now part of t3) Air Drop bomb slow duration increased from 3s to 4.5s Air Drop T2 now also has +5m radius Air Drop T3 no longer has +12m radius Air Drop T3 no longer extends debuff duration by +2s Air Drop T3 silences enemies for 4.5s"
+stats schema=2 method=2 collected="2026-09-21T21:41:20.000Z" {
+  before from=#null to=#null
+  after from="2024-08-17" to="2024-08-19"
+}
 ``
 
 # General Changes
@@ -26,12 +30,12 @@ content_text "Fixed spectating ending 1 minute before the game ended Fixed Hero 
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=161 days=2
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
+    after win=#null pick=#null matches=161 days=2 total=4008 covered=2 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -56,12 +60,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=211 days=2
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
+    after win=#null pick=#null matches=211 days=2 total=4008 covered=2 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``

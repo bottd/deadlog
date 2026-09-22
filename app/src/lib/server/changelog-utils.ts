@@ -1,16 +1,19 @@
 import {
 	getChangelogAbilityIcons,
 	getChangelogIcons,
+	getPatchReadingData,
 	type ScrapedChangelog
 } from '@deadlog/db';
 import type { DrizzleDB } from '@deadlog/db';
 import { formatDate, makeSummary } from '@deadlog/utils';
 import { absoluteUrl } from '$lib/seo';
+import { projectPatchReading } from './patchReading';
 
 export async function buildChangePageData(db: DrizzleDB, changelog: ScrapedChangelog) {
-	const [iconsMap, abilityIcons] = await Promise.all([
+	const [iconsMap, abilityIcons, readingData] = await Promise.all([
 		getChangelogIcons(db, [changelog.id]),
-		getChangelogAbilityIcons(db, changelog.id)
+		getChangelogAbilityIcons(db, changelog.id),
+		getPatchReadingData(db, changelog.id)
 	]);
 	const icons = iconsMap[changelog.id] ?? { heroes: [], items: [] };
 	const date = new Date(changelog.pubDate);
@@ -23,6 +26,7 @@ export async function buildChangePageData(db: DrizzleDB, changelog: ScrapedChang
 	const { contentText, ...changelogFields } = changelog;
 
 	return {
+		reading: await projectPatchReading(readingData, changelog),
 		changelog: {
 			...changelogFields,
 			date,

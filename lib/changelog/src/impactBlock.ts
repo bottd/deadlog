@@ -1,80 +1,131 @@
-import type { EntityImpact, ImpactWindow, TierImpact } from '@deadlog/utils';
-
-export const ATTR_OPEN = '``attr:';
-export const VERBATIM_CLOSE = '``';
+import type { EntityImpact, ImpactWindow, PatchStats } from '@deadlog/utils';
+import { z } from 'zod';
 
 const TIERS = ['all', 'high'] as const;
 const SIDES = ['before', 'after'] as const;
-const WINDOW_KEYS = ['win', 'pick', 'matches', 'days'] as const;
+
+const rateSchema = z.number().min(0).nullable();
+const countSchema = z.number().int().min(0);
+const windowFields = {
+	win: rateSchema,
+	pick: rateSchema,
+	matches: countSchema,
+	days: countSchema
+};
+const windowSchemas = {
+	1: z.strictObject(windowFields),
+	2: z.strictObject({
+		...windowFields,
+		total: countSchema,
+		covered: countSchema,
+		coverage: z.enum(['complete', 'incomplete'])
+	})
+};
+
+export type ImpactSchemaVersion = keyof typeof windowSchemas;
+
+function impactSchema(version: ImpactSchemaVersion) {
+	const window = windowSchemas[version];
+	const tier = z.strictObject({ before: window, after: window });
+	return z.strictObject({ closed: z.boolean(), all: tier, high: tier });
+}
 
 const rate = (value: number | null): string => (value === null ? '#null' : String(value));
 
 function windowLine(side: string, window: ImpactWindow): string {
-	return `    ${side} win=${rate(window.win)} pick=${rate(window.pick)} matches=${window.matches} days=${window.days}`;
+	const base = `    ${side} win=${rate(window.win)} pick=${rate(window.pick)} matches=${window.matches} days=${window.days}`;
+	if (window.coverage === undefined) return base;
+	return `${base} total=${window.total} covered=${window.covered} coverage="${window.coverage}"`;
 }
 
 export function writeImpactBlock(impact: EntityImpact): string[] {
+	return ['``attr:', ...writeImpactNode(impact), '``'];
+}
+
+export function writeImpactNode(impact: EntityImpact): string[] {
 	return [
-		ATTR_OPEN,
 		`impact closed=#${impact.closed} {`,
 		...TIERS.flatMap((tier) => [
 			`  ${tier} {`,
 			...SIDES.map((side) => windowLine(side, impact[tier][side])),
 			'  }'
 		]),
-		'}',
-		VERBATIM_CLOSE
+		'}'
 	];
 }
 
-function malformed(line: string | undefined): never {
-	throw new Error(`Malformed impact block: ${line ?? '<end of block>'}`);
+export function parseImpact(
+	value: unknown,
+	version: ImpactSchemaVersion = 1
+): EntityImpact {
+	const result = impactSchema(version).safeParse(value);
+	if (!result.success) {
+		throw new Error(
+			`Malformed impact block (schema ${version}): ${z.prettifyError(result.error)}`
+		);
+	}
+	return result.data;
 }
 
-function readWindow(side: string, line: string | undefined): ImpactWindow {
-	const tokens = line?.trim().split(/\s+/) ?? [];
-	if (tokens[0] !== side || tokens.length !== WINDOW_KEYS.length + 1) malformed(line);
-
-	const values = WINDOW_KEYS.map((key, index) => {
-		const [name, raw, ...rest] = tokens[index + 1].split('=');
-		if (name !== key || raw === undefined || rest.length) malformed(line);
-		if (raw === '#null' && (key === 'win' || key === 'pick')) return null;
-		const value = Number(raw);
-		if (raw === '' || !Number.isFinite(value) || value < 0) malformed(line);
-		if ((key === 'matches' || key === 'days') && !Number.isInteger(value))
-			malformed(line);
-		return value;
+const daySchema = z.string().regex(/^\d{4}-\d{2}-\d{2}$/);
+const intervalSchema = z
+	.strictObject({ from: daySchema.nullable(), to: daySchema.nullable() })
+	.transform(({ from, to }, context) => {
+		if (from === null && to === null) return null;
+		if (from === null || to === null || from >= to) {
+			context.addIssue({
+				code: 'custom',
+				message: 'an interval needs from < to, or neither'
+			});
+			return z.NEVER;
+		}
+		return { from, to };
 	});
+const statsSchema = z
+	.strictObject({
+		schema: z.literal(2),
+		method: z.number().int().positive(),
+		collected: z.iso.datetime(),
+		before: intervalSchema,
+		after: intervalSchema,
+		siblings: z.union([z.string(), z.array(z.string())]).optional()
+	})
+	.transform(({ schema, method, collected, before, after, siblings }): PatchStats => ({
+		schemaVersion: schema,
+		methodVersion: method,
+		collectedAt: collected,
+		before,
+		after,
+		siblings: siblings === undefined ? [] : [siblings].flat()
+	}));
 
-	const [win, pick, matches, days] = values;
-	if (matches === null || days === null) malformed(line);
-	return { win, pick, matches, days };
+export function parseStats(value: unknown): PatchStats {
+	const version = (value as { schema?: unknown } | null)?.schema;
+	if (version !== 2) {
+		throw new Error(
+			`Unsupported stats schema ${JSON.stringify(version)}; this build reads 2`
+		);
+	}
+	const result = statsSchema.safeParse(value);
+	if (!result.success) {
+		throw new Error(`Malformed stats node: ${z.prettifyError(result.error)}`);
+	}
+	return result.data;
 }
 
-export function readImpactBlock(lines: string[]): EntityImpact {
-	const rows = lines.filter((line) => line.trim() !== '');
-	let cursor = 0;
-	const expect = (text: string) => {
-		if (rows[cursor]?.trim() !== text) malformed(rows[cursor]);
-		cursor++;
-	};
+const quoted = (value: string | null): string =>
+	value === null ? '#null' : JSON.stringify(value);
 
-	const head = rows[cursor]?.trim().match(/^impact closed=#(true|false) \{$/);
-	if (!head) malformed(rows[cursor]);
-	cursor++;
-
-	const tier = (name: string): TierImpact => {
-		expect(`${name} {`);
-		const before = readWindow('before', rows[cursor++]);
-		const after = readWindow('after', rows[cursor++]);
-		expect('}');
-		return { before, after };
-	};
-
-	const all = tier('all');
-	const high = tier('high');
-	expect('}');
-	if (cursor !== rows.length) malformed(rows[cursor]);
-
-	return { closed: head[1] === 'true', all, high };
+export function writeStatsNode(stats: PatchStats): string[] {
+	const interval = (side: 'before' | 'after') =>
+		`  ${side} from=${quoted(stats[side]?.from ?? null)} to=${quoted(stats[side]?.to ?? null)}`;
+	return [
+		`stats schema=${stats.schemaVersion} method=${stats.methodVersion} collected=${quoted(stats.collectedAt)} {`,
+		interval('before'),
+		interval('after'),
+		...(stats.siblings.length
+			? [`  siblings ${stats.siblings.map(quoted).join(' ')}`]
+			: []),
+		'}'
+	];
 }

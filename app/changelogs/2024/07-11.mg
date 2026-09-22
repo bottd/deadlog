@@ -6,6 +6,10 @@ author "Yoshi"
 author_image "/assets/authors/yoshi.webp"
 major_update #false
 content_text "Testing schedule now starts 1 hour earlier for all regions EU matchmaking region is now split up into two regions based on language Shop search now highlights the relevant sections of the item tooltip that match the search string you've put in Fixed the Shop search not finding all the types of bonuses an item has Various adjustments to the Damage Report feature Damage Report now shows up by default when dead or spectating Added HUD Notifications on Soul Urn drop off to let depositor know they gained +25% Souls and +1 AP Reworked how cycling through spectators works. Space bar now cycles between all the players. You can now click on the top bar hero icons to jump to a specific hero while spectating You no longer automatically switch to other players when the player you are watching dies Fixed not being able to click on the portrait of a dead hero while spectating Reduced the flash damage effect on heroes to reduce visual noise Added in-world confirmation text when an enemy denies your soul orbs Affliction now has an AoE indicator buildup during cast Affliction now has more toxic elements in the cast and linger Updated Restorative Shot impact and heal effects Updated Phantom Strike effects Updated Restorative Locket effects when casting on an ally Added Grey Talon Charged Shot sound effects Added currency sound effects for receiving small and large amount of souls Added new sound effects to picking up powerups and breakable drops Added a UI sound when entering hero select screen Fixed Vindicta's Stake sometimes moving units that aren't supposed to be moved Fixed Majestic Leap buff sticking around after attaching to zipline (caused audio bugs as well) Fixed Soul Urn walking back while the game is paused Fixed bugs with Guided Owl and pause Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb,  Paradox's Pulse Grenade, Warden's Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item) Fixed some instances of heroes being called by the wrong name Get Started tutorial VO has been replaced and some text has been updated Newsstand now has a lot more world lore news callouts Enabled support for FSR 2 by default Widened the street on the outer side of the factory/mansion Added street curb models around factory and mansion Added street curb overlay around factory and mansion Replaced temp arrows with street sign markings coming out of the mid temple Removed some fake doors to not confuse with juke closets Replaced older stone wall material with newer one in uptown areas Replaced item signs with new poster style and removed item signs on Yellow and Blue lanes Added rooftop smart prop trim where it was missing Reworked the core base area where the Weakened Patron goes. It is now in a low terrain pit and requires attackers be inside the pit to do damage to it. Redesigned exit from the base's regeneration area to the rest of the base Increased Weakened Patron's out of combat (30s) regeneration from 40 to 80 Removed platform blocking line of sight from regeneration area exit to the center Added window in fountain barrier beside exit Added two drop down chutes from fountain to the center Base respawn time increased from 8s to 12s (peak values unchanged) Guardian health increased by 10% Base Guardian health increased by 10% Zipline Boost duration increased from 25s to 32s Urn now grants the Urn Runner +1 AP Urn Runner now gains +2 sprint and is disarmed while carrying the Urn Urn bounty increased from 900 + 200/min to 1500 + 200/min (10 min spawn goes from 2900 to 3500) Urn display on the minimap is now pulsing a green rectangle showing where the destination is if an ally is carrying the urn, and a red rectangle at the destination if an enemy is carrying it Powerup Bonus duration increased from 100s to 130s Movement powerup now grants +20% stamina regeneration Fixed Movement powerup not replenishing stamina on pickup Golden Statues level 2 bonuses spawn time reduced from 25 minutes to 20 minutes Golden Statues Weapon Damage bonus increased from 2% to 3% (level 2 from 3% to 4%) Golden Statues Ammo bonus increased from 3% to 4% (level 2 from 5% to 6%) Capture radius for breakable drops increased very slightly Added an indicator near the reticle when Parry is on cooldown Added a visual effect when the Rejuvenator is attackable Global base Ammo increased by 5% (except for Wraith and Haze) The spawn area's regeneration buff now lingers for 1s Bullet falloff damage now starts at 22m instead of 25m Base Guardian and Shrines bullet resist per nearby hero increased from 40/20/0/0% (for 0/1/2/3 people) to 60/40/20/0% Trooper gold sharing radius from the location of the soul orb increased from 50m to 60m Fixed ability-based lifesteals not granting life from damage caused to shields (affects things like Hyperbeam T3, Siphon, Scorn, Life Drain, Flog and Concussive Combustion T3) Fixed dropping unsecured souls not lowering your net worth Fixed a bug that caused denies during the laning phase to sometimes be shared with allies and sometimes not Some tweaks to how the comeback formula works have been done over the past couple days and we'll continue iterating on it over the coming days Added several upper level juke closets from balconies/awnings and two on rooftops Shortened connection to the underground tunnel from the shop side Adjusted pathing in the underground tunnel to be a little less zig zagging Added more signage to the underground tunnel Redesigned interior of new stairwells beside inner lane Walkers Basic Magazine: Ammo increased from +20% to +24% Sharp Shooter: Min distance reduced from 20m to 18m Health Nova: Now grants +10% weapon damage Debuff Remover: T3 Vitality Item that upgrades from Debuff Reducer. Removes debuffs fully on cast again. Grants +3 m/s for 3s if any debuff is removed. Grants +40% debuff resist, +125 health, +20% weapon damage. Cooldown: 45 Withering Whip: Cast range increased from 15m to 17m Improved Cooldown: Cooldown reduction increased from 12% to 13% Silence Glyph: No longer has +75 health Silence Glyph: Now gives +150 spirit shield Improved Reach: Non-Imbued range increased from +20% to +25% Abrams Shoulder Charge speed increased by 25% Shoulder Charge distance increased by 15% Shoulder Charge now stuns enemies for 1s if it drags them into a wall Infernal Resilience now provides +1 Health Regen Infernal Resilience damage regenerated reduced from 20% to 18% Infernal Resilience T3 changed to +8% damage regenerated Fixed Siphon Life not healing you against shields Dynamo Quantum Entanglement ally radius increased from 8m to 9m Grey Talon Rain of Arrows flight duration reduced from 8s to 7s Guided Owl spirit gain per kill increased from 4 to 5 Guided Owl base ability now stuns for 0.75s Guided Owl base damage reduced from 300 to 250 Guided Owl T1 is now +100 damage Guided Owl collision size reduced Haze Ammo scaling with spirit power reduced from 0.6 to 0.5 Ivy Base damage growth increased from 0.35 to 0.55 Watcher's Covenant replicated healing reduced from 45% to 35% Watcher's Covenant bullet lifesteal now scales with spirit power (0.18) Watcher's Covenant fire rate reduced from 15% to 10% Watcher's Covenant fire rate now scales with spirit power (0.2) Fixed Kudzu Bomb not going where you had targeted if you moved quickly during the cast Lash Base bullet damage reduced from 11.5 to 10 Bullet damage growth increased from 1 to 1.15 Now has +8% spirit resist Ground Strike damage per meter reduced from 6.75 to 6.3 Ground Strike damage per meter spirit power scaling increased from 0.04 to 0.05 Death Slam range is now defined as the horizontal distance to the units rather than the distance from his position in the air (so being high up doesn't work against you) Death Slam range reduced from 19m to 14m Death Slam T1 reduced from +5m to +4m Death Slam cone increased from 60 degrees to 75 Death Slam grab time reduced from 0.9 to 0.8 McGinnis Turrets receive full damage from enemy guns regardless of distance (fall off is not considered when taking damage) Turrets outgoing damage fall off distance window (20m-35m) now scales with range upgrades Turrets duration reduced from 40s to 30s Mo & Krill Fixed Scorn not healing you against shields Sand Blast base duration reduced from 4s to 3.5s Sand Blast T1 reduced from +2s to +1.5s Paradox Fixed Time Wall projectiles and bullets being stuck in the wall for its full duration instead of for the shorter time stop duration Kinetic Carbine collision radius reduced by 10% Fixed Pulse Grenade not going where you had targeted if you moved quickly during the cast Pocket Enchanter's Satchel duration from 1.5s to 2s Enchanter's Satchel T3 changed to 2.5s Disarm Seven Static Charge cast range scaling reduced from 0.1 to 0.07 Static Charge base radius reduced from 8m to 5m Static Charge T2 changed to +5m radius Vindicta Crow Familiar duration spirit power scaling reduced from 0.07 to 0.05 Gun damage growth increased from 0.7 to 0.85 Warden Reload time no longer scales with spirit power Now innately gains additive fire rate from spirit power (scale factor is 0.015) Yamato Shadow Transformation incoming damage reduction reduced from 70% to 55% Shadow Transformation changed from 70% debuff reduction to the same buff as Unstoppable Headshot Booster Bonus health reduced from +50 to +40 Restorative Shot Weapon damage reduced from +8% to +6% Veil Walker Ammo reduced from 15% to 12% Weapon damage reduced from 8% to 6% Long Range Min distance reduced from 20m to 18m Active Reload Added 0.2s grace period where the reload start does not count any button presses Active fire rate increased from 18% to 24% Cooldown reduced from 23s to 21s Kinetic Dash Cooldown reduced from 14s to 12s Melee Charge Bonus health increased from 75 to 100 Burst Fire Now innately gives +12% fire rate Conditional fire rate now only triggers when you hit a hero, this bonus is reduced from 40% to 30% Heroic Aura Lifesteal increased from 16% to 18% Active duration reduced from 8s to 5s Active movement speed increased from 2 to 3 Active fire rate increased from 20% to 25% Titanic Magazine No longer has 10% reload penalty Silencer Now requires Slowing Bullets (total cost from 6500 to 7700) Innately gives 25% slow for 1.3s Active no longer applies 30% slow for 2s Weapon damage reduced from 25% to 15% Frenzy Active spirit resist increased from 30% to 40% Vampiric Burst Active lifesteal increased from 80% to 100% Glass Cannon Weapon damage increased from 65% to 70% Extra Regen Health regen increased from 2 to 2.3 Healing Rite Bonus health increased from 35 to 45 Melee Lifesteal Cooldown reduced from 8s to 7s Bullet Lifesteal Lifesteal increased from 24% to 26% Debuff Reducer Now a T2 Vitality item. Grants +30% debuff resist, +75 health and +10% weapon damage. No longer has an active. Fortitude Health increased from 225 to 250 Majestic Leap Added a brief period before you can press the hotkey again to prevent accidental uses of drop down Lifestrike Now grants +6% bullet resist Phantom Strike Fixed it sometimes malfunctioning and not teleporting to the target Leech Spirit Lifesteal increased from 33% to 35% Bullet Lifesteal increased from 30% to 35% Unstoppable Duration reduced from 9s to 6s No longer grants +20% spirit resist in the active Now grants +15% spirit resist innately Now grants +12 spirit power Now grants +1 m/s Extra Charge Now grants +6% weapon damage Ammo Scavenger Ammo reduced from +20% to +15% Spirit Strike Spirit shield increased from +75 to +85 Surge of Power Active movement speed increased from 2 to 3 Mystic Reverb Cooldown reduced from 8s to 6s Now gives +15% ability range"
+stats schema=2 method=2 collected="2026-09-21T21:41:20.000Z" {
+  before from="2024-07-05" to="2024-07-11"
+  after from="2024-07-12" to="2024-07-18"
+}
 ``
 
 # General Changes
@@ -106,12 +110,12 @@ content_text "Testing schedule now starts 1 hour earlier for all regions EU matc
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=54 days=6
-    after win=#null pick=#null matches=62 days=6
+    before win=#null pick=#null matches=54 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=62 days=6 total=1248 covered=6 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -142,12 +146,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=51 days=6
-    after win=#null pick=#null matches=48 days=6
+    before win=#null pick=#null matches=51 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=48 days=6 total=1248 covered=6 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -164,12 +168,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=59 days=6
-    after win=#null pick=#null matches=65 days=6
+    before win=#null pick=#null matches=59 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=65 days=6 total=1248 covered=6 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -195,12 +199,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=92 days=6
-    after win=#null pick=#null matches=96 days=6
+    before win=#null pick=#null matches=92 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=96 days=6 total=1248 covered=6 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -213,12 +217,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=34 days=6
-    after win=#null pick=#null matches=51 days=6
+    before win=#null pick=#null matches=34 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=51 days=6 total=1248 covered=6 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -248,12 +252,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=48 days=6
-    after win=#null pick=#null matches=53 days=6
+    before win=#null pick=#null matches=48 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=53 days=6 total=1248 covered=6 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -283,12 +287,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=61 days=6
-    after win=#null pick=#null matches=69 days=6
+    before win=#null pick=#null matches=61 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=69 days=6 total=1248 covered=6 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -311,12 +315,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=51 days=6
-    after win=#null pick=#null matches=52 days=6
+    before win=#null pick=#null matches=51 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=52 days=6 total=1248 covered=6 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -339,12 +343,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=79 days=6
-    after win=#null pick=#null matches=67 days=6
+    before win=#null pick=#null matches=79 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=67 days=6 total=1248 covered=6 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -371,12 +375,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=43 days=6
-    after win=#null pick=#null matches=63 days=6
+    before win=#null pick=#null matches=43 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=63 days=6 total=1248 covered=6 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -394,12 +398,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=89 days=6
-    after win=#null pick=#null matches=93 days=6
+    before win=#null pick=#null matches=89 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=93 days=6 total=1248 covered=6 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -418,12 +422,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=72 days=6
-    after win=#null pick=#null matches=80 days=6
+    before win=#null pick=#null matches=72 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=80 days=6 total=1248 covered=6 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -441,12 +445,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=59 days=6
-    after win=#null pick=#null matches=59 days=6
+    before win=#null pick=#null matches=59 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=59 days=6 total=1248 covered=6 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -460,12 +464,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=38 days=6
-    after win=#null pick=#null matches=43 days=6
+    before win=#null pick=#null matches=38 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=43 days=6 total=1248 covered=6 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -489,12 +493,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=21 days=1
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=61 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=50 days=6 total=1248 covered=6 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -515,12 +519,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=290 days=6
-    after win=#null pick=#null matches=327 days=6
+    before win=#null pick=#null matches=290 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=327 days=6 total=1248 covered=6 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -533,12 +537,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=24 days=1
+    before win=#null pick=#null matches=78 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=104 days=6 total=1248 covered=6 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -549,6 +553,18 @@ impact closed=#true {
 =
 
 =item:debuff-reducer:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=0 days=0 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=66 days=6 total=1248 covered=6 coverage="complete"
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+  }
+}
+``
 [[/item/debuff-reducer]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/debuff_reducer.webp]] Debuff Reducer patch history))
 ## [[/item/debuff-reducer]]((Debuff Reducer))
 - Now a T2 Vitality item. Grants +30% debuff resist, +75 health and +10% weapon damage. No longer has an active.
@@ -558,12 +574,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=289 days=6
-    after win=#null pick=#null matches=349 days=6
+    before win=#null pick=#null matches=289 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=349 days=6 total=1248 covered=6 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -576,12 +592,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=273 days=6
-    after win=#null pick=#null matches=308 days=6
+    before win=#null pick=#null matches=273 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=308 days=6 total=1248 covered=6 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -594,12 +610,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=186 days=5
-    after win=#null pick=#null matches=204 days=6
+    before win=#null pick=#null matches=202 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=204 days=6 total=1248 covered=6 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -609,6 +625,18 @@ impact closed=#true {
 =
 
 =item:frenzy:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=24 days=5 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=32 days=6 total=1248 covered=6 coverage="complete"
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+  }
+}
+``
 [[/item/frenzy]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/frenzy.webp]] Frenzy patch history))
 ## [[/item/frenzy]]((Frenzy))
 - Active spirit resist increased from 30% to 40%
@@ -618,12 +646,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=54 days=2
-    after win=#null pick=#null matches=67 days=3
+    before win=#null pick=#null matches=100 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=105 days=6 total=1248 covered=6 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -636,12 +664,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=306 days=6
-    after win=#null pick=#null matches=291 days=6
+    before win=#null pick=#null matches=306 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=291 days=6 total=1248 covered=6 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -654,12 +682,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=221 days=6
-    after win=#null pick=#null matches=244 days=6
+    before win=#null pick=#null matches=221 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=244 days=6 total=1248 covered=6 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -669,6 +697,18 @@ impact closed=#true {
 =
 
 =item:heroic-aura:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=26 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=29 days=6 total=1248 covered=6 coverage="complete"
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+  }
+}
+``
 [[/item/heroic-aura]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/heroic_aura.webp]] Heroic Aura patch history))
 ## [[/item/heroic-aura]]((Heroic Aura))
 - Lifesteal increased from 16% to 18%
@@ -681,12 +721,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=45 days=2
-    after win=#null pick=#null matches=47 days=2
+    before win=#null pick=#null matches=101 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=103 days=6 total=1248 covered=6 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -699,12 +739,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=28 days=1
-    after win=#null pick=#null matches=50 days=2
+    before win=#null pick=#null matches=97 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=116 days=6 total=1248 covered=6 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -715,6 +755,18 @@ impact closed=#true {
 =
 
 =item:lifestrike:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=30 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=46 days=6 total=1248 covered=6 coverage="complete"
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+  }
+}
+``
 [[/item/lifestrike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/lifestrike.webp]] Lifestrike patch history))
 ## [[/item/lifestrike]]((Lifestrike))
 - Now grants +6% bullet resist
@@ -724,12 +776,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=148 days=4
-    after win=#null pick=#null matches=207 days=6
+    before win=#null pick=#null matches=181 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=207 days=6 total=1248 covered=6 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -739,12 +791,36 @@ impact closed=#true {
 =
 
 =item:majestic-leap:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=62 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=83 days=6 total=1248 covered=6 coverage="complete"
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+  }
+}
+``
 [[/item/majestic-leap]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/majestic_leap.webp]] Majestic Leap patch history))
 ## [[/item/majestic-leap]]((Majestic Leap))
 - Added a brief period before you can press the hotkey again to prevent accidental uses of drop down
 =
 
 =item:melee-charge:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=52 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=66 days=6 total=1248 covered=6 coverage="complete"
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+  }
+}
+``
 [[/item/melee-charge]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/melee_charge.webp]] Melee Charge patch history))
 ## [[/item/melee-charge]]((Melee Charge))
 - Bonus health increased from 75 to 100
@@ -754,12 +830,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=41 days=2
+    before win=#null pick=#null matches=75 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=101 days=6 total=1248 covered=6 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -776,6 +852,18 @@ impact closed=#true {
 =
 
 =item:phantom-strike:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=12 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=18 days=6 total=1248 covered=6 coverage="complete"
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+  }
+}
+``
 [[/item/phantom-strike]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/phantom_strike.webp]] Phantom Strike patch history))
 ## [[/item/phantom-strike]]((Phantom Strike))
 - Fixed it sometimes malfunctioning and not teleporting to the target
@@ -785,12 +873,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=175 days=4
-    after win=#null pick=#null matches=220 days=6
+    before win=#null pick=#null matches=211 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=220 days=6 total=1248 covered=6 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -812,12 +900,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=22 days=1
-    after win=#null pick=#null matches=20 days=1
+    before win=#null pick=#null matches=85 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=99 days=6 total=1248 covered=6 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -830,12 +918,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=20 days=1
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=69 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=78 days=6 total=1248 covered=6 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -848,12 +936,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=50 days=2
-    after win=#null pick=#null matches=148 days=6
+    before win=#null pick=#null matches=100 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=148 days=6 total=1248 covered=6 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
@@ -863,6 +951,18 @@ impact closed=#true {
 =
 
 =item:unstoppable:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=38 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=37 days=6 total=1248 covered=6 coverage="complete"
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+  }
+}
+``
 [[/item/unstoppable]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/unstoppable.webp]] Unstoppable patch history))
 ## [[/item/unstoppable]]((Unstoppable))
 - Duration reduced from 9s to 6s
@@ -873,6 +973,18 @@ impact closed=#true {
 =
 
 =item:vampiric-burst:
+``attr:
+impact closed=#true {
+  all {
+    before win=#null pick=#null matches=3 days=3 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=5 days=5 total=1248 covered=6 coverage="complete"
+  }
+  high {
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+  }
+}
+``
 [[/item/vampiric-burst]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/vampiric_burst.webp]] Vampiric Burst patch history))
 ## [[/item/vampiric-burst]]((Vampiric Burst))
 - Active lifesteal increased from 80% to 100%
@@ -882,12 +994,12 @@ impact closed=#true {
 ``attr:
 impact closed=#true {
   all {
-    before win=#null pick=#null matches=35 days=1
-    after win=#null pick=#null matches=47 days=2
+    before win=#null pick=#null matches=102 days=6 total=1176 covered=6 coverage="complete"
+    after win=#null pick=#null matches=99 days=6 total=1248 covered=6 coverage="complete"
   }
   high {
-    before win=#null pick=#null matches=0 days=0
-    after win=#null pick=#null matches=0 days=0
+    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
+    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="incomplete"
   }
 }
 ``
