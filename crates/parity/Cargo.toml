@@ -1,0 +1,15 @@
+[package]
+name = "deadlog-parity"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[[bin]]
+name = "parity"
+path = "src/main.rs"
+
+[dependencies]
+anyhow.workspace = true
+scraper = "0.24"
+serde_json.workspace = true
+ego-tree = "0.10"

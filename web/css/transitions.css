@@ -1,0 +1,21 @@
+/* Cross-document view transitions replace the client router's page swaps. The header
+   keeps its own name so it stays put while the page beneath it cross-fades. */
+@view-transition {
+	navigation: auto;
+}
+
+.site-header {
+	view-transition-name: site-header;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	@view-transition {
+		navigation: none;
+	}
+
+	::view-transition-group(*),
+	::view-transition-old(*),
+	::view-transition-new(*) {
+		animation: none !important;
+	}
+}

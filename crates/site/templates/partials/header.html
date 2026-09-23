@@ -1,0 +1,20 @@
+<header border="signal/15 b" bg="card/90" sticky z="50" p="b-3" class="site-header animate-entrance-down backdrop-blur-xl">
+<div container m="x-auto" p="x-4">
+<nav aria-label="Primary navigation"><div flex="~" h="16" items="center" justify="between">
+<a flex="~" href="/" aria-label="deadlog.io - Home" items="center" gap="4" class="group transition-all duration-300"><div relative><div flex="~" bg="primary/10" items="center" justify="center" rounded="lg" class="group-hover:bg-primary/20 size-10 transition-all duration-300">{% call icons::svg("crosshair", "text-primary size-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-45") %}{% endcall %}</div> <div bg="primary" absolute op="60" class="-top-0.5 -left-0.5 size-1.5 transition-all duration-300 group-hover:opacity-100"></div> <div bg="signal" absolute op="70" class="-right-0.5 -bottom-0.5 size-1.5 transition-all duration-300 group-hover:opacity-100"></div></div> <div flex="~ col"><div flex="~" items="baseline" gap="2"><span font="display medium" text="foreground 2xl" class="tracking-wide transition-colors duration-300 md:text-3xl">dead<span text="primary">log</span></span> <span bg="primary/10" text="primary" p="x-1.5 y-0.5" font="mono medium" uppercase class="hidden rounded text-[11px] tracking-wider md:inline-block">.io</span></div> <span text="muted-foreground xs" font="medium" class="hidden tracking-wide md:block">Deadlock Changelog</span></div></a>
+<div flex="~" items="center" gap="1" class="sm:gap-2">
+<a href="/heroes"{% if layout.path.starts_with("/hero") %} aria-current="page"{% endif %} class="ui-focus-ring text-muted-foreground inline-flex min-h-11 items-center rounded px-3 font-mono text-xs font-semibold tracking-wider uppercase transition-colors hover:bg-signal/10 hover:text-signal selected:bg-signal/10 selected:text-signal">Heroes</a> <a href="/items"{% if layout.path.starts_with("/item") %} aria-current="page"{% endif %} class="ui-focus-ring text-muted-foreground inline-flex min-h-11 items-center rounded px-3 font-mono text-xs font-semibold tracking-wider uppercase transition-colors hover:bg-signal/10 hover:text-signal selected:bg-signal/10 selected:text-signal">Items</a>
+</div>
+</div></nav>
+<div class="js-only relative" data-search>
+<div class="hidden sm:block">
+<div class="relative z-50" data-search-root="desktop">
+<form method="GET" action="/" class="border-border bg-card focus-within:border-signal flex min-h-11 items-center rounded-md border" data-search-form><label for="desktop-filter-input" class="sr-only">Search by hero, item, or keyword</label> <input id="desktop-filter-input" name="q" type="text" role="combobox" aria-autocomplete="list" aria-haspopup="listbox" aria-expanded="false" autocomplete="off" maxlength="200" placeholder="Search heroes, items, or patch text…" value="" class="placeholder:text-muted-foreground min-w-0 flex-1 bg-transparent px-3 py-2.5 text-base outline-none" data-search-input> <button type="submit" aria-label="Search changelog" class="ui-focus-ring bg-primary text-primary-foreground flex size-11 shrink-0 items-center justify-center rounded-r-md hover:opacity-90">{% call icons::svg("search", "size-5") %}{% endcall %}</button></form>
+</div>
+</div>
+<div class="sm:hidden"><button type="button" aria-haspopup="dialog" aria-expanded="false" class="ui-focus-ring border-border bg-card text-muted-foreground flex min-h-11 w-full items-center gap-3 rounded-md border px-3 text-left text-base" data-search-open>{% call icons::svg("search", "text-signal size-4") %}{% endcall %} <span class="flex-1">Search &amp; filter</span> <span class="text-primary font-mono text-xs" data-filter-count hidden></span></button></div>
+<div class="mt-2 flex items-center gap-2" data-active-filters hidden></div>
+</div>
+<noscript><p class="text-muted-foreground text-sm leading-relaxed">Search needs JavaScript. Browse <a class="text-signal underline" href="/heroes">hero histories</a>, <a class="text-signal underline" href="/items">item histories</a>, or <a class="text-signal underline" href="/archive">all patches</a>.</p></noscript>
+</div>
+</header>

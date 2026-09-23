@@ -1,0 +1,179 @@
+{%- import "partials/icons.html" as icons -%} {%- macro context(view) -%}
+<details class="text-sm" data-entity-context>
+	<summary
+		class="ui-focus-ring text-muted-foreground -my-1 flex w-fit cursor-pointer list-none items-center gap-2 rounded-sm py-3"
+	>
+		{% call icons::svg("chevron-right", "details-marker size-3.5 shrink-0") %}{% endcall
+		%}<span
+			>{{ view.summary() }}{% if !view.header %}<span class="sr-only">
+				for {{ view.name }}</span
+			>{% endif %}{% if let Some(version) = view.context.client_version %}<span
+				class="font-mono text-xs"
+			>
+				· client {{ version }}</span
+			>{% endif %}</span
+		>
+	</summary>
+	<div class="max-w-[72ch] space-y-3 pt-1 pb-2 leading-relaxed">
+		{%- for section in view.context.lead() -%}{%- for paragraph in section.paragraphs -%}
+		<p class="text-muted-foreground">{{ paragraph }}</p>
+		{%- endfor -%}{%- endfor -%} {%- let labelled = view.context.labelled() -%} {%- if
+		!labelled.is_empty() %}
+		<dl class="space-y-2">
+			{% for section in labelled %}
+			<div>
+				<dt class="text-foreground">
+					{{ section.label.as_deref().unwrap_or_default() }}
+				</dt>
+				{% for paragraph in section.paragraphs %}
+				<dd class="text-muted-foreground">{{ paragraph }}</dd>
+				{% endfor %}
+			</div>
+			{% endfor %}
+		</dl>
+		{% endif %} {%- if !view.context.properties.is_empty() %}
+		<div>
+			<p class="text-muted-foreground pb-1 font-mono text-xs">
+				Base values, before upgrades and scaling
+			</p>
+			<table class="font-mono text-xs" aria-label="Base values for {{ view.name }}">
+				<tbody>
+					{% for property in view.context.properties %}
+					<tr>
+						<th
+							scope="row"
+							class="text-muted-foreground py-0.5 pr-6 text-left font-normal"
+						>
+							{{ property.label }}
+						</th>
+						<td class="text-foreground py-0.5">
+							{{ property.display }}{{ property.unit }}
+						</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+		{% endif %}
+		<p class="text-muted-foreground text-xs">{{ view.closing() }}</p>
+		{%- if let Some(href) = view.history_href %}
+		<p>
+			<a
+				href="{{ href }}"
+				class="ui-focus-ring text-signal rounded-sm underline-offset-4 hover:underline"
+				>{{ view.name }} full history</a
+			>
+		</p>
+		{% endif -%}
+	</div>
+</details>
+{%- endmacro -%} {%- macro share_list(rows, heading_id, paired, round) -%}
+<ul class="mt-2 list-none space-y-1" aria-labelledby="{{ heading_id }}">
+	{%- for row in rows -%}
+	<li>
+		<a
+			href="{{ row.href }}"
+			aria-label="{{ row.label() }}"
+			class="ui-focus-ring group hover:bg-signal/5 -mx-1 flex min-h-11 max-w-md items-center gap-3 rounded-sm px-1"
+			><img
+				src="{{ row.image }}"
+				alt=""
+				width="24"
+				height="24"
+				loading="lazy"
+				decoding="async"
+				class="size-6 shrink-0 object-contain{% if round %} rounded-full{% endif %}"
+			/>
+			<span
+				class="{% if row.muted %}text-muted-foreground{% else %}text-signal{% endif %} min-w-0 flex-1 truncate text-sm underline-offset-4 group-hover:underline"
+				>{{ row.name }}</span
+			>
+			<span
+				aria-hidden="true"
+				class="flex w-16 shrink-0 flex-col gap-0.5 lg:w-24"
+				data-share-bar
+				><span
+					class="bg-border/60 block {% if paired %}h-1{% else %}h-1.5{% endif %} overflow-hidden rounded-full"
+					><span
+						class="{% if paired %}bg-muted-foreground/60{% else %}bg-muted-foreground{% endif %} block h-full min-w-0.5 rounded-full"
+						style="width: {{ row.before_width() }};"
+					></span></span
+				>{% if row.after.is_some() %}
+				<span class="bg-border/60 block h-1 overflow-hidden rounded-full"
+					><span
+						class="bg-muted-foreground block h-full min-w-0.5 rounded-full"
+						style="width: {{ row.after_width() }};"
+					></span></span
+				>{% endif %}</span
+			>
+			<span
+				aria-hidden="true"
+				class="text-foreground shrink-0 text-right font-mono text-xs whitespace-nowrap {% if paired %}w-[10ch]{% else %}w-[4ch]{% endif %}"
+				>{{ row.text() }}</span
+			></a
+		>
+	</li>
+	{%- endfor -%}
+</ul>
+{%- endmacro -%} {%- macro method_note(note) -%} {%- if note.any() -%}
+<section
+	id="method"
+	aria-labelledby="method-heading"
+	class="text-muted-foreground border-subtle mt-8 max-w-[72ch] scroll-mt-44 space-y-2 border-t pt-4 text-sm leading-relaxed"
+>
+	<h2 id="method-heading" class="text-foreground text-base font-semibold">
+		{{ note.heading() }}
+	</h2>
+	{%- if note.match_data() %}
+	<p>
+		These are observed shares, before and after the patch. Other changes land in the same
+		days, so a difference is not the effect of any one line.
+	</p>
+	<p>{{ note.windows() }}</p>
+	{% endif %} {%- if note.maxed_first %}
+	<p>
+		Maxed first is the share of a hero's matches in which each ability was the first to
+		reach its third upgrade. Each side needs {{ note.appearances() }} matches.
+	</p>
+	{% endif %} {%- if note.related %}
+	<p>
+		Also changed lists up to three items changed in the same patch, ranked by the share of
+		the hero's player-matches in which each was bought before the patch. It needs {{
+		note.appearances() }} hero appearances and {{ note.min_buyers() }} buyers. These are
+		reading links, not build recommendations.
+	</p>
+	{% endif %} {%- if note.bought_by %}
+	<p>
+		Bought most by lists up to three heroes whose players bought the item most often
+		before the patch, as a share of each hero's player-matches. Each hero needs {{
+		note.appearances() }} appearances and {{ note.min_buyers() }} buyers.
+	</p>
+	{% endif %} {%- if note.buy_time %}
+	<p>Bought at is the average game time at which the item's buyers bought it.</p>
+	{% endif %} {%- if note.details %}
+	<p>{{ note.details_text() }}</p>
+	{% endif %} {%- if note.previous %}
+	<p>
+		Previous recorded change links connect verified, explicit changes to the same
+		property. They cover part of the archive, not a complete history of game values.
+	</p>
+	{% endif %}
+	<p>
+		{{ note.source_label() }} from the
+		<a
+			href="https://deadlock-api.com"
+			rel="noopener"
+			class="ui-focus-ring text-signal rounded-sm underline-offset-4 hover:underline"
+			>Deadlock API</a
+		>.
+	</p>
+</section>
+{%- endif -%} {%- endmacro -%} {%- macro previous_link(previous) -%}
+<a
+	href="{{ previous.href }}"
+	aria-label="{{ previous.label }}"
+	data-previous-change
+	class="ui-focus-ring text-muted-foreground hover:text-signal focus-visible:text-signal ml-1 rounded-sm font-mono text-xs whitespace-nowrap"
+	>{{ previous.text }}</a
+>
+{%- endmacro -%}

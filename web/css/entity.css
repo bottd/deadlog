@@ -1,0 +1,48 @@
+@property --un-text-opacity {
+	syntax: '<percentage>';
+	inherits: false;
+	initial-value: 100%;
+}
+.toc-entry {
+	font-size: var(--text-xs-fontSize);
+	line-height: var(--un-leading, var(--text-xs-lineHeight));
+	padding-block: calc(var(--spacing) * 1);
+	padding-left: calc(var(--spacing) * 3);
+	gap: calc(var(--spacing) * 2);
+}
+.toc-entry-count {
+	color: color-mix(in srgb, var(--muted-foreground) 80%, transparent);
+	font-size: 11px;
+	font-family: var(--font-mono);
+	flex-shrink: 0;
+	margin-left: auto;
+}
+details[open] .details-marker {
+	transform: rotate(90deg);
+}
+.details-marker {
+	transition: transform 0.15s;
+}
+summary.list-none::-webkit-details-marker {
+	display: none;
+}
+details[open] .details-marker {
+	transform: rotate(90deg);
+}
+.details-marker {
+	transition: transform 0.15s;
+}
+summary.list-none::-webkit-details-marker {
+	display: none;
+}
+.stats-band {
+	container-type: inline-size;
+}
+.band-grid {
+	grid-template-columns: minmax(0, 1fr);
+}
+@container (width>=36rem) {
+	.band-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}

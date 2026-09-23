@@ -24,3 +24,6 @@ node_modules
 .nx/workspace-data
 app/static/deadlog.db
 app/src/lib/generated/
+
+# Cargo
+/target

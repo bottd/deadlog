@@ -1,0 +1,77 @@
+{% extends "base.html" %} {%- import "partials/icons.html" as icons -%} {% block main %}
+<main class="container mx-auto px-4">
+	<div class="mx-auto mt-8 mb-24 max-w-2xl">
+		<div
+			border="border/50 2"
+			bg="card"
+			relative
+			p="x-6 y-12 sm:x-12"
+			text="center"
+			class="clip-corner overflow-hidden"
+			role="alert"
+		>
+			{% call icons::corner_accents("2rem", "1.5rem", "bg-muted-foreground/30",
+			"bg-muted-foreground/20", "", "", "2px") %}{% endcall %}
+			<div
+				flex="~"
+				border="border ~"
+				bg="muted/30"
+				m="x-auto b-6"
+				items="center"
+				justify="center"
+				class="clip-corner-sm size-20"
+			>
+				{% call icons::svg("search-x", "text-muted-foreground size-10") %}{% endcall %}
+			</div>
+			<h1
+				font="display medium"
+				text="foreground 2xl sm:3xl"
+				m="b-3"
+				class="tracking-wide"
+			>
+				Not in the log
+			</h1>
+			<p text="muted-foreground" m="x-auto b-2" class="max-w-md leading-relaxed">
+				Nothing is recorded at
+				<span text="foreground" font="mono" class="break-all" data-not-found-path
+					>this address</span
+				>. Heroes and items are renamed between patches, so an older link can point at a
+				name the archive no longer uses.
+			</p>
+			<p text="muted-foreground xs" font="mono" m="b-8" class="tracking-wide">
+				Status 404
+			</p>
+			<nav aria-label="Recover">
+				<ul
+					flex="~ col sm:row"
+					gap="2"
+					justify="center"
+					class="items-stretch sm:items-center"
+				>
+					<li>
+						<a href="/heroes" class="pill-signal flex justify-center gap-1.5"
+							>Browse heroes
+							<span text="muted-foreground xs" font="mono">{{ hero_count }}</span></a
+						>
+					</li>
+					<li>
+						<a href="/items" class="pill-signal flex justify-center gap-1.5"
+							>Browse items
+							<span text="muted-foreground xs" font="mono">{{ item_count }}</span></a
+						>
+					</li>
+					<li>
+						<a href="/archive" class="pill-signal flex justify-center gap-1.5"
+							>Complete archive {% call icons::svg("arrow-right", "size-3.5") %}{% endcall
+							%}</a
+						>
+					</li>
+				</ul>
+			</nav>
+			<p text="muted-foreground sm" m="t-8">
+				Or search for a hero or item from the bar above.
+			</p>
+		</div>
+	</div>
+</main>
+{% endblock %}
