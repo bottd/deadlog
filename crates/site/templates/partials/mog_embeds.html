@@ -1,0 +1,26 @@
+{%- import "partials/icons.html" as icons -%}
+{%- import "partials/reading.html" as reading -%}
+
+{%- block section_preview -%}
+<ul m="b-5" flex="~ wrap" list="none" gap="1" p="0" class="section-preview" aria-label="Affected {{ kind }}s">
+{%- for (name, image, fragment) in icons -%}
+<li><a flex="~" href="#{{ fragment }}" border="border/60 ~" items="center" gap="1.5" rounded="sm" p="y-0.5 r-2 l-0.5" class="group/badge hover:border-primary/30 hover:bg-primary/5 transition-colors"><img src="{{ image }}" alt="" width="20" height="20" loading="lazy" decoding="async" rounded="sm" class="size-5 object-cover"> <span text="muted-foreground" font="medium" class="group-hover/badge:text-foreground text-[11px] transition-colors">{{ name }}</span></a></li>
+{%- endfor -%}
+</ul>
+{%- endblock -%}
+
+{%- block video_link -%}
+<a href="{{ src }}" target="_blank" rel="noopener noreferrer" border="border/60 ~" bg="card/60" text="muted-foreground xs" m="y-2" items="center" gap="2" rounded="md" p="x-2.5 y-1.5" font="medium" class="video-link inline-flex no-underline transition-colors hover:border-signal/50 hover:text-foreground focus-visible:ring-ring focus-visible:ring-2 focus-visible:outline-none" aria-label="{{ label }} — video clip, opens on the Deadlock forums">{% call icons::svg("clapperboard", "text-signal size-3.5 shrink-0") %}{% endcall %} <span truncate>{{ label }}</span> {% call icons::svg("external-link", "size-3 shrink-0 opacity-60") %}{% endcall %}</a>
+{%- endblock -%}
+
+{%- block details -%}
+<div class="mog-enrichment -mt-1 min-w-0">{% call reading::context(view) %}{% endcall %}</div>
+{%- endblock -%}
+
+{%- block previous -%}
+<span class="mog-enrichment">{% call reading::previous_link(previous) %}{% endcall %}</span>
+{%- endblock -%}
+
+{%- block stats_band -%}
+<div class="mog-enrichment min-w-0" data-stats-reading="{{ kind }}">{% call reading::band(blocks.as_slice(), 4) %}{% endcall %}</div>
+{%- endblock -%}

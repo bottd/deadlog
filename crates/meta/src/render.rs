@@ -2,7 +2,7 @@ use std::path::Path;
 
 use anyhow::{Context, Result};
 use serde_json::Value;
-use takumi::prelude::{Fonts, MeasuredNode, Node, OutputFormat, RenderOptions, Viewport};
+use takumi::prelude::{Fonts, Node, OutputFormat, RenderOptions, Viewport};
 use takumi_bindings_common::{build_font_resource, default_fonts};
 
 use crate::theme::{FAMILY_BODY, FAMILY_DISPLAY, FAMILY_MONO, HEIGHT, WIDTH};
@@ -25,12 +25,20 @@ impl Renderer {
         let mut fonts = default_fonts().context("loading takumi's fallback font")?;
         for (file, name, generic) in FACES {
             let path = font_dir.join(file);
-            let bytes = std::fs::read(&path).with_context(|| format!("reading {}", path.display()))?;
-            build_font_resource(&bytes, Some(name.into()), None, None, None, None, Some(generic.into()))
-                .and_then(|resource| resource.into_resolved())
-                .and_then(|resource| fonts.register(resource))
-                .map_err(|error| anyhow::anyhow!("{error}"))
-                .with_context(|| format!("registering {name} from {file}"))?;
+            let bytes =
+                std::fs::read(&path).with_context(|| format!("reading {}", path.display()))?;
+            build_font_resource(
+                &bytes,
+                Some(name.into()),
+                None,
+                None,
+                None,
+                None,
+                Some(generic.into()),
+            )
+            .and_then(|resource| resource.into_resolved())
+            .and_then(|resource| fonts.register(resource))
+            .with_context(|| format!("registering {name} from {file}"))?;
         }
         Ok(Self { fonts })
     }
@@ -45,14 +53,14 @@ impl Renderer {
     }
 
     pub fn render_png(&self, node: Value) -> Result<Vec<u8>> {
-        let image = takumi::render(self.options(node)?).map_err(|error| anyhow::anyhow!("{error}"))?;
+        let image = takumi::render(self.options(node)?)?;
         let mut png = Vec::new();
-        takumi::write_image(&image, &mut png, OutputFormat::Png)
-            .map_err(|error| anyhow::anyhow!("{error}"))?;
+        takumi::write_image(&image, &mut png, OutputFormat::Png)?;
         Ok(png)
     }
 
-    pub fn measure(&self, node: Value) -> Result<MeasuredNode> {
-        takumi::measure(self.options(node)?).map_err(|error| anyhow::anyhow!("{error}"))
+    #[cfg(test)]
+    pub fn measure(&self, node: Value) -> Result<takumi::prelude::MeasuredNode> {
+        Ok(takumi::measure(self.options(node)?)?)
     }
 }

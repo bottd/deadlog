@@ -12,6 +12,8 @@ serve = ["dep:axum", "dep:tokio", "dep:tower", "dep:tower-http", "dep:tower-live
 anyhow.workspace = true
 askama.workspace = true
 chrono.workspace = true
+chrono-tz.workspace = true
+deadlog-changelog = { path = "../changelog" }
 deadlog-db.workspace = true
 deadlog-model.workspace = true
 lightningcss = { version = "1.0.0-alpha.72", default-features = false, features = ["bundler"] }
@@ -32,3 +34,4 @@ tower-livereload = { version = "0.9", optional = true }
 [dev-dependencies]
 insta = "1"
 rquickjs = "0.9"
+rusqlite.workspace = true

@@ -423,8 +423,18 @@ pub fn patch_rows(
         style(json!({ "display": "flex", "flexDirection": "column", "gap": "18px" })),
         [
             Some(divider()),
-            entity_row("HEROES", hero_icons, hero_count.saturating_sub(hero_icons.len()), colors::AMBER),
-            entity_row("ITEMS", item_icons, item_count.saturating_sub(item_icons.len()), colors::SEA),
+            entity_row(
+                "HEROES",
+                hero_icons,
+                hero_count.saturating_sub(hero_icons.len()),
+                colors::AMBER,
+            ),
+            entity_row(
+                "ITEMS",
+                item_icons,
+                item_count.saturating_sub(item_icons.len()),
+                colors::SEA,
+            ),
         ],
     ))
 }
@@ -461,7 +471,9 @@ pub fn entity_card(props: EntityCard) -> Value {
                         Some(display(props.name, column, 1)),
                         annotation(&props.segments, column),
                         Some(div(
-                            style(json!({ "display": "flex", "flexDirection": "column", "gap": "22px" })),
+                            style(
+                                json!({ "display": "flex", "flexDirection": "column", "gap": "22px" }),
+                            ),
                             [Some(divider()), lede(props.history, column, 2)],
                         )),
                     ],

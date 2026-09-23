@@ -36,7 +36,9 @@ pub fn changelog(props: &ChangelogLayout) -> Value {
     } else {
         1
     };
-    let counts = |n: usize, singular, plural| if n > 0 { count_label(n, singular, plural) } else { String::new() };
+    let counts = |n: usize, singular, plural| {
+        if n > 0 { count_label(n, singular, plural) } else { String::new() }
+    };
     let segments = [
         Segment::new(props.date.to_uppercase(), Some(colors::SEA)),
         Segment::new(counts(props.hero_count, "HERO", Some("HEROES")), Some(colors::AMBER)),
@@ -59,10 +61,18 @@ pub fn changelog(props: &ChangelogLayout) -> Value {
                 Some(display(&props.heading, CONTENT, 2)),
                 Some(div(
                     style(json!({ "display": "flex", "alignItems": "center", "gap": "20px" })),
-                    [annotation(&segments, annotation_width), props.major_update.then(|| flag("MAJOR"))],
+                    [
+                        annotation(&segments, annotation_width),
+                        props.major_update.then(|| flag("MAJOR")),
+                    ],
                 )),
                 summary.and_then(|summary| lede(summary, CONTENT, lede_lines)),
-                patch_rows(&props.hero_icons, &props.item_icons, props.hero_count, props.item_count),
+                patch_rows(
+                    &props.hero_icons,
+                    &props.item_icons,
+                    props.hero_count,
+                    props.item_count,
+                ),
             ],
         ),
     )
@@ -128,7 +138,10 @@ pub fn hero(props: &HeroLayout) -> Value {
         fit: Fit::Cover,
         history: &props.history,
         segments: vec![
-            Segment::new(hero_type.map(str::to_uppercase).unwrap_or_default(), hero_tone(hero_type)),
+            Segment::new(
+                hero_type.map(str::to_uppercase).unwrap_or_default(),
+                hero_tone(hero_type),
+            ),
             Segment::new(props.changes.clone(), Some(colors::AMBER)),
             Segment::new(count_label(props.patch_count, "PATCH", Some("PATCHES")), None),
         ],

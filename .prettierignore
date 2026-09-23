@@ -12,3 +12,9 @@ node_modules
 
 pnpm-lock.yaml
 /drizzle/
+
+# Rust workspace: Askama templates are whitespace-sensitive and Prettier's HTML
+# printer breaks their tags.
+/crates/
+/target/
+/dist/

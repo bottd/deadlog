@@ -1,107 +1,69 @@
 {%- import "partials/icons.html" as icons -%}
 <!doctype html>
 <html lang="en" class="dark">
-	<head>
-		<meta charset="utf-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-		/>
-		<link rel="dns-prefetch" href="https://assets-bucket.deadlock-api.com" />
-		<link rel="preconnect" href="https://assets-bucket.deadlock-api.com" crossorigin />
-		<meta name="theme-color" content="#292522" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-		<link rel="manifest" href="/site.webmanifest" />
-		{%- let meta = layout.meta %}
-		<meta name="robots" content="{{ meta.robots() }}" />
-		<meta name="description" content="{{ meta.description }}" />
-		<link rel="canonical" href="{{ meta.canonical }}" />
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content="{{ meta.title }}" />
-		<meta name="twitter:description" content="{{ meta.description }}" />
-		<meta name="twitter:image" content="{{ meta.image }}" />
-		<meta name="twitter:image:alt" content="{{ meta.title }}" />
-		<meta property="og:url" content="{{ meta.canonical }}" />
-		{%- if let Some(article) = meta.article %}
-		<meta property="og:type" content="article" />
-		<meta property="article:published_time" content="{{ article.published_time }}" />
-		<meta property="article:modified_time" content="{{ article.published_time }}" />
-		<meta property="article:section" content="{{ article.section }}" />
-		{%- for tag in article.tags %}
-		<meta property="article:tag" content="{{ tag }}" />
-		{%- endfor %} {%- else %}
-		<meta property="og:type" content="website" />
-		{%- endif %}
-		<meta property="og:title" content="{{ meta.title }}" />
-		<meta property="og:description" content="{{ meta.description }}" />
-		<meta property="og:image" content="{{ meta.image }}" />
-		<meta property="og:image:alt" content="{{ meta.title }}" />
-		<meta property="og:image:width" content="1200" />
-		<meta property="og:image:height" content="630" />
-		<meta property="og:image:type" content="image/png" />
-		<meta property="og:locale" content="en_US" />
-		<meta property="og:site_name" content="Deadlog" />
-		{%- if let Some(json_ld) = meta.json_ld_text() %}
-		<script type="application/ld+json">
-			{{ json_ld|safe }}
-		</script>
-		{%- endif %}
-		<title>{{ meta.title }}</title>
-		<link rel="stylesheet" href="{{ layout.assets.css }}" />
-		<script type="speculationrules">
-			{{ layout.assets.speculation_rules|safe }}
-		</script>
-		<script type="module" src="{{ layout.assets.js }}"></script>
-		{%- if let Some(analytics) = layout.assets.analytics %}
-		<script
-			id="counterscale-script"
-			data-site-id="{{ analytics.site_id }}"
-			src="{{ analytics.src }}"
-			defer
-		></script>
-		{%- endif %}
-	</head>
-	<body>
-		<div bg="background" class="bg-wire-grid min-h-screen" data-app-ready="false">
-			<a
-				href="#main-content"
-				class="focus:bg-primary focus:text-primary-foreground sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:font-mono focus:text-xs focus:font-bold focus:tracking-wider focus:uppercase"
-				>Skip to content</a
-			>
-			{% include "partials/header.html" %}
-			<div id="main-content" tabindex="-1" class="animate-entrance-up outline-none">
-				{%- block main %}{% endblock %}
-			</div>
-			{% include "partials/footer.html" %}
-			<button
-				type="button"
-				hidden
-				data-scroll-top
-				flex="~"
-				bg="popover/90"
-				text="signal"
-				fixed
-				z="50"
-				items="center"
-				justify="center"
-				rounded="md"
-				class="ui-focus-ring right-6 bottom-6 size-12 border backdrop-blur-xl transition-all hover:border-signal/60 hover:text-foreground hover:shadow-xl active:scale-[0.97]"
-				aria-label="Scroll to top"
-			>
-				{% call icons::svg("arrow-up", "size-5") %}{% endcall %}
-			</button>
-			<section
-				class="toaster"
-				aria-label="Notifications"
-				tabindex="-1"
-				aria-live="polite"
-				aria-relevant="additions text"
-				aria-atomic="false"
-				data-toaster
-			></section>
-		</div>
-	</body>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<link rel="dns-prefetch" href="https://assets-bucket.deadlock-api.com">
+<link rel="preconnect" href="https://assets-bucket.deadlock-api.com" crossorigin>
+<meta name="theme-color" content="#292522">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+{%- let meta = layout.meta %}
+<meta name="robots" content="{{ meta.robots() }}">
+<meta name="description" content="{{ meta.description }}">
+<link rel="canonical" href="{{ meta.canonical }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ meta.title }}">
+<meta name="twitter:description" content="{{ meta.description }}">
+<meta name="twitter:image" content="{{ meta.image }}">
+<meta name="twitter:image:alt" content="{{ meta.title }}">
+<meta property="og:url" content="{{ meta.canonical }}">
+{%- if let Some(article) = meta.article %}
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="{{ article.published_time }}">
+<meta property="article:modified_time" content="{{ article.published_time }}">
+<meta property="article:section" content="{{ article.section }}">
+{%- for tag in article.tags %}
+<meta property="article:tag" content="{{ tag }}">
+{%- endfor %}
+{%- else %}
+<meta property="og:type" content="website">
+{%- endif %}
+<meta property="og:title" content="{{ meta.title }}">
+<meta property="og:description" content="{{ meta.description }}">
+<meta property="og:image" content="{{ meta.image }}">
+<meta property="og:image:alt" content="{{ meta.title }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Deadlog">
+{%- if let Some(json_ld) = meta.json_ld_text() %}
+<script type="application/ld+json">{{ json_ld|safe }}</script>
+{%- endif %}
+<title>{{ meta.title }}</title>
+<script>if (location.pathname === '/' && /[?&](hero|item|q|major)=/.test(location.search)) document.documentElement.dataset.filtering = ''; for (const type of ['pageswap', 'pagereveal']) addEventListener(type, (event) => { event.viewTransition?.ready.catch(() => {}); event.viewTransition?.finished.catch(() => {}); });</script>
+<link rel="stylesheet" href="{{ layout.assets.css }}">
+<script type="speculationrules">{{ layout.assets.speculation_rules|safe }}</script>
+<script type="module" src="{{ layout.assets.js }}"></script>
+{%- if let Some(analytics) = layout.assets.analytics %}
+<script id="counterscale-script" data-site-id="{{ analytics.site_id }}" src="{{ analytics.src }}" defer></script>
+{%- endif %}
+</head>
+<body>
+<div bg="background" class="bg-wire-grid min-h-screen" data-app-ready="false">
+<a href="#main-content" class="focus:bg-primary focus:text-primary-foreground sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:font-mono focus:text-xs focus:font-bold focus:tracking-wider focus:uppercase">Skip to content</a>
+{% include "partials/header.html" %}
+<div id="main-content" tabindex="-1" class="animate-entrance-up outline-none">
+{%- block main %}{% endblock %}
+</div>
+{% include "partials/footer.html" %}
+<button type="button" hidden data-scroll-top flex="~" bg="popover/90" text="signal" fixed z="50" items="center" justify="center" rounded="md" class="ui-focus-ring right-6 bottom-6 size-12 border backdrop-blur-xl transition-all hover:border-signal/60 hover:text-foreground hover:shadow-xl active:scale-[0.97]" aria-label="Scroll to top">{% call icons::svg("arrow-up", "size-5") %}{% endcall %}</button>
+<section class="toaster" aria-label="Notifications" tabindex="-1" aria-live="polite" aria-relevant="additions text" aria-atomic="false" data-toaster></section>
+</div>
+</body>
 </html>

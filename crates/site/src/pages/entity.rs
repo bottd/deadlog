@@ -20,7 +20,8 @@ use crate::meta::{
     default_social_image,
 };
 use crate::share::{
-    self, BuyTime, ContextView, MethodNote, PageContext, PreviousChange, PropertyLink, ShareRow, ShareWindows,
+    self, BandBlock, BuyTime, ContextView, MethodNote, PageContext, PreviousChange, PropertyLink, RelatedNote, ShareRow,
+    ShareWindows,
 };
 use crate::{Assets, Layout, Site};
 
@@ -58,57 +59,6 @@ pub struct GroupView {
     pub icon: Option<String>,
     pub bullets: Vec<Bullet>,
     pub context: Option<ContextView>,
-}
-
-pub struct RelatedNote {
-    pub name: String,
-    pub image: String,
-    pub groups: Vec<Vec<String>>,
-}
-
-pub enum BandBlock {
-    Share {
-        kind: &'static str,
-        heading_id: String,
-        title: &'static str,
-        lead: String,
-        rows: Vec<ShareRow>,
-        paired: bool,
-        round: bool,
-        notes: Vec<RelatedNote>,
-    },
-    BuyTime {
-        lead: String,
-        time: BuyTime,
-    },
-}
-
-impl BandBlock {
-    fn share(
-        kind: &'static str,
-        entry: &str,
-        subject: &str,
-        rows: Vec<ShareRow>,
-        windows: &ShareWindows,
-        notes: Vec<RelatedNote>,
-    ) -> Self {
-        let (title, lead, round) = match kind {
-            "maxed-first" => ("Maxed first", format!("Share of {subject} players who maxed each ability first"), false),
-            "related" => ("Also changed in this patch", format!("Share of {subject} players who bought each"), false),
-            _ => ("Bought most by", format!("Share of each hero's players who bought {subject}"), true),
-        };
-        let paired = rows.iter().any(|row| row.after.is_some());
-        BandBlock::Share {
-            kind,
-            heading_id: format!("{kind}-{entry}-heading"),
-            title,
-            lead: format!("{lead}, {}.", windows.span(paired)),
-            rows,
-            paired,
-            round,
-            notes,
-        }
-    }
 }
 
 pub struct PatchView {

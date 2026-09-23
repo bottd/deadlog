@@ -2,8 +2,27 @@
 //! attr blocks were written by `JSON.stringify` and template literals, and a port has to
 //! write the same bytes: `14` not `14.0`, `1e+21` not `1000000000000000000000`.
 
+use chrono::{DateTime, FixedOffset, Local, NaiveDate, NaiveDateTime, TimeZone, Utc};
 use serde::Serialize;
 use serde_json::Value;
+
+/// JavaScript's `\s` as a regex class. Rust's `\s` differs at U+0085 and U+FEFF, and
+/// the game's localisation files and forum posts can carry either.
+pub const JS_SPACE: &str =
+    r"[\t\n\x0B\x0C\r \x{a0}\x{1680}\x{2000}-\x{200a}\x{2028}\x{2029}\x{202f}\x{205f}\x{3000}\x{feff}]";
+
+pub fn is_js_whitespace(c: char) -> bool {
+    matches!(
+        c,
+        '\t' | '\n' | '\u{b}' | '\u{c}' | '\r' | ' ' | '\u{a0}' | '\u{1680}' | '\u{2000}'..='\u{200a}'
+            | '\u{2028}' | '\u{2029}' | '\u{202f}' | '\u{205f}' | '\u{3000}' | '\u{feff}'
+    )
+}
+
+/// `String.prototype.trim()`.
+pub fn js_trim(text: &str) -> &str {
+    text.trim_matches(is_js_whitespace)
+}
 
 /// `Number.prototype.toString()`.
 pub fn js_number(value: f64) -> String {
@@ -112,8 +131,57 @@ pub fn to_js_json<T: Serialize + ?Sized>(value: &T) -> serde_json::Result<String
     Ok(js_json(&serde_json::to_value(value)?))
 }
 
+/// `new Date(text)` for the ISO shapes the changelogs use, including V8's lenient
+/// `+HHMM` offset. A date-only string is UTC midnight; a date-time without an offset is
+/// local time, as in JavaScript.
+pub fn parse_js_date(text: &str) -> Option<DateTime<Utc>> {
+    if let Ok(day) = NaiveDate::parse_from_str(text, "%Y-%m-%d") {
+        return Some(Utc.from_utc_datetime(&day.and_hms_opt(0, 0, 0)?));
+    }
+    if let Some(naive) = text.strip_suffix('Z').and_then(|rest| parse_naive(rest)) {
+        return Some(Utc.from_utc_datetime(&naive));
+    }
+    let split = text.rfind(['+', '-']).filter(|index| *index > 10);
+    if let Some(index) = split {
+        let (rest, offset) = text.split_at(index);
+        if let (Some(naive), Some(offset)) = (parse_naive(rest), parse_offset(offset)) {
+            return offset.from_local_datetime(&naive).single().map(|date| date.with_timezone(&Utc));
+        }
+    }
+    parse_naive(text).and_then(|naive| Local.from_local_datetime(&naive).earliest()).map(|date| date.with_timezone(&Utc))
+}
+
+fn parse_naive(text: &str) -> Option<NaiveDateTime> {
+    ["%Y-%m-%dT%H:%M:%S%.f", "%Y-%m-%dT%H:%M"].into_iter().find_map(|format| NaiveDateTime::parse_from_str(text, format).ok())
+}
+
+fn parse_offset(text: &str) -> Option<FixedOffset> {
+    let sign = if text.starts_with('-') { -1 } else { 1 };
+    let digits: String = text[1..].chars().filter(|c| *c != ':').collect();
+    if digits.len() != 4 || !digits.bytes().all(|b| b.is_ascii_digit()) {
+        return None;
+    }
+    let hours: i32 = digits[..2].parse().ok()?;
+    let minutes: i32 = digits[2..].parse().ok()?;
+    FixedOffset::east_opt(sign * (hours * 3600 + minutes * 60))
+}
+
+/// `new Date(text).toISOString()`.
+pub fn js_iso_string(text: &str) -> Option<String> {
+    parse_js_date(text).map(|date| date.format("%Y-%m-%dT%H:%M:%S%.3fZ").to_string())
+}
+
 #[cfg(test)]
 mod tests {
+    #[test]
+    fn dates_parse_like_v8() {
+        assert_eq!(js_iso_string("2024-05-03T12:00:00-0700").as_deref(), Some("2024-05-03T19:00:00.000Z"));
+        assert_eq!(js_iso_string("2026-09-16T20:16:43.000Z").as_deref(), Some("2026-09-16T20:16:43.000Z"));
+        assert_eq!(js_iso_string("2026-09-16T20:16:43+02:00").as_deref(), Some("2026-09-16T18:16:43.000Z"));
+        assert_eq!(js_iso_string("2026-09-16").as_deref(), Some("2026-09-16T00:00:00.000Z"));
+        assert_eq!(js_iso_string("yesterday"), None);
+    }
+
     use super::*;
 
     #[test]

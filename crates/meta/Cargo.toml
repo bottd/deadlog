@@ -11,3 +11,7 @@ deadlog-model.workspace = true
 # crates.io takumi 2.14.0 depends on a stale takumi-core 0.25.0 (published 2026-09-02); the
 # napi 2.14.0 build lives at this commit, so render from the same source.
 takumi = { git = "https://github.com/kane50613/takumi", rev = "596f5c0dc28451295e25e3e4423c3b82d47e5a00" }
+takumi-bindings-common = { git = "https://github.com/kane50613/takumi", rev = "596f5c0dc28451295e25e3e4423c3b82d47e5a00" }
+base64 = "0.22"
+serde_json.workspace = true
+ureq = "3"

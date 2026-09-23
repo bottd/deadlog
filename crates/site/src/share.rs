@@ -172,6 +172,57 @@ pub fn bought_by_rows(bought: &BoughtBy, heroes: &HashMap<i64, HeroIcon>) -> Vec
         .collect()
 }
 
+pub struct RelatedNote {
+    pub name: String,
+    pub image: String,
+    pub groups: Vec<Vec<String>>,
+}
+
+pub enum BandBlock {
+    Share {
+        kind: &'static str,
+        heading_id: String,
+        title: &'static str,
+        lead: String,
+        rows: Vec<ShareRow>,
+        paired: bool,
+        round: bool,
+        notes: Vec<RelatedNote>,
+    },
+    BuyTime {
+        lead: String,
+        time: BuyTime,
+    },
+}
+
+impl BandBlock {
+    pub fn share(
+        kind: &'static str,
+        entry: &str,
+        subject: &str,
+        rows: Vec<ShareRow>,
+        windows: &ShareWindows,
+        notes: Vec<RelatedNote>,
+    ) -> Self {
+        let (title, lead, round) = match kind {
+            "maxed-first" => ("Maxed first", format!("Share of {subject} players who maxed each ability first"), false),
+            "related" => ("Also changed in this patch", format!("Share of {subject} players who bought each"), false),
+            _ => ("Bought most by", format!("Share of each hero's players who bought {subject}"), true),
+        };
+        let paired = rows.iter().any(|row| row.after.is_some());
+        BandBlock::Share {
+            kind,
+            heading_id: format!("{kind}-{entry}-heading"),
+            title,
+            lead: format!("{lead}, {}.", windows.span(paired)),
+            rows,
+            paired,
+            round,
+            notes,
+        }
+    }
+}
+
 #[derive(Debug, Clone)]
 pub struct BuyTime {
     pub before: String,

@@ -30,20 +30,7 @@
 </div>
 {%- else %} <p class="text-muted-foreground max-w-[72ch] text-sm leading-relaxed">{{ name }} was mentioned in this patch. See the full notes for context.</p>
 {%- endif %}
-{%- if !patch.band.is_empty() %} <div class="stats-band mt-5 min-w-0" data-stats-band><div class="band-grid grid gap-x-8 gap-y-5">
-{%- for block in patch.band -%}
-{%- match block -%}
-{%- when crate::pages::entity::BandBlock::Share with { kind, heading_id, title, lead, rows, paired, round, notes } -%}
-{%- if heading_id.starts_with("related-") %}<div data-related-items>{% endif -%}
-<div class="min-w-0" data-share-block="{{ kind }}"><h5 id="{{ heading_id }}" class="text-foreground text-sm font-semibold">{{ title }}</h5> <p class="text-muted-foreground mt-0.5 text-xs leading-relaxed">{{ lead }}</p> {% call reading::share_list(rows, heading_id, paired, round) %}{% endcall %}
-{%- if !notes.is_empty() %} <details class="mt-1 text-sm" data-related-notes><summary class="ui-focus-ring text-muted-foreground flex min-h-11 w-fit cursor-pointer list-none items-center gap-2 rounded-sm">{% call icons::svg("chevron-right", "details-marker size-3.5 shrink-0") %}{% endcall %} Their notes · {{ notes.len() }} {% if notes.len() == 1 %}item{% else %}items{% endif %}</summary> <div class="space-y-3 pb-2 pl-5.5">{% for note in notes %}<div><h6 class="text-foreground flex items-center gap-2 text-sm font-semibold"><img src="{{ note.image }}" alt="" width="20" height="20" loading="lazy" decoding="async" class="size-5 shrink-0 object-contain">{{ note.name }}</h6> {% for bullets in note.groups %}<ul class="marker:text-muted-foreground mt-1 ml-4 list-disc space-y-1.5 leading-relaxed">{% for bullet in bullets %}<li class="pl-1">{{ bullet }}</li>{% endfor %}</ul>{% endfor %}</div>{% endfor %}</div></details>{% endif -%}
-</div>
-{%- if heading_id.starts_with("related-") %}</div>{% endif -%}
-{%- when crate::pages::entity::BandBlock::BuyTime with { lead, time } -%}
-<div class="min-w-0" data-share-block="bought-at"><h5 class="text-foreground text-sm font-semibold">Bought at</h5> <p class="text-muted-foreground mt-0.5 text-xs leading-relaxed">{{ lead }}</p> <p class="text-foreground mt-2 flex min-h-11 items-center font-mono text-sm" aria-label="{{ time.before }} before, {{ time.after }} after">{{ time.before }} → {{ time.after }}</p></div>
-{%- endmatch -%}
-{%- endfor -%}
-</div></div>{% endif %} <div class="mt-2 flex flex-wrap gap-x-6"><a href="{{ patch.href }}" class="ui-focus-ring text-signal inline-flex min-h-11 items-center gap-1.5 rounded-sm text-xs underline-offset-4 hover:underline">Full patch {% call icons::svg("arrow-right", "size-3.5") %}{% endcall %}</a></div></li>
+{%- if !patch.band.is_empty() %} {% call reading::band(patch.band.as_slice(), 5) %}{% endcall %}{% endif %} <div class="mt-2 flex flex-wrap gap-x-6"><a href="{{ patch.href }}" class="ui-focus-ring text-signal inline-flex min-h-11 items-center gap-1.5 rounded-sm text-xs underline-offset-4 hover:underline">Full patch {% call icons::svg("arrow-right", "size-3.5") %}{% endcall %}</a></div></li>
 {%- endfor -%}
 </ol></section>
 {%- endfor %} {% call reading::method_note(method) %}{% endcall %}

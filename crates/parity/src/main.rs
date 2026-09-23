@@ -129,14 +129,18 @@ fn project(html: &str) -> Projection {
 
     fields.insert("dates", attr_list(&within("time[datetime]"), "datetime"));
 
-    let items: Vec<Value> = within("li").iter().map(|item| Value::from(visible_text(*item))).collect();
+    let items: Vec<Value> = within("li")
+        .iter()
+        .filter(|item| !item.ancestors().filter_map(ElementRef::wrap).any(|ancestor| is_planned_addition(ancestor.value())))
+        .map(|item| Value::from(visible_text(*item)))
+        .collect();
     fields.insert("list_items", Value::Array(items));
 
     let rail_links: Vec<ElementRef> =
         within(r#"section[aria-label="Abilities"] a[href], nav[aria-label="Feed pages"] a[href]"#);
     let links: Vec<Value> = within("a[href]")
         .iter()
-        .filter(|link| !rail_links.contains(link))
+        .filter(|link| !rail_links.contains(link) && !is_unreachable(**link))
         .filter_map(|link| link.value().attr("href").and_then(normalize_href))
         .map(Value::from)
         .collect();
@@ -147,9 +151,17 @@ fn project(html: &str) -> Projection {
 }
 
 /// Additions the migration plan asked for, which the reference build cannot have: the
-/// feed's "Older patches" pagination replaces an invisible scroll sentinel.
+/// feed's "Older patches" pagination replaces an invisible scroll sentinel, and the
+/// patch contents render into a `<details>` on mobile instead of a scripted sheet.
 fn is_planned_addition(element: &scraper::node::Element) -> bool {
-    element.name() == "nav" && element.attr("aria-label") == Some("Feed pages")
+    element.name() == "nav" && matches!(element.attr("aria-label"), Some("Feed pages" | "Patch contents"))
+}
+
+/// Links a reader cannot reach: inside a `hidden` subtree or a planned addition.
+fn is_unreachable(element: ElementRef) -> bool {
+    element.ancestors().filter_map(ElementRef::wrap).any(|ancestor| {
+        ancestor.value().attr("hidden").is_some() || is_planned_addition(ancestor.value())
+    })
 }
 
 /// Ids that only exist to tie an element to its label: Svelte numbered them per render

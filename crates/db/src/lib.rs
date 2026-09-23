@@ -2,6 +2,8 @@
 //! database is a few megabytes, so the generator loads it once and derives every page
 //! from memory rather than issuing a query per page.
 
+pub mod write;
+
 use std::collections::HashMap;
 use std::path::Path;
 
