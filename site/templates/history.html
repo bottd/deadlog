@@ -1,0 +1,53 @@
+<div id="history" tabindex="-1">
+	<p class="history-count">
+		{{ entries.len() }} patches{% if let Some(ability) = selected %} ·
+		<strong>{{ ability }}</strong> changes ·
+		<a
+			href="/hero/{{ hero.slug }}/"
+			hx-get="/hero/{{ hero.slug }}/fragment.html"
+			hx-target="#history"
+			hx-swap="outerHTML"
+			hx-push-url="/hero/{{ hero.slug }}/"
+			>Show all changes</a
+		>{% endif %}
+	</p>
+	<ol class="entries">
+		{% for entry in entries %}
+		<li class="entry" id="history-{{ entry.id }}">
+			<h2 class="entry-date">
+				<a href="{{ entry.href }}">{{ entry.date }}</a> <span>{{ entry.count }}</span>
+			</h2>
+			<div class="groups">
+				{% for group in entry.groups %}
+				<div class="group">
+					{% if let Some(ability) = group.ability %}
+					<h3 class="ability">
+						{% if let Some(icon) = group.icon %}<img
+							src="{{ icon }}"
+							alt=""
+							width="24"
+							height="24"
+							loading="lazy"
+						/>{% endif %}{{ ability }}
+					</h3>
+					{% endif %}
+					<ul class="bullets">
+						{% for bullet in group.bullets %}
+						<li>{{ bullet }}</li>
+						{% endfor %}
+					</ul>
+				</div>
+				{% endfor %}
+			</div>
+			{% if !entry.band.is_empty() %}
+			<div class="stats-band" data-stats-band>
+				<div class="band-grid">
+					{% for block in entry.band %}{% include "share_block.html" %}{% endfor %}
+				</div>
+			</div>
+			{% endif %}
+			<a class="full-patch" href="{{ entry.href }}">Full patch →</a>
+		</li>
+		{% endfor %}
+	</ol>
+</div>
