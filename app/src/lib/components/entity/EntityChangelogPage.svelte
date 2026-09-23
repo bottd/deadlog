@@ -19,6 +19,7 @@
 	import EntityHistoryToc from './EntityHistoryToc.svelte';
 	import EntityContext from './EntityContext.svelte';
 	import PatchImpact from './PatchImpact.svelte';
+	import { hasReportableImpact } from '$lib/utils/impactFormat';
 	import RelatedItemChanges from './RelatedItemChanges.svelte';
 	import type { RelatedChanges } from './relatedChanges';
 	import type { PreviousChange } from './previousChanges';
@@ -127,7 +128,9 @@
 				: [];
 		});
 	});
-	const hasImpact = $derived(visibleChangelogs.some((patch) => patch.impact));
+	const hasImpact = $derived(
+		visibleChangelogs.some((patch) => patch.impact && hasReportableImpact(patch.impact))
+	);
 	const hasRelated = $derived(changelogs.some((patch) => patch.related));
 	const hasPrevious = $derived(
 		changelogs.some((patch) =>
