@@ -14,12 +14,18 @@ const context: EntityContext = {
 	properties: []
 };
 const patch = { id: 'new', pubDate: '2026-09-16T00:00:00Z' };
+const slot = (position: number) => ({
+	image: `/${position}.webp`,
+	assetId: position,
+	position
+});
 const fixture = (): PatchReadingData => ({
 	heroes: [
 		{
 			id: 69,
 			name: 'The Doorman',
-			groups: [{ ability: 'Call Bell', abilitySlug: 'call-bell', bullets: [bullet] }]
+			groups: [{ ability: 'Call Bell', abilitySlug: 'call-bell', bullets: [bullet] }],
+			abilityOrder: null
 		}
 	],
 	items: [
@@ -28,14 +34,17 @@ const fixture = (): PatchReadingData => ({
 			name: 'Item',
 			slug: 'item',
 			groups: [{ ability: null, bullets: ['A change'] }],
-			context
+			context,
+			boughtBy: null,
+			impact: null
 		}
 	],
 	abilities: [
-		{ heroId: 69, name: 'Call Bell', slug: 'call-bell', context },
-		{ heroId: 70, name: 'Call Bell', slug: 'call-bell', context },
-		{ heroId: 69, name: 'Doorway', slug: 'doorway', context }
+		{ heroId: 69, name: 'Call Bell', slug: 'call-bell', context, ...slot(1) },
+		{ heroId: 70, name: 'Call Bell', slug: 'call-bell', context, ...slot(1) },
+		{ heroId: 69, name: 'Doorway', slug: 'doorway', context, ...slot(2) }
 	],
+	heroIcons: [],
 	links: [
 		{
 			entityType: 'hero',

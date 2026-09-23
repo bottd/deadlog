@@ -46,12 +46,13 @@ test('related purchase shares navigate to visible item notes from a filtered pat
 	page.on('pageerror', (error) => errors.push(error.message));
 	await gotoApp(page, `${PATCH}?hero=Abrams`);
 	const hero = page.locator('.mog-content > .hero.abrams');
-	const related = hero.locator('[data-related-reading]');
+	const related = hero.locator('[data-share-block="related"]');
 	await expect(related).toBeVisible();
 	await expect(related).toContainText('Share of Abrams players who bought each');
-	await expect(related).toContainText('before this patch.');
+	await expect(related).toContainText(/each, .+\./);
+	await expect(hero.locator('[data-share-block="maxed-first"]')).toHaveCount(1);
 	const rows = related
-		.getByRole('list', { name: 'Related item changes' })
+		.getByRole('list', { name: 'Also changed in this patch' })
 		.getByRole('link');
 	expect(await rows.count()).toBeLessThanOrEqual(3);
 	const first = rows.first();
@@ -61,12 +62,13 @@ test('related purchase shares navigate to visible item notes from a filtered pat
 	const id = href.split('#')[1];
 	await expect(page.locator(`[id="${id}"]`)).toBeHidden();
 	const placement = await hero.evaluate((node) => {
-		const related = node.querySelector('[data-related-reading]')!.getBoundingClientRect();
-		const results = node.querySelector('[data-patch-impact]')!.getBoundingClientRect();
+		const related = node
+			.querySelector('[data-share-block="related"]')!
+			.getBoundingClientRect();
 		const ability = [...node.querySelectorAll('.ability')]
 			.at(-1)!
 			.getBoundingClientRect();
-		return related.top >= ability.bottom && results.top >= related.bottom;
+		return related.top >= ability.bottom;
 	});
 	expect(placement).toBe(true);
 	await hero.locator('[data-entity-context] summary').first().focus();

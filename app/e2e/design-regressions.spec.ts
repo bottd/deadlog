@@ -746,79 +746,46 @@ test('timeline date labels do not collide at responsive breakpoints', async ({
 	}
 });
 
-test('hero histories report measured patch impact without a direction cue', async ({
-	page
-}) => {
-	await gotoApp(page, '/hero/abrams');
+test('hero histories carry no match results and colour no share', async ({ page }) => {
+	await gotoApp(page, '/hero/lash');
 
-	const impact = page.locator('[data-patch-impact]');
-	await expect(impact.first()).toBeVisible();
-	await expect(impact.first().locator('[data-impact-grid]')).toBeHidden();
-	await impact.first().locator('summary').click();
-
-	const cells = impact.first().locator('[data-impact-grid] > span');
-	await expect(cells.nth(1)).toHaveText('WIN');
-	await expect(cells.nth(2)).toHaveText('PICK');
-	await expect(cells.nth(3)).toContainText('ALL RANKS');
-	await expect(cells.nth(4)).toHaveText(/^([\d.]+%|—) → ([\d.]+%|—)$/);
-	await expect(cells.nth(5)).toHaveText(/^([\d.]+%|—) → ([\d.]+%|—)$/);
-	await expect(cells.nth(4)).toHaveCSS('white-space', 'nowrap');
-	await expect(impact.first().locator('.sr-only').first()).toHaveText(
-		/^Match results around this patch, .+ before, .+ after\. All ranks\. Win rate /
-	);
+	await expect(page.locator('[data-patch-impact]')).toHaveCount(0);
+	const band = page.locator('[data-stats-band]').first();
+	await expect(band).toBeVisible();
+	const colors = await band.locator('[data-share-bar] + span').evaluateAll((spans) => {
+		const probe = document.createElement('span');
+		probe.style.color = 'var(--primary)';
+		document.body.append(probe);
+		const primary = getComputedStyle(probe).color;
+		probe.remove();
+		return { primary, used: [...new Set(spans.map((el) => getComputedStyle(el).color))] };
+	});
+	expect(colors.used).not.toContain(colors.primary);
+	expect(colors.used).toHaveLength(1);
 
 	const method = page.locator('#method');
 	await expect(
-		method.getByRole('heading', { name: 'Match results around this patch' })
+		method.getByRole('heading', { name: 'How these shares are measured' })
 	).toBeVisible();
 	await expect(method).toContainText('is not the effect of any one line');
-	await expect(method).toContainText('average badge across both teams');
-	await expect(
-		page.locator('main').getByRole('link', { name: 'Deadlock API' })
-	).toHaveCount(1);
-
-	const colors = await impact
-		.locator('[data-impact-grid] > span:not(:empty)')
-		.evaluateAll((lines) => {
-			const probe = document.createElement('span');
-			probe.style.color = 'var(--primary)';
-			document.body.append(probe);
-			const primary = getComputedStyle(probe).color;
-			probe.remove();
-			return {
-				primary,
-				used: [...new Set(lines.map((el) => getComputedStyle(el).color))]
-			};
-		});
-	expect(colors.used).not.toContain(colors.primary);
-	expect(colors.used.length).toBeLessThanOrEqual(2);
-
 	await expect(page.getByRole('link', { name: 'Deadlock API' }).first()).toHaveAttribute(
 		'href',
 		'https://deadlock-api.com'
 	);
-
-	await expectNoHorizontalOverflow(page);
-});
-
-test('ability histories carry no patch impact lines', async ({ page }) => {
-	await gotoApp(page, '/ability/affliction');
-
-	await expect(page.locator('[data-patch-impact]')).toHaveCount(0);
-	await expect(
-		page.getByRole('heading', { name: 'Match results around this patch' })
-	).toHaveCount(0);
 	await expect(
 		page.locator('main').getByRole('link', { name: 'Deadlock API' })
 	).toHaveCount(1);
+	await expectNoHorizontalOverflow(page);
+});
 
-	const heroResults = page.getByRole('link', { name: 'Pocket match results' }).first();
-	const href = await heroResults.getAttribute('href');
-	expect(href).toMatch(/^\/hero\/pocket#history-\d+$/);
-	await page.goto(href!);
-	await expect(page.locator(`#${href!.split('#')[1]} [data-patch-impact]`)).toHaveCount(
-		1
-	);
+test('ability histories carry no stats band', async ({ page }) => {
+	await gotoApp(page, '/ability/affliction');
+
+	await expect(page.locator('[data-stats-band]')).toHaveCount(0);
+	await expect(page.getByRole('link', { name: /match results/i })).toHaveCount(0);
+	await expect(
+		page.locator('main').getByRole('link', { name: 'Deadlock API' })
+	).toHaveCount(1);
 });
 
 test('hero change groups disclose current ability details without scripts', async ({
@@ -872,57 +839,6 @@ test('item and ability pages describe their own entity once, in the header', asy
 	}
 });
 
-test('item histories lead with purchase share and name their sample', async ({
-	page
-}) => {
-	await gotoApp(page, '/item/toxic-bullets');
-
-	const cells = page
-		.locator('[data-patch-impact] [data-impact-grid]')
-		.first()
-		.locator('> span');
-	await expect(cells.nth(1)).toHaveText('BOUGHT');
-	await expect(cells.nth(2)).toHaveText('BUYER WIN');
-	await expect(page.locator('[data-patch-impact]').first()).toContainText(
-		'player-matches'
-	);
-	await expect(page.locator('#method')).toContainText('share of players who bought');
-	await expectNoHorizontalOverflow(page);
-});
-
-test('match results disclose their windows and link to the method note', async ({
-	browser
-}) => {
-	const context = await browser.newContext({
-		javaScriptEnabled: false,
-		viewport: { width: 320, height: 720 }
-	});
-	const page = await context.newPage();
-	await page.goto('/hero/abrams');
-
-	const impact = page.locator('[data-patch-impact]').first();
-	const summary = impact.locator('summary');
-	const box = await summary.boundingBox();
-	expect(box?.height).toBeGreaterThanOrEqual(44);
-	await expect(impact.locator('table')).toBeHidden();
-
-	await summary.click();
-
-	const rows = impact.locator('tbody tr');
-	const day = '\\d{1,2}(–\\d{1,2})? [A-Z][a-z]{2}( – \\d{1,2} [A-Z][a-z]{2})?( \\d{4})?';
-	await expect(impact.locator('[data-impact-caption]')).toHaveText(
-		new RegExp(`^Match results · ${day} → ${day}$`)
-	);
-	await expect(rows).toHaveCount(3);
-	await expect(rows.nth(2).locator('td').first()).toHaveText(/^\d+ \/ \d+$/);
-	await expect(
-		impact.getByRole('link', { name: 'How this is measured' })
-	).toHaveAttribute('href', '#method');
-	await expect(page.locator('#method')).toContainText(/Method \d+, last collected /);
-	await expectNoHorizontalOverflow(page);
-	await context.close();
-});
-
 test('hero entries list the changed items their players bought, linked to real sections', async ({
 	page
 }) => {
@@ -932,26 +848,25 @@ test('hero entries list the changed items their players bought, linked to real s
 	await expect(
 		block.getByRole('heading', { name: 'Also changed in this patch' })
 	).toBeVisible();
-	await expect(block).toContainText(
-		/Share of Abrams players who bought each, .+, before this patch\./
-	);
+	await expect(block).toContainText(/Share of Abrams players who bought each, .+\./);
 	await expect(block).not.toContainText(/recommended|best|core|synergy/i);
 
 	const rows = block
-		.getByRole('list', { name: 'Related item changes' })
+		.getByRole('list', { name: 'Also changed in this patch' })
 		.locator(':scope > li');
 	expect(await rows.count()).toBeLessThanOrEqual(3);
 	const first = rows.first();
 	await expect(first.locator('[data-share-bar]')).toBeVisible();
 	await expect(first).toContainText(/(<1|\d+)%/);
-	await expect(first.locator('ul li').first()).toBeVisible();
+	const notes = block.locator('[data-related-notes]');
+	await expect(notes.locator('h6').first()).toBeHidden();
+	await notes.locator('summary').click();
+	await expect(notes.locator('h6 + ul li').first()).toBeVisible();
 
 	const entry = block.locator('xpath=ancestor::li[@data-entity-patch]');
 	const bullets = await entry.locator('ul').first().boundingBox();
 	const related = await block.boundingBox();
-	const impact = await entry.locator('[data-patch-impact]').boundingBox();
 	expect(related!.y).toBeGreaterThan(bullets!.y);
-	expect(impact!.y).toBeGreaterThan(related!.y);
 
 	const href = await first.getByRole('link').first().getAttribute('href');
 	expect(href).toMatch(/^\/change\/.+#.+/);
@@ -1001,4 +916,51 @@ test('an ability page keeps its previous-change links and they resolve', async (
 	const href = await previous.getAttribute('href');
 	await gotoApp(page, href!);
 	await expect(page.locator(`[id="${href!.split('#')[1]}"]`)).toHaveCount(1);
+});
+
+test('a hero entry with ability changes shows which ability players maxed first', async ({
+	page
+}) => {
+	await gotoApp(page, '/hero/lash');
+	const block = page.locator('[data-share-block="maxed-first"]').first();
+	await expect(block.getByRole('heading', { name: 'Maxed first' })).toBeVisible();
+	await expect(block).toContainText(
+		/Share of Lash players who maxed each ability first, .+\./
+	);
+	const rows = block.getByRole('list', { name: 'Maxed first' }).getByRole('link');
+	await expect(rows).toHaveCount(4);
+	await expect(rows.first()).toHaveAccessibleName(
+		/^[A-Z][\w' ]+, (<1|\d+)% before, (<1|\d+)% after$/
+	);
+	await expect(rows.first()).toHaveAttribute('href', /^\/ability\//);
+	const entry = block.locator('xpath=ancestor::li[@data-entity-patch]');
+	const maxed = (await block.boundingBox())!;
+	const related = (await entry.locator('[data-related-items]').boundingBox())!;
+	const width = await entry
+		.locator('[data-stats-band]')
+		.evaluate((node) => node.getBoundingClientRect().width);
+	if (width >= 576) {
+		expect(Math.abs(related.y - maxed.y)).toBeLessThan(2);
+		expect(related.x).toBeGreaterThan(maxed.x + maxed.width);
+	} else {
+		expect(related.y).toBeGreaterThan(maxed.y);
+	}
+});
+
+test('an item entry names the heroes whose players bought it most, and when', async ({
+	page
+}) => {
+	await gotoApp(page, '/item/lifestrike');
+	const block = page.locator('[data-share-block="bought-by"]').first();
+	await expect(block.getByRole('heading', { name: 'Bought most by' })).toBeVisible();
+	const rows = block.getByRole('list', { name: 'Bought most by' }).getByRole('link');
+	await expect(rows).toHaveCount(3);
+	await expect(rows.first()).toHaveAttribute('href', /^\/hero\//);
+	const time = block
+		.locator('xpath=ancestor::li[@data-entity-patch]')
+		.locator('[data-share-block="bought-at"]');
+	await expect(time).toContainText(/^Bought at/);
+	await expect(time.getByLabel(/^\d+:\d{2} before, \d+:\d{2} after$/)).toHaveText(
+		/^\d+:\d{2} → \d+:\d{2}$/
+	);
 });

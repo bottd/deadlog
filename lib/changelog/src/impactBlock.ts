@@ -5,7 +5,23 @@ const TIERS = ['all', 'high'] as const;
 const SIDES = ['before', 'after'] as const;
 
 const rateSchema = z.number().min(0).nullable();
-const countSchema = z.number().int().min(0);
+export const countSchema = z.number().int().min(0);
+export const methodSchema = z.number().int().positive();
+
+export function parseWith<T extends z.ZodType>(
+	label: string,
+	schema: T,
+	value: unknown
+): z.output<T> {
+	const result = schema.safeParse(value);
+	if (!result.success) {
+		throw new Error(`Malformed ${label}: ${z.prettifyError(result.error)}`);
+	}
+	return result.data;
+}
+
+export const prop = (name: string, value: number | null | undefined): string =>
+	value === undefined ? '' : ` ${name}=${value === null ? '#null' : value}`;
 const windowSchema = z.strictObject({
 	win: rateSchema,
 	pick: rateSchema,
@@ -13,7 +29,8 @@ const windowSchema = z.strictObject({
 	days: countSchema,
 	total: countSchema,
 	covered: countSchema,
-	coverage: z.enum(['complete', 'incomplete'])
+	coverage: z.enum(['complete', 'incomplete']),
+	buy: countSchema.nullable().optional()
 });
 const tierSchema = z.strictObject({ before: windowSchema, after: windowSchema });
 const impactSchema = z.strictObject({
@@ -25,7 +42,7 @@ const impactSchema = z.strictObject({
 const rate = (value: number | null): string => (value === null ? '#null' : String(value));
 
 const windowLine = (side: string, window: ImpactWindow): string =>
-	`    ${side} win=${rate(window.win)} pick=${rate(window.pick)} matches=${window.matches} days=${window.days} total=${window.total} covered=${window.covered} coverage="${window.coverage}"`;
+	`    ${side} win=${rate(window.win)} pick=${rate(window.pick)} matches=${window.matches} days=${window.days} total=${window.total} covered=${window.covered} coverage="${window.coverage}"${prop('buy', window.buy)}`;
 
 export function writeImpactNode(impact: EntityImpact): string[] {
 	return [
@@ -40,11 +57,7 @@ export function writeImpactNode(impact: EntityImpact): string[] {
 }
 
 export function parseImpact(value: unknown): EntityImpact {
-	const result = impactSchema.safeParse(value);
-	if (!result.success) {
-		throw new Error(`Malformed impact block: ${z.prettifyError(result.error)}`);
-	}
-	return result.data;
+	return parseWith('impact block', impactSchema, value);
 }
 
 const daySchema = z.string().regex(/^\d{4}-\d{2}-\d{2}$/);
@@ -64,7 +77,7 @@ const intervalSchema = z
 const statsSchema = z
 	.strictObject({
 		schema: z.literal(2),
-		method: z.number().int().positive(),
+		method: methodSchema,
 		collected: z.iso.datetime(),
 		before: intervalSchema,
 		after: intervalSchema,
@@ -86,11 +99,7 @@ export function parseStats(value: unknown): PatchStats {
 			`Unsupported stats schema ${JSON.stringify(version)}; this build reads 2`
 		);
 	}
-	const result = statsSchema.safeParse(value);
-	if (!result.success) {
-		throw new Error(`Malformed stats node: ${z.prettifyError(result.error)}`);
-	}
-	return result.data;
+	return parseWith('stats node', statsSchema, value);
 }
 
 const quoted = (value: string | null): string =>

@@ -293,3 +293,51 @@ freezes a result until the patch's changed items or `RELATED_METHOD_VERSION` cha
 `--patch=<id>` targets one patch; `--rebuild` recomputes the archive (one request per
 changed item per patch — not part of a routine run). A failed request writes nothing
 for that patch; the missing record is the retry state.
+
+## Method 3, related method 2, ability order and bought-by (2026-09-23)
+
+**Method 3** adds `buy=` to item windows: the buyers' average game time in seconds,
+`avg_buy_time_s` from the same daily `item-stats` rows weighted by `matches`, `#null`
+where the window has no rate. Hero windows never carry it. A routine run upgrades only
+open files; closed files keep method 2 until `--rebuild`.
+
+`build:related` now writes three records, from the same buyer series plus
+`ability-order-stats`:
+
+```
+related method=2 status="complete" appearances=267638 after-appearances=105511 candidates="…" {
+  item-2121044373 buyers=243510 after=99244
+}
+order method=1 matches=267727 after-matches=105739 {
+  ability-519124136 before=174507 after=31676
+}
+bought method=1 {
+  hero-35 buyers=67655 appearances=153356 after-buyers=20291 after-appearances=44304
+}
+```
+
+- **related method 2** adds the after-window: the same buyer series over the after days
+  for the items selected before the patch. The after side needs 1,000 appearances; below
+  that, or when a day has more buyers than appearances, it is omitted for every item.
+- **order** (hero blocks whose entry changes an ability): per ability asset id, the
+  matches in which it was the first to reach its third upgrade (fourth occurrence in the
+  sequence; the first is the unlock), over all ability-order rows. Two requests per such
+  hero per run, `min_matches=1`. Each side needs 1,000 matches.
+- **bought** (item blocks): the three heroes with the highest share of player-matches
+  that bought the item before the patch, with the same share after. Same floors as
+  related items; no extra requests.
+
+A patch is refreshed on every run while its after-window is open and for
+`READING_SETTLE_DAYS` (2) after it closes, so the last days land; after that a record is
+frozen until its method or the patch's changed items change.
+
+**`ability-order-stats` cuts at the exact timestamp.** It has no day bucket; a
+`max_unix_timestamp` at 00:00 of the last day silently drops that whole day (coverage
+fell to 76 % / 94.5 %). `fetchAbilityOrder` sends the last day's 23:59:59. Rows summed to
+100.01–100.08 % of `hero-stats` matches in every window measured.
+
+**Late data can shrink.** Between 21 and 23 Sep 2026 the high-rank item counts for the
+closed 2–15 Sep window fell 10–15 % (Leech 4,802 → 4,065) while all-rank counts and
+player totals barely moved, so "late ingestion only adds" does not hold for high rank.
+Leech's low high-rank share (1.35 % against 6.39 % all ranks) is real: two endpoints
+agree.

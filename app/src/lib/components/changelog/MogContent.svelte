@@ -14,6 +14,7 @@
 		icons: EntityIconsContext;
 		filter?: { heroes: string[]; items: string[] };
 		stats?: PatchStats | null;
+		open?: boolean;
 		entryYear: number;
 		reading?: PatchReading;
 		related?: Record<string, RelatedReading>;
@@ -24,8 +25,9 @@
 		icons,
 		filter,
 		stats = null,
+		open = false,
 		entryYear,
-		reading = { details: {}, previous: {} },
+		reading = { details: {}, previous: {}, maxedFirst: {}, boughtBy: {}, buyTime: {} },
 		related = {}
 	}: Props = $props();
 
@@ -35,6 +37,15 @@
 		},
 		get previous() {
 			return reading.previous;
+		},
+		get maxedFirst() {
+			return reading.maxedFirst;
+		},
+		get boughtBy() {
+			return reading.boughtBy;
+		},
+		get buyTime() {
+			return reading.buyTime;
 		},
 		get related() {
 			return related;
@@ -47,6 +58,9 @@
 		},
 		get entryYear() {
 			return entryYear;
+		},
+		get open() {
+			return open;
 		}
 	});
 

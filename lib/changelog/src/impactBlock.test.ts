@@ -153,7 +153,7 @@ describe('reading a block back', () => {
 		['a second key beside impact', (l: string[]) => [...l.slice(0, -1), 'note "x"', '``']]
 	])('rejects %s', async (_, edit) => {
 		await expect(parseStructure(inBlock(corrupt(edit)))).rejects.toThrow(
-			/Malformed impact block|holds only impact and related/
+			/Malformed impact block|holds only impact, related/
 		);
 	});
 

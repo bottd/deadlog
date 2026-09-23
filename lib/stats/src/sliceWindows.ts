@@ -26,6 +26,7 @@ export interface IndexedSeries {
 	byEntity: Map<number, Map<number, DailyRow>>;
 	totals: DailyTotals;
 	pickMultiplier: number;
+	kind: EntityKind;
 }
 
 const PICK_MULTIPLIER: Record<EntityKind, number> = {
@@ -49,7 +50,12 @@ export function indexSeries(
 		}
 		days.set(row.day, row);
 	}
-	return { byEntity, totals, pickMultiplier: PICK_MULTIPLIER[kind] };
+	return {
+		byEntity,
+		totals,
+		pickMultiplier: PICK_MULTIPLIER[kind],
+		kind
+	};
 }
 
 function daysBetween(lower: number, upper: number): number[] {
@@ -122,6 +128,8 @@ export function summarise(
 	let total = 0;
 	let contributing = 0;
 	let covered = 0;
+	let buyTime = 0;
+	let timedMatches = 0;
 
 	for (const day of days) {
 		const slots = series.totals.get(day);
@@ -132,6 +140,10 @@ export function summarise(
 		wins += row.wins;
 		matches += row.matches;
 		contributing++;
+		if (row.buyTime !== undefined) {
+			buyTime += row.buyTime * row.matches;
+			timedMatches += row.matches;
+		}
 	}
 
 	const coverage = covered === days.length ? 'complete' : 'incomplete';
@@ -144,7 +156,10 @@ export function summarise(
 		days: contributing,
 		total,
 		covered,
-		coverage
+		coverage,
+		...(series.kind === 'item' && {
+			buy: reportable && timedMatches > 0 ? Math.round(buyTime / timedMatches) : null
+		})
 	};
 }
 

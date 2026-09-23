@@ -9,6 +9,7 @@ import {
 } from '$lib/components/changelog/readingContext';
 import { toPageContext } from '$lib/components/entity/pageContext';
 import { previousChangeLookup } from '$lib/components/entity/previousChanges';
+import { boughtByRows, buyTime, maxedFirstRows } from '$lib/components/entity/shareRows';
 import { changePath } from '$lib/seo';
 
 // Reuse the same compiled modules as the patch route. Metadata-only .mg queries
@@ -109,5 +110,20 @@ export async function projectPatchReading(
 				};
 		})
 	);
-	return { details, previous };
+	const maxedFirst: PatchReading['maxedFirst'] = {};
+	for (const hero of data.heroes) {
+		if (!hero.abilityOrder) continue;
+		const abilities = data.abilities.filter((ability) => ability.heroId === hero.id);
+		const rows = maxedFirstRows(hero.abilityOrder, abilities, hero.groups);
+		if (rows.length) maxedFirst[String(hero.id)] = rows;
+	}
+	const boughtBy: PatchReading['boughtBy'] = {};
+	const buyTimes: PatchReading['buyTime'] = {};
+	for (const item of data.items) {
+		const rows = item.boughtBy ? boughtByRows(item.boughtBy, data.heroIcons) : [];
+		if (rows.length) boughtBy[String(item.id)] = rows;
+		const time = buyTime(item.impact);
+		if (time) buyTimes[String(item.id)] = time;
+	}
+	return { details, previous, maxedFirst, boughtBy, buyTime: buyTimes };
 }

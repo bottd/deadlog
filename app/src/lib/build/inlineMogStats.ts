@@ -6,7 +6,6 @@ import {
 	type DataAttributesMode,
 	type MogNode
 } from 'vite-plugin-mog/parser';
-import { hasReportableImpact } from '../utils/impactFormat';
 
 /** Safe inside both a Svelte expression and a script element. */
 export const serializeMogValue = (value: unknown): string =>
@@ -23,9 +22,6 @@ export const serializeMogValue = (value: unknown): string =>
  */
 export async function inlineMogStats(source: string, compiled: string): Promise<string> {
 	const structure = await parseStructure(source);
-	const blocks = structure.blocks.filter(
-		(block) => block.enrichment.impact && hasReportableImpact(block.enrichment.impact)
-	);
 	const ast = await parseMogAst(source, { diagnostics: true });
 	if (ast.diagnostics?.length) throw new Error(ast.diagnostics.join('\n'));
 	const boundaries = new Map<number, MogNode>();
@@ -72,16 +68,13 @@ export async function inlineMogStats(source: string, compiled: string): Promise<
 			? [{ name: block.name, record: block.enrichment.related }]
 			: []
 	);
-	for (const entry of related) {
-		const block = structure.blocks.find(
-			(block) => block.type === 'hero' && block.name === entry.name
-		);
-		if (!block) continue;
-		const end = boundaries.get(block.fenceLine)?.span?.endLine;
-		if (end !== undefined)
-			add(end, `<DeadlogRelatedItems name={${serializeMogValue(entry.name)}} />`);
-	}
-	for (const block of blocks) {
+	for (const block of structure.blocks) {
+		const { order, bought, impact } = block.enrichment;
+		const reads =
+			block.type === 'hero'
+				? order || related.some((entry) => entry.name === block.name)
+				: bought || typeof impact?.all.after.buy === 'number';
+		if (!reads) continue;
 		const node = boundaries.get(block.fenceLine);
 		const end = node?.span?.endLine;
 		if (
@@ -91,8 +84,10 @@ export async function inlineMogStats(source: string, compiled: string): Promise<
 		) {
 			throw new Error(`Cannot locate closing fence for ${block.type} ${block.name}`);
 		}
-		const code = `<DeadlogInlineImpact kind={${serializeMogValue(block.type)}} impact={${serializeMogValue(block.enrichment.impact)}} />`;
-		add(end, code);
+		add(
+			end,
+			`<DeadlogStatsBand kind={${serializeMogValue(block.type)}} name={${serializeMogValue(block.name)}} />`
+		);
 	}
 	const edits = [...insertions].map(([start, content]) => ({
 		start,
@@ -170,14 +165,12 @@ export async function inlineMogStats(source: string, compiled: string): Promise<
 		: '<script lang="ts">';
 	return [
 		moduleCode,
-		`export const matchResults = ${serializeMogValue(blocks.length ? { stats: structure.stats, kinds: [...new Set(blocks.map((block) => block.type))] } : null)};`,
-		`export const readingManifest = ${serializeMogValue({ stats: structure.stats, sections, related })};`,
+		`export const readingManifest = ${serializeMogValue({ stats: structure.stats, open: structure.blocks.some((block) => block.enrichment.impact?.closed === false), sections, related })};`,
 		'</script>',
 		instanceCode,
-		'import DeadlogInlineImpact from "$lib/components/changelog/MogPatchImpact.svelte";',
 		'import DeadlogReadingDetails from "$lib/components/changelog/MogEntityContext.svelte";',
 		'import DeadlogPreviousChange from "$lib/components/changelog/MogPreviousChange.svelte";',
-		'import DeadlogRelatedItems from "$lib/components/changelog/MogRelatedItems.svelte";',
+		'import DeadlogStatsBand from "$lib/components/changelog/MogStatsBand.svelte";',
 		'</script>',
 		...template
 	].join('\n');

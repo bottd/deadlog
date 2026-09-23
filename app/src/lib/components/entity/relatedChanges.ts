@@ -6,20 +6,14 @@ import {
 } from '@deadlog/utils';
 import type { EntityChangeGroup, PatchItemChange } from '@deadlog/db';
 import { changePath } from '$lib/seo';
+import type { ShareRow } from './shareRows';
 
-export interface RelatedShareItem {
-	name: string;
-	image: string;
-	share: number;
-	href: string;
-}
-
-export interface RelatedChange extends RelatedShareItem {
+export interface RelatedChange extends ShareRow {
 	groups: EntityChangeGroup[];
 }
 
 export interface RelatedChanges {
-	before: NonNullable<PatchStats['before']>;
+	stats: Pick<PatchStats, 'before' | 'after'>;
 	items: RelatedChange[];
 }
 
@@ -50,16 +44,13 @@ export function relatedChanges(
 			{
 				name: change.name,
 				image: change.image,
-				share: relatedShare(related, item),
+				...relatedShare(related, item),
 				groups: change.changeGroups,
 				href: `${changePath(patch)}#${entityFragmentId(change.name)}`
 			}
 		];
 	});
-	return items.length > 0 ? { before, items } : null;
-}
-
-export function formatShare(share: number): string {
-	const percent = Math.round(share * 100);
-	return percent === 0 ? '<1%' : `${percent}%`;
+	return items.length > 0
+		? { stats: { before, after: patch.stats?.after ?? null }, items }
+		: null;
 }

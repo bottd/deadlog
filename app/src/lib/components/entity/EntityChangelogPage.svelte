@@ -18,10 +18,12 @@
 	import CornerAccents from '$lib/components/ui/corner-accents/CornerAccents.svelte';
 	import EntityHistoryToc from './EntityHistoryToc.svelte';
 	import EntityContext from './EntityContext.svelte';
-	import PatchImpact from './PatchImpact.svelte';
-	import { hasReportableImpact } from '$lib/utils/impactFormat';
 	import RelatedItemChanges from './RelatedItemChanges.svelte';
+	import ShareBlock from './ShareBlock.svelte';
+	import BuyTimeBlock from './BuyTimeBlock.svelte';
+	import StatsBand from './StatsBand.svelte';
 	import type { RelatedChanges } from './relatedChanges';
+	import type { BuyTime, ShareRow } from './shareRows';
 	import type { PreviousChange } from './previousChanges';
 	import type { PageContext } from './pageContext';
 	import type { Snippet } from 'svelte';
@@ -47,7 +49,9 @@
 		impact?: EntityImpact | null;
 		stats?: PatchStats | null;
 		related?: RelatedChanges | null;
-		heroResults?: boolean;
+		maxedFirst?: ShareRow[] | null;
+		boughtBy?: ShareRow[] | null;
+		buyTime?: BuyTime | null;
 	}
 	interface Ability {
 		name: string;
@@ -128,10 +132,12 @@
 				: [];
 		});
 	});
-	const hasImpact = $derived(
-		visibleChangelogs.some((patch) => patch.impact && hasReportableImpact(patch.impact))
-	);
-	const hasRelated = $derived(changelogs.some((patch) => patch.related));
+	const readings = $derived({
+		related: changelogs.some((patch) => patch.related),
+		maxedFirst: changelogs.some((patch) => patch.maxedFirst?.length),
+		boughtBy: changelogs.some((patch) => patch.boughtBy?.length),
+		buyTime: changelogs.some((patch) => patch.buyTime)
+	});
 	const hasPrevious = $derived(
 		changelogs.some((patch) =>
 			patch.changeGroups?.some((group) => group.previous?.some(Boolean))
@@ -462,13 +468,6 @@
 														{/if}
 													</div>
 												{/each}
-												{#if patch.related}
-													<RelatedItemChanges
-														related={patch.related}
-														heroName={entity.name}
-														entryYear={patch.date.getUTCFullYear()}
-													/>
-												{/if}
 											</div>
 										{:else}
 											<p
@@ -477,43 +476,63 @@
 												{entity.name} was mentioned in this patch. See the full notes for context.
 											</p>
 										{/if}
-										{#if patch.impact && entity.type !== 'ability'}<PatchImpact
-												impact={patch.impact}
-												kind={entity.type}
-												stats={patch.stats}
-												entryYear={patch.date.getUTCFullYear()}
-											/>{/if}
+										{#if patch.stats && (patch.maxedFirst?.length || patch.related || patch.boughtBy?.length || patch.buyTime)}
+											{@const windows = {
+												stats: patch.stats,
+												entryYear: patch.date.getUTCFullYear(),
+												open: patch.impact?.closed === false
+											}}
+											<StatsBand>
+												{#if patch.maxedFirst?.length}
+													<ShareBlock
+														kind="maxed-first"
+														subject={entity.name}
+														rows={patch.maxedFirst}
+														{windows}
+													/>
+												{/if}
+												{#if patch.related}
+													<RelatedItemChanges
+														related={patch.related}
+														heroName={entity.name}
+														{windows}
+													/>
+												{/if}
+												{#if patch.boughtBy?.length}
+													<ShareBlock
+														kind="bought-by"
+														subject={entity.name}
+														rows={patch.boughtBy}
+														{windows}
+													/>
+												{/if}
+												{#if patch.buyTime}
+													<BuyTimeBlock
+														item={entity.name}
+														time={patch.buyTime}
+														{windows}
+													/>
+												{/if}
+											</StatsBand>
+										{/if}
 										<div class="mt-2 flex flex-wrap gap-x-6">
 											<a
 												href={entityPatchHref(patch, entity)}
 												class="ui-focus-ring text-signal inline-flex min-h-11 items-center gap-1.5 rounded-sm text-xs underline-offset-4 hover:underline"
 												>Full patch <ArrowRight class="size-3.5" /></a
 											>
-											{#if parent && patch.heroResults}
-												<a
-													href="/hero/{parent.slug}#history-{patch.id}"
-													class="ui-focus-ring text-signal inline-flex min-h-11 items-center gap-1.5 rounded-sm text-xs underline-offset-4 hover:underline"
-													>{parent.name} match results <ArrowRight class="size-3.5" /></a
-												>
-											{/if}
 										</div>
 									</li>
 								{/each}
 							</ol>
 						</section>
 					{/each}
-					{#if hasImpact || hasRelated || hasPrevious || contextVersion !== null}
-						<MethodNote
-							results={hasImpact && entity.type !== 'ability'
-								? { stats: latestStats, kinds: [entity.type] }
-								: null}
-							shipped="a patch"
-							hasDetails={contextVersion !== null}
-							contextVersions={contextVersion === null ? [] : [contextVersion]}
-							{hasPrevious}
-							{hasRelated}
-						/>
-					{/if}
+					<MethodNote
+						stats={latestStats}
+						shipped="a patch"
+						contextVersions={contextVersion === null ? [] : [contextVersion]}
+						has={{ ...readings, details: contextVersion !== null, previous: hasPrevious }}
+					/>
 				{:else}
 					<div
 						border="border/50 2"

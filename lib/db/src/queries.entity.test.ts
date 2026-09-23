@@ -128,6 +128,7 @@ describe('entity history queries', () => {
 				change_groups TEXT,
 				impact TEXT,
 				related_items TEXT,
+				ability_order TEXT,
 				PRIMARY KEY (changelog_id, hero_id)
 			);
 			CREATE TABLE changelog_items (
@@ -135,6 +136,7 @@ describe('entity history queries', () => {
 				item_id INTEGER NOT NULL,
 				change_groups TEXT,
 				impact TEXT,
+				bought_by TEXT,
 				PRIMARY KEY (changelog_id, item_id)
 			);
 		`);
@@ -280,7 +282,8 @@ describe('entity history queries', () => {
 			heroes: [],
 			items: [],
 			abilities: [],
-			links: []
+			links: [],
+			heroIcons: []
 		});
 	});
 
@@ -343,13 +346,15 @@ describe('entity history queries', () => {
 				name: 'Call Bell',
 				slug: 'call-bell',
 				image: '/call-bell.png',
-				description: null
+				description: null,
+				assetId: null
 			},
 			{
 				name: 'Doorway',
 				slug: 'doorway',
 				image: '/doorway.png',
-				description: 'Opens a doorway.'
+				description: 'Opens a doorway.',
+				assetId: 902
 			}
 		]);
 	});

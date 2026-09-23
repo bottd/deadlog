@@ -4,7 +4,11 @@ import { join } from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { compile, parse, preprocess } from 'svelte/compiler';
 import { mogPlugin } from 'vite-plugin-mog';
-import { writeEnrichmentBlock, writeStatsNode } from '@deadlog/changelog';
+import {
+	writeEnrichmentBlock,
+	writeStatsNode,
+	type EntityEnrichment
+} from '@deadlog/changelog';
 import type { EntityImpact, ImpactWindow, PatchStats } from '@deadlog/utils';
 import config from '../../../svelte.config.js';
 import { inlineMogStatsPlugin } from '../../../inlineMogStatsPlugin.js';
@@ -24,6 +28,16 @@ const modern: EntityImpact = {
 	all: { before: side, after: side },
 	high: { before: side, after: side }
 };
+const hero: EntityEnrichment = {
+	impact: modern,
+	order: { methodVersion: 1, matches: 2000, abilities: [{ id: 1, before: 1200 }] }
+};
+const item: EntityEnrichment = {
+	impact: {
+		...modern,
+		all: { before: { ...side, buy: 600 }, after: { ...side, buy: 540 } }
+	}
+};
 const stats: PatchStats = {
 	schemaVersion: 2,
 	methodVersion: 2,
@@ -41,12 +55,12 @@ const root = [
 const entity = (
 	kind: 'hero' | 'item',
 	name: string,
-	impact?: EntityImpact,
+	enrichment?: EntityEnrichment,
 	body = '- A change'
 ) =>
 	[
 		`=${kind}:${name === 'The Doorman' ? 'doorman' : name.toLowerCase()}:`,
-		...(impact ? writeEnrichmentBlock({ impact: impact }) : []),
+		...(enrichment ? writeEnrichmentBlock(enrichment) : []),
 		`## ${name}`,
 		body,
 		'='
@@ -140,9 +154,9 @@ describe('inline Mog stats', () => {
 			root,
 			'# Heroes',
 			preview,
-			entity('hero', 'The Doorman', modern, body),
+			entity('hero', 'The Doorman', hero, body),
 			'# Items',
-			entity('item', 'Test', modern),
+			entity('item', 'Test', item),
 			preview
 		].join('\n\n');
 		const { code, file } = await loadDocument(source);
@@ -154,13 +168,13 @@ describe('inline Mog stats', () => {
 			const meaningful = node.fragment.nodes.filter((child) => child.type !== 'Text');
 			expect(meaningful.at(-1)).toMatchObject({
 				type: 'Component',
-				name: 'DeadlogInlineImpact'
+				name: 'DeadlogStatsBand'
 			});
 		}
 		expect(result).toContain('export const metadata =');
 		expect(result).toContain('export const toc =');
-		expect(result).toContain('export const matchResults =');
-		expect(result).toContain('"kinds":["hero","item"]');
+		expect(result).toContain('export const readingManifest =');
+		expect(result).toContain('"open":true');
 		expect(result).toContain('"methodVersion":2');
 		for (const index of [0, 1, 2]) {
 			expect(result).toContain(`import Embed${index} from`);
@@ -187,7 +201,7 @@ describe('inline Mog stats', () => {
 	});
 
 	it('works without a root stats node or an original instance script', async () => {
-		const source = entity('hero', 'Abrams', modern);
+		const source = entity('hero', 'Abrams', hero);
 		const { code, file } = await loadDocument(source);
 		expect(parse(code, { modern: true }).instance).toBeUndefined();
 		const result = await inlineMogStats(source, code);
@@ -195,25 +209,26 @@ describe('inline Mog stats', () => {
 		expect(compile(result, { filename: file, generate: 'server' }).warnings).toEqual([]);
 	});
 
-	it('omits missing and wholly suppressed results without altering the original module', async () => {
+	it('adds nothing for entities without reading data', async () => {
 		const missing = { ...side, win: null, pick: null, matches: 10 };
 		const suppressed = {
 			closed: true,
 			all: { before: missing, after: missing },
 			high: { before: missing, after: missing }
 		};
-		const source = [entity('hero', 'Abrams'), entity('item', 'Test', suppressed)].join(
-			'\n'
-		);
+		const source = [
+			entity('hero', 'Abrams'),
+			entity('item', 'Test', { impact: suppressed })
+		].join('\n');
 		const { code } = await loadDocument(source);
 		const result = await inlineMogStats(source, code);
-		expect(result).not.toContain('<DeadlogInlineImpact');
-		expect(result).toContain('export const matchResults = null;');
+		expect(result).not.toContain('<DeadlogStatsBand');
+		expect(result).toContain('"open":false');
 	});
 
 	it('refuses invalid impact and unsupported schemas instead of rendering misleading values', async () => {
 		await expect(
-			inlineMogStats(entity('hero', 'Abrams', modern).replace('win=0.5', 'win="bad"'), '')
+			inlineMogStats(entity('hero', 'Abrams', hero).replace('win=0.5', 'win="bad"'), '')
 		).rejects.toThrow('Malformed impact');
 		await expect(
 			inlineMogStats(root.replace('schema=2', 'schema=99'), '')
@@ -221,12 +236,12 @@ describe('inline Mog stats', () => {
 	});
 
 	it('handles CRLF source positions and safely serializes executable-looking strings', async () => {
-		const source = entity('hero', 'Abrams', modern, '- Unicode → café').replaceAll(
+		const source = entity('hero', 'Abrams', hero, '- Unicode → café').replaceAll(
 			'\n',
 			'\r\n'
 		);
 		const { code } = await loadDocument(source);
-		expect(await inlineMogStats(source, code)).toContain('<DeadlogInlineImpact');
+		expect(await inlineMogStats(source, code)).toContain('<DeadlogStatsBand');
 		const value = '</script><script>alert(1)</script>\u2028\u2029';
 		const serialized = serializeMogValue(value);
 		expect(serialized).not.toContain('<');
@@ -235,7 +250,7 @@ describe('inline Mog stats', () => {
 	});
 
 	it('transforms only original document modules and reports the file on failure', async () => {
-		const source = entity('hero', 'Abrams', modern);
+		const source = entity('hero', 'Abrams', hero);
 		const { code, file, dir } = await loadDocument(source);
 		const plugin = inlineMogStatsPlugin(dir);
 		const transform = plugin.transform;
@@ -248,7 +263,7 @@ describe('inline Mog stats', () => {
 		expect(await transform.call(context, code, `${file}?embed=0`)).toBeUndefined();
 		expect(await transform.call(context, code, `${file}?metadata`)).toBeUndefined();
 		expect(await transform.call(context, code, file)).toMatchObject({
-			code: expect.stringContaining('<DeadlogInlineImpact')
+			code: expect.stringContaining('<DeadlogStatsBand')
 		});
 		await writeFile(file, source.replace('win=0.5', 'win="bad"'));
 		await expect(transform.call(context, code, file)).rejects.toThrow(file);

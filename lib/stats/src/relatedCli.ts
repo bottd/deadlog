@@ -1,7 +1,7 @@
 import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { getLibsqlDb } from '@deadlog/db';
-import { fetchBuyerSeries, fetchSeries } from './fetchSeries';
+import { fetchAbilityOrder, fetchBuyerSeries, fetchSeries } from './fetchSeries';
 import { readRelatedPatches, runRelatedItems } from './runRelatedItems';
 
 const defaultChangelogsDir = fileURLToPath(
@@ -36,7 +36,8 @@ try {
 		patchId: args.find((arg) => arg.startsWith('--patch='))?.slice('--patch='.length),
 		loadPatches: () => readRelatedPatches(getLibsqlDb()),
 		fetchHeroes: async (range) => (await fetchSeries('hero', 'all', range)).rows,
-		fetchBuyers: fetchBuyerSeries
+		fetchBuyers: fetchBuyerSeries,
+		fetchAbilityOrder
 	});
 } catch (error) {
 	console.error(error);

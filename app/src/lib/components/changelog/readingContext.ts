@@ -11,7 +11,7 @@ import { RELATED_MIN_APPEARANCES, RELATED_MIN_BUYERS } from '@deadlog/stats';
 import type { ChangelogEntityIcon } from '@deadlog/db';
 import type { PageContext } from '../entity/pageContext';
 import type { PreviousChange } from '../entity/previousChanges';
-import type { RelatedShareItem } from '../entity/relatedChanges';
+import type { BuyTime, ShareRow } from '../entity/shareRows';
 
 export interface ReadingDetails {
 	name: string;
@@ -22,17 +22,21 @@ export interface ReadingDetails {
 export interface PatchReading {
 	details: Record<string, ReadingDetails>;
 	previous: Record<string, PreviousChange & { bullet: string }>;
+	maxedFirst: Record<string, ShareRow[]>;
+	boughtBy: Record<string, ShareRow[]>;
+	buyTime: Record<string, BuyTime>;
 }
 
 export interface MogReadingManifest {
 	stats: PatchStats | null;
+	open: boolean;
 	sections: { kind: 'hero' | 'item'; name: string; id: string }[];
 	related: { name: string; record: RelatedItems }[];
 }
 
 export interface RelatedReading {
-	before: NonNullable<PatchStats['before']>;
-	items: RelatedShareItem[];
+	stats: Pick<PatchStats, 'before' | 'after'>;
+	items: ShareRow[];
 }
 
 export const detailKey = (kind: 'hero' | 'item', id: number, ability?: string | null) =>
@@ -80,13 +84,20 @@ export function resolveRelatedReading(
 					{
 						name: item.alt,
 						image: item.src,
-						share: relatedShare(record, recorded),
+						...relatedShare(record, recorded),
 						href: `${patchPath}#${sections[0].id}`
 					}
 				];
 			})
 			.slice(0, RELATED_ITEMS_LIMIT);
-		return items.length ? [[String(hero.id), { before, items }] as const] : [];
+		return items.length
+			? [
+					[
+						String(hero.id),
+						{ stats: { before, after: manifest.stats?.after ?? null }, items }
+					] as const
+				]
+			: [];
 	});
 	return Object.fromEntries(entries);
 }

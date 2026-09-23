@@ -7,10 +7,15 @@ export const HIGH_RANK_LABEL = 'Phantom 1';
 export const POPULATION = { game_mode: 'normal', match_mode: 'ranked,unranked' } as const;
 export const METHODS = {
 	1: { itemMinMatches: 20 },
-	2: { itemMinMatches: 1 }
+	2: { itemMinMatches: 1 },
+	3: { itemMinMatches: 1 }
 } as const;
-export const METHOD_VERSION = 2;
-export const RELATED_METHOD_VERSION = 1;
+export const METHOD_VERSION = 3;
+export const RELATED_METHOD_VERSION = 2;
+export const ORDER_METHOD_VERSION = 1;
+export const BOUGHT_METHOD_VERSION = 1;
+export const READING_SETTLE_DAYS = 2;
+export const ABILITY_UNLOCK_AND_UPGRADES = 4;
 export const RELATED_MIN_APPEARANCES = 1000;
 export const RELATED_MIN_BUYERS = 100;
 export const RELATED_RETRY_DAYS = 30;

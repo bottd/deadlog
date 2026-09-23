@@ -3,91 +3,86 @@ import { expectNoHorizontalOverflow, gotoApp } from './helpers';
 
 const PATCH = '/change/2026/09-16';
 
-test('full patches keep match results inside each entity, below the notes', async ({
+test('full patches carry a stats band inside each entity, below the notes', async ({
 	page
 }, testInfo) => {
 	const errors: string[] = [];
 	page.on('pageerror', (error) => errors.push(error.message));
 	await gotoApp(page, PATCH);
-	const hero = page.locator('.mog-content > div.hero.abrams');
-	const results = hero.locator('[data-patch-impact]');
-	await expect(results).toHaveCount(1);
-	const grid = results.locator('[data-impact-grid]');
-	await expect(grid).toBeHidden();
-	await expect(results.locator('[data-impact-caption]')).toContainText('2–15 Sep');
-	await results.locator('summary').click();
-	await expect(grid.locator('> span').nth(1)).toHaveText('WIN');
-	await expect(grid.locator('> span').nth(2)).toHaveText('PICK');
-	await expect(grid.locator('[data-impact-row="all"]')).toContainText('ALL RANKS');
-	await expect(grid.locator('[data-impact-row="high"]')).toContainText('HIGH RANK');
-	await expect(results.locator('[data-impact-notes]')).toHaveText(
-		/^\d+(\.\d)?k → 49k matches( · \d+ days? so far)?$/
-	);
-	await expect(results.locator('.sr-only').first()).toHaveText(
-		/^Match results around this patch, .+ before, .+ after\. All ranks\. Win rate /
-	);
-	await expect(hero.locator('div.ability [data-patch-impact]')).toHaveCount(0);
-	await expect(hero.locator(':scope > h3')).toHaveText('Abrams');
-	await expect(hero.locator(':scope > h3 a')).toHaveCSS(
-		'color',
-		await hero
-			.locator(':scope > h3')
-			.evaluate((heading) => getComputedStyle(heading).color)
-	);
-	await expect(hero.locator('.ability h4').first()).toHaveText('Infernal Resilience');
+	const hero = page.locator('.mog-content > div.hero.lash');
+	const band = hero.locator('[data-stats-reading="hero"]');
+	await expect(band).toHaveCount(1);
+	await expect(band.getByRole('heading', { name: 'Maxed first' })).toBeVisible();
+	await expect(
+		band.getByRole('heading', { name: 'Also changed in this patch' })
+	).toBeVisible();
+	await expect(band).toContainText(/2–15 Sep → .+ so far\./);
+	await expect(hero.locator('div.ability [data-stats-reading]')).toHaveCount(0);
+	await expect(page.locator('[data-patch-impact]')).toHaveCount(0);
+	await expect(hero.locator(':scope > h3')).toHaveText('Lash');
 	await expect(hero.locator(':scope > p img')).toHaveAttribute('width', '40');
 	await expect(hero.locator('.ability img').first()).toHaveAttribute('width', '24');
 	await expect(hero.locator('a[href$=".html"]')).toHaveCount(0);
-	await expect(page.locator('.mog-content [data-impact]')).toHaveCount(0);
 	const placement = await hero.evaluate((node) => {
-		const lastNotes =
-			[...node.querySelectorAll('div.ability')].at(-1) ?? node.querySelector('ul');
-		const stats = node.querySelector('[data-patch-impact]');
+		const lastNotes = [...node.querySelectorAll('div.ability')].at(-1);
+		const stats = node.querySelector('[data-stats-reading]');
 		return lastNotes && stats
 			? lastNotes.getBoundingClientRect().bottom <= stats.getBoundingClientRect().top
 			: false;
 	});
 	expect(placement).toBe(true);
-	await expect(
-		results.getByRole('link', { name: 'How this is measured' })
-	).toHaveAttribute('href', '#method');
-	await expect(page.locator('#method')).toHaveCount(1);
-	await expect(page.locator('#method')).toContainText('How often the hero won');
-	await expect(page.locator('#method')).toContainText(
-		'The share of players who bought the item'
+
+	const item = page.locator(
+		'.mog-content > div.item.lifestrike [data-stats-reading="item"]'
 	);
+	await expect(item.getByRole('heading', { name: 'Bought most by' })).toBeVisible();
+	await expect(item.locator('[data-share-block="bought-at"]')).toContainText(
+		/\d+:\d{2} → \d+:\d{2}/
+	);
+
+	await expect(page.locator('#method')).toHaveCount(1);
 	await expect(page.locator('#method')).toContainText(
 		'is not the effect of any one line'
 	);
-	await expect(
-		page
-			.locator('.mog-content > div.item [data-patch-impact] [data-impact-grid] > span')
-			.nth(1)
-	).toHaveText('BOUGHT');
-	await expect(results.locator('table')).toHaveCSS('border-top-width', '0px');
-	await expect(results.locator('tbody td').first()).toHaveCSS('padding-top', '2px');
+	await expect(page.locator('#method')).toContainText('Maxed first is the share');
 	await expectNoHorizontalOverflow(page);
-	await hero.scrollIntoViewIfNeeded();
+	await band.scrollIntoViewIfNeeded();
 	await page.screenshot({ path: testInfo.outputPath('inline-stats.png') });
 	expect(errors).toEqual([]);
 });
 
-test('entity filters carry their results and leave the shared method reachable', async ({
+test('the band sits in two columns when the reading column is wide enough', async ({
 	page
 }) => {
-	await gotoApp(page, `${PATCH}?hero=Abrams`);
-	await expect(page.locator('.mog-content [data-patch-impact]:visible')).toHaveCount(1);
-	await expect(page.locator('.mog-content > div.hero.abrams')).toBeVisible();
+	await gotoApp(page, PATCH);
+	const band = page.locator('.mog-content > div.hero.lash [data-stats-band]');
+	const blocks = band.locator('[data-share-block]');
+	const maxed = (await blocks.nth(0).boundingBox())!;
+	const related = (await blocks.nth(1).boundingBox())!;
+	const width = await band.evaluate((node) => node.getBoundingClientRect().width);
+	if (width >= 576) {
+		expect(Math.abs(related.y - maxed.y)).toBeLessThan(2);
+		expect(related.x).toBeGreaterThan(maxed.x + maxed.width);
+	} else {
+		expect(related.y).toBeGreaterThan(maxed.y);
+	}
+});
+
+test('entity filters carry their stats and leave the shared method reachable', async ({
+	page
+}) => {
+	await gotoApp(page, `${PATCH}?hero=Lash`);
+	await expect(page.locator('.mog-content [data-stats-reading]:visible')).toHaveCount(1);
 	await expect(page.locator('#method')).toBeVisible();
 	await page.getByRole('link', { name: 'Show all changes' }).click();
 	await expect(page).toHaveURL(new RegExp(`${PATCH}$`));
 	expect(
-		await page.locator('.mog-content [data-patch-impact]:visible').count()
+		await page.locator('.mog-content [data-stats-reading]:visible').count()
 	).toBeGreaterThan(1);
 	await expect(page.locator('#method')).toHaveCount(1);
 });
 
-test('inline disclosures work without JavaScript in a 320px reading column', async ({
+test('the stats band renders without JavaScript in a 320px reading column', async ({
 	browser
 }) => {
 	const context = await browser.newContext({
@@ -97,33 +92,8 @@ test('inline disclosures work without JavaScript in a 320px reading column', asy
 	try {
 		const page = await context.newPage();
 		await page.goto(PATCH);
-		for (const kind of ['hero', 'item']) {
-			const results = page
-				.locator(`.mog-content > div.${kind} [data-patch-impact]`)
-				.first();
-			const summary = results.locator('summary');
-			expect((await summary.boundingBox())?.height).toBeGreaterThanOrEqual(44);
-			await expect(results.locator('table')).toBeHidden();
-			await summary.click();
-			await expect(results.locator('table')).toBeVisible();
-			await expectNoHorizontalOverflow(page);
-			const fits = await results.locator('table').evaluate((table) => {
-				const bounds = table.getBoundingClientRect();
-				return [...table.querySelectorAll('th, td')].every((cell) => {
-					const rect = cell.getBoundingClientRect();
-					return (
-						cell.scrollWidth <= cell.clientWidth + 1 && rect.right <= bounds.right + 1
-					);
-				});
-			});
-			expect(fits).toBe(true);
-		}
-		await page
-			.locator('[data-patch-impact]')
-			.first()
-			.getByRole('link', { name: 'How this is measured' })
-			.click();
-		await expect(page).toHaveURL(/#method$/);
+		await expect(page.locator('[data-stats-reading]').first()).toBeVisible();
+		await expectNoHorizontalOverflow(page);
 		await expect(
 			page.locator('main').getByRole('link', { name: 'Deadlock API', exact: true })
 		).toHaveCount(1);
@@ -132,24 +102,10 @@ test('inline disclosures work without JavaScript in a 320px reading column', asy
 	}
 });
 
-test('client navigation replaces patch windows and omits results on unmeasured patches', async ({
-	page
-}) => {
-	await gotoApp(page, PATCH);
-	await page.locator('.mog-content > div.hero.abrams > h3 a').click();
-	await expect(page).toHaveURL(/\/hero\/abrams$/);
-	const olderPatch = page
-		.locator('a[href="/change/2026/06-30#abrams"]')
-		.filter({ hasText: 'Full patch' });
-	await olderPatch.click();
-	await expect(page).toHaveURL(/\/change\/2026\/06-30#abrams$/);
-	const results = page.locator('.mog-content > div.hero.abrams [data-patch-impact]');
-	await expect(results.locator('[data-impact-caption]')).not.toContainText('2–15 Sep');
-	await expect(page.locator('#method')).toHaveCount(1);
-	await page.getByRole('link', { name: 'Back to all changes' }).click();
+test('unmeasured patches carry no stats band and no method note', async ({ page }) => {
 	await gotoApp(page, '/change/2024/05-03');
-	await expect(page.locator('[data-patch-impact]')).toHaveCount(0);
+	await expect(page.locator('[data-stats-reading]')).toHaveCount(0);
 	await expect(
-		page.getByRole('heading', { name: 'Match results around this patch' })
+		page.getByRole('heading', { name: 'How these shares are measured' })
 	).toHaveCount(0);
 });

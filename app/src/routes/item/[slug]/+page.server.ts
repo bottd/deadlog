@@ -3,13 +3,15 @@ import {
 	getItemBySlug,
 	getItemContext,
 	getPropertyLinks,
-	getChangelogsByItemId
+	getChangelogsByItemId,
+	getHeroIconsByIds
 } from '@deadlog/db';
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad, EntryGenerator } from './$types';
 import { DEFAULT_SOCIAL_IMAGE, absoluteUrl } from '$lib/seo';
 import { toPageContext } from '$lib/components/entity/pageContext';
 import { previousChangeLookup } from '$lib/components/entity/previousChanges';
+import { boughtByRows, buyTime } from '$lib/components/entity/shareRows';
 
 export const prerender = true;
 
@@ -33,9 +35,17 @@ export const load: PageServerLoad = async ({ params, locals }) => {
 		getPropertyLinks(locals.db, 'item', item.id)
 	]);
 	const previousFor = previousChangeLookup(links, item.name);
+	const heroes = await getHeroIconsByIds(
+		locals.db,
+		changelogs.flatMap(
+			(changelog) => changelog.boughtBy?.heroes.map((hero) => hero.id) ?? []
+		)
+	);
 
-	const enrichedChangelogs = changelogs.map((changelog) => ({
+	const enrichedChangelogs = changelogs.map(({ boughtBy, ...changelog }) => ({
 		...changelog,
+		boughtBy: boughtBy ? boughtByRows(boughtBy, heroes) : null,
+		buyTime: buyTime(changelog.impact),
 		date: new Date(changelog.pubDate),
 		changeGroups:
 			changelog.changeGroups?.map((group, groupIndex) => ({

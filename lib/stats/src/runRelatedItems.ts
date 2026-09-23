@@ -1,29 +1,59 @@
 import { existsSync } from 'node:fs';
 import { readFile, rename, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { spliceEntityBlocks } from '@deadlog/changelog';
+import { spliceEntityBlocks, type EnrichmentUpdate } from '@deadlog/changelog';
 import { schema, type DrizzleDB } from '@deadlog/db';
-import { findEntityName, type PatchStats, type RelatedItems } from '@deadlog/utils';
-import { DAY_S, METHOD_VERSION, RELATED_RETRY_DAYS, dayOf } from './constants';
+import {
+	findEntityName,
+	type AbilityOrder,
+	type BoughtBy,
+	type PatchStats,
+	type RelatedItems
+} from '@deadlog/utils';
+import { selectAbilityOrder } from './abilityOrder';
+import {
+	BOUGHT_METHOD_VERSION,
+	DAY_S,
+	METHOD_VERSION,
+	ORDER_METHOD_VERSION,
+	READING_SETTLE_DAYS,
+	RELATED_RETRY_DAYS,
+	dayOf
+} from './constants';
 import type { NamedEntity, StatsPatch } from './readPatches';
 import { indexEntities } from './rewriteMog';
-import { isCurrentRelated, selectRelatedItems } from './selectRelatedItems';
-import { patchBounds, windowDays } from './sliceWindows';
-import type { DailyRow, TimeRange } from './types';
+import {
+	isCurrentRelated,
+	selectBoughtBy,
+	selectRelatedItems,
+	type WindowSeries
+} from './selectRelatedItems';
+import { patchBounds, windowDays, type PatchRef } from './sliceWindows';
+import type { AbilityOrderRow, DailyRow, TimeRange } from './types';
 
 export interface RelatedHero {
 	id: number;
 	recorded: RelatedItems | null;
+	abilityChanged: boolean;
+	recordedOrder: AbilityOrder | null;
+}
+
+export interface RelatedItemLink {
+	id: number;
+	recorded: BoughtBy | null;
 }
 
 export interface RelatedPatch extends StatsPatch {
 	heroes: RelatedHero[];
 	candidates: number[];
+	items: RelatedItemLink[];
 }
 
 export interface RelatedInputs {
 	patches: RelatedPatch[];
 	heroes: NamedEntity[];
+	items: NamedEntity[];
+	abilities: Map<number, number[]>;
 }
 
 export interface RelatedRunOptions {
@@ -34,54 +64,95 @@ export interface RelatedRunOptions {
 	loadPatches: () => Promise<RelatedInputs>;
 	fetchHeroes: (range: TimeRange) => Promise<DailyRow[]>;
 	fetchBuyers: (itemId: number, range: TimeRange) => Promise<DailyRow[]>;
+	fetchAbilityOrder: (heroId: number, range: TimeRange) => Promise<AbilityOrderRow[]>;
 	log?: (message: string) => void;
 }
 
 const hasBullets = (groups: { bullets: string[] }[] | null): boolean =>
 	!!groups?.some((group) => group.bullets.length > 0);
 
+const hasAbilityBullets = (
+	groups: { ability: string | null; bullets: string[] }[] | null
+): boolean => !!groups?.some((group) => group.ability && group.bullets.length > 0);
+
 export async function readRelatedPatches(db: DrizzleDB): Promise<RelatedInputs> {
-	const [changelogs, heroLinks, itemLinks, heroes] = await Promise.all([
-		db
-			.select({
-				id: schema.changelogs.id,
-				slug: schema.changelogs.slug,
-				pubDate: schema.changelogs.pubDate,
-				stats: schema.changelogs.stats
-			})
-			.from(schema.changelogs)
-			.all(),
-		db.select().from(schema.changelogHeroes).all(),
-		db
-			.select({
-				changelogId: schema.changelogItems.changelogId,
-				itemId: schema.changelogItems.itemId,
-				changeGroups: schema.changelogItems.changeGroups
-			})
-			.from(schema.changelogItems)
-			.all(),
-		db
-			.select({ id: schema.heroes.id, name: schema.heroes.name })
-			.from(schema.heroes)
-			.all()
-	]);
+	const [changelogs, heroLinks, itemLinks, heroes, items, abilityRows] =
+		await Promise.all([
+			db
+				.select({
+					id: schema.changelogs.id,
+					slug: schema.changelogs.slug,
+					pubDate: schema.changelogs.pubDate,
+					stats: schema.changelogs.stats
+				})
+				.from(schema.changelogs)
+				.all(),
+			db.select().from(schema.changelogHeroes).all(),
+			db
+				.select({
+					changelogId: schema.changelogItems.changelogId,
+					itemId: schema.changelogItems.itemId,
+					changeGroups: schema.changelogItems.changeGroups,
+					boughtBy: schema.changelogItems.boughtBy
+				})
+				.from(schema.changelogItems)
+				.all(),
+			db
+				.select({ id: schema.heroes.id, name: schema.heroes.name })
+				.from(schema.heroes)
+				.all(),
+			db
+				.select({ id: schema.items.id, name: schema.items.name })
+				.from(schema.items)
+				.all(),
+			db
+				.select({
+					heroId: schema.heroAbilities.heroId,
+					assetId: schema.heroAbilities.assetId,
+					position: schema.heroAbilities.position
+				})
+				.from(schema.heroAbilities)
+				.all()
+		]);
+
+	const abilities = new Map<number, number[]>();
+	for (const row of abilityRows.sort((a, b) => a.position - b.position)) {
+		if (row.assetId === null) continue;
+		abilities.set(row.heroId, [...(abilities.get(row.heroId) ?? []), row.assetId]);
+	}
 
 	const patches = changelogs
-		.map(({ id, slug, pubDate, stats }) => ({
-			id,
-			slug,
-			stats,
-			at: Math.floor(Date.parse(pubDate) / 1000),
-			heroes: heroLinks
-				.filter((link) => link.changelogId === id && hasBullets(link.changeGroups))
-				.map((link) => ({ id: link.heroId, recorded: link.relatedItems })),
-			candidates: itemLinks
-				.filter((link) => link.changelogId === id && hasBullets(link.changeGroups))
-				.map((link) => link.itemId)
-		}))
+		.map(({ id, slug, pubDate, stats }) => {
+			const changedItems = itemLinks.filter(
+				(link) => link.changelogId === id && hasBullets(link.changeGroups)
+			);
+			return {
+				id,
+				slug,
+				stats,
+				at: Math.floor(Date.parse(pubDate) / 1000),
+				heroes: heroLinks
+					.filter((link) => link.changelogId === id && hasBullets(link.changeGroups))
+					.map((link) => ({
+						id: link.heroId,
+						recorded: link.relatedItems,
+						abilityChanged: hasAbilityBullets(link.changeGroups),
+						recordedOrder: link.abilityOrder
+					})),
+				candidates: changedItems.map((link) => link.itemId),
+				items: changedItems.map((link) => ({ id: link.itemId, recorded: link.boughtBy }))
+			};
+		})
 		.sort((a, b) => a.at - b.at || (a.id < b.id ? -1 : 1));
 
-	return { patches, heroes };
+	return { patches, heroes, items, abilities };
+}
+
+export function isSettling(patches: PatchRef[], index: number, now: number): boolean {
+	const { after, closed } = windowDays(patches, index, now);
+	if (!closed) return true;
+	const end = after.length ? after[after.length - 1] + DAY_S : dayOf(patches[index].at);
+	return now < end + READING_SETTLE_DAYS * DAY_S;
 }
 
 export function patchesInScope(
@@ -107,19 +178,26 @@ export function patchesInScope(
 	return eligible.filter(
 		(patch) =>
 			dayOf(patch.at) === newestDay ||
+			isSettling(patches, patches.indexOf(patch), options.now) ||
 			(patch.at >= retryFrom && patch.heroes.some((hero) => !hero.recorded))
 	);
 }
 
+const isCurrentOrder = (recorded: AbilityOrder | null | undefined): boolean =>
+	recorded?.methodVersion === ORDER_METHOD_VERSION;
+
+const isCurrentBought = (recorded: BoughtBy | null | undefined): boolean =>
+	recorded?.methodVersion === BOUGHT_METHOD_VERSION;
+
 export async function runRelatedItems(options: RelatedRunOptions): Promise<void> {
 	const { changelogsDir, now, rebuild, log = console.log } = options;
-	const { patches, heroes } = await options.loadPatches();
+	const { patches, heroes, items, abilities } = await options.loadPatches();
 	const scope = patchesInScope(patches, options);
-	const heroIndex = indexEntities({ hero: heroes, item: [] }).hero;
+	const index = indexEntities({ hero: heroes, item: items });
 
-	const cache = new Map<string, Promise<DailyRow[]>>();
-	const once = (key: string, load: () => Promise<DailyRow[]>) => {
-		let pending = cache.get(key);
+	const cache = new Map<string, Promise<unknown>>();
+	const once = <T>(key: string, load: () => Promise<T>): Promise<T> => {
+		let pending = cache.get(key) as Promise<T> | undefined;
 		if (!pending) {
 			pending = load();
 			cache.set(key, pending);
@@ -131,40 +209,76 @@ export async function runRelatedItems(options: RelatedRunOptions): Promise<void>
 		once(`hero:${span(range)}`, () => options.fetchHeroes(range));
 	const buyers = (itemId: number, range: TimeRange) =>
 		once(`${itemId}:${span(range)}`, () => options.fetchBuyers(itemId, range));
+	const abilityOrder = (heroId: number, range: TimeRange) =>
+		once(`order:${heroId}:${span(range)}`, () =>
+			options.fetchAbilityOrder(heroId, range)
+		);
+
+	const windowSeries = async (
+		days: number[],
+		candidates: number[]
+	): Promise<(WindowSeries & { range: TimeRange }) | undefined> => {
+		if (days.length === 0) return undefined;
+		const range = { from: days[0], to: days[days.length - 1] };
+		const series = new Map<number, DailyRow[]>();
+		for (const itemId of candidates) series.set(itemId, await buyers(itemId, range));
+		return { days, range, heroRows: await heroSeries(range), buyers: series };
+	};
 
 	let files = 0;
 	const failed: string[] = [];
 	for (const patch of scope) {
-		const stale = patch.heroes.filter(
-			(hero) => rebuild || !isCurrentRelated(hero.recorded, patch.candidates)
+		const position = patches.indexOf(patch);
+		const refreshAll = rebuild || isSettling(patches, position, now);
+		const orderable = (hero: RelatedHero) =>
+			hero.abilityChanged && (abilities.get(hero.id)?.length ?? 0) > 0;
+		const staleHeroes = patch.heroes.filter(
+			(hero) =>
+				refreshAll ||
+				!isCurrentRelated(hero.recorded, patch.candidates) ||
+				(orderable(hero) && !isCurrentOrder(hero.recordedOrder))
 		);
-		if (stale.length === 0) continue;
+		const staleItems = patch.items.filter(
+			(item) => refreshAll || !isCurrentBought(item.recorded)
+		);
+		if (staleHeroes.length === 0 && staleItems.length === 0) continue;
 
-		const index = patches.indexOf(patch);
-		const { before } = windowDays(patches, index, now);
-		const results = new Map<number, RelatedItems>();
+		const { before, after } = windowDays(patches, position, now);
+		const updates = {
+			hero: new Map<number, EnrichmentUpdate>(),
+			item: new Map<number, EnrichmentUpdate>()
+		};
 		try {
-			const range = before.length
-				? { from: before[0], to: before[before.length - 1] }
-				: null;
-			const heroRows = range ? await heroSeries(range) : [];
-			const series = new Map<number, DailyRow[]>();
-			if (range) {
-				for (const itemId of patch.candidates) {
-					series.set(itemId, await buyers(itemId, range));
-				}
-			}
-			for (const hero of stale) {
-				results.set(
-					hero.id,
-					selectRelatedItems({
+			const beforeSeries = await windowSeries(before, patch.candidates);
+			const afterSeries = await windowSeries(after, patch.candidates);
+			for (const hero of staleHeroes) {
+				const update: EnrichmentUpdate = {
+					related: selectRelatedItems({
+						...(beforeSeries ?? { days: before, heroRows: [], buyers: new Map() }),
 						heroId: hero.id,
-						days: before,
-						heroRows,
 						candidates: patch.candidates,
-						buyers: series
+						after: afterSeries
 					})
-				);
+				};
+				if (orderable(hero) && beforeSeries) {
+					update.order = selectAbilityOrder({
+						abilityIds: abilities.get(hero.id) ?? [],
+						before: await abilityOrder(hero.id, beforeSeries.range),
+						after: afterSeries && (await abilityOrder(hero.id, afterSeries.range))
+					});
+				}
+				updates.hero.set(hero.id, update);
+			}
+			for (const item of staleItems) {
+				updates.item.set(item.id, {
+					bought: beforeSeries
+						? selectBoughtBy({
+								itemId: item.id,
+								before: beforeSeries,
+								after: afterSeries
+							})
+						: null
+				});
 			}
 		} catch (error) {
 			failed.push(patch.slug);
@@ -181,25 +295,22 @@ export async function runRelatedItems(options: RelatedRunOptions): Promise<void>
 					schemaVersion: 2,
 					methodVersion: METHOD_VERSION,
 					collectedAt: new Date(now * 1000).toISOString(),
-					...patchBounds(patches, index, now)
+					...patchBounds(patches, position, now)
 				};
-		const pending = new Map(results);
 		const next = await spliceEntityBlocks(
 			source,
 			(block) => {
-				if (block.type !== 'hero') return undefined;
-				const id = findEntityName(heroIndex, block.name)?.id;
-				const related = id === undefined ? undefined : pending.get(id);
-				if (id === undefined || !related) return undefined;
-				pending.delete(id);
-				return { related };
+				const id = findEntityName(index[block.type], block.name)?.id;
+				const update = id === undefined ? undefined : updates[block.type].get(id);
+				if (id === undefined || !update) return undefined;
+				updates[block.type].delete(id);
+				return update;
 			},
 			stats
 		);
-		if (pending.size > 0) {
-			throw new Error(
-				`${path}: no hero block found for ${[...pending.keys()].join(', ')}`
-			);
+		const missing = [...updates.hero.keys(), ...updates.item.keys()];
+		if (missing.length > 0) {
+			throw new Error(`${path}: no block found for ${missing.join(', ')}`);
 		}
 		if (next === source) continue;
 

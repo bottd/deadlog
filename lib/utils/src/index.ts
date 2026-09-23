@@ -302,8 +302,13 @@ export function patchHeading(patch: { title: string; date: Date | string }) {
 }
 
 export {
+	BOUGHT_BY_LIMIT,
 	RELATED_ITEMS_LIMIT,
+	abilityShare,
+	boughtByShare,
 	relatedShare,
+	type AbilityOrder,
+	type BoughtBy,
 	type RelatedItem,
 	type RelatedItems,
 	type RelatedStatus

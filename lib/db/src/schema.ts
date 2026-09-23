@@ -9,6 +9,8 @@ import {
 import { createInsertSchema } from 'drizzle-zod';
 import { z } from 'zod';
 import type {
+	AbilityOrder,
+	BoughtBy,
 	EntityContext,
 	EntityImpact,
 	PatchStats,
@@ -126,7 +128,8 @@ export const changelogHeroes = sqliteTable(
 			.references(() => heroes.id),
 		changeGroups: text('change_groups', { mode: 'json' }).$type<HeroChangeGroup[]>(),
 		impact: text('impact', { mode: 'json' }).$type<EntityImpact>(),
-		relatedItems: text('related_items', { mode: 'json' }).$type<RelatedItems>()
+		relatedItems: text('related_items', { mode: 'json' }).$type<RelatedItems>(),
+		abilityOrder: text('ability_order', { mode: 'json' }).$type<AbilityOrder>()
 	},
 	(table) => ({
 		pk: primaryKey({ columns: [table.changelogId, table.heroId] }),
@@ -141,7 +144,8 @@ const impactWindowSchema = z.object({
 	days: z.number(),
 	total: z.number(),
 	covered: z.number(),
-	coverage: z.enum(['complete', 'incomplete'])
+	coverage: z.enum(['complete', 'incomplete']),
+	buy: z.number().nullable().optional()
 });
 const tierImpactSchema = z.object({
 	before: impactWindowSchema,
@@ -209,7 +213,8 @@ export const changelogItems = sqliteTable(
 			.notNull()
 			.references(() => items.id),
 		changeGroups: text('change_groups', { mode: 'json' }).$type<EntityChangeGroup[]>(),
-		impact: text('impact', { mode: 'json' }).$type<EntityImpact>()
+		impact: text('impact', { mode: 'json' }).$type<EntityImpact>(),
+		boughtBy: text('bought_by', { mode: 'json' }).$type<BoughtBy>()
 	},
 	(table) => ({
 		pk: primaryKey({ columns: [table.changelogId, table.itemId] }),

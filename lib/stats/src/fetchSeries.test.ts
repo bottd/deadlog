@@ -76,7 +76,7 @@ describe('fetchSeries', () => {
 		const series = await fetchSeries('item', 'all', { from: DAY_1, to: DAY_1 });
 
 		expect(series.rows).toEqual([
-			{ entityId: 7409189, day: DAY_1, wins: 194, matches: 367 }
+			{ entityId: 7409189, day: DAY_1, wins: 194, matches: 367, buyTime: 857.67 }
 		]);
 		expect(series.totals.size).toBe(0);
 		expect(calls[0].pathname).toBe('/v1/analytics/item-stats');

@@ -6,6 +6,12 @@ export interface DailyRow {
 	day: number;
 	wins: number;
 	matches: number;
+	buyTime?: number;
+}
+
+export interface AbilityOrderRow {
+	abilities: number[];
+	matches: number;
 }
 
 export type DailyTotals = Map<number, number>;

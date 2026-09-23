@@ -40,7 +40,8 @@
 		isIndexable,
 		MogComponent,
 		mogToc = [],
-		mogMatchResults,
+		mogStats,
+		mogOpen,
 		reading,
 		mogRelated
 	} = $derived(data);
@@ -53,9 +54,15 @@
 			)
 		].sort((a, b) => a - b)
 	);
-	const hasDetails = $derived(Object.keys(reading.details).length > 0);
-	const hasPrevious = $derived(Object.keys(reading.previous).length > 0);
-	const hasRelated = $derived(Object.keys(mogRelated).length > 0);
+	const filled = (record: object) => Object.keys(record).length > 0;
+	const sections = $derived({
+		details: filled(reading.details),
+		previous: filled(reading.previous),
+		related: filled(mogRelated),
+		maxedFirst: filled(reading.maxedFirst),
+		boughtBy: filled(reading.boughtBy),
+		buyTime: filled(reading.buyTime)
+	});
 
 	let tocOpen = $state(false);
 
@@ -397,20 +404,13 @@
 					content={MogComponent}
 					{icons}
 					filter={mogFilter}
-					stats={mogMatchResults?.stats}
+					stats={mogStats}
+					open={mogOpen}
 					entryYear={changelog.date.getUTCFullYear()}
 					{reading}
 					related={mogRelated}
 				/>
-				{#if mogMatchResults || hasDetails || hasPrevious || hasRelated}
-					<MethodNote
-						results={mogMatchResults}
-						{hasDetails}
-						{hasPrevious}
-						{hasRelated}
-						{contextVersions}
-					/>
-				{/if}
+				<MethodNote stats={mogStats} has={sections} {contextVersions} />
 			</div>
 		</article>
 	</div>

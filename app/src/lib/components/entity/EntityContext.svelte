@@ -26,7 +26,7 @@
 
 <details class="text-sm" data-entity-context>
 	<summary
-		class="ui-focus-ring text-muted-foreground/80 -my-1 flex w-fit cursor-pointer list-none items-center gap-2 rounded-sm py-3"
+		class="ui-focus-ring text-muted-foreground -my-1 flex w-fit cursor-pointer list-none items-center gap-2 rounded-sm py-3"
 	>
 		<ChevronRight aria-hidden="true" class="details-marker size-3.5 shrink-0" /><span
 			>{variant === 'header'
@@ -77,7 +77,7 @@
 				</table>
 			</div>
 		{/if}
-		<p class="text-muted-foreground/80 text-xs">{closing}</p>
+		<p class="text-muted-foreground text-xs">{closing}</p>
 		{#if historyHref}
 			<p>
 				<a

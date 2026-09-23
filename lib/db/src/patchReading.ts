@@ -1,6 +1,7 @@
 import { eq } from 'drizzle-orm';
 import type { DrizzleDB } from './client';
 import * as schema from './schema';
+import { getHeroIconsByIds } from './queries';
 
 /** Build-time inputs for one patch; the app projects these before serialization. */
 export async function getPatchReadingData(db: DrizzleDB, changelogId: string) {
@@ -9,7 +10,8 @@ export async function getPatchReadingData(db: DrizzleDB, changelogId: string) {
 			.select({
 				id: schema.heroes.id,
 				name: schema.heroes.name,
-				groups: schema.changelogHeroes.changeGroups
+				groups: schema.changelogHeroes.changeGroups,
+				abilityOrder: schema.changelogHeroes.abilityOrder
 			})
 			.from(schema.changelogHeroes)
 			.innerJoin(schema.heroes, eq(schema.heroes.id, schema.changelogHeroes.heroId))
@@ -21,7 +23,9 @@ export async function getPatchReadingData(db: DrizzleDB, changelogId: string) {
 				name: schema.items.name,
 				slug: schema.items.slug,
 				groups: schema.changelogItems.changeGroups,
-				context: schema.items.context
+				context: schema.items.context,
+				boughtBy: schema.changelogItems.boughtBy,
+				impact: schema.changelogItems.impact
 			})
 			.from(schema.changelogItems)
 			.innerJoin(schema.items, eq(schema.items.id, schema.changelogItems.itemId))
@@ -32,7 +36,9 @@ export async function getPatchReadingData(db: DrizzleDB, changelogId: string) {
 				heroId: schema.heroAbilities.heroId,
 				name: schema.heroAbilities.name,
 				slug: schema.heroAbilities.slug,
-				context: schema.heroAbilities.context
+				context: schema.heroAbilities.context,
+				image: schema.heroAbilities.image,
+				assetId: schema.heroAbilities.assetId
 			})
 			.from(schema.heroAbilities)
 			.innerJoin(
@@ -64,7 +70,11 @@ export async function getPatchReadingData(db: DrizzleDB, changelogId: string) {
 			.where(eq(schema.propertyEvents.changelogId, changelogId))
 			.all()
 	]);
-	return { heroes, items, abilities, links };
+	const heroIcons = await getHeroIconsByIds(
+		db,
+		items.flatMap((item) => item.boughtBy?.heroes.map((hero) => hero.id) ?? [])
+	);
+	return { heroes, items, abilities, links, heroIcons };
 }
 
 export type PatchReadingData = Awaited<ReturnType<typeof getPatchReadingData>>;

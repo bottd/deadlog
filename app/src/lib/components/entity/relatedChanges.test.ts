@@ -1,6 +1,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import type { PatchStats, RelatedItems } from '@deadlog/utils';
-import { formatShare, relatedChanges } from './relatedChanges';
+import { relatedChanges } from './relatedChanges';
+import { formatShare, shareSpan, shareText } from './shareRows';
 
 const stats: PatchStats = {
 	schemaVersion: 2,
@@ -38,11 +39,12 @@ describe('relatedChanges', () => {
 			change(2, 'Rite')
 		]);
 
-		expect(result?.before).toEqual(stats.before);
+		expect(result?.stats.before).toEqual(stats.before);
 		expect(result?.items[0]).toEqual({
 			name: "Diviner's Kevlar",
 			image: '/1.webp',
-			share: 0.31,
+			before: 0.31,
+			after: null,
 			groups: [{ ability: null, bullets: ['One', 'Two'] }],
 			href: '/change/2026/09-16#diviner-s-kevlar'
 		});
@@ -82,5 +84,21 @@ describe('formatShare', () => {
 		expect(formatShare(0.314)).toBe('31%');
 		expect(formatShare(0.0045)).toBe('<1%');
 		expect(formatShare(0.995)).toBe('100%');
+	});
+
+	it('pairs before and after only when both were observed', () => {
+		expect(shareText({ before: 0.65, after: 0.3 })).toBe('65% → 30%');
+		expect(shareText({ before: 0.65, after: null })).toBe('65%');
+	});
+
+	it('names the windows, and says so far while the after window is open', () => {
+		const stats = {
+			before: { from: '2026-09-02', to: '2026-09-16' },
+			after: { from: '2026-09-17', to: '2026-09-23' }
+		};
+		const windows = (open: boolean) => ({ stats, entryYear: 2026, open });
+		expect(shareSpan(windows(true), true)).toBe('2–15 Sep → 17–22 Sep so far');
+		expect(shareSpan(windows(false), true)).toBe('2–15 Sep → 17–22 Sep');
+		expect(shareSpan(windows(true), false)).toBe('2–15 Sep, before this patch');
 	});
 });

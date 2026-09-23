@@ -8,6 +8,7 @@ export interface ImpactWindow {
 	total: number;
 	covered: number;
 	coverage: CoverageStatus;
+	buy?: number | null;
 }
 
 export interface TierImpact {

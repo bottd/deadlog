@@ -1,7 +1,6 @@
 import type { PageLoad } from './$types';
 import type { Component } from 'svelte';
 import type { MogTocEntry } from '$lib/types';
-import type { MogMatchResults } from '$lib/components/changelog/patchStatsContext';
 import {
 	resolveRelatedReading,
 	type MogReadingManifest
@@ -20,7 +19,6 @@ export const load: PageLoad = async ({ data }) => {
 	let module: {
 		default: Component;
 		toc?: MogTocEntry[];
-		matchResults?: MogMatchResults;
 		readingManifest?: MogReadingManifest;
 	};
 	try {
@@ -33,7 +31,8 @@ export const load: PageLoad = async ({ data }) => {
 		...data,
 		MogComponent: module.default,
 		mogToc: module.toc ?? [],
-		mogMatchResults: module.matchResults ?? null,
+		mogStats: module.readingManifest?.stats ?? null,
+		mogOpen: module.readingManifest?.open ?? false,
 		mogRelated: resolveRelatedReading(
 			module.readingManifest ?? null,
 			data.changelog.icons,

@@ -12,7 +12,7 @@ import {
 	type RelatedPatch,
 	type RelatedRunOptions
 } from './runRelatedItems';
-import type { DailyRow, TimeRange } from './types';
+import type { AbilityOrderRow, DailyRow, TimeRange } from './types';
 
 const NOW = day(44) + DAY_S / 2;
 const changelog = (title: string) =>
@@ -47,12 +47,36 @@ async function inputs(): Promise<RelatedInputs> {
 			return {
 				...patch,
 				stats: parsed.stats,
-				heroes: [{ id: 1, recorded: parsed.changes[0].related ?? null }]
+				heroes: [
+					{
+						id: 1,
+						recorded: parsed.changes[0].related ?? null,
+						abilityChanged: true,
+						recordedOrder: parsed.changes[0].order ?? null
+					}
+				],
+				items: [
+					{
+						id: 7,
+						recorded:
+							parsed.changes.find((change) => change.type === 'item')?.bought ?? null
+					}
+				]
 			};
 		})
 	);
-	return { patches, heroes: [{ id: 1, name: 'Infernus' }] };
+	return {
+		patches,
+		heroes: [{ id: 1, name: 'Infernus' }],
+		items: [{ id: 7, name: 'Toxic Bullets' }],
+		abilities: new Map([[1, [11, 12]]])
+	};
 }
+
+const orderRows = async (): Promise<AbilityOrderRow[]> => [
+	{ abilities: [11, 12, 11, 11, 11, 12], matches: 800 },
+	{ abilities: [12, 11, 12, 12, 12], matches: 400 }
+];
 
 const series = (matches: number) => async (range: TimeRange) => {
 	const rows: DailyRow[] = [];
@@ -69,12 +93,14 @@ const options = (overrides: Partial<RelatedRunOptions> = {}): RelatedRunOptions 
 	loadPatches: inputs,
 	fetchHeroes: series(1000),
 	fetchBuyers: (_item, range) => series(300)(range),
+	fetchAbilityOrder: orderRows,
 	log: () => undefined,
 	...overrides
 });
 
 const related = async (slug: string) =>
 	(await parseStructure(await readFile(file(slug), 'utf8'))).changes[0].related;
+const SETTLED = day(60);
 
 beforeEach(async () => {
 	dir = await mkdtemp(join(tmpdir(), 'deadlog-related-'));
@@ -115,27 +141,60 @@ describe('runRelatedItems', () => {
 		await runRelatedItems(options());
 
 		expect(await related('2026/p2')).toEqual({
-			methodVersion: 1,
+			methodVersion: 2,
 			status: 'complete',
 			appearances: 14_000,
+			afterAppearances: 3000,
 			candidates: [7],
-			items: [{ id: 7, buyers: 4200 }]
+			items: [{ id: 7, buyers: 4200, after: 900 }]
 		});
 		const parsed = await parseStructure(await readFile(file('2026/p2'), 'utf8'));
 		expect(parsed.stats?.before).toEqual({ from: '2026-10-04', to: '2026-10-18' });
-		expect(parsed.blocks[1].enrichment).toEqual({});
+		expect(parsed.changes[0].order).toEqual({
+			methodVersion: 1,
+			matches: 1200,
+			afterMatches: 1200,
+			abilities: [
+				{ id: 11, before: 800, after: 800 },
+				{ id: 12, before: 400, after: 400 }
+			]
+		});
+		expect(parsed.blocks[1].enrichment).toEqual({
+			bought: {
+				methodVersion: 1,
+				heroes: [
+					{
+						id: 1,
+						buyers: 4200,
+						appearances: 14_000,
+						afterBuyers: 900,
+						afterAppearances: 3000
+					}
+				]
+			}
+		});
 		expect(await related('2026/p1')).toBeUndefined();
 	});
 
-	it('writes nothing on a second run, and fetches nothing', async () => {
-		await runRelatedItems(options());
+	it('writes nothing on a second run once the window has settled, and fetches nothing', async () => {
+		await runRelatedItems(options({ now: SETTLED }));
 		const before = await readFile(file('2026/p2'), 'utf8');
 		const fetchHeroes = vi.fn(series(1000));
 
-		await runRelatedItems(options({ fetchHeroes, now: NOW + 3600 }));
+		await runRelatedItems(options({ fetchHeroes, now: SETTLED + 3600 }));
 
 		expect(fetchHeroes).not.toHaveBeenCalled();
 		expect(await readFile(file('2026/p2'), 'utf8')).toBe(before);
+	});
+
+	it('refreshes an open window on every run', async () => {
+		await runRelatedItems(options());
+		const fetchHeroes = vi.fn(series(1000));
+
+		await runRelatedItems(options({ fetchHeroes, now: NOW + DAY_S }));
+
+		expect(fetchHeroes).toHaveBeenCalledTimes(2);
+		expect((await related('2026/p2'))?.afterAppearances).toBe(4000);
 	});
 
 	it('recomputes when the changed items change', async () => {
@@ -186,7 +245,7 @@ describe('runRelatedItems', () => {
 
 		await runRelatedItems(options({ fetchBuyers }));
 
-		expect(fetchBuyers).toHaveBeenCalledTimes(1);
+		expect(fetchBuyers).toHaveBeenCalledTimes(2);
 		expect((await related('2026/p3'))?.status).toBe('complete');
 		base.pop();
 	});

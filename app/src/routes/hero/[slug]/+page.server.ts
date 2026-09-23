@@ -11,6 +11,7 @@ import { error } from '@sveltejs/kit';
 import { getHeroCardImage } from '$lib/utils/entityImages';
 import { toPageContext } from '$lib/components/entity/pageContext';
 import { relatedChanges } from '$lib/components/entity/relatedChanges';
+import { maxedFirstRows } from '$lib/components/entity/shareRows';
 import { previousChangeLookup } from '$lib/components/entity/previousChanges';
 import { DEFAULT_SOCIAL_IMAGE, absoluteUrl } from '$lib/seo';
 import type { PageServerLoad, EntryGenerator } from './$types';
@@ -64,18 +65,23 @@ export const load: PageServerLoad = async ({ params, locals }) => {
 		hero.name
 	);
 
-	const enrichedChangelogs = changelogs.map(({ relatedItems, ...changelog }) => ({
-		...changelog,
-		related: relatedChanges({ ...changelog, relatedItems }, itemChanges),
-		date: new Date(changelog.pubDate),
-		changeGroups:
-			changelog.changeGroups?.map((group, groupIndex) => ({
-				...group,
-				previous: previousFor(changelog, group, groupIndex),
-				icon:
-					abilities.find((ability) => ability.slug === group.abilitySlug)?.image ?? null
-			})) ?? null
-	}));
+	const enrichedChangelogs = changelogs.map(
+		({ relatedItems, abilityOrder, ...changelog }) => ({
+			...changelog,
+			related: relatedChanges({ ...changelog, relatedItems }, itemChanges),
+			maxedFirst: abilityOrder
+				? maxedFirstRows(abilityOrder, abilities, changelog.changeGroups)
+				: null,
+			date: new Date(changelog.pubDate),
+			changeGroups:
+				changelog.changeGroups?.map((group, groupIndex) => ({
+					...group,
+					previous: previousFor(changelog, group, groupIndex),
+					icon:
+						abilities.find((ability) => ability.slug === group.abilitySlug)?.image ?? null
+				})) ?? null
+		})
+	);
 
 	return {
 		// Explicit field list: `images` is resolved to one URL here and never read by

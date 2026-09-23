@@ -1,6 +1,10 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { isCurrentRelated, selectRelatedItems } from './selectRelatedItems';
+import {
+	isCurrentRelated,
+	selectBoughtBy,
+	selectRelatedItems
+} from './selectRelatedItems';
 import type { DailyRow } from './types';
 
 interface HeroRow {
@@ -53,7 +57,7 @@ describe('selectRelatedItems on recorded responses', () => {
 		});
 
 		expect(result).toEqual({
-			methodVersion: 1,
+			methodVersion: 2,
 			status: 'complete',
 			appearances: 20_988 + 17_490 + 16_590,
 			candidates: [RITE, TOXIC],
@@ -189,5 +193,91 @@ describe('isCurrentRelated', () => {
 		expect(isCurrentRelated(recorded, [4, 9, 11])).toBe(false);
 		expect(isCurrentRelated({ ...recorded, methodVersion: 0 }, [4, 9])).toBe(false);
 		expect(isCurrentRelated(null, [4, 9])).toBe(false);
+	});
+});
+
+describe('selectBoughtBy', () => {
+	const DAY = 86_400;
+	const rows = (entries: [number, number][], day = DAY) =>
+		entries.map(([entityId, matches]) => ({ entityId, day, wins: 0, matches }));
+	const window = (heroes: [number, number][], buyers: [number, number][], day = DAY) => ({
+		days: [day],
+		heroRows: rows(heroes, day),
+		buyers: new Map([[7, rows(buyers, day)]])
+	});
+
+	it('ranks heroes by the share of their players who bought the item', () => {
+		const bought = selectBoughtBy({
+			itemId: 7,
+			before: window(
+				[
+					[1, 10_000],
+					[2, 2000],
+					[3, 5000],
+					[4, 900],
+					[5, 4000]
+				],
+				[
+					[1, 3000],
+					[2, 1500],
+					[3, 1000],
+					[4, 800],
+					[5, 90]
+				]
+			)
+		});
+
+		expect(bought).toEqual({
+			methodVersion: 1,
+			heroes: [
+				{ id: 2, buyers: 1500, appearances: 2000 },
+				{ id: 1, buyers: 3000, appearances: 10_000 },
+				{ id: 3, buyers: 1000, appearances: 5000 }
+			]
+		});
+	});
+
+	it('adds the after window where the hero clears the floor there', () => {
+		const bought = selectBoughtBy({
+			itemId: 7,
+			before: window(
+				[
+					[1, 10_000],
+					[2, 10_000]
+				],
+				[
+					[1, 5000],
+					[2, 4000]
+				]
+			),
+			after: window(
+				[
+					[1, 2000],
+					[2, 500]
+				],
+				[
+					[1, 600],
+					[2, 400]
+				],
+				2 * DAY
+			)
+		});
+
+		expect(bought?.heroes).toEqual([
+			{
+				id: 1,
+				buyers: 5000,
+				appearances: 10_000,
+				afterBuyers: 600,
+				afterAppearances: 2000
+			},
+			{ id: 2, buyers: 4000, appearances: 10_000 }
+		]);
+	});
+
+	it('returns null when no hero clears the floors', () => {
+		expect(
+			selectBoughtBy({ itemId: 7, before: window([[1, 500]], [[1, 400]]) })
+		).toBeNull();
 	});
 });

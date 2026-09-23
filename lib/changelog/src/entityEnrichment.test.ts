@@ -114,7 +114,7 @@ describe('entity enrichment', () => {
 	it('refuses related items on an item block, unknown keys and malformed values', async () => {
 		await expect(
 			spliceEntityBlocks(source, () => ({ related })).then(parseStructure)
-		).rejects.toThrow(/Toxic Bullets: only a hero block takes related items/);
+		).rejects.toThrow(/Toxic Bullets: only a hero block takes related/);
 
 		const written = await spliceEntityBlocks(source, (block) =>
 			block.type === 'hero' ? { related } : undefined
@@ -145,5 +145,81 @@ describe('entity enrichment', () => {
 
 		expect(kept.join('\n')).toContain('- Base damage increased');
 		expect(written.startsWith('``attr:\ntitle "Patch"\n``\n')).toBe(true);
+	});
+});
+
+describe('reading enrichment beyond impact', () => {
+	it('round-trips related after counts, ability order and bought-by', async () => {
+		const { parseEnrichment, writeEnrichmentBlock } = await import('./entityEnrichment');
+		const hero = {
+			related: {
+				methodVersion: 2,
+				status: 'complete' as const,
+				appearances: 206_094,
+				afterAppearances: 52_850,
+				candidates: [7, 8],
+				items: [{ id: 7, buyers: 67_786, after: 25_796 }]
+			},
+			order: {
+				methodVersion: 1,
+				matches: 208_194,
+				afterMatches: 52_850,
+				abilities: [
+					{ id: 11, before: 156_279, after: 41_000 },
+					{ id: 12, before: 3427, after: 800 }
+				]
+			}
+		};
+		const item = {
+			bought: {
+				methodVersion: 1,
+				heroes: [
+					{
+						id: 6,
+						buyers: 68_587,
+						appearances: 208_159,
+						afterBuyers: 25_796,
+						afterAppearances: 52_850
+					},
+					{ id: 7, buyers: 2000, appearances: 9000 }
+				]
+			}
+		};
+		const kdl = (lines: string[]) => lines.slice(1, -1).join('\n');
+
+		expect(writeEnrichmentBlock(hero)).toContain(
+			'order method=1 matches=208194 after-matches=52850 {'
+		);
+		expect(kdl(writeEnrichmentBlock(item))).toBe(
+			[
+				'bought method=1 {',
+				'  hero-6 buyers=68587 appearances=208159 after-buyers=25796 after-appearances=52850',
+				'  hero-7 buyers=2000 appearances=9000',
+				'}'
+			].join('\n')
+		);
+		expect(
+			parseEnrichment(
+				{
+					order: {
+						method: 1,
+						matches: 208_194,
+						'after-matches': 52_850,
+						'ability-11': { before: 156_279, after: 41_000 },
+						'ability-12': { before: 3427, after: 800 }
+					}
+				},
+				'hero'
+			)
+		).toEqual({ order: hero.order });
+		expect(() => parseEnrichment({ bought: { method: 1 } }, 'hero')).toThrow(
+			/only an item block takes bought/
+		);
+		expect(() =>
+			parseEnrichment(
+				{ order: { method: 1, matches: 10, 'ability-1': { before: 2, after: 1 } } },
+				'hero'
+			)
+		).toThrow(/after counts need an after total/);
 	});
 });

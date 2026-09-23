@@ -21,6 +21,7 @@ import {
 	PROPERTY_EXTRACTION_VERSION,
 	type EntityBulletGroup,
 	type EntityChange,
+	type EntityEnrichment,
 	type ScopedBullet
 } from '@deadlog/changelog';
 import {
@@ -120,7 +121,7 @@ function collectEntityMatches(
 	return matches;
 }
 
-function collectEnrichment<Field extends 'impact' | 'related'>(
+function collectEnrichment<Field extends keyof EntityEnrichment>(
 	changes: EntityChange[],
 	type: 'hero' | 'item',
 	entityMap: Map<string, { id: number }>,
@@ -326,6 +327,8 @@ export async function buildDatabaseFromMog(options: BuildOptions): Promise<Build
 				const heroImpact = collectEnrichment(entityChanges, 'hero', heroMap, 'impact');
 				const itemImpact = collectEnrichment(entityChanges, 'item', itemMap, 'impact');
 				const heroRelated = collectEnrichment(entityChanges, 'hero', heroMap, 'related');
+				const heroOrder = collectEnrichment(entityChanges, 'hero', heroMap, 'order');
+				const itemBought = collectEnrichment(entityChanges, 'item', itemMap, 'bought');
 
 				patchRows.push({
 					id: changelogId,
@@ -359,7 +362,8 @@ export async function buildDatabaseFromMog(options: BuildOptions): Promise<Build
 										: null
 								})) ?? null,
 							impact: heroImpact.get(heroId) ?? null,
-							relatedItems: heroRelated.get(heroId) ?? null
+							relatedItems: heroRelated.get(heroId) ?? null,
+							abilityOrder: heroOrder.get(heroId) ?? null
 						})
 					);
 					heroMatches++;
@@ -371,7 +375,8 @@ export async function buildDatabaseFromMog(options: BuildOptions): Promise<Build
 							changelogId,
 							itemId,
 							changeGroups,
-							impact: itemImpact.get(itemId) ?? null
+							impact: itemImpact.get(itemId) ?? null,
+							boughtBy: itemBought.get(itemId) ?? null
 						})
 					);
 					itemMatches++;

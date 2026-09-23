@@ -28,6 +28,8 @@ import {
 	makeSummary,
 	canonicalSlug,
 	HERO_IMAGE_KEYS,
+	type AbilityOrder,
+	type BoughtBy,
 	type EntityContext,
 	type EntityImpact,
 	type PatchStats,
@@ -282,7 +284,7 @@ export async function getItemBySlug(
 
 export type HeroAbility = Pick<
 	typeof schema.heroAbilities.$inferSelect,
-	'name' | 'slug' | 'image' | 'description'
+	'name' | 'slug' | 'image' | 'description' | 'assetId'
 >;
 
 export interface ChangelogAbilityIcon {
@@ -300,7 +302,8 @@ export async function getHeroAbilities(
 			name: schema.heroAbilities.name,
 			slug: schema.heroAbilities.slug,
 			image: schema.heroAbilities.image,
-			description: schema.heroAbilities.description
+			description: schema.heroAbilities.description,
+			assetId: schema.heroAbilities.assetId
 		})
 		.from(schema.heroAbilities)
 		.where(eq(schema.heroAbilities.heroId, heroId))
@@ -350,6 +353,7 @@ export async function getAbilityBySlug(
 			slug: schema.heroAbilities.slug,
 			image: schema.heroAbilities.image,
 			description: schema.heroAbilities.description,
+			assetId: schema.heroAbilities.assetId,
 			heroId: schema.heroes.id,
 			heroName: schema.heroes.name,
 			heroSlug: schema.heroes.slug,
@@ -373,7 +377,8 @@ export async function getAbilityBySlug(
 			name: match.name,
 			slug: match.slug,
 			image: match.image,
-			description: match.description
+			description: match.description,
+			assetId: match.assetId
 		},
 		hero: {
 			id: match.heroId,
@@ -413,14 +418,15 @@ export async function getChangelogAbilityIcons(
 export async function getChangelogsByHeroId(
 	db: DrizzleDB,
 	heroId: number
-): Promise<EntityChangelog<HeroChangeGroup>[]> {
+): Promise<(EntityChangelog<HeroChangeGroup> & { abilityOrder: AbilityOrder | null })[]> {
 	const rows = await db
 		.select({
 			...ENTITY_HISTORY_COLUMNS,
 			changeGroups: schema.changelogHeroes.changeGroups,
 			impact: schema.changelogHeroes.impact,
 			stats: schema.changelogs.stats,
-			relatedItems: schema.changelogHeroes.relatedItems
+			relatedItems: schema.changelogHeroes.relatedItems,
+			abilityOrder: schema.changelogHeroes.abilityOrder
 		})
 		.from(schema.changelogs)
 		.innerJoin(
@@ -523,13 +529,14 @@ export async function getItemChangesInPatches(
 export async function getChangelogsByItemId(
 	db: DrizzleDB,
 	itemId: number
-): Promise<EntityChangelog[]> {
+): Promise<(EntityChangelog & { boughtBy: BoughtBy | null })[]> {
 	const rows = await db
 		.select({
 			...ENTITY_HISTORY_COLUMNS,
 			changeGroups: schema.changelogItems.changeGroups,
 			impact: schema.changelogItems.impact,
-			stats: schema.changelogs.stats
+			stats: schema.changelogs.stats,
+			boughtBy: schema.changelogItems.boughtBy
 		})
 		.from(schema.changelogs)
 		.innerJoin(
@@ -602,6 +609,30 @@ function heroIconImage() {
 	);
 	return sql<string>`COALESCE(${sql.join(preferred, sql`, `)},
 		(SELECT value FROM json_each(${schema.heroes.images}) WHERE value != '' LIMIT 1), '')`;
+}
+
+export interface HeroIcon {
+	id: number;
+	name: string;
+	slug: string;
+	image: string;
+}
+
+export async function getHeroIconsByIds(
+	db: DrizzleDB,
+	ids: number[]
+): Promise<HeroIcon[]> {
+	if (ids.length === 0) return [];
+	return db
+		.select({
+			id: schema.heroes.id,
+			name: schema.heroes.name,
+			slug: schema.heroes.slug,
+			image: heroIconImage()
+		})
+		.from(schema.heroes)
+		.where(inArray(schema.heroes.id, [...new Set(ids)]))
+		.all();
 }
 
 function groupBulletCount(column: SQLiteColumn) {

@@ -1,4 +1,4 @@
-import type { EntityImpact, PatchStats, RelatedItems } from '@deadlog/utils';
+import type { PatchStats } from '@deadlog/utils';
 import type { EntityEnrichment } from './entityEnrichment';
 import { z } from 'zod';
 
@@ -30,12 +30,10 @@ export interface EntityBulletGroup {
 	bullets: string[];
 }
 
-export interface EntityChange {
+export interface EntityChange extends EntityEnrichment {
 	name: string;
 	type: 'hero' | 'item';
 	groups: EntityBulletGroup[];
-	impact?: EntityImpact;
-	related?: RelatedItems;
 }
 
 /** Where an entity's block sits in the parsed text, as line indices. */

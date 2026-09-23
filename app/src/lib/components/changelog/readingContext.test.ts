@@ -27,6 +27,7 @@ const fixture = (): MogReadingManifest => ({
 		after: null,
 		siblings: []
 	},
+	open: false,
 	sections: [{ kind: 'item', name: 'Item', id: 'item-2' }],
 	related: [
 		{
@@ -47,12 +48,13 @@ describe('related reading links', () => {
 	it('uses changed item identities and actual anchors, with canonical URLs that clear filters', () => {
 		expect(resolveRelatedReading(fixture(), icons, '/change/2026/09-16')).toEqual({
 			'1': {
-				before: { from: '2026-09-02', to: '2026-09-16' },
+				stats: { before: { from: '2026-09-02', to: '2026-09-16' }, after: null },
 				items: [
 					{
 						name: 'Item',
 						image: '/item.png',
-						share: 0.5,
+						before: 0.5,
+						after: null,
 						href: '/change/2026/09-16#item-2'
 					}
 				]

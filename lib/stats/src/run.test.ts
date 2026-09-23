@@ -218,7 +218,7 @@ describe('run', () => {
 		const { stats } = await parseStructure(await readFile(file('2026/p2'), 'utf8'));
 		expect(stats).toEqual({
 			schemaVersion: 2,
-			methodVersion: 2,
+			methodVersion: 3,
 			collectedAt: new Date(NOW * 1000).toISOString(),
 			before: { from: '2026-10-04', to: '2026-10-18' },
 			after: { from: '2026-10-19', to: '2026-10-22' },
@@ -255,7 +255,7 @@ describe('run', () => {
 		await run(options());
 
 		const parsed = await parseStructure(await readFile(file('2026/p2'), 'utf8'));
-		expect(parsed.stats?.methodVersion).toBe(2);
+		expect(parsed.stats?.methodVersion).toBe(3);
 		expect(parsed.changes[0].impact?.all.before.coverage).toBe('complete');
 	});
 

@@ -11,7 +11,6 @@ import { error } from '@sveltejs/kit';
 import { absoluteUrl } from '$lib/seo';
 import { toPageContext } from '$lib/components/entity/pageContext';
 import { previousChangeLookup } from '$lib/components/entity/previousChanges';
-import { hasReportableImpact } from '$lib/utils/impactFormat';
 import type { PageServerLoad, EntryGenerator } from './$types';
 
 export const prerender = true;
@@ -65,8 +64,7 @@ export const load: PageServerLoad = async ({ params, locals }) => {
 				author: changelog.author,
 				date: new Date(changelog.pubDate),
 				changeCount: changeGroups.reduce((total, g) => total + g.bullets.length, 0),
-				changeGroups,
-				heroResults: changelog.impact ? hasReportableImpact(changelog.impact) : false
+				changeGroups
 			};
 		})
 		.filter((changelog) => changelog.changeGroups.length > 0);
