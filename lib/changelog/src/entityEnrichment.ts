@@ -4,7 +4,7 @@ import {
 	type RelatedItems
 } from '@deadlog/utils';
 import { z } from 'zod';
-import { parseImpact, writeImpactNode, type ImpactSchemaVersion } from './impactBlock';
+import { parseImpact, writeImpactNode } from './impactBlock';
 
 export interface EntityEnrichment {
 	impact?: EntityImpact;
@@ -66,8 +66,7 @@ function writeRelatedNode(related: RelatedItems): string[] {
 
 export function parseEnrichment(
 	plain: Record<string, unknown> | undefined,
-	kind: 'hero' | 'item',
-	version: ImpactSchemaVersion
+	kind: 'hero' | 'item'
 ): EntityEnrichment {
 	const keys = Object.keys(plain ?? {});
 	const unknown = keys.filter((key) => !FIELDS.includes(key));
@@ -80,7 +79,7 @@ export function parseEnrichment(
 		throw new Error('only a hero block takes related items');
 	}
 	return {
-		...(plain?.impact !== undefined && { impact: parseImpact(plain.impact, version) }),
+		...(plain?.impact !== undefined && { impact: parseImpact(plain.impact) }),
 		...(plain?.related !== undefined && { related: parseRelated(plain.related) })
 	};
 }

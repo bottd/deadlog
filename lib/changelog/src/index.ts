@@ -16,12 +16,7 @@ export {
 	type TocEntry
 } from './extract';
 export { extractPreviewImage, loadAllChangelogs } from './load';
-export {
-	carryEnrichment,
-	carryImpact,
-	spliceEntityBlocks,
-	spliceImpactBlocks
-} from './rewrite';
+export { carryEnrichment, spliceEntityBlocks, spliceImpactBlocks } from './rewrite';
 export {
 	parseRelated,
 	writeEnrichmentBlock,
@@ -38,10 +33,4 @@ export {
 	type LinkedProperty,
 	type ScopedBullet
 } from './propertyChanges';
-export {
-	parseImpact,
-	parseStats,
-	writeImpactBlock,
-	writeStatsNode,
-	type ImpactSchemaVersion
-} from './impactBlock';
+export { parseImpact, parseStats, writeStatsNode } from './impactBlock';

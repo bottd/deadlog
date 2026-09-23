@@ -23,8 +23,7 @@ attributes.
 The compiled module exports its parsed patch windows and represented entity kinds.
 The route passes the windows through `MogContent` context to the inline components
 and renders one method note outside entity filtering. Results are prerendered and
-native disclosures work without JavaScript. Entirely suppressed results are omitted;
-legacy measurements without root `stats` retain their plain summaries.
+native disclosures work without JavaScript. Entirely suppressed results are omitted.
 
 Design: `docs/superpowers/specs/2026-09-21-inline-mog-stats-design.md`.
 
@@ -53,7 +52,7 @@ identifies an entity, never by the fence slug: four entities have a fence slug t
 differs from their database slug (`=hero:doorman:` is The Doorman). Everything is read
 through the Mog parser's AST (`parseMogAst` from `vite-plugin-mog/parser`): the entity
 blocks, their `attr` values as typed data, and the source lines to splice at. Only the
-writer, `writeImpactBlock` in `lib/changelog/src/impactBlock.ts`, spells the format by
+writer, `writeImpactNode` in `lib/changelog/src/impactBlock.ts`, spells the format by
 hand, and a test round-trips it through the parser. `build:scraper --overwrite` keeps
 recorded blocks: `writeMogFile` carries them from the file it replaces.
 
@@ -134,12 +133,12 @@ sequential requests.
 ## Enrichment findings (measured 2026-09-21)
 
 Phase 0 of `docs/superpowers/plans/2026-09-21-api-reading-enrichment-plan.md`. Every
-number below comes from `scripts/probe-enrichment-api.ts`, a read-only probe that saves
+number below comes from `scripts/probe-enrichment-api.ts` (deleted since; last in `6d13dc6`), a read-only probe that saved
 each response and a `requests.jsonl` (URL, retrieval time, status) to `--out`. Reduced
 responses are committed under `src/fixtures/enrichment/`, each with its source URLs and
 how it was cut down; `enrichmentContract.test.ts` pins what they show. All requests
-were made between 21:02 and 21:20 UTC. `P` is
-`tsx scripts/probe-enrichment-api.ts --out <dir>`.
+were made between 21:02 and 21:20 UTC. `P` below stands for
+`tsx scripts/probe-enrichment-api.ts --out <dir>` as it was at that commit.
 
 **The documented defaults are the defaults.** Adding `game_mode=normal` and
 `match_mode=ranked,unranked` returned byte-identical `hero-stats` and `item-stats`
@@ -256,11 +255,11 @@ stats schema=2 method=2 collected="2026-09-21T21:41:20.000Z" {
 ```
 
 Intervals are complete UTC days, start-inclusive and end-exclusive, `#null` when empty;
-`siblings` lists other patches released the same day, which share both windows. A file
-with this node is wholly schema 2 and every window in it also carries `total` (cohort
-player slots), `covered` (days the cohort series has) and `coverage`. A file without it
-is schema 1. The reader refuses a mix, and names an unsupported schema rather than
-reading it as something else.
+`siblings` lists other patches released the same day, which share both windows. Every
+window also carries `total` (cohort player slots), `covered` (days the cohort series
+has) and `coverage`. Schema 1 (windows without these fields, no root node) is no longer
+read; every recorded file was migrated. The reader names an unsupported schema rather
+than reading it as something else.
 
 `METHODS` in `src/constants.ts` holds what a method version means. Both send
 `game_mode=normal` and `match_mode=ranked,unranked` explicitly; method 1 kept the API's

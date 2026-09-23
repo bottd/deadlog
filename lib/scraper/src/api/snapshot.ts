@@ -7,7 +7,7 @@ export function entitySnapshotPath(): string {
 	return resolve(process.env.CHANGELOGS_DIR || 'app/changelogs', 'entities.json');
 }
 
-export const SNAPSHOT_SCHEMA_VERSION = 2;
+const SNAPSHOT_SCHEMA_VERSION = 2;
 
 export function serializeEntitySnapshot(snapshot: EntitySnapshot): string {
 	const { heroes, items, provenance } = snapshot;

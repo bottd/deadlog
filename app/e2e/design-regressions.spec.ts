@@ -753,6 +753,8 @@ test('hero histories report measured patch impact without a direction cue', asyn
 
 	const impact = page.locator('[data-patch-impact]');
 	await expect(impact.first()).toBeVisible();
+	await expect(impact.first().locator('[data-impact-grid]')).toBeHidden();
+	await impact.first().locator('summary').click();
 
 	const cells = impact.first().locator('[data-impact-grid] > span');
 	await expect(cells.nth(1)).toHaveText('WIN');
@@ -761,8 +763,8 @@ test('hero histories report measured patch impact without a direction cue', asyn
 	await expect(cells.nth(4)).toHaveText(/^([\d.]+%|—) → ([\d.]+%|—)$/);
 	await expect(cells.nth(5)).toHaveText(/^([\d.]+%|—) → ([\d.]+%|—)$/);
 	await expect(cells.nth(4)).toHaveCSS('white-space', 'nowrap');
-	await expect(impact.first().locator('summary .sr-only')).toHaveText(
-		/^Match results around this patch\. All ranks\. Win rate /
+	await expect(impact.first().locator('.sr-only').first()).toHaveText(
+		/^Match results around this patch, .+ before, .+ after\. All ranks\. Win rate /
 	);
 
 	const method = page.locator('#method');
@@ -809,6 +811,14 @@ test('ability histories carry no patch impact lines', async ({ page }) => {
 	await expect(
 		page.locator('main').getByRole('link', { name: 'Deadlock API' })
 	).toHaveCount(1);
+
+	const heroResults = page.getByRole('link', { name: 'Pocket match results' }).first();
+	const href = await heroResults.getAttribute('href');
+	expect(href).toMatch(/^\/hero\/pocket#history-\d+$/);
+	await page.goto(href!);
+	await expect(page.locator(`#${href!.split('#')[1]} [data-patch-impact]`)).toHaveCount(
+		1
+	);
 });
 
 test('hero change groups disclose current ability details without scripts', async ({
@@ -899,10 +909,11 @@ test('match results disclose their windows and link to the method note', async (
 	await summary.click();
 
 	const rows = impact.locator('tbody tr');
-	await expect(rows).toHaveCount(4);
-	await expect(rows.nth(0).locator('td').first()).toHaveText(
-		/^\d{1,2}(–\d{1,2})? [A-Z][a-z]{2}( – \d{1,2} [A-Z][a-z]{2})?( \d{4})?$/
+	const day = '\\d{1,2}(–\\d{1,2})? [A-Z][a-z]{2}( – \\d{1,2} [A-Z][a-z]{2})?( \\d{4})?';
+	await expect(impact.locator('[data-impact-caption]')).toHaveText(
+		new RegExp(`^Match results · ${day} → ${day}$`)
 	);
+	await expect(rows).toHaveCount(3);
 	await expect(rows.nth(2).locator('td').first()).toHaveText(/^\d+ \/ \d+$/);
 	await expect(
 		impact.getByRole('link', { name: 'How this is measured' })
@@ -926,13 +937,14 @@ test('hero entries list the changed items their players bought, linked to real s
 	);
 	await expect(block).not.toContainText(/recommended|best|core|synergy/i);
 
-	const rows = block.locator('details');
+	const rows = block
+		.getByRole('list', { name: 'Related item changes' })
+		.locator(':scope > li');
 	expect(await rows.count()).toBeLessThanOrEqual(3);
 	const first = rows.first();
-	await expect(first.locator('summary')).toContainText(/\d+ changes?/);
-	await expect(first.locator('summary')).toContainText(/(<1|\d+)%$/);
-	await first.locator('summary').click();
-	await expect(first.locator('li').first()).toBeVisible();
+	await expect(first.locator('[data-share-bar]')).toBeVisible();
+	await expect(first).toContainText(/(<1|\d+)%/);
+	await expect(first.locator('ul li').first()).toBeVisible();
 
 	const entry = block.locator('xpath=ancestor::li[@data-entity-patch]');
 	const bullets = await entry.locator('ul').first().boundingBox();
@@ -941,7 +953,7 @@ test('hero entries list the changed items their players bought, linked to real s
 	expect(related!.y).toBeGreaterThan(bullets!.y);
 	expect(impact!.y).toBeGreaterThan(related!.y);
 
-	const href = await first.getByRole('link').getAttribute('href');
+	const href = await first.getByRole('link').first().getAttribute('href');
 	expect(href).toMatch(/^\/change\/.+#.+/);
 	await gotoApp(page, href!);
 	await expect(page.locator(`[id="${href!.split('#')[1]}"]`)).toHaveCount(1);
@@ -951,7 +963,7 @@ test('related items stay inside a 320px viewport', async ({ browser }) => {
 	const context = await browser.newContext({ viewport: { width: 320, height: 720 } });
 	const page = await context.newPage();
 	await page.goto('/hero/abrams');
-	await page.locator('[data-related-items] summary').first().click();
+	await expect(page.locator('[data-share-bar]').first()).toBeVisible();
 	await expectNoHorizontalOverflow(page);
 	await context.close();
 });

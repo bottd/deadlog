@@ -49,7 +49,7 @@ export interface RowIcon {
 	tone?: string;
 }
 
-export function EntityRow({
+function EntityRow({
 	label,
 	icons,
 	extra,

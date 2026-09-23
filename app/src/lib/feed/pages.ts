@@ -3,9 +3,9 @@ import type { PatchSummary } from '$lib/types';
 import { INITIAL_LOAD_COUNT } from '$lib/queries/keys';
 import { assembleSummaries, queryFeed } from './assemble';
 
-export const PAGE_SIZE = 12;
+const PAGE_SIZE = 12;
 
-export const UNFILTERED: FeedFilters = {
+const UNFILTERED: FeedFilters = {
 	heroIds: [],
 	itemIds: [],
 	q: '',

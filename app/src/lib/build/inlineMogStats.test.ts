@@ -4,23 +4,25 @@ import { join } from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { compile, parse, preprocess } from 'svelte/compiler';
 import { mogPlugin } from 'vite-plugin-mog';
-import { writeImpactBlock, writeStatsNode } from '@deadlog/changelog';
+import { writeEnrichmentBlock, writeStatsNode } from '@deadlog/changelog';
 import type { EntityImpact, ImpactWindow, PatchStats } from '@deadlog/utils';
 import config from '../../../svelte.config.js';
 import { inlineMogStatsPlugin } from '../../../inlineMogStatsPlugin.js';
 import { inlineMogStats, serializeMogValue } from './inlineMogStats';
 
-const side: ImpactWindow = { win: 0.5, pick: 0.1, matches: 2000, days: 2 };
-const legacy: EntityImpact = {
-	closed: true,
-	all: { before: side, after: side },
-	high: { before: side, after: side }
+const side: ImpactWindow = {
+	win: 0.5,
+	pick: 0.1,
+	matches: 2000,
+	days: 2,
+	total: 20_000,
+	covered: 2,
+	coverage: 'complete'
 };
-const covered = { ...side, total: 20_000, covered: 2, coverage: 'complete' as const };
 const modern: EntityImpact = {
 	closed: false,
-	all: { before: covered, after: covered },
-	high: { before: covered, after: covered }
+	all: { before: side, after: side },
+	high: { before: side, after: side }
 };
 const stats: PatchStats = {
 	schemaVersion: 2,
@@ -44,7 +46,7 @@ const entity = (
 ) =>
 	[
 		`=${kind}:${name === 'The Doorman' ? 'doorman' : name.toLowerCase()}:`,
-		...(impact ? writeImpactBlock(impact) : []),
+		...(impact ? writeEnrichmentBlock({ impact: impact }) : []),
 		`## ${name}`,
 		body,
 		'='
@@ -184,8 +186,8 @@ describe('inline Mog stats', () => {
 		expect(await inlineMogStats(source, code)).toBe(result);
 	});
 
-	it('keeps legacy windows explicit and works without an original instance script', async () => {
-		const source = entity('hero', 'Abrams', legacy);
+	it('works without a root stats node or an original instance script', async () => {
+		const source = entity('hero', 'Abrams', modern);
 		const { code, file } = await loadDocument(source);
 		expect(parse(code, { modern: true }).instance).toBeUndefined();
 		const result = await inlineMogStats(source, code);
@@ -211,18 +213,15 @@ describe('inline Mog stats', () => {
 
 	it('refuses invalid impact and unsupported schemas instead of rendering misleading values', async () => {
 		await expect(
-			inlineMogStats(entity('hero', 'Abrams', legacy).replace('win=0.5', 'win="bad"'), '')
+			inlineMogStats(entity('hero', 'Abrams', modern).replace('win=0.5', 'win="bad"'), '')
 		).rejects.toThrow('Malformed impact');
 		await expect(
 			inlineMogStats(root.replace('schema=2', 'schema=99'), '')
 		).rejects.toThrow('Unsupported stats schema 99');
-		await expect(
-			inlineMogStats(`${root}\n${entity('hero', 'Abrams', legacy)}`, '')
-		).rejects.toThrow('schema 2');
 	});
 
 	it('handles CRLF source positions and safely serializes executable-looking strings', async () => {
-		const source = entity('hero', 'Abrams', legacy, '- Unicode → café').replaceAll(
+		const source = entity('hero', 'Abrams', modern, '- Unicode → café').replaceAll(
 			'\n',
 			'\r\n'
 		);
@@ -236,7 +235,7 @@ describe('inline Mog stats', () => {
 	});
 
 	it('transforms only original document modules and reports the file on failure', async () => {
-		const source = entity('hero', 'Abrams', legacy);
+		const source = entity('hero', 'Abrams', modern);
 		const { code, file, dir } = await loadDocument(source);
 		const plugin = inlineMogStatsPlugin(dir);
 		const transform = plugin.transform;

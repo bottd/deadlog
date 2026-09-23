@@ -14,7 +14,7 @@ export interface RelatedInput {
 	buyers: ReadonlyMap<number, DailyRow[]>;
 }
 
-export const candidateFingerprint = (candidates: number[]): number[] =>
+const candidateFingerprint = (candidates: number[]): number[] =>
 	[...new Set(candidates)].sort((a, b) => a - b);
 
 export function isCurrentRelated(

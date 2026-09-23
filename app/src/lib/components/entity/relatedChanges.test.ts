@@ -43,7 +43,6 @@ describe('relatedChanges', () => {
 			name: "Diviner's Kevlar",
 			image: '/1.webp',
 			share: 0.31,
-			changeCount: 2,
 			groups: [{ ability: null, bullets: ['One', 'Two'] }],
 			href: '/change/2026/09-16#diviner-s-kevlar'
 		});

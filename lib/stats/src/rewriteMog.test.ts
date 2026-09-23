@@ -3,11 +3,30 @@ import { parseStructure } from '@deadlog/changelog';
 import type { EntityImpact } from '@deadlog/utils';
 import { indexEntities, upsertImpactBlocks } from './rewriteMog';
 
-const window = { win: 0.5, pick: 0.1, matches: 2800, days: 14 };
+const window = {
+	win: 0.5,
+	pick: 0.1,
+	matches: 2800,
+	days: 14,
+	total: 33600,
+	covered: 14,
+	coverage: 'complete' as const
+};
 const impactWith = (win: number, closed = true): EntityImpact => ({
 	closed,
 	all: { before: window, after: { ...window, win } },
-	high: { before: window, after: { win: null, pick: null, matches: 12, days: 2 } }
+	high: {
+		before: window,
+		after: {
+			win: null,
+			pick: null,
+			matches: 12,
+			days: 2,
+			total: 144,
+			covered: 2,
+			coverage: 'complete'
+		}
+	}
 });
 
 const index = indexEntities({

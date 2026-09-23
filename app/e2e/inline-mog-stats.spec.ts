@@ -13,15 +13,18 @@ test('full patches keep match results inside each entity, below the notes', asyn
 	const results = hero.locator('[data-patch-impact]');
 	await expect(results).toHaveCount(1);
 	const grid = results.locator('[data-impact-grid]');
+	await expect(grid).toBeHidden();
+	await expect(results.locator('[data-impact-caption]')).toContainText('2–15 Sep');
+	await results.locator('summary').click();
 	await expect(grid.locator('> span').nth(1)).toHaveText('WIN');
 	await expect(grid.locator('> span').nth(2)).toHaveText('PICK');
 	await expect(grid.locator('[data-impact-row="all"]')).toContainText('ALL RANKS');
 	await expect(grid.locator('[data-impact-row="high"]')).toContainText('HIGH RANK');
 	await expect(results.locator('[data-impact-notes]')).toHaveText(
-		/^49k matches after( · \d+ days? so far)?$/
+		/^\d+(\.\d)?k → 49k matches( · \d+ days? so far)?$/
 	);
-	await expect(results.locator('summary .sr-only')).toHaveText(
-		/^Match results around this patch\. All ranks\. Win rate /
+	await expect(results.locator('.sr-only').first()).toHaveText(
+		/^Match results around this patch, .+ before, .+ after\. All ranks\. Win rate /
 	);
 	await expect(hero.locator('div.ability [data-patch-impact]')).toHaveCount(0);
 	await expect(hero.locator(':scope > h3')).toHaveText('Abrams');
@@ -45,14 +48,14 @@ test('full patches keep match results inside each entity, below the notes', asyn
 			: false;
 	});
 	expect(placement).toBe(true);
-	await results.locator('summary').click();
-	await expect(results.locator('tbody tr').first()).toContainText('2–15 Sep');
 	await expect(
 		results.getByRole('link', { name: 'How this is measured' })
 	).toHaveAttribute('href', '#method');
 	await expect(page.locator('#method')).toHaveCount(1);
-	await expect(page.locator('#method')).toContainText('For heroes');
-	await expect(page.locator('#method')).toContainText('For items');
+	await expect(page.locator('#method')).toContainText('How often the hero won');
+	await expect(page.locator('#method')).toContainText(
+		'The share of players who bought the item'
+	);
 	await expect(page.locator('#method')).toContainText(
 		'is not the effect of any one line'
 	);
@@ -141,8 +144,7 @@ test('client navigation replaces patch windows and omits results on unmeasured p
 	await olderPatch.click();
 	await expect(page).toHaveURL(/\/change\/2026\/06-30#abrams$/);
 	const results = page.locator('.mog-content > div.hero.abrams [data-patch-impact]');
-	await results.locator('summary').click();
-	await expect(results.locator('tbody tr').first()).not.toContainText('2–15 Sep');
+	await expect(results.locator('[data-impact-caption]')).not.toContainText('2–15 Sep');
 	await expect(page.locator('#method')).toHaveCount(1);
 	await page.getByRole('link', { name: 'Back to all changes' }).click();
 	await gotoApp(page, '/change/2024/05-03');

@@ -72,25 +72,30 @@ async function inputs(): Promise<PatchInputs> {
 	};
 }
 
-const legacyBlock = [
+const olderBlock = [
 	'``attr:',
 	'impact closed=#true {',
 	'  all {',
-	'    before win=0.4 pick=0.1 matches=14000 days=14',
-	'    after win=0.4 pick=0.1 matches=14000 days=14',
+	'    before win=0.4 pick=0.1 matches=14000 days=14 total=168000 covered=14 coverage="complete"',
+	'    after win=0.4 pick=0.1 matches=14000 days=14 total=168000 covered=14 coverage="complete"',
 	'  }',
 	'  high {',
-	'    before win=#null pick=#null matches=0 days=0',
-	'    after win=#null pick=#null matches=0 days=0',
+	'    before win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"',
+	'    after win=#null pick=#null matches=0 days=0 total=0 covered=0 coverage="complete"',
 	'  }',
 	'}',
 	'``'
 ].join('\n');
-const legacyChangelog = (title: string, closed: boolean) =>
-	changelog(title).replace(
-		'=hero:infernus:',
-		`=hero:infernus:\n${closed ? legacyBlock : legacyBlock.replace('#true', '#false')}`
-	);
+const olderChangelog = (title: string, closed: boolean) =>
+	changelog(title)
+		.replace(
+			'``\n',
+			`stats schema=2 method=1 collected="2026-01-01T00:00:00.000Z" {\n  before from=#null to=#null\n  after from=#null to=#null\n}\n\`\`\n`
+		)
+		.replace(
+			'=hero:infernus:',
+			`=hero:infernus:\n${closed ? olderBlock : olderBlock.replace('#true', '#false')}`
+		);
 
 const options = (overrides: Partial<RunOptions> = {}): RunOptions => ({
 	changelogsDir: dir,
@@ -234,18 +239,18 @@ describe('run', () => {
 		expect(stats?.collectedAt).toBe(new Date(NOW * 1000).toISOString());
 	});
 
-	it('leaves a closed legacy file alone on a routine run and says a rebuild is needed', async () => {
-		await writeFile(file('2026/p1'), legacyChangelog('One', true));
+	it('leaves a closed file of an older method alone on a routine run and says a rebuild is needed', async () => {
+		await writeFile(file('2026/p1'), olderChangelog('One', true));
 		const log = vi.fn();
 
 		await run(options({ log }));
 
-		expect(await readFile(file('2026/p1'), 'utf8')).toBe(legacyChangelog('One', true));
+		expect(await readFile(file('2026/p1'), 'utf8')).toBe(olderChangelog('One', true));
 		expect(log).toHaveBeenCalledWith(expect.stringContaining('1 closed changelogs hold'));
 	});
 
-	it('upgrades a legacy file with an open window as a whole', async () => {
-		await writeFile(file('2026/p2'), legacyChangelog('Two', false));
+	it('upgrades an older-method file with an open window as a whole', async () => {
+		await writeFile(file('2026/p2'), olderChangelog('Two', false));
 
 		await run(options());
 

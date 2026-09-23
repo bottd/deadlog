@@ -12,7 +12,7 @@ export const MAX_QUERY_LENGTH = 200;
 export const MAX_ENTITY_FILTERS = 20;
 export const INITIAL_LOAD_COUNT = 15;
 
-export function normalizeEntityFilters(names: readonly string[] = []): string[] {
+function normalizeEntityFilters(names: readonly string[] = []): string[] {
 	const seen = new Set<string>();
 	return names
 		.map((name) => name.trim().replace(/\s+/g, ' '))

@@ -6,41 +6,26 @@ const SIDES = ['before', 'after'] as const;
 
 const rateSchema = z.number().min(0).nullable();
 const countSchema = z.number().int().min(0);
-const windowFields = {
+const windowSchema = z.strictObject({
 	win: rateSchema,
 	pick: rateSchema,
 	matches: countSchema,
-	days: countSchema
-};
-const windowSchemas = {
-	1: z.strictObject(windowFields),
-	2: z.strictObject({
-		...windowFields,
-		total: countSchema,
-		covered: countSchema,
-		coverage: z.enum(['complete', 'incomplete'])
-	})
-};
-
-export type ImpactSchemaVersion = keyof typeof windowSchemas;
-
-function impactSchema(version: ImpactSchemaVersion) {
-	const window = windowSchemas[version];
-	const tier = z.strictObject({ before: window, after: window });
-	return z.strictObject({ closed: z.boolean(), all: tier, high: tier });
-}
+	days: countSchema,
+	total: countSchema,
+	covered: countSchema,
+	coverage: z.enum(['complete', 'incomplete'])
+});
+const tierSchema = z.strictObject({ before: windowSchema, after: windowSchema });
+const impactSchema = z.strictObject({
+	closed: z.boolean(),
+	all: tierSchema,
+	high: tierSchema
+});
 
 const rate = (value: number | null): string => (value === null ? '#null' : String(value));
 
-function windowLine(side: string, window: ImpactWindow): string {
-	const base = `    ${side} win=${rate(window.win)} pick=${rate(window.pick)} matches=${window.matches} days=${window.days}`;
-	if (window.coverage === undefined) return base;
-	return `${base} total=${window.total} covered=${window.covered} coverage="${window.coverage}"`;
-}
-
-export function writeImpactBlock(impact: EntityImpact): string[] {
-	return ['``attr:', ...writeImpactNode(impact), '``'];
-}
+const windowLine = (side: string, window: ImpactWindow): string =>
+	`    ${side} win=${rate(window.win)} pick=${rate(window.pick)} matches=${window.matches} days=${window.days} total=${window.total} covered=${window.covered} coverage="${window.coverage}"`;
 
 export function writeImpactNode(impact: EntityImpact): string[] {
 	return [
@@ -54,15 +39,10 @@ export function writeImpactNode(impact: EntityImpact): string[] {
 	];
 }
 
-export function parseImpact(
-	value: unknown,
-	version: ImpactSchemaVersion = 1
-): EntityImpact {
-	const result = impactSchema(version).safeParse(value);
+export function parseImpact(value: unknown): EntityImpact {
+	const result = impactSchema.safeParse(value);
 	if (!result.success) {
-		throw new Error(
-			`Malformed impact block (schema ${version}): ${z.prettifyError(result.error)}`
-		);
+		throw new Error(`Malformed impact block: ${z.prettifyError(result.error)}`);
 	}
 	return result.data;
 }

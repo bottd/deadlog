@@ -139,9 +139,9 @@ const impactWindowSchema = z.object({
 	pick: z.number().nullable(),
 	matches: z.number(),
 	days: z.number(),
-	total: z.number().optional(),
-	covered: z.number().optional(),
-	coverage: z.enum(['complete', 'incomplete']).optional()
+	total: z.number(),
+	covered: z.number(),
+	coverage: z.enum(['complete', 'incomplete'])
 });
 const tierImpactSchema = z.object({
 	before: impactWindowSchema,

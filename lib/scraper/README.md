@@ -25,9 +25,8 @@ sort or re-key them.
 
 ## Asset API findings (measured 2026-09-21)
 
-Phase 0 of `docs/superpowers/plans/2026-09-21-api-reading-enrichment-plan.md`, from
-`tsx scripts/probe-enrichment-api.ts --check assets --out <dir> --asset-version 6698
---second-version 6462`. A reduced, verbatim sample is committed as
+Phase 0 of `docs/superpowers/plans/2026-09-21-api-reading-enrichment-plan.md`, from a
+one-off read-only probe of client versions 6698 and 6462 (`scripts/probe-enrichment-api.ts`, deleted since; last in `6d13dc6`). A reduced, verbatim sample is committed as
 `src/fixtures/enrichment/assets-6698.json` with its source URLs;
 `src/enrichmentContract.test.ts` pins what it shows. Counts below cover the 152
 signature abilities of the 38 selectable, enabled heroes and the 173 shopable upgrades.

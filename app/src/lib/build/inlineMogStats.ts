@@ -6,7 +6,7 @@ import {
 	type DataAttributesMode,
 	type MogNode
 } from 'vite-plugin-mog/parser';
-import { impactSummary } from '../utils/impactFormat';
+import { hasReportableImpact } from '../utils/impactFormat';
 
 /** Safe inside both a Svelte expression and a script element. */
 export const serializeMogValue = (value: unknown): string =>
@@ -24,9 +24,7 @@ export const serializeMogValue = (value: unknown): string =>
 export async function inlineMogStats(source: string, compiled: string): Promise<string> {
 	const structure = await parseStructure(source);
 	const blocks = structure.blocks.filter(
-		(block) =>
-			block.enrichment.impact &&
-			impactSummary(block.enrichment.impact, block.type) !== null
+		(block) => block.enrichment.impact && hasReportableImpact(block.enrichment.impact)
 	);
 	const ast = await parseMogAst(source, { diagnostics: true });
 	if (ast.diagnostics?.length) throw new Error(ast.diagnostics.join('\n'));

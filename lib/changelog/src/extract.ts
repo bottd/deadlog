@@ -2,7 +2,7 @@ import { parseMogAst, type MogNode } from 'vite-plugin-mog/parser';
 import { decodeEntityName, entityNameAliases, type PatchStats } from '@deadlog/utils';
 import { chain, isImage, plainText } from './ast';
 import { parseEnrichment, type EntityEnrichment } from './entityEnrichment';
-import { parseStats, type ImpactSchemaVersion } from './impactBlock';
+import { parseStats } from './impactBlock';
 import type { ChangelogEntities, EntityBlock, EntityChange } from './schema';
 
 /** Only what `extractEntities` needs. Heading anchors come from the renderer's own toc
@@ -59,12 +59,7 @@ export interface ParsedBullet {
 	depth: number;
 }
 
-function entityBlock(
-	frame: Frame,
-	name: string,
-	type: 'hero' | 'item',
-	version: ImpactSchemaVersion
-): EntityBlock {
+function entityBlock(frame: Frame, name: string, type: 'hero' | 'item'): EntityBlock {
 	const { node } = frame;
 	const attrBlocks = node.attributes?.blocks ?? [];
 	const keys = (node.attributes?.children ?? []).map((child) => child.name);
@@ -76,7 +71,7 @@ function entityBlock(
 	}
 	let enrichment: EntityEnrichment;
 	try {
-		enrichment = parseEnrichment(node.attributes?.plain, type, version);
+		enrichment = parseEnrichment(node.attributes?.plain, type);
 	} catch (error) {
 		throw new Error(
 			`${name}: ${error instanceof Error ? error.message : String(error)}`,
@@ -107,7 +102,6 @@ export async function parseStructure(content: string): Promise<ParsedStructure> 
 	const document = await parseMogAst(content, { plain: true });
 	const metadata = document.attributes?.plain ?? {};
 	const stats = metadata.stats === undefined ? null : parseStats(metadata.stats);
-	const impactVersion = stats ? 2 : 1;
 	const [rootBlock] = document.attributes?.blocks ?? [];
 	const toc: TocEntry[] = [];
 	const images: string[] = [];
@@ -133,7 +127,7 @@ export async function parseStructure(content: string): Promise<ParsedStructure> 
 		const key = changeKey(open.kind, title);
 		if (changes.has(key)) return;
 
-		const block = entityBlock(open, title, open.kind, impactVersion);
+		const block = entityBlock(open, title, open.kind);
 		changes.set(key, { name: title, type: open.kind, groups: [], ...block.enrichment });
 		blocks.push(block);
 	};

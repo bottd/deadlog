@@ -18,6 +18,7 @@ export interface ImpactRow {
 }
 
 export interface ImpactSummary {
+	window: string | null;
 	columns: string[];
 	rows: ImpactRow[];
 	notes: string[];
@@ -80,12 +81,18 @@ const percent = (rate: number | null): string =>
 const arrow = (before: number | null, after: number | null): string =>
 	`${percent(before)} → ${percent(after)}`;
 
+const reportable = ({ before, after }: TierImpact): boolean =>
+	before.win !== null || after.win !== null;
+
+export const hasReportableImpact = (impact: EntityImpact): boolean =>
+	TIERS.some((tier) => reportable(impact[tier]));
+
 function tierRow(
 	tier: RankTier,
 	{ before, after }: TierImpact,
 	kind: ImpactKind
 ): ImpactRow | null {
-	if (before.win === null && after.win === null) return null;
+	if (!reportable({ before, after })) return null;
 	return {
 		tier,
 		label: TIER_LABEL[tier],
@@ -101,32 +108,53 @@ function tierNotes(tier: RankTier, { before, after }: TierImpact): string[] {
 	].filter((note) => note !== null);
 }
 
+function sampleNote({ before, after }: TierImpact, kind: ImpactKind): string | null {
+	const unit = SAMPLE[kind].short;
+	if (before.win !== null && after.win !== null) {
+		return `${formatMatches(before.matches)} → ${formatMatches(after.matches)} ${unit}`;
+	}
+	if (after.win !== null) return `${formatMatches(after.matches)} ${unit} after`;
+	if (before.win !== null) return `${formatMatches(before.matches)} ${unit} before`;
+	return null;
+}
+
 export function impactSummary(
 	impact: EntityImpact,
-	kind: ImpactKind = 'hero'
+	kind: ImpactKind = 'hero',
+	stats: PatchStats | null = null,
+	entryYear = 0
 ): ImpactSummary | null {
 	const rows = TIERS.map((tier) => tierRow(tier, impact[tier], kind)).filter(
 		(row) => row !== null
 	);
 	if (!rows.length) return null;
 
-	const { after } = impact.all;
+	const { before, after } = impact.all;
 	const days = `${after.days} ${plural(after.days, 'day')}`;
 	const sampled = after.win !== null;
 	const notes = [
-		sampled ? `${formatMatches(after.matches)} ${SAMPLE[kind].short} after` : null,
+		sampleNote(impact.all, kind),
 		...rows.flatMap((row) => tierNotes(row.tier, impact[row.tier])),
 		impact.closed ? null : `${days} so far`
 	].filter((note) => note !== null);
+	const spans =
+		stats?.before && stats.after
+			? [formatInterval(stats.before, entryYear), formatInterval(stats.after, entryYear)]
+			: null;
 
 	const label = [
-		`${IMPACT_HEADING}.`,
+		spans
+			? `${IMPACT_HEADING}, ${spans[0]} before, ${spans[1]} after.`
+			: `${IMPACT_HEADING}.`,
 		...rows.flatMap((row) => [
 			`${TIER_NAME[row.tier]}.`,
 			...METRICS[kind].map((metric) =>
 				spoken(metric, impact[row.tier].before, impact[row.tier].after)
 			)
 		]),
+		before.win !== null
+			? `${before.matches.toLocaleString('en-US')} ${SAMPLE[kind].spoken} before the patch.`
+			: null,
 		sampled
 			? `${after.matches.toLocaleString('en-US')} ${SAMPLE[kind].spoken} after the patch${impact.closed ? '.' : ' so far.'}`
 			: null,
@@ -135,7 +163,13 @@ export function impactSummary(
 		.filter((part) => part !== null)
 		.join(' ');
 
-	return { columns: METRICS[kind].map((metric) => metric.label), rows, notes, label };
+	return {
+		window: spans ? `${spans[0]} → ${spans[1]}` : null,
+		columns: METRICS[kind].map((metric) => metric.label),
+		rows,
+		notes,
+		label
+	};
 }
 
 const MONTHS = [
@@ -182,38 +216,31 @@ export interface ImpactDetailRow {
 export function impactDetails(
 	impact: EntityImpact,
 	stats: PatchStats,
-	kind: ImpactKind,
-	entryYear: number
+	kind: ImpactKind
 ): ImpactDetailRow[] {
 	const count = (value: number) => value.toLocaleString('en-US');
 	const covered = (window: ImpactWindow, interval: DayInterval | null) =>
-		`${window.covered ?? 0} / ${intervalDays(interval)}`;
-	const sample = SAMPLE[kind].spoken;
+		`${window.covered} / ${intervalDays(interval)}`;
+	const unit = SAMPLE[kind];
 
 	return [
 		{
-			label: 'DAYS',
-			spoken: 'Days measured',
-			before: formatInterval(stats.before, entryYear),
-			after: formatInterval(stats.after, entryYear)
-		},
-		{
 			label: 'SAMPLE',
-			spoken: `Sample, ${sample}`,
+			spoken: `Sample, ${unit.spoken}`,
 			before: count(impact.all.before.matches),
 			after: count(impact.all.after.matches)
 		},
 		{
-			label: 'COVERED',
+			label: 'HIGH RANK SAMPLE',
+			spoken: `High rank sample, ${unit.spoken}`,
+			before: count(impact.high.before.matches),
+			after: count(impact.high.after.matches)
+		},
+		{
+			label: 'DAYS WITH DATA',
 			spoken: 'Days with data, of days in the window',
 			before: covered(impact.all.before, stats.before),
 			after: `${covered(impact.all.after, stats.after)}${impact.closed ? '' : ' · open'}`
-		},
-		{
-			label: 'HIGH RANK',
-			spoken: `High rank sample, ${sample}`,
-			before: count(impact.high.before.matches),
-			after: count(impact.high.after.matches)
 		}
 	];
 }

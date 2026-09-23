@@ -11,6 +11,7 @@ import { RELATED_MIN_APPEARANCES, RELATED_MIN_BUYERS } from '@deadlog/stats';
 import type { ChangelogEntityIcon } from '@deadlog/db';
 import type { PageContext } from '../entity/pageContext';
 import type { PreviousChange } from '../entity/previousChanges';
+import type { RelatedShareItem } from '../entity/relatedChanges';
 
 export interface ReadingDetails {
 	name: string;
@@ -31,13 +32,7 @@ export interface MogReadingManifest {
 
 export interface RelatedReading {
 	before: NonNullable<PatchStats['before']>;
-	items: {
-		name: string;
-		image: string;
-		share: number;
-		changeCount: number | null;
-		href: string;
-	}[];
+	items: RelatedShareItem[];
 }
 
 export const detailKey = (kind: 'hero' | 'item', id: number, ability?: string | null) =>
@@ -86,7 +81,6 @@ export function resolveRelatedReading(
 						name: item.alt,
 						image: item.src,
 						share: relatedShare(record, recorded),
-						changeCount: item.changeCount,
 						href: `${patchPath}#${sections[0].id}`
 					}
 				];

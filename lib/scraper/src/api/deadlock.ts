@@ -34,7 +34,7 @@ async function fetchAndValidate<T>(
 
 const clientVersionsSchema = z.array(z.number().int().positive()).min(1);
 
-export const SNAPSHOT_LANGUAGE = 'english';
+const SNAPSHOT_LANGUAGE = 'english';
 
 export async function fetchClientVersion(): Promise<number> {
 	const versions = await fetchAndValidate(

@@ -24,13 +24,7 @@
 	import type { PreviousChange } from './previousChanges';
 	import type { PageContext } from './pageContext';
 	import type { Snippet } from 'svelte';
-	import {
-		HIGH_RANK_LABEL,
-		HIGH_RANK_MIN_BADGE,
-		MIN_WINDOW_MATCHES,
-		WINDOW_CAP_DAYS
-	} from '@deadlog/stats';
-	import { IMPACT_HEADING } from '$lib/utils/impactFormat';
+	import MethodNote from '$lib/components/changelog/MethodNote.svelte';
 	import type { EntityImpact, PatchStats } from '@deadlog/utils';
 	import { shallowParams } from '$lib/stores/shallowParams.svelte';
 
@@ -52,6 +46,7 @@
 		impact?: EntityImpact | null;
 		stats?: PatchStats | null;
 		related?: RelatedChanges | null;
+		heroResults?: boolean;
 	}
 	interface Ability {
 		name: string;
@@ -134,8 +129,10 @@
 	});
 	const hasImpact = $derived(visibleChangelogs.some((patch) => patch.impact));
 	const hasRelated = $derived(changelogs.some((patch) => patch.related));
-	const hasLegacyImpact = $derived(
-		changelogs.some((patch) => patch.impact && !patch.stats)
+	const hasPrevious = $derived(
+		changelogs.some((patch) =>
+			patch.changeGroups?.some((group) => group.previous?.some(Boolean))
+		)
 	);
 	const latestStats = $derived(changelogs.find((patch) => patch.stats)?.stats ?? null);
 	const historyYears = $derived([
@@ -269,9 +266,7 @@
 					<summary
 						class="ui-focus-ring text-muted-foreground w-fit cursor-pointer rounded-sm py-3 text-sm"
 					>
-						{changelogs.length}
-						{plural(changelogs.length, 'patch', 'patches')}{#if changes.value !== null}
-							· {changes.value} changes{/if}
+						{`${changelogs.length} ${plural(changelogs.length, 'patch', 'patches')}${changes.value === null ? '' : ` · ${changes.value} changes`}`}
 						<span class="ml-2 text-xs">Archive details</span>
 					</summary>
 					<div class="space-y-4 pt-2">
@@ -485,76 +480,36 @@
 												stats={patch.stats}
 												entryYear={patch.date.getUTCFullYear()}
 											/>{/if}
-										<a
-											href={entityPatchHref(patch, entity)}
-											class="ui-focus-ring text-signal mt-2 inline-flex min-h-11 items-center gap-1.5 rounded-sm text-xs underline-offset-4 hover:underline"
-											>Full patch <ArrowRight class="size-3.5" /></a
-										>
+										<div class="mt-2 flex flex-wrap gap-x-6">
+											<a
+												href={entityPatchHref(patch, entity)}
+												class="ui-focus-ring text-signal inline-flex min-h-11 items-center gap-1.5 rounded-sm text-xs underline-offset-4 hover:underline"
+												>Full patch <ArrowRight class="size-3.5" /></a
+											>
+											{#if parent && patch.heroResults}
+												<a
+													href="/hero/{parent.slug}#history-{patch.id}"
+													class="ui-focus-ring text-signal inline-flex min-h-11 items-center gap-1.5 rounded-sm text-xs underline-offset-4 hover:underline"
+													>{parent.name} match results <ArrowRight class="size-3.5" /></a
+												>
+											{/if}
+										</div>
 									</li>
 								{/each}
 							</ol>
 						</section>
 					{/each}
-					{#if hasImpact || hasRelated || contextVersion !== null}
-						<section
-							id="method"
-							aria-labelledby="method-heading"
-							class="text-muted-foreground border-subtle mt-6 max-w-[72ch] scroll-mt-44 space-y-2 border-t pt-4 text-xs leading-relaxed"
-						>
-							{#if hasImpact}
-								<h2 id="method-heading" class="text-foreground text-sm font-semibold">
-									{IMPACT_HEADING}
-								</h2>
-								<p>
-									{#if entity.type === 'item'}Bought is the share of players who bought
-										the item, and buyer win is how often those players won, which depends
-										on which heroes buy it.{:else}Win is how often the hero won, and pick
-										is the share of matches the hero appeared in.{/if}
-									Each is measured over the complete days between this patch and its neighbours,
-									up to {WINDOW_CAP_DAYS} days each side, and shown as observed. A side with
-									fewer than {MIN_WINDOW_MATCHES.toLocaleString('en-US')}
-									{entity.type === 'item' ? 'player-matches' : 'matches'} shows a dash.
-								</p>
-								<p>
-									Patches released on the same day share their windows, and other changes
-									land in the same days, so a difference is not the effect of any one
-									line. High rank counts matches whose average badge across both teams is
-									{HIGH_RANK_LABEL} or higher (badge {HIGH_RANK_MIN_BADGE}).
-								</p>
-								{#if latestStats}
-									<p>
-										{`Normal-mode ranked and unranked matches. Method ${latestStats.methodVersion}, last collected ${formatDate(new Date(latestStats.collectedAt))}.`}
-										{#if hasLegacyImpact}Entries without a breakdown were measured with an
-											earlier method.{/if}
-									</p>
-								{/if}
-							{:else}
-								<h2 id="method-heading" class="sr-only">Sources</h2>
-							{/if}
-							{#if hasRelated}
-								<p>
-									Also changed lists up to three items changed in the same patch, by the
-									share of the hero's player-matches in which the item was bought, all
-									ranks, over the days before the patch. It needs 1,000 hero appearances
-									and 100 buyers, and it is not a recommendation.
-								</p>
-							{/if}
-							{#if contextVersion !== null}
-								<p>
-									Current details describe game client {contextVersion}, not the game as
-									it was when a patch shipped.
-								</p>
-							{/if}
-							<p>
-								{hasImpact ? 'Match data' : 'Details'} from the
-								<a
-									href="https://deadlock-api.com"
-									rel="noopener"
-									class="ui-focus-ring text-signal rounded-sm underline-offset-4 hover:underline"
-									>Deadlock API</a
-								>.
-							</p>
-						</section>
+					{#if hasImpact || hasRelated || hasPrevious || contextVersion !== null}
+						<MethodNote
+							results={hasImpact && entity.type !== 'ability'
+								? { stats: latestStats, kinds: [entity.type] }
+								: null}
+							shipped="a patch"
+							hasDetails={contextVersion !== null}
+							contextVersions={contextVersion === null ? [] : [contextVersion]}
+							{hasPrevious}
+							{hasRelated}
+						/>
 					{/if}
 				{:else}
 					<div

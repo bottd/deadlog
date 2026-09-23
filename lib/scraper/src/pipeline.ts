@@ -38,7 +38,7 @@ import {
 	toSlug
 } from '@deadlog/utils';
 
-export const CHANGELOGS_DIR = process.env.CHANGELOGS_DIR || 'app/changelogs';
+const CHANGELOGS_DIR = process.env.CHANGELOGS_DIR || 'app/changelogs';
 
 interface ScrapeOptions {
 	overwrite?: boolean;

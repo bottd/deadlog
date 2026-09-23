@@ -5,9 +5,9 @@ export interface ImpactWindow {
 	pick: number | null;
 	matches: number;
 	days: number;
-	total?: number;
-	covered?: number;
-	coverage?: CoverageStatus;
+	total: number;
+	covered: number;
+	coverage: CoverageStatus;
 }
 
 export interface TierImpact {

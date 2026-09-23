@@ -1,5 +1,4 @@
 import {
-	countBullets,
 	entityFragmentId,
 	relatedShare,
 	type PatchStats,
@@ -8,13 +7,15 @@ import {
 import type { EntityChangeGroup, PatchItemChange } from '@deadlog/db';
 import { changePath } from '$lib/seo';
 
-export interface RelatedChange {
+export interface RelatedShareItem {
 	name: string;
 	image: string;
 	share: number;
-	changeCount: number;
-	groups: EntityChangeGroup[];
 	href: string;
+}
+
+export interface RelatedChange extends RelatedShareItem {
+	groups: EntityChangeGroup[];
 }
 
 export interface RelatedChanges {
@@ -50,7 +51,6 @@ export function relatedChanges(
 				name: change.name,
 				image: change.image,
 				share: relatedShare(related, item),
-				changeCount: countBullets(change.changeGroups) ?? 0,
 				groups: change.changeGroups,
 				href: `${changePath(patch)}#${entityFragmentId(change.name)}`
 			}

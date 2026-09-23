@@ -12,7 +12,7 @@ export type MergedEntity = {
 export const hasEntity = (names: string[], name: string) =>
 	names.some((candidate) => entityNamesMatch(candidate, name));
 
-export const toggleEntity = (names: string[], name: string) =>
+const toggleEntity = (names: string[], name: string) =>
 	hasEntity(names, name)
 		? names.filter((candidate) => !entityNamesMatch(candidate, name))
 		: [...names, name];

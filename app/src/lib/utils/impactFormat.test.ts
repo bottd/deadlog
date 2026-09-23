@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import type { EntityImpact, ImpactWindow } from '@deadlog/utils';
-import type { PatchStats } from '@deadlog/utils';
+import type { EntityImpact, ImpactWindow, PatchStats } from '@deadlog/utils';
 import {
 	formatInterval,
 	formatMatches,
@@ -17,6 +16,9 @@ const window = (
 	pick: win === null ? null : 0.062,
 	matches: win === null ? 310 : 41_234,
 	days: 14,
+	total: 500_000,
+	covered: 14,
+	coverage: 'complete',
 	...overrides
 });
 
@@ -58,9 +60,10 @@ describe('impactSummary', () => {
 			{ tier: 'all', label: 'ALL RANKS', cells: ['48.1% → 51.3%', '6.2% → 8.9%'] },
 			{ tier: 'high', label: 'HIGH RANK', cells: ['45.3% → 50.0%', '6.2% → 7.0%'] }
 		]);
-		expect(summary?.notes).toEqual(['41k matches after']);
+		expect(summary?.notes).toEqual(['41k → 41k matches']);
+		expect(summary?.window).toBeNull();
 		expect(summary?.label).toBe(
-			'Match results around this patch. All ranks. Win rate 48.1 percent before, 51.3 percent after. Pick rate 6.2 percent before, 8.9 percent after. High rank. Win rate 45.3 percent before, 50.0 percent after. Pick rate 6.2 percent before, 7.0 percent after. 41,234 matches after the patch.'
+			'Match results around this patch. All ranks. Win rate 48.1 percent before, 51.3 percent after. Pick rate 6.2 percent before, 8.9 percent after. High rank. Win rate 45.3 percent before, 50.0 percent after. Pick rate 6.2 percent before, 7.0 percent after. 41,234 matches before the patch. 41,234 matches after the patch.'
 		);
 	});
 
@@ -72,8 +75,8 @@ describe('impactSummary', () => {
 				high: { before: window(0.5), after: window(0.52, { days }) }
 			});
 
-		expect(openFor(3)?.notes).toEqual(['41k matches after', '3 days so far']);
-		expect(openFor(1)?.notes).toEqual(['41k matches after', '1 day so far']);
+		expect(openFor(3)?.notes).toEqual(['41k → 41k matches', '3 days so far']);
+		expect(openFor(1)?.notes).toEqual(['41k → 41k matches', '1 day so far']);
 		expect(openFor(3)?.label).toContain('matches after the patch so far.');
 		expect(openFor(3)?.label).toContain('After: 3 days measured so far.');
 		expect(openFor(1)?.label).toContain('After: 1 day measured so far.');
@@ -92,7 +95,7 @@ describe('impactSummary', () => {
 			cells: ['45.3% → —', '6.2% → —']
 		});
 		expect(summary?.notes).toEqual([
-			'41k matches after',
+			'41k → 41k matches',
 			'high rank: not enough matches after',
 			'14 days so far'
 		]);
@@ -114,14 +117,18 @@ describe('impactSummary', () => {
 		expect(summary?.notes).toEqual(['41k matches after', 'not enough matches before']);
 	});
 
-	it('drops the sample when the after side is suppressed', () => {
+	it('keeps the before sample when the after side is suppressed', () => {
 		const summary = impactSummary({
 			closed: false,
 			all: { before: window(0.5), after: window(null, { days: 2 }) },
 			high: neither
 		});
 
-		expect(summary?.notes).toEqual(['not enough matches after', '2 days so far']);
+		expect(summary?.notes).toEqual([
+			'41k matches before',
+			'not enough matches after',
+			'2 days so far'
+		]);
 		expect(summary?.label).not.toContain('matches after the patch');
 	});
 
@@ -137,9 +144,30 @@ describe('impactSummary', () => {
 
 		expect(summary?.columns).toEqual(['BOUGHT', 'BUYER WIN']);
 		expect(summary?.rows[0].cells).toEqual(['6.2% → 8.9%', '48.1% → 51.3%']);
-		expect(summary?.notes).toEqual(['41k player-matches after']);
+		expect(summary?.notes).toEqual(['41k → 41k player-matches']);
 		expect(summary?.label).toBe(
-			'Match results around this patch. All ranks. Bought by 6.2 percent before, 8.9 percent after. Buyer win rate 48.1 percent before, 51.3 percent after. 41,234 player-match observations after the patch.'
+			'Match results around this patch. All ranks. Bought by 6.2 percent before, 8.9 percent after. Buyer win rate 48.1 percent before, 51.3 percent after. 41,234 player-match observations before the patch. 41,234 player-match observations after the patch.'
+		);
+	});
+
+	it('names the measured days before and after in the caption and the spoken label', () => {
+		const summary = impactSummary(
+			{ closed: true, all: both, high: neither },
+			'hero',
+			{
+				schemaVersion: 2,
+				methodVersion: 2,
+				collectedAt: '2026-09-21T21:00:00.000Z',
+				before: { from: '2026-09-02', to: '2026-09-16' },
+				after: { from: '2026-09-17', to: '2026-09-21' },
+				siblings: []
+			},
+			2026
+		);
+
+		expect(summary?.window).toBe('2–15 Sep → 17–20 Sep');
+		expect(summary?.label).toMatch(
+			/^Match results around this patch, 2–15 Sep before, 17–20 Sep after\. All ranks\./
 		);
 	});
 
@@ -195,25 +223,24 @@ describe('impactDetails', () => {
 		high: { before: side(9441, 14), after: side(2700, 4) }
 	};
 
-	it('lays out days, sample, coverage and the high-rank sample', () => {
+	it('lays out the exact samples and the days with data', () => {
 		expect(
-			impactDetails(impact, stats, 'hero', 2026).map((row) => [
+			impactDetails(impact, stats, 'hero').map((row) => [
 				row.label,
 				row.before,
 				row.after
 			])
 		).toEqual([
-			['DAYS', '2–15 Sep', '17–20 Sep'],
 			['SAMPLE', '205,924', '48,646'],
-			['COVERED', '14 / 14', '4 / 4 · open'],
-			['HIGH RANK', '9,441', '2,700']
+			['HIGH RANK SAMPLE', '9,441', '2,700'],
+			['DAYS WITH DATA', '14 / 14', '4 / 4 · open']
 		]);
 	});
 
 	it('says player-matches for an item only in the spoken labels', () => {
-		const rows = impactDetails({ ...impact, closed: true }, stats, 'item', 2026);
+		const rows = impactDetails({ ...impact, closed: true }, stats, 'item');
 
-		expect(rows[1].spoken).toBe('Sample, player-match observations');
+		expect(rows[0].spoken).toBe('Sample, player-match observations');
 		expect(rows[2].after).toBe('4 / 4');
 		expect(rows.map((row) => row.label).join(' ')).not.toMatch(/player/i);
 	});
@@ -230,7 +257,7 @@ describe('coverage notes', () => {
 			high: { before: window(null), after: window(null) }
 		});
 
-		expect(summary?.notes).toEqual(['data unavailable after']);
+		expect(summary?.notes).toEqual(['41k matches before', 'data unavailable after']);
 		expect(summary?.label).toContain(
 			'Win rate 50.0 percent before, data unavailable after.'
 		);

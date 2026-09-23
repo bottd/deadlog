@@ -296,7 +296,7 @@ export async function fetchSteamAnnouncements(options: {
 	}));
 }
 
-export function extractSteamUrlFromUnfurl(html: string): string | null {
+function extractSteamUrlFromUnfurl(html: string): string | null {
 	const match = html.match(
 		/href="(https:\/\/store\.steampowered\.com\/news\/app\/\d+\/view\/\d+)"/
 	);

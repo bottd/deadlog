@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import type { EntityImpact } from '@deadlog/utils';
 import { extractEntities, extractEntityChanges, parseStructure } from './extract';
-import { writeImpactBlock } from './impactBlock';
+import { writeEnrichmentBlock } from './entityEnrichment';
 
 describe('extractEntityChanges', () => {
 	it('groups bullets per ability section within an entity', async () => {
@@ -144,13 +144,32 @@ describe('entity identity extraction', () => {
 });
 
 describe('impact blocks', () => {
-	const window = { win: 0.5, pick: 0.1, matches: 2800, days: 14 };
+	const window = {
+		win: 0.5,
+		pick: 0.1,
+		matches: 2800,
+		days: 14,
+		total: 33600,
+		covered: 14,
+		coverage: 'complete' as const
+	};
 	const impact: EntityImpact = {
 		closed: true,
 		all: { before: window, after: { ...window, win: 0.52 } },
-		high: { before: window, after: { win: null, pick: null, matches: 12, days: 2 } }
+		high: {
+			before: window,
+			after: {
+				win: null,
+				pick: null,
+				matches: 12,
+				days: 2,
+				total: 144,
+				covered: 2,
+				coverage: 'complete'
+			}
+		}
 	};
-	const attr = writeImpactBlock(impact);
+	const attr = writeEnrichmentBlock({ impact: impact });
 
 	const plain = [
 		'# Hero Changes',

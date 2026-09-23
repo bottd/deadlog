@@ -52,7 +52,6 @@ describe('related reading links', () => {
 					{
 						name: 'Item',
 						image: '/item.png',
-						changeCount: 2,
 						share: 0.5,
 						href: '/change/2026/09-16#item-2'
 					}

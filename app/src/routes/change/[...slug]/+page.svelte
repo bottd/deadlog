@@ -2,7 +2,7 @@
 	import { page } from '$app/state';
 	import { building } from '$app/environment';
 	import { ChangelogToc, MogContent } from '$lib/components/changelog';
-	import PatchStatsMethod from '$lib/components/changelog/PatchStatsMethod.svelte';
+	import MethodNote from '$lib/components/changelog/MethodNote.svelte';
 	import { searchParams } from '$lib/stores/searchParams.svelte';
 	import type { EntityIcon } from '$lib/types';
 	import * as Avatar from '$lib/components/ui/avatar';
@@ -403,7 +403,7 @@
 					related={mogRelated}
 				/>
 				{#if mogMatchResults || hasDetails || hasPrevious || hasRelated}
-					<PatchStatsMethod
+					<MethodNote
 						results={mogMatchResults}
 						{hasDetails}
 						{hasPrevious}

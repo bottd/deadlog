@@ -1,8 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import type { EntityImpact, ImpactWindow, PatchStats } from '@deadlog/utils';
 import { parseStructure } from './extract';
-import { parseImpact, parseStats, writeImpactBlock, writeStatsNode } from './impactBlock';
-import { carryImpact, spliceImpactBlocks } from './rewrite';
+import { writeEnrichmentBlock } from './entityEnrichment';
+import { parseImpact, parseStats, writeStatsNode } from './impactBlock';
+import { carryEnrichment, spliceImpactBlocks } from './rewrite';
 
 const v2 = (overrides: Partial<ImpactWindow> = {}): ImpactWindow => ({
 	win: 0.5,
@@ -39,7 +40,7 @@ const stats: PatchStats = {
 	siblings: ['162580']
 };
 
-const legacy = [
+const plain = [
 	'``attr:',
 	'title "Patch \\"quoted\\""',
 	'major_update #false',
@@ -54,7 +55,7 @@ const legacy = [
 
 describe('stats node', () => {
 	it('round-trips through the Mog parser, null interval and siblings included', async () => {
-		const written = await spliceImpactBlocks(legacy, () => impact, stats);
+		const written = await spliceImpactBlocks(plain, () => impact, stats);
 		const parsed = await parseStructure(written);
 
 		expect(parsed.stats).toEqual(stats);
@@ -64,15 +65,15 @@ describe('stats node', () => {
 	});
 
 	it('keeps every other metadata line and its order', async () => {
-		const written = await spliceImpactBlocks(legacy, () => impact, stats);
+		const written = await spliceImpactBlocks(plain, () => impact, stats);
 		const head = written.split('\n').slice(0, 8);
 
-		expect(head.slice(0, 3)).toEqual(legacy.split('\n').slice(0, 3));
+		expect(head.slice(0, 3)).toEqual(plain.split('\n').slice(0, 3));
 		expect(head.slice(3, 7)).toEqual(writeStatsNode(stats).slice(0, 4));
 	});
 
 	it('replaces an existing node in place and is stable on a second write', async () => {
-		const first = await spliceImpactBlocks(legacy, () => impact, stats);
+		const first = await spliceImpactBlocks(plain, () => impact, stats);
 		const moved = {
 			...stats,
 			after: { from: '2026-09-17', to: '2026-09-20' },
@@ -87,7 +88,7 @@ describe('stats node', () => {
 
 	it('reads several siblings back as a list', async () => {
 		const many = { ...stats, siblings: ['1', '2'] };
-		const written = await spliceImpactBlocks(legacy, () => impact, many);
+		const written = await spliceImpactBlocks(plain, () => impact, many);
 		expect((await parseStructure(written)).stats?.siblings).toEqual(['1', '2']);
 	});
 
@@ -110,43 +111,28 @@ describe('stats node', () => {
 	});
 });
 
-describe('impact schema versions', () => {
-	const v1Window = { win: 0.5, pick: 0.1, matches: 2800, days: 14 };
-	const v1 = {
-		closed: true,
-		all: { before: v1Window, after: v1Window },
-		high: { before: v1Window, after: v1Window }
-	};
-
-	it('reads a legacy block only as schema 1, and a v2 block only as schema 2', () => {
-		expect(parseImpact(v1)).toEqual(v1);
-		expect(() => parseImpact(v1, 2)).toThrow(/schema 2/);
-		expect(parseImpact(impact, 2)).toEqual(impact);
-		expect(() => parseImpact(impact, 1)).toThrow(/schema 1/);
-	});
-
-	it('refuses a file that mixes a stats node with legacy blocks', async () => {
-		const withLegacyBlock = await spliceImpactBlocks(legacy, () => v1);
-		const mixed = withLegacyBlock.replace(
-			'major_update #false',
-			['major_update #false', ...writeStatsNode(stats)].join('\n')
-		);
-		await expect(parseStructure(mixed)).rejects.toThrow(/schema 2/);
-	});
-
-	it('writes the coverage fields only for a v2 window', () => {
-		expect(writeImpactBlock(impact)[3]).toBe(
+describe('impact windows', () => {
+	it('writes the coverage fields on every window', () => {
+		expect(writeEnrichmentBlock({ impact })[3]).toBe(
 			'    before win=0.5 pick=0.1 matches=2800 days=14 total=28000 covered=14 coverage="complete"'
 		);
-		expect(writeImpactBlock(v1)[3]).toBe(
-			'    before win=0.5 pick=0.1 matches=2800 days=14'
-		);
+	});
+
+	it('refuses a window without its coverage fields', () => {
+		const bare = { win: 0.5, pick: 0.1, matches: 2800, days: 14 };
+		expect(() =>
+			parseImpact({
+				closed: true,
+				all: { before: bare, after: bare },
+				high: { before: bare, after: bare }
+			})
+		).toThrow(/Malformed impact block/);
 	});
 });
 
 describe('rewrites', () => {
 	it('removes a block when told there is nothing left to report', async () => {
-		const written = await spliceImpactBlocks(legacy, () => impact, stats);
+		const written = await spliceImpactBlocks(plain, () => impact, stats);
 		const cleared = await spliceImpactBlocks(written, () => null, stats);
 
 		expect(cleared).not.toContain('impact closed');
@@ -156,8 +142,8 @@ describe('rewrites', () => {
 	});
 
 	it('carries the stats node with the blocks through a scraper overwrite', async () => {
-		const recorded = await spliceImpactBlocks(legacy, () => impact, stats);
-		const carried = await carryImpact(recorded, legacy);
+		const recorded = await spliceImpactBlocks(plain, () => impact, stats);
+		const carried = await carryEnrichment(recorded, plain);
 
 		const parsed = await parseStructure(carried);
 		expect(parsed.stats).toEqual(stats);

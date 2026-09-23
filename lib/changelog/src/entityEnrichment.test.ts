@@ -3,7 +3,15 @@ import type { EntityImpact, RelatedItems } from '@deadlog/utils';
 import { parseStructure } from './extract';
 import { carryEnrichment, spliceEntityBlocks, spliceImpactBlocks } from './rewrite';
 
-const window = { win: 0.5, pick: 0.1, matches: 2800, days: 14 };
+const window = {
+	win: 0.5,
+	pick: 0.1,
+	matches: 2800,
+	days: 14,
+	total: 33600,
+	covered: 14,
+	coverage: 'complete' as const
+};
 const impact: EntityImpact = {
 	closed: true,
 	all: { before: window, after: window },

@@ -85,5 +85,3 @@ export async function carryEnrichment(previous: string, next: string): Promise<s
 		after.stats ? undefined : (before.stats ?? undefined)
 	);
 }
-
-export const carryImpact = carryEnrichment;
