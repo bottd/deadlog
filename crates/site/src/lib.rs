@@ -76,21 +76,12 @@ pub fn build(options: &BuildOptions) -> Result<(Output, BuildReport)> {
     let mut output = Output::default();
 
     assets::copy_static(&options.static_dir, &mut output)?;
-    let dirs = assets::WebDirs {
-        css: options.web.join("css"),
-        js: options.web.join("js"),
-        static_dir: options.static_dir.clone(),
-    };
-    let assets = assets::build_assets(
-        &dirs,
-        &assets::AssetOptions { minify: options.minify, analytics: options.analytics },
-        &mut output,
-    )?;
+    let assets = assets::build_assets(options, &mut output)?;
 
     let pages = pages::render_all(&site, &assets, &options.changelogs)?;
     let page_count = pages.len();
     output.extend(pages)?;
-    feed::write_tiers(&site, &mut output)?;
+    feed::write_tiers(&site, &mut output);
     hosting::write(&site, &mut output)?;
 
     let report = BuildReport { pages: page_count, files: output.len(), millis: started.elapsed().as_millis() };

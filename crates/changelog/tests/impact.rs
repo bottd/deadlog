@@ -22,7 +22,10 @@ fn open() -> EntityImpact {
     let empty = window(None, None, [0.0; 4], "complete");
     EntityImpact {
         closed: false,
-        all: TierImpact { before: window(Some(0.5), Some(1.0), [2800.0, 14.0, 33600.0, 14.0], "complete"), after: empty.clone() },
+        all: TierImpact {
+            before: window(Some(0.5), Some(1.0), [2800.0, 14.0, 33600.0, 14.0], "complete"),
+            after: empty.clone(),
+        },
         high: TierImpact { before: empty.clone(), after: empty },
     }
 }
@@ -69,10 +72,14 @@ fn round_trips_through_the_mog_parser_nulls_and_zeroes_included() {
 
 #[test]
 fn rejects_corrupt_blocks() {
-    let replace = |lines: Vec<String>, from: &str, to: &str| lines.into_iter().map(|line| line.replace(from, to)).collect();
+    let replace =
+        |lines: Vec<String>, from: &str, to: &str| lines.into_iter().map(|line| line.replace(from, to)).collect();
     let edits: Vec<(&str, Box<dyn Fn(Vec<String>) -> Vec<String>>)> = vec![
         ("an unknown key", Box::new(move |l| replace(l, "days=", "dayz="))),
-        ("a missing window", Box::new(|l: Vec<String>| l.into_iter().filter(|x| !x.contains("after win=0.524")).collect())),
+        (
+            "a missing window",
+            Box::new(|l: Vec<String>| l.into_iter().filter(|x| !x.contains("after win=0.524")).collect()),
+        ),
         (
             "an extra tier",
             Box::new(|l: Vec<String>| {
@@ -97,7 +104,10 @@ fn rejects_corrupt_blocks() {
     ];
     for (name, edit) in edits {
         let error = parse_structure(&in_block(&edit(block(closed())))).unwrap_err().to_string();
-        assert!(error.contains("Malformed impact block") || error.contains("holds only impact, related"), "{name}: {error}");
+        assert!(
+            error.contains("Malformed impact block") || error.contains("holds only impact, related"),
+            "{name}: {error}"
+        );
     }
 }
 

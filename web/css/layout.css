@@ -1,0 +1,18 @@
+/* On desktop the patch's back link lives in the sticky contents box. The copy above
+   the article keeps its space, and the box is pulled up by that space (one text-sm
+   line plus its 1rem margin), so the box's top still lines up with the article's.
+   It sticks that much higher too, but never under the header, which grows when
+   filter chips show; site.js publishes the header's height. */
+@media (width >= 80rem) {
+	[data-patch-back-spacer] {
+		visibility: hidden;
+	}
+
+	[data-patch-toc] {
+		margin-top: -2.25rem;
+	}
+
+	[data-patch-toc] > div {
+		top: max(9.5rem, calc(var(--site-header-height, 0px) + 1rem));
+	}
+}

@@ -42,13 +42,19 @@ fn visible_text(element: ElementRef) -> String {
                 {
                     return;
                 }
-                if matches!(name, "br" | "p" | "li" | "div" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "dt" | "dd" | "tr") {
+                if matches!(
+                    name,
+                    "br" | "p" | "li" | "div" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "dt" | "dd" | "tr"
+                ) {
                     out.push(' ');
                 }
                 for child in node.children() {
                     walk(child, out);
                 }
-                if matches!(name, "p" | "li" | "div" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "dt" | "dd" | "td" | "th") {
+                if matches!(
+                    name,
+                    "p" | "li" | "div" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "dt" | "dd" | "td" | "th"
+                ) {
                     out.push(' ');
                 }
             }
@@ -65,7 +71,9 @@ fn visible_text(element: ElementRef) -> String {
 }
 
 fn attr_list(elements: &[ElementRef], attr: &str) -> Value {
-    Value::Array(elements.iter().filter_map(|element| element.value().attr(attr)).map(|value| Value::from(value)).collect())
+    Value::Array(
+        elements.iter().filter_map(|element| element.value().attr(attr)).map(|value| Value::from(value)).collect(),
+    )
 }
 
 fn normalize_href(href: &str) -> Option<String> {
@@ -131,7 +139,9 @@ fn project(html: &str) -> Projection {
 
     let items: Vec<Value> = within("li")
         .iter()
-        .filter(|item| !item.ancestors().filter_map(ElementRef::wrap).any(|ancestor| is_planned_addition(ancestor.value())))
+        .filter(|item| {
+            !item.ancestors().filter_map(ElementRef::wrap).any(|ancestor| is_planned_addition(ancestor.value()))
+        })
         .map(|item| Value::from(visible_text(*item)))
         .collect();
     fields.insert("list_items", Value::Array(items));
@@ -159,16 +169,21 @@ fn is_planned_addition(element: &scraper::node::Element) -> bool {
 
 /// Links a reader cannot reach: inside a `hidden` subtree or a planned addition.
 fn is_unreachable(element: ElementRef) -> bool {
-    element.ancestors().filter_map(ElementRef::wrap).any(|ancestor| {
-        ancestor.value().attr("hidden").is_some() || is_planned_addition(ancestor.value())
-    })
+    element
+        .ancestors()
+        .filter_map(ElementRef::wrap)
+        .any(|ancestor| ancestor.value().attr("hidden").is_some() || is_planned_addition(ancestor.value()))
 }
 
 /// Ids that only exist to tie an element to its label: Svelte numbered them per render
 /// (`s4-heading`), the Rust build names them after their block. Neither is a link target.
 fn is_generated_id(id: &str) -> bool {
-    let numbered = id.strip_prefix('s').and_then(|rest| rest.strip_suffix("-heading")).is_some_and(|n| n.chars().all(|c| c.is_ascii_digit()));
-    let block = ["maxed-first-", "related-", "bought-by-"].iter().any(|prefix| id.starts_with(prefix)) && id.ends_with("-heading");
+    let numbered = id
+        .strip_prefix('s')
+        .and_then(|rest| rest.strip_suffix("-heading"))
+        .is_some_and(|n| n.chars().all(|c| c.is_ascii_digit()));
+    let block = ["maxed-first-", "related-", "bought-by-"].iter().any(|prefix| id.starts_with(prefix))
+        && id.ends_with("-heading");
     numbered || block
 }
 

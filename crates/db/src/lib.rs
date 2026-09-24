@@ -9,8 +9,8 @@ use std::path::Path;
 
 use anyhow::{Context, Result};
 use deadlog_model::{
-    AbilityOrder, BoughtBy, ChangeGroup, EntityContext, EntityImpact, HeroChangeGroup, PatchStats,
-    RelatedItems,
+    AbilityOrder, BoughtBy, ChangeGroup, EntityContext, EntityImpact, HeroChangeGroup, PatchStats, RelatedItems,
+    count_bullets,
 };
 use rusqlite::{Connection, OpenFlags, Row};
 use serde::de::DeserializeOwned;
@@ -91,6 +91,20 @@ pub struct ItemLink {
     pub bought_by: Option<BoughtBy>,
 }
 
+impl HeroLink {
+    /// Bullets across the hero's groups; `None` when the patch only mentions the hero.
+    pub fn change_count(&self) -> Option<usize> {
+        count_bullets(self.change_groups.as_ref().map(|groups| groups.iter().map(|group| &group.bullets)))
+    }
+}
+
+impl ItemLink {
+    /// Bullets across the item's groups; `None` when the patch only mentions the item.
+    pub fn change_count(&self) -> Option<usize> {
+        count_bullets(self.change_groups.as_ref().map(|groups| groups.iter().map(|group| &group.bullets)))
+    }
+}
+
 #[derive(Debug, Clone)]
 pub struct PropertyEvent {
     pub changelog_id: String,
@@ -150,11 +164,7 @@ fn json<T: DeserializeOwned>(row: &Row, index: usize, what: &str) -> rusqlite::R
     .transpose()
 }
 
-fn all<T>(
-    conn: &Connection,
-    sql: &str,
-    map: impl FnMut(&Row) -> rusqlite::Result<T>,
-) -> Result<Vec<T>> {
+fn all<T>(conn: &Connection, sql: &str, map: impl FnMut(&Row) -> rusqlite::Result<T>) -> Result<Vec<T>> {
     let mut statement = conn.prepare(sql).with_context(|| format!("preparing {sql}"))?;
     let rows = statement.query_map([], map)?;
     Ok(rows.collect::<rusqlite::Result<_>>().with_context(|| format!("reading {sql}"))?)
@@ -302,20 +312,9 @@ impl Snapshot {
         let aliases = all(conn, "SELECT slug, changelog_id FROM changelog_aliases ORDER BY slug", |row| {
             Ok(Alias { slug: row.get(0)?, changelog_id: row.get(1)? })
         })?;
-        let metadata = all(conn, "SELECT key, value FROM metadata", |row| Ok((row.get(0)?, row.get(1)?)))?
-            .into_iter()
-            .collect();
-        Ok(Self {
-            changelogs,
-            heroes,
-            items,
-            abilities,
-            hero_links,
-            item_links,
-            property_events,
-            aliases,
-            metadata,
-        })
+        let metadata =
+            all(conn, "SELECT key, value FROM metadata", |row| Ok((row.get(0)?, row.get(1)?)))?.into_iter().collect();
+        Ok(Self { changelogs, heroes, items, abilities, hero_links, item_links, property_events, aliases, metadata })
     }
 
     pub fn metadata(&self, key: &str) -> Option<&str> {

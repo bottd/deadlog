@@ -1,6 +1,6 @@
 use deadlog_changelog::{
-    Barrier, BulletReading, PreviousChange, PropertyEvent, PropertyValue, ScopedBullet, Unlinked, link_property_changes,
-    read_bullet,
+    Barrier, BulletReading, PreviousChange, PropertyEvent, PropertyValue, ScopedBullet, Unlinked,
+    link_property_changes, read_bullet,
 };
 use deadlog_model::EntityType;
 
@@ -20,7 +20,12 @@ fn value(amount: f64, unit: &str, text: &str) -> PropertyValue {
 fn reads_the_explicit_from_to_forms() {
     assert_eq!(
         event("Cooldown increased from 20s to 26s", None).unwrap(),
-        PropertyEvent { property: "cooldown", qualifier: String::new(), old: value(20.0, "s", "20s"), new: value(26.0, "s", "26s") }
+        PropertyEvent {
+            property: "cooldown",
+            qualifier: String::new(),
+            old: value(20.0, "s", "20s"),
+            new: value(26.0, "s", "26s")
+        }
     );
     let grapple = event("Grapple cooldown decreased from 45s to 40s", Some("Grapple")).unwrap();
     assert_eq!((grapple.property, grapple.old.amount), ("cooldown", 45.0));
@@ -60,7 +65,10 @@ fn treats_a_rework_as_a_barrier_for_everything() {
         read_bullet("Screwjab Dagger has been reworked", Some("Screwjab Dagger")),
         BulletReading::Barrier(Barrier::All)
     );
-    assert_eq!(read_bullet("No longer grants +20% Ability Duration on proc", None), BulletReading::Barrier(Barrier::All));
+    assert_eq!(
+        read_bullet("No longer grants +20% Ability Duration on proc", None),
+        BulletReading::Barrier(Barrier::All)
+    );
 }
 
 #[test]
@@ -125,10 +133,15 @@ fn links_the_immediately_preceding_change() {
         bullet("b", "2024-06-20", "Cooldown reduced from 50 to 30"),
     ]);
     let previous: Vec<_> = events.into_iter().map(|e| (e.patch_id, e.previous)).collect();
-    let change = |patch: &str, old: &str, new: &str| PreviousChange { patch_id: patch.into(), old: old.into(), new: new.into() };
+    let change =
+        |patch: &str, old: &str, new: &str| PreviousChange { patch_id: patch.into(), old: old.into(), new: new.into() };
     assert_eq!(
         previous,
-        vec![("a".into(), None), ("b".into(), Some(change("a", "55s", "50s"))), ("c".into(), Some(change("b", "50", "30")))]
+        vec![
+            ("a".into(), None),
+            ("b".into(), Some(change("a", "55s", "50s"))),
+            ("c".into(), Some(change("b", "50", "30")))
+        ]
     );
 }
 
@@ -163,9 +176,21 @@ fn does_not_link_across_an_unreadable_change_or_a_rework() {
 fn keeps_tiers_base_values_and_abilities_on_separate_chains() {
     assert_eq!(
         links_of(&[
-            hero("a", "2024-08-01", "Static Charge", "static-charge", "Static Charge T2 radius increased from +5m to +7m"),
+            hero(
+                "a",
+                "2024-08-01",
+                "Static Charge",
+                "static-charge",
+                "Static Charge T2 radius increased from +5m to +7m"
+            ),
             hero("b", "2024-08-15", "Static Charge", "static-charge", "Static Charge radius increased from 5m to 7m"),
-            hero("c", "2024-08-29", "Static Charge", "static-charge", "Static Charge T2 radius increased from +7m to +8m"),
+            hero(
+                "c",
+                "2024-08-29",
+                "Static Charge",
+                "static-charge",
+                "Static Charge T2 radius increased from +7m to +8m"
+            ),
             hero("d", "2024-09-01", "Power Surge", "power-surge", "Power Surge radius increased from 7m to 8m"),
         ]),
         vec![

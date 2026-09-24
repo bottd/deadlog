@@ -66,8 +66,7 @@ pub fn generate(options: &MetaOptions) -> Result<Report> {
     let snapshot = Snapshot::open(&options.db)?;
     let renderer = render::Renderer::new(&options.fonts)?;
     if options.clean && options.out.exists() {
-        std::fs::remove_dir_all(&options.out)
-            .with_context(|| format!("clearing {}", options.out.display()))?;
+        std::fs::remove_dir_all(&options.out).with_context(|| format!("clearing {}", options.out.display()))?;
     }
     let fetch = images::http_fetcher();
     let inputs = inputs::Inputs::from_snapshot(&snapshot);

@@ -9,8 +9,7 @@ use crate::impact_block::write_stats_node;
 use crate::schema::EntityBlock;
 
 fn is_stats_line(line: &str) -> bool {
-    line.strip_prefix("stats")
-        .is_some_and(|rest| !rest.starts_with(|c: char| c.is_ascii_alphanumeric() || c == '_'))
+    line.strip_prefix("stats").is_some_and(|rest| !rest.starts_with(|c: char| c.is_ascii_alphanumeric() || c == '_'))
 }
 
 fn splice_stats(lines: &mut Vec<String>, metadata_lines: Option<(usize, usize)>, stats: &PatchStats) -> Result<()> {

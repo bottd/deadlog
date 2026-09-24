@@ -69,12 +69,7 @@ fn rate_value(key: &str, value: &Value) -> Result<Option<f64>> {
 }
 
 fn parse_window(value: &Value) -> Result<ImpactWindow> {
-    let map = strict(
-        LABEL,
-        value,
-        &["win", "pick", "matches", "days", "total", "covered", "coverage"],
-        &["buy"],
-    )?;
+    let map = strict(LABEL, value, &["win", "pick", "matches", "days", "total", "covered", "coverage"], &["buy"])?;
     let buy = match map.get("buy") {
         None => None,
         Some(Value::Null) => Some(None),
@@ -149,10 +144,9 @@ pub fn parse_stats(value: &Value) -> Result<PatchStats> {
     let siblings = match map.get("siblings") {
         None => Vec::new(),
         Some(Value::String(sibling)) => vec![sibling.clone()],
-        Some(Value::Array(items)) => items
-            .iter()
-            .map(|item| string(STATS, "siblings", item).map(str::to_string))
-            .collect::<Result<_>>()?,
+        Some(Value::Array(items)) => {
+            items.iter().map(|item| string(STATS, "siblings", item).map(str::to_string)).collect::<Result<_>>()?
+        }
         Some(_) => bail!("Malformed {STATS}: siblings must be strings"),
     };
     Ok(PatchStats {

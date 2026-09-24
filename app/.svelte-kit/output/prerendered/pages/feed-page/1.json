@@ -1,0 +1,683 @@
+{
+	"changelogs": [
+		{
+			"id": "125825",
+			"slug": "2026/04-10",
+			"title": "04-10-2026 Update",
+			"date": "2026-04-11T04:03:53.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": null,
+			"majorUpdate": false,
+			"summary": "Parrying is now allowed while ground dashing in order to bring it in-line with air dashing Parry anti mash protection previously would last…",
+			"icons": {
+				"heroes": [
+					{
+						"id": 15,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp",
+						"alt": "Bebop",
+						"slug": "bebop",
+						"heroType": "brawler",
+						"changeCount": 4,
+						"type": "hero"
+					},
+					{
+						"id": 72,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/punkgoat_sm.webp",
+						"alt": "Billy",
+						"slug": "billy",
+						"heroType": "brawler",
+						"changeCount": 2,
+						"type": "hero"
+					},
+					{
+						"id": 81,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/unicorn_sm.webp",
+						"alt": "Celeste",
+						"slug": "celeste",
+						"heroType": "marksman",
+						"changeCount": 13,
+						"type": "hero"
+					},
+					{
+						"id": 11,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp",
+						"alt": "Dynamo",
+						"slug": "dynamo",
+						"heroType": "mystic",
+						"changeCount": 1,
+						"type": "hero"
+					},
+					{
+						"id": 17,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp",
+						"alt": "Grey Talon",
+						"slug": "grey-talon",
+						"heroType": "marksman",
+						"changeCount": 5,
+						"type": "hero"
+					},
+					{
+						"id": 13,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp",
+						"alt": "Haze",
+						"slug": "haze",
+						"heroType": "assassin",
+						"changeCount": 18,
+						"type": "hero"
+					}
+				],
+				"items": [
+					{
+						"id": 673001892,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/armor_piercing_rounds.webp",
+						"alt": "Armor Piercing Rounds",
+						"slug": "armor-piercing-rounds",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 709540378,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/cultist_sacrifice.webp",
+						"alt": "Cultist Sacrifice",
+						"slug": "cultist-sacrifice",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 3144988365,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/decay.webp",
+						"alt": "Decay",
+						"slug": "decay",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 630839635,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/echo_shard.webp",
+						"alt": "Echo Shard",
+						"slug": "echo-shard",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 690458959,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/express_shot.webp",
+						"alt": "Express Shot",
+						"slug": "express-shot",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 2462046703,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/goose_egg.webp",
+						"alt": "Golden Goose Egg",
+						"slug": "golden-goose-egg",
+						"changeCount": 2,
+						"type": "item",
+						"itemCategory": "spirit"
+					}
+				]
+			},
+			"counts": { "heroes": 19, "items": 16 },
+			"matches": []
+		},
+		{
+			"id": "121766",
+			"slug": "2026/03-25",
+			"title": "03-25-2026 Update",
+			"date": "2026-03-26T00:36:42.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": null,
+			"majorUpdate": false,
+			"summary": "Street Brawl: You now have all AP unlocked by round 5 Bebop Base health regen increased from 1.5 to 2.5 Calico Leaping Slash base damage…",
+			"icons": {
+				"heroes": [
+					{
+						"id": 15,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp",
+						"alt": "Bebop",
+						"slug": "bebop",
+						"heroType": "brawler",
+						"changeCount": 1,
+						"type": "hero"
+					},
+					{
+						"id": 16,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp",
+						"alt": "Calico",
+						"slug": "calico",
+						"heroType": "assassin",
+						"changeCount": 1,
+						"type": "hero"
+					},
+					{
+						"id": 81,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/unicorn_sm.webp",
+						"alt": "Celeste",
+						"slug": "celeste",
+						"heroType": "marksman",
+						"changeCount": 2,
+						"type": "hero"
+					},
+					{
+						"id": 76,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/necro_sm.webp",
+						"alt": "Graves",
+						"slug": "graves",
+						"heroType": "marksman",
+						"changeCount": 8,
+						"type": "hero"
+					},
+					{
+						"id": 14,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp",
+						"alt": "Holliday",
+						"slug": "holliday",
+						"heroType": "marksman",
+						"changeCount": 2,
+						"type": "hero"
+					},
+					{
+						"id": 1,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp",
+						"alt": "Infernus",
+						"slug": "infernus",
+						"heroType": "marksman",
+						"changeCount": 4,
+						"type": "hero"
+					}
+				],
+				"items": []
+			},
+			"counts": { "heroes": 15, "items": 0 },
+			"matches": []
+		},
+		{
+			"id": "120256",
+			"slug": "2026/03-21",
+			"title": "03-21-2026 Update",
+			"date": "2026-03-21T19:34:30.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": null,
+			"majorUpdate": false,
+			"summary": "Vitality investment tree bonus reverted back to % base hp increase rather than raw constant bonus (back to how it was set up in december)…",
+			"icons": {
+				"heroes": [
+					{
+						"id": 6,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp",
+						"alt": "Abrams",
+						"slug": "abrams",
+						"heroType": "brawler",
+						"changeCount": 7,
+						"type": "hero"
+					},
+					{
+						"id": 77,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/fencer_sm.webp",
+						"alt": "Apollo",
+						"slug": "apollo",
+						"heroType": "assassin",
+						"changeCount": 3,
+						"type": "hero"
+					},
+					{
+						"id": 72,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/punkgoat_sm.webp",
+						"alt": "Billy",
+						"slug": "billy",
+						"heroType": "brawler",
+						"changeCount": 1,
+						"type": "hero"
+					},
+					{
+						"id": 16,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp",
+						"alt": "Calico",
+						"slug": "calico",
+						"heroType": "assassin",
+						"changeCount": 6,
+						"type": "hero"
+					},
+					{
+						"id": 81,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/unicorn_sm.webp",
+						"alt": "Celeste",
+						"slug": "celeste",
+						"heroType": "marksman",
+						"changeCount": 11,
+						"type": "hero"
+					},
+					{
+						"id": 11,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp",
+						"alt": "Dynamo",
+						"slug": "dynamo",
+						"heroType": "mystic",
+						"changeCount": 6,
+						"type": "hero"
+					}
+				],
+				"items": [
+					{
+						"id": 1150006784,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/arcane_surge.webp",
+						"alt": "Arcane Surge",
+						"slug": "arcane-surge",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 3294954488,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/alchemical_seal.webp",
+						"alt": "Ballistic Enchantment",
+						"slug": "ballistic-enchantment",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 989206714,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/blood_tribute.webp",
+						"alt": "Blood Tribute",
+						"slug": "blood-tribute",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 2519598785,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/boundless_spirit.webp",
+						"alt": "Boundless Spirit",
+						"slug": "boundless-spirit",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 2739107182,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/burst_fire.webp",
+						"alt": "Burst Fire",
+						"slug": "burst-fire",
+						"changeCount": 2,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 3729138568,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/brawl/celestial_guidance.webp",
+						"alt": "Celestial Blessing",
+						"slug": "celestial-blessing",
+						"changeCount": 3,
+						"type": "item",
+						"itemCategory": "vitality"
+					}
+				]
+			},
+			"counts": { "heroes": 21, "items": 31 },
+			"matches": []
+		},
+		{
+			"id": "114328",
+			"slug": "2026/03-06",
+			"title": "Gameplay Update - 03-06-2026",
+			"date": "2026-03-06T21:37:00.000Z",
+			"author": "simonne",
+			"authorImage": "/assets/authors/deadlock.webp",
+			"previewImage": "https://clan.akamai.steamstatic.com/images/45164767/1a200778c94a048c5b2580a1e1a36071679ff19e.png",
+			"majorUpdate": false,
+			"summary": "Can now jump during slide Dash jump grants a very brief period with increased air control (30% for 0.25s) Shrine is now easier to kill for…",
+			"icons": {
+				"heroes": [
+					{
+						"id": 6,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp",
+						"alt": "Abrams",
+						"slug": "abrams",
+						"heroType": "brawler",
+						"changeCount": 34,
+						"type": "hero"
+					},
+					{
+						"id": 77,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/fencer_sm.webp",
+						"alt": "Apollo",
+						"slug": "apollo",
+						"heroType": "assassin",
+						"changeCount": 10,
+						"type": "hero"
+					},
+					{
+						"id": 15,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp",
+						"alt": "Bebop",
+						"slug": "bebop",
+						"heroType": "brawler",
+						"changeCount": 1,
+						"type": "hero"
+					},
+					{
+						"id": 72,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/punkgoat_sm.webp",
+						"alt": "Billy",
+						"slug": "billy",
+						"heroType": "brawler",
+						"changeCount": 24,
+						"type": "hero"
+					},
+					{
+						"id": 16,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp",
+						"alt": "Calico",
+						"slug": "calico",
+						"heroType": "assassin",
+						"changeCount": 38,
+						"type": "hero"
+					},
+					{
+						"id": 81,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/unicorn_sm.webp",
+						"alt": "Celeste",
+						"slug": "celeste",
+						"heroType": "marksman",
+						"changeCount": 21,
+						"type": "hero"
+					}
+				],
+				"items": [
+					{
+						"id": 381961617,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/active_reload.webp",
+						"alt": "Active Reload",
+						"slug": "active-reload",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 1150006784,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/arcane_surge.webp",
+						"alt": "Arcane Surge",
+						"slug": "arcane-surge",
+						"changeCount": 2,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 3294954488,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/alchemical_seal.webp",
+						"alt": "Ballistic Enchantment",
+						"slug": "ballistic-enchantment",
+						"changeCount": 4,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 989206714,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/blood_tribute.webp",
+						"alt": "Blood Tribute",
+						"slug": "blood-tribute",
+						"changeCount": 3,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 2519598785,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/boundless_spirit.webp",
+						"alt": "Boundless Spirit",
+						"slug": "boundless-spirit",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 3140772621,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/bullet_resilience.webp",
+						"alt": "Bullet Resilience",
+						"slug": "bullet-resilience",
+						"changeCount": 2,
+						"type": "item",
+						"itemCategory": "vitality"
+					}
+				]
+			},
+			"counts": { "heroes": 33, "items": 80 },
+			"matches": []
+		},
+		{
+			"id": "1824459501608168",
+			"slug": "2026/apollo-a-cut-above",
+			"title": "Apollo - A Cut Above",
+			"date": "2026-02-12T22:00:11.000Z",
+			"author": "simonne",
+			"authorImage": "/assets/authors/deadlock.webp",
+			"previewImage": "https://clan.fastly.steamstatic.com/images/45164767/0aab19877fe18e934963918a7cb4f80364adc22d.png",
+			"majorUpdate": false,
+			"summary": "Apollo After weeks of waiting, Apollo finally graces us with his presence. With Flawless Advance the fencer begins his approach, timing his…",
+			"icons": { "heroes": [], "items": [] },
+			"counts": { "heroes": 0, "items": 0 },
+			"matches": []
+		},
+		{
+			"id": "1823825466506693",
+			"slug": "2026/introducing-the-dazzling-celeste",
+			"title": "Introducing The Dazzling Celeste",
+			"date": "2026-02-09T22:00:07.000Z",
+			"author": "simonne",
+			"authorImage": "/assets/authors/deadlock.webp",
+			"previewImage": "https://clan.fastly.steamstatic.com/images/45164767/a8b1361481f9292802bb6592cf79733971efa76f.png",
+			"majorUpdate": false,
+			"summary": "Come one, come all! Today, we're introducing... Celeste It's not every day that Coney Island's biggest star, The Dazzling Celeste, performs…",
+			"icons": { "heroes": [], "items": [] },
+			"counts": { "heroes": 0, "items": 0 },
+			"matches": []
+		},
+		{
+			"id": "1823825466497894",
+			"slug": "2026/some-are-merciful-the-venator-is-not",
+			"title": "Some Are Merciful, The Venator Is Not",
+			"date": "2026-02-05T22:00:06.000Z",
+			"author": "simonne",
+			"authorImage": "/assets/authors/deadlock.webp",
+			"previewImage": "https://clan.fastly.steamstatic.com/images/45164767/a8fcf6c0e81b0fc764cb294caeba6cfd583e69a3.png",
+			"majorUpdate": false,
+			"summary": "Evil stirs in New York, and the Venator is here to answer. Venator Venator doesn't walk the righteous path, he blazes the trail so that…",
+			"icons": { "heroes": [], "items": [] },
+			"counts": { "heroes": 0, "items": 0 },
+			"matches": []
+		},
+		{
+			"id": "1823191198612358",
+			"slug": "2026/the-curse-beckons-for-silver",
+			"title": "The Curse Beckons for Silver",
+			"date": "2026-02-02T21:59:55.000Z",
+			"author": "simonne",
+			"authorImage": "/assets/authors/deadlock.webp",
+			"previewImage": "https://clan.fastly.steamstatic.com/images/45164767/0841efa2500ec2bf46ca991f4df8150748d8defa.png",
+			"majorUpdate": false,
+			"summary": "The votes are in and today's addition to the Cursed Apple is... Silver Silver makes her living tracking down lowlifes, but today New York’s…",
+			"icons": { "heroes": [], "items": [] },
+			"counts": { "heroes": 0, "items": 0 },
+			"matches": []
+		},
+		{
+			"id": "102822",
+			"slug": "2026/01-30",
+			"title": "01-30-2026 Update",
+			"date": "2026-01-30T23:57:51.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": null,
+			"majorUpdate": false,
+			"summary": "Added hero banning to Standard Mode and Street Brawl. You can now select one hero in your roster screen (using middle click) to tell the…",
+			"icons": {
+				"heroes": [
+					{
+						"id": 6,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp",
+						"alt": "Abrams",
+						"slug": "abrams",
+						"heroType": "brawler",
+						"changeCount": 7,
+						"type": "hero"
+					},
+					{
+						"id": 77,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/fencer_sm.webp",
+						"alt": "Apollo",
+						"slug": "apollo",
+						"heroType": "assassin",
+						"changeCount": 18,
+						"type": "hero"
+					},
+					{
+						"id": 15,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp",
+						"alt": "Bebop",
+						"slug": "bebop",
+						"heroType": "brawler",
+						"changeCount": 15,
+						"type": "hero"
+					},
+					{
+						"id": 72,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/punkgoat_sm.webp",
+						"alt": "Billy",
+						"slug": "billy",
+						"heroType": "brawler",
+						"changeCount": 6,
+						"type": "hero"
+					},
+					{
+						"id": 16,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp",
+						"alt": "Calico",
+						"slug": "calico",
+						"heroType": "assassin",
+						"changeCount": 1,
+						"type": "hero"
+					},
+					{
+						"id": 81,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/unicorn_sm.webp",
+						"alt": "Celeste",
+						"slug": "celeste",
+						"heroType": "marksman",
+						"changeCount": 16,
+						"type": "hero"
+					}
+				],
+				"items": [
+					{
+						"id": 1932939246,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/alchemical_fire.webp",
+						"alt": "Alchemical Fire",
+						"slug": "alchemical-fire",
+						"changeCount": 3,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 3812615317,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/arctic_blast.webp",
+						"alt": "Arctic Blast",
+						"slug": "arctic-blast",
+						"changeCount": 2,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 3140772621,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/bullet_resilience.webp",
+						"alt": "Bullet Resilience",
+						"slug": "bullet-resilience",
+						"changeCount": 3,
+						"type": "item",
+						"itemCategory": "vitality"
+					},
+					{
+						"id": 2971868509,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/bullet_resist_shredder.webp",
+						"alt": "Bullet Resist Shredder",
+						"slug": "bullet-resist-shredder",
+						"changeCount": 2,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 710436191,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/capacitor.webp",
+						"alt": "Capacitor",
+						"slug": "capacitor",
+						"changeCount": 2,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 1976391348,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/cold_front.webp",
+						"alt": "Cold Front",
+						"slug": "cold-front",
+						"changeCount": 2,
+						"type": "item",
+						"itemCategory": "spirit"
+					}
+				]
+			},
+			"counts": { "heroes": 28, "items": 39 },
+			"matches": []
+		},
+		{
+			"id": "1823191198603629",
+			"slug": "2026/graves-prefers-the-dead",
+			"title": "Graves Prefers The Dead",
+			"date": "2026-01-29T22:00:06.000Z",
+			"author": "simonne",
+			"authorImage": "/assets/authors/deadlock.webp",
+			"previewImage": "https://clan.fastly.steamstatic.com/images/45164767/c167b4a0c1c8e9df56e26fa7989e1b8d8c2e58e2.png",
+			"majorUpdate": false,
+			"summary": "Today's bone-chilling addition to the Cursed Apple is none other than... Graves The dead have been making a whole lot of demands lately,…",
+			"icons": { "heroes": [], "items": [] },
+			"counts": { "heroes": 0, "items": 0 },
+			"matches": []
+		},
+		{
+			"id": "1822556746167992",
+			"slug": "2026/rem-enters-the-city-that-never-sleeps",
+			"title": "Rem Enters The City That Never Sleeps",
+			"date": "2026-01-26T22:00:02.000Z",
+			"author": "mystery *******",
+			"authorImage": "/assets/authors/deadlock.webp",
+			"previewImage": "https://clan.fastly.steamstatic.com/images/45164767/6c73693f5bc1ae125ff877ba896f5d87997a45e8.png",
+			"majorUpdate": false,
+			"summary": "The people have spoken, and the first new addition from the Old Gods, New Blood update is... Rem An accidental stowaway from the world of…",
+			"icons": { "heroes": [], "items": [] },
+			"counts": { "heroes": 0, "items": 0 },
+			"matches": []
+		},
+		{
+			"id": "1822556746160429",
+			"slug": "2026/old-gods-new-blood",
+			"title": "Old Gods, New Blood",
+			"date": "2026-01-22T22:56:33.000Z",
+			"author": "simonne",
+			"authorImage": "/assets/authors/deadlock.webp",
+			"previewImage": "https://clan.fastly.steamstatic.com/images/45164767/0bc50241318e52395ab70077faf8e1f0e3cf7c1d.png",
+			"majorUpdate": false,
+			"summary": "The ritual takes form... Overhauled Patrons and bases, six new heroes, a fast-paced game mode 'Street Brawl', HUD updates, many…",
+			"icons": { "heroes": [], "items": [] },
+			"counts": { "heroes": 0, "items": 0 },
+			"matches": []
+		}
+	],
+	"hasMore": true
+}

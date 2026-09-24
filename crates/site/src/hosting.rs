@@ -1,10 +1,9 @@
 //! Files the host reads rather than serves: `_redirects`, `_headers`, and the sitemap.
 
 use anyhow::{Result, bail};
-use deadlog_model::{canonical_slug, iso_string};
+use deadlog_model::{canonical_slug, iso_string, locale_compare};
 
-use crate::context::locale_compare;
-use crate::meta::{SITE_URL, absolute_url, change_path};
+use crate::meta::{absolute_url, change_path};
 use crate::{Output, Site};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -33,7 +32,9 @@ pub fn parse_redirects(text: &str) -> Vec<Redirect> {
 fn check_lowercase<'a>(kind: &str, slugs: impl IntoIterator<Item = &'a str>) -> Result<()> {
     for slug in slugs {
         if slug != canonical_slug(slug) {
-            bail!("{kind} slug \"{slug}\" is not lowercase — routes are matched exactly, so nothing could ever reach it");
+            bail!(
+                "{kind} slug \"{slug}\" is not lowercase — routes are matched exactly, so nothing could ever reach it"
+            );
         }
     }
     Ok(())
@@ -126,7 +127,7 @@ fn sitemap(site: &Site) -> String {
         .map(|(url, modified)| {
             let mut entry = format!("  <url>\n    <loc>{}</loc>", url.replace('&', "&amp;"));
             if let Some(modified) = modified {
-                entry.push_str(&format!("\n    <lastmod>{}</lastmod>", modified.replace('&', "&amp;")));
+                entry.push_str(&format!("\n    <lastmod>{modified}</lastmod>"));
             }
             entry.push_str("\n  </url>");
             entry
@@ -139,11 +140,12 @@ fn sitemap(site: &Site) -> String {
 }
 
 pub fn write(site: &Site, output: &mut Output) -> Result<()> {
-    let redirects: Vec<String> =
-        redirects(site)?.iter().map(|redirect| format!("{} {} {}", redirect.from, redirect.to, redirect.status)).collect();
+    let redirects: Vec<String> = redirects(site)?
+        .iter()
+        .map(|redirect| format!("{} {} {}", redirect.from, redirect.to, redirect.status))
+        .collect();
     output.add("_redirects", format!("{}\n", redirects.join("\n")));
     output.add("_headers", HEADERS);
     output.add("sitemap.xml", sitemap(site));
-    debug_assert!(SITE_URL.starts_with("https://"));
     Ok(())
 }

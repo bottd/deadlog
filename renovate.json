@@ -19,7 +19,7 @@
 		},
 		{
 			"matchUpdateTypes": ["minor", "patch"],
-			"matchManagers": ["npm", "nix"],
+			"matchManagers": ["cargo", "npm", "nix"],
 			"groupName": "non-major updates"
 		}
 	]

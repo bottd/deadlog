@@ -125,14 +125,17 @@ fn via_sql(conn: &Connection, query: &str, limit: usize, offset: usize) -> (Vec<
     let mut values: Vec<rusqlite::types::Value> = Vec::new();
     if !filters.q.is_empty() {
         let pattern = format!("%{}%", filters.q.replace('!', "!!").replace('%', "!%").replace('_', "!_"));
-        conditions.push("(LOWER(title) LIKE LOWER(?) ESCAPE '!' OR LOWER(content_text) LIKE LOWER(?) ESCAPE '!')".to_string());
+        conditions.push(
+            "(LOWER(title) LIKE LOWER(?) ESCAPE '!' OR LOWER(content_text) LIKE LOWER(?) ESCAPE '!')".to_string(),
+        );
         values.push(pattern.clone().into());
         values.push(pattern.into());
     }
     if filters.major {
         conditions.push("major_update = 1".into());
     }
-    for (ids, table, column) in [(&hero_ids, "changelog_heroes", "hero_id"), (&item_ids, "changelog_items", "item_id")] {
+    for (ids, table, column) in [(&hero_ids, "changelog_heroes", "hero_id"), (&item_ids, "changelog_items", "item_id")]
+    {
         if ids.is_empty() {
             continue;
         }
@@ -155,7 +158,10 @@ fn via_sql(conn: &Connection, query: &str, limit: usize, offset: usize) -> (Vec<
 
 fn island_source() -> String {
     let source = std::fs::read_to_string(root().join("web/js/search.js")).unwrap();
-    source.replace("export async function", "async function").replace("export function", "function").replace("export const", "const")
+    source
+        .replace("export async function", "async function")
+        .replace("export function", "function")
+        .replace("export const", "const")
 }
 
 #[test]

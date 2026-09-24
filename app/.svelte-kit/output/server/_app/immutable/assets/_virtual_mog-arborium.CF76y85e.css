@@ -1,0 +1,284 @@
+@media (prefers-color-scheme: light) {
+	pre.arborium {
+		--bg: #fff;
+		--surface: #f2f2f2;
+		color: #1f2328;
+		--fg: #1f2328;
+		--accent: #8250df;
+		--muted: #6e7781;
+		background: #fff;
+		& a-at,
+		& a-co,
+		& a-cb {
+			color: #0550ae;
+		}
+		& a-fb,
+		& a-f,
+		& a-fm {
+			color: #8250df;
+		}
+		& a-k,
+		& a-kc,
+		& a-ko,
+		& a-kd,
+		& a-ke,
+		& a-kf,
+		& a-ki,
+		& a-kp,
+		& a-kr,
+		& a-kt,
+		& a-ky,
+		& a-o {
+			color: #cf222e;
+		}
+		& a-pr {
+			color: #0550ae;
+		}
+		& a-p,
+		& a-pb,
+		& a-pd {
+			color: #1f2328;
+		}
+		& a-ps {
+			color: #0550ae;
+		}
+		& a-s {
+			color: #0a3069;
+		}
+		& a-ss {
+			color: #cf222e;
+		}
+		& a-tg,
+		& a-td,
+		& a-te {
+			color: #116329;
+		}
+		& a-t,
+		& a-tb,
+		& a-tq {
+			color: #953800;
+		}
+		& a-v {
+			color: #1f2328;
+		}
+		& a-vb,
+		& a-vp {
+			color: #953800;
+		}
+		& a-c,
+		& a-cd {
+			color: #6e7781;
+		}
+		& a-m {
+			color: #0550ae;
+		}
+		& a-l {
+			color: #8250df;
+		}
+		& a-n {
+			color: #0550ae;
+		}
+		& a-tl {
+			color: #1f2328;
+		}
+		& a-em {
+			font-style: italic;
+		}
+		& a-st {
+			font-weight: 700;
+		}
+		& a-tu {
+			color: #0969da;
+			text-decoration: underline;
+		}
+		& a-tr {
+			color: #8250df;
+		}
+		& a-se {
+			color: #0550ae;
+		}
+		& a-tt {
+			color: #8250df;
+			font-weight: 700;
+		}
+		& a-tx {
+			text-decoration: line-through;
+		}
+		& a-sp {
+			color: #1f2328;
+		}
+		& a-in,
+		& a-sc,
+		& a-rp,
+		& a-cn,
+		& a-ex,
+		& a-pp {
+			color: #cf222e;
+		}
+		& a-ch,
+		& a-cs {
+			color: #0a3069;
+		}
+		& a-vm {
+			color: #1f2328;
+		}
+		& a-fd {
+			color: #8250df;
+		}
+		& a-tf {
+			color: #953800;
+		}
+		& a-fc {
+			color: #8250df;
+		}
+		& a-km,
+		& a-dr {
+			color: #cf222e;
+		}
+		& a-rx {
+			color: #0a3069;
+		}
+	}
+}
+@media (prefers-color-scheme: dark) {
+	pre.arborium {
+		--bg: #0d1117;
+		--surface: #20242a;
+		color: #e6edf3;
+		--fg: #e6edf3;
+		--accent: #d2a8ff;
+		--muted: #8b949e;
+		background: #0d1117;
+		& a-at,
+		& a-co,
+		& a-cb {
+			color: #79c0ff;
+		}
+		& a-fb,
+		& a-f,
+		& a-fm {
+			color: #d2a8ff;
+		}
+		& a-k,
+		& a-kc,
+		& a-ko,
+		& a-kd,
+		& a-ke,
+		& a-kf,
+		& a-ki,
+		& a-kp,
+		& a-kr,
+		& a-kt,
+		& a-ky,
+		& a-o {
+			color: #ff7b72;
+		}
+		& a-pr {
+			color: #79c0ff;
+		}
+		& a-p,
+		& a-pb,
+		& a-pd {
+			color: #e6edf3;
+		}
+		& a-ps {
+			color: #79c0ff;
+		}
+		& a-s {
+			color: #a5d6ff;
+		}
+		& a-ss {
+			color: #ff7b72;
+		}
+		& a-tg,
+		& a-td,
+		& a-te {
+			color: #7ee787;
+		}
+		& a-t,
+		& a-tb,
+		& a-tq {
+			color: #ffa657;
+		}
+		& a-v {
+			color: #e6edf3;
+		}
+		& a-vb,
+		& a-vp {
+			color: #ffa657;
+		}
+		& a-c,
+		& a-cd {
+			color: #8b949e;
+		}
+		& a-m {
+			color: #79c0ff;
+		}
+		& a-l {
+			color: #d2a8ff;
+		}
+		& a-n {
+			color: #79c0ff;
+		}
+		& a-tl {
+			color: #e6edf3;
+		}
+		& a-em {
+			font-style: italic;
+		}
+		& a-st {
+			font-weight: 700;
+		}
+		& a-tu {
+			color: #58a6ff;
+			text-decoration: underline;
+		}
+		& a-tr {
+			color: #d2a8ff;
+		}
+		& a-se {
+			color: #79c0ff;
+		}
+		& a-tt {
+			color: #d2a8ff;
+			font-weight: 700;
+		}
+		& a-tx {
+			text-decoration: line-through;
+		}
+		& a-sp {
+			color: #e6edf3;
+		}
+		& a-in,
+		& a-sc,
+		& a-rp,
+		& a-cn,
+		& a-ex,
+		& a-pp {
+			color: #ff7b72;
+		}
+		& a-ch,
+		& a-cs {
+			color: #a5d6ff;
+		}
+		& a-vm {
+			color: #e6edf3;
+		}
+		& a-fd {
+			color: #d2a8ff;
+		}
+		& a-tf {
+			color: #ffa657;
+		}
+		& a-fc {
+			color: #d2a8ff;
+		}
+		& a-km,
+		& a-dr {
+			color: #ff7b72;
+		}
+		& a-rx {
+			color: #a5d6ff;
+		}
+	}
+}

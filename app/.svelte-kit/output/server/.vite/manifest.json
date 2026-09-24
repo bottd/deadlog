@@ -1,0 +1,1687 @@
+{
+	"../lib/db/src/index.ts": {
+		"file": "chunks/src3.js",
+		"name": "src",
+		"src": "../lib/db/src/index.ts",
+		"isDynamicEntry": true,
+		"imports": ["_src.js"]
+	},
+	"../node_modules/.pnpm/@sveltejs+kit@2.70.3_@sveltejs+vite-plugin-svelte@7.3.0_svelte@5.57.0_@typescript-eslin_d34b0b60129670dccbfe83ef3c3382f5/node_modules/@sveltejs/kit/src/runtime/app/server/remote/index.js": {
+		"file": "remote-entry.js",
+		"name": "remote-entry",
+		"src": "../node_modules/.pnpm/@sveltejs+kit@2.70.3_@sveltejs+vite-plugin-svelte@7.3.0_svelte@5.57.0_@typescript-eslin_d34b0b60129670dccbfe83ef3c3382f5/node_modules/@sveltejs/kit/src/runtime/app/server/remote/index.js",
+		"isEntry": true,
+		"imports": ["_shared.js", "_server.js", "_utils.js", "_internal2.js"]
+	},
+	"../node_modules/.pnpm/@sveltejs+kit@2.70.3_@sveltejs+vite-plugin-svelte@7.3.0_svelte@5.57.0_@typescript-eslin_d34b0b60129670dccbfe83ef3c3382f5/node_modules/@sveltejs/kit/src/runtime/server/index.js": {
+		"file": "index.js",
+		"name": "index",
+		"src": "../node_modules/.pnpm/@sveltejs+kit@2.70.3_@sveltejs+vite-plugin-svelte@7.3.0_svelte@5.57.0_@typescript-eslin_d34b0b60129670dccbfe83ef3c3382f5/node_modules/@sveltejs/kit/src/runtime/server/index.js",
+		"isEntry": true,
+		"imports": [
+			"_index-server.js",
+			"_shared.js",
+			"_server.js",
+			"_utils.js",
+			"_uneval.js",
+			"_internal.js",
+			"_exports.js",
+			"_server2.js",
+			"_env.js"
+		]
+	},
+	".svelte-kit/generated/server/internal.js": {
+		"file": "internal.js",
+		"name": "internal",
+		"src": ".svelte-kit/generated/server/internal.js",
+		"isEntry": true,
+		"imports": ["_server.js", "_internal.js", "_internal2.js"]
+	},
+	"_CornerAccents.js": {
+		"file": "chunks/CornerAccents.js",
+		"name": "CornerAccents",
+		"imports": ["_server2.js"]
+	},
+	"_EntityChangelogPage.BK64ZZpq.css": {
+		"file": "_app/immutable/assets/EntityChangelogPage.BK64ZZpq.css",
+		"src": "_EntityChangelogPage.BK64ZZpq.css"
+	},
+	"_EntityChangelogPage.js": {
+		"file": "chunks/EntityChangelogPage.js",
+		"name": "EntityChangelogPage",
+		"imports": [
+			"_server2.js",
+			"_src2.js",
+			"_changelog.js",
+			"_seo.js",
+			"_context.js",
+			"_arrow-right.js",
+			"_CornerAccents.js",
+			"_dist.js",
+			"_StatsBand.js",
+			"_arrow-left.js",
+			"_MethodNote.js",
+			"_shallowParams.svelte.js"
+		],
+		"css": ["_app/immutable/assets/EntityChangelogPage.BK64ZZpq.css"]
+	},
+	"_EntityDirectory.js": {
+		"file": "chunks/EntityDirectory.js",
+		"name": "EntityDirectory",
+		"imports": [
+			"_server2.js",
+			"_src2.js",
+			"_seo.js",
+			"_navigation.js",
+			"_dist.js",
+			"_shallowParams.svelte.js"
+		]
+	},
+	"_Icon.js": {
+		"file": "chunks/Icon.js",
+		"name": "Icon",
+		"imports": [
+			"_index-server.js",
+			"_shared.js",
+			"_server.js",
+			"_internal.js",
+			"_exports.js",
+			"_server2.js",
+			"_internal2.js"
+		]
+	},
+	"_MethodNote.js": {
+		"file": "chunks/MethodNote.js",
+		"name": "MethodNote",
+		"imports": ["_server2.js", "_src2.js", "_readingContext.js"]
+	},
+	"_StatsBand.a3-fBLhT.css": {
+		"file": "_app/immutable/assets/StatsBand.a3-fBLhT.css",
+		"src": "_StatsBand.a3-fBLhT.css"
+	},
+	"_StatsBand.js": {
+		"file": "chunks/StatsBand.js",
+		"name": "StatsBand",
+		"imports": ["_server2.js", "_Icon.js", "_shareRows.js"],
+		"css": ["_app/immutable/assets/StatsBand.a3-fBLhT.css"]
+	},
+	"_VideoLink.js": {
+		"file": "chunks/VideoLink.js",
+		"name": "VideoLink",
+		"imports": [
+			"_server2.js",
+			"_src2.js",
+			"_changelog.js",
+			"_Icon.js",
+			"_context.js",
+			"_readingContext.js",
+			"_StatsBand.js",
+			"_external-link.js"
+		]
+	},
+	"__virtual_mog-arborium.CF76y85e.css": {
+		"file": "_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css",
+		"src": "__virtual_mog-arborium.CF76y85e.css"
+	},
+	"_arrow-left.js": {
+		"file": "chunks/arrow-left.js",
+		"name": "arrow-left",
+		"imports": ["_server2.js", "_Icon.js"]
+	},
+	"_arrow-right.js": {
+		"file": "chunks/arrow-right.js",
+		"name": "arrow-right",
+		"imports": ["_server2.js", "_Icon.js"]
+	},
+	"_changelog.BUmNAOAV.css": {
+		"file": "_app/immutable/assets/changelog.BUmNAOAV.css",
+		"src": "_changelog.BUmNAOAV.css"
+	},
+	"_changelog.js": {
+		"file": "chunks/changelog.js",
+		"name": "changelog",
+		"imports": [
+			"_index-server.js",
+			"_server2.js",
+			"_src2.js",
+			"_keys.js",
+			"_pages.js",
+			"_seo.js",
+			"_Icon.js",
+			"_context.js",
+			"_arrow-right.js",
+			"_CornerAccents.js",
+			"_readingContext.js"
+		],
+		"css": ["_app/immutable/assets/changelog.BUmNAOAV.css"]
+	},
+	"_context.js": {
+		"file": "chunks/context.js",
+		"name": "context",
+		"imports": [
+			"_index-server.js",
+			"_internal.js",
+			"_server2.js",
+			"_internal2.js",
+			"_src2.js",
+			"_keys.js",
+			"_seo.js",
+			"_Icon.js",
+			"_navigation.js",
+			"_entityImages2.js",
+			"_arrow-right.js"
+		]
+	},
+	"_dist.js": {
+		"file": "chunks/dist.js",
+		"name": "dist",
+		"imports": ["_server2.js"]
+	},
+	"_entityImages.js": {
+		"file": "chunks/entityImages.js",
+		"name": "entityImages"
+	},
+	"_entityImages2.js": {
+		"file": "chunks/entityImages2.js",
+		"name": "entityImages",
+		"imports": ["_src2.js", "_entityImages.js"]
+	},
+	"_env.js": {
+		"file": "chunks/env.js",
+		"name": "env"
+	},
+	"_exports.js": {
+		"file": "chunks/exports.js",
+		"name": "exports",
+		"imports": ["_server2.js"]
+	},
+	"_external-link.js": {
+		"file": "chunks/external-link.js",
+		"name": "external-link",
+		"imports": ["_server2.js", "_Icon.js"]
+	},
+	"_index-server.js": {
+		"file": "chunks/index-server.js",
+		"name": "index-server",
+		"imports": ["_uneval.js", "_server2.js"]
+	},
+	"_internal.js": {
+		"file": "chunks/internal.js",
+		"name": "internal",
+		"imports": ["_index-server.js", "_server.js", "_server2.js"],
+		"dynamicImports": ["src/hooks.server.ts"]
+	},
+	"_internal2.js": {
+		"file": "chunks/internal2.js",
+		"name": "internal"
+	},
+	"_keys.js": {
+		"file": "chunks/keys.js",
+		"name": "keys",
+		"imports": ["_src2.js"]
+	},
+	"_navigation.js": {
+		"file": "chunks/navigation.js",
+		"name": "navigation",
+		"imports": ["_server2.js", "_Icon.js"]
+	},
+	"_pages.js": {
+		"file": "chunks/pages.js",
+		"name": "pages",
+		"imports": ["_src2.js", "_keys.js"]
+	},
+	"_previousChanges.js": {
+		"file": "chunks/previousChanges.js",
+		"name": "previousChanges",
+		"imports": ["_src2.js", "_seo.js"]
+	},
+	"_readingContext.js": {
+		"file": "chunks/readingContext.js",
+		"name": "readingContext",
+		"imports": ["_index-server.js", "_server2.js", "_src2.js", "_relatedItems.js"]
+	},
+	"_relatedItems.js": {
+		"file": "chunks/relatedItems.js",
+		"name": "relatedItems"
+	},
+	"_seo.js": {
+		"file": "chunks/seo.js",
+		"name": "seo"
+	},
+	"_server.js": {
+		"file": "chunks/server.js",
+		"name": "server"
+	},
+	"_server2.js": {
+		"file": "chunks/server2.js",
+		"name": "server",
+		"imports": ["_uneval.js"]
+	},
+	"_shallowParams.svelte.js": {
+		"file": "chunks/shallowParams.svelte.js",
+		"name": "shallowParams.svelte",
+		"imports": ["_server2.js", "_internal2.js", "_Icon.js", "_navigation.js"]
+	},
+	"_shareRows.js": {
+		"file": "chunks/shareRows.js",
+		"name": "shareRows",
+		"imports": ["_src2.js", "_relatedItems.js"]
+	},
+	"_shared.js": {
+		"file": "chunks/shared.js",
+		"name": "shared",
+		"imports": ["_uneval.js"]
+	},
+	"_src.js": {
+		"file": "chunks/src.js",
+		"name": "src",
+		"imports": ["_index-server.js", "_src2.js", "_entityImages.js"]
+	},
+	"_src2.js": {
+		"file": "chunks/src2.js",
+		"name": "src"
+	},
+	"_uneval.js": {
+		"file": "chunks/uneval.js",
+		"name": "uneval"
+	},
+	"_utils.js": {
+		"file": "chunks/utils.js",
+		"name": "utils",
+		"imports": ["_shared.js", "_uneval.js"]
+	},
+	"changelogs/2024/05-03.mg": {
+		"file": "chunks/05-03.js",
+		"name": "05-03",
+		"src": "changelogs/2024/05-03.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/05-10.mg": {
+		"file": "chunks/05-10.js",
+		"name": "05-10",
+		"src": "changelogs/2024/05-10.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/05-13.mg": {
+		"file": "chunks/05-13.js",
+		"name": "05-13",
+		"src": "changelogs/2024/05-13.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/05-16.mg": {
+		"file": "chunks/05-16.js",
+		"name": "05-16",
+		"src": "changelogs/2024/05-16.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/05-19.mg": {
+		"file": "chunks/05-19.js",
+		"name": "05-19",
+		"src": "changelogs/2024/05-19.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/05-23.mg": {
+		"file": "chunks/05-23.js",
+		"name": "05-23",
+		"src": "changelogs/2024/05-23.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/05-24.mg": {
+		"file": "chunks/05-24.js",
+		"name": "05-24",
+		"src": "changelogs/2024/05-24.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/05-30.mg": {
+		"file": "chunks/05-30.js",
+		"name": "05-30",
+		"src": "changelogs/2024/05-30.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/06-01.mg": {
+		"file": "chunks/06-01.js",
+		"name": "06-01",
+		"src": "changelogs/2024/06-01.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/06-06.mg": {
+		"file": "chunks/06-06.js",
+		"name": "06-06",
+		"src": "changelogs/2024/06-06.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/06-07.mg": {
+		"file": "chunks/06-07.js",
+		"name": "06-07",
+		"src": "changelogs/2024/06-07.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/06-13.mg": {
+		"file": "chunks/06-13.js",
+		"name": "06-13",
+		"src": "changelogs/2024/06-13.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/06-14.mg": {
+		"file": "chunks/06-14.js",
+		"name": "06-14",
+		"src": "changelogs/2024/06-14.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/06-16.mg": {
+		"file": "chunks/06-16.js",
+		"name": "06-16",
+		"src": "changelogs/2024/06-16.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/06-20.mg": {
+		"file": "chunks/06-20.js",
+		"name": "06-20",
+		"src": "changelogs/2024/06-20.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/06-23.mg": {
+		"file": "chunks/06-23.js",
+		"name": "06-23",
+		"src": "changelogs/2024/06-23.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/06-27.mg": {
+		"file": "chunks/06-27.js",
+		"name": "06-27",
+		"src": "changelogs/2024/06-27.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/07-04.mg": {
+		"file": "chunks/07-04.js",
+		"name": "07-04",
+		"src": "changelogs/2024/07-04.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/07-11.mg": {
+		"file": "chunks/07-11.js",
+		"name": "07-11",
+		"src": "changelogs/2024/07-11.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/07-18.mg": {
+		"file": "chunks/07-18.js",
+		"name": "07-18",
+		"src": "changelogs/2024/07-18.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/07-23.mg": {
+		"file": "chunks/07-23.js",
+		"name": "07-23",
+		"src": "changelogs/2024/07-23.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/08-01.mg": {
+		"file": "chunks/08-01.js",
+		"name": "08-01",
+		"src": "changelogs/2024/08-01.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/08-06.mg": {
+		"file": "chunks/08-06.js",
+		"name": "08-06",
+		"src": "changelogs/2024/08-06.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/08-15.mg": {
+		"file": "chunks/08-15.js",
+		"name": "08-15",
+		"src": "changelogs/2024/08-15.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/08-16.mg": {
+		"file": "chunks/08-16.js",
+		"name": "08-16",
+		"src": "changelogs/2024/08-16.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/08-18.mg": {
+		"file": "chunks/08-18.js",
+		"name": "08-18",
+		"src": "changelogs/2024/08-18.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/08-22.mg": {
+		"file": "chunks/08-22.js",
+		"name": "08-22",
+		"src": "changelogs/2024/08-22.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/08-23.mg": {
+		"file": "chunks/08-23.js",
+		"name": "08-23",
+		"src": "changelogs/2024/08-23.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/08-29.mg": {
+		"file": "chunks/08-29.js",
+		"name": "08-29",
+		"src": "changelogs/2024/08-29.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/09-01.mg": {
+		"file": "chunks/09-01.js",
+		"name": "09-01",
+		"src": "changelogs/2024/09-01.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/09-12.mg": {
+		"file": "chunks/09-12.js",
+		"name": "09-12",
+		"src": "changelogs/2024/09-12.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/09-14.mg": {
+		"file": "chunks/09-14.js",
+		"name": "09-14",
+		"src": "changelogs/2024/09-14.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/09-17.mg": {
+		"file": "chunks/09-17.js",
+		"name": "09-17",
+		"src": "changelogs/2024/09-17.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/09-19.mg": {
+		"file": "chunks/09-19.js",
+		"name": "09-19",
+		"src": "changelogs/2024/09-19.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/09-26.mg": {
+		"file": "chunks/09-26.js",
+		"name": "09-26",
+		"src": "changelogs/2024/09-26.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/09-27.mg": {
+		"file": "chunks/09-27.js",
+		"name": "09-27",
+		"src": "changelogs/2024/09-27.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/09-29.mg": {
+		"file": "chunks/09-29.js",
+		"name": "09-29",
+		"src": "changelogs/2024/09-29.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/10-02.mg": {
+		"file": "chunks/10-02.js",
+		"name": "10-02",
+		"src": "changelogs/2024/10-02.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/10-07.mg": {
+		"file": "chunks/10-07.js",
+		"name": "10-07",
+		"src": "changelogs/2024/10-07.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/10-10.mg": {
+		"file": "chunks/10-10.js",
+		"name": "10-10",
+		"src": "changelogs/2024/10-10.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/10-11.mg": {
+		"file": "chunks/10-11.js",
+		"name": "10-11",
+		"src": "changelogs/2024/10-11.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/10-15.mg": {
+		"file": "chunks/10-15.js",
+		"name": "10-15",
+		"src": "changelogs/2024/10-15.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/10-18-2.mg": {
+		"file": "chunks/10-18-2.js",
+		"name": "10-18-2",
+		"src": "changelogs/2024/10-18-2.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/10-18.mg": {
+		"file": "chunks/10-18.js",
+		"name": "10-18",
+		"src": "changelogs/2024/10-18.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/10-24.mg": {
+		"file": "chunks/10-24.js",
+		"name": "10-24",
+		"src": "changelogs/2024/10-24.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/10-27.mg": {
+		"file": "chunks/10-27.js",
+		"name": "10-27",
+		"src": "changelogs/2024/10-27.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/10-29.mg": {
+		"file": "chunks/10-29.js",
+		"name": "10-29",
+		"src": "changelogs/2024/10-29.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/11-01.mg": {
+		"file": "chunks/11-01.js",
+		"name": "11-01",
+		"src": "changelogs/2024/11-01.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/11-07.mg": {
+		"file": "chunks/11-07.js",
+		"name": "11-07",
+		"src": "changelogs/2024/11-07.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/11-10.mg": {
+		"file": "chunks/11-10.js",
+		"name": "11-10",
+		"src": "changelogs/2024/11-10.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/11-13.mg": {
+		"file": "chunks/11-13.js",
+		"name": "11-13",
+		"src": "changelogs/2024/11-13.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/11-21.mg": {
+		"file": "chunks/11-21.js",
+		"name": "11-21",
+		"src": "changelogs/2024/11-21.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/11-29.mg": {
+		"file": "chunks/11-29.js",
+		"name": "11-29",
+		"src": "changelogs/2024/11-29.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/12-06.mg": {
+		"file": "chunks/12-06.js",
+		"name": "12-06",
+		"src": "changelogs/2024/12-06.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/12-17.mg": {
+		"file": "chunks/12-17.js",
+		"name": "12-17",
+		"src": "changelogs/2024/12-17.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/12-21.mg": {
+		"file": "chunks/12-21.js",
+		"name": "12-21",
+		"src": "changelogs/2024/12-21.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2024/12-31.mg": {
+		"file": "chunks/12-31.js",
+		"name": "12-31",
+		"src": "changelogs/2024/12-31.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2025/01-12.mg": {
+		"file": "chunks/01-12.js",
+		"name": "01-12",
+		"src": "changelogs/2025/01-12.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2025/01-17.mg": {
+		"file": "chunks/01-17.js",
+		"name": "01-17",
+		"src": "changelogs/2025/01-17.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2025/01-19.mg": {
+		"file": "chunks/01-19.js",
+		"name": "01-19",
+		"src": "changelogs/2025/01-19.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2025/01-27.mg": {
+		"file": "chunks/01-27.js",
+		"name": "01-27",
+		"src": "changelogs/2025/01-27.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2025/02-11.mg": {
+		"file": "chunks/02-11.js",
+		"name": "02-11",
+		"src": "changelogs/2025/02-11.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2025/02-25.mg": {
+		"file": "chunks/02-25.js",
+		"name": "02-25",
+		"src": "changelogs/2025/02-25.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2025/03-13.mg": {
+		"file": "chunks/03-13.js",
+		"name": "03-13",
+		"src": "changelogs/2025/03-13.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2025/03-16.mg": {
+		"file": "chunks/03-16.js",
+		"name": "03-16",
+		"src": "changelogs/2025/03-16.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2025/03-19.mg": {
+		"file": "chunks/03-19.js",
+		"name": "03-19",
+		"src": "changelogs/2025/03-19.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2025/04-04.mg": {
+		"file": "chunks/04-04.js",
+		"name": "04-04",
+		"src": "changelogs/2025/04-04.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2025/04-17.mg": {
+		"file": "chunks/04-17.js",
+		"name": "04-17",
+		"src": "changelogs/2025/04-17.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2025/05-08.mg": {
+		"file": "chunks/05-08.js",
+		"name": "05-08",
+		"src": "changelogs/2025/05-08.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2025/05-11.mg": {
+		"file": "chunks/05-11.js",
+		"name": "05-11",
+		"src": "changelogs/2025/05-11.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2025/05-19.mg": {
+		"file": "chunks/05-192.js",
+		"name": "05-19",
+		"src": "changelogs/2025/05-19.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2025/05-21.mg": {
+		"file": "chunks/05-21.js",
+		"name": "05-21",
+		"src": "changelogs/2025/05-21.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2025/05-27.mg": {
+		"file": "chunks/05-27.js",
+		"name": "05-27",
+		"src": "changelogs/2025/05-27.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2025/06-17.mg": {
+		"file": "chunks/06-17.js",
+		"name": "06-17",
+		"src": "changelogs/2025/06-17.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2025/07-04.mg": {
+		"file": "chunks/07-042.js",
+		"name": "07-04",
+		"src": "changelogs/2025/07-04.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2025/07-29.mg": {
+		"file": "chunks/07-29.js",
+		"name": "07-29",
+		"src": "changelogs/2025/07-29.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2025/08-18.mg": {
+		"file": "chunks/08-182.js",
+		"name": "08-18",
+		"src": "changelogs/2025/08-18.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2025/09-04.mg": {
+		"file": "chunks/09-04.js",
+		"name": "09-04",
+		"src": "changelogs/2025/09-04.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2025/10-02.mg": {
+		"file": "chunks/10-022.js",
+		"name": "10-02",
+		"src": "changelogs/2025/10-02.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2025/10-24.mg": {
+		"file": "chunks/10-242.js",
+		"name": "10-24",
+		"src": "changelogs/2025/10-24.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2025/11-21.mg": {
+		"file": "chunks/11-212.js",
+		"name": "11-21",
+		"src": "changelogs/2025/11-21.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2025/12-16.mg": {
+		"file": "chunks/12-16.js",
+		"name": "12-16",
+		"src": "changelogs/2025/12-16.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2025/12-29.mg": {
+		"file": "chunks/12-29.js",
+		"name": "12-29",
+		"src": "changelogs/2025/12-29.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2025/billy-comes-in-swinging.mg": {
+		"file": "chunks/billy-comes-in-swinging.js",
+		"name": "billy-comes-in-swinging",
+		"src": "changelogs/2025/billy-comes-in-swinging.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2025/drifter-emerges-from-the-shadows.mg": {
+		"file": "chunks/drifter-emerges-from-the-shadows.js",
+		"name": "drifter-emerges-from-the-shadows",
+		"src": "changelogs/2025/drifter-emerges-from-the-shadows.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2025/paige-writes-her-own-story.mg": {
+		"file": "chunks/paige-writes-her-own-story.js",
+		"name": "paige-writes-her-own-story",
+		"src": "changelogs/2025/paige-writes-her-own-story.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2025/the-doorman-at-your-service.mg": {
+		"file": "chunks/the-doorman-at-your-service.js",
+		"name": "the-doorman-at-your-service",
+		"src": "changelogs/2025/the-doorman-at-your-service.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2025/you-cant-kill-victor.mg": {
+		"file": "chunks/you-cant-kill-victor.js",
+		"name": "you-cant-kill-victor",
+		"src": "changelogs/2025/you-cant-kill-victor.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2026/01-30.mg": {
+		"file": "chunks/01-30.js",
+		"name": "01-30",
+		"src": "changelogs/2026/01-30.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2026/03-06.mg": {
+		"file": "chunks/03-06.js",
+		"name": "03-06",
+		"src": "changelogs/2026/03-06.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2026/03-21.mg": {
+		"file": "chunks/03-21.js",
+		"name": "03-21",
+		"src": "changelogs/2026/03-21.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2026/03-25.mg": {
+		"file": "chunks/03-25.js",
+		"name": "03-25",
+		"src": "changelogs/2026/03-25.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2026/04-10.mg": {
+		"file": "chunks/04-10.js",
+		"name": "04-10",
+		"src": "changelogs/2026/04-10.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2026/04-30.mg": {
+		"file": "chunks/04-30.js",
+		"name": "04-30",
+		"src": "changelogs/2026/04-30.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2026/05-22.mg": {
+		"file": "chunks/05-22.js",
+		"name": "05-22",
+		"src": "changelogs/2026/05-22.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2026/06-30.mg": {
+		"file": "chunks/06-30.js",
+		"name": "06-30",
+		"src": "changelogs/2026/06-30.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2026/08-12.mg": {
+		"file": "chunks/08-12.js",
+		"name": "08-12",
+		"src": "changelogs/2026/08-12.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2026/08-22.mg": {
+		"file": "chunks/08-222.js",
+		"name": "08-22",
+		"src": "changelogs/2026/08-22.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2026/09-16.mg": {
+		"file": "chunks/09-16.js",
+		"name": "09-16",
+		"src": "changelogs/2026/09-16.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2026/apollo-a-cut-above.mg": {
+		"file": "chunks/apollo-a-cut-above.js",
+		"name": "apollo-a-cut-above",
+		"src": "changelogs/2026/apollo-a-cut-above.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2026/graves-prefers-the-dead.mg": {
+		"file": "chunks/graves-prefers-the-dead.js",
+		"name": "graves-prefers-the-dead",
+		"src": "changelogs/2026/graves-prefers-the-dead.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2026/introducing-the-dazzling-celeste.mg": {
+		"file": "chunks/introducing-the-dazzling-celeste.js",
+		"name": "introducing-the-dazzling-celeste",
+		"src": "changelogs/2026/introducing-the-dazzling-celeste.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2026/matchmaking.mg": {
+		"file": "chunks/matchmaking.js",
+		"name": "matchmaking",
+		"src": "changelogs/2026/matchmaking.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2026/minor-05-25.mg": {
+		"file": "chunks/minor-05-25.js",
+		"name": "minor-05-25",
+		"src": "changelogs/2026/minor-05-25.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2026/minor-05-28.mg": {
+		"file": "chunks/minor-05-28.js",
+		"name": "minor-05-28",
+		"src": "changelogs/2026/minor-05-28.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2026/minor-05-31.mg": {
+		"file": "chunks/minor-05-31.js",
+		"name": "minor-05-31",
+		"src": "changelogs/2026/minor-05-31.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2026/minor-06-04.mg": {
+		"file": "chunks/minor-06-04.js",
+		"name": "minor-06-04",
+		"src": "changelogs/2026/minor-06-04.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2026/minor-06-11.mg": {
+		"file": "chunks/minor-06-11.js",
+		"name": "minor-06-11",
+		"src": "changelogs/2026/minor-06-11.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2026/minor-07-01.mg": {
+		"file": "chunks/minor-07-01.js",
+		"name": "minor-07-01",
+		"src": "changelogs/2026/minor-07-01.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2026/minor-07-09.mg": {
+		"file": "chunks/minor-07-09.js",
+		"name": "minor-07-09",
+		"src": "changelogs/2026/minor-07-09.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2026/minor-07-28.mg": {
+		"file": "chunks/minor-07-28.js",
+		"name": "minor-07-28",
+		"src": "changelogs/2026/minor-07-28.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_MethodNote.js", "_VideoLink.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2026/old-gods-new-blood.mg": {
+		"file": "chunks/old-gods-new-blood.js",
+		"name": "old-gods-new-blood",
+		"src": "changelogs/2026/old-gods-new-blood.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2026/rem-enters-the-city-that-never-sleeps.mg": {
+		"file": "chunks/rem-enters-the-city-that-never-sleeps.js",
+		"name": "rem-enters-the-city-that-never-sleeps",
+		"src": "changelogs/2026/rem-enters-the-city-that-never-sleeps.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2026/some-are-merciful-the-venator-is-not.mg": {
+		"file": "chunks/some-are-merciful-the-venator-is-not.js",
+		"name": "some-are-merciful-the-venator-is-not",
+		"src": "changelogs/2026/some-are-merciful-the-venator-is-not.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"changelogs/2026/the-curse-beckons-for-silver.mg": {
+		"file": "chunks/the-curse-beckons-for-silver.js",
+		"name": "the-curse-beckons-for-silver",
+		"src": "changelogs/2026/the-curse-beckons-for-silver.mg",
+		"isDynamicEntry": true,
+		"imports": ["_server2.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.CF76y85e.css"]
+	},
+	"src/hooks.server.ts": {
+		"file": "entries/hooks.server.js",
+		"name": "entries/hooks.server",
+		"src": "src/hooks.server.ts",
+		"isEntry": true,
+		"imports": ["_internal2.js", "_src.js", "_seo.js"]
+	},
+	"src/routes/+error.svelte": {
+		"file": "entries/pages/_error.svelte.js",
+		"name": "entries/pages/_error.svelte",
+		"src": "src/routes/+error.svelte",
+		"isEntry": true,
+		"imports": [
+			"_server2.js",
+			"_seo.js",
+			"_Icon.js",
+			"_arrow-right.js",
+			"_CornerAccents.js",
+			"_dist.js"
+		]
+	},
+	"src/routes/+layout.server.ts": {
+		"file": "entries/pages/_layout.server.ts.js",
+		"name": "entries/pages/_layout.server.ts",
+		"src": "src/routes/+layout.server.ts",
+		"isEntry": true,
+		"imports": ["_internal2.js", "_src.js", "_entityImages2.js"]
+	},
+	"src/routes/+layout.svelte": {
+		"file": "entries/pages/_layout.svelte.js",
+		"name": "entries/pages/_layout.svelte",
+		"src": "src/routes/+layout.svelte",
+		"isEntry": true,
+		"imports": [
+			"_index-server.js",
+			"_internal.js",
+			"_server2.js",
+			"_Icon.js",
+			"_context.js"
+		],
+		"css": ["_app/immutable/assets/_layout.BQAkt_QO.css"]
+	},
+	"src/routes/+page.server.ts": {
+		"file": "entries/pages/_page.server.ts.js",
+		"name": "entries/pages/_page.server.ts",
+		"src": "src/routes/+page.server.ts",
+		"isEntry": true,
+		"imports": ["_src.js", "_pages.js"]
+	},
+	"src/routes/+page.svelte": {
+		"file": "entries/pages/_page.svelte.js",
+		"name": "entries/pages/_page.svelte",
+		"src": "src/routes/+page.svelte",
+		"isEntry": true,
+		"imports": ["_server2.js", "_changelog.js", "_seo.js", "_context.js", "_dist.js"]
+	},
+	"src/routes/ability/[slug]/+page.server.ts": {
+		"file": "entries/pages/ability/_slug_/_page.server.ts.js",
+		"name": "entries/pages/ability/_slug_/_page.server.ts",
+		"src": "src/routes/ability/[slug]/+page.server.ts",
+		"isEntry": true,
+		"imports": [
+			"_src.js",
+			"_src2.js",
+			"_entityImages.js",
+			"_seo.js",
+			"_previousChanges.js"
+		],
+		"dynamicImports": ["../lib/db/src/index.ts"]
+	},
+	"src/routes/ability/[slug]/+page.svelte": {
+		"file": "entries/pages/ability/_slug_/_page.svelte.js",
+		"name": "entries/pages/ability/_slug_/_page.svelte",
+		"src": "src/routes/ability/[slug]/+page.svelte",
+		"isEntry": true,
+		"imports": ["_server2.js", "_EntityChangelogPage.js"]
+	},
+	"src/routes/archive/+page.server.ts": {
+		"file": "entries/pages/archive/_page.server.ts.js",
+		"name": "entries/pages/archive/_page.server.ts",
+		"src": "src/routes/archive/+page.server.ts",
+		"isEntry": true,
+		"imports": ["_src.js"]
+	},
+	"src/routes/archive/+page.svelte": {
+		"file": "entries/pages/archive/_page.svelte.js",
+		"name": "entries/pages/archive/_page.svelte",
+		"src": "src/routes/archive/+page.svelte",
+		"isEntry": true,
+		"imports": ["_server2.js", "_src2.js", "_seo.js", "_dist.js"]
+	},
+	"src/routes/change/[...slug]/+page.server.ts": {
+		"file": "entries/pages/change/_...slug_/_page.server.ts.js",
+		"name": "entries/pages/change/_...slug_/_page.server.ts",
+		"src": "src/routes/change/[...slug]/+page.server.ts",
+		"isEntry": true,
+		"imports": [
+			"_src.js",
+			"_src2.js",
+			"_seo.js",
+			"_readingContext.js",
+			"_shareRows.js",
+			"_previousChanges.js"
+		],
+		"dynamicImports": [
+			"changelogs/2024/05-03.mg",
+			"changelogs/2024/05-10.mg",
+			"changelogs/2024/05-13.mg",
+			"changelogs/2024/05-16.mg",
+			"changelogs/2024/05-19.mg",
+			"changelogs/2024/05-23.mg",
+			"changelogs/2024/05-24.mg",
+			"changelogs/2024/05-30.mg",
+			"changelogs/2024/06-01.mg",
+			"changelogs/2024/06-06.mg",
+			"changelogs/2024/06-07.mg",
+			"changelogs/2024/06-13.mg",
+			"changelogs/2024/06-14.mg",
+			"changelogs/2024/06-16.mg",
+			"changelogs/2024/06-20.mg",
+			"changelogs/2024/06-23.mg",
+			"changelogs/2024/06-27.mg",
+			"changelogs/2024/07-04.mg",
+			"changelogs/2024/07-11.mg",
+			"changelogs/2024/07-18.mg",
+			"changelogs/2024/07-23.mg",
+			"changelogs/2024/08-01.mg",
+			"changelogs/2024/08-06.mg",
+			"changelogs/2024/08-15.mg",
+			"changelogs/2024/08-16.mg",
+			"changelogs/2024/08-18.mg",
+			"changelogs/2024/08-22.mg",
+			"changelogs/2024/08-23.mg",
+			"changelogs/2024/08-29.mg",
+			"changelogs/2024/09-01.mg",
+			"changelogs/2024/09-12.mg",
+			"changelogs/2024/09-14.mg",
+			"changelogs/2024/09-17.mg",
+			"changelogs/2024/09-19.mg",
+			"changelogs/2024/09-26.mg",
+			"changelogs/2024/09-27.mg",
+			"changelogs/2024/09-29.mg",
+			"changelogs/2024/10-02.mg",
+			"changelogs/2024/10-07.mg",
+			"changelogs/2024/10-10.mg",
+			"changelogs/2024/10-11.mg",
+			"changelogs/2024/10-15.mg",
+			"changelogs/2024/10-18-2.mg",
+			"changelogs/2024/10-18.mg",
+			"changelogs/2024/10-24.mg",
+			"changelogs/2024/10-27.mg",
+			"changelogs/2024/10-29.mg",
+			"changelogs/2024/11-01.mg",
+			"changelogs/2024/11-07.mg",
+			"changelogs/2024/11-10.mg",
+			"changelogs/2024/11-13.mg",
+			"changelogs/2024/11-21.mg",
+			"changelogs/2024/11-29.mg",
+			"changelogs/2024/12-06.mg",
+			"changelogs/2024/12-17.mg",
+			"changelogs/2024/12-21.mg",
+			"changelogs/2024/12-31.mg",
+			"changelogs/2025/01-12.mg",
+			"changelogs/2025/01-17.mg",
+			"changelogs/2025/01-19.mg",
+			"changelogs/2025/01-27.mg",
+			"changelogs/2025/02-11.mg",
+			"changelogs/2025/02-25.mg",
+			"changelogs/2025/03-13.mg",
+			"changelogs/2025/03-16.mg",
+			"changelogs/2025/03-19.mg",
+			"changelogs/2025/04-04.mg",
+			"changelogs/2025/04-17.mg",
+			"changelogs/2025/05-08.mg",
+			"changelogs/2025/05-11.mg",
+			"changelogs/2025/05-19.mg",
+			"changelogs/2025/05-21.mg",
+			"changelogs/2025/05-27.mg",
+			"changelogs/2025/06-17.mg",
+			"changelogs/2025/07-04.mg",
+			"changelogs/2025/07-29.mg",
+			"changelogs/2025/08-18.mg",
+			"changelogs/2025/09-04.mg",
+			"changelogs/2025/10-02.mg",
+			"changelogs/2025/10-24.mg",
+			"changelogs/2025/11-21.mg",
+			"changelogs/2025/12-16.mg",
+			"changelogs/2025/12-29.mg",
+			"changelogs/2025/billy-comes-in-swinging.mg",
+			"changelogs/2025/drifter-emerges-from-the-shadows.mg",
+			"changelogs/2025/paige-writes-her-own-story.mg",
+			"changelogs/2025/the-doorman-at-your-service.mg",
+			"changelogs/2025/you-cant-kill-victor.mg",
+			"changelogs/2026/01-30.mg",
+			"changelogs/2026/03-06.mg",
+			"changelogs/2026/03-21.mg",
+			"changelogs/2026/03-25.mg",
+			"changelogs/2026/04-10.mg",
+			"changelogs/2026/04-30.mg",
+			"changelogs/2026/05-22.mg",
+			"changelogs/2026/06-30.mg",
+			"changelogs/2026/08-12.mg",
+			"changelogs/2026/08-22.mg",
+			"changelogs/2026/09-16.mg",
+			"changelogs/2026/apollo-a-cut-above.mg",
+			"changelogs/2026/graves-prefers-the-dead.mg",
+			"changelogs/2026/introducing-the-dazzling-celeste.mg",
+			"changelogs/2026/matchmaking.mg",
+			"changelogs/2026/minor-05-25.mg",
+			"changelogs/2026/minor-05-28.mg",
+			"changelogs/2026/minor-05-31.mg",
+			"changelogs/2026/minor-06-04.mg",
+			"changelogs/2026/minor-06-11.mg",
+			"changelogs/2026/minor-07-01.mg",
+			"changelogs/2026/minor-07-09.mg",
+			"changelogs/2026/minor-07-28.mg",
+			"changelogs/2026/old-gods-new-blood.mg",
+			"changelogs/2026/rem-enters-the-city-that-never-sleeps.mg",
+			"changelogs/2026/some-are-merciful-the-venator-is-not.mg",
+			"changelogs/2026/the-curse-beckons-for-silver.mg",
+			"../lib/db/src/index.ts"
+		]
+	},
+	"src/routes/change/[...slug]/+page.svelte": {
+		"file": "entries/pages/change/_...slug_/_page.svelte.js",
+		"name": "entries/pages/change/_...slug_/_page.svelte",
+		"src": "src/routes/change/[...slug]/+page.svelte",
+		"isEntry": true,
+		"imports": [
+			"_server2.js",
+			"_internal2.js",
+			"_src2.js",
+			"_changelog.js",
+			"_seo.js",
+			"_Icon.js",
+			"_context.js",
+			"_CornerAccents.js",
+			"_dist.js",
+			"_arrow-left.js",
+			"_MethodNote.js",
+			"_external-link.js"
+		]
+	},
+	"src/routes/change/[...slug]/+page.ts": {
+		"file": "entries/pages/change/_...slug_/_page.ts.js",
+		"name": "entries/pages/change/_...slug_/_page.ts",
+		"src": "src/routes/change/[...slug]/+page.ts",
+		"isEntry": true,
+		"imports": ["_seo.js", "_readingContext.js"],
+		"dynamicImports": [
+			"changelogs/2024/05-03.mg",
+			"changelogs/2024/05-10.mg",
+			"changelogs/2024/05-13.mg",
+			"changelogs/2024/05-16.mg",
+			"changelogs/2024/05-19.mg",
+			"changelogs/2024/05-23.mg",
+			"changelogs/2024/05-24.mg",
+			"changelogs/2024/05-30.mg",
+			"changelogs/2024/06-01.mg",
+			"changelogs/2024/06-06.mg",
+			"changelogs/2024/06-07.mg",
+			"changelogs/2024/06-13.mg",
+			"changelogs/2024/06-14.mg",
+			"changelogs/2024/06-16.mg",
+			"changelogs/2024/06-20.mg",
+			"changelogs/2024/06-23.mg",
+			"changelogs/2024/06-27.mg",
+			"changelogs/2024/07-04.mg",
+			"changelogs/2024/07-11.mg",
+			"changelogs/2024/07-18.mg",
+			"changelogs/2024/07-23.mg",
+			"changelogs/2024/08-01.mg",
+			"changelogs/2024/08-06.mg",
+			"changelogs/2024/08-15.mg",
+			"changelogs/2024/08-16.mg",
+			"changelogs/2024/08-18.mg",
+			"changelogs/2024/08-22.mg",
+			"changelogs/2024/08-23.mg",
+			"changelogs/2024/08-29.mg",
+			"changelogs/2024/09-01.mg",
+			"changelogs/2024/09-12.mg",
+			"changelogs/2024/09-14.mg",
+			"changelogs/2024/09-17.mg",
+			"changelogs/2024/09-19.mg",
+			"changelogs/2024/09-26.mg",
+			"changelogs/2024/09-27.mg",
+			"changelogs/2024/09-29.mg",
+			"changelogs/2024/10-02.mg",
+			"changelogs/2024/10-07.mg",
+			"changelogs/2024/10-10.mg",
+			"changelogs/2024/10-11.mg",
+			"changelogs/2024/10-15.mg",
+			"changelogs/2024/10-18-2.mg",
+			"changelogs/2024/10-18.mg",
+			"changelogs/2024/10-24.mg",
+			"changelogs/2024/10-27.mg",
+			"changelogs/2024/10-29.mg",
+			"changelogs/2024/11-01.mg",
+			"changelogs/2024/11-07.mg",
+			"changelogs/2024/11-10.mg",
+			"changelogs/2024/11-13.mg",
+			"changelogs/2024/11-21.mg",
+			"changelogs/2024/11-29.mg",
+			"changelogs/2024/12-06.mg",
+			"changelogs/2024/12-17.mg",
+			"changelogs/2024/12-21.mg",
+			"changelogs/2024/12-31.mg",
+			"changelogs/2025/01-12.mg",
+			"changelogs/2025/01-17.mg",
+			"changelogs/2025/01-19.mg",
+			"changelogs/2025/01-27.mg",
+			"changelogs/2025/02-11.mg",
+			"changelogs/2025/02-25.mg",
+			"changelogs/2025/03-13.mg",
+			"changelogs/2025/03-16.mg",
+			"changelogs/2025/03-19.mg",
+			"changelogs/2025/04-04.mg",
+			"changelogs/2025/04-17.mg",
+			"changelogs/2025/05-08.mg",
+			"changelogs/2025/05-11.mg",
+			"changelogs/2025/05-19.mg",
+			"changelogs/2025/05-21.mg",
+			"changelogs/2025/05-27.mg",
+			"changelogs/2025/06-17.mg",
+			"changelogs/2025/07-04.mg",
+			"changelogs/2025/07-29.mg",
+			"changelogs/2025/08-18.mg",
+			"changelogs/2025/09-04.mg",
+			"changelogs/2025/10-02.mg",
+			"changelogs/2025/10-24.mg",
+			"changelogs/2025/11-21.mg",
+			"changelogs/2025/12-16.mg",
+			"changelogs/2025/12-29.mg",
+			"changelogs/2025/billy-comes-in-swinging.mg",
+			"changelogs/2025/drifter-emerges-from-the-shadows.mg",
+			"changelogs/2025/paige-writes-her-own-story.mg",
+			"changelogs/2025/the-doorman-at-your-service.mg",
+			"changelogs/2025/you-cant-kill-victor.mg",
+			"changelogs/2026/01-30.mg",
+			"changelogs/2026/03-06.mg",
+			"changelogs/2026/03-21.mg",
+			"changelogs/2026/03-25.mg",
+			"changelogs/2026/04-10.mg",
+			"changelogs/2026/04-30.mg",
+			"changelogs/2026/05-22.mg",
+			"changelogs/2026/06-30.mg",
+			"changelogs/2026/08-12.mg",
+			"changelogs/2026/08-22.mg",
+			"changelogs/2026/09-16.mg",
+			"changelogs/2026/apollo-a-cut-above.mg",
+			"changelogs/2026/graves-prefers-the-dead.mg",
+			"changelogs/2026/introducing-the-dazzling-celeste.mg",
+			"changelogs/2026/matchmaking.mg",
+			"changelogs/2026/minor-05-25.mg",
+			"changelogs/2026/minor-05-28.mg",
+			"changelogs/2026/minor-05-31.mg",
+			"changelogs/2026/minor-06-04.mg",
+			"changelogs/2026/minor-06-11.mg",
+			"changelogs/2026/minor-07-01.mg",
+			"changelogs/2026/minor-07-09.mg",
+			"changelogs/2026/minor-07-28.mg",
+			"changelogs/2026/old-gods-new-blood.mg",
+			"changelogs/2026/rem-enters-the-city-that-never-sleeps.mg",
+			"changelogs/2026/some-are-merciful-the-venator-is-not.mg",
+			"changelogs/2026/the-curse-beckons-for-silver.mg"
+		]
+	},
+	"src/routes/feed-groups.json/+server.ts": {
+		"file": "entries/endpoints/feed-groups.json/_server.ts.js",
+		"name": "entries/endpoints/feed-groups.json/_server.ts",
+		"src": "src/routes/feed-groups.json/+server.ts",
+		"isEntry": true,
+		"imports": ["_src.js"]
+	},
+	"src/routes/feed-index.json/+server.ts": {
+		"file": "entries/endpoints/feed-index.json/_server.ts.js",
+		"name": "entries/endpoints/feed-index.json/_server.ts",
+		"src": "src/routes/feed-index.json/+server.ts",
+		"isEntry": true,
+		"imports": ["_src.js"]
+	},
+	"src/routes/feed-page/[page].json/+server.ts": {
+		"file": "entries/endpoints/feed-page/_page_.json/_server.ts.js",
+		"name": "entries/endpoints/feed-page/_page_.json/_server.ts",
+		"src": "src/routes/feed-page/[page].json/+server.ts",
+		"isEntry": true,
+		"imports": ["_src.js", "_pages.js"],
+		"dynamicImports": ["../lib/db/src/index.ts"]
+	},
+	"src/routes/feed-text.json/+server.ts": {
+		"file": "entries/endpoints/feed-text.json/_server.ts.js",
+		"name": "entries/endpoints/feed-text.json/_server.ts",
+		"src": "src/routes/feed-text.json/+server.ts",
+		"isEntry": true,
+		"imports": ["_src.js"]
+	},
+	"src/routes/hero/[slug]/+page.server.ts": {
+		"file": "entries/pages/hero/_slug_/_page.server.ts.js",
+		"name": "entries/pages/hero/_slug_/_page.server.ts",
+		"src": "src/routes/hero/[slug]/+page.server.ts",
+		"isEntry": true,
+		"imports": [
+			"_src.js",
+			"_src2.js",
+			"_relatedItems.js",
+			"_seo.js",
+			"_entityImages2.js",
+			"_shareRows.js",
+			"_previousChanges.js"
+		],
+		"dynamicImports": ["../lib/db/src/index.ts"]
+	},
+	"src/routes/hero/[slug]/+page.svelte": {
+		"file": "entries/pages/hero/_slug_/_page.svelte.js",
+		"name": "entries/pages/hero/_slug_/_page.svelte",
+		"src": "src/routes/hero/[slug]/+page.svelte",
+		"isEntry": true,
+		"imports": ["_server2.js", "_EntityChangelogPage.js"]
+	},
+	"src/routes/heroes/+page.svelte": {
+		"file": "entries/pages/heroes/_page.svelte.js",
+		"name": "entries/pages/heroes/_page.svelte",
+		"src": "src/routes/heroes/+page.svelte",
+		"isEntry": true,
+		"imports": ["_server2.js", "_entityImages2.js", "_EntityDirectory.js"]
+	},
+	"src/routes/heroes/+page.ts": {
+		"file": "entries/pages/heroes/_page.ts.js",
+		"name": "entries/pages/heroes/_page.ts",
+		"src": "src/routes/heroes/+page.ts",
+		"isEntry": true
+	},
+	"src/routes/item/[slug]/+page.server.ts": {
+		"file": "entries/pages/item/_slug_/_page.server.ts.js",
+		"name": "entries/pages/item/_slug_/_page.server.ts",
+		"src": "src/routes/item/[slug]/+page.server.ts",
+		"isEntry": true,
+		"imports": ["_src.js", "_seo.js", "_shareRows.js", "_previousChanges.js"],
+		"dynamicImports": ["../lib/db/src/index.ts"]
+	},
+	"src/routes/item/[slug]/+page.svelte": {
+		"file": "entries/pages/item/_slug_/_page.svelte.js",
+		"name": "entries/pages/item/_slug_/_page.svelte",
+		"src": "src/routes/item/[slug]/+page.svelte",
+		"isEntry": true,
+		"imports": ["_server2.js", "_EntityChangelogPage.js"]
+	},
+	"src/routes/items/+page.svelte": {
+		"file": "entries/pages/items/_page.svelte.js",
+		"name": "entries/pages/items/_page.svelte",
+		"src": "src/routes/items/+page.svelte",
+		"isEntry": true,
+		"imports": ["_server2.js", "_entityImages2.js", "_EntityDirectory.js"]
+	},
+	"src/routes/items/+page.ts": {
+		"file": "entries/pages/items/_page.ts.js",
+		"name": "entries/pages/items/_page.ts",
+		"src": "src/routes/items/+page.ts",
+		"isEntry": true
+	},
+	"src/routes/sitemap.xml/+server.ts": {
+		"file": "entries/endpoints/sitemap.xml/_server.ts.js",
+		"name": "entries/endpoints/sitemap.xml/_server.ts",
+		"src": "src/routes/sitemap.xml/+server.ts",
+		"isEntry": true,
+		"imports": ["_src.js", "_seo.js"]
+	},
+	"virtual:__sveltekit/env": {
+		"file": "env.js",
+		"name": "env",
+		"src": "virtual:__sveltekit/env",
+		"isEntry": true,
+		"imports": ["_env.js"]
+	}
+}

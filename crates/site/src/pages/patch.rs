@@ -6,27 +6,26 @@ use std::collections::{HashMap, HashSet};
 use std::fs;
 use std::path::Path;
 
+use ::mog::TocEntry;
 use anyhow::{Context, Result};
 use askama::Template;
 use chrono::Timelike;
-use deadlog_changelog::PROPERTY_EXTRACTION_VERSION;
+use deadlog_changelog::{PROPERTY_EXTRACTION_VERSION, digest};
 use deadlog_db::{Ability, Changelog};
 use deadlog_model::{
     EntityType, author_initials, entity_fragment_id, entity_names_match, format_date, iso_string, make_summary,
     parse_date, patch_heading, plural, related_share, resolve_hero_ability_slug, to_slug,
 };
-use ::mog::TocEntry;
 use rayon::prelude::*;
 use serde_json::{Value, json};
-use sha2::{Digest, Sha256};
 
 use super::Page;
 use crate::context::hero_icon_image;
 use crate::meta::{Article, Meta, SITE_NAME, SITE_URL, absolute_url, breadcrumb_list, change_path};
-use crate::mog::{self, Icon, Icons, Manifest, PatchContext, Reading, RelatedReading, detail_key, previous_key};
+use crate::mog::{self, Icon, Icons, Manifest, PatchContext, Reading, detail_key, previous_key};
 use crate::share::{
-    self, ContextView, HeroIcon, MethodNote, PageContext, PropertyLink, RELATED_ITEMS_LIMIT, RELATED_MIN_APPEARANCES,
-    RELATED_MIN_BUYERS, ShareRow,
+    self, ContextView, MethodNote, PropertyLink, RELATED_ITEMS_LIMIT, RELATED_MIN_APPEARANCES, RELATED_MIN_BUYERS,
+    ShareRow,
 };
 use crate::{Assets, Layout, Site};
 
@@ -37,41 +36,26 @@ fn format_time(date: &str) -> String {
 }
 
 fn icons(site: &Site, changelog: &Changelog) -> Icons {
-    let mut heroes: Vec<Icon> = site
-        .heroes_in(&changelog.id)
-        .iter()
-        .filter_map(|link| {
-            let hero = site.hero(link.hero_id)?;
-            Some(Icon {
-                id: hero.id,
-                src: hero_icon_image(hero),
-                alt: hero.name.clone(),
-                slug: hero.slug.clone(),
-                change_count: link.change_groups.as_ref().map(|groups| groups.iter().map(|group| group.bullets.len()).sum()),
-            })
-        })
-        .collect();
-    heroes.sort_by(|a, b| a.alt.cmp(&b.alt));
-    let mut items: Vec<Icon> = site
-        .items_in(&changelog.id)
-        .iter()
-        .filter_map(|link| {
-            let item = site.item(link.item_id)?;
-            Some(Icon {
-                id: item.id,
-                src: item.image.clone(),
-                alt: item.name.clone(),
-                slug: item.slug.clone(),
-                change_count: link.change_groups.as_ref().map(|groups| groups.iter().map(|group| group.bullets.len()).sum()),
-            })
-        })
-        .collect();
-    items.sort_by(|a, b| a.alt.cmp(&b.alt));
-    Icons { heroes, items }
-}
-
-fn sha_prefix(text: &str) -> String {
-    Sha256::digest(text.as_bytes()).iter().take(8).map(|byte| format!("{byte:02x}")).collect()
+    let by_name = |mut icons: Vec<Icon>| {
+        icons.sort_by(|a, b| a.alt.cmp(&b.alt));
+        icons
+    };
+    Icons {
+        heroes: by_name(
+            site.heroes_in(&changelog.id)
+                .iter()
+                .filter_map(|link| site.hero(link.hero_id))
+                .map(|hero| Icon { id: hero.id, src: hero_icon_image(hero), alt: hero.name.clone() })
+                .collect(),
+        ),
+        items: by_name(
+            site.items_in(&changelog.id)
+                .iter()
+                .filter_map(|link| site.item(link.item_id))
+                .map(|item| Icon { id: item.id, src: item.image.clone(), alt: item.name.clone() })
+                .collect(),
+        ),
+    }
 }
 
 /// `projectPatchReading` plus `resolveRelatedReading`.
@@ -88,12 +72,13 @@ fn reading(
 
     for link in items {
         let Some(item) = site.item(link.item_id) else { continue };
-        let changed = link.change_groups.as_ref().is_some_and(|groups| groups.iter().any(|group| !group.bullets.is_empty()));
+        let changed =
+            link.change_groups.as_ref().is_some_and(|groups| groups.iter().any(|group| !group.bullets.is_empty()));
         if let (Some(context), true) = (&item.context, changed) {
             reading.details.insert(
                 detail_key(EntityType::Item, item.id, None),
                 ContextView {
-                    context: PageContext::new(context),
+                    context: context.clone(),
                     name: item.name.clone(),
                     header: false,
                     history_href: Some(format!("/item/{}", item.slug)),
@@ -114,7 +99,7 @@ fn reading(
             reading.details.insert(
                 detail_key(EntityType::Hero, ability.hero_id, Some(&ability.slug)),
                 ContextView {
-                    context: PageContext::new(context),
+                    context: context.clone(),
                     name: ability.name.clone(),
                     header: false,
                     history_href: Some(format!("/ability/{}", ability.slug)),
@@ -131,31 +116,24 @@ fn reading(
             continue;
         }
         let Some(previous) = event.previous_changelog_id.as_deref().and_then(|id| site.changelog(id)) else { continue };
+        let index = event.group_index as usize;
         let (name, group) = match event.entity_type.as_str() {
             "hero" => {
                 let Some(link) = heroes.iter().find(|link| link.hero_id == event.entity_id) else { continue };
                 let Some(hero) = site.hero(link.hero_id) else { continue };
-                let group = link
-                    .change_groups
-                    .as_ref()
-                    .and_then(|groups| groups.get(event.group_index as usize))
-                    .map(|group| (group.ability.clone(), group.bullets.clone()));
-                (hero.name.clone(), group)
+                let group = link.change_groups.as_ref().and_then(|groups| groups.get(index));
+                (hero.name.as_str(), group.map(|group| (group.ability.as_deref(), group.bullets.as_slice())))
             }
             _ => {
                 let Some(link) = items.iter().find(|link| link.item_id == event.entity_id) else { continue };
                 let Some(item) = site.item(link.item_id) else { continue };
-                let group = link
-                    .change_groups
-                    .as_ref()
-                    .and_then(|groups| groups.get(event.group_index as usize))
-                    .map(|group| (group.ability.clone(), group.bullets.clone()));
-                (item.name.clone(), group)
+                let group = link.change_groups.as_ref().and_then(|groups| groups.get(index));
+                (item.name.as_str(), group.map(|group| (group.ability.as_deref(), group.bullets.as_slice())))
             }
         };
         let Some((ability, bullets)) = group else { continue };
         let Some(bullet) = bullets.get(event.bullet_index as usize) else { continue };
-        if sha_prefix(bullet) != event.digest {
+        if digest(bullet) != event.digest {
             continue;
         }
         let toc = tocs.get(&previous.slug).map(Vec::as_slice).unwrap_or_default();
@@ -170,16 +148,17 @@ fn reading(
                     Some(ability) => {
                         heading.level == 3
                             && heading.title == *ability
-                            && owner.is_some_and(|owner| entity_names_match(owner, &name))
+                            && owner.is_some_and(|owner| entity_names_match(owner, name))
                     }
-                    None => heading.level == 2 && entity_names_match(&heading.title, &name),
+                    None => heading.level == 2 && entity_names_match(&heading.title, name),
                 }
             })
             .collect();
         let [heading] = headings.as_slice() else { continue };
-        let link = PropertyLink { event, previous_slug: previous.slug.clone(), previous_pub_date: previous.pub_date.clone() };
+        let link =
+            PropertyLink { event, previous_slug: previous.slug.clone(), previous_pub_date: previous.pub_date.clone() };
         let href = format!("{}#{}", change_path(&previous.slug), heading.id);
-        let annotation = share::previous_change(&link, &changelog.pub_date, ability.as_deref(), &name, Some(href));
+        let annotation = share::previous_change(&link, &changelog.pub_date, ability, name, Some(href));
         reading.previous.insert(
             previous_key(&event.entity_type, event.entity_id, event.group_index, event.bullet_index),
             (annotation, bullet.clone()),
@@ -195,15 +174,9 @@ fn reading(
             reading.maxed_first.insert(link.hero_id, rows);
         }
     }
-    let hero_icons: HashMap<i64, HeroIcon> = site
-        .db
-        .heroes
-        .iter()
-        .map(|hero| (hero.id, HeroIcon { name: hero.name.clone(), slug: hero.slug.clone(), image: hero_icon_image(hero) }))
-        .collect();
     for link in items {
         if let Some(bought) = &link.bought_by {
-            let rows = share::bought_by_rows(bought, &hero_icons);
+            let rows = share::bought_by_rows(bought, site);
             if !rows.is_empty() {
                 reading.bought_by.insert(link.item_id, rows);
             }
@@ -214,39 +187,38 @@ fn reading(
     }
 
     let patch_path = change_path(&changelog.slug);
-    if manifest.stats.as_ref().is_some_and(|stats| stats.before.is_some()) {
-        for (name, record) in &manifest.related {
-            let Some(hero) = icons.heroes.iter().find(|hero| entity_names_match(&hero.alt, name)) else { continue };
-            if record.status != "complete" || record.appearances < RELATED_MIN_APPEARANCES {
-                continue;
-            }
-            let rows: Vec<ShareRow> = record
-                .items
-                .iter()
-                .filter(|recorded| recorded.buyers >= RELATED_MIN_BUYERS && recorded.buyers <= record.appearances)
-                .filter_map(|recorded| {
-                    let item = icons.items.iter().find(|item| item.id == recorded.id)?;
-                    let sections: Vec<&(EntityType, String, String)> = manifest
-                        .sections
-                        .iter()
-                        .filter(|(kind, section, _)| *kind == EntityType::Item && entity_names_match(section, &item.alt))
-                        .collect();
-                    let [(_, _, id)] = sections.as_slice() else { return None };
-                    let share = related_share(record, recorded);
-                    Some(ShareRow {
-                        name: item.alt.clone(),
-                        image: item.src.clone(),
-                        href: format!("{patch_path}#{id}"),
-                        before: share.before,
-                        after: share.after,
-                        muted: false,
-                    })
+    // The manifest only lists complete records of a measured patch.
+    for (name, record) in &manifest.related {
+        let Some(hero) = icons.heroes.iter().find(|hero| entity_names_match(&hero.alt, name)) else { continue };
+        if record.appearances < RELATED_MIN_APPEARANCES {
+            continue;
+        }
+        let rows: Vec<ShareRow> = record
+            .items
+            .iter()
+            .filter(|recorded| recorded.buyers >= RELATED_MIN_BUYERS && recorded.buyers <= record.appearances)
+            .filter_map(|recorded| {
+                let item = icons.items.iter().find(|item| item.id == recorded.id)?;
+                let sections: Vec<&(EntityType, String, String)> = manifest
+                    .sections
+                    .iter()
+                    .filter(|(kind, section, _)| *kind == EntityType::Item && entity_names_match(section, &item.alt))
+                    .collect();
+                let [(_, _, id)] = sections.as_slice() else { return None };
+                let share = related_share(record, recorded);
+                Some(ShareRow {
+                    name: item.alt.clone(),
+                    image: item.src.clone(),
+                    href: format!("{patch_path}#{id}"),
+                    before: share.before,
+                    after: share.after,
+                    muted: false,
                 })
-                .take(RELATED_ITEMS_LIMIT)
-                .collect();
-            if !rows.is_empty() {
-                reading.related.insert(hero.id, RelatedReading { items: rows });
-            }
+            })
+            .take(RELATED_ITEMS_LIMIT)
+            .collect();
+        if !rows.is_empty() {
+            reading.related.insert(hero.id, rows);
         }
     }
     reading
@@ -322,7 +294,9 @@ fn toc_view(toc: &[TocEntry], icons: &Icons, abilities: &[&Ability]) -> TocView 
         .filter(|(_, _, entities)| !entities.is_empty())
         .map(|(id, label, entities)| {
             let order = positions.get(id);
-            let rank = |icon: &Icon| order.and_then(|order| order.get(entity_fragment_id(&icon.alt).as_str()).copied()).unwrap_or(usize::MAX);
+            let rank = |icon: &Icon| {
+                order.and_then(|order| order.get(entity_fragment_id(&icon.alt).as_str()).copied()).unwrap_or(usize::MAX)
+            };
             let mut sorted: Vec<&Icon> = entities.iter().collect();
             sorted.sort_by_key(|icon| rank(icon));
             TocGroup {
@@ -332,8 +306,11 @@ fn toc_view(toc: &[TocEntry], icons: &Icons, abilities: &[&Ability]) -> TocView 
                     .into_iter()
                     .map(|icon| {
                         let fragment = entity_fragment_id(&icon.alt);
-                        let hero_abilities: Vec<&&Ability> =
-                            if id == "hero-changes" { abilities.iter().filter(|ability| ability.hero_id == icon.id).collect() } else { Vec::new() };
+                        let hero_abilities: Vec<&&Ability> = if id == "hero-changes" {
+                            abilities.iter().filter(|ability| ability.hero_id == icon.id).collect()
+                        } else {
+                            Vec::new()
+                        };
                         TocEntity {
                             abilities: nested
                                 .get(fragment.as_str())
@@ -349,7 +326,10 @@ fn toc_view(toc: &[TocEntry], icons: &Icons, abilities: &[&Ability]) -> TocView 
                                                 id: entry.id.clone(),
                                                 title: entry.title.clone(),
                                                 image: slug.and_then(|slug| {
-                                                    hero_abilities.iter().find(|ability| ability.slug == slug).map(|ability| ability.image.clone())
+                                                    hero_abilities
+                                                        .iter()
+                                                        .find(|ability| ability.slug == slug)
+                                                        .map(|ability| ability.image.clone())
                                                 }),
                                             }
                                         })
@@ -407,8 +387,8 @@ fn render_patch(
     source: &str,
     tocs: &HashMap<String, Vec<TocEntry>>,
 ) -> Result<Page> {
-    let structure = mog::structure(source)?;
-    let prepared = mog::prepare(source, &structure)?;
+    let toc_entries = tocs.get(&changelog.slug).map(Vec::as_slice).unwrap_or_default();
+    let prepared = mog::prepare(source, toc_entries)?;
     let icons = icons(site, changelog);
     let reading = reading(site, changelog, &icons, &prepared.manifest, tocs);
     let content = mog::render(
@@ -422,12 +402,10 @@ fn render_patch(
         },
     )?;
 
-    let abilities: Vec<&Ability> =
+    let mut abilities: Vec<&Ability> =
         site.heroes_in(&changelog.id).iter().flat_map(|link| site.abilities(link.hero_id).iter().copied()).collect();
-    let mut abilities = abilities;
     abilities.sort_by_key(|ability| (ability.hero_id, ability.position));
-    let toc_entries = tocs.get(&changelog.slug).cloned().unwrap_or_default();
-    let toc = toc_view(&toc_entries, &icons, &abilities);
+    let toc = toc_view(toc_entries, &icons, &abilities);
 
     let mut context_versions: Vec<i64> = reading
         .details
@@ -452,20 +430,23 @@ fn render_patch(
     let patch_path = change_path(&changelog.slug);
     let canonical = absolute_url(&patch_path);
     let title = format!("{} | Deadlock Patch Notes", changelog.title);
-    let description = Some(make_summary(changelog.content_text.as_deref(), 155)).filter(|text| !text.is_empty()).unwrap_or_else(|| {
-        format!(
-            "Read the {} Deadlock patch notes, including hero, item, and gameplay balance changes.",
-            format_date(&changelog.pub_date)
-        )
-    });
+    let description = Some(make_summary(changelog.content_text.as_deref(), 155))
+        .filter(|text| !text.is_empty())
+        .unwrap_or_else(|| {
+            format!(
+                "Read the {} Deadlock patch notes, including hero, item, and gameplay balance changes.",
+                format_date(&changelog.pub_date)
+            )
+        });
     let image = absolute_url(&format!("/assets/meta/change/{}.png", changelog.id));
     let indexable = changelog.content_text.as_deref().is_some_and(|text| !text.trim().is_empty());
     let published = iso_string(&changelog.pub_date);
     let names: Vec<String> = icons.heroes.iter().chain(&icons.items).map(|icon| icon.alt.clone()).collect();
-    let mut meta = Meta::new(&title, &description, &canonical)
-        .image(&image)
-        .indexable(indexable)
-        .article(Article { published_time: published.clone(), section: "Deadlock Patch Notes".into(), tags: names.clone() });
+    let mut meta = Meta::new(&title, &description, &canonical).image(&image).indexable(indexable).article(Article {
+        published_time: published.clone(),
+        section: "Deadlock Patch Notes".into(),
+        tags: names.clone(),
+    });
     if indexable {
         meta = meta.json_ld(json!({
             "@graph": [
@@ -540,12 +521,16 @@ pub fn render(site: &Site, assets: &Assets, changelogs: &Path) -> Result<Vec<Pag
         .iter()
         .map(|changelog| {
             let path = changelogs.join(format!("{}.mg", changelog.slug));
-            fs::read_to_string(&path).with_context(|| format!("Missing .mg file for {}", changelog.slug)).map(|source| (changelog, source))
+            fs::read_to_string(&path)
+                .with_context(|| format!("Missing .mg file for {}", changelog.slug))
+                .map(|source| (changelog, source))
         })
         .collect::<Result<_>>()?;
     let tocs: HashMap<String, Vec<TocEntry>> = sources
         .par_iter()
-        .map(|(changelog, source)| Ok((changelog.slug.clone(), mog::toc(source).with_context(|| changelog.slug.clone())?)))
+        .map(|(changelog, source)| {
+            Ok((changelog.slug.clone(), mog::toc(source).with_context(|| changelog.slug.clone())?))
+        })
         .collect::<Result<_>>()?;
     sources
         .par_iter()

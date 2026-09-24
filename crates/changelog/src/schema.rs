@@ -43,7 +43,11 @@ fn coerce_string(value: &Value) -> String {
     match value {
         Value::String(text) => text.clone(),
         Value::Number(number) => number.as_f64().map(js_number).unwrap_or_else(|| number.to_string()),
-        Value::Array(items) => items.iter().map(|item| if item.is_null() { String::new() } else { coerce_string(item) }).collect::<Vec<_>>().join(","),
+        Value::Array(items) => items
+            .iter()
+            .map(|item| if item.is_null() { String::new() } else { coerce_string(item) })
+            .collect::<Vec<_>>()
+            .join(","),
         Value::Object(_) => "[object Object]".into(),
         other => other.to_string(),
     }

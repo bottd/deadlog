@@ -4,9 +4,9 @@ use serde_json::{Value, json};
 use crate::node::{Style, div, img, merge, px, style, text};
 use crate::text::{Face, estimate_width, fit_display};
 use crate::theme::{
-    BORDER, CONTENT, FAMILY_BODY, FAMILY_DISPLAY, FAMILY_MONO, FONT_BODY, FONT_DISPLAY, FONT_LABEL,
-    INSET, LEADING_BODY, PADDING, PLATE_HEIGHT, PLATE_WIDTH, RADIUS_CONTROL, RADIUS_THUMB,
-    TRACKING_ANNOTATION, TRACKING_DISPLAY, TRACKING_LABEL, alpha, colors, cut_corners, wire_grid,
+    BORDER, CONTENT, FAMILY_BODY, FAMILY_DISPLAY, FAMILY_MONO, FONT_BODY, FONT_DISPLAY, FONT_LABEL, INSET,
+    LEADING_BODY, PADDING, PLATE_HEIGHT, PLATE_WIDTH, RADIUS_CONTROL, RADIUS_THUMB, TRACKING_ANNOTATION,
+    TRACKING_DISPLAY, TRACKING_LABEL, alpha, colors, cut_corners, wire_grid,
 };
 
 const PLATE_CORNER: i64 = 24;
@@ -51,17 +51,10 @@ fn corner_tick(top_left: bool, color: &str) -> Value {
     } else {
         json!({ "bottom": px(TICK_INSET), "right": px(TICK_INSET) })
     };
-    let bar = merge(
-        style(json!({ "display": "flex", "position": "absolute", "backgroundColor": color })),
-        anchor,
-    );
-    let arm = |width: i64, height: i64| {
-        div(merge(bar.clone(), json!({ "width": px(width), "height": px(height) })), [])
-    };
-    div(
-        style(json!({ "display": "flex" })),
-        [Some(arm(TICK_ARM, TICK_THICKNESS)), Some(arm(TICK_THICKNESS, TICK_ARM))],
-    )
+    let bar = merge(style(json!({ "display": "flex", "position": "absolute", "backgroundColor": color })), anchor);
+    let arm =
+        |width: i64, height: i64| div(merge(bar.clone(), json!({ "width": px(width), "height": px(height) })), []);
+    div(style(json!({ "display": "flex" })), [Some(arm(TICK_ARM, TICK_THICKNESS)), Some(arm(TICK_THICKNESS, TICK_ARM))])
 }
 
 fn wordmark() -> Value {
@@ -149,13 +142,7 @@ pub fn card(trailing: Option<&str>, art: Option<CardArt>, children: Value) -> Va
             "clipPath": cut_corners(PLATE_CORNER),
             "padding": px(PADDING),
         })),
-        [
-            art,
-            Some(corner_tick(true, colors::AMBER)),
-            Some(corner_tick(false, colors::SEA)),
-            Some(rail),
-            Some(column),
-        ],
+        [art, Some(corner_tick(true, colors::AMBER)), Some(corner_tick(false, colors::SEA)), Some(rail), Some(column)],
     );
     div(
         style(json!({
@@ -255,8 +242,8 @@ pub fn annotation(segments: &[Segment], max_width: i64) -> Option<Value> {
     if shown.is_empty() {
         return None;
     }
-    let measured = shown.iter().map(|segment| segment.text.as_str()).collect::<String>()
-        + &"·".repeat((shown.len() - 1) * 3);
+    let measured =
+        shown.iter().map(|segment| segment.text.as_str()).collect::<String>() + &"·".repeat((shown.len() - 1) * 3);
     let size = fit_display(&measured, max_width, &ROW_STEPS, 1, Face::Mono);
     let gap = (size as f64 * 0.45).round() as i64;
 
@@ -423,18 +410,8 @@ pub fn patch_rows(
         style(json!({ "display": "flex", "flexDirection": "column", "gap": "18px" })),
         [
             Some(divider()),
-            entity_row(
-                "HEROES",
-                hero_icons,
-                hero_count.saturating_sub(hero_icons.len()),
-                colors::AMBER,
-            ),
-            entity_row(
-                "ITEMS",
-                item_icons,
-                item_count.saturating_sub(item_icons.len()),
-                colors::SEA,
-            ),
+            entity_row("HEROES", hero_icons, hero_count.saturating_sub(hero_icons.len()), colors::AMBER),
+            entity_row("ITEMS", item_icons, item_count.saturating_sub(item_icons.len()), colors::SEA),
         ],
     ))
 }
@@ -471,9 +448,7 @@ pub fn entity_card(props: EntityCard) -> Value {
                         Some(display(props.name, column, 1)),
                         annotation(&props.segments, column),
                         Some(div(
-                            style(
-                                json!({ "display": "flex", "flexDirection": "column", "gap": "22px" }),
-                            ),
+                            style(json!({ "display": "flex", "flexDirection": "column", "gap": "22px" })),
                             [Some(divider()), lede(props.history, column, 2)],
                         )),
                     ],

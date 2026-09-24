@@ -340,7 +340,12 @@ fn read_description(value: &Value) -> Option<Description> {
 
 fn read_property_fields(map: &Map<String, Value>) -> Property {
     Property {
-        value: nullish(map, "value", |value| (value.is_number() || value.is_string()).then(|| value.clone()), Nullish::Absent),
+        value: nullish(
+            map,
+            "value",
+            |value| (value.is_number() || value.is_string()).then(|| value.clone()),
+            Nullish::Absent,
+        ),
         label: nullish_string(map, "label"),
         prefix: nullish_string(map, "prefix"),
         postfix: nullish_string(map, "postfix"),
@@ -495,9 +500,10 @@ pub fn read_api_item(value: &Value) -> Result<Item> {
         .and_then(|properties| properties.iter().map(|(key, value)| Some((key, value.as_object()?))).collect());
     let mut shown = Vec::new();
     for key in displayed_property_keys(field(map, "tooltip_sections"), field(map, "tooltip_details")) {
-        let Some(source) = properties.as_ref().and_then(|properties| {
-            properties.iter().rev().find(|(name, _)| **name == key).map(|(_, source)| *source)
-        }) else {
+        let Some(source) = properties
+            .as_ref()
+            .and_then(|properties| properties.iter().rev().find(|(name, _)| **name == key).map(|(_, source)| *source))
+        else {
             continue;
         };
         let mut property = read_property_fields(source);

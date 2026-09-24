@@ -81,8 +81,7 @@ impl<'a> ImageCache<'a> {
             return Ok(Arc::from(""));
         }
         let slot = self.slots.lock().unwrap().entry(url.to_string()).or_default().clone();
-        let result =
-            slot.get_or_init(|| convert(self.fetch, url).map(Arc::from).map_err(|e| e.to_string()));
+        let result = slot.get_or_init(|| convert(self.fetch, url).map(Arc::from).map_err(|e| e.to_string()));
         match result {
             Ok(uri) => Ok(uri.clone()),
             Err(error) => {
@@ -112,10 +111,7 @@ mod tests {
             "data:image/png;base64,AA==".to_string()
         };
         assert_eq!(convert(&fetch, "").unwrap(), "");
-        assert_eq!(
-            convert(&fetch, "data:image/png;base64,BB==").unwrap(),
-            "data:image/png;base64,BB=="
-        );
+        assert_eq!(convert(&fetch, "data:image/png;base64,BB==").unwrap(), "data:image/png;base64,BB==");
         assert_eq!(ImageCache::new(&fetch).get("").unwrap().as_ref(), "");
         assert_eq!(calls.load(Ordering::SeqCst), 0);
     }
@@ -140,11 +136,7 @@ mod tests {
     fn a_failed_fetch_is_retried() {
         let calls = AtomicUsize::new(0);
         let fetch = |_: &str| {
-            if calls.fetch_add(1, Ordering::SeqCst) == 0 {
-                String::new()
-            } else {
-                "data:,x".to_string()
-            }
+            if calls.fetch_add(1, Ordering::SeqCst) == 0 { String::new() } else { "data:,x".to_string() }
         };
         let cache = ImageCache::new(&fetch);
         let url = "https://images.example/flaky.webp";

@@ -1,7 +1,7 @@
 use std::collections::{HashMap, HashSet};
 
 use anyhow::{Result, anyhow, bail};
-use deadlog_model::{EntityType, PatchStats, decode_entity_name, entity_name_aliases, is_js_space};
+use deadlog_model::{EntityType, PatchStats, decode_entity_name, entity_name_aliases, is_js_whitespace};
 use serde_json::{Map, Value};
 
 use crate::ast::{self, Node, chain, is_image, plain_text};
@@ -106,7 +106,7 @@ struct Walker<'a> {
 }
 
 fn trimmed_text(node: &Node) -> String {
-    decode_entity_name(plain_text(&node.children).trim_matches(is_js_space))
+    decode_entity_name(plain_text(&node.children).trim_matches(is_js_whitespace))
 }
 
 fn entity_block(node: &Node, name: &str, kind: EntityType) -> Result<EntityBlock> {
@@ -167,12 +167,7 @@ impl<'a> Walker<'a> {
         }
         let block = entity_block(block_node, &title, kind)?;
         self.change_index.insert(key, self.changes.len());
-        self.changes.push(EntityChange {
-            name: title,
-            kind,
-            groups: Vec::new(),
-            enrichment: block.enrichment.clone(),
-        });
+        self.changes.push(EntityChange { name: title, kind, groups: Vec::new(), enrichment: block.enrichment.clone() });
         self.blocks.push(block);
         Ok(())
     }
@@ -289,12 +284,12 @@ impl<'a> Walker<'a> {
 /// would mean two readings of the same tree, which is how the toc and the entity list
 /// drift apart.
 pub fn parse_structure(content: &str) -> Result<ParsedStructure> {
-    let document = ast::parse(content)?;
-    let metadata = document
-        .attributes
-        .as_ref()
-        .and_then(|attributes| attributes.plain.clone())
-        .unwrap_or_default();
+    structure_of(&ast::parse(content)?)
+}
+
+/// [`parse_structure`] over a document already parsed, for callers that also walk the tree.
+pub fn structure_of(document: &ast::Document) -> Result<ParsedStructure> {
+    let metadata = document.attributes.as_ref().and_then(|attributes| attributes.plain.clone()).unwrap_or_default();
     let stats = metadata.get("stats").map(parse_stats).transpose()?;
     let metadata_lines = document
         .attributes

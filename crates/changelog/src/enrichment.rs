@@ -1,7 +1,7 @@
 use anyhow::{Result, bail};
 use deadlog_model::{
-    AbilityOrder, AbilityOrderEntry, BoughtBy, BoughtByHero, EntityImpact, EntityType, RelatedItem,
-    RelatedItems, js_number,
+    AbilityOrder, AbilityOrderEntry, BoughtBy, BoughtByHero, EntityImpact, EntityType, RelatedItem, RelatedItems,
+    js_number,
 };
 use serde_json::{Map, Value};
 
@@ -111,7 +111,9 @@ pub fn parse_related(value: &Value) -> Result<RelatedItems> {
     let appearances = count(LABEL, "appearances", &map["appearances"])?;
     let after_appearances = optional_count(LABEL, map, "after-appearances")?;
     let candidates = string(LABEL, "candidates", &map["candidates"])?;
-    if candidates.is_empty() || !candidates.split(',').all(|id| !id.is_empty() && id.bytes().all(|b| b.is_ascii_digit())) {
+    if candidates.is_empty()
+        || !candidates.split(',').all(|id| !id.is_empty() && id.bytes().all(|b| b.is_ascii_digit()))
+    {
         bail!("Malformed {LABEL}: candidates must be comma-separated ids");
     }
     catchall_entries(LABEL, map, &RESERVED, &["buyers"], &["after"])?;
@@ -220,7 +222,9 @@ fn write_related_node(related: &RelatedItems) -> Vec<String> {
         related
             .items
             .iter()
-            .map(|item| format!("item-{} buyers={}{}", item.id, js_number(item.buyers), prop("after", item.after.map(Some))))
+            .map(|item| {
+                format!("item-{} buyers={}{}", item.id, js_number(item.buyers), prop("after", item.after.map(Some)))
+            })
             .collect(),
     )
 }
@@ -237,7 +241,12 @@ fn write_order_node(order: &AbilityOrder) -> Vec<String> {
             .abilities
             .iter()
             .map(|entry| {
-                format!("ability-{} before={}{}", entry.id, js_number(entry.before), prop("after", entry.after.map(Some)))
+                format!(
+                    "ability-{} before={}{}",
+                    entry.id,
+                    js_number(entry.before),
+                    prop("after", entry.after.map(Some))
+                )
             })
             .collect(),
     )

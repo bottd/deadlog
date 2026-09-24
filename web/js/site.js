@@ -74,7 +74,10 @@ function directory() {
 		empty.hidden = shown !== 0;
 		emptyText.textContent = `No ${label} match ${name ? `“${name}”` : 'this category'}${name && category ? ` in ${category}` : ''}.`;
 		for (const button of buttons) {
-			button.setAttribute('aria-pressed', String(button.dataset.directoryCategory === category));
+			button.setAttribute(
+				'aria-pressed',
+				String(button.dataset.directoryCategory === category)
+			);
 		}
 	};
 
@@ -157,17 +160,10 @@ export function markNew(grid, counter) {
 		if (fresh) {
 			newCount++;
 			if (!card.querySelector('[data-new-badge]')) {
-				const badge = document.createElement('span');
-				badge.setAttribute('data-new-badge', '');
-				badge.setAttribute('bg', 'primary');
-				badge.setAttribute('text', 'primary-foreground');
-				badge.setAttribute('absolute', '');
-				badge.setAttribute('z', '20');
-				badge.setAttribute('p', 'x-1.5 y-0.5');
-				badge.setAttribute('font', 'bold');
-				badge.className = 'kicker-xs clip-corner-sm top-2 right-2';
-				badge.textContent = 'New';
-				card.firstElementChild?.prepend(badge);
+				card.firstElementChild?.insertAdjacentHTML(
+					'afterbegin',
+					'<span data-new-badge bg="primary" text="primary-foreground" absolute z="20" p="x-1.5 y-0.5" font="bold" class="kicker-xs clip-corner-sm top-2 right-2">New</span>'
+				);
 			}
 		} else if (firstSeen === -1) {
 			firstSeen = index;
@@ -200,22 +196,21 @@ const FILTER_KEYS = ['hero', 'item', 'q', 'major'];
 export const hasFilters = (params = new URLSearchParams(location.search)) =>
 	FILTER_KEYS.some((key) => params.get(key));
 
+let observeFeed = () => {};
+
 /** The unfiltered feed continues on `/page/<n>`; with scripting, each next page's cards
  * are appended to the same grid as the reader nears the end. */
 function infiniteFeed() {
 	const feed = document.querySelector('[data-feed]');
-	if (!feed || hasFilters()) return;
-	const grid = feed.querySelector('[data-patch-grid]');
-	const more = feed.querySelector('[data-feed-more]');
-	markNew(grid, feed.querySelector('[data-new-count]'));
-	setTimeout(commitVisit, 10_000);
-	addEventListener('pagehide', commitVisit);
+	if (!feed) return;
 
 	let loading = false;
 	const observer = new IntersectionObserver(
 		async ([entry]) => {
-			const next = more.querySelector('[data-load-more]');
-			if (!entry?.isIntersecting || loading || !next) return;
+			const grid = feed.querySelector('[data-patch-grid]');
+			const more = feed.querySelector('[data-feed-more]');
+			const next = more?.querySelector('[data-load-more]');
+			if (!entry?.isIntersecting || loading || !grid || !next) return;
 			loading = true;
 			more.setAttribute('aria-busy', 'true');
 			try {
@@ -236,15 +231,34 @@ function infiniteFeed() {
 		},
 		{ rootMargin: '0px 0px 200px 0px' }
 	);
-	observer.observe(more);
+	observeFeed = () => {
+		observer.disconnect();
+		const more = feed.querySelector('[data-feed-more]');
+		if (more) observer.observe(more);
+	};
+
+	if (hasFilters()) return;
+	markNew(
+		feed.querySelector('[data-patch-grid]'),
+		feed.querySelector('[data-new-count]')
+	);
+	setTimeout(commitVisit, 10_000);
+	addEventListener('pagehide', commitVisit);
+	observeFeed();
 }
 
 let island;
 export function loadSearch() {
-	island ??= import('__SEARCH_MODULE__').then(async (module) => {
-		await module.init({ toast, markNew, commitVisit, hasFilters });
-		return module;
-	});
+	island ??= import('__SEARCH_MODULE__')
+		.then(async (module) => {
+			await module.init({ toast, markNew, observeFeed, hasFilters });
+			return module;
+		})
+		.catch((error) => {
+			island = undefined;
+			document.documentElement.removeAttribute('data-filtering');
+			throw error;
+		});
 	return island;
 }
 
@@ -259,15 +273,24 @@ function search() {
 	for (const event of ['focusin', 'pointerenter', 'touchstart']) {
 		root.addEventListener(event, wake, { once: true, passive: true });
 	}
-	document.querySelector('[data-hero-rail]')?.addEventListener('pointerenter', wake, { once: true });
-	document.querySelector('[data-major-toggle]')?.addEventListener('pointerenter', wake, { once: true });
-	const params = new URLSearchParams(location.search);
-	const onFeed = location.pathname === '/';
-	if (hasFilters(params) || (onFeed && document.querySelector('[data-hero-rail]'))) wake();
-	if (!onFeed && (params.get('hero') || params.get('item'))) wake();
+	if (hasFilters() || document.querySelector('[data-hero-rail]')) wake();
+}
+
+/** Sticky elements below the header offset by its height, which grows when filter
+ * chips show. */
+function headerHeight() {
+	const header = document.querySelector('.site-header');
+	if (!header) return;
+	new ResizeObserver(([entry]) => {
+		document.documentElement.style.setProperty(
+			'--site-header-height',
+			`${entry.target.getBoundingClientRect().height}px`
+		);
+	}).observe(header);
 }
 
 app?.setAttribute('data-app-ready', 'true');
+headerHeight();
 scrollToTop();
 directory();
 notFound();

@@ -34,95 +34,18 @@
           withWebkit = false;
         };
 
-        node-tools-src = pkgs.lib.fileset.toSource {
-          root = ./.;
-          fileset = pkgs.lib.fileset.unions [
-            ./package.json
-            ./pnpm-lock.yaml
-            ./pnpm-workspace.yaml
-            ./app/package.json
-            ./lib/changelog/package.json
-            ./lib/db/package.json
-            ./lib/meta/package.json
-            ./lib/scraper/package.json
-            ./lib/stats/package.json
-            ./lib/utils/package.json
-          ];
-        };
-
-        node-tools = pkgs.stdenvNoCC.mkDerivation (finalAttrs: {
-          pname = "deadlog-node-tools";
-          version = "1";
-          src = node-tools-src;
-
-          pnpmDeps = pkgs.fetchPnpmDeps {
-            inherit (finalAttrs) pname version src;
-            pnpm = pkgs.pnpm;
-            fetcherVersion = 3;
-            hash = "sha256-yzu0UPROtDhuDMlMZPqA4FkEwrL6hZ+0cQQxDORkgWs=";
-          };
-
-          nativeBuildInputs = with pkgs; [
-            nodejs_24
-            pnpm
-            pnpmConfigHook
-          ];
-
-          dontBuild = true;
-
-          installPhase = ''
-            runHook preInstall
-            mkdir -p "$out/lib"
-            cp -r . "$out/lib/deadlog"
-            # This local development dependency lives outside the flake and is
-            # not used by the formatter.
-            rm "$out/lib/deadlog/node_modules/vite-plugin-mog"
-            runHook postInstall
-          '';
-        });
-
-        prettier = pkgs.writeShellApplication {
-          name = "deadlog-prettier";
-          text = ''
-            project_root=$PWD
-            files=()
-            for file in "$@"; do
-              files+=("$project_root/$file")
-            done
-
-            cd ${node-tools}/lib/deadlog
-            ${pkgs.nodejs_24}/bin/node \
-              ${node-tools}/lib/deadlog/node_modules/prettier/bin/prettier.cjs \
-              --config "$project_root/.prettierrc" \
-              --ignore-path "$project_root/.prettierignore" \
-              --write \
-              "''${files[@]}"
-          '';
-        };
-
         treefmtEval = treefmt-nix.lib.evalModule pkgs {
           projectRootFile = "flake.nix";
 
           programs = {
             nixpkgs-fmt.enable = true;
-          };
-
-          settings.formatter = {
+            rustfmt.enable = true;
             prettier = {
-              command = "${prettier}/bin/deadlog-prettier";
-              includes = [
-                "*.js"
-                "*.ts"
-                "*.jsx"
-                "*.tsx"
-                "*.svelte"
-                "*.css"
-                "*.html"
-                "*.json"
-                "*.md"
-                "*.yml"
-                "*.yaml"
-              ];
+              enable = true;
+              includes = [ "*.js" "*.ts" "*.css" "*.json" "*.md" "*.yml" "*.yaml" ];
+              # Askama templates are whitespace-sensitive; Prettier's HTML printer
+              # breaks their tags.
+              excludes = [ "crates/*" "target/*" "dist/*" "app/static/*" ];
             };
           };
         };
@@ -150,8 +73,13 @@
             name = "deadlog dev shell";
 
             packages = with pkgs; [
+              cargo
+              rustc
+              rustfmt
+              clippy
+              rust-analyzer
+              # Only for the Playwright suite in e2e/.
               nodejs_24
-              pnpm
               treefmtEval.config.build.wrapper
               sqlite
             ];
@@ -160,8 +88,7 @@
               export PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
               export PLAYWRIGHT_BROWSERS_PATH="${playwright-browsers}"
 
-              # Make CLIs from NPM available
-              export PATH="$PWD/node_modules/.bin:$PATH"
+              export PATH="$PWD/e2e/node_modules/.bin:$PATH"
 
               ${pre-commit-check.shellHook}
             '';

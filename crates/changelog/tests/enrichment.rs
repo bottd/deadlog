@@ -84,7 +84,11 @@ fn stores_an_empty_result_explicitly_as_one_line() {
 fn updates_one_field_without_touching_the_other() {
     let both = splice_entity_blocks(
         &source(),
-        only_hero(EnrichmentUpdate { impact: Some(Some(impact())), related: Some(Some(related())), ..Default::default() }),
+        only_hero(EnrichmentUpdate {
+            impact: Some(Some(impact())),
+            related: Some(Some(related())),
+            ..Default::default()
+        }),
         None,
     )
     .unwrap();
@@ -97,15 +101,26 @@ fn updates_one_field_without_touching_the_other() {
 
 #[test]
 fn deletes_only_the_field_it_is_told_to() {
-    let both = splice_entity_blocks(&source(), |_| Some(EnrichmentUpdate { impact: Some(Some(impact())), ..Default::default() }), None).unwrap();
+    let both = splice_entity_blocks(
+        &source(),
+        |_| Some(EnrichmentUpdate { impact: Some(Some(impact())), ..Default::default() }),
+        None,
+    )
+    .unwrap();
     let with_related = splice_entity_blocks(&both, only_hero(related_update(related())), None).unwrap();
-    let no_impact =
-        splice_entity_blocks(&with_related, |_| Some(EnrichmentUpdate { impact: Some(None), ..Default::default() }), None)
-            .unwrap();
+    let no_impact = splice_entity_blocks(
+        &with_related,
+        |_| Some(EnrichmentUpdate { impact: Some(None), ..Default::default() }),
+        None,
+    )
+    .unwrap();
     assert_eq!(hero(&no_impact), EntityEnrichment { related: Some(related()), ..Default::default() });
-    let bare =
-        splice_entity_blocks(&no_impact, |_| Some(EnrichmentUpdate { related: Some(None), ..Default::default() }), None)
-            .unwrap();
+    let bare = splice_entity_blocks(
+        &no_impact,
+        |_| Some(EnrichmentUpdate { related: Some(None), ..Default::default() }),
+        None,
+    )
+    .unwrap();
     assert_eq!(bare, source());
 }
 
@@ -120,7 +135,11 @@ fn writes_impact_before_related_whatever_order_they_arrive_in() {
     .unwrap();
     let together = splice_entity_blocks(
         &source(),
-        only_hero(EnrichmentUpdate { impact: Some(Some(impact())), related: Some(Some(related())), ..Default::default() }),
+        only_hero(EnrichmentUpdate {
+            impact: Some(Some(impact())),
+            related: Some(Some(related())),
+            ..Default::default()
+        }),
         None,
     )
     .unwrap();
@@ -164,7 +183,12 @@ fn carries_both_fields_through_a_scraper_overwrite() {
 
 #[test]
 fn leaves_bullets_and_metadata_byte_for_byte() {
-    let written = splice_entity_blocks(&source(), |_| Some(EnrichmentUpdate { impact: Some(Some(impact())), ..Default::default() }), None).unwrap();
+    let written = splice_entity_blocks(
+        &source(),
+        |_| Some(EnrichmentUpdate { impact: Some(Some(impact())), ..Default::default() }),
+        None,
+    )
+    .unwrap();
     assert!(written.contains("- Base damage increased"));
     assert!(written.starts_with("``attr:\ntitle \"Patch\"\n``\n"));
 }
@@ -202,7 +226,13 @@ fn round_trips_related_after_counts_ability_order_and_bought_by() {
                     after_buyers: Some(25_796.0),
                     after_appearances: Some(52_850.0),
                 },
-                BoughtByHero { id: 7, buyers: 2000.0, appearances: 9000.0, after_buyers: None, after_appearances: None },
+                BoughtByHero {
+                    id: 7,
+                    buyers: 2000.0,
+                    appearances: 9000.0,
+                    after_buyers: None,
+                    after_appearances: None,
+                },
             ],
         }),
         ..Default::default()
@@ -233,7 +263,8 @@ fn round_trips_related_after_counts_ability_order_and_bought_by() {
     let bought = serde_json::json!({ "bought": { "method": 1 } });
     let error = parse_enrichment(bought.as_object(), EntityType::Hero).unwrap_err().to_string();
     assert!(error.contains("only an item block takes bought"), "{error}");
-    let unpaired = serde_json::json!({ "order": { "method": 1, "matches": 10, "ability-1": { "before": 2, "after": 1 } } });
+    let unpaired =
+        serde_json::json!({ "order": { "method": 1, "matches": 10, "ability-1": { "before": 2, "after": 1 } } });
     let error = parse_enrichment(unpaired.as_object(), EntityType::Hero).unwrap_err().to_string();
     assert!(error.contains("after counts need an after total"), "{error}");
 

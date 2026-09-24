@@ -19,13 +19,14 @@ const NEXT_PAGE: &str = ".pageNav-jump--next, a[rel=\"next\"]";
 
 const CHANGELOG_FORUM: &str = "https://forums.playdeadlock.com/forums/changelog.10/";
 const FETCH_TIMEOUT: Duration = Duration::from_secs(30);
-const USER_AGENT: &str = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
+const USER_AGENT: &str =
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
 const MAX_PAGES_TO_SCRAPE: usize = 100;
 pub const MAX_THREAD_PAGES: usize = 10;
 const POST_CACHE_VERSION: u32 = 2;
 
 /// Where scraped post bodies land, relative to the repository root.
-pub const POST_CACHE_DIR: &str = "lib/scraper/src/cache/posts";
+pub const POST_CACHE_DIR: &str = "crates/scraper/cache";
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct ChangelogPost {
@@ -60,10 +61,8 @@ struct CachedPost {
 }
 
 fn fetch_html(http: &dyn Http, url: &str) -> Result<String> {
-    let headers = [
-        ("User-Agent", USER_AGENT),
-        ("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"),
-    ];
+    let headers =
+        [("User-Agent", USER_AGENT), ("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8")];
     let response = http.get(url, &headers, Some(FETCH_TIMEOUT))?;
     if !response.ok() {
         bail!("HTTP {}: {}", response.status, response.status_text);

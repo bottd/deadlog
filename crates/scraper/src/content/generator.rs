@@ -14,7 +14,7 @@ use regex::Regex;
 
 use super::parser::{EntityLists, GroupedContent, group_notes_by_ability, parse_and_group_content};
 use crate::hero_abilities::{AbilityName, regroup_ability_changes};
-use crate::js::locale_compare;
+use deadlog_model::locale_compare;
 
 // The forum names a video attachment "<name>-mp4.<id>"; a plain ".mp4" covers anywhere
 // else a clip is linked directly. It serves no embeddable video, so a clip renders as a
@@ -196,8 +196,10 @@ pub fn generate_structured_content(grouped: &GroupedContent, assets: Option<&Ent
         for (hero_name, notes) in heroes {
             let hero = entity_target(assets, "hero", hero_name);
             let abilities = assets.map_or(&[][..], |assets| assets.abilities_for(hero_name));
-            let names: Vec<AbilityName> =
-                abilities.iter().map(|ability| AbilityName { name: ability.name.clone(), slug: ability.slug.clone() }).collect();
+            let names: Vec<AbilityName> = abilities
+                .iter()
+                .map(|ability| AbilityName { name: ability.name.clone(), slug: ability.slug.clone() })
+                .collect();
             let noted: Vec<EntityBulletGroup> = group_notes_by_ability(notes, None)
                 .into_iter()
                 .map(|group| EntityBulletGroup { ability: group.ability_name, bullets: group.notes })
@@ -209,7 +211,8 @@ pub fn generate_structured_content(grouped: &GroupedContent, assets: Option<&Ent
                     body.extend(bullets);
                     continue;
                 };
-                let slug = resolve_hero_ability_slug(ability_name, abilities.iter().map(|ability| ability.slug.as_str()));
+                let slug =
+                    resolve_hero_ability_slug(ability_name, abilities.iter().map(|ability| ability.slug.as_str()));
                 let ability = abilities.iter().find(|candidate| Some(&candidate.slug) == slug.as_ref());
                 // The ability's own page, not the hero page filtered to it. The query form
                 // gave every ability heading its own crawlable URL that only ever
@@ -230,7 +233,14 @@ pub fn generate_structured_content(grouped: &GroupedContent, assets: Option<&Ent
                 ));
             }
             out.push(String::new());
-            out.extend(entity_block(1, &["hero".into(), entity_fragment_id(hero_name)], 2, hero_name, hero.as_ref(), body));
+            out.extend(entity_block(
+                1,
+                &["hero".into(), entity_fragment_id(hero_name)],
+                2,
+                hero_name,
+                hero.as_ref(),
+                body,
+            ));
         }
     }
 
@@ -305,8 +315,16 @@ pub fn generate_changelog(source: &ChangelogSource, entities: &EntityLists, asse
                 let supplemental = generate_structured_content(&grouped, assets);
                 let supplemental = deadlog_model::js_trim(&supplemental);
                 let supplemental_text = collect_plain_text(&grouped);
-                structured = [structured.as_str(), supplemental].into_iter().filter(|part| !part.is_empty()).collect::<Vec<_>>().join("\n\n");
-                text = [text.as_str(), supplemental_text.as_str()].into_iter().filter(|part| !part.is_empty()).collect::<Vec<_>>().join(" ");
+                structured = [structured.as_str(), supplemental]
+                    .into_iter()
+                    .filter(|part| !part.is_empty())
+                    .collect::<Vec<_>>()
+                    .join("\n\n");
+                text = [text.as_str(), supplemental_text.as_str()]
+                    .into_iter()
+                    .filter(|part| !part.is_empty())
+                    .collect::<Vec<_>>()
+                    .join(" ");
             }
             (structured, text)
         }

@@ -1,0 +1,777 @@
+{
+	"changelogs": [
+		{
+			"id": "36958",
+			"slug": "2024/10-10",
+			"title": "10-10-2024 Update",
+			"date": "2024-10-10T20:24:45.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": "https://project8-data.community.forum/attachments/23/23115-6351c66f805cedd1dd63428bfd258de2.jpg?hash=LFr8AwcJ9D",
+			"majorUpdate": true,
+			"summary": "Added Ranked mode Added a 3rd casting mode, Quick Cast (shows range/radius/etc on key down, then on key up acts like Instant Cast). The…",
+			"icons": {
+				"heroes": [
+					{
+						"id": 6,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp",
+						"alt": "Abrams",
+						"slug": "abrams",
+						"heroType": "brawler",
+						"changeCount": 4,
+						"type": "hero"
+					},
+					{
+						"id": 15,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp",
+						"alt": "Bebop",
+						"slug": "bebop",
+						"heroType": "brawler",
+						"changeCount": 10,
+						"type": "hero"
+					},
+					{
+						"id": 11,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp",
+						"alt": "Dynamo",
+						"slug": "dynamo",
+						"heroType": "mystic",
+						"changeCount": 3,
+						"type": "hero"
+					},
+					{
+						"id": 17,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp",
+						"alt": "Grey Talon",
+						"slug": "grey-talon",
+						"heroType": "marksman",
+						"changeCount": 9,
+						"type": "hero"
+					},
+					{
+						"id": 13,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp",
+						"alt": "Haze",
+						"slug": "haze",
+						"heroType": "assassin",
+						"changeCount": 6,
+						"type": "hero"
+					},
+					{
+						"id": 1,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp",
+						"alt": "Infernus",
+						"slug": "infernus",
+						"heroType": "marksman",
+						"changeCount": 2,
+						"type": "hero"
+					}
+				],
+				"items": [
+					{
+						"id": 1932939246,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/alchemical_fire.webp",
+						"alt": "Alchemical Fire",
+						"slug": "alchemical-fire",
+						"changeCount": 2,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 1248737459,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/mods_weapon/ammo_scavenger.webp",
+						"alt": "Ammo Scavenger",
+						"slug": "ammo-scavenger",
+						"changeCount": 2,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 1976391348,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/cold_front.webp",
+						"alt": "Cold Front",
+						"slug": "cold-front",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 2447176615,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/enduring_speed.webp",
+						"alt": "Enduring Speed",
+						"slug": "enduring-speed",
+						"changeCount": 2,
+						"type": "item",
+						"itemCategory": "vitality"
+					},
+					{
+						"id": 3005970438,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/escalating_exposure.webp",
+						"alt": "Escalating Exposure",
+						"slug": "escalating-exposure",
+						"changeCount": 3,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 2533252781,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/ethereal_shift.webp",
+						"alt": "Ethereal Shift",
+						"slug": "ethereal-shift",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "spirit"
+					}
+				]
+			},
+			"counts": { "heroes": 21, "items": 39 },
+			"matches": []
+		},
+		{
+			"id": "36441",
+			"slug": "2024/10-07",
+			"title": "10-07-2024 Update",
+			"date": "2024-10-07T19:45:09.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": null,
+			"majorUpdate": false,
+			"summary": "Fixed various cases where you could target/select units behind walls with abilities (like Yamato's Flying Strike) Wraith Card Trick Spirit…",
+			"icons": {
+				"heroes": [
+					{
+						"id": 7,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp",
+						"alt": "Wraith",
+						"slug": "wraith",
+						"heroType": "marksman",
+						"changeCount": 1,
+						"type": "hero"
+					}
+				],
+				"items": [
+					{
+						"id": 1798666702,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/shadow_weave.webp",
+						"alt": "Shadow Weave",
+						"slug": "shadow-weave",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					}
+				]
+			},
+			"counts": { "heroes": 1, "items": 1 },
+			"matches": []
+		},
+		{
+			"id": "35439",
+			"slug": "2024/10-02",
+			"title": "10-02-2024 Update",
+			"date": "2024-10-03T00:18:25.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": null,
+			"majorUpdate": false,
+			"summary": "Respawn time at 20min reduced from 50s to 45s (was 40s previous patch) Zipline Boost cooldown reduced from 340s (5.6min) to 280s (4.6min)…",
+			"icons": {
+				"heroes": [
+					{
+						"id": 20,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp",
+						"alt": "Ivy",
+						"slug": "ivy",
+						"heroType": "marksman",
+						"changeCount": 4,
+						"type": "hero"
+					},
+					{
+						"id": 52,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp",
+						"alt": "Mirage",
+						"slug": "mirage",
+						"heroType": "assassin",
+						"changeCount": 7,
+						"type": "hero"
+					},
+					{
+						"id": 50,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp",
+						"alt": "Pocket",
+						"slug": "pocket",
+						"heroType": "assassin",
+						"changeCount": 1,
+						"type": "hero"
+					}
+				],
+				"items": []
+			},
+			"counts": { "heroes": 3, "items": 0 },
+			"matches": []
+		},
+		{
+			"id": "34541",
+			"slug": "2024/09-29",
+			"title": "09-29-2024 Update",
+			"date": "2024-09-29T19:38:55.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": null,
+			"majorUpdate": false,
+			"summary": "Outer ziplines hero speed increased by 20% relative to inner lanes (same as troopers on outer lanes zipline being faster) Initial respawn…",
+			"icons": { "heroes": [], "items": [] },
+			"counts": { "heroes": 0, "items": 0 },
+			"matches": []
+		},
+		{
+			"id": "33816",
+			"slug": "2024/09-27",
+			"title": "09-27-2024 Update",
+			"date": "2024-09-28T00:33:18.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": null,
+			"majorUpdate": false,
+			"summary": "Mirage Tornado lift duration reduced from 1.5s to 1.2s Tornado T1 bonus lift duration reduced from +0.5s to +0.4s Tornado base bullet…",
+			"icons": {
+				"heroes": [
+					{
+						"id": 52,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp",
+						"alt": "Mirage",
+						"slug": "mirage",
+						"heroType": "assassin",
+						"changeCount": 4,
+						"type": "hero"
+					}
+				],
+				"items": []
+			},
+			"counts": { "heroes": 1, "items": 0 },
+			"matches": []
+		},
+		{
+			"id": "33015",
+			"slug": "2024/09-26",
+			"title": "09-26-2024 Update",
+			"date": "2024-09-26T21:17:58.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": "https://project8-data.community.forum/attachments/20/20368-e3ba7aa1f4a51da04dc021866fa54506.jpg?hash=ymVdtOoaPa",
+			"majorUpdate": true,
+			"summary": "Added new hero, Mirage. Added an initial Anti-Cheat detection system. When a user is detected as cheating, during the game session the…",
+			"icons": {
+				"heroes": [
+					{
+						"id": 6,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp",
+						"alt": "Abrams",
+						"slug": "abrams",
+						"heroType": "brawler",
+						"changeCount": 4,
+						"type": "hero"
+					},
+					{
+						"id": 15,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp",
+						"alt": "Bebop",
+						"slug": "bebop",
+						"heroType": "brawler",
+						"changeCount": 2,
+						"type": "hero"
+					},
+					{
+						"id": 11,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp",
+						"alt": "Dynamo",
+						"slug": "dynamo",
+						"heroType": "mystic",
+						"changeCount": 1,
+						"type": "hero"
+					},
+					{
+						"id": 17,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp",
+						"alt": "Grey Talon",
+						"slug": "grey-talon",
+						"heroType": "marksman",
+						"changeCount": 6,
+						"type": "hero"
+					},
+					{
+						"id": 13,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp",
+						"alt": "Haze",
+						"slug": "haze",
+						"heroType": "assassin",
+						"changeCount": 8,
+						"type": "hero"
+					},
+					{
+						"id": 20,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp",
+						"alt": "Ivy",
+						"slug": "ivy",
+						"heroType": "marksman",
+						"changeCount": 5,
+						"type": "hero"
+					}
+				],
+				"items": [
+					{
+						"id": 1248737459,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/mods_weapon/ammo_scavenger.webp",
+						"alt": "Ammo Scavenger",
+						"slug": "ammo-scavenger",
+						"changeCount": 4,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 1414319208,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/berserker.webp",
+						"alt": "Berserker",
+						"slug": "berserker",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 3713423303,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/bullet_resilience.webp",
+						"alt": "Bullet Armor",
+						"slug": "bullet-armor",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "vitality"
+					},
+					{
+						"id": 2407781327,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/colossus.webp",
+						"alt": "Colossus",
+						"slug": "colossus",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "vitality"
+					},
+					{
+						"id": 3144988365,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/decay.webp",
+						"alt": "Decay",
+						"slug": "decay",
+						"changeCount": 2,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 1662311306,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/divine_barrier.webp",
+						"alt": "Divine Barrier",
+						"slug": "divine-barrier",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "vitality"
+					}
+				]
+			},
+			"counts": { "heroes": 18, "items": 44 },
+			"matches": []
+		},
+		{
+			"id": "31166",
+			"slug": "2024/09-19",
+			"title": "09-19-2024 Update",
+			"date": "2024-09-20T00:58:06.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": null,
+			"majorUpdate": false,
+			"summary": "Replaced the recent soul duplication hotfix with new behavior. Pre 10 min, lanes now always split orbs when there are more heroes than the…",
+			"icons": {
+				"heroes": [],
+				"items": [
+					{
+						"id": 865958998,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/veil_walker.webp",
+						"alt": "Veil Walker",
+						"slug": "veil-walker",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "vitality"
+					}
+				]
+			},
+			"counts": { "heroes": 0, "items": 1 },
+			"matches": []
+		},
+		{
+			"id": "30413",
+			"slug": "2024/09-17",
+			"title": "09-17-2024 Update",
+			"date": "2024-09-17T23:08:12.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": null,
+			"majorUpdate": false,
+			"summary": "Fixed players being able to exploit soul sharing across multiple lanes to earn more souls than intended. The way the fix is implemented is…",
+			"icons": { "heroes": [], "items": [] },
+			"counts": { "heroes": 0, "items": 0 },
+			"matches": []
+		},
+		{
+			"id": "29586",
+			"slug": "2024/09-14",
+			"title": "09-14-2024 Update",
+			"date": "2024-09-15T04:05:26.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": null,
+			"majorUpdate": false,
+			"summary": "Bebop Hyper Beam cooldown increased from 117 to 130 Hyper Beam T1 reduced from -38s to -30s Hyper Beam end radius reduced from 5m to 4m…",
+			"icons": {
+				"heroes": [
+					{
+						"id": 15,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp",
+						"alt": "Bebop",
+						"slug": "bebop",
+						"heroType": "brawler",
+						"changeCount": 6,
+						"type": "hero"
+					},
+					{
+						"id": 8,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp",
+						"alt": "McGinnis",
+						"slug": "mcginnis",
+						"heroType": "mystic",
+						"changeCount": 1,
+						"type": "hero"
+					}
+				],
+				"items": [
+					{
+						"id": 1248737459,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/mods_weapon/ammo_scavenger.webp",
+						"alt": "Ammo Scavenger",
+						"slug": "ammo-scavenger",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "spirit"
+					}
+				]
+			},
+			"counts": { "heroes": 2, "items": 1 },
+			"matches": []
+		},
+		{
+			"id": "27974",
+			"slug": "2024/09-12",
+			"title": "09-12-2024 Update",
+			"date": "2024-09-12T21:51:49.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": "https://project8-data.community.forum/attachments/17/17443-145795682b5bfb0f32bdd69706280079.jpg?hash=f8_ivoAA1U",
+			"majorUpdate": false,
+			"summary": "Matchmaking is now open 24/7 for all regions Added new minimap Added a new behavior system. Players can temporarily lose access to certain…",
+			"icons": {
+				"heroes": [
+					{
+						"id": 6,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp",
+						"alt": "Abrams",
+						"slug": "abrams",
+						"heroType": "brawler",
+						"changeCount": 4,
+						"type": "hero"
+					},
+					{
+						"id": 15,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp",
+						"alt": "Bebop",
+						"slug": "bebop",
+						"heroType": "brawler",
+						"changeCount": 5,
+						"type": "hero"
+					},
+					{
+						"id": 11,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp",
+						"alt": "Dynamo",
+						"slug": "dynamo",
+						"heroType": "mystic",
+						"changeCount": 4,
+						"type": "hero"
+					},
+					{
+						"id": 17,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp",
+						"alt": "Grey Talon",
+						"slug": "grey-talon",
+						"heroType": "marksman",
+						"changeCount": 6,
+						"type": "hero"
+					},
+					{
+						"id": 13,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp",
+						"alt": "Haze",
+						"slug": "haze",
+						"heroType": "assassin",
+						"changeCount": 1,
+						"type": "hero"
+					},
+					{
+						"id": 1,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp",
+						"alt": "Infernus",
+						"slug": "infernus",
+						"heroType": "marksman",
+						"changeCount": 2,
+						"type": "hero"
+					}
+				],
+				"items": [
+					{
+						"id": 381961617,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/active_reload.webp",
+						"alt": "Active Reload",
+						"slug": "active-reload",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 1932939246,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/alchemical_fire.webp",
+						"alt": "Alchemical Fire",
+						"slug": "alchemical-fire",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 1248737459,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/mods_weapon/ammo_scavenger.webp",
+						"alt": "Ammo Scavenger",
+						"slug": "ammo-scavenger",
+						"changeCount": 2,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 1414319208,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/berserker.webp",
+						"alt": "Berserker",
+						"slug": "berserker",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 2739107182,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/burst_fire.webp",
+						"alt": "Burst Fire",
+						"slug": "burst-fire",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 2407781327,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/colossus.webp",
+						"alt": "Colossus",
+						"slug": "colossus",
+						"changeCount": 2,
+						"type": "item",
+						"itemCategory": "vitality"
+					}
+				]
+			},
+			"counts": { "heroes": 21, "items": 43 },
+			"matches": []
+		},
+		{
+			"id": "24093",
+			"slug": "2024/09-01",
+			"title": "09-01-2024 Update",
+			"date": "2024-09-01T20:40:48.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": null,
+			"majorUpdate": false,
+			"summary": "Rope climb speed increased from 11 to 13 Rope activation range increased from 2.2m to 2.4m Fixed an HTML parsing exploit with builds…",
+			"icons": {
+				"heroes": [
+					{
+						"id": 1,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp",
+						"alt": "Infernus",
+						"slug": "infernus",
+						"heroType": "marksman",
+						"changeCount": 1,
+						"type": "hero"
+					},
+					{
+						"id": 20,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp",
+						"alt": "Ivy",
+						"slug": "ivy",
+						"heroType": "marksman",
+						"changeCount": 1,
+						"type": "hero"
+					},
+					{
+						"id": 2,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp",
+						"alt": "Seven",
+						"slug": "seven",
+						"heroType": "mystic",
+						"changeCount": 1,
+						"type": "hero"
+					},
+					{
+						"id": 35,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp",
+						"alt": "Viscous",
+						"slug": "viscous",
+						"heroType": "mystic",
+						"changeCount": 5,
+						"type": "hero"
+					}
+				],
+				"items": []
+			},
+			"counts": { "heroes": 4, "items": 0 },
+			"matches": []
+		},
+		{
+			"id": "22253",
+			"slug": "2024/08-29",
+			"title": "08-29-2024 Update",
+			"date": "2024-08-29T21:28:47.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": "https://project8-data.community.forum/attachments/13/13969-41bfe806f2a5904393285b5d54f572d5.jpg?hash=Z3N_uRZvPI",
+			"majorUpdate": false,
+			"summary": "Added a new Profile page that displays a breakdown of recent matches and all-time player and hero statistics (Note: the newly added stats…",
+			"icons": {
+				"heroes": [
+					{
+						"id": 6,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp",
+						"alt": "Abrams",
+						"slug": "abrams",
+						"heroType": "brawler",
+						"changeCount": 4,
+						"type": "hero"
+					},
+					{
+						"id": 15,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp",
+						"alt": "Bebop",
+						"slug": "bebop",
+						"heroType": "brawler",
+						"changeCount": 3,
+						"type": "hero"
+					},
+					{
+						"id": 11,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp",
+						"alt": "Dynamo",
+						"slug": "dynamo",
+						"heroType": "mystic",
+						"changeCount": 5,
+						"type": "hero"
+					},
+					{
+						"id": 17,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp",
+						"alt": "Grey Talon",
+						"slug": "grey-talon",
+						"heroType": "marksman",
+						"changeCount": 8,
+						"type": "hero"
+					},
+					{
+						"id": 13,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp",
+						"alt": "Haze",
+						"slug": "haze",
+						"heroType": "assassin",
+						"changeCount": 7,
+						"type": "hero"
+					},
+					{
+						"id": 1,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp",
+						"alt": "Infernus",
+						"slug": "infernus",
+						"heroType": "marksman",
+						"changeCount": 7,
+						"type": "hero"
+					}
+				],
+				"items": [
+					{
+						"id": 381961617,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/active_reload.webp",
+						"alt": "Active Reload",
+						"slug": "active-reload",
+						"changeCount": 2,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 1932939246,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/alchemical_fire.webp",
+						"alt": "Alchemical Fire",
+						"slug": "alchemical-fire",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 1248737459,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/mods_weapon/ammo_scavenger.webp",
+						"alt": "Ammo Scavenger",
+						"slug": "ammo-scavenger",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 2519598785,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/boundless_spirit.webp",
+						"alt": "Boundless Spirit",
+						"slug": "boundless-spirit",
+						"changeCount": 2,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 2739107182,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/burst_fire.webp",
+						"alt": "Burst Fire",
+						"slug": "burst-fire",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 2407781327,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/colossus.webp",
+						"alt": "Colossus",
+						"slug": "colossus",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "vitality"
+					}
+				]
+			},
+			"counts": { "heroes": 17, "items": 55 },
+			"matches": []
+		}
+	],
+	"hasMore": true
+}

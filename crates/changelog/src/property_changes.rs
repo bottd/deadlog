@@ -1,7 +1,7 @@
 use std::collections::{HashMap, HashSet};
 use std::sync::LazyLock;
 
-use deadlog_model::{EntityType, is_js_space, to_slug};
+use deadlog_model::{EntityType, is_js_whitespace, to_slug};
 use regex::Regex;
 use sha2::{Digest, Sha256};
 
@@ -81,7 +81,7 @@ fn slice_utf16(text: &str, units: usize) -> &str {
 }
 
 pub fn read_bullet(bullet: &str, scope_name: Option<&str>) -> BulletReading {
-    let trimmed = bullet.trim_matches(is_js_space);
+    let trimmed = bullet.trim_matches(is_js_whitespace);
     let mut text = trimmed.strip_suffix('.').unwrap_or(trimmed);
     if let Some(scope) = scope_name.filter(|scope| !scope.is_empty()) {
         if !text.to_lowercase().starts_with(&format!("{} ", scope.to_lowercase())) {
@@ -116,7 +116,11 @@ fn mentions(text: &str) -> BulletReading {
     }
     let properties: Vec<&'static str> =
         PROPERTY_RES.iter().filter(|(_, pattern)| pattern.is_match(text)).map(|(property, _)| *property).collect();
-    if properties.is_empty() { BulletReading::Unrelated } else { BulletReading::Barrier(Barrier::Properties(properties)) }
+    if properties.is_empty() {
+        BulletReading::Unrelated
+    } else {
+        BulletReading::Barrier(Barrier::Properties(properties))
+    }
 }
 
 #[derive(Debug, Clone, PartialEq)]
@@ -161,7 +165,8 @@ pub struct LinkedEvent {
     pub unlinked: Option<Unlinked>,
 }
 
-fn digest(text: &str) -> String {
+/// A bullet's identity: the first 8 bytes of its SHA-256, as hex.
+pub fn digest(text: &str) -> String {
     let hash = Sha256::digest(text.as_bytes());
     hash.iter().take(8).map(|byte| format!("{byte:02x}")).collect()
 }
@@ -223,21 +228,22 @@ pub fn link_property_changes(bullets: &[ScopedBullet]) -> Vec<LinkedEvent> {
 
     let mut chain_order: Vec<String> = Vec::new();
     let mut chains: HashMap<String, Vec<Step>> = HashMap::new();
-    let mut step_for = |chains: &mut HashMap<String, Vec<Step>>, chain: &str, bullet: &ScopedBullet| -> (String, usize) {
-        let steps = chains.entry(chain.to_string()).or_insert_with(|| {
-            chain_order.push(chain.to_string());
-            Vec::new()
-        });
-        if steps.last().is_none_or(|step| step.patch_id != bullet.patch_id) {
-            steps.push(Step {
-                patch_id: bullet.patch_id.clone(),
-                tied: tied_times.contains(bullet.published_at.as_str()),
-                events: Vec::new(),
-                barrier: false,
+    let mut step_for =
+        |chains: &mut HashMap<String, Vec<Step>>, chain: &str, bullet: &ScopedBullet| -> (String, usize) {
+            let steps = chains.entry(chain.to_string()).or_insert_with(|| {
+                chain_order.push(chain.to_string());
+                Vec::new()
             });
-        }
-        (chain.to_string(), steps.len() - 1)
-    };
+            if steps.last().is_none_or(|step| step.patch_id != bullet.patch_id) {
+                steps.push(Step {
+                    patch_id: bullet.patch_id.clone(),
+                    tied: tied_times.contains(bullet.published_at.as_str()),
+                    events: Vec::new(),
+                    barrier: false,
+                });
+            }
+            (chain.to_string(), steps.len() - 1)
+        };
 
     let mut events: Vec<LinkedEvent> = Vec::new();
     let mut chains_by_scope: HashMap<String, Vec<String>> = HashMap::new();
@@ -297,7 +303,9 @@ pub fn link_property_changes(bullets: &[ScopedBullet]) -> Vec<LinkedEvent> {
                 let (unlinked, previous) = match last {
                     None => (Some(Unlinked::First), None),
                     Some(_) if blocked || step.barrier => (Some(Unlinked::Barrier), None),
-                    Some(last) if !ordered || last.tied || last.events.len() != 1 => (Some(Unlinked::AmbiguousOrder), None),
+                    Some(last) if !ordered || last.tied || last.events.len() != 1 => {
+                        (Some(Unlinked::AmbiguousOrder), None)
+                    }
                     Some(last) => {
                         let before = &events[last.events[0]];
                         let event = &events[index].event;

@@ -28,8 +28,12 @@ fn source_count(changelog: &ParsedChangelog) -> usize {
 pub fn deduplicate_changelogs(changelogs: Vec<ParsedChangelog>) -> Vec<ParsedChangelog> {
     let mut unique: Vec<ParsedChangelog> = Vec::new();
     for changelog in changelogs {
-        let matches: Vec<usize> =
-            unique.iter().enumerate().filter(|(_, current)| same_source(&changelog, current)).map(|(index, _)| index).collect();
+        let matches: Vec<usize> = unique
+            .iter()
+            .enumerate()
+            .filter(|(_, current)| same_source(&changelog, current))
+            .map(|(index, _)| index)
+            .collect();
         if matches.is_empty() {
             unique.push(changelog);
             continue;
@@ -104,7 +108,8 @@ pub fn load_changelog(changelogs_dir: &Path, filepath: &Path) -> Result<ParsedCh
     let relative = filepath.strip_prefix(changelogs_dir).unwrap_or(filepath);
     let relative = relative.to_string_lossy().replace('\\', "/");
     let slug = relative.strip_suffix(".mg").unwrap_or(&relative).to_string();
-    let plain_text = structure.metadata.get("content_text").and_then(|text| text.as_str()).unwrap_or_default().to_string();
+    let plain_text =
+        structure.metadata.get("content_text").and_then(|text| text.as_str()).unwrap_or_default().to_string();
     let preview_image = metadata.preview_image.clone().or_else(|| extract_preview_image(&structure.images));
     let aliases = match &metadata.alias {
         Some(alias) if !alias.is_empty() => vec![slug.clone(), alias.clone()],

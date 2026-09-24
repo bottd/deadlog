@@ -66,7 +66,10 @@ fn merges_records_connected_by_either_source_identifier() {
     let steam_only = changelog("steam", Some("steam-1"), None);
     let linked = changelog("linked", Some("steam-1"), Some("forum-1"));
     let unique = deduplicate_changelogs(vec![forum_only, steam_only, linked.clone()]);
-    assert_eq!(unique, vec![ParsedChangelog { aliases: vec!["linked".into(), "forum".into(), "steam".into()], ..linked }]);
+    assert_eq!(
+        unique,
+        vec![ParsedChangelog { aliases: vec!["linked".into(), "forum".into(), "steam".into()], ..linked }]
+    );
 }
 
 #[test]

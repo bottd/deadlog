@@ -1,0 +1,28 @@
+@property --un-text-opacity {
+	syntax: '<percentage>';
+	inherits: false;
+	initial-value: 100%;
+}
+.toc-entry.svelte-665ne9 {
+	font-size: var(--text-xs-fontSize);
+	line-height: var(--un-leading, var(--text-xs-lineHeight));
+	padding-block: calc(var(--spacing) * 1);
+	padding-left: calc(var(--spacing) * 3);
+	gap: calc(var(--spacing) * 2);
+}
+.toc-entry-count.svelte-665ne9 {
+	color: color-mix(in srgb, var(--muted-foreground) 80%, transparent);
+	font-size: 11px;
+	font-family: var(--font-mono);
+	flex-shrink: 0;
+	margin-left: auto;
+}
+details[open].svelte-j8sh2x .details-marker {
+	transform: rotate(90deg);
+}
+.details-marker {
+	transition: transform 0.15s;
+}
+summary.svelte-j8sh2x::-webkit-details-marker {
+	display: none;
+}

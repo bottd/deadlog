@@ -1,9 +1,12 @@
 use anyhow::Result;
 use askama::Template;
+use deadlog_model::locale_compare;
 
 use super::Page;
-use crate::context::{hero_card_image, locale_compare};
-use crate::meta::{CollectionPage, Meta, SITE_NAME, absolute_url, collection_page_schema, deadlock_game, default_social_image};
+use crate::context::hero_card_image;
+use crate::meta::{
+    CollectionPage, Meta, SITE_NAME, absolute_url, collection_page_schema, deadlock_game, default_social_image,
+};
 use crate::{Assets, Layout, Site};
 
 pub struct DirectoryEntry {

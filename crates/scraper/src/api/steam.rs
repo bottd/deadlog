@@ -8,7 +8,7 @@ use regex::{Captures, Regex};
 use serde_json::Value;
 
 use crate::http::Http;
-use crate::js::utf16_len;
+use deadlog_model::utf16_len;
 
 const STEAM_NEWS_API: &str = "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/";
 const DEADLOCK_APP_ID: &str = "1422450";
@@ -164,7 +164,12 @@ fn safe_mog_label(value: &str) -> String {
 }
 
 fn first_group<'a>(captures: &'a Captures, groups: &[usize]) -> &'a str {
-    groups.iter().filter_map(|index| captures.get(*index)).map(|m| m.as_str()).find(|value| !value.is_empty()).unwrap_or("")
+    groups
+        .iter()
+        .filter_map(|index| captures.get(*index))
+        .map(|m| m.as_str())
+        .find(|value| !value.is_empty())
+        .unwrap_or("")
 }
 
 #[derive(Default)]
@@ -204,14 +209,20 @@ pub fn render_steam_announcement(title: &str, bbcode: &str) -> RenderedSteamAnno
             _ => text,
         }
     });
-    let content = STEAM_IMAGE.replace_all(&content, |captures: &Captures| match steam_image_url(first_group(captures, &[1, 2, 3, 4])) {
-        None => "\n".to_string(),
-        Some(src) => format!("\n{}\n", tokens.protect(mog_image(&src, &format!("{} announcement art", safe_mog_label(title))))),
+    let content = STEAM_IMAGE.replace_all(&content, |captures: &Captures| {
+        match steam_image_url(first_group(captures, &[1, 2, 3, 4])) {
+            None => "\n".to_string(),
+            Some(src) => format!(
+                "\n{}\n",
+                tokens.protect(mog_image(&src, &format!("{} announcement art", safe_mog_label(title))))
+            ),
+        }
     });
-    let content = VIDEO_MP4.replace_all(&content, |captures: &Captures| match safe_http_url(first_group(captures, &[1, 2, 3])) {
-        Some(href) => format!("\n{}\n", tokens.protect(mog_link(&href, "Video"))),
-        None => "\n".to_string(),
-    });
+    let content =
+        VIDEO_MP4.replace_all(&content, |captures: &Captures| match safe_http_url(first_group(captures, &[1, 2, 3])) {
+            Some(href) => format!("\n{}\n", tokens.protect(mog_link(&href, "Video"))),
+            None => "\n".to_string(),
+        });
     let content = HEADING_TAG.replace_all(&content, "\n\u{E100}${1}\n");
     let content = PARAGRAPH_ANY_CASE.replace_all(&content, "\n");
     let content = LIST_TAG.replace_all(&content, "\n");

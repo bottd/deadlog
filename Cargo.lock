@@ -1741,9 +1741,9 @@ dependencies = [
 
 [[package]]
 name = "bumpalo"
-version = "3.20.3"
+version = "3.19.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "72f5acc6cb2ba439de613abc23857ec3d78374d8ed5ac84e9d11336e87da8649"
+checksum = "46c5e41b57b8bba42a04676d81cb89e9ee8e859a1a66f80a5a72e1cb76b34d43"
 
 [[package]]
 name = "bytecheck"
@@ -2140,7 +2140,10 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "clap",
+ "deadlog-meta",
+ "deadlog-scraper",
  "deadlog-site",
+ "deadlog-stats",
 ]
 
 [[package]]
@@ -2217,6 +2220,7 @@ dependencies = [
  "ego-tree",
  "regex",
  "reqwest",
+ "rusqlite",
  "scraper",
  "serde",
  "serde_json",
@@ -2237,7 +2241,6 @@ dependencies = [
  "deadlog-model",
  "insta",
  "lightningcss",
- "mog-parser",
  "notify",
  "rayon",
  "regex",
@@ -2251,6 +2254,21 @@ dependencies = [
  "tower-http",
  "tower-livereload",
  "vite-plugin-mog-parser",
+]
+
+[[package]]
+name = "deadlog-stats"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "chrono",
+ "deadlog-changelog",
+ "deadlog-db",
+ "deadlog-model",
+ "reqwest",
+ "serde_json",
+ "tempfile",
+ "url",
 ]
 
 [[package]]
@@ -4996,9 +5014,9 @@ checksum = "121c2a6cda46980bb0fcd1647ffaf6cd3fc79a013de288782836f6df9c48780e"
 
 [[package]]
 name = "tower-livereload"
-version = "0.9.6"
+version = "0.10.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5aa6b29b17d4540f2bd9ec304ad39d280c4bdf291d0ea6c4123eeba10939af84"
+checksum = "7df210bd982165dee3c20e31deed79a3585ee6b255c070d9c73ae015cc40d2f3"
 dependencies = [
  "bytes",
  "http",

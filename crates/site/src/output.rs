@@ -41,10 +41,6 @@ impl Output {
         self.files.get(path.trim_start_matches('/'))
     }
 
-    pub fn paths(&self) -> impl Iterator<Item = &str> {
-        self.files.keys().map(String::as_str)
-    }
-
     pub fn len(&self) -> usize {
         self.files.len()
     }

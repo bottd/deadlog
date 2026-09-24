@@ -4,13 +4,16 @@
 
 use anyhow::Result;
 use askama::Template;
-use deadlog_model::{author_initials, patch_heading, plural};
+use deadlog_model::{author_initials, locale_compare, patch_heading, plural};
 use serde_json::json;
 
 use super::Page;
-use crate::context::{hero_card_image, locale_compare};
-use crate::feed::{self, Icon, PatchSummary};
-use crate::meta::{Meta, SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL, absolute_url, change_path, default_social_image};
+use crate::context::hero_card_image;
+use crate::feed::{self, PatchSummary};
+use crate::meta::{
+    Meta, SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL, absolute_url, change_path, default_social_image,
+};
+use crate::mog::Icon;
 use crate::{Assets, Layout, Site};
 
 pub struct IconRow {
@@ -66,32 +69,26 @@ fn icon_views(href: &str, icons: &[Icon]) -> Vec<IconView> {
 pub fn card_view(patch: &PatchSummary, featured: bool) -> CardView {
     let changelog = patch.changelog;
     let href = change_path(&changelog.slug);
-    let mut rows = Vec::new();
-    if !patch.heroes.is_empty() {
-        rows.push(IconRow {
-            items: false,
-            label: "Heroes",
-            tone: "text-primary",
-            icons: icon_views(&href, &patch.heroes),
-            extra: patch.hero_count.saturating_sub(patch.heroes.len()),
-        });
-    }
-    if !patch.items.is_empty() {
-        rows.push(IconRow {
-            items: true,
-            label: "Items",
-            tone: "text-signal",
-            icons: icon_views(&href, &patch.items),
-            extra: patch.item_count.saturating_sub(patch.items.len()),
-        });
-    }
-    let mut counts = Vec::new();
-    if patch.hero_count > 0 {
-        counts.push(Count { n: patch.hero_count, noun: plural(patch.hero_count, "hero", "heroes"), tone: "text-primary" });
-    }
-    if patch.item_count > 0 {
-        counts.push(Count { n: patch.item_count, noun: plural(patch.item_count, "item", "items"), tone: "text-signal" });
-    }
+    let sides = [
+        (false, "Heroes", "text-primary", &patch.heroes, patch.hero_count, ("hero", "heroes")),
+        (true, "Items", "text-signal", &patch.items, patch.item_count, ("item", "items")),
+    ];
+    let rows = sides
+        .iter()
+        .filter(|(_, _, _, icons, _, _)| !icons.is_empty())
+        .map(|&(items, label, tone, icons, total, _)| IconRow {
+            items,
+            label,
+            tone,
+            icons: icon_views(&href, icons),
+            extra: total.saturating_sub(icons.len()),
+        })
+        .collect();
+    let counts: Vec<Count> = sides
+        .iter()
+        .filter(|(_, _, _, _, total, _)| *total > 0)
+        .map(|&(_, _, tone, _, n, (one, many))| Count { n, noun: plural(n, one, many), tone })
+        .collect();
     let phrases: Vec<String> = counts.iter().map(|count| format!("{} {}", count.n, count.noun)).collect();
     let heading = patch_heading(&changelog.title, &changelog.pub_date);
     let accessible_label = format!(
@@ -155,8 +152,11 @@ pub fn render(site: &Site, assets: &Assets) -> Result<Vec<Page>> {
     let mut out = Vec::new();
     for page in 0..pages {
         let (summaries, has_more) = feed::unfiltered_page(&index, page);
-        let mut cards: Vec<CardView> =
-            summaries.iter().enumerate().map(|(position, patch)| card_view(patch, page == 0 && position == 0)).collect();
+        let mut cards: Vec<CardView> = summaries
+            .iter()
+            .enumerate()
+            .map(|(position, patch)| card_view(patch, page == 0 && position == 0))
+            .collect();
         let featured = (page == 0 && !cards.is_empty()).then(|| cards.remove(0));
         let route = page_route(page);
         let meta = if page == 0 {
@@ -201,7 +201,7 @@ pub fn render(site: &Site, assets: &Assets) -> Result<Vec<Page>> {
             total_label: plural(total, "patch", "patches"),
             featured,
             cards,
-            rail: if page == 0 { rail.iter().map(|hero| RailHero { name: hero.name.clone(), image: hero.image.clone() }).collect() } else { Vec::new() },
+            rail: std::mem::take(&mut rail),
             older: has_more.then(|| page_route(page + 1)),
             newer: (page > 0).then(|| page_route(page - 1)),
         }

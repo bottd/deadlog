@@ -87,7 +87,9 @@ fn assert_entity_links(content: &str, filepath: &Path, routes: &EntityRoutes) ->
                             && (query.is_empty()
                                 || (query.len() == 1
                                     && query[0].0 == "ability"
-                                    && ability.is_some_and(|ability| routes.abilities.contains(&format!("{slug}:{ability}")))))
+                                    && ability.is_some_and(|ability| {
+                                        routes.abilities.contains(&format!("{slug}:{ability}"))
+                                    })))
                     }
                     _ => kind == "item" && routes.items.contains(slug) && query.is_empty(),
                 }
@@ -116,11 +118,13 @@ fn items_to_insert(items: &[Item]) -> Vec<&Item> {
     let mut ranked: Vec<&Item> = items.iter().filter(|item| !item.image().is_empty()).collect();
     ranked.sort_by(|a, b| item_priority(b).cmp(&item_priority(a)));
     let mut seen = HashSet::new();
-    ranked.into_iter().filter(|item| {
-        let slug = to_slug(&item.name);
-        !slug.is_empty() && seen.insert(slug)
-    })
-    .collect()
+    ranked
+        .into_iter()
+        .filter(|item| {
+            let slug = to_slug(&item.name);
+            !slug.is_empty() && seen.insert(slug)
+        })
+        .collect()
 }
 
 const HERO_TYPES: [&str; 4] = ["marksman", "mystic", "brawler", "assassin"];
@@ -266,7 +270,13 @@ fn insert_heroes(conn: &Connection, heroes: &[Hero]) -> Result<()> {
             ])
         })
         .collect::<Result<Vec<Row>>>()?;
-    insert_rows(conn, "heroes", &["id", "name", "slug", "class_name", "hero_type", "images", "is_released"], &rows, true)
+    insert_rows(
+        conn,
+        "heroes",
+        &["id", "name", "slug", "class_name", "hero_type", "images", "is_released"],
+        &rows,
+        true,
+    )
 }
 
 fn insert_abilities(conn: &Connection, slots: &[&AbilitySlot]) -> Result<()> {
@@ -391,7 +401,10 @@ fn check_built(conn: &Connection, patch_count: usize) -> Result<()> {
             "aliases shadowing a live slug",
             "SELECT a.slug FROM changelog_aliases a JOIN changelogs c ON c.slug = a.slug".to_string(),
         ),
-        ("changelogs dropped on conflict", format!("SELECT 1 WHERE (SELECT COUNT(*) FROM changelogs) != {patch_count}")),
+        (
+            "changelogs dropped on conflict",
+            format!("SELECT 1 WHERE (SELECT COUNT(*) FROM changelogs) != {patch_count}"),
+        ),
     ] {
         let mut statement = conn.prepare(&query)?;
         let columns = statement.column_count();
@@ -436,15 +449,15 @@ pub fn build_database(options: &BuildOptions) -> Result<BuildResult> {
 
     insert_heroes(&tx, heroes)?;
     let ability_slots = resolve_ability_slots(heroes, &snapshot.items, snapshot.provenance.as_ref())?;
-    let slot_rows: Vec<&AbilitySlot> =
-        heroes.iter().filter_map(|hero| ability_slots.get(&hero.id)).flatten().collect();
+    let slot_rows: Vec<&AbilitySlot> = heroes.iter().filter_map(|hero| ability_slots.get(&hero.id)).flatten().collect();
     insert_abilities(&tx, &slot_rows)?;
 
     let items = items_to_insert(&snapshot.items);
     insert_items(&tx, &items, snapshot)?;
 
     let hero_index = name_index(heroes.iter().map(|hero| (hero.name.as_str(), hero.id)));
-    let item_index = name_index(items.iter().filter(|item| item.kind == "upgrade").map(|item| (item.name.as_str(), item.id)));
+    let item_index =
+        name_index(items.iter().filter(|item| item.kind == "upgrade").map(|item| (item.name.as_str(), item.id)));
 
     let changelogs = load_all_changelogs(changelogs_dir)?;
     let patch_count = changelogs.len();
@@ -472,30 +485,41 @@ pub fn build_database(options: &BuildOptions) -> Result<BuildResult> {
     for changelog in &changelogs {
         let metadata = &changelog.metadata;
         let date_only = metadata.published.split('T').next().unwrap_or_default();
-        let id = metadata.thread_id.clone().or_else(|| metadata.steam_gid.clone()).unwrap_or_else(|| changelog.slug.clone());
+        let id =
+            metadata.thread_id.clone().or_else(|| metadata.steam_gid.clone()).unwrap_or_else(|| changelog.slug.clone());
         let changes = &changelog.entity_changes;
         patches.push(Patch {
             id: id.clone(),
             changelog,
-            pub_date: js_iso_string(&metadata.published).with_context(|| format!("{}: invalid published date", changelog.slug))?,
+            pub_date: js_iso_string(&metadata.published)
+                .with_context(|| format!("{}: invalid published date", changelog.slug))?,
             major_update: big_day_dates.contains(date_only) || metadata.major_update,
             source_url: changelog_source_url(metadata)?,
         });
-        aliases.extend(changelog.aliases.iter().filter(|alias| **alias != changelog.slug).map(|alias| (alias.clone(), id.clone())));
+        aliases.extend(
+            changelog.aliases.iter().filter(|alias| **alias != changelog.slug).map(|alias| (alias.clone(), id.clone())),
+        );
 
         let hero_impact = collect_enrichment(changes, EntityType::Hero, &hero_index, |c| c.enrichment.impact.as_ref());
         let item_impact = collect_enrichment(changes, EntityType::Item, &item_index, |c| c.enrichment.impact.as_ref());
-        let hero_related = collect_enrichment(changes, EntityType::Hero, &hero_index, |c| c.enrichment.related.as_ref());
+        let hero_related =
+            collect_enrichment(changes, EntityType::Hero, &hero_index, |c| c.enrichment.related.as_ref());
         let hero_order = collect_enrichment(changes, EntityType::Hero, &hero_index, |c| c.enrichment.order.as_ref());
         let item_bought = collect_enrichment(changes, EntityType::Item, &item_index, |c| c.enrichment.bought.as_ref());
 
-        for (hero_id, groups) in collect_entity_matches(&changelog.entities.heroes, changes, EntityType::Hero, &hero_index) {
-            let slugs: Vec<&str> = ability_slots.get(&hero_id).into_iter().flatten().map(|slot| slot.slug.as_str()).collect();
+        for (hero_id, groups) in
+            collect_entity_matches(&changelog.entities.heroes, changes, EntityType::Hero, &hero_index)
+        {
+            let slugs: Vec<&str> =
+                ability_slots.get(&hero_id).into_iter().flatten().map(|slot| slot.slug.as_str()).collect();
             let groups = groups.map(|groups| {
                 groups
                     .into_iter()
                     .map(|group| {
-                        let slug = group.ability.as_deref().and_then(|ability| resolve_hero_ability_slug(ability, slugs.iter().copied()));
+                        let slug = group
+                            .ability
+                            .as_deref()
+                            .and_then(|ability| resolve_hero_ability_slug(ability, slugs.iter().copied()));
                         (group, slug)
                     })
                     .collect()
@@ -509,7 +533,9 @@ pub fn build_database(options: &BuildOptions) -> Result<BuildResult> {
                 order: hero_order.get(&hero_id).cloned(),
             });
         }
-        for (item_id, groups) in collect_entity_matches(&changelog.entities.items, changes, EntityType::Item, &item_index) {
+        for (item_id, groups) in
+            collect_entity_matches(&changelog.entities.items, changes, EntityType::Item, &item_index)
+        {
             item_links.push(ItemLink {
                 changelog_id: id.clone(),
                 item_id,
@@ -543,8 +569,17 @@ pub fn build_database(options: &BuildOptions) -> Result<BuildResult> {
         &tx,
         "changelogs",
         &[
-            "id", "title", "slug", "source_url", "author", "author_image", "preview_image", "pub_date", "major_update",
-            "content_text", "stats",
+            "id",
+            "title",
+            "slug",
+            "source_url",
+            "author",
+            "author_image",
+            "preview_image",
+            "pub_date",
+            "major_update",
+            "content_text",
+            "stats",
         ],
         &patch_rows,
         true,
@@ -558,7 +593,11 @@ pub fn build_database(options: &BuildOptions) -> Result<BuildResult> {
             let groups: Option<Vec<HeroGroup>> = link.groups.as_ref().map(|groups| {
                 groups
                     .iter()
-                    .map(|(group, slug)| HeroGroup { ability: &group.ability, bullets: &group.bullets, ability_slug: slug.clone() })
+                    .map(|(group, slug)| HeroGroup {
+                        ability: &group.ability,
+                        bullets: &group.bullets,
+                        ability_slug: slug.clone(),
+                    })
                     .collect()
             });
             Ok(row![
@@ -581,10 +620,9 @@ pub fn build_database(options: &BuildOptions) -> Result<BuildResult> {
     let item_rows = item_links
         .iter()
         .map(|link| {
-            let groups: Option<Vec<ItemGroup>> = link
-                .groups
-                .as_ref()
-                .map(|groups| groups.iter().map(|group| ItemGroup { ability: &group.ability, bullets: &group.bullets }).collect());
+            let groups: Option<Vec<ItemGroup>> = link.groups.as_ref().map(|groups| {
+                groups.iter().map(|group| ItemGroup { ability: &group.ability, bullets: &group.bullets }).collect()
+            });
             Ok(row![
                 link.changelog_id.clone(),
                 link.item_id,
@@ -594,23 +632,42 @@ pub fn build_database(options: &BuildOptions) -> Result<BuildResult> {
             ])
         })
         .collect::<Result<Vec<Row>>>()?;
-    insert_rows(&tx, "changelog_items", &["changelog_id", "item_id", "change_groups", "impact", "bought_by"], &item_rows, true)?;
+    insert_rows(
+        &tx,
+        "changelog_items",
+        &["changelog_id", "item_id", "change_groups", "impact", "bought_by"],
+        &item_rows,
+        true,
+    )?;
 
-    let published_at: HashMap<&str, &str> = patches.iter().map(|patch| (patch.id.as_str(), patch.pub_date.as_str())).collect();
+    let published_at: HashMap<&str, &str> =
+        patches.iter().map(|patch| (patch.id.as_str(), patch.pub_date.as_str())).collect();
     let published = |id: &str| published_at.get(id).copied().unwrap_or_default();
     let mut bullets = Vec::new();
     let mut seen = HashSet::new();
     for link in &hero_links {
         if seen.insert(("hero", link.changelog_id.clone(), link.hero_id)) {
             let groups = link.groups.as_deref().unwrap_or_default();
-            bullets.extend(scoped(EntityType::Hero, &link.changelog_id, published(&link.changelog_id), link.hero_id, groups));
+            bullets.extend(scoped(
+                EntityType::Hero,
+                &link.changelog_id,
+                published(&link.changelog_id),
+                link.hero_id,
+                groups,
+            ));
         }
     }
     for link in &item_links {
         if seen.insert(("item", link.changelog_id.clone(), link.item_id)) {
             let groups: Vec<(EntityBulletGroup, Option<String>)> =
                 link.groups.iter().flatten().map(|group| (group.clone(), None)).collect();
-            bullets.extend(scoped(EntityType::Item, &link.changelog_id, published(&link.changelog_id), link.item_id, &groups));
+            bullets.extend(scoped(
+                EntityType::Item,
+                &link.changelog_id,
+                published(&link.changelog_id),
+                link.item_id,
+                &groups,
+            ));
         }
     }
     let events = link_property_changes(&bullets);
@@ -619,8 +676,20 @@ pub fn build_database(options: &BuildOptions) -> Result<BuildResult> {
         &tx,
         "property_events",
         &[
-            "changelog_id", "entity_type", "entity_id", "ability_slug", "group_index", "bullet_index", "property",
-            "qualifier", "old_value", "new_value", "digest", "extraction_version", "previous_changelog_id", "previous_old",
+            "changelog_id",
+            "entity_type",
+            "entity_id",
+            "ability_slug",
+            "group_index",
+            "bullet_index",
+            "property",
+            "qualifier",
+            "old_value",
+            "new_value",
+            "digest",
+            "extraction_version",
+            "previous_changelog_id",
+            "previous_old",
             "previous_new",
         ],
         &property_rows,
@@ -645,10 +714,5 @@ pub fn build_database(options: &BuildOptions) -> Result<BuildResult> {
     drop(conn);
     std::fs::rename(&building, &target)?;
 
-    Ok(BuildResult {
-        path: target,
-        patch_count,
-        hero_matches: hero_links.len(),
-        item_matches: item_links.len(),
-    })
+    Ok(BuildResult { path: target, patch_count, hero_matches: hero_links.len(), item_matches: item_links.len() })
 }

@@ -46,7 +46,7 @@
 <script type="application/ld+json">{{ json_ld|safe }}</script>
 {%- endif %}
 <title>{{ meta.title }}</title>
-<script>if (location.pathname === '/' && /[?&](hero|item|q|major)=/.test(location.search)) document.documentElement.dataset.filtering = ''; for (const type of ['pageswap', 'pagereveal']) addEventListener(type, (event) => { event.viewTransition?.ready.catch(() => {}); event.viewTransition?.finished.catch(() => {}); });</script>
+<script>if (location.pathname === '/' && /[?&](hero|item|q|major)=[^&]/.test(location.search)) document.documentElement.dataset.filtering = ''; addEventListener('pageswap', (event) => { if (event.viewTransition && event.activation && new URL(event.activation.entry.url).hash) event.viewTransition.skipTransition(); });</script>
 <link rel="stylesheet" href="{{ layout.assets.css }}">
 <script type="speculationrules">{{ layout.assets.speculation_rules|safe }}</script>
 <script type="module" src="{{ layout.assets.js }}"></script>

@@ -18,22 +18,9 @@ pub fn absolute_url(path: &str) -> String {
     if path.starts_with('/') { format!("{SITE_URL}{path}") } else { format!("{SITE_URL}/{path}") }
 }
 
-fn encode_component(segment: &str) -> String {
-    let mut out = String::with_capacity(segment.len());
-    for byte in segment.bytes() {
-        match byte {
-            b'A'..=b'Z' | b'a'..=b'z' | b'0'..=b'9' | b'-' | b'_' | b'.' | b'!' | b'~' | b'*' | b'\'' | b'(' | b')' => {
-                out.push(byte as char)
-            }
-            _ => out.push_str(&format!("%{byte:02X}")),
-        }
-    }
-    out
-}
-
 /// Canonical patch URL; the slug's own `/` survives, so encode per segment.
 pub fn change_path(slug: &str) -> String {
-    format!("/change/{}", slug.split('/').map(encode_component).collect::<Vec<_>>().join("/"))
+    format!("/change/{}", slug.split('/').map(deadlog_changelog::encode_uri_component).collect::<Vec<_>>().join("/"))
 }
 
 #[derive(Debug, Clone)]

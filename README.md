@@ -6,82 +6,67 @@ A searchable Deadlock patch archive with per-hero, per-item, and per-ability his
 
 ## Tech Stack
 
-- Drizzle ORM
-  - SQLite (`@libsql/client`), read at build time only
-- PNPM
-- SvelteKit
-- UnoCSS
-- TypeScript
-- Playwright
-- [Deadlock API](https://deadlock-api.com)
+- Rust: one `deadlog` binary for the pipeline and the static site
+- SQLite (`rusqlite`), read at build time only
+- Askama templates, lightningcss, a small vanilla-JS search island
 - Mog (`.mg`) for patch contents
+- takumi for social preview images
+- Playwright for browser tests
+- [Deadlock API](https://deadlock-api.com)
+- Cloudflare Workers static assets
 
 ## Development
 
 ### Project Structure
 
-This is a pnpm workspace with the following structure:
-
 ```
-app/           # SvelteKit App
-  src/         # routes and components
-  changelogs/  # generated patch notes
-  static/      # assets and generated deadlog.db
-lib/
-  db/          # schema, queries, and types
-  changelog/   # change extraction
-  scraper/     # forum/steam ingestion
-  meta/        # social preview image generation
+crates/
+  cli/         # the `deadlog` binary
+  site/        # static site generator and local server
+  changelog/   # .mg parsing and change extraction
+  db/          # deadlog.db schema, reader and writer
+  scraper/     # forum/Steam ingestion and the Deadlock asset API
   stats/       # patch impact windows from Deadlock API match data
-  utils/
-scripts/
+  meta/        # social preview images
+  model/       # shared types and helpers
+  parity/      # page-parity checker between two builds
+web/           # CSS and JS the site ships
+app/
+  changelogs/  # patch notes (.mg), the pipeline's source of truth
+  static/      # static files and the generated deadlog.db
+e2e/           # Playwright suite
 ```
 
 ### Set up
 
 ```bash
-# Enable direnv
+# Enable direnv (Rust toolchain, sqlite, Node for Playwright)
 direnv allow
 
-# Install dependencies
-pnpm install
-
-# Run local dev server
-pnpm dev
-
 # Rebuild the database from existing patch files
-pnpm build:db
+cargo run --release -- db
 
-# Fetch new patch notes and rebuild using one entity-data snapshot
-pnpm build:scraper
+# Fetch new patch notes, then rebuild the database
+cargo run --release -- scrape
+cargo run --release -- scrape --if-changed   # skip the rebuild when nothing changed
 
-# Skip rebuilding when scraping finds no content changes
-pnpm build:scraper --if-changed
+# Refresh open patch impact windows in the .mg files
+cargo run --release -- stats
+cargo run --release -- stats --rebuild       # recompute every window
+cargo run --release -- related
 
 # Generate preview images
-pnpm build:meta
+cargo run --release -- meta
 
-# Refresh open patch impact windows in the changelog .mg files
-pnpm build:stats
+# Build the site into dist/, or serve it with live reload
+cargo run --release -- build
+cargo run -- serve
 
-# Recompute every window from the full match history
-pnpm build:stats --rebuild
-
-# Refresh the README screenshot (targets prod)
-pnpm screenshot
-
-# Screenshot local instead
-SCREENSHOT_URL=http://127.0.0.1:5173 pnpm screenshot
-
-# Format
+# Format and check
 nix fmt
+nix flake check
+cargo test --workspace
 
-# Check
-pnpm check
-pnpm lint
-pnpm test
-
-# Build and run browser tests
-pnpm build
-pnpm test:e2e
+# Browser tests against dist/
+cd e2e && npm ci && npx playwright test
 ```

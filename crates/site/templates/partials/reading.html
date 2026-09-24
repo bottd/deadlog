@@ -2,8 +2,8 @@
 
 {%- macro context(view) -%}
 <details class="text-sm" data-entity-context><summary class="ui-focus-ring text-muted-foreground -my-1 flex w-fit cursor-pointer list-none items-center gap-2 rounded-sm py-3">{% call icons::svg("chevron-right", "details-marker size-3.5 shrink-0") %}{% endcall %}<span>{{ view.summary() }}{% if !view.header %}<span class="sr-only"> for {{ view.name }}</span>{% endif %}{% if let Some(version) = view.context.client_version %}<span class="font-mono text-xs"> · client {{ version }}</span>{% endif %}</span></summary> <div class="max-w-[72ch] space-y-3 pt-1 pb-2 leading-relaxed">
-{%- for section in view.context.lead() -%}{%- for paragraph in section.paragraphs -%}<p class="text-muted-foreground">{{ paragraph }}</p>{%- endfor -%}{%- endfor -%}
-{%- let labelled = view.context.labelled() -%}
+{%- for section in view.lead() -%}{%- for paragraph in section.paragraphs -%}<p class="text-muted-foreground">{{ paragraph }}</p>{%- endfor -%}{%- endfor -%}
+{%- let labelled = view.labelled() -%}
 {%- if !labelled.is_empty() %} <dl class="space-y-2">{% for section in labelled %}<div><dt class="text-foreground">{{ section.label.as_deref().unwrap_or_default() }}</dt> {% for paragraph in section.paragraphs %}<dd class="text-muted-foreground">{{ paragraph }}</dd>{% endfor %}</div>{% endfor %}</dl>{% endif %}
 {%- if !view.context.properties.is_empty() %} <div><p class="text-muted-foreground pb-1 font-mono text-xs">Base values, before upgrades and scaling</p> <table class="font-mono text-xs" aria-label="Base values for {{ view.name }}"><tbody>{% for property in view.context.properties %}<tr><th scope="row" class="text-muted-foreground py-0.5 pr-6 text-left font-normal">{{ property.label }}</th><td class="text-foreground py-0.5">{{ property.display }}{{ property.unit }}</td></tr>{% endfor %}</tbody></table></div>{% endif %} <p class="text-muted-foreground text-xs">{{ view.closing() }}</p>
 {%- if let Some(href) = view.history_href %} <p><a href="{{ href }}" class="ui-focus-ring text-signal rounded-sm underline-offset-4 hover:underline">{{ view.name }} full history</a></p>{% endif -%}
@@ -23,11 +23,9 @@
 {%- for block in blocks -%}
 {%- match block -%}
 {%- when crate::share::BandBlock::Share with { kind, heading_id, title, lead, rows, paired, round, notes } -%}
-{%- if heading_id.starts_with("related-") %}<div data-related-items>{% endif -%}
 <div class="min-w-0" data-share-block="{{ kind }}"><h{{ level }} id="{{ heading_id }}" class="text-foreground text-sm font-semibold">{{ title }}</h{{ level }}> <p class="text-muted-foreground mt-0.5 text-xs leading-relaxed">{{ lead }}</p> {% call share_list(rows, heading_id, paired, round) %}{% endcall %}
 {%- if !notes.is_empty() %} <details class="mt-1 text-sm" data-related-notes><summary class="ui-focus-ring text-muted-foreground flex min-h-11 w-fit cursor-pointer list-none items-center gap-2 rounded-sm">{% call icons::svg("chevron-right", "details-marker size-3.5 shrink-0") %}{% endcall %} Their notes · {{ notes.len() }} {% if notes.len() == 1 %}item{% else %}items{% endif %}</summary> <div class="space-y-3 pb-2 pl-5.5">{% for note in notes %}<div><h6 class="text-foreground flex items-center gap-2 text-sm font-semibold"><img src="{{ note.image }}" alt="" width="20" height="20" loading="lazy" decoding="async" class="size-5 shrink-0 object-contain">{{ note.name }}</h6> {% for bullets in note.groups %}<ul class="marker:text-muted-foreground mt-1 ml-4 list-disc space-y-1.5 leading-relaxed">{% for bullet in bullets %}<li class="pl-1">{{ bullet }}</li>{% endfor %}</ul>{% endfor %}</div>{% endfor %}</div></details>{% endif -%}
 </div>
-{%- if heading_id.starts_with("related-") %}</div>{% endif -%}
 {%- when crate::share::BandBlock::BuyTime with { lead, time } -%}
 <div class="min-w-0" data-share-block="bought-at"><h{{ level }} class="text-foreground text-sm font-semibold">Bought at</h{{ level }}> <p class="text-muted-foreground mt-0.5 text-xs leading-relaxed">{{ lead }}</p> <p class="text-foreground mt-2 flex min-h-11 items-center font-mono text-sm" aria-label="{{ time.before }} before, {{ time.after }} after">{{ time.before }} → {{ time.after }}</p></div>
 {%- endmatch -%}

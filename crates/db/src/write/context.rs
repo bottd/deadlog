@@ -8,8 +8,8 @@ use deadlog_model::{AssetIdentity, ContextProperty, ContextSection, EntityContex
 use regex::{Captures, Regex};
 use serde_json::Value;
 
-use deadlog_model::{JS_SPACE, js_trim as trim};
 use super::snapshot::{Description, Item, Nullish, Property, Provenance, strip_inline_svg};
+use deadlog_model::{JS_SPACE, js_trim as trim};
 
 static SPACES: LazyLock<Regex> = LazyLock::new(|| Regex::new(&format!("{JS_SPACE}+")).unwrap());
 static BREAKS: LazyLock<Regex> =
@@ -43,9 +43,7 @@ fn decode_entities(text: &str) -> String {
                 Some(hex) => u32::from_str_radix(hex, 16).ok(),
                 None => numeric.parse::<u32>().ok(),
             };
-            code.filter(|code| *code > 0 && *code <= 0x10ffff)
-                .and_then(char::from_u32)
-                .map_or(whole, |c| c.to_string())
+            code.filter(|code| *code > 0 && *code <= 0x10ffff).and_then(char::from_u32).map_or(whole, |c| c.to_string())
         })
         .into_owned()
 }

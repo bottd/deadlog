@@ -1,7 +1,9 @@
 mod common;
 
 use common::{impact, lines};
-use deadlog_changelog::{EntityEnrichment, carry_enrichment, parse_structure, splice_impact_blocks, write_enrichment_block};
+use deadlog_changelog::{
+    EntityEnrichment, carry_enrichment, parse_structure, splice_impact_blocks, write_enrichment_block,
+};
 use deadlog_model::{EntityImpact, EntityType};
 
 fn generated() -> String {
@@ -33,7 +35,8 @@ fn with_stats() -> String {
 #[test]
 fn writes_under_the_fence_of_each_block_the_callback_answers_for() {
     let next =
-        splice_impact_blocks(&generated(), |block| (block.kind == EntityType::Item).then(|| Some(impact())), None).unwrap();
+        splice_impact_blocks(&generated(), |block| (block.kind == EntityType::Item).then(|| Some(impact())), None)
+            .unwrap();
     assert_eq!(impacts_in(&next), vec![None, Some(impact())]);
     assert_eq!(next.split('\n').nth(9), Some("``attr:"));
 }
@@ -75,5 +78,8 @@ fn keeps_a_block_the_new_text_already_carries() {
 fn writes_exactly_the_lines_of_the_block_writer() {
     let carried = carry_enrichment(&with_stats(), &generated()).unwrap();
     let lines: Vec<&str> = carried.split('\n').collect();
-    assert_eq!(lines[5..17], write_enrichment_block(&EntityEnrichment { impact: Some(impact()), ..Default::default() })[..]);
+    assert_eq!(
+        lines[5..17],
+        write_enrichment_block(&EntityEnrichment { impact: Some(impact()), ..Default::default() })[..]
+    );
 }

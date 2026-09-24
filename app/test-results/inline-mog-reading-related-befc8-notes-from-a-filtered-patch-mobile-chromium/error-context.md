@@ -1,0 +1,2862 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: inline-mog-reading.spec.ts >> related purchase shares navigate to visible item notes from a filtered patch
+- Location: e2e/inline-mog-reading.spec.ts:42:1
+
+# Error details
+
+```
+Error: expect(received).toEqual(expected) // deep equality
+
+- Expected  - 1
++ Received  + 3
+
+- Array []
++ Array [
++   "Transition was aborted because of invalid state. ViewTransition opt-in disabled",
++ ]
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=f1e2]:
+    - link "Skip to content" [ref=f1e3] [cursor=pointer]:
+        - /url: '#main-content'
+    - banner [ref=f1e4]:
+        - generic [ref=f1e5]:
+            - navigation "Primary navigation" [ref=f1e6]:
+                - generic [ref=f1e7]:
+                    - link "deadlog.io - Home" [ref=f1e8] [cursor=pointer]:
+                        - /url: /
+                        - generic [ref=f1e15]: deadlog
+                    - generic [ref=f1e18]:
+                        - link "Heroes" [ref=f1e19] [cursor=pointer]:
+                            - /url: /heroes
+                        - link "Items" [ref=f1e20] [cursor=pointer]:
+                            - /url: /items
+            - button "Search & filter" [ref=f1e23]
+    - main [ref=f1e29]:
+        - link "Back to all changes" [ref=f1e30] [cursor=pointer]:
+            - /url: /
+        - group [ref=f1e33]:
+            - generic "Contents" [ref=f1e34] [cursor=pointer]
+        - article [ref=f1e37]:
+            - generic [ref=f1e43]:
+                - generic [ref=f1e44]:
+                    - generic [ref=f1e45]:
+                        - generic [ref=f1e46]:
+                            - heading "September 16th, 2026" [level=1] [ref=f1e47]
+                            - generic [ref=f1e48]:
+                                - generic [ref=f1e49]:
+                                    - generic [ref=f1e50]:
+                                        - generic [ref=f1e51]: IF
+                                        - img "IceFrog" [ref=f1e52]
+                                    - generic [ref=f1e53]:
+                                        - text: By IceFrog at
+                                        - time [ref=f1e54]: 1:16 PM
+                                - generic [ref=f1e56]:
+                                    - generic [ref=f1e57]:
+                                        - generic [ref=f1e58]: '20'
+                                        - generic [ref=f1e59]: heroes
+                                    - generic [ref=f1e60]:
+                                        - generic [ref=f1e61]: '22'
+                                        - generic [ref=f1e62]: items
+                        - generic [ref=f1e63]:
+                            - link "View original patch notes" [ref=f1e64] [cursor=pointer]:
+                                - /url: https://store.steampowered.com/news/externalpost/steam_community_announcements/1844115010490072
+                            - button "Copy link to clipboard" [ref=f1e69]
+                    - separator [ref=f1e70]
+                - region "Changelog details" [ref=f1e71]:
+                    - heading "General Changes" [level=2] [ref=f1e72]
+                    - paragraph [ref=f1e73]:
+                        - img "store.steampowered" [ref=f1e74]
+                    - list [ref=f1e75]:
+                        - listitem [ref=f1e76]: Unstable Rift comeback resist max values now scale over the course of the game. Previously the max values were 35%. Now it is 10% + 1% per minute (around ~20% for the first one), with an upper limit of 40% at 30 minutes.
+                        - listitem [ref=f1e77]: Removed a fixed amount of extra bonus souls you would get for being behind even a very slightly amount in net worth for both hero kill bounties as well as Unstable Rift bounties (this had a larger impact on the early to mid game)
+                        - listitem [ref=f1e78]: Slightly reduced comeback bounties in general (this is in addition to the above change)
+                        - listitem [ref=f1e79]: A portion of the comeback souls earned by players above enemy teams average net worth is instead distributed via the tick gold system that is given to the lowest 2 players (70% of the extra comeback value goes to them)
+                        - listitem [ref=f1e80]: Guardian bounty increased by 10%
+                        - listitem [ref=f1e81]: Walker bounty increased by 5%
+                        - listitem [ref=f1e82]: Share for objectives bounty to nearby heroes reduced from 30% to 25% (the remaining gets split between all 6 players)
+                        - listitem [ref=f1e83]: Respawn Time at 20 minutes increased from 35s to 38s (does not affect the max values later on, just a little higher earlier)
+                        - listitem [ref=f1e84]: Using parry now pauses reloading
+                        - listitem [ref=f1e85]: Parrying while doing a regular dash will now cancel the dash (and momentum) and parry on the spot
+                        - listitem [ref=f1e86]: Getting stunned now pauses your reload rather than restarting it
+                        - listitem [ref=f1e87]: Breakables in the underground tunnels initial spawn time increased from 3m to 5m
+                        - listitem [ref=f1e88]: Breakables in the underground tunnels respawn rate increased from 3m to 5m
+                        - listitem [ref=f1e89]: All move slow values reduced by ~20% globally
+                        - listitem [ref=f1e90]: All ground dash slows reduced by ~10% globally
+                        - listitem [ref=f1e91]: Slows now also affect air drag by 35% of the slow value (convar citadel_enable_slows_affect_air_drag
+                        - listitem [ref=f1e92]: Dashes and light melee's no longer pause your gun's cycle time (this is a general change that affects high-cycle time weapons the most like Silver or Abrams)
+                    - heading "Hero Changes" [level=2] [ref=f1e93]
+                    - list "Affected heros" [ref=f1e94]:
+                        - listitem [ref=f1e95]:
+                            - link "Abrams" [ref=f1e96] [cursor=pointer]:
+                                - /url: '#abrams'
+                        - listitem [ref=f1e98]:
+                            - link "Celeste" [ref=f1e99] [cursor=pointer]:
+                                - /url: '#celeste'
+                        - listitem [ref=f1e101]:
+                            - link "Graves" [ref=f1e102] [cursor=pointer]:
+                                - /url: '#graves'
+                        - listitem [ref=f1e104]:
+                            - link "Haze" [ref=f1e105] [cursor=pointer]:
+                                - /url: '#haze'
+                        - listitem [ref=f1e107]:
+                            - link "Holliday" [ref=f1e108] [cursor=pointer]:
+                                - /url: '#holliday'
+                        - listitem [ref=f1e110]:
+                            - link "Ivy" [ref=f1e111] [cursor=pointer]:
+                                - /url: '#ivy'
+                        - listitem [ref=f1e113]:
+                            - link "Kelvin" [ref=f1e114] [cursor=pointer]:
+                                - /url: '#kelvin'
+                        - listitem [ref=f1e116]:
+                            - link "Lady Geist" [ref=f1e117] [cursor=pointer]:
+                                - /url: '#lady-geist'
+                        - listitem [ref=f1e119]:
+                            - link "Lash" [ref=f1e120] [cursor=pointer]:
+                                - /url: '#lash'
+                        - listitem [ref=f1e122]:
+                            - link "Paige" [ref=f1e123] [cursor=pointer]:
+                                - /url: '#paige'
+                        - listitem [ref=f1e125]:
+                            - link "Paradox" [ref=f1e126] [cursor=pointer]:
+                                - /url: '#paradox'
+                        - listitem [ref=f1e128]:
+                            - link "Rem" [ref=f1e129] [cursor=pointer]:
+                                - /url: '#rem'
+                        - listitem [ref=f1e131]:
+                            - link "Shiv" [ref=f1e132] [cursor=pointer]:
+                                - /url: '#shiv'
+                        - listitem [ref=f1e134]:
+                            - link "Silver" [ref=f1e135] [cursor=pointer]:
+                                - /url: '#silver'
+                        - listitem [ref=f1e137]:
+                            - link "Venator" [ref=f1e138] [cursor=pointer]:
+                                - /url: '#venator'
+                        - listitem [ref=f1e140]:
+                            - link "Viscous" [ref=f1e141] [cursor=pointer]:
+                                - /url: '#viscous'
+                        - listitem [ref=f1e143]:
+                            - link "Vyper" [ref=f1e144] [cursor=pointer]:
+                                - /url: '#vyper'
+                        - listitem [ref=f1e146]:
+                            - link "Warden" [ref=f1e147] [cursor=pointer]:
+                                - /url: '#warden'
+                        - listitem [ref=f1e149]:
+                            - link "Wraith" [ref=f1e150] [cursor=pointer]:
+                                - /url: '#wraith'
+                        - listitem [ref=f1e152]:
+                            - link "Yamato" [ref=f1e153] [cursor=pointer]:
+                                - /url: '#yamato'
+                    - generic [ref=f1e155]:
+                        - paragraph [ref=f1e156]:
+                            - link "Abrams patch history" [ref=f1e157] [cursor=pointer]:
+                                - /url: /hero/abrams
+                        - heading [level=3] [ref=f1e158]:
+                            - link "Abrams" [ref=f1e159] [cursor=pointer]:
+                                - /url: /hero/abrams
+                        - generic [ref=f1e160]:
+                            - paragraph [ref=f1e161]:
+                                - link "Infernal Resilience change history" [ref=f1e162] [cursor=pointer]:
+                                    - /url: /ability/infernal-resilience
+                            - heading [level=4] [ref=f1e163]:
+                                - link "Infernal Resilience" [ref=f1e164] [cursor=pointer]:
+                                    - /url: /ability/infernal-resilience
+                            - list [ref=f1e165]:
+                                - listitem [ref=f1e166]: Infernal Resilience T3 increased from +8% to +9%
+                            - group [ref=f1e168]:
+                                - generic "Current details for Infernal Resilience · client 6698" [ref=f1e169] [cursor=pointer]:
+                                    - generic [ref=f1e172]:
+                                        - text: Current details
+                                        - generic [ref=f1e173]: for Infernal Resilience
+                                        - text: · client 6698
+                        - generic [ref=f1e174]:
+                            - paragraph [ref=f1e175]:
+                                - link "Seismic Impact change history" [ref=f1e176] [cursor=pointer]:
+                                    - /url: /ability/seismic-impact
+                            - heading [level=4] [ref=f1e177]:
+                                - link "Seismic Impact" [ref=f1e178] [cursor=pointer]:
+                                    - /url: /ability/seismic-impact
+                            - list [ref=f1e179]:
+                                - listitem [ref=f1e180]: Seismic Impact T3 reduced from 6s Unstoppable to 5s
+                            - group [ref=f1e182]:
+                                - generic "Current details for Seismic Impact · client 6698" [ref=f1e183] [cursor=pointer]:
+                                    - generic [ref=f1e186]:
+                                        - text: Current details
+                                        - generic [ref=f1e187]: for Seismic Impact
+                                        - text: · client 6698
+                        - generic [ref=f1e190]:
+                            - generic [ref=f1e191]:
+                                - heading "Maxed first" [level=4] [ref=f1e192]
+                                - paragraph [ref=f1e193]: Share of Abrams players who maxed each ability first, 2–15 Sep → 17–22 Sep so far.
+                                - list "Maxed first" [ref=f1e194]:
+                                    - listitem [ref=f1e195]:
+                                        - link "Shoulder Charge, 75% before, 79% after" [ref=f1e196] [cursor=pointer]:
+                                            - /url: /ability/shoulder-charge
+                                            - generic [ref=f1e197]: Shoulder Charge
+                                            - generic [aria-hidden] [ref=f1e203]: 75% → 79%
+                                    - listitem [ref=f1e204]:
+                                        - link "Siphon Life, 19% before, 15% after" [ref=f1e205] [cursor=pointer]:
+                                            - /url: /ability/siphon-life
+                                            - generic [ref=f1e206]: Siphon Life
+                                            - generic [aria-hidden] [ref=f1e212]: 19% → 15%
+                                    - listitem [ref=f1e213]:
+                                        - link "Infernal Resilience, 4% before, 4% after" [ref=f1e214] [cursor=pointer]:
+                                            - /url: /ability/infernal-resilience
+                                            - generic [ref=f1e215]: Infernal Resilience
+                                            - generic [aria-hidden] [ref=f1e221]: 4% → 4%
+                                    - listitem [ref=f1e222]:
+                                        - link "Seismic Impact, 2% before, 2% after" [ref=f1e223] [cursor=pointer]:
+                                            - /url: /ability/seismic-impact
+                                            - generic [ref=f1e224]: Seismic Impact
+                                            - generic [aria-hidden] [ref=f1e230]: 2% → 2%
+                            - generic [ref=f1e232]:
+                                - heading "Also changed in this patch" [level=4] [ref=f1e233]
+                                - paragraph [ref=f1e234]: Share of Abrams players who bought each, 2–15 Sep → 17–22 Sep so far.
+                                - list "Also changed in this patch" [ref=f1e235]:
+                                    - listitem [ref=f1e236]:
+                                        - link "Lifestrike, 33% before, 49% after" [ref=f1e237] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#lifestrike
+                                            - generic [ref=f1e238]: Lifestrike
+                                            - generic [aria-hidden] [ref=f1e244]: 33% → 49%
+                                    - listitem [ref=f1e245]:
+                                        - link "Restorative Locket, 19% before, 13% after" [ref=f1e246] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#restorative-locket
+                                            - generic [ref=f1e247]: Restorative Locket
+                                            - generic [aria-hidden] [ref=f1e253]: 19% → 13%
+                                    - listitem [ref=f1e254]:
+                                        - link "Fortitude, 9% before, 12% after" [ref=f1e255] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#fortitude
+                                            - generic [ref=f1e256]: Fortitude
+                                            - generic [aria-hidden] [ref=f1e262]: 9% → 12%
+                    - generic [ref=f1e263]:
+                        - paragraph [ref=f1e264]:
+                            - link "Celeste patch history" [ref=f1e265] [cursor=pointer]:
+                                - /url: /hero/celeste
+                        - heading [level=3] [ref=f1e266]:
+                            - link "Celeste" [ref=f1e267] [cursor=pointer]:
+                                - /url: /hero/celeste
+                        - list [ref=f1e268]:
+                            - listitem [ref=f1e269]: Stamina cooldown increased from 5 to 5.3
+                        - generic [ref=f1e270]:
+                            - paragraph [ref=f1e271]:
+                                - link "Light Eater change history" [ref=f1e272] [cursor=pointer]:
+                                    - /url: /ability/light-eater
+                            - heading [level=4] [ref=f1e273]:
+                                - link "Light Eater" [ref=f1e274] [cursor=pointer]:
+                                    - /url: /ability/light-eater
+                            - list [ref=f1e275]:
+                                - listitem [ref=f1e276]: Light Eater spirit lifesteal reduced from 20% to 18%
+                                - listitem [ref=f1e277]: Light Eater T3 decreased from +25 to +22
+                            - group [ref=f1e279]:
+                                - generic "Current details for Light Eater · client 6698" [ref=f1e280] [cursor=pointer]:
+                                    - generic [ref=f1e283]:
+                                        - text: Current details
+                                        - generic [ref=f1e284]: for Light Eater
+                                        - text: · client 6698
+                        - generic [ref=f1e285]:
+                            - paragraph [ref=f1e286]:
+                                - link "Dazzling Trick change history" [ref=f1e287] [cursor=pointer]:
+                                    - /url: /ability/dazzling-trick
+                            - heading [level=4] [ref=f1e288]:
+                                - link "Dazzling Trick" [ref=f1e289] [cursor=pointer]:
+                                    - /url: /ability/dazzling-trick
+                            - list [ref=f1e290]:
+                                - listitem [ref=f1e291]:
+                                    - text: Dazzling Trick cooldown increased from 34s to 38s
+                                    - 'link "Previous recorded cooldown change: 32s to 34s, August 22nd, 2026." [ref=f1e293] [cursor=pointer]':
+                                        - /url: /change/2026/08-22#dazzling-trick
+                                        - text: prev. 32s → 34s · 22 Aug
+                            - group [ref=f1e295]:
+                                - generic "Current details for Dazzling Trick · client 6698" [ref=f1e296] [cursor=pointer]:
+                                    - generic [ref=f1e299]:
+                                        - text: Current details
+                                        - generic [ref=f1e300]: for Dazzling Trick
+                                        - text: · client 6698
+                        - generic [ref=f1e301]:
+                            - paragraph [ref=f1e302]:
+                                - link "Radiant Daggers change history" [ref=f1e303] [cursor=pointer]:
+                                    - /url: /ability/radiant-daggers
+                            - heading [level=4] [ref=f1e304]:
+                                - link "Radiant Daggers" [ref=f1e305] [cursor=pointer]:
+                                    - /url: /ability/radiant-daggers
+                            - list [ref=f1e306]:
+                                - listitem [ref=f1e307]: Radiant Daggers T2 reduced from +80 to +70
+                            - group [ref=f1e309]:
+                                - generic "Current details for Radiant Daggers · client 6698" [ref=f1e310] [cursor=pointer]:
+                                    - generic [ref=f1e313]:
+                                        - text: Current details
+                                        - generic [ref=f1e314]: for Radiant Daggers
+                                        - text: · client 6698
+                        - generic [ref=f1e315]:
+                            - paragraph [ref=f1e316]:
+                                - link "Shining Wonder change history" [ref=f1e317] [cursor=pointer]:
+                                    - /url: /ability/shining-wonder
+                            - heading [level=4] [ref=f1e318]:
+                                - link "Shining Wonder" [ref=f1e319] [cursor=pointer]:
+                                    - /url: /ability/shining-wonder
+                            - list [ref=f1e320]:
+                                - listitem [ref=f1e321]: Shining Wonder radius reduced from 16.5m to 15.5m
+                                - listitem [ref=f1e322]: Shining Wonder T3 Max Bounces reduced from +8 to +6
+                            - group [ref=f1e324]:
+                                - generic "Current details for Shining Wonder · client 6698" [ref=f1e325] [cursor=pointer]:
+                                    - generic [ref=f1e328]:
+                                        - text: Current details
+                                        - generic [ref=f1e329]: for Shining Wonder
+                                        - text: · client 6698
+                        - generic [ref=f1e332]:
+                            - generic [ref=f1e333]:
+                                - heading "Maxed first" [level=4] [ref=f1e334]
+                                - paragraph [ref=f1e335]: Share of Celeste players who maxed each ability first, 2–15 Sep → 17–22 Sep so far.
+                                - list "Maxed first" [ref=f1e336]:
+                                    - listitem [ref=f1e337]:
+                                        - link "Light Eater, 66% before, 66% after" [ref=f1e338] [cursor=pointer]:
+                                            - /url: /ability/light-eater
+                                            - generic [ref=f1e339]: Light Eater
+                                            - generic [aria-hidden] [ref=f1e345]: 66% → 66%
+                                    - listitem [ref=f1e346]:
+                                        - link "Shining Wonder, 13% before, 12% after" [ref=f1e347] [cursor=pointer]:
+                                            - /url: /ability/shining-wonder
+                                            - generic [ref=f1e348]: Shining Wonder
+                                            - generic [aria-hidden] [ref=f1e354]: 13% → 12%
+                                    - listitem [ref=f1e355]:
+                                        - link "Dazzling Trick, 13% before, 14% after" [ref=f1e356] [cursor=pointer]:
+                                            - /url: /ability/dazzling-trick
+                                            - generic [ref=f1e357]: Dazzling Trick
+                                            - generic [aria-hidden] [ref=f1e363]: 13% → 14%
+                                    - listitem [ref=f1e364]:
+                                        - link "Radiant Daggers, 8% before, 8% after" [ref=f1e365] [cursor=pointer]:
+                                            - /url: /ability/radiant-daggers
+                                            - generic [ref=f1e366]: Radiant Daggers
+                                            - generic [aria-hidden] [ref=f1e372]: 8% → 8%
+                            - generic [ref=f1e374]:
+                                - heading "Also changed in this patch" [level=4] [ref=f1e375]
+                                - paragraph [ref=f1e376]: Share of Celeste players who bought each, 2–15 Sep → 17–22 Sep so far.
+                                - list "Also changed in this patch" [ref=f1e377]:
+                                    - listitem [ref=f1e378]:
+                                        - link "Radiant Regeneration, 85% before, 84% after" [ref=f1e379] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#radiant-regeneration
+                                            - generic [ref=f1e380]: Radiant Regeneration
+                                            - generic [aria-hidden] [ref=f1e386]: 85% → 84%
+                                    - listitem [ref=f1e387]:
+                                        - link "Restorative Locket, 54% before, 46% after" [ref=f1e388] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#restorative-locket
+                                            - generic [ref=f1e389]: Restorative Locket
+                                            - generic [aria-hidden] [ref=f1e395]: 54% → 46%
+                                    - listitem [ref=f1e396]:
+                                        - link "Spiritual Overflow, 38% before, 31% after" [ref=f1e397] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#spiritual-overflow
+                                            - generic [ref=f1e398]: Spiritual Overflow
+                                            - generic [aria-hidden] [ref=f1e404]: 38% → 31%
+                    - generic [ref=f1e405]:
+                        - paragraph [ref=f1e406]:
+                            - link "Graves patch history" [ref=f1e407] [cursor=pointer]:
+                                - /url: /hero/graves
+                        - heading [level=3] [ref=f1e408]:
+                            - link "Graves" [ref=f1e409] [cursor=pointer]:
+                                - /url: /hero/graves
+                        - list [ref=f1e410]:
+                            - listitem [ref=f1e411]: Health per boon increased from 33 to 35
+                        - generic [ref=f1e416]:
+                            - heading "Also changed in this patch" [level=4] [ref=f1e417]
+                            - paragraph [ref=f1e418]: Share of Graves players who bought each, 2–15 Sep → 17–22 Sep so far.
+                            - list "Also changed in this patch" [ref=f1e419]:
+                                - listitem [ref=f1e420]:
+                                    - link "Toxic Bullets, 54% before, 50% after" [ref=f1e421] [cursor=pointer]:
+                                        - /url: /change/2026/09-16#toxic-bullets
+                                        - generic [ref=f1e422]: Toxic Bullets
+                                        - generic [aria-hidden] [ref=f1e428]: 54% → 50%
+                                - listitem [ref=f1e429]:
+                                    - link "Spiritual Overflow, 25% before, 22% after" [ref=f1e430] [cursor=pointer]:
+                                        - /url: /change/2026/09-16#spiritual-overflow
+                                        - generic [ref=f1e431]: Spiritual Overflow
+                                        - generic [aria-hidden] [ref=f1e437]: 25% → 22%
+                                - listitem [ref=f1e438]:
+                                    - link "Golden Goose Egg, 20% before, 8% after" [ref=f1e439] [cursor=pointer]:
+                                        - /url: /change/2026/09-16#golden-goose-egg
+                                        - generic [ref=f1e440]: Golden Goose Egg
+                                        - generic [aria-hidden] [ref=f1e446]: 20% → 8%
+                    - generic [ref=f1e447]:
+                        - paragraph [ref=f1e448]:
+                            - link "Haze patch history" [ref=f1e449] [cursor=pointer]:
+                                - /url: /hero/haze
+                        - heading [level=3] [ref=f1e450]:
+                            - link "Haze" [ref=f1e451] [cursor=pointer]:
+                                - /url: /hero/haze
+                        - generic [ref=f1e452]:
+                            - paragraph [ref=f1e453]:
+                                - link "Fixation change history" [ref=f1e454] [cursor=pointer]:
+                                    - /url: /ability/fixation
+                            - heading [level=4] [ref=f1e455]:
+                                - link "Fixation" [ref=f1e456] [cursor=pointer]:
+                                    - /url: /ability/fixation
+                            - list [ref=f1e457]:
+                                - listitem [ref=f1e458]: Fixation headshot stack count increased from +2 to +3
+                                - listitem [ref=f1e459]: Fixation T3 weapon scaling increased from 0.0003 to 0.00035
+                            - group [ref=f1e461]:
+                                - generic "Current details for Fixation · client 6698" [ref=f1e462] [cursor=pointer]:
+                                    - generic [ref=f1e465]:
+                                        - text: Current details
+                                        - generic [ref=f1e466]: for Fixation
+                                        - text: · client 6698
+                        - generic [ref=f1e469]:
+                            - generic [ref=f1e470]:
+                                - heading "Maxed first" [level=4] [ref=f1e471]
+                                - paragraph [ref=f1e472]: Share of Haze players who maxed each ability first, 2–15 Sep → 17–22 Sep so far.
+                                - list "Maxed first" [ref=f1e473]:
+                                    - listitem [ref=f1e474]:
+                                        - link "Fixation, 58% before, 55% after" [ref=f1e475] [cursor=pointer]:
+                                            - /url: /ability/fixation
+                                            - generic [ref=f1e476]: Fixation
+                                            - generic [aria-hidden] [ref=f1e482]: 58% → 55%
+                                    - listitem [ref=f1e483]:
+                                        - link "Sleep Dagger, 24% before, 34% after" [ref=f1e484] [cursor=pointer]:
+                                            - /url: /ability/sleep-dagger
+                                            - generic [ref=f1e485]: Sleep Dagger
+                                            - generic [aria-hidden] [ref=f1e491]: 24% → 34%
+                                    - listitem [ref=f1e492]:
+                                        - link "Bullet Dance, 14% before, 9% after" [ref=f1e493] [cursor=pointer]:
+                                            - /url: /ability/bullet-dance
+                                            - generic [ref=f1e494]: Bullet Dance
+                                            - generic [aria-hidden] [ref=f1e500]: 14% → 9%
+                                    - listitem [ref=f1e501]:
+                                        - link "Smoke Bomb, 3% before, 2% after" [ref=f1e502] [cursor=pointer]:
+                                            - /url: /ability/smoke-bomb
+                                            - generic [ref=f1e503]: Smoke Bomb
+                                            - generic [aria-hidden] [ref=f1e509]: 3% → 2%
+                            - generic [ref=f1e511]:
+                                - heading "Also changed in this patch" [level=4] [ref=f1e512]
+                                - paragraph [ref=f1e513]: Share of Haze players who bought each, 2–15 Sep → 17–22 Sep so far.
+                                - list "Also changed in this patch" [ref=f1e514]:
+                                    - listitem [ref=f1e515]:
+                                        - link "Slowing Hex, 39% before, 33% after" [ref=f1e516] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#slowing-hex
+                                            - generic [ref=f1e517]: Slowing Hex
+                                            - generic [aria-hidden] [ref=f1e523]: 39% → 33%
+                                    - listitem [ref=f1e524]:
+                                        - link "Weakening Headshot, 27% before, 27% after" [ref=f1e525] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#weakening-headshot
+                                            - generic [ref=f1e526]: Weakening Headshot
+                                            - generic [aria-hidden] [ref=f1e532]: 27% → 27%
+                                    - listitem [ref=f1e533]:
+                                        - link "Fortitude, 24% before, 32% after" [ref=f1e534] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#fortitude
+                                            - generic [ref=f1e535]: Fortitude
+                                            - generic [aria-hidden] [ref=f1e541]: 24% → 32%
+                    - generic [ref=f1e542]:
+                        - paragraph [ref=f1e543]:
+                            - link "Holliday patch history" [ref=f1e544] [cursor=pointer]:
+                                - /url: /hero/holliday
+                        - heading [level=3] [ref=f1e545]:
+                            - link "Holliday" [ref=f1e546] [cursor=pointer]:
+                                - /url: /hero/holliday
+                        - list [ref=f1e547]:
+                            - listitem [ref=f1e548]: Health per boon increased from 41 to 43
+                        - generic [ref=f1e549]:
+                            - paragraph [ref=f1e550]:
+                                - link "Crackshot change history" [ref=f1e551] [cursor=pointer]:
+                                    - /url: /ability/crackshot
+                            - heading [level=4] [ref=f1e552]:
+                                - link "Crackshot" [ref=f1e553] [cursor=pointer]:
+                                    - /url: /ability/crackshot
+                            - list [ref=f1e554]:
+                                - listitem [ref=f1e555]: Crackshot T2 now also applies -6% Bullet Resistance for 5s
+                            - group [ref=f1e557]:
+                                - generic "Current details for Crackshot · client 6698" [ref=f1e558] [cursor=pointer]:
+                                    - generic [ref=f1e561]:
+                                        - text: Current details
+                                        - generic [ref=f1e562]: for Crackshot
+                                        - text: · client 6698
+                        - generic [ref=f1e563]:
+                            - paragraph [ref=f1e564]:
+                                - link "Spirit Lasso change history" [ref=f1e565] [cursor=pointer]:
+                                    - /url: /ability/spirit-lasso
+                            - heading [level=4] [ref=f1e566]:
+                                - link "Spirit Lasso" [ref=f1e567] [cursor=pointer]:
+                                    - /url: /ability/spirit-lasso
+                            - list [ref=f1e568]:
+                                - listitem [ref=f1e569]: Lasso duration extention by Bounce Pad increased from +1s to +1.25s
+                            - group [ref=f1e571]:
+                                - generic "Current details for Spirit Lasso · client 6698" [ref=f1e572] [cursor=pointer]:
+                                    - generic [ref=f1e575]:
+                                        - text: Current details
+                                        - generic [ref=f1e576]: for Spirit Lasso
+                                        - text: · client 6698
+                        - generic [ref=f1e579]:
+                            - generic [ref=f1e580]:
+                                - heading "Maxed first" [level=4] [ref=f1e581]
+                                - paragraph [ref=f1e582]: Share of Holliday players who maxed each ability first, 2–15 Sep → 17–22 Sep so far.
+                                - list "Maxed first" [ref=f1e583]:
+                                    - listitem [ref=f1e584]:
+                                        - link "Powder Keg, 86% before, 84% after" [ref=f1e585] [cursor=pointer]:
+                                            - /url: /ability/powder-keg
+                                            - generic [ref=f1e586]: Powder Keg
+                                            - generic [aria-hidden] [ref=f1e592]: 86% → 84%
+                                    - listitem [ref=f1e593]:
+                                        - link "Crackshot, 12% before, 14% after" [ref=f1e594] [cursor=pointer]:
+                                            - /url: /ability/crackshot
+                                            - generic [ref=f1e595]: Crackshot
+                                            - generic [aria-hidden] [ref=f1e601]: 12% → 14%
+                                    - listitem [ref=f1e602]:
+                                        - link "Spirit Lasso, 1% before, 1% after" [ref=f1e603] [cursor=pointer]:
+                                            - /url: /ability/spirit-lasso
+                                            - generic [ref=f1e604]: Spirit Lasso
+                                            - generic [aria-hidden] [ref=f1e610]: 1% → 1%
+                                    - listitem [ref=f1e611]:
+                                        - link "Bounce Pad, 1% before, 1% after" [ref=f1e612] [cursor=pointer]:
+                                            - /url: /ability/bounce-pad
+                                            - generic [ref=f1e613]: Bounce Pad
+                                            - generic [aria-hidden] [ref=f1e619]: 1% → 1%
+                            - generic [ref=f1e621]:
+                                - heading "Also changed in this patch" [level=4] [ref=f1e622]
+                                - paragraph [ref=f1e623]: Share of Holliday players who bought each, 2–15 Sep → 17–22 Sep so far.
+                                - list "Also changed in this patch" [ref=f1e624]:
+                                    - listitem [ref=f1e625]:
+                                        - link "Tankbuster, 59% before, 57% after" [ref=f1e626] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#tankbuster
+                                            - generic [ref=f1e627]: Tankbuster
+                                            - generic [aria-hidden] [ref=f1e633]: 59% → 57%
+                                    - listitem [ref=f1e634]:
+                                        - link "Trophy Collector, 47% before, 42% after" [ref=f1e635] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#trophy-collector
+                                            - generic [ref=f1e636]: Trophy Collector
+                                            - generic [aria-hidden] [ref=f1e642]: 47% → 42%
+                                    - listitem [ref=f1e643]:
+                                        - link "Veil Walker, 31% before, 16% after" [ref=f1e644] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#veil-walker
+                                            - generic [ref=f1e645]: Veil Walker
+                                            - generic [aria-hidden] [ref=f1e651]: 31% → 16%
+                    - generic [ref=f1e652]:
+                        - paragraph [ref=f1e653]:
+                            - link "Ivy patch history" [ref=f1e654] [cursor=pointer]:
+                                - /url: /hero/ivy
+                        - heading [level=3] [ref=f1e655]:
+                            - link "Ivy" [ref=f1e656] [cursor=pointer]:
+                                - /url: /hero/ivy
+                        - generic [ref=f1e657]:
+                            - paragraph [ref=f1e658]:
+                                - link "Stone Form change history" [ref=f1e659] [cursor=pointer]:
+                                    - /url: /ability/stone-form
+                            - heading [level=4] [ref=f1e660]:
+                                - link "Stone Form" [ref=f1e661] [cursor=pointer]:
+                                    - /url: /ability/stone-form
+                            - list [ref=f1e662]:
+                                - listitem [ref=f1e663]: Stone Form radius reduced from 6m to 5.75m
+                                - listitem [ref=f1e664]: Stone Form T1 max health heal reduced from 7% to 6%
+                            - group [ref=f1e666]:
+                                - generic "Current details for Stone Form · client 6698" [ref=f1e667] [cursor=pointer]:
+                                    - generic [ref=f1e670]:
+                                        - text: Current details
+                                        - generic [ref=f1e671]: for Stone Form
+                                        - text: · client 6698
+                        - generic [ref=f1e674]:
+                            - generic [ref=f1e675]:
+                                - heading "Maxed first" [level=4] [ref=f1e676]
+                                - paragraph [ref=f1e677]: Share of Ivy players who maxed each ability first, 2–15 Sep → 17–22 Sep so far.
+                                - list "Maxed first" [ref=f1e678]:
+                                    - listitem [ref=f1e679]:
+                                        - link "Kudzu Connection, 50% before, 50% after" [ref=f1e680] [cursor=pointer]:
+                                            - /url: /ability/kudzu-connection
+                                            - generic [ref=f1e681]: Kudzu Connection
+                                            - generic [aria-hidden] [ref=f1e687]: 50% → 50%
+                                    - listitem [ref=f1e688]:
+                                        - link "Stone Form, 24% before, 24% after" [ref=f1e689] [cursor=pointer]:
+                                            - /url: /ability/stone-form
+                                            - generic [ref=f1e690]: Stone Form
+                                            - generic [aria-hidden] [ref=f1e696]: 24% → 24%
+                                    - listitem [ref=f1e697]:
+                                        - link "Air Drop, 17% before, 17% after" [ref=f1e698] [cursor=pointer]:
+                                            - /url: /ability/air-drop
+                                            - generic [ref=f1e699]: Air Drop
+                                            - generic [aria-hidden] [ref=f1e705]: 17% → 17%
+                                    - listitem [ref=f1e706]:
+                                        - link "Entangling Thorns, 9% before, 9% after" [ref=f1e707] [cursor=pointer]:
+                                            - /url: /ability/entangling-thorns
+                                            - generic [ref=f1e708]: Entangling Thorns
+                                            - generic [aria-hidden] [ref=f1e714]: 9% → 9%
+                            - generic [ref=f1e716]:
+                                - heading "Also changed in this patch" [level=4] [ref=f1e717]
+                                - paragraph [ref=f1e718]: Share of Ivy players who bought each, 2–15 Sep → 17–22 Sep so far.
+                                - list "Also changed in this patch" [ref=f1e719]:
+                                    - listitem [ref=f1e720]:
+                                        - link "Trophy Collector, 28% before, 27% after" [ref=f1e721] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#trophy-collector
+                                            - generic [ref=f1e722]: Trophy Collector
+                                            - generic [aria-hidden] [ref=f1e728]: 28% → 27%
+                                    - listitem [ref=f1e729]:
+                                        - link "Slowing Hex, 24% before, 28% after" [ref=f1e730] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#slowing-hex
+                                            - generic [ref=f1e731]: Slowing Hex
+                                            - generic [aria-hidden] [ref=f1e737]: 24% → 28%
+                                    - listitem [ref=f1e738]:
+                                        - link "Mercurial Magnum, 17% before, 8% after" [ref=f1e739] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#mercurial-magnum
+                                            - generic [ref=f1e740]: Mercurial Magnum
+                                            - generic [aria-hidden] [ref=f1e746]: 17% → 8%
+                    - generic [ref=f1e747]:
+                        - paragraph [ref=f1e748]:
+                            - link "Kelvin patch history" [ref=f1e749] [cursor=pointer]:
+                                - /url: /hero/kelvin
+                        - heading [level=3] [ref=f1e750]:
+                            - link "Kelvin" [ref=f1e751] [cursor=pointer]:
+                                - /url: /hero/kelvin
+                        - generic [ref=f1e752]:
+                            - paragraph [ref=f1e753]:
+                                - link "Frozen Shelter change history" [ref=f1e754] [cursor=pointer]:
+                                    - /url: /ability/frozen-shelter
+                            - heading [level=4] [ref=f1e755]:
+                                - link "Frozen Shelter" [ref=f1e756] [cursor=pointer]:
+                                    - /url: /ability/frozen-shelter
+                            - list [ref=f1e757]:
+                                - listitem [ref=f1e758]: Frozen Shelter base ability health regen now scales with spirit power (0.2)
+                            - group [ref=f1e760]:
+                                - generic "Current details for Frozen Shelter · client 6698" [ref=f1e761] [cursor=pointer]:
+                                    - generic [ref=f1e764]:
+                                        - text: Current details
+                                        - generic [ref=f1e765]: for Frozen Shelter
+                                        - text: · client 6698
+                        - generic [ref=f1e768]:
+                            - generic [ref=f1e769]:
+                                - heading "Maxed first" [level=4] [ref=f1e770]
+                                - paragraph [ref=f1e771]: Share of Kelvin players who maxed each ability first, 2–15 Sep → 17–22 Sep so far.
+                                - list "Maxed first" [ref=f1e772]:
+                                    - listitem [ref=f1e773]:
+                                        - link "Frost Grenade, 52% before, 46% after" [ref=f1e774] [cursor=pointer]:
+                                            - /url: /ability/frost-grenade
+                                            - generic [ref=f1e775]: Frost Grenade
+                                            - generic [aria-hidden] [ref=f1e781]: 52% → 46%
+                                    - listitem [ref=f1e782]:
+                                        - link "Arctic Beam, 45% before, 49% after" [ref=f1e783] [cursor=pointer]:
+                                            - /url: /ability/arctic-beam
+                                            - generic [ref=f1e784]: Arctic Beam
+                                            - generic [aria-hidden] [ref=f1e790]: 45% → 49%
+                                    - listitem [ref=f1e791]:
+                                        - link "Frozen Shelter, 2% before, 2% after" [ref=f1e792] [cursor=pointer]:
+                                            - /url: /ability/frozen-shelter
+                                            - generic [ref=f1e793]: Frozen Shelter
+                                            - generic [aria-hidden] [ref=f1e799]: 2% → 2%
+                                    - listitem [ref=f1e800]:
+                                        - link "Ice Path, 1% before, 3% after" [ref=f1e801] [cursor=pointer]:
+                                            - /url: /ability/ice-path
+                                            - generic [ref=f1e802]: Ice Path
+                                            - generic [aria-hidden] [ref=f1e808]: 1% → 3%
+                            - generic [ref=f1e810]:
+                                - heading "Also changed in this patch" [level=4] [ref=f1e811]
+                                - paragraph [ref=f1e812]: Share of Kelvin players who bought each, 2–15 Sep → 17–22 Sep so far.
+                                - list "Also changed in this patch" [ref=f1e813]:
+                                    - listitem [ref=f1e814]:
+                                        - link "Trophy Collector, 46% before, 49% after" [ref=f1e815] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#trophy-collector
+                                            - generic [ref=f1e816]: Trophy Collector
+                                            - generic [aria-hidden] [ref=f1e822]: 46% → 49%
+                                    - listitem [ref=f1e823]:
+                                        - link "Tankbuster, 30% before, 34% after" [ref=f1e824] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#tankbuster
+                                            - generic [ref=f1e825]: Tankbuster
+                                            - generic [aria-hidden] [ref=f1e831]: 30% → 34%
+                                    - listitem [ref=f1e832]:
+                                        - link "Radiant Regeneration, 25% before, 27% after" [ref=f1e833] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#radiant-regeneration
+                                            - generic [ref=f1e834]: Radiant Regeneration
+                                            - generic [aria-hidden] [ref=f1e840]: 25% → 27%
+                    - generic [ref=f1e841]:
+                        - paragraph [ref=f1e842]:
+                            - link "Lady Geist patch history" [ref=f1e843] [cursor=pointer]:
+                                - /url: /hero/lady-geist
+                        - heading [level=3] [ref=f1e844]:
+                            - link "Lady Geist" [ref=f1e845] [cursor=pointer]:
+                                - /url: /hero/lady-geist
+                        - generic [ref=f1e846]:
+                            - paragraph [ref=f1e847]:
+                                - link "Life Drain change history" [ref=f1e848] [cursor=pointer]:
+                                    - /url: /ability/life-drain
+                            - heading [level=4] [ref=f1e849]:
+                                - link "Life Drain" [ref=f1e850] [cursor=pointer]:
+                                    - /url: /ability/life-drain
+                            - list [ref=f1e851]:
+                                - listitem [ref=f1e852]: Life Drain T3 spirit scaling increased from +0.3 to +0.45
+                            - group [ref=f1e854]:
+                                - generic "Current details for Life Drain · client 6698" [ref=f1e855] [cursor=pointer]:
+                                    - generic [ref=f1e858]:
+                                        - text: Current details
+                                        - generic [ref=f1e859]: for Life Drain
+                                        - text: · client 6698
+                        - generic [ref=f1e860]:
+                            - paragraph [ref=f1e861]:
+                                - link "Essence Bomb change history" [ref=f1e862] [cursor=pointer]:
+                                    - /url: /ability/essence-bomb
+                            - heading [level=4] [ref=f1e863]:
+                                - link "Essence Bomb" [ref=f1e864] [cursor=pointer]:
+                                    - /url: /ability/essence-bomb
+                            - list [ref=f1e865]:
+                                - listitem [ref=f1e866]: Essence Bomb T3 damage increased from 26% to 30%
+                            - group [ref=f1e868]:
+                                - generic "Current details for Essence Bomb · client 6698" [ref=f1e869] [cursor=pointer]:
+                                    - generic [ref=f1e872]:
+                                        - text: Current details
+                                        - generic [ref=f1e873]: for Essence Bomb
+                                        - text: · client 6698
+                        - generic [ref=f1e876]:
+                            - generic [ref=f1e877]:
+                                - heading "Maxed first" [level=4] [ref=f1e878]
+                                - paragraph [ref=f1e879]: Share of Lady Geist players who maxed each ability first, 2–15 Sep → 17–22 Sep so far.
+                                - list "Maxed first" [ref=f1e880]:
+                                    - listitem [ref=f1e881]:
+                                        - link "Essence Bomb, 73% before, 67% after" [ref=f1e882] [cursor=pointer]:
+                                            - /url: /ability/essence-bomb
+                                            - generic [ref=f1e883]: Essence Bomb
+                                            - generic [aria-hidden] [ref=f1e889]: 73% → 67%
+                                    - listitem [ref=f1e890]:
+                                        - link "Life Drain, 21% before, 31% after" [ref=f1e891] [cursor=pointer]:
+                                            - /url: /ability/life-drain
+                                            - generic [ref=f1e892]: Life Drain
+                                            - generic [aria-hidden] [ref=f1e898]: 21% → 31%
+                                    - listitem [ref=f1e899]:
+                                        - link "Malice, 5% before, 2% after" [ref=f1e900] [cursor=pointer]:
+                                            - /url: /ability/malice
+                                            - generic [ref=f1e901]: Malice
+                                            - generic [aria-hidden] [ref=f1e907]: 5% → 2%
+                                    - listitem [ref=f1e908]:
+                                        - link "Soul Exchange, 1% before, <1% after" [ref=f1e909] [cursor=pointer]:
+                                            - /url: /ability/soul-exchange
+                                            - generic [ref=f1e910]: Soul Exchange
+                                            - generic [aria-hidden] [ref=f1e916]: 1% → <1%
+                            - generic [ref=f1e918]:
+                                - heading "Also changed in this patch" [level=4] [ref=f1e919]
+                                - paragraph [ref=f1e920]: Share of Lady Geist players who bought each, 2–15 Sep → 17–22 Sep so far.
+                                - list "Also changed in this patch" [ref=f1e921]:
+                                    - listitem [ref=f1e922]:
+                                        - link "Radiant Regeneration, 92% before, 93% after" [ref=f1e923] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#radiant-regeneration
+                                            - generic [ref=f1e924]: Radiant Regeneration
+                                            - generic [aria-hidden] [ref=f1e930]: 92% → 93%
+                                    - listitem [ref=f1e931]:
+                                        - link "Tankbuster, 63% before, 62% after" [ref=f1e932] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#tankbuster
+                                            - generic [ref=f1e933]: Tankbuster
+                                            - generic [aria-hidden] [ref=f1e939]: 63% → 62%
+                                    - listitem [ref=f1e940]:
+                                        - link "Leech, 36% before, 39% after" [ref=f1e941] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#leech
+                                            - generic [ref=f1e942]: Leech
+                                            - generic [aria-hidden] [ref=f1e948]: 36% → 39%
+                    - generic [ref=f1e949]:
+                        - paragraph [ref=f1e950]:
+                            - link "Lash patch history" [ref=f1e951] [cursor=pointer]:
+                                - /url: /hero/lash
+                        - heading [level=3] [ref=f1e952]:
+                            - link "Lash" [ref=f1e953] [cursor=pointer]:
+                                - /url: /hero/lash
+                        - list [ref=f1e954]:
+                            - listitem [ref=f1e955]: Gun falloff range reduced from 18m->54m to 16m->48m
+                        - generic [ref=f1e956]:
+                            - paragraph [ref=f1e957]:
+                                - link "Ground Strike change history" [ref=f1e958] [cursor=pointer]:
+                                    - /url: /ability/ground-strike
+                            - heading [level=4] [ref=f1e959]:
+                                - link "Ground Strike" [ref=f1e960] [cursor=pointer]:
+                                    - /url: /ability/ground-strike
+                            - list [ref=f1e961]:
+                                - listitem [ref=f1e962]: Ground Strike T3 spirit scaling increased from +0.03 to +0.04
+                                - listitem [ref=f1e963]: Ground Strike T3 damage per meter scaling increased from 110% to 120%
+                            - group [ref=f1e965]:
+                                - generic "Current details for Ground Strike · client 6698" [ref=f1e966] [cursor=pointer]:
+                                    - generic [ref=f1e969]:
+                                        - text: Current details
+                                        - generic [ref=f1e970]: for Ground Strike
+                                        - text: · client 6698
+                        - generic [ref=f1e971]:
+                            - paragraph [ref=f1e972]:
+                                - link "Grapple change history" [ref=f1e973] [cursor=pointer]:
+                                    - /url: /ability/grapple
+                            - heading [level=4] [ref=f1e974]:
+                                - link "Grapple" [ref=f1e975] [cursor=pointer]:
+                                    - /url: /ability/grapple
+                            - list [ref=f1e976]:
+                                - listitem [ref=f1e977]: Grapple T2 Weapon Damage buff duration reduced from 10s to 6s
+                            - group [ref=f1e979]:
+                                - generic "Current details for Grapple · client 6698" [ref=f1e980] [cursor=pointer]:
+                                    - generic [ref=f1e983]:
+                                        - text: Current details
+                                        - generic [ref=f1e984]: for Grapple
+                                        - text: · client 6698
+                        - generic [ref=f1e985]:
+                            - paragraph [ref=f1e986]:
+                                - link "Flog change history" [ref=f1e987] [cursor=pointer]:
+                                    - /url: /ability/flog
+                            - heading [level=4] [ref=f1e988]:
+                                - link "Flog" [ref=f1e989] [cursor=pointer]:
+                                    - /url: /ability/flog
+                            - list [ref=f1e990]:
+                                - listitem [ref=f1e991]: Flog heal reduced from 50% to 40%
+                                - listitem [ref=f1e992]: Flog angle increased from 38 to 40
+                                - listitem [ref=f1e993]: Flog T3 reduced from +40 degrees angle to +25
+                                - listitem [ref=f1e994]: Flog T3 reduced from +20% heal to +15%
+                            - group [ref=f1e996]:
+                                - generic "Current details for Flog · client 6698" [ref=f1e997] [cursor=pointer]:
+                                    - generic [ref=f1e1000]:
+                                        - text: Current details
+                                        - generic [ref=f1e1001]: for Flog
+                                        - text: · client 6698
+                        - generic [ref=f1e1004]:
+                            - generic [ref=f1e1005]:
+                                - heading "Maxed first" [level=4] [ref=f1e1006]
+                                - paragraph [ref=f1e1007]: Share of Lash players who maxed each ability first, 2–15 Sep → 17–22 Sep so far.
+                                - list "Maxed first" [ref=f1e1008]:
+                                    - listitem [ref=f1e1009]:
+                                        - link "Flog, 65% before, 30% after" [ref=f1e1010] [cursor=pointer]:
+                                            - /url: /ability/flog
+                                            - generic [ref=f1e1011]: Flog
+                                            - generic [aria-hidden] [ref=f1e1017]: 65% → 30%
+                                    - listitem [ref=f1e1018]:
+                                        - link "Ground Strike, 31% before, 66% after" [ref=f1e1019] [cursor=pointer]:
+                                            - /url: /ability/ground-strike
+                                            - generic [ref=f1e1020]: Ground Strike
+                                            - generic [aria-hidden] [ref=f1e1026]: 31% → 66%
+                                    - listitem [ref=f1e1027]:
+                                        - link "Death Slam, 3% before, 3% after" [ref=f1e1028] [cursor=pointer]:
+                                            - /url: /ability/death-slam
+                                            - generic [ref=f1e1029]: Death Slam
+                                            - generic [aria-hidden] [ref=f1e1035]: 3% → 3%
+                                    - listitem [ref=f1e1036]:
+                                        - link "Grapple, 1% before, 1% after" [ref=f1e1037] [cursor=pointer]:
+                                            - /url: /ability/grapple
+                                            - generic [ref=f1e1038]: Grapple
+                                            - generic [aria-hidden] [ref=f1e1044]: 1% → 1%
+                            - generic [ref=f1e1046]:
+                                - heading "Also changed in this patch" [level=4] [ref=f1e1047]
+                                - paragraph [ref=f1e1048]: Share of Lash players who bought each, 2–15 Sep → 17–22 Sep so far.
+                                - list "Also changed in this patch" [ref=f1e1049]:
+                                    - listitem [ref=f1e1050]:
+                                        - link "Tankbuster, 91% before, 94% after" [ref=f1e1051] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#tankbuster
+                                            - generic [ref=f1e1052]: Tankbuster
+                                            - generic [aria-hidden] [ref=f1e1058]: 91% → 94%
+                                    - listitem [ref=f1e1059]:
+                                        - link "Trophy Collector, 31% before, 37% after" [ref=f1e1060] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#trophy-collector
+                                            - generic [ref=f1e1061]: Trophy Collector
+                                            - generic [aria-hidden] [ref=f1e1067]: 31% → 37%
+                                    - listitem [ref=f1e1068]:
+                                        - link "Restorative Locket, 25% before, 11% after" [ref=f1e1069] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#restorative-locket
+                                            - generic [ref=f1e1070]: Restorative Locket
+                                            - generic [aria-hidden] [ref=f1e1076]: 25% → 11%
+                    - generic [ref=f1e1077]:
+                        - paragraph [ref=f1e1078]:
+                            - link "Paige patch history" [ref=f1e1079] [cursor=pointer]:
+                                - /url: /hero/paige
+                        - heading [level=3] [ref=f1e1080]:
+                            - link "Paige" [ref=f1e1081] [cursor=pointer]:
+                                - /url: /hero/paige
+                        - generic [ref=f1e1082]:
+                            - heading "Heavy Melee" [level=4] [ref=f1e1083]
+                            - list [ref=f1e1084]:
+                                - listitem [ref=f1e1085]: Heavy Melee spirit scaling increased from 0.3 to 0.45
+                        - generic [ref=f1e1086]:
+                            - paragraph [ref=f1e1087]:
+                                - link "Captivating Read change history" [ref=f1e1088] [cursor=pointer]:
+                                    - /url: /ability/captivating-read
+                            - heading [level=4] [ref=f1e1089]:
+                                - link "Captivating Read" [ref=f1e1090] [cursor=pointer]:
+                                    - /url: /ability/captivating-read
+                            - list [ref=f1e1091]:
+                                - listitem [ref=f1e1092]: Captivating Read T1 increased from -11s Cooldown to -14s
+                                - listitem [ref=f1e1093]: Captivating Read T3 increased from +1m to +2m
+                            - group [ref=f1e1095]:
+                                - generic "Current details for Captivating Read · client 6698" [ref=f1e1096] [cursor=pointer]:
+                                    - generic [ref=f1e1099]:
+                                        - text: Current details
+                                        - generic [ref=f1e1100]: for Captivating Read
+                                        - text: · client 6698
+                        - generic [ref=f1e1101]:
+                            - paragraph [ref=f1e1102]:
+                                - link "Rallying Charge change history" [ref=f1e1103] [cursor=pointer]:
+                                    - /url: /ability/rallying-charge
+                            - heading [level=4] [ref=f1e1104]:
+                                - link "Rallying Charge" [ref=f1e1105] [cursor=pointer]:
+                                    - /url: /ability/rallying-charge
+                            - list [ref=f1e1106]:
+                                - listitem [ref=f1e1107]: Fixed some collision issues with Rallying Charge
+                            - group [ref=f1e1109]:
+                                - generic "Current details for Rallying Charge · client 6698" [ref=f1e1110] [cursor=pointer]:
+                                    - generic [ref=f1e1113]:
+                                        - text: Current details
+                                        - generic [ref=f1e1114]: for Rallying Charge
+                                        - text: · client 6698
+                        - generic [ref=f1e1117]:
+                            - generic [ref=f1e1118]:
+                                - heading "Maxed first" [level=4] [ref=f1e1119]
+                                - paragraph [ref=f1e1120]: Share of Paige players who maxed each ability first, 2–15 Sep → 17–22 Sep so far.
+                                - list "Maxed first" [ref=f1e1121]:
+                                    - listitem [ref=f1e1122]:
+                                        - link "Bookwyrm, 51% before, 49% after" [ref=f1e1123] [cursor=pointer]:
+                                            - /url: /ability/bookwyrm
+                                            - generic [ref=f1e1124]: Bookwyrm
+                                            - generic [aria-hidden] [ref=f1e1130]: 51% → 49%
+                                    - listitem [ref=f1e1131]:
+                                        - link "Plot Armor, 45% before, 46% after" [ref=f1e1132] [cursor=pointer]:
+                                            - /url: /ability/plot-armor
+                                            - generic [ref=f1e1133]: Plot Armor
+                                            - generic [aria-hidden] [ref=f1e1139]: 45% → 46%
+                                    - listitem [ref=f1e1140]:
+                                        - link "Rallying Charge, 2% before, 2% after" [ref=f1e1141] [cursor=pointer]:
+                                            - /url: /ability/rallying-charge
+                                            - generic [ref=f1e1142]: Rallying Charge
+                                            - generic [aria-hidden] [ref=f1e1148]: 2% → 2%
+                                    - listitem [ref=f1e1149]:
+                                        - link "Captivating Read, 1% before, 3% after" [ref=f1e1150] [cursor=pointer]:
+                                            - /url: /ability/captivating-read
+                                            - generic [ref=f1e1151]: Captivating Read
+                                            - generic [aria-hidden] [ref=f1e1157]: 1% → 3%
+                            - generic [ref=f1e1159]:
+                                - heading "Also changed in this patch" [level=4] [ref=f1e1160]
+                                - paragraph [ref=f1e1161]: Share of Paige players who bought each, 2–15 Sep → 17–22 Sep so far.
+                                - list "Also changed in this patch" [ref=f1e1162]:
+                                    - listitem [ref=f1e1163]:
+                                        - link "Trophy Collector, 72% before, 70% after" [ref=f1e1164] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#trophy-collector
+                                            - generic [ref=f1e1165]: Trophy Collector
+                                            - generic [aria-hidden] [ref=f1e1171]: 72% → 70%
+                                    - listitem [ref=f1e1172]:
+                                        - link "Slowing Hex, 34% before, 35% after" [ref=f1e1173] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#slowing-hex
+                                            - generic [ref=f1e1174]: Slowing Hex
+                                            - generic [aria-hidden] [ref=f1e1180]: 34% → 35%
+                                    - listitem [ref=f1e1181]:
+                                        - link "Tankbuster, 18% before, 17% after" [ref=f1e1182] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#tankbuster
+                                            - generic [ref=f1e1183]: Tankbuster
+                                            - generic [aria-hidden] [ref=f1e1189]: 18% → 17%
+                    - generic [ref=f1e1190]:
+                        - paragraph [ref=f1e1191]:
+                            - link "Paradox patch history" [ref=f1e1192] [cursor=pointer]:
+                                - /url: /hero/paradox
+                        - heading [level=3] [ref=f1e1193]:
+                            - link "Paradox" [ref=f1e1194] [cursor=pointer]:
+                                - /url: /hero/paradox
+                        - generic [ref=f1e1195]:
+                            - paragraph [ref=f1e1196]:
+                                - link "Kinetic Carbine change history" [ref=f1e1197] [cursor=pointer]:
+                                    - /url: /ability/kinetic-carbine
+                            - heading [level=4] [ref=f1e1198]:
+                                - link "Kinetic Carbine" [ref=f1e1199] [cursor=pointer]:
+                                    - /url: /ability/kinetic-carbine
+                            - list [ref=f1e1200]:
+                                - listitem [ref=f1e1201]: Kinetic Carbine min damage multiplier reduced from 25% to 10% (max damage multiplier unaffected)
+                                - listitem [ref=f1e1202]: Kinetic Carbine min damage multiplier no longer gets increased by the T3
+                            - group [ref=f1e1204]:
+                                - generic "Current details for Kinetic Carbine · client 6698" [ref=f1e1205] [cursor=pointer]:
+                                    - generic [ref=f1e1208]:
+                                        - text: Current details
+                                        - generic [ref=f1e1209]: for Kinetic Carbine
+                                        - text: · client 6698
+                        - generic [ref=f1e1212]:
+                            - generic [ref=f1e1213]:
+                                - heading "Maxed first" [level=4] [ref=f1e1214]
+                                - paragraph [ref=f1e1215]: Share of Paradox players who maxed each ability first, 2–15 Sep → 17–22 Sep so far.
+                                - list "Maxed first" [ref=f1e1216]:
+                                    - listitem [ref=f1e1217]:
+                                        - link "Kinetic Carbine, 75% before, 70% after" [ref=f1e1218] [cursor=pointer]:
+                                            - /url: /ability/kinetic-carbine
+                                            - generic [ref=f1e1219]: Kinetic Carbine
+                                            - generic [aria-hidden] [ref=f1e1225]: 75% → 70%
+                                    - listitem [ref=f1e1226]:
+                                        - link "Pulse Grenade, 15% before, 22% after" [ref=f1e1227] [cursor=pointer]:
+                                            - /url: /ability/pulse-grenade
+                                            - generic [ref=f1e1228]: Pulse Grenade
+                                            - generic [aria-hidden] [ref=f1e1234]: 15% → 22%
+                                    - listitem [ref=f1e1235]:
+                                        - link "Paradoxical Swap, 6% before, 5% after" [ref=f1e1236] [cursor=pointer]:
+                                            - /url: /ability/paradoxical-swap
+                                            - generic [ref=f1e1237]: Paradoxical Swap
+                                            - generic [aria-hidden] [ref=f1e1243]: 6% → 5%
+                                    - listitem [ref=f1e1244]:
+                                        - link "Time Wall, 3% before, 3% after" [ref=f1e1245] [cursor=pointer]:
+                                            - /url: /ability/time-wall
+                                            - generic [ref=f1e1246]: Time Wall
+                                            - generic [aria-hidden] [ref=f1e1252]: 3% → 3%
+                            - generic [ref=f1e1254]:
+                                - heading "Also changed in this patch" [level=4] [ref=f1e1255]
+                                - paragraph [ref=f1e1256]: Share of Paradox players who bought each, 2–15 Sep → 17–22 Sep so far.
+                                - list "Also changed in this patch" [ref=f1e1257]:
+                                    - listitem [ref=f1e1258]:
+                                        - link "Tankbuster, 80% before, 74% after" [ref=f1e1259] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#tankbuster
+                                            - generic [ref=f1e1260]: Tankbuster
+                                            - generic [aria-hidden] [ref=f1e1266]: 80% → 74%
+                                    - listitem [ref=f1e1267]:
+                                        - link "Veil Walker, 60% before, 27% after" [ref=f1e1268] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#veil-walker
+                                            - generic [ref=f1e1269]: Veil Walker
+                                            - generic [aria-hidden] [ref=f1e1275]: 60% → 27%
+                                    - listitem [ref=f1e1276]:
+                                        - link "Trophy Collector, 38% before, 39% after" [ref=f1e1277] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#trophy-collector
+                                            - generic [ref=f1e1278]: Trophy Collector
+                                            - generic [aria-hidden] [ref=f1e1284]: 38% → 39%
+                    - generic [ref=f1e1285]:
+                        - paragraph [ref=f1e1286]:
+                            - link "Rem patch history" [ref=f1e1287] [cursor=pointer]:
+                                - /url: /hero/rem
+                        - heading [level=3] [ref=f1e1288]:
+                            - link "Rem" [ref=f1e1289] [cursor=pointer]:
+                                - /url: /hero/rem
+                        - list [ref=f1e1290]:
+                            - listitem [ref=f1e1291]: Fixed a bug where multiple helpers could be sent to follow a single player for no effect
+                        - generic [ref=f1e1292]:
+                            - paragraph [ref=f1e1293]:
+                                - link "Lil Helpers change history" [ref=f1e1294] [cursor=pointer]:
+                                    - /url: /ability/lil-helpers
+                            - heading [level=4] [ref=f1e1295]:
+                                - link "Lil Helpers" [ref=f1e1296] [cursor=pointer]:
+                                    - /url: /ability/lil-helpers
+                            - list [ref=f1e1297]:
+                                - listitem [ref=f1e1298]: Lil Helpers now have a target UI when instant cast mode is selected
+                            - group [ref=f1e1300]:
+                                - generic "Current details for Lil Helpers · client 6698" [ref=f1e1301] [cursor=pointer]:
+                                    - generic [ref=f1e1304]:
+                                        - text: Current details
+                                        - generic [ref=f1e1305]: for Lil Helpers
+                                        - text: · client 6698
+                        - generic [ref=f1e1308]:
+                            - generic [ref=f1e1309]:
+                                - heading "Maxed first" [level=4] [ref=f1e1310]
+                                - paragraph [ref=f1e1311]: Share of Rem players who maxed each ability first, 2–15 Sep → 17–22 Sep so far.
+                                - list "Maxed first" [ref=f1e1312]:
+                                    - listitem [ref=f1e1313]:
+                                        - link "Pillow Toss, 50% before, 45% after" [ref=f1e1314] [cursor=pointer]:
+                                            - /url: /ability/pillow-toss
+                                            - generic [ref=f1e1315]: Pillow Toss
+                                            - generic [aria-hidden] [ref=f1e1321]: 50% → 45%
+                                    - listitem [ref=f1e1322]:
+                                        - link "Lil Helpers, 25% before, 26% after" [ref=f1e1323] [cursor=pointer]:
+                                            - /url: /ability/lil-helpers
+                                            - generic [ref=f1e1324]: Lil Helpers
+                                            - generic [aria-hidden] [ref=f1e1330]: 25% → 26%
+                                    - listitem [ref=f1e1331]:
+                                        - link "Tag Along, 21% before, 25% after" [ref=f1e1332] [cursor=pointer]:
+                                            - /url: /ability/tag-along
+                                            - generic [ref=f1e1333]: Tag Along
+                                            - generic [aria-hidden] [ref=f1e1339]: 21% → 25%
+                                    - listitem [ref=f1e1340]:
+                                        - link "Naptime, 4% before, 4% after" [ref=f1e1341] [cursor=pointer]:
+                                            - /url: /ability/naptime
+                                            - generic [ref=f1e1342]: Naptime
+                                            - generic [aria-hidden] [ref=f1e1348]: 4% → 4%
+                            - generic [ref=f1e1350]:
+                                - heading "Also changed in this patch" [level=4] [ref=f1e1351]
+                                - paragraph [ref=f1e1352]: Share of Rem players who bought each, 2–15 Sep → 17–22 Sep so far.
+                                - list "Also changed in this patch" [ref=f1e1353]:
+                                    - listitem [ref=f1e1354]:
+                                        - link "Trophy Collector, 58% before, 59% after" [ref=f1e1355] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#trophy-collector
+                                            - generic [ref=f1e1356]: Trophy Collector
+                                            - generic [aria-hidden] [ref=f1e1362]: 58% → 59%
+                                    - listitem [ref=f1e1363]:
+                                        - link "Tankbuster, 47% before, 44% after" [ref=f1e1364] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#tankbuster
+                                            - generic [ref=f1e1365]: Tankbuster
+                                            - generic [aria-hidden] [ref=f1e1371]: 47% → 44%
+                                    - listitem [ref=f1e1372]:
+                                        - link "Golden Goose Egg, 21% before, 17% after" [ref=f1e1373] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#golden-goose-egg
+                                            - generic [ref=f1e1374]: Golden Goose Egg
+                                            - generic [aria-hidden] [ref=f1e1380]: 21% → 17%
+                    - generic [ref=f1e1381]:
+                        - paragraph [ref=f1e1382]:
+                            - link "Shiv patch history" [ref=f1e1383] [cursor=pointer]:
+                                - /url: /hero/shiv
+                        - heading [level=3] [ref=f1e1384]:
+                            - link "Shiv" [ref=f1e1385] [cursor=pointer]:
+                                - /url: /hero/shiv
+                        - list [ref=f1e1386]:
+                            - listitem [ref=f1e1387]: Alt fire base damage increased by 4%
+                            - listitem [ref=f1e1388]: Alt fire damage per boon increased from +0.2 to +0.24
+                        - generic [ref=f1e1389]:
+                            - paragraph [ref=f1e1390]:
+                                - link "Serrated Knives change history" [ref=f1e1391] [cursor=pointer]:
+                                    - /url: /ability/serrated-knives
+                            - heading [level=4] [ref=f1e1392]:
+                                - link "Serrated Knives" [ref=f1e1393] [cursor=pointer]:
+                                    - /url: /ability/serrated-knives
+                            - list [ref=f1e1394]:
+                                - listitem [ref=f1e1395]: Serrated Knives while rage is full now deals 3.5% current HP damage on impact instead of ricocheting (0.01 spirit scaling)
+                            - group [ref=f1e1397]:
+                                - generic "Current details for Serrated Knives · client 6698" [ref=f1e1398] [cursor=pointer]:
+                                    - generic [ref=f1e1401]:
+                                        - text: Current details
+                                        - generic [ref=f1e1402]: for Serrated Knives
+                                        - text: · client 6698
+                        - generic [ref=f1e1405]:
+                            - generic [ref=f1e1406]:
+                                - heading "Maxed first" [level=4] [ref=f1e1407]
+                                - paragraph [ref=f1e1408]: Share of Shiv players who maxed each ability first, 2–15 Sep → 17–22 Sep so far.
+                                - list "Maxed first" [ref=f1e1409]:
+                                    - listitem [ref=f1e1410]:
+                                        - link "Serrated Knives, 81% before, 86% after" [ref=f1e1411] [cursor=pointer]:
+                                            - /url: /ability/serrated-knives
+                                            - generic [ref=f1e1412]: Serrated Knives
+                                            - generic [aria-hidden] [ref=f1e1418]: 81% → 86%
+                                    - listitem [ref=f1e1419]:
+                                        - link "Slice and Dice, 12% before, 9% after" [ref=f1e1420] [cursor=pointer]:
+                                            - /url: /ability/slice-and-dice
+                                            - generic [ref=f1e1421]: Slice and Dice
+                                            - generic [aria-hidden] [ref=f1e1427]: 12% → 9%
+                                    - listitem [ref=f1e1428]:
+                                        - link "Killing Blow, 6% before, 4% after" [ref=f1e1429] [cursor=pointer]:
+                                            - /url: /ability/killing-blow
+                                            - generic [ref=f1e1430]: Killing Blow
+                                            - generic [aria-hidden] [ref=f1e1436]: 6% → 4%
+                                    - listitem [ref=f1e1437]:
+                                        - link "Bloodletting, <1% before, <1% after" [ref=f1e1438] [cursor=pointer]:
+                                            - /url: /ability/bloodletting
+                                            - generic [ref=f1e1439]: Bloodletting
+                                            - generic [aria-hidden] [ref=f1e1445]: <1% → <1%
+                            - generic [ref=f1e1447]:
+                                - heading "Also changed in this patch" [level=4] [ref=f1e1448]
+                                - paragraph [ref=f1e1449]: Share of Shiv players who bought each, 2–15 Sep → 17–22 Sep so far.
+                                - list "Also changed in this patch" [ref=f1e1450]:
+                                    - listitem [ref=f1e1451]:
+                                        - link "Radiant Regeneration, 92% before, 95% after" [ref=f1e1452] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#radiant-regeneration
+                                            - generic [ref=f1e1453]: Radiant Regeneration
+                                            - generic [aria-hidden] [ref=f1e1459]: 92% → 95%
+                                    - listitem [ref=f1e1460]:
+                                        - link "Restorative Locket, 35% before, 15% after" [ref=f1e1461] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#restorative-locket
+                                            - generic [ref=f1e1462]: Restorative Locket
+                                            - generic [aria-hidden] [ref=f1e1468]: 35% → 15%
+                                    - listitem [ref=f1e1469]:
+                                        - link "Decay, 19% before, 21% after" [ref=f1e1470] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#decay
+                                            - generic [ref=f1e1471]: Decay
+                                            - generic [aria-hidden] [ref=f1e1477]: 19% → 21%
+                    - generic [ref=f1e1478]:
+                        - paragraph [ref=f1e1479]:
+                            - link "Silver patch history" [ref=f1e1480] [cursor=pointer]:
+                                - /url: /hero/silver
+                        - heading [level=3] [ref=f1e1481]:
+                            - link "Silver" [ref=f1e1482] [cursor=pointer]:
+                                - /url: /hero/silver
+                        - list [ref=f1e1483]:
+                            - listitem [ref=f1e1484]: Health per boon increased from 28 to 31
+                            - listitem [ref=f1e1485]: Sprint speed increased from 1.5 to 2.5
+                            - listitem [ref=f1e1486]: Dashes and light melee's no longer pause your gun's cycle time
+                        - generic [ref=f1e1487]:
+                            - paragraph [ref=f1e1488]:
+                                - link "Boot Kick change history" [ref=f1e1489] [cursor=pointer]:
+                                    - /url: /ability/boot-kick
+                            - heading [level=4] [ref=f1e1490]:
+                                - link "Boot Kick" [ref=f1e1491] [cursor=pointer]:
+                                    - /url: /ability/boot-kick
+                            - list [ref=f1e1492]:
+                                - listitem [ref=f1e1493]: Boot Kick can only target heroes and objectives now
+                            - group [ref=f1e1495]:
+                                - generic "Current details for Boot Kick · client 6698" [ref=f1e1496] [cursor=pointer]:
+                                    - generic [ref=f1e1499]:
+                                        - text: Current details
+                                        - generic [ref=f1e1500]: for Boot Kick
+                                        - text: · client 6698
+                        - generic [ref=f1e1501]:
+                            - paragraph [ref=f1e1502]:
+                                - link "Entangling Bola change history" [ref=f1e1503] [cursor=pointer]:
+                                    - /url: /ability/entangling-bola
+                            - heading [level=4] [ref=f1e1504]:
+                                - link "Entangling Bola" [ref=f1e1505] [cursor=pointer]:
+                                    - /url: /ability/entangling-bola
+                            - list [ref=f1e1506]:
+                                - listitem [ref=f1e1507]: Entangling Bola can only target heroes now
+                            - group [ref=f1e1509]:
+                                - generic "Current details for Entangling Bola · client 6698" [ref=f1e1510] [cursor=pointer]:
+                                    - generic [ref=f1e1513]:
+                                        - text: Current details
+                                        - generic [ref=f1e1514]: for Entangling Bola
+                                        - text: · client 6698
+                        - generic [ref=f1e1515]:
+                            - heading "Weighted Bola" [level=4] [ref=f1e1516]
+                            - list [ref=f1e1517]:
+                                - listitem [ref=f1e1518]: Weighted Bola now increases gravity during the debuff duration, and interrupts flying abilities (same rules as Phantom Strike)
+                        - generic [ref=f1e1521]:
+                            - generic [ref=f1e1522]:
+                                - heading "Maxed first" [level=4] [ref=f1e1523]
+                                - paragraph [ref=f1e1524]: Share of Silver players who maxed each ability first, 2–15 Sep → 17–22 Sep so far.
+                                - list "Maxed first" [ref=f1e1525]:
+                                    - listitem [ref=f1e1526]:
+                                        - link "Lycan Curse, 56% before, 61% after" [ref=f1e1527] [cursor=pointer]:
+                                            - /url: /ability/lycan-curse
+                                            - generic [ref=f1e1528]: Lycan Curse
+                                            - generic [aria-hidden] [ref=f1e1534]: 56% → 61%
+                                    - listitem [ref=f1e1535]:
+                                        - link "Boot Kick, 26% before, 24% after" [ref=f1e1536] [cursor=pointer]:
+                                            - /url: /ability/boot-kick
+                                            - generic [ref=f1e1537]: Boot Kick
+                                            - generic [aria-hidden] [ref=f1e1543]: 26% → 24%
+                                    - listitem [ref=f1e1544]:
+                                        - link "Slam Fire, 17% before, 13% after" [ref=f1e1545] [cursor=pointer]:
+                                            - /url: /ability/slam-fire
+                                            - generic [ref=f1e1546]: Slam Fire
+                                            - generic [aria-hidden] [ref=f1e1552]: 17% → 13%
+                                    - listitem [ref=f1e1553]:
+                                        - link "Entangling Bola, 1% before, 1% after" [ref=f1e1554] [cursor=pointer]:
+                                            - /url: /ability/entangling-bola
+                                            - generic [ref=f1e1555]: Entangling Bola
+                                            - generic [aria-hidden] [ref=f1e1561]: 1% → 1%
+                            - generic [ref=f1e1563]:
+                                - heading "Also changed in this patch" [level=4] [ref=f1e1564]
+                                - paragraph [ref=f1e1565]: Share of Silver players who bought each, 2–15 Sep → 17–22 Sep so far.
+                                - list "Also changed in this patch" [ref=f1e1566]:
+                                    - listitem [ref=f1e1567]:
+                                        - link "Tankbuster, 30% before, 32% after" [ref=f1e1568] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#tankbuster
+                                            - generic [ref=f1e1569]: Tankbuster
+                                            - generic [aria-hidden] [ref=f1e1575]: 30% → 32%
+                                    - listitem [ref=f1e1576]:
+                                        - link "Slowing Hex, 27% before, 32% after" [ref=f1e1577] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#slowing-hex
+                                            - generic [ref=f1e1578]: Slowing Hex
+                                            - generic [aria-hidden] [ref=f1e1584]: 27% → 32%
+                                    - listitem [ref=f1e1585]:
+                                        - link "Veil Walker, 23% before, 6% after" [ref=f1e1586] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#veil-walker
+                                            - generic [ref=f1e1587]: Veil Walker
+                                            - generic [aria-hidden] [ref=f1e1593]: 23% → 6%
+                    - generic [ref=f1e1594]:
+                        - paragraph [ref=f1e1595]:
+                            - link "Venator patch history" [ref=f1e1596] [cursor=pointer]:
+                                - /url: /hero/venator
+                        - heading [level=3] [ref=f1e1597]:
+                            - link "Venator" [ref=f1e1598] [cursor=pointer]:
+                                - /url: /hero/venator
+                        - generic [ref=f1e1599]:
+                            - paragraph [ref=f1e1600]:
+                                - link "Ira Domini change history" [ref=f1e1601] [cursor=pointer]:
+                                    - /url: /ability/ira-domini
+                            - heading [level=4] [ref=f1e1602]:
+                                - link "Ira Domini" [ref=f1e1603] [cursor=pointer]:
+                                    - /url: /ability/ira-domini
+                            - list [ref=f1e1604]:
+                                - listitem [ref=f1e1605]: Ira Domini now works with Ricochet, all the shots will bounce
+                                - listitem [ref=f1e1606]: Ira Domini can now split shot (releases 1 extra bolt on each side, 3 total)
+                            - group [ref=f1e1608]:
+                                - generic "Current details for Ira Domini · client 6698" [ref=f1e1609] [cursor=pointer]:
+                                    - generic [ref=f1e1612]:
+                                        - text: Current details
+                                        - generic [ref=f1e1613]: for Ira Domini
+                                        - text: · client 6698
+                        - generic [ref=f1e1616]:
+                            - generic [ref=f1e1617]:
+                                - heading "Maxed first" [level=4] [ref=f1e1618]
+                                - paragraph [ref=f1e1619]: Share of Venator players who maxed each ability first, 2–15 Sep → 17–22 Sep so far.
+                                - list "Maxed first" [ref=f1e1620]:
+                                    - listitem [ref=f1e1621]:
+                                        - link "Ira Domini, 80% before, 86% after" [ref=f1e1622] [cursor=pointer]:
+                                            - /url: /ability/ira-domini
+                                            - generic [ref=f1e1623]: Ira Domini
+                                            - generic [aria-hidden] [ref=f1e1629]: 80% → 86%
+                                    - listitem [ref=f1e1630]:
+                                        - link "Gutshot, 12% before, 8% after" [ref=f1e1631] [cursor=pointer]:
+                                            - /url: /ability/gutshot
+                                            - generic [ref=f1e1632]: Gutshot
+                                            - generic [aria-hidden] [ref=f1e1638]: 12% → 8%
+                                    - listitem [ref=f1e1639]:
+                                        - link "Consecrating Grenade, 7% before, 5% after" [ref=f1e1640] [cursor=pointer]:
+                                            - /url: /ability/consecrating-grenade
+                                            - generic [ref=f1e1641]: Consecrating Grenade
+                                            - generic [aria-hidden] [ref=f1e1647]: 7% → 5%
+                                    - listitem [ref=f1e1648]:
+                                        - link "Hex-Lined Snap Trap, <1% before, <1% after" [ref=f1e1649] [cursor=pointer]:
+                                            - /url: /ability/hex-lined-snap-trap
+                                            - generic [ref=f1e1650]: Hex-Lined Snap Trap
+                                            - generic [aria-hidden] [ref=f1e1656]: <1% → <1%
+                            - generic [ref=f1e1658]:
+                                - heading "Also changed in this patch" [level=4] [ref=f1e1659]
+                                - paragraph [ref=f1e1660]: Share of Venator players who bought each, 2–15 Sep → 17–22 Sep so far.
+                                - list "Also changed in this patch" [ref=f1e1661]:
+                                    - listitem [ref=f1e1662]:
+                                        - link "Weakening Headshot, 63% before, 66% after" [ref=f1e1663] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#weakening-headshot
+                                            - generic [ref=f1e1664]: Weakening Headshot
+                                            - generic [aria-hidden] [ref=f1e1670]: 63% → 66%
+                                    - listitem [ref=f1e1671]:
+                                        - link "Hollow Point, 35% before, 53% after" [ref=f1e1672] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#hollow-point
+                                            - generic [ref=f1e1673]: Hollow Point
+                                            - generic [aria-hidden] [ref=f1e1679]: 35% → 53%
+                                    - listitem [ref=f1e1680]:
+                                        - link "Fortitude, 24% before, 32% after" [ref=f1e1681] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#fortitude
+                                            - generic [ref=f1e1682]: Fortitude
+                                            - generic [aria-hidden] [ref=f1e1688]: 24% → 32%
+                    - generic [ref=f1e1689]:
+                        - paragraph [ref=f1e1690]:
+                            - link "Viscous patch history" [ref=f1e1691] [cursor=pointer]:
+                                - /url: /hero/viscous
+                        - heading [level=3] [ref=f1e1692]:
+                            - link "Viscous" [ref=f1e1693] [cursor=pointer]:
+                                - /url: /hero/viscous
+                        - list [ref=f1e1694]:
+                            - listitem [ref=f1e1695]: Alt fire damage growth reduced by 10%
+                        - generic [ref=f1e1696]:
+                            - paragraph [ref=f1e1697]:
+                                - link "Splatter change history" [ref=f1e1698] [cursor=pointer]:
+                                    - /url: /ability/splatter
+                            - heading [level=4] [ref=f1e1699]:
+                                - link "Splatter" [ref=f1e1700] [cursor=pointer]:
+                                    - /url: /ability/splatter
+                            - list [ref=f1e1701]:
+                                - listitem [ref=f1e1702]: Splatter detonation cooldown reduced from 0.15 to 0.12
+                                - listitem [ref=f1e1703]: Splatter T1 reduced from +2m to +1.5m
+                            - group [ref=f1e1705]:
+                                - generic "Current details for Splatter · client 6698" [ref=f1e1706] [cursor=pointer]:
+                                    - generic [ref=f1e1709]:
+                                        - text: Current details
+                                        - generic [ref=f1e1710]: for Splatter
+                                        - text: · client 6698
+                        - generic [ref=f1e1711]:
+                            - paragraph [ref=f1e1712]:
+                                - link "The Cube change history" [ref=f1e1713] [cursor=pointer]:
+                                    - /url: /ability/the-cube
+                            - heading [level=4] [ref=f1e1714]:
+                                - link "The Cube" [ref=f1e1715] [cursor=pointer]:
+                                    - /url: /ability/the-cube
+                            - list [ref=f1e1716]:
+                                - listitem [ref=f1e1717]: The Cube cast range reduced from 26m to 20m
+                            - group [ref=f1e1719]:
+                                - generic "Current details for The Cube · client 6698" [ref=f1e1720] [cursor=pointer]:
+                                    - generic [ref=f1e1723]:
+                                        - text: Current details
+                                        - generic [ref=f1e1724]: for The Cube
+                                        - text: · client 6698
+                        - generic [ref=f1e1725]:
+                            - paragraph [ref=f1e1726]:
+                                - link "Puddle Punch change history" [ref=f1e1727] [cursor=pointer]:
+                                    - /url: /ability/puddle-punch
+                            - heading [level=4] [ref=f1e1728]:
+                                - link "Puddle Punch" [ref=f1e1729] [cursor=pointer]:
+                                    - /url: /ability/puddle-punch
+                            - list [ref=f1e1730]:
+                                - listitem [ref=f1e1731]:
+                                    - text: Puddle Punch cooldown increased from 21s to 24s
+                                    - 'link "Previous recorded cooldown change: 24s to 21s, July 28th, 2026." [ref=f1e1733] [cursor=pointer]':
+                                        - /url: /change/2026/minor-07-28#puddle-punch
+                                        - text: prev. 24s → 21s · 28 Jul
+                            - group [ref=f1e1735]:
+                                - generic "Current details for Puddle Punch · client 6698" [ref=f1e1736] [cursor=pointer]:
+                                    - generic [ref=f1e1739]:
+                                        - text: Current details
+                                        - generic [ref=f1e1740]: for Puddle Punch
+                                        - text: · client 6698
+                        - generic [ref=f1e1741]:
+                            - paragraph [ref=f1e1742]:
+                                - link "Goo Ball change history" [ref=f1e1743] [cursor=pointer]:
+                                    - /url: /ability/goo-ball
+                            - heading [level=4] [ref=f1e1744]:
+                                - link "Goo Ball" [ref=f1e1745] [cursor=pointer]:
+                                    - /url: /ability/goo-ball
+                            - list [ref=f1e1746]:
+                                - listitem [ref=f1e1747]: Goo Ball T3 now also increases spirit scaling by 0.2
+                            - group [ref=f1e1749]:
+                                - generic "Current details for Goo Ball · client 6698" [ref=f1e1750] [cursor=pointer]:
+                                    - generic [ref=f1e1753]:
+                                        - text: Current details
+                                        - generic [ref=f1e1754]: for Goo Ball
+                                        - text: · client 6698
+                        - generic [ref=f1e1757]:
+                            - generic [ref=f1e1758]:
+                                - heading "Maxed first" [level=4] [ref=f1e1759]
+                                - paragraph [ref=f1e1760]: Share of Viscous players who maxed each ability first, 2–15 Sep → 17–22 Sep so far.
+                                - list "Maxed first" [ref=f1e1761]:
+                                    - listitem [ref=f1e1762]:
+                                        - link "Puddle Punch, 48% before, 46% after" [ref=f1e1763] [cursor=pointer]:
+                                            - /url: /ability/puddle-punch
+                                            - generic [ref=f1e1764]: Puddle Punch
+                                            - generic [aria-hidden] [ref=f1e1770]: 48% → 46%
+                                    - listitem [ref=f1e1771]:
+                                        - link "Splatter, 36% before, 37% after" [ref=f1e1772] [cursor=pointer]:
+                                            - /url: /ability/splatter
+                                            - generic [ref=f1e1773]: Splatter
+                                            - generic [aria-hidden] [ref=f1e1779]: 36% → 37%
+                                    - listitem [ref=f1e1780]:
+                                        - link "The Cube, 15% before, 14% after" [ref=f1e1781] [cursor=pointer]:
+                                            - /url: /ability/the-cube
+                                            - generic [ref=f1e1782]: The Cube
+                                            - generic [aria-hidden] [ref=f1e1788]: 15% → 14%
+                                    - listitem [ref=f1e1789]:
+                                        - link "Goo Ball, 1% before, 1% after" [ref=f1e1790] [cursor=pointer]:
+                                            - /url: /ability/goo-ball
+                                            - generic [ref=f1e1791]: Goo Ball
+                                            - generic [aria-hidden] [ref=f1e1797]: 1% → 1%
+                            - generic [ref=f1e1799]:
+                                - heading "Also changed in this patch" [level=4] [ref=f1e1800]
+                                - paragraph [ref=f1e1801]: Share of Viscous players who bought each, 2–15 Sep → 17–22 Sep so far.
+                                - list "Also changed in this patch" [ref=f1e1802]:
+                                    - listitem [ref=f1e1803]:
+                                        - link "Tankbuster, 67% before, 67% after" [ref=f1e1804] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#tankbuster
+                                            - generic [ref=f1e1805]: Tankbuster
+                                            - generic [aria-hidden] [ref=f1e1811]: 67% → 67%
+                                    - listitem [ref=f1e1812]:
+                                        - link "Trophy Collector, 47% before, 45% after" [ref=f1e1813] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#trophy-collector
+                                            - generic [ref=f1e1814]: Trophy Collector
+                                            - generic [aria-hidden] [ref=f1e1820]: 47% → 45%
+                                    - listitem [ref=f1e1821]:
+                                        - link "Lifestrike, 44% before, 46% after" [ref=f1e1822] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#lifestrike
+                                            - generic [ref=f1e1823]: Lifestrike
+                                            - generic [aria-hidden] [ref=f1e1829]: 44% → 46%
+                    - generic [ref=f1e1830]:
+                        - paragraph [ref=f1e1831]:
+                            - link "Vyper patch history" [ref=f1e1832] [cursor=pointer]:
+                                - /url: /hero/vyper
+                        - heading [level=3] [ref=f1e1833]:
+                            - link "Vyper" [ref=f1e1834] [cursor=pointer]:
+                                - /url: /hero/vyper
+                        - generic [ref=f1e1835]:
+                            - paragraph [ref=f1e1836]:
+                                - link "Slither change history" [ref=f1e1837] [cursor=pointer]:
+                                    - /url: /ability/slither
+                            - heading [level=4] [ref=f1e1838]:
+                                - link "Slither" [ref=f1e1839] [cursor=pointer]:
+                                    - /url: /ability/slither
+                            - list [ref=f1e1840]:
+                                - listitem [ref=f1e1841]: Slither T3 barrier duration reduced from 5s to 4s
+                            - group [ref=f1e1843]:
+                                - generic "Current details for Slither · client 6698" [ref=f1e1844] [cursor=pointer]:
+                                    - generic [ref=f1e1847]:
+                                        - text: Current details
+                                        - generic [ref=f1e1848]: for Slither
+                                        - text: · client 6698
+                        - generic [ref=f1e1849]:
+                            - paragraph [ref=f1e1850]:
+                                - link "Petrifying Bola change history" [ref=f1e1851] [cursor=pointer]:
+                                    - /url: /ability/petrifying-bola
+                            - heading [level=4] [ref=f1e1852]:
+                                - link "Petrifying Bola" [ref=f1e1853] [cursor=pointer]:
+                                    - /url: /ability/petrifying-bola
+                            - list [ref=f1e1854]:
+                                - listitem [ref=f1e1855]: Petrifying Bola cooldown increased from 105s to 115s
+                            - group [ref=f1e1857]:
+                                - generic "Current details for Petrifying Bola · client 6698" [ref=f1e1858] [cursor=pointer]:
+                                    - generic [ref=f1e1861]:
+                                        - text: Current details
+                                        - generic [ref=f1e1862]: for Petrifying Bola
+                                        - text: · client 6698
+                        - generic [ref=f1e1865]:
+                            - generic [ref=f1e1866]:
+                                - heading "Maxed first" [level=4] [ref=f1e1867]
+                                - paragraph [ref=f1e1868]: Share of Vyper players who maxed each ability first, 2–15 Sep → 17–22 Sep so far.
+                                - list "Maxed first" [ref=f1e1869]:
+                                    - listitem [ref=f1e1870]:
+                                        - link "Slither, 65% before, 62% after" [ref=f1e1871] [cursor=pointer]:
+                                            - /url: /ability/slither
+                                            - generic [ref=f1e1872]: Slither
+                                            - generic [aria-hidden] [ref=f1e1878]: 65% → 62%
+                                    - listitem [ref=f1e1879]:
+                                        - link "Lethal Venom, 25% before, 26% after" [ref=f1e1880] [cursor=pointer]:
+                                            - /url: /ability/lethal-venom
+                                            - generic [ref=f1e1881]: Lethal Venom
+                                            - generic [aria-hidden] [ref=f1e1887]: 25% → 26%
+                                    - listitem [ref=f1e1888]:
+                                        - link "Screwjab Dagger, 7% before, 10% after" [ref=f1e1889] [cursor=pointer]:
+                                            - /url: /ability/screwjab-dagger
+                                            - generic [ref=f1e1890]: Screwjab Dagger
+                                            - generic [aria-hidden] [ref=f1e1896]: 7% → 10%
+                                    - listitem [ref=f1e1897]:
+                                        - link "Petrifying Bola, 2% before, 2% after" [ref=f1e1898] [cursor=pointer]:
+                                            - /url: /ability/petrifying-bola
+                                            - generic [ref=f1e1899]: Petrifying Bola
+                                            - generic [aria-hidden] [ref=f1e1905]: 2% → 2%
+                            - generic [ref=f1e1907]:
+                                - heading "Also changed in this patch" [level=4] [ref=f1e1908]
+                                - paragraph [ref=f1e1909]: Share of Vyper players who bought each, 2–15 Sep → 17–22 Sep so far.
+                                - list "Also changed in this patch" [ref=f1e1910]:
+                                    - listitem [ref=f1e1911]:
+                                        - link "Mercurial Magnum, 82% before, 81% after" [ref=f1e1912] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#mercurial-magnum
+                                            - generic [ref=f1e1913]: Mercurial Magnum
+                                            - generic [aria-hidden] [ref=f1e1919]: 82% → 81%
+                                    - listitem [ref=f1e1920]:
+                                        - link "Spiritual Overflow, 39% before, 39% after" [ref=f1e1921] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#spiritual-overflow
+                                            - generic [ref=f1e1922]: Spiritual Overflow
+                                            - generic [aria-hidden] [ref=f1e1928]: 39% → 39%
+                                    - listitem [ref=f1e1929]:
+                                        - link "Weakening Headshot, 26% before, 24% after" [ref=f1e1930] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#weakening-headshot
+                                            - generic [ref=f1e1931]: Weakening Headshot
+                                            - generic [aria-hidden] [ref=f1e1937]: 26% → 24%
+                    - generic [ref=f1e1938]:
+                        - paragraph [ref=f1e1939]:
+                            - link "Warden patch history" [ref=f1e1940] [cursor=pointer]:
+                                - /url: /hero/warden
+                        - heading [level=3] [ref=f1e1941]:
+                            - link "Warden" [ref=f1e1942] [cursor=pointer]:
+                                - /url: /hero/warden
+                        - list [ref=f1e1943]:
+                            - listitem [ref=f1e1944]: Bullet damage per boon reduced from 0.28 to 0.25
+                            - listitem [ref=f1e1945]: Fire Rate spirit scaling reduced from 0.25 to 0.21
+                        - generic [ref=f1e1946]:
+                            - paragraph [ref=f1e1947]:
+                                - link "Alchemical Flask change history" [ref=f1e1948] [cursor=pointer]:
+                                    - /url: /ability/alchemical-flask
+                            - heading [level=4] [ref=f1e1949]:
+                                - link "Alchemical Flask" [ref=f1e1950] [cursor=pointer]:
+                                    - /url: /ability/alchemical-flask
+                            - list [ref=f1e1951]:
+                                - listitem [ref=f1e1952]: Alchemical Flask projectile range and speed reduced by 30%
+                            - group [ref=f1e1954]:
+                                - generic "Current details for Alchemical Flask · client 6698" [ref=f1e1955] [cursor=pointer]:
+                                    - generic [ref=f1e1958]:
+                                        - text: Current details
+                                        - generic [ref=f1e1959]: for Alchemical Flask
+                                        - text: · client 6698
+                        - generic [ref=f1e1960]:
+                            - paragraph [ref=f1e1961]:
+                                - link "Willpower change history" [ref=f1e1962] [cursor=pointer]:
+                                    - /url: /ability/willpower
+                            - heading [level=4] [ref=f1e1963]:
+                                - link "Willpower" [ref=f1e1964] [cursor=pointer]:
+                                    - /url: /ability/willpower
+                            - list [ref=f1e1965]:
+                                - listitem [ref=f1e1966]: Willpower T3 spirit scaling reduced from +2.7 to +2.1
+                                - listitem [ref=f1e1967]: Willpower T3 debuff resistance reduced from 40% to 30%
+                            - group [ref=f1e1969]:
+                                - generic "Current details for Willpower · client 6698" [ref=f1e1970] [cursor=pointer]:
+                                    - generic [ref=f1e1973]:
+                                        - text: Current details
+                                        - generic [ref=f1e1974]: for Willpower
+                                        - text: · client 6698
+                        - generic [ref=f1e1977]:
+                            - generic [ref=f1e1978]:
+                                - heading "Maxed first" [level=4] [ref=f1e1979]
+                                - paragraph [ref=f1e1980]: Share of Warden players who maxed each ability first, 2–15 Sep → 17–22 Sep so far.
+                                - list "Maxed first" [ref=f1e1981]:
+                                    - listitem [ref=f1e1982]:
+                                        - link "Alchemical Flask, 90% before, 85% after" [ref=f1e1983] [cursor=pointer]:
+                                            - /url: /ability/alchemical-flask
+                                            - generic [ref=f1e1984]: Alchemical Flask
+                                            - generic [aria-hidden] [ref=f1e1990]: 90% → 85%
+                                    - listitem [ref=f1e1991]:
+                                        - link "Binding Word, 5% before, 7% after" [ref=f1e1992] [cursor=pointer]:
+                                            - /url: /ability/binding-word
+                                            - generic [ref=f1e1993]: Binding Word
+                                            - generic [aria-hidden] [ref=f1e1999]: 5% → 7%
+                                    - listitem [ref=f1e2000]:
+                                        - link "Last Stand, 4% before, 6% after" [ref=f1e2001] [cursor=pointer]:
+                                            - /url: /ability/last-stand
+                                            - generic [ref=f1e2002]: Last Stand
+                                            - generic [aria-hidden] [ref=f1e2008]: 4% → 6%
+                                    - listitem [ref=f1e2009]:
+                                        - link "Willpower, 1% before, 2% after" [ref=f1e2010] [cursor=pointer]:
+                                            - /url: /ability/willpower
+                                            - generic [ref=f1e2011]: Willpower
+                                            - generic [aria-hidden] [ref=f1e2017]: 1% → 2%
+                            - generic [ref=f1e2019]:
+                                - heading "Also changed in this patch" [level=4] [ref=f1e2020]
+                                - paragraph [ref=f1e2021]: Share of Warden players who bought each, 2–15 Sep → 17–22 Sep so far.
+                                - list "Also changed in this patch" [ref=f1e2022]:
+                                    - listitem [ref=f1e2023]:
+                                        - link "Mercurial Magnum, 92% before, 86% after" [ref=f1e2024] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#mercurial-magnum
+                                            - generic [ref=f1e2025]: Mercurial Magnum
+                                            - generic [aria-hidden] [ref=f1e2031]: 92% → 86%
+                                    - listitem [ref=f1e2032]:
+                                        - link "Spiritual Overflow, 75% before, 65% after" [ref=f1e2033] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#spiritual-overflow
+                                            - generic [ref=f1e2034]: Spiritual Overflow
+                                            - generic [aria-hidden] [ref=f1e2040]: 75% → 65%
+                                    - listitem [ref=f1e2041]:
+                                        - link "Veil Walker, 51% before, 12% after" [ref=f1e2042] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#veil-walker
+                                            - generic [ref=f1e2043]: Veil Walker
+                                            - generic [aria-hidden] [ref=f1e2049]: 51% → 12%
+                    - generic [ref=f1e2050]:
+                        - paragraph [ref=f1e2051]:
+                            - link "Wraith patch history" [ref=f1e2052] [cursor=pointer]:
+                                - /url: /hero/wraith
+                        - heading [level=3] [ref=f1e2053]:
+                            - link "Wraith" [ref=f1e2054] [cursor=pointer]:
+                                - /url: /hero/wraith
+                        - generic [ref=f1e2055]:
+                            - paragraph [ref=f1e2056]:
+                                - link "Card Trick change history" [ref=f1e2057] [cursor=pointer]:
+                                    - /url: /ability/card-trick
+                            - heading [level=4] [ref=f1e2058]:
+                                - link "Card Trick" [ref=f1e2059] [cursor=pointer]:
+                                    - /url: /ability/card-trick
+                            - list [ref=f1e2060]:
+                                - listitem [ref=f1e2061]: Card Trick heart heal reduced from 75 to 60
+                                - listitem [ref=f1e2062]: Card Trick heart heal spirit scaling reduced from 0.75 to 0.5
+                                - listitem [ref=f1e2063]: Card Trick Diamond Bullet and Spirit Resist reduction reduced from -8% to -7%
+                                - listitem [ref=f1e2064]: Card Trick T3 Diamond Bullet and Spirit Resist reduction reduced from -5% to -4%
+                                - listitem [ref=f1e2065]: Card Trick T3 Clubs slow from +20% to +15%
+                            - group [ref=f1e2067]:
+                                - generic "Current details for Card Trick · client 6698" [ref=f1e2068] [cursor=pointer]:
+                                    - generic [ref=f1e2071]:
+                                        - text: Current details
+                                        - generic [ref=f1e2072]: for Card Trick
+                                        - text: · client 6698
+                        - generic [ref=f1e2073]:
+                            - paragraph [ref=f1e2074]:
+                                - link "Project Mind change history" [ref=f1e2075] [cursor=pointer]:
+                                    - /url: /ability/project-mind
+                            - heading [level=4] [ref=f1e2076]:
+                                - link "Project Mind" [ref=f1e2077] [cursor=pointer]:
+                                    - /url: /ability/project-mind
+                            - list [ref=f1e2078]:
+                                - listitem [ref=f1e2079]: Fixed Project Mind getting caught on edges/corners when aiming past it
+                            - group [ref=f1e2081]:
+                                - generic "Current details for Project Mind · client 6698" [ref=f1e2082] [cursor=pointer]:
+                                    - generic [ref=f1e2085]:
+                                        - text: Current details
+                                        - generic [ref=f1e2086]: for Project Mind
+                                        - text: · client 6698
+                        - generic [ref=f1e2087]:
+                            - paragraph [ref=f1e2088]:
+                                - link "Full Auto change history" [ref=f1e2089] [cursor=pointer]:
+                                    - /url: /ability/full-auto
+                            - heading [level=4] [ref=f1e2090]:
+                                - link "Full Auto" [ref=f1e2091] [cursor=pointer]:
+                                    - /url: /ability/full-auto
+                            - list [ref=f1e2092]:
+                                - listitem [ref=f1e2093]: Full Auto spirit damage per bullet scaling increased from 0.03 to 0.045
+                            - group [ref=f1e2095]:
+                                - generic "Current details for Full Auto · client 6698" [ref=f1e2096] [cursor=pointer]:
+                                    - generic [ref=f1e2099]:
+                                        - text: Current details
+                                        - generic [ref=f1e2100]: for Full Auto
+                                        - text: · client 6698
+                        - generic [ref=f1e2103]:
+                            - generic [ref=f1e2104]:
+                                - heading "Maxed first" [level=4] [ref=f1e2105]
+                                - paragraph [ref=f1e2106]: Share of Wraith players who maxed each ability first, 2–15 Sep → 17–22 Sep so far.
+                                - list "Maxed first" [ref=f1e2107]:
+                                    - listitem [ref=f1e2108]:
+                                        - link "Card Trick, 82% before, 81% after" [ref=f1e2109] [cursor=pointer]:
+                                            - /url: /ability/card-trick
+                                            - generic [ref=f1e2110]: Card Trick
+                                            - generic [aria-hidden] [ref=f1e2116]: 82% → 81%
+                                    - listitem [ref=f1e2117]:
+                                        - link "Full Auto, 16% before, 17% after" [ref=f1e2118] [cursor=pointer]:
+                                            - /url: /ability/full-auto
+                                            - generic [ref=f1e2119]: Full Auto
+                                            - generic [aria-hidden] [ref=f1e2125]: 16% → 17%
+                                    - listitem [ref=f1e2126]:
+                                        - link "Project Mind, 1% before, 1% after" [ref=f1e2127] [cursor=pointer]:
+                                            - /url: /ability/project-mind
+                                            - generic [ref=f1e2128]: Project Mind
+                                            - generic [aria-hidden] [ref=f1e2134]: 1% → 1%
+                                    - listitem [ref=f1e2135]:
+                                        - link "Telekinesis, <1% before, <1% after" [ref=f1e2136] [cursor=pointer]:
+                                            - /url: /ability/telekinesis
+                                            - generic [ref=f1e2137]: Telekinesis
+                                            - generic [aria-hidden] [ref=f1e2143]: <1% → <1%
+                            - generic [ref=f1e2145]:
+                                - heading "Also changed in this patch" [level=4] [ref=f1e2146]
+                                - paragraph [ref=f1e2147]: Share of Wraith players who bought each, 2–15 Sep → 17–22 Sep so far.
+                                - list "Also changed in this patch" [ref=f1e2148]:
+                                    - listitem [ref=f1e2149]:
+                                        - link "Mercurial Magnum, 86% before, 86% after" [ref=f1e2150] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#mercurial-magnum
+                                            - generic [ref=f1e2151]: Mercurial Magnum
+                                            - generic [aria-hidden] [ref=f1e2157]: 86% → 86%
+                                    - listitem [ref=f1e2158]:
+                                        - link "Spiritual Overflow, 61% before, 54% after" [ref=f1e2159] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#spiritual-overflow
+                                            - generic [ref=f1e2160]: Spiritual Overflow
+                                            - generic [aria-hidden] [ref=f1e2166]: 61% → 54%
+                                    - listitem [ref=f1e2167]:
+                                        - link "Leech, 21% before, 28% after" [ref=f1e2168] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#leech
+                                            - generic [ref=f1e2169]: Leech
+                                            - generic [aria-hidden] [ref=f1e2175]: 21% → 28%
+                    - generic [ref=f1e2176]:
+                        - paragraph [ref=f1e2177]:
+                            - link "Yamato patch history" [ref=f1e2178] [cursor=pointer]:
+                                - /url: /hero/yamato
+                        - heading [level=3] [ref=f1e2179]:
+                            - link "Yamato" [ref=f1e2180] [cursor=pointer]:
+                                - /url: /hero/yamato
+                        - generic [ref=f1e2181]:
+                            - paragraph [ref=f1e2182]:
+                                - link "Crimson Slash change history" [ref=f1e2183] [cursor=pointer]:
+                                    - /url: /ability/crimson-slash
+                            - heading [level=4] [ref=f1e2184]:
+                                - link "Crimson Slash" [ref=f1e2185] [cursor=pointer]:
+                                    - /url: /ability/crimson-slash
+                            - list [ref=f1e2186]:
+                                - listitem [ref=f1e2187]: Crimson Slash T3 now also increases the heal spirit scaling by +0.4
+                            - group [ref=f1e2189]:
+                                - generic "Current details for Crimson Slash · client 6698" [ref=f1e2190] [cursor=pointer]:
+                                    - generic [ref=f1e2193]:
+                                        - text: Current details
+                                        - generic [ref=f1e2194]: for Crimson Slash
+                                        - text: · client 6698
+                        - generic [ref=f1e2195]:
+                            - paragraph [ref=f1e2196]:
+                                - link "Flying Slash change history" [ref=f1e2197] [cursor=pointer]:
+                                    - /url: /ability/flying-slash
+                            - heading [level=4] [ref=f1e2198]:
+                                - link "Flying Slash" [ref=f1e2199] [cursor=pointer]:
+                                    - /url: /ability/flying-slash
+                            - list [ref=f1e2200]:
+                                - listitem [ref=f1e2201]: Flying Slash light melee scaling increased from 1.0 to 1.2
+                            - group [ref=f1e2203]:
+                                - generic "Current details for Flying Slash · client 6698" [ref=f1e2204] [cursor=pointer]:
+                                    - generic [ref=f1e2207]:
+                                        - text: Current details
+                                        - generic [ref=f1e2208]: for Flying Slash
+                                        - text: · client 6698
+                        - generic [ref=f1e2211]:
+                            - generic [ref=f1e2212]:
+                                - heading "Maxed first" [level=4] [ref=f1e2213]
+                                - paragraph [ref=f1e2214]: Share of Yamato players who maxed each ability first, 2–15 Sep → 17–22 Sep so far.
+                                - list "Maxed first" [ref=f1e2215]:
+                                    - listitem [ref=f1e2216]:
+                                        - link "Power Slash, 74% before, 67% after" [ref=f1e2217] [cursor=pointer]:
+                                            - /url: /ability/power-slash
+                                            - generic [ref=f1e2218]: Power Slash
+                                            - generic [aria-hidden] [ref=f1e2224]: 74% → 67%
+                                    - listitem [ref=f1e2225]:
+                                        - link "Flying Slash, 20% before, 26% after" [ref=f1e2226] [cursor=pointer]:
+                                            - /url: /ability/flying-slash
+                                            - generic [ref=f1e2227]: Flying Slash
+                                            - generic [aria-hidden] [ref=f1e2233]: 20% → 26%
+                                    - listitem [ref=f1e2234]:
+                                        - link "Crimson Slash, 4% before, 5% after" [ref=f1e2235] [cursor=pointer]:
+                                            - /url: /ability/crimson-slash
+                                            - generic [ref=f1e2236]: Crimson Slash
+                                            - generic [aria-hidden] [ref=f1e2242]: 4% → 5%
+                                    - listitem [ref=f1e2243]:
+                                        - link "Shadow Transformation, 1% before, 2% after" [ref=f1e2244] [cursor=pointer]:
+                                            - /url: /ability/shadow-transformation
+                                            - generic [ref=f1e2245]: Shadow Transformation
+                                            - generic [aria-hidden] [ref=f1e2251]: 1% → 2%
+                            - generic [ref=f1e2253]:
+                                - heading "Also changed in this patch" [level=4] [ref=f1e2254]
+                                - paragraph [ref=f1e2255]: Share of Yamato players who bought each, 2–15 Sep → 17–22 Sep so far.
+                                - list "Also changed in this patch" [ref=f1e2256]:
+                                    - listitem [ref=f1e2257]:
+                                        - link "Tankbuster, 58% before, 53% after" [ref=f1e2258] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#tankbuster
+                                            - generic [ref=f1e2259]: Tankbuster
+                                            - generic [aria-hidden] [ref=f1e2265]: 58% → 53%
+                                    - listitem [ref=f1e2266]:
+                                        - link "Restorative Locket, 35% before, 20% after" [ref=f1e2267] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#restorative-locket
+                                            - generic [ref=f1e2268]: Restorative Locket
+                                            - generic [aria-hidden] [ref=f1e2274]: 35% → 20%
+                                    - listitem [ref=f1e2275]:
+                                        - link "Spiritual Overflow, 21% before, 11% after" [ref=f1e2276] [cursor=pointer]:
+                                            - /url: /change/2026/09-16#spiritual-overflow
+                                            - generic [ref=f1e2277]: Spiritual Overflow
+                                            - generic [aria-hidden] [ref=f1e2283]: 21% → 11%
+                    - heading "Item Changes" [level=2] [ref=f1e2284]
+                    - list "Affected items" [ref=f1e2285]:
+                        - listitem [ref=f1e2286]:
+                            - link "Ballistic Enchantment" [ref=f1e2287] [cursor=pointer]:
+                                - /url: '#ballistic-enchantment'
+                        - listitem [ref=f1e2289]:
+                            - link "Cultist Sacrifice" [ref=f1e2290] [cursor=pointer]:
+                                - /url: '#cultist-sacrifice'
+                        - listitem [ref=f1e2292]:
+                            - link "Decay" [ref=f1e2293] [cursor=pointer]:
+                                - /url: '#decay'
+                        - listitem [ref=f1e2295]:
+                            - link "Diviner's Kevlar" [ref=f1e2296] [cursor=pointer]:
+                                - /url: '#diviner-s-kevlar'
+                        - listitem [ref=f1e2298]:
+                            - link "Focus Lens" [ref=f1e2299] [cursor=pointer]:
+                                - /url: '#focus-lens'
+                        - listitem [ref=f1e2301]:
+                            - link "Fortitude" [ref=f1e2302] [cursor=pointer]:
+                                - /url: '#fortitude'
+                        - listitem [ref=f1e2304]:
+                            - link "Golden Goose Egg" [ref=f1e2305] [cursor=pointer]:
+                                - /url: '#golden-goose-egg'
+                        - listitem [ref=f1e2307]:
+                            - link "Hollow Point" [ref=f1e2308] [cursor=pointer]:
+                                - /url: '#hollow-point'
+                        - listitem [ref=f1e2310]:
+                            - link "Leech" [ref=f1e2311] [cursor=pointer]:
+                                - /url: '#leech'
+                        - listitem [ref=f1e2313]:
+                            - link "Lifestrike" [ref=f1e2314] [cursor=pointer]:
+                                - /url: '#lifestrike'
+                        - listitem [ref=f1e2316]:
+                            - link "Mercurial Magnum" [ref=f1e2317] [cursor=pointer]:
+                                - /url: '#mercurial-magnum'
+                        - listitem [ref=f1e2319]:
+                            - link "Plated Armor" [ref=f1e2320] [cursor=pointer]:
+                                - /url: '#plated-armor'
+                        - listitem [ref=f1e2322]:
+                            - link "Radiant Regeneration" [ref=f1e2323] [cursor=pointer]:
+                                - /url: '#radiant-regeneration'
+                        - listitem [ref=f1e2325]:
+                            - link "Restorative Locket" [ref=f1e2326] [cursor=pointer]:
+                                - /url: '#restorative-locket'
+                        - listitem [ref=f1e2328]:
+                            - link "Shadow Weave" [ref=f1e2329] [cursor=pointer]:
+                                - /url: '#shadow-weave'
+                        - listitem [ref=f1e2331]:
+                            - link "Slowing Hex" [ref=f1e2332] [cursor=pointer]:
+                                - /url: '#slowing-hex'
+                        - listitem [ref=f1e2334]:
+                            - link "Spiritual Overflow" [ref=f1e2335] [cursor=pointer]:
+                                - /url: '#spiritual-overflow'
+                        - listitem [ref=f1e2337]:
+                            - link "Tankbuster" [ref=f1e2338] [cursor=pointer]:
+                                - /url: '#tankbuster'
+                        - listitem [ref=f1e2340]:
+                            - link "Toxic Bullets" [ref=f1e2341] [cursor=pointer]:
+                                - /url: '#toxic-bullets'
+                        - listitem [ref=f1e2343]:
+                            - link "Trophy Collector" [ref=f1e2344] [cursor=pointer]:
+                                - /url: '#trophy-collector'
+                        - listitem [ref=f1e2346]:
+                            - link "Veil Walker" [ref=f1e2347] [cursor=pointer]:
+                                - /url: '#veil-walker'
+                        - listitem [ref=f1e2349]:
+                            - link "Weakening Headshot" [ref=f1e2350] [cursor=pointer]:
+                                - /url: '#weakening-headshot'
+                    - generic [ref=f1e2352]:
+                        - paragraph [ref=f1e2353]:
+                            - link "Ballistic Enchantment patch history" [ref=f1e2354] [cursor=pointer]:
+                                - /url: /item/ballistic-enchantment
+                        - heading [level=3] [ref=f1e2355]:
+                            - link "Ballistic Enchantment" [ref=f1e2356] [cursor=pointer]:
+                                - /url: /item/ballistic-enchantment
+                        - list [ref=f1e2357]:
+                            - listitem [ref=f1e2358]: Duration increased from 14s to 20s
+                        - group [ref=f1e2360]:
+                            - generic "Current details for Ballistic Enchantment · client 6698" [ref=f1e2361] [cursor=pointer]:
+                                - generic [ref=f1e2364]:
+                                    - text: Current details
+                                    - generic [ref=f1e2365]: for Ballistic Enchantment
+                                    - text: · client 6698
+                        - generic [ref=f1e2368]:
+                            - generic [ref=f1e2369]:
+                                - heading "Bought most by" [level=4] [ref=f1e2370]
+                                - paragraph [ref=f1e2371]: Share of each hero's players who bought Ballistic Enchantment, 2–15 Sep → 17–22 Sep so far.
+                                - list "Bought most by" [ref=f1e2372]:
+                                    - listitem [ref=f1e2373]:
+                                        - link "Viscous, 36% before, 34% after" [ref=f1e2374] [cursor=pointer]:
+                                            - /url: /hero/viscous
+                                            - generic [ref=f1e2375]: Viscous
+                                            - generic [aria-hidden] [ref=f1e2381]: 36% → 34%
+                                    - listitem [ref=f1e2382]:
+                                        - link "Venator, 22% before, 42% after" [ref=f1e2383] [cursor=pointer]:
+                                            - /url: /hero/venator
+                                            - generic [ref=f1e2384]: Venator
+                                            - generic [aria-hidden] [ref=f1e2390]: 22% → 42%
+                                    - listitem [ref=f1e2391]:
+                                        - link "Lady Geist, 15% before, 15% after" [ref=f1e2392] [cursor=pointer]:
+                                            - /url: /hero/lady-geist
+                                            - generic [ref=f1e2393]: Lady Geist
+                                            - generic [aria-hidden] [ref=f1e2399]: 15% → 15%
+                            - generic [ref=f1e2400]:
+                                - heading "Bought at" [level=4] [ref=f1e2401]
+                                - paragraph [ref=f1e2402]: Average game time Ballistic Enchantment buyers bought it, 2–15 Sep → 17–22 Sep so far.
+                                - paragraph [ref=f1e2403]: 24:10 → 24:04
+                    - generic [ref=f1e2404]:
+                        - paragraph [ref=f1e2405]:
+                            - link "Cultist Sacrifice patch history" [ref=f1e2406] [cursor=pointer]:
+                                - /url: /item/cultist-sacrifice
+                        - heading [level=3] [ref=f1e2407]:
+                            - link "Cultist Sacrifice" [ref=f1e2408] [cursor=pointer]:
+                                - /url: /item/cultist-sacrifice
+                        - list [ref=f1e2409]:
+                            - listitem [ref=f1e2410]: Bounty reduced from 180% to 170%
+                        - group [ref=f1e2412]:
+                            - generic "Current details for Cultist Sacrifice · client 6698" [ref=f1e2413] [cursor=pointer]:
+                                - generic [ref=f1e2416]:
+                                    - text: Current details
+                                    - generic [ref=f1e2417]: for Cultist Sacrifice
+                                    - text: · client 6698
+                        - generic [ref=f1e2420]:
+                            - generic [ref=f1e2421]:
+                                - heading "Bought most by" [level=4] [ref=f1e2422]
+                                - paragraph [ref=f1e2423]: Share of each hero's players who bought Cultist Sacrifice, 2–15 Sep → 17–22 Sep so far.
+                                - list "Bought most by" [ref=f1e2424]:
+                                    - listitem [ref=f1e2425]:
+                                        - link "Pocket, 78% before, 80% after" [ref=f1e2426] [cursor=pointer]:
+                                            - /url: /hero/pocket
+                                            - generic [ref=f1e2427]: Pocket
+                                            - generic [aria-hidden] [ref=f1e2433]: 78% → 80%
+                                    - listitem [ref=f1e2434]:
+                                        - link "Seven, 52% before, 47% after" [ref=f1e2435] [cursor=pointer]:
+                                            - /url: /hero/seven
+                                            - generic [ref=f1e2436]: Seven
+                                            - generic [aria-hidden] [ref=f1e2442]: 52% → 47%
+                                    - listitem [ref=f1e2443]:
+                                        - link "Billy, 32% before, 34% after" [ref=f1e2444] [cursor=pointer]:
+                                            - /url: /hero/billy
+                                            - generic [ref=f1e2445]: Billy
+                                            - generic [aria-hidden] [ref=f1e2451]: 32% → 34%
+                            - generic [ref=f1e2452]:
+                                - heading "Bought at" [level=4] [ref=f1e2453]
+                                - paragraph [ref=f1e2454]: Average game time Cultist Sacrifice buyers bought it, 2–15 Sep → 17–22 Sep so far.
+                                - paragraph [ref=f1e2455]: 11:44 → 11:50
+                    - generic [ref=f1e2456]:
+                        - paragraph [ref=f1e2457]:
+                            - link "Decay patch history" [ref=f1e2458] [cursor=pointer]:
+                                - /url: /item/decay
+                        - heading [level=3] [ref=f1e2459]:
+                            - link "Decay" [ref=f1e2460] [cursor=pointer]:
+                                - /url: /item/decay
+                        - list [ref=f1e2461]:
+                            - listitem [ref=f1e2462]: DPS reduced by 25%
+                            - listitem [ref=f1e2463]: Duration increased by 20%
+                        - group [ref=f1e2465]:
+                            - generic "Current details for Decay · client 6698" [ref=f1e2466] [cursor=pointer]:
+                                - generic [ref=f1e2469]:
+                                    - text: Current details
+                                    - generic [ref=f1e2470]: for Decay
+                                    - text: · client 6698
+                        - generic [ref=f1e2473]:
+                            - generic [ref=f1e2474]:
+                                - heading "Bought most by" [level=4] [ref=f1e2475]
+                                - paragraph [ref=f1e2476]: Share of each hero's players who bought Decay, 2–15 Sep → 17–22 Sep so far.
+                                - list "Bought most by" [ref=f1e2477]:
+                                    - listitem [ref=f1e2478]:
+                                        - link "Shiv, 19% before, 21% after" [ref=f1e2479] [cursor=pointer]:
+                                            - /url: /hero/shiv
+                                            - generic [ref=f1e2480]: Shiv
+                                            - generic [aria-hidden] [ref=f1e2486]: 19% → 21%
+                                    - listitem [ref=f1e2487]:
+                                        - link "Rem, 14% before, 16% after" [ref=f1e2488] [cursor=pointer]:
+                                            - /url: /hero/rem
+                                            - generic [ref=f1e2489]: Rem
+                                            - generic [aria-hidden] [ref=f1e2495]: 14% → 16%
+                                    - listitem [ref=f1e2496]:
+                                        - link "Ivy, 11% before, 10% after" [ref=f1e2497] [cursor=pointer]:
+                                            - /url: /hero/ivy
+                                            - generic [ref=f1e2498]: Ivy
+                                            - generic [aria-hidden] [ref=f1e2504]: 11% → 10%
+                            - generic [ref=f1e2505]:
+                                - heading "Bought at" [level=4] [ref=f1e2506]
+                                - paragraph [ref=f1e2507]: Average game time Decay buyers bought it, 2–15 Sep → 17–22 Sep so far.
+                                - paragraph [ref=f1e2508]: 20:44 → 20:39
+                    - generic [ref=f1e2509]:
+                        - paragraph [ref=f1e2510]:
+                            - link "Diviner's Kevlar patch history" [ref=f1e2511] [cursor=pointer]:
+                                - /url: /item/diviners-kevlar
+                        - heading [level=3] [ref=f1e2512]:
+                            - link "Diviner's Kevlar" [ref=f1e2513] [cursor=pointer]:
+                                - /url: /item/diviners-kevlar
+                        - list [ref=f1e2514]:
+                            - listitem [ref=f1e2515]: Now grants +10% Ultimate Ability Cooldown Reduction
+                        - group [ref=f1e2517]:
+                            - generic "Current details for Diviner's Kevlar · client 6698" [ref=f1e2518] [cursor=pointer]:
+                                - generic [ref=f1e2521]:
+                                    - text: Current details
+                                    - generic [ref=f1e2522]: for Diviner's Kevlar
+                                    - text: · client 6698
+                        - generic [ref=f1e2525]:
+                            - generic [ref=f1e2526]:
+                                - heading "Bought most by" [level=4] [ref=f1e2527]
+                                - paragraph [ref=f1e2528]: Share of each hero's players who bought Diviner's Kevlar, 2–15 Sep → 17–22 Sep so far.
+                                - list "Bought most by" [ref=f1e2529]:
+                                    - listitem [ref=f1e2530]:
+                                        - link "Silver, 16% before, 31% after" [ref=f1e2531] [cursor=pointer]:
+                                            - /url: /hero/silver
+                                            - generic [ref=f1e2532]: Silver
+                                            - generic [aria-hidden] [ref=f1e2538]: 16% → 31%
+                                    - listitem [ref=f1e2539]:
+                                        - link "Sinclair, 14% before, 26% after" [ref=f1e2540] [cursor=pointer]:
+                                            - /url: /hero/sinclair
+                                            - generic [ref=f1e2541]: Sinclair
+                                            - generic [aria-hidden] [ref=f1e2547]: 14% → 26%
+                                    - listitem [ref=f1e2548]:
+                                        - link "Pocket, 11% before, 16% after" [ref=f1e2549] [cursor=pointer]:
+                                            - /url: /hero/pocket
+                                            - generic [ref=f1e2550]: Pocket
+                                            - generic [aria-hidden] [ref=f1e2556]: 11% → 16%
+                            - generic [ref=f1e2557]:
+                                - heading "Bought at" [level=4] [ref=f1e2558]
+                                - paragraph [ref=f1e2559]: Average game time Diviner's Kevlar buyers bought it, 2–15 Sep → 17–22 Sep so far.
+                                - paragraph [ref=f1e2560]: 37:07 → 34:21
+                    - generic [ref=f1e2561]:
+                        - paragraph [ref=f1e2562]:
+                            - link "Focus Lens patch history" [ref=f1e2563] [cursor=pointer]:
+                                - /url: /item/focus-lens
+                        - heading [level=3] [ref=f1e2564]:
+                            - link "Focus Lens" [ref=f1e2565] [cursor=pointer]:
+                                - /url: /item/focus-lens
+                        - list [ref=f1e2566]:
+                            - listitem [ref=f1e2567]: Damage increased from 30% to 35%
+                            - listitem [ref=f1e2568]: Cast range increased from 20m to 25m
+                        - group [ref=f1e2570]:
+                            - generic "Current details for Focus Lens · client 6698" [ref=f1e2571] [cursor=pointer]:
+                                - generic [ref=f1e2574]:
+                                    - text: Current details
+                                    - generic [ref=f1e2575]: for Focus Lens
+                                    - text: · client 6698
+                        - generic [ref=f1e2578]:
+                            - generic [ref=f1e2579]:
+                                - heading "Bought most by" [level=4] [ref=f1e2580]
+                                - paragraph [ref=f1e2581]: Share of each hero's players who bought Focus Lens, 2–15 Sep → 17–22 Sep so far.
+                                - list "Bought most by" [ref=f1e2582]:
+                                    - listitem [ref=f1e2583]:
+                                        - link "Calico, 10% before, 11% after" [ref=f1e2584] [cursor=pointer]:
+                                            - /url: /hero/calico
+                                            - generic [ref=f1e2585]: Calico
+                                            - generic [aria-hidden] [ref=f1e2591]: 10% → 11%
+                                    - listitem [ref=f1e2592]:
+                                        - link "Mina, 8% before, 10% after" [ref=f1e2593] [cursor=pointer]:
+                                            - /url: /hero/mina
+                                            - generic [ref=f1e2594]: Mina
+                                            - generic [aria-hidden] [ref=f1e2600]: 8% → 10%
+                                    - listitem [ref=f1e2601]:
+                                        - link "Rem, 4% before, 4% after" [ref=f1e2602] [cursor=pointer]:
+                                            - /url: /hero/rem
+                                            - generic [ref=f1e2603]: Rem
+                                            - generic [aria-hidden] [ref=f1e2609]: 4% → 4%
+                            - generic [ref=f1e2610]:
+                                - heading "Bought at" [level=4] [ref=f1e2611]
+                                - paragraph [ref=f1e2612]: Average game time Focus Lens buyers bought it, 2–15 Sep → 17–22 Sep so far.
+                                - paragraph [ref=f1e2613]: 33:55 → 33:59
+                    - generic [ref=f1e2614]:
+                        - paragraph [ref=f1e2615]:
+                            - link "Fortitude patch history" [ref=f1e2616] [cursor=pointer]:
+                                - /url: /item/fortitude
+                        - heading [level=3] [ref=f1e2617]:
+                            - link "Fortitude" [ref=f1e2618] [cursor=pointer]:
+                                - /url: /item/fortitude
+                        - list [ref=f1e2619]:
+                            - listitem [ref=f1e2620]: Max Health regen increased from 2% to 2.25%
+                        - group [ref=f1e2622]:
+                            - generic "Current details for Fortitude · client 6698" [ref=f1e2623] [cursor=pointer]:
+                                - generic [ref=f1e2626]:
+                                    - text: Current details
+                                    - generic [ref=f1e2627]: for Fortitude
+                                    - text: · client 6698
+                        - generic [ref=f1e2630]:
+                            - generic [ref=f1e2631]:
+                                - heading "Bought most by" [level=4] [ref=f1e2632]
+                                - paragraph [ref=f1e2633]: Share of each hero's players who bought Fortitude, 2–15 Sep → 17–22 Sep so far.
+                                - list "Bought most by" [ref=f1e2634]:
+                                    - listitem [ref=f1e2635]:
+                                        - link "Drifter, 34% before, 38% after" [ref=f1e2636] [cursor=pointer]:
+                                            - /url: /hero/drifter
+                                            - generic [ref=f1e2637]: Drifter
+                                            - generic [aria-hidden] [ref=f1e2643]: 34% → 38%
+                                    - listitem [ref=f1e2644]:
+                                        - link "The Doorman, 25% before, 28% after" [ref=f1e2645] [cursor=pointer]:
+                                            - /url: /hero/the-doorman
+                                            - generic [ref=f1e2646]: The Doorman
+                                            - generic [aria-hidden] [ref=f1e2652]: 25% → 28%
+                                    - listitem [ref=f1e2653]:
+                                        - link "Venator, 24% before, 32% after" [ref=f1e2654] [cursor=pointer]:
+                                            - /url: /hero/venator
+                                            - generic [ref=f1e2655]: Venator
+                                            - generic [aria-hidden] [ref=f1e2661]: 24% → 32%
+                            - generic [ref=f1e2662]:
+                                - heading "Bought at" [level=4] [ref=f1e2663]
+                                - paragraph [ref=f1e2664]: Average game time Fortitude buyers bought it, 2–15 Sep → 17–22 Sep so far.
+                                - paragraph [ref=f1e2665]: 20:04 → 19:10
+                    - generic [ref=f1e2666]:
+                        - paragraph [ref=f1e2667]:
+                            - link "Golden Goose Egg patch history" [ref=f1e2668] [cursor=pointer]:
+                                - /url: /item/golden-goose-egg
+                        - heading [level=3] [ref=f1e2669]:
+                            - link "Golden Goose Egg" [ref=f1e2670] [cursor=pointer]:
+                                - /url: /item/golden-goose-egg
+                        - list [ref=f1e2671]:
+                            - listitem [ref=f1e2672]: Damage Penalty increased from -10% to -15%
+                            - listitem [ref=f1e2673]: Stored souls now count towards net worth (affects comeback reward calculations)
+                            - listitem [ref=f1e2674]: Souls per minute reduced from 90 to 80
+                        - group [ref=f1e2676]:
+                            - generic "Current details for Golden Goose Egg · client 6698" [ref=f1e2677] [cursor=pointer]:
+                                - generic [ref=f1e2680]:
+                                    - text: Current details
+                                    - generic [ref=f1e2681]: for Golden Goose Egg
+                                    - text: · client 6698
+                        - generic [ref=f1e2684]:
+                            - generic [ref=f1e2685]:
+                                - heading "Bought most by" [level=4] [ref=f1e2686]
+                                - paragraph [ref=f1e2687]: Share of each hero's players who bought Golden Goose Egg, 2–15 Sep → 17–22 Sep so far.
+                                - list "Bought most by" [ref=f1e2688]:
+                                    - listitem [ref=f1e2689]:
+                                        - link "Victor, 29% before, 10% after" [ref=f1e2690] [cursor=pointer]:
+                                            - /url: /hero/victor
+                                            - generic [ref=f1e2691]: Victor
+                                            - generic [aria-hidden] [ref=f1e2697]: 29% → 10%
+                                    - listitem [ref=f1e2698]:
+                                        - link "Rem, 21% before, 17% after" [ref=f1e2699] [cursor=pointer]:
+                                            - /url: /hero/rem
+                                            - generic [ref=f1e2700]: Rem
+                                            - generic [aria-hidden] [ref=f1e2706]: 21% → 17%
+                                    - listitem [ref=f1e2707]:
+                                        - link "Graves, 20% before, 8% after" [ref=f1e2708] [cursor=pointer]:
+                                            - /url: /hero/graves
+                                            - generic [ref=f1e2709]: Graves
+                                            - generic [aria-hidden] [ref=f1e2715]: 20% → 8%
+                            - generic [ref=f1e2716]:
+                                - heading "Bought at" [level=4] [ref=f1e2717]
+                                - paragraph [ref=f1e2718]: Average game time Golden Goose Egg buyers bought it, 2–15 Sep → 17–22 Sep so far.
+                                - paragraph [ref=f1e2719]: 2:50 → 3:40
+                    - generic [ref=f1e2720]:
+                        - paragraph [ref=f1e2721]:
+                            - link "Hollow Point patch history" [ref=f1e2722] [cursor=pointer]:
+                                - /url: /item/hollow-point
+                        - heading [level=3] [ref=f1e2723]:
+                            - link "Hollow Point" [ref=f1e2724] [cursor=pointer]:
+                                - /url: /item/hollow-point
+                        - list [ref=f1e2725]:
+                            - listitem [ref=f1e2726]: Bullet Resist Reduction increased from 9% to 10%
+                        - group [ref=f1e2728]:
+                            - generic "Current details for Hollow Point · client 6698" [ref=f1e2729] [cursor=pointer]:
+                                - generic [ref=f1e2732]:
+                                    - text: Current details
+                                    - generic [ref=f1e2733]: for Hollow Point
+                                    - text: · client 6698
+                        - generic [ref=f1e2736]:
+                            - generic [ref=f1e2737]:
+                                - heading "Bought most by" [level=4] [ref=f1e2738]
+                                - paragraph [ref=f1e2739]: Share of each hero's players who bought Hollow Point, 2–15 Sep → 17–22 Sep so far.
+                                - list "Bought most by" [ref=f1e2740]:
+                                    - listitem [ref=f1e2741]:
+                                        - link "Venator, 35% before, 53% after" [ref=f1e2742] [cursor=pointer]:
+                                            - /url: /hero/venator
+                                            - generic [ref=f1e2743]: Venator
+                                            - generic [aria-hidden] [ref=f1e2749]: 35% → 53%
+                                    - listitem [ref=f1e2750]:
+                                        - link "Paradox, 32% before, 35% after" [ref=f1e2751] [cursor=pointer]:
+                                            - /url: /hero/paradox
+                                            - generic [ref=f1e2752]: Paradox
+                                            - generic [aria-hidden] [ref=f1e2758]: 32% → 35%
+                                    - listitem [ref=f1e2759]:
+                                        - link "Drifter, 9% before, 10% after" [ref=f1e2760] [cursor=pointer]:
+                                            - /url: /hero/drifter
+                                            - generic [ref=f1e2761]: Drifter
+                                            - generic [aria-hidden] [ref=f1e2767]: 9% → 10%
+                            - generic [ref=f1e2768]:
+                                - heading "Bought at" [level=4] [ref=f1e2769]
+                                - paragraph [ref=f1e2770]: Average game time Hollow Point buyers bought it, 2–15 Sep → 17–22 Sep so far.
+                                - paragraph [ref=f1e2771]: 23:05 → 22:01
+                    - generic [ref=f1e2772]:
+                        - paragraph [ref=f1e2773]:
+                            - link "Leech patch history" [ref=f1e2774] [cursor=pointer]:
+                                - /url: /item/leech
+                        - heading [level=3] [ref=f1e2775]:
+                            - link "Leech" [ref=f1e2776] [cursor=pointer]:
+                                - /url: /item/leech
+                        - list [ref=f1e2777]:
+                            - listitem [ref=f1e2778]: Bullet and Spirit Lifesteal increased from 25% to 28%
+                        - group [ref=f1e2780]:
+                            - generic "Current details for Leech · client 6698" [ref=f1e2781] [cursor=pointer]:
+                                - generic [ref=f1e2784]:
+                                    - text: Current details
+                                    - generic [ref=f1e2785]: for Leech
+                                    - text: · client 6698
+                        - generic [ref=f1e2788]:
+                            - generic [ref=f1e2789]:
+                                - heading "Bought most by" [level=4] [ref=f1e2790]
+                                - paragraph [ref=f1e2791]: Share of each hero's players who bought Leech, 2–15 Sep → 17–22 Sep so far.
+                                - list "Bought most by" [ref=f1e2792]:
+                                    - listitem [ref=f1e2793]:
+                                        - link "Lady Geist, 36% before, 39% after" [ref=f1e2794] [cursor=pointer]:
+                                            - /url: /hero/lady-geist
+                                            - generic [ref=f1e2795]: Lady Geist
+                                            - generic [aria-hidden] [ref=f1e2801]: 36% → 39%
+                                    - listitem [ref=f1e2802]:
+                                        - link "Infernus, 21% before, 22% after" [ref=f1e2803] [cursor=pointer]:
+                                            - /url: /hero/infernus
+                                            - generic [ref=f1e2804]: Infernus
+                                            - generic [aria-hidden] [ref=f1e2810]: 21% → 22%
+                                    - listitem [ref=f1e2811]:
+                                        - link "Wraith, 21% before, 28% after" [ref=f1e2812] [cursor=pointer]:
+                                            - /url: /hero/wraith
+                                            - generic [ref=f1e2813]: Wraith
+                                            - generic [aria-hidden] [ref=f1e2819]: 21% → 28%
+                            - generic [ref=f1e2820]:
+                                - heading "Bought at" [level=4] [ref=f1e2821]
+                                - paragraph [ref=f1e2822]: Average game time Leech buyers bought it, 2–15 Sep → 17–22 Sep so far.
+                                - paragraph [ref=f1e2823]: 32:52 → 32:57
+                    - generic [ref=f1e2824]:
+                        - paragraph [ref=f1e2825]:
+                            - link "Lifestrike patch history" [ref=f1e2826] [cursor=pointer]:
+                                - /url: /item/lifestrike
+                        - heading [level=3] [ref=f1e2827]:
+                            - link "Lifestrike" [ref=f1e2828] [cursor=pointer]:
+                                - /url: /item/lifestrike
+                        - list [ref=f1e2829]:
+                            - listitem [ref=f1e2830]: Heal on Melee hit increased from 100+1.5 to 120+1.75
+                            - listitem [ref=f1e2831]: Melee hit heal increased from 30% to 35%
+                        - group [ref=f1e2833]:
+                            - generic "Current details for Lifestrike · client 6698" [ref=f1e2834] [cursor=pointer]:
+                                - generic [ref=f1e2837]:
+                                    - text: Current details
+                                    - generic [ref=f1e2838]: for Lifestrike
+                                    - text: · client 6698
+                        - generic [ref=f1e2841]:
+                            - generic [ref=f1e2842]:
+                                - heading "Bought most by" [level=4] [ref=f1e2843]
+                                - paragraph [ref=f1e2844]: Share of each hero's players who bought Lifestrike, 2–15 Sep → 17–22 Sep so far.
+                                - list "Bought most by" [ref=f1e2845]:
+                                    - listitem [ref=f1e2846]:
+                                        - link "Viscous, 44% before, 46% after" [ref=f1e2847] [cursor=pointer]:
+                                            - /url: /hero/viscous
+                                            - generic [ref=f1e2848]: Viscous
+                                            - generic [aria-hidden] [ref=f1e2854]: 44% → 46%
+                                    - listitem [ref=f1e2855]:
+                                        - link "Abrams, 33% before, 49% after" [ref=f1e2856] [cursor=pointer]:
+                                            - /url: /hero/abrams
+                                            - generic [ref=f1e2857]: Abrams
+                                            - generic [aria-hidden] [ref=f1e2863]: 33% → 49%
+                                    - listitem [ref=f1e2864]:
+                                        - link "Billy, 32% before, 59% after" [ref=f1e2865] [cursor=pointer]:
+                                            - /url: /hero/billy
+                                            - generic [ref=f1e2866]: Billy
+                                            - generic [aria-hidden] [ref=f1e2872]: 32% → 59%
+                            - generic [ref=f1e2873]:
+                                - heading "Bought at" [level=4] [ref=f1e2874]
+                                - paragraph [ref=f1e2875]: Average game time Lifestrike buyers bought it, 2–15 Sep → 17–22 Sep so far.
+                                - paragraph [ref=f1e2876]: 21:02 → 19:16
+                    - generic [ref=f1e2877]:
+                        - paragraph [ref=f1e2878]:
+                            - link "Mercurial Magnum patch history" [ref=f1e2879] [cursor=pointer]:
+                                - /url: /item/mercurial-magnum
+                        - heading [level=3] [ref=f1e2880]:
+                            - link "Mercurial Magnum" [ref=f1e2881] [cursor=pointer]:
+                                - /url: /item/mercurial-magnum
+                        - list [ref=f1e2882]:
+                            - listitem [ref=f1e2883]: Base bullet damage scaling reduced from 0.49 to 0.38
+                            - listitem [ref=f1e2884]: Base bullet damage reduced from 25% to 20%
+                        - group [ref=f1e2886]:
+                            - generic "Current details for Mercurial Magnum · client 6698" [ref=f1e2887] [cursor=pointer]:
+                                - generic [ref=f1e2890]:
+                                    - text: Current details
+                                    - generic [ref=f1e2891]: for Mercurial Magnum
+                                    - text: · client 6698
+                        - generic [ref=f1e2894]:
+                            - generic [ref=f1e2895]:
+                                - heading "Bought most by" [level=4] [ref=f1e2896]
+                                - paragraph [ref=f1e2897]: Share of each hero's players who bought Mercurial Magnum, 2–15 Sep → 17–22 Sep so far.
+                                - list "Bought most by" [ref=f1e2898]:
+                                    - listitem [ref=f1e2899]:
+                                        - link "Warden, 92% before, 86% after" [ref=f1e2900] [cursor=pointer]:
+                                            - /url: /hero/warden
+                                            - generic [ref=f1e2901]: Warden
+                                            - generic [aria-hidden] [ref=f1e2907]: 92% → 86%
+                                    - listitem [ref=f1e2908]:
+                                        - link "Wraith, 86% before, 86% after" [ref=f1e2909] [cursor=pointer]:
+                                            - /url: /hero/wraith
+                                            - generic [ref=f1e2910]: Wraith
+                                            - generic [aria-hidden] [ref=f1e2916]: 86% → 86%
+                                    - listitem [ref=f1e2917]:
+                                        - link "Vyper, 82% before, 81% after" [ref=f1e2918] [cursor=pointer]:
+                                            - /url: /hero/vyper
+                                            - generic [ref=f1e2919]: Vyper
+                                            - generic [aria-hidden] [ref=f1e2925]: 82% → 81%
+                            - generic [ref=f1e2926]:
+                                - heading "Bought at" [level=4] [ref=f1e2927]
+                                - paragraph [ref=f1e2928]: Average game time Mercurial Magnum buyers bought it, 2–15 Sep → 17–22 Sep so far.
+                                - paragraph [ref=f1e2929]: 27:31 → 29:11
+                    - generic [ref=f1e2930]:
+                        - paragraph [ref=f1e2931]:
+                            - link "Plated Armor patch history" [ref=f1e2932] [cursor=pointer]:
+                                - /url: /item/plated-armor
+                        - heading [level=3] [ref=f1e2933]:
+                            - link "Plated Armor" [ref=f1e2934] [cursor=pointer]:
+                                - /url: /item/plated-armor
+                        - list [ref=f1e2935]:
+                            - listitem [ref=f1e2936]: "Fixed on-hit damage prevention not blocking the following on-hit spirit damage effects: Mercurial Magnum, Vindicta's Flight, Wraith's Full Auto, and Tesla Bullets/Capacitor"
+                        - group [ref=f1e2938]:
+                            - generic "Current details for Plated Armor · client 6698" [ref=f1e2939] [cursor=pointer]:
+                                - generic [ref=f1e2942]:
+                                    - text: Current details
+                                    - generic [ref=f1e2943]: for Plated Armor
+                                    - text: · client 6698
+                        - generic [ref=f1e2946]:
+                            - generic [ref=f1e2947]:
+                                - heading "Bought most by" [level=4] [ref=f1e2948]
+                                - paragraph [ref=f1e2949]: Share of each hero's players who bought Plated Armor, 2–15 Sep → 17–22 Sep so far.
+                                - list "Bought most by" [ref=f1e2950]:
+                                    - listitem [ref=f1e2951]:
+                                        - link "Abrams, 9% before, 12% after" [ref=f1e2952] [cursor=pointer]:
+                                            - /url: /hero/abrams
+                                            - generic [ref=f1e2953]: Abrams
+                                            - generic [aria-hidden] [ref=f1e2959]: 9% → 12%
+                                    - listitem [ref=f1e2960]:
+                                        - link "Billy, 9% before, 13% after" [ref=f1e2961] [cursor=pointer]:
+                                            - /url: /hero/billy
+                                            - generic [ref=f1e2962]: Billy
+                                            - generic [aria-hidden] [ref=f1e2968]: 9% → 13%
+                                    - listitem [ref=f1e2969]:
+                                        - link "Victor, 9% before, 11% after" [ref=f1e2970] [cursor=pointer]:
+                                            - /url: /hero/victor
+                                            - generic [ref=f1e2971]: Victor
+                                            - generic [aria-hidden] [ref=f1e2977]: 9% → 11%
+                            - generic [ref=f1e2978]:
+                                - heading "Bought at" [level=4] [ref=f1e2979]
+                                - paragraph [ref=f1e2980]: Average game time Plated Armor buyers bought it, 2–15 Sep → 17–22 Sep so far.
+                                - paragraph [ref=f1e2981]: 37:13 → 36:53
+                    - generic [ref=f1e2982]:
+                        - paragraph [ref=f1e2983]:
+                            - link "Radiant Regeneration patch history" [ref=f1e2984] [cursor=pointer]:
+                                - /url: /item/radiant-regeneration
+                        - heading [level=3] [ref=f1e2985]:
+                            - link "Radiant Regeneration" [ref=f1e2986] [cursor=pointer]:
+                                - /url: /item/radiant-regeneration
+                        - list [ref=f1e2987]:
+                            - listitem [ref=f1e2988]: Healing on Ability Cast per boon scaling reduced from 2 to 1.7
+                        - group [ref=f1e2990]:
+                            - generic "Current details for Radiant Regeneration · client 6698" [ref=f1e2991] [cursor=pointer]:
+                                - generic [ref=f1e2994]:
+                                    - text: Current details
+                                    - generic [ref=f1e2995]: for Radiant Regeneration
+                                    - text: · client 6698
+                        - generic [ref=f1e2998]:
+                            - generic [ref=f1e2999]:
+                                - heading "Bought most by" [level=4] [ref=f1e3000]
+                                - paragraph [ref=f1e3001]: Share of each hero's players who bought Radiant Regeneration, 2–15 Sep → 17–22 Sep so far.
+                                - list "Bought most by" [ref=f1e3002]:
+                                    - listitem [ref=f1e3003]:
+                                        - link "Shiv, 92% before, 95% after" [ref=f1e3004] [cursor=pointer]:
+                                            - /url: /hero/shiv
+                                            - generic [ref=f1e3005]: Shiv
+                                            - generic [aria-hidden] [ref=f1e3011]: 92% → 95%
+                                    - listitem [ref=f1e3012]:
+                                        - link "Lady Geist, 92% before, 93% after" [ref=f1e3013] [cursor=pointer]:
+                                            - /url: /hero/lady-geist
+                                            - generic [ref=f1e3014]: Lady Geist
+                                            - generic [aria-hidden] [ref=f1e3020]: 92% → 93%
+                                    - listitem [ref=f1e3021]:
+                                        - link "Celeste, 85% before, 84% after" [ref=f1e3022] [cursor=pointer]:
+                                            - /url: /hero/celeste
+                                            - generic [ref=f1e3023]: Celeste
+                                            - generic [aria-hidden] [ref=f1e3029]: 85% → 84%
+                            - generic [ref=f1e3030]:
+                                - heading "Bought at" [level=4] [ref=f1e3031]
+                                - paragraph [ref=f1e3032]: Average game time Radiant Regeneration buyers bought it, 2–15 Sep → 17–22 Sep so far.
+                                - paragraph [ref=f1e3033]: 15:35 → 15:12
+                    - generic [ref=f1e3034]:
+                        - paragraph [ref=f1e3035]:
+                            - link "Restorative Locket patch history" [ref=f1e3036] [cursor=pointer]:
+                                - /url: /item/restorative-locket
+                        - heading [level=3] [ref=f1e3037]:
+                            - link "Restorative Locket" [ref=f1e3038] [cursor=pointer]:
+                                - /url: /item/restorative-locket
+                        - list [ref=f1e3039]:
+                            - listitem [ref=f1e3040]: Heal per boon reduced from 0.5 to 0.45
+                            - listitem [ref=f1e3041]: Stack range reduced from 35m to 32m
+                        - group [ref=f1e3043]:
+                            - generic "Current details for Restorative Locket · client 6698" [ref=f1e3044] [cursor=pointer]:
+                                - generic [ref=f1e3047]:
+                                    - text: Current details
+                                    - generic [ref=f1e3048]: for Restorative Locket
+                                    - text: · client 6698
+                        - generic [ref=f1e3051]:
+                            - generic [ref=f1e3052]:
+                                - heading "Bought most by" [level=4] [ref=f1e3053]
+                                - paragraph [ref=f1e3054]: Share of each hero's players who bought Restorative Locket, 2–15 Sep → 17–22 Sep so far.
+                                - list "Bought most by" [ref=f1e3055]:
+                                    - listitem [ref=f1e3056]:
+                                        - link "Celeste, 54% before, 46% after" [ref=f1e3057] [cursor=pointer]:
+                                            - /url: /hero/celeste
+                                            - generic [ref=f1e3058]: Celeste
+                                            - generic [aria-hidden] [ref=f1e3064]: 54% → 46%
+                                    - listitem [ref=f1e3065]:
+                                        - link "Yamato, 35% before, 20% after" [ref=f1e3066] [cursor=pointer]:
+                                            - /url: /hero/yamato
+                                            - generic [ref=f1e3067]: Yamato
+                                            - generic [aria-hidden] [ref=f1e3073]: 35% → 20%
+                                    - listitem [ref=f1e3074]:
+                                        - link "Shiv, 35% before, 15% after" [ref=f1e3075] [cursor=pointer]:
+                                            - /url: /hero/shiv
+                                            - generic [ref=f1e3076]: Shiv
+                                            - generic [aria-hidden] [ref=f1e3082]: 35% → 15%
+                            - generic [ref=f1e3083]:
+                                - heading "Bought at" [level=4] [ref=f1e3084]
+                                - paragraph [ref=f1e3085]: Average game time Restorative Locket buyers bought it, 2–15 Sep → 17–22 Sep so far.
+                                - paragraph [ref=f1e3086]: 14:38 → 14:43
+                    - generic [ref=f1e3087]:
+                        - paragraph [ref=f1e3088]:
+                            - link "Shadow Weave patch history" [ref=f1e3089] [cursor=pointer]:
+                                - /url: /item/shadow-weave
+                        - heading [level=3] [ref=f1e3090]:
+                            - link "Shadow Weave" [ref=f1e3091] [cursor=pointer]:
+                                - /url: /item/shadow-weave
+                        - list [ref=f1e3092]:
+                            - listitem [ref=f1e3093]: Now builds from Sprint Boots
+                            - listitem [ref=f1e3094]: Sprint speed increased from 1.5 to 2
+                            - listitem [ref=f1e3095]:
+                                - text: Cooldown reduced from 45s to 37s
+                                - 'link "Previous recorded cooldown change: 32s to 45s, April 30th, 2026." [ref=f1e3097] [cursor=pointer]':
+                                    - /url: /change/2026/04-30#shadow-weave
+                                    - text: prev. 32s → 45s · 30 Apr
+                        - group [ref=f1e3099]:
+                            - generic "Current details for Shadow Weave · client 6698" [ref=f1e3100] [cursor=pointer]:
+                                - generic [ref=f1e3103]:
+                                    - text: Current details
+                                    - generic [ref=f1e3104]: for Shadow Weave
+                                    - text: · client 6698
+                        - generic [ref=f1e3107]:
+                            - generic [ref=f1e3108]:
+                                - heading "Bought most by" [level=4] [ref=f1e3109]
+                                - paragraph [ref=f1e3110]: Share of each hero's players who bought Shadow Weave, 2–15 Sep → 17–22 Sep so far.
+                                - list "Bought most by" [ref=f1e3111]:
+                                    - listitem [ref=f1e3112]:
+                                        - link "Drifter, 5% before, 28% after" [ref=f1e3113] [cursor=pointer]:
+                                            - /url: /hero/drifter
+                                            - generic [ref=f1e3114]: Drifter
+                                            - generic [aria-hidden] [ref=f1e3120]: 5% → 28%
+                                    - listitem [ref=f1e3121]:
+                                        - link "Calico, 2% before, 9% after" [ref=f1e3122] [cursor=pointer]:
+                                            - /url: /hero/calico
+                                            - generic [ref=f1e3123]: Calico
+                                            - generic [aria-hidden] [ref=f1e3129]: 2% → 9%
+                                    - listitem [ref=f1e3130]:
+                                        - link "Abrams, 1% before, 3% after" [ref=f1e3131] [cursor=pointer]:
+                                            - /url: /hero/abrams
+                                            - generic [ref=f1e3132]: Abrams
+                                            - generic [aria-hidden] [ref=f1e3138]: 1% → 3%
+                            - generic [ref=f1e3139]:
+                                - heading "Bought at" [level=4] [ref=f1e3140]
+                                - paragraph [ref=f1e3141]: Average game time Shadow Weave buyers bought it, 2–15 Sep → 17–22 Sep so far.
+                                - paragraph [ref=f1e3142]: 23:31 → 19:11
+                    - generic [ref=f1e3143]:
+                        - paragraph [ref=f1e3144]:
+                            - link "Slowing Hex patch history" [ref=f1e3145] [cursor=pointer]:
+                                - /url: /item/slowing-hex
+                        - heading [level=3] [ref=f1e3146]:
+                            - link "Slowing Hex" [ref=f1e3147] [cursor=pointer]:
+                                - /url: /item/slowing-hex
+                        - list [ref=f1e3148]:
+                            - listitem [ref=f1e3149]:
+                                - text: Cooldown increased from 27s to 29s
+                                - 'link "Previous recorded cooldown change: 30s to 27s, March 6th, 2026." [ref=f1e3151] [cursor=pointer]':
+                                    - /url: /change/2026/03-06#slowing-hex
+                                    - text: prev. 30s → 27s · 6 Mar
+                        - group [ref=f1e3153]:
+                            - generic "Current details for Slowing Hex · client 6698" [ref=f1e3154] [cursor=pointer]:
+                                - generic [ref=f1e3157]:
+                                    - text: Current details
+                                    - generic [ref=f1e3158]: for Slowing Hex
+                                    - text: · client 6698
+                        - generic [ref=f1e3161]:
+                            - generic [ref=f1e3162]:
+                                - heading "Bought most by" [level=4] [ref=f1e3163]
+                                - paragraph [ref=f1e3164]: Share of each hero's players who bought Slowing Hex, 2–15 Sep → 17–22 Sep so far.
+                                - list "Bought most by" [ref=f1e3165]:
+                                    - listitem [ref=f1e3166]:
+                                        - link "The Doorman, 60% before, 61% after" [ref=f1e3167] [cursor=pointer]:
+                                            - /url: /hero/the-doorman
+                                            - generic [ref=f1e3168]: The Doorman
+                                            - generic [aria-hidden] [ref=f1e3174]: 60% → 61%
+                                    - listitem [ref=f1e3175]:
+                                        - link "Haze, 39% before, 33% after" [ref=f1e3176] [cursor=pointer]:
+                                            - /url: /hero/haze
+                                            - generic [ref=f1e3177]: Haze
+                                            - generic [aria-hidden] [ref=f1e3183]: 39% → 33%
+                                    - listitem [ref=f1e3184]:
+                                        - link "Bebop, 36% before, 36% after" [ref=f1e3185] [cursor=pointer]:
+                                            - /url: /hero/bebop
+                                            - generic [ref=f1e3186]: Bebop
+                                            - generic [aria-hidden] [ref=f1e3192]: 36% → 36%
+                            - generic [ref=f1e3193]:
+                                - heading "Bought at" [level=4] [ref=f1e3194]
+                                - paragraph [ref=f1e3195]: Average game time Slowing Hex buyers bought it, 2–15 Sep → 17–22 Sep so far.
+                                - paragraph [ref=f1e3196]: 17:06 → 17:04
+                    - generic [ref=f1e3197]:
+                        - paragraph [ref=f1e3198]:
+                            - link "Spiritual Overflow patch history" [ref=f1e3199] [cursor=pointer]:
+                                - /url: /item/spiritual-overflow
+                        - heading [level=3] [ref=f1e3200]:
+                            - link "Spiritual Overflow" [ref=f1e3201] [cursor=pointer]:
+                                - /url: /item/spiritual-overflow
+                        - list [ref=f1e3202]:
+                            - listitem [ref=f1e3203]: Buildup is 35% slower
+                            - listitem [ref=f1e3204]: Spirit Power on proc reduced from 40 to 30
+                            - listitem [ref=f1e3205]: Fire Rate reduced from 30% to 25%
+                        - group [ref=f1e3207]:
+                            - generic "Current details for Spiritual Overflow · client 6698" [ref=f1e3208] [cursor=pointer]:
+                                - generic [ref=f1e3211]:
+                                    - text: Current details
+                                    - generic [ref=f1e3212]: for Spiritual Overflow
+                                    - text: · client 6698
+                        - generic [ref=f1e3215]:
+                            - generic [ref=f1e3216]:
+                                - heading "Bought most by" [level=4] [ref=f1e3217]
+                                - paragraph [ref=f1e3218]: Share of each hero's players who bought Spiritual Overflow, 2–15 Sep → 17–22 Sep so far.
+                                - list "Bought most by" [ref=f1e3219]:
+                                    - listitem [ref=f1e3220]:
+                                        - link "Warden, 75% before, 65% after" [ref=f1e3221] [cursor=pointer]:
+                                            - /url: /hero/warden
+                                            - generic [ref=f1e3222]: Warden
+                                            - generic [aria-hidden] [ref=f1e3228]: 75% → 65%
+                                    - listitem [ref=f1e3229]:
+                                        - link "Infernus, 65% before, 56% after" [ref=f1e3230] [cursor=pointer]:
+                                            - /url: /hero/infernus
+                                            - generic [ref=f1e3231]: Infernus
+                                            - generic [aria-hidden] [ref=f1e3237]: 65% → 56%
+                                    - listitem [ref=f1e3238]:
+                                        - link "Wraith, 61% before, 54% after" [ref=f1e3239] [cursor=pointer]:
+                                            - /url: /hero/wraith
+                                            - generic [ref=f1e3240]: Wraith
+                                            - generic [aria-hidden] [ref=f1e3246]: 61% → 54%
+                            - generic [ref=f1e3247]:
+                                - heading "Bought at" [level=4] [ref=f1e3248]
+                                - paragraph [ref=f1e3249]: Average game time Spiritual Overflow buyers bought it, 2–15 Sep → 17–22 Sep so far.
+                                - paragraph [ref=f1e3250]: 30:26 → 31:56
+                    - generic [ref=f1e3251]:
+                        - paragraph [ref=f1e3252]:
+                            - link "Tankbuster patch history" [ref=f1e3253] [cursor=pointer]:
+                                - /url: /item/tankbuster
+                        - heading [level=3] [ref=f1e3254]:
+                            - link "Tankbuster" [ref=f1e3255] [cursor=pointer]:
+                                - /url: /item/tankbuster
+                        - list [ref=f1e3256]:
+                            - listitem [ref=f1e3257]: Current Health Bonus damage reduced from 8% to 7.5%
+                        - group [ref=f1e3259]:
+                            - generic "Current details for Tankbuster · client 6698" [ref=f1e3260] [cursor=pointer]:
+                                - generic [ref=f1e3263]:
+                                    - text: Current details
+                                    - generic [ref=f1e3264]: for Tankbuster
+                                    - text: · client 6698
+                        - generic [ref=f1e3267]:
+                            - generic [ref=f1e3268]:
+                                - heading "Bought most by" [level=4] [ref=f1e3269]
+                                - paragraph [ref=f1e3270]: Share of each hero's players who bought Tankbuster, 2–15 Sep → 17–22 Sep so far.
+                                - list "Bought most by" [ref=f1e3271]:
+                                    - listitem [ref=f1e3272]:
+                                        - link "Mina, 94% before, 94% after" [ref=f1e3273] [cursor=pointer]:
+                                            - /url: /hero/mina
+                                            - generic [ref=f1e3274]: Mina
+                                            - generic [aria-hidden] [ref=f1e3280]: 94% → 94%
+                                    - listitem [ref=f1e3281]:
+                                        - link "Pocket, 93% before, 94% after" [ref=f1e3282] [cursor=pointer]:
+                                            - /url: /hero/pocket
+                                            - generic [ref=f1e3283]: Pocket
+                                            - generic [aria-hidden] [ref=f1e3289]: 93% → 94%
+                                    - listitem [ref=f1e3290]:
+                                        - link "Lash, 91% before, 94% after" [ref=f1e3291] [cursor=pointer]:
+                                            - /url: /hero/lash
+                                            - generic [ref=f1e3292]: Lash
+                                            - generic [aria-hidden] [ref=f1e3298]: 91% → 94%
+                            - generic [ref=f1e3299]:
+                                - heading "Bought at" [level=4] [ref=f1e3300]
+                                - paragraph [ref=f1e3301]: Average game time Tankbuster buyers bought it, 2–15 Sep → 17–22 Sep so far.
+                                - paragraph [ref=f1e3302]: 22:11 → 22:08
+                    - generic [ref=f1e3303]:
+                        - paragraph [ref=f1e3304]:
+                            - link "Toxic Bullets patch history" [ref=f1e3305] [cursor=pointer]:
+                                - /url: /item/toxic-bullets
+                        - heading [level=3] [ref=f1e3306]:
+                            - link "Toxic Bullets" [ref=f1e3307] [cursor=pointer]:
+                                - /url: /item/toxic-bullets
+                        - list [ref=f1e3308]:
+                            - listitem [ref=f1e3309]: Spirit scaling increased from 0.005% to 0.006%
+                        - group [ref=f1e3311]:
+                            - generic "Current details for Toxic Bullets · client 6698" [ref=f1e3312] [cursor=pointer]:
+                                - generic [ref=f1e3315]:
+                                    - text: Current details
+                                    - generic [ref=f1e3316]: for Toxic Bullets
+                                    - text: · client 6698
+                        - generic [ref=f1e3319]:
+                            - generic [ref=f1e3320]:
+                                - heading "Bought most by" [level=4] [ref=f1e3321]
+                                - paragraph [ref=f1e3322]: Share of each hero's players who bought Toxic Bullets, 2–15 Sep → 17–22 Sep so far.
+                                - list "Bought most by" [ref=f1e3323]:
+                                    - listitem [ref=f1e3324]:
+                                        - link "Mirage, 81% before, 84% after" [ref=f1e3325] [cursor=pointer]:
+                                            - /url: /hero/mirage
+                                            - generic [ref=f1e3326]: Mirage
+                                            - generic [aria-hidden] [ref=f1e3332]: 81% → 84%
+                                    - listitem [ref=f1e3333]:
+                                        - link "Infernus, 66% before, 71% after" [ref=f1e3334] [cursor=pointer]:
+                                            - /url: /hero/infernus
+                                            - generic [ref=f1e3335]: Infernus
+                                            - generic [aria-hidden] [ref=f1e3341]: 66% → 71%
+                                    - listitem [ref=f1e3342]:
+                                        - link "Graves, 54% before, 50% after" [ref=f1e3343] [cursor=pointer]:
+                                            - /url: /hero/graves
+                                            - generic [ref=f1e3344]: Graves
+                                            - generic [aria-hidden] [ref=f1e3350]: 54% → 50%
+                            - generic [ref=f1e3351]:
+                                - heading "Bought at" [level=4] [ref=f1e3352]
+                                - paragraph [ref=f1e3353]: Average game time Toxic Bullets buyers bought it, 2–15 Sep → 17–22 Sep so far.
+                                - paragraph [ref=f1e3354]: 23:14 → 23:16
+                    - generic [ref=f1e3355]:
+                        - paragraph [ref=f1e3356]:
+                            - link "Trophy Collector patch history" [ref=f1e3357] [cursor=pointer]:
+                                - /url: /item/trophy-collector
+                        - heading [level=3] [ref=f1e3358]:
+                            - link "Trophy Collector" [ref=f1e3359] [cursor=pointer]:
+                                - /url: /item/trophy-collector
+                        - list [ref=f1e3360]:
+                            - listitem [ref=f1e3361]: Souls per minute reduced from 18 to 16
+                        - group [ref=f1e3363]:
+                            - generic "Current details for Trophy Collector · client 6698" [ref=f1e3364] [cursor=pointer]:
+                                - generic [ref=f1e3367]:
+                                    - text: Current details
+                                    - generic [ref=f1e3368]: for Trophy Collector
+                                    - text: · client 6698
+                        - generic [ref=f1e3371]:
+                            - generic [ref=f1e3372]:
+                                - heading "Bought most by" [level=4] [ref=f1e3373]
+                                - paragraph [ref=f1e3374]: Share of each hero's players who bought Trophy Collector, 2–15 Sep → 17–22 Sep so far.
+                                - list "Bought most by" [ref=f1e3375]:
+                                    - listitem [ref=f1e3376]:
+                                        - link "Mo & Krill, 85% before, 84% after" [ref=f1e3377] [cursor=pointer]:
+                                            - /url: /hero/mo-krill
+                                            - generic [ref=f1e3378]: Mo & Krill
+                                            - generic [aria-hidden] [ref=f1e3384]: 85% → 84%
+                                    - listitem [ref=f1e3385]:
+                                        - link "Calico, 72% before, 70% after" [ref=f1e3386] [cursor=pointer]:
+                                            - /url: /hero/calico
+                                            - generic [ref=f1e3387]: Calico
+                                            - generic [aria-hidden] [ref=f1e3393]: 72% → 70%
+                                    - listitem [ref=f1e3394]:
+                                        - link "Paige, 72% before, 70% after" [ref=f1e3395] [cursor=pointer]:
+                                            - /url: /hero/paige
+                                            - generic [ref=f1e3396]: Paige
+                                            - generic [aria-hidden] [ref=f1e3402]: 72% → 70%
+                            - generic [ref=f1e3403]:
+                                - heading "Bought at" [level=4] [ref=f1e3404]
+                                - paragraph [ref=f1e3405]: Average game time Trophy Collector buyers bought it, 2–15 Sep → 17–22 Sep so far.
+                                - paragraph [ref=f1e3406]: 9:12 → 9:14
+                    - generic [ref=f1e3407]:
+                        - paragraph [ref=f1e3408]:
+                            - link "Veil Walker patch history" [ref=f1e3409] [cursor=pointer]:
+                                - /url: /item/veil-walker
+                        - heading [level=3] [ref=f1e3410]:
+                            - link "Veil Walker" [ref=f1e3411] [cursor=pointer]:
+                                - /url: /item/veil-walker
+                        - list [ref=f1e3412]:
+                            - listitem [ref=f1e3413]: No longer builds from Sprint Boots
+                            - listitem [ref=f1e3414]: No longer grants +2 Sprint and +2 Out of Combat Regen (due to loss of component)
+                            - listitem [ref=f1e3415]: Movement speed bonus is now removed when the invisibility is removed
+                            - listitem [ref=f1e3416]: Spirit Power reduced from 10 to 6
+                        - group [ref=f1e3418]:
+                            - generic "Current details for Veil Walker · client 6698" [ref=f1e3419] [cursor=pointer]:
+                                - generic [ref=f1e3422]:
+                                    - text: Current details
+                                    - generic [ref=f1e3423]: for Veil Walker
+                                    - text: · client 6698
+                        - generic [ref=f1e3426]:
+                            - generic [ref=f1e3427]:
+                                - heading "Bought most by" [level=4] [ref=f1e3428]
+                                - paragraph [ref=f1e3429]: Share of each hero's players who bought Veil Walker, 2–15 Sep → 17–22 Sep so far.
+                                - list "Bought most by" [ref=f1e3430]:
+                                    - listitem [ref=f1e3431]:
+                                        - link "Paradox, 60% before, 27% after" [ref=f1e3432] [cursor=pointer]:
+                                            - /url: /hero/paradox
+                                            - generic [ref=f1e3433]: Paradox
+                                            - generic [aria-hidden] [ref=f1e3439]: 60% → 27%
+                                    - listitem [ref=f1e3440]:
+                                        - link "Bebop, 58% before, 43% after" [ref=f1e3441] [cursor=pointer]:
+                                            - /url: /hero/bebop
+                                            - generic [ref=f1e3442]: Bebop
+                                            - generic [aria-hidden] [ref=f1e3448]: 58% → 43%
+                                    - listitem [ref=f1e3449]:
+                                        - link "Sinclair, 56% before, 44% after" [ref=f1e3450] [cursor=pointer]:
+                                            - /url: /hero/sinclair
+                                            - generic [ref=f1e3451]: Sinclair
+                                            - generic [aria-hidden] [ref=f1e3457]: 56% → 44%
+                            - generic [ref=f1e3458]:
+                                - heading "Bought at" [level=4] [ref=f1e3459]
+                                - paragraph [ref=f1e3460]: Average game time Veil Walker buyers bought it, 2–15 Sep → 17–22 Sep so far.
+                                - paragraph [ref=f1e3461]: 17:11 → 17:30
+                    - generic [ref=f1e3462]:
+                        - paragraph [ref=f1e3463]:
+                            - link "Weakening Headshot patch history" [ref=f1e3464] [cursor=pointer]:
+                                - /url: /item/weakening-headshot
+                        - heading [level=3] [ref=f1e3465]:
+                            - link "Weakening Headshot" [ref=f1e3466] [cursor=pointer]:
+                                - /url: /item/weakening-headshot
+                        - list [ref=f1e3467]:
+                            - listitem [ref=f1e3468]: Bullet Resist Reduction reduced from -13% to -12%
+                        - group [ref=f1e3470]:
+                            - generic "Current details for Weakening Headshot · client 6698" [ref=f1e3471] [cursor=pointer]:
+                                - generic [ref=f1e3474]:
+                                    - text: Current details
+                                    - generic [ref=f1e3475]: for Weakening Headshot
+                                    - text: · client 6698
+                        - generic [ref=f1e3478]:
+                            - generic [ref=f1e3479]:
+                                - heading "Bought most by" [level=4] [ref=f1e3480]
+                                - paragraph [ref=f1e3481]: Share of each hero's players who bought Weakening Headshot, 2–15 Sep → 17–22 Sep so far.
+                                - list "Bought most by" [ref=f1e3482]:
+                                    - listitem [ref=f1e3483]:
+                                        - link "Venator, 63% before, 66% after" [ref=f1e3484] [cursor=pointer]:
+                                            - /url: /hero/venator
+                                            - generic [ref=f1e3485]: Venator
+                                            - generic [aria-hidden] [ref=f1e3491]: 63% → 66%
+                                    - listitem [ref=f1e3492]:
+                                        - link "Haze, 27% before, 27% after" [ref=f1e3493] [cursor=pointer]:
+                                            - /url: /hero/haze
+                                            - generic [ref=f1e3494]: Haze
+                                            - generic [aria-hidden] [ref=f1e3500]: 27% → 27%
+                                    - listitem [ref=f1e3501]:
+                                        - link "Vyper, 26% before, 24% after" [ref=f1e3502] [cursor=pointer]:
+                                            - /url: /hero/vyper
+                                            - generic [ref=f1e3503]: Vyper
+                                            - generic [aria-hidden] [ref=f1e3509]: 26% → 24%
+                            - generic [ref=f1e3510]:
+                                - heading "Bought at" [level=4] [ref=f1e3511]
+                                - paragraph [ref=f1e3512]: Average game time Weakening Headshot buyers bought it, 2–15 Sep → 17–22 Sep so far.
+                                - paragraph [ref=f1e3513]: 18:46 → 17:00
+                - region [ref=f1e3514]:
+                    - heading "How these shares are measured" [level=2] [ref=f1e3515]
+                    - paragraph [ref=f1e3516]: These are observed shares, before and after the patch. Other changes land in the same days, so a difference is not the effect of any one line.
+                    - paragraph [ref=f1e3517]: Each side counts complete UTC days between the patch and its neighbours, excluding release day, up to 14 days; "so far" marks an after-window still collecting matches. All ranks, normal-mode ranked and unranked matches. Last collected September 23rd, 2026.
+                    - paragraph [ref=f1e3518]: Maxed first is the share of a hero's matches in which each ability was the first to reach its third upgrade. Each side needs 1,000 matches.
+                    - paragraph [ref=f1e3519]: Also changed lists up to three items changed in the same patch, ranked by the share of the hero's player-matches in which each was bought before the patch. It needs 1,000 hero appearances and 100 buyers. These are reading links, not build recommendations.
+                    - paragraph [ref=f1e3520]: Bought most by lists up to three heroes whose players bought the item most often before the patch, as a share of each hero's player-matches. Each hero needs 1,000 appearances and 100 buyers.
+                    - paragraph [ref=f1e3521]: Bought at is the average game time at which the item's buyers bought it.
+                    - paragraph [ref=f1e3522]: Current details describe game client 6698, not the game as it was when this patch shipped. Base values exclude upgrades and scaling.
+                    - paragraph [ref=f1e3523]: Previous recorded change links connect verified, explicit changes to the same property. They cover part of the archive, not a complete history of game values.
+                    - paragraph [ref=f1e3524]:
+                        - text: Match data from the
+                        - link "Deadlock API" [ref=f1e3525] [cursor=pointer]:
+                            - /url: https://deadlock-api.com
+                        - text: .
+    - contentinfo [ref=f1e3526]:
+        - generic [ref=f1e3528]:
+            - link "deadlog.io" [ref=f1e3529] [cursor=pointer]:
+                - /url: /
+            - generic [ref=f1e3534]:
+                - link "Browse all patches" [ref=f1e3535] [cursor=pointer]:
+                    - /url: /archive
+                - paragraph [ref=f1e3536]:
+                    - text: Data provided by
+                    - link "Deadlock API" [ref=f1e3537] [cursor=pointer]:
+                        - /url: https://deadlock-api.com
+                - paragraph [ref=f1e3538]: Deadlock is a trademark of Valve Corporation
+            - generic [ref=f1e3539]: // end transmission
+    - button "Scroll to top" [ref=f1e3543]
+    - region "Notifications"
+```
+
+# Test source
+
+```ts
+  1   | import { expect, test } from 'playwright/test';
+  2   | import { expectNoHorizontalOverflow, gotoApp } from './helpers';
+  3   |
+  4   | const PATCH = '/change/2026/09-16';
+  5   |
+  6   | test('current details belong to their ability or item and work without JavaScript', async ({
+  7   | 	browser
+  8   | }) => {
+  9   | 	const context = await browser.newContext({
+  10  | 		javaScriptEnabled: false,
+  11  | 		viewport: { width: 320, height: 720 }
+  12  | 	});
+  13  | 	try {
+  14  | 		const page = await context.newPage();
+  15  | 		await page.goto(PATCH);
+  16  | 		for (const selector of ['.hero.abrams .ability', '.item']) {
+  17  | 			const disclosure = page
+  18  | 				.locator(`.mog-content ${selector} [data-entity-context]`)
+  19  | 				.first();
+  20  | 			const summary = disclosure.locator('summary');
+  21  | 			await expect(summary).toHaveAccessibleName(/^Current details for .+ · client \d+$/);
+  22  | 			expect((await summary.boundingBox())?.height).toBeGreaterThanOrEqual(44);
+  23  | 			await expect(disclosure.locator('p').first()).toBeHidden();
+  24  | 			await summary.click();
+  25  | 			await expect(disclosure.getByText(/not as of this patch\.$/)).toBeVisible();
+  26  | 			await expect(
+  27  | 				disclosure.getByRole('link', { name: /full history$/ })
+  28  | 			).toHaveAttribute('href', /^\/(ability|item)\/[^?#]+$/);
+  29  | 			await expectNoHorizontalOverflow(page);
+  30  | 		}
+  31  | 		await expect(page.locator('#method')).toContainText(
+  32  | 			'not the game as it was when this patch shipped'
+  33  | 		);
+  34  | 		await expect(
+  35  | 			page.locator('main').getByRole('link', { name: 'Deadlock API', exact: true })
+  36  | 		).toHaveCount(1);
+  37  | 	} finally {
+  38  | 		await context.close();
+  39  | 	}
+  40  | });
+  41  |
+  42  | test('related purchase shares navigate to visible item notes from a filtered patch', async ({
+  43  | 	page
+  44  | }, testInfo) => {
+  45  | 	const errors: string[] = [];
+  46  | 	page.on('pageerror', (error) => errors.push(error.message));
+  47  | 	await gotoApp(page, `${PATCH}?hero=Abrams`);
+  48  | 	const hero = page.locator('.mog-content > .hero.abrams');
+  49  | 	const related = hero.locator('[data-share-block="related"]');
+  50  | 	await expect(related).toBeVisible();
+  51  | 	await expect(related).toContainText('Share of Abrams players who bought each');
+  52  | 	await expect(related).toContainText(/each, .+\./);
+  53  | 	await expect(hero.locator('[data-share-block="maxed-first"]')).toHaveCount(1);
+  54  | 	const rows = related
+  55  | 		.getByRole('list', { name: 'Also changed in this patch' })
+  56  | 		.getByRole('link');
+  57  | 	expect(await rows.count()).toBeLessThanOrEqual(3);
+  58  | 	const first = rows.first();
+  59  | 	await expect(first).toContainText(/\d+%/);
+  60  | 	const href = (await first.getAttribute('href'))!;
+  61  | 	expect(href).toMatch(/^\/change\/2026\/09-16#[a-z0-9-]+$/);
+  62  | 	const id = href.split('#')[1];
+  63  | 	await expect(page.locator(`[id="${id}"]`)).toBeHidden();
+  64  | 	const placement = await hero.evaluate((node) => {
+  65  | 		const related = node
+  66  | 			.querySelector('[data-share-block="related"]')!
+  67  | 			.getBoundingClientRect();
+  68  | 		const ability = [...node.querySelectorAll('.ability')]
+  69  | 			.at(-1)!
+  70  | 			.getBoundingClientRect();
+  71  | 		return related.top >= ability.bottom;
+  72  | 	});
+  73  | 	expect(placement).toBe(true);
+  74  | 	await hero.locator('[data-entity-context] summary').first().focus();
+  75  | 	await page.keyboard.press('Enter');
+  76  | 	await expect(hero.locator('[data-entity-context]').first()).toHaveAttribute('open', '');
+  77  | 	await related.scrollIntoViewIfNeeded();
+  78  | 	await page.screenshot({ path: testInfo.outputPath('inline-reading.png') });
+  79  | 	await expectNoHorizontalOverflow(page);
+  80  | 	await first.click();
+  81  | 	await expect(page).toHaveURL(new RegExp(`${PATCH}#${id}$`));
+  82  | 	await expect(page.locator(`[id="${id}"]`)).toBeVisible();
+  83  | 	await expect(page.getByRole('link', { name: 'Show all changes' })).toHaveCount(0);
+  84  | 	await expectNoHorizontalOverflow(page);
+> 85  | 	expect(errors).toEqual([]);
+      |                 ^ Error: expect(received).toEqual(expected) // deep equality
+  86  | });
+  87  |
+  88  | test('a previous recorded change remains attached to the original Mog bullet', async ({
+  89  | 	page
+  90  | }) => {
+  91  | 	await gotoApp(page, '/item/majestic-leap');
+  92  | 	const historyLink = page.locator('[data-previous-change]').first();
+  93  | 	const previousHref = await historyLink.getAttribute('href');
+  94  | 	const previousLabel = await historyLink.getAttribute('aria-label');
+  95  | 	const annotation = await historyLink.innerText();
+  96  | 	const original = (await historyLink.locator('xpath=ancestor::li[1]').innerText())
+  97  | 		.replace(annotation, '')
+  98  | 		.trim();
+  99  | 	const entry = historyLink.locator('xpath=ancestor::li[@data-entity-patch]');
+  100 | 	await entry.getByRole('link', { name: 'Full patch', exact: true }).click();
+  101 | 	const inline = page
+  102 | 		.locator('.mog-content > .item.majestic-leap [data-previous-change]')
+  103 | 		.first();
+  104 | 	await expect(inline).toHaveAttribute('href', previousHref!);
+  105 | 	await expect(inline).toHaveAccessibleName(previousLabel!);
+  106 | 	await expect(inline.locator('xpath=ancestor::li[1]')).toContainText(original);
+  107 | 	await expect(inline).toHaveText(annotation);
+  108 | 	await expect(page.locator('#method')).toContainText('part of the archive');
+  109 | 	await expectNoHorizontalOverflow(page);
+  110 | 	await inline.click();
+  111 | 	await expect(page.locator(`[id="${previousHref!.split('#')[1]}"]`)).toBeVisible();
+  112 | });
+  113 |
+```

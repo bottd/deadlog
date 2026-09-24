@@ -10,17 +10,21 @@ use deadlog_db::write::snapshot::EntitySnapshot;
 use deadlog_model::{MOG_IMAGE_PREFIX, author_avatar_path, entity_name_aliases, js_trim, parse_js_date, to_slug};
 use regex::Regex;
 
-use crate::api::forum::{ChangelogPost, PostContentResult, PostScrapeOptions, scrape_changelog_page, scrape_multiple_changelog_posts};
+use crate::api::forum::{
+    ChangelogPost, PostContentResult, PostScrapeOptions, scrape_changelog_page, scrape_multiple_changelog_posts,
+};
 use crate::api::steam::{
     SteamAnnouncement, extract_date_from_title, fetch_steam_announcements, is_steam_patch_content, is_steam_unfurl,
     parse_steam_content, render_steam_announcement,
 };
 use crate::author::parse_author_name;
 use crate::content::capture_version::{VersionCapture, with_captured_version};
-use crate::content::generator::{ChangelogSource, EntityAssets, RenderedContent, build_entity_assets, generate_changelog};
+use crate::content::generator::{
+    ChangelogSource, EntityAssets, RenderedContent, build_entity_assets, generate_changelog,
+};
 use crate::content::parser::{EntityLists, deduplicate_lines, extract_content};
 use crate::http::Http;
-use crate::js::utf16_len;
+use deadlog_model::utf16_len;
 
 /// The first line of a note whose body came from a source that no longer serves it
 /// (`2024/11-07.mg` and `2024/12-06.mg` came from the Steam API, which has dropped notes
@@ -81,8 +85,7 @@ pub fn is_irreproducible(content: &str) -> bool {
 }
 
 fn protected(path: &Path, config: &ScrapeConfig) -> bool {
-    !config.overwrite_irreproducible
-        && std::fs::read_to_string(path).is_ok_and(|content| is_irreproducible(&content))
+    !config.overwrite_irreproducible && std::fs::read_to_string(path).is_ok_and(|content| is_irreproducible(&content))
 }
 
 /// Writes a generated changelog, keeping what the existing file already recorded: its
@@ -107,7 +110,9 @@ pub fn write_mog_file(
         && !content.lines().any(|line| line.starts_with("alias "))
         && let Some(alias) = ALIAS_LINE.find(previous)
     {
-        content = TITLE_LINE.replace(&content, |captures: &regex::Captures| format!("{}\n{}", &captures[0], alias.as_str())).into_owned();
+        content = TITLE_LINE
+            .replace(&content, |captures: &regex::Captures| format!("{}\n{}", &captures[0], alias.as_str()))
+            .into_owned();
     }
     content = with_captured_version(&content, previous.as_deref(), capture);
     if let Some(previous) = &previous {
@@ -169,7 +174,7 @@ fn needs_steam_backfill(filepath: &Path, note: Option<&SteamAnnouncement>) -> bo
     !content.contains(&format!("steam_gid \"{}\"", note.gid))
 }
 
-fn build_changelog_source(
+pub fn build_changelog_source(
     content: &PostContentResult,
     thread_id: &str,
     steam: Option<&SteamAnnouncement>,
@@ -197,7 +202,9 @@ fn build_changelog_source(
             if is_steam_unfurl(&content.content) || rough_forum_len <= utf16_len(&steam_raw) {
                 steam_meta = Some(note);
                 if is_steam_patch_content(&note.content) {
-                    [forum_images.iter().map(|image| image.to_string()).collect(), vec![steam_raw], replies].concat().join("\n")
+                    [forum_images.iter().map(|image| image.to_string()).collect(), vec![steam_raw], replies]
+                        .concat()
+                        .join("\n")
                 } else {
                     let announcement = render_steam_announcement(&note.title, &note.content);
                     rendered = Some(RenderedContent { mog: announcement.mog, text: announcement.text });
@@ -320,7 +327,8 @@ pub fn match_steam_notes_to_forum_posts(posts: &[ChangelogPost], notes: &[SteamA
         }
     }
 
-    let unmatched_posts: Vec<&ChangelogPost> = posts.iter().filter(|post| !matched.contains_key(&post.post_id)).collect();
+    let unmatched_posts: Vec<&ChangelogPost> =
+        posts.iter().filter(|post| !matched.contains_key(&post.post_id)).collect();
     let unmatched_notes: Vec<&SteamAnnouncement> = notes.iter().filter(|note| !consumed.contains(&note.gid)).collect();
     let mut claim_unique_pairs = |matches: &dyn Fn(&ChangelogPost, &SteamAnnouncement) -> bool| {
         for post in &unmatched_posts {
@@ -468,9 +476,15 @@ pub fn scrape_changelogs(config: &ScrapeConfig) -> Result<ScrapeResult> {
     if !new_posts.is_empty() {
         println!("\n🕷️  Scraping {} forum posts...", new_posts.len());
         let owned: Vec<ChangelogPost> = new_posts.iter().map(|post| (*post).clone()).collect();
-        let options = PostScrapeOptions { use_cache: true, cache_dir: config.cache_dir.clone(), delay: config.delay, ..Default::default() };
+        let options = PostScrapeOptions {
+            use_cache: true,
+            cache_dir: config.cache_dir.clone(),
+            delay: config.delay,
+            ..Default::default()
+        };
         let contents = scrape_multiple_changelog_posts(config.http, &owned, &options);
-        let by_id: HashMap<&str, &PostContentResult> = contents.iter().map(|content| (content.post_id.as_str(), content)).collect();
+        let by_id: HashMap<&str, &PostContentResult> =
+            contents.iter().map(|content| (content.post_id.as_str(), content)).collect();
         println!("\n📝 Writing changelogs...");
         for post in new_posts {
             let Some(content) = by_id.get(post.post_id.as_str()) else {
@@ -484,8 +498,10 @@ pub fn scrape_changelogs(config: &ScrapeConfig) -> Result<ScrapeResult> {
     if !steam_only.is_empty() {
         println!("\n🎮 Writing {} Steam-only announcements...", steam_only.len());
         for (note, filepath) in steam_only {
-            let changelog = generate_changelog(&build_steam_changelog_source(note), &writer.entities, Some(&writer.assets));
-            let outcome = write_mog_file(&filepath, &changelog, config.capture.as_ref(), config.overwrite_irreproducible)?;
+            let changelog =
+                generate_changelog(&build_steam_changelog_source(note), &writer.entities, Some(&writer.assets));
+            let outcome =
+                write_mog_file(&filepath, &changelog, config.capture.as_ref(), config.overwrite_irreproducible)?;
             report(outcome, &filepath);
             writer.count(outcome, false);
         }

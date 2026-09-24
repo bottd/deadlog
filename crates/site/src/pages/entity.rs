@@ -7,8 +7,8 @@ use anyhow::Result;
 use askama::Template;
 use deadlog_db::{Ability, Changelog, Hero, Item};
 use deadlog_model::{
-    ChangeGroup, EntityImpact, HeroChangeGroup, PatchStats, RelatedItems, ability_fragment_id, entity_fragment_id,
-    format_date, format_date_short, format_year, iso_string, plural, related_share,
+    ChangeGroup, EntityContext, EntityImpact, HeroChangeGroup, PatchStats, RelatedItems, ability_fragment_id,
+    entity_fragment_id, format_date, format_date_short, format_year, iso_string, plural, related_share,
 };
 use rayon::prelude::*;
 use serde_json::{Value, json};
@@ -20,7 +20,7 @@ use crate::meta::{
     default_social_image,
 };
 use crate::share::{
-    self, BandBlock, BuyTime, ContextView, MethodNote, PageContext, PreviousChange, PropertyLink, RelatedNote, ShareRow,
+    self, BandBlock, BuyTime, ContextView, MethodNote, PreviousChange, PropertyLink, RelatedNote, ShareRow,
     ShareWindows,
 };
 use crate::{Assets, Layout, Site};
@@ -147,9 +147,7 @@ struct Group {
     previous: Vec<Option<PreviousChange>>,
 }
 
-struct Related {
-    items: Vec<(ShareRow, Vec<ChangeGroup>)>,
-}
+type Related = Vec<(ShareRow, Vec<ChangeGroup>)>;
 
 impl Entry<'_> {
     fn change_count(&self) -> Option<usize> {
@@ -193,7 +191,11 @@ fn previous_lookup<'a>(site: &Site<'a>, entity_type: &str, entity_id: i64) -> Pr
             let previous = site.changelog(event.previous_changelog_id.as_deref()?)?;
             Some((
                 (event.changelog_id.clone(), event.group_index, event.bullet_index),
-                PropertyLink { event, previous_slug: previous.slug.clone(), previous_pub_date: previous.pub_date.clone() },
+                PropertyLink {
+                    event,
+                    previous_slug: previous.slug.clone(),
+                    previous_pub_date: previous.pub_date.clone(),
+                },
             ))
         })
         .collect()
@@ -247,10 +249,9 @@ fn related_changes(site: &Site, changelog: &Changelog, related: Option<&RelatedI
         .items
         .iter()
         .filter_map(|item| {
-            let link = site
-                .items_in(&changelog.id)
-                .iter()
-                .find(|link| link.item_id == item.id && link.change_groups.as_ref().is_some_and(|groups| !groups.is_empty()));
+            let link = site.items_in(&changelog.id).iter().find(|link| {
+                link.item_id == item.id && link.change_groups.as_ref().is_some_and(|groups| !groups.is_empty())
+            });
             let Some(link) = link else {
                 eprintln!("Related item {} has no change section in {}; omitted", item.id, changelog.slug);
                 return None;
@@ -270,7 +271,7 @@ fn related_changes(site: &Site, changelog: &Changelog, related: Option<&RelatedI
             ))
         })
         .collect();
-    (!items.is_empty()).then_some(Related { items })
+    (!items.is_empty()).then_some(items)
 }
 
 struct Common<'a> {
@@ -288,24 +289,26 @@ struct Common<'a> {
     indexable: bool,
     abilities: Vec<&'a Ability>,
     current_ability: Option<String>,
-    contexts: HashMap<String, PageContext>,
+    contexts: HashMap<String, EntityContext>,
     first_context_version: Option<i64>,
-    about: Option<PageContext>,
+    about: Option<EntityContext>,
 }
 
 fn render_page(assets: &Assets, common: Common, entries: Vec<Entry>) -> Result<Page> {
     let subject = Subject { kind: common.kind, name: &common.name };
     let (listing_path, listing_label) = common.kind.listing();
 
-    let context_version =
-        common.about.as_ref().and_then(|about| about.client_version).or(common.first_context_version);
+    let context_version = common.about.as_ref().and_then(|about| about.client_version).or(common.first_context_version);
     let method = MethodNote {
         collected_at: entries.iter().find_map(|entry| entry.stats).map(|stats| stats.collected_at.clone()),
         shipped: "a patch",
         context_versions: context_version.into_iter().collect(),
         details: context_version.is_some(),
         previous: entries.iter().any(|entry| {
-            entry.groups.as_ref().is_some_and(|groups| groups.iter().any(|group| group.previous.iter().any(Option::is_some)))
+            entry
+                .groups
+                .as_ref()
+                .is_some_and(|groups| groups.iter().any(|group| group.previous.iter().any(Option::is_some)))
         }),
         related: entries.iter().any(|entry| entry.related.is_some()),
         maxed_first: entries.iter().any(|entry| entry.maxed_first.as_ref().is_some_and(|rows| !rows.is_empty())),
@@ -336,7 +339,8 @@ fn render_page(assets: &Assets, common: Common, entries: Vec<Entry>) -> Result<P
         datetime: iso_string(&entry.changelog.pub_date),
         date: format_date(&entry.changelog.pub_date),
     });
-    let oldest = entries.last().map(|entry| (iso_string(&entry.changelog.pub_date), format_date(&entry.changelog.pub_date)));
+    let oldest =
+        entries.last().map(|entry| (iso_string(&entry.changelog.pub_date), format_date(&entry.changelog.pub_date)));
     let recent = entries
         .iter()
         .take(6)
@@ -382,9 +386,8 @@ fn render_page(assets: &Assets, common: Common, entries: Vec<Entry>) -> Result<P
     }
 
     let canonical = absolute_url(&common.path);
-    let mut meta = Meta::new(&common.title, &common.description, &canonical)
-        .image(&common.og_image)
-        .indexable(common.indexable);
+    let mut meta =
+        Meta::new(&common.title, &common.description, &canonical).image(&common.og_image).indexable(common.indexable);
     if common.indexable {
         let mut thing = serde_json::Map::new();
         thing.insert("@type".into(), json!("Thing"));
@@ -427,7 +430,11 @@ fn render_page(assets: &Assets, common: Common, entries: Vec<Entry>) -> Result<P
         .abilities
         .iter()
         .filter_map(|ability| {
-            ability.description.as_ref().filter(|text| !text.is_empty()).map(|text| (ability.name.clone(), text.clone()))
+            ability
+                .description
+                .as_ref()
+                .filter(|text| !text.is_empty())
+                .map(|text| (ability.name.clone(), text.clone()))
         })
         .collect();
 
@@ -493,7 +500,9 @@ fn patch_view(entry: &Entry, subject: &Subject, common: &Common) -> PatchView {
                     context: group
                         .ability_slug
                         .as_ref()
-                        .filter(|_| share::group_context_matches(group.ability.as_deref(), group.ability_slug.as_deref()))
+                        .filter(|_| {
+                            share::group_context_matches(group.ability.as_deref(), group.ability_slug.as_deref())
+                        })
                         .and_then(|slug| common.contexts.get(slug))
                         .map(|context| ContextView {
                             context: context.clone(),
@@ -512,18 +521,14 @@ fn patch_view(entry: &Entry, subject: &Subject, common: &Common) -> PatchView {
         || entry.bought_by.as_ref().is_some_and(|rows| !rows.is_empty())
         || entry.buy_time.is_some();
     if let Some(stats) = entry.stats.filter(|_| has_reading) {
-        let windows = ShareWindows::new(
-            stats,
-            &entry.changelog.pub_date,
-            entry.impact.is_some_and(|impact| !impact.closed),
-        );
+        let windows =
+            ShareWindows::new(stats, &entry.changelog.pub_date, entry.impact.is_some_and(|impact| !impact.closed));
         let id = &entry.changelog.id;
         if let Some(rows) = entry.maxed_first.clone().filter(|rows| !rows.is_empty()) {
             band.push(BandBlock::share("maxed-first", id, subject.name, rows, &windows, Vec::new()));
         }
         if let Some(related) = &entry.related {
             let notes = related
-                .items
                 .iter()
                 .map(|(row, groups)| RelatedNote {
                     name: row.name.clone(),
@@ -531,7 +536,7 @@ fn patch_view(entry: &Entry, subject: &Subject, common: &Common) -> PatchView {
                     groups: groups.iter().map(|group| group.bullets.clone()).collect(),
                 })
                 .collect();
-            let rows = related.items.iter().map(|(row, _)| row.clone()).collect();
+            let rows = related.iter().map(|(row, _)| row.clone()).collect();
             band.push(BandBlock::share("related", id, subject.name, rows, &windows, notes));
         }
         if let Some(rows) = entry.bought_by.clone().filter(|rows| !rows.is_empty()) {
@@ -560,7 +565,7 @@ fn hero_type_accent(hero: &Hero) -> String {
     hero.hero_type.as_ref().map(|kind| format!("var(--type-{kind})")).unwrap_or_else(|| "var(--signal)".into())
 }
 
-fn changed_ability_contexts(site: &Site, hero: &Hero) -> (HashMap<String, PageContext>, Option<i64>) {
+fn changed_ability_contexts(site: &Site, hero: &Hero) -> (HashMap<String, EntityContext>, Option<i64>) {
     let changed: Vec<&str> = site
         .hero_history(hero.id)
         .iter()
@@ -574,7 +579,7 @@ fn changed_ability_contexts(site: &Site, hero: &Hero) -> (HashMap<String, PageCo
         if !changed.contains(&ability.slug.as_str()) {
             continue;
         }
-        let context = PageContext::new(context);
+        let context = context.clone();
         if contexts.is_empty() {
             first_version = Some(context.client_version);
         }
@@ -596,12 +601,8 @@ fn hero_page(site: &Site, assets: &Assets, hero: &Hero) -> Result<Page> {
                 .change_groups
                 .as_ref()
                 .map(|groups| hero_groups(groups, changelog, &abilities, &lookup, &hero.name));
-            let changed: Vec<Option<&str>> = link
-                .change_groups
-                .iter()
-                .flatten()
-                .map(|group| group.ability_slug.as_deref())
-                .collect();
+            let changed: Vec<Option<&str>> =
+                link.change_groups.iter().flatten().map(|group| group.ability_slug.as_deref()).collect();
             Some(Entry {
                 changelog,
                 impact: link.impact.as_ref(),
@@ -648,21 +649,6 @@ fn hero_page(site: &Site, assets: &Assets, hero: &Hero) -> Result<Page> {
 
 fn item_page(site: &Site, assets: &Assets, item: &Item) -> Result<Page> {
     let lookup = previous_lookup(site, "item", item.id);
-    let heroes: HashMap<i64, share::HeroIcon> = site
-        .db
-        .heroes
-        .iter()
-        .map(|hero| {
-            (
-                hero.id,
-                share::HeroIcon {
-                    name: hero.name.clone(),
-                    slug: hero.slug.clone(),
-                    image: crate::context::hero_icon_image(hero),
-                },
-            )
-        })
-        .collect();
     let entries: Vec<Entry> = site
         .item_history(item.id)
         .iter()
@@ -676,7 +662,14 @@ fn item_page(site: &Site, assets: &Assets, item: &Item) -> Result<Page> {
                         ability: group.ability.clone(),
                         ability_slug: None,
                         icon: None,
-                        previous: previous_for(&lookup, changelog, group.ability.as_deref(), &group.bullets, index, &item.name),
+                        previous: previous_for(
+                            &lookup,
+                            changelog,
+                            group.ability.as_deref(),
+                            &group.bullets,
+                            index,
+                            &item.name,
+                        ),
                         bullets: group.bullets.clone(),
                     })
                     .collect()
@@ -687,7 +680,7 @@ fn item_page(site: &Site, assets: &Assets, item: &Item) -> Result<Page> {
                 stats: changelog.stats.as_ref(),
                 related: None,
                 maxed_first: None,
-                bought_by: link.bought_by.as_ref().map(|bought| share::bought_by_rows(bought, &heroes)),
+                bought_by: link.bought_by.as_ref().map(|bought| share::bought_by_rows(bought, site)),
                 buy_time: share::buy_time(link.impact.as_ref()),
                 groups,
             })
@@ -727,7 +720,7 @@ fn item_page(site: &Site, assets: &Assets, item: &Item) -> Result<Page> {
         current_ability: None,
         contexts: HashMap::new(),
         first_context_version: None,
-        about: item.context.as_ref().map(PageContext::new),
+        about: item.context.as_ref().cloned(),
     };
     render_page(assets, common, entries)
 }
@@ -740,20 +733,11 @@ fn ability_page(site: &Site, assets: &Assets, ability: &Ability, hero: &Hero) ->
         .iter()
         .filter_map(|link| {
             let changelog = site.changelog(&link.changelog_id)?;
-            let groups: Vec<Group> = link
-                .change_groups
-                .iter()
-                .flatten()
-                .enumerate()
-                .filter(|(_, group)| group.ability_slug.as_deref() == Some(ability.slug.as_str()))
-                .map(|(index, group)| Group {
-                    ability: group.ability.clone(),
-                    ability_slug: group.ability_slug.clone(),
-                    icon: Some(ability.image.clone()),
-                    previous: previous_for(&lookup, changelog, group.ability.as_deref(), &group.bullets, index, &hero.name),
-                    bullets: group.bullets.clone(),
-                })
-                .collect();
+            let groups: Vec<Group> =
+                hero_groups(link.change_groups.as_deref()?, changelog, &abilities, &lookup, &hero.name)
+                    .into_iter()
+                    .filter(|group| group.ability_slug.as_deref() == Some(ability.slug.as_str()))
+                    .collect();
             (!groups.is_empty()).then_some(Entry {
                 changelog,
                 groups: Some(groups),
@@ -786,7 +770,7 @@ fn ability_page(site: &Site, assets: &Assets, ability: &Ability, hero: &Hero) ->
         current_ability: Some(ability.slug.clone()),
         contexts: HashMap::new(),
         first_context_version: None,
-        about: ability.context.as_ref().map(PageContext::new),
+        about: ability.context.as_ref().cloned(),
     };
     render_page(assets, common, entries)
 }

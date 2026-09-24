@@ -1,5 +1,5 @@
 name: Setup Pipeline
-description: Setup Nix environment and install dependencies
+description: Setup the Nix environment and build the deadlog binary
 
 inputs:
   github-token:
@@ -22,6 +22,11 @@ runs:
     - name: Setup Nix dev environment
       uses: nicknovitski/nix-develop@v1.2.1
 
-    - name: Install dependencies
+    - name: Cache Cargo build
+      uses: Swatinem/rust-cache@v2.8.1
+
+    - name: Build deadlog
       shell: bash
-      run: pnpm install --frozen-lockfile
+      run: |
+        cargo build --release --locked --bin deadlog
+        echo "$PWD/target/release" >> "$GITHUB_PATH"

@@ -83,8 +83,18 @@ export function makeSummary(text, max = 140) {
 }
 
 const MONTHS = [
-	'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
-	'October', 'November', 'December'
+	'January',
+	'February',
+	'March',
+	'April',
+	'May',
+	'June',
+	'July',
+	'August',
+	'September',
+	'October',
+	'November',
+	'December'
 ];
 let dateParts;
 
@@ -98,7 +108,8 @@ export function formatDate(date) {
 	const parts = dateParts.formatToParts(new Date(date));
 	const value = (type) => Number(parts.find((part) => part.type === type)?.value ?? 0);
 	const day = value('day');
-	const suffix = day >= 11 && day <= 13 ? 'th' : (['th', 'st', 'nd', 'rd'][day % 10] ?? 'th');
+	const suffix =
+		day >= 11 && day <= 13 ? 'th' : (['th', 'st', 'nd', 'rd'][day % 10] ?? 'th');
 	return `${MONTHS[value('month') - 1]} ${day}${suffix}, ${value('year')}`;
 }
 
@@ -174,15 +185,23 @@ export function filtersToSearchParams(filters) {
 
 const currentFilters = () => parseFilters(new URLSearchParams(location.search));
 const activeFilterCount = (filters) =>
-	filters.hero.length + filters.item.length + (filters.q ? 1 : 0) + (filters.major ? 1 : 0);
+	filters.hero.length +
+	filters.item.length +
+	(filters.q ? 1 : 0) +
+	(filters.major ? 1 : 0);
 /** `major` alone is not searching — it narrows the same feed. */
-const isSearching = (filters) => filters.hero.length > 0 || filters.item.length > 0 || filters.q !== '';
+const isSearching = (filters) =>
+	filters.hero.length > 0 || filters.item.length > 0 || filters.q !== '';
 
 // Feed assembly (a port of app/src/lib/feed/assemble.ts) -------------------------------
 
 export function resolveEntityIds(names, entities) {
 	const byName = indexEntityNames(entities, (entity) => entity.name);
-	return [...new Set(names.map((name) => findEntityName(byName, name)?.id ?? NO_MATCH_ENTITY_ID))];
+	return [
+		...new Set(
+			names.map((name) => findEntityName(byName, name)?.id ?? NO_MATCH_ENTITY_ID)
+		)
+	];
 }
 
 export function splitPage(rows, limit) {
@@ -196,7 +215,8 @@ export function searchExcerpt(text, query, max = 240) {
 	const context = Math.min(60, Math.max(0, Math.floor((max - query.length) / 2)));
 	const start = Math.max(0, match - context);
 	const wordBoundary = clean.indexOf(' ', start);
-	const boundary = start > 0 && wordBoundary >= 0 && wordBoundary < match ? wordBoundary + 1 : start;
+	const boundary =
+		start > 0 && wordBoundary >= 0 && wordBoundary < match ? wordBoundary + 1 : start;
 	return `${boundary > 0 ? '…' : ''}${makeSummary(clean.slice(boundary), max)}`;
 }
 
@@ -205,9 +225,17 @@ function clamp(value, minimum, maximum) {
 	return Math.min(maximum, Math.max(minimum, Math.trunc(value)));
 }
 
-function matchesText(row, text, q) {
-	const needle = q.toLowerCase();
-	return row.title.toLowerCase().includes(needle) || (text[row.id] ?? '').toLowerCase().includes(needle);
+// The text tier is ~700 KB; lowercase it once per load, not once per query and page.
+const loweredText = new WeakMap();
+function lowered(text) {
+	let map = loweredText.get(text);
+	if (!map) {
+		map = Object.fromEntries(
+			Object.entries(text).map(([id, body]) => [id, body.toLowerCase()])
+		);
+		loweredText.set(text, map);
+	}
+	return map;
 }
 
 function matchesEntities(refs, required) {
@@ -218,12 +246,17 @@ function matchesEntities(refs, required) {
 
 export function queryFeed(index, text, filters, { limit = 5, offset = 0 } = {}) {
 	const { heroIds, itemIds, q, majorOnly } = filters;
-	if (q && !text) throw new Error('queryFeed needs the text tier when a search query is set');
+	if (q && !text)
+		throw new Error('queryFeed needs the text tier when a search query is set');
 	const size = clamp(limit, 1, MAX_PAGE_SIZE);
 	const start = clamp(offset, 0, MAX_OFFSET);
+	const needle = q?.toLowerCase();
+	const bodies = q ? lowered(text) : null;
 	const matched = index.rows.filter(
 		(row) =>
-			(!q || matchesText(row, text ?? {}, q)) &&
+			(!q ||
+				row.title.toLowerCase().includes(needle) ||
+				(bodies[row.id] ?? '').includes(needle)) &&
 			(!majorOnly || row.majorUpdate) &&
 			matchesEntities(row.heroes, heroIds) &&
 			matchesEntities(row.items, itemIds)
@@ -231,20 +264,37 @@ export function queryFeed(index, text, filters, { limit = 5, offset = 0 } = {}) 
 	return splitPage(matched.slice(start, start + size + 1), size);
 }
 
-const byName = (left, right) => (left.alt < right.alt ? -1 : left.alt > right.alt ? 1 : 0);
+const byName = (left, right) =>
+	left.alt < right.alt ? -1 : left.alt > right.alt ? 1 : 0;
 
 function iconsFor(row, entities) {
 	const heroes = [];
 	for (const ref of row.heroes) {
 		const hero = entities.heroes.get(ref.id);
 		if (!hero) continue;
-		heroes.push({ id: hero.id, src: hero.src, alt: hero.name, slug: hero.slug, heroType: hero.heroType, changeCount: ref.changeCount, type: 'hero' });
+		heroes.push({
+			id: hero.id,
+			src: hero.src,
+			alt: hero.name,
+			slug: hero.slug,
+			heroType: hero.heroType,
+			changeCount: ref.changeCount,
+			type: 'hero'
+		});
 	}
 	const items = [];
 	for (const ref of row.items) {
 		const item = entities.items.get(ref.id);
 		if (!item) continue;
-		items.push({ id: item.id, src: item.src, alt: item.name, slug: item.slug, changeCount: ref.changeCount, type: 'item', itemCategory: item.itemCategory });
+		items.push({
+			id: item.id,
+			src: item.src,
+			alt: item.name,
+			slug: item.slug,
+			changeCount: ref.changeCount,
+			type: 'item',
+			itemCategory: item.itemCategory
+		});
 	}
 	return { heroes: heroes.sort(byName), items: items.sort(byName) };
 }
@@ -256,7 +306,12 @@ function lookupFor(index) {
 	};
 }
 
-export function assembleSummaries(rows, index, sources, { heroIds = [], itemIds = [], q = '', isFirstPage = false } = {}) {
+export function assembleSummaries(
+	rows,
+	index,
+	sources,
+	{ heroIds = [], itemIds = [], q = '', isFirstPage = false } = {}
+) {
 	const { text, groups } = sources;
 	if (heroIds.length + itemIds.length > 0 && !groups) {
 		throw new Error('assembleSummaries needs the groups tier when entities are selected');
@@ -272,11 +327,20 @@ export function assembleSummaries(rows, index, sources, { heroIds = [], itemIds 
 		let remainingExcerpts = 6;
 		const matches = [...all.heroes, ...all.items].filter(selected).map((icon) => {
 			const changes = (groups?.[`${entry.id}:${icon.type}:${icon.id}`] ?? [])
-				.flatMap((group) => group.bullets.map((bullet) => ({ ability: group.ability, text: bullet })))
+				.flatMap((group) =>
+					group.bullets.map((bullet) => ({ ability: group.ability, text: bullet }))
+				)
 				.slice(0, Math.min(3, remainingExcerpts))
 				.map((change) => ({ ...change, text: makeSummary(change.text, 320) }));
 			remainingExcerpts -= changes.length;
-			return { id: icon.id, type: icon.type, name: icon.alt, slug: icon.slug, changeCount: icon.changeCount, changes };
+			return {
+				id: icon.id,
+				type: icon.type,
+				name: icon.alt,
+				slug: icon.slug,
+				changeCount: icon.changeCount,
+				changes
+			};
 		});
 		return {
 			id: entry.id,
@@ -287,8 +351,15 @@ export function assembleSummaries(rows, index, sources, { heroIds = [], itemIds 
 			authorImage: entry.authorImage,
 			previewImage: entry.previewImage,
 			majorUpdate: entry.majorUpdate,
-			summary: q ? searchExcerpt(text?.[entry.id] ?? '', q) : matches.length ? '' : entry.summary,
-			icons: { heroes: searching ? [] : all.heroes.slice(0, limit), items: searching ? [] : all.items.slice(0, limit) },
+			summary: q
+				? searchExcerpt(text?.[entry.id] ?? '', q)
+				: matches.length
+					? ''
+					: entry.summary,
+			icons: {
+				heroes: searching ? [] : all.heroes.slice(0, limit),
+				items: searching ? [] : all.items.slice(0, limit)
+			},
 			counts: { heroes: all.heroes.length, items: all.items.length },
 			matches
 		};
@@ -324,13 +395,17 @@ const loadEntities = () => fetchJson('/search-entities.json');
 // Markup -------------------------------------------------------------------------------
 
 const escape = (value) =>
-	String(value).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+	String(value).replace(
+		/[&<>"']/g,
+		(c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]
+	);
 
 const ICONS = {
 	'arrow-right': '<path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path>',
 	search: '<path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle>',
 	x: '<path d="M18 6 6 18"></path><path d="m6 6 12 12"></path>',
-	frown: '<path d="M15 10V9"></path><path d="M9 10V9"></path><path d="M9 16a5 5 0 016 0"></path><circle cx="12" cy="12" r="10"></circle>'
+	frown:
+		'<path d="M15 10V9"></path><path d="M9 10V9"></path><path d="M9 16a5 5 0 016 0"></path><circle cx="12" cy="12" r="10"></circle>'
 };
 const icon = (name, classes) =>
 	`<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-${name} lucide-icon ${classes}" aria-hidden="true">${ICONS[name]}</svg>`;
@@ -341,7 +416,10 @@ function cornerAccents(tlSize, brSize, tlColor, brColor, tlHover, brHover, thick
 	return (
 		bar('top-0 left-0', tlColor, tlHover, tlSize, thickness) +
 		bar('top-0 left-0', tlColor, tlHover, thickness, tlSize) +
-		(brSize ? bar('right-0 bottom-0', brColor, brHover, brSize, thickness) + bar('right-0 bottom-0', brColor, brHover, thickness, brSize) : '')
+		(brSize
+			? bar('right-0 bottom-0', brColor, brHover, brSize, thickness) +
+				bar('right-0 bottom-0', brColor, brHover, thickness, brSize)
+			: '')
 	);
 }
 
@@ -351,7 +429,9 @@ function highlight(text, query) {
 	return text
 		.split(pattern)
 		.map((part, index) =>
-			index % 2 === 1 ? `<mark class="bg-primary/15 text-primary rounded-sm px-0.5">${escape(part)}</mark>` : escape(part)
+			index % 2 === 1
+				? `<mark class="bg-primary/15 text-primary rounded-sm px-0.5">${escape(part)}</mark>`
+				: escape(part)
 		)
 		.join('');
 }
@@ -378,12 +458,32 @@ function cardHrefs(patch, filters) {
 
 function cardView(patch, featured = false) {
 	const rows = [
-		{ type: 'heroes', label: 'Heroes', tone: 'text-primary', list: patch.icons.heroes, extra: Math.max(0, patch.counts.heroes - patch.icons.heroes.length) },
-		{ type: 'items', label: 'Items', tone: 'text-signal', list: patch.icons.items, extra: Math.max(0, patch.counts.items - patch.icons.items.length) }
+		{
+			type: 'heroes',
+			label: 'Heroes',
+			tone: 'text-primary',
+			list: patch.icons.heroes,
+			extra: Math.max(0, patch.counts.heroes - patch.icons.heroes.length)
+		},
+		{
+			type: 'items',
+			label: 'Items',
+			tone: 'text-signal',
+			list: patch.icons.items,
+			extra: Math.max(0, patch.counts.items - patch.icons.items.length)
+		}
 	].filter((row) => row.list.length > 0);
 	const counts = [
-		{ n: patch.counts.heroes, noun: plural(patch.counts.heroes, 'hero', 'heroes'), tone: 'text-primary' },
-		{ n: patch.counts.items, noun: plural(patch.counts.items, 'item'), tone: 'text-signal' }
+		{
+			n: patch.counts.heroes,
+			noun: plural(patch.counts.heroes, 'hero', 'heroes'),
+			tone: 'text-primary'
+		},
+		{
+			n: patch.counts.items,
+			noun: plural(patch.counts.items, 'item'),
+			tone: 'text-signal'
+		}
 	].filter((count) => count.n > 0);
 	const phrases = counts.map((count) => `${count.n} ${count.noun}`);
 	const { named, date, heading } = patchHeading(patch);
@@ -402,10 +502,13 @@ function cardView(patch, featured = false) {
 }
 
 function cardMatches(patch, filters) {
-	if (!isSearching(filters)) return { searching: false, changeCount: null, label: null, tone: 'text-primary' };
+	if (!isSearching(filters))
+		return { searching: false, changeCount: null, label: null, tone: 'text-primary' };
 	const entities = patch.matches;
 	const counted = entities.filter((entity) => entity.changeCount != null);
-	const changeCount = counted.length ? counted.reduce((total, entity) => total + (entity.changeCount ?? 0), 0) : null;
+	const changeCount = counted.length
+		? counted.reduce((total, entity) => total + (entity.changeCount ?? 0), 0)
+		: null;
 	return {
 		searching: true,
 		changeCount,
@@ -415,7 +518,9 @@ function cardMatches(patch, filters) {
 				: entities.length === 1
 					? `${entities[0].name} ${plural(changeCount, 'change')}`
 					: `matched ${plural(changeCount, 'change')}`,
-		tone: entities.every((entity) => entity.type === 'item') ? 'text-signal' : 'text-primary'
+		tone: entities.every((entity) => entity.type === 'item')
+			? 'text-signal'
+			: 'text-primary'
 	};
 }
 
@@ -431,13 +536,30 @@ export function patchCard(patch, filters) {
 	const q = filters.q;
 	let html = `<div class="clip-corner-sm group bg-card hover:bg-card-accent/30 relative flex h-full flex-col overflow-hidden border transition-colors duration-200 ${matches.searching ? '' : 'min-h-[200px]'} ${major ? 'border-primary/50 hover:border-primary/80' : 'border-border hover:border-signal/45'}">`;
 	html += major
-		? cornerAccents('1.5rem', '1rem', 'bg-primary', 'bg-primary/30', '', 'group-hover:bg-primary/60', '0.125rem')
-		: cornerAccents('1.5rem', '1rem', 'bg-signal/45', 'bg-signal/20', 'group-hover:bg-signal', 'group-hover:bg-signal/60', '0.125rem');
+		? cornerAccents(
+				'1.5rem',
+				'1rem',
+				'bg-primary',
+				'bg-primary/30',
+				'',
+				'group-hover:bg-primary/60',
+				'0.125rem'
+			)
+		: cornerAccents(
+				'1.5rem',
+				'1rem',
+				'bg-signal/45',
+				'bg-signal/20',
+				'group-hover:bg-signal',
+				'group-hover:bg-signal/60',
+				'0.125rem'
+			);
 	if (!matches.searching && patch.previewImage) {
 		html += ` <div border="border/70 b" relative h="28" shrink="0" class="overflow-hidden"><img data-patch-preview src="${escape(patch.previewImage)}" alt="" width="640" height="360" loading="lazy" decoding="async" class="size-full object-cover transition-transform duration-500 group-hover:scale-105"> <div absolute bg="gradient-to-b" class="from-card/0 via-card/10 to-card/55 pointer-events-none inset-0" aria-hidden="true"></div></div>`;
 	}
 	html += ` <div absolute bg="gradient-to-br" class="from-primary/0 group-hover:from-primary/5 pointer-events-none inset-0 to-transparent transition-all duration-200"></div> <div z="10" flex="~ 1 col" gap="3" p="4"><div><div flex="~" m="b-1.5" items="center" gap="2"><h2 text="foreground base" font="semibold" class="group-hover:text-primary line-clamp-2 min-w-0 tracking-tight transition-colors duration-300"><a href="${escape(links.href)}" aria-label="${escape(view.accessibleLabel)}" class="${matches.searching ? 'ui-focus-ring rounded-sm' : 'stretched-link'}">${escape(view.heading)}</a></h2>`;
-	if (major) html += ` <span border="primary/40 ~" bg="primary/15" text="primary" m="l-auto" shrink="0" p="x-1.5 y-0.5" font="bold" class="kicker-xs clip-corner-sm">Major</span>`;
+	if (major)
+		html += ` <span border="primary/40 ~" bg="primary/15" text="primary" m="l-auto" shrink="0" p="x-1.5 y-0.5" font="bold" class="kicker-xs clip-corner-sm">Major</span>`;
 	html += `</div> <div flex="~" text="muted-foreground xs" items="center" gap="2">${avatar(patch, view, 'border-primary/20 group-hover:border-primary/50 size-6 border transition-all duration-300', 'text-[11px] tracking-wide')} <span truncate>${escape(patch.author)}</span>${view.named ? ` <span aria-hidden="true">&middot;</span> <time datetime="${escape(patch.date)}">${escape(view.date)}</time>` : ''}</div></div>`;
 	if (patch.matches.length > 0) {
 		html += ` <div class="space-y-4" data-matched-changes>`;
@@ -447,7 +569,8 @@ export function patchCard(patch, filters) {
 				html += ` <ul class="max-w-[72ch] space-y-2 text-sm leading-relaxed">`;
 				for (const change of match.changes) {
 					const prefix =
-						change.ability && !change.text.toLowerCase().startsWith(change.ability.toLowerCase())
+						change.ability &&
+						!change.text.toLowerCase().startsWith(change.ability.toLowerCase())
 							? `<span class="text-foreground font-medium">${escape(change.ability)}: </span>`
 							: '';
 					html += `<li>${prefix}${highlight(change.text, q)}</li>`;
@@ -496,7 +619,8 @@ function featuredCard(patch, filters) {
 	const view = cardView(patch, true);
 	const links = cardHrefs(patch, filters);
 	let html = `<div class="mb-7"><article class="clip-corner-lg card-glow border-primary/40 bg-card group relative overflow-hidden border md:flex">${cornerAccents('2rem', '1.5rem', 'bg-primary', 'bg-signal/60', '', '', '1px')} <div class="min-w-0 flex-1 p-5 sm:p-6"><div class="flex flex-wrap items-center gap-x-4 gap-y-2"><h2 class="font-display text-foreground group-hover:text-primary text-3xl leading-tight font-medium tracking-wide transition-colors sm:text-4xl"><a href="${escape(links.href)}" aria-label="${escape(view.accessibleLabel)}" class="stretched-link">${escape(view.heading)}</a></h2> <span class="bg-primary/10 text-primary rounded-sm px-2 py-1 font-mono text-xs">Latest Patch</span></div> <p class="text-muted-foreground mt-2 text-xs">By ${escape(patch.author)}${view.named ? ` · <time datetime="${escape(patch.date)}">${escape(view.date)}</time>` : ''}</p>`;
-	if (patch.summary) html += ` <p class="text-foreground/90 mt-4 max-w-[72ch] text-sm leading-relaxed">${escape(patch.summary)}</p>`;
+	if (patch.summary)
+		html += ` <p class="text-foreground/90 mt-4 max-w-[72ch] text-sm leading-relaxed">${escape(patch.summary)}</p>`;
 	if (view.rows.length) {
 		html += ` <div class="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2">`;
 		for (const row of view.rows) {
@@ -512,12 +636,15 @@ function featuredCard(patch, filters) {
 	if (patch.previewImage) {
 		html += ` <div class="relative h-40 shrink-0 md:h-auto md:w-64"><img data-patch-preview src="${escape(patch.previewImage)}" alt="" width="640" height="360" decoding="async" fetchpriority="high" class="absolute inset-0 size-full object-cover"></div>`;
 	}
-	return html + `</article> <p class="text-muted-foreground mt-6 text-sm">Previous patches</p></div>`;
+	return (
+		html +
+		`</article> <p class="text-muted-foreground mt-6 text-sm">Previous patches</p></div>`
+	);
 }
 
 // Page wiring ---------------------------------------------------------------------------
 
-let helpers = { toast() {}, markNew() {}, commitVisit() {}, hasFilters: () => false };
+let helpers;
 let entities = null;
 let renderFeed = null;
 
@@ -536,7 +663,8 @@ function navigate(filters) {
 function update(values) {
 	const next = normalizeFilters({ ...currentFilters(), ...values });
 	const dropped =
-		Math.max(0, next.hero.length - MAX_ENTITY_FILTERS) + Math.max(0, next.item.length - MAX_ENTITY_FILTERS);
+		Math.max(0, next.hero.length - MAX_ENTITY_FILTERS) +
+		Math.max(0, next.item.length - MAX_ENTITY_FILTERS);
 	next.hero = next.hero.slice(0, MAX_ENTITY_FILTERS);
 	next.item = next.item.slice(0, MAX_ENTITY_FILTERS);
 	next.q = next.q.slice(0, MAX_QUERY_LENGTH);
@@ -568,10 +696,20 @@ function mergedList(needleText) {
 	const selectedItems = indexEntityNames(filters.item, (name) => name);
 	const heroes = entities.heroes
 		.filter((hero) => matchesInput(hero.name))
-		.map((hero) => ({ type: 'hero', data: hero, key: `hero-${hero.id}`, isSelected: findEntityName(selectedHeroes, hero.name) !== undefined }));
+		.map((hero) => ({
+			type: 'hero',
+			data: hero,
+			key: `hero-${hero.id}`,
+			isSelected: findEntityName(selectedHeroes, hero.name) !== undefined
+		}));
 	const items = entities.items
 		.filter((item) => matchesInput(item.name))
-		.map((item) => ({ type: 'item', data: item, key: `item-${item.id}`, isSelected: findEntityName(selectedItems, item.name) !== undefined }));
+		.map((item) => ({
+			type: 'item',
+			data: item,
+			key: `item-${item.id}`,
+			isSelected: findEntityName(selectedItems, item.name) !== undefined
+		}));
 	return [...heroes, ...items].sort((a, b) => {
 		if (a.isSelected && !b.isSelected) return -1;
 		if (!a.isSelected && b.isSelected) return 1;
@@ -580,8 +718,20 @@ function mergedList(needleText) {
 }
 
 const TONE = {
-	hero: { label: 'Hero', text: 'text-primary', dot: 'bg-primary', subtle: 'bg-primary/10', badge: 'badge-default' },
-	item: { label: 'Item', text: 'text-signal', dot: 'bg-signal', subtle: 'bg-signal/10', badge: 'badge-signal' }
+	hero: {
+		label: 'Hero',
+		text: 'text-primary',
+		dot: 'bg-primary',
+		subtle: 'bg-primary/10',
+		badge: 'badge-default'
+	},
+	item: {
+		label: 'Item',
+		text: 'text-signal',
+		dot: 'bg-signal',
+		subtle: 'bg-signal/10',
+		badge: 'badge-signal'
+	}
 };
 
 function optionMarkup(prefix, entity, active) {
@@ -620,10 +770,10 @@ function searchForm(root, { mobile, onclose }) {
 		if (mobile) return;
 		panel.hidden = !open;
 		backdrop.hidden = !open;
-		render();
 	};
 	const close = () => {
 		setOpen(false);
+		render();
 		onclose?.();
 	};
 
@@ -634,7 +784,8 @@ function searchForm(root, { mobile, onclose }) {
 		input.setAttribute('aria-expanded', String(shown()));
 		if (shown()) input.setAttribute('aria-controls', listId);
 		else input.removeAttribute('aria-controls');
-		if (shown() && active) input.setAttribute('aria-activedescendant', `${prefix}-option-${active}`);
+		if (shown() && active)
+			input.setAttribute('aria-activedescendant', `${prefix}-option-${active}`);
 		else input.removeAttribute('aria-activedescendant');
 		if (!shown()) return;
 		const histories = input.value.trim() ? options.slice(0, 3) : [];
@@ -663,17 +814,30 @@ function searchForm(root, { mobile, onclose }) {
 		toggleEntity(option.type, option.data.name);
 	}
 
+	/** Moves the active option without rebuilding the list, so its scroll position holds. */
+	function highlight(key) {
+		active = key;
+		for (const element of panel.querySelectorAll('[role="option"]')) {
+			element.toggleAttribute('data-selected', element.dataset.value === active);
+		}
+		input.setAttribute('aria-activedescendant', `${prefix}-option-${active}`);
+	}
+
 	function move(step) {
 		if (!options.length) return;
 		const index = options.findIndex((option) => option.key === active);
-		active = options[(index + step + options.length) % options.length].key;
-		render();
-		document.getElementById(`${prefix}-option-${active}`)?.scrollIntoView({ block: 'nearest' });
+		highlight(options[(index + step + options.length) % options.length].key);
+		document
+			.getElementById(`${prefix}-option-${active}`)
+			?.scrollIntoView({ block: 'nearest' });
 	}
 
 	// The island loads on first focus, so the reader may already be typing.
 	if (!input.value) input.value = currentFilters().q;
-	input.addEventListener('focus', () => setOpen(true));
+	input.addEventListener('focus', () => {
+		setOpen(true);
+		render();
+	});
 	input.addEventListener('input', () => {
 		setOpen(true);
 		render();
@@ -685,7 +849,10 @@ function searchForm(root, { mobile, onclose }) {
 			close();
 		} else if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
 			event.preventDefault();
-			setOpen(true);
+			if (!shown()) {
+				setOpen(true);
+				render();
+			}
 			move(event.key === 'ArrowDown' ? 1 : -1);
 		} else if (event.key === 'Enter') {
 			event.preventDefault();
@@ -695,13 +862,7 @@ function searchForm(root, { mobile, onclose }) {
 	});
 	panel.addEventListener('pointermove', (event) => {
 		const option = event.target.closest('[role="option"]');
-		if (option && option.dataset.value !== active) {
-			active = option.dataset.value;
-			for (const element of panel.querySelectorAll('[role="option"]')) {
-				element.toggleAttribute('data-selected', element.dataset.value === active);
-			}
-			input.setAttribute('aria-activedescendant', option.id);
-		}
+		if (option && option.dataset.value !== active) highlight(option.dataset.value);
 	});
 	panel.addEventListener('click', (event) => {
 		const option = event.target.closest('[role="option"]');
@@ -715,7 +876,7 @@ function searchForm(root, { mobile, onclose }) {
 	}
 	form.addEventListener('submit', submit);
 	if (document.activeElement === input) setOpen(true);
-	else render();
+	render();
 	return { render, input };
 }
 
@@ -739,7 +900,9 @@ function mobileSheet() {
 		trigger.setAttribute('aria-expanded', 'true');
 	};
 	dialog.addEventListener('close', () => trigger.setAttribute('aria-expanded', 'false'));
-	dialog.querySelector('[data-sheet-close]').addEventListener('click', () => dialog.close());
+	dialog
+		.querySelector('[data-sheet-close]')
+		.addEventListener('click', () => dialog.close());
 	dialog.addEventListener('click', (event) => {
 		if (event.target === dialog) dialog.close();
 	});
@@ -775,8 +938,16 @@ function renderHeader() {
 	const heroes = indexEntityNames(entities.heroes, (hero) => hero.name);
 	const items = indexEntityNames(entities.items, (item) => item.name);
 	const chips = [
-		...filters.hero.map((name) => ({ kind: 'hero', name, entity: findEntityName(heroes, name) })),
-		...filters.item.map((name) => ({ kind: 'item', name, entity: findEntityName(items, name) }))
+		...filters.hero.map((name) => ({
+			kind: 'hero',
+			name,
+			entity: findEntityName(heroes, name)
+		})),
+		...filters.item.map((name) => ({
+			kind: 'item',
+			name,
+			entity: findEntityName(items, name)
+		}))
 	];
 	let html = `<div class="flex min-w-0 flex-1 items-center gap-2 overflow-x-auto" aria-label="Active filters">`;
 	for (const chip of chips) {
@@ -803,17 +974,11 @@ function wireHeader() {
 	row?.addEventListener('click', (event) => {
 		const chip = event.target.closest('button');
 		if (!chip) return;
-		if (chip.dataset.removeKind) toggleEntity(chip.dataset.removeKind, chip.dataset.removeName);
+		if (chip.dataset.removeKind)
+			toggleEntity(chip.dataset.removeKind, chip.dataset.removeName);
 		else if (chip.hasAttribute('data-remove-q')) update({ q: '' });
 		else if (chip.hasAttribute('data-remove-major')) update({ major: false });
 		else if (chip.hasAttribute('data-clear-all')) navigate({});
-	});
-	row?.addEventListener('keydown', (event) => {
-		const chip = event.target.closest('[data-remove-kind]');
-		if (!chip || (event.key !== 'Enter' && event.key !== ' ')) return;
-		event.preventDefault();
-		event.stopPropagation();
-		chip.click();
 	});
 	renderHeader();
 }
@@ -833,27 +998,35 @@ function wireFeed() {
 	const railCap = feed.querySelector('[data-rail-cap]');
 	const majorToggle = feed.querySelector('[data-major-toggle]');
 	let generation = 0;
+	let rendered = location.search;
 
 	rail?.addEventListener('click', (event) => {
 		const button = event.target.closest('[data-hero]');
 		if (button && !button.disabled) toggleEntity('hero', button.dataset.hero);
 	});
-	majorToggle?.addEventListener('click', () => update({ major: !currentFilters().major }));
+	majorToggle?.addEventListener('click', () =>
+		update({ major: !currentFilters().major })
+	);
 
 	function renderRail(filters) {
 		if (!rail) return;
 		const buttons = [...rail.querySelectorAll('[data-hero]')];
 		const atCap = filters.hero.length >= MAX_ENTITY_FILTERS;
-		const selected = (button) => filters.hero.some((name) => entityNamesMatch(name, button.dataset.hero));
+		const selected = (button) =>
+			filters.hero.some((name) => entityNamesMatch(name, button.dataset.hero));
 		buttons.sort(
-			(a, b) => Number(selected(b)) - Number(selected(a)) || a.dataset.hero.localeCompare(b.dataset.hero)
+			(a, b) =>
+				Number(selected(b)) - Number(selected(a)) ||
+				a.dataset.hero.localeCompare(b.dataset.hero)
 		);
 		for (const button of buttons) {
 			const pressed = selected(button);
 			const blocked = !pressed && atCap;
 			button.setAttribute('aria-pressed', String(pressed));
 			button.disabled = blocked;
-			const label = blocked ? `${button.dataset.hero} — filter limit reached` : button.dataset.hero;
+			const label = blocked
+				? `${button.dataset.hero} — filter limit reached`
+				: button.dataset.hero;
 			button.title = label;
 			button.setAttribute('aria-label', label);
 			rail.append(button);
@@ -866,17 +1039,25 @@ function wireFeed() {
 		const searching = isSearching(filters);
 		const filterCount = activeFilterCount(filters);
 		const current = ++generation;
+		rendered = location.search;
 		majorToggle?.setAttribute('aria-pressed', String(filters.major));
 		renderRail(filters);
-		title.textContent = searching ? 'Matching patch notes' : 'Deadlock Patch Notes & Changelog';
+		title.textContent = searching
+			? 'Matching patch notes'
+			: 'Deadlock Patch Notes & Changelog';
 		lede.textContent = searching
 			? 'Changes for your selected heroes, items, and keywords.'
 			: 'Every gameplay update, hero adjustment, and item balance change.';
 		if (filterCount === 0) {
+			progress.hidden = true;
+			status.textContent = '';
 			results.innerHTML = unfiltered;
 			document.documentElement.removeAttribute('data-filtering');
-			helpers.markNew(results.querySelector('[data-patch-grid]'), results.querySelector('[data-new-count]'));
-			wireMore(results, null);
+			helpers.markNew(
+				results.querySelector('[data-patch-grid]'),
+				results.querySelector('[data-new-count]')
+			);
+			helpers.observeFeed();
 			return;
 		}
 		progress.hidden = false;
@@ -900,13 +1081,21 @@ function wireFeed() {
 				const window = feedWindow(page);
 				const slice = queryFeed(index, text, scope, window);
 				return {
-					changelogs: assembleSummaries(slice.rows, index, { text, groups }, { ...scope, isFirstPage: window.offset === 0 }),
+					changelogs: assembleSummaries(
+						slice.rows,
+						index,
+						{ text, groups },
+						{ ...scope, isFirstPage: window.offset === 0 }
+					),
 					hasMore: slice.hasMore
 				};
 			};
 			const first = load(0);
 			results.innerHTML = feedMarkup(first, filters, filterCount, searching);
-			helpers.markNew(results.querySelector('[data-patch-grid]'), results.querySelector('[data-new-count]'));
+			helpers.markNew(
+				results.querySelector('[data-patch-grid]'),
+				results.querySelector('[data-new-count]')
+			);
 			wireMore(results, { load, filters, searching, filterCount, pages: [first] });
 		} catch (error) {
 			if (current !== generation) return;
@@ -922,7 +1111,6 @@ function wireFeed() {
 	}
 
 	function statusLine(changelogs, hasMore, filters, filterCount, searching) {
-		if (filterCount === 0) return '';
 		let html = `<p text="muted-foreground xs" m="b-4" font="mono" uppercase class="tracking-wider" role="status" aria-live="polite">${changelogs.length}${hasMore ? '+' : ''} matching ${hasMore ? 'patches' : plural(changelogs.length, 'patch', 'patches')}${filterCount > 1 ? ` · all ${filterCount} filters` : ''}`;
 		if (searching && changelogs[0]) {
 			html += ` <span class="mt-1 block normal-case">Latest matching patch: <time datetime="${escape(changelogs[0].date)}">${escape(formatDate(changelogs[0].date))}</time></span>`;
@@ -958,13 +1146,14 @@ function wireFeed() {
 	const endOfLog = `<div flex="~" items="center" gap="4"><div bg="primary/30" h="px" w="16"></div> <p text="muted-foreground xs" font="mono" uppercase class="tracking-wider">End of Log</p> <div bg="primary/30" h="px" w="16"></div></div>`;
 
 	function wireMore(container, state) {
-		container.querySelector('[data-clear-filters]')?.addEventListener('click', () => navigate({}));
+		container
+			.querySelector('[data-clear-filters]')
+			?.addEventListener('click', () => navigate({}));
 		if (!state) return;
 		const more = container.querySelector('[data-feed-more]');
 		const grid = container.querySelector('[data-patch-grid]');
 		if (!more || !grid) return;
 		let pageNumber = 0;
-		let loading = false;
 		const refresh = () => {
 			const last = state.pages.at(-1);
 			if (last.hasMore) {
@@ -976,18 +1165,26 @@ function wireFeed() {
 		};
 		const observer = new IntersectionObserver(
 			([entry]) => {
-				if (!entry?.isIntersecting || loading) return;
-				loading = true;
+				if (!entry?.isIntersecting) return;
 				observer.disconnect();
 				pageNumber++;
 				const page = state.load(pageNumber);
 				state.pages.push(page);
-				grid.insertAdjacentHTML('beforeend', page.changelogs.map((patch) => cardWrapper(patch, state.filters)).join(''));
+				grid.insertAdjacentHTML(
+					'beforeend',
+					page.changelogs.map((patch) => cardWrapper(patch, state.filters)).join('')
+				);
 				const all = state.pages.flatMap((entry) => entry.changelogs);
 				const line = container.querySelector('[role="status"]');
-				if (line) line.outerHTML = statusLine(all, page.hasMore, state.filters, state.filterCount, state.searching);
+				if (line)
+					line.outerHTML = statusLine(
+						all,
+						page.hasMore,
+						state.filters,
+						state.filterCount,
+						state.searching
+					);
 				helpers.markNew(grid, container.querySelector('[data-new-count]'));
-				loading = false;
 				refresh();
 			},
 			{ rootMargin: '0px 0px 200px 0px' }
@@ -997,6 +1194,7 @@ function wireFeed() {
 
 	renderFeed = render;
 	addEventListener('popstate', () => {
+		if (location.search === rendered) return;
 		render();
 		renderHeader();
 	});
@@ -1011,8 +1209,12 @@ function wirePatch() {
 	const filters = currentFilters();
 	if (filters.hero.length + filters.item.length === 0) return;
 	const icons = JSON.parse(content.dataset.entities ?? '{"heroes":[],"items":[]}');
-	const matchedHeroes = icons.heroes.filter((hero) => filters.hero.some((name) => entityNamesMatch(name, hero)));
-	const matchedItems = icons.items.filter((item) => filters.item.some((name) => entityNamesMatch(name, item)));
+	const matchedHeroes = icons.heroes.filter((hero) =>
+		filters.hero.some((name) => entityNamesMatch(name, hero))
+	);
+	const matchedItems = icons.items.filter((item) =>
+		filters.item.some((name) => entityNamesMatch(name, item))
+	);
 	const banner = document.querySelector('[data-patch-filter]');
 	const matched = [...matchedHeroes, ...matchedItems];
 	if (banner) {
@@ -1020,10 +1222,13 @@ function wirePatch() {
 		banner.querySelector('[data-filter-matched]').hidden = matched.length === 0;
 		banner.querySelector('[data-filter-missing]').hidden = matched.length > 0;
 		banner.querySelector('[data-filter-matched-label]').textContent = matched.join(', ');
-		banner.querySelector('[data-filter-selected-label]').textContent = [...filters.hero, ...filters.item].join(', ');
+		banner.querySelector('[data-filter-selected-label]').textContent = [
+			...filters.hero,
+			...filters.item
+		].join(', ');
 	}
-	const back = document.querySelector('[data-patch-back]');
-	if (back) back.href = `/${location.search}`;
+	for (const back of document.querySelectorAll('[data-patch-back]'))
+		back.href = `/${location.search}`;
 	if (!matched.length) return;
 	const selected = new Set(matched.map(entityFragmentId));
 	const isSelected = (element) =>
@@ -1040,7 +1245,8 @@ function wirePatch() {
 	for (const { heading, members } of sections) {
 		const shown = members.filter(isSelected);
 		heading.style.display = shown.length ? '' : 'none';
-		for (const element of members) element.style.display = shown.includes(element) ? '' : 'none';
+		for (const element of members)
+			element.style.display = shown.includes(element) ? '' : 'none';
 	}
 	// The contents follow the notes: only the matched entities, and no General link.
 	for (const link of document.querySelectorAll('[data-toc-general]')) link.hidden = true;
@@ -1058,11 +1264,18 @@ function wirePatch() {
 	const counts = document.querySelector('[data-patch-counts]');
 	if (counts) {
 		const parts = [
-			[matchedHeroes.length, 'text-primary', matchedHeroes.length === 1 ? 'hero' : 'heroes'],
+			[
+				matchedHeroes.length,
+				'text-primary',
+				matchedHeroes.length === 1 ? 'hero' : 'heroes'
+			],
 			[matchedItems.length, 'text-signal', matchedItems.length === 1 ? 'item' : 'items']
 		].filter(([n]) => n > 0);
 		counts.innerHTML = parts
-			.map(([n, tone, noun]) => `<span flex="~" items="baseline" gap="1"><span class="font-mono font-bold ${tone}">${n}</span> <span text="muted-foreground">${noun}</span></span>`)
+			.map(
+				([n, tone, noun]) =>
+					`<span flex="~" items="baseline" gap="1"><span class="font-mono font-bold ${tone}">${n}</span> <span text="muted-foreground">${noun}</span></span>`
+			)
 			.join(' ');
 	}
 }

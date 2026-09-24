@@ -2,6 +2,8 @@
 //! attr blocks were written by `JSON.stringify` and template literals, and a port has to
 //! write the same bytes: `14` not `14.0`, `1e+21` not `1000000000000000000000`.
 
+use std::cmp::Ordering;
+
 use chrono::{DateTime, FixedOffset, Local, NaiveDate, NaiveDateTime, TimeZone, Utc};
 use serde::Serialize;
 use serde_json::Value;
@@ -14,8 +16,8 @@ pub const JS_SPACE: &str =
 pub fn is_js_whitespace(c: char) -> bool {
     matches!(
         c,
-        '\t' | '\n' | '\u{b}' | '\u{c}' | '\r' | ' ' | '\u{a0}' | '\u{1680}' | '\u{2000}'..='\u{200a}'
-            | '\u{2028}' | '\u{2029}' | '\u{202f}' | '\u{205f}' | '\u{3000}' | '\u{feff}'
+        '\t' | '\n' | '\u{b}' | '\u{c}' | '\r' | ' ' | '\u{a0}' | '\u{1680}' | '\u{2000}'
+            ..='\u{200a}' | '\u{2028}' | '\u{2029}' | '\u{202f}' | '\u{205f}' | '\u{3000}' | '\u{feff}'
     )
 }
 
@@ -148,11 +150,15 @@ pub fn parse_js_date(text: &str) -> Option<DateTime<Utc>> {
             return offset.from_local_datetime(&naive).single().map(|date| date.with_timezone(&Utc));
         }
     }
-    parse_naive(text).and_then(|naive| Local.from_local_datetime(&naive).earliest()).map(|date| date.with_timezone(&Utc))
+    parse_naive(text)
+        .and_then(|naive| Local.from_local_datetime(&naive).earliest())
+        .map(|date| date.with_timezone(&Utc))
 }
 
 fn parse_naive(text: &str) -> Option<NaiveDateTime> {
-    ["%Y-%m-%dT%H:%M:%S%.f", "%Y-%m-%dT%H:%M"].into_iter().find_map(|format| NaiveDateTime::parse_from_str(text, format).ok())
+    ["%Y-%m-%dT%H:%M:%S%.f", "%Y-%m-%dT%H:%M"]
+        .into_iter()
+        .find_map(|format| NaiveDateTime::parse_from_str(text, format).ok())
 }
 
 fn parse_offset(text: &str) -> Option<FixedOffset> {
@@ -169,6 +175,51 @@ fn parse_offset(text: &str) -> Option<FixedOffset> {
 /// `new Date(text).toISOString()`.
 pub fn js_iso_string(text: &str) -> Option<String> {
     parse_js_date(text).map(|date| date.format("%Y-%m-%dT%H:%M:%S%.3fZ").to_string())
+}
+
+/// ICU root collation order for ASCII punctuation, which sorts before digits and letters.
+const PUNCTUATION: &str = "\t\n\u{b}\u{c}\r _-,;:!?.'\"()[]{}@*/\\&#%`^+<=>|~$";
+
+fn primary(c: char) -> (u8, u32) {
+    if let Some(index) = PUNCTUATION.find(c) {
+        return (0, index as u32);
+    }
+    if c.is_ascii_digit() {
+        return (1, c as u32);
+    }
+    if c.is_alphabetic() {
+        return (2, c.to_lowercase().next().unwrap_or(c) as u32);
+    }
+    (3, c as u32)
+}
+
+/// `a.localeCompare(b)` under the root locale, for the names the generator sorts:
+/// punctuation before digits before letters, letters case-insensitively, then
+/// lowercase before uppercase.
+pub fn locale_compare(a: &str, b: &str) -> Ordering {
+    let key = |text: &str| text.chars().map(primary).collect::<Vec<_>>();
+    key(a).cmp(&key(b)).then_with(|| {
+        let tertiary = |text: &str| text.chars().map(|c| c.is_uppercase()).collect::<Vec<_>>();
+        tertiary(a).cmp(&tertiary(b))
+    })
+}
+
+/// `decodeURIComponent`, which throws on a malformed escape or invalid UTF-8.
+pub fn decode_uri_component(text: &str) -> Option<String> {
+    let bytes = text.as_bytes();
+    let mut out = Vec::with_capacity(bytes.len());
+    let mut index = 0;
+    while index < bytes.len() {
+        if bytes[index] == b'%' {
+            let hex = text.get(index + 1..index + 3)?;
+            out.push(u8::from_str_radix(hex, 16).ok()?);
+            index += 3;
+        } else {
+            out.push(bytes[index]);
+            index += 1;
+        }
+    }
+    String::from_utf8(out).ok()
 }
 
 #[cfg(test)]
@@ -211,5 +262,19 @@ mod tests {
             js_json_pretty(&value, "\t"),
             "{\n\t\"b\": [\n\t\t1,\n\t\t2,\n\t\t{\n\t\t\t\"c\": null\n\t\t}\n\t],\n\t\"a\": \"x\\u0001\\\"\",\n\t\"e\": {},\n\t\"f\": []\n}"
         );
+    }
+
+    #[test]
+    fn collation() {
+        let mut names = vec!["abrams", "Bebop", "McGinnis", "Mirage", "Mo & Krill", "Mo", "The Doorman", "grey talon"];
+        names.sort_by(|a, b| locale_compare(a, b));
+        assert_eq!(names, ["abrams", "Bebop", "grey talon", "McGinnis", "Mirage", "Mo", "Mo & Krill", "The Doorman"]);
+        assert_eq!(locale_compare("a", "A"), Ordering::Less);
+    }
+
+    #[test]
+    fn uri_decoding() {
+        assert_eq!(decode_uri_component("https%3A%2F%2Fa.example%2Fx%20y").as_deref(), Some("https://a.example/x y"));
+        assert_eq!(decode_uri_component("%E0%A4%A"), None);
     }
 }

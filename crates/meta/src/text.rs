@@ -4,9 +4,9 @@ use deadlog_model::{decode_entity_name, utf16_len};
 fn is_asset_key(text: &str) -> bool {
     let words: Vec<&str> = text.split('_').collect();
     words.len() > 1
-        && words.iter().all(|word| {
-            !word.is_empty() && word.bytes().all(|b| b.is_ascii_lowercase() || b.is_ascii_digit())
-        })
+        && words
+            .iter()
+            .all(|word| !word.is_empty() && word.bytes().all(|b| b.is_ascii_lowercase() || b.is_ascii_digit()))
 }
 
 /// `^(citadel|upgrade|ability|item)_(?=.+_)`
@@ -59,18 +59,12 @@ pub fn estimate_width(text: &str, font_size: i64, face: Face) -> f64 {
 
 pub fn fit_display(text: &str, max_width: i64, steps: &[i64], max_lines: i64, face: Face) -> i64 {
     let budget = (max_width * max_lines) as f64 * 0.92;
-    steps
-        .iter()
-        .copied()
-        .find(|size| estimate_width(text, *size, face) <= budget)
-        .unwrap_or(steps[steps.len() - 1])
+    steps.iter().copied().find(|size| estimate_width(text, *size, face) <= budget).unwrap_or(steps[steps.len() - 1])
 }
 
 /// `^[a-z0-9]+(?:-[a-z0-9]+)*$`
 pub fn is_renderable_slug(slug: &str) -> bool {
-    slug.split('-').all(|part| {
-        !part.is_empty() && part.bytes().all(|b| b.is_ascii_lowercase() || b.is_ascii_digit())
-    })
+    slug.split('-').all(|part| !part.is_empty() && part.bytes().all(|b| b.is_ascii_lowercase() || b.is_ascii_digit()))
 }
 
 pub fn count_label(n: usize, singular: &str, plural: Option<&str>) -> String {
@@ -101,10 +95,7 @@ mod tests {
     fn display_name_repairs_a_leaked_asset_key() {
         assert_eq!(display_name("ability_death_tax"), "Death Tax");
         assert_eq!(display_name("citadel_weapon_astro_hand_cannon"), "Weapon Astro Hand Cannon");
-        assert_eq!(
-            display_name("upgrade_weapon_power_and_health_drain"),
-            "Weapon Power And Health Drain"
-        );
+        assert_eq!(display_name("upgrade_weapon_power_and_health_drain"), "Weapon Power And Health Drain");
     }
 
     #[test]
@@ -124,8 +115,7 @@ mod tests {
 
     #[test]
     fn fit_steps_down_for_a_long_name() {
-        let long =
-            fit_display("Weapon Power And Health Drain", 728, &FONT_DISPLAY, 1, Face::Display);
+        let long = fit_display("Weapon Power And Health Drain", 728, &FONT_DISPLAY, 1, Face::Display);
         assert!(long < 96);
         assert!(fit_display("Abrams", 728, &FONT_DISPLAY, 1, Face::Display) > long);
     }

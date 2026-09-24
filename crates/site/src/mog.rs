@@ -9,8 +9,8 @@ use std::sync::LazyLock;
 
 use anyhow::{Context, Result, anyhow, bail};
 use askama::Template;
-use deadlog_changelog::{BulletReading, ParsedStructure, ast, parse_structure, read_bullet};
-use deadlog_model::{EntityType, PatchStats, decode_entity_name, entity_fragment_id, entity_names_match};
+use deadlog_changelog::{BulletReading, ParsedStructure, ast, read_bullet, structure_of};
+use deadlog_model::{EntityType, PatchStats, RelatedItems, decode_entity_name, entity_fragment_id, entity_names_match};
 use mog::{DataFilter, OutputMode, Segment, TocEntry};
 use regex::Regex;
 use serde_json::Value;
@@ -23,8 +23,6 @@ pub struct Icon {
     pub id: i64,
     pub src: String,
     pub alt: String,
-    pub slug: String,
-    pub change_count: Option<usize>,
 }
 
 #[derive(Debug, Clone, Default)]
@@ -40,11 +38,6 @@ impl Icons {
     }
 }
 
-#[derive(Debug, Clone)]
-pub struct RelatedReading {
-    pub items: Vec<ShareRow>,
-}
-
 /// What the page's reading embeds draw on, keyed like `readingContext.ts`.
 #[derive(Debug, Clone, Default)]
 pub struct Reading {
@@ -53,7 +46,7 @@ pub struct Reading {
     pub maxed_first: HashMap<i64, Vec<ShareRow>>,
     pub bought_by: HashMap<i64, Vec<ShareRow>>,
     pub buy_time: HashMap<i64, BuyTime>,
-    pub related: HashMap<i64, RelatedReading>,
+    pub related: HashMap<i64, Vec<ShareRow>>,
 }
 
 pub fn detail_key(kind: EntityType, id: i64, ability: Option<&str>) -> String {
@@ -73,7 +66,7 @@ pub struct Manifest {
     pub stats: Option<PatchStats>,
     pub open: bool,
     pub sections: Vec<(EntityType, String, String)>,
-    pub related: Vec<(String, deadlog_model::RelatedItems)>,
+    pub related: Vec<(String, RelatedItems)>,
 }
 
 #[derive(Debug, Clone)]
@@ -83,22 +76,11 @@ enum Inserted {
     Previous { kind: EntityType, name: String, group: usize, bullet: usize, text: String },
 }
 
-/// `serializeMogValue`: safe inside both a Svelte expression and a script element.
-fn serialize(value: &str) -> String {
-    Value::from(value).to_string().replace('<', "\\u003c").replace('\u{2028}', "\\u2028").replace('\u{2029}', "\\u2029")
-}
-
-fn optional(value: Option<&str>) -> String {
-    value.map(serialize).unwrap_or_else(|| "null".into())
-}
+/// Inserted embeds carry only an index into the list the render reads back, since both
+/// ends are this module.
+const TOKEN: &str = "deadlog:";
 
 static BULLET_LINE: LazyLock<Regex> = LazyLock::new(|| Regex::new(r"^(\s*)(-+)\s+(.+)$").unwrap());
-
-struct Spliced {
-    source: String,
-    inserted: HashMap<String, Inserted>,
-    edited: bool,
-}
 
 fn boundaries<'a>(nodes: &'a [ast::Node], out: &mut HashMap<usize, &'a ast::Node>) {
     for node in nodes {
@@ -111,22 +93,31 @@ fn boundaries<'a>(nodes: &'a [ast::Node], out: &mut HashMap<usize, &'a ast::Node
     }
 }
 
-fn kind_str(kind: EntityType) -> &'static str {
-    kind.as_str()
+fn closing_fence(lines: &[String], line: usize, depth: usize) -> bool {
+    lines.get(line).map(|line| line.trim()) == Some("=".repeat(depth).as_str())
 }
 
 /// `inlineMogStats`: splice reading embeds into the source by line, the way the
-/// Vite plugin did, so Mog lifts each into its block.
-fn splice(source: &str, structure: &ParsedStructure) -> Result<Spliced> {
-    let document = ast::parse(source)?;
+/// Vite plugin did, so Mog lifts each into its block. Returns `None` when nothing was
+/// spliced, which the manifest has to know.
+fn splice(
+    source: &str,
+    document: &ast::Document,
+    structure: &ParsedStructure,
+    related: &[(String, RelatedItems)],
+    inserted: &mut Vec<Inserted>,
+) -> Result<Option<String>> {
     let mut fences = HashMap::new();
     boundaries(&document.body, &mut fences);
 
-    let mut lines: Vec<String> = source.split('\n').map(|line| line.strip_suffix('\r').unwrap_or(line).to_string()).collect();
-    let mut inserted: HashMap<String, Inserted> = HashMap::new();
+    let mut lines: Vec<String> =
+        source.split('\n').map(|line| line.strip_suffix('\r').unwrap_or(line).to_string()).collect();
+    let mut embed = |what: Inserted| {
+        inserted.push(what);
+        format!("{TOKEN}{}", inserted.len() - 1)
+    };
     let mut insertions: Vec<(usize, Vec<String>)> = Vec::new();
-    let mut add = |line: usize, code: String, what: Inserted, inserted: &mut HashMap<String, Inserted>| {
-        inserted.insert(code.clone(), what);
+    let mut add = |line: usize, code: String| {
         let content = ["``embed:svelte:".to_string(), code, "``".to_string()];
         match insertions.iter_mut().find(|(existing, _)| *existing == line) {
             Some((_, lines)) => lines.extend(content),
@@ -142,33 +133,18 @@ fn splice(source: &str, structure: &ParsedStructure) -> Result<Spliced> {
         if !has_bullets {
             continue;
         }
-        if lines.get(block.end_line).map(|line| line.trim()) != Some("=".repeat(block.depth).as_str()) {
+        if !closing_fence(&lines, block.end_line, block.depth) {
             bail!("Cannot locate closing fence for {}", block.name);
         }
-        let code = format!(
-            "<DeadlogReadingDetails kind={{{}}} name={{{}}} ability={{{}}} />",
-            serialize(kind_str(block.kind)),
-            serialize(&block.name),
-            optional(block.ability.as_deref())
-        );
-        let what = Inserted::Details { kind: block.kind, name: block.name.clone(), ability: block.ability.clone() };
-        add(block.end_line, code, what, &mut inserted);
+        let code =
+            embed(Inserted::Details { kind: block.kind, name: block.name.clone(), ability: block.ability.clone() });
+        add(block.end_line, code);
     }
 
-    let related: Vec<&str> = structure
-        .blocks
-        .iter()
-        .filter(|block| {
-            block.kind == EntityType::Hero
-                && block.enrichment.related.as_ref().is_some_and(|related| related.status == "complete")
-                && structure.stats.as_ref().is_some_and(|stats| stats.before.is_some())
-        })
-        .map(|block| block.name.as_str())
-        .collect();
     for block in &structure.blocks {
         let enrichment = &block.enrichment;
         let reads = match block.kind {
-            EntityType::Hero => enrichment.order.is_some() || related.contains(&block.name.as_str()),
+            EntityType::Hero => enrichment.order.is_some() || related.iter().any(|(name, _)| *name == block.name),
             EntityType::Item => {
                 enrichment.bought.is_some()
                     || enrichment.impact.as_ref().is_some_and(|impact| impact.all.after.buy.flatten().is_some())
@@ -178,18 +154,14 @@ fn splice(source: &str, structure: &ParsedStructure) -> Result<Spliced> {
             continue;
         }
         let node = fences.get(&block.fence_line);
-        let end = node.and_then(|node| node.span.map(|span| span.end_line));
         let depth = node.and_then(|node| node.depth).unwrap_or_default();
-        let Some(end) = end.filter(|&end| lines.get(end).map(|line| line.trim()) == Some("=".repeat(depth).as_str()))
+        let Some(end) =
+            node.and_then(|node| node.span.map(|span| span.end_line)).filter(|&end| closing_fence(&lines, end, depth))
         else {
-            bail!("Cannot locate closing fence for {} {}", kind_str(block.kind), block.name);
+            bail!("Cannot locate closing fence for {} {}", block.kind.as_str(), block.name);
         };
-        let code = format!(
-            "<DeadlogStatsBand kind={{{}}} name={{{}}} />",
-            serialize(kind_str(block.kind)),
-            serialize(&block.name)
-        );
-        add(end, code, Inserted::StatsBand { kind: block.kind, name: block.name.clone() }, &mut inserted);
+        let code = embed(Inserted::StatsBand { kind: block.kind, name: block.name.clone() });
+        add(end, code);
     }
 
     let mut edits: Vec<(usize, usize, Vec<String>)> =
@@ -206,33 +178,27 @@ fn splice(source: &str, structure: &ParsedStructure) -> Result<Spliced> {
         if marker.len() != bullet.depth {
             continue;
         }
-        let code = format!(
-            "<DeadlogPreviousChange kind={{{}}} name={{{}}} groupIndex={{{}}} bulletIndex={{{}}} text={{{}}} />",
-            serialize(kind_str(bullet.kind)),
-            serialize(&bullet.name),
-            bullet.group_index,
-            bullet.bullet_index,
-            serialize(&bullet.text)
-        );
-        inserted.insert(
-            code.clone(),
-            Inserted::Previous {
-                kind: bullet.kind,
-                name: bullet.name.clone(),
-                group: bullet.group_index,
-                bullet: bullet.bullet_index,
-                text: bullet.text.clone(),
-            },
-        );
-        let content = [marker, text, "``embed:svelte:", &code, "``", marker].iter().map(|line| format!("{indent}{line}")).collect();
+        let code = embed(Inserted::Previous {
+            kind: bullet.kind,
+            name: bullet.name.clone(),
+            group: bullet.group_index,
+            bullet: bullet.bullet_index,
+            text: bullet.text.clone(),
+        });
+        let content = [marker, text, "``embed:svelte:", &code, "``", marker]
+            .iter()
+            .map(|line| format!("{indent}{line}"))
+            .collect();
         edits.push((bullet.start_line, 1, content));
     }
-    let edited = !edits.is_empty();
-    edits.sort_by(|a, b| b.0.cmp(&a.0));
+    if edits.is_empty() {
+        return Ok(None);
+    }
+    edits.sort_by_key(|edit| std::cmp::Reverse(edit.0));
     for (start, remove, content) in edits {
         lines.splice(start..start + remove, content);
     }
-    Ok(Spliced { source: lines.join("\n"), inserted, edited })
+    Ok(Some(lines.join("\n")))
 }
 
 #[derive(Clone, Copy, PartialEq, Eq)]
@@ -315,12 +281,9 @@ fn transform_html(html: &str, state: &mut TransformState) -> String {
             "img" if !closing => {
                 let image = add_attribute(tag, "decoding", "async");
                 match block {
-                    Some(BlockKind::Ability) => {
-                        let image = add_attribute(&add_attribute(&image, "width", "24"), "height", "24");
-                        add_attribute(&image, "loading", "lazy")
-                    }
-                    Some(BlockKind::Entity) => {
-                        let image = add_attribute(&add_attribute(&image, "width", "40"), "height", "40");
+                    Some(kind) => {
+                        let size = if kind == BlockKind::Ability { "24" } else { "40" };
+                        let image = add_attribute(&add_attribute(&image, "width", size), "height", size);
                         add_attribute(&image, "loading", "lazy")
                     }
                     None => {
@@ -339,7 +302,10 @@ fn transform_html(html: &str, state: &mut TransformState) -> String {
 /// Props of an author-written embed such as `<VideoLink src="…" label="…" />`.
 fn embed_props(code: &str) -> Result<(String, HashMap<String, Value>)> {
     let code = code.trim();
-    let body = code.strip_prefix('<').and_then(|rest| rest.strip_suffix("/>")).ok_or_else(|| anyhow!("unsupported embed {code}"))?;
+    let body = code
+        .strip_prefix('<')
+        .and_then(|rest| rest.strip_suffix("/>"))
+        .ok_or_else(|| anyhow!("unsupported embed {code}"))?;
     let name_end = body.find(char::is_whitespace).unwrap_or(body.len());
     let name = body[..name_end].to_string();
     let mut rest = body[name_end..].trim_start();
@@ -457,7 +423,7 @@ fn render_inserted(what: &Inserted, patch: &PatchContext) -> Result<String> {
                     blocks.push(BandBlock::share("maxed-first", &id, subject, rows.clone(), &windows, Vec::new()));
                 }
                 if let Some(related) = patch.reading.related.get(&entity.id) {
-                    blocks.push(BandBlock::share("related", &id, subject, related.items.clone(), &windows, Vec::new()));
+                    blocks.push(BandBlock::share("related", &id, subject, related.clone(), &windows, Vec::new()));
                 }
             } else {
                 if let Some(rows) = patch.reading.bought_by.get(&entity.id) {
@@ -512,53 +478,56 @@ pub fn toc(source: &str) -> Result<Vec<TocEntry>> {
     Ok(result.toc)
 }
 
-pub fn structure(source: &str) -> Result<ParsedStructure> {
-    parse_structure(source)
-}
-
 /// A patch with its reading embeds spliced in, ready to render.
 pub struct Prepared {
     text: String,
-    inserted: HashMap<String, Inserted>,
+    inserted: Vec<Inserted>,
     pub manifest: Manifest,
 }
 
-/// The manifest needs only the structure and the rendered headings, so the page can
-/// build its reading data before the embeds render.
-pub fn prepare(source: &str, structure: &ParsedStructure) -> Result<Prepared> {
-    let spliced = splice(source, structure)?;
-    let mut manifest = Manifest::default();
-    let text = if spliced.edited { spliced.source } else { source.to_string() };
-    if spliced.edited {
-        manifest.stats = structure.stats.clone();
-        manifest.open =
-            structure.blocks.iter().any(|block| block.enrichment.impact.as_ref().is_some_and(|impact| !impact.closed));
-        let rendered = toc(&text)?;
-        manifest.sections = structure
-            .toc
-            .iter()
-            .enumerate()
-            .filter_map(|(index, heading)| {
-                let kind = match heading.attrs.first().map(String::as_str) {
-                    Some("hero") => EntityType::Hero,
-                    Some("item") => EntityType::Item,
-                    _ => return None,
-                };
-                let rendered = rendered.get(index).filter(|rendered| rendered.title == heading.title)?;
-                Some((kind, heading.title.clone(), rendered.id.clone()))
-            })
-            .collect();
-        manifest.related = structure
+/// The manifest needs only the structure and the headings, so the page can build its
+/// reading data before the embeds render. Splicing adds embeds, never headings, so the
+/// source's own toc gives the rendered ids.
+pub fn prepare(source: &str, toc: &[TocEntry]) -> Result<Prepared> {
+    let document = ast::parse(source)?;
+    let structure = structure_of(&document)?;
+    let measured = structure.stats.as_ref().is_some_and(|stats| stats.before.is_some());
+    let related: Vec<(String, RelatedItems)> = structure
+        .blocks
+        .iter()
+        .filter(|block| block.kind == EntityType::Hero && measured)
+        .filter_map(|block| {
+            let related = block.enrichment.related.clone().filter(|related| related.status == "complete")?;
+            Some((block.name.clone(), related))
+        })
+        .collect();
+    let mut inserted = Vec::new();
+    let Some(text) = splice(source, &document, &structure, &related, &mut inserted)? else {
+        return Ok(Prepared { text: source.to_string(), inserted, manifest: Manifest::default() });
+    };
+    let sections = structure
+        .toc
+        .iter()
+        .zip(toc)
+        .filter_map(|(heading, rendered)| {
+            let kind = match heading.attrs.first().map(String::as_str) {
+                Some("hero") => EntityType::Hero,
+                Some("item") => EntityType::Item,
+                _ => return None,
+            };
+            (rendered.title == heading.title).then(|| (kind, heading.title.clone(), rendered.id.clone()))
+        })
+        .collect();
+    let manifest = Manifest {
+        open: structure
             .blocks
             .iter()
-            .filter(|block| block.kind == EntityType::Hero && structure.stats.as_ref().is_some_and(|stats| stats.before.is_some()))
-            .filter_map(|block| {
-                let related = block.enrichment.related.clone().filter(|related| related.status == "complete")?;
-                Some((block.name.clone(), related))
-            })
-            .collect();
-    }
-    Ok(Prepared { text, inserted: spliced.inserted, manifest })
+            .any(|block| block.enrichment.impact.as_ref().is_some_and(|impact| !impact.closed)),
+        stats: structure.stats,
+        sections,
+        related,
+    };
+    Ok(Prepared { text, inserted, manifest })
 }
 
 pub fn render(prepared: &Prepared, patch: &PatchContext) -> Result<String> {
@@ -579,7 +548,8 @@ pub fn render(prepared: &Prepared, patch: &PatchContext) -> Result<String> {
                     .iter()
                     .find(|embed| embed.index == *index)
                     .ok_or_else(|| anyhow!("missing embed {index}"))?;
-                let markup = match inserted.get(&embed.code) {
+                let own = embed.code.trim().strip_prefix(TOKEN).and_then(|index| index.parse::<usize>().ok());
+                let markup = match own.and_then(|index| inserted.get(index)) {
                     Some(what) => render_inserted(what, patch)?,
                     None => render_authored(&embed.code, patch)?,
                 };
@@ -592,7 +562,10 @@ pub fn render(prepared: &Prepared, patch: &PatchContext) -> Result<String> {
                 if classes.is_empty() {
                     html.push_str(&format!("<{tag}>"));
                 } else {
-                    html.push_str(&format!("<{tag} class=\"{}\">", askama::filters::escape(classes, askama::filters::Html)?));
+                    html.push_str(&format!(
+                        "<{tag} class=\"{}\">",
+                        askama::filters::escape(classes, askama::filters::Html)?
+                    ));
                 }
             }
             Segment::Close { tag } => {

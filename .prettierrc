@@ -3,12 +3,5 @@
 	"tabWidth": 2,
 	"singleQuote": true,
 	"trailingComma": "none",
-	"printWidth": 90,
-	"plugins": ["prettier-plugin-svelte", "prettier-plugin-sql"],
-	"overrides": [
-		{
-			"files": "*.svelte",
-			"options": { "parser": "svelte" }
-		}
-	]
+	"printWidth": 90
 }

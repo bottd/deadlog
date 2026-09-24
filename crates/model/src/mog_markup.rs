@@ -1,6 +1,6 @@
 //! Encoders and decoders for the bits of Mog grammar the pipeline writes itself.
 
-use crate::is_js_space;
+use crate::is_js_whitespace;
 
 /// Mog's media transclusion, `[[!:<url>]]((alt))`.
 pub const MOG_IMAGE_PREFIX: &str = "[[!:";
@@ -34,7 +34,7 @@ fn delimiter_at(text: &str) -> Option<&'static str> {
 /// Splits a note that is nothing but a link — an attachment or a source, not prose.
 /// An image shares the grammar but is a different kind of note, so it is not a link.
 pub fn parse_mog_link(text: &str) -> Option<(&str, &str)> {
-    let trimmed = text.trim_matches(is_js_space);
+    let trimmed = text.trim_matches(is_js_whitespace);
     let (target, label, length) = link_at(trimmed)?;
     (length == trimmed.len() && !target.starts_with("!:")).then_some((target, label))
 }

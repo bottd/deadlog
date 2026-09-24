@@ -8,7 +8,7 @@ use regex::Regex;
 use scraper::{Html, Node};
 
 use crate::html::document_first;
-use crate::js::decode_uri_component;
+use deadlog_model::decode_uri_component;
 
 /// Lowercased names and article-stripped aliases, as the forum notes spell them.
 #[derive(Debug, Clone, Default)]
@@ -26,8 +26,25 @@ pub struct GroupedContent {
 }
 
 const STAT_PREFIX_BLOCKLIST: [&str; 19] = [
-    "base", "bullet", "gun", "health", "regen", "dps", "movespeed", "move", "stamina", "weapon", "melee", "fire", "is",
-    "fixed", "starting", "spirit", "max", "min", "bonus",
+    "base",
+    "bullet",
+    "gun",
+    "health",
+    "regen",
+    "dps",
+    "movespeed",
+    "move",
+    "stamina",
+    "weapon",
+    "melee",
+    "fire",
+    "is",
+    "fixed",
+    "starting",
+    "spirit",
+    "max",
+    "min",
+    "bonus",
 ];
 
 const STAT_PHRASE_BLOCKLIST: [&str; 21] = [
@@ -55,10 +72,46 @@ const STAT_PHRASE_BLOCKLIST: [&str; 21] = [
 ];
 
 const ABILITY_KEYWORDS: [&str; 40] = [
-    "cooldown", "damage", "duration", "radius", "range", "speed", "heal", "health", "stun", "slow", "silence",
-    "lifesteal", "dps", "now ", "no longer", "is now", "bonus", "max ", "min ", "fire rate", "movement", "spirit",
-    "bullet", "proc", "channel", "delay", "change", "projectile", "width", "height", "scaling", "reduced", "increased",
-    "reworked", "t1 ", "t1:", "t2 ", "t2:", "t3 ", "t3:",
+    "cooldown",
+    "damage",
+    "duration",
+    "radius",
+    "range",
+    "speed",
+    "heal",
+    "health",
+    "stun",
+    "slow",
+    "silence",
+    "lifesteal",
+    "dps",
+    "now ",
+    "no longer",
+    "is now",
+    "bonus",
+    "max ",
+    "min ",
+    "fire rate",
+    "movement",
+    "spirit",
+    "bullet",
+    "proc",
+    "channel",
+    "delay",
+    "change",
+    "projectile",
+    "width",
+    "height",
+    "scaling",
+    "reduced",
+    "increased",
+    "reworked",
+    "t1 ",
+    "t1:",
+    "t2 ",
+    "t2:",
+    "t3 ",
+    "t3:",
 ];
 
 fn js_pattern(pattern: &str) -> Regex {
@@ -81,17 +134,13 @@ pub fn detect_ability_prefix(note: &str, known_abilities: Option<&HashSet<String
     }
 
     let first_word = WORDS.split(candidate.as_str()).next().unwrap_or_default().to_lowercase();
-    if STAT_PREFIX_BLOCKLIST.contains(&first_word.as_str())
-        || STAT_PHRASE_BLOCKLIST.contains(&candidate_lower.as_str())
+    if STAT_PREFIX_BLOCKLIST.contains(&first_word.as_str()) || STAT_PHRASE_BLOCKLIST.contains(&candidate_lower.as_str())
     {
         return None;
     }
 
     let rest = note[candidate.end()..].trim_start_matches(deadlog_model::is_js_whitespace).to_lowercase();
-    ABILITY_KEYWORDS
-        .iter()
-        .any(|keyword| rest.starts_with(keyword))
-        .then(|| candidate.as_str().to_string())
+    ABILITY_KEYWORDS.iter().any(|keyword| rest.starts_with(keyword)).then(|| candidate.as_str().to_string())
 }
 
 #[derive(Debug, Clone, PartialEq)]
@@ -110,7 +159,10 @@ pub fn group_notes_by_ability(notes: &[String], known_abilities: Option<&HashSet
         match &ability {
             Some(name) if Some(name) != current_ability.as_ref() => {
                 if !current_notes.is_empty() {
-                    groups.push(NoteGroup { ability_name: current_ability.clone(), notes: std::mem::take(&mut current_notes) });
+                    groups.push(NoteGroup {
+                        ability_name: current_ability.clone(),
+                        notes: std::mem::take(&mut current_notes),
+                    });
                 }
                 current_ability = ability.clone();
                 current_notes = vec![note.clone()];
@@ -118,7 +170,10 @@ pub fn group_notes_by_ability(notes: &[String], known_abilities: Option<&HashSet
             Some(_) => current_notes.push(note.clone()),
             None => {
                 if current_ability.is_some() && !current_notes.is_empty() {
-                    groups.push(NoteGroup { ability_name: current_ability.take(), notes: std::mem::take(&mut current_notes) });
+                    groups.push(NoteGroup {
+                        ability_name: current_ability.take(),
+                        notes: std::mem::take(&mut current_notes),
+                    });
                 }
                 match groups.last_mut() {
                     Some(last) if last.ability_name.is_none() => last.notes.push(note.clone()),

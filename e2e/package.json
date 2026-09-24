@@ -1,0 +1,11 @@
+{
+	"name": "deadlog-e2e",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"test": "playwright test"
+	},
+	"devDependencies": {
+		"playwright": "1.63.0"
+	}
+}

@@ -1,0 +1,18 @@
+[package]
+name = "deadlog-stats"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+chrono.workspace = true
+deadlog-changelog = { path = "../changelog" }
+deadlog-db.workspace = true
+deadlog-model.workspace = true
+reqwest = { version = "0.12", default-features = false, features = ["blocking", "rustls-tls", "gzip"] }
+serde_json.workspace = true
+url = "2"
+
+[dev-dependencies]
+tempfile = "3"

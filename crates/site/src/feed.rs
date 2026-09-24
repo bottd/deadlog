@@ -4,27 +4,21 @@
 
 use std::collections::HashMap;
 
-use anyhow::Result;
 use deadlog_db::{Changelog, Hero, Item};
-use deadlog_model::make_summary;
+use deadlog_model::{EntityType, make_summary};
 use serde_json::{Map, Value, json};
 
 use crate::context::hero_icon_image;
+use crate::mog::Icon;
 use crate::{Output, Site};
 
 pub const INITIAL_LOAD_COUNT: usize = 15;
 pub const PAGE_SIZE: usize = 12;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum EntityKind {
-    Hero,
-    Item,
-}
-
 #[derive(Debug, Clone)]
 pub struct FeedEntity {
     pub id: i64,
-    pub kind: EntityKind,
+    pub kind: EntityType,
     pub name: String,
     pub slug: String,
     pub src: String,
@@ -52,17 +46,6 @@ pub struct FeedIndex<'a> {
     pub items: Vec<FeedEntity>,
 }
 
-/// An icon in a feed card, like `ChangelogEntityIcon`.
-#[derive(Debug, Clone)]
-pub struct Icon {
-    pub id: i64,
-    pub kind: EntityKind,
-    pub src: String,
-    pub alt: String,
-    pub slug: String,
-    pub change_count: Option<usize>,
-}
-
 #[derive(Debug, Clone)]
 pub struct PatchSummary<'a> {
     pub changelog: &'a Changelog,
@@ -76,7 +59,7 @@ pub struct PatchSummary<'a> {
 fn hero_entity(hero: &Hero) -> FeedEntity {
     FeedEntity {
         id: hero.id,
-        kind: EntityKind::Hero,
+        kind: EntityType::Hero,
         name: hero.name.clone(),
         slug: hero.slug.clone(),
         src: hero_icon_image(hero),
@@ -88,7 +71,7 @@ fn hero_entity(hero: &Hero) -> FeedEntity {
 fn item_entity(item: &Item) -> FeedEntity {
     FeedEntity {
         id: item.id,
-        kind: EntityKind::Item,
+        kind: EntityType::Item,
         name: item.name.clone(),
         slug: item.slug.clone(),
         src: item.image.clone(),
@@ -108,48 +91,28 @@ pub fn index<'a>(site: &Site<'a>) -> FeedIndex<'a> {
             heroes: site
                 .heroes_in(&changelog.id)
                 .iter()
-                .map(|link| EntityRef {
-                    id: link.hero_id,
-                    change_count: link.change_groups.as_ref().map(|groups| groups.iter().map(|group| group.bullets.len()).sum()),
-                })
+                .map(|link| EntityRef { id: link.hero_id, change_count: link.change_count() })
                 .collect(),
             items: site
                 .items_in(&changelog.id)
                 .iter()
-                .map(|link| EntityRef {
-                    id: link.item_id,
-                    change_count: link.change_groups.as_ref().map(|groups| groups.iter().map(|group| group.bullets.len()).sum()),
-                })
+                .map(|link| EntityRef { id: link.item_id, change_count: link.change_count() })
                 .collect(),
         })
         .collect();
 
-    let mut heroes: Vec<FeedEntity> = site
-        .db
-        .heroes
-        .iter()
-        .filter(|hero| site.db.hero_links.iter().any(|link| link.hero_id == hero.id))
-        .map(hero_entity)
-        .collect();
+    let mut heroes: Vec<FeedEntity> =
+        site.db.heroes.iter().filter(|hero| !site.hero_history(hero.id).is_empty()).map(hero_entity).collect();
     heroes.sort_by(|a, b| a.name.cmp(&b.name));
-    let mut items: Vec<FeedEntity> = site
-        .db
-        .items
-        .iter()
-        .filter(|item| site.db.item_links.iter().any(|link| link.item_id == item.id))
-        .map(item_entity)
-        .collect();
+    let mut items: Vec<FeedEntity> =
+        site.db.items.iter().filter(|item| !site.item_history(item.id).is_empty()).map(item_entity).collect();
     items.sort_by(|a, b| a.name.cmp(&b.name));
     FeedIndex { rows, heroes, items }
 }
 
 /// `feedWindow`: the first page is larger, since it leads with the featured card.
 pub fn window(page: usize) -> (usize, usize) {
-    if page == 0 {
-        (INITIAL_LOAD_COUNT, 0)
-    } else {
-        (PAGE_SIZE, INITIAL_LOAD_COUNT + (page - 1) * PAGE_SIZE)
-    }
+    if page == 0 { (INITIAL_LOAD_COUNT, 0) } else { (PAGE_SIZE, INITIAL_LOAD_COUNT + (page - 1) * PAGE_SIZE) }
 }
 
 pub fn page_count(total: usize) -> usize {
@@ -161,14 +124,7 @@ fn icons(refs: &[EntityRef], entities: &HashMap<i64, &FeedEntity>) -> Vec<Icon> 
         .iter()
         .filter_map(|reference| {
             let entity = entities.get(&reference.id)?;
-            Some(Icon {
-                id: entity.id,
-                kind: entity.kind,
-                src: entity.src.clone(),
-                alt: entity.name.clone(),
-                slug: entity.slug.clone(),
-                change_count: reference.change_count,
-            })
+            Some(Icon { id: entity.id, src: entity.src.clone(), alt: entity.name.clone() })
         })
         .collect();
     icons.sort_by(|a, b| a.alt.cmp(&b.alt));
@@ -180,10 +136,12 @@ pub fn unfiltered_page<'a>(index: &FeedIndex<'a>, page: usize) -> (Vec<PatchSumm
     let heroes: HashMap<i64, &FeedEntity> = index.heroes.iter().map(|entity| (entity.id, entity)).collect();
     let items: HashMap<i64, &FeedEntity> = index.items.iter().map(|entity| (entity.id, entity)).collect();
     let (limit, offset) = window(page);
-    let rows: Vec<&FeedRow> = index.rows.iter().skip(offset).take(limit).collect();
     let has_more = index.rows.len() > offset + limit;
-    let summaries = rows
+    let summaries = index
+        .rows
         .iter()
+        .skip(offset)
+        .take(limit)
         .enumerate()
         .map(|(position, row)| {
             let hero_icons = icons(&row.heroes, &heroes);
@@ -205,16 +163,11 @@ pub fn unfiltered_page<'a>(index: &FeedIndex<'a>, page: usize) -> (Vec<PatchSumm
 /// `JSON.stringify` order for a plain object: array-index keys ascending, then the rest
 /// in insertion order.
 fn js_object(entries: Vec<(String, Value)>) -> String {
-    let is_index = |key: &str| {
-        key.parse::<u32>().is_ok_and(|n| n != u32::MAX && n.to_string() == key)
-    };
+    let is_index = |key: &str| key.parse::<u32>().is_ok_and(|n| n != u32::MAX && n.to_string() == key);
     let (mut indexed, named): (Vec<_>, Vec<_>) = entries.into_iter().partition(|(key, _)| is_index(key));
     indexed.sort_by_key(|(key, _)| key.parse::<u32>().unwrap_or_default());
-    let body: Vec<String> = indexed
-        .into_iter()
-        .chain(named)
-        .map(|(key, value)| format!("{}:{}", Value::from(key), value))
-        .collect();
+    let body: Vec<String> =
+        indexed.into_iter().chain(named).map(|(key, value)| format!("{}:{}", Value::from(key), value)).collect();
     format!("{{{}}}", body.join(","))
 }
 
@@ -225,11 +178,11 @@ fn entity_json(entity: &FeedEntity) -> Value {
     object.insert("slug".into(), json!(entity.slug));
     object.insert("src".into(), json!(entity.src));
     match entity.kind {
-        EntityKind::Hero => {
+        EntityType::Hero => {
             object.insert("heroType".into(), json!(entity.hero_type));
             object.insert("type".into(), json!("hero"));
         }
-        EntityKind::Item => {
+        EntityType::Item => {
             object.insert("type".into(), json!("item"));
             if let Some(category) = &entity.item_category {
                 object.insert("itemCategory".into(), json!(category));
@@ -240,7 +193,9 @@ fn entity_json(entity: &FeedEntity) -> Value {
 }
 
 fn refs_json(refs: &[EntityRef]) -> Value {
-    Value::Array(refs.iter().map(|reference| json!({ "id": reference.id, "changeCount": reference.change_count })).collect())
+    Value::Array(
+        refs.iter().map(|reference| json!({ "id": reference.id, "changeCount": reference.change_count })).collect(),
+    )
 }
 
 pub fn index_json(index: &FeedIndex) -> String {
@@ -311,13 +266,12 @@ pub fn search_json(site: &Site) -> String {
     json!({ "heroes": heroes, "items": items }).to_string()
 }
 
-pub fn write_tiers(site: &Site, output: &mut Output) -> Result<()> {
+pub fn write_tiers(site: &Site, output: &mut Output) {
     let index = index(site);
     output.add("feed-index.json", index_json(&index));
     output.add("feed-text.json", text_json(site));
     output.add("feed-groups.json", groups_json(site));
     output.add("search-entities.json", search_json(site));
-    Ok(())
 }
 
 #[cfg(test)]

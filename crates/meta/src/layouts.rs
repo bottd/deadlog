@@ -1,8 +1,8 @@
 use serde_json::{Value, json};
 
 use crate::components::{
-    CardArt, EntityCard, Fit, RowIcon, Segment, annotation, card, display, display_wraps,
-    entity_card, flag, lede, patch_rows,
+    CardArt, EntityCard, Fit, RowIcon, Segment, annotation, card, display, display_wraps, entity_card, flag, lede,
+    patch_rows,
 };
 use crate::node::{div, style};
 use crate::text::count_label;
@@ -45,11 +45,8 @@ pub fn changelog(props: &ChangelogLayout) -> Value {
         Segment::new(counts(props.item_count, "ITEM", None), Some(colors::AMBER)),
     ];
     let annotation_width = if props.major_update { CONTENT - 220 } else { CONTENT };
-    let art = props
-        .art
-        .as_ref()
-        .filter(|art| !art.is_empty())
-        .map(|art| CardArt { src: art.clone(), clear: ART_CLEAR });
+    let art =
+        props.art.as_ref().filter(|art| !art.is_empty()).map(|art| CardArt { src: art.clone(), clear: ART_CLEAR });
     let summary = props.summary.as_deref().filter(|summary| !summary.is_empty());
 
     card(
@@ -61,18 +58,10 @@ pub fn changelog(props: &ChangelogLayout) -> Value {
                 Some(display(&props.heading, CONTENT, 2)),
                 Some(div(
                     style(json!({ "display": "flex", "alignItems": "center", "gap": "20px" })),
-                    [
-                        annotation(&segments, annotation_width),
-                        props.major_update.then(|| flag("MAJOR")),
-                    ],
+                    [annotation(&segments, annotation_width), props.major_update.then(|| flag("MAJOR"))],
                 )),
                 summary.and_then(|summary| lede(summary, CONTENT, lede_lines)),
-                patch_rows(
-                    &props.hero_icons,
-                    &props.item_icons,
-                    props.hero_count,
-                    props.item_count,
-                ),
+                patch_rows(&props.hero_icons, &props.item_icons, props.hero_count, props.item_count),
             ],
         ),
     )
@@ -102,18 +91,9 @@ pub fn home(props: &HomeLayout) -> Value {
             "22px",
             [
                 Some(display("Deadlock Patch Notes", CONTENT, 1)),
-                lede(
-                    "Every patch, hero buff, nerf and item change — in one searchable changelog.",
-                    CONTENT,
-                    2,
-                ),
+                lede("Every patch, hero buff, nerf and item change — in one searchable changelog.", CONTENT, 2),
                 annotation(&segments, CONTENT),
-                patch_rows(
-                    &props.hero_icons,
-                    &props.item_icons,
-                    props.latest_hero_count,
-                    props.latest_item_count,
-                ),
+                patch_rows(&props.hero_icons, &props.item_icons, props.latest_hero_count, props.latest_item_count),
             ],
         ),
     )
@@ -138,10 +118,7 @@ pub fn hero(props: &HeroLayout) -> Value {
         fit: Fit::Cover,
         history: &props.history,
         segments: vec![
-            Segment::new(
-                hero_type.map(str::to_uppercase).unwrap_or_default(),
-                hero_tone(hero_type),
-            ),
+            Segment::new(hero_type.map(str::to_uppercase).unwrap_or_default(), hero_tone(hero_type)),
             Segment::new(props.changes.clone(), Some(colors::AMBER)),
             Segment::new(count_label(props.patch_count, "PATCH", Some("PATCHES")), None),
         ],

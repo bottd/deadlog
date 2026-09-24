@@ -1,0 +1,32 @@
+{
+	"/": [
+		"src/routes/+page.server.ts",
+		"src/routes/+layout.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/ability/[slug]": [
+		"src/routes/ability/[slug]/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/archive": ["src/routes/archive/+page.server.ts", "src/routes/+layout.server.ts"],
+	"/change/[...slug]": [
+		"src/routes/change/[...slug]/+page.ts",
+		"src/routes/change/[...slug]/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/feed-groups.json": ["src/routes/feed-groups.json/+server.ts"],
+	"/feed-index.json": ["src/routes/feed-index.json/+server.ts"],
+	"/feed-page/[page].json": ["src/routes/feed-page/[page].json/+server.ts"],
+	"/feed-text.json": ["src/routes/feed-text.json/+server.ts"],
+	"/heroes": ["src/routes/heroes/+page.ts", "src/routes/+layout.server.ts"],
+	"/hero/[slug]": [
+		"src/routes/hero/[slug]/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/items": ["src/routes/items/+page.ts", "src/routes/+layout.server.ts"],
+	"/item/[slug]": [
+		"src/routes/item/[slug]/+page.server.ts",
+		"src/routes/+layout.server.ts"
+	],
+	"/sitemap.xml": ["src/routes/sitemap.xml/+server.ts"]
+}

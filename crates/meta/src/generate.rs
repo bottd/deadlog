@@ -123,8 +123,7 @@ impl<'a> Run<'a> {
         let png = self.renderer.render_png(node)?;
         let path = self.out.join(path);
         if let Some(parent) = path.parent() {
-            std::fs::create_dir_all(parent)
-                .with_context(|| format!("creating {}", parent.display()))?;
+            std::fs::create_dir_all(parent).with_context(|| format!("creating {}", parent.display()))?;
         }
         std::fs::write(&path, png).with_context(|| format!("writing {}", path.display()))
     }
@@ -160,8 +159,7 @@ impl<'a> Run<'a> {
 
     fn changelog(&self, patch: &Patch, icons: &PatchIcons) -> Result<()> {
         let (hero_icons, item_icons) = resolve_rows(icons, &self.images)?;
-        let art = convert(self.fetch, patch.preview_image.as_deref().unwrap_or_default())
-            .unwrap_or_default();
+        let art = convert(self.fetch, patch.preview_image.as_deref().unwrap_or_default()).unwrap_or_default();
         let heading = patch_heading(&patch.title, &patch.pub_date);
         let node = layouts::changelog(&ChangelogLayout {
             heading: heading.heading,
@@ -178,12 +176,7 @@ impl<'a> Run<'a> {
         self.write(node, &Path::new("change").join(format!("{}.png", patch.id)))
     }
 
-    fn home(
-        &self,
-        latest: &Patch,
-        totals: (usize, usize, usize),
-        icons: &PatchIcons,
-    ) -> Result<()> {
+    fn home(&self, latest: &Patch, totals: (usize, usize, usize), icons: &PatchIcons) -> Result<()> {
         let (hero_icons, item_icons) = resolve_rows(icons, &self.images)?;
         let (patch_count, hero_count, item_count) = totals;
         let node = layouts::home(&HomeLayout {
@@ -239,15 +232,11 @@ pub fn run(inputs: &Inputs, run: &Run) -> Report {
     let icons_for = |id: &str| inputs.icons.get(id).unwrap_or(&empty);
     let mut counts = Report::default();
 
-    let latest = inputs
-        .patches
-        .iter()
-        .reduce(|latest, patch| if patch.pub_date > latest.pub_date { patch } else { latest });
+    let latest =
+        inputs.patches.iter().reduce(|latest, patch| if patch.pub_date > latest.pub_date { patch } else { latest });
     if let Some(latest) = latest {
         let totals = (inputs.patches.len(), inputs.heroes.len(), inputs.items.len());
-        if run
-            .generate_one("home preview".into(), || run.home(latest, totals, icons_for(&latest.id)))
-        {
+        if run.generate_one("home preview".into(), || run.home(latest, totals, icons_for(&latest.id))) {
             counts.home = 1;
         }
     }
@@ -257,9 +246,7 @@ pub fn run(inputs: &Inputs, run: &Run) -> Report {
             run.fail(format!("changelog preview {} (unroutable id)", patch.id));
             return false;
         }
-        run.generate_one(format!("changelog preview {}", patch.id), || {
-            run.changelog(patch, icons_for(&patch.id))
-        })
+        run.generate_one(format!("changelog preview {}", patch.id), || run.changelog(patch, icons_for(&patch.id)))
     });
 
     let none = EntityStats::default();

@@ -9,20 +9,25 @@ use std::sync::{Arc, RwLock};
 use std::time::Duration;
 
 use anyhow::{Context, Result};
+use axum::Router;
 use axum::body::Body;
 use axum::extract::State;
 use axum::http::{HeaderValue, Request, Response, StatusCode, header};
-use axum::Router;
 use notify::{RecursiveMode, Watcher};
 use tower_livereload::LiveReloadLayer;
 
+use crate::BuildOptions;
 use crate::hosting::Redirect;
 use crate::output::{Content, Output};
-use crate::BuildOptions;
 
 trait Source: Send + Sync {
     fn read(&self, path: &str) -> Option<Vec<u8>>;
-    fn redirects(&self) -> Vec<Redirect>;
+
+    fn redirects(&self) -> Vec<Redirect> {
+        self.read("_redirects")
+            .map(|text| crate::hosting::parse_redirects(&String::from_utf8_lossy(&text)))
+            .unwrap_or_default()
+    }
 }
 
 struct Memory(RwLock<Output>);
@@ -34,10 +39,6 @@ impl Source for Memory {
             Content::File(source) => fs::read(source).ok(),
         }
     }
-
-    fn redirects(&self) -> Vec<Redirect> {
-        self.read("_redirects").map(|text| crate::hosting::parse_redirects(&String::from_utf8_lossy(&text))).unwrap_or_default()
-    }
 }
 
 struct Directory(PathBuf);
@@ -46,10 +47,6 @@ impl Source for Directory {
     fn read(&self, path: &str) -> Option<Vec<u8>> {
         let target = self.0.join(path);
         target.starts_with(&self.0).then(|| fs::read(target).ok()).flatten()
-    }
-
-    fn redirects(&self) -> Vec<Redirect> {
-        self.read("_redirects").map(|text| crate::hosting::parse_redirects(&String::from_utf8_lossy(&text))).unwrap_or_default()
     }
 }
 
@@ -77,21 +74,26 @@ fn respond(status: StatusCode, path: &str, bytes: Vec<u8>) -> Response<Body> {
     response
 }
 
+fn redirect(status: StatusCode, location: &str) -> Response<Body> {
+    let mut response = Response::new(Body::empty());
+    *response.status_mut() = status;
+    response.headers_mut().insert(header::LOCATION, HeaderValue::from_str(location).unwrap());
+    response
+}
+
 /// The host's `html_handling = "auto-trailing-slash"`: `/a` serves `a.html`, `/a/`
 /// redirects to `/a` when `a.html` exists, and `/` serves `index.html`.
 async fn handle(State(source): State<Arc<dyn Source>>, request: Request<Body>) -> Response<Body> {
     let raw = request.uri().path();
-    let Ok(decoded) = percent_decode(raw) else {
+    let Some(decoded) = deadlog_model::decode_uri_component(raw) else {
         return respond(StatusCode::BAD_REQUEST, "x.txt", b"bad path".to_vec());
     };
     let query = request.uri().query().map(|query| format!("?{query}")).unwrap_or_default();
 
     for redirect in source.redirects() {
         if redirect.from == raw || redirect.from == decoded {
-            let mut response = Response::new(Body::empty());
-            *response.status_mut() = StatusCode::from_u16(redirect.status).unwrap_or(StatusCode::PERMANENT_REDIRECT);
-            response.headers_mut().insert(header::LOCATION, HeaderValue::from_str(&format!("{}{query}", redirect.to)).unwrap());
-            return response;
+            let status = StatusCode::from_u16(redirect.status).unwrap_or(StatusCode::PERMANENT_REDIRECT);
+            return self::redirect(status, &format!("{}{query}", redirect.to));
         }
     }
 
@@ -102,10 +104,7 @@ async fn handle(State(source): State<Arc<dyn Source>>, request: Request<Body>) -
         }
     } else if let Some(stripped) = path.strip_suffix('/') {
         if source.read(&format!("{stripped}.html")).is_some() {
-            let mut response = Response::new(Body::empty());
-            *response.status_mut() = StatusCode::TEMPORARY_REDIRECT;
-            response.headers_mut().insert(header::LOCATION, HeaderValue::from_str(&format!("/{stripped}{query}")).unwrap());
-            return response;
+            return redirect(StatusCode::TEMPORARY_REDIRECT, &format!("/{stripped}{query}"));
         }
     } else if let Some(bytes) = source.read(path) {
         return respond(StatusCode::OK, path, bytes);
@@ -116,29 +115,15 @@ async fn handle(State(source): State<Arc<dyn Source>>, request: Request<Body>) -
     respond(StatusCode::NOT_FOUND, "404.html", bytes)
 }
 
-fn percent_decode(path: &str) -> Result<String, ()> {
-    let bytes = path.as_bytes();
-    let mut out = Vec::with_capacity(bytes.len());
-    let mut index = 0;
-    while index < bytes.len() {
-        if bytes[index] == b'%' {
-            let hex = path.get(index + 1..index + 3).ok_or(())?;
-            out.push(u8::from_str_radix(hex, 16).map_err(|_| ())?);
-            index += 3;
-        } else {
-            out.push(bytes[index]);
-            index += 1;
-        }
-    }
-    String::from_utf8(out).map_err(|_| ())
-}
-
 pub fn run(options: BuildOptions, out: PathBuf, port: u16, static_only: bool) -> Result<()> {
     let runtime = tokio::runtime::Runtime::new()?;
     runtime.block_on(async move {
         let address = format!("127.0.0.1:{port}");
         if static_only {
-            let source: Arc<dyn Source> = Arc::new(Directory(fs::canonicalize(&out).with_context(|| format!("{} does not exist; run `deadlog build` first", out.display()))?));
+            let source: Arc<dyn Source> = Arc::new(Directory(
+                fs::canonicalize(&out)
+                    .with_context(|| format!("{} does not exist; run `deadlog build` first", out.display()))?,
+            ));
             let app = Router::new().fallback(handle).with_state(source);
             let listener = tokio::net::TcpListener::bind(&address).await?;
             println!("Serving {} at http://{address}", out.display());

@@ -1,0 +1,284 @@
+@media (prefers-color-scheme: light) {
+	pre.arborium {
+		--bg: #fff;
+		--surface: #f2f2f2;
+		color: #1f2328;
+		--fg: #1f2328;
+		--accent: #8250df;
+		--muted: #6e7781;
+		background: #fff;
+	}
+	pre.arborium a-at,
+	pre.arborium a-co,
+	pre.arborium a-cb {
+		color: #0550ae;
+	}
+	pre.arborium a-fb,
+	pre.arborium a-f,
+	pre.arborium a-fm {
+		color: #8250df;
+	}
+	pre.arborium a-k,
+	pre.arborium a-kc,
+	pre.arborium a-ko,
+	pre.arborium a-kd,
+	pre.arborium a-ke,
+	pre.arborium a-kf,
+	pre.arborium a-ki,
+	pre.arborium a-kp,
+	pre.arborium a-kr,
+	pre.arborium a-kt,
+	pre.arborium a-ky,
+	pre.arborium a-o {
+		color: #cf222e;
+	}
+	pre.arborium a-pr {
+		color: #0550ae;
+	}
+	pre.arborium a-p,
+	pre.arborium a-pb,
+	pre.arborium a-pd {
+		color: #1f2328;
+	}
+	pre.arborium a-ps {
+		color: #0550ae;
+	}
+	pre.arborium a-s {
+		color: #0a3069;
+	}
+	pre.arborium a-ss {
+		color: #cf222e;
+	}
+	pre.arborium a-tg,
+	pre.arborium a-td,
+	pre.arborium a-te {
+		color: #116329;
+	}
+	pre.arborium a-t,
+	pre.arborium a-tb,
+	pre.arborium a-tq {
+		color: #953800;
+	}
+	pre.arborium a-v {
+		color: #1f2328;
+	}
+	pre.arborium a-vb,
+	pre.arborium a-vp {
+		color: #953800;
+	}
+	pre.arborium a-c,
+	pre.arborium a-cd {
+		color: #6e7781;
+	}
+	pre.arborium a-m {
+		color: #0550ae;
+	}
+	pre.arborium a-l {
+		color: #8250df;
+	}
+	pre.arborium a-n {
+		color: #0550ae;
+	}
+	pre.arborium a-tl {
+		color: #1f2328;
+	}
+	pre.arborium a-em {
+		font-style: italic;
+	}
+	pre.arborium a-st {
+		font-weight: 700;
+	}
+	pre.arborium a-tu {
+		color: #0969da;
+		text-decoration: underline;
+	}
+	pre.arborium a-tr {
+		color: #8250df;
+	}
+	pre.arborium a-se {
+		color: #0550ae;
+	}
+	pre.arborium a-tt {
+		color: #8250df;
+		font-weight: 700;
+	}
+	pre.arborium a-tx {
+		text-decoration: line-through;
+	}
+	pre.arborium a-sp {
+		color: #1f2328;
+	}
+	pre.arborium a-in,
+	pre.arborium a-sc,
+	pre.arborium a-rp,
+	pre.arborium a-cn,
+	pre.arborium a-ex,
+	pre.arborium a-pp {
+		color: #cf222e;
+	}
+	pre.arborium a-ch,
+	pre.arborium a-cs {
+		color: #0a3069;
+	}
+	pre.arborium a-vm {
+		color: #1f2328;
+	}
+	pre.arborium a-fd {
+		color: #8250df;
+	}
+	pre.arborium a-tf {
+		color: #953800;
+	}
+	pre.arborium a-fc {
+		color: #8250df;
+	}
+	pre.arborium a-km,
+	pre.arborium a-dr {
+		color: #cf222e;
+	}
+	pre.arborium a-rx {
+		color: #0a3069;
+	}
+}
+@media (prefers-color-scheme: dark) {
+	pre.arborium {
+		--bg: #0d1117;
+		--surface: #20242a;
+		color: #e6edf3;
+		--fg: #e6edf3;
+		--accent: #d2a8ff;
+		--muted: #8b949e;
+		background: #0d1117;
+	}
+	pre.arborium a-at,
+	pre.arborium a-co,
+	pre.arborium a-cb {
+		color: #79c0ff;
+	}
+	pre.arborium a-fb,
+	pre.arborium a-f,
+	pre.arborium a-fm {
+		color: #d2a8ff;
+	}
+	pre.arborium a-k,
+	pre.arborium a-kc,
+	pre.arborium a-ko,
+	pre.arborium a-kd,
+	pre.arborium a-ke,
+	pre.arborium a-kf,
+	pre.arborium a-ki,
+	pre.arborium a-kp,
+	pre.arborium a-kr,
+	pre.arborium a-kt,
+	pre.arborium a-ky,
+	pre.arborium a-o {
+		color: #ff7b72;
+	}
+	pre.arborium a-pr {
+		color: #79c0ff;
+	}
+	pre.arborium a-p,
+	pre.arborium a-pb,
+	pre.arborium a-pd {
+		color: #e6edf3;
+	}
+	pre.arborium a-ps {
+		color: #79c0ff;
+	}
+	pre.arborium a-s {
+		color: #a5d6ff;
+	}
+	pre.arborium a-ss {
+		color: #ff7b72;
+	}
+	pre.arborium a-tg,
+	pre.arborium a-td,
+	pre.arborium a-te {
+		color: #7ee787;
+	}
+	pre.arborium a-t,
+	pre.arborium a-tb,
+	pre.arborium a-tq {
+		color: #ffa657;
+	}
+	pre.arborium a-v {
+		color: #e6edf3;
+	}
+	pre.arborium a-vb,
+	pre.arborium a-vp {
+		color: #ffa657;
+	}
+	pre.arborium a-c,
+	pre.arborium a-cd {
+		color: #8b949e;
+	}
+	pre.arborium a-m {
+		color: #79c0ff;
+	}
+	pre.arborium a-l {
+		color: #d2a8ff;
+	}
+	pre.arborium a-n {
+		color: #79c0ff;
+	}
+	pre.arborium a-tl {
+		color: #e6edf3;
+	}
+	pre.arborium a-em {
+		font-style: italic;
+	}
+	pre.arborium a-st {
+		font-weight: 700;
+	}
+	pre.arborium a-tu {
+		color: #58a6ff;
+		text-decoration: underline;
+	}
+	pre.arborium a-tr {
+		color: #d2a8ff;
+	}
+	pre.arborium a-se {
+		color: #79c0ff;
+	}
+	pre.arborium a-tt {
+		color: #d2a8ff;
+		font-weight: 700;
+	}
+	pre.arborium a-tx {
+		text-decoration: line-through;
+	}
+	pre.arborium a-sp {
+		color: #e6edf3;
+	}
+	pre.arborium a-in,
+	pre.arborium a-sc,
+	pre.arborium a-rp,
+	pre.arborium a-cn,
+	pre.arborium a-ex,
+	pre.arborium a-pp {
+		color: #ff7b72;
+	}
+	pre.arborium a-ch,
+	pre.arborium a-cs {
+		color: #a5d6ff;
+	}
+	pre.arborium a-vm {
+		color: #e6edf3;
+	}
+	pre.arborium a-fd {
+		color: #d2a8ff;
+	}
+	pre.arborium a-tf {
+		color: #ffa657;
+	}
+	pre.arborium a-fc {
+		color: #d2a8ff;
+	}
+	pre.arborium a-km,
+	pre.arborium a-dr {
+		color: #ff7b72;
+	}
+	pre.arborium a-rx {
+		color: #a5d6ff;
+	}
+}

@@ -1,0 +1,345 @@
+{
+	"changelogs": [
+		{
+			"id": "902",
+			"slug": "2024/05-16",
+			"title": "05-16-2024 Update",
+			"date": "2024-05-16T19:36:56.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": null,
+			"majorUpdate": false,
+			"summary": "Playtesting times are now starting 1 hour earlier. Weekdays are 6PM PDT and weekends are 4PM PDT. Redesigned the Walker model and visuals…",
+			"icons": {
+				"heroes": [
+					{
+						"id": 15,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp",
+						"alt": "Bebop",
+						"slug": "bebop",
+						"heroType": "brawler",
+						"changeCount": 3,
+						"type": "hero"
+					},
+					{
+						"id": 17,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp",
+						"alt": "Grey Talon",
+						"slug": "grey-talon",
+						"heroType": "marksman",
+						"changeCount": 1,
+						"type": "hero"
+					},
+					{
+						"id": 13,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp",
+						"alt": "Haze",
+						"slug": "haze",
+						"heroType": "assassin",
+						"changeCount": 4,
+						"type": "hero"
+					},
+					{
+						"id": 1,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp",
+						"alt": "Infernus",
+						"slug": "infernus",
+						"heroType": "marksman",
+						"changeCount": 1,
+						"type": "hero"
+					},
+					{
+						"id": 20,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp",
+						"alt": "Ivy",
+						"slug": "ivy",
+						"heroType": "marksman",
+						"changeCount": 1,
+						"type": "hero"
+					},
+					{
+						"id": 12,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp",
+						"alt": "Kelvin",
+						"slug": "kelvin",
+						"heroType": "brawler",
+						"changeCount": 3,
+						"type": "hero"
+					}
+				],
+				"items": [
+					{
+						"id": 1932939246,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/alchemical_fire.webp",
+						"alt": "Alchemical Fire",
+						"slug": "alchemical-fire",
+						"changeCount": 4,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 1414319208,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/berserker.webp",
+						"alt": "Berserker",
+						"slug": "berserker",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 1342610602,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/close_quarters.webp",
+						"alt": "Close Quarters",
+						"slug": "close-quarters",
+						"changeCount": 2,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 3144988365,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/decay.webp",
+						"alt": "Decay",
+						"slug": "decay",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 2820116164,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/diviners_kevlar.webp",
+						"alt": "Diviner's Kevlar",
+						"slug": "diviners-kevlar",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "vitality"
+					},
+					{
+						"id": 630839635,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/echo_shard.webp",
+						"alt": "Echo Shard",
+						"slug": "echo-shard",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "spirit"
+					}
+				]
+			},
+			"counts": { "heroes": 14, "items": 21 },
+			"matches": []
+		},
+		{
+			"id": "807",
+			"slug": "2024/05-13",
+			"title": "05-13-2024 Update",
+			"date": "2024-05-13T21:46:58.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": null,
+			"majorUpdate": false,
+			"summary": "The match will no longer start at a fixed time immediately after 12 players are in the queue, sometimes it might start faster sometimes it…",
+			"icons": { "heroes": [], "items": [] },
+			"counts": { "heroes": 0, "items": 0 },
+			"matches": []
+		},
+		{
+			"id": "689",
+			"slug": "2024/05-10",
+			"title": "05-10-2024 Update",
+			"date": "2024-05-10T21:38:18.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": null,
+			"majorUpdate": false,
+			"summary": "Sandbox mode now supports entering it with your party Sandbox mode now has troopers spawning on the left side Added Search By Match ID to…",
+			"icons": {
+				"heroes": [
+					{
+						"id": 6,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp",
+						"alt": "Abrams",
+						"slug": "abrams",
+						"heroType": "brawler",
+						"changeCount": 1,
+						"type": "hero"
+					},
+					{
+						"id": 15,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp",
+						"alt": "Bebop",
+						"slug": "bebop",
+						"heroType": "brawler",
+						"changeCount": 7,
+						"type": "hero"
+					},
+					{
+						"id": 17,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp",
+						"alt": "Grey Talon",
+						"slug": "grey-talon",
+						"heroType": "marksman",
+						"changeCount": 2,
+						"type": "hero"
+					},
+					{
+						"id": 1,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp",
+						"alt": "Infernus",
+						"slug": "infernus",
+						"heroType": "marksman",
+						"changeCount": 1,
+						"type": "hero"
+					},
+					{
+						"id": 20,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp",
+						"alt": "Ivy",
+						"slug": "ivy",
+						"heroType": "marksman",
+						"changeCount": 1,
+						"type": "hero"
+					},
+					{
+						"id": 12,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp",
+						"alt": "Kelvin",
+						"slug": "kelvin",
+						"heroType": "brawler",
+						"changeCount": 1,
+						"type": "hero"
+					}
+				],
+				"items": [
+					{
+						"id": 1932939246,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/alchemical_fire.webp",
+						"alt": "Alchemical Fire",
+						"slug": "alchemical-fire",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 3884003354,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/crippling_headshot.webp",
+						"alt": "Crippling Headshot",
+						"slug": "crippling-headshot",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 3144988365,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/decay.webp",
+						"alt": "Decay",
+						"slug": "decay",
+						"changeCount": 2,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 1662311306,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/divine_barrier.webp",
+						"alt": "Divine Barrier",
+						"slug": "divine-barrier",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "vitality"
+					},
+					{
+						"id": 2820116164,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/diviners_kevlar.webp",
+						"alt": "Diviner's Kevlar",
+						"slug": "diviners-kevlar",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "vitality"
+					},
+					{
+						"id": 2447176615,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/enduring_speed.webp",
+						"alt": "Enduring Speed",
+						"slug": "enduring-speed",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "vitality"
+					}
+				]
+			},
+			"counts": { "heroes": 15, "items": 23 },
+			"matches": []
+		},
+		{
+			"id": "427",
+			"slug": "2024/05-03",
+			"title": "05-03-2024 Update",
+			"date": "2024-05-03T20:02:54.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": null,
+			"majorUpdate": false,
+			"summary": "Added a Recommend A Friend button to the dashboard that you can use to send us requests for people to include in our playtesting Added a…",
+			"icons": {
+				"heroes": [
+					{
+						"id": 6,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp",
+						"alt": "Abrams",
+						"slug": "abrams",
+						"heroType": "brawler",
+						"changeCount": 2,
+						"type": "hero"
+					},
+					{
+						"id": 15,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp",
+						"alt": "Bebop",
+						"slug": "bebop",
+						"heroType": "brawler",
+						"changeCount": 1,
+						"type": "hero"
+					},
+					{
+						"id": 11,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp",
+						"alt": "Dynamo",
+						"slug": "dynamo",
+						"heroType": "mystic",
+						"changeCount": 2,
+						"type": "hero"
+					},
+					{
+						"id": 17,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp",
+						"alt": "Grey Talon",
+						"slug": "grey-talon",
+						"heroType": "marksman",
+						"changeCount": 3,
+						"type": "hero"
+					},
+					{
+						"id": 13,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp",
+						"alt": "Haze",
+						"slug": "haze",
+						"heroType": "assassin",
+						"changeCount": 2,
+						"type": "hero"
+					},
+					{
+						"id": 1,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp",
+						"alt": "Infernus",
+						"slug": "infernus",
+						"heroType": "marksman",
+						"changeCount": 2,
+						"type": "hero"
+					}
+				],
+				"items": []
+			},
+			"counts": { "heroes": 13, "items": 0 },
+			"matches": []
+		}
+	],
+	"hasMore": false
+}

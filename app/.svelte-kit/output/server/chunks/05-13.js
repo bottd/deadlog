@@ -1,0 +1,27 @@
+import { m as html } from './server2.js';
+/* empty css                      */
+//#region changelogs/2024/05-13.mg
+var metadata = {
+	title: '05-13-2024 Update',
+	thread_id: '807',
+	published: '2024-05-13T14:46:58-0700',
+	author: 'Yoshi',
+	author_image: '/assets/authors/yoshi.webp',
+	major_update: false,
+	content_text:
+		'The match will no longer start at a fixed time immediately after 12 players are in the queue, sometimes it might start faster sometimes it might start slower, depending on the distribution of players in the queue. There will still be an upper bound for how long it waits, for practical reasons, but it won’t automatically start asap if it knows the match won’t be good. Conversely, if the match is already reasonable it won’t wait unnecessarily to start it.​​- Parties that have too high of a gap between the players in them will often make for a bad experience for both teams, but especially the opponents. When we detect that your party has this composition, we will present a warning letting you know that this will result in a more difficult match for your party and might also take longer to find a game, so you can decide if you value the group/social aspect more or not. In terms of specific matchmaking changes, in cases where the party has a large gap in skill, the party’s overall skill will now be biased closer to the best player’s values rather than the average. This will make it less likely that the system grabs lower skilled players for the opposing team just because your party was ok with wide variance.​ We fixed a bug when combining shields and resistance that caused you to take too much damage. Previously there was a bug where if you take a high amount of damage, the remaining damage after shield reduction would pass through as pure damage instead of being reduced by resist. An example of this is someone dealing 800 spirit damage to you and you having 80 Spirit Shield and 45% Spirit Resistance. With the bug, the 800 would be reduced to 720 from the shield, and then you would lose 720 health. With the fix, the shield now reduces the damage to 720 as usual, but the remaining amount then gets reduced by 45% to 396 health lost instead of 720.​​- We are also nerfing Alchemical Fire. It now deals 40% less damage to non-heroes and the cooldown is increased from 25s to 37s.​'
+};
+var toc = [
+	{
+		level: 1,
+		title: 'General Changes',
+		id: 'general-changes'
+	}
+];
+function _5_13_mg($$renderer) {
+	$$renderer.push(
+		`${html('<h2 id="general-changes" data-mog-section="">General Changes</h2>\n<ul><li>The match will no longer start at a fixed time immediately after 12 players are in the queue, sometimes it might start faster sometimes it might start slower, depending on the distribution of players in the queue. There will still be an upper bound for how long it waits, for practical reasons, but it won’t automatically start asap if it knows the match won’t be good. Conversely, if the match is already reasonable it won’t wait unnecessarily to start it.​​- Parties that have too high of a gap between the players in them will often make for a bad experience for both teams, but especially the opponents. When we detect that your party has this composition, we will present a warning letting you know that this will result in a more difficult match for your party and might also take longer to find a game, so you can decide if you value the group/social aspect more or not. In terms of specific matchmaking changes, in cases where the party has a large gap in skill, the party’s overall skill will now be biased closer to the best player’s values rather than the average. This will make it less likely that the system grabs lower skilled players for the opposing team just because your party was ok with wide variance.​</li><li>We fixed a bug when combining shields and resistance that caused you to take too much damage. Previously there was a bug where if you take a high amount of damage, the remaining damage after shield reduction would pass through as pure damage instead of being reduced by resist. An example of this is someone dealing 800 spirit damage to you and you having 80 Spirit Shield and 45% Spirit Resistance. With the bug, the 800 would be reduced to 720 from the shield, and then you would lose 720 health. With the fix, the shield now reduces the damage to 720 as usual, but the remaining amount then gets reduced by 45% to 396 health lost instead of 720.​​- We are also nerfing Alchemical Fire. It now deals 40% less damage to non-heroes and the cooldown is increased from 25s to 37s.​</li></ul>\n')}`
+	);
+}
+//#endregion
+export { _5_13_mg as default, metadata, toc };

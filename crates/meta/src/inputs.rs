@@ -4,7 +4,7 @@
 use std::collections::HashMap;
 
 use deadlog_db::Snapshot;
-use deadlog_model::{HERO_CARD_IMAGE_KEYS, HERO_ICON_IMAGE_KEYS, count_bullets, hero_image};
+use deadlog_model::{HERO_CARD_IMAGE_KEYS, HERO_ICON_IMAGE_KEYS, hero_image};
 
 use crate::theme::{hero_tone, item_tone};
 
@@ -116,26 +116,22 @@ fn icons(snapshot: &Snapshot) -> HashMap<String, PatchIcons> {
 
     for link in &snapshot.hero_links {
         let Some(hero) = heroes.get(&link.hero_id) else { continue };
-        let groups =
-            link.change_groups.as_ref().map(|groups| groups.iter().map(|group| &group.bullets));
         result.entry(link.changelog_id.clone()).or_default().heroes.push(Icon {
             name: hero.name.clone(),
             slug: hero.slug.clone(),
             src: hero_image(&hero.images, &HERO_ICON_IMAGE_KEYS),
             tone: hero_tone(hero.hero_type.as_deref()),
-            change_count: count_bullets(groups),
+            change_count: link.change_count(),
         });
     }
     for link in &snapshot.item_links {
         let Some(item) = items.get(&link.item_id) else { continue };
-        let groups =
-            link.change_groups.as_ref().map(|groups| groups.iter().map(|group| &group.bullets));
         result.entry(link.changelog_id.clone()).or_default().items.push(Icon {
             name: item.name.clone(),
             slug: item.slug.clone(),
             src: item.image.clone(),
             tone: item_tone(item.category.as_deref()),
-            change_count: count_bullets(groups),
+            change_count: link.change_count(),
         });
     }
     for icons in result.values_mut() {

@@ -2,7 +2,7 @@
 //! serves as immutable; everything else in `static/` keeps its path.
 
 use std::fs;
-use std::path::{Path, PathBuf};
+use std::path::Path;
 
 use anyhow::{Context, Result, anyhow};
 use lightningcss::bundler::{Bundler, FileProvider};
@@ -10,6 +10,7 @@ use lightningcss::stylesheet::{MinifyOptions, ParserOptions, PrinterOptions};
 use lightningcss::targets::{Browsers, Targets};
 use sha2::{Digest, Sha256};
 
+use crate::BuildOptions;
 use crate::output::Output;
 
 pub const ASSET_DIR: &str = "_assets";
@@ -65,23 +66,12 @@ pub fn bundle_css(entry: &Path, minify: bool) -> Result<String> {
     Ok(css.code)
 }
 
-pub struct WebDirs {
-    pub css: PathBuf,
-    pub js: PathBuf,
-    pub static_dir: PathBuf,
-}
-
-pub struct AssetOptions {
-    pub minify: bool,
-    pub analytics: bool,
-}
-
-pub fn build_assets(dirs: &WebDirs, options: &AssetOptions, output: &mut Output) -> Result<Assets> {
-    let css = bundle_css(&dirs.css.join("site.css"), options.minify)?;
+pub fn build_assets(options: &BuildOptions, output: &mut Output) -> Result<Assets> {
+    let css = bundle_css(&options.web.join("css/site.css"), options.minify)?;
     let css = hashed(output, "site", "css", css.into_bytes());
 
     let read = |name: &str| {
-        fs::read_to_string(dirs.js.join(name)).with_context(|| format!("reading web/js/{name}"))
+        fs::read_to_string(options.web.join("js").join(name)).with_context(|| format!("reading web/js/{name}"))
     };
     let search = hashed(output, "search", "js", read("search.js")?.into_bytes());
     let site = read("site.js")?.replace("__SEARCH_MODULE__", &search);
@@ -91,10 +81,9 @@ pub fn build_assets(dirs: &WebDirs, options: &AssetOptions, output: &mut Output)
         css,
         js,
         speculation_rules: speculation_rules(),
-        analytics: options.analytics.then(|| Analytics {
-            site_id: "deadlog-io".into(),
-            src: "https://a.drake.dev/tracker.js".into(),
-        }),
+        analytics: options
+            .analytics
+            .then(|| Analytics { site_id: "deadlog-io".into(), src: "https://a.drake.dev/tracker.js".into() }),
     })
 }
 

@@ -12,3 +12,6 @@ serve = ["deadlog-site/serve"]
 anyhow.workspace = true
 clap.workspace = true
 deadlog-site.workspace = true
+deadlog-meta = { path = "../meta" }
+deadlog-scraper = { path = "../scraper" }
+deadlog-stats = { path = "../stats" }

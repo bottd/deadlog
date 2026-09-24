@@ -33,19 +33,19 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build database
-        run: pnpm run build:db
+        run: deadlog db
 
       - name: Refresh stats snapshot
         env:
           REBUILD_FLAG: ${{ inputs.rebuild && '--rebuild' || '' }}
-        run: pnpm run build:stats $REBUILD_FLAG
+        run: deadlog stats $REBUILD_FLAG
 
       - name: Rebuild database with the refreshed stats
-        run: pnpm run build:db
+        run: deadlog db
 
       - name: Refresh related items
         continue-on-error: true
-        run: pnpm run build:related
+        run: deadlog related
 
       - name: Persist snapshot and deploy
         env:

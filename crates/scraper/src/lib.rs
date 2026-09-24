@@ -7,7 +7,6 @@ pub mod content;
 pub mod hero_abilities;
 mod html;
 pub mod http;
-mod js;
 pub mod pipeline;
 
 use std::path::{Path, PathBuf};
@@ -42,7 +41,7 @@ pub struct ScrapeOptions {
     pub changelogs_dir: PathBuf,
     /// `OUTPUT_DIR`, default `app/static`; `deadlog.db` lands here.
     pub output_dir: PathBuf,
-    /// Scraped forum posts, default `lib/scraper/src/cache/posts`.
+    /// Scraped forum posts, default `crates/scraper/cache`.
     pub cache_dir: PathBuf,
     /// Pause between forum requests.
     pub delay: std::time::Duration,
@@ -79,8 +78,9 @@ pub struct RunOutcome {
 
 fn snapshot(http: &dyn Http, options: &ScrapeOptions) -> Result<EntitySnapshot> {
     if options.offline_snapshot {
-        return read_entity_snapshot(&options.changelogs_dir)
-            .with_context(|| format!("no usable snapshot at {}", entity_snapshot_path(&options.changelogs_dir).display()));
+        return read_entity_snapshot(&options.changelogs_dir).with_context(|| {
+            format!("no usable snapshot at {}", entity_snapshot_path(&options.changelogs_dir).display())
+        });
     }
     load_entity_snapshot(http, &options.changelogs_dir, &now_iso())
 }

@@ -1,6 +1,8 @@
 use std::collections::HashMap;
 use std::hash::Hash;
 
+use crate::js::is_js_whitespace;
+
 pub fn to_slug(name: &str) -> String {
     let lowered = name.to_lowercase();
     let kept: String = lowered
@@ -30,19 +32,11 @@ pub fn canonical_slug(slug: &str) -> String {
 }
 
 pub fn decode_entity_name(name: &str) -> String {
-    name.replace("&amp;", "&")
-        .replace("&quot;", "\"")
-        .replace("&apos;", "'")
-        .replace("&#39;", "'")
-}
-
-/// JS `\s` — Unicode whitespace plus the BOM.
-pub fn is_js_space(c: char) -> bool {
-    c.is_whitespace() || c == '\u{feff}'
+    name.replace("&amp;", "&").replace("&quot;", "\"").replace("&apos;", "'").replace("&#39;", "'")
 }
 
 pub fn collapse_whitespace(text: &str) -> String {
-    text.split(is_js_space).filter(|part| !part.is_empty()).collect::<Vec<_>>().join(" ")
+    text.split(is_js_whitespace).filter(|part| !part.is_empty()).collect::<Vec<_>>().join(" ")
 }
 
 pub fn normalize_entity_name(name: &str) -> String {
@@ -55,7 +49,7 @@ pub fn entity_name_aliases(name: &str) -> Vec<String> {
         if let Some(rest) = normalized.strip_prefix(article)
             && rest.starts_with(' ')
         {
-            let without = rest.trim_start_matches(is_js_space).to_string();
+            let without = rest.trim_start_matches(is_js_whitespace).to_string();
             return vec![normalized, without];
         }
     }

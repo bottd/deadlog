@@ -1,0 +1,1094 @@
+{
+	"changelogs": [
+		{
+			"id": "72760",
+			"slug": "2025/07-29",
+			"title": "07-29-2025 Update",
+			"date": "2025-07-29T22:22:52.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": null,
+			"majorUpdate": true,
+			"summary": "Mid Boss HP is now fixed at the spawn time. Base HP increased from 6725 to 12500 and growth reduced from 470 to 200. Reworked Rejuv reward…",
+			"icons": {
+				"heroes": [
+					{
+						"id": 15,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp",
+						"alt": "Bebop",
+						"slug": "bebop",
+						"heroType": "brawler",
+						"changeCount": 6,
+						"type": "hero"
+					},
+					{
+						"id": 11,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp",
+						"alt": "Dynamo",
+						"slug": "dynamo",
+						"heroType": "mystic",
+						"changeCount": 1,
+						"type": "hero"
+					},
+					{
+						"id": 17,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp",
+						"alt": "Grey Talon",
+						"slug": "grey-talon",
+						"heroType": "marksman",
+						"changeCount": 2,
+						"type": "hero"
+					},
+					{
+						"id": 12,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp",
+						"alt": "Kelvin",
+						"slug": "kelvin",
+						"heroType": "brawler",
+						"changeCount": 1,
+						"type": "hero"
+					},
+					{
+						"id": 4,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp",
+						"alt": "Lady Geist",
+						"slug": "lady-geist",
+						"heroType": "mystic",
+						"changeCount": 5,
+						"type": "hero"
+					},
+					{
+						"id": 8,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp",
+						"alt": "McGinnis",
+						"slug": "mcginnis",
+						"heroType": "mystic",
+						"changeCount": 6,
+						"type": "hero"
+					}
+				],
+				"items": [
+					{
+						"id": 673001892,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/armor_piercing_rounds.webp",
+						"alt": "Armor Piercing Rounds",
+						"slug": "armor-piercing-rounds",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 1414319208,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/berserker.webp",
+						"alt": "Berserker",
+						"slug": "berserker",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 989206714,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/blood_tribute.webp",
+						"alt": "Blood Tribute",
+						"slug": "blood-tribute",
+						"changeCount": 3,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 2971868509,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/bullet_resist_shredder.webp",
+						"alt": "Bullet Resist Shredder",
+						"slug": "bullet-resist-shredder",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 710436191,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/capacitor.webp",
+						"alt": "Capacitor",
+						"slug": "capacitor",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 3361811174,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/cheat_death.webp",
+						"alt": "Cheat Death",
+						"slug": "cheat-death",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "vitality"
+					}
+				]
+			},
+			"counts": { "heroes": 17, "items": 40 },
+			"matches": []
+		},
+		{
+			"id": "70156",
+			"slug": "2025/07-04",
+			"title": "07-04-2025 Update",
+			"date": "2025-07-04T20:03:43.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": null,
+			"majorUpdate": true,
+			"summary": "Bullet Cycle Time for all heroes increased by 5% (effectively reduces gun DPS globally by 5%) Spirit bonus based on souls spent in the tree…",
+			"icons": {
+				"heroes": [
+					{
+						"id": 6,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp",
+						"alt": "Abrams",
+						"slug": "abrams",
+						"heroType": "brawler",
+						"changeCount": 2,
+						"type": "hero"
+					},
+					{
+						"id": 1,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp",
+						"alt": "Infernus",
+						"slug": "infernus",
+						"heroType": "marksman",
+						"changeCount": 5,
+						"type": "hero"
+					},
+					{
+						"id": 20,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp",
+						"alt": "Ivy",
+						"slug": "ivy",
+						"heroType": "marksman",
+						"changeCount": 3,
+						"type": "hero"
+					},
+					{
+						"id": 12,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp",
+						"alt": "Kelvin",
+						"slug": "kelvin",
+						"heroType": "brawler",
+						"changeCount": 1,
+						"type": "hero"
+					},
+					{
+						"id": 4,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp",
+						"alt": "Lady Geist",
+						"slug": "lady-geist",
+						"heroType": "mystic",
+						"changeCount": 6,
+						"type": "hero"
+					},
+					{
+						"id": 31,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp",
+						"alt": "Lash",
+						"slug": "lash",
+						"heroType": "assassin",
+						"changeCount": 2,
+						"type": "hero"
+					}
+				],
+				"items": [
+					{
+						"id": 989206714,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/blood_tribute.webp",
+						"alt": "Blood Tribute",
+						"slug": "blood-tribute",
+						"changeCount": 3,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 2519598785,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/boundless_spirit.webp",
+						"alt": "Boundless Spirit",
+						"slug": "boundless-spirit",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 3361811174,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/cheat_death.webp",
+						"alt": "Cheat Death",
+						"slug": "cheat-death",
+						"changeCount": 2,
+						"type": "item",
+						"itemCategory": "vitality"
+					},
+					{
+						"id": 1414025773,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/counterspell.webp",
+						"alt": "Counterspell",
+						"slug": "counterspell",
+						"changeCount": 3,
+						"type": "item",
+						"itemCategory": "vitality"
+					},
+					{
+						"id": 2061878743,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/disarming_hex.webp",
+						"alt": "Disarming Hex",
+						"slug": "disarming-hex",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 1662311306,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/divine_barrier.webp",
+						"alt": "Divine Barrier",
+						"slug": "divine-barrier",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "vitality"
+					}
+				]
+			},
+			"counts": { "heroes": 14, "items": 38 },
+			"matches": []
+		},
+		{
+			"id": "68401",
+			"slug": "2025/06-17",
+			"title": "06-17-2025 Update",
+			"date": "2025-06-17T20:34:00.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": null,
+			"majorUpdate": false,
+			"summary": "Removed the Arch Monument. Removed the rope entrances to Mid Boss. Removed barrels and kiosk low cover. Replaced bridge with a larger…",
+			"icons": {
+				"heroes": [
+					{
+						"id": 16,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp",
+						"alt": "Calico",
+						"slug": "calico",
+						"heroType": "assassin",
+						"changeCount": 5,
+						"type": "hero"
+					},
+					{
+						"id": 12,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp",
+						"alt": "Kelvin",
+						"slug": "kelvin",
+						"heroType": "brawler",
+						"changeCount": 2,
+						"type": "hero"
+					},
+					{
+						"id": 4,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp",
+						"alt": "Lady Geist",
+						"slug": "lady-geist",
+						"heroType": "mystic",
+						"changeCount": 3,
+						"type": "hero"
+					},
+					{
+						"id": 35,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp",
+						"alt": "Viscous",
+						"slug": "viscous",
+						"heroType": "mystic",
+						"changeCount": 3,
+						"type": "hero"
+					},
+					{
+						"id": 25,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp",
+						"alt": "Warden",
+						"slug": "warden",
+						"heroType": "brawler",
+						"changeCount": 4,
+						"type": "hero"
+					},
+					{
+						"id": 7,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp",
+						"alt": "Wraith",
+						"slug": "wraith",
+						"heroType": "marksman",
+						"changeCount": 7,
+						"type": "hero"
+					}
+				],
+				"items": [
+					{
+						"id": 3140772621,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/bullet_resilience.webp",
+						"alt": "Bullet Resilience",
+						"slug": "bullet-resilience",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "vitality"
+					},
+					{
+						"id": 3970837787,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/enchanters_emblem.webp",
+						"alt": "Enchanter's Emblem",
+						"slug": "enchanters-emblem",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "vitality"
+					},
+					{
+						"id": 2829638276,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/extra_regen.webp",
+						"alt": "Extra Regen",
+						"slug": "extra-regen",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "vitality"
+					},
+					{
+						"id": 3585132399,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/fortitude.webp",
+						"alt": "Fortitude",
+						"slug": "fortitude",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "vitality"
+					},
+					{
+						"id": 2566692615,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/healing_booster.webp",
+						"alt": "Healing Booster",
+						"slug": "healing-booster",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "vitality"
+					},
+					{
+						"id": 2064029594,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/opening_rounds.webp",
+						"alt": "Opening Rounds",
+						"slug": "opening-rounds",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					}
+				]
+			},
+			"counts": { "heroes": 6, "items": 10 },
+			"matches": []
+		},
+		{
+			"id": "66453",
+			"slug": "2025/05-27",
+			"title": "05-27-2025 Update",
+			"date": "2025-05-27T23:47:06.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": null,
+			"majorUpdate": false,
+			"summary": "Breakable souls rescaled from 28.5 + 2.375/min to 23 + 2.6/min Trooper resistance near base reduced from 40% to 35% Fixed a bug where Urn…",
+			"icons": {
+				"heroes": [
+					{
+						"id": 6,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp",
+						"alt": "Abrams",
+						"slug": "abrams",
+						"heroType": "brawler",
+						"changeCount": 8,
+						"type": "hero"
+					},
+					{
+						"id": 15,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp",
+						"alt": "Bebop",
+						"slug": "bebop",
+						"heroType": "brawler",
+						"changeCount": 2,
+						"type": "hero"
+					},
+					{
+						"id": 16,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp",
+						"alt": "Calico",
+						"slug": "calico",
+						"heroType": "assassin",
+						"changeCount": 7,
+						"type": "hero"
+					},
+					{
+						"id": 17,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp",
+						"alt": "Grey Talon",
+						"slug": "grey-talon",
+						"heroType": "marksman",
+						"changeCount": 4,
+						"type": "hero"
+					},
+					{
+						"id": 14,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp",
+						"alt": "Holliday",
+						"slug": "holliday",
+						"heroType": "marksman",
+						"changeCount": 3,
+						"type": "hero"
+					},
+					{
+						"id": 1,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp",
+						"alt": "Infernus",
+						"slug": "infernus",
+						"heroType": "marksman",
+						"changeCount": 1,
+						"type": "hero"
+					}
+				],
+				"items": [
+					{
+						"id": 673001892,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/armor_piercing_rounds.webp",
+						"alt": "Armor Piercing Rounds",
+						"slug": "armor-piercing-rounds",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 989206714,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/blood_tribute.webp",
+						"alt": "Blood Tribute",
+						"slug": "blood-tribute",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 2519598785,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/boundless_spirit.webp",
+						"alt": "Boundless Spirit",
+						"slug": "boundless-spirit",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 1414025773,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/counterspell.webp",
+						"alt": "Counterspell",
+						"slug": "counterspell",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "vitality"
+					},
+					{
+						"id": 3884003354,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/crippling_headshot.webp",
+						"alt": "Crippling Headshot",
+						"slug": "crippling-headshot",
+						"changeCount": 2,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 800008313,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/crushing_fists.webp",
+						"alt": "Crushing Fists",
+						"slug": "crushing-fists",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					}
+				]
+			},
+			"counts": { "heroes": 15, "items": 22 },
+			"matches": []
+		},
+		{
+			"id": "65674",
+			"slug": "2025/05-21",
+			"title": "05-21-2025 Update",
+			"date": "2025-05-21T22:55:33.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": null,
+			"majorUpdate": false,
+			"summary": "Troopers will now only flinch from player damage if it is a headshot while the trooper is busy running. Trooper resistance near base…",
+			"icons": {
+				"heroes": [],
+				"items": [
+					{
+						"id": 3144988365,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/decay.webp",
+						"alt": "Decay",
+						"slug": "decay",
+						"changeCount": 5,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 690458959,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/express_shot.webp",
+						"alt": "Express Shot",
+						"slug": "express-shot",
+						"changeCount": 2,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 339443430,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/frenzy.webp",
+						"alt": "Frenzy",
+						"slug": "frenzy",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 4053935515,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/headhunter.webp",
+						"alt": "Headhunter",
+						"slug": "headhunter",
+						"changeCount": 4,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 2010028405,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/headshot_booster.webp",
+						"alt": "Headshot Booster",
+						"slug": "headshot-booster",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 1282141666,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/siphon_bullets.webp",
+						"alt": "Siphon Bullets",
+						"slug": "siphon-bullets",
+						"changeCount": 3,
+						"type": "item",
+						"itemCategory": "vitality"
+					}
+				]
+			},
+			"counts": { "heroes": 0, "items": 8 },
+			"matches": []
+		},
+		{
+			"id": "65381",
+			"slug": "2025/05-19",
+			"title": "05-19-2025 Update",
+			"date": "2025-05-20T00:12:38.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": null,
+			"majorUpdate": false,
+			"summary": "Troopers now gain 50% resistance when they are in near the base (this has been 30% the past few days) Distance allowed to shoot Shrines…",
+			"icons": {
+				"heroes": [
+					{
+						"id": 6,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp",
+						"alt": "Abrams",
+						"slug": "abrams",
+						"heroType": "brawler",
+						"changeCount": 1,
+						"type": "hero"
+					},
+					{
+						"id": 11,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp",
+						"alt": "Dynamo",
+						"slug": "dynamo",
+						"heroType": "mystic",
+						"changeCount": 1,
+						"type": "hero"
+					},
+					{
+						"id": 12,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp",
+						"alt": "Kelvin",
+						"slug": "kelvin",
+						"heroType": "brawler",
+						"changeCount": 1,
+						"type": "hero"
+					},
+					{
+						"id": 4,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp",
+						"alt": "Lady Geist",
+						"slug": "lady-geist",
+						"heroType": "mystic",
+						"changeCount": 3,
+						"type": "hero"
+					},
+					{
+						"id": 8,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp",
+						"alt": "McGinnis",
+						"slug": "mcginnis",
+						"heroType": "mystic",
+						"changeCount": 1,
+						"type": "hero"
+					},
+					{
+						"id": 19,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp",
+						"alt": "Shiv",
+						"slug": "shiv",
+						"heroType": "brawler",
+						"changeCount": 3,
+						"type": "hero"
+					}
+				],
+				"items": [
+					{
+						"id": 381961617,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/active_reload.webp",
+						"alt": "Active Reload",
+						"slug": "active-reload",
+						"changeCount": 2,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 1932939246,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/alchemical_fire.webp",
+						"alt": "Alchemical Fire",
+						"slug": "alchemical-fire",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 1150006784,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/arcane_surge.webp",
+						"alt": "Arcane Surge",
+						"slug": "arcane-surge",
+						"changeCount": 2,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 3812615317,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/arctic_blast.webp",
+						"alt": "Arctic Blast",
+						"slug": "arctic-blast",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 673001892,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/armor_piercing_rounds.webp",
+						"alt": "Armor Piercing Rounds",
+						"slug": "armor-piercing-rounds",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 1414319208,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/berserker.webp",
+						"alt": "Berserker",
+						"slug": "berserker",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					}
+				]
+			},
+			"counts": { "heroes": 10, "items": 90 },
+			"matches": []
+		},
+		{
+			"id": "64113",
+			"slug": "2025/05-11",
+			"title": "05-11-2025 Update",
+			"date": "2025-05-11T19:06:03.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": null,
+			"majorUpdate": false,
+			"summary": "Weapon tree investment bonus increased by 6-12% (from 6/8/12/18/26/36/52/68/78/88% to 7/9/13/20/29/40/58/72/83/93) Spirit Power scaling…",
+			"icons": {
+				"heroes": [
+					{
+						"id": 4,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp",
+						"alt": "Lady Geist",
+						"slug": "lady-geist",
+						"heroType": "mystic",
+						"changeCount": 4,
+						"type": "hero"
+					},
+					{
+						"id": 50,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp",
+						"alt": "Pocket",
+						"slug": "pocket",
+						"heroType": "assassin",
+						"changeCount": 1,
+						"type": "hero"
+					},
+					{
+						"id": 19,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp",
+						"alt": "Shiv",
+						"slug": "shiv",
+						"heroType": "brawler",
+						"changeCount": 2,
+						"type": "hero"
+					},
+					{
+						"id": 58,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kali_sm.webp",
+						"alt": "Vyper",
+						"slug": "vyper",
+						"heroType": "assassin",
+						"changeCount": 2,
+						"type": "hero"
+					}
+				],
+				"items": [
+					{
+						"id": 381961617,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/active_reload.webp",
+						"alt": "Active Reload",
+						"slug": "active-reload",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 2519598785,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/boundless_spirit.webp",
+						"alt": "Boundless Spirit",
+						"slug": "boundless-spirit",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 710436191,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/capacitor.webp",
+						"alt": "Capacitor",
+						"slug": "capacitor",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 709540378,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/cultist_sacrifice.webp",
+						"alt": "Cultist Sacrifice",
+						"slug": "cultist-sacrifice",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 3144988365,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/decay.webp",
+						"alt": "Decay",
+						"slug": "decay",
+						"changeCount": 3,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 1662311306,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/divine_barrier.webp",
+						"alt": "Divine Barrier",
+						"slug": "divine-barrier",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "vitality"
+					}
+				]
+			},
+			"counts": { "heroes": 4, "items": 15 },
+			"matches": []
+		},
+		{
+			"id": "63133",
+			"slug": "2025/05-08",
+			"title": "Shop Rework Update",
+			"date": "2025-05-08T19:33:12.000Z",
+			"author": "mystery *******",
+			"authorImage": "/assets/authors/deadlock.webp",
+			"previewImage": "https://clan.akamai.steamstatic.com/images/45164767/0908b05b0e83747ca99a9337d401daf3a662f85d.png",
+			"majorUpdate": true,
+			"summary": "Full shop rework, including many new items. Item slots are now all universal, rather than tree specific. Total slot count reduced from 16…",
+			"icons": { "heroes": [], "items": [] },
+			"counts": { "heroes": 0, "items": 0 },
+			"matches": []
+		},
+		{
+			"id": "61382",
+			"slug": "2025/04-17",
+			"title": "04-17-2025 Update",
+			"date": "2025-04-18T01:40:16.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": null,
+			"majorUpdate": false,
+			"summary": "Soul Orbs no longer have special duplication rules before 8 minutes. Soul splitting rules are now the same before 8 minutes as afterwards.…",
+			"icons": {
+				"heroes": [
+					{
+						"id": 15,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp",
+						"alt": "Bebop",
+						"slug": "bebop",
+						"heroType": "brawler",
+						"changeCount": 3,
+						"type": "hero"
+					},
+					{
+						"id": 16,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp",
+						"alt": "Calico",
+						"slug": "calico",
+						"heroType": "assassin",
+						"changeCount": 3,
+						"type": "hero"
+					},
+					{
+						"id": 17,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp",
+						"alt": "Grey Talon",
+						"slug": "grey-talon",
+						"heroType": "marksman",
+						"changeCount": 5,
+						"type": "hero"
+					},
+					{
+						"id": 13,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp",
+						"alt": "Haze",
+						"slug": "haze",
+						"heroType": "assassin",
+						"changeCount": 4,
+						"type": "hero"
+					},
+					{
+						"id": 14,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp",
+						"alt": "Holliday",
+						"slug": "holliday",
+						"heroType": "marksman",
+						"changeCount": 4,
+						"type": "hero"
+					},
+					{
+						"id": 20,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp",
+						"alt": "Ivy",
+						"slug": "ivy",
+						"heroType": "marksman",
+						"changeCount": 2,
+						"type": "hero"
+					}
+				],
+				"items": [
+					{
+						"id": 1047818222,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/debuff_reducer.webp",
+						"alt": "Debuff Reducer",
+						"slug": "debuff-reducer",
+						"changeCount": 2,
+						"type": "item",
+						"itemCategory": "vitality"
+					},
+					{
+						"id": 3144988365,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/decay.webp",
+						"alt": "Decay",
+						"slug": "decay",
+						"changeCount": 3,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 1662311306,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/divine_barrier.webp",
+						"alt": "Divine Barrier",
+						"slug": "divine-barrier",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "vitality"
+					},
+					{
+						"id": 630839635,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/echo_shard.webp",
+						"alt": "Echo Shard",
+						"slug": "echo-shard",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 2533252781,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/ethereal_shift.webp",
+						"alt": "Ethereal Shift",
+						"slug": "ethereal-shift",
+						"changeCount": 4,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 3585132399,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/fortitude.webp",
+						"alt": "Fortitude",
+						"slug": "fortitude",
+						"changeCount": 2,
+						"type": "item",
+						"itemCategory": "vitality"
+					}
+				]
+			},
+			"counts": { "heroes": 18, "items": 12 },
+			"matches": []
+		},
+		{
+			"id": "60284",
+			"slug": "2025/04-04",
+			"title": "04-04-2025 Update",
+			"date": "2025-04-04T23:35:38.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": null,
+			"majorUpdate": false,
+			"summary": "Added an option to allow canceling abilities with the ability key to the main options page. Soul orb spawn delay range increased from…",
+			"icons": {
+				"heroes": [
+					{
+						"id": 16,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp",
+						"alt": "Calico",
+						"slug": "calico",
+						"heroType": "assassin",
+						"changeCount": 3,
+						"type": "hero"
+					},
+					{
+						"id": 14,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp",
+						"alt": "Holliday",
+						"slug": "holliday",
+						"heroType": "marksman",
+						"changeCount": 2,
+						"type": "hero"
+					},
+					{
+						"id": 52,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp",
+						"alt": "Mirage",
+						"slug": "mirage",
+						"heroType": "assassin",
+						"changeCount": 1,
+						"type": "hero"
+					},
+					{
+						"id": 2,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp",
+						"alt": "Seven",
+						"slug": "seven",
+						"heroType": "mystic",
+						"changeCount": 1,
+						"type": "hero"
+					},
+					{
+						"id": 60,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/magician_sm.webp",
+						"alt": "Sinclair",
+						"slug": "sinclair",
+						"heroType": "mystic",
+						"changeCount": 3,
+						"type": "hero"
+					},
+					{
+						"id": 3,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp",
+						"alt": "Vindicta",
+						"slug": "vindicta",
+						"heroType": "marksman",
+						"changeCount": 2,
+						"type": "hero"
+					}
+				],
+				"items": [
+					{
+						"id": 1797283378,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/infuser.webp",
+						"alt": "Infuser",
+						"slug": "infuser",
+						"changeCount": 2,
+						"type": "item",
+						"itemCategory": "vitality"
+					}
+				]
+			},
+			"counts": { "heroes": 6, "items": 1 },
+			"matches": []
+		},
+		{
+			"id": "59098",
+			"slug": "2025/03-19",
+			"title": "03-19-2025 Update",
+			"date": "2025-03-20T02:36:14.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": null,
+			"majorUpdate": false,
+			"summary": "Sprint increased by +0.5 for all heroes",
+			"icons": { "heroes": [], "items": [] },
+			"counts": { "heroes": 0, "items": 0 },
+			"matches": []
+		},
+		{
+			"id": "58880",
+			"slug": "2025/03-16",
+			"title": "03-16-2025 Update",
+			"date": "2025-03-17T00:30:59.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": null,
+			"majorUpdate": false,
+			"summary": "Neutral bounty increased by 5% Sinner's Sacrifice initial spawn time reduced from 10 min to 8 min (respawn rate is still 5 min) Fixed a bug…",
+			"icons": {
+				"heroes": [],
+				"items": [
+					{
+						"id": 1662311306,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/divine_barrier.webp",
+						"alt": "Divine Barrier",
+						"slug": "divine-barrier",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "vitality"
+					},
+					{
+						"id": 2059712766,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/restorative_locket.webp",
+						"alt": "Restorative Locket",
+						"slug": "restorative-locket",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "vitality"
+					}
+				]
+			},
+			"counts": { "heroes": 0, "items": 2 },
+			"matches": []
+		}
+	],
+	"hasMore": true
+}

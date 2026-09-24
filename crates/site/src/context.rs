@@ -66,10 +66,6 @@ impl<'a> Site<'a> {
         self.changelog_index.get(id).map(|&index| &self.db.changelogs[index])
     }
 
-    pub fn changelog_by_slug(&self, slug: &str) -> Option<&'a Changelog> {
-        self.db.changelogs.iter().find(|row| row.slug == slug)
-    }
-
     pub fn hero(&self, id: i64) -> Option<&'a Hero> {
         self.hero_index.get(&id).map(|&index| &self.db.heroes[index])
     }
@@ -110,23 +106,15 @@ impl<'a> Site<'a> {
 
     /// Released, or ever mentioned in a patch — `getRenderableHeroSlugs`.
     pub fn renderable_heroes(&self) -> Vec<&'a Hero> {
-        let mut heroes: Vec<&Hero> = self
-            .db
-            .heroes
-            .iter()
-            .filter(|hero| hero.is_released || self.hero_history.contains_key(&hero.id))
-            .collect();
+        let mut heroes: Vec<&Hero> =
+            self.db.heroes.iter().filter(|hero| hero.is_released || self.hero_history.contains_key(&hero.id)).collect();
         heroes.sort_by(|a, b| a.slug.cmp(&b.slug));
         heroes
     }
 
     pub fn renderable_items(&self) -> Vec<&'a Item> {
-        let mut items: Vec<&Item> = self
-            .db
-            .items
-            .iter()
-            .filter(|item| item.is_released || self.item_history.contains_key(&item.id))
-            .collect();
+        let mut items: Vec<&Item> =
+            self.db.items.iter().filter(|item| item.is_released || self.item_history.contains_key(&item.id)).collect();
         items.sort_by(|a, b| a.slug.cmp(&b.slug));
         items
     }
@@ -160,29 +148,4 @@ pub fn hero_card_image(hero: &Hero) -> String {
 
 pub fn hero_icon_image(hero: &Hero) -> String {
     hero_image(&hero.images, &HERO_ICON_IMAGE_KEYS)
-}
-
-/// `String.prototype.localeCompare` for the names the directories sort, which are Latin
-/// letters, digits, spaces and a little punctuation. ICU's root collation orders
-/// whitespace before punctuation before digits before letters, compares letters
-/// case-insensitively, and only then puts lowercase ahead of uppercase.
-pub fn locale_compare(a: &str, b: &str) -> std::cmp::Ordering {
-    fn primary(text: &str) -> Vec<(u8, char)> {
-        text.chars()
-            .flat_map(char::to_lowercase)
-            .map(|c| {
-                let class = if c.is_whitespace() {
-                    0
-                } else if c.is_numeric() {
-                    2
-                } else if c.is_alphabetic() {
-                    3
-                } else {
-                    1
-                };
-                (class, c)
-            })
-            .collect()
-    }
-    primary(a).cmp(&primary(b)).then_with(|| b.cmp(a))
 }

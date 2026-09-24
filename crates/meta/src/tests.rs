@@ -16,10 +16,8 @@ const PIXEL: &str = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAA
 
 fn renderer() -> &'static Renderer {
     static RENDERER: OnceLock<Renderer> = OnceLock::new();
-    RENDERER.get_or_init(|| {
-        Renderer::new(&Path::new(env!("CARGO_MANIFEST_DIR")).join("../../app/static/fonts"))
-            .unwrap()
-    })
+    RENDERER
+        .get_or_init(|| Renderer::new(&Path::new(env!("CARGO_MANIFEST_DIR")).join("../../app/static/fonts")).unwrap())
 }
 
 struct TempDir(PathBuf);
@@ -39,12 +37,7 @@ impl Drop for TempDir {
 }
 
 fn hero(name: &str, slug: &str, hero_type: Option<&str>, image: &str) -> HeroEntry {
-    HeroEntry {
-        name: name.into(),
-        slug: slug.into(),
-        hero_type: hero_type.map(Into::into),
-        image: image.into(),
-    }
+    HeroEntry { name: name.into(), slug: slug.into(), hero_type: hero_type.map(Into::into), image: image.into() }
 }
 
 fn item(name: &str, slug: &str, image: &str) -> ItemEntry {
@@ -202,12 +195,7 @@ const SCENARIOS: [Scenario; 8] = [
         changes: "0+ CHANGES",
         history: "Last mentioned in the September 15th, 2026 patch.",
     },
-    Scenario {
-        counts: &[],
-        named: false,
-        changes: "0 CHANGES",
-        history: "No changes recorded yet.",
-    },
+    Scenario { counts: &[], named: false, changes: "0 CHANGES", history: "No changes recorded yet." },
 ];
 
 fn scenario_inputs(scenario: &Scenario) -> Inputs {
@@ -218,11 +206,7 @@ fn scenario_inputs(scenario: &Scenario) -> Inputs {
         .enumerate()
         .map(|(index, _)| {
             let day = if index == 0 { "01" } else { "15" };
-            let title = if scenario.named {
-                "Matchmaking Update".to_string()
-            } else {
-                format!("09-{day}-2026")
-            };
+            let title = if scenario.named { "Matchmaking Update".to_string() } else { format!("09-{day}-2026") };
             patch(&format!("patch-{index}"), &title, &format!("2026-09-{day}T20:00:00.000Z"))
         })
         .collect();
@@ -351,19 +335,9 @@ fn fits(node: Value) {
     let plate = &root.children[0];
     let slot = plate.children.last().unwrap();
     let body = &slot.children[0];
-    assert!(
-        body.height <= slot.height,
-        "layout is taller than the plate: {} > {}",
-        body.height,
-        slot.height
-    );
+    assert!(body.height <= slot.height, "layout is taller than the plate: {} > {}", body.height, slot.height);
     for child in &body.children {
-        assert!(
-            child.width <= slot.width,
-            "a block is wider than the plate: {} > {}",
-            child.width,
-            slot.width
-        );
+        assert!(child.width <= slot.width, "a block is wider than the plate: {} > {}", child.width, slot.width);
     }
 }
 
@@ -392,10 +366,7 @@ fn patch_card() -> ChangelogLayout {
 fn patch_cards_fit_the_plate() {
     let cases = [
         patch_card(),
-        ChangelogLayout {
-            heading: "Holliday, Vyper, Calico, and The Magnificent Sinclair".into(),
-            ..patch_card()
-        },
+        ChangelogLayout { heading: "Holliday, Vyper, Calico, and The Magnificent Sinclair".into(), ..patch_card() },
         ChangelogLayout {
             heading: "Some Are Merciful, The Venator Is Not".into(),
             hero_icons: vec![],
@@ -431,8 +402,7 @@ fn home_card_with_full_rows_and_large_counts_fits() {
     }));
 }
 
-const LONGEST_HISTORY: &str =
-    "Last mentioned Sep 30, 2026 in Holliday, Vyper, Calico, and The Magnificent Sinclair.";
+const LONGEST_HISTORY: &str = "Last mentioned Sep 30, 2026 in Holliday, Vyper, Calico, and The Magnificent Sinclair.";
 
 #[test]
 fn hero_card_with_a_long_name_fits() {

@@ -17,15 +17,10 @@ pub mod colors {
     pub const RULE_SUBTLE: &str = "#544b43";
 }
 
-pub const HERO_TONE: [(&str, &str); 4] = [
-    ("marksman", "#ebc06d"),
-    ("mystic", "#cf9bc2"),
-    ("brawler", "#da806f"),
-    ("assassin", "#85b695"),
-];
+pub const HERO_TONE: [(&str, &str); 4] =
+    [("marksman", "#ebc06d"), ("mystic", "#cf9bc2"), ("brawler", "#da806f"), ("assassin", "#85b695")];
 
-pub const ITEM_TONE: [(&str, &str); 3] =
-    [("weapon", "#e49b5d"), ("vitality", "#85b695"), ("spirit", "#cf9bc2")];
+pub const ITEM_TONE: [(&str, &str); 3] = [("weapon", "#e49b5d"), ("vitality", "#85b695"), ("spirit", "#cf9bc2")];
 
 pub const WIDTH: u32 = 1200;
 pub const HEIGHT: u32 = 630;
@@ -86,10 +81,8 @@ pub fn cut_corners(corner: i64) -> String {
 pub fn wire_grid() -> String {
     let line = "rgba(130, 187, 194, 0.045)";
     [
-        "radial-gradient(circle at 88% 0%, rgba(130, 187, 194, 0.11), transparent 480px)"
-            .to_string(),
-        "radial-gradient(circle at 8% 24%, rgba(235, 192, 109, 0.045), transparent 384px)"
-            .to_string(),
+        "radial-gradient(circle at 88% 0%, rgba(130, 187, 194, 0.11), transparent 480px)".to_string(),
+        "radial-gradient(circle at 8% 24%, rgba(235, 192, 109, 0.045), transparent 384px)".to_string(),
         format!("repeating-linear-gradient(to right, {line} 0 1px, transparent 1px 20px)"),
         format!("repeating-linear-gradient(to bottom, {line} 0 1px, transparent 1px 20px)"),
     ]
@@ -142,8 +135,7 @@ mod tests {
             .iter()
             .map(|(name, color)| (*color, format!("--type-{name}")))
             .chain(ITEM_TONE.iter().map(|(name, color)| (*color, format!("--item-{name}"))));
-        for (value, property) in mirrored.map(|(v, p)| (v, p.to_string())).into_iter().chain(tones)
-        {
+        for (value, property) in mirrored.map(|(v, p)| (v, p.to_string())).into_iter().chain(tones) {
             assert_eq!(css.get(&property).map(String::as_str), Some(value), "{property}");
         }
     }
@@ -151,23 +143,9 @@ mod tests {
     #[test]
     fn warm_ink_rule() {
         use colors::*;
-        let all = [
-            INK,
-            INK_RAISED,
-            INK_PLATE,
-            AMBER,
-            AMBER_FIELD,
-            SEA,
-            SEA_DEEP,
-            PARCHMENT,
-            STONE,
-            RULE,
-            RULE_SUBTLE,
-        ];
+        let all = [INK, INK_RAISED, INK_PLATE, AMBER, AMBER_FIELD, SEA, SEA_DEEP, PARCHMENT, STONE, RULE, RULE_SUBTLE];
         for value in all {
-            assert!(
-                !["#000", "#fff", "#000000", "#ffffff"].contains(&value.to_lowercase().as_str())
-            );
+            assert!(!["#000", "#fff", "#000000", "#ffffff"].contains(&value.to_lowercase().as_str()));
             if value != colors::SEA && value != colors::SEA_DEEP {
                 let red = u8::from_str_radix(&value[1..3], 16).unwrap();
                 let blue = u8::from_str_radix(&value[5..7], 16).unwrap();

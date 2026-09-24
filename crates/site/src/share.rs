@@ -2,21 +2,19 @@
 //! stats band, the measurement windows they cite, "current details" disclosures, and
 //! previous-change links.
 
-use std::collections::HashMap;
-
+use chrono::Datelike;
 use deadlog_db::{Ability, PropertyEvent};
 use deadlog_model::{
-    AbilityOrder, BoughtBy, DayInterval, EntityContext, EntityImpact, PatchStats, SHORT_MONTHS, ability_fragment_id,
-    ability_share, bought_by_share, entity_fragment_id, format_date, parse_date, to_slug,
+    AbilityOrder, BoughtBy, ContextSection, DayInterval, EntityContext, EntityImpact, PatchStats, SHORT_MONTHS,
+    ability_fragment_id, ability_share, bought_by_share, entity_fragment_id, format_date, parse_date, to_slug,
 };
-use chrono::Datelike;
 
+use crate::Site;
+use crate::context::hero_icon_image;
 use crate::meta::change_path;
 
-pub const WINDOW_CAP_DAYS: u32 = 14;
-pub const RELATED_MIN_APPEARANCES: f64 = 1000.0;
-pub const RELATED_MIN_BUYERS: f64 = 100.0;
-pub const RELATED_ITEMS_LIMIT: usize = 3;
+pub use deadlog_changelog::RELATED_ITEMS_LIMIT;
+pub use deadlog_model::{RELATED_MIN_APPEARANCES, RELATED_MIN_BUYERS, WINDOW_CAP_DAYS};
 
 #[derive(Debug, Clone)]
 pub struct ShareRow {
@@ -147,22 +145,16 @@ pub fn maxed_first_rows<'a>(
     rows
 }
 
-pub struct HeroIcon {
-    pub name: String,
-    pub slug: String,
-    pub image: String,
-}
-
-pub fn bought_by_rows(bought: &BoughtBy, heroes: &HashMap<i64, HeroIcon>) -> Vec<ShareRow> {
+pub fn bought_by_rows(bought: &BoughtBy, site: &Site) -> Vec<ShareRow> {
     bought
         .heroes
         .iter()
         .filter_map(|recorded| {
-            let hero = heroes.get(&recorded.id)?;
+            let hero = site.hero(recorded.id)?;
             let share = bought_by_share(recorded);
             Some(ShareRow {
                 name: hero.name.clone(),
-                image: hero.image.clone(),
+                image: hero_icon_image(hero),
                 href: format!("/hero/{}", hero.slug),
                 before: share.before,
                 after: share.after,
@@ -236,67 +228,24 @@ pub fn buy_time(impact: Option<&EntityImpact>) -> Option<BuyTime> {
     Some(BuyTime { before: format_clock(before), after: format_clock(after) })
 }
 
-#[derive(Debug, Clone)]
-pub struct Section {
-    pub label: Option<String>,
-    pub paragraphs: Vec<String>,
-}
-
-#[derive(Debug, Clone)]
-pub struct Property {
-    pub label: String,
-    pub display: String,
-    pub unit: String,
-}
-
-/// The slice of an asset's context a page shows.
-#[derive(Debug, Clone)]
-pub struct PageContext {
-    pub client_version: Option<i64>,
-    pub sections: Vec<Section>,
-    pub properties: Vec<Property>,
-}
-
-impl PageContext {
-    pub fn new(context: &EntityContext) -> Self {
-        Self {
-            client_version: context.client_version,
-            sections: context
-                .sections
-                .iter()
-                .map(|section| Section { label: section.label.clone(), paragraphs: section.paragraphs.clone() })
-                .collect(),
-            properties: context
-                .properties
-                .iter()
-                .map(|property| Property {
-                    label: property.label.clone(),
-                    display: property.display.clone(),
-                    unit: property.unit.clone(),
-                })
-                .collect(),
-        }
-    }
-
-    pub fn lead(&self) -> impl Iterator<Item = &Section> {
-        self.sections.iter().filter(|section| section.label.is_none())
-    }
-
-    pub fn labelled(&self) -> Vec<&Section> {
-        self.sections.iter().filter(|section| section.label.is_some()).collect()
-    }
-}
-
 /// A "Current details" / "About" disclosure, rendered by `partials/context.html`.
 #[derive(Debug, Clone)]
 pub struct ContextView {
-    pub context: PageContext,
+    pub context: EntityContext,
     pub name: String,
     pub header: bool,
     pub history_href: Option<String>,
 }
 
 impl ContextView {
+    pub fn lead(&self) -> impl Iterator<Item = &ContextSection> {
+        self.context.sections.iter().filter(|section| section.label.is_none())
+    }
+
+    pub fn labelled(&self) -> Vec<&ContextSection> {
+        self.context.sections.iter().filter(|section| section.label.is_some()).collect()
+    }
+
     pub fn summary(&self) -> String {
         if self.header { format!("About {}", self.name) } else { "Current details".into() }
     }
@@ -413,8 +362,17 @@ impl MethodNote {
         )
     }
 
-    pub fn appearances(&self) -> &'static str {
-        "1,000"
+    /// Grouped with commas, as `toLocaleString('en-US')` printed it.
+    pub fn appearances(&self) -> String {
+        let digits = (RELATED_MIN_APPEARANCES as u64).to_string();
+        let mut grouped = String::new();
+        for (index, digit) in digits.chars().enumerate() {
+            if index > 0 && (digits.len() - index).is_multiple_of(3) {
+                grouped.push(',');
+            }
+            grouped.push(digit);
+        }
+        grouped
     }
 
     pub fn min_buyers(&self) -> u32 {
@@ -425,10 +383,7 @@ impl MethodNote {
         let versions = if self.context_versions.is_empty() {
             "the currently recorded game assets".to_string()
         } else {
-            format!(
-                "game client {}",
-                self.context_versions.iter().map(i64::to_string).collect::<Vec<_>>().join(", ")
-            )
+            format!("game client {}", self.context_versions.iter().map(i64::to_string).collect::<Vec<_>>().join(", "))
         };
         format!(
             "Current details describe {versions}, not the game as it was when {} shipped. Base values exclude upgrades and scaling.",

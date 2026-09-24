@@ -1,7 +1,9 @@
 mod common;
 
 use common::{standard, window};
-use deadlog_changelog::{carry_enrichment, parse_stats, parse_structure, splice_impact_blocks, write_enrichment_block, EntityEnrichment};
+use deadlog_changelog::{
+    EntityEnrichment, carry_enrichment, parse_stats, parse_structure, splice_impact_blocks, write_enrichment_block,
+};
 use deadlog_model::{DayInterval, EntityImpact, ImpactWindow, PatchStats, TierImpact};
 
 fn v2() -> ImpactWindow {
@@ -47,7 +49,10 @@ fn keeps_every_other_metadata_line_and_its_order() {
     let written = splice(PLAIN, &stats());
     let head: Vec<&str> = written.split('\n').take(8).collect();
     assert_eq!(head[..3], PLAIN.split('\n').take(3).collect::<Vec<_>>()[..]);
-    assert_eq!(head[3..7], deadlog_changelog::write_stats_node(&stats())[..4].iter().map(String::as_str).collect::<Vec<_>>()[..]);
+    assert_eq!(
+        head[3..7],
+        deadlog_changelog::write_stats_node(&stats())[..4].iter().map(String::as_str).collect::<Vec<_>>()[..]
+    );
 }
 
 #[test]
@@ -74,8 +79,9 @@ fn reads_several_siblings_back_as_a_list() {
 fn names_an_unsupported_schema() {
     let error = parse_stats(&serde_json::json!({ "schema": 3, "method": 1 })).unwrap_err().to_string();
     assert!(error.contains("Unsupported stats schema 3"), "{error}");
-    let error =
-        parse_stats(&serde_json::json!({ "schema": 2, "method": 2, "collected": "yesterday" })).unwrap_err().to_string();
+    let error = parse_stats(&serde_json::json!({ "schema": 2, "method": 2, "collected": "yesterday" }))
+        .unwrap_err()
+        .to_string();
     assert!(error.contains("Malformed stats node"), "{error}");
     let error = parse_stats(&serde_json::json!({
         "schema": 2, "method": 2, "collected": "2026-09-21T21:00:00.000Z",

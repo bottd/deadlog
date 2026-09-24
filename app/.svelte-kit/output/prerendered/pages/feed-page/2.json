@@ -1,0 +1,873 @@
+{
+	"changelogs": [
+		{
+			"id": "95233",
+			"slug": "2025/12-29",
+			"title": "12-29-2025 Update",
+			"date": "2025-12-30T06:33:52.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": null,
+			"majorUpdate": false,
+			"summary": "Respawn time at 19 minutes reduced from 35s to 30s Respawn time at 30 minutes reduced from 75s to 70s You now have a longer respawn time if…",
+			"icons": {
+				"heroes": [
+					{
+						"id": 15,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp",
+						"alt": "Bebop",
+						"slug": "bebop",
+						"heroType": "brawler",
+						"changeCount": 12,
+						"type": "hero"
+					},
+					{
+						"id": 72,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/punkgoat_sm.webp",
+						"alt": "Billy",
+						"slug": "billy",
+						"heroType": "brawler",
+						"changeCount": 1,
+						"type": "hero"
+					},
+					{
+						"id": 17,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp",
+						"alt": "Grey Talon",
+						"slug": "grey-talon",
+						"heroType": "marksman",
+						"changeCount": 5,
+						"type": "hero"
+					},
+					{
+						"id": 14,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp",
+						"alt": "Holliday",
+						"slug": "holliday",
+						"heroType": "marksman",
+						"changeCount": 2,
+						"type": "hero"
+					},
+					{
+						"id": 20,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp",
+						"alt": "Ivy",
+						"slug": "ivy",
+						"heroType": "marksman",
+						"changeCount": 3,
+						"type": "hero"
+					},
+					{
+						"id": 12,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp",
+						"alt": "Kelvin",
+						"slug": "kelvin",
+						"heroType": "brawler",
+						"changeCount": 3,
+						"type": "hero"
+					}
+				],
+				"items": [
+					{
+						"id": 3977876567,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/kinetic_dash.webp",
+						"alt": "Kinetic Dash",
+						"slug": "kinetic-dash",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 3696726732,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/toxic_bullets.webp",
+						"alt": "Toxic Bullets",
+						"slug": "toxic-bullets",
+						"changeCount": 2,
+						"type": "item",
+						"itemCategory": "weapon"
+					}
+				]
+			},
+			"counts": { "heroes": 13, "items": 2 },
+			"matches": []
+		},
+		{
+			"id": "93983",
+			"slug": "2025/12-16",
+			"title": "12-16-2025 Update",
+			"date": "2025-12-16T18:33:38.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": null,
+			"majorUpdate": false,
+			"summary": "The 10% move speed slow from taking damage is now a 20% slow only for the portion over the hero's base move speed Move Speed bonuses now…",
+			"icons": {
+				"heroes": [
+					{
+						"id": 72,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/punkgoat_sm.webp",
+						"alt": "Billy",
+						"slug": "billy",
+						"heroType": "brawler",
+						"changeCount": 4,
+						"type": "hero"
+					},
+					{
+						"id": 11,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp",
+						"alt": "Dynamo",
+						"slug": "dynamo",
+						"heroType": "mystic",
+						"changeCount": 2,
+						"type": "hero"
+					},
+					{
+						"id": 4,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp",
+						"alt": "Lady Geist",
+						"slug": "lady-geist",
+						"heroType": "mystic",
+						"changeCount": 3,
+						"type": "hero"
+					},
+					{
+						"id": 52,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp",
+						"alt": "Mirage",
+						"slug": "mirage",
+						"heroType": "assassin",
+						"changeCount": 6,
+						"type": "hero"
+					},
+					{
+						"id": 19,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp",
+						"alt": "Shiv",
+						"slug": "shiv",
+						"heroType": "brawler",
+						"changeCount": 4,
+						"type": "hero"
+					},
+					{
+						"id": 3,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp",
+						"alt": "Vindicta",
+						"slug": "vindicta",
+						"heroType": "marksman",
+						"changeCount": 1,
+						"type": "hero"
+					}
+				],
+				"items": [
+					{
+						"id": 381961617,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/active_reload.webp",
+						"alt": "Active Reload",
+						"slug": "active-reload",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 2407781327,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/colossus.webp",
+						"alt": "Colossus",
+						"slug": "colossus",
+						"changeCount": 2,
+						"type": "item",
+						"itemCategory": "vitality"
+					},
+					{
+						"id": 3884003354,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/crippling_headshot.webp",
+						"alt": "Crippling Headshot",
+						"slug": "crippling-headshot",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 709540378,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/cultist_sacrifice.webp",
+						"alt": "Cultist Sacrifice",
+						"slug": "cultist-sacrifice",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 3403085434,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/fleetfoot.webp",
+						"alt": "Fleetfoot",
+						"slug": "fleetfoot",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 2142980412,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/focus_lens.webp",
+						"alt": "Focus Lens",
+						"slug": "focus-lens",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "spirit"
+					}
+				]
+			},
+			"counts": { "heroes": 7, "items": 11 },
+			"matches": []
+		},
+		{
+			"id": "90383",
+			"slug": "2025/11-21",
+			"title": "11-21-2025 Update",
+			"date": "2025-11-21T22:53:12.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": null,
+			"majorUpdate": false,
+			"summary": "Trooper bounty mechanics have been reworked. The first half of the souls still fly out as deniable orb, however rather than the other half…",
+			"icons": {
+				"heroes": [
+					{
+						"id": 6,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp",
+						"alt": "Abrams",
+						"slug": "abrams",
+						"heroType": "brawler",
+						"changeCount": 3,
+						"type": "hero"
+					},
+					{
+						"id": 15,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp",
+						"alt": "Bebop",
+						"slug": "bebop",
+						"heroType": "brawler",
+						"changeCount": 6,
+						"type": "hero"
+					},
+					{
+						"id": 72,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/punkgoat_sm.webp",
+						"alt": "Billy",
+						"slug": "billy",
+						"heroType": "brawler",
+						"changeCount": 6,
+						"type": "hero"
+					},
+					{
+						"id": 16,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp",
+						"alt": "Calico",
+						"slug": "calico",
+						"heroType": "assassin",
+						"changeCount": 5,
+						"type": "hero"
+					},
+					{
+						"id": 64,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/drifter_sm.webp",
+						"alt": "Drifter",
+						"slug": "drifter",
+						"heroType": "assassin",
+						"changeCount": 4,
+						"type": "hero"
+					},
+					{
+						"id": 11,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp",
+						"alt": "Dynamo",
+						"slug": "dynamo",
+						"heroType": "mystic",
+						"changeCount": 4,
+						"type": "hero"
+					}
+				],
+				"items": [
+					{
+						"id": 989206714,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/blood_tribute.webp",
+						"alt": "Blood Tribute",
+						"slug": "blood-tribute",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 2971868509,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/bullet_resist_shredder.webp",
+						"alt": "Bullet Resist Shredder",
+						"slug": "bullet-resist-shredder",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 710436191,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/capacitor.webp",
+						"alt": "Capacitor",
+						"slug": "capacitor",
+						"changeCount": 6,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 3361811174,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/cheat_death.webp",
+						"alt": "Cheat Death",
+						"slug": "cheat-death",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "vitality"
+					},
+					{
+						"id": 380806748,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/improved_cooldown.webp",
+						"alt": "Compress Cooldown",
+						"slug": "compress-cooldown",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 3884003354,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/crippling_headshot.webp",
+						"alt": "Crippling Headshot",
+						"slug": "crippling-headshot",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					}
+				]
+			},
+			"counts": { "heroes": 28, "items": 42 },
+			"matches": []
+		},
+		{
+			"id": "87198",
+			"slug": "2025/10-24",
+			"title": "10-24-2025 Update",
+			"date": "2025-10-24T23:54:51.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": null,
+			"majorUpdate": false,
+			"summary": "Getting damaged during the initial launch window (0.6s) after using a Jump Pad will cause you to be stunned (similar to ziplines having an…",
+			"icons": {
+				"heroes": [
+					{
+						"id": 16,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp",
+						"alt": "Calico",
+						"slug": "calico",
+						"heroType": "assassin",
+						"changeCount": 5,
+						"type": "hero"
+					},
+					{
+						"id": 64,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/drifter_sm.webp",
+						"alt": "Drifter",
+						"slug": "drifter",
+						"heroType": "assassin",
+						"changeCount": 3,
+						"type": "hero"
+					},
+					{
+						"id": 11,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp",
+						"alt": "Dynamo",
+						"slug": "dynamo",
+						"heroType": "mystic",
+						"changeCount": 2,
+						"type": "hero"
+					},
+					{
+						"id": 1,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp",
+						"alt": "Infernus",
+						"slug": "infernus",
+						"heroType": "marksman",
+						"changeCount": 4,
+						"type": "hero"
+					},
+					{
+						"id": 12,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp",
+						"alt": "Kelvin",
+						"slug": "kelvin",
+						"heroType": "brawler",
+						"changeCount": 3,
+						"type": "hero"
+					},
+					{
+						"id": 8,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp",
+						"alt": "McGinnis",
+						"slug": "mcginnis",
+						"heroType": "mystic",
+						"changeCount": 1,
+						"type": "hero"
+					}
+				],
+				"items": [
+					{
+						"id": 710436191,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/capacitor.webp",
+						"alt": "Capacitor",
+						"slug": "capacitor",
+						"changeCount": 2,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 1662311306,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/divine_barrier.webp",
+						"alt": "Divine Barrier",
+						"slug": "divine-barrier",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "vitality"
+					},
+					{
+						"id": 2533252781,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/ethereal_shift.webp",
+						"alt": "Ethereal Shift",
+						"slug": "ethereal-shift",
+						"changeCount": 3,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 3585132399,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/fortitude.webp",
+						"alt": "Fortitude",
+						"slug": "fortitude",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "vitality"
+					},
+					{
+						"id": 857669956,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/guardian_ward.webp",
+						"alt": "Guardian Ward",
+						"slug": "guardian-ward",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "vitality"
+					},
+					{
+						"id": 600033864,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/majestic_leap.webp",
+						"alt": "Majestic Leap",
+						"slug": "majestic-leap",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "vitality"
+					}
+				]
+			},
+			"counts": { "heroes": 13, "items": 15 },
+			"matches": []
+		},
+		{
+			"id": "84332",
+			"slug": "2025/10-02",
+			"title": "10-02-2025 Update",
+			"date": "2025-10-02T20:03:05.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": null,
+			"majorUpdate": false,
+			"summary": "Weapon Investment bonus increased from 7/9/13/20/29/40/58/72/83/93% to 7/9/13/20/29/40/60/75/95/115 (for…",
+			"icons": {
+				"heroes": [
+					{
+						"id": 6,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp",
+						"alt": "Abrams",
+						"slug": "abrams",
+						"heroType": "brawler",
+						"changeCount": 3,
+						"type": "hero"
+					},
+					{
+						"id": 72,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/punkgoat_sm.webp",
+						"alt": "Billy",
+						"slug": "billy",
+						"heroType": "brawler",
+						"changeCount": 3,
+						"type": "hero"
+					},
+					{
+						"id": 16,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp",
+						"alt": "Calico",
+						"slug": "calico",
+						"heroType": "assassin",
+						"changeCount": 6,
+						"type": "hero"
+					},
+					{
+						"id": 64,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/drifter_sm.webp",
+						"alt": "Drifter",
+						"slug": "drifter",
+						"heroType": "assassin",
+						"changeCount": 3,
+						"type": "hero"
+					},
+					{
+						"id": 11,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp",
+						"alt": "Dynamo",
+						"slug": "dynamo",
+						"heroType": "mystic",
+						"changeCount": 2,
+						"type": "hero"
+					},
+					{
+						"id": 17,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp",
+						"alt": "Grey Talon",
+						"slug": "grey-talon",
+						"heroType": "marksman",
+						"changeCount": 3,
+						"type": "hero"
+					}
+				],
+				"items": [
+					{
+						"id": 989206714,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/blood_tribute.webp",
+						"alt": "Blood Tribute",
+						"slug": "blood-tribute",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 710436191,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/capacitor.webp",
+						"alt": "Capacitor",
+						"slug": "capacitor",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 3361811174,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/cheat_death.webp",
+						"alt": "Cheat Death",
+						"slug": "cheat-death",
+						"changeCount": 2,
+						"type": "item",
+						"itemCategory": "vitality"
+					},
+					{
+						"id": 1976391348,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/cold_front.webp",
+						"alt": "Cold Front",
+						"slug": "cold-front",
+						"changeCount": 2,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 2407781327,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/colossus.webp",
+						"alt": "Colossus",
+						"slug": "colossus",
+						"changeCount": 2,
+						"type": "item",
+						"itemCategory": "vitality"
+					},
+					{
+						"id": 1414025773,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/counterspell.webp",
+						"alt": "Counterspell",
+						"slug": "counterspell",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "vitality"
+					}
+				]
+			},
+			"counts": { "heroes": 22, "items": 39 },
+			"matches": []
+		},
+		{
+			"id": "80693",
+			"slug": "2025/09-04",
+			"title": "09-04-2025 Update",
+			"date": "2025-09-04T23:33:38.000Z",
+			"author": "Yoshi",
+			"authorImage": "/assets/authors/yoshi.webp",
+			"previewImage": null,
+			"majorUpdate": false,
+			"summary": "Rejuv only heals the person hitting the crystal Dying to a non-player (when there is no bounty/assists) now increases the respawn time for…",
+			"icons": {
+				"heroes": [
+					{
+						"id": 6,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp",
+						"alt": "Abrams",
+						"slug": "abrams",
+						"heroType": "brawler",
+						"changeCount": 1,
+						"type": "hero"
+					},
+					{
+						"id": 15,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp",
+						"alt": "Bebop",
+						"slug": "bebop",
+						"heroType": "brawler",
+						"changeCount": 5,
+						"type": "hero"
+					},
+					{
+						"id": 72,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/punkgoat_sm.webp",
+						"alt": "Billy",
+						"slug": "billy",
+						"heroType": "brawler",
+						"changeCount": 2,
+						"type": "hero"
+					},
+					{
+						"id": 16,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp",
+						"alt": "Calico",
+						"slug": "calico",
+						"heroType": "assassin",
+						"changeCount": 6,
+						"type": "hero"
+					},
+					{
+						"id": 64,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/drifter_sm.webp",
+						"alt": "Drifter",
+						"slug": "drifter",
+						"heroType": "assassin",
+						"changeCount": 5,
+						"type": "hero"
+					},
+					{
+						"id": 17,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp",
+						"alt": "Grey Talon",
+						"slug": "grey-talon",
+						"heroType": "marksman",
+						"changeCount": 4,
+						"type": "hero"
+					}
+				],
+				"items": [
+					{
+						"id": 989206714,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/blood_tribute.webp",
+						"alt": "Blood Tribute",
+						"slug": "blood-tribute",
+						"changeCount": 2,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 2971868509,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/bullet_resist_shredder.webp",
+						"alt": "Bullet Resist Shredder",
+						"slug": "bullet-resist-shredder",
+						"changeCount": 2,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 710436191,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/capacitor.webp",
+						"alt": "Capacitor",
+						"slug": "capacitor",
+						"changeCount": 2,
+						"type": "item",
+						"itemCategory": "weapon"
+					},
+					{
+						"id": 3361811174,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/cheat_death.webp",
+						"alt": "Cheat Death",
+						"slug": "cheat-death",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "vitality"
+					},
+					{
+						"id": 1976391348,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/spirit/cold_front.webp",
+						"alt": "Cold Front",
+						"slug": "cold-front",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "spirit"
+					},
+					{
+						"id": 1414025773,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/items/vitality/counterspell.webp",
+						"alt": "Counterspell",
+						"slug": "counterspell",
+						"changeCount": 1,
+						"type": "item",
+						"itemCategory": "vitality"
+					}
+				]
+			},
+			"counts": { "heroes": 23, "items": 37 },
+			"matches": []
+		},
+		{
+			"id": "1809235871630816",
+			"slug": "2025/you-cant-kill-victor",
+			"title": "You Can't Kill Victor",
+			"date": "2025-08-29T21:00:02.000Z",
+			"author": "simonne",
+			"authorImage": "/assets/authors/deadlock.webp",
+			"previewImage": "https://clan.fastly.steamstatic.com/images/45164767/5f17579aa198931ee073ad9540e2b044b80ea333.png",
+			"majorUpdate": false,
+			"summary": "Hero Spotlight: Victor A man who walks the line between life and death. Victor has learned to harness pain into power, shocking himself…",
+			"icons": { "heroes": [], "items": [] },
+			"counts": { "heroes": 0, "items": 0 },
+			"matches": []
+		},
+		{
+			"id": "1809235871564856",
+			"slug": "2025/drifter-emerges-from-the-shadows",
+			"title": "Drifter Emerges from the Shadows",
+			"date": "2025-08-27T21:00:11.000Z",
+			"author": "simonne",
+			"authorImage": "/assets/authors/deadlock.webp",
+			"previewImage": "https://clan.fastly.steamstatic.com/images/45164767/effac101dabe092cef4b6eacc2fe486de845816f.png",
+			"majorUpdate": false,
+			"summary": "Hero Spotlight: Drifter Something ancient has arrived in New York... a nameless horror known only as the Drifter. Relentless as time, as…",
+			"icons": { "heroes": [], "items": [] },
+			"counts": { "heroes": 0, "items": 0 },
+			"matches": []
+		},
+		{
+			"id": "1808601382586972",
+			"slug": "2025/paige-writes-her-own-story",
+			"title": "Paige Writes Her Own Story",
+			"date": "2025-08-25T20:59:47.000Z",
+			"author": "simonne",
+			"authorImage": "/assets/authors/deadlock.webp",
+			"previewImage": "https://clan.fastly.steamstatic.com/images/45164767/32461f95d508f369b02dd703d0a9c254c037bb34.png",
+			"majorUpdate": false,
+			"summary": "It's Monday, and today we're excited to announce the next hero joining us in the Cursed Apple is... Hero Spotlight: Paige Citizens of…",
+			"icons": { "heroes": [], "items": [] },
+			"counts": { "heroes": 0, "items": 0 },
+			"matches": []
+		},
+		{
+			"id": "1808601382489176",
+			"slug": "2025/the-doorman-at-your-service",
+			"title": "The Doorman, at your Service",
+			"date": "2025-08-22T21:00:03.000Z",
+			"author": "simonne",
+			"authorImage": "/assets/authors/deadlock.webp",
+			"previewImage": "https://clan.fastly.steamstatic.com/images/45164767/c92f11d8ea510f5eea50f229f2ad06a0e56ba708.png",
+			"majorUpdate": false,
+			"summary": "Hero Spotlight: The Doorman He's proper, he's polite, but the humble Doorman of The Baroness Hotel is more than meets the eye. A brisk ring…",
+			"icons": { "heroes": [], "items": [] },
+			"counts": { "heroes": 0, "items": 0 },
+			"matches": []
+		},
+		{
+			"id": "1808601382422164",
+			"slug": "2025/billy-comes-in-swinging",
+			"title": "Billy Comes in Swinging",
+			"date": "2025-08-20T21:00:31.000Z",
+			"author": "simonne",
+			"authorImage": "/assets/authors/deadlock.webp",
+			"previewImage": "https://clan.fastly.steamstatic.com/images/45164767/6155ec51cb83504f4649748ee9be6cce27920329.png",
+			"majorUpdate": false,
+			"summary": "The votes are in! Today we are excited to announce that the next hero joining us in the Cursed Apple is... Billy! Hero Spotlight: Billy A…",
+			"icons": { "heroes": [], "items": [] },
+			"counts": { "heroes": 0, "items": 0 },
+			"matches": []
+		},
+		{
+			"id": "75046",
+			"slug": "2025/08-18",
+			"title": "Six New Heroes",
+			"date": "2025-08-18T20:42:20.000Z",
+			"author": "mystery *******",
+			"authorImage": "/assets/authors/deadlock.webp",
+			"previewImage": "https://clan.fastly.steamstatic.com/images/45164767/f67ecaff28204a3d8d9ab86f495a3e4465df3135.png",
+			"majorUpdate": true,
+			"summary": "Six new heroes have been spotted on the streets of the Cursed Apple: Mina the vampire, Billy the demonic goat, Paige who can bring books to…",
+			"icons": {
+				"heroes": [
+					{
+						"id": 72,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/punkgoat_sm.webp",
+						"alt": "Billy",
+						"slug": "billy",
+						"heroType": "brawler",
+						"changeCount": 14,
+						"type": "hero"
+					},
+					{
+						"id": 64,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/drifter_sm.webp",
+						"alt": "Drifter",
+						"slug": "drifter",
+						"heroType": "assassin",
+						"changeCount": 12,
+						"type": "hero"
+					},
+					{
+						"id": 63,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/vampirebat_sm.webp",
+						"alt": "Mina",
+						"slug": "mina",
+						"heroType": "marksman",
+						"changeCount": 5,
+						"type": "hero"
+					},
+					{
+						"id": 67,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bookworm_sm.webp",
+						"alt": "Paige",
+						"slug": "paige",
+						"heroType": "mystic",
+						"changeCount": 1,
+						"type": "hero"
+					},
+					{
+						"id": 69,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/doorman_sm.webp",
+						"alt": "The Doorman",
+						"slug": "the-doorman",
+						"heroType": "mystic",
+						"changeCount": 2,
+						"type": "hero"
+					},
+					{
+						"id": 66,
+						"src": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/frank_sm.webp",
+						"alt": "Victor",
+						"slug": "victor",
+						"heroType": "brawler",
+						"changeCount": 8,
+						"type": "hero"
+					}
+				],
+				"items": []
+			},
+			"counts": { "heroes": 6, "items": 0 },
+			"matches": []
+		}
+	],
+	"hasMore": true
+}

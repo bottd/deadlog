@@ -4,8 +4,18 @@ use chrono::{DateTime, Datelike, NaiveDate, TimeZone, Utc};
 use chrono_tz::America::Los_Angeles;
 
 const MONTHS: [&str; 12] = [
-    "January", "February", "March", "April", "May", "June", "July", "August", "September",
-    "October", "November", "December",
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
 ];
 
 pub const SHORT_MONTHS: [&str; 12] =
@@ -13,15 +23,12 @@ pub const SHORT_MONTHS: [&str; 12] =
 
 /// Stored dates are ISO strings; a bare `YYYY-MM-DD` reads as UTC midnight, like `new Date()`.
 pub fn parse_date(date: &str) -> Option<DateTime<Utc>> {
-    DateTime::parse_from_rfc3339(date)
-        .map(|date| date.with_timezone(&Utc))
-        .ok()
-        .or_else(|| {
-            NaiveDate::parse_from_str(date, "%Y-%m-%d")
-                .ok()
-                .and_then(|day| day.and_hms_opt(0, 0, 0))
-                .map(|midnight| Utc.from_utc_datetime(&midnight))
-        })
+    DateTime::parse_from_rfc3339(date).map(|date| date.with_timezone(&Utc)).ok().or_else(|| {
+        NaiveDate::parse_from_str(date, "%Y-%m-%d")
+            .ok()
+            .and_then(|day| day.and_hms_opt(0, 0, 0))
+            .map(|midnight| Utc.from_utc_datetime(&midnight))
+    })
 }
 
 fn pacific(date: &str) -> chrono::DateTime<chrono_tz::Tz> {

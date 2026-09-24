@@ -1,0 +1,20 @@
+details[open].svelte-1ydnaku .details-marker {
+	transform: rotate(90deg);
+}
+.details-marker {
+	transition: transform 0.15s;
+}
+summary.svelte-1ydnaku::-webkit-details-marker {
+	display: none;
+}
+.stats-band.svelte-905f9s {
+	container-type: inline-size;
+}
+.band-grid.svelte-905f9s {
+	grid-template-columns: minmax(0, 1fr);
+}
+@container (width>=36rem) {
+	.band-grid.svelte-905f9s {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}

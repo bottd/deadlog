@@ -17,23 +17,20 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Generate database once
-        run: pnpm run build:db
+        run: deadlog db
 
-      - name: Check types and lint
-        run: pnpm run check && pnpm run lint
+      - name: Check formatting
+        run: nix flake check
 
       - name: Run tests
-        run: pnpm run test
-        env:
-          NODE_ENV: test
+        run: cargo test --release --locked --workspace
 
-      - name: Build web
-        run: pnpm run build
-        env:
-          NODE_ENV: production
+      - name: Build site
+        run: deadlog build
 
       - name: Run browser tests against the build
-        run: pnpm run test:e2e
+        working-directory: e2e
+        run: npm ci && npx playwright test
 
   auto-merge:
     needs: pull-request

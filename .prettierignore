@@ -1,20 +1,15 @@
 .DS_Store
 node_modules
 /build
-/.svelte-kit
-/app/.wrangler/
-/app/playwright-report/
-/app/test-results/
-/package
 .env
 .env.*
 !.env.example
 
-pnpm-lock.yaml
-/drizzle/
 
 # Rust workspace: Askama templates are whitespace-sensitive and Prettier's HTML
 # printer breaks their tags.
 /crates/
+/app/static/
+/app/changelogs/
 /target/
 /dist/

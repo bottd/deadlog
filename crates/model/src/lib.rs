@@ -3,19 +3,19 @@
 
 use serde::{Deserialize, Serialize};
 
-mod names;
-mod dates;
-mod text;
 mod abilities;
+mod dates;
 mod js;
 mod mog_markup;
+mod names;
+mod text;
 
-pub use names::*;
-pub use dates::*;
-pub use text::*;
 pub use abilities::*;
+pub use dates::*;
 pub use js::*;
 pub use mog_markup::*;
+pub use names::*;
+pub use text::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "lowercase")]
@@ -46,6 +46,11 @@ pub struct HeroChangeGroup {
     pub ability_slug: Option<String>,
     pub bullets: Vec<String>,
 }
+
+/// Thresholds the stats job applies and the pages quote back to readers.
+pub const WINDOW_CAP_DAYS: i64 = 14;
+pub const RELATED_MIN_APPEARANCES: f64 = 1000.0;
+pub const RELATED_MIN_BUYERS: f64 = 100.0;
 
 pub fn count_bullets<'a, I>(groups: Option<I>) -> Option<usize>
 where
@@ -168,17 +173,11 @@ fn after_ratio(count: Option<f64>, total: Option<f64>) -> Option<f64> {
 }
 
 pub fn related_share(related: &RelatedItems, item: &RelatedItem) -> ShareChange {
-    ShareChange {
-        before: item.buyers / related.appearances,
-        after: after_ratio(item.after, related.after_appearances),
-    }
+    ShareChange { before: item.buyers / related.appearances, after: after_ratio(item.after, related.after_appearances) }
 }
 
 pub fn ability_share(order: &AbilityOrder, entry: &AbilityOrderEntry) -> ShareChange {
-    ShareChange {
-        before: entry.before / order.matches,
-        after: after_ratio(entry.after, order.after_matches),
-    }
+    ShareChange { before: entry.before / order.matches, after: after_ratio(entry.after, order.after_matches) }
 }
 
 pub fn bought_by_share(hero: &BoughtByHero) -> ShareChange {
@@ -228,12 +227,8 @@ pub struct EntityContext {
     pub properties: Vec<ContextProperty>,
 }
 
-pub const HERO_CARD_IMAGE_KEYS: [&str; 4] = [
-    "icon_hero_card_webp",
-    "icon_hero_card",
-    "icon_image_small_webp",
-    "icon_image_small",
-];
+pub const HERO_CARD_IMAGE_KEYS: [&str; 4] =
+    ["icon_hero_card_webp", "icon_hero_card", "icon_image_small_webp", "icon_image_small"];
 
 pub const HERO_ICON_IMAGE_KEYS: [&str; 2] = ["icon_image_small_webp", "icon_image_small"];
 

@@ -12,7 +12,11 @@ fn group(ability: Option<&str>, bullets: &[&str]) -> EntityBulletGroup {
 }
 
 fn summary(content: &str) -> Vec<(String, EntityType, Vec<EntityBulletGroup>)> {
-    extract_entity_changes(content).unwrap().into_iter().map(|change| (change.name, change.kind, change.groups)).collect()
+    extract_entity_changes(content)
+        .unwrap()
+        .into_iter()
+        .map(|change| (change.name, change.kind, change.groups))
+        .collect()
 }
 
 #[test]
@@ -40,7 +44,10 @@ fn groups_bullets_per_ability_section_within_an_entity() {
             (
                 "Doorman".into(),
                 EntityType::Hero,
-                vec![group(None, &["Base damage increased"]), group(Some("Call Bell"), &["Cooldown reduced", "Radius increased"])]
+                vec![
+                    group(None, &["Base damage increased"]),
+                    group(Some("Call Bell"), &["Cooldown reduced", "Radius increased"])
+                ]
             ),
             ("Tesla Bullets".into(), EntityType::Item, vec![group(None, &["Proc chance increased"])]),
         ]
@@ -89,7 +96,10 @@ fn merges_repeated_article_aliases_and_decodes_entity_names() {
 #[test]
 fn stops_attributing_bullets_at_a_new_top_level_section() {
     let content = "\n=hero:abrams:\n## Abrams\n- Counted\n- Also counted\n=\n# Item Changes\n- Not counted, a new top-level section\n";
-    assert_eq!(summary(content), vec![("Abrams".into(), EntityType::Hero, vec![group(None, &["Counted", "Also counted"])])]);
+    assert_eq!(
+        summary(content),
+        vec![("Abrams".into(), EntityType::Hero, vec![group(None, &["Counted", "Also counted"])])]
+    );
 }
 
 #[test]
@@ -166,8 +176,7 @@ fn captures_a_block_onto_its_hero_and_item() {
 fn reports_each_block_by_heading_name_with_its_fence_and_attr_lines() {
     let text = with_impact();
     let blocks = parse_structure(&text.join("\n")).unwrap().blocks;
-    let summary: Vec<_> =
-        blocks.iter().map(|b| (b.name.as_str(), b.kind, b.fence_line, b.attribute_lines)).collect();
+    let summary: Vec<_> = blocks.iter().map(|b| (b.name.as_str(), b.kind, b.fence_line, b.attribute_lines)).collect();
     assert_eq!(
         summary,
         vec![
@@ -201,8 +210,13 @@ fn rejects_a_misplaced_block() {
 
 #[test]
 fn keeps_the_first_block_when_an_entity_appears_twice() {
-    let twice = [with_impact(), vec!["=hero:doorman:".into()], attr(), ["## The Doorman", "- Again", "="].map(String::from).to_vec()]
-        .concat();
+    let twice = [
+        with_impact(),
+        vec!["=hero:doorman:".into()],
+        attr(),
+        ["## The Doorman", "- Again", "="].map(String::from).to_vec(),
+    ]
+    .concat();
     let parsed = parse_structure(&twice.join("\n")).unwrap();
     assert_eq!(parsed.blocks.iter().filter(|block| block.name == "The Doorman").count(), 1);
     assert!(parsed.changes[0].groups.last().unwrap().bullets.contains(&"Again".to_string()));

@@ -1,0 +1,1951 @@
+{
+	"../node_modules/.pnpm/@counterscale+tracker@3.4.1/node_modules/@counterscale/tracker/dist/module/index.js": {
+		"file": "_app/immutable/chunks/CEztEZTG.js",
+		"name": "module",
+		"src": "../node_modules/.pnpm/@counterscale+tracker@3.4.1/node_modules/@counterscale/tracker/dist/module/index.js",
+		"isDynamicEntry": true
+	},
+	"../node_modules/.pnpm/@sveltejs+kit@2.70.3_@sveltejs+vite-plugin-svelte@7.3.0_svelte@5.57.0_@typescript-eslin_d34b0b60129670dccbfe83ef3c3382f5/node_modules/@sveltejs/kit/src/runtime/client/entry.js": {
+		"file": "_app/immutable/entry/start.Co_tAlYp.js",
+		"name": "entry/start",
+		"src": "../node_modules/.pnpm/@sveltejs+kit@2.70.3_@sveltejs+vite-plugin-svelte@7.3.0_svelte@5.57.0_@typescript-eslin_d34b0b60129670dccbfe83ef3c3382f5/node_modules/@sveltejs/kit/src/runtime/client/entry.js",
+		"isEntry": true,
+		"imports": ["_Cips59vp.js"]
+	},
+	".svelte-kit/generated/client-optimized/app.js": {
+		"file": "_app/immutable/entry/app.DiwRyjAm.js",
+		"name": "entry/app",
+		"src": ".svelte-kit/generated/client-optimized/app.js",
+		"isEntry": true,
+		"imports": ["_CSrylp8p.js", "_uBIymjUX.js", "_xihTtKlq.js"],
+		"dynamicImports": [
+			"../node_modules/.pnpm/@counterscale+tracker@3.4.1/node_modules/@counterscale/tracker/dist/module/index.js",
+			".svelte-kit/generated/client-optimized/nodes/0.js",
+			".svelte-kit/generated/client-optimized/nodes/1.js",
+			".svelte-kit/generated/client-optimized/nodes/2.js",
+			".svelte-kit/generated/client-optimized/nodes/3.js",
+			".svelte-kit/generated/client-optimized/nodes/4.js",
+			".svelte-kit/generated/client-optimized/nodes/5.js",
+			".svelte-kit/generated/client-optimized/nodes/6.js",
+			".svelte-kit/generated/client-optimized/nodes/7.js",
+			".svelte-kit/generated/client-optimized/nodes/8.js",
+			".svelte-kit/generated/client-optimized/nodes/9.js",
+			".svelte-kit/generated/shared/error-template.js"
+		]
+	},
+	".svelte-kit/generated/client-optimized/nodes/0.js": {
+		"file": "_app/immutable/nodes/0.CGTOe4H-.js",
+		"name": "nodes/0",
+		"src": ".svelte-kit/generated/client-optimized/nodes/0.js",
+		"isEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_CfafoLPj.js",
+			"_1gFtTxxl.js"
+		],
+		"css": ["_app/immutable/assets/0.BOofR7gy.css"]
+	},
+	".svelte-kit/generated/client-optimized/nodes/1.js": {
+		"file": "_app/immutable/nodes/1.C_4-ok8v.js",
+		"name": "nodes/1",
+		"src": ".svelte-kit/generated/client-optimized/nodes/1.js",
+		"isEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_CfafoLPj.js",
+			"_BkQs74dv.js",
+			"_BZA8fNAE.js",
+			"_C4XnHIoE.js",
+			"_dp17nrVd.js"
+		]
+	},
+	".svelte-kit/generated/client-optimized/nodes/2.js": {
+		"file": "_app/immutable/nodes/2.CLD00a-x.js",
+		"name": "nodes/2",
+		"src": ".svelte-kit/generated/client-optimized/nodes/2.js",
+		"isEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_1gFtTxxl.js",
+			"_DGUGVeMZ.js",
+			"_BkQs74dv.js",
+			"_dp17nrVd.js"
+		]
+	},
+	".svelte-kit/generated/client-optimized/nodes/3.js": {
+		"file": "_app/immutable/nodes/3.BCJnjewc.js",
+		"name": "nodes/3",
+		"src": ".svelte-kit/generated/client-optimized/nodes/3.js",
+		"isEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_CrkVz1YB.js"]
+	},
+	".svelte-kit/generated/client-optimized/nodes/4.js": {
+		"file": "_app/immutable/nodes/4.Bk5pFhuT.js",
+		"name": "nodes/4",
+		"src": ".svelte-kit/generated/client-optimized/nodes/4.js",
+		"isEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_bGGqeocG.js",
+			"_BkQs74dv.js",
+			"_dp17nrVd.js"
+		]
+	},
+	".svelte-kit/generated/client-optimized/nodes/5.js": {
+		"file": "_app/immutable/nodes/5.cKGfBggt.js",
+		"name": "nodes/5",
+		"src": ".svelte-kit/generated/client-optimized/nodes/5.js",
+		"isEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_Cips59vp.js",
+			"_uBIymjUX.js",
+			"_xihTtKlq.js",
+			"_CfafoLPj.js",
+			"_1gFtTxxl.js",
+			"_DGUGVeMZ.js",
+			"_bGGqeocG.js",
+			"_BkQs74dv.js",
+			"_C4XnHIoE.js",
+			"_dp17nrVd.js",
+			"_Byt6hszL.js",
+			"_C8Y4yTRY.js"
+		],
+		"dynamicImports": [
+			"changelogs/2024/05-03.mg",
+			"changelogs/2024/05-10.mg",
+			"changelogs/2024/05-13.mg",
+			"changelogs/2024/05-16.mg",
+			"changelogs/2024/05-19.mg",
+			"changelogs/2024/05-23.mg",
+			"changelogs/2024/05-24.mg",
+			"changelogs/2024/05-30.mg",
+			"changelogs/2024/06-01.mg",
+			"changelogs/2024/06-06.mg",
+			"changelogs/2024/06-07.mg",
+			"changelogs/2024/06-13.mg",
+			"changelogs/2024/06-14.mg",
+			"changelogs/2024/06-16.mg",
+			"changelogs/2024/06-20.mg",
+			"changelogs/2024/06-23.mg",
+			"changelogs/2024/06-27.mg",
+			"changelogs/2024/07-04.mg",
+			"changelogs/2024/07-11.mg",
+			"changelogs/2024/07-18.mg",
+			"changelogs/2024/07-23.mg",
+			"changelogs/2024/08-01.mg",
+			"changelogs/2024/08-06.mg",
+			"changelogs/2024/08-15.mg",
+			"changelogs/2024/08-16.mg",
+			"changelogs/2024/08-18.mg",
+			"changelogs/2024/08-22.mg",
+			"changelogs/2024/08-23.mg",
+			"changelogs/2024/08-29.mg",
+			"changelogs/2024/09-01.mg",
+			"changelogs/2024/09-12.mg",
+			"changelogs/2024/09-14.mg",
+			"changelogs/2024/09-17.mg",
+			"changelogs/2024/09-19.mg",
+			"changelogs/2024/09-26.mg",
+			"changelogs/2024/09-27.mg",
+			"changelogs/2024/09-29.mg",
+			"changelogs/2024/10-02.mg",
+			"changelogs/2024/10-07.mg",
+			"changelogs/2024/10-10.mg",
+			"changelogs/2024/10-11.mg",
+			"changelogs/2024/10-15.mg",
+			"changelogs/2024/10-18-2.mg",
+			"changelogs/2024/10-18.mg",
+			"changelogs/2024/10-24.mg",
+			"changelogs/2024/10-27.mg",
+			"changelogs/2024/10-29.mg",
+			"changelogs/2024/11-01.mg",
+			"changelogs/2024/11-07.mg",
+			"changelogs/2024/11-10.mg",
+			"changelogs/2024/11-13.mg",
+			"changelogs/2024/11-21.mg",
+			"changelogs/2024/11-29.mg",
+			"changelogs/2024/12-06.mg",
+			"changelogs/2024/12-17.mg",
+			"changelogs/2024/12-21.mg",
+			"changelogs/2024/12-31.mg",
+			"changelogs/2025/01-12.mg",
+			"changelogs/2025/01-17.mg",
+			"changelogs/2025/01-19.mg",
+			"changelogs/2025/01-27.mg",
+			"changelogs/2025/02-11.mg",
+			"changelogs/2025/02-25.mg",
+			"changelogs/2025/03-13.mg",
+			"changelogs/2025/03-16.mg",
+			"changelogs/2025/03-19.mg",
+			"changelogs/2025/04-04.mg",
+			"changelogs/2025/04-17.mg",
+			"changelogs/2025/05-08.mg",
+			"changelogs/2025/05-11.mg",
+			"changelogs/2025/05-19.mg",
+			"changelogs/2025/05-21.mg",
+			"changelogs/2025/05-27.mg",
+			"changelogs/2025/06-17.mg",
+			"changelogs/2025/07-04.mg",
+			"changelogs/2025/07-29.mg",
+			"changelogs/2025/08-18.mg",
+			"changelogs/2025/09-04.mg",
+			"changelogs/2025/10-02.mg",
+			"changelogs/2025/10-24.mg",
+			"changelogs/2025/11-21.mg",
+			"changelogs/2025/12-16.mg",
+			"changelogs/2025/12-29.mg",
+			"changelogs/2025/billy-comes-in-swinging.mg",
+			"changelogs/2025/drifter-emerges-from-the-shadows.mg",
+			"changelogs/2025/paige-writes-her-own-story.mg",
+			"changelogs/2025/the-doorman-at-your-service.mg",
+			"changelogs/2025/you-cant-kill-victor.mg",
+			"changelogs/2026/01-30.mg",
+			"changelogs/2026/03-06.mg",
+			"changelogs/2026/03-21.mg",
+			"changelogs/2026/03-25.mg",
+			"changelogs/2026/04-10.mg",
+			"changelogs/2026/04-30.mg",
+			"changelogs/2026/05-22.mg",
+			"changelogs/2026/06-30.mg",
+			"changelogs/2026/08-12.mg",
+			"changelogs/2026/08-22.mg",
+			"changelogs/2026/09-16.mg",
+			"changelogs/2026/apollo-a-cut-above.mg",
+			"changelogs/2026/graves-prefers-the-dead.mg",
+			"changelogs/2026/introducing-the-dazzling-celeste.mg",
+			"changelogs/2026/matchmaking.mg",
+			"changelogs/2026/minor-05-25.mg",
+			"changelogs/2026/minor-05-28.mg",
+			"changelogs/2026/minor-05-31.mg",
+			"changelogs/2026/minor-06-04.mg",
+			"changelogs/2026/minor-06-11.mg",
+			"changelogs/2026/minor-07-01.mg",
+			"changelogs/2026/minor-07-09.mg",
+			"changelogs/2026/minor-07-28.mg",
+			"changelogs/2026/old-gods-new-blood.mg",
+			"changelogs/2026/rem-enters-the-city-that-never-sleeps.mg",
+			"changelogs/2026/some-are-merciful-the-venator-is-not.mg",
+			"changelogs/2026/the-curse-beckons-for-silver.mg"
+		]
+	},
+	".svelte-kit/generated/client-optimized/nodes/6.js": {
+		"file": "_app/immutable/nodes/6.CpiIyeAV.js",
+		"name": "nodes/6",
+		"src": ".svelte-kit/generated/client-optimized/nodes/6.js",
+		"isEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_CrkVz1YB.js"]
+	},
+	".svelte-kit/generated/client-optimized/nodes/7.js": {
+		"file": "_app/immutable/nodes/7.BG_mizjQ.js",
+		"name": "nodes/7",
+		"src": ".svelte-kit/generated/client-optimized/nodes/7.js",
+		"isEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_DQOGthuy.js", "_SOIWy3ct.js"]
+	},
+	".svelte-kit/generated/client-optimized/nodes/8.js": {
+		"file": "_app/immutable/nodes/8.gEE5QvUa.js",
+		"name": "nodes/8",
+		"src": ".svelte-kit/generated/client-optimized/nodes/8.js",
+		"isEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_CrkVz1YB.js"]
+	},
+	".svelte-kit/generated/client-optimized/nodes/9.js": {
+		"file": "_app/immutable/nodes/9.CiUqG1yg.js",
+		"name": "nodes/9",
+		"src": ".svelte-kit/generated/client-optimized/nodes/9.js",
+		"isEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_DQOGthuy.js", "_SOIWy3ct.js"]
+	},
+	".svelte-kit/generated/shared/error-template.js": {
+		"file": "_app/immutable/chunks/Bjy-W4x2.js",
+		"name": "error-template",
+		"src": ".svelte-kit/generated/shared/error-template.js",
+		"isDynamicEntry": true
+	},
+	"_1gFtTxxl.js": {
+		"file": "_app/immutable/chunks/1gFtTxxl.js",
+		"name": "context",
+		"imports": [
+			"_CSrylp8p.js",
+			"_Cips59vp.js",
+			"_xihTtKlq.js",
+			"_CfafoLPj.js",
+			"_DQOGthuy.js",
+			"_bGGqeocG.js",
+			"_BkQs74dv.js",
+			"_BZA8fNAE.js"
+		]
+	},
+	"_B7jpYZsL.js": {
+		"file": "_app/immutable/chunks/B7jpYZsL.js",
+		"name": "legacy",
+		"imports": ["_CSrylp8p.js"]
+	},
+	"_BZA8fNAE.js": {
+		"file": "_app/immutable/chunks/BZA8fNAE.js",
+		"name": "arrow-right",
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_CfafoLPj.js"]
+	},
+	"_BkQs74dv.js": {
+		"file": "_app/immutable/chunks/BkQs74dv.js",
+		"name": "seo"
+	},
+	"_BxaZbZlY.js": {
+		"file": "_app/immutable/chunks/BxaZbZlY.js",
+		"name": "shallowParams.svelte",
+		"imports": ["_CSrylp8p.js", "_Cips59vp.js", "_CfafoLPj.js", "_DQOGthuy.js"]
+	},
+	"_Byt6hszL.js": {
+		"file": "_app/immutable/chunks/Byt6hszL.js",
+		"name": "MethodNote",
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_CfafoLPj.js",
+			"_DGUGVeMZ.js",
+			"_bGGqeocG.js"
+		]
+	},
+	"_C4XnHIoE.js": {
+		"file": "_app/immutable/chunks/C4XnHIoE.js",
+		"name": "CornerAccents",
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js"]
+	},
+	"_C8Y4yTRY.js": {
+		"file": "_app/immutable/chunks/C8Y4yTRY.js",
+		"name": "external-link",
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_CfafoLPj.js"]
+	},
+	"_CBNvjb0G.js": {
+		"file": "_app/immutable/chunks/CBNvjb0G.js",
+		"name": "StatsBand",
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_CfafoLPj.js", "_bGGqeocG.js"],
+		"css": ["_app/immutable/assets/StatsBand.a3-fBLhT.css"]
+	},
+	"_CSrylp8p.js": {
+		"file": "_app/immutable/chunks/CSrylp8p.js",
+		"name": "index-client"
+	},
+	"_CfafoLPj.js": {
+		"file": "_app/immutable/chunks/CfafoLPj.js",
+		"name": "Icon",
+		"imports": ["_CSrylp8p.js", "_Cips59vp.js", "_xihTtKlq.js"]
+	},
+	"_Cips59vp.js": {
+		"file": "_app/immutable/chunks/Cips59vp.js",
+		"name": "client",
+		"imports": ["_CSrylp8p.js"]
+	},
+	"_CrkVz1YB.js": {
+		"file": "_app/immutable/chunks/CrkVz1YB.js",
+		"name": "EntityChangelogPage",
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_1gFtTxxl.js",
+			"_DGUGVeMZ.js",
+			"_bGGqeocG.js",
+			"_BkQs74dv.js",
+			"_BZA8fNAE.js",
+			"_C4XnHIoE.js",
+			"_dp17nrVd.js",
+			"_CBNvjb0G.js",
+			"_Byt6hszL.js",
+			"_BxaZbZlY.js"
+		],
+		"css": ["_app/immutable/assets/EntityChangelogPage.BK64ZZpq.css"]
+	},
+	"_DGUGVeMZ.js": {
+		"file": "_app/immutable/chunks/DGUGVeMZ.js",
+		"name": "changelog",
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_CfafoLPj.js",
+			"_1gFtTxxl.js",
+			"_bGGqeocG.js",
+			"_BkQs74dv.js",
+			"_BZA8fNAE.js",
+			"_C4XnHIoE.js"
+		],
+		"css": ["_app/immutable/assets/changelog.BsxzltK7.css"]
+	},
+	"_DQOGthuy.js": {
+		"file": "_app/immutable/chunks/DQOGthuy.js",
+		"name": "entityImages",
+		"imports": [
+			"_CSrylp8p.js",
+			"_Cips59vp.js",
+			"_xihTtKlq.js",
+			"_CfafoLPj.js",
+			"_bGGqeocG.js"
+		]
+	},
+	"_EntityChangelogPage.BK64ZZpq.css": {
+		"file": "_app/immutable/assets/EntityChangelogPage.BK64ZZpq.css",
+		"src": "_EntityChangelogPage.BK64ZZpq.css"
+	},
+	"_SOIWy3ct.js": {
+		"file": "_app/immutable/chunks/SOIWy3ct.js",
+		"name": "EntityDirectory",
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_DQOGthuy.js",
+			"_bGGqeocG.js",
+			"_BkQs74dv.js",
+			"_dp17nrVd.js",
+			"_BxaZbZlY.js"
+		]
+	},
+	"_StatsBand.a3-fBLhT.css": {
+		"file": "_app/immutable/assets/StatsBand.a3-fBLhT.css",
+		"src": "_StatsBand.a3-fBLhT.css"
+	},
+	"__virtual_mog-arborium.E39SMIxX.css": {
+		"file": "_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css",
+		"src": "__virtual_mog-arborium.E39SMIxX.css"
+	},
+	"_bGGqeocG.js": {
+		"file": "_app/immutable/chunks/bGGqeocG.js",
+		"name": "src"
+	},
+	"_changelog.BsxzltK7.css": {
+		"file": "_app/immutable/assets/changelog.BsxzltK7.css",
+		"src": "_changelog.BsxzltK7.css"
+	},
+	"_dp17nrVd.js": {
+		"file": "_app/immutable/chunks/dp17nrVd.js",
+		"name": "dist",
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js"]
+	},
+	"_uBIymjUX.js": {
+		"file": "_app/immutable/chunks/uBIymjUX.js",
+		"name": "preload-helper"
+	},
+	"_vWaTnxY_.js": {
+		"file": "_app/immutable/chunks/vWaTnxY_.js",
+		"name": "VideoLink",
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_CfafoLPj.js",
+			"_1gFtTxxl.js",
+			"_DGUGVeMZ.js",
+			"_bGGqeocG.js",
+			"_CBNvjb0G.js",
+			"_C8Y4yTRY.js"
+		]
+	},
+	"_xihTtKlq.js": {
+		"file": "_app/immutable/chunks/xihTtKlq.js",
+		"name": "disclose-version"
+	},
+	"changelogs/2024/05-03.mg": {
+		"file": "_app/immutable/chunks/-t02rd-g.js",
+		"name": "05-03",
+		"src": "changelogs/2024/05-03.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/05-10.mg": {
+		"file": "_app/immutable/chunks/DXspozNh.js",
+		"name": "05-10",
+		"src": "changelogs/2024/05-10.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/05-13.mg": {
+		"file": "_app/immutable/chunks/DoMw14ut.js",
+		"name": "05-13",
+		"src": "changelogs/2024/05-13.mg",
+		"isDynamicEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_B7jpYZsL.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/05-16.mg": {
+		"file": "_app/immutable/chunks/BjlZ9zeQ.js",
+		"name": "05-16",
+		"src": "changelogs/2024/05-16.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/05-19.mg": {
+		"file": "_app/immutable/chunks/CXzMyeQ8.js",
+		"name": "05-19",
+		"src": "changelogs/2024/05-19.mg",
+		"isDynamicEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_B7jpYZsL.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/05-23.mg": {
+		"file": "_app/immutable/chunks/CK-D02jq.js",
+		"name": "05-23",
+		"src": "changelogs/2024/05-23.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/05-24.mg": {
+		"file": "_app/immutable/chunks/CTf0jZok.js",
+		"name": "05-24",
+		"src": "changelogs/2024/05-24.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/05-30.mg": {
+		"file": "_app/immutable/chunks/DgIcP3kV.js",
+		"name": "05-30",
+		"src": "changelogs/2024/05-30.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/06-01.mg": {
+		"file": "_app/immutable/chunks/BZ84lc1A.js",
+		"name": "06-01",
+		"src": "changelogs/2024/06-01.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/06-06.mg": {
+		"file": "_app/immutable/chunks/B87NTbg9.js",
+		"name": "06-06",
+		"src": "changelogs/2024/06-06.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/06-07.mg": {
+		"file": "_app/immutable/chunks/BI52i0st.js",
+		"name": "06-07",
+		"src": "changelogs/2024/06-07.mg",
+		"isDynamicEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_B7jpYZsL.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/06-13.mg": {
+		"file": "_app/immutable/chunks/BIbBiUPt.js",
+		"name": "06-13",
+		"src": "changelogs/2024/06-13.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/06-14.mg": {
+		"file": "_app/immutable/chunks/DtvmUDX-.js",
+		"name": "06-14",
+		"src": "changelogs/2024/06-14.mg",
+		"isDynamicEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_B7jpYZsL.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/06-16.mg": {
+		"file": "_app/immutable/chunks/jl9spBn6.js",
+		"name": "06-16",
+		"src": "changelogs/2024/06-16.mg",
+		"isDynamicEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_B7jpYZsL.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/06-20.mg": {
+		"file": "_app/immutable/chunks/CZY5a3oa.js",
+		"name": "06-20",
+		"src": "changelogs/2024/06-20.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/06-23.mg": {
+		"file": "_app/immutable/chunks/YCQDpkmR.js",
+		"name": "06-23",
+		"src": "changelogs/2024/06-23.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/06-27.mg": {
+		"file": "_app/immutable/chunks/BJIULcrG.js",
+		"name": "06-27",
+		"src": "changelogs/2024/06-27.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/07-04.mg": {
+		"file": "_app/immutable/chunks/CyFoCMdB.js",
+		"name": "07-04",
+		"src": "changelogs/2024/07-04.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/07-11.mg": {
+		"file": "_app/immutable/chunks/BM91lTd8.js",
+		"name": "07-11",
+		"src": "changelogs/2024/07-11.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/07-18.mg": {
+		"file": "_app/immutable/chunks/BIPpz-9e.js",
+		"name": "07-18",
+		"src": "changelogs/2024/07-18.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/07-23.mg": {
+		"file": "_app/immutable/chunks/DibwXXzp.js",
+		"name": "07-23",
+		"src": "changelogs/2024/07-23.mg",
+		"isDynamicEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_B7jpYZsL.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/08-01.mg": {
+		"file": "_app/immutable/chunks/B3T7acsG.js",
+		"name": "08-01",
+		"src": "changelogs/2024/08-01.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/08-06.mg": {
+		"file": "_app/immutable/chunks/C8cQ0vCb.js",
+		"name": "08-06",
+		"src": "changelogs/2024/08-06.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/08-15.mg": {
+		"file": "_app/immutable/chunks/DsVyh7ao.js",
+		"name": "08-15",
+		"src": "changelogs/2024/08-15.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/08-16.mg": {
+		"file": "_app/immutable/chunks/DPZdS9aS.js",
+		"name": "08-16",
+		"src": "changelogs/2024/08-16.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/08-18.mg": {
+		"file": "_app/immutable/chunks/ePvVRHFO.js",
+		"name": "08-18",
+		"src": "changelogs/2024/08-18.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/08-22.mg": {
+		"file": "_app/immutable/chunks/BJm5CHzW.js",
+		"name": "08-22",
+		"src": "changelogs/2024/08-22.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/08-23.mg": {
+		"file": "_app/immutable/chunks/D32QWQMl.js",
+		"name": "08-23",
+		"src": "changelogs/2024/08-23.mg",
+		"isDynamicEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_B7jpYZsL.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/08-29.mg": {
+		"file": "_app/immutable/chunks/DuMcXEjI.js",
+		"name": "08-29",
+		"src": "changelogs/2024/08-29.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/09-01.mg": {
+		"file": "_app/immutable/chunks/CSyLpTtS.js",
+		"name": "09-01",
+		"src": "changelogs/2024/09-01.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/09-12.mg": {
+		"file": "_app/immutable/chunks/B8VGdp3b.js",
+		"name": "09-12",
+		"src": "changelogs/2024/09-12.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/09-14.mg": {
+		"file": "_app/immutable/chunks/BgoNDr4i.js",
+		"name": "09-14",
+		"src": "changelogs/2024/09-14.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/09-17.mg": {
+		"file": "_app/immutable/chunks/xTIVJ37r.js",
+		"name": "09-17",
+		"src": "changelogs/2024/09-17.mg",
+		"isDynamicEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_B7jpYZsL.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/09-19.mg": {
+		"file": "_app/immutable/chunks/9kCAvvL2.js",
+		"name": "09-19",
+		"src": "changelogs/2024/09-19.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/09-26.mg": {
+		"file": "_app/immutable/chunks/CXTdF9CD.js",
+		"name": "09-26",
+		"src": "changelogs/2024/09-26.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/09-27.mg": {
+		"file": "_app/immutable/chunks/BL5i_HA4.js",
+		"name": "09-27",
+		"src": "changelogs/2024/09-27.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/09-29.mg": {
+		"file": "_app/immutable/chunks/CUjCzfVG.js",
+		"name": "09-29",
+		"src": "changelogs/2024/09-29.mg",
+		"isDynamicEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_B7jpYZsL.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/10-02.mg": {
+		"file": "_app/immutable/chunks/aJEwpx7l.js",
+		"name": "10-02",
+		"src": "changelogs/2024/10-02.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/10-07.mg": {
+		"file": "_app/immutable/chunks/CBjqSVru.js",
+		"name": "10-07",
+		"src": "changelogs/2024/10-07.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/10-10.mg": {
+		"file": "_app/immutable/chunks/CnTJy5-n.js",
+		"name": "10-10",
+		"src": "changelogs/2024/10-10.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/10-11.mg": {
+		"file": "_app/immutable/chunks/o_Em28Ev.js",
+		"name": "10-11",
+		"src": "changelogs/2024/10-11.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/10-15.mg": {
+		"file": "_app/immutable/chunks/fuZodtMt.js",
+		"name": "10-15",
+		"src": "changelogs/2024/10-15.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/10-18-2.mg": {
+		"file": "_app/immutable/chunks/CQspf2AM.js",
+		"name": "10-18-2",
+		"src": "changelogs/2024/10-18-2.mg",
+		"isDynamicEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_B7jpYZsL.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/10-18.mg": {
+		"file": "_app/immutable/chunks/DMwq9rFt.js",
+		"name": "10-18",
+		"src": "changelogs/2024/10-18.mg",
+		"isDynamicEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_B7jpYZsL.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/10-24.mg": {
+		"file": "_app/immutable/chunks/DfLnkLnH.js",
+		"name": "10-24",
+		"src": "changelogs/2024/10-24.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/10-27.mg": {
+		"file": "_app/immutable/chunks/DExetGxZ.js",
+		"name": "10-27",
+		"src": "changelogs/2024/10-27.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/10-29.mg": {
+		"file": "_app/immutable/chunks/BSwQVPhI.js",
+		"name": "10-29",
+		"src": "changelogs/2024/10-29.mg",
+		"isDynamicEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_B7jpYZsL.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/11-01.mg": {
+		"file": "_app/immutable/chunks/BpXd1p4m.js",
+		"name": "11-01",
+		"src": "changelogs/2024/11-01.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/11-07.mg": {
+		"file": "_app/immutable/chunks/B4pYJ__d.js",
+		"name": "11-07",
+		"src": "changelogs/2024/11-07.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/11-10.mg": {
+		"file": "_app/immutable/chunks/ByGJJWl7.js",
+		"name": "11-10",
+		"src": "changelogs/2024/11-10.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/11-13.mg": {
+		"file": "_app/immutable/chunks/C6BjN6xw.js",
+		"name": "11-13",
+		"src": "changelogs/2024/11-13.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/11-21.mg": {
+		"file": "_app/immutable/chunks/DuVy-tIo.js",
+		"name": "11-21",
+		"src": "changelogs/2024/11-21.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/11-29.mg": {
+		"file": "_app/immutable/chunks/DEOsuQ5t.js",
+		"name": "11-29",
+		"src": "changelogs/2024/11-29.mg",
+		"isDynamicEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_B7jpYZsL.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/12-06.mg": {
+		"file": "_app/immutable/chunks/C5gqHJaR.js",
+		"name": "12-06",
+		"src": "changelogs/2024/12-06.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/12-17.mg": {
+		"file": "_app/immutable/chunks/CxVH3Eiy.js",
+		"name": "12-17",
+		"src": "changelogs/2024/12-17.mg",
+		"isDynamicEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_B7jpYZsL.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/12-21.mg": {
+		"file": "_app/immutable/chunks/D3AOmhq9.js",
+		"name": "12-21",
+		"src": "changelogs/2024/12-21.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2024/12-31.mg": {
+		"file": "_app/immutable/chunks/C4mjIt7z.js",
+		"name": "12-31",
+		"src": "changelogs/2024/12-31.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2025/01-12.mg": {
+		"file": "_app/immutable/chunks/BHUd2xpY.js",
+		"name": "01-12",
+		"src": "changelogs/2025/01-12.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2025/01-17.mg": {
+		"file": "_app/immutable/chunks/CgGVk0y-.js",
+		"name": "01-17",
+		"src": "changelogs/2025/01-17.mg",
+		"isDynamicEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_B7jpYZsL.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2025/01-19.mg": {
+		"file": "_app/immutable/chunks/Ch_KXPBB.js",
+		"name": "01-19",
+		"src": "changelogs/2025/01-19.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2025/01-27.mg": {
+		"file": "_app/immutable/chunks/ChK49lwA.js",
+		"name": "01-27",
+		"src": "changelogs/2025/01-27.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2025/02-11.mg": {
+		"file": "_app/immutable/chunks/B8b57fVS.js",
+		"name": "02-11",
+		"src": "changelogs/2025/02-11.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2025/02-25.mg": {
+		"file": "_app/immutable/chunks/DWJpqOBN.js",
+		"name": "02-25",
+		"src": "changelogs/2025/02-25.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2025/03-13.mg": {
+		"file": "_app/immutable/chunks/C1P2FQZ7.js",
+		"name": "03-13",
+		"src": "changelogs/2025/03-13.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2025/03-16.mg": {
+		"file": "_app/immutable/chunks/jYO_D998.js",
+		"name": "03-16",
+		"src": "changelogs/2025/03-16.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2025/03-19.mg": {
+		"file": "_app/immutable/chunks/jYic6ccD.js",
+		"name": "03-19",
+		"src": "changelogs/2025/03-19.mg",
+		"isDynamicEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_B7jpYZsL.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2025/04-04.mg": {
+		"file": "_app/immutable/chunks/BvcLuu0q.js",
+		"name": "04-04",
+		"src": "changelogs/2025/04-04.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2025/04-17.mg": {
+		"file": "_app/immutable/chunks/BMH9lPT7.js",
+		"name": "04-17",
+		"src": "changelogs/2025/04-17.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2025/05-08.mg": {
+		"file": "_app/immutable/chunks/PNYdSt5-.js",
+		"name": "05-08",
+		"src": "changelogs/2025/05-08.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2025/05-11.mg": {
+		"file": "_app/immutable/chunks/D0FlKfGI.js",
+		"name": "05-11",
+		"src": "changelogs/2025/05-11.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2025/05-19.mg": {
+		"file": "_app/immutable/chunks/C1O5XDaa.js",
+		"name": "05-19",
+		"src": "changelogs/2025/05-19.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2025/05-21.mg": {
+		"file": "_app/immutable/chunks/DB_2yMaD.js",
+		"name": "05-21",
+		"src": "changelogs/2025/05-21.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2025/05-27.mg": {
+		"file": "_app/immutable/chunks/CmKjIl-4.js",
+		"name": "05-27",
+		"src": "changelogs/2025/05-27.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2025/06-17.mg": {
+		"file": "_app/immutable/chunks/Cz6S2sEN.js",
+		"name": "06-17",
+		"src": "changelogs/2025/06-17.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2025/07-04.mg": {
+		"file": "_app/immutable/chunks/BWGC0KZQ.js",
+		"name": "07-04",
+		"src": "changelogs/2025/07-04.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2025/07-29.mg": {
+		"file": "_app/immutable/chunks/lSVSXyB8.js",
+		"name": "07-29",
+		"src": "changelogs/2025/07-29.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2025/08-18.mg": {
+		"file": "_app/immutable/chunks/BdToxqA_.js",
+		"name": "08-18",
+		"src": "changelogs/2025/08-18.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2025/09-04.mg": {
+		"file": "_app/immutable/chunks/DLUTEGvn.js",
+		"name": "09-04",
+		"src": "changelogs/2025/09-04.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2025/10-02.mg": {
+		"file": "_app/immutable/chunks/B9Hx0ap8.js",
+		"name": "10-02",
+		"src": "changelogs/2025/10-02.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2025/10-24.mg": {
+		"file": "_app/immutable/chunks/-80NN-iT.js",
+		"name": "10-24",
+		"src": "changelogs/2025/10-24.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2025/11-21.mg": {
+		"file": "_app/immutable/chunks/DvCwL_CL.js",
+		"name": "11-21",
+		"src": "changelogs/2025/11-21.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2025/12-16.mg": {
+		"file": "_app/immutable/chunks/BBp7JHT7.js",
+		"name": "12-16",
+		"src": "changelogs/2025/12-16.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2025/12-29.mg": {
+		"file": "_app/immutable/chunks/DfcQfImW.js",
+		"name": "12-29",
+		"src": "changelogs/2025/12-29.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2025/billy-comes-in-swinging.mg": {
+		"file": "_app/immutable/chunks/s9lpj7Ue.js",
+		"name": "billy-comes-in-swinging",
+		"src": "changelogs/2025/billy-comes-in-swinging.mg",
+		"isDynamicEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_B7jpYZsL.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2025/drifter-emerges-from-the-shadows.mg": {
+		"file": "_app/immutable/chunks/DvXxBbIb.js",
+		"name": "drifter-emerges-from-the-shadows",
+		"src": "changelogs/2025/drifter-emerges-from-the-shadows.mg",
+		"isDynamicEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_B7jpYZsL.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2025/paige-writes-her-own-story.mg": {
+		"file": "_app/immutable/chunks/2D1bak8w.js",
+		"name": "paige-writes-her-own-story",
+		"src": "changelogs/2025/paige-writes-her-own-story.mg",
+		"isDynamicEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_B7jpYZsL.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2025/the-doorman-at-your-service.mg": {
+		"file": "_app/immutable/chunks/DUq3aHph.js",
+		"name": "the-doorman-at-your-service",
+		"src": "changelogs/2025/the-doorman-at-your-service.mg",
+		"isDynamicEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_B7jpYZsL.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2025/you-cant-kill-victor.mg": {
+		"file": "_app/immutable/chunks/0KPUXSa4.js",
+		"name": "you-cant-kill-victor",
+		"src": "changelogs/2025/you-cant-kill-victor.mg",
+		"isDynamicEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_B7jpYZsL.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2026/01-30.mg": {
+		"file": "_app/immutable/chunks/DMW4vz92.js",
+		"name": "01-30",
+		"src": "changelogs/2026/01-30.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2026/03-06.mg": {
+		"file": "_app/immutable/chunks/VQd0T8oV.js",
+		"name": "03-06",
+		"src": "changelogs/2026/03-06.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2026/03-21.mg": {
+		"file": "_app/immutable/chunks/4SoPbaW_.js",
+		"name": "03-21",
+		"src": "changelogs/2026/03-21.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2026/03-25.mg": {
+		"file": "_app/immutable/chunks/DuRcSgKh.js",
+		"name": "03-25",
+		"src": "changelogs/2026/03-25.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2026/04-10.mg": {
+		"file": "_app/immutable/chunks/D1dOLT3f.js",
+		"name": "04-10",
+		"src": "changelogs/2026/04-10.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2026/04-30.mg": {
+		"file": "_app/immutable/chunks/xE3n0uel.js",
+		"name": "04-30",
+		"src": "changelogs/2026/04-30.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2026/05-22.mg": {
+		"file": "_app/immutable/chunks/yex1n9FU.js",
+		"name": "05-22",
+		"src": "changelogs/2026/05-22.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2026/06-30.mg": {
+		"file": "_app/immutable/chunks/DqxDl9Eu.js",
+		"name": "06-30",
+		"src": "changelogs/2026/06-30.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2026/08-12.mg": {
+		"file": "_app/immutable/chunks/B6Ud8Y2a.js",
+		"name": "08-12",
+		"src": "changelogs/2026/08-12.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2026/08-22.mg": {
+		"file": "_app/immutable/chunks/DVrfRP3z.js",
+		"name": "08-22",
+		"src": "changelogs/2026/08-22.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2026/09-16.mg": {
+		"file": "_app/immutable/chunks/BAThcDRG.js",
+		"name": "09-16",
+		"src": "changelogs/2026/09-16.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2026/apollo-a-cut-above.mg": {
+		"file": "_app/immutable/chunks/BoU0ONHG.js",
+		"name": "apollo-a-cut-above",
+		"src": "changelogs/2026/apollo-a-cut-above.mg",
+		"isDynamicEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_B7jpYZsL.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2026/graves-prefers-the-dead.mg": {
+		"file": "_app/immutable/chunks/Co2jRA9I.js",
+		"name": "graves-prefers-the-dead",
+		"src": "changelogs/2026/graves-prefers-the-dead.mg",
+		"isDynamicEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_B7jpYZsL.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2026/introducing-the-dazzling-celeste.mg": {
+		"file": "_app/immutable/chunks/DnVztdAX.js",
+		"name": "introducing-the-dazzling-celeste",
+		"src": "changelogs/2026/introducing-the-dazzling-celeste.mg",
+		"isDynamicEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_B7jpYZsL.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2026/matchmaking.mg": {
+		"file": "_app/immutable/chunks/jVT9Apqr.js",
+		"name": "matchmaking",
+		"src": "changelogs/2026/matchmaking.mg",
+		"isDynamicEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_B7jpYZsL.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2026/minor-05-25.mg": {
+		"file": "_app/immutable/chunks/DHba8RuL.js",
+		"name": "minor-05-25",
+		"src": "changelogs/2026/minor-05-25.mg",
+		"isDynamicEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_B7jpYZsL.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2026/minor-05-28.mg": {
+		"file": "_app/immutable/chunks/mQ3f3Edb.js",
+		"name": "minor-05-28",
+		"src": "changelogs/2026/minor-05-28.mg",
+		"isDynamicEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_B7jpYZsL.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2026/minor-05-31.mg": {
+		"file": "_app/immutable/chunks/B1-Ctfrt.js",
+		"name": "minor-05-31",
+		"src": "changelogs/2026/minor-05-31.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2026/minor-06-04.mg": {
+		"file": "_app/immutable/chunks/BRVp45z9.js",
+		"name": "minor-06-04",
+		"src": "changelogs/2026/minor-06-04.mg",
+		"isDynamicEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_B7jpYZsL.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2026/minor-06-11.mg": {
+		"file": "_app/immutable/chunks/BF5uf1B1.js",
+		"name": "minor-06-11",
+		"src": "changelogs/2026/minor-06-11.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2026/minor-07-01.mg": {
+		"file": "_app/immutable/chunks/B0L2CGEU.js",
+		"name": "minor-07-01",
+		"src": "changelogs/2026/minor-07-01.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2026/minor-07-09.mg": {
+		"file": "_app/immutable/chunks/IAFYKr_w.js",
+		"name": "minor-07-09",
+		"src": "changelogs/2026/minor-07-09.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2026/minor-07-28.mg": {
+		"file": "_app/immutable/chunks/CdSgEoPf.js",
+		"name": "minor-07-28",
+		"src": "changelogs/2026/minor-07-28.mg",
+		"isDynamicEntry": true,
+		"imports": [
+			"_CSrylp8p.js",
+			"_xihTtKlq.js",
+			"_B7jpYZsL.js",
+			"_DGUGVeMZ.js",
+			"_Byt6hszL.js",
+			"_vWaTnxY_.js"
+		],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2026/old-gods-new-blood.mg": {
+		"file": "_app/immutable/chunks/Bozd5NKL.js",
+		"name": "old-gods-new-blood",
+		"src": "changelogs/2026/old-gods-new-blood.mg",
+		"isDynamicEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_B7jpYZsL.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2026/rem-enters-the-city-that-never-sleeps.mg": {
+		"file": "_app/immutable/chunks/vpb82io6.js",
+		"name": "rem-enters-the-city-that-never-sleeps",
+		"src": "changelogs/2026/rem-enters-the-city-that-never-sleeps.mg",
+		"isDynamicEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_B7jpYZsL.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2026/some-are-merciful-the-venator-is-not.mg": {
+		"file": "_app/immutable/chunks/CW_uB-sI.js",
+		"name": "some-are-merciful-the-venator-is-not",
+		"src": "changelogs/2026/some-are-merciful-the-venator-is-not.mg",
+		"isDynamicEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_B7jpYZsL.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	},
+	"changelogs/2026/the-curse-beckons-for-silver.mg": {
+		"file": "_app/immutable/chunks/CQj2U9yj.js",
+		"name": "the-curse-beckons-for-silver",
+		"src": "changelogs/2026/the-curse-beckons-for-silver.mg",
+		"isDynamicEntry": true,
+		"imports": ["_CSrylp8p.js", "_xihTtKlq.js", "_B7jpYZsL.js"],
+		"css": ["_app/immutable/assets/_virtual_mog-arborium.E39SMIxX.css"]
+	}
+}

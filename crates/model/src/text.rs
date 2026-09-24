@@ -1,4 +1,4 @@
-use crate::names::is_js_space;
+use crate::js::is_js_whitespace;
 
 /// `text.replace(/\s+/g, ' ').trim()`.
 fn squash(text: &str) -> String {
@@ -33,7 +33,7 @@ pub fn make_summary(text: Option<&str>, max: usize) -> String {
         Some(space) if utf16_len(&cut[..space]) as f64 > max as f64 * 0.6 => &cut[..space],
         _ => cut,
     };
-    format!("{}…", cut.trim_end_matches(is_js_space))
+    format!("{}…", cut.trim_end_matches(is_js_whitespace))
 }
 
 pub fn plural<'a>(count: usize, one: &'a str, many: &'a str) -> &'a str {
@@ -46,7 +46,7 @@ pub fn plural_s(count: usize, one: &str) -> String {
 
 fn name_words(author: &str) -> Vec<String> {
     let mut words = Vec::new();
-    for word in author.split(is_js_space).filter(|word| !word.is_empty()) {
+    for word in author.split(is_js_whitespace).filter(|word| !word.is_empty()) {
         let chars: Vec<char> = word.chars().collect();
         let mut start = 0;
         for index in 1..chars.len() {
@@ -57,10 +57,7 @@ fn name_words(author: &str) -> Vec<String> {
         }
         words.push(chars[start..].iter().collect::<String>());
     }
-    words
-        .into_iter()
-        .filter(|word| word.chars().next().is_some_and(|c| c.is_alphanumeric()))
-        .collect()
+    words.into_iter().filter(|word| word.chars().next().is_some_and(|c| c.is_alphanumeric())).collect()
 }
 
 pub fn author_initials(author: &str) -> String {

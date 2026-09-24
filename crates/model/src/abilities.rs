@@ -29,9 +29,8 @@ where
     let mut best: Option<&str> = None;
     for slug in abilities {
         let candidates = [slug.to_string(), singularize_slug(slug)];
-        let matches = headings
-            .iter()
-            .any(|heading| candidates.iter().any(|candidate| matches_ability_slug(heading, candidate)));
+        let matches =
+            headings.iter().any(|heading| candidates.iter().any(|candidate| matches_ability_slug(heading, candidate)));
         if matches && best.is_none_or(|best| slug.len() > best.len()) {
             best = Some(slug);
         }
