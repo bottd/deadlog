@@ -1,0 +1,9 @@
+{
+	"extends": "../tsconfig.integration.json",
+	"compilerOptions": {
+		"types": ["node", "vite/client", "svelte"],
+		"allowJs": true,
+		"checkJs": true
+	},
+	"include": ["src/**/*.ts", "src/**/*.svelte", "*.ts", "*.js", "e2e/**/*.ts"]
+}

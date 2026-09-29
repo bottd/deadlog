@@ -13,14 +13,15 @@ node_modules
 *.db-journal
 
 # Build artifacts
-/dist
-/.svelte-kit
-/app/.svelte-kit
-/app/.wrangler/
-/app/playwright-report/
-/app/test-results/
-/app/static/assets/meta/
+.svelte-kit
+app/static/assets/meta/
 .nx/cache
 .nx/workspace-data
 app/static/deadlog.db
-app/src/lib/generated/
+.generated/
+generated/
+dist/
+test-results/
+playwright-report/
+target
+.wrangler/

@@ -12,5 +12,5 @@
 		"strict": true,
 		"types": ["vitest/globals", "@testing-library/jest-dom"]
 	},
-	"files": ["eslint.config.js"]
+	"files": ["eslint.config.js", "vitest.mcp.config.ts"]
 }

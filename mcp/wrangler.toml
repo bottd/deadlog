@@ -1,0 +1,27 @@
+name = "deadlog-mcp-local"
+main = "src/index.ts"
+compatibility_date = "2026-09-25"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "deadlog-mcp-local"
+database_id = "00000000-0000-0000-0000-000000000000"
+migrations_dir = "migrations"
+
+[observability.logs]
+enabled = true
+invocation_logs = false
+
+[env.staging]
+name = "deadlog-mcp-staging"
+workers_dev = true
+
+[[env.staging.d1_databases]]
+binding = "DB"
+database_name = "deadlog-mcp-staging"
+database_id = "cb1872b4-8967-4cf4-81c8-ebcaba3e40a8"
+migrations_dir = "migrations"
+
+[env.staging.observability.logs]
+enabled = true
+invocation_logs = false

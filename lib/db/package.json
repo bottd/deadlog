@@ -7,9 +7,22 @@
 		"test": "vitest run --config vite.config.ts"
 	},
 	"dependencies": {
-		"@deadlog/utils": "workspace:*"
+		"@deadlog/utils": "workspace:*",
+		"@deadlog/contracts": "workspace:*",
+		"@deadlog/core": "workspace:*",
+		"drizzle-orm": "0.45.2",
+		"drizzle-zod": "0.8.3",
+		"zod": "4.6.5",
+		"@libsql/client": "0.18.0"
 	},
 	"exports": {
-		".": "./src/index.ts"
+		".": "./src/index.ts",
+		"./schema": "./src/schema.ts",
+		"./sqlite": "./src/sqlite.ts",
+		"./d1": "./src/d1.ts",
+		"./publication": "./src/publication.ts"
+	},
+	"devDependencies": {
+		"wrangler": "4.135.0"
 	}
 }

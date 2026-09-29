@@ -1,6 +1,8 @@
 packages:
   - app
   - lib/*
+  - mcp
+  - embed
 
 allowBuilds:
   esbuild: true

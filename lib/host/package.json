@@ -1,0 +1,21 @@
+{
+	"name": "@deadlog/host",
+	"private": true,
+	"type": "module",
+	"exports": {
+		".": "./src/index.ts"
+	},
+	"scripts": {
+		"check": "tsc -p tsconfig.json",
+		"test": "vitest run --config ../../vitest.mcp.config.ts"
+	},
+	"dependencies": {
+		"@deadlog/contracts": "workspace:*",
+		"@modelcontextprotocol/ext-apps": "1.7.5",
+		"@modelcontextprotocol/sdk": "1.31.0",
+		"zod": "4.6.5"
+	},
+	"devDependencies": {
+		"@deadlog/core": "workspace:*"
+	}
+}

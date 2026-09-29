@@ -7,7 +7,7 @@
 		"skipLibCheck": true,
 		"strict": true,
 		"target": "ES2022",
-		"types": ["node"],
+		"types": ["node", "@cloudflare/workers-types", "vitest/globals"],
 		"paths": {
 			"@deadlog/changelog": ["../lib/changelog/src/index.ts"],
 			"@deadlog/scraper": ["../lib/scraper/src/index.ts"],

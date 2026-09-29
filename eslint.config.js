@@ -4,6 +4,7 @@ import eslintConfigPrettier from 'eslint-config-prettier';
 import eslintPluginSvelte from 'eslint-plugin-svelte';
 import globals from 'globals';
 import svelteConfig from './app/svelte.config.js';
+import embedSvelteConfig from './embed/svelte.config.js';
 
 export default ts.config(
 	js.configs.recommended,
@@ -39,7 +40,7 @@ export default ts.config(
 	...eslintPluginSvelte.configs['flat/recommended'],
 	...eslintPluginSvelte.configs['flat/prettier'],
 	{
-		files: ['**/*.svelte', '**/*.svelte.ts'],
+		files: ['app/**/*.svelte', 'app/**/*.svelte.ts'],
 		languageOptions: {
 			parserOptions: {
 				projectService: true,
@@ -57,11 +58,29 @@ export default ts.config(
 		}
 	},
 	{
+		files: ['embed/**/*.svelte'],
+		rules: { 'svelte/no-navigation-without-resolve': 'off' },
+		languageOptions: {
+			parserOptions: {
+				projectService: true,
+				extraFileExtensions: ['.svelte'],
+				parser: ts.parser,
+				svelteConfig: embedSvelteConfig
+			}
+		}
+	},
+	{
 		ignores: [
 			'build/**',
 			'node_modules/**',
 			'.svelte-kit/**',
 			'app/.svelte-kit/**',
+			'mcp/.generated/**',
+			'mcp/.wrangler/**',
+			'mcp/dist/**',
+			'embed/dist/**',
+			'embed/test-results/**',
+			'embed/playwright-report/**',
 			'package-lock.json',
 			'app/vitest-setup-client.ts',
 			'app/e2e/**',

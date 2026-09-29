@@ -1,0 +1,15 @@
+{
+	"name": "@deadlog/core",
+	"private": true,
+	"type": "module",
+	"exports": {
+		".": "./src/index.ts"
+	},
+	"scripts": {
+		"check": "tsc -p tsconfig.json",
+		"test": "vitest run --config ../../vitest.mcp.config.ts"
+	},
+	"dependencies": {
+		"@deadlog/contracts": "workspace:*"
+	}
+}

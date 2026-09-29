@@ -1,0 +1,23 @@
+{
+	"name": "deadlog-embed",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"check": "svelte-check --tsconfig tsconfig.json",
+		"build": "vite build",
+		"test:e2e": "playwright test"
+	},
+	"dependencies": {
+		"@deadlog/contracts": "workspace:*",
+		"@deadlog/host": "workspace:*",
+		"svelte": "5.57.0"
+	},
+	"devDependencies": {
+		"@sveltejs/vite-plugin-svelte": "7.3.0",
+		"vite": "8.3.0",
+		"vite-plugin-singlefile": "2.3.3",
+		"rollup": "4.59.0",
+		"@modelcontextprotocol/ext-apps": "1.7.5",
+		"@modelcontextprotocol/sdk": "1.31.0"
+	}
+}

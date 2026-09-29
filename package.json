@@ -24,13 +24,31 @@
 		"build:db": "tsx lib/scraper/src/cli.ts --db-only && pnpm run build:redirects",
 		"build:redirects": "pnpm --filter 'deadlog-web' redirects",
 		"clean:meta": "rm -rf app/static/assets/meta",
-		"build:meta": "pnpm run clean:meta && UV_THREADPOOL_SIZE=8 tsx lib/meta/src/generate-previews.ts"
+		"build:meta": "pnpm run clean:meta && UV_THREADPOOL_SIZE=8 tsx lib/meta/src/generate-previews.ts",
+		"mcp:fixture:export": "tsx scripts/export-mcp-fixture.ts",
+		"test:mcp:fixtures": "vitest run --config scripts/vitest.config.ts",
+		"mcp:db:migrate:local": "wrangler d1 migrations apply DB --local --config mcp/wrangler.toml",
+		"mcp:fixture:publish": "tsx scripts/publish-mcp-fixture.ts",
+		"build:mcp": "pnpm --filter deadlog-embed build && tsx scripts/build-mcp-resource.ts && pnpm --filter deadlog-mcp build",
+		"test:mcp": "pnpm --filter deadlog-mcp test:protocol",
+		"mcp:probe:stats": "tsx scripts/probe-mcp-stats.ts",
+		"check:mcp": "pnpm --filter @deadlog/contracts check && pnpm --filter @deadlog/core check && pnpm --filter @deadlog/host check && tsc --noEmit -p lib/db/tsconfig.json && pnpm --filter deadlog-mcp check && pnpm --filter deadlog-embed check && pnpm run check:scripts",
+		"lint:mcp": "eslint lib/contracts/src lib/core/src lib/host/src lib/db/src/d1.ts lib/db/src/sqlite.ts lib/db/src/patch-repository.ts lib/db/src/publication.ts lib/db/src/patch-repository.test.ts mcp/src mcp/tests embed/src embed/e2e embed/playwright.config.ts embed/vite.config.ts embed/svelte.config.js vitest.mcp.config.ts",
+		"test:embed": "pnpm --filter deadlog-embed test:e2e",
+		"mcp:db:migrate:staging": "wrangler d1 migrations apply DB --remote --env staging --config mcp/wrangler.toml",
+		"deploy:mcp:staging": "tsx scripts/retain-mcp-resources.ts && pnpm run build:mcp && wrangler deploy --env staging --config mcp/wrangler.toml",
+		"inspect:mcp": "pnpm --filter deadlog-mcp inspect"
 	},
 	"dependencies": {
 		"@deadlog/db": "workspace:*",
-		"@deadlog/utils": "workspace:*"
+		"@deadlog/utils": "workspace:*",
+		"@deadlog/contracts": "workspace:*",
+		"@deadlog/core": "workspace:*",
+		"@deadlog/changelog": "workspace:*"
 	},
 	"devDependencies": {
+		"@modelcontextprotocol/sdk": "1.31.0",
+		"@modelcontextprotocol/inspector-cli": "1.0.1",
 		"@cloudflare/workers-types": "5.20260919.1",
 		"@counterscale/tracker": "3.4.1",
 		"@eslint/js": "10.0.1",

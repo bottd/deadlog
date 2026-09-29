@@ -35,8 +35,28 @@ jobs:
       - name: Run browser tests against the build
         run: pnpm run test:e2e
 
+  mcp-integration:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7.0.1
+
+      - name: Setup pipeline
+        uses: ./.github/actions/setup-pipeline
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build MCP resource and Worker
+        run: pnpm run build:mcp
+
+      - name: Check MCP integration
+        run: pnpm run check:mcp && pnpm run lint:mcp && pnpm run test:mcp:fixtures
+
+      - name: Verify local MCP protocol and embedded UI
+        run: pnpm run test:mcp && pnpm run test:embed
+
   auto-merge:
-    needs: pull-request
+    needs: [pull-request, mcp-integration]
     runs-on: ubuntu-latest
     if: contains(github.event.pull_request.labels.*.name, 'automated')
     permissions:
