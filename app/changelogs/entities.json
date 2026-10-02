@@ -10088,6 +10088,90 @@
 			"description": {
 				"desc": "Call down a beam of light from the sky. After a short duration, the beam will fully form, causing an explosion that deals <svg width=\"128\" height=\"128\" viewBox=\"0 0 128 128\" fill=\"white\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M53.7875 20.0238C48.6533 13.3022 40.8042 9 32.0027 9C16.5345 9 4 22.2789 4 38.6558C4 38.7707 4.00052 38.8854 4.00155 39H91.8416L94.7229 33.1618C97.2906 27.9591 104.71 27.9591 107.277 33.1618L110.159 39H115.998C115.999 38.8854 116 38.7707 116 38.6558C116 22.2789 103.466 9 87.9973 9C79.1958 9 71.3467 13.3022 66.2125 20.0238C65.7565 20.6214 65.336 21.1783 64.9462 21.6946C62.4734 24.9699 61.2367 26.6078 59.9993 26.6084C58.7614 26.609 57.5227 24.9711 55.0449 21.6946C54.6545 21.1783 54.2333 20.6214 53.7766 20.0238H53.7875Z\" fill=\"white\"/>\n<path d=\"M79.7015 79L79.5588 79.8323C78.7516 84.5386 82.6742 88.3253 86.9508 88.0132C86.8571 88.1111 86.7634 88.209 86.6696 88.3069C78.1991 97.1552 69.4174 106.328 62.6218 116.742C61.1111 119.051 58.8889 119.051 57.3782 116.742C50.5788 106.325 41.7966 97.1509 33.3264 88.303C30.3317 85.1748 27.3761 82.0873 24.5608 79H79.7015Z\" fill=\"white\"/>\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M101.901 35.5496C101.512 34.8168 100.488 34.8168 100.099 35.5497L93.0406 48.845C92.8929 49.123 92.6315 49.3183 92.3283 49.3766L77.8385 52.1641C77.0398 52.3178 76.7233 53.3185 77.2815 53.9252L87.4091 64.9295C87.6209 65.1597 87.7208 65.4756 87.6812 65.7898L85.7842 80.8078C85.6796 81.6357 86.5083 82.2542 87.2424 81.8963L100.56 75.402C100.838 75.2662 101.162 75.2662 101.44 75.402L114.758 81.8963C115.492 82.2542 116.32 81.6357 116.216 80.8078L114.319 65.7898C114.279 65.4756 114.379 65.1597 114.591 64.9295L124.718 53.9252C125.277 53.3185 124.96 52.3178 124.161 52.1641L109.672 49.3766C109.369 49.3183 109.107 49.123 108.959 48.845L101.901 35.5496ZM100.036 43.0789C100.366 42.1579 101.634 42.1579 101.964 43.0789L105.019 51.6179C105.01 51.6983 105.017 51.7822 105.041 51.8662L107.687 61.1634C107.817 61.6217 108.371 61.7807 108.714 61.4584L111.336 58.9947C111.498 58.8428 111.571 58.6153 111.528 58.3944L110.687 53.9877H117.422C118.389 53.9877 118.82 55.2373 118.067 55.8622L110.702 61.9792C110.601 61.9949 110.502 62.0365 110.413 62.1066L102.948 68.0247C102.581 68.3164 102.638 68.9036 103.055 69.1143L106.244 70.7259C106.44 70.8252 106.673 70.8121 106.858 70.6913L110.254 68.4723L112.085 75.0776C112.35 76.0329 111.299 76.8003 110.508 76.2296L101.591 69.8003C101.471 69.7136 101.337 69.6563 101.199 69.6285L95.0376 65.3393C94.6474 65.0677 94.116 65.3179 94.0614 65.7987L93.6534 69.3978C93.6281 69.6213 93.718 69.8423 93.8907 69.9808L96.868 72.3692L91.5448 76.2279C90.7554 76.8001 89.7037 76.0372 89.9645 75.0816L92.6557 65.2197C92.6717 65.1902 92.6845 65.1581 92.6935 65.1237L95.058 56.0862C95.1347 55.7934 94.8946 55.5156 94.6024 55.5592L90.6768 56.1448C90.5236 56.1678 90.3959 56.2773 90.3466 56.428L89.0988 60.2424L83.9931 56.1163C83.2355 55.5041 83.6428 54.2537 84.6065 54.2331L94.8405 54.0152C94.8711 54.0191 94.9023 54.0206 94.934 54.0198L103.141 53.8011C103.588 53.7892 103.88 53.3157 103.7 52.8958L102.212 49.4285C102.111 49.1944 101.886 49.0435 101.637 49.0435H97.9024L100.036 43.0789Z\" fill=\"white\"/>\n<path d=\"M67 57C68.1046 57 69 57.8954 69 59C69 60.1046 68.1046 61 67 61H7C5.89543 61 5 60.1046 5 59C5 57.8954 5.89543 57 7 57H67Z\" fill=\"white\"/>\n</svg>\n<span class=\"inline-attribute-label SpiritDamage\">spirit damage</span> to all targets in the area.<br><br> Celeste will receive a stacking buff that increases her spirit damage anytime this hits an enemy hero."
 			}
+		},
+		{
+			"id": 3435805738,
+			"class_name": "citadel_weapon_ratking_set",
+			"name": "Sovereign's Decree",
+			"type": "weapon",
+			"image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/weapon_damage.png",
+			"image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/weapon_damage.webp"
+		},
+		{
+			"id": 2052857081,
+			"class_name": "ability_melee_ratking",
+			"name": "Melee",
+			"type": "ability",
+			"image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/melee_damage.png",
+			"image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/melee_damage.webp",
+			"description": {}
+		},
+		{
+			"id": 3681399397,
+			"class_name": "ability_ratking_ratnibble",
+			"name": "Rat Swarm",
+			"type": "ability",
+			"image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/ratking/ratking_swarm.png",
+			"image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/ratking/ratking_swarm.webp",
+			"description": {
+				"desc": "Call forth a swarm of <span class=\"highlight\">rats</span> that leap onto enemies, dealing <svg width=\"128\" height=\"128\" viewBox=\"0 0 128 128\" fill=\"white\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M53.7875 20.0238C48.6533 13.3022 40.8042 9 32.0027 9C16.5345 9 4 22.2789 4 38.6558C4 38.7707 4.00052 38.8854 4.00155 39H91.8416L94.7229 33.1618C97.2906 27.9591 104.71 27.9591 107.277 33.1618L110.159 39H115.998C115.999 38.8854 116 38.7707 116 38.6558C116 22.2789 103.466 9 87.9973 9C79.1958 9 71.3467 13.3022 66.2125 20.0238C65.7565 20.6214 65.336 21.1783 64.9462 21.6946C62.4734 24.9699 61.2367 26.6078 59.9993 26.6084C58.7614 26.609 57.5227 24.9711 55.0449 21.6946C54.6545 21.1783 54.2333 20.6214 53.7766 20.0238H53.7875Z\" fill=\"white\"/>\n<path d=\"M79.7015 79L79.5588 79.8323C78.7516 84.5386 82.6742 88.3253 86.9508 88.0132C86.8571 88.1111 86.7634 88.209 86.6696 88.3069C78.1991 97.1552 69.4174 106.328 62.6218 116.742C61.1111 119.051 58.8889 119.051 57.3782 116.742C50.5788 106.325 41.7966 97.1509 33.3264 88.303C30.3317 85.1748 27.3761 82.0873 24.5608 79H79.7015Z\" fill=\"white\"/>\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M101.901 35.5496C101.512 34.8168 100.488 34.8168 100.099 35.5497L93.0406 48.845C92.8929 49.123 92.6315 49.3183 92.3283 49.3766L77.8385 52.1641C77.0398 52.3178 76.7233 53.3185 77.2815 53.9252L87.4091 64.9295C87.6209 65.1597 87.7208 65.4756 87.6812 65.7898L85.7842 80.8078C85.6796 81.6357 86.5083 82.2542 87.2424 81.8963L100.56 75.402C100.838 75.2662 101.162 75.2662 101.44 75.402L114.758 81.8963C115.492 82.2542 116.32 81.6357 116.216 80.8078L114.319 65.7898C114.279 65.4756 114.379 65.1597 114.591 64.9295L124.718 53.9252C125.277 53.3185 124.96 52.3178 124.161 52.1641L109.672 49.3766C109.369 49.3183 109.107 49.123 108.959 48.845L101.901 35.5496ZM100.036 43.0789C100.366 42.1579 101.634 42.1579 101.964 43.0789L105.019 51.6179C105.01 51.6983 105.017 51.7822 105.041 51.8662L107.687 61.1634C107.817 61.6217 108.371 61.7807 108.714 61.4584L111.336 58.9947C111.498 58.8428 111.571 58.6153 111.528 58.3944L110.687 53.9877H117.422C118.389 53.9877 118.82 55.2373 118.067 55.8622L110.702 61.9792C110.601 61.9949 110.502 62.0365 110.413 62.1066L102.948 68.0247C102.581 68.3164 102.638 68.9036 103.055 69.1143L106.244 70.7259C106.44 70.8252 106.673 70.8121 106.858 70.6913L110.254 68.4723L112.085 75.0776C112.35 76.0329 111.299 76.8003 110.508 76.2296L101.591 69.8003C101.471 69.7136 101.337 69.6563 101.199 69.6285L95.0376 65.3393C94.6474 65.0677 94.116 65.3179 94.0614 65.7987L93.6534 69.3978C93.6281 69.6213 93.718 69.8423 93.8907 69.9808L96.868 72.3692L91.5448 76.2279C90.7554 76.8001 89.7037 76.0372 89.9645 75.0816L92.6557 65.2197C92.6717 65.1902 92.6845 65.1581 92.6935 65.1237L95.058 56.0862C95.1347 55.7934 94.8946 55.5156 94.6024 55.5592L90.6768 56.1448C90.5236 56.1678 90.3959 56.2773 90.3466 56.428L89.0988 60.2424L83.9931 56.1163C83.2355 55.5041 83.6428 54.2537 84.6065 54.2331L94.8405 54.0152C94.8711 54.0191 94.9023 54.0206 94.934 54.0198L103.141 53.8011C103.588 53.7892 103.88 53.3157 103.7 52.8958L102.212 49.4285C102.111 49.1944 101.886 49.0435 101.637 49.0435H97.9024L100.036 43.0789Z\" fill=\"white\"/>\n<path d=\"M67 57C68.1046 57 69 57.8954 69 59C69 60.1046 68.1046 61 67 61H7C5.89543 61 5 60.1046 5 59C5 57.8954 5.89543 57 7 57H67Z\" fill=\"white\"/>\n</svg>\n<span class=\"inline-attribute-label SpiritDPS\">spirit damage over time</span> and reducing their <img src=\"https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_bullet_armor.png\" class=\"inline-attribute BulletResist\" alt=\"bullet resist\"/><span class=\"inline-attribute-label BulletResist\" style=\"color: #EC9719;\">bullet resist</span> with every bite. The more rats are attached, the faster they will bite the target.<br><br>Enemies can have multiple rats attached, but can shake off a <span class=\"highlight\">rat</span> early by performing a <span class=\"highlight\">ground or air dash</span>."
+			}
+		},
+		{
+			"id": 3002308408,
+			"class_name": "ability_ratking_scrap_grenade",
+			"name": "Scrap Grenade",
+			"type": "ability",
+			"image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/ratking/ratking_grenade.png",
+			"image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/ratking/ratking_grenade.webp",
+			"description": {
+				"desc": "Throw a grenade of scrap that detonates multiple times, dealing <svg width=\"128\" height=\"128\" viewBox=\"0 0 128 128\" fill=\"white\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M32.0027 9C40.8042 9 48.6533 13.3022 53.7875 20.0238H53.7766C57.1324 24.4142 58.5664 26.6091 59.9993 26.6084C61.4318 26.6078 62.8632 24.4129 66.2125 20.0238C71.3467 13.3022 79.1958 9 87.9973 9C103.466 9 116 22.2789 116 38.6558C116 38.7707 115.999 38.8854 115.998 39H4.00155C4.00052 38.8854 4 38.7707 4 38.6558C4 22.2789 16.5345 9 32.0027 9Z\" fill=\"white\"/>\n<path d=\"M24.5608 79C27.3761 82.0873 30.3317 85.1748 33.3264 88.303C41.7966 97.1509 50.5788 106.325 57.3782 116.742C58.8889 119.051 61.1111 119.051 62.6218 116.742C69.4174 106.328 78.1987 97.1556 86.6692 88.3073C89.6652 85.1778 92.6222 82.0889 95.4388 79H24.5608Z\" fill=\"white\"/>\n<path d=\"M123 59.0055C123 59.0055 117.403 49 100.88 49H75V69H100.88C117.413 69 123 58.9945 123 58.9945V59.0055Z\" fill=\"white\"/>\n<path d=\"M67 57C68.1046 57 69 57.8954 69 59C69 60.1046 68.1046 61 67 61H7C5.89543 61 5 60.1046 5 59C5 57.8954 5.89543 57 7 57H67Z\" fill=\"white\"/>\n</svg>\n<span class=\"inline-attribute-label BulletDamage\">bullet damage</span> and applying <img src=\"https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_slow_large.png\" class=\"inline-attribute Slow\" alt=\"slow\"/><span class=\"inline-attribute-label Slow\">slow</span>.<br><br><span class=\"diminish\">The grenade can be meleed to knock it away.</span>"
+			}
+		},
+		{
+			"id": 690412829,
+			"class_name": "ability_ratking_ratarmor",
+			"name": "Royal Pestments",
+			"type": "ability",
+			"image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/ratking/ratking_shield.png",
+			"image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/ratking/ratking_shield.webp",
+			"description": {
+				"desc": "Adorn scrappy armor, gaining <img src=\"https://assets-bucket.deadlock-api.com/assets-api-res/images/upgrades/property_bullet_armor.png\" class=\"inline-attribute CombatBarrier\" alt=\"barrier\"/><span class=\"inline-attribute-label CombatBarrier\" style=\"color: #FFEFD7;\">barrier</span> based on your <svg width=\"128\" height=\"128\" viewBox=\"0 0 128 128\" fill=\"#0F9\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M92.0059 9C107.475 9.00022 120 22.237 120 38.6592C120 68.2957 85.5894 87.6846 66.6162 116.752C65.1163 119.062 62.8837 119.062 61.3838 116.752C42.4106 87.6846 8.00022 68.2957 8 38.6592C8 22.2808 20.5245 9.00022 35.9941 9C40.2312 9.02587 44.4049 10.0351 48.1855 11.9482C49.3884 12.5569 50.5406 13.2524 51.6343 14.0271C52.9137 14.9332 52.473 16.8509 51.0109 17.4168C37.5479 22.6271 28 35.6977 28 51C28 70.8823 44.1177 87 64 87C83.8823 87 100 70.8823 100 51C100 35.6974 90.4516 22.6267 76.9882 17.4167C75.5261 16.8509 75.0854 14.9333 76.3648 14.0273C77.4588 13.2526 78.6113 12.557 79.8145 11.9482C83.5951 10.0351 87.7688 9.02587 92.0059 9Z\" fill=\"#0F9\"/>\n<path d=\"M69 46H84V56H69V71H59V56H44V46H59V31H69V46Z\" fill=\"#0F9\"/>\n</svg>\n<span class=\"inline-attribute-label MaxHealth\" style=\"color: #0F9;\">max health</span>. As long as the armor holds, bullets have a chance to be <span class=\"highlight\">deflected</span> back towards the attacker.<br><br><span class=\"diminish\">The barrier does not benefit from resists.</span>"
+			}
+		},
+		{
+			"id": 5742079,
+			"class_name": "ability_ratking_entertunnel",
+			"name": "Squeezing In...",
+			"type": "ability",
+			"description": {}
+		},
+		{
+			"id": 356935139,
+			"class_name": "ability_ratking_standard_bearer_trigger",
+			"name": "ability_ratking_standard_bearer_trigger",
+			"type": "ability",
+			"image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/ratking/ratking_swarm.png",
+			"image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/ratking/ratking_swarm.webp",
+			"description": {}
+		},
+		{
+			"id": 1627989937,
+			"class_name": "ability_ratking_standard_bearer",
+			"name": "Rule, Ratannia!",
+			"type": "ability",
+			"image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/ratking/ratking_flag.png",
+			"image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/abilities/ratking/ratking_flag.webp",
+			"description": {
+				"desc": "Charge up and summon the banner of Ratannia, granting all nearby allies increased <svg width=\"128\" height=\"128\" viewBox=\"0 0 128 128\" fill=\"#0F9\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M81.5143 72.4711L117.08 34.3552L68.8057 2L57.0343 31.8506L11 87.2257L34.7257 103.141L43.3657 96.9254L58.4286 118.989L83.2514 124.977L108.646 125L114.269 116.666L95.96 103.665L81.5143 72.4711Z\" fill=\"#0F9\"/>\n</svg>\n<span class=\"inline-attribute-label MoveSpeed\" style=\"color: #0F9;\">move speed</span>, <span class=\"highlight\">immunity from slows</span>, and <span class=\"highlight\">reduced incoming damage</span> while near the banner."
+			}
+		},
+		{
+			"id": 1262508092,
+			"class_name": "citadel_ability_jump_ratking",
+			"name": "Jump",
+			"type": "ability",
+			"description": {}
 		}
 	]
 }
