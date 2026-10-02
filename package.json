@@ -37,7 +37,7 @@
 		"@internationalized/date": "3.12.4",
 		"@libsql/client": "0.18.0",
 		"@lucide/svelte": "1.47.0",
-		"@sveltejs/adapter-cloudflare": "7.2.9",
+		"@sveltejs/adapter-cloudflare": "8.0.0",
 		"@sveltejs/adapter-node": "5.5.7",
 		"@sveltejs/kit": "2.70.3",
 		"@sveltejs/vite-plugin-svelte": "7.3.0",
