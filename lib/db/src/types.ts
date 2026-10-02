@@ -103,4 +103,6 @@ export interface RedirectSlugs {
 	ability: string[];
 	changelog: string[];
 	changelogAliases: Record<string, string>;
+	heroAliases: Record<string, string>;
+	itemAliases: Record<string, string>;
 }

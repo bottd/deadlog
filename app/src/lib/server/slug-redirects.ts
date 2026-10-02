@@ -10,6 +10,11 @@ const ENTITY_KINDS = {
 	ability: new Set(slugs.ability)
 } as const;
 
+const ENTITY_ALIASES: Partial<Record<keyof typeof ENTITY_KINDS, Map<string, string>>> = {
+	hero: new Map(Object.entries(slugs.heroAliases)),
+	item: new Map(Object.entries(slugs.itemAliases))
+};
+
 const CHANGELOGS = new Set(slugs.changelog);
 
 const ENTITY_ROUTE = /^\/(hero|item|ability)\/([^/]+)\/?$/;
@@ -35,8 +40,11 @@ export function resolveSlugRoute(pathname: string): SlugVerdict {
 		const [, kind, raw] = entity;
 		const slug = decodeSlug(raw);
 		if (slug === null) return { kind: 'malformed' };
-		return ENTITY_KINDS[kind as keyof typeof ENTITY_KINDS].has(slug)
-			? { kind: 'ok' }
+		const entityKind = kind as keyof typeof ENTITY_KINDS;
+		if (ENTITY_KINDS[entityKind].has(slug)) return { kind: 'ok' };
+		const canonical = ENTITY_ALIASES[entityKind]?.get(slug);
+		return canonical
+			? { kind: 'redirect', path: `/${entityKind}/${encodeURIComponent(canonical)}` }
 			: { kind: 'unknown' };
 	}
 

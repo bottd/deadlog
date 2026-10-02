@@ -18,7 +18,9 @@ import {
 	countBullets,
 	makeSummary,
 	canonicalSlug,
-	HERO_IMAGE_KEYS
+	formerSlugs,
+	HERO_IMAGE_KEYS,
+	type EntityRenames
 } from '@deadlog/utils';
 
 export type ScrapedChangelog = SelectChangelog;
@@ -636,31 +638,57 @@ export async function getFeedText(db: DrizzleDB): Promise<FeedText> {
 	return Object.fromEntries(rows.map((row) => [row.id, row.text ?? '']));
 }
 
-export async function getRedirectSlugs(db: DrizzleDB): Promise<RedirectSlugs> {
-	const [heroes, items, abilities, changelogs, aliases] = await Promise.all([
-		getRenderableHeroSlugs(db),
-		getRenderableItemSlugs(db),
-		getReleasedAbilities(db),
-		getAllChangelogSlugs(db),
-		db
-			.select({
-				alias: schema.changelogAliases.slug,
-				canonical: schema.changelogs.slug
-			})
-			.from(schema.changelogAliases)
-			.innerJoin(
-				schema.changelogs,
-				eq(schema.changelogAliases.changelogId, schema.changelogs.id)
-			)
-			.all()
-	]);
+export async function getRedirectSlugs(
+	db: DrizzleDB,
+	renames: EntityRenames = { heroes: {}, items: {} }
+): Promise<RedirectSlugs> {
+	const [heroes, items, abilities, changelogs, aliases, heroRows, itemRows] =
+		await Promise.all([
+			getRenderableHeroSlugs(db),
+			getRenderableItemSlugs(db),
+			getReleasedAbilities(db),
+			getAllChangelogSlugs(db),
+			db
+				.select({
+					alias: schema.changelogAliases.slug,
+					canonical: schema.changelogs.slug
+				})
+				.from(schema.changelogAliases)
+				.innerJoin(
+					schema.changelogs,
+					eq(schema.changelogAliases.changelogId, schema.changelogs.id)
+				)
+				.all(),
+			db
+				.select({ className: schema.heroes.className, slug: schema.heroes.slug })
+				.from(schema.heroes)
+				.all(),
+			db
+				.select({ className: schema.items.className, slug: schema.items.slug })
+				.from(schema.items)
+				.all()
+		]);
+	const renderedAliases = (
+		formerNames: EntityRenames['heroes'],
+		rows: { className: string; slug: string }[],
+		renderable: string[]
+	) => {
+		const live = new Set(renderable);
+		return Object.fromEntries(
+			[...formerSlugs(formerNames, rows)].filter(([, slug]) => live.has(slug))
+		);
+	};
 
 	return {
 		hero: heroes,
 		item: items,
 		ability: abilities.map((entry) => entry.slug),
 		changelog: changelogs,
-		changelogAliases: Object.fromEntries(aliases.map((row) => [row.alias, row.canonical]))
+		changelogAliases: Object.fromEntries(
+			aliases.map((row) => [row.alias, row.canonical])
+		),
+		heroAliases: renderedAliases(renames.heroes, heroRows, heroes),
+		itemAliases: renderedAliases(renames.items, itemRows, items)
 	};
 }
 

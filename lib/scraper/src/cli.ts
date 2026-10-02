@@ -1,12 +1,19 @@
 import { scrapeChangelogs } from './pipeline';
 import { buildDatabaseFromMog } from './buildDatabase';
-import { loadEntitySnapshot } from './api';
+import { loadEntitySnapshot, readEntitySnapshot } from './api';
+import { recordEntityRenames, rewriteRenamedLinks } from './entityRenames';
 import { appendFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 export async function runPipeline(args = process.argv.slice(2)) {
+	const changelogsDir = process.env.CHANGELOGS_DIR || './app/changelogs';
+	const previous = await readEntitySnapshot();
 	const snapshot = await loadEntitySnapshot();
+	const renamed = previous ? recordEntityRenames(previous, snapshot, changelogsDir) : 0;
+	const relinked = rewriteRenamedLinks(changelogsDir, snapshot);
+	if (relinked > 0)
+		console.log(`🔗 Rewrote renamed entity links in ${relinked} changelogs`);
 
 	// `--db-only` rebuilds from the .mg files already on disk (pnpm build:db).
 	if (!args.includes('--db-only')) {
@@ -15,7 +22,7 @@ export async function runPipeline(args = process.argv.slice(2)) {
 			overwrite: args.includes('--overwrite'),
 			snapshot
 		});
-		if (args.includes('--if-changed') && !scrape.changed) {
+		if (args.includes('--if-changed') && !scrape.changed && renamed + relinked === 0) {
 			console.log('No changelog changes; skipping the database build.');
 			return { changed: false };
 		}
@@ -25,7 +32,7 @@ export async function runPipeline(args = process.argv.slice(2)) {
 	const result = await buildDatabaseFromMog({
 		snapshot,
 		outputDir: process.env.OUTPUT_DIR || './app/static',
-		changelogsDir: process.env.CHANGELOGS_DIR || './app/changelogs'
+		changelogsDir
 	});
 
 	console.log('\n✅ Build complete!');

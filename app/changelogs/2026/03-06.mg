@@ -2717,8 +2717,8 @@ content_text "Can now jump during slide Dash jump grants a very brief period wit
 =
 
 =item:spirit-shredder-bullets:
-[[/item/spirit-shredder-bullets]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/spirit_shredder_bullets.webp]] Spirit Shredder Bullets patch history))
-## [[/item/spirit-shredder-bullets]]((Spirit Shredder Bullets))
+[[/item/spirit-shredder]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/spirit_shredder_bullets.webp]] Spirit Shredder Bullets patch history))
+## [[/item/spirit-shredder]]((Spirit Shredder Bullets))
 - Spirit Lifesteal increased from 8% to 12%
 =
 

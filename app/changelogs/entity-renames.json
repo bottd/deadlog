@@ -1,0 +1,9 @@
+{
+	"heroes": {},
+	"items": {
+		"citadel_ability_zip_line": ["Hyperline"],
+		"ability_magician_shadowclone": ["The Great Homonculus!"],
+		"upgrade_tech_defense_shredders": ["Spirit Shredder Bullets"],
+		"upgrade_aprounds": ["Armor Piercing Rounds"]
+	}
+}

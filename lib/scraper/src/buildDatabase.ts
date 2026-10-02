@@ -20,12 +20,8 @@ import {
 	type EntityBulletGroup,
 	type EntityChange
 } from '@deadlog/changelog';
-import {
-	indexEntityNames,
-	findEntityName,
-	resolveHeroAbilitySlug,
-	toSlug
-} from '@deadlog/utils';
+import { findEntityName, resolveHeroAbilitySlug, toSlug } from '@deadlog/utils';
+import { indexWithFormerNames, readEntityRenames } from './entityRenames';
 import { isReleasedHero, resolveAbilitySlots } from './heroAbilities';
 
 interface BuildOptions {
@@ -233,10 +229,11 @@ export async function buildDatabaseFromMog(options: BuildOptions): Promise<Build
 			);
 			console.log(`  ✅ Inserted ${itemsToInsert.length} items`);
 
-			const heroMap = indexEntityNames(heroes, (hero) => hero.name);
-			const itemMap = indexEntityNames(
+			const renames = readEntityRenames(changelogsDir);
+			const heroMap = indexWithFormerNames(heroes, renames.heroes);
+			const itemMap = indexWithFormerNames(
 				itemsToInsert.filter((item) => item.type === 'upgrade'),
-				(item) => item.name
+				renames.items
 			);
 
 			console.log(`📂 Loading changelogs from ${changelogsDir}...`);

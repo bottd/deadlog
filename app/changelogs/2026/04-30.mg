@@ -588,8 +588,8 @@ content_text "Base health per boon reduced by 7 Vitality Investment bonus increa
 =
 
 =item:spirit-shredder-bullets:
-[[/item/spirit-shredder-bullets]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/spirit_shredder_bullets.webp]] Spirit Shredder Bullets patch history))
-## [[/item/spirit-shredder-bullets]]((Spirit Shredder Bullets))
+[[/item/spirit-shredder]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/spirit_shredder_bullets.webp]] Spirit Shredder Bullets patch history))
+## [[/item/spirit-shredder]]((Spirit Shredder Bullets))
 - Lifesteal reduced from 12% to 10%
 =
 

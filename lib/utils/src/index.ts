@@ -10,6 +10,28 @@ export function toSlug(name: string): string {
 
 import { entityNameAliases } from './entityNames';
 
+export const ENTITY_RENAMES_FILE = 'entity-renames.json';
+
+export interface EntityRenames {
+	heroes: Record<string, string[]>;
+	items: Record<string, string[]>;
+}
+
+export function formerSlugs(
+	formerNames: Readonly<Record<string, readonly string[]>>,
+	current: readonly { className: string; slug: string }[]
+): Map<string, string> {
+	const live = new Set(current.map((entity) => entity.slug));
+	const slugs = new Map<string, string>();
+	for (const { className, slug } of current) {
+		for (const name of formerNames[className] ?? []) {
+			const former = toSlug(name);
+			if (former && !live.has(former) && !slugs.has(former)) slugs.set(former, slug);
+		}
+	}
+	return slugs;
+}
+
 export {
 	canonicalSlug,
 	decodeEntityName,

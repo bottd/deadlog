@@ -44,6 +44,15 @@ describe('resolveSlugRoute', () => {
 		expect(resolveSlugRoute('/change/2026/03-06')).toEqual({ kind: 'ok' });
 	});
 
+	it('redirects an item the asset api renamed to its current page', () => {
+		expect(resolveSlugRoute('/item/spirit-shredder-bullets')).toEqual({
+			kind: 'redirect',
+			path: '/item/spirit-shredder'
+		});
+		expect(resolveSlugRoute('/item/spirit-shredder')).toEqual({ kind: 'ok' });
+		expect(resolveSlugRoute('/item/constructor')).toEqual({ kind: 'unknown' });
+	});
+
 	it('leaves every other route alone', () => {
 		for (const path of ['/', '/archive', '/heroes', '/items', '/feed-index.json']) {
 			expect(resolveSlugRoute(path)).toEqual({ kind: 'ok' });

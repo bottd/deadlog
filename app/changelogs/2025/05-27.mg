@@ -248,8 +248,8 @@ content_text "Breakable souls rescaled from 28.5 + 2.375/min to 23 + 2.6/min Tro
 ``
 
 =item:armor-piercing-rounds:
-[[/item/armor-piercing-rounds]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/armor_piercing_rounds.webp]] Armor Piercing Rounds patch history))
-## [[/item/armor-piercing-rounds]]((Armor Piercing Rounds))
+[[/item/armor-piercer]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/armor_piercing_rounds.webp]] Armor Piercing Rounds patch history))
+## [[/item/armor-piercer]]((Armor Piercing Rounds))
 - Bullet Velocity increased from 30% to 35% (to match the component)
 =
 

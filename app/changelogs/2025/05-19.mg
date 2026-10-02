@@ -160,8 +160,8 @@ content_text "Troopers now gain 50% resistance when they are in near the base (t
 =
 
 =item:armor-piercing-rounds:
-[[/item/armor-piercing-rounds]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/armor_piercing_rounds.webp]] Armor Piercing Rounds patch history))
-## [[/item/armor-piercing-rounds]]((Armor Piercing Rounds))
+[[/item/armor-piercer]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/armor_piercing_rounds.webp]] Armor Piercing Rounds patch history))
+## [[/item/armor-piercer]]((Armor Piercing Rounds))
 - Chance reduced from 65% to 60%
 =
 

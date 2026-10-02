@@ -302,8 +302,8 @@ content_text "Mid Boss HP is now fixed at the spawn time. Base HP increased from
 ``
 
 =item:armor-piercing-rounds:
-[[/item/armor-piercing-rounds]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/armor_piercing_rounds.webp]] Armor Piercing Rounds patch history))
-## [[/item/armor-piercing-rounds]]((Armor Piercing Rounds))
+[[/item/armor-piercer]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/armor_piercing_rounds.webp]] Armor Piercing Rounds patch history))
+## [[/item/armor-piercer]]((Armor Piercing Rounds))
 - Chance reduced from 60% to 50%
 =
 
@@ -489,8 +489,8 @@ content_text "Mid Boss HP is now fixed at the spawn time. Base HP increased from
 =
 
 =item:spirit-shredder-bullets:
-[[/item/spirit-shredder-bullets]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/spirit_shredder_bullets.webp]] Spirit Shredder Bullets patch history))
-## [[/item/spirit-shredder-bullets]]((Spirit Shredder Bullets))
+[[/item/spirit-shredder]](([[!:https://assets-bucket.deadlock-api.com/assets-api-res/images/items/weapon/spirit_shredder_bullets.webp]] Spirit Shredder Bullets patch history))
+## [[/item/spirit-shredder]]((Spirit Shredder Bullets))
 - Spirit Resist Reduction increased from -7% to -8%
 =
 
