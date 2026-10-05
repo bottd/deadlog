@@ -1480,7 +1480,7 @@
 			"id": 76,
 			"name": "Graves",
 			"class_name": "hero_necro",
-			"hero_type": "marksman",
+			"hero_type": "mystic",
 			"images": {
 				"icon_hero_card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/necro_card.png",
 				"icon_hero_card_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/necro_card.webp",
@@ -1562,6 +1562,7 @@
 			"id": 79,
 			"name": "Rem",
 			"class_name": "hero_familiar",
+			"hero_type": "mystic",
 			"images": {
 				"icon_hero_card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/familiar_card.png",
 				"icon_hero_card_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/familiar_card.webp",
@@ -1593,7 +1594,7 @@
 			"id": 80,
 			"name": "Silver",
 			"class_name": "hero_werewolf",
-			"hero_type": "marksman",
+			"hero_type": "brawler",
 			"images": {
 				"icon_hero_card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/werewolf_card.png",
 				"icon_hero_card_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/werewolf_card.webp",
@@ -1625,7 +1626,7 @@
 			"id": 81,
 			"name": "Celeste",
 			"class_name": "hero_unicorn",
-			"hero_type": "marksman",
+			"hero_type": "mystic",
 			"images": {
 				"icon_hero_card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/unicorn_card.png",
 				"icon_hero_card_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/unicorn_card.webp",
@@ -1702,7 +1703,18 @@
 			"id": 84,
 			"name": "Rat King",
 			"class_name": "hero_ratking",
+			"hero_type": "brawler",
 			"images": {
+				"icon_hero_card": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/ratking_card.png",
+				"icon_hero_card_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/ratking_card.webp",
+				"icon_image_small": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/ratking_sm.png",
+				"icon_image_small_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/ratking_sm.webp",
+				"minimap_image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/ratking_mm.png",
+				"minimap_image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/ratking_mm.webp",
+				"hero_card_critical": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/ratking_card_critical.png",
+				"hero_card_critical_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/ratking_card_critical.webp",
+				"hero_card_gloat": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/ratking_card_gloat.png",
+				"hero_card_gloat_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/ratking_card_gloat.webp",
 				"top_bar_vertical_image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/ratking_vertical.png",
 				"top_bar_vertical_image_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/ratking_vertical.webp",
 				"background_image": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/backgrounds/ratking_bg.png",
@@ -1711,8 +1723,13 @@
 				"vote_sticker": "https://assets-bucket.deadlock-api.com/assets-api-res/images/events/voting_sept2026/sticker_ratking.png",
 				"vote_sticker_webp": "https://assets-bucket.deadlock-api.com/assets-api-res/images/events/voting_sept2026/sticker_ratking.webp"
 			},
-			"items": {},
-			"player_selectable": false,
+			"items": {
+				"signature1": "ability_ratking_scrap_grenade",
+				"signature2": "ability_ratking_ratnibble",
+				"signature3": "ability_ratking_ratarmor",
+				"signature4": "ability_ratking_standard_bearer"
+			},
+			"player_selectable": true,
 			"disabled": false,
 			"in_development": false
 		},
