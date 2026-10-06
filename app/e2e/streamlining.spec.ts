@@ -84,6 +84,50 @@ test('directory name and category filters survive reload', async ({ page }) => {
 	await expect(page.getByRole('link', { name: /Berserker/ })).toHaveCount(0);
 });
 
+for (const { directory, draft, position, character, name } of [
+	{
+		directory: 'items',
+		draft: 'Acive Reload',
+		position: 2,
+		character: 't',
+		name: 'Active Reload'
+	},
+	{
+		directory: 'heroes',
+		draft: 'Abrms',
+		position: 3,
+		character: 'a',
+		name: 'Abrams'
+	}
+]) {
+	test(`directory search preserves the caret after a debounced edit on /${directory}`, async ({
+		page
+	}) => {
+		await gotoApp(page, `/${directory}`);
+		const search = page.getByRole('searchbox', {
+			name: `Filter ${directory} by name`
+		});
+		await search.fill(draft);
+		await expect(page).toHaveURL((url) => url.searchParams.get('name') === draft);
+		await search.evaluate(
+			(input: HTMLInputElement, position) => input.setSelectionRange(position, position),
+			position
+		);
+		await search.press(character);
+		await expect(page).toHaveURL((url) => url.searchParams.get('name') === name);
+
+		const selection = await search.evaluate(async (input: HTMLInputElement) => {
+			// The history entry changes before the asynchronous page-state update renders.
+			await new Promise<void>((resolve) =>
+				requestAnimationFrame(() => requestAnimationFrame(() => resolve()))
+			);
+			return [input.selectionStart, input.selectionEnd];
+		});
+		expect(selection).toEqual([position + 1, position + 1]);
+		await expect(search).toHaveValue(name);
+	});
+}
+
 test('mobile entity lookup exposes the first actual change in the initial viewport', async ({
 	page
 }, testInfo) => {

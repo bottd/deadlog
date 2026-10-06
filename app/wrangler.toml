@@ -1,6 +1,8 @@
 name = "deadlog"
 compatibility_date = "2025-04-03"
 compatibility_flags = ["nodejs_compat"]
+# HTTPS upgrades, www -> apex redirects, and HSTS are managed in the Cloudflare
+# dashboard at the zone level, including requests served directly by assets.
 main = ".svelte-kit/cloudflare/_worker.js"
 
 [cache]
