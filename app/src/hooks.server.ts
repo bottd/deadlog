@@ -1,8 +1,8 @@
-import type { Handle, Reroute } from '@sveltejs/kit';
-import { building } from '$app/environment';
+import type { Handle, Reroute } from '@sveltejs/kit/hooks';
+import { building } from '$app/env';
 import { getLibsqlDb } from '@deadlog/db';
-import { edgeCacheControlFor } from '$lib/server/cache-policy';
-import { resolveSlugRoute } from '$lib/server/slug-redirects';
+import { edgeCacheControlFor } from '#lib/server/cache-policy.ts';
+import { resolveSlugRoute } from '#lib/server/slug-redirects.ts';
 
 const NOT_FOUND = '/__not-found';
 

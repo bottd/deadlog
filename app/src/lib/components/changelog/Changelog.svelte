@@ -3,12 +3,12 @@
 	import { onMount } from 'svelte';
 	import { formatDate, plural } from '@deadlog/utils';
 	import { FeaturedPatchCard, PatchCard } from './index';
-	import { HeroRail } from '$lib/components/filter-bar';
-	import { searchParams as params } from '$lib/stores/searchParams.svelte';
-	import { useChangelogQuery } from '$lib/hooks/useChangelogQuery.svelte';
-	import CornerAccents from '$lib/components/ui/corner-accents/CornerAccents.svelte';
+	import { HeroRail } from '#lib/components/filter-bar/index.ts';
+	import { searchParams as params } from '#lib/stores/searchParams.svelte.ts';
+	import { useChangelogQuery } from '#lib/hooks/useChangelogQuery.svelte.ts';
+	import CornerAccents from '#lib/components/ui/corner-accents/CornerAccents.svelte';
 	import Frown from '@lucide/svelte/icons/frown';
-	import type { PatchSummary } from '$lib/types';
+	import type { PatchSummary } from '#lib/types.ts';
 
 	const changelogs = $derived(page.data.changelogs ?? []);
 	const totalCount = $derived(page.data.totalCount ?? 0);

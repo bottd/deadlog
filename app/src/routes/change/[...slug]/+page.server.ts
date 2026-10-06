@@ -1,7 +1,7 @@
 import { getAllChangelogSlugs, getChangelogBySlug } from '@deadlog/db';
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad, EntryGenerator } from './$types';
-import { buildChangePageData } from '$lib/server/changelog-utils';
+import { buildChangePageData } from '#lib/server/changelog-utils.ts';
 
 export const prerender = true;
 

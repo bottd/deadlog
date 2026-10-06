@@ -1,3 +1,7 @@
+import adapterCloudflare from '@sveltejs/adapter-cloudflare';
+import adapterNode from '@sveltejs/adapter-node';
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import { transformMogOutput } from './mog-preprocess.js';
 import UnoCSS from 'unocss/vite';
 import { defineConfig, type Plugin } from 'vitest/config';
 import { sveltekit } from '@sveltejs/kit/vite';
@@ -25,6 +29,11 @@ const failOnMogDiagnostics: Plugin = {
 	}
 };
 
+const adapter =
+	process.env.CLOUDFLARE === 'true'
+		? adapterCloudflare({ platformProxy: {} })
+		: adapterNode({ out: '../dist/app' });
+
 export default defineConfig({
 	resolve: {
 		tsconfigPaths: true
@@ -38,7 +47,16 @@ export default defineConfig({
 		}),
 		failOnMogDiagnostics,
 		UnoCSS(),
-		sveltekit()
+		sveltekit({
+			extensions: ['.svelte', '.mg'],
+			preprocess: [transformMogOutput, vitePreprocess()],
+			adapter,
+			prerender: {
+				handleHttpError: 'fail',
+				handleMissingId: 'warn'
+			},
+			inspector: false
+		})
 	],
 	server: {
 		fs: {
@@ -60,7 +78,6 @@ export default defineConfig({
 	},
 	ssr: {
 		noExternal: [
-			'@deadlog/changelog',
 			'@deadlog/db',
 			'@deadlog/utils',
 			'runed',
@@ -98,11 +115,6 @@ export default defineConfig({
 					include: ['src/**/*.{test,spec}.{js,ts}'],
 					exclude: ['src/**/*.svelte.{test,spec}.{js,ts}'],
 					setupFiles: ['./src/lib/test/setup.ts']
-				},
-				resolve: {
-					alias: {
-						$lib: path.resolve(import.meta.dirname, './src/lib')
-					}
 				}
 			}
 		]

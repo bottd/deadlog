@@ -5,7 +5,7 @@ import {
 } from '@deadlog/db';
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad, EntryGenerator } from './$types';
-import { DEFAULT_SOCIAL_IMAGE, absoluteUrl } from '$lib/seo';
+import { DEFAULT_SOCIAL_IMAGE, absoluteUrl } from '#lib/seo.ts';
 
 export const prerender = true;
 

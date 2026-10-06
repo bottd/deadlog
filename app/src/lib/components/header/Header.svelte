@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { FilterInput } from '$lib/components/filter-bar';
+	import { FilterInput } from '#lib/components/filter-bar/index.ts';
 	import Crosshair from '@lucide/svelte/icons/crosshair';
 </script>
 

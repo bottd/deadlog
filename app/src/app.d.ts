@@ -12,18 +12,6 @@ declare global {
 		interface Locals {
 			db: DrizzleDB;
 		}
-
-		interface CloudflareEnv {
-			PUBLIC_COUNTERSCALE_REPORTER_URL: string;
-			PUBLIC_COUNTERSCALE_SITE_ID: string;
-		}
-
-		interface Platform {
-			env: CloudflareEnv;
-			ctx: ExecutionContext;
-			caches: CacheStorage;
-			cf?: IncomingRequestCfProperties;
-		}
 	}
 }
 

@@ -1,7 +1,7 @@
 import { schema } from '@deadlog/db';
 import { eq } from 'drizzle-orm';
-import { building, dev } from '$app/environment';
-import { pickHeroImages } from '$lib/utils/entityImages';
+import { building, dev } from '$app/env';
+import { pickHeroImages } from '#lib/utils/entityImages.ts';
 import type { LayoutServerLoad } from './$types';
 
 export const load: LayoutServerLoad = async ({ locals }) => {

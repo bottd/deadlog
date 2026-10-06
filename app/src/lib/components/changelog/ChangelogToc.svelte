@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ChangelogAbilityIcon, EntityIcon, MogTocEntry } from '$lib/types';
+	import type { ChangelogAbilityIcon, EntityIcon, MogTocEntry } from '#lib/types.ts';
 	import { entityFragmentId, resolveHeroAbilitySlug } from '@deadlog/utils';
 	import { genericTocEntries } from './toc';
 

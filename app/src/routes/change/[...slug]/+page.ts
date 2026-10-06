@@ -1,6 +1,6 @@
 import type { PageLoad } from './$types';
 import type { Component } from 'svelte';
-import type { MogTocEntry } from '$lib/types';
+import type { MogTocEntry } from '#lib/types.ts';
 
 const mogModules = import.meta.glob('../../../../changelogs/**/*.mg');
 

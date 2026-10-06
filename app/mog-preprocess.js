@@ -1,12 +1,3 @@
-import adapterCloudflare from '@sveltejs/adapter-cloudflare';
-import adapterNode from '@sveltejs/adapter-node';
-import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
-
-const adapter =
-	process.env.CLOUDFLARE === 'true'
-		? adapterCloudflare({ config: 'wrangler.adapter.toml', platformProxy: {} })
-		: adapterNode({ out: '../dist/app' });
-
 /** @param {string} tag @param {string} name @param {string} value */
 function addHtmlAttribute(tag, name, value) {
 	if (new RegExp(`\\s${name}=`, 'i').test(tag)) return tag;
@@ -77,7 +68,7 @@ function transformMogHtml(html, state) {
 // Mog emits serialized HTML fragments. Normalize app routes and enrich the markup
 // before Svelte compiles it, so the SSR response and hydrated page stay identical.
 /** @type {import('svelte/compiler').PreprocessorGroup} */
-const transformMogOutput = {
+export const transformMogOutput = {
 	name: 'transform-mog-output',
 	markup({ content, filename }) {
 		if (!filename || !/\.mg(?:$|\?)/.test(filename)) return;
@@ -90,32 +81,3 @@ const transformMogOutput = {
 		};
 	}
 };
-
-/** @type {import('@sveltejs/kit').Config} */
-const config = {
-	extensions: ['.svelte', '.mg'],
-	preprocess: [transformMogOutput, vitePreprocess()],
-	kit: {
-		adapter,
-		prerender: {
-			handleHttpError: 'fail',
-			handleMissingId: 'warn'
-		},
-		alias: {
-			'@deadlog/changelog': '../lib/changelog/src/index.ts',
-			'@deadlog/db': '../lib/db/src/index.ts',
-			'@deadlog/utils': '../lib/utils/src/index.ts',
-			$changelogs: './changelogs'
-		}
-	},
-	vitePlugin: {
-		inspector: false,
-		dynamicCompileOptions({ filename }) {
-			if (filename?.includes('node_modules')) {
-				return { runes: undefined };
-			}
-		}
-	}
-};
-
-export default config;

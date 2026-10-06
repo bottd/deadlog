@@ -1,8 +1,8 @@
 <script lang="ts">
 	import EntityDirectory, {
 		releasedByName
-	} from '$lib/components/entity/EntityDirectory.svelte';
-	import { getItemImage } from '$lib/utils/entityImages';
+	} from '#lib/components/entity/EntityDirectory.svelte';
+	import { getItemImage } from '#lib/utils/entityImages.ts';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();

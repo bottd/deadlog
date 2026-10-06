@@ -1,6 +1,6 @@
 import type { FeedFilters, FeedIndex } from '@deadlog/db';
-import type { PatchSummary } from '$lib/types';
-import { INITIAL_LOAD_COUNT } from '$lib/queries/keys';
+import type { PatchSummary } from '#lib/types.ts';
+import { INITIAL_LOAD_COUNT } from '#lib/queries/keys.ts';
 import { assembleSummaries, queryFeed } from './assemble';
 
 export const PAGE_SIZE = 12;

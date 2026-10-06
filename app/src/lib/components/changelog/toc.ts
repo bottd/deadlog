@@ -1,4 +1,4 @@
-import type { EntityIcon, MogTocEntry } from '$lib/types';
+import type { EntityIcon, MogTocEntry } from '#lib/types.ts';
 
 /** Sections ChangelogToc renders through its own General / Heroes / Items affordances. */
 const STRUCTURED_SECTION_IDS = ['general-changes', 'hero-changes', 'item-changes'];

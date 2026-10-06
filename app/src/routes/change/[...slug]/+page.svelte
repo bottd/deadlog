@@ -1,17 +1,17 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { building } from '$app/environment';
-	import { ChangelogToc, MogContent } from '$lib/components/changelog';
-	import { searchParams } from '$lib/stores/searchParams.svelte';
-	import type { EntityIcon } from '$lib/types';
-	import * as Avatar from '$lib/components/ui/avatar';
-	import { authorInitials } from '$lib/author';
-	import * as Sheet from '$lib/components/ui/sheet';
-	import Button from '$lib/components/ui/button/button.svelte';
+	import { building } from '$app/env';
+	import { ChangelogToc, MogContent } from '#lib/components/changelog/index.ts';
+	import { searchParams } from '#lib/stores/searchParams.svelte.ts';
+	import type { EntityIcon } from '#lib/types.ts';
+	import * as Avatar from '#lib/components/ui/avatar/index.ts';
+	import { authorInitials } from '#lib/author.ts';
+	import * as Sheet from '#lib/components/ui/sheet/index.ts';
+	import Button from '#lib/components/ui/button/button.svelte';
 	import { formatDate, formatTime, patchHeading, plural } from '@deadlog/utils';
-	import { hasEntity } from '$lib/components/filter-bar/filterState.svelte';
-	import { tocLinkCount } from '$lib/components/changelog/toc';
-	import CornerAccents from '$lib/components/ui/corner-accents/CornerAccents.svelte';
+	import { hasEntity } from '#lib/components/filter-bar/filterState.svelte.ts';
+	import { tocLinkCount } from '#lib/components/changelog/toc.ts';
+	import CornerAccents from '#lib/components/ui/corner-accents/CornerAccents.svelte';
 	import ArrowLeft from '@lucide/svelte/icons/arrow-left';
 	import ExternalLink from '@lucide/svelte/icons/external-link';
 	import Link from '@lucide/svelte/icons/link';
@@ -25,7 +25,7 @@
 		pageMeta,
 		SITE_NAME,
 		SITE_URL
-	} from '$lib/seo';
+	} from '#lib/seo.ts';
 
 	import type { PageProps } from './$types';
 

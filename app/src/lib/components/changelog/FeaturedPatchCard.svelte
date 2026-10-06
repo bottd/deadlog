@@ -1,5 +1,5 @@
 <script lang="ts">
-	import CornerAccents from '$lib/components/ui/corner-accents/CornerAccents.svelte';
+	import CornerAccents from '#lib/components/ui/corner-accents/CornerAccents.svelte';
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
 	import { patchCardHrefs, patchCardView, type PatchCardProps } from './patchCard';
 	let patch: PatchCardProps = $props();

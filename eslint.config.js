@@ -3,7 +3,6 @@ import ts from 'typescript-eslint';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import eslintPluginSvelte from 'eslint-plugin-svelte';
 import globals from 'globals';
-import svelteConfig from './app/svelte.config.js';
 
 export default ts.config(
 	js.configs.recommended,
@@ -26,16 +25,6 @@ export default ts.config(
 			}
 		}
 	},
-	{
-		files: ['**/cloudflare-worker.ts'],
-		languageOptions: {
-			parserOptions: {
-				projectService: false,
-				project: './app/tsconfig.worker.json',
-				tsconfigRootDir: import.meta.dirname
-			}
-		}
-	},
 	...eslintPluginSvelte.configs['flat/recommended'],
 	...eslintPluginSvelte.configs['flat/prettier'],
 	{
@@ -44,8 +33,7 @@ export default ts.config(
 			parserOptions: {
 				projectService: true,
 				extraFileExtensions: ['.svelte'],
-				parser: ts.parser,
-				svelteConfig
+				parser: ts.parser
 			}
 		},
 		rules: {

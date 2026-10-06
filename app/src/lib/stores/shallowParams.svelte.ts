@@ -1,6 +1,6 @@
-import { replaceState } from '$app/navigation';
+import { goto } from '$app/navigation';
 import { page } from '$app/state';
-import { building } from '$app/environment';
+import { building } from '$app/env';
 
 type Key = keyof App.PageState;
 
@@ -17,7 +17,7 @@ export function shallowParams<K extends Key>(debounceMs: Record<K, number>) {
 				? (page.state[key] ?? '')
 				: (page.url.searchParams.get(key) ?? ''));
 
-	function commit() {
+	async function commit() {
 		clearTimeout(timer);
 		const url = new URL(location.href);
 		const state: App.PageState = { ...page.state };
@@ -26,9 +26,14 @@ export function shallowParams<K extends Key>(debounceMs: Record<K, number>) {
 			url.searchParams.delete(key);
 			if (value) url.searchParams.set(key, value);
 			state[key] = value;
-			drafts[key] = undefined;
 		}
-		replaceState(url, state);
+		await goto(url, { shallow: true, replace: true, state });
+		// Keep bound values stable until page.state catches up, preserving newer edits.
+		for (const key of keys) {
+			if (drafts[key] === state[key] && page.state[key] === state[key]) {
+				drafts[key] = undefined;
+			}
+		}
 	}
 
 	$effect(() => () => clearTimeout(timer));

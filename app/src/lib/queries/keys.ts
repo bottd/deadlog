@@ -1,5 +1,5 @@
 import { entityNameAliases } from '@deadlog/utils';
-import { parseCSV } from '$lib/utils/csv';
+import { parseCSV } from '#lib/utils/csv.ts';
 
 export interface ChangelogFilters {
 	hero?: string[];
@@ -35,7 +35,9 @@ export function normalizeFilters(
 	};
 }
 
-export function parseFilters(params: URLSearchParams): Required<ChangelogFilters> {
+export function parseFilters(
+	params: Pick<URLSearchParams, 'get'>
+): Required<ChangelogFilters> {
 	return normalizeFilters({
 		hero: parseCSV(params.get('hero')),
 		item: parseCSV(params.get('item')),

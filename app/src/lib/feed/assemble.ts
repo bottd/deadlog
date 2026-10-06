@@ -1,4 +1,4 @@
-import type { ChangelogEntityIcon, PatchSummary } from '$lib/types';
+import type { ChangelogEntityIcon, PatchSummary } from '#lib/types.ts';
 import type {
 	FeedEntity,
 	FeedFilters,

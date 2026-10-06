@@ -20,7 +20,6 @@ node_modules
 /app/playwright-report/
 /app/test-results/
 /app/static/assets/meta/
-.nx/cache
-.nx/workspace-data
+/.wrangler
 app/static/deadlog.db
 app/src/lib/generated/
