@@ -58,7 +58,7 @@
             inherit (finalAttrs) pname version src;
             pnpm = pkgs.pnpm;
             fetcherVersion = 3;
-            hash = "sha256-yVag7svEXl65YWyD1ccDbOGFF5tnud1JmvtabwqK4R0=";
+            hash = "sha256-ASHkFsg7V9O89e8jLpHA90WHEFXlLyYctPova9OsMCc=";
           };
 
           nativeBuildInputs = with pkgs; [
@@ -77,22 +77,14 @@
           '';
         });
 
-        prettier = pkgs.writeShellApplication {
-          name = "deadlog-prettier";
+        oxfmt = pkgs.writeShellApplication {
+          name = "deadlog-oxfmt";
           text = ''
-            project_root=$PWD
-            files=()
-            for file in "$@"; do
-              files+=("$project_root/$file")
-            done
-
-            cd ${node-tools}/lib/deadlog
             ${pkgs.nodejs_24}/bin/node \
-              ${node-tools}/lib/deadlog/node_modules/prettier/bin/prettier.cjs \
-              --config "$project_root/.prettierrc" \
-              --ignore-path "$project_root/.prettierignore" \
-              --write \
-              "''${files[@]}"
+              ${node-tools}/lib/deadlog/node_modules/oxfmt/bin/oxfmt \
+              --config "$PWD/.oxfmtrc.json" \
+              --no-error-on-unmatched-pattern \
+              "$@"
           '';
         };
 
@@ -104,8 +96,8 @@
           };
 
           settings.formatter = {
-            prettier = {
-              command = "${prettier}/bin/deadlog-prettier";
+            oxfmt = {
+              command = "${oxfmt}/bin/deadlog-oxfmt";
               includes = [
                 "*.js"
                 "*.ts"

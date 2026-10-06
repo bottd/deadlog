@@ -1,0 +1,25 @@
+{
+	"$schema": "./node_modules/oxfmt/configuration_schema.json",
+	"useTabs": true,
+	"tabWidth": 2,
+	"singleQuote": true,
+	"trailingComma": "none",
+	"printWidth": 90,
+	"sortPackageJson": false,
+	"svelte": {},
+	"ignorePatterns": [
+		".DS_Store",
+		"node_modules",
+		"/build",
+		"/.svelte-kit",
+		"/app/.wrangler/",
+		"/app/playwright-report/",
+		"/app/test-results/",
+		"/package",
+		".env",
+		".env.*",
+		"!.env.example",
+		"pnpm-lock.yaml",
+		"/drizzle/"
+	]
+}
