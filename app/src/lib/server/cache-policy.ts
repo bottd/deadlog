@@ -1,4 +1,4 @@
-export const EDGE_CACHE_CONTROL = 'public, max-age=0, s-maxage=3600, must-revalidate';
+const EDGE_CACHE_CONTROL = 'public, max-age=0, s-maxage=3600, must-revalidate';
 
 /**
  * Applies the hourly edge TTL to deterministic GET responses, including 404s and

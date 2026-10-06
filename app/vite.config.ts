@@ -31,7 +31,7 @@ const failOnMogDiagnostics: Plugin = {
 
 const adapter =
 	process.env.CLOUDFLARE === 'true'
-		? adapterCloudflare({ config: 'wrangler.adapter.toml', platformProxy: {} })
+		? adapterCloudflare({ platformProxy: {} })
 		: adapterNode({ out: '../dist/app' });
 
 export default defineConfig({
@@ -55,12 +55,7 @@ export default defineConfig({
 				handleHttpError: 'fail',
 				handleMissingId: 'warn'
 			},
-			inspector: false,
-			dynamicCompileOptions({ filename }) {
-				if (filename?.includes('node_modules')) {
-					return { runes: undefined };
-				}
-			}
+			inspector: false
 		})
 	],
 	server: {
@@ -83,7 +78,6 @@ export default defineConfig({
 	},
 	ssr: {
 		noExternal: [
-			'@deadlog/changelog',
 			'@deadlog/db',
 			'@deadlog/utils',
 			'runed',

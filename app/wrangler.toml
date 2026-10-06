@@ -1,22 +1,10 @@
 name = "deadlog"
 compatibility_date = "2025-04-03"
-compatibility_flags = ["nodejs_compat", "enable_ctx_exports"]
-main = "cloudflare-worker.ts"
+compatibility_flags = ["nodejs_compat"]
+main = ".svelte-kit/cloudflare/_worker.js"
 
 [cache]
 enabled = true
-
-[exports.default]
-type = "worker"
-
-  [exports.default.cache]
-  enabled = false
-
-[exports.SvelteKit]
-type = "worker"
-
-  [exports.SvelteKit.cache]
-  enabled = true
 
 [observability]
 [observability.logs]
@@ -31,4 +19,3 @@ PUBLIC_COUNTERSCALE_REPORTER_URL = "https://a.drake.dev/collect"
 [assets]
 binding = "ASSETS"
 directory = ".svelte-kit/cloudflare"
-run_worker_first = true

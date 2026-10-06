@@ -12,8 +12,6 @@ import {
 	type ChangelogFilters
 } from '#lib/queries/keys.ts';
 
-const GOTO_OPTS = { reset: false } as const;
-
 class SearchParamsStore {
 	#pendingParams = $state<URLSearchParams | null>(null);
 	#navigationId = 0;
@@ -116,7 +114,7 @@ class SearchParamsStore {
 			if (navigationId === this.#navigationId) this.#pendingParams = null;
 		};
 
-		void goto(this.#pendingTarget, GOTO_OPTS)
+		void goto(this.#pendingTarget, { reset: false })
 			.then(() => window.scrollTo(0, 0))
 			.then(finish, finish);
 	}

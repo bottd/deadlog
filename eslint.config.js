@@ -25,16 +25,6 @@ export default ts.config(
 			}
 		}
 	},
-	{
-		files: ['**/cloudflare-worker.ts'],
-		languageOptions: {
-			parserOptions: {
-				projectService: false,
-				project: './app/tsconfig.worker.json',
-				tsconfigRootDir: import.meta.dirname
-			}
-		}
-	},
 	...eslintPluginSvelte.configs['flat/recommended'],
 	...eslintPluginSvelte.configs['flat/prettier'],
 	{
