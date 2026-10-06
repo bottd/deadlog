@@ -66,27 +66,37 @@
 	.mog-content {
 		@apply max-w-none text-base leading-relaxed;
 
-		:global(h2[data-mog-section]) {
+		& > :global(p:has(> img)) {
+			@apply my-6 max-w-none;
+		}
+
+		& > :global(p > img) {
+			@apply border-border bg-muted/20 h-auto max-h-[32rem] w-full rounded-lg border object-contain shadow-lg;
+		}
+	}
+
+	.mog-content :global {
+		h2[data-mog-section] {
 			@apply font-display text-foreground mt-8 mb-4 text-[28px] leading-tight font-semibold tracking-wide first:mt-0;
 		}
 
-		:global(h2) {
+		h2 {
 			@apply text-primary mt-8 mb-4 text-xl leading-tight font-semibold tracking-tight;
 		}
 
-		:global(h3) {
+		h3 {
 			@apply text-foreground mt-6 mb-3 text-lg leading-tight font-semibold tracking-tight;
 		}
 
-		:global(h4) {
+		h4 {
 			@apply text-foreground mt-5 mb-2 text-base leading-snug font-semibold tracking-tight;
 		}
 
 		/* `=hero:abrams:` wraps an entity's portrait, heading and notes in one block, so
 		   what used to live in EntityHeading.svelte is styling on that container. The
 		   portrait is a sibling of the heading, hence the grid rather than a flex row. */
-		:global(div.hero),
-		:global(div.item) {
+		div.hero,
+		div.item {
 			@apply mt-8 grid pt-6;
 			grid-template-columns: auto minmax(0, 1fr);
 			column-gap: 1rem;
@@ -97,91 +107,83 @@
 		   full line box below the portrait — a 40px icon in a 66px cell, so the icon read
 		   a line high of the heading it labels. Flex centres the portrait in the row
 		   instead, whether the heading is one line or two. */
-		:global(div.hero > p:has(img)),
-		:global(div.item > p:has(img)) {
+		div.hero > p:has(img),
+		div.item > p:has(img) {
 			@apply col-start-1 row-start-1 m-0 flex items-center;
 		}
 
 		/* The Mog link label names the image link for assistive technology. */
-		:global(div.hero > p:has(img) > a),
-		:global(div.item > p:has(img) > a),
-		:global(div.ability > p:has(img) > a) {
+		div.hero > p:has(img) > a,
+		div.item > p:has(img) > a,
+		div.ability > p:has(img) > a {
 			font-size: 0;
 		}
 
 		/* Descendant selector: the portrait img may sit inside the history-page link. */
-		:global(div.hero > img),
-		:global(div.item > img),
-		:global(div.hero > p img),
-		:global(div.item > p img) {
+		div.hero > img,
+		div.item > img,
+		div.hero > p img,
+		div.item > p img {
 			@apply border-border bg-card size-10 rounded-lg border object-cover shadow-sm;
 		}
 
-		:global(div.hero > h3),
-		:global(div.item > h3) {
+		div.hero > h3,
+		div.item > h3 {
 			@apply text-foreground col-start-2 m-0 scroll-mt-20 self-center text-2xl leading-tight font-semibold tracking-tight;
 		}
 
 		/* Notes and nested abilities share the content column. */
-		:global(div.hero > :not(p:has(img)):not(h3)),
-		:global(div.item > :not(p:has(img)):not(h3)) {
+		div.hero > :not(p:has(img)):not(h3),
+		div.item > :not(p:has(img)):not(h3) {
 			@apply col-start-2;
 		}
 
-		:global(div.ability) {
+		div.ability {
 			@apply mt-4 grid;
 			grid-template-columns: auto minmax(0, 1fr);
 			column-gap: 0.625rem;
 		}
 
-		:global(div.ability > p:has(img)) {
+		div.ability > p:has(img) {
 			@apply col-start-1 row-start-1 m-0 flex items-center;
 		}
 
 		/* Descendant selector: the icon may sit inside the ability deep link. */
-		:global(div.ability > img),
-		:global(div.ability > p img) {
+		div.ability > img,
+		div.ability > p img {
 			@apply size-6 rounded object-cover;
 		}
 
-		:global(div.ability > h4) {
+		div.ability > h4 {
 			@apply text-foreground col-start-2 m-0 scroll-mt-20 self-center text-lg leading-tight font-semibold;
 		}
 
-		:global(div.ability > :not(p:has(img)):not(h4)) {
+		div.ability > :not(p:has(img)):not(h4) {
 			@apply col-start-2;
 		}
 
-		:global(ul.section-preview + div.hero),
-		:global(ul.section-preview + div.item) {
+		ul.section-preview + div.hero,
+		ul.section-preview + div.item {
 			@apply mt-2 pt-0;
 		}
 
-		:global(p) {
+		p {
 			@apply text-foreground/90 my-3 max-w-[72ch] leading-relaxed;
 		}
 
-		& > :global(p:has(> img)) {
-			@apply my-6 max-w-none;
-		}
-
-		& > :global(p > img) {
-			@apply border-border bg-muted/20 h-auto max-h-[32rem] w-full rounded-lg border object-contain shadow-lg;
-		}
-
-		:global(ul) {
+		ul {
 			@apply my-3 ml-5 list-none space-y-2.5;
 		}
 
-		:global(ol) {
+		ol {
 			@apply marker:text-primary/40 my-3 ml-5 list-decimal space-y-2.5;
 		}
 
-		:global(li) {
+		li {
 			@apply text-foreground/90 relative max-w-[72ch] leading-relaxed;
 		}
 
-		:global(ul > li::before) {
+		ul > li::before {
 			content: '';
 			@apply bg-primary/40 absolute top-[0.55em] -left-4 size-1.5 rounded-full;
 		}
@@ -189,105 +191,105 @@
 		/* The preview badges are jump links, not body copy, so they take neither the
 		   bullet nor the list indent — the row starts flush with its section heading
 		   and with the entity blocks it links down to. */
-		:global(ul.section-preview) {
+		ul.section-preview {
 			@apply ml-0;
 		}
 
-		:global(ul.section-preview > li::before) {
+		ul.section-preview > li::before {
 			content: none;
 		}
 
-		:global(li > ul),
-		:global(li > ol) {
+		li > ul,
+		li > ol {
 			@apply my-1.5;
 		}
 
-		:global(li > ul > li::before) {
+		li > ul > li::before {
 			@apply bg-primary/20;
 		}
 
 		/* Links — but not the video cards, which are blocks, not body copy */
-		:global(a:not(.video-link)) {
+		a:not(.video-link) {
 			@apply text-primary font-medium underline-offset-2 transition-all duration-200 hover:underline hover:opacity-80;
 		}
 
 		/* Entity and ability headings link out but read as headings, not body links */
-		:global(div.hero > h3 > a),
-		:global(div.item > h3 > a),
-		:global(div.ability > h4 > a) {
+		div.hero > h3 > a,
+		div.item > h3 > a,
+		div.ability > h4 > a {
 			@apply text-foreground font-semibold no-underline hover:no-underline hover:opacity-100;
 		}
 
 		/* Ability icon and heading share one hover state, like the entity block above. */
-		:global(div.ability:has(> h4 a:hover, > p a:hover) > h4 > a) {
+		div.ability:has(> h4 a:hover, > p a:hover) > h4 > a {
 			@apply text-signal;
 		}
 
-		:global(div.ability:has(> h4 a:hover, > p a:hover) > p img) {
+		div.ability:has(> h4 a:hover, > p a:hover) > p img {
 			@apply ring-signal ring-1;
 		}
 
 		/* Portrait and heading link to the same page, so they share one hover state:
 		   hovering either highlights both. */
-		:global(div.hero:has(> h3 a:hover, > p a:hover) > h3 > a),
-		:global(div.item:has(> h3 a:hover, > p a:hover) > h3 > a) {
+		div.hero:has(> h3 a:hover, > p a:hover) > h3 > a,
+		div.item:has(> h3 a:hover, > p a:hover) > h3 > a {
 			@apply text-signal;
 		}
 
-		:global(div.hero:has(> h3 a:hover, > p a:hover) > p img),
-		:global(div.item:has(> h3 a:hover, > p a:hover) > p img) {
+		div.hero:has(> h3 a:hover, > p a:hover) > p img,
+		div.item:has(> h3 a:hover, > p a:hover) > p img {
 			@apply border-signal;
 		}
 
-		:global(strong) {
+		strong {
 			@apply text-foreground font-semibold;
 		}
 
-		:global(em) {
+		em {
 			@apply italic;
 		}
 
-		:global(code) {
+		code {
 			@apply border-primary/10 bg-primary/5 text-primary rounded border px-1.5 py-0.5 font-mono text-xs;
 		}
 
-		:global(pre) {
+		pre {
 			@apply border-border bg-card/50 my-4 overflow-x-auto rounded-lg border p-4;
 		}
 
-		:global(pre code) {
+		pre code {
 			@apply border-0 bg-transparent p-0;
 		}
 
-		:global(blockquote) {
+		blockquote {
 			@apply border-primary/30 text-foreground/70 my-4 border-l-2 pl-4 italic;
 		}
 
-		:global(hr) {
+		hr {
 			@apply border-border my-8;
 		}
 
-		:global(table) {
+		table {
 			@apply border-border my-4 w-full border-collapse border;
 		}
 
-		:global(th),
-		:global(td) {
+		th,
+		td {
 			@apply border-border border px-3 py-2 text-left;
 		}
 
-		:global(th) {
+		th {
 			@apply bg-muted/50 font-semibold;
 		}
 
 		@media (max-width: 639px) {
-			:global(div.hero > :not(p:has(img)):not(h3)),
-			:global(div.item > :not(p:has(img)):not(h3)),
-			:global(div.ability > :not(p:has(img)):not(h4)) {
+			div.hero > :not(p:has(img)):not(h3),
+			div.item > :not(p:has(img)):not(h3),
+			div.ability > :not(p:has(img)):not(h4) {
 				grid-column: 1 / -1;
 			}
-			:global(ul),
-			:global(ol) {
+			ul,
+			ol {
 				margin-left: 1rem;
 			}
 		}

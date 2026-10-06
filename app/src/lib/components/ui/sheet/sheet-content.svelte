@@ -22,8 +22,10 @@
 	<SheetPrimitive.Content
 		bind:ref
 		data-slot="sheet-content"
-		class="sheet-bottom data-[state=open]:animate-slide-up-in data-[state=closed]:animate-slide-down-out {className ??
-			''}"
+		class={[
+			'sheet-bottom data-[state=open]:animate-slide-up-in data-[state=closed]:animate-slide-down-out',
+			className
+		]}
 		{...restProps}
 	>
 		{@render children?.()}

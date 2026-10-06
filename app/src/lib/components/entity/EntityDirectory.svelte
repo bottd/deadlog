@@ -149,9 +149,10 @@
 								height="48"
 								loading={index < 10 ? 'eager' : 'lazy'}
 								decoding="async"
-								class="bg-background size-12 shrink-0 rounded-md {kind === 'item'
-									? 'object-contain p-1'
-									: 'object-cover'}"
+								class={[
+									'bg-background size-12 shrink-0 rounded-md',
+									kind === 'item' ? 'object-contain p-1' : 'object-cover'
+								]}
 							/>
 							<div class="min-w-0">
 								<h2

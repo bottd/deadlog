@@ -101,13 +101,7 @@
 		});
 	});
 	const historyYears = $derived([
-		...visibleChangelogs.reduce((groups, patch) => {
-			const year = formatYear(patch.date);
-			const group = groups.get(year);
-			if (group) group.push(patch);
-			else groups.set(year, [patch]);
-			return groups;
-		}, new Map<string, EntityPatch[]>())
+		...Map.groupBy(visibleChangelogs, (patch) => formatYear(patch.date))
 	]);
 	const showToc = $derived(visibleChangelogs.length >= 6);
 	const tocYears = $derived(
@@ -179,10 +173,10 @@
 							height="80"
 							decoding="async"
 							fetchpriority="high"
-							class="clip-corner-sm bg-card size-16 shrink-0 border sm:size-20 {entity.type ===
-							'item'
-								? 'object-contain p-2'
-								: 'object-cover'}"
+							class={[
+								'clip-corner-sm bg-card size-16 shrink-0 border sm:size-20',
+								entity.type === 'item' ? 'object-contain p-2' : 'object-cover'
+							]}
 							style:border-color={accent}
 						/>
 					{/if}
@@ -273,7 +267,7 @@
 					/>
 					{ability.name}
 				{/snippet}
-				<section aria-label="Abilities" class="mb-6 {abilityLinkMode ? '' : 'js-only'}">
+				<section aria-label="Abilities" class={['mb-6', !abilityLinkMode && 'js-only']}>
 					<p class="text-muted-foreground mb-2 text-sm">
 						{abilityLinkMode ? 'Other abilities' : 'Filter by ability'}
 					</p>

@@ -37,7 +37,7 @@
 			<div p="x-4 b-1" class="-mx-4 overflow-x-auto sm:mx-0 sm:overflow-visible sm:px-0">
 				<div flex="~" w="max" gap="1.5" class="sm:w-auto sm:flex-wrap">
 					{#each heroes as { hero, selected } (hero.id)}
-						{@const blocked = !selected && atCap}
+						{const blocked = !selected && atCap}
 						<button
 							type="button"
 							onclick={() => toggleEntityFilter('hero', hero.name)}

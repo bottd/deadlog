@@ -43,7 +43,7 @@
 				<div class="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2">
 					{#each view.rows as row (row.type)}
 						<div class="flex items-center gap-3">
-							<span class="w-12 shrink-0 text-xs {row.tone}">{row.label}</span>
+							<span class={['w-12 shrink-0 text-xs', row.tone]}>{row.label}</span>
 							<div class="flex flex-wrap gap-1.5">
 								{#each row.list as icon (icon.id)}
 									<a

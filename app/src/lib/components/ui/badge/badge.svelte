@@ -27,7 +27,7 @@
 	bind:this={ref}
 	data-slot="badge"
 	{href}
-	class="{variants[variant]} {className ?? ''}"
+	class={[variants[variant], className]}
 	{...restProps}
 >
 	{@render children?.()}

@@ -21,8 +21,8 @@
 		onclose: () => void;
 	} = $props();
 	let commandValue = $state('');
-	const prefix = $derived(mobile ? 'mobile' : 'desktop');
-	const listId = $derived(`${prefix}-filter-options`);
+	const prefix = $props.id();
+	const listId = `${prefix}-filter-options`;
 	const shown = $derived(mobile || open);
 	const options = $derived(filterState.mergedList.slice(0, 60));
 	const histories = $derived(filterState.inputValue.trim() ? options.slice(0, 3) : []);

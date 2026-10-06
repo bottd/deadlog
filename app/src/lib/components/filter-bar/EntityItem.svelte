@@ -21,9 +21,10 @@
 	{id}
 	{value}
 	{onSelect}
-	class="hover:bg-secondary data-[selected]:bg-secondary flex cursor-pointer items-center gap-3 rounded-sm px-3 py-2 transition-colors {isSelected
-		? tone.subtle
-		: ''}"
+	class={[
+		'hover:bg-secondary data-[selected]:bg-secondary flex cursor-pointer items-center gap-3 rounded-sm px-3 py-2 transition-colors',
+		isSelected && tone.subtle
+	]}
 >
 	{#snippet child({ props })}
 		<div
@@ -48,9 +49,10 @@
 			{/if}
 			<span flex="1" class="min-w-0">
 				<span
-					class="block truncate text-sm {isSelected
-						? `font-medium ${tone.text}`
-						: 'text-foreground'}"
+					class={[
+						'block truncate text-sm',
+						isSelected ? ['font-medium', tone.text] : 'text-foreground'
+					]}
 				>
 					{name}
 				</span>
@@ -65,8 +67,8 @@
 				</span>
 			</span>
 			{#if isSelected}
-				<span class="font-mono text-xs tracking-wide {tone.text}">Selected</span>
-				<span class="size-2 rounded-full {tone.dot}" aria-hidden="true"></span>
+				<span class={['font-mono text-xs tracking-wide', tone.text]}>Selected</span>
+				<span class={['size-2 rounded-full', tone.dot]} aria-hidden="true"></span>
 			{/if}
 		</div>
 	{/snippet}

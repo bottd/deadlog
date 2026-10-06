@@ -24,15 +24,9 @@
 		toc = []
 	}: Props = $props();
 
-	const abilityIconsByHero = $derived.by(() => {
-		const icons = new Map<number, ChangelogAbilityIcon[]>();
-		for (const ability of abilityIcons) {
-			const entries = icons.get(ability.heroId) ?? [];
-			entries.push(ability);
-			icons.set(ability.heroId, entries);
-		}
-		return icons;
-	});
+	const abilityIconsByHero = $derived(
+		Map.groupBy(abilityIcons, (ability) => ability.heroId)
+	);
 	const genericEntries = $derived(genericTocEntries({ toc, heroes, items }));
 
 	// Everything else about `size` is CSS on `.toc.lg`; only the intrinsic image
@@ -97,7 +91,7 @@
 	});
 </script>
 
-<nav class="toc {size} toc-panel clip-corner-sm" aria-label="Table of contents">
+<nav class={['toc toc-panel clip-corner-sm', size]} aria-label="Table of contents">
 	{#if size === 'sm'}
 		<div bg="signal/50" m="b-4" h="px" w="8" aria-hidden="true"></div>
 
@@ -117,7 +111,7 @@
 		{#each genericEntries as entry (entry.id)}
 			<a
 				href="#{entry.id}"
-				class="toc-section {entry.level > 1 ? 'toc-subsection' : ''}"
+				class={['toc-section', entry.level > 1 && 'toc-subsection']}
 				onclick={onnavigate}
 			>
 				<span class="toc-marker" aria-hidden="true"></span>

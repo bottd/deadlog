@@ -33,7 +33,7 @@
 	<a
 		bind:this={ref}
 		data-slot="button"
-		class="btn-ghost {buttonSizes[size]} {className ?? ''}"
+		class={['btn-ghost', buttonSizes[size], className]}
 		href={disabled ? undefined : href}
 		aria-disabled={disabled}
 		role={disabled ? 'link' : undefined}
@@ -46,7 +46,7 @@
 	<button
 		bind:this={ref}
 		data-slot="button"
-		class="btn-ghost {buttonSizes[size]} {className ?? ''}"
+		class={['btn-ghost', buttonSizes[size], className]}
 		{type}
 		{disabled}
 		{...restProps}

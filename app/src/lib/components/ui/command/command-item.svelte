@@ -13,7 +13,7 @@
 <CommandPrimitive.Item
 	bind:ref
 	data-slot="command-item"
-	class="menu-item {className ?? ''}"
+	class={['menu-item', className]}
 	{...restProps}
 >
 	{#if children}

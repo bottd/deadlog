@@ -17,13 +17,7 @@
 	// Grouped on the printed year, not the UTC one. A Map keeps the newest-first order
 	// that plain object keys would renumber.
 	const years = $derived([
-		...data.patches.reduce((groups, patch) => {
-			const year = formatYear(patch.pubDate);
-			const group = groups.get(year);
-			if (group) group.push(patch);
-			else groups.set(year, [patch]);
-			return groups;
-		}, new Map<string, typeof data.patches>())
+		...Map.groupBy(data.patches, (patch) => formatYear(patch.pubDate))
 	]);
 </script>
 

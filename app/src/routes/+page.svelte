@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { JsonLd, MetaTags } from 'svelte-meta-tags';
 	import { Changelog } from '#lib/components/changelog/index.ts';
-	import type { PageData } from './$types';
+	import type { PageProps } from './$types';
 	import { searchParams as params } from '#lib/stores/searchParams.svelte.ts';
 	import {
 		DEFAULT_SOCIAL_IMAGE,
@@ -12,7 +12,7 @@
 		SITE_URL
 	} from '#lib/seo.ts';
 
-	let { data }: { data: PageData } = $props();
+	let { data }: PageProps = $props();
 
 	const queryString = $derived(params.toURLSearchParams().toString());
 	const hasFilters = $derived(queryString !== '');

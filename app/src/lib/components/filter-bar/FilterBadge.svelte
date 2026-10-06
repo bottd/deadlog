@@ -12,19 +12,12 @@
 
 	let { name, icon, onRemove, kind = 'hero' }: Props = $props();
 	const tone = $derived(ENTITY_TONE[kind]);
-
-	function handleKeydown(event: KeyboardEvent) {
-		event.stopPropagation();
-		if (event.key !== 'Enter' && event.key !== ' ') return;
-		event.preventDefault();
-		onRemove();
-	}
 </script>
 
 <button
 	type="button"
 	onclick={onRemove}
-	onkeydown={handleKeydown}
+	onkeydown={(event) => event.stopPropagation()}
 	rounded="md"
 	class="group/badge min-h-11 shrink-0 focus-visible:outline-none"
 	aria-label="Remove {tone.label} filter: {name}"

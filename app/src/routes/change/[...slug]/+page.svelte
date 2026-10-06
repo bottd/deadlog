@@ -158,7 +158,7 @@
 
 {#snippet stat(count: number, label: string, tone: string)}
 	<span flex="~" items="baseline" gap="1">
-		<span class="font-mono font-bold {tone}">{count}</span>
+		<span class={['font-mono font-bold', tone]}>{count}</span>
 		<span text="muted-foreground">{label}</span>
 	</span>
 {/snippet}

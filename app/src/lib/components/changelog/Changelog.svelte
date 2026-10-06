@@ -201,11 +201,11 @@
 				data-patch-grid
 				gap="4"
 				aria-busy={isFilterPending}
-				class="grid grid-cols-1 transition-opacity duration-200 {isSearching
-					? 'max-w-3xl'
-					: 'sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'} {isFilterPending
-					? 'pointer-events-none opacity-60'
-					: ''}"
+				class={[
+					'grid grid-cols-1 transition-opacity duration-200',
+					isSearching ? 'max-w-3xl' : 'sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4',
+					isFilterPending && 'pointer-events-none opacity-60'
+				]}
 			>
 				{#each gridEntries as entry, i (entry.id)}
 					{#if i === firstSeenIdx && firstSeenIdx > 0}

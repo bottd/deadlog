@@ -22,11 +22,13 @@
 </script>
 
 <div
-	class="clip-corner-sm group bg-card hover:bg-card-accent/30 relative flex h-full flex-col overflow-hidden border transition-colors duration-200 {matches.searching
-		? ''
-		: 'min-h-[200px]'} {isMajor
-		? 'border-primary/50 hover:border-primary/80'
-		: 'border-border hover:border-signal/45'}"
+	class={[
+		'clip-corner-sm group bg-card hover:bg-card-accent/30 relative flex h-full flex-col overflow-hidden border transition-colors duration-200',
+		!matches.searching && 'min-h-[200px]',
+		isMajor
+			? 'border-primary/50 hover:border-primary/80'
+			: 'border-border hover:border-signal/45'
+	]}
 >
 	<CornerAccents
 		tlSize="1.5rem"
@@ -175,16 +177,17 @@
 		{/if}
 		{#if patch.summary}
 			<p
-				class="text-muted-foreground max-w-[72ch] leading-relaxed {matches.searching
-					? 'text-sm'
-					: 'line-clamp-2 text-xs'}"
+				class={[
+					'text-muted-foreground max-w-[72ch] leading-relaxed',
+					matches.searching ? 'text-sm' : 'line-clamp-2 text-xs'
+				]}
 			>
 				<HighlightedText text={patch.summary} query={searchParams.q} />
 			</p>
 		{/if}
 
 		{#each view.rows as row (row.type)}
-			{@const isItems = row.type === 'items'}
+			{const isItems = row.type === 'items'}
 			<!-- Unfanned below `sm` so every icon keeps a full 44px touch target. -->
 			<div
 				class="flex flex-wrap items-center gap-1 sm:(flex-nowrap gap-0 [&>a+a]:-ml-1.5)"
@@ -205,17 +208,23 @@
 							height="28"
 							loading="lazy"
 							decoding="async"
-							class="border-border/80 bg-card size-7 rounded-md border object-cover shadow-sm transition-colors duration-200 {isItems
-								? 'group-hover/icon:border-signal/60'
-								: 'group-hover/icon:border-primary/50'}"
+							class={[
+								'border-border/80 bg-card size-7 rounded-md border object-cover shadow-sm transition-colors duration-200',
+								isItems
+									? 'group-hover/icon:border-signal/60'
+									: 'group-hover/icon:border-primary/50'
+							]}
 						/>
 					</a>
 				{/each}
 				{#if row.extra > 0}
 					<span
-						class="bg-muted/80 text-muted-foreground flex size-11 items-center justify-center rounded-md font-mono text-[11px] font-semibold transition-all duration-300 sm:(ml-1.5 size-7) {isItems
-							? 'group-hover:bg-signal/15 group-hover:text-signal'
-							: 'group-hover:bg-primary/15 group-hover:text-primary'}">+{row.extra}</span
+						class={[
+							'bg-muted/80 text-muted-foreground flex size-11 items-center justify-center rounded-md font-mono text-[11px] font-semibold transition-all duration-300 sm:(ml-1.5 size-7)',
+							isItems
+								? 'group-hover:bg-signal/15 group-hover:text-signal'
+								: 'group-hover:bg-primary/15 group-hover:text-primary'
+						]}>+{row.extra}</span
 					>
 				{/if}
 			</div>
@@ -232,7 +241,7 @@
 		>
 			{#if matches.label}
 				<span flex="~" items="baseline" gap="1">
-					<span class="font-mono font-bold {matches.tone}">{matches.changeCount}</span>
+					<span class={['font-mono font-bold', matches.tone]}>{matches.changeCount}</span>
 					<span text="foreground">{matches.label}</span>
 				</span>
 				<span text="muted-foreground" class="ml-auto hidden text-xs sm:inline"
@@ -241,7 +250,7 @@
 			{:else}
 				{#each view.counts as count (count.noun)}
 					<span flex="~" items="baseline" gap="1">
-						<span class="font-mono font-bold {count.tone}">{count.n}</span>
+						<span class={['font-mono font-bold', count.tone]}>{count.n}</span>
 						<span text="muted-foreground">{count.noun}</span>
 					</span>
 				{/each}
