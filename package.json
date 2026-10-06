@@ -39,7 +39,7 @@
 		"@lucide/svelte": "1.47.0",
 		"@sveltejs/adapter-cloudflare": "7.2.9",
 		"@sveltejs/adapter-node": "5.5.7",
-		"@sveltejs/kit": "2.70.3",
+		"@sveltejs/kit": "3.0.1",
 		"@sveltejs/vite-plugin-svelte": "7.3.0",
 		"@takumi-rs/core": "2.14.0",
 		"@takumi-rs/helpers": "2.14.0",
