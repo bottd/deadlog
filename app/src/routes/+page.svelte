@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { JsonLd, MetaTags } from 'svelte-meta-tags';
-	import { Changelog } from '$lib/components/changelog';
+	import { Changelog } from '#lib/components/changelog/index.js';
 	import type { PageData } from './$types';
-	import { searchParams as params } from '$lib/stores/searchParams.svelte';
+	import { searchParams as params } from '#lib/stores/searchParams.svelte.js';
 	import {
 		DEFAULT_SOCIAL_IMAGE,
 		pageMeta,
@@ -10,7 +10,7 @@
 		SITE_NAME,
 		SITE_TITLE,
 		SITE_URL
-	} from '$lib/seo';
+	} from '#lib/seo.js';
 
 	let { data }: { data: PageData } = $props();
 

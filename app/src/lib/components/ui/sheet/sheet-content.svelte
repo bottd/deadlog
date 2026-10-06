@@ -3,7 +3,7 @@
 	import XIcon from '@lucide/svelte/icons/x';
 	import type { Snippet } from 'svelte';
 	import SheetOverlay from './sheet-overlay.svelte';
-	import { type WithoutChildrenOrChild } from '$lib/utils.js';
+	import { type WithoutChildrenOrChild } from '#lib/utils.js';
 
 	let {
 		ref = $bindable(null),

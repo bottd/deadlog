@@ -1,11 +1,11 @@
 import { entityFragmentId, patchHeading, plural } from '@deadlog/utils';
-import { searchParams } from '$lib/stores/searchParams.svelte';
-import { hasEntity } from '$lib/components/filter-bar/filterState.svelte';
-import { MAX_ENTITY_FILTERS } from '$lib/queries/keys';
-import type { PatchSummary, EntityIcon } from '$lib/types';
-import { changePath } from '$lib/seo';
-import { authorInitials } from '$lib/author';
-import { ENTITY_TONE } from '$lib/entityTone';
+import { searchParams } from '#lib/stores/searchParams.svelte.js';
+import { hasEntity } from '#lib/components/filter-bar/filterState.svelte.js';
+import { MAX_ENTITY_FILTERS } from '#lib/queries/keys.js';
+import type { PatchSummary, EntityIcon } from '#lib/types.js';
+import { changePath } from '#lib/seo.js';
+import { authorInitials } from '#lib/author.js';
+import { ENTITY_TONE } from '#lib/entityTone.js';
 
 export type PatchCardProps = PatchSummary;
 

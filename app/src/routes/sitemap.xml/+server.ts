@@ -7,7 +7,7 @@ import {
 	getItemLastModified,
 	getReleasedAbilities
 } from '@deadlog/db';
-import { absoluteUrl, changePath, SITE_URL } from '$lib/seo';
+import { absoluteUrl, changePath, SITE_URL } from '#lib/seo.js';
 import type { RequestHandler } from './$types';
 
 interface SitemapEntry {

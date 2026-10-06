@@ -1,23 +1,23 @@
 <script lang="ts">
-	import { RecentPatches } from '$lib/components/changelog';
+	import { RecentPatches } from '#lib/components/changelog/index.js';
 	import {
 		changeCountLabel,
 		entityPatchHref
-	} from '$lib/components/changelog/entityContext';
+	} from '#lib/components/changelog/entityContext.js';
 	import {
 		absoluteUrl,
 		ENTITY_LISTING,
 		entityCollectionSchema,
 		pageMeta
-	} from '$lib/seo';
+	} from '#lib/seo.js';
 	import { JsonLd, MetaTags } from 'svelte-meta-tags';
 	import { countBullets, formatDate, formatYear, plural } from '@deadlog/utils';
 	import ArrowLeft from '@lucide/svelte/icons/arrow-left';
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
-	import CornerAccents from '$lib/components/ui/corner-accents/CornerAccents.svelte';
+	import CornerAccents from '#lib/components/ui/corner-accents/CornerAccents.svelte';
 	import EntityHistoryToc from './EntityHistoryToc.svelte';
 	import type { Snippet } from 'svelte';
-	import { shallowParams } from '$lib/stores/shallowParams.svelte';
+	import { shallowParams } from '#lib/stores/shallowParams.svelte.js';
 
 	interface ChangeGroup {
 		ability: string | null;

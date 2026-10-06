@@ -1,8 +1,8 @@
 <script lang="ts">
-	import * as Avatar from '$lib/components/ui/avatar';
-	import CornerAccents from '$lib/components/ui/corner-accents/CornerAccents.svelte';
+	import * as Avatar from '#lib/components/ui/avatar/index.js';
+	import CornerAccents from '#lib/components/ui/corner-accents/CornerAccents.svelte';
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
-	import { searchParams } from '$lib/stores/searchParams.svelte';
+	import { searchParams } from '#lib/stores/searchParams.svelte.js';
 	import HighlightedText from './HighlightedText.svelte';
 	import {
 		patchCardHrefs,

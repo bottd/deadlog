@@ -1,6 +1,6 @@
 import { getFeedIndex } from '@deadlog/db';
 import type { PageServerLoad } from './$types';
-import { unfilteredFeedPage } from '$lib/feed/pages';
+import { unfilteredFeedPage } from '#lib/feed/pages.js';
 
 // The default (unfiltered) feed is baked at build time. Filtered views are noindex
 // and hydrate client-side from the static feed index, so this load must not touch

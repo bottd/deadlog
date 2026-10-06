@@ -1,6 +1,6 @@
-import { page } from '$app/state';
+import { page, type ReadonlyURLSearchParams } from '$app/state';
 import { goto } from '$app/navigation';
-import { building } from '$app/environment';
+import { building } from '$app/env';
 import { toast } from 'svelte-sonner';
 import { plural } from '@deadlog/utils';
 import {
@@ -10,9 +10,9 @@ import {
 	MAX_ENTITY_FILTERS,
 	MAX_QUERY_LENGTH,
 	type ChangelogFilters
-} from '$lib/queries/keys';
+} from '#lib/queries/keys.js';
 
-const GOTO_OPTS = { replaceState: false, keepFocus: true, noScroll: false } as const;
+const GOTO_OPTS = { reset: false } as const;
 
 class SearchParamsStore {
 	#pendingParams = $state<URLSearchParams | null>(null);
@@ -20,7 +20,7 @@ class SearchParamsStore {
 	#pendingTarget = '';
 	#hasReachedTarget = false;
 
-	#getParams(): URLSearchParams {
+	#getParams(): ReadonlyURLSearchParams {
 		if (building) return new URLSearchParams();
 		if (!this.#pendingParams) return page.url.searchParams;
 
@@ -116,7 +116,9 @@ class SearchParamsStore {
 			if (navigationId === this.#navigationId) this.#pendingParams = null;
 		};
 
-		void goto(this.#pendingTarget, GOTO_OPTS).then(finish, finish);
+		void goto(this.#pendingTarget, GOTO_OPTS)
+			.then(() => window.scrollTo(0, 0))
+			.then(finish, finish);
 	}
 
 	toURLSearchParams(): URLSearchParams {

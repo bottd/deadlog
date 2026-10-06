@@ -12,7 +12,7 @@
 </script>
 
 <script lang="ts">
-	import EntityChangelogPage from '$lib/components/entity/EntityChangelogPage.svelte';
+	import EntityChangelogPage from '#lib/components/entity/EntityChangelogPage.svelte';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();

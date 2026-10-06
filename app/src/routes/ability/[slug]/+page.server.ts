@@ -6,7 +6,7 @@ import {
 } from '@deadlog/db';
 import { heroImage } from '@deadlog/utils';
 import { error } from '@sveltejs/kit';
-import { absoluteUrl } from '$lib/seo';
+import { absoluteUrl } from '#lib/seo.js';
 import type { PageServerLoad, EntryGenerator } from './$types';
 
 export const prerender = true;

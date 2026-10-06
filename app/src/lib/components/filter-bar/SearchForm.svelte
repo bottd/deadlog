@@ -1,10 +1,10 @@
 <script lang="ts">
 	import type { FilterState } from './filterState.svelte';
-	import { entityImage } from '$lib/utils/entityImages';
-	import { MAX_QUERY_LENGTH } from '$lib/queries/keys';
+	import { entityImage } from '#lib/utils/entityImages.js';
+	import { MAX_QUERY_LENGTH } from '#lib/queries/keys.js';
 	import SearchIcon from '@lucide/svelte/icons/search';
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
-	import * as Command from '$lib/components/ui/command';
+	import * as Command from '#lib/components/ui/command/index.js';
 	import EntityItem from './EntityItem.svelte';
 
 	let {

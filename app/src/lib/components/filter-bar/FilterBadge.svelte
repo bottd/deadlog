@@ -1,7 +1,7 @@
 <script lang="ts">
 	import XIcon from '@lucide/svelte/icons/x';
-	import Badge from '$lib/components/ui/badge/badge.svelte';
-	import { ENTITY_TONE, type EntityKind } from '$lib/entityTone';
+	import Badge from '#lib/components/ui/badge/badge.svelte';
+	import { ENTITY_TONE, type EntityKind } from '#lib/entityTone.js';
 
 	interface Props {
 		name: string;

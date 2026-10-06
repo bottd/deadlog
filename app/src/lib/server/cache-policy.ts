@@ -19,13 +19,3 @@ export function edgeCacheControlFor(
 export function isEdgeCacheable(response: Response): boolean {
 	return response.headers.get('Cache-Control') === EDGE_CACHE_CONTROL;
 }
-
-// Keep aligned with adapter-cloudflare's generated status allowlist
-// (files/worker.js:16,120); re-check on adapter upgrades.
-const ADAPTER_CACHED_STATUSES = new Set([200, 203, 204, 300, 301]);
-
-export function adapterWillStore(response: Response): boolean {
-	return (
-		response.headers.has('Cache-Control') && ADAPTER_CACHED_STATUSES.has(response.status)
-	);
-}

@@ -16,5 +16,8 @@
 	"dependencies": {
 		"@deadlog/db": "workspace:*",
 		"@deadlog/utils": "workspace:*"
+	},
+	"imports": {
+		"#lib/*": "./src/lib/*"
 	}
 }

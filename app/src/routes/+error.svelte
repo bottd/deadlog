@@ -3,9 +3,9 @@
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
 	import SearchX from '@lucide/svelte/icons/search-x';
 	import TriangleAlert from '@lucide/svelte/icons/triangle-alert';
-	import CornerAccents from '$lib/components/ui/corner-accents/CornerAccents.svelte';
+	import CornerAccents from '#lib/components/ui/corner-accents/CornerAccents.svelte';
 	import { MetaTags } from 'svelte-meta-tags';
-	import { pageMeta, SITE_URL } from '$lib/seo';
+	import { pageMeta, SITE_URL } from '#lib/seo.js';
 
 	const isMissing = $derived(page.status === 404);
 	const heroCount = $derived(page.data?.heroes?.length ?? 0);

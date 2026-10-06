@@ -8,7 +8,7 @@
 		DEFAULT_SOCIAL_IMAGE,
 		pageMeta,
 		SITE_NAME
-	} from '$lib/seo';
+	} from '#lib/seo.js';
 	import type { PageProps } from './$types';
 	let { data }: PageProps = $props();
 	const title = 'Deadlock Patch Archive | Deadlog';

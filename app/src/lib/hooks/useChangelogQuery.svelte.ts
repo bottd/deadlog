@@ -1,19 +1,19 @@
 import { createInfiniteQuery, type InfiniteData } from '@tanstack/svelte-query';
-import type { PatchSummary } from '$lib/types';
-import { searchParams } from '$lib/stores/searchParams.svelte';
-import { assembleSummaries, queryFeed, resolveEntityIds } from '$lib/feed/assemble';
+import type { PatchSummary } from '#lib/types.js';
+import { searchParams } from '#lib/stores/searchParams.svelte.js';
+import { assembleSummaries, queryFeed, resolveEntityIds } from '#lib/feed/assemble.js';
 import {
 	loadFeedGroups,
 	loadFeedIndex,
 	loadFeedPage,
 	loadFeedText
-} from '$lib/feed/load';
-import { feedWindow, type FeedPage } from '$lib/feed/pages';
+} from '#lib/feed/load.js';
+import { feedWindow, type FeedPage } from '#lib/feed/pages.js';
 import {
 	changelogsListKey,
 	filtersToSearchParams,
 	type ChangelogFilters
-} from '$lib/queries/keys';
+} from '#lib/queries/keys.js';
 
 type PageData = FeedPage;
 

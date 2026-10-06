@@ -1,6 +1,6 @@
-import { replaceState } from '$app/navigation';
+import { goto } from '$app/navigation';
 import { page } from '$app/state';
-import { building } from '$app/environment';
+import { building } from '$app/env';
 
 type Key = keyof App.PageState;
 
@@ -28,7 +28,7 @@ export function shallowParams<K extends Key>(debounceMs: Record<K, number>) {
 			state[key] = value;
 			drafts[key] = undefined;
 		}
-		replaceState(url, state);
+		goto(url, { shallow: true, replace: true, state });
 	}
 
 	$effect(() => () => clearTimeout(timer));

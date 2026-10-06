@@ -12,7 +12,7 @@ import {
 	type FeedText
 } from '@deadlog/db';
 import { assembleSummaries, queryFeed, resolveEntityIds, splitPage } from './assemble';
-import { parseFilters } from '$lib/queries/keys';
+import { parseFilters } from '#lib/queries/keys.js';
 
 let db: DrizzleDB;
 let index: FeedIndex;

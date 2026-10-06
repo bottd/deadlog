@@ -1,13 +1,13 @@
 <script lang="ts">
 	import 'virtual:uno.css';
 	import '../app.css';
-	import Header from '$lib/components/header/Header.svelte';
+	import Header from '#lib/components/header/Header.svelte';
 	import { Toaster } from 'svelte-sonner';
-	import Footer from '$lib/components/ui/footer/footer.svelte';
-	import ScrollToTop from '$lib/components/scroll-to-top/ScrollToTop.svelte';
-	import * as Tooltip from '$lib/components/ui/tooltip';
+	import Footer from '#lib/components/ui/footer/footer.svelte';
+	import ScrollToTop from '#lib/components/scroll-to-top/ScrollToTop.svelte';
+	import * as Tooltip from '#lib/components/ui/tooltip/index.js';
 	import { QueryClient, QueryClientProvider } from '@tanstack/svelte-query';
-	import { browser } from '$app/environment';
+	import { browser } from '$app/env';
 
 	const queryClient = new QueryClient({
 		defaultOptions: {
