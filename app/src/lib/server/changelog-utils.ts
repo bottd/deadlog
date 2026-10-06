@@ -5,7 +5,7 @@ import {
 } from '@deadlog/db';
 import type { DrizzleDB } from '@deadlog/db';
 import { formatDate, makeSummary } from '@deadlog/utils';
-import { absoluteUrl } from '#lib/seo.js';
+import { absoluteUrl } from '#lib/seo.ts';
 
 export async function buildChangePageData(db: DrizzleDB, changelog: ScrapedChangelog) {
 	const [iconsMap, abilityIcons] = await Promise.all([

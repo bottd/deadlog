@@ -2,14 +2,14 @@
 	import { page } from '$app/state';
 	import SearchIcon from '@lucide/svelte/icons/search';
 	import XIcon from '@lucide/svelte/icons/x';
-	import * as Sheet from '#lib/components/ui/sheet/index.js';
-	import type { EnrichedHero, EnrichedItem, EntityIcon } from '#lib/types.js';
-	import { searchParams as params } from '#lib/stores/searchParams.svelte.js';
+	import * as Sheet from '#lib/components/ui/sheet/index.ts';
+	import type { EnrichedHero, EnrichedItem, EntityIcon } from '#lib/types.ts';
+	import { searchParams as params } from '#lib/stores/searchParams.svelte.ts';
 	import { findEntityName, indexEntityNames } from '@deadlog/utils';
-	import { entityImage } from '#lib/utils/entityImages.js';
-	import { resolveEntity } from '#lib/components/changelog/entityContext.js';
+	import { entityImage } from '#lib/utils/entityImages.ts';
+	import { resolveEntity } from '#lib/components/changelog/entityContext.ts';
 	import { FilterState } from './filterState.svelte';
-	import type { EntityKind } from '#lib/entityTone.js';
+	import type { EntityKind } from '#lib/entityTone.ts';
 	import FilterBadge from './FilterBadge.svelte';
 	import SearchForm from './SearchForm.svelte';
 

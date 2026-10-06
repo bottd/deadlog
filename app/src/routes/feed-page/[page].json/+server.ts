@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit';
 import { getFeedIndex } from '@deadlog/db';
-import { feedPageCount, unfilteredFeedPage } from '#lib/feed/pages.js';
+import { feedPageCount, unfilteredFeedPage } from '#lib/feed/pages.ts';
 import type { EntryGenerator, RequestHandler } from './$types';
 
 export const prerender = true;

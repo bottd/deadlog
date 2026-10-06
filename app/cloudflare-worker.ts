@@ -1,5 +1,5 @@
+import { WorkerEntrypoint } from 'cloudflare:workers';
 import { canonicalOriginRedirect } from './src/lib/server/canonical-origin';
-import { isEdgeCacheable } from './src/lib/server/cache-policy';
 // @ts-expect-error The generated module does not exist until the production build runs.
 import generatedWorker from './.svelte-kit/cloudflare/_worker.js';
 
@@ -18,31 +18,20 @@ const svelteKitWorker = generatedWorker as {
 	fetch(request: Request, env: Env, context: ExecutionContext): Promise<Response>;
 };
 
-// adapter-cloudflare 8 dropped its Cache API layer in favour of Workers Cache, which bills
-// every request including static assets, so the edge cache lives here instead.
-async function cachedResponse(request: Request): Promise<Response | undefined> {
-	if (request.method !== 'GET' && request.method !== 'HEAD') return undefined;
-	if (request.headers.get('Cache-Control')?.includes('no-cache')) return undefined;
-	const hit = await caches.default.match(new Request(request, { method: 'GET' }));
-	return hit && request.method === 'HEAD' ? new Response(null, hit) : hit;
-}
-
-function storeResponse(
-	request: Request,
-	response: Response,
-	context: ExecutionContext
-): void {
-	if (request.method !== 'GET' || !isEdgeCacheable(response)) return;
-	context.waitUntil(caches.default.put(request, response.clone()));
+// Workers Cache keys on path and query only and answers before the Worker runs, so the
+// canonical-origin redirect and HSTS live in this uncached gateway in front of the cached
+// SvelteKit entrypoint.
+export class SvelteKit extends WorkerEntrypoint<Env> {
+	fetch(request: Request): Promise<Response> {
+		return svelteKitWorker.fetch(request, this.env, this.ctx);
+	}
 }
 
 export default {
-	async fetch(request, env, context) {
-		let response = canonicalOriginRedirect(request) ?? (await cachedResponse(request));
-		if (!response) {
-			response = await svelteKitWorker.fetch(request, env, context);
-			storeResponse(request, response, context);
-		}
+	async fetch(request, _env, context) {
+		const response =
+			canonicalOriginRedirect(request) ??
+			(await context.exports.SvelteKit.fetch(request));
 
 		// Only responses served over TLS carry HSTS; user agents ignore it otherwise, and
 		// the canonical-origin redirect already upgrades plain-HTTP requests. The redirect
@@ -55,3 +44,13 @@ export default {
 		return secured;
 	}
 } satisfies ExportedHandler<Env>;
+
+declare global {
+	// Declaration merging into workers-types' namespace is how `ctx.exports` gets typed.
+	// eslint-disable-next-line @typescript-eslint/no-namespace
+	namespace Cloudflare {
+		interface GlobalProps {
+			mainModule: typeof import('./cloudflare-worker');
+		}
+	}
+}

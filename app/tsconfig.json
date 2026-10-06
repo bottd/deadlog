@@ -10,7 +10,6 @@
 			"@cloudflare/workers-types"
 		]
 	},
-	"files": [".svelte-kit/ambient.d.ts"],
 	"include": ["src/**/*", "mog-preprocess.js", "vite.config.ts", "uno.config.ts"],
 	"exclude": [".svelte-kit/**", "node_modules/**"]
 }

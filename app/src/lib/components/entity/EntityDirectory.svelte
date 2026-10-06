@@ -19,7 +19,7 @@
 </script>
 
 <script lang="ts">
-	import { shallowParams } from '#lib/stores/shallowParams.svelte.js';
+	import { shallowParams } from '#lib/stores/shallowParams.svelte.ts';
 	import { ITEM_CATEGORIES, isItemCategory } from '@deadlog/utils';
 	import Search from '@lucide/svelte/icons/search';
 	import { JsonLd, MetaTags } from 'svelte-meta-tags';
@@ -31,7 +31,7 @@
 		ENTITY_LISTING,
 		pageMeta,
 		SITE_NAME
-	} from '#lib/seo.js';
+	} from '#lib/seo.ts';
 	let {
 		kind,
 		heading,

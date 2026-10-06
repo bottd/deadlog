@@ -1,4 +1,4 @@
-import { changePath } from '#lib/seo.js';
+import { changePath } from '#lib/seo.ts';
 import type { RedirectSlugs } from '@deadlog/db';
 import generated from '#lib/generated/slug-redirects.json';
 

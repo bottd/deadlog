@@ -10,7 +10,7 @@ import {
 	MAX_ENTITY_FILTERS,
 	MAX_QUERY_LENGTH,
 	type ChangelogFilters
-} from '#lib/queries/keys.js';
+} from '#lib/queries/keys.ts';
 
 const GOTO_OPTS = { reset: false } as const;
 

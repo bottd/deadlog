@@ -2,7 +2,7 @@
 	import EntityDirectory, {
 		releasedByName
 	} from '#lib/components/entity/EntityDirectory.svelte';
-	import { getHeroCardImage } from '#lib/utils/entityImages.js';
+	import { getHeroCardImage } from '#lib/utils/entityImages.ts';
 	import type { PageProps } from './$types';
 
 	let { data }: PageProps = $props();

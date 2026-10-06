@@ -1,6 +1,6 @@
 <script lang="ts">
-	import * as Command from '#lib/components/ui/command/index.js';
-	import { ENTITY_TONE, type EntityKind } from '#lib/entityTone.js';
+	import * as Command from '#lib/components/ui/command/index.ts';
+	import { ENTITY_TONE, type EntityKind } from '#lib/entityTone.ts';
 
 	interface Props {
 		id: string;

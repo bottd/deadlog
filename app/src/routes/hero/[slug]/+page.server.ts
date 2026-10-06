@@ -5,8 +5,8 @@ import {
 	getChangelogsByHeroId
 } from '@deadlog/db';
 import { error } from '@sveltejs/kit';
-import { getHeroCardImage } from '#lib/utils/entityImages.js';
-import { DEFAULT_SOCIAL_IMAGE, absoluteUrl } from '#lib/seo.js';
+import { getHeroCardImage } from '#lib/utils/entityImages.ts';
+import { DEFAULT_SOCIAL_IMAGE, absoluteUrl } from '#lib/seo.ts';
 import type { PageServerLoad, EntryGenerator } from './$types';
 
 export const prerender = true;

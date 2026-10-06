@@ -1,7 +1,22 @@
 name = "deadlog"
 compatibility_date = "2025-04-03"
-compatibility_flags = ["nodejs_compat"]
+compatibility_flags = ["nodejs_compat", "enable_ctx_exports"]
 main = "cloudflare-worker.ts"
+
+[cache]
+enabled = true
+
+[exports.default]
+type = "worker"
+
+  [exports.default.cache]
+  enabled = false
+
+[exports.SvelteKit]
+type = "worker"
+
+  [exports.SvelteKit.cache]
+  enabled = true
 
 [observability]
 [observability.logs]

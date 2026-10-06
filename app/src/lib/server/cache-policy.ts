@@ -15,7 +15,3 @@ export function edgeCacheControlFor(
 		!response.headers.has('Set-Cookie');
 	return shareable ? EDGE_CACHE_CONTROL : undefined;
 }
-
-export function isEdgeCacheable(response: Response): boolean {
-	return response.headers.get('Cache-Control') === EDGE_CACHE_CONTROL;
-}

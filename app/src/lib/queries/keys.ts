@@ -1,5 +1,5 @@
 import { entityNameAliases } from '@deadlog/utils';
-import { parseCSV } from '#lib/utils/csv.js';
+import { parseCSV } from '#lib/utils/csv.ts';
 
 export interface ChangelogFilters {
 	hero?: string[];

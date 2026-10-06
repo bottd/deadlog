@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { searchParams as params } from '#lib/stores/searchParams.svelte.js';
-	import { getHeroCardImage } from '#lib/utils/entityImages.js';
-	import type { EnrichedHero } from '#lib/types.js';
+	import { searchParams as params } from '#lib/stores/searchParams.svelte.ts';
+	import { getHeroCardImage } from '#lib/utils/entityImages.ts';
+	import type { EnrichedHero } from '#lib/types.ts';
 	import { hasEntity, toggleEntityFilter } from './filterState.svelte';
-	import { MAX_ENTITY_FILTERS } from '#lib/queries/keys.js';
+	import { MAX_ENTITY_FILTERS } from '#lib/queries/keys.ts';
 
 	// ponytail: heroes only — the roster is finite, so a full icon rail is honest.
 	// Items number 70+; they stay in the search dropdown, not a rail.

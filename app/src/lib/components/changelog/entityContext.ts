@@ -5,8 +5,8 @@ import {
 	entityNamesMatch,
 	plural
 } from '@deadlog/utils';
-import { changePath } from '#lib/seo.js';
-import type { EntityIcon } from '#lib/types.js';
+import { changePath } from '#lib/seo.ts';
+import type { EntityIcon } from '#lib/types.ts';
 
 export interface EntityIconsContext {
 	heroes: EntityIcon[];
