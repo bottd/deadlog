@@ -73,6 +73,23 @@
 		& > :global(p > img) {
 			@apply border-border bg-muted/20 h-auto max-h-[32rem] w-full rounded-lg border object-contain shadow-lg;
 		}
+
+		& > :global(div.gallery) {
+			@apply my-6 grid gap-3;
+			grid-template-columns: repeat(auto-fit, minmax(max(7.5rem, calc((100% - 1.5rem) / 3)), 1fr));
+		}
+
+		& > :global(div.gallery:has(img:nth-of-type(4):last-of-type)) {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		& > :global(div.gallery > p) {
+			display: contents;
+		}
+
+		& > :global(div.gallery img) {
+			@apply border-border bg-muted/20 h-full max-h-80 w-full rounded-lg border object-contain p-2 shadow-lg;
+		}
 	}
 
 	.mog-content :global {

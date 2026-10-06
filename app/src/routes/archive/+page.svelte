@@ -16,9 +16,7 @@
 	const canonical = absoluteUrl('/archive');
 	// Grouped on the printed year, not the UTC one. A Map keeps the newest-first order
 	// that plain object keys would renumber.
-	const years = $derived([
-		...Map.groupBy(data.patches, (patch) => formatYear(patch.pubDate))
-	]);
+	const years = $derived(Map.groupBy(data.patches, (patch) => formatYear(patch.pubDate)));
 </script>
 
 <MetaTags {...pageMeta({ title, description, canonical })} />

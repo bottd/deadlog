@@ -599,27 +599,19 @@ async function buildFeedIndex(db: DrizzleDB): Promise<FeedIndex> {
 			.all()
 	]);
 
-	const group = (
-		refs: { changelogId: string; id: number; groups: EntityChangeGroup[] | null }[]
-	) => {
-		const byChangelog = new Map<string, FeedEntityRef[]>();
-		for (const { changelogId, id, groups } of refs) {
-			const list = byChangelog.get(changelogId) ?? [];
-			list.push({ id, changeCount: countBullets(groups) });
-			byChangelog.set(changelogId, list);
-		}
-		return byChangelog;
-	};
-
-	const heroesByChangelog = group(heroRefs);
-	const itemsByChangelog = group(itemRefs);
+	const heroesByChangelog = Map.groupBy(heroRefs, (ref) => ref.changelogId);
+	const itemsByChangelog = Map.groupBy(itemRefs, (ref) => ref.changelogId);
+	const toRefs = (
+		refs: { id: number; groups: EntityChangeGroup[] | null }[] = []
+	): FeedEntityRef[] =>
+		refs.map(({ id, groups }) => ({ id, changeCount: countBullets(groups) }));
 
 	return {
 		rows: rows.map(({ contentText, ...row }) => ({
 			...row,
 			summary: makeSummary(contentText),
-			heroes: heroesByChangelog.get(row.id) ?? [],
-			items: itemsByChangelog.get(row.id) ?? []
+			heroes: toRefs(heroesByChangelog.get(row.id)),
+			items: toRefs(itemsByChangelog.get(row.id))
 		})),
 		heroes: heroes.map((hero) => ({ ...hero, type: 'hero' as const })),
 		items: items.map(({ category, ...item }) => ({

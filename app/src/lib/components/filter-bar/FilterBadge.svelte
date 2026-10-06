@@ -17,7 +17,6 @@
 <button
 	type="button"
 	onclick={onRemove}
-	onkeydown={(event) => event.stopPropagation()}
 	rounded="md"
 	class="group/badge min-h-11 shrink-0 focus-visible:outline-none"
 	aria-label="Remove {tone.label} filter: {name}"
