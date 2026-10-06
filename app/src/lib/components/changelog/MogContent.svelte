@@ -2,6 +2,7 @@
 	import type { Component } from 'svelte';
 	import { entityFragmentId } from '@deadlog/utils';
 	import { setEntityIcons, type EntityIconsContext } from './entityContext';
+	import ImageLightbox from './ImageLightbox.svelte';
 
 	interface Props {
 		content: Component;
@@ -56,11 +57,17 @@
 	}
 </script>
 
-{#key Content}
-	<section class="mog-content" aria-label="Changelog details" {@attach filterMogContent}>
-		<Content />
-	</section>
-{/key}
+<ImageLightbox>
+	{#key Content}
+		<section
+			class="mog-content"
+			aria-label="Changelog details"
+			{@attach filterMogContent}
+		>
+			<Content />
+		</section>
+	{/key}
+</ImageLightbox>
 
 <style lang="postcss">
 	.mog-content {
@@ -71,24 +78,7 @@
 		}
 
 		& > :global(p > img) {
-			@apply border-border bg-muted/20 h-auto max-h-[32rem] w-full rounded-lg border object-contain shadow-lg;
-		}
-
-		& > :global(div.gallery) {
-			@apply my-6 grid gap-3;
-			grid-template-columns: repeat(auto-fit, minmax(max(7.5rem, calc((100% - 1.5rem) / 3)), 1fr));
-		}
-
-		& > :global(div.gallery:has(img:nth-of-type(4):last-of-type)) {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-		}
-
-		& > :global(div.gallery > p) {
-			display: contents;
-		}
-
-		& > :global(div.gallery img) {
-			@apply border-border bg-muted/20 h-full max-h-80 w-full rounded-lg border object-contain p-2 shadow-lg;
+			@apply changelog-image h-auto max-h-[32rem];
 		}
 	}
 
@@ -188,40 +178,28 @@
 			@apply text-foreground/90 my-3 max-w-[72ch] leading-relaxed;
 		}
 
-		ul {
+		ul:not([class]) {
 			@apply my-3 ml-5 list-none space-y-2.5;
 		}
 
-		ol {
+		ol:not([class]) {
 			@apply marker:text-primary/40 my-3 ml-5 list-decimal space-y-2.5;
 		}
 
-		li {
+		:is(ul, ol):not([class]) > li {
 			@apply text-foreground/90 relative max-w-[72ch] leading-relaxed;
 		}
 
-		ul > li::before {
+		ul:not([class]) > li::before {
 			content: '';
 			@apply bg-primary/40 absolute top-[0.55em] -left-4 size-1.5 rounded-full;
 		}
 
-		/* The preview badges are jump links, not body copy, so they take neither the
-		   bullet nor the list indent — the row starts flush with its section heading
-		   and with the entity blocks it links down to. */
-		ul.section-preview {
-			@apply ml-0;
-		}
-
-		ul.section-preview > li::before {
-			content: none;
-		}
-
-		li > ul,
-		li > ol {
+		li > :is(ul, ol):not([class]) {
 			@apply my-1.5;
 		}
 
-		li > ul > li::before {
+		li > ul:not([class]) > li::before {
 			@apply bg-primary/20;
 		}
 
@@ -305,8 +283,7 @@
 			div.ability > :not(p:has(img)):not(h4) {
 				grid-column: 1 / -1;
 			}
-			ul,
-			ol {
+			:is(ul, ol):not([class]) {
 				margin-left: 1rem;
 			}
 		}

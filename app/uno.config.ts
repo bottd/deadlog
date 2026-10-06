@@ -153,6 +153,11 @@ export default defineConfig({
 		'sheet-bottom': 'sheet inset-x-0 bottom-0 h-auto border-t',
 		popover: 'z-50 rounded-md border bg-popover text-popover-foreground shadow-md',
 
+		'changelog-image':
+			'w-full rounded-lg border border-border bg-muted/20 object-contain shadow-lg transition-colors',
+		'zoom-trigger':
+			'cursor-zoom-in rounded-lg p-0 outline-none [&:focus-visible>img]:(border-ring ring-3 ring-ring/50) [&:hover>img]:border-signal/50',
+
 		'toc-panel': 'border border-border/60 bg-card/80 p-3 shadow-sm backdrop-blur-sm',
 		'toc-group': 'pt-2',
 		'toc-section':

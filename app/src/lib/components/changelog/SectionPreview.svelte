@@ -31,7 +31,7 @@
 		m="b-5"
 		flex="~ wrap"
 		list="none"
-		gap="1"
+		gap="x-1 y-3.5"
 		p="0"
 		class="section-preview"
 		aria-label="Affected {type}s"

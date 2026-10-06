@@ -75,170 +75,242 @@ The neutrals you know have been replaced by a variety of creatures with new beha
 
 ## Broadway (Blue Lane)
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/map_blue.webp]]((Broadway lane map))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/map_blue.webp" alt="Broadway lane map" />
+``
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/uptown_02.webp]]((Broadway))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/uptown_02.webp" alt="Broadway" />
+``
 
 ### Uptown
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/uptown_01.jpg]]((Uptown))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/uptown_01.jpg" alt="Uptown" />
+``
 
 Our first stop on the tour. If you need to get going somewhere, this is your quickest route to where the action is.
 
 ### Times Square
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/times_square_05.jpg]]((Times Square))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/times_square_05.jpg" alt="Times Square" />
+``
 
 The beating heart of the city. Everyone should see it at least once in their life, and hopefully not just this once.
 
 ### Downtown
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/broadway_01.jpg]]((Downtown))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/broadway_01.jpg" alt="Downtown" />
+``
 
 The busiest stop in town. Citizens of the Cursed Apple have been reporting strange rumblings coming from deep beneath the subway line.
 
 ### New Haunt: Specimen
 
-=gallery:
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/neutral_specimen_1.png]]((Specimen))
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/neutral_specimen_2.png]]((Specimen))
-=
+``embed:svelte:
+<Gallery
+	images={[
+		{ src: "https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/neutral_specimen_1.png", alt: "Specimen" },
+		{ src: "https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/neutral_specimen_2.png", alt: "Specimen" },
+	]}
+/>
+``
 
 Some call it magic, others call it science. It doesn’t matter what you call it when it’s a disembodied hand crawling on your kitchen floor in the middle of the night.
 
 ## Greenwich (Green Lane)
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/map_green.png]]((Greenwich lane map))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/map_green.png" alt="Greenwich lane map" />
+``
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/central_park_01.webp]]((Greenwich))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/central_park_01.webp" alt="Greenwich" />
+``
 
 ### Umbria University
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/campus_01.jpg]]((Umbria University))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/campus_01.jpg" alt="Umbria University" />
+``
 
 Home to the nation's finest Bibliomancy program, Umbria offers an elite occult education.
 
 ### Central Park
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/central_park_02.jpg]]((Central Park))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/central_park_02.jpg" alt="Central Park" />
+``
 
 300 years old and still growing. This aptly named Hangman’s Elm has been in the city longer than almost any other living creature.
 
 ### The Brownstones
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/campus_02.jpg]]((The Brownstones))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/campus_02.jpg" alt="The Brownstones" />
+``
 
 Visit the Brownstones for some quality family time, and if you’re lucky, a history lesson worth not repeating.
 
 ### New Haunt: Past Dues
 
-=gallery:
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/neutral_library_watcher.png]]((Past Dues))
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/neutral_bookmoth.png]]((Past Dues))
-=
+``embed:svelte:
+<Gallery
+	images={[
+		{ src: "https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/neutral_library_watcher.png", alt: "Past Dues" },
+		{ src: "https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/neutral_bookmoth.png", alt: "Past Dues" },
+	]}
+/>
+``
 
 A good story can bring respite in trying times. For those less inspired, the pages of a book may serve better as a sleep aid.
 
 ## York (Yellow Lane)
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/map_yellow.png]]((York lane map))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/map_yellow.png" alt="York lane map" />
+``
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/factory_02.webp]]((York))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/factory_02.webp" alt="York" />
+``
 
 ### Stock Exchange
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/stock_exchange_03.jpg]]((Stock Exchange))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/stock_exchange_03.jpg" alt="Stock Exchange" />
+``
 
 See the high-stakes financial playground where the warlocks of Wall Street ply their trade making trades.
 
 ### Seaport Dock
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/seaport_01.jpg]]((Seaport Dock))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/seaport_01.jpg" alt="Seaport Dock" />
+``
 
 Preserving New York City’s maritime heritage hasn’t quite been the same since this vessel docked at Pier 16.
 
 ### Old Fairfax Factories
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/factory_03.jpg]]((Old Fairfax Factories))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/factory_03.jpg" alt="Old Fairfax Factories" />
+``
 
 The beating heart of the Occult Industrial Complex comes from humble beginnings.
 
 ### New Haunt: Gutter Ghouls
 
-=gallery:
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/neutral_ghoul_large.png]]((Gutter Ghouls))
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/neutral_ghoul_small.png]]((Gutter Ghouls))
-=
+``embed:svelte:
+<Gallery
+	images={[
+		{ src: "https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/neutral_ghoul_large.png", alt: "Gutter Ghouls" },
+		{ src: "https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/neutral_ghoul_small.png", alt: "Gutter Ghouls" },
+	]}
+/>
+``
 
 All those dark and dirty thoughts that humanity would prefer buried and thrown away, given form.
 
 ### New Haunt: Barrel Mimics
 
-=gallery:
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/neutral_barrel_a.png]]((Barrel Mimics))
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/neutral_barrel_b.png]]((Barrel Mimics))
-=
+``embed:svelte:
+<Gallery
+	images={[
+		{ src: "https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/neutral_barrel_a.png", alt: "Barrel Mimics" },
+		{ src: "https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/neutral_barrel_b.png", alt: "Barrel Mimics" },
+	]}
+/>
+``
 
 Gunpowder was originally invented while on the search for an elixir of immortality. The spirits seem to make good use of both.
 
 ## The 4 Districts
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/map_neutral.png]]((District map))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/map_neutral.png" alt="District map" />
+``
 
 Hidden between the main city streets are the 4 Districts to explore with a little something for everyone. The Theater, Chinatown, Haunted Lot, and Plaza make up the more “lively” corridors of the Cursed Apple.
 
 ### Theater District
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/theater_03.jpg]]((Theater District))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/theater_03.jpg" alt="Theater District" />
+``
 
 New Haunt: Stage Hands
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/neutral_puppeteer.png]]((Stage Hands))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/neutral_puppeteer.png" alt="Stage Hands" />
+``
 
 Graceful bodies floating across the stage can be mesmerizing. In such a historic theater, one couldn’t be blamed for wanting to leave their bloody mark all the way across the deck.
 
 ### Chinatown District
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/chinatown_01.jpg]]((Chinatown District))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/chinatown_01.jpg" alt="Chinatown District" />
+``
 
 New Haunt: Festival Spirit
 
-=gallery:
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/neutral_ct_lantern.png]]((Festival Spirit))
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/neutral_ct_lantern_elite.png]]((Festival Spirit))
-=
+``embed:svelte:
+<Gallery
+	images={[
+		{ src: "https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/neutral_ct_lantern.png", alt: "Festival Spirit" },
+		{ src: "https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/neutral_ct_lantern_elite.png", alt: "Festival Spirit" },
+	]}
+/>
+``
 
 Souls are kindled with hopes and dreams of the wishes they may light into day. You never think about how some of those hopes and dreams are violent and want to kill you.
 
 New Haunt: Crabbage Pots
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/neutral_plant_large.png]]((Crabbage Pots))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/neutral_plant_large.png" alt="Crabbage Pots" />
+``
 
 People always tell you there’s something in the water whenever anything bad happens. There’s a ritual going on outside. Something’s in the water.
 
 ### Haunted Lot District
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/haunted_slums_01.jpg]]((Haunted Lot District))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/haunted_slums_01.jpg" alt="Haunted Lot District" />
+``
 
 New Haunt: Shrooms
 
-=gallery:
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/neutral_shroom_a.png]]((Shrooms))
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/neutral_shroom_b.png]]((Shrooms))
-=
+``embed:svelte:
+<Gallery
+	images={[
+		{ src: "https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/neutral_shroom_a.png", alt: "Shrooms" },
+		{ src: "https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/neutral_shroom_b.png", alt: "Shrooms" },
+	]}
+/>
+``
 
 New York is a melting pot of families from across the globe. It just so happens that when you combine a family of fungi and demonic energy at high temperature, it starts to walk.
 
 ### Plaza District
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/fairfax_plaza_01.jpg]]((Plaza District))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/fairfax_plaza_01.jpg" alt="Plaza District" />
+``
 
 New Haunt: Underhands
 
-=gallery:
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/neutral_23.png]]((Underhands))
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/neutral_24_a.png]]((Underhands))
-=
+``embed:svelte:
+<Gallery
+	images={[
+		{ src: "https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/neutral_23.png", alt: "Underhands" },
+		{ src: "https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/neutral_24_a.png", alt: "Underhands" },
+	]}
+/>
+``
 
 Grasping hands always find their ways into unexpecting pockets. While the ritual burns high in the sky, some decrepit souls can’t help but stay low.
 
@@ -248,43 +320,57 @@ Assorted gameplay updates.
 
 ## Sunken Plaza
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/mustdo_pool.webp]]((Sunken Plaza))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/mustdo_pool.webp" alt="Sunken Plaza" />
+``
 
 Shrouded beneath this districts main square lies the city’s Sunken Plaza. With high risk comes high rewards because as you descend to its depths, the sounds of the outside world fade away along with your stamina. (Found in the Plaza District.)
 
 ## Bell Tower
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/mustdo_bell.webp]]((Bell Tower))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/mustdo_bell.webp" alt="Bell Tower" />
+``
 
 Ascend to the top of the Chinatown Bell Tower for a highly concentrated soul hotspot. Keep in mind that while collecting your rewards the bell will ring loudly throughout the map. (Found in the Chinatown District.)
 
 ## Tough Crates
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/mustdo_crate.webp]]((Tough Crates))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/mustdo_crate.webp" alt="Tough Crates" />
+``
 
 These Tough Crates require a Heavy Melee to break open, but the extra souls will make it worth your while.
 
 ## Buff Containers
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/mustdo_buffs.webp]]((Buff Containers))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/mustdo_buffs.webp" alt="Buff Containers" />
+``
 
 Revamped golden statues now also include Spirit Resist, Bullet Resist, Ability Range, and Move Speed as permanent bonuses.
 
 ## Healing Snacks
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/mustdo_snack.webp]]((Healing Snacks))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/mustdo_snack.webp" alt="Healing Snacks" />
+``
 
 Hidden around the map, these healing snacks allow keen-eyed players to heal up in a pinch.
 
 ## Steam Vents
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/mustdo_vents.webp]]((Steam Vents))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/mustdo_vents.webp" alt="Steam Vents" />
+``
 
 Duck in and out of veiled cover with your team to navigate the city streets in refreshing secrecy. Provides invisibility and a small amount of regen while standing on it.
 
 # The Broker
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/broker_hands.webp]]((The Broker))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/broker_hands.webp" alt="The Broker" />
+``
 
 New York has something for everybody... For those in search of truly terrifying power, there’s a guy...a mysterious merchant known only as the Broker.
 
@@ -292,10 +378,14 @@ One day, you might find him uptown operating from the end of a dark alley, a few
 
 For a price, the Broker can turn the mundane into the extraordinary, but buyer beware, the Broker’s wares always come with a cost and it’s rarely measured in mere souls.
 
-=gallery:
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/broker_card_ricochet.webp]]((Corrupted Ricochet))
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/broker_card_recharge.webp]]((Corrupted Rapid Recharge))
-=
+``embed:svelte:
+<Gallery
+	images={[
+		{ src: "https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/broker_card_ricochet.webp", alt: "Corrupted Ricochet" },
+		{ src: "https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/broker_card_recharge.webp", alt: "Corrupted Rapid Recharge" },
+	]}
+/>
+``
 
 - Exchange Your Items: While supplies last, you can exchange your high tier items for a Corrupted version. While his exact arrival time varies, his first shipment is stocked around 30 minutes. Additional Corrupted Items can be collected, on average, every 15 minutes after that.
 - Here’s The Catch...: Each match, all corrupted items are assigned random negative attributes from a predefined set. The degree of negative and positive attributes have a small amount of variability, however they are the same for all players in a given game.
@@ -303,16 +393,22 @@ For a price, the Broker can turn the mundane into the extraordinary, but buyer b
 
 # Six New Heroes
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/header_portraits.webp]]((The six new heroes))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/header_portraits.webp" alt="The six new heroes" />
+``
 
-=gallery:
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/hero_nurse_harrow.webp]]((Nurse Harrow))
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/hero_deadman_danny.webp]]((Deadman Danny))
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/hero_baba.webp?v=2]]((Baba))
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/hero_solomon.webp]]((Solomon))
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/hero_rat_king.webp]]((Rat King))
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/hero_violet.webp]]((Violet))
-=
+``embed:svelte:
+<Gallery
+	images={[
+		{ src: "https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/hero_nurse_harrow.webp", alt: "Nurse Harrow" },
+		{ src: "https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/hero_solomon.webp", alt: "Deadman Danny" },
+		{ src: "https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/hero_rat_king.webp", alt: "Baba" },
+		{ src: "https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/hero_baba.webp?v=2", alt: "Solomon" },
+		{ src: "https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/hero_deadman_danny.webp", alt: "Rat King" },
+		{ src: "https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/hero_violet.webp", alt: "Violet" },
+	]}
+/>
+``
 
 ## You vote on the release order
 
@@ -320,19 +416,27 @@ Two heroes release a week on Tuesdays and Fridays @ 2:00pm PT. Voting Now Live -
 
 ### Vote in Pregame
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/vote_pregame.webp]]((Vote in Pregame))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/vote_pregame.webp" alt="Vote in Pregame" />
+``
 
 All voting is now done in the new Pregame lobby. Convince your allies to make the only correct choice. The winning team’s votes will count as double.
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/vote_votes.webp]]((Hero vote results))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/vote_votes.webp" alt="Hero vote results" />
+``
 
 ### Returning Voting Mechanics
 
-=gallery:
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/vote_card_1.jpg]]((First Win of the Day))
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/vote_card_2.jpg]]((New Hero Priority Tokens))
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/vote_card_3.jpg]]((Campaign Posters))
-=
+``embed:svelte:
+<Gallery
+	images={[
+		{ src: "https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/vote_card_1.jpg", alt: "First Win of the Day" },
+		{ src: "https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/vote_card_2.jpg", alt: "New Hero Priority Tokens" },
+		{ src: "https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/vote_card_3.jpg", alt: "Campaign Posters" },
+	]}
+/>
+``
 
 - First Win of the Day: Your first win of the day gives you double the votes.
 - New Hero Priority Tokens: Starting with the first hero release, playing will earn you priority tokens.
@@ -344,14 +448,20 @@ A number of user interface improvements aimed at improving game readability
 
 ## New Healthbars
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_dynamo_health.webp]]((New Healthbars))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_dynamo_health.webp" alt="New Healthbars" />
+``
 
-=gallery:
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_hud_stamina.webp]]((Stamina Tracking))
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_hud_haunt.webp]]((More Haunt Information))
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_hud_objectives.webp]]((Objective health bars))
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_hud_damage.webp]]((Damage Number Options))
-=
+``embed:svelte:
+<Gallery
+	images={[
+		{ src: "https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_hud_stamina.webp", alt: "Stamina Tracking" },
+		{ src: "https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_hud_haunt.webp", alt: "More Haunt Information" },
+		{ src: "https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_hud_objectives.webp", alt: "Objective health bars" },
+		{ src: "https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_hud_damage.webp", alt: "Damage Number Options" },
+	]}
+/>
+``
 
 - Player Names: Find your party members quickly in the heat of combat.
 - Rejuvenator Indicator: An icon appears when they have a Rejuvenator use available.
@@ -365,7 +475,9 @@ A number of user interface improvements aimed at improving game readability
 
 ## Ally Indicators
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_torn_friends.webp]]((Ally Indicators))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_torn_friends.webp" alt="Ally Indicators" />
+``
 
 You can now more easily see your allies, no matter how far away they are.
 
@@ -377,13 +489,17 @@ Gain a better understanding of your power level throughout a match.
 
 ### Better Combat Awareness
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_combat_tracking.webp]]((Better Combat Awareness))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_combat_tracking.webp" alt="Better Combat Awareness" />
+``
 
 Get a clearer picture of how your stats are impacted in the heat of battle.
 
 ### Shop Stats
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/videos/cityneversleeps/shop_stats.png]]((Shop Stats))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/videos/cityneversleeps/shop_stats.png" alt="Shop Stats" />
+``
 
 Clip: [[https://cdn.fastly.steamstatic.com/apps/deadlock/videos/cityneversleeps/shop_stats.mp4]]((Shop Stats))
 
@@ -391,7 +507,9 @@ While shopping, see the impact of your purchases in real time.
 
 ### Build-ups and Durations, Under Your Thumb
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/videos/cityneversleeps/love_bites.png]]((Build-ups and Durations, Under Your Thumb))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/videos/cityneversleeps/love_bites.png" alt="Build-ups and Durations, Under Your Thumb" />
+``
 
 Clip: [[https://cdn.fastly.steamstatic.com/apps/deadlock/videos/cityneversleeps/love_bites.mp4]]((Build-ups and Durations, Under Your Thumb))
 
@@ -399,7 +517,9 @@ You’ll be able to see that pesky Love Bites build-up more easily.
 
 ## Targeting Mode
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_torn_targeting.webp]]((Targeting Mode))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_torn_targeting.webp" alt="Targeting Mode" />
+``
 
 A cleaned up targeting mode means less UI getting in the way between you and your prey.
 
@@ -409,19 +529,25 @@ A new way to look at important moments during a match.
 
 ### Killing Blow Information
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_killing_blow.webp]]((Killing Blow Information))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_killing_blow.webp" alt="Killing Blow Information" />
+``
 
 The Event Feed now displays a breakdown of what Item or Ability landed the killing blow.
 
 ### Bounties
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_bounties.webp]]((Bounties))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_bounties.webp" alt="Bounties" />
+``
 
 Players can now see what the full bounty of a target is, as well as their personal share of the kill.
 
 ### Soul Bags
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_soul_bags.webp]]((Soul Bags))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_soul_bags.webp" alt="Soul Bags" />
+``
 
 Don’t forget to secure the Soul Bag from your kills, before your ally does it for you.
 
@@ -431,19 +557,25 @@ An improved shop to help players find what they need, when they need it most.
 
 ### Stay up to date while shopping
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_shop_venator_chat.webp]]((Stay up to date while shopping))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_shop_venator_chat.webp" alt="Stay up to date while shopping" />
+``
 
 You can now see the Kill Feed, Incoming Chat, and push to view the Scoreboard in the shop.
 
 ### Popular Items
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_shop_trending.jpg]]((Popular Items))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_shop_trending.jpg" alt="Popular Items" />
+``
 
 Not sure what is trending on your hero? Using live player data, the shop now narrows down the options to their most frequently purchased items. The item tooltips include how often the item is purchased and at what phase of the game.
 
 ### Item Filters
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_shop_filtering.jpg]]((Item Filters))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_shop_filtering.jpg" alt="Item Filters" />
+``
 
 Filter the shop down to only see the stats that you’re looking for. Mix and match filters to enhance your build with the stats and modifiers you want the most.
 
@@ -465,7 +597,9 @@ The new state on the cursor will let you know which UI elements are pingable.
 
 ### Minimap Wheel
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/videos/cityneversleeps/minimap.png]]((Minimap Wheel))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/videos/cityneversleeps/minimap.png" alt="Minimap Wheel" />
+``
 
 Clip: [[https://cdn.fastly.steamstatic.com/apps/deadlock/videos/cityneversleeps/minimap.mp4]]((Minimap Wheel))
 
@@ -473,19 +607,25 @@ Expanded interactive map pings.
 
 ### Topbar Wheel
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_ping_topbar.webp]]((Topbar Wheel))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_ping_topbar.webp" alt="Topbar Wheel" />
+``
 
 Say more things about the heroes in your match.
 
 ### Ability Ping Information
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_ping_ability.webp]]((Ability Ping Information))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_ping_ability.webp" alt="Ability Ping Information" />
+``
 
 Detailed dynamic ability pings to track important cooldowns.
 
 ### Typing Indicator
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/videos/cityneversleeps/typing.png]]((Typing Indicator))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/videos/cityneversleeps/typing.png" alt="Typing Indicator" />
+``
 
 Clip: [[https://cdn.fastly.steamstatic.com/apps/deadlock/videos/cityneversleeps/typing.mp4]]((Typing Indicator))
 
@@ -493,31 +633,41 @@ Let your allies and enemies know what’s on your mind.
 
 ### New Pingable Targets
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_ping_targets.webp]]((New Pingable Targets))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_ping_targets.webp" alt="New Pingable Targets" />
+``
 
 Troopers, Neutrals, Ziplines, Rift, Bridge Buffs, Shop, and more now react to pings.
 
 ### Updated Ping Lines
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_ping_lines.webp]]((Updated Ping Lines))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_ping_lines.webp" alt="Updated Ping Lines" />
+``
 
 Over 15,000 new and updated pings.
 
 ### Item Pinging
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_ping_item.webp]]((Item Pinging))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_ping_item.webp" alt="Item Pinging" />
+``
 
 Ping items in the shop to indicate your intent to buy them, or signal to others that you’ve already bought the item.
 
 ### Enemy Ping Information
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_ping_enemy.webp]]((Enemy Ping Information))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_ping_enemy.webp" alt="Enemy Ping Information" />
+``
 
 Relay important information about enemies like their critical health, death status or if they are about to respawn.
 
 ### Clustered Minimap Enemies
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_ping_clustered.webp]]((Clustered Minimap Enemies))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_ping_clustered.webp" alt="Clustered Minimap Enemies" />
+``
 
 Pinging an enemy in a cluster on the minimap will now call out the quantity of enemies there.
 
@@ -527,13 +677,17 @@ Listen to every word each hero has to say.
 
 ### New Voice Lines Added
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_voice_lines.jpg]]((New Voice Lines Added))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_voice_lines.jpg" alt="New Voice Lines Added" />
+``
 
 Pre-match conversations between new and existing heroes increased from over 700 to 1500. Added over 10,000 non-ping voice lines.
 
 ### New Dialogue Player
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_dialog_player.jpg]]((New Dialogue Player))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_dialog_player.jpg" alt="New Dialogue Player" />
+``
 
 Browse and listen to all of the available VO in the game from your favorite Heroes and Patrons.
 
@@ -541,73 +695,97 @@ Browse and listen to all of the available VO in the game from your favorite Hero
 
 ## Commends Counter
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_commends.jpg]]((Commends Counter))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_commends.jpg" alt="Commends Counter" />
+``
 
 A convenient way to see your tally after each match. Clicking on a hero commends that player back.
 
 ## Trooper Improvements
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_troopers.jpg]]((Trooper Improvements))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_troopers.jpg" alt="Trooper Improvements" />
+``
 
 Improved trooper behavior, animations, and performance.
 
 ## Minimap Location Label
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_location_label.jpg]]((Minimap Location Label))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_location_label.jpg" alt="Minimap Location Label" />
+``
 
 Callouts for each Lane and District on the map.
 
 ## New Veils
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_veils.jpg]]((New Veils))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_veils.jpg" alt="New Veils" />
+``
 
 Updated rendering and VFX for veils around the map.
 
 ## Updated Barrier Treatment
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_barrier.jpg]]((Updated Barrier Treatment))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_barrier.jpg" alt="Updated Barrier Treatment" />
+``
 
 Barriers applied to yourself have a cleaner look.
 
 ## Parry Cooldown
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_parry.jpg]]((Parry Cooldown))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_parry.jpg" alt="Parry Cooldown" />
+``
 
 While your parry is on cooldown, it is now displayed near your reticle.
 
 ## In-World Respawn Timers
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_respawn_timers.jpg]]((In-World Respawn Timers))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_respawn_timers.jpg" alt="In-World Respawn Timers" />
+``
 
 You can now see when Haunt camps or Midboss will respawn when you are near their spawn area.
 
 ## Topbar Midboss Timer
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_midboss_timer.jpg]]((Topbar Midboss Timer))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_midboss_timer.jpg" alt="Topbar Midboss Timer" />
+``
 
 The Topbar now shows a timer for Midboss respawn.
 
 ## Permanent Buffs
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_permanent_buffs.jpg]]((Permanent Buffs))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_permanent_buffs.jpg" alt="Permanent Buffs" />
+``
 
 Added a postgame graph to track all permanent buffs players collected during the game.
 
 ## Expanded Custom Lobbies
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_lobbies.jpg]]((Expanded Custom Lobbies))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_lobbies.jpg" alt="Expanded Custom Lobbies" />
+``
 
 Expanded parties to support 8 spectators in custom lobbies.
 
 ## Custom Hideout Camera
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_hideout_camera.jpg]]((Custom Hideout Camera))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_hideout_camera.jpg" alt="Custom Hideout Camera" />
+``
 
 Zoom out for a better look at your hero.
 
 ## Overhead Buff Display
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_overhead_buff.jpg]]((Overhead Buff Display))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_overhead_buff.jpg" alt="Overhead Buff Display" />
+``
 
 Picking up a permanent buff now displays the pickup type above your hero.
 
@@ -617,13 +795,17 @@ Dedicated accessibility settings for visuals, audio, and controls.
 
 ## Enemy UI Color
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_enemy_color.jpg]]((Enemy UI Color))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_enemy_color.jpg" alt="Enemy UI Color" />
+``
 
 Modify the colors used for certain elements in the UI.
 
 ## VO Subtitles + Customization
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_subtitles.jpg]]((VO Subtitles + Customization))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_subtitles.jpg" alt="VO Subtitles + Customization" />
+``
 
 When enabled, subtitles will appear for in-game dialogue. Players can also customize the size, colors, and font.
 
@@ -639,7 +821,9 @@ New and improved testing tools to hone your skills.
 
 ## Bot Recording
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_tool_bot.webp]]((Bot Recording))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_tool_bot.webp" alt="Bot Recording" />
+``
 
 Record and playback bot actions for easier testing.
 
@@ -649,7 +833,9 @@ Record and playback bot actions for easier testing.
 
 ## Combat Log
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_tool_combat.webp]]((Combat Log))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_tool_combat.webp" alt="Combat Log" />
+``
 
 Detailed breakdown of actions you’ve taken against a bot.
 
@@ -658,7 +844,9 @@ Detailed breakdown of actions you’ve taken against a bot.
 
 ## Speed Graph
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_tool_speed.webp]]((Speed Graph))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_tool_speed.webp" alt="Speed Graph" />
+``
 
 Displays a real-time graph of your movement speed.
 
@@ -668,7 +856,9 @@ Displays a real-time graph of your movement speed.
 
 ## DPS Meter
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_tool_dps.webp]]((DPS Meter))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_tool_dps.webp" alt="DPS Meter" />
+``
 
 Shows your DPS and total damage dealt.
 
@@ -703,13 +893,17 @@ Flag toxic or rule-breaking behavior during and after a match.
 
 ## Report Notification
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_reporting.jpg]]((Report Notification))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_reporting.jpg" alt="Report Notification" />
+``
 
 You now get notified when an action was taken on a player you reported.
 
 ## In-Game Comms Ban
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_comms_ban.jpg]]((In-Game Comms Ban))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_comms_ban.jpg" alt="In-Game Comms Ban" />
+``
 
 If a player is reported during a match and found to be abusing comms, they will be muted for the rest of the match and issued a 30 day comms ban.
 
@@ -719,7 +913,9 @@ More customization options and requested features.
 
 ## Keybind Map
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_keybinds.webp]]((Keybind Map))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_keybinds.webp" alt="Keybind Map" />
+``
 
 See every key and mouse button you have bound, which are free, and what each does.
 
@@ -729,7 +925,9 @@ See every key and mouse button you have bound, which are free, and what each doe
 
 ## Shareable Settings
 
-[[!:https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_sharable.webp]]((Shareable Settings))
+``embed:svelte:
+<ZoomImage src="https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/cityneversleeps/ui_sharable.webp" alt="Shareable Settings" />
+``
 
 Copy your reticle and keybind settings as a code to share with other players, or apply a code from someone else.
 
