@@ -126,7 +126,7 @@
 			}
 			.empty-heading {
 				font-size: var(--text-3xl);
-				line-height: 1.2;
+				line-height: var(--leading-3xl);
 			}
 			.recovery-links {
 				flex-direction: row;

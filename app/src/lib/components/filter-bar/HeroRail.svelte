@@ -96,7 +96,6 @@
 			inline-size: 2.75rem;
 			block-size: 2.75rem;
 			flex-shrink: 0;
-			overflow: hidden;
 			border: 1px solid var(--border);
 			opacity: 0.7;
 			transition:
@@ -104,15 +103,14 @@
 				opacity var(--duration-normal);
 			&:hover:not(:disabled) {
 				z-index: 10;
-				&:not([aria-pressed='true']) {
-					border-color: color-mix(in srgb, var(--primary) 55%, transparent);
-					opacity: 1;
-				}
+			}
+			&:hover:not(:disabled, [aria-pressed='true']) {
+				border-color: color-mix(in srgb, var(--primary) 55%, transparent);
+				opacity: 1;
 			}
 			&[aria-pressed='true'] {
 				border-color: var(--primary);
 				opacity: 1;
-				box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary) 45%, transparent);
 			}
 			&:disabled {
 				cursor: not-allowed;

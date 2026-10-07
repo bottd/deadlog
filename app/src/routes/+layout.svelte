@@ -32,7 +32,7 @@
 <QueryClientProvider client={queryClient}>
 	<Tooltip.Provider>
 		<div class="app-shell" data-app-ready="false" {@attach markReady}>
-			<a href="#main-content" class="skip-link"> Skip to content </a>
+			<a href="#main-content" class="skip-link caps"> Skip to content </a>
 			<Toaster
 				theme="dark"
 				class="toaster"
@@ -56,7 +56,6 @@
 	@layer components.features {
 		.app-shell {
 			min-block-size: 100vh;
-			background-color: var(--background);
 			background-image:
 				radial-gradient(
 					circle at 88% 0%,
@@ -85,7 +84,7 @@
 		}
 		.main-content {
 			outline: none;
-			animation: entrance-fade-up 500ms var(--ease-out) 150ms backwards;
+			animation: fade-in 500ms var(--ease-out) 150ms backwards;
 		}
 		.skip-link {
 			position: absolute;
@@ -107,8 +106,6 @@
 				background: var(--primary);
 				color: var(--primary-foreground);
 				font: 700 var(--text-xs)/var(--leading-xs) var(--font-mono);
-				letter-spacing: 0.05em;
-				text-transform: uppercase;
 			}
 		}
 	}

@@ -83,7 +83,7 @@
 <main class="page-container directory-page">
 	<header>
 		<div class="heading-row">
-			<h1 class="directory-title">
+			<h1 class="directory-title display-heading">
 				{heading}
 			</h1>
 			<span id="{kind}-directory-count" class="directory-count metadata" role="status"
@@ -164,7 +164,7 @@
 						params.name = '';
 						params.category = '';
 					}}
-					class="ui-focus-ring clear-directory">Clear directory filters</button
+					class="clear-directory signal-link">Clear directory filters</button
 				>
 			</div>
 		{/if}
@@ -186,9 +186,8 @@
 			gap: 0.75rem;
 		}
 		.directory-title {
-			color: var(--foreground);
-			font: 500 var(--text-4xl)/var(--leading-4xl) var(--font-display);
-			letter-spacing: 0.025em;
+			font-size: var(--text-4xl);
+			line-height: var(--leading-4xl);
 		}
 		.directory-lede {
 			max-inline-size: 42rem;
@@ -227,8 +226,6 @@
 			min-block-size: 2.75rem;
 			inline-size: 100%;
 			padding: 0.5rem 0.75rem 0.5rem 2.5rem;
-			font-size: var(--text-base);
-			line-height: var(--leading-base);
 			outline: none;
 		}
 		.category-filters {
@@ -284,7 +281,6 @@
 				object-fit: contain;
 			}
 			& h2 {
-				color: var(--foreground);
 				font-size: var(--text-sm);
 				line-height: 1.375;
 				font-weight: 600;
@@ -308,11 +304,6 @@
 		.clear-directory {
 			min-block-size: 2.75rem;
 			margin-top: 0.5rem;
-			border-radius: var(--radius-sm);
-			color: var(--signal);
-			&:hover {
-				text-decoration: underline;
-			}
 		}
 		@media (min-width: 360px) {
 			.directory-grid {

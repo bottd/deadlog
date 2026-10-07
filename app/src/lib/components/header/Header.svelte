@@ -8,7 +8,7 @@
 	<a
 		{href}
 		aria-current={page.url.pathname.startsWith(section) ? 'page' : undefined}
-		class="nav-link ui-focus-ring">{label}</a
+		class="nav-link control-label caps ui-focus-ring">{label}</a
 	>
 {/snippet}
 
@@ -24,8 +24,8 @@
 					</div>
 					<div>
 						<div class="wordmark-line">
-							<span class="wordmark-name">dead<span>log</span></span>
-							<span class="wordmark-domain">.io</span>
+							<span class="wordmark-name display-heading">dead<span>log</span></span>
+							<span class="wordmark-domain caps">.io</span>
 						</div>
 						<span class="wordmark-description">Deadlock Changelog</span>
 					</div>
@@ -67,12 +67,9 @@
 			display: inline-flex;
 			min-block-size: 2.75rem;
 			align-items: center;
-			border-radius: 0.25rem;
+			border-radius: var(--radius-md);
 			padding-inline: 0.75rem;
 			color: var(--muted-foreground);
-			font: 600 var(--text-xs)/var(--leading-xs) var(--font-mono);
-			letter-spacing: 0.05em;
-			text-transform: uppercase;
 			transition:
 				background-color var(--duration-normal),
 				color var(--duration-normal);
@@ -139,8 +136,8 @@
 			gap: 0.5rem;
 		}
 		.wordmark-name {
-			font: 500 var(--text-2xl)/var(--leading-2xl) var(--font-display);
-			letter-spacing: 0.025em;
+			font-size: var(--text-2xl);
+			line-height: var(--leading-2xl);
 		}
 		.wordmark-name span {
 			color: var(--primary);
@@ -148,12 +145,10 @@
 		.wordmark-domain {
 			display: none;
 			padding: 0.125rem 0.375rem;
-			border-radius: 0.25rem;
+			border-radius: var(--radius-md);
 			background: color-mix(in srgb, var(--primary) 10%, transparent);
 			color: var(--primary);
-			font: 500 0.6875rem/1.5 var(--font-mono);
-			letter-spacing: 0.05em;
-			text-transform: uppercase;
+			font: 500 var(--text-2xs)/1.5 var(--font-mono);
 		}
 		.wordmark-description {
 			display: none;

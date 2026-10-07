@@ -7,10 +7,12 @@
 	<div class="page-container footer-content">
 		<a href="/" class="footer-brand">
 			<div class="brand-mark"><Crosshair class="icon-sm" /></div>
-			<span class="brand-name">dead<span>log</span><small>.io</small></span>
+			<span class="brand-name display-heading"
+				>dead<span>log</span><small>.io</small></span
+			>
 		</a>
 		<div class="credits">
-			<a href="/archive" class="archive-link ui-focus-ring">Browse all patches</a>
+			<a href="/archive" class="archive-link reading-action">Browse all patches</a>
 			<p>
 				Data provided by <a
 					href="https://deadlock-api.com"
@@ -21,7 +23,7 @@
 			<p>Deadlock is a trademark of Valve Corporation</p>
 		</div>
 		<!-- Full tone at 11px: 9px at 40% alpha under the flicker measured 2.24:1. -->
-		<div class="transmission"><span>// end transmission</span></div>
+		<div class="transmission kicker-xs"><span>// end transmission</span></div>
 	</div>
 </footer>
 
@@ -65,14 +67,15 @@
 		}
 		.brand-name {
 			color: var(--muted-foreground);
-			font: 600 var(--text-sm)/var(--leading-sm) var(--font-display);
-			letter-spacing: 0.025em;
+			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
+			font-weight: 600;
 			& span {
 				color: var(--primary);
 			}
 			& small {
 				font-family: var(--font-mono);
-				font-size: 0.6875rem;
+				font-size: var(--text-2xs);
 			}
 		}
 		.credits {
@@ -84,10 +87,8 @@
 			color: var(--muted-foreground);
 			font-size: var(--text-xs);
 			line-height: var(--leading-xs);
-			& a {
-				color: var(--signal);
-			}
 			& p a {
+				color: var(--signal);
 				transition: opacity var(--duration-normal);
 				&:hover {
 					opacity: 0.8;
@@ -95,26 +96,15 @@
 			}
 		}
 		.archive-link {
-			display: inline-flex;
-			min-block-size: 2.75rem;
-			align-items: center;
 			margin-bottom: 0.5rem;
-			border-radius: var(--radius-sm);
 			font-size: var(--text-sm);
 			line-height: var(--leading-sm);
-			text-underline-offset: 4px;
-			&:hover {
-				text-decoration: underline;
-			}
 		}
 		.transmission {
 			display: flex;
 			align-items: center;
 			gap: 1rem;
 			color: var(--muted-foreground);
-			font-family: var(--font-mono);
-			font-size: 0.6875rem;
-			text-transform: uppercase;
 			letter-spacing: 0.25em;
 			&::before,
 			&::after {

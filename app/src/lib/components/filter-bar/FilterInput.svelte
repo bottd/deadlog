@@ -63,7 +63,7 @@
 	}
 </script>
 
-<div class="js-only filter-input">
+<div class="js-only">
 	<div class="desktop-search">
 		<SearchForm {filterState} bind:open onsubmit={close} onclose={close} />
 		{#if open}
@@ -83,7 +83,7 @@
 					<button {...props} type="button" class="ui-focus-ring search-trigger">
 						<SearchIcon class="icon" />
 						<span class="trigger-label">Search &amp; filter</span>
-						{#if params.activeFilterCount > 0}<span class="filter-count"
+						{#if params.activeFilterCount > 0}<span class="metadata filter-count"
 								>{params.activeFilterCount}</span
 							>{/if}
 					</button>
@@ -148,9 +148,6 @@
 
 <style>
 	@layer components.features {
-		.filter-input {
-			position: relative;
-		}
 		.desktop-search {
 			display: none;
 		}
@@ -182,9 +179,6 @@
 		}
 		.filter-count {
 			color: var(--primary);
-			font-family: var(--font-mono);
-			font-size: var(--text-xs);
-			line-height: var(--leading-xs);
 		}
 		:global(.search-sheet) {
 			max-block-size: 85dvh;
@@ -206,29 +200,26 @@
 			gap: 0.5rem;
 			overflow-x: auto;
 		}
-		.filter-chip {
-			display: flex;
+		.filter-chip,
+		.clear-filters {
 			min-block-size: 2.75rem;
 			flex-shrink: 0;
-			align-items: center;
-			gap: 0.25rem;
-			border-radius: 0.25rem;
+			border-radius: var(--radius-md);
 			padding-inline: 0.5rem;
-			color: var(--signal);
 			font-size: var(--text-xs);
 			line-height: var(--leading-xs);
+		}
+		.filter-chip {
+			display: flex;
+			align-items: center;
+			gap: 0.25rem;
+			color: var(--signal);
 			&.major {
 				color: var(--primary);
 			}
 		}
 		.clear-filters {
-			min-block-size: 2.75rem;
-			flex-shrink: 0;
-			border-radius: 0.25rem;
-			padding-inline: 0.5rem;
 			color: var(--muted-foreground);
-			font-size: var(--text-xs);
-			line-height: var(--leading-xs);
 			&:hover {
 				color: var(--foreground);
 			}

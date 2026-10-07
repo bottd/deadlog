@@ -92,16 +92,16 @@
 			gap: 0.75rem;
 			padding: 1rem;
 			outline: none;
-		}
-		:global(.image-lightbox[data-state='open']) {
-			animation: fade-in 200ms ease-out;
-		}
-		:global(.image-lightbox[data-state='closed']) {
-			animation: fade-out 200ms ease-in;
+			--control-inset: 0.5rem;
+			&[data-state='open'] {
+				animation: fade-in 200ms ease-out;
+			}
+			&[data-state='closed'] {
+				animation: fade-out 200ms ease-in;
+			}
 		}
 		.lightbox-image {
 			max-block-size: calc(100dvh - 8rem);
-			max-inline-size: 100%;
 			border-radius: var(--radius-lg);
 			object-fit: contain;
 			box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
@@ -128,16 +128,15 @@
 			border: 1px solid var(--border);
 			border-radius: var(--radius-md);
 			background: color-mix(in srgb, var(--card) 80%, transparent);
-			color: var(--foreground);
 			transition:
 				background-color var(--duration-normal),
 				scale var(--duration-normal);
-		}
-		:global(.lightbox-control:hover) {
-			background: var(--card);
-		}
-		:global(.lightbox-control:active) {
-			scale: 0.97;
+			&:hover {
+				background: var(--card);
+			}
+			&:active {
+				scale: 0.97;
+			}
 		}
 		.previous,
 		.next {
@@ -145,28 +144,19 @@
 			translate: 0 -50%;
 		}
 		.previous {
-			inset-inline-start: 0.5rem;
+			inset-inline-start: var(--control-inset);
 		}
 		.next,
 		:global(.lightbox-close) {
-			inset-inline-end: 0.5rem;
+			inset-inline-end: var(--control-inset);
 		}
 		:global(.lightbox-close) {
-			top: 0.5rem;
+			top: var(--control-inset);
 		}
 		@media (min-width: 40rem) {
 			:global(.image-lightbox) {
 				padding: 2.5rem;
-			}
-			.previous {
-				inset-inline-start: 1rem;
-			}
-			.next,
-			:global(.lightbox-close) {
-				inset-inline-end: 1rem;
-			}
-			:global(.lightbox-close) {
-				top: 1rem;
+				--control-inset: 1rem;
 			}
 		}
 	}

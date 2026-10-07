@@ -22,7 +22,10 @@ blockquote,
 figure,
 dl,
 dd,
-pre {
+pre,
+ol,
+ul,
+menu {
 	margin: 0;
 }
 h1,
@@ -45,7 +48,6 @@ b {
 ol,
 ul,
 menu {
-	margin: 0;
 	padding: 0;
 	list-style: none;
 }
@@ -61,21 +63,12 @@ textarea {
 	padding: 0;
 }
 button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
-	appearance: button;
-}
-button,
 [role='button'],
 summary {
 	cursor: pointer;
 }
 :disabled {
 	cursor: default;
-}
-textarea {
-	resize: vertical;
 }
 ::-webkit-search-decoration {
 	-webkit-appearance: none;

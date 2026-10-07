@@ -28,8 +28,5 @@
 			inline-size: 100%;
 			margin-block: 1.5rem;
 		}
-		.changelog-image {
-			max-block-size: 32rem;
-		}
 	}
 </style>

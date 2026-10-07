@@ -202,7 +202,9 @@
 					No changes for <span class="filter-selection">{selectedLabel}</span> in this patch.
 				</span>
 			{/if}
-			<a href={patchPath} class="clear-filter"> Show all changes </a>
+			<a href={patchPath} class="clear-filter control-label signal-link">
+				Show all changes
+			</a>
 		</div>
 	{/if}
 
@@ -210,7 +212,7 @@
 		<button
 			type="button"
 			onclick={() => (tocOpen = true)}
-			class="toc-trigger clip-corner-sm"
+			class="toc-trigger control-label caps clip-corner-sm"
 			aria-label="Open table of contents"
 		>
 			<ListIcon class="icon" />
@@ -235,7 +237,7 @@
 				<header class="patch-header">
 					<div class="patch-heading-row">
 						<div class="patch-identity">
-							<h1 class="patch-title heading-glow">
+							<h1 class="patch-title display-heading heading-glow">
 								{patchTitle.heading}
 							</h1>
 
@@ -285,7 +287,7 @@
 								href={changelog.sourceUrl}
 								target="_blank"
 								rel="external noopener noreferrer"
-								class="ui-focus-ring original-link"
+								class="ui-focus-ring original-link control-label"
 								aria-label="View original patch notes"
 							>
 								<ExternalLink class="icon" />
@@ -332,17 +334,7 @@
 			margin-block: 2rem 6rem;
 		}
 		.back-link {
-			display: inline-flex;
-			align-items: center;
-			gap: 0.5rem;
 			margin-bottom: 1rem;
-			color: var(--muted-foreground);
-			font-size: var(--text-sm);
-			line-height: var(--leading-sm);
-			transition: color var(--duration-normal);
-			&:hover {
-				color: var(--signal);
-			}
 		}
 		.filter-notice {
 			display: flex;
@@ -363,11 +355,6 @@
 		}
 		.clear-filter {
 			margin-left: auto;
-			color: var(--signal);
-			font: 600 var(--text-xs)/var(--leading-xs) var(--font-mono);
-			&:hover {
-				text-decoration: underline;
-			}
 		}
 		.toc-trigger {
 			display: flex;
@@ -378,10 +365,6 @@
 			border: 1px solid var(--border);
 			padding-inline: 0.75rem;
 			background: var(--card);
-			color: var(--foreground);
-			font: 600 var(--text-xs)/var(--leading-xs) var(--font-mono);
-			text-transform: uppercase;
-			letter-spacing: 0.05em;
 			transition:
 				color var(--duration-normal),
 				border-color var(--duration-normal);
@@ -449,9 +432,8 @@
 			gap: 1rem;
 		}
 		.patch-title {
-			color: var(--foreground);
-			font: 500 var(--text-3xl)/1.25 var(--font-display);
-			letter-spacing: 0.025em;
+			font-size: var(--text-3xl);
+			line-height: 1.25;
 		}
 		.patch-metadata {
 			display: flex;
@@ -519,7 +501,6 @@
 			border-radius: var(--radius-md);
 			padding-inline: 0.75rem;
 			color: var(--muted-foreground);
-			font: 600 var(--text-xs)/var(--leading-xs) var(--font-mono);
 			transition:
 				background-color var(--duration-normal),
 				color var(--duration-normal);
@@ -533,10 +514,10 @@
 		}
 		:global(.copy-patch-link) {
 			color: var(--muted-foreground);
-		}
-		:global(.copy-patch-link:hover) {
-			background: color-mix(in srgb, var(--signal) 10%, transparent);
-			color: var(--signal);
+			&:hover {
+				background: color-mix(in srgb, var(--signal) 10%, transparent);
+				color: var(--signal);
+			}
 		}
 		:global(.toc-sheet) {
 			max-block-size: 70dvh;

@@ -64,7 +64,7 @@
 			border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
 			border-radius: var(--radius-sm);
 			color: var(--muted-foreground);
-			font-size: 0.6875rem;
+			font-size: var(--text-2xs);
 			font-weight: 500;
 			text-underline-offset: 2px;
 			transition:

@@ -41,7 +41,7 @@
 
 <main class="page-container archive-page">
 	<header>
-		<h1>Patch archive</h1>
+		<h1 class="display-heading">Patch archive</h1>
 		<p>
 			Every recorded patch, newest first. {data.patches.length} patches.
 		</p>
@@ -73,9 +73,8 @@
 			margin-bottom: 2rem;
 		}
 		h1 {
-			color: var(--foreground);
-			font: 500 var(--text-4xl)/var(--leading-4xl) var(--font-display);
-			letter-spacing: 0.025em;
+			font-size: var(--text-4xl);
+			line-height: var(--leading-4xl);
 		}
 		header p {
 			margin-top: 0.5rem;

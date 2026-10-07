@@ -44,22 +44,27 @@
 		.filter-badge {
 			min-block-size: 2.75rem;
 			flex-shrink: 0;
-			border-radius: var(--radius-md);
-			&:hover > :global([data-slot='badge']) {
-				box-shadow:
-					0 4px 6px -1px color-mix(in srgb, var(--primary) 10%, transparent),
-					0 2px 4px -2px color-mix(in srgb, var(--primary) 10%, transparent);
+			&:hover {
+				& > :global([data-slot='badge']) {
+					box-shadow:
+						0 4px 6px -1px color-mix(in srgb, var(--primary) 10%, transparent),
+						0 2px 4px -2px color-mix(in srgb, var(--primary) 10%, transparent);
+				}
+				& .filter-image {
+					scale: 1.1;
+				}
+				& :global(.filter-remove) {
+					opacity: 1;
+					scale: 1.1;
+				}
 			}
 		}
 		.filter-image {
 			inline-size: 18px;
 			block-size: 18px;
-			border-radius: 0.25rem;
+			border-radius: var(--radius-md);
 			object-fit: cover;
 			transition: scale var(--duration-normal);
-		}
-		.filter-badge:hover .filter-image {
-			scale: 1.1;
 		}
 		.filter-badge :global(.filter-remove) {
 			opacity: 0.6;
@@ -67,13 +72,9 @@
 				opacity var(--duration-normal),
 				scale var(--duration-normal);
 		}
-		.filter-badge:hover :global(.filter-remove) {
-			opacity: 1;
-			scale: 1.1;
-		}
 		.kind-label {
 			font-family: var(--font-mono);
-			font-size: 0.6875rem;
+			font-size: var(--text-2xs);
 			text-transform: uppercase;
 			letter-spacing: 0.025em;
 		}

@@ -75,7 +75,7 @@
 							<a
 								href="/{match.type}/{match.slug}"
 								aria-label="{match.name} full history"
-								class="history-link reading-action ui-focus-ring"
+								class="history-link reading-action"
 								>Full history <ArrowRight class="icon-sm" /></a
 							>
 						</div>
@@ -119,7 +119,7 @@
 					<a
 						href={links.entityHref(icon)}
 						aria-label="Jump to {icon.alt} in this patch"
-						class="entity-link ui-focus-outline"
+						class="entity-link"
 					>
 						<img
 							src={icon.src}
@@ -150,7 +150,7 @@
 					>{/each}
 			{/if}
 			{#if matches.searching}
-				<a href={links.href} class="full-patch reading-action ui-focus-ring"
+				<a href={links.href} class="full-patch reading-action"
 					>Full patch <ArrowRight class="icon-sm" /></a
 				>
 			{:else}<span class="card-arrow"><ArrowRight class="icon-sm" /></span>{/if}
@@ -199,9 +199,12 @@
 			top: 0.5rem;
 			right: 0.5rem;
 			z-index: 20;
-			padding: 0.125rem 0.375rem;
 			background: var(--primary);
 			color: var(--primary-foreground);
+		}
+		.new-flag,
+		.major-flag {
+			padding: 0.125rem 0.375rem;
 			font-weight: 700;
 		}
 		.preview {
@@ -220,10 +223,13 @@
 		.patch-card:hover .preview img {
 			scale: 1.05;
 		}
-		.preview-veil {
+		.preview-veil,
+		.hover-veil {
 			position: absolute;
 			inset: 0;
 			pointer-events: none;
+		}
+		.preview-veil {
 			background: linear-gradient(
 				to bottom,
 				transparent,
@@ -232,9 +238,6 @@
 			);
 		}
 		.hover-veil {
-			position: absolute;
-			inset: 0;
-			pointer-events: none;
 			background: linear-gradient(
 				to bottom right,
 				color-mix(in srgb, var(--primary) 5%, transparent),
@@ -260,16 +263,16 @@
 			gap: 0.5rem;
 			margin-bottom: 0.375rem;
 		}
-		.card-title {
-			min-inline-size: 0;
+		.card-title,
+		.summary {
 			display: -webkit-box;
 			-webkit-line-clamp: 2;
 			line-clamp: 2;
 			-webkit-box-orient: vertical;
 			overflow: hidden;
-			color: var(--foreground);
-			font-size: var(--text-base);
-			line-height: var(--leading-base);
+		}
+		.card-title {
+			min-inline-size: 0;
 			font-weight: 600;
 			letter-spacing: -0.025em;
 			transition: color var(--duration-slow);
@@ -284,10 +287,8 @@
 			margin-left: auto;
 			flex-shrink: 0;
 			border: 1px solid color-mix(in srgb, var(--primary) 40%, transparent);
-			padding: 0.125rem 0.375rem;
 			background: color-mix(in srgb, var(--primary) 15%, transparent);
 			color: var(--primary);
-			font-weight: 700;
 		}
 		.author-row {
 			display: flex;
@@ -313,7 +314,7 @@
 		}
 		:global(.patch-author-initials) {
 			font-family: var(--font-mono);
-			font-size: 0.6875rem;
+			font-size: var(--text-2xs);
 			letter-spacing: 0.025em;
 		}
 		.matched-changes > * + * {
@@ -331,14 +332,9 @@
 				font-weight: 600;
 			}
 		}
-		.history-link,
-		.full-patch {
-			border-radius: var(--radius-sm);
-		}
 		.history-link {
 			position: relative;
 			z-index: 10;
-			gap: 0.25rem;
 		}
 		.change-list {
 			max-inline-size: 72ch;
@@ -368,11 +364,6 @@
 			color: var(--muted-foreground);
 			font-size: var(--text-xs);
 			line-height: var(--leading-relaxed);
-			display: -webkit-box;
-			-webkit-line-clamp: 2;
-			line-clamp: 2;
-			-webkit-box-orient: vertical;
-			overflow: hidden;
 		}
 		.patch-card[data-searching='true'] .summary {
 			display: block;
@@ -385,15 +376,18 @@
 			align-items: center;
 			gap: 0.25rem;
 		}
-		.entity-link {
-			position: relative;
-			z-index: 10;
+		.entity-link,
+		.extra-count {
 			display: flex;
 			inline-size: 2.75rem;
 			block-size: 2.75rem;
 			align-items: center;
 			justify-content: center;
 			border-radius: var(--radius-md);
+		}
+		.entity-link {
+			position: relative;
+			z-index: 10;
 			transition:
 				translate var(--duration-normal),
 				scale var(--duration-normal);
@@ -417,17 +411,11 @@
 			}
 		}
 		.extra-count {
-			display: flex;
-			inline-size: 2.75rem;
-			block-size: 2.75rem;
-			align-items: center;
-			justify-content: center;
-			border-radius: var(--radius-md);
 			background: color-mix(in srgb, var(--muted) 80%, transparent);
 			color: var(--muted-foreground);
 			font-weight: 600;
 			font-family: var(--font-mono);
-			font-size: 0.6875rem;
+			font-size: var(--text-2xs);
 		}
 		.patch-card:hover .extra-count {
 			background: color-mix(in srgb, var(--entity-accent) 15%, transparent);

@@ -35,24 +35,16 @@
 }
 * {
 	border-color: var(--border);
-	outline-color: color-mix(in oklab, var(--ring) 50%, transparent);
 }
 html {
 	font-family: var(--font-sans);
 	/* Clears the sticky header plus the selected-filter row. */
 	scroll-padding-top: 10rem;
 	color-scheme: dark;
-}
-html,
-body {
 	color: var(--foreground);
 	background-color: var(--background);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	font-feature-settings:
-		'kern' 1,
-		'liga' 1,
-		'calt' 1;
 	text-rendering: optimizeLegibility;
 }
 body {
@@ -75,18 +67,6 @@ body {
 		opacity: 0;
 		transform: translateY(-8px);
 	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-@keyframes entrance-fade-up {
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
-	}
 }
 /* Floored at 0.8 so the footer line stays above 4.5:1 through the whole cycle. */
 @keyframes terminal-flicker {
@@ -105,14 +85,8 @@ body {
 	from {
 		opacity: 0;
 	}
-	to {
-		opacity: 1;
-	}
 }
 @keyframes fade-out {
-	from {
-		opacity: 1;
-	}
 	to {
 		opacity: 0;
 	}
@@ -121,14 +95,8 @@ body {
 	from {
 		transform: translateY(100%);
 	}
-	to {
-		transform: translateY(0);
-	}
 }
 @keyframes slide-down-out {
-	from {
-		transform: translateY(0);
-	}
 	to {
 		transform: translateY(100%);
 	}
@@ -138,16 +106,8 @@ body {
 		opacity: 0;
 		transform: scale(0.95);
 	}
-	to {
-		opacity: 1;
-		transform: scale(1);
-	}
 }
 @keyframes pop-out {
-	from {
-		opacity: 1;
-		transform: scale(1);
-	}
 	to {
 		opacity: 0;
 		transform: scale(0.95);

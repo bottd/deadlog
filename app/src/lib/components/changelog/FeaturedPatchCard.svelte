@@ -12,12 +12,12 @@
 		<CornerAccents tlSize="2rem" brSize="1.5rem" />
 		<div class="featured-body">
 			<div class="title-row">
-				<h2 class="featured-title">
+				<h2 class="featured-title display-heading">
 					<a href={links.href} aria-label={view.accessibleLabel} class="stretched-link"
 						>{view.heading}</a
 					>
 				</h2>
-				<span class="latest-label">Latest Patch</span>
+				<span class="latest-label metadata">Latest Patch</span>
 			</div>
 			<p class="byline">
 				By {patch.author}{#if view.named}
@@ -36,7 +36,7 @@
 									<a
 										href={links.entityHref(icon)}
 										aria-label="Jump to {icon.alt} in this patch"
-										class="ui-focus-outline entity-link"
+										class="entity-link"
 									>
 										<img
 											src={icon.src}
@@ -102,9 +102,8 @@
 			gap: 0.5rem 1rem;
 		}
 		.featured-title {
-			color: var(--foreground);
-			font: 500 var(--text-3xl)/1.25 var(--font-display);
-			letter-spacing: 0.025em;
+			font-size: var(--text-3xl);
+			line-height: 1.25;
 			transition: color var(--duration-normal);
 		}
 		.featured-card:hover .featured-title {
@@ -115,15 +114,15 @@
 			padding: 0.25rem 0.5rem;
 			background: color-mix(in srgb, var(--primary) 10%, transparent);
 			color: var(--primary);
-			font-family: var(--font-mono);
+		}
+		.byline,
+		.totals {
+			color: var(--muted-foreground);
 			font-size: var(--text-xs);
 			line-height: var(--leading-xs);
 		}
 		.byline {
 			margin-top: 0.5rem;
-			color: var(--muted-foreground);
-			font-size: var(--text-xs);
-			line-height: var(--leading-xs);
 		}
 		.summary {
 			max-inline-size: 72ch;
@@ -172,7 +171,7 @@
 				inline-size: 2rem;
 				block-size: 2rem;
 				border: 1px solid var(--border-subtle);
-				border-radius: 0.25rem;
+				border-radius: var(--radius-md);
 				background: var(--background);
 				object-fit: cover;
 			}
@@ -186,11 +185,6 @@
 			margin-top: 1rem;
 			border-top: 1px solid var(--border-subtle);
 			padding-top: 0.75rem;
-		}
-		.totals {
-			color: var(--muted-foreground);
-			font-size: var(--text-xs);
-			line-height: var(--leading-xs);
 		}
 		.full-patch {
 			display: inline-flex;

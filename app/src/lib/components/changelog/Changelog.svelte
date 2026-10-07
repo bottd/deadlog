@@ -71,7 +71,11 @@
 {#snippet retryPrompt(message: string, retry: () => void)}
 	<div class="retry-prompt" role="alert">
 		<p>{message}</p>
-		<button type="button" onclick={retry} class="retry-button ui-focus-ring">
+		<button
+			type="button"
+			onclick={retry}
+			class="retry-button control-label ui-focus-ring"
+		>
 			Retry
 		</button>
 	</div>
@@ -80,13 +84,13 @@
 {#snippet loadingSpinner()}
 	<div class="loading-status" role="status">
 		<div class="spinner"></div>
-		<span class="loading-label metadata">Loading...</span>
+		<span class="loading-label metadata caps">Loading...</span>
 	</div>
 {/snippet}
 
 <main class="page-container changelog-page">
 	<header class="page-header">
-		<h1 class="page-title heading-glow">
+		<h1 class="page-title display-heading heading-glow">
 			{isSearching ? 'Matching patch notes' : 'Deadlock Patch Notes & Changelog'}
 		</h1>
 		<p class="page-lede">
@@ -127,7 +131,7 @@
 	{#if query.data}
 		{#if allChangelogs.length > 0}
 			{#if filterCount > 0}
-				<p class="result-summary" role="status" aria-live="polite">
+				<p class="result-summary metadata caps" role="status" aria-live="polite">
 					{allChangelogs.length}{query.hasNextPage ? '+' : ''} matching
 					{query.hasNextPage
 						? 'patches'
@@ -149,7 +153,7 @@
 			{/if}
 
 			{#if newCount > 0}
-				<p class="new-summary">
+				<p class="new-summary metadata caps">
 					<strong>{newCount}</strong>
 					<span>new {plural(newCount, 'patch', 'patches')} since your last visit</span>
 				</p>
@@ -225,7 +229,7 @@
 						{@attach loadMoreWhenVisible}
 					></div>
 				{:else}
-					<div class="end-of-log metadata">
+					<div class="end-of-log metadata caps">
 						<p>End of Log</p>
 					</div>
 				{/if}
@@ -258,9 +262,8 @@
 			margin-bottom: 1.25rem;
 		}
 		.page-title {
-			color: var(--foreground);
-			font: 500 var(--text-3xl)/var(--leading-3xl) var(--font-display);
-			letter-spacing: 0.025em;
+			font-size: var(--text-3xl);
+			line-height: var(--leading-3xl);
 		}
 		.page-lede {
 			max-inline-size: 42rem;
@@ -326,10 +329,6 @@
 		.result-summary,
 		.new-summary {
 			margin-bottom: 1rem;
-			color: var(--muted-foreground);
-			font: var(--text-xs)/var(--leading-xs) var(--font-mono);
-			letter-spacing: 0.05em;
-			text-transform: uppercase;
 		}
 		.latest-match {
 			display: block;
@@ -420,8 +419,6 @@
 			display: flex;
 			align-items: center;
 			gap: 1rem;
-			letter-spacing: 0.05em;
-			text-transform: uppercase;
 			&::before,
 			&::after {
 				content: '';
@@ -448,7 +445,6 @@
 			min-block-size: 2.75rem;
 			border: 1px solid color-mix(in srgb, var(--destructive) 30%, transparent);
 			padding: 0.5rem 1.25rem;
-			font: 600 var(--text-xs)/var(--leading-xs) var(--font-mono);
 			&:hover {
 				background: color-mix(in srgb, var(--destructive) 10%, transparent);
 			}
@@ -460,10 +456,6 @@
 			border-top-color: transparent;
 			border-radius: 50%;
 			animation: spin 1s linear infinite;
-		}
-		.loading-label {
-			letter-spacing: 0.05em;
-			text-transform: uppercase;
 		}
 		.static-fallback {
 			padding-block: 1.5rem;
@@ -483,7 +475,7 @@
 		@media (min-width: 40rem) {
 			.page-title {
 				font-size: var(--text-4xl);
-				line-height: 1.1111;
+				line-height: var(--leading-4xl);
 			}
 			.patch-grid[data-searching='false'] {
 				grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -516,19 +508,18 @@
 			block-size: 0.125rem;
 			overflow: hidden;
 			background: oklch(from var(--primary) l c h / 0.18);
-		}
-
-		.filter-progress::after {
-			content: '';
-			position: absolute;
-			inset: 0;
-			background: linear-gradient(
-				to right,
-				transparent,
-				oklch(from var(--primary) l c h / 0.95) 50%,
-				transparent
-			);
-			animation: filter-progress 1.1s cubic-bezier(0.23, 1, 0.32, 1) infinite;
+			&::after {
+				content: '';
+				position: absolute;
+				inset: 0;
+				background: linear-gradient(
+					to right,
+					transparent,
+					oklch(from var(--primary) l c h / 0.95) 50%,
+					transparent
+				);
+				animation: filter-progress 1.1s var(--ease-out) infinite;
+			}
 		}
 	}
 </style>

@@ -1,30 +1,19 @@
 .page-container {
-	inline-size: 100%;
 	margin-inline: auto;
-	padding-inline: var(--space-4);
-}
-@media (min-width: 40rem) {
-	.page-container {
+	padding-inline: 1rem;
+	@media (min-width: 40rem) {
 		max-inline-size: 40rem;
 	}
-}
-@media (min-width: 48rem) {
-	.page-container {
+	@media (min-width: 48rem) {
 		max-inline-size: 48rem;
 	}
-}
-@media (min-width: 64rem) {
-	.page-container {
+	@media (min-width: 64rem) {
 		max-inline-size: 64rem;
 	}
-}
-@media (min-width: 80rem) {
-	.page-container {
+	@media (min-width: 80rem) {
 		max-inline-size: 80rem;
 	}
-}
-@media (min-width: 96rem) {
-	.page-container {
+	@media (min-width: 96rem) {
 		max-inline-size: 96rem;
 	}
 }

@@ -1,6 +1,5 @@
 @layer prose {
 	.mog-content {
-		max-inline-size: none;
 		font-size: var(--text-base);
 		line-height: var(--leading-relaxed);
 	}
@@ -9,20 +8,19 @@
 			margin-block: 1.5rem;
 			max-inline-size: none;
 		}
-		:scope > p > img {
-			block-size: auto;
-			max-block-size: 32rem;
-		}
-		h2 {
-			margin: 2rem 0 1rem;
-			color: var(--primary);
-			font-size: var(--text-xl);
-			line-height: 1.25;
+		:is(h2, h3, h4) {
 			font-weight: 600;
 			letter-spacing: -0.025em;
 		}
+		h2 {
+			margin: 2rem 0 1rem;
+			font-size: var(--text-xl);
+			line-height: 1.25;
+		}
+		h2:not([data-mog-section]) {
+			color: var(--primary);
+		}
 		h2[data-mog-section] {
-			color: var(--foreground);
 			font-family: var(--font-display);
 			font-size: 1.75rem;
 			letter-spacing: 0.025em;
@@ -32,19 +30,13 @@
 		}
 		h3 {
 			margin: 1.5rem 0 0.75rem;
-			color: var(--foreground);
 			font-size: var(--text-lg);
 			line-height: 1.25;
-			font-weight: 600;
-			letter-spacing: -0.025em;
 		}
 		h4 {
 			margin: 1.25rem 0 0.5rem;
-			color: var(--foreground);
 			font-size: var(--text-base);
 			line-height: 1.375;
-			font-weight: 600;
-			letter-spacing: -0.025em;
 		}
 		:is(div.hero, div.item) {
 			display: grid;
@@ -97,7 +89,7 @@
 		div.ability > p img {
 			inline-size: 1.5rem;
 			block-size: 1.5rem;
-			border-radius: 0.25rem;
+			border-radius: var(--radius-md);
 			object-fit: cover;
 		}
 		div.ability > h4 {
@@ -189,13 +181,10 @@
 			color: var(--foreground);
 			font-weight: 600;
 		}
-		em {
-			font-style: italic;
-		}
 		code {
 			padding: 0.125rem 0.375rem;
 			border: 1px solid color-mix(in srgb, var(--primary) 10%, transparent);
-			border-radius: 0.25rem;
+			border-radius: var(--radius-md);
 			background: color-mix(in srgb, var(--primary) 5%, transparent);
 			color: var(--primary);
 			font-size: var(--text-xs);

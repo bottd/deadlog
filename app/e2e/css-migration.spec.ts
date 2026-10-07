@@ -80,14 +80,11 @@ test('TOC subsections stay indented in the sidebar and mobile sheet', async ({
 	const subsection = toc.getByRole('link', { name: 'Broadway (Blue Lane)', exact: true });
 	await expect(section).toBeVisible();
 	await expect(subsection).toBeVisible();
-	const [sectionInset, subsectionInset] = await Promise.all(
-		[section, subsection].map((link) =>
-			link.evaluate((element) =>
-				Number.parseFloat(getComputedStyle(element).paddingInlineStart)
-			)
-		)
-	);
-	expect(subsectionInset).toBeGreaterThan(sectionInset!);
+	const inset = (element: Element) =>
+		Number.parseFloat(getComputedStyle(element).paddingInlineStart);
+	const sectionInset = await section.evaluate(inset);
+	const subsectionInset = await subsection.evaluate(inset);
+	expect(subsectionInset).toBeGreaterThan(sectionInset);
 });
 
 test('Mog galleries keep their own layout and portalled lightbox controls', async ({

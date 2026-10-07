@@ -159,7 +159,7 @@
 >
 	<div class="history-layout">
 		<div class="history-main">
-			<a href={listing.path} class="ui-focus-ring back-link">
+			<a href={listing.path} class="back-link">
 				<ArrowLeft class="icon" /> Back to {listing.label.toLowerCase()}
 			</a>
 			<header class="entity-header">
@@ -177,16 +177,16 @@
 					{/if}
 					<div class="identity-text">
 						{#if parent}
-							<p class="parent-entity">
+							<p class="parent-entity metadata">
 								<a href="/hero/{parent.slug}" class="ui-focus-ring parent-link"
 									>{parent.name}</a
 								>
 							</p>
 						{/if}
-						<h1 class="entity-title">
+						<h1 class="entity-title display-heading">
 							{entity.name}
 						</h1>
-						<p class="entity-classification">
+						<p class="entity-classification metadata">
 							<span>{label}</span>
 							{@render labelSuffix?.()}
 						</p>
@@ -282,7 +282,7 @@
 					</div>
 					{#if selectedAbility && !abilityLinkMode}
 						<p class="selected-ability-history">
-							<a href="/ability/{selectedAbility.slug}" class="ui-focus-ring history-link"
+							<a href="/ability/{selectedAbility.slug}" class="signal-link"
 								>{selectedAbility.name} full history</a
 							>
 						</p>
@@ -292,7 +292,9 @@
 
 			<section aria-labelledby="history-heading">
 				<div class="history-heading-row">
-					<h2 id="history-heading" class="history-heading">Change History</h2>
+					<h2 id="history-heading" class="history-heading display-heading">
+						Change History
+					</h2>
 					<span class="history-count metadata"
 						>{visibleChangelogs.length}
 						{plural(visibleChangelogs.length, 'patch', 'patches')}</span
@@ -304,7 +306,7 @@
 						<button
 							type="button"
 							onclick={() => toggleAbility(selectedAbility?.slug ?? '')}
-							class="ui-focus-ring reset-ability history-link">Show all changes</button
+							class="reset-ability signal-link">Show all changes</button
 						>
 					</div>
 				{/if}
@@ -313,7 +315,7 @@
 						<section aria-labelledby="year-{year}">
 							<h3 id="year-{year}" class="year-heading">
 								{year}
-								<span class="year-count"
+								<span class="year-count metadata"
 									>{patches.length}
 									{plural(patches.length, 'patch', 'patches')}</span
 								>
@@ -373,7 +375,7 @@
 										{/if}
 										<a
 											href={entityPatchHref(patch, entity)}
-											class="ui-focus-ring full-patch history-link reading-action"
+											class="full-patch reading-action"
 											>Full patch <ArrowRight class="icon-sm" /></a
 										>
 									</li>
@@ -435,18 +437,7 @@
 			min-inline-size: 0;
 		}
 		.back-link {
-			display: inline-flex;
-			min-block-size: 2.75rem;
-			align-items: center;
-			gap: 0.5rem;
 			margin-bottom: 1.25rem;
-			border-radius: var(--radius-sm);
-			color: var(--muted-foreground);
-			font-size: var(--text-sm);
-			line-height: var(--leading-sm);
-			&:hover {
-				color: var(--signal);
-			}
 		}
 		.entity-header {
 			margin-bottom: 1.5rem;
@@ -472,13 +463,9 @@
 		}
 		.parent-entity {
 			margin-bottom: 0.25rem;
-			font-family: var(--font-mono);
-			font-size: var(--text-xs);
-			line-height: var(--leading-xs);
 		}
 		.parent-link {
 			border-radius: var(--radius-sm);
-			color: var(--muted-foreground);
 			text-underline-offset: 4px;
 			&:hover {
 				color: var(--foreground);
@@ -486,9 +473,8 @@
 			}
 		}
 		.entity-title {
-			color: var(--foreground);
-			font: 500 var(--text-4xl)/1.25 var(--font-display);
-			letter-spacing: 0.025em;
+			font-size: var(--text-4xl);
+			line-height: 1.25;
 			overflow-wrap: break-word;
 		}
 		.entity-classification {
@@ -498,9 +484,6 @@
 			gap: 0.5rem;
 			margin-top: 0.25rem;
 			color: var(--entity-color);
-			font-family: var(--font-mono);
-			font-size: var(--text-xs);
-			line-height: var(--leading-xs);
 			text-transform: capitalize;
 		}
 		.latest-change {
@@ -587,7 +570,6 @@
 			border-radius: var(--radius-md);
 			padding: 0.5rem 0.75rem;
 			background: var(--card);
-			color: var(--foreground);
 			font-size: var(--text-sm);
 			line-height: var(--leading-sm);
 			text-align: left;
@@ -607,16 +589,13 @@
 		.ability-icon {
 			inline-size: 1.5rem;
 			block-size: 1.5rem;
-			border-radius: 0.25rem;
+			border-radius: var(--radius-md);
 			object-fit: cover;
 		}
 		.selected-ability-history {
 			margin-top: 0.5rem;
 			font-size: var(--text-sm);
 			line-height: var(--leading-sm);
-		}
-		.history-link {
-			border-radius: var(--radius-sm);
 		}
 		.history-heading-row {
 			display: flex;
@@ -627,9 +606,8 @@
 			margin-bottom: 0.5rem;
 		}
 		.history-heading {
-			color: var(--foreground);
-			font: 500 var(--text-2xl)/var(--leading-2xl) var(--font-display);
-			letter-spacing: 0.025em;
+			font-size: var(--text-2xl);
+			line-height: var(--leading-2xl);
 		}
 		.ability-status {
 			display: flex;
@@ -667,9 +645,6 @@
 		}
 		.year-count {
 			margin-left: auto;
-			color: var(--muted-foreground);
-			font-size: var(--text-xs);
-			line-height: var(--leading-xs);
 		}
 		.history-entry {
 			scroll-margin-top: 11rem;
@@ -686,9 +661,6 @@
 			margin-bottom: 0.75rem;
 		}
 		.entry-title {
-			color: var(--foreground);
-			font-size: var(--text-base);
-			line-height: var(--leading-base);
 			font-weight: 600;
 		}
 		.entry-date {
@@ -719,7 +691,6 @@
 			gap: 0.5rem;
 			margin-bottom: 0.5rem;
 			& h5 {
-				color: var(--foreground);
 				font-size: var(--text-sm);
 				line-height: var(--leading-sm);
 				font-weight: 600;
@@ -728,7 +699,6 @@
 		.change-bullets {
 			margin-left: 1rem;
 			list-style: disc;
-			font-size: var(--text-base);
 			line-height: var(--leading-relaxed);
 			& li {
 				padding-left: 0.25rem;
@@ -752,16 +722,16 @@
 		.entity-empty {
 			margin-block: 1rem;
 			padding: 2.5rem 1.5rem;
-			& .empty-heading {
-				margin-bottom: 0.5rem;
-				font-size: var(--text-xl);
-				line-height: var(--leading-xl);
-			}
-			& .empty-copy {
-				margin-bottom: 1.5rem;
-				font-size: var(--text-sm);
-				line-height: var(--leading-sm);
-			}
+		}
+		.empty-heading {
+			margin-bottom: 0.5rem;
+			font-size: var(--text-xl);
+			line-height: var(--leading-xl);
+		}
+		.empty-copy {
+			margin-bottom: 1.5rem;
+			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
 		}
 		.history-index {
 			display: none;

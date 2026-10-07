@@ -103,7 +103,7 @@
 						{#each histories as entity (entity.key)}
 							<a
 								href="/{entity.type}/{entity.data.slug}"
-								class="ui-focus-ring history-link reading-action"
+								class="reading-action"
 								onclick={onclose}
 								onkeydown={(event) => event.stopPropagation()}
 							>
@@ -219,7 +219,7 @@
 			flex-wrap: wrap;
 			gap: 0.25rem 1rem;
 		}
-		.history-link {
+		.history-links a {
 			font-size: var(--text-sm);
 			line-height: var(--leading-sm);
 		}

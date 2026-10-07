@@ -39,7 +39,6 @@
 			font-size: var(--text-xs);
 			line-height: var(--leading-xs);
 			font-weight: 500;
-			text-decoration: none;
 			transition:
 				border-color var(--duration-normal),
 				color var(--duration-normal);

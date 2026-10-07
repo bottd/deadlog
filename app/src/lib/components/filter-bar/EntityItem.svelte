@@ -47,7 +47,7 @@
 				</span>
 			</span>
 			{#if isSelected}
-				<span class="selected-label">Selected</span>
+				<span class="metadata selected-label">Selected</span>
 				<span class="selected-dot" aria-hidden="true"></span>
 			{/if}
 		</div>
@@ -74,7 +74,7 @@
 			inline-size: 2rem;
 			block-size: 2rem;
 			flex-shrink: 0;
-			border-radius: 0.25rem;
+			border-radius: var(--radius-md);
 		}
 		.option-image {
 			border: 1px solid var(--border);
@@ -105,9 +105,6 @@
 		}
 		.selected-label {
 			color: var(--entity-accent);
-			font-family: var(--font-mono);
-			font-size: var(--text-xs);
-			line-height: var(--leading-xs);
 			letter-spacing: 0.025em;
 		}
 		.selected-dot {
