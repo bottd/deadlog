@@ -9,7 +9,7 @@
 	import { entityImage } from '#lib/utils/entityImages.ts';
 	import { resolveEntity } from '#lib/components/changelog/entityContext.ts';
 	import { FilterState } from './filterState.svelte';
-	import type { EntityKind } from '#lib/entityTone.ts';
+	import type { EntityKind } from '#lib/entityKinds.ts';
 	import FilterBadge from './FilterBadge.svelte';
 	import SearchForm from './SearchForm.svelte';
 
@@ -63,41 +63,34 @@
 	}
 </script>
 
-<div class="js-only relative">
-	<div class="hidden sm:block">
+<div class="js-only filter-input">
+	<div class="desktop-search">
 		<SearchForm {filterState} bind:open onsubmit={close} onclose={close} />
 		{#if open}
 			<button
 				type="button"
-				class="fixed inset-0 z-40"
+				class="filter-backdrop"
 				onclick={close}
 				aria-label="Close filter options"
 				tabindex="-1"
 			></button>
 		{/if}
 	</div>
-	<div class="sm:hidden">
+	<div class="mobile-search">
 		<Sheet.Root bind:open={sheetOpen}>
 			<Sheet.Trigger>
 				{#snippet child({ props })}
-					<button
-						{...props}
-						type="button"
-						class="ui-focus-ring border-border bg-card text-muted-foreground flex min-h-11 w-full items-center gap-3 rounded-md border px-3 text-left text-base"
-					>
-						<SearchIcon class="text-signal size-4" />
-						<span class="flex-1">Search &amp; filter</span>
-						{#if params.activeFilterCount > 0}<span class="text-primary font-mono text-xs"
+					<button {...props} type="button" class="ui-focus-ring search-trigger">
+						<SearchIcon class="icon" />
+						<span class="trigger-label">Search &amp; filter</span>
+						{#if params.activeFilterCount > 0}<span class="filter-count"
 								>{params.activeFilterCount}</span
 							>{/if}
 					</button>
 				{/snippet}
 			</Sheet.Trigger>
-			<Sheet.Content
-				class="max-h-[85dvh] overflow-y-auto px-4 pb-6"
-				style="padding-bottom: max(1.5rem, var(--safe-area-inset-bottom));"
-			>
-				<Sheet.Header class="pr-12">
+			<Sheet.Content class="search-sheet">
+				<Sheet.Header>
 					<Sheet.Title>Search all patch notes</Sheet.Title>
 					<Sheet.Description
 						>Find a hero's history or combine filters to narrow the archive.</Sheet.Description
@@ -108,11 +101,8 @@
 		</Sheet.Root>
 	</div>
 	{#if params.activeFilterCount > 0}
-		<div class="mt-2 flex items-center gap-2">
-			<div
-				class="flex min-w-0 flex-1 items-center gap-2 overflow-x-auto"
-				aria-label="Active filters"
-			>
+		<div class="active-filter-row">
+			<div class="active-filters" aria-label="Active filters">
 				{#each selected as entity (entity.key)}
 					<FilterBadge
 						name={entity.name}
@@ -124,38 +114,136 @@
 				{#if params.q}
 					<button
 						type="button"
-						class="ui-focus-ring text-signal flex min-h-11 shrink-0 items-center gap-1 rounded px-2 text-xs"
+						class="ui-focus-ring filter-chip"
 						onclick={() => params.update({ q: '' })}
 						aria-label="Remove keyword filter: {params.q}"
 					>
-						Keyword: “{params.q}” <XIcon class="size-3.5" />
+						Keyword: “{params.q}” <XIcon class="icon-sm" />
 					</button>
 				{/if}
 				{#if params.major}
 					<button
 						type="button"
-						class="ui-focus-ring text-primary flex min-h-11 shrink-0 items-center gap-1 rounded px-2 text-xs"
+						class="ui-focus-ring filter-chip major"
 						onclick={() => params.update({ major: false })}
 						aria-label="Remove Major patches filter"
-						>Major patches <XIcon class="size-3.5" /></button
+						>Major patches <XIcon class="icon-sm" /></button
 					>
 				{/if}
 			</div>
-			<button
-				type="button"
-				class="ui-focus-ring text-muted-foreground min-h-11 shrink-0 rounded px-2 text-xs hover:text-foreground"
-				onclick={clear}>Clear all</button
+			<button type="button" class="ui-focus-ring clear-filters" onclick={clear}
+				>Clear all</button
 			>
 		</div>
 	{/if}
 </div>
 
 <noscript>
-	<p class="text-muted-foreground text-sm leading-relaxed">
-		Search needs JavaScript. Browse <a class="text-signal underline" href="/heroes"
-			>hero histories</a
-		>,
-		<a class="text-signal underline" href="/items">item histories</a>, or
-		<a class="text-signal underline" href="/archive">all patches</a>.
+	<p class="search-fallback">
+		Search needs JavaScript. Browse <a href="/heroes">hero histories</a>,
+		<a href="/items">item histories</a>, or
+		<a href="/archive">all patches</a>.
 	</p>
 </noscript>
+
+<style>
+	@layer components.features {
+		.filter-input {
+			position: relative;
+		}
+		.desktop-search {
+			display: none;
+		}
+		.filter-backdrop {
+			position: fixed;
+			inset: 0;
+			z-index: 40;
+		}
+		.search-trigger {
+			display: flex;
+			min-block-size: 2.75rem;
+			inline-size: 100%;
+			align-items: center;
+			gap: 0.75rem;
+			padding-inline: 0.75rem;
+			border: 1px solid var(--border);
+			border-radius: var(--radius-md);
+			background: var(--card);
+			color: var(--muted-foreground);
+			font-size: var(--text-base);
+			text-align: left;
+			& :global(svg) {
+				color: var(--signal);
+			}
+		}
+		.trigger-label {
+			flex: 1;
+		}
+		.filter-count {
+			color: var(--primary);
+			font: var(--text-xs) var(--font-mono);
+		}
+		:global(.search-sheet) {
+			max-block-size: 85dvh;
+			overflow-y: auto;
+			padding-inline: 1rem;
+			padding-bottom: max(1.5rem, var(--safe-area-inset-bottom));
+		}
+		.active-filter-row {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+			margin-top: 0.5rem;
+		}
+		.active-filters {
+			display: flex;
+			min-inline-size: 0;
+			flex: 1;
+			align-items: center;
+			gap: 0.5rem;
+			overflow-x: auto;
+		}
+		.filter-chip {
+			display: flex;
+			min-block-size: 2.75rem;
+			flex-shrink: 0;
+			align-items: center;
+			gap: 0.25rem;
+			border-radius: 0.25rem;
+			padding-inline: 0.5rem;
+			color: var(--signal);
+			font-size: var(--text-xs);
+			&.major {
+				color: var(--primary);
+			}
+		}
+		.clear-filters {
+			min-block-size: 2.75rem;
+			flex-shrink: 0;
+			border-radius: 0.25rem;
+			padding-inline: 0.5rem;
+			color: var(--muted-foreground);
+			font-size: var(--text-xs);
+			&:hover {
+				color: var(--foreground);
+			}
+		}
+		.search-fallback {
+			color: var(--muted-foreground);
+			font-size: var(--text-sm);
+			line-height: var(--leading-relaxed);
+			& a {
+				color: var(--signal);
+				text-decoration: underline;
+			}
+		}
+		@media (min-width: 40rem) {
+			.desktop-search {
+				display: block;
+			}
+			.mobile-search {
+				display: none;
+			}
+		}
+	}
+</style>

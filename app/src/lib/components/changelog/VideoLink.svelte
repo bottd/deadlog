@@ -15,19 +15,45 @@
 	href={src}
 	target="_blank"
 	rel="noopener noreferrer"
-	border="border/60 ~"
-	bg="card/60"
-	text="muted-foreground xs"
-	m="y-2"
-	items="center"
-	gap="2"
-	rounded="md"
-	p="x-2.5 y-1.5"
-	font="medium"
-	class="video-link inline-flex no-underline transition-colors hover:(border-signal/50 text-foreground) focus-visible:(ring-ring ring-2 outline-none)"
+	class="video-link ui-focus-ring"
+	data-prose-ui
 	aria-label="{label} — video clip, opens on the Deadlock forums"
 >
-	<Clapperboard class="text-signal size-3.5 shrink-0" aria-hidden="true" />
-	<span truncate>{label}</span>
-	<ExternalLink class="size-3 shrink-0 opacity-60" aria-hidden="true" />
+	<Clapperboard class="icon-sm video-icon" aria-hidden="true" />
+	<span>{label}</span>
+	<ExternalLink class="icon-xs" aria-hidden="true" />
 </a>
+
+<style>
+	@layer components.features {
+		.video-link {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.5rem;
+			margin-block: 0.5rem;
+			padding: 0.375rem 0.625rem;
+			border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+			border-radius: var(--radius-md);
+			background: color-mix(in srgb, var(--card) 60%, transparent);
+			color: var(--muted-foreground);
+			font-size: var(--text-xs);
+			font-weight: 500;
+			text-decoration: none;
+			transition:
+				border-color var(--duration-normal),
+				color var(--duration-normal);
+			&:hover {
+				border-color: color-mix(in srgb, var(--signal) 50%, transparent);
+				color: var(--foreground);
+			}
+			& span {
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			& :global(.video-icon) {
+				color: var(--signal);
+			}
+		}
+	}
+</style>

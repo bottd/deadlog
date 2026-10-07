@@ -12,160 +12,93 @@
 	} from './patchCard';
 
 	let { isNew = false, ...patch }: PatchCardProps & { isNew?: boolean } = $props();
-
 	const matches = $derived(patchCardMatches(patch));
 	const view = $derived(patchCardView(patch));
 	const links = $derived(patchCardHrefs(patch));
-	// ponytail: MAJOR is the only reliable tier — `category` is uniformly "patch"
-	// and entity count is a poor signal for "small patch", so no HOTFIX tier.
+	// MAJOR is the only reliable tier; entity count does not imply a small patch.
 	const isMajor = $derived(!!patch.majorUpdate);
 </script>
 
 <div
-	class={[
-		'clip-corner-sm group bg-card hover:bg-card-accent/30 relative flex h-full flex-col overflow-hidden border transition-colors duration-200',
-		!matches.searching && 'min-h-[200px]',
-		isMajor
-			? 'border-primary/50 hover:border-primary/80'
-			: 'border-border hover:border-signal/45'
-	]}
+	class="patch-card clip-corner-sm"
+	data-major={isMajor}
+	data-searching={matches.searching}
 >
-	<CornerAccents
-		tlSize="1.5rem"
-		brSize="1rem"
-		tlColor={isMajor ? 'bg-primary' : 'bg-signal/45'}
-		brColor={isMajor ? 'bg-primary/30' : 'bg-signal/20'}
-		tlHover={isMajor ? '' : 'group-hover:bg-signal'}
-		brHover={isMajor ? 'group-hover:bg-primary/60' : 'group-hover:bg-signal/60'}
-		thickness="0.125rem"
-	/>
-	{#if isNew}
-		<span
-			bg="primary"
-			text="primary-foreground"
-			absolute
-			z="20"
-			p="x-1.5 y-0.5"
-			font="bold"
-			class="kicker-xs clip-corner-sm top-2 right-2"
-		>
-			New
-		</span>
-	{/if}
-
+	<CornerAccents tlSize="1.5rem" brSize="1rem" thickness="0.125rem" />
+	{#if isNew}<span class="new-flag kicker-xs clip-corner-sm">New</span>{/if}
 	{#if !matches.searching && patch.previewImage}
-		<div border="border/70 b" relative h="28" shrink="0" class="overflow-hidden">
-			{#if patch.previewImage}
-				<img
-					data-patch-preview
-					src={patch.previewImage}
-					alt=""
-					width="640"
-					height="360"
-					loading="lazy"
-					decoding="async"
-					class="size-full object-cover transition-transform duration-500 group-hover:scale-105"
-				/>
-				<div
-					absolute
-					bg="gradient-to-b"
-					class="from-card/0 via-card/10 to-card/55 pointer-events-none inset-0"
-					aria-hidden="true"
-				></div>
-			{/if}
+		<div class="preview">
+			<img
+				data-patch-preview
+				src={patch.previewImage}
+				alt=""
+				width="640"
+				height="360"
+				loading="lazy"
+				decoding="async"
+			/>
+			<div class="preview-veil" aria-hidden="true"></div>
 		</div>
 	{/if}
-	<div
-		absolute
-		bg="gradient-to-br"
-		class="from-primary/0 group-hover:from-primary/5 pointer-events-none inset-0 to-transparent transition-all duration-200"
-	></div>
-
-	<div z="10" flex="~ 1 col" gap="3" p="4">
+	<div class="hover-veil" aria-hidden="true"></div>
+	<div class="card-body">
 		<div>
-			<div flex="~" m="b-1.5" items="center" gap="2">
-				<h2
-					text="foreground base"
-					font="semibold"
-					class="group-hover:text-primary line-clamp-2 min-w-0 tracking-tight transition-colors duration-300"
-				>
+			<div class="title-row">
+				<h2 class="card-title">
 					<a
 						href={links.href}
 						aria-label={view.accessibleLabel}
-						class={matches.searching ? 'ui-focus-ring rounded-sm' : 'stretched-link'}
+						class={matches.searching ? 'reading-link ui-focus-ring' : 'stretched-link'}
+						>{view.heading}</a
 					>
-						{view.heading}
-					</a>
 				</h2>
-				{#if isMajor}
-					<span
-						border="primary/40 ~"
-						bg="primary/15"
-						text="primary"
-						m="l-auto"
-						shrink="0"
-						p="x-1.5 y-0.5"
-						font="bold"
-						class="kicker-xs clip-corner-sm"
-					>
-						Major
-					</span>
-				{/if}
+				{#if isMajor}<span class="major-flag kicker-xs clip-corner-sm">Major</span>{/if}
 			</div>
-			<div flex="~" text="muted-foreground xs" items="center" gap="2">
-				<Avatar.Root
-					class="border-primary/20 group-hover:border-primary/50 size-6 border transition-all duration-300"
-				>
+			<div class="author-row">
+				<Avatar.Root class="patch-author-avatar">
 					<Avatar.Image src={patch.authorImage} alt="" />
-					<Avatar.Fallback
-						text="muted-foreground"
-						font="mono"
-						class="text-[11px] tracking-wide">{view.initials}</Avatar.Fallback
-					>
+					<Avatar.Fallback class="patch-author-initials">{view.initials}</Avatar.Fallback>
 				</Avatar.Root>
-				<span truncate>{patch.author}</span>
-				{#if view.named}
-					<span aria-hidden="true">&middot;</span>
-					<time datetime={patch.date}>{view.date}</time>
-				{/if}
+				<span class="author-name">{patch.author}</span>
+				{#if view.named}<span aria-hidden="true">&middot;</span><time
+						datetime={patch.date}>{view.date}</time
+					>{/if}
 			</div>
 		</div>
-
 		{#if patch.matches.length > 0}
-			<div class="space-y-4" data-matched-changes>
+			<div class="matched-changes" data-matched-changes>
 				{#each patch.matches as match (`${match.type}:${match.id}`)}
 					<section aria-label="{match.name} changes">
-						<div class="mb-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-							<h3 class="text-sm font-semibold">{match.name}</h3>
+						<div class="match-heading">
+							<h3>{match.name}</h3>
 							<a
 								href="/{match.type}/{match.slug}"
 								aria-label="{match.name} full history"
-								class="ui-focus-ring text-signal relative z-10 inline-flex min-h-11 items-center gap-1 rounded-sm text-xs underline-offset-4 hover:underline"
+								class="history-link ui-focus-ring"
+								>Full history <ArrowRight class="icon-sm" /></a
 							>
-								Full history <ArrowRight class="size-3.5" />
-							</a>
 						</div>
 						{#if match.changes.length}
-							<ul class="max-w-[72ch] space-y-2 text-sm leading-relaxed">
+							<ul class="change-list">
 								{#each match.changes as change, index (index)}
 									<li>
 										{#if change.ability && !change.text
 												.toLowerCase()
 												.startsWith(change.ability.toLowerCase())}<span
-												class="text-foreground font-medium"
+												class="ability-label"
 												>{change.ability}:
 											</span>{/if}
 										<HighlightedText text={change.text} query={searchParams.q} />
 									</li>
 								{/each}
 							</ul>
-							{#if match.changeCount !== null && match.changeCount > match.changes.length}
-								<p class="text-muted-foreground mt-2 text-xs">
+							{#if match.changeCount !== null && match.changeCount > match.changes.length}<p
+									class="more-changes"
+								>
 									{match.changeCount - match.changes.length} more changes in the full patch
-								</p>
-							{/if}
+								</p>{/if}
 						{:else}
-							<p class="text-muted-foreground text-sm">
+							<p class="match-context">
 								{match.changeCount === null
 									? 'Mentioned in this patch; see the full notes for context.'
 									: 'See the full patch for these changes.'}
@@ -175,31 +108,17 @@
 				{/each}
 			</div>
 		{/if}
-		{#if patch.summary}
-			<p
-				class={[
-					'text-muted-foreground max-w-[72ch] leading-relaxed',
-					matches.searching ? 'text-sm' : 'line-clamp-2 text-xs'
-				]}
-			>
+		{#if patch.summary}<p class="summary">
 				<HighlightedText text={patch.summary} query={searchParams.q} />
-			</p>
-		{/if}
-
+			</p>{/if}
 		{#each view.rows as row (row.type)}
-			{const isItems = row.type === 'items'}
-			<!-- Unfanned below `sm` so every icon keeps a full 44px touch target. -->
-			<div
-				class="flex flex-wrap items-center gap-1 sm:(flex-nowrap gap-0 [&>a+a]:-ml-1.5)"
-			>
+			<!-- Unfanned on phones so each image link has a full 44px touch target. -->
+			<div class="entity-row" data-entity-kind={row.kind}>
 				{#each row.list as icon (icon.id)}
 					<a
 						href={links.entityHref(icon)}
 						aria-label="Jump to {icon.alt} in this patch"
-						relative
-						z="10"
-						rounded="md"
-						class="group/icon ui-focus-outline flex size-11 items-center justify-center transition-all duration-200 sm:size-7 hover:(z-20 -translate-y-0.5 scale-110)"
+						class="entity-link ui-focus-outline"
 					>
 						<img
 							src={icon.src}
@@ -208,62 +127,368 @@
 							height="28"
 							loading="lazy"
 							decoding="async"
-							class={[
-								'border-border/80 bg-card size-7 rounded-md border object-cover shadow-sm transition-colors duration-200',
-								isItems
-									? 'group-hover/icon:border-signal/60'
-									: 'group-hover/icon:border-primary/50'
-							]}
 						/>
 					</a>
 				{/each}
-				{#if row.extra > 0}
-					<span
-						class={[
-							'bg-muted/80 text-muted-foreground flex size-11 items-center justify-center rounded-md font-mono text-[11px] font-semibold transition-all duration-300 sm:(ml-1.5 size-7)',
-							isItems
-								? 'group-hover:bg-signal/15 group-hover:text-signal'
-								: 'group-hover:bg-primary/15 group-hover:text-primary'
-						]}>+{row.extra}</span
-					>
-				{/if}
+				{#if row.extra > 0}<span class="extra-count">+{row.extra}</span>{/if}
 			</div>
 		{/each}
-
-		<div
-			flex="~"
-			border="border/50 t"
-			m="t-auto"
-			items="center"
-			gap="3"
-			p="t-3"
-			text="xs"
-		>
+		<div class="card-footer">
 			{#if matches.label}
-				<span flex="~" items="baseline" gap="1">
-					<span class={['font-mono font-bold', matches.tone]}>{matches.changeCount}</span>
-					<span text="foreground">{matches.label}</span>
-				</span>
-				<span text="muted-foreground" class="ml-auto hidden text-xs sm:inline"
-					>{view.totals} in full patch</span
+				<span class="stat" data-entity-kind={matches.kind}
+					><strong>{matches.changeCount}</strong><span class="matched-label"
+						>{matches.label}</span
+					></span
 				>
+				<span class="full-totals">{view.totals} in full patch</span>
 			{:else}
-				{#each view.counts as count (count.noun)}
-					<span flex="~" items="baseline" gap="1">
-						<span class={['font-mono font-bold', count.tone]}>{count.n}</span>
-						<span text="muted-foreground">{count.noun}</span>
-					</span>
-				{/each}
+				{#each view.counts as count (count.noun)}<span
+						class="stat"
+						data-entity-kind={count.kind}
+						><strong>{count.n}</strong><span>{count.noun}</span></span
+					>{/each}
 			{/if}
 			{#if matches.searching}
-				<a
-					href={links.href}
-					class="ui-focus-ring text-signal ml-auto inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-sm text-xs"
-					>Full patch <ArrowRight class="size-3.5" /></a
+				<a href={links.href} class="full-patch ui-focus-ring"
+					>Full patch <ArrowRight class="icon-sm" /></a
 				>
-			{:else}
-				<ArrowRight class="text-signal ml-auto size-3.5" />
-			{/if}
+			{:else}<span class="card-arrow"><ArrowRight class="icon-sm" /></span>{/if}
 		</div>
 	</div>
 </div>
+
+<style>
+	@layer components.features {
+		.patch-card {
+			--edge: var(--border);
+			--edge-hover: color-mix(in srgb, var(--signal) 45%, transparent);
+			--corner-tl: color-mix(in srgb, var(--signal) 45%, transparent);
+			--corner-br: color-mix(in srgb, var(--signal) 20%, transparent);
+			position: relative;
+			display: flex;
+			block-size: 100%;
+			flex-direction: column;
+			overflow: hidden;
+			border: 1px solid var(--edge);
+			background: var(--card);
+			transition:
+				border-color var(--duration-normal),
+				background-color var(--duration-normal);
+			&[data-searching='false'] {
+				min-block-size: 200px;
+			}
+			&:hover {
+				--corner-tl: var(--signal);
+				--corner-br: color-mix(in srgb, var(--signal) 60%, transparent);
+				border-color: var(--edge-hover);
+				background: color-mix(in srgb, var(--card-accent) 30%, transparent);
+			}
+			&[data-major='true'] {
+				--edge: color-mix(in srgb, var(--primary) 50%, transparent);
+				--edge-hover: color-mix(in srgb, var(--primary) 80%, transparent);
+				--corner-tl: var(--primary);
+				--corner-br: color-mix(in srgb, var(--primary) 30%, transparent);
+			}
+			&[data-major='true']:hover {
+				--corner-br: color-mix(in srgb, var(--primary) 60%, transparent);
+			}
+		}
+		.new-flag {
+			position: absolute;
+			top: 0.5rem;
+			right: 0.5rem;
+			z-index: 20;
+			padding: 0.125rem 0.375rem;
+			background: var(--primary);
+			color: var(--primary-foreground);
+			font-weight: 700;
+		}
+		.preview {
+			position: relative;
+			block-size: 7rem;
+			flex-shrink: 0;
+			overflow: hidden;
+			border-bottom: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+			& img {
+				inline-size: 100%;
+				block-size: 100%;
+				object-fit: cover;
+				transition: scale 500ms;
+			}
+		}
+		.patch-card:hover .preview img {
+			scale: 1.05;
+		}
+		.preview-veil {
+			position: absolute;
+			inset: 0;
+			pointer-events: none;
+			background: linear-gradient(
+				to bottom,
+				transparent,
+				color-mix(in srgb, var(--card) 10%, transparent),
+				color-mix(in srgb, var(--card) 55%, transparent)
+			);
+		}
+		.hover-veil {
+			position: absolute;
+			inset: 0;
+			pointer-events: none;
+			background: linear-gradient(
+				to bottom right,
+				color-mix(in srgb, var(--primary) 5%, transparent),
+				transparent
+			);
+			opacity: 0;
+			transition: opacity var(--duration-normal);
+		}
+		.patch-card:hover .hover-veil {
+			opacity: 1;
+		}
+		.card-body {
+			z-index: 10;
+			display: flex;
+			flex: 1;
+			flex-direction: column;
+			gap: 0.75rem;
+			padding: 1rem;
+		}
+		.title-row {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+			margin-bottom: 0.375rem;
+		}
+		.card-title {
+			min-inline-size: 0;
+			display: -webkit-box;
+			-webkit-line-clamp: 2;
+			line-clamp: 2;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+			color: var(--foreground);
+			font-size: var(--text-base);
+			font-weight: 600;
+			letter-spacing: -0.025em;
+			transition: color var(--duration-slow);
+		}
+		.patch-card:hover .card-title {
+			color: var(--primary);
+		}
+		.reading-link {
+			border-radius: var(--radius-sm);
+		}
+		.major-flag {
+			margin-left: auto;
+			flex-shrink: 0;
+			border: 1px solid color-mix(in srgb, var(--primary) 40%, transparent);
+			padding: 0.125rem 0.375rem;
+			background: color-mix(in srgb, var(--primary) 15%, transparent);
+			color: var(--primary);
+			font-weight: 700;
+		}
+		.author-row {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+			color: var(--muted-foreground);
+			font-size: var(--text-xs);
+		}
+		.author-name {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+		:global(.patch-author-avatar) {
+			inline-size: 1.5rem;
+			block-size: 1.5rem;
+			border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent);
+			transition: border-color var(--duration-slow);
+		}
+		.patch-card:hover :global(.patch-author-avatar) {
+			border-color: color-mix(in srgb, var(--primary) 50%, transparent);
+		}
+		:global(.patch-author-initials) {
+			color: var(--muted-foreground);
+			font: 0.6875rem var(--font-mono);
+			letter-spacing: 0.025em;
+		}
+		.matched-changes > * + * {
+			margin-top: 1rem;
+		}
+		.match-heading {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: baseline;
+			gap: 0.25rem 0.75rem;
+			margin-bottom: 0.5rem;
+			& h3 {
+				font-size: var(--text-sm);
+				font-weight: 600;
+			}
+		}
+		.history-link,
+		.full-patch {
+			display: inline-flex;
+			min-block-size: 2.75rem;
+			align-items: center;
+			gap: 0.25rem;
+			border-radius: var(--radius-sm);
+			color: var(--signal);
+			font-size: var(--text-xs);
+		}
+		.history-link {
+			position: relative;
+			z-index: 10;
+			text-underline-offset: 4px;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+		.change-list {
+			max-inline-size: 72ch;
+			font-size: var(--text-sm);
+			line-height: var(--leading-relaxed);
+			& > li + li {
+				margin-top: 0.5rem;
+			}
+		}
+		.ability-label {
+			color: var(--foreground);
+			font-weight: 500;
+		}
+		.more-changes {
+			margin-top: 0.5rem;
+			color: var(--muted-foreground);
+			font-size: var(--text-xs);
+		}
+		.match-context {
+			color: var(--muted-foreground);
+			font-size: var(--text-sm);
+		}
+		.summary {
+			max-inline-size: 72ch;
+			color: var(--muted-foreground);
+			font-size: var(--text-xs);
+			line-height: var(--leading-relaxed);
+			display: -webkit-box;
+			-webkit-line-clamp: 2;
+			line-clamp: 2;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+		}
+		.patch-card[data-searching='true'] .summary {
+			display: block;
+			font-size: var(--text-sm);
+		}
+		.entity-row {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			gap: 0.25rem;
+		}
+		.entity-link {
+			position: relative;
+			z-index: 10;
+			display: flex;
+			inline-size: 2.75rem;
+			block-size: 2.75rem;
+			align-items: center;
+			justify-content: center;
+			border-radius: var(--radius-md);
+			transition:
+				translate var(--duration-normal),
+				scale var(--duration-normal);
+			&:hover {
+				z-index: 20;
+				translate: 0 -0.125rem;
+				scale: 1.1;
+			}
+			& img {
+				inline-size: 1.75rem;
+				block-size: 1.75rem;
+				border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
+				border-radius: var(--radius-md);
+				background: var(--card);
+				object-fit: cover;
+				box-shadow: var(--shadow-sm);
+				transition: border-color var(--duration-normal);
+			}
+			&:hover img {
+				border-color: color-mix(in srgb, var(--entity-accent) 60%, transparent);
+			}
+		}
+		.extra-count {
+			display: flex;
+			inline-size: 2.75rem;
+			block-size: 2.75rem;
+			align-items: center;
+			justify-content: center;
+			border-radius: var(--radius-md);
+			background: color-mix(in srgb, var(--muted) 80%, transparent);
+			color: var(--muted-foreground);
+			font: 600 0.6875rem var(--font-mono);
+		}
+		.patch-card:hover .extra-count {
+			background: color-mix(in srgb, var(--entity-accent) 15%, transparent);
+			color: var(--entity-accent);
+		}
+		.card-footer {
+			display: flex;
+			align-items: center;
+			gap: 0.75rem;
+			margin-top: auto;
+			border-top: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
+			padding-top: 0.75rem;
+			font-size: var(--text-xs);
+		}
+		.stat {
+			display: flex;
+			align-items: baseline;
+			gap: 0.25rem;
+			color: var(--muted-foreground);
+			& strong {
+				color: var(--entity-accent);
+				font-family: var(--font-mono);
+				font-weight: 700;
+			}
+			& .matched-label {
+				color: var(--foreground);
+			}
+		}
+		.full-totals {
+			display: none;
+			margin-left: auto;
+			color: var(--muted-foreground);
+		}
+		.full-patch {
+			margin-left: auto;
+			flex-shrink: 0;
+			gap: 0.375rem;
+		}
+		.card-arrow {
+			margin-left: auto;
+			color: var(--signal);
+		}
+		@media (min-width: 40rem) {
+			.entity-row {
+				flex-wrap: nowrap;
+				gap: 0;
+			}
+			.entity-link,
+			.extra-count {
+				inline-size: 1.75rem;
+				block-size: 1.75rem;
+			}
+			.entity-link + .entity-link {
+				margin-left: -0.375rem;
+			}
+			.extra-count {
+				margin-left: 0.375rem;
+			}
+			.full-totals {
+				display: inline;
+			}
+		}
+	}
+</style>

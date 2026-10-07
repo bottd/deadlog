@@ -13,9 +13,6 @@
 	bind:value
 	bind:ref
 	data-slot="command"
-	class={[
-		'flex h-full w-full flex-col overflow-hidden rounded-md bg-popover text-popover-foreground',
-		className
-	]}
+	class={className}
 	{...restProps}
 />

@@ -4,12 +4,6 @@
 
 	export type ButtonSize = 'sm' | 'icon';
 
-	/** Spelled out so UnoCSS's extractor sees the shortcut names as literals. */
-	export const buttonSizes = {
-		sm: 'btn-sm',
-		icon: 'btn-icon'
-	} satisfies Record<ButtonSize, string>;
-
 	export type ButtonProps = WithElementRef<HTMLButtonAttributes> &
 		WithElementRef<HTMLAnchorAttributes> & {
 			size?: ButtonSize;
@@ -33,7 +27,8 @@
 	<a
 		bind:this={ref}
 		data-slot="button"
-		class={['btn-ghost', buttonSizes[size], className]}
+		data-size={size}
+		class={className}
 		href={disabled ? undefined : href}
 		aria-disabled={disabled}
 		role={disabled ? 'link' : undefined}
@@ -46,7 +41,8 @@
 	<button
 		bind:this={ref}
 		data-slot="button"
-		class={['btn-ghost', buttonSizes[size], className]}
+		data-size={size}
+		class={className}
 		{type}
 		{disabled}
 		{...restProps}

@@ -156,10 +156,10 @@
 	});
 </script>
 
-{#snippet stat(count: number, label: string, tone: string)}
-	<span flex="~" items="baseline" gap="1">
-		<span class={['font-mono font-bold', tone]}>{count}</span>
-		<span text="muted-foreground">{label}</span>
+{#snippet stat(count: number, label: string, kind: string)}
+	<span class="patch-stat" data-entity-kind={kind}>
+		<strong>{count}</strong>
+		<span>{label}</span>
 	</span>
 {/snippet}
 
@@ -186,134 +186,69 @@
 	<JsonLd schema={structuredData} />
 {/if}
 
-<main container m="x-auto t-8 b-24" p="x-4" class="max-w-4xl xl:max-w-6xl">
-	<a
-		href={backHref}
-		text="muted-foreground sm"
-		m="b-4"
-		items="center"
-		gap="2"
-		class="hover:text-signal inline-flex transition-colors"
-	>
-		<ArrowLeft class="size-4" />
+<main class="page-container patch-page">
+	<a href={backHref} class="back-link">
+		<ArrowLeft class="icon" />
 		Back to all changes
 	</a>
 
 	{#if filterActive}
-		<div
-			border="signal/30 ~"
-			bg="signal/5"
-			m="b-6"
-			flex="~ wrap"
-			items="center"
-			gap="x-3 y-1"
-			p="x-4 y-2.5"
-			text="sm"
-			class="clip-corner-sm"
-		>
+		<div class="filter-notice clip-corner-sm">
 			{#if mogFilter}
-				<span text="muted-foreground" kicker-sm> Filtered to </span>
-				<span text="foreground" font="medium">{matchedLabel}</span>
+				<span class="kicker-sm"> Filtered to </span>
+				<span class="filter-selection">{matchedLabel}</span>
 			{:else}
-				<span text="muted-foreground">
-					No changes for <span text="foreground" font="medium">{selectedLabel}</span> in this
-					patch.
+				<span>
+					No changes for <span class="filter-selection">{selectedLabel}</span> in this patch.
 				</span>
 			{/if}
-			<a
-				href={patchPath}
-				text="signal xs"
-				m="l-auto"
-				font="mono semibold"
-				class="hover:underline"
-			>
-				Show all changes
-			</a>
+			<a href={patchPath} class="clear-filter"> Show all changes </a>
 		</div>
 	{/if}
 
 	{#if showToc}
 		<button
-			flex="~"
 			type="button"
 			onclick={() => (tocOpen = true)}
-			border="border ~"
-			bg="card"
-			text="foreground xs"
-			m="b-4 l-auto"
-			h="10"
-			items="center"
-			gap="2"
-			p="x-3"
-			font="mono semibold"
-			uppercase
-			class="clip-corner-sm hover:border-signal hover:text-signal tracking-wider transition-colors xl:hidden"
+			class="toc-trigger clip-corner-sm"
 			aria-label="Open table of contents"
 		>
-			<ListIcon class="size-4" />
+			<ListIcon class="icon" />
 			Contents
 		</button>
 	{/if}
 
-	<div flex="~" gap="8">
+	<div class="patch-layout">
 		{#if showToc}
-			<aside w="56" shrink="0" class="hidden xl:block">
-				<div
-					sticky
-					p="r-1"
-					class="top-[12rem] max-h-[calc(100dvh-13rem)] overflow-y-auto overscroll-contain"
-					style="scrollbar-gutter: stable"
-					data-toc-scroll
-				>
+			<aside class="patch-toc">
+				<div class="patch-toc-scroll" data-toc-scroll>
 					<ChangelogToc {...tocProps} />
 				</div>
 			</aside>
 		{/if}
 
-		<article
-			border="border ~"
-			bg="card"
-			relative
-			flex="1"
-			class="clip-corner min-w-0 overflow-hidden"
-		>
+		<article class="patch-article clip-corner">
 			<CornerAccents tlSize="2rem" brSize="1.25rem" />
-			<div
-				absolute
-				h="px"
-				bg="gradient-to-r"
-				class="from-primary/60 via-signal/35 inset-x-0 top-0 to-transparent"
-				aria-hidden="true"
-			></div>
+			<div class="patch-top-rule" aria-hidden="true"></div>
 
-			<div relative p="4" class="sm:p-6 md:p-8">
-				<header m="b-4">
-					<div m="b-4" flex="~ wrap" items="start" justify="between" gap="4">
-						<div flex="~ col" gap="4">
-							<h1
-								font="display medium"
-								text="foreground 3xl"
-								class="heading-glow leading-tight tracking-wide"
-							>
+			<div class="patch-body">
+				<header class="patch-header">
+					<div class="patch-heading-row">
+						<div class="patch-identity">
+							<h1 class="patch-title heading-glow">
 								{patchTitle.heading}
 							</h1>
 
-							<div flex="~ wrap" items="center" gap="3">
-								<div flex="~" text="muted-foreground sm" items="center" gap="2.5">
-									<Avatar.Root
-										class="border-primary/30 ring-primary/10 size-7 border ring-2"
-									>
+							<div class="patch-metadata">
+								<div class="patch-byline">
+									<Avatar.Root class="article-author-avatar">
 										<Avatar.Image src={changelog.authorImage} alt={changelog.author} />
-										<Avatar.Fallback
-											text="muted-foreground xs"
-											font="mono"
-											class="tracking-wide"
-										>
+										<Avatar.Fallback class="article-author-initials">
 											{authorInitials(changelog.author)}
 										</Avatar.Fallback>
 									</Avatar.Root>
-									<span class="tracking-tight">
-										By <span text="foreground" font="medium">{changelog.author}</span>
+									<span class="byline-text">
+										By <span class="author-name">{changelog.author}</span>
 										{#if patchTitle.named}
 											on
 											<time datetime={changelog.date.toISOString()}
@@ -328,53 +263,46 @@
 								</div>
 
 								{#if heroCount > 0 || itemCount > 0}
-									<div bg="border" h="4" w="px" aria-hidden="true"></div>
-									<div flex="~" items="center" gap="3" text="xs">
+									<div class="metadata-divider" aria-hidden="true"></div>
+									<div class="patch-stats">
 										{#if heroCount > 0}
 											{@render stat(
 												heroCount,
 												plural(heroCount, 'hero', 'heroes'),
-												'text-primary'
+												'hero'
 											)}
 										{/if}
 										{#if itemCount > 0}
-											{@render stat(itemCount, plural(itemCount, 'item'), 'text-signal')}
+											{@render stat(itemCount, plural(itemCount, 'item'), 'item')}
 										{/if}
 									</div>
 								{/if}
 							</div>
 						</div>
 
-						<div flex="~" items="center" gap="2">
+						<div class="patch-actions">
 							<a
 								href={changelog.sourceUrl}
 								target="_blank"
 								rel="external noopener noreferrer"
-								flex="~"
-								text="muted-foreground xs"
-								h="10"
-								items="center"
-								gap="2"
-								p="x-3"
-								font="mono semibold"
-								class="ui-focus-ring hover:bg-primary/10 hover:text-primary rounded-md transition-colors"
+								class="ui-focus-ring original-link"
 								aria-label="View original patch notes"
 							>
-								<ExternalLink class="size-4" />
-								<span class="hidden sm:inline">Original</span>
+								<ExternalLink class="icon" />
+								<span class="original-label">Original</span>
 							</a>
 							<Button
 								size="icon"
 								onclick={copyLink}
-								class="text-muted-foreground hover:bg-signal/10 hover:text-signal"
+								class="copy-patch-link"
 								aria-label="Copy link to clipboard"
 							>
-								<Link class="size-4" />
+								<Link class="icon" />
 							</Button>
 						</div>
 					</div>
 
-					<hr border="none" class="editorial-divider" />
+					<hr class="editorial-divider" />
 				</header>
 
 				<MogContent content={MogComponent} {icons} filter={mogFilter} />
@@ -385,14 +313,264 @@
 
 {#if showToc}
 	<Sheet.Root bind:open={tocOpen}>
-		<Sheet.Content class="max-h-[70dvh] px-4">
-			<Sheet.Header class="pr-12">
-				<Sheet.Title class="text-sm font-semibold tracking-tight">Contents</Sheet.Title>
+		<Sheet.Content class="toc-sheet">
+			<Sheet.Header>
+				<Sheet.Title>Contents</Sheet.Title>
 				<Sheet.Description>Jump to a section or affected entity.</Sheet.Description>
 			</Sheet.Header>
-			<div p="x-2 b-6" class="overflow-y-auto">
+			<div class="toc-sheet-scroll">
 				<ChangelogToc {...tocProps} onnavigate={() => (tocOpen = false)} size="lg" />
 			</div>
 		</Sheet.Content>
 	</Sheet.Root>
 {/if}
+
+<style>
+	@layer components.features {
+		.patch-page {
+			max-inline-size: 56rem;
+			margin-block: 2rem 6rem;
+		}
+		.back-link {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.5rem;
+			margin-bottom: 1rem;
+			color: var(--muted-foreground);
+			font-size: var(--text-sm);
+			transition: color var(--duration-normal);
+			&:hover {
+				color: var(--signal);
+			}
+		}
+		.filter-notice {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			gap: 0.25rem 0.75rem;
+			margin-bottom: 1.5rem;
+			border: 1px solid color-mix(in srgb, var(--signal) 30%, transparent);
+			padding: 0.625rem 1rem;
+			background: color-mix(in srgb, var(--signal) 5%, transparent);
+			color: var(--muted-foreground);
+			font-size: var(--text-sm);
+		}
+		.filter-selection {
+			color: var(--foreground);
+			font-weight: 500;
+		}
+		.clear-filter {
+			margin-left: auto;
+			color: var(--signal);
+			font: 600 var(--text-xs) var(--font-mono);
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+		.toc-trigger {
+			display: flex;
+			block-size: 2.5rem;
+			align-items: center;
+			gap: 0.5rem;
+			margin: 0 0 1rem auto;
+			border: 1px solid var(--border);
+			padding-inline: 0.75rem;
+			background: var(--card);
+			color: var(--foreground);
+			font: 600 var(--text-xs) var(--font-mono);
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+			transition:
+				color var(--duration-normal),
+				border-color var(--duration-normal);
+			&:hover {
+				border-color: var(--signal);
+				color: var(--signal);
+			}
+		}
+		.patch-layout {
+			display: flex;
+			gap: 2rem;
+		}
+		.patch-toc {
+			display: none;
+			inline-size: 14rem;
+			flex-shrink: 0;
+		}
+		.patch-toc-scroll {
+			position: sticky;
+			top: 12rem;
+			max-block-size: calc(100dvh - 13rem);
+			overflow-y: auto;
+			overscroll-behavior: contain;
+			padding-right: 0.25rem;
+			scrollbar-gutter: stable;
+		}
+		.patch-article {
+			position: relative;
+			min-inline-size: 0;
+			flex: 1;
+			overflow: hidden;
+			border: 1px solid var(--border);
+			background: var(--card);
+		}
+		.patch-top-rule {
+			position: absolute;
+			inset-inline: 0;
+			top: 0;
+			block-size: 1px;
+			background: linear-gradient(
+				to right,
+				color-mix(in srgb, var(--primary) 60%, transparent),
+				color-mix(in srgb, var(--signal) 35%, transparent),
+				transparent
+			);
+		}
+		.patch-body {
+			position: relative;
+			padding: 1rem;
+		}
+		.patch-header {
+			margin-bottom: 1rem;
+		}
+		.patch-heading-row {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: flex-start;
+			justify-content: space-between;
+			gap: 1rem;
+			margin-bottom: 1rem;
+		}
+		.patch-identity {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+		}
+		.patch-title {
+			color: var(--foreground);
+			font: 500 var(--text-3xl)/1.25 var(--font-display);
+			letter-spacing: 0.025em;
+		}
+		.patch-metadata {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			gap: 0.75rem;
+		}
+		.patch-byline {
+			display: flex;
+			align-items: center;
+			gap: 0.625rem;
+			color: var(--muted-foreground);
+			font-size: var(--text-sm);
+		}
+		:global(.article-author-avatar) {
+			inline-size: 1.75rem;
+			block-size: 1.75rem;
+			border: 1px solid color-mix(in srgb, var(--primary) 30%, transparent);
+			box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary) 10%, transparent);
+		}
+		:global(.article-author-initials) {
+			color: var(--muted-foreground);
+			font: var(--text-xs) var(--font-mono);
+			letter-spacing: 0.025em;
+		}
+		.byline-text {
+			letter-spacing: -0.025em;
+		}
+		.author-name {
+			color: var(--foreground);
+			font-weight: 500;
+		}
+		.metadata-divider {
+			inline-size: 1px;
+			block-size: 1rem;
+			background: var(--border);
+		}
+		.patch-stats {
+			display: flex;
+			align-items: center;
+			gap: 0.75rem;
+			font-size: var(--text-xs);
+		}
+		.patch-stat {
+			display: flex;
+			align-items: baseline;
+			gap: 0.25rem;
+			color: var(--muted-foreground);
+			& strong {
+				color: var(--entity-accent);
+				font-family: var(--font-mono);
+				font-weight: 700;
+			}
+		}
+		.patch-actions {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+		}
+		.original-link {
+			display: flex;
+			block-size: 2.5rem;
+			align-items: center;
+			gap: 0.5rem;
+			border-radius: var(--radius-md);
+			padding-inline: 0.75rem;
+			color: var(--muted-foreground);
+			font: 600 var(--text-xs) var(--font-mono);
+			transition:
+				background-color var(--duration-normal),
+				color var(--duration-normal);
+			&:hover {
+				background: color-mix(in srgb, var(--primary) 10%, transparent);
+				color: var(--primary);
+			}
+		}
+		.original-label {
+			display: none;
+		}
+		:global(.copy-patch-link) {
+			color: var(--muted-foreground);
+		}
+		:global(.copy-patch-link:hover) {
+			background: color-mix(in srgb, var(--signal) 10%, transparent);
+			color: var(--signal);
+		}
+		:global(.toc-sheet) {
+			max-block-size: 70dvh;
+			padding-inline: 1rem;
+		}
+		:global(.toc-sheet [data-slot='sheet-title']) {
+			font-size: var(--text-sm);
+			letter-spacing: -0.025em;
+		}
+		.toc-sheet-scroll {
+			overflow-y: auto;
+			padding: 0 0.5rem 1.5rem;
+		}
+		@media (min-width: 40rem) {
+			.patch-body {
+				padding: 1.5rem;
+			}
+			.original-label {
+				display: inline;
+			}
+		}
+		@media (min-width: 48rem) {
+			.patch-body {
+				padding: 2rem;
+			}
+		}
+		@media (min-width: 80rem) {
+			.patch-page {
+				max-inline-size: 72rem;
+			}
+			.patch-toc {
+				display: block;
+			}
+			.toc-trigger {
+				display: none;
+			}
+		}
+	}
+</style>

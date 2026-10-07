@@ -1,4 +1,5 @@
 <script lang="ts">
+	import './toc.css';
 	import type { ChangelogAbilityIcon, EntityIcon, MogTocEntry } from '#lib/types.ts';
 	import { entityFragmentId, resolveHeroAbilitySlug } from '@deadlog/utils';
 	import { genericTocEntries } from './toc';
@@ -29,7 +30,7 @@
 	);
 	const genericEntries = $derived(genericTocEntries({ toc, heroes, items }));
 
-	// Everything else about `size` is CSS on `.toc.lg`; only the intrinsic image
+	// Everything else about `size` is CSS on data-size; only the intrinsic image
 	// dimensions have to be attributes, so that reserving space still prevents reflow.
 	const iconPx = $derived(
 		size === 'lg' ? { entity: 28, ability: 20 } : { entity: 16, ability: 14 }
@@ -91,13 +92,11 @@
 	});
 </script>
 
-<nav class={['toc toc-panel clip-corner-sm', size]} aria-label="Table of contents">
+<nav class="toc-panel clip-corner-sm" data-size={size} aria-label="Table of contents">
 	{#if size === 'sm'}
-		<div bg="signal/50" m="b-4" h="px" w="8" aria-hidden="true"></div>
+		<div class="toc-rule" aria-hidden="true"></div>
 
-		<p text="muted-foreground" m="b-4" font="bold" class="kicker-xs tracking-[0.2em]">
-			Contents
-		</p>
+		<p class="toc-label kicker-xs">Contents</p>
 	{/if}
 
 	<div class="toc-tree" data-toc-tree>
@@ -115,7 +114,7 @@
 				onclick={onnavigate}
 			>
 				<span class="toc-marker" aria-hidden="true"></span>
-				<span class="line-clamp-2 leading-tight">{entry.title}</span>
+				<span class="toc-heading-text">{entry.title}</span>
 			</a>
 		{/each}
 
@@ -131,7 +130,7 @@
 						<li>
 							<a
 								href="#{entity.fragment}"
-								class="toc-entity toc-link min-w-0"
+								class="toc-entity toc-link"
 								onclick={onnavigate}
 							>
 								<img
@@ -143,10 +142,10 @@
 									decoding="async"
 									class="toc-entity-img"
 								/>
-								<span truncate>{entity.alt}</span>
+								<span class="toc-link-text">{entity.alt}</span>
 							</a>
 							{#if entity.abilities.length > 0}
-								<ul space="y-px">
+								<ul class="toc-abilities">
 									{#each entity.abilities as ability, i (i)}
 										<li>
 											<a
@@ -167,7 +166,7 @@
 												{:else}
 													<span class="toc-ability-icon" aria-hidden="true"></span>
 												{/if}
-												<span truncate>{ability.title}</span>
+												<span class="toc-link-text">{ability.title}</span>
 											</a>
 										</li>
 									{/each}
@@ -180,90 +179,3 @@
 		{/each}
 	</div>
 </nav>
-
-<style lang="postcss">
-	/* The `sm` rules below are the base; `.toc.lg` overrides only what actually changes. */
-	.toc-tree {
-		@apply space-y-1;
-	}
-
-	.toc-subsection {
-		@apply text-muted-foreground pl-6 font-normal;
-	}
-
-	.toc-entities {
-		@apply mt-0.5 space-y-px;
-	}
-
-	.toc-entity {
-		@apply gap-1.5 py-0.5 pl-3 text-xs;
-	}
-
-	.toc-entity-img {
-		@apply size-4 rounded object-cover;
-	}
-
-	.toc-ability {
-		@apply ml-4 gap-1.5 py-0.5 pl-3 text-[11px];
-	}
-
-	.toc-ability-icon {
-		@apply size-3.5 shrink-0;
-	}
-
-	.toc-ability-img {
-		@apply rounded-sm object-cover;
-	}
-
-	.toc ul {
-		@apply list-none;
-	}
-
-	.toc.lg .toc-tree {
-		@apply space-y-1.5;
-	}
-
-	.toc.lg .toc-group {
-		@apply pt-3;
-	}
-
-	.toc.lg .toc-section {
-		@apply gap-3 py-2 pr-2 pl-4 text-sm;
-	}
-
-	.toc.lg .toc-count {
-		@apply bg-signal/10 rounded-full px-2 py-0.5 text-xs font-medium;
-	}
-
-	.toc.lg .toc-marker {
-		@apply h-4 w-0.5;
-	}
-
-	.toc.lg .toc-section:hover .toc-marker {
-		@apply h-5;
-	}
-
-	.toc.lg .toc-entities {
-		@apply mt-1 space-y-0.5;
-	}
-
-	.toc.lg .toc-entity {
-		@apply gap-2.5 rounded py-1.5 pl-4 text-sm;
-	}
-
-	.toc.lg .toc-entity-img {
-		@apply size-7;
-	}
-
-	.toc.lg .toc-ability {
-		@apply ml-6 gap-2 py-1 pl-3 text-sm;
-	}
-
-	.toc.lg .toc-ability-icon {
-		@apply size-5;
-	}
-
-	.toc.lg .toc-ability-img {
-		@apply rounded;
-	}
-</style>

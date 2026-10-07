@@ -1,7 +1,7 @@
 <script lang="ts">
 	import XIcon from '@lucide/svelte/icons/x';
 	import Badge from '#lib/components/ui/badge/badge.svelte';
-	import { ENTITY_TONE, type EntityKind } from '#lib/entityTone.ts';
+	import { ENTITY_KINDS, type EntityKind } from '#lib/entityKinds.ts';
 
 	interface Props {
 		name: string;
@@ -11,20 +11,16 @@
 	}
 
 	let { name, icon, onRemove, kind = 'hero' }: Props = $props();
-	const tone = $derived(ENTITY_TONE[kind]);
+	const entityKind = $derived(ENTITY_KINDS[kind]);
 </script>
 
 <button
 	type="button"
 	onclick={onRemove}
-	rounded="md"
-	class="group/badge min-h-11 shrink-0 focus-visible:outline-none"
-	aria-label="Remove {tone.label} filter: {name}"
+	class="filter-badge ui-focus-ring"
+	aria-label="Remove {entityKind.label} filter: {name}"
 >
-	<Badge
-		variant={tone.badgeVariant}
-		class="group-focus-visible/badge:ring-signal/50 hover:shadow-primary/10 cursor-pointer transition-all duration-200 group-hover/badge:pr-2 group-hover/badge:shadow-md group-focus-visible/badge:ring-2"
-	>
+	<Badge variant={kind === 'hero' ? 'default' : 'signal'}>
 		{#if icon}
 			<img
 				src={icon}
@@ -33,14 +29,46 @@
 				height="18"
 				loading="lazy"
 				decoding="async"
-				class="size-[18px] rounded object-cover transition-all duration-200 group-hover/badge:scale-110"
+				class="filter-image"
 			/>
 		{/if}
-		<span font="mono" uppercase class="text-[11px] tracking-wide">{tone.label}</span>
-		<span aria-hidden="true" op="50">/</span>
-		<span text="xs" font="medium" class="tracking-tight">{name}</span>
-		<XIcon
-			class="size-3 opacity-60 transition-all duration-200 group-hover/badge:scale-110 group-hover/badge:opacity-100"
-		/>
+		<span class="kind-label">{entityKind.label}</span>
+		<span aria-hidden="true" class="separator">/</span>
+		<span class="entity-name">{name}</span>
+		<XIcon class="icon-xs" />
 	</Badge>
 </button>
+
+<style>
+	@layer components.features {
+		.filter-badge {
+			min-block-size: 2.75rem;
+			flex-shrink: 0;
+			border-radius: var(--radius-md);
+		}
+		.filter-image {
+			inline-size: 18px;
+			block-size: 18px;
+			border-radius: 0.25rem;
+			object-fit: cover;
+			transition: scale var(--duration-normal);
+		}
+		.filter-badge:hover .filter-image {
+			scale: 1.1;
+		}
+		.kind-label {
+			font-family: var(--font-mono);
+			font-size: 0.6875rem;
+			text-transform: uppercase;
+			letter-spacing: 0.025em;
+		}
+		.separator {
+			opacity: 0.5;
+		}
+		.entity-name {
+			font-size: var(--text-xs);
+			font-weight: 500;
+			letter-spacing: -0.025em;
+		}
+	}
+</style>

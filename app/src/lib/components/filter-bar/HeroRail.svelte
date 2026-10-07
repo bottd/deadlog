@@ -25,17 +25,17 @@
 </script>
 
 {#if heroes.length > 0}
-	<div m="b-2" role="group" aria-labelledby="hero-rail-label">
-		<span id="hero-rail-label" text="muted-foreground" m="b-2" block kicker-sm>
+	<div class="hero-rail" role="group" aria-labelledby="hero-rail-label">
+		<span id="hero-rail-label" class="rail-label kicker-sm">
 			&mdash; Filter by hero
-			<span text="muted-foreground">({heroes.length})</span>
+			<span>({heroes.length})</span>
 			{#if atCap}
-				<span text="primary">&mdash; {MAX_ENTITY_FILTERS} hero limit reached</span>
+				<span class="limit">&mdash; {MAX_ENTITY_FILTERS} hero limit reached</span>
 			{/if}
 		</span>
-		<div relative>
-			<div p="x-4 b-1" class="-mx-4 overflow-x-auto sm:mx-0 sm:overflow-visible sm:px-0">
-				<div flex="~" w="max" gap="1.5" class="sm:w-auto sm:flex-wrap">
+		<div class="rail-frame">
+			<div class="rail-scroll">
+				<div class="rail-options">
 					{#each heroes as { hero, selected } (hero.id)}
 						{const blocked = !selected && atCap}
 						<button
@@ -45,7 +45,7 @@
 							title={blocked ? `${hero.name} — filter limit reached` : hero.name}
 							aria-label={blocked ? `${hero.name} — filter limit reached` : hero.name}
 							aria-pressed={selected}
-							class="clip-corner-sm border-border relative size-11 shrink-0 overflow-hidden border opacity-70 transition-colors disabled:cursor-not-allowed disabled:opacity-30 hover:z-10 idle-hover:(border-primary/55 opacity-100) selected:(border-primary ring-primary/45 opacity-100 ring-2)"
+							class="clip-corner-sm hero-option"
 						>
 							<img
 								src={getHeroCardImage(hero)}
@@ -54,17 +54,100 @@
 								height="36"
 								loading="lazy"
 								decoding="async"
-								class="size-full object-cover"
+								class="hero-image"
 							/>
 						</button>
 					{/each}
 				</div>
 			</div>
-			<div
-				absolute
-				aria-hidden="true"
-				class="from-background pointer-events-none inset-y-0 right-0 w-10 bg-gradient-to-l to-transparent sm:hidden"
-			></div>
+			<div aria-hidden="true" class="rail-fade"></div>
 		</div>
 	</div>
 {/if}
+
+<style>
+	@layer components.features {
+		.hero-rail {
+			margin-bottom: 0.5rem;
+		}
+		.rail-label {
+			display: block;
+			margin-bottom: 0.5rem;
+			color: var(--muted-foreground);
+		}
+		.limit {
+			color: var(--primary);
+		}
+		.rail-frame {
+			position: relative;
+		}
+		.rail-scroll {
+			overflow-x: auto;
+			margin-inline: -1rem;
+			padding: 0 1rem 0.25rem;
+		}
+		.rail-options {
+			display: flex;
+			inline-size: max-content;
+			gap: 0.375rem;
+		}
+		.hero-option {
+			position: relative;
+			inline-size: 2.75rem;
+			block-size: 2.75rem;
+			flex-shrink: 0;
+			overflow: hidden;
+			border: 1px solid var(--border);
+			opacity: 0.7;
+			transition:
+				border-color var(--duration-normal),
+				opacity var(--duration-normal);
+			&:hover {
+				z-index: 10;
+			}
+			&:hover:not([aria-pressed='true']) {
+				border-color: color-mix(in srgb, var(--primary) 55%, transparent);
+				opacity: 1;
+			}
+			&[aria-pressed='true'] {
+				border-color: var(--primary);
+				opacity: 1;
+				box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary) 45%, transparent);
+			}
+			&:focus-visible {
+				box-shadow: inset 0 0 0 2px var(--ring);
+			}
+			&:disabled {
+				cursor: not-allowed;
+				opacity: 0.3;
+			}
+		}
+		.hero-image {
+			inline-size: 100%;
+			block-size: 100%;
+			object-fit: cover;
+		}
+		.rail-fade {
+			position: absolute;
+			inset-block: 0;
+			right: 0;
+			inline-size: 2.5rem;
+			pointer-events: none;
+			background: linear-gradient(to left, var(--background), transparent);
+		}
+		@media (min-width: 40rem) {
+			.rail-scroll {
+				margin-inline: 0;
+				padding-inline: 0;
+				overflow: visible;
+			}
+			.rail-options {
+				inline-size: auto;
+				flex-wrap: wrap;
+			}
+			.rail-fade {
+				display: none;
+			}
+		}
+	}
+</style>

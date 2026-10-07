@@ -2,7 +2,6 @@ import adapterCloudflare from '@sveltejs/adapter-cloudflare';
 import adapterNode from '@sveltejs/adapter-node';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { transformMogOutput } from './mog-preprocess.js';
-import UnoCSS from 'unocss/vite';
 import { defineConfig, type Plugin } from 'vitest/config';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { mogPlugin } from 'vite-plugin-mog';
@@ -46,7 +45,6 @@ export default defineConfig({
 			theme: { light: 'github-light', dark: 'github-dark' }
 		}),
 		failOnMogDiagnostics,
-		UnoCSS(),
 		sveltekit({
 			extensions: ['.svelte', '.mg'],
 			preprocess: [transformMogOutput, vitePreprocess()],

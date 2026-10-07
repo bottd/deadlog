@@ -11,9 +11,6 @@
 <SheetPrimitive.Overlay
 	bind:ref
 	data-slot="sheet-overlay"
-	class={[
-		'overlay data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out',
-		className
-	]}
+	class={className}
 	{...restProps}
 />

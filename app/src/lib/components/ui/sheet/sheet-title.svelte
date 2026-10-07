@@ -8,9 +8,4 @@
 	}: SheetPrimitive.TitleProps = $props();
 </script>
 
-<SheetPrimitive.Title
-	bind:ref
-	data-slot="sheet-title"
-	class={['text-foreground font-semibold', className]}
-	{...restProps}
-/>
+<SheetPrimitive.Title bind:ref data-slot="sheet-title" class={className} {...restProps} />

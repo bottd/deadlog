@@ -22,17 +22,12 @@
 	<SheetPrimitive.Content
 		bind:ref
 		data-slot="sheet-content"
-		class={[
-			'sheet-bottom data-[state=open]:animate-slide-up-in data-[state=closed]:animate-slide-down-out',
-			className
-		]}
+		class={className}
 		{...restProps}
 	>
 		{@render children?.()}
-		<SheetPrimitive.Close
-			class="ui-focus-ring absolute end-2 top-2 z-10 flex size-11 items-center justify-center rounded-md op-70 transition-opacity hover:op-100 disabled:pointer-events-none"
-		>
-			<XIcon class="size-4" />
+		<SheetPrimitive.Close class="ui-focus-ring sheet-close">
+			<XIcon class="icon" />
 			<span class="sr-only">Close</span>
 		</SheetPrimitive.Close>
 	</SheetPrimitive.Content>

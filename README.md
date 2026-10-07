@@ -10,7 +10,7 @@ A searchable Deadlock patch archive with per-hero, per-item, and per-ability his
   - SQLite (`@libsql/client`), read at build time only
 - PNPM
 - SvelteKit
-- UnoCSS
+- CSS
 - TypeScript
 - Playwright
 - [Deadlock API](https://deadlock-api.com)

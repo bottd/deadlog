@@ -8,89 +8,29 @@
 	<a
 		{href}
 		aria-current={page.url.pathname.startsWith(section) ? 'page' : undefined}
-		class="ui-focus-ring text-muted-foreground inline-flex min-h-11 items-center rounded px-3 font-mono text-xs font-semibold tracking-wider uppercase transition-colors hover:(bg-signal/10 text-signal) selected:(bg-signal/10 text-signal)"
+		class="nav-link ui-focus-ring">{label}</a
 	>
-		{label}
-	</a>
 {/snippet}
 
-<header
-	border="signal/15 b"
-	bg="card/90"
-	sticky
-	z="50"
-	p="b-3"
-	class="animate-entrance-down backdrop-blur-xl"
->
-	<div container m="x-auto" p="x-4">
+<header class="site-header">
+	<div class="page-container">
 		<nav aria-label="Primary navigation">
-			<div flex="~" h="16" items="center" justify="between">
-				<a
-					flex="~"
-					href="/"
-					aria-label="deadlog.io - Home"
-					items="center"
-					gap="4"
-					class="group transition-all duration-300"
-				>
-					<div relative>
-						<div
-							flex="~"
-							bg="primary/10"
-							items="center"
-							justify="center"
-							rounded="lg"
-							class="group-hover:bg-primary/20 size-10 transition-all duration-300"
-						>
-							<Crosshair
-								class="text-primary size-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-45"
-							/>
-						</div>
-						<div
-							bg="primary"
-							absolute
-							op="60"
-							class="-top-0.5 -left-0.5 size-1.5 transition-all duration-300 group-hover:opacity-100"
-						></div>
-						<div
-							bg="signal"
-							absolute
-							op="70"
-							class="-right-0.5 -bottom-0.5 size-1.5 transition-all duration-300 group-hover:opacity-100"
-						></div>
+			<div class="nav-row">
+				<a href="/" aria-label="deadlog.io - Home" class="wordmark">
+					<div class="mark">
+						<div class="mark-tile"><Crosshair class="icon-lg" /></div>
+						<div class="mark-pip primary" aria-hidden="true"></div>
+						<div class="mark-pip signal" aria-hidden="true"></div>
 					</div>
-
-					<div flex="~ col">
-						<div flex="~" items="baseline" gap="2">
-							<span
-								font="display medium"
-								text="foreground 2xl"
-								class="tracking-wide transition-colors duration-300 md:text-3xl"
-							>
-								dead<span text="primary">log</span>
-							</span>
-							<span
-								bg="primary/10"
-								text="primary"
-								p="x-1.5 y-0.5"
-								font="mono medium"
-								uppercase
-								class="hidden rounded text-[11px] tracking-wider md:inline-block"
-							>
-								.io
-							</span>
+					<div>
+						<div class="wordmark-line">
+							<span class="wordmark-name">dead<span>log</span></span>
+							<span class="wordmark-domain">.io</span>
 						</div>
-						<span
-							text="muted-foreground xs"
-							font="medium"
-							class="hidden tracking-wide md:block"
-						>
-							Deadlock Changelog
-						</span>
+						<span class="wordmark-description">Deadlock Changelog</span>
 					</div>
 				</a>
-
-				<div flex="~" items="center" gap="1" class="sm:gap-2">
+				<div class="nav-links">
 					{@render navLink('/heroes', '/hero', 'Heroes')}
 					{@render navLink('/items', '/item', 'Items')}
 				</div>
@@ -101,7 +41,143 @@
 </header>
 
 <style>
-	header {
-		top: var(--safe-area-inset-top);
+	@layer components.features {
+		.site-header {
+			position: sticky;
+			top: var(--safe-area-inset-top);
+			z-index: 50;
+			padding-bottom: 0.75rem;
+			border-bottom: 1px solid color-mix(in srgb, var(--signal) 15%, transparent);
+			background: color-mix(in srgb, var(--card) 90%, transparent);
+			backdrop-filter: blur(24px);
+			animation: entrance-slide-down 500ms var(--ease-out) both;
+		}
+		.nav-row {
+			display: flex;
+			block-size: 4rem;
+			align-items: center;
+			justify-content: space-between;
+		}
+		.nav-links {
+			display: flex;
+			align-items: center;
+			gap: 0.25rem;
+		}
+		.nav-link {
+			display: inline-flex;
+			min-block-size: 2.75rem;
+			align-items: center;
+			border-radius: 0.25rem;
+			padding-inline: 0.75rem;
+			color: var(--muted-foreground);
+			font: 600 var(--text-xs)/1.3333 var(--font-mono);
+			letter-spacing: 0.05em;
+			text-transform: uppercase;
+			transition:
+				background-color var(--duration-normal),
+				color var(--duration-normal);
+			&:is(:hover, [aria-current='page']) {
+				background: color-mix(in srgb, var(--signal) 10%, transparent);
+				color: var(--signal);
+			}
+		}
+		.wordmark {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+		}
+		.mark {
+			position: relative;
+		}
+		.mark-tile {
+			display: flex;
+			inline-size: 2.5rem;
+			block-size: 2.5rem;
+			align-items: center;
+			justify-content: center;
+			border-radius: var(--radius-lg);
+			background: color-mix(in srgb, var(--primary) 10%, transparent);
+			color: var(--primary);
+			transition: background-color var(--duration-slow);
+		}
+		.mark-tile :global(svg) {
+			transition:
+				scale var(--duration-slow),
+				rotate var(--duration-slow);
+		}
+		.wordmark:hover .mark-tile {
+			background: color-mix(in srgb, var(--primary) 20%, transparent);
+		}
+		.wordmark:hover .mark-tile :global(svg) {
+			scale: 1.1;
+			rotate: 45deg;
+		}
+		.mark-pip {
+			position: absolute;
+			inline-size: 0.375rem;
+			block-size: 0.375rem;
+			transition: opacity var(--duration-slow);
+		}
+		.mark-pip.primary {
+			top: -0.125rem;
+			left: -0.125rem;
+			background: var(--primary);
+			opacity: 0.6;
+		}
+		.mark-pip.signal {
+			bottom: -0.125rem;
+			right: -0.125rem;
+			background: var(--signal);
+			opacity: 0.7;
+		}
+		.wordmark:hover .mark-pip {
+			opacity: 1;
+		}
+		.wordmark-line {
+			display: flex;
+			align-items: baseline;
+			gap: 0.5rem;
+		}
+		.wordmark-name {
+			font: 500 var(--text-2xl)/1.3333 var(--font-display);
+			letter-spacing: 0.025em;
+		}
+		.wordmark-name span {
+			color: var(--primary);
+		}
+		.wordmark-domain {
+			display: none;
+			padding: 0.125rem 0.375rem;
+			border-radius: 0.25rem;
+			background: color-mix(in srgb, var(--primary) 10%, transparent);
+			color: var(--primary);
+			font: 500 0.6875rem/1.5 var(--font-mono);
+			letter-spacing: 0.05em;
+			text-transform: uppercase;
+		}
+		.wordmark-description {
+			display: none;
+			color: var(--muted-foreground);
+			font-size: var(--text-xs);
+			font-weight: 500;
+			letter-spacing: 0.025em;
+		}
+		@media (min-width: 40rem) {
+			.nav-links {
+				gap: 0.5rem;
+			}
+		}
+		@media (min-width: 48rem) {
+			.wordmark-name {
+				font-size: var(--text-3xl);
+				line-height: 1.2;
+			}
+			.wordmark-domain {
+				display: inline-block;
+			}
+			.wordmark-description {
+				display: block;
+			}
+		}
 	}
 </style>

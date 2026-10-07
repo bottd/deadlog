@@ -19,6 +19,17 @@
 
 {#each parts as part, index (index)}
 	{#if query && index % 2 === 1}
-		<mark class="bg-primary/15 text-primary rounded-sm px-0.5">{part}</mark>
+		<mark>{part}</mark>
 	{:else}{part}{/if}
 {/each}
+
+<style>
+	@layer components.features {
+		mark {
+			border-radius: var(--radius-sm);
+			padding-inline: 0.125rem;
+			background: color-mix(in srgb, var(--primary) 15%, transparent);
+			color: var(--primary);
+		}
+	}
+</style>

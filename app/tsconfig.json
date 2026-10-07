@@ -10,6 +10,6 @@
 			"@cloudflare/workers-types"
 		]
 	},
-	"include": ["src/**/*", "mog-preprocess.js", "vite.config.ts", "uno.config.ts"],
+	"include": ["src/**/*", "mog-preprocess.js", "vite.config.ts"],
 	"exclude": [".svelte-kit/**", "node_modules/**"]
 }

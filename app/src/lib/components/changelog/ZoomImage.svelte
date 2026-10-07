@@ -13,15 +13,24 @@
 
 <button
 	type="button"
-	class="zoom-trigger my-6 block w-full"
+	class="zoom-trigger standalone-image"
+	data-prose-ui
 	aria-label="View larger: {alt}"
 	onclick={() => openLightbox([{ src, alt }], 0)}
 >
-	<img
-		{src}
-		{alt}
-		loading="lazy"
-		decoding="async"
-		class="changelog-image h-auto max-h-[32rem]"
-	/>
+	<img {src} {alt} loading="lazy" decoding="async" class="changelog-image" />
 </button>
+
+<style>
+	@layer components.features {
+		.standalone-image {
+			display: block;
+			inline-size: 100%;
+			margin-block: 1.5rem;
+		}
+		.changelog-image {
+			block-size: auto;
+			max-block-size: 32rem;
+		}
+	}
+</style>

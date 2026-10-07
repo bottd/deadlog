@@ -21,55 +21,27 @@
 	})}
 />
 
-<main class="container mx-auto px-4">
-	<div class="mx-auto mt-8 mb-24 max-w-2xl">
-		<div
-			border="border/50 2"
-			bg="card"
-			relative
-			p="x-6 y-12 sm:x-12"
-			text="center"
-			class="clip-corner overflow-hidden"
-			role="alert"
-		>
-			<CornerAccents
-				tlSize="2rem"
-				brSize="1.5rem"
-				tlColor="bg-muted-foreground/30"
-				brColor="bg-muted-foreground/20"
-				thickness="2px"
-			/>
+<main class="page-container error-page">
+	<div class="error-content">
+		<div class="empty-panel clip-corner" role="alert">
+			<CornerAccents tlSize="2rem" brSize="1.5rem" thickness="2px" />
 
-			<div
-				flex="~"
-				border="border ~"
-				bg="muted/30"
-				m="x-auto b-6"
-				items="center"
-				justify="center"
-				class="clip-corner-sm size-20"
-			>
+			<div class="empty-symbol clip-corner-sm">
 				{#if isMissing}
-					<SearchX class="text-muted-foreground size-10" />
+					<SearchX class="icon-xl" />
 				{:else}
-					<TriangleAlert class="text-destructive size-10" />
+					<TriangleAlert class="icon-xl error-icon" />
 				{/if}
 			</div>
 
-			<h1
-				font="display medium"
-				text="foreground 2xl sm:3xl"
-				m="b-3"
-				class="tracking-wide"
-			>
+			<h1 class="empty-heading">
 				{isMissing ? 'Not in the log' : 'That request failed'}
 			</h1>
 
-			<p text="muted-foreground" m="x-auto b-2" class="max-w-md leading-relaxed">
+			<p class="empty-copy">
 				{#if isMissing}
-					Nothing is recorded at <span text="foreground" font="mono" class="break-all"
-						>{page.url.pathname}</span
-					>. Heroes and items are renamed between patches, so an older link can point at a
+					Nothing is recorded at <span class="missing-path">{page.url.pathname}</span>.
+					Heroes and items are renamed between patches, so an older link can point at a
 					name the archive no longer uses.
 				{:else}
 					{page.error?.message ?? 'The page could not be loaded.'} Reloading may be enough;
@@ -77,45 +49,94 @@
 				{/if}
 			</p>
 
-			<p text="muted-foreground xs" font="mono" m="b-8" class="tracking-wide">
+			<p class="error-status">
 				Status {page.status}
 			</p>
 
 			<nav aria-label="Recover">
-				<ul
-					flex="~ col sm:row"
-					gap="2"
-					justify="center"
-					class="items-stretch sm:items-center"
-				>
+				<ul class="recovery-links">
 					<li>
-						<a href="/heroes" class="pill-signal flex justify-center gap-1.5">
+						<a href="/heroes" class="pill-signal">
 							Browse heroes
-							{#if heroCount}<span text="muted-foreground xs" font="mono"
-									>{heroCount}</span
-								>{/if}
+							{#if heroCount}<span class="entity-count">{heroCount}</span>{/if}
 						</a>
 					</li>
 					<li>
-						<a href="/items" class="pill-signal flex justify-center gap-1.5">
+						<a href="/items" class="pill-signal">
 							Browse items
-							{#if itemCount}<span text="muted-foreground xs" font="mono"
-									>{itemCount}</span
-								>{/if}
+							{#if itemCount}<span class="entity-count">{itemCount}</span>{/if}
 						</a>
 					</li>
 					<li>
-						<a href="/archive" class="pill-signal flex justify-center gap-1.5">
+						<a href="/archive" class="pill-signal">
 							Complete archive
-							<ArrowRight class="size-3.5" />
+							<ArrowRight class="icon-sm" />
 						</a>
 					</li>
 				</ul>
 			</nav>
 
-			<p text="muted-foreground sm" m="t-8">
-				Or search for a hero or item from the bar above.
-			</p>
+			<p class="search-suggestion">Or search for a hero or item from the bar above.</p>
 		</div>
 	</div>
 </main>
+
+<style>
+	@layer components.features {
+		.error-content {
+			max-inline-size: 42rem;
+			margin: 2rem auto 6rem;
+		}
+		.empty-panel {
+			padding-inline: 1.5rem;
+		}
+		.empty-copy {
+			margin-bottom: 0.5rem;
+		}
+		:global(.error-icon) {
+			color: var(--destructive);
+		}
+		.missing-path {
+			color: var(--foreground);
+			font-family: var(--font-mono);
+			word-break: break-all;
+		}
+		.error-status {
+			margin-bottom: 2rem;
+			color: var(--muted-foreground);
+			font: var(--text-xs) var(--font-mono);
+			letter-spacing: 0.025em;
+		}
+		.recovery-links {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			gap: 0.5rem;
+		}
+		.pill-signal {
+			display: flex;
+		}
+		.entity-count {
+			color: var(--muted-foreground);
+			font: var(--text-xs) var(--font-mono);
+		}
+		.search-suggestion {
+			margin-top: 2rem;
+			color: var(--muted-foreground);
+			font-size: var(--text-sm);
+		}
+		@media (min-width: 40rem) {
+			.empty-panel {
+				padding-inline: 3rem;
+			}
+			.empty-heading {
+				font-size: var(--text-3xl);
+				line-height: 1.2;
+			}
+			.recovery-links {
+				flex-direction: row;
+				align-items: center;
+			}
+		}
+	}
+</style>

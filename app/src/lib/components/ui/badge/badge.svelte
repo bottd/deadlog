@@ -4,12 +4,6 @@
 
 	type BadgeVariant = 'default' | 'signal';
 
-	/** Spelled out so UnoCSS's extractor sees the shortcut names as literals. */
-	const variants = {
-		default: 'badge-default',
-		signal: 'badge-signal'
-	} satisfies Record<BadgeVariant, string>;
-
 	let {
 		ref = $bindable(null),
 		href,
@@ -27,7 +21,8 @@
 	bind:this={ref}
 	data-slot="badge"
 	{href}
-	class={[variants[variant], className]}
+	data-variant={variant}
+	class={className}
 	{...restProps}
 >
 	{@render children?.()}

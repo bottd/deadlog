@@ -41,9 +41,17 @@
 >
 	{#snippet labelSuffix()}
 		{#if item.tier}
-			<span text="muted-foreground" kicker-xs>
+			<span class="item-tier kicker-xs">
 				/ Tier {item.tier}
 			</span>
 		{/if}
 	{/snippet}
 </EntityChangelogPage>
+
+<style>
+	@layer components.features {
+		.item-tier {
+			color: var(--muted-foreground);
+		}
+	}
+</style>

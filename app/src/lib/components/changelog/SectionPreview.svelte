@@ -27,27 +27,10 @@
 </script>
 
 {#if icons.length > 0}
-	<ul
-		m="b-5"
-		flex="~ wrap"
-		list="none"
-		gap="x-1 y-3.5"
-		p="0"
-		class="section-preview"
-		aria-label="Affected {type}s"
-	>
+	<ul class="section-preview" data-prose-ui aria-label="Affected {type}s">
 		{#each icons as icon (icon.name)}
 			<li>
-				<a
-					flex="~"
-					href="#{icon.slug}"
-					border="border/60 ~"
-					items="center"
-					gap="1.5"
-					rounded="sm"
-					p="y-0.5 r-2 l-0.5"
-					class="group/badge hover:border-primary/30 hover:bg-primary/5 transition-colors"
-				>
+				<a href="#{icon.slug}" class="preview-link">
 					<img
 						src={icon.image}
 						alt=""
@@ -55,14 +38,8 @@
 						height="20"
 						loading="lazy"
 						decoding="async"
-						rounded="sm"
-						class="size-5 object-cover"
 					/>
-					<span
-						text="muted-foreground"
-						font="medium"
-						class="group-hover/badge:text-foreground text-[11px] transition-colors"
-					>
+					<span>
 						{icon.name}
 					</span>
 				</a>
@@ -70,3 +47,42 @@
 		{/each}
 	</ul>
 {/if}
+
+<style>
+	@layer components.features {
+		.section-preview {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.875rem 0.25rem;
+			margin-bottom: 1.25rem;
+			padding: 0;
+			list-style: none;
+		}
+		.preview-link {
+			display: flex;
+			align-items: center;
+			gap: 0.375rem;
+			padding: 0.125rem 0.5rem 0.125rem 0.125rem;
+			border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+			border-radius: var(--radius-sm);
+			color: var(--muted-foreground);
+			font-size: 0.6875rem;
+			font-weight: 500;
+			transition:
+				border-color var(--duration-normal),
+				background-color var(--duration-normal),
+				color var(--duration-normal);
+			&:hover {
+				border-color: color-mix(in srgb, var(--primary) 30%, transparent);
+				background: color-mix(in srgb, var(--primary) 5%, transparent);
+				color: var(--foreground);
+			}
+			& img {
+				inline-size: 1.25rem;
+				block-size: 1.25rem;
+				border-radius: var(--radius-sm);
+				object-fit: cover;
+			}
+		}
+	}
+</style>

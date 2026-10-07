@@ -1,0 +1,153 @@
+@font-face {
+	font-family: 'Archivo';
+	src: url('/fonts/Archivo-VariableFont_wdth,wght.woff2') format('woff2');
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Archivo';
+	src: url('/fonts/Archivo-Italic-VariableFont_wdth,wght.woff2') format('woff2');
+	font-weight: 100 900;
+	font-style: italic;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Oswald';
+	src: url('/fonts/Oswald-VariableFont_wght.woff2') format('woff2');
+	font-weight: 200 700;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'JetBrains Mono';
+	src: url('/fonts/JetBrainsMono-VariableFont_wght.woff2') format('woff2');
+	font-weight: 100 800;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'JetBrains Mono';
+	src: url('/fonts/JetBrainsMono-Italic-VariableFont_wght.woff2') format('woff2');
+	font-weight: 100 800;
+	font-style: italic;
+	font-display: swap;
+}
+* {
+	border-color: var(--border);
+	outline-color: color-mix(in oklab, var(--ring) 50%, transparent);
+}
+html {
+	font-family: var(--font-sans);
+	scroll-padding-top: 10rem;
+	color-scheme: dark;
+}
+html,
+body {
+	color: var(--foreground);
+	background-color: var(--background);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-feature-settings:
+		'kern' 1,
+		'liga' 1,
+		'calt' 1;
+	text-rendering: optimizeLegibility;
+}
+body {
+	padding: var(--safe-area-inset-top) var(--safe-area-inset-right)
+		var(--safe-area-inset-bottom) var(--safe-area-inset-left);
+}
+:where(a, button, input, summary, textarea, select):focus-visible {
+	outline: 2px solid var(--ring);
+	outline-offset: 2px;
+}
+[data-entity-kind='hero'] {
+	--entity-accent: var(--primary);
+}
+[data-entity-kind='item'] {
+	--entity-accent: var(--signal);
+}
+
+@keyframes entrance-slide-down {
+	from {
+		opacity: 0;
+		transform: translateY(-8px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+@keyframes entrance-fade-up {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+@keyframes terminal-flicker {
+	0%,
+	100% {
+		opacity: 0.85;
+	}
+	50% {
+		opacity: 1;
+	}
+	92% {
+		opacity: 0.8;
+	}
+}
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+@keyframes fade-out {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+@keyframes slide-up-in {
+	from {
+		transform: translateY(100%);
+	}
+	to {
+		transform: translateY(0);
+	}
+}
+@keyframes slide-down-out {
+	from {
+		transform: translateY(0);
+	}
+	to {
+		transform: translateY(100%);
+	}
+}
+@keyframes pop-in {
+	from {
+		opacity: 0;
+		transform: scale(0.95);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+@keyframes pop-out {
+	from {
+		opacity: 1;
+		transform: scale(1);
+	}
+	to {
+		opacity: 0;
+		transform: scale(0.95);
+	}
+}

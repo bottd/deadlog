@@ -69,82 +69,56 @@
 <svelte:window onpagehide={commitVisit} />
 
 {#snippet retryPrompt(message: string, retry: () => void)}
-	<div flex="~ col" items="center" gap="3" text="center" role="alert">
-		<p text="destructive sm" font="medium">{message}</p>
-		<button
-			type="button"
-			onclick={retry}
-			border="destructive/30 ~"
-			text="destructive xs"
-			p="x-5 y-2"
-			font="mono semibold"
-			class="hover:bg-destructive/10"
-		>
+	<div class="retry-prompt" role="alert">
+		<p>{message}</p>
+		<button type="button" onclick={retry} class="retry-button ui-focus-ring">
 			Retry
 		</button>
 	</div>
 {/snippet}
 
 {#snippet loadingSpinner()}
-	<div flex="~ col" items="center" gap="3" role="status">
-		<div
-			border="primary/30 2 t-transparent"
-			rounded="full"
-			class="size-10 animate-spin"
-		></div>
-		<span text="muted-foreground xs" font="mono" uppercase class="tracking-wider"
-			>Loading...</span
-		>
+	<div class="loading-status" role="status">
+		<div class="spinner"></div>
+		<span class="loading-label">Loading...</span>
 	</div>
 {/snippet}
 
-<main container m="x-auto t-8 b-24" p="x-4">
-	<header m="b-5" class="max-w-3xl">
-		<h1
-			font="display medium"
-			text="foreground 3xl"
-			class="heading-glow tracking-wide sm:text-4xl"
-		>
+<main class="page-container changelog-page">
+	<header class="page-header">
+		<h1 class="page-title heading-glow">
 			{isSearching ? 'Matching patch notes' : 'Deadlock Patch Notes & Changelog'}
 		</h1>
-		<p text="muted-foreground sm" m="t-2" class="max-w-2xl leading-relaxed">
+		<p class="page-lede">
 			{isSearching
 				? 'Changes for your selected heroes, items, and keywords.'
 				: 'Every gameplay update, hero adjustment, and item balance change.'}
 		</p>
 		{#if totalCount > 0}
-			<p flex="~" text="muted-foreground" m="t-3" items="center" gap="2" kicker-sm>
-				<span text="primary" font="bold">{totalCount}</span>
-				<a href="/archive" class="underline-offset-4 hover:text-signal hover:underline"
-					>{plural(totalCount, 'patch', 'patches')} in the archive</a
-				>
+			<p class="archive-summary kicker-sm">
+				<strong>{totalCount}</strong>
+				<a href="/archive">{plural(totalCount, 'patch', 'patches')} in the archive</a>
 			</p>
 		{/if}
 	</header>
 
-	<div class="js-only mb-5 flex flex-wrap items-start gap-x-4 gap-y-2">
+	<div class="js-only quick-filters">
 		<details>
-			<summary
-				class="ui-focus-ring text-muted-foreground cursor-pointer rounded-sm py-3 text-sm"
-				>Quick hero filters</summary
-			>
+			<summary class="ui-focus-ring hero-disclosure">Quick hero filters</summary>
 			<HeroRail />
 		</details>
 		<button
 			type="button"
 			onclick={() => params.update({ major: !params.major })}
 			aria-pressed={params.major}
-			class="ui-focus-ring border-border text-muted-foreground min-h-11 rounded-md border px-3 text-xs font-medium transition-colors idle-hover:(border-primary/40 text-foreground) selected:(border-primary/60 bg-primary/15 text-primary)"
+			class="ui-focus-ring major-toggle"
 		>
 			Major updates only
 		</button>
 	</div>
 
 	{#if isFilterPending}
-		<div
-			aria-hidden="true"
-			class="filter-progress fixed inset-x-0 top-0 z-60 h-0.5 overflow-hidden"
-		></div>
+		<div aria-hidden="true" class="filter-progress"></div>
 	{/if}
 	<p aria-live="polite" class="sr-only">
 		{isFilterPending ? 'Updating patches\u2026' : ''}
@@ -153,15 +127,7 @@
 	{#if query.data}
 		{#if allChangelogs.length > 0}
 			{#if filterCount > 0}
-				<p
-					text="muted-foreground xs"
-					m="b-4"
-					font="mono"
-					uppercase
-					class="tracking-wider"
-					role="status"
-					aria-live="polite"
-				>
+				<p class="result-summary" role="status" aria-live="polite">
 					{allChangelogs.length}{query.hasNextPage ? '+' : ''} matching
 					{query.hasNextPage
 						? 'patches'
@@ -169,7 +135,7 @@
 					{#if filterCount > 1}
 						· all {filterCount} filters{/if}
 					{#if isSearching && allChangelogs[0]}
-						<span class="mt-1 block normal-case"
+						<span class="latest-match"
 							>Latest matching patch: <time datetime={allChangelogs[0].date}
 								>{formatDate(allChangelogs[0].date)}</time
 							></span
@@ -183,84 +149,41 @@
 			{/if}
 
 			{#if newCount > 0}
-				<p
-					flex="~"
-					text="muted-foreground xs"
-					m="b-4"
-					items="center"
-					gap="2"
-					font="mono"
-					class="tracking-wider uppercase"
-				>
-					<span text="primary" font="bold">{newCount}</span>
+				<p class="new-summary">
+					<strong>{newCount}</strong>
 					<span>new {plural(newCount, 'patch', 'patches')} since your last visit</span>
 				</p>
 			{/if}
 
 			<div
 				data-patch-grid
-				gap="4"
 				aria-busy={isFilterPending}
-				class={[
-					'grid grid-cols-1 transition-opacity duration-200',
-					isSearching ? 'max-w-3xl' : 'sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4',
-					isFilterPending && 'pointer-events-none opacity-60'
-				]}
+				class="patch-grid"
+				data-searching={isSearching}
 			>
 				{#each gridEntries as entry, i (entry.id)}
 					{#if i === firstSeenIdx && firstSeenIdx > 0}
-						<div
-							flex="~"
-							role="presentation"
-							aria-hidden="true"
-							m="y-1 b-4"
-							items="center"
-							gap="4"
-							class="col-span-full"
-						>
-							<div bg="signal/35" h="px" flex="1"></div>
-							<span text="muted-foreground" kicker-sm> Seen before </span>
-							<div bg="primary/30" h="px" flex="1"></div>
+						<div role="presentation" aria-hidden="true" class="seen-divider">
+							<span class="kicker-sm"> Seen before </span>
 						</div>
 					{/if}
-					<div data-patch-card h="full">
+					<div data-patch-card>
 						<PatchCard {...entry} isNew={isNew(entry)} />
 					</div>
 				{/each}
 			</div>
 		{:else}
-			<div
-				border="border/50 2"
-				bg="card"
-				relative
-				p="12"
-				text="center"
-				class="clip-corner overflow-hidden"
-				role="status"
-			>
-				<CornerAccents tlSize="2rem" tlColor="bg-muted-foreground/30" />
-				<div
-					flex="~"
-					border="border ~"
-					bg="muted/30"
-					m="x-auto b-6"
-					items="center"
-					justify="center"
-					class="clip-corner-sm size-20"
-				>
-					<Frown class="text-muted-foreground size-10" />
+			<div class="empty-panel clip-corner" role="status">
+				<CornerAccents tlSize="2rem" />
+				<div class="empty-symbol clip-corner-sm">
+					<Frown class="icon-xl" />
 				</div>
-				<p text="muted-foreground xs" m="b-2" font="mono" uppercase class="tracking-wide">
-					No Results
-				</p>
-				<h2 font="display medium" text="foreground 2xl" m="b-3" class="tracking-wide">
-					No changes found
-				</h2>
+				<p class="empty-label">No Results</p>
+				<h2 class="empty-heading">No changes found</h2>
 				{#if filterCount > 0}
-					<p text="muted-foreground" m="x-auto b-8" class="max-w-md">
+					<p class="empty-copy">
 						{#if filters.q}
-							Nothing matches <span text="foreground" font="mono"
-								>&ldquo;{filters.q}&rdquo;</span
+							Nothing matches <span class="query-text">&ldquo;{filters.q}&rdquo;</span
 							>{filterCount > 1
 								? ` and your other ${filterCount - 1} ${plural(filterCount - 1, 'filter')}`
 								: ''}.
@@ -272,29 +195,19 @@
 					<button
 						type="button"
 						onclick={() => params.reset()}
-						border="primary/30 ~"
-						bg="primary/10"
-						text="primary sm"
-						p="x-6 y-3"
-						font="mono semibold"
-						class="ui-focus-ring min-h-11 rounded-md transition-all hover:bg-primary/20 active:scale-[0.97]"
+						class="ui-focus-ring clear-action"
 					>
 						Clear Filters
 					</button>
 				{:else}
-					<p text="muted-foreground" m="x-auto" class="max-w-md">
-						The log has no entries yet.
-					</p>
+					<p class="empty-copy">The log has no entries yet.</p>
 				{/if}
 			</div>
 		{/if}
 
 		{#if allChangelogs.length > 0}
 			<div
-				flex="~ col"
-				items="center"
-				gap="4"
-				p="y-12"
+				class="pagination-status"
 				aria-live="polite"
 				aria-busy={query.isFetchingNextPage}
 			>
@@ -307,64 +220,317 @@
 				{:else if query.hasNextPage}
 					<div
 						data-load-more-sentinel
-						h="px"
-						w="full"
+						class="load-more-sentinel"
 						aria-hidden="true"
 						{@attach loadMoreWhenVisible}
 					></div>
 				{:else}
-					<div flex="~" items="center" gap="4">
-						<div bg="primary/30" h="px" w="16"></div>
-						<p text="muted-foreground xs" font="mono" uppercase class="tracking-wider">
-							End of Log
-						</p>
-						<div bg="primary/30" h="px" w="16"></div>
+					<div class="end-of-log">
+						<p>End of Log</p>
 					</div>
 				{/if}
 			</div>
 		{/if}
 	{:else if query.isError}
-		<div p="y-16">
+		<div class="initial-status">
 			{@render retryPrompt('Failed to load patches.', () => query.refetch())}
 		</div>
 	{:else}
-		<div p="y-16" class="js-only">
+		<div class="js-only initial-status">
 			{@render loadingSpinner()}
 		</div>
 		<noscript
-			><p class="text-muted-foreground py-6 text-sm">
-				Open the <a href="/archive" class="text-signal underline"
-					>complete patch archive</a
-				> to browse without search.
+			><p class="static-fallback">
+				Open the <a href="/archive">complete patch archive</a> to browse without search.
 			</p></noscript
 		>
 	{/if}
 </main>
 
-<style lang="postcss">
-	@keyframes filter-progress {
-		from {
-			transform: translateX(-100%);
+<style>
+	@layer components.features {
+		.changelog-page {
+			margin-top: 2rem;
+			margin-bottom: 6rem;
 		}
-		to {
-			transform: translateX(100%);
+		.page-header {
+			max-inline-size: 48rem;
+			margin-bottom: 1.25rem;
 		}
-	}
+		.page-title {
+			color: var(--foreground);
+			font: 500 var(--text-3xl)/1.2 var(--font-display);
+			letter-spacing: 0.025em;
+		}
+		.page-lede {
+			max-inline-size: 42rem;
+			margin-top: 0.5rem;
+			color: var(--muted-foreground);
+			font-size: var(--text-sm);
+			line-height: var(--leading-relaxed);
+		}
+		.archive-summary {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+			margin-top: 0.75rem;
+			color: var(--muted-foreground);
+			& strong {
+				color: var(--primary);
+			}
+			& a {
+				text-underline-offset: 4px;
+				&:hover {
+					color: var(--signal);
+					text-decoration: underline;
+				}
+			}
+		}
+		.quick-filters {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: flex-start;
+			gap: 0.5rem 1rem;
+			margin-bottom: 1.25rem;
+		}
+		.hero-disclosure {
+			border-radius: var(--radius-sm);
+			padding-block: 0.75rem;
+			color: var(--muted-foreground);
+			font-size: var(--text-sm);
+		}
+		.major-toggle {
+			min-block-size: 2.75rem;
+			border: 1px solid var(--border);
+			border-radius: var(--radius-md);
+			padding-inline: 0.75rem;
+			color: var(--muted-foreground);
+			font-size: var(--text-xs);
+			font-weight: 500;
+			transition:
+				border-color var(--duration-normal),
+				color var(--duration-normal),
+				background-color var(--duration-normal);
+			&:hover:not([aria-pressed='true']) {
+				border-color: color-mix(in srgb, var(--primary) 40%, transparent);
+				color: var(--foreground);
+			}
+			&[aria-pressed='true'] {
+				border-color: color-mix(in srgb, var(--primary) 60%, transparent);
+				background: color-mix(in srgb, var(--primary) 15%, transparent);
+				color: var(--primary);
+			}
+		}
+		.result-summary,
+		.new-summary {
+			margin-bottom: 1rem;
+			color: var(--muted-foreground);
+			font: var(--text-xs)/1.3333 var(--font-mono);
+			letter-spacing: 0.05em;
+			text-transform: uppercase;
+		}
+		.latest-match {
+			display: block;
+			margin-top: 0.25rem;
+			text-transform: none;
+		}
+		.new-summary {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+			& strong {
+				color: var(--primary);
+			}
+		}
+		.patch-grid {
+			display: grid;
+			grid-template-columns: minmax(0, 1fr);
+			gap: 1rem;
+			transition: opacity var(--duration-normal);
+			&[data-searching='true'] {
+				max-inline-size: 48rem;
+			}
+			&[aria-busy='true'] {
+				pointer-events: none;
+				opacity: 0.6;
+			}
+		}
+		[data-patch-card] {
+			block-size: 100%;
+		}
+		.seen-divider {
+			grid-column: 1 / -1;
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+			margin-block: 0.25rem 1rem;
+			color: var(--muted-foreground);
+			&::before,
+			&::after {
+				content: '';
+				flex: 1;
+				block-size: 1px;
+				background: color-mix(in srgb, var(--signal) 35%, transparent);
+			}
+			&::after {
+				background: color-mix(in srgb, var(--primary) 30%, transparent);
+			}
+		}
+		.empty-label {
+			margin-bottom: 0.5rem;
+			color: var(--muted-foreground);
+			font: var(--text-xs) var(--font-mono);
+			letter-spacing: 0.025em;
+			text-transform: uppercase;
+		}
+		.query-text {
+			color: var(--foreground);
+			font-family: var(--font-mono);
+		}
+		.clear-action {
+			min-block-size: 2.75rem;
+			border: 1px solid color-mix(in srgb, var(--primary) 30%, transparent);
+			border-radius: var(--radius-md);
+			padding: 0.75rem 1.5rem;
+			background: color-mix(in srgb, var(--primary) 10%, transparent);
+			color: var(--primary);
+			font: 600 var(--text-sm) var(--font-mono);
+			&:hover {
+				background: color-mix(in srgb, var(--primary) 20%, transparent);
+			}
+			&:active {
+				scale: 0.97;
+			}
+		}
+		.pagination-status {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 1rem;
+			padding-block: 3rem;
+		}
+		.initial-status {
+			padding-block: 4rem;
+		}
+		.load-more-sentinel {
+			inline-size: 100%;
+			block-size: 1px;
+		}
+		.end-of-log {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+			color: var(--muted-foreground);
+			font: var(--text-xs) var(--font-mono);
+			letter-spacing: 0.05em;
+			text-transform: uppercase;
+			&::before,
+			&::after {
+				content: '';
+				inline-size: 4rem;
+				block-size: 1px;
+				background: color-mix(in srgb, var(--primary) 30%, transparent);
+			}
+		}
+		.retry-prompt,
+		.loading-status {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 0.75rem;
+		}
+		.retry-prompt {
+			text-align: center;
+			color: var(--destructive);
+			font-size: var(--text-sm);
+			font-weight: 500;
+		}
+		.retry-button {
+			min-block-size: 2.75rem;
+			border: 1px solid color-mix(in srgb, var(--destructive) 30%, transparent);
+			padding: 0.5rem 1.25rem;
+			font: 600 var(--text-xs) var(--font-mono);
+			&:hover {
+				background: color-mix(in srgb, var(--destructive) 10%, transparent);
+			}
+		}
+		.spinner {
+			inline-size: 2.5rem;
+			block-size: 2.5rem;
+			border: 2px solid color-mix(in srgb, var(--primary) 30%, transparent);
+			border-top-color: transparent;
+			border-radius: 50%;
+			animation: spin 1s linear infinite;
+		}
+		.loading-label {
+			color: var(--muted-foreground);
+			font: var(--text-xs) var(--font-mono);
+			letter-spacing: 0.05em;
+			text-transform: uppercase;
+		}
+		.static-fallback {
+			padding-block: 1.5rem;
+			color: var(--muted-foreground);
+			font-size: var(--text-sm);
+			& a {
+				color: var(--signal);
+				text-decoration: underline;
+			}
+		}
+		@keyframes spin {
+			to {
+				rotate: 360deg;
+			}
+		}
+		@media (min-width: 40rem) {
+			.page-title {
+				font-size: var(--text-4xl);
+				line-height: 1.1111;
+			}
+			.patch-grid[data-searching='false'] {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+			}
+		}
+		@media (min-width: 64rem) {
+			.patch-grid[data-searching='false'] {
+				grid-template-columns: repeat(3, minmax(0, 1fr));
+			}
+		}
+		@media (min-width: 80rem) {
+			.patch-grid[data-searching='false'] {
+				grid-template-columns: repeat(4, minmax(0, 1fr));
+			}
+		}
+		@keyframes filter-progress {
+			from {
+				transform: translateX(-100%);
+			}
+			to {
+				transform: translateX(100%);
+			}
+		}
 
-	.filter-progress {
-		background: oklch(from var(--primary) l c h / 0.18);
-	}
+		.filter-progress {
+			position: fixed;
+			inset-inline: 0;
+			top: 0;
+			z-index: 60;
+			block-size: 0.125rem;
+			overflow: hidden;
+			background: oklch(from var(--primary) l c h / 0.18);
+		}
 
-	.filter-progress::after {
-		content: '';
-		position: absolute;
-		inset: 0;
-		background: linear-gradient(
-			to right,
-			transparent,
-			oklch(from var(--primary) l c h / 0.95) 50%,
-			transparent
-		);
-		animation: filter-progress 1.1s cubic-bezier(0.23, 1, 0.32, 1) infinite;
+		.filter-progress::after {
+			content: '';
+			position: absolute;
+			inset: 0;
+			background: linear-gradient(
+				to right,
+				transparent,
+				oklch(from var(--primary) l c h / 0.95) 50%,
+				transparent
+			);
+			animation: filter-progress 1.1s cubic-bezier(0.23, 1, 0.32, 1) infinite;
+		}
 	}
 </style>

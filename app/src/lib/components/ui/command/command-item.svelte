@@ -10,12 +10,7 @@
 	}: CommandPrimitive.ItemProps & { children?: Snippet } = $props();
 </script>
 
-<CommandPrimitive.Item
-	bind:ref
-	data-slot="command-item"
-	class={['menu-item', className]}
-	{...restProps}
->
+<CommandPrimitive.Item bind:ref data-slot="command-item" class={className} {...restProps}>
 	{#if children}
 		{@render children()}
 	{/if}

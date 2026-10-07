@@ -16,14 +16,14 @@
 </script>
 
 <nav aria-label="Recent patches for {entity.name}">
-	<p class="text-muted-foreground mb-2 text-xs">
+	<p>
 		Most recent {recent.length} of {patches.length} patches
 	</p>
-	<div class="flex flex-wrap gap-2">
+	<div class="recent-links">
 		{#each recent as patch (patch.id)}
 			<a
 				href={entityPatchHref(patch, entity)}
-				class="ui-focus-ring border-subtle text-signal hover:border-signal inline-flex min-h-11 items-center rounded-md border px-3 font-mono text-xs"
+				class="ui-focus-ring recent-link"
 				aria-label="View {entity.name} in the {formatDateShort(
 					patch.date
 				)} patch, {changeCountLabel(patch.changeCount)}"
@@ -35,3 +35,31 @@
 		{/each}
 	</div>
 </nav>
+
+<style>
+	@layer components.features {
+		p {
+			margin-bottom: 0.5rem;
+			color: var(--muted-foreground);
+			font-size: var(--text-xs);
+		}
+		.recent-links {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.5rem;
+		}
+		.recent-link {
+			display: inline-flex;
+			min-block-size: 2.75rem;
+			align-items: center;
+			border: 1px solid var(--border-subtle);
+			border-radius: var(--radius-md);
+			padding-inline: 0.75rem;
+			color: var(--signal);
+			font: var(--text-xs) var(--font-mono);
+			&:hover {
+				border-color: var(--signal);
+			}
+		}
+	}
+</style>

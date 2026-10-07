@@ -1,5 +1,5 @@
 import { searchParams } from '#lib/stores/searchParams.svelte.ts';
-import type { EntityKind } from '#lib/entityTone.ts';
+import type { EntityKind } from '#lib/entityKinds.ts';
 import type { EnrichedHero, EnrichedItem } from '#lib/types.ts';
 import { entityNamesMatch, findEntityName, indexEntityNames } from '@deadlog/utils';
 

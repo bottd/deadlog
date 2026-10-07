@@ -5,7 +5,7 @@ import { MAX_ENTITY_FILTERS } from '#lib/queries/keys.ts';
 import type { PatchSummary, EntityIcon } from '#lib/types.ts';
 import { changePath } from '#lib/seo.ts';
 import { authorInitials } from '#lib/author.ts';
-import { ENTITY_TONE } from '#lib/entityTone.ts';
+import type { EntityKind } from '#lib/entityKinds.ts';
 
 export type PatchCardProps = PatchSummary;
 
@@ -13,7 +13,7 @@ const NO_MATCHES: PatchCardMatches = {
 	searching: false,
 	changeCount: null,
 	label: null,
-	tone: ENTITY_TONE.hero.text
+	kind: 'hero'
 };
 
 export interface PatchCardMatches {
@@ -21,7 +21,7 @@ export interface PatchCardMatches {
 	changeCount: number | null;
 	/** null when nothing countable matched, which also suppresses the row. */
 	label: string | null;
-	tone: string;
+	kind: EntityKind;
 }
 
 /** Which of this patch's entities the active filters asked for. */
@@ -43,9 +43,7 @@ export function patchCardMatches(patch: PatchCardProps): PatchCardMatches {
 				: entities.length === 1
 					? `${entities[0].name} ${plural(changeCount, 'change')}`
 					: `matched ${plural(changeCount, 'change')}`,
-		tone: entities.every((entity) => entity.type === 'item')
-			? ENTITY_TONE.item.text
-			: ENTITY_TONE.hero.text
+		kind: entities.every((entity) => entity.type === 'item') ? 'item' : 'hero'
 	};
 }
 
@@ -85,14 +83,14 @@ export function patchCardView(patch: PatchCardProps, featured = false) {
 		{
 			type: 'heroes',
 			label: 'Heroes',
-			tone: ENTITY_TONE.hero.text,
+			kind: 'hero',
 			list: heroes,
 			extra: Math.max(0, patch.counts.heroes - heroes.length)
 		},
 		{
 			type: 'items',
 			label: 'Items',
-			tone: ENTITY_TONE.item.text,
+			kind: 'item',
 			list: items,
 			extra: Math.max(0, patch.counts.items - items.length)
 		}
@@ -102,12 +100,12 @@ export function patchCardView(patch: PatchCardProps, featured = false) {
 		{
 			n: patch.counts.heroes,
 			noun: plural(patch.counts.heroes, 'hero', 'heroes'),
-			tone: ENTITY_TONE.hero.text
+			kind: 'hero'
 		},
 		{
 			n: patch.counts.items,
 			noun: plural(patch.counts.items, 'item'),
-			tone: ENTITY_TONE.item.text
+			kind: 'item'
 		}
 	].filter((count) => count.n > 0);
 

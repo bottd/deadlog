@@ -57,14 +57,9 @@
 	shouldFilter={false}
 	loop
 	label="Search all patch notes"
-	class="relative z-50 h-auto overflow-visible rounded-none bg-transparent"
+	class="search-command"
 >
-	<form
-		method="GET"
-		action="/"
-		onsubmit={submit}
-		class="border-border bg-card focus-within:border-signal flex min-h-11 items-center rounded-md border"
-	>
+	<form method="GET" action="/" onsubmit={submit} class="search-form">
 		<label for="{prefix}-filter-input" class="sr-only"
 			>{mobile ? 'Hero, item, or keyword' : 'Search by hero, item, or keyword'}</label
 		>
@@ -87,37 +82,33 @@
 			onfocus={() => (open = true)}
 			oninput={() => (open = true)}
 			onkeydown={keydown}
-			class="placeholder:text-muted-foreground min-w-0 flex-1 bg-transparent px-3 py-2.5 text-base outline-none"
+			class="search-input"
 		/>
 		<button
 			type="submit"
 			aria-label="Search changelog"
-			class="ui-focus-ring bg-primary text-primary-foreground flex size-11 shrink-0 items-center justify-center rounded-r-md hover:opacity-90"
+			class="ui-focus-ring search-submit"
 			onkeydown={(event) => event.stopPropagation()}
 		>
-			<SearchIcon class="size-5" />
+			<SearchIcon class="icon-lg" />
 		</button>
 	</form>
 
 	{#if shown}
-		<div
-			class={mobile
-				? 'mt-3 min-h-0 overflow-y-auto'
-				: 'filter-dropdown bg-popover border-border absolute inset-x-0 top-full mt-2 max-h-[65vh] overflow-y-auto rounded-md border shadow-xl'}
-		>
+		<div class="filter-dropdown" data-mobile={mobile}>
 			{#if histories.length}
-				<nav aria-label="Entity histories" class="border-subtle border-b p-3">
-					<p class="text-muted-foreground mb-1 text-xs">Open full change history</p>
-					<div class="flex flex-wrap gap-x-4 gap-y-1">
+				<nav aria-label="Entity histories" class="histories">
+					<p>Open full change history</p>
+					<div class="history-links">
 						{#each histories as entity (entity.key)}
 							<a
 								href="/{entity.type}/{entity.data.slug}"
-								class="ui-focus-ring text-signal inline-flex min-h-11 items-center gap-1.5 text-sm underline-offset-4 hover:underline"
+								class="ui-focus-ring history-link"
 								onclick={onclose}
 								onkeydown={(event) => event.stopPropagation()}
 							>
 								{entity.data.name}
-								<ArrowRight class="size-3.5" />
+								<ArrowRight class="icon-sm" />
 							</a>
 						{/each}
 					</div>
@@ -127,10 +118,10 @@
 				id={listId}
 				aria-label="Available hero and item filters"
 				aria-multiselectable="true"
-				class="max-h-80 overflow-y-auto p-2"
+				class="search-options"
 			>
 				{#if options.length === 0}
-					<Command.Empty class="text-muted-foreground px-3 py-5 text-sm"
+					<Command.Empty class="search-empty"
 						>No matching heroes or items. Press Enter to search patch text.</Command.Empty
 					>
 				{:else}
@@ -149,9 +140,7 @@
 					</Command.Group>
 				{/if}
 			</Command.List>
-			<p
-				class="text-muted-foreground border-subtle border-t px-3 py-2.5 text-xs leading-relaxed"
-			>
+			<p class="search-help">
 				Patches must match every selected hero, item, and keyword.
 				{#if filterState.mergedList.length > 60}Type to narrow {filterState.mergedList
 						.length} matches.{/if}
@@ -159,3 +148,112 @@
 		</div>
 	{/if}
 </Command.Root>
+
+<style>
+	@layer components.features {
+		/* The command root is rendered by Bits UI, so these hooks are global. */
+		:global(.search-command) {
+			position: relative;
+			z-index: 50;
+			block-size: auto;
+			overflow: visible;
+			border-radius: 0;
+			background: transparent;
+		}
+		.search-form {
+			display: flex;
+			min-block-size: 2.75rem;
+			align-items: center;
+			border: 1px solid var(--border);
+			border-radius: var(--radius-md);
+			background: var(--card);
+			&:focus-within {
+				border-color: var(--signal);
+			}
+		}
+		.search-input {
+			min-inline-size: 0;
+			flex: 1;
+			padding: 0.625rem 0.75rem;
+			font-size: var(--text-base);
+			outline: none;
+		}
+		.search-submit {
+			display: flex;
+			inline-size: 2.75rem;
+			block-size: 2.75rem;
+			flex-shrink: 0;
+			align-items: center;
+			justify-content: center;
+			border-radius: 0 var(--radius-md) var(--radius-md) 0;
+			background: var(--primary);
+			color: var(--primary-foreground);
+			&:hover {
+				opacity: 0.9;
+			}
+		}
+		.filter-dropdown {
+			position: absolute;
+			inset-inline: 0;
+			top: 100%;
+			margin-top: 0.5rem;
+			max-block-size: 65vh;
+			overflow-y: auto;
+			border: 1px solid var(--border);
+			border-radius: var(--radius-md);
+			background: var(--popover);
+			box-shadow: var(--shadow-xl);
+			&[data-mobile='true'] {
+				position: static;
+				min-block-size: 0;
+				max-block-size: none;
+				margin-top: 0.75rem;
+				border: 0;
+				border-radius: 0;
+				background: transparent;
+				box-shadow: none;
+			}
+		}
+		.histories {
+			border-bottom: 1px solid var(--border-subtle);
+			padding: 0.75rem;
+			& p {
+				margin-bottom: 0.25rem;
+				color: var(--muted-foreground);
+				font-size: var(--text-xs);
+			}
+		}
+		.history-links {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.25rem 1rem;
+		}
+		.history-link {
+			display: inline-flex;
+			min-block-size: 2.75rem;
+			align-items: center;
+			gap: 0.375rem;
+			color: var(--signal);
+			font-size: var(--text-sm);
+			text-underline-offset: 4px;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+		:global(.search-options) {
+			max-block-size: 20rem;
+			padding: 0.5rem;
+		}
+		:global(.search-empty) {
+			padding: 1.25rem 0.75rem;
+			color: var(--muted-foreground);
+		}
+		.search-help {
+			border-top: 1px solid var(--border-subtle);
+			padding: 0.625rem 0.75rem;
+			color: var(--muted-foreground);
+			font-size: var(--text-xs);
+			line-height: var(--leading-relaxed);
+		}
+	}
+</style>
