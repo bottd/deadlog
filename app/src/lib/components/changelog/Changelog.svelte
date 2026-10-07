@@ -80,7 +80,7 @@
 {#snippet loadingSpinner()}
 	<div class="loading-status" role="status">
 		<div class="spinner"></div>
-		<span class="loading-label">Loading...</span>
+		<span class="loading-label metadata">Loading...</span>
 	</div>
 {/snippet}
 
@@ -178,7 +178,7 @@
 				<div class="empty-symbol clip-corner-sm">
 					<Frown class="icon-xl" />
 				</div>
-				<p class="empty-label">No Results</p>
+				<p class="empty-label metadata">No Results</p>
 				<h2 class="empty-heading">No changes found</h2>
 				{#if filterCount > 0}
 					<p class="empty-copy">
@@ -225,7 +225,7 @@
 						{@attach loadMoreWhenVisible}
 					></div>
 				{:else}
-					<div class="end-of-log">
+					<div class="end-of-log metadata">
 						<p>End of Log</p>
 					</div>
 				{/if}
@@ -380,10 +380,6 @@
 		}
 		.empty-label {
 			margin-bottom: 0.5rem;
-			color: var(--muted-foreground);
-			font-family: var(--font-mono);
-			font-size: var(--text-xs);
-			line-height: var(--leading-xs);
 			letter-spacing: 0.025em;
 			text-transform: uppercase;
 		}
@@ -424,10 +420,6 @@
 			display: flex;
 			align-items: center;
 			gap: 1rem;
-			color: var(--muted-foreground);
-			font-family: var(--font-mono);
-			font-size: var(--text-xs);
-			line-height: var(--leading-xs);
 			letter-spacing: 0.05em;
 			text-transform: uppercase;
 			&::before,
@@ -470,10 +462,6 @@
 			animation: spin 1s linear infinite;
 		}
 		.loading-label {
-			color: var(--muted-foreground);
-			font-family: var(--font-mono);
-			font-size: var(--text-xs);
-			line-height: var(--leading-xs);
 			letter-spacing: 0.05em;
 			text-transform: uppercase;
 		}

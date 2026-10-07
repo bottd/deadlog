@@ -49,7 +49,8 @@
 									</a>
 								{/each}
 							</div>
-							{#if row.extra > 0}<span class="extra-count">+{row.extra}</span>{/if}
+							{#if row.extra > 0}<span class="extra-count metadata">+{row.extra}</span
+								>{/if}
 						</div>
 					{/each}
 				</div>
@@ -175,12 +176,6 @@
 				background: var(--background);
 				object-fit: cover;
 			}
-		}
-		.extra-count {
-			color: var(--muted-foreground);
-			font-family: var(--font-mono);
-			font-size: var(--text-xs);
-			line-height: var(--leading-xs);
 		}
 		.featured-footer {
 			display: flex;

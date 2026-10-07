@@ -29,7 +29,7 @@
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
-		padding: 0.25rem 0 0.25rem 0.75rem;
+		padding: 0.25rem 0 0.25rem var(--toc-section-inset, 0.75rem);
 		color: color-mix(in srgb, var(--foreground) 80%, transparent);
 		font-size: var(--text-xs);
 		line-height: var(--leading-xs);
@@ -41,7 +41,8 @@
 		color: var(--signal);
 	}
 	.toc-subsection {
-		padding-left: 1.5rem;
+		/* Preserve hierarchy when the panel changes its size-specific padding. */
+		--toc-section-inset: 1.5rem;
 		color: var(--muted-foreground);
 		font-weight: 400;
 	}
@@ -158,7 +159,7 @@
 		}
 		& .toc-section {
 			gap: 0.75rem;
-			padding: 0.5rem 0.5rem 0.5rem 1rem;
+			padding: 0.5rem 0.5rem 0.5rem var(--toc-section-inset, 1rem);
 			font-size: var(--text-sm);
 			line-height: var(--leading-sm);
 		}

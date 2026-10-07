@@ -41,8 +41,6 @@
 			);
 			gap: 0.75rem;
 			margin-block: 1.5rem;
-			padding: 0;
-			list-style: none;
 		}
 		.gallery[data-count='4'] {
 			grid-template-columns: repeat(2, minmax(0, 1fr));

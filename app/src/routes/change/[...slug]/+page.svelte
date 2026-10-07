@@ -243,7 +243,7 @@
 								<div class="patch-byline">
 									<Avatar.Root class="article-author-avatar">
 										<Avatar.Image src={changelog.authorImage} alt={changelog.author} />
-										<Avatar.Fallback class="article-author-initials">
+										<Avatar.Fallback class="article-author-initials metadata">
 											{authorInitials(changelog.author)}
 										</Avatar.Fallback>
 									</Avatar.Root>
@@ -474,10 +474,6 @@
 			box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary) 10%, transparent);
 		}
 		:global(.article-author-initials) {
-			color: var(--muted-foreground);
-			font-family: var(--font-mono);
-			font-size: var(--text-xs);
-			line-height: var(--leading-xs);
 			letter-spacing: 0.025em;
 		}
 		.byline-text {

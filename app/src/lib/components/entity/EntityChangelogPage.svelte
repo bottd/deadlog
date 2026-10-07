@@ -293,7 +293,7 @@
 			<section aria-labelledby="history-heading">
 				<div class="history-heading-row">
 					<h2 id="history-heading" class="history-heading">Change History</h2>
-					<span class="history-count"
+					<span class="history-count metadata"
 						>{visibleChangelogs.length}
 						{plural(visibleChangelogs.length, 'patch', 'patches')}</span
 					>
@@ -373,7 +373,7 @@
 										{/if}
 										<a
 											href={entityPatchHref(patch, entity)}
-											class="ui-focus-ring full-patch history-link"
+											class="ui-focus-ring full-patch history-link reading-action"
 											>Full patch <ArrowRight class="icon-sm" /></a
 										>
 									</li>
@@ -617,11 +617,6 @@
 		}
 		.history-link {
 			border-radius: var(--radius-sm);
-			color: var(--signal);
-			text-underline-offset: 4px;
-			&:hover {
-				text-decoration: underline;
-			}
 		}
 		.history-heading-row {
 			display: flex;
@@ -635,12 +630,6 @@
 			color: var(--foreground);
 			font: 500 var(--text-2xl)/var(--leading-2xl) var(--font-display);
 			letter-spacing: 0.025em;
-		}
-		.history-count {
-			color: var(--muted-foreground);
-			font-family: var(--font-mono);
-			font-size: var(--text-xs);
-			line-height: var(--leading-xs);
 		}
 		.ability-status {
 			display: flex;
@@ -758,13 +747,7 @@
 			line-height: var(--leading-relaxed);
 		}
 		.full-patch {
-			display: inline-flex;
-			min-block-size: 2.75rem;
-			align-items: center;
-			gap: 0.375rem;
 			margin-top: 0.5rem;
-			font-size: var(--text-xs);
-			line-height: var(--leading-xs);
 		}
 		.entity-empty {
 			margin-block: 1rem;

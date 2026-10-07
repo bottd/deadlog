@@ -116,8 +116,6 @@
 		}
 		:global(.lightbox-title) {
 			color: var(--foreground);
-			font-size: var(--text-sm);
-			line-height: var(--leading-sm);
 			font-weight: 500;
 		}
 		:global(.lightbox-control) {

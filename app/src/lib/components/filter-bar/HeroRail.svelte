@@ -102,20 +102,17 @@
 			transition:
 				border-color var(--duration-normal),
 				opacity var(--duration-normal);
-			&:hover {
+			&:hover:not(:disabled) {
 				z-index: 10;
-			}
-			&:hover:not([aria-pressed='true']) {
-				border-color: color-mix(in srgb, var(--primary) 55%, transparent);
-				opacity: 1;
+				&:not([aria-pressed='true']) {
+					border-color: color-mix(in srgb, var(--primary) 55%, transparent);
+					opacity: 1;
+				}
 			}
 			&[aria-pressed='true'] {
 				border-color: var(--primary);
 				opacity: 1;
 				box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary) 45%, transparent);
-			}
-			&:focus-visible {
-				box-shadow: inset 0 0 0 2px var(--ring);
 			}
 			&:disabled {
 				cursor: not-allowed;

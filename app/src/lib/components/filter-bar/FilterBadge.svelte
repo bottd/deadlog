@@ -45,9 +45,6 @@
 			min-block-size: 2.75rem;
 			flex-shrink: 0;
 			border-radius: var(--radius-md);
-			& > :global([data-slot='badge']) {
-				cursor: pointer;
-			}
 			&:hover > :global([data-slot='badge']) {
 				box-shadow:
 					0 4px 6px -1px color-mix(in srgb, var(--primary) 10%, transparent),
@@ -84,9 +81,6 @@
 			opacity: 0.5;
 		}
 		.entity-name {
-			font-size: var(--text-xs);
-			line-height: var(--leading-xs);
-			font-weight: 500;
 			letter-spacing: -0.025em;
 		}
 	}

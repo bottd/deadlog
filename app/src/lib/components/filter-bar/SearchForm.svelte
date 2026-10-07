@@ -103,7 +103,7 @@
 						{#each histories as entity (entity.key)}
 							<a
 								href="/{entity.type}/{entity.data.slug}"
-								class="ui-focus-ring history-link"
+								class="ui-focus-ring history-link reading-action"
 								onclick={onclose}
 								onkeydown={(event) => event.stopPropagation()}
 							>
@@ -154,10 +154,6 @@
 		:global(.search-command) {
 			position: relative;
 			z-index: 50;
-			block-size: auto;
-			overflow: visible;
-			border-radius: 0;
-			background: transparent;
 		}
 		.search-form {
 			display: flex;
@@ -193,25 +189,19 @@
 			}
 		}
 		.filter-dropdown {
-			position: absolute;
-			inset-inline: 0;
-			top: 100%;
-			margin-top: 0.5rem;
-			max-block-size: 65vh;
+			min-block-size: 0;
+			margin-top: 0.75rem;
 			overflow-y: auto;
-			border: 1px solid var(--border);
-			border-radius: var(--radius-md);
-			background: var(--popover);
-			box-shadow: var(--shadow-xl);
-			&[data-mobile='true'] {
-				position: static;
-				min-block-size: 0;
-				max-block-size: none;
-				margin-top: 0.75rem;
-				border: 0;
-				border-radius: 0;
-				background: transparent;
-				box-shadow: none;
+			&[data-mobile='false'] {
+				position: absolute;
+				inset-inline: 0;
+				top: 100%;
+				margin-top: 0.5rem;
+				max-block-size: 65vh;
+				border: 1px solid var(--border);
+				border-radius: var(--radius-md);
+				background: var(--popover);
+				box-shadow: var(--shadow-xl);
 			}
 		}
 		.histories {
@@ -230,17 +220,8 @@
 			gap: 0.25rem 1rem;
 		}
 		.history-link {
-			display: inline-flex;
-			min-block-size: 2.75rem;
-			align-items: center;
-			gap: 0.375rem;
-			color: var(--signal);
 			font-size: var(--text-sm);
 			line-height: var(--leading-sm);
-			text-underline-offset: 4px;
-			&:hover {
-				text-decoration: underline;
-			}
 		}
 		:global(.search-options) {
 			max-block-size: 20rem;

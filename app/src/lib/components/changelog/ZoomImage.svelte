@@ -29,7 +29,6 @@
 			margin-block: 1.5rem;
 		}
 		.changelog-image {
-			block-size: auto;
 			max-block-size: 32rem;
 		}
 	}

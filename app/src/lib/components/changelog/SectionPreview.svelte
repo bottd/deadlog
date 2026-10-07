@@ -55,8 +55,6 @@
 			flex-wrap: wrap;
 			gap: 0.875rem 0.25rem;
 			margin-bottom: 1.25rem;
-			padding: 0;
-			list-style: none;
 		}
 		.preview-link {
 			display: flex;

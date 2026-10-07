@@ -49,7 +49,7 @@
 				{/if}
 			</p>
 
-			<p class="error-status">
+			<p class="error-status metadata">
 				Status {page.status}
 			</p>
 
@@ -58,13 +58,13 @@
 					<li>
 						<a href="/heroes" class="pill-signal">
 							Browse heroes
-							{#if heroCount}<span class="entity-count">{heroCount}</span>{/if}
+							{#if heroCount}<span class="entity-count metadata">{heroCount}</span>{/if}
 						</a>
 					</li>
 					<li>
 						<a href="/items" class="pill-signal">
 							Browse items
-							{#if itemCount}<span class="entity-count">{itemCount}</span>{/if}
+							{#if itemCount}<span class="entity-count metadata">{itemCount}</span>{/if}
 						</a>
 					</li>
 					<li>
@@ -103,10 +103,6 @@
 		}
 		.error-status {
 			margin-bottom: 2rem;
-			color: var(--muted-foreground);
-			font-family: var(--font-mono);
-			font-size: var(--text-xs);
-			line-height: var(--leading-xs);
 			letter-spacing: 0.025em;
 		}
 		.recovery-links {
@@ -117,12 +113,6 @@
 		}
 		.pill-signal {
 			display: flex;
-		}
-		.entity-count {
-			color: var(--muted-foreground);
-			font-family: var(--font-mono);
-			font-size: var(--text-xs);
-			line-height: var(--leading-xs);
 		}
 		.search-suggestion {
 			margin-top: 2rem;

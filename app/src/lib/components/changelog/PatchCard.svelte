@@ -75,7 +75,7 @@
 							<a
 								href="/{match.type}/{match.slug}"
 								aria-label="{match.name} full history"
-								class="history-link ui-focus-ring"
+								class="history-link reading-action ui-focus-ring"
 								>Full history <ArrowRight class="icon-sm" /></a
 							>
 						</div>
@@ -150,7 +150,7 @@
 					>{/each}
 			{/if}
 			{#if matches.searching}
-				<a href={links.href} class="full-patch ui-focus-ring"
+				<a href={links.href} class="full-patch reading-action ui-focus-ring"
 					>Full patch <ArrowRight class="icon-sm" /></a
 				>
 			{:else}<span class="card-arrow"><ArrowRight class="icon-sm" /></span>{/if}
@@ -312,7 +312,6 @@
 			border-color: color-mix(in srgb, var(--primary) 50%, transparent);
 		}
 		:global(.patch-author-initials) {
-			color: var(--muted-foreground);
 			font-family: var(--font-mono);
 			font-size: 0.6875rem;
 			letter-spacing: 0.025em;
@@ -334,22 +333,12 @@
 		}
 		.history-link,
 		.full-patch {
-			display: inline-flex;
-			min-block-size: 2.75rem;
-			align-items: center;
-			gap: 0.25rem;
 			border-radius: var(--radius-sm);
-			color: var(--signal);
-			font-size: var(--text-xs);
-			line-height: var(--leading-xs);
 		}
 		.history-link {
 			position: relative;
 			z-index: 10;
-			text-underline-offset: 4px;
-			&:hover {
-				text-decoration: underline;
-			}
+			gap: 0.25rem;
 		}
 		.change-list {
 			max-inline-size: 72ch;
@@ -476,7 +465,6 @@
 		.full-patch {
 			margin-left: auto;
 			flex-shrink: 0;
-			gap: 0.375rem;
 		}
 		.card-arrow {
 			margin-left: auto;

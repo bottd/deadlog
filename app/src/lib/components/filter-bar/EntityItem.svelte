@@ -42,7 +42,7 @@
 				<span class="option-name">
 					{name}
 				</span>
-				<span class="option-kind">
+				<span class="option-kind metadata">
 					{entityKind.label}
 				</span>
 			</span>
@@ -57,10 +57,7 @@
 <style>
 	@layer components.features {
 		:global(.entity-option) {
-			display: flex;
-			align-items: center;
 			gap: 0.75rem;
-			border-radius: var(--radius-sm);
 			padding: 0.5rem 0.75rem;
 			cursor: pointer;
 			transition: background-color var(--duration-normal);
@@ -68,7 +65,6 @@
 		}
 		:global(.entity-option[aria-selected='true']) {
 			background: color-mix(in srgb, var(--entity-accent) 10%, transparent);
-			color: var(--foreground);
 		}
 		:global(.entity-option:is(:hover, [data-selected])) {
 			background: var(--secondary);
@@ -97,8 +93,6 @@
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
-			font-size: var(--text-sm);
-			line-height: var(--leading-sm);
 		}
 		:global(.entity-option[aria-selected='true']) .option-name {
 			color: var(--entity-accent);
@@ -106,10 +100,6 @@
 		}
 		.option-kind {
 			display: block;
-			color: var(--muted-foreground);
-			font-family: var(--font-mono);
-			font-size: var(--text-xs);
-			line-height: var(--leading-xs);
 			text-transform: uppercase;
 			letter-spacing: 0.025em;
 		}

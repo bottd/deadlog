@@ -81,7 +81,6 @@
 			margin: 0;
 			scroll-margin-top: 5rem;
 			font-size: var(--text-2xl);
-			line-height: 1.25;
 		}
 		/* Notes and nested abilities share the content column. */
 		:is(div.hero, div.item) > :not(p:has(img)):not(h3) {
@@ -120,7 +119,6 @@
 			margin-block: 0.75rem;
 			max-inline-size: 72ch;
 			color: color-mix(in srgb, var(--foreground) 90%, transparent);
-			line-height: var(--leading-relaxed);
 		}
 		:is(ul, ol):not([class]) {
 			margin: 0.75rem 0 0.75rem 1.25rem;
@@ -135,7 +133,6 @@
 			position: relative;
 			max-inline-size: 72ch;
 			color: color-mix(in srgb, var(--foreground) 90%, transparent);
-			line-height: var(--leading-relaxed);
 		}
 		:is(ul, ol):not([class]) > li + li {
 			margin-top: 0.625rem;
@@ -201,7 +198,6 @@
 			border-radius: 0.25rem;
 			background: color-mix(in srgb, var(--primary) 5%, transparent);
 			color: var(--primary);
-			font-family: var(--font-mono);
 			font-size: var(--text-xs);
 			line-height: var(--leading-xs);
 		}
@@ -227,13 +223,11 @@
 		}
 		hr {
 			margin-block: 2rem;
-			border-color: var(--border);
 		}
 		table {
 			inline-size: 100%;
 			margin-block: 1rem;
 			border: 1px solid var(--border);
-			border-collapse: collapse;
 		}
 		th,
 		td {

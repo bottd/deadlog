@@ -86,7 +86,7 @@
 			<h1 class="directory-title">
 				{heading}
 			</h1>
-			<span id="{kind}-directory-count" class="directory-count" role="status"
+			<span id="{kind}-directory-count" class="directory-count metadata" role="status"
 				>{filtered.length}{params.name || category ? ` / ${entries.length}` : ''}
 				{listing.label.toLowerCase()}</span
 			>
@@ -143,7 +143,7 @@
 								<h2>
 									{entry.name}
 								</h2>
-								{#if entry.subtitle}<p class="entry-subtitle">
+								{#if entry.subtitle}<p class="entry-subtitle metadata">
 										{entry.subtitle}
 									</p>{/if}
 							</div>
@@ -189,12 +189,6 @@
 			color: var(--foreground);
 			font: 500 var(--text-4xl)/var(--leading-4xl) var(--font-display);
 			letter-spacing: 0.025em;
-		}
-		.directory-count {
-			color: var(--muted-foreground);
-			font-family: var(--font-mono);
-			font-size: var(--text-xs);
-			line-height: var(--leading-xs);
 		}
 		.directory-lede {
 			max-inline-size: 42rem;
@@ -302,10 +296,6 @@
 		}
 		.entry-subtitle {
 			margin-top: 0.25rem;
-			color: var(--muted-foreground);
-			font-family: var(--font-mono);
-			font-size: var(--text-xs);
-			line-height: var(--leading-xs);
 			text-transform: capitalize;
 		}
 		.directory-empty {
