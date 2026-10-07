@@ -4,7 +4,7 @@ packages:
 
 allowBuilds:
   esbuild: true
-  msw: true
+  msw: false
   sharp: true
   workerd: true
 
@@ -20,6 +20,5 @@ minimumReleaseAgeExclude:
 onlyBuiltDependencies:
   - deadlock_api_client
   - esbuild
-  - msw
   - sharp
   - workerd

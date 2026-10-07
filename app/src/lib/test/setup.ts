@@ -4,7 +4,7 @@ import { handlers } from './mocks/handlers';
 
 export const server = setupServer(...handlers);
 
-beforeAll(() => server.listen({ onUnhandledRequest: 'error' }));
+beforeAll(() => server.listen({ onUnhandledFrame: 'error' }));
 
 afterEach(() => server.resetHandlers());
 
