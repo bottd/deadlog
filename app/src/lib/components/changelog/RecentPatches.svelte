@@ -42,6 +42,7 @@
 			margin-bottom: 0.5rem;
 			color: var(--muted-foreground);
 			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 		}
 		.recent-links {
 			display: flex;
@@ -56,7 +57,9 @@
 			border-radius: var(--radius-md);
 			padding-inline: 0.75rem;
 			color: var(--signal);
-			font: var(--text-xs) var(--font-mono);
+			font-family: var(--font-mono);
+			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 			&:hover {
 				border-color: var(--signal);
 			}

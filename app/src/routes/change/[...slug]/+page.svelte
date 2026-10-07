@@ -338,6 +338,7 @@
 			margin-bottom: 1rem;
 			color: var(--muted-foreground);
 			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
 			transition: color var(--duration-normal);
 			&:hover {
 				color: var(--signal);
@@ -354,6 +355,7 @@
 			background: color-mix(in srgb, var(--signal) 5%, transparent);
 			color: var(--muted-foreground);
 			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
 		}
 		.filter-selection {
 			color: var(--foreground);
@@ -362,7 +364,7 @@
 		.clear-filter {
 			margin-left: auto;
 			color: var(--signal);
-			font: 600 var(--text-xs) var(--font-mono);
+			font: 600 var(--text-xs)/var(--leading-xs) var(--font-mono);
 			&:hover {
 				text-decoration: underline;
 			}
@@ -377,7 +379,7 @@
 			padding-inline: 0.75rem;
 			background: var(--card);
 			color: var(--foreground);
-			font: 600 var(--text-xs) var(--font-mono);
+			font: 600 var(--text-xs)/var(--leading-xs) var(--font-mono);
 			text-transform: uppercase;
 			letter-spacing: 0.05em;
 			transition:
@@ -463,6 +465,7 @@
 			gap: 0.625rem;
 			color: var(--muted-foreground);
 			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
 		}
 		:global(.article-author-avatar) {
 			inline-size: 1.75rem;
@@ -472,7 +475,9 @@
 		}
 		:global(.article-author-initials) {
 			color: var(--muted-foreground);
-			font: var(--text-xs) var(--font-mono);
+			font-family: var(--font-mono);
+			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 			letter-spacing: 0.025em;
 		}
 		.byline-text {
@@ -492,6 +497,7 @@
 			align-items: center;
 			gap: 0.75rem;
 			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 		}
 		.patch-stat {
 			display: flex;
@@ -517,7 +523,7 @@
 			border-radius: var(--radius-md);
 			padding-inline: 0.75rem;
 			color: var(--muted-foreground);
-			font: 600 var(--text-xs) var(--font-mono);
+			font: 600 var(--text-xs)/var(--leading-xs) var(--font-mono);
 			transition:
 				background-color var(--duration-normal),
 				color var(--duration-normal);
@@ -542,6 +548,7 @@
 		}
 		:global(.toc-sheet [data-slot='sheet-title']) {
 			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
 			letter-spacing: -0.025em;
 		}
 		.toc-sheet-scroll {

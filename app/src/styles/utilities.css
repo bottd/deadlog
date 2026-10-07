@@ -12,7 +12,6 @@
 [data-app-ready='false'] .js-only {
 	display: none;
 }
-/* Icons cross Svelte component boundaries; use a small shared size vocabulary. */
 .icon-xs {
 	inline-size: 0.75rem;
 	block-size: 0.75rem;
@@ -37,7 +36,6 @@
 	flex-shrink: 0;
 }
 
-/* Keep the existing dismissal timing contract for Bits UI and Svelte transitions. */
 @media (prefers-reduced-motion: reduce) {
 	*,
 	*::before,

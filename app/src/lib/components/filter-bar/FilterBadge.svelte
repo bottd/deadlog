@@ -17,7 +17,7 @@
 <button
 	type="button"
 	onclick={onRemove}
-	class="filter-badge ui-focus-ring"
+	class="filter-badge"
 	aria-label="Remove {entityKind.label} filter: {name}"
 >
 	<Badge variant={kind === 'hero' ? 'default' : 'signal'}>
@@ -35,7 +35,7 @@
 		<span class="kind-label">{entityKind.label}</span>
 		<span aria-hidden="true" class="separator">/</span>
 		<span class="entity-name">{name}</span>
-		<XIcon class="icon-xs" />
+		<XIcon class="icon-xs filter-remove" />
 	</Badge>
 </button>
 
@@ -45,6 +45,14 @@
 			min-block-size: 2.75rem;
 			flex-shrink: 0;
 			border-radius: var(--radius-md);
+			& > :global([data-slot='badge']) {
+				cursor: pointer;
+			}
+			&:hover > :global([data-slot='badge']) {
+				box-shadow:
+					0 4px 6px -1px color-mix(in srgb, var(--primary) 10%, transparent),
+					0 2px 4px -2px color-mix(in srgb, var(--primary) 10%, transparent);
+			}
 		}
 		.filter-image {
 			inline-size: 18px;
@@ -54,6 +62,16 @@
 			transition: scale var(--duration-normal);
 		}
 		.filter-badge:hover .filter-image {
+			scale: 1.1;
+		}
+		.filter-badge :global(.filter-remove) {
+			opacity: 0.6;
+			transition:
+				opacity var(--duration-normal),
+				scale var(--duration-normal);
+		}
+		.filter-badge:hover :global(.filter-remove) {
+			opacity: 1;
 			scale: 1.1;
 		}
 		.kind-label {
@@ -67,6 +85,7 @@
 		}
 		.entity-name {
 			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 			font-weight: 500;
 			letter-spacing: -0.025em;
 		}

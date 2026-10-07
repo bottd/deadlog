@@ -14,10 +14,9 @@
 		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 		<link rel="manifest" href="/site.webmanifest" />
-		<!-- Establish precedence before SvelteKit's code-split stylesheet links. -->
 		<style>
 			@layer reset, tokens, base, layout, prose, components, utilities;
-			@layer components.primitives, components.features;
+			@layer components.primitives, components.features, components.focus;
 		</style>
 		%sveltekit.head%
 	</head>

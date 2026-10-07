@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { FilterInput } from '#lib/components/filter-bar/index.ts';
+	import FilterInput from '#lib/components/filter-bar/FilterInput.svelte';
 	import Crosshair from '@lucide/svelte/icons/crosshair';
 </script>
 
@@ -70,7 +70,7 @@
 			border-radius: 0.25rem;
 			padding-inline: 0.75rem;
 			color: var(--muted-foreground);
-			font: 600 var(--text-xs)/1.3333 var(--font-mono);
+			font: 600 var(--text-xs)/var(--leading-xs) var(--font-mono);
 			letter-spacing: 0.05em;
 			text-transform: uppercase;
 			transition:
@@ -139,7 +139,7 @@
 			gap: 0.5rem;
 		}
 		.wordmark-name {
-			font: 500 var(--text-2xl)/1.3333 var(--font-display);
+			font: 500 var(--text-2xl)/var(--leading-2xl) var(--font-display);
 			letter-spacing: 0.025em;
 		}
 		.wordmark-name span {
@@ -159,6 +159,7 @@
 			display: none;
 			color: var(--muted-foreground);
 			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 			font-weight: 500;
 			letter-spacing: 0.025em;
 		}

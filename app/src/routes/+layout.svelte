@@ -106,7 +106,7 @@
 				padding: 0.5rem 1rem;
 				background: var(--primary);
 				color: var(--primary-foreground);
-				font: 700 var(--text-xs) var(--font-mono);
+				font: 700 var(--text-xs)/var(--leading-xs) var(--font-mono);
 				letter-spacing: 0.05em;
 				text-transform: uppercase;
 			}

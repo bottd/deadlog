@@ -8,6 +8,7 @@ html {
 	line-height: 1.5;
 	-webkit-text-size-adjust: 100%;
 	tab-size: 4;
+	-webkit-tap-highlight-color: transparent;
 }
 body,
 h1,
@@ -75,6 +76,9 @@ summary {
 }
 textarea {
 	resize: vertical;
+}
+::-webkit-search-decoration {
+	-webkit-appearance: none;
 }
 ::placeholder {
 	opacity: 1;

@@ -68,14 +68,18 @@
 			color: var(--muted-foreground);
 			font-size: 0.6875rem;
 			font-weight: 500;
+			text-underline-offset: 2px;
 			transition:
 				border-color var(--duration-normal),
 				background-color var(--duration-normal),
-				color var(--duration-normal);
+				color var(--duration-normal),
+				opacity var(--duration-normal);
 			&:hover {
 				border-color: color-mix(in srgb, var(--primary) 30%, transparent);
 				background: color-mix(in srgb, var(--primary) 5%, transparent);
 				color: var(--foreground);
+				text-decoration: underline;
+				opacity: 0.8;
 			}
 			& img {
 				inline-size: 1.25rem;

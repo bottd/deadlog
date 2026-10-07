@@ -151,7 +151,6 @@
 
 <style>
 	@layer components.features {
-		/* The command root is rendered by Bits UI, so these hooks are global. */
 		:global(.search-command) {
 			position: relative;
 			z-index: 50;
@@ -176,6 +175,7 @@
 			flex: 1;
 			padding: 0.625rem 0.75rem;
 			font-size: var(--text-base);
+			line-height: var(--leading-base);
 			outline: none;
 		}
 		.search-submit {
@@ -221,6 +221,7 @@
 				margin-bottom: 0.25rem;
 				color: var(--muted-foreground);
 				font-size: var(--text-xs);
+				line-height: var(--leading-xs);
 			}
 		}
 		.history-links {
@@ -235,6 +236,7 @@
 			gap: 0.375rem;
 			color: var(--signal);
 			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
 			text-underline-offset: 4px;
 			&:hover {
 				text-decoration: underline;

@@ -3,7 +3,7 @@
 	import { onMount } from 'svelte';
 	import { formatDate, plural } from '@deadlog/utils';
 	import { FeaturedPatchCard, PatchCard } from './index';
-	import { HeroRail } from '#lib/components/filter-bar/index.ts';
+	import HeroRail from '#lib/components/filter-bar/HeroRail.svelte';
 	import { searchParams as params } from '#lib/stores/searchParams.svelte.ts';
 	import { useChangelogQuery } from '#lib/hooks/useChangelogQuery.svelte.ts';
 	import CornerAccents from '#lib/components/ui/corner-accents/CornerAccents.svelte';
@@ -259,7 +259,7 @@
 		}
 		.page-title {
 			color: var(--foreground);
-			font: 500 var(--text-3xl)/1.2 var(--font-display);
+			font: 500 var(--text-3xl)/var(--leading-3xl) var(--font-display);
 			letter-spacing: 0.025em;
 		}
 		.page-lede {
@@ -298,6 +298,7 @@
 			padding-block: 0.75rem;
 			color: var(--muted-foreground);
 			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
 		}
 		.major-toggle {
 			min-block-size: 2.75rem;
@@ -306,6 +307,7 @@
 			padding-inline: 0.75rem;
 			color: var(--muted-foreground);
 			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 			font-weight: 500;
 			transition:
 				border-color var(--duration-normal),
@@ -325,7 +327,7 @@
 		.new-summary {
 			margin-bottom: 1rem;
 			color: var(--muted-foreground);
-			font: var(--text-xs)/1.3333 var(--font-mono);
+			font: var(--text-xs)/var(--leading-xs) var(--font-mono);
 			letter-spacing: 0.05em;
 			text-transform: uppercase;
 		}
@@ -379,7 +381,9 @@
 		.empty-label {
 			margin-bottom: 0.5rem;
 			color: var(--muted-foreground);
-			font: var(--text-xs) var(--font-mono);
+			font-family: var(--font-mono);
+			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 			letter-spacing: 0.025em;
 			text-transform: uppercase;
 		}
@@ -394,7 +398,7 @@
 			padding: 0.75rem 1.5rem;
 			background: color-mix(in srgb, var(--primary) 10%, transparent);
 			color: var(--primary);
-			font: 600 var(--text-sm) var(--font-mono);
+			font: 600 var(--text-sm)/var(--leading-sm) var(--font-mono);
 			&:hover {
 				background: color-mix(in srgb, var(--primary) 20%, transparent);
 			}
@@ -421,7 +425,9 @@
 			align-items: center;
 			gap: 1rem;
 			color: var(--muted-foreground);
-			font: var(--text-xs) var(--font-mono);
+			font-family: var(--font-mono);
+			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 			letter-spacing: 0.05em;
 			text-transform: uppercase;
 			&::before,
@@ -443,13 +449,14 @@
 			text-align: center;
 			color: var(--destructive);
 			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
 			font-weight: 500;
 		}
 		.retry-button {
 			min-block-size: 2.75rem;
 			border: 1px solid color-mix(in srgb, var(--destructive) 30%, transparent);
 			padding: 0.5rem 1.25rem;
-			font: 600 var(--text-xs) var(--font-mono);
+			font: 600 var(--text-xs)/var(--leading-xs) var(--font-mono);
 			&:hover {
 				background: color-mix(in srgb, var(--destructive) 10%, transparent);
 			}
@@ -464,7 +471,9 @@
 		}
 		.loading-label {
 			color: var(--muted-foreground);
-			font: var(--text-xs) var(--font-mono);
+			font-family: var(--font-mono);
+			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 			letter-spacing: 0.05em;
 			text-transform: uppercase;
 		}
@@ -472,6 +481,7 @@
 			padding-block: 1.5rem;
 			color: var(--muted-foreground);
 			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
 			& a {
 				color: var(--signal);
 				text-decoration: underline;

@@ -187,12 +187,14 @@
 		}
 		.directory-title {
 			color: var(--foreground);
-			font: 500 var(--text-4xl)/1.1111 var(--font-display);
+			font: 500 var(--text-4xl)/var(--leading-4xl) var(--font-display);
 			letter-spacing: 0.025em;
 		}
 		.directory-count {
 			color: var(--muted-foreground);
-			font: var(--text-xs) var(--font-mono);
+			font-family: var(--font-mono);
+			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 		}
 		.directory-lede {
 			max-inline-size: 42rem;
@@ -232,6 +234,7 @@
 			inline-size: 100%;
 			padding: 0.5rem 0.75rem 0.5rem 2.5rem;
 			font-size: var(--text-base);
+			line-height: var(--leading-base);
 			outline: none;
 		}
 		.category-filters {
@@ -245,6 +248,7 @@
 			padding-inline: 0.75rem;
 			color: var(--muted-foreground);
 			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
 			text-transform: capitalize;
 			&:hover:not([aria-pressed='true']) {
 				color: var(--foreground);
@@ -299,7 +303,9 @@
 		.entry-subtitle {
 			margin-top: 0.25rem;
 			color: var(--muted-foreground);
-			font: var(--text-xs) var(--font-mono);
+			font-family: var(--font-mono);
+			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 			text-transform: capitalize;
 		}
 		.directory-empty {
@@ -307,6 +313,7 @@
 			padding-block: 2rem;
 			color: var(--muted-foreground);
 			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
 		}
 		.clear-directory {
 			min-block-size: 2.75rem;

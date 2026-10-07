@@ -15,7 +15,8 @@
 	const matches = $derived(patchCardMatches(patch));
 	const view = $derived(patchCardView(patch));
 	const links = $derived(patchCardHrefs(patch));
-	// MAJOR is the only reliable tier; entity count does not imply a small patch.
+	// ponytail: MAJOR is the only reliable tier — `category` is uniformly "patch"
+	// and entity count is a poor signal for "small patch", so no HOTFIX tier.
 	const isMajor = $derived(!!patch.majorUpdate);
 </script>
 
@@ -112,7 +113,7 @@
 				<HighlightedText text={patch.summary} query={searchParams.q} />
 			</p>{/if}
 		{#each view.rows as row (row.type)}
-			<!-- Unfanned on phones so each image link has a full 44px touch target. -->
+			<!-- Unfanned below `sm` so every icon keeps a full 44px touch target. -->
 			<div class="entity-row" data-entity-kind={row.kind}>
 				{#each row.list as icon (icon.id)}
 					<a
@@ -268,6 +269,7 @@
 			overflow: hidden;
 			color: var(--foreground);
 			font-size: var(--text-base);
+			line-height: var(--leading-base);
 			font-weight: 600;
 			letter-spacing: -0.025em;
 			transition: color var(--duration-slow);
@@ -293,6 +295,7 @@
 			gap: 0.5rem;
 			color: var(--muted-foreground);
 			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 		}
 		.author-name {
 			overflow: hidden;
@@ -310,7 +313,8 @@
 		}
 		:global(.patch-author-initials) {
 			color: var(--muted-foreground);
-			font: 0.6875rem var(--font-mono);
+			font-family: var(--font-mono);
+			font-size: 0.6875rem;
 			letter-spacing: 0.025em;
 		}
 		.matched-changes > * + * {
@@ -324,6 +328,7 @@
 			margin-bottom: 0.5rem;
 			& h3 {
 				font-size: var(--text-sm);
+				line-height: var(--leading-sm);
 				font-weight: 600;
 			}
 		}
@@ -336,6 +341,7 @@
 			border-radius: var(--radius-sm);
 			color: var(--signal);
 			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 		}
 		.history-link {
 			position: relative;
@@ -361,10 +367,12 @@
 			margin-top: 0.5rem;
 			color: var(--muted-foreground);
 			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 		}
 		.match-context {
 			color: var(--muted-foreground);
 			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
 		}
 		.summary {
 			max-inline-size: 72ch;
@@ -380,6 +388,7 @@
 		.patch-card[data-searching='true'] .summary {
 			display: block;
 			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
 		}
 		.entity-row {
 			display: flex;
@@ -427,7 +436,9 @@
 			border-radius: var(--radius-md);
 			background: color-mix(in srgb, var(--muted) 80%, transparent);
 			color: var(--muted-foreground);
-			font: 600 0.6875rem var(--font-mono);
+			font-weight: 600;
+			font-family: var(--font-mono);
+			font-size: 0.6875rem;
 		}
 		.patch-card:hover .extra-count {
 			background: color-mix(in srgb, var(--entity-accent) 15%, transparent);
@@ -441,6 +452,7 @@
 			border-top: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
 			padding-top: 0.75rem;
 			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 		}
 		.stat {
 			display: flex;

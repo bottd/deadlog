@@ -4,21 +4,14 @@
 		font-size: var(--text-base);
 		line-height: var(--leading-relaxed);
 	}
-	/* Generated document markup inherits prose; embedded UI owns its own subtree. */
 	@scope (.mog-content) to ([data-prose-ui]) {
 		:scope > p:has(> img) {
 			margin-block: 1.5rem;
 			max-inline-size: none;
 		}
 		:scope > p > img {
-			inline-size: 100%;
 			block-size: auto;
 			max-block-size: 32rem;
-			border: 1px solid var(--border);
-			border-radius: var(--radius-lg);
-			background: color-mix(in srgb, var(--muted) 20%, transparent);
-			object-fit: contain;
-			box-shadow: var(--shadow-lg);
 		}
 		h2 {
 			margin: 2rem 0 1rem;
@@ -67,10 +60,11 @@
 			display: flex;
 			align-items: center;
 		}
-		/* These links include an assistive label after the icon. */
+		/* The Mog link label names the image link for assistive technology. */
 		:is(div.hero, div.item, div.ability) > p:has(img) > a {
 			font-size: 0;
 		}
+		/* Descendant selector: the portrait img may sit inside the history-page link. */
 		:is(div.hero, div.item) > img,
 		:is(div.hero, div.item) > p img {
 			inline-size: 2.5rem;
@@ -89,6 +83,7 @@
 			font-size: var(--text-2xl);
 			line-height: 1.25;
 		}
+		/* Notes and nested abilities share the content column. */
 		:is(div.hero, div.item) > :not(p:has(img)):not(h3) {
 			grid-column: 2;
 		}
@@ -98,6 +93,7 @@
 			column-gap: 0.625rem;
 			margin-top: 1rem;
 		}
+		/* Descendant selector: the icon may sit inside the ability deep link. */
 		div.ability > img,
 		div.ability > p img {
 			inline-size: 1.5rem;
@@ -112,7 +108,6 @@
 			scroll-margin-top: 5rem;
 			font-size: var(--text-lg);
 			line-height: 1.25;
-			letter-spacing: normal;
 		}
 		div.ability > :not(p:has(img)):not(h4) {
 			grid-column: 2;
@@ -206,7 +201,9 @@
 			border-radius: 0.25rem;
 			background: color-mix(in srgb, var(--primary) 5%, transparent);
 			color: var(--primary);
-			font: var(--text-xs) var(--font-mono);
+			font-family: var(--font-mono);
+			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 		}
 		pre {
 			overflow-x: auto;

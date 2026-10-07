@@ -20,6 +20,7 @@
 			</p>
 			<p>Deadlock is a trademark of Valve Corporation</p>
 		</div>
+		<!-- Full tone at 11px: 9px at 40% alpha under the flicker measured 2.24:1. -->
 		<div class="transmission"><span>// end transmission</span></div>
 	</div>
 </footer>
@@ -57,16 +58,21 @@
 			border-radius: var(--radius-md);
 			background: color-mix(in srgb, var(--signal) 10%, transparent);
 			color: var(--signal);
+			transition: background-color var(--duration-normal);
+		}
+		.footer-brand:hover .brand-mark {
+			background: color-mix(in srgb, var(--signal) 15%, transparent);
 		}
 		.brand-name {
 			color: var(--muted-foreground);
-			font: 600 var(--text-sm)/1.4286 var(--font-display);
+			font: 600 var(--text-sm)/var(--leading-sm) var(--font-display);
 			letter-spacing: 0.025em;
 			& span {
 				color: var(--primary);
 			}
 			& small {
-				font: 0.6875rem var(--font-mono);
+				font-family: var(--font-mono);
+				font-size: 0.6875rem;
 			}
 		}
 		.credits {
@@ -77,8 +83,15 @@
 			text-align: center;
 			color: var(--muted-foreground);
 			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 			& a {
 				color: var(--signal);
+			}
+			& p a {
+				transition: opacity var(--duration-normal);
+				&:hover {
+					opacity: 0.8;
+				}
 			}
 		}
 		.archive-link {
@@ -88,6 +101,7 @@
 			margin-bottom: 0.5rem;
 			border-radius: var(--radius-sm);
 			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
 			text-underline-offset: 4px;
 			&:hover {
 				text-decoration: underline;
@@ -98,7 +112,8 @@
 			align-items: center;
 			gap: 1rem;
 			color: var(--muted-foreground);
-			font: 0.6875rem var(--font-mono);
+			font-family: var(--font-mono);
+			font-size: 0.6875rem;
 			text-transform: uppercase;
 			letter-spacing: 0.25em;
 			&::before,

@@ -74,13 +74,14 @@
 		}
 		h1 {
 			color: var(--foreground);
-			font: 500 var(--text-4xl)/1.1111 var(--font-display);
+			font: 500 var(--text-4xl)/var(--leading-4xl) var(--font-display);
 			letter-spacing: 0.025em;
 		}
 		header p {
 			margin-top: 0.5rem;
 			color: var(--muted-foreground);
 			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
 		}
 		section {
 			margin-bottom: 2.5rem;
@@ -88,7 +89,7 @@
 		h2 {
 			margin-bottom: 0.75rem;
 			color: var(--signal);
-			font: var(--text-lg)/1.5556 var(--font-mono);
+			font: var(--text-lg)/var(--leading-lg) var(--font-mono);
 		}
 		li + li {
 			border-top: 1px solid var(--border-subtle);
@@ -103,6 +104,7 @@
 			border-radius: var(--radius-sm);
 			padding-block: 0.75rem;
 			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
 			&:hover {
 				color: var(--primary);
 			}
@@ -110,6 +112,7 @@
 		time {
 			color: var(--muted-foreground);
 			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 		}
 	}
 </style>

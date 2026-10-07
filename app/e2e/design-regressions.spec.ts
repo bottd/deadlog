@@ -457,7 +457,6 @@ test('changelog contents surface ability icons on a card', async ({ page }, test
 	expect(abilityBox!.x).toBeGreaterThan(heroBox!.x);
 	const abilityUsesMutedText = await ability.evaluate((element) => {
 		const reference = document.createElement('span');
-		// Compare the semantic token, independent of a generator's color serialization.
 		reference.style.color = 'var(--muted-foreground)';
 		document.body.append(reference);
 		const matches = getComputedStyle(element).color === getComputedStyle(reference).color;

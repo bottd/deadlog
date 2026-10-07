@@ -443,6 +443,7 @@
 			border-radius: var(--radius-sm);
 			color: var(--muted-foreground);
 			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
 			&:hover {
 				color: var(--signal);
 			}
@@ -471,7 +472,9 @@
 		}
 		.parent-entity {
 			margin-bottom: 0.25rem;
-			font: var(--text-xs) var(--font-mono);
+			font-family: var(--font-mono);
+			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 		}
 		.parent-link {
 			border-radius: var(--radius-sm);
@@ -495,13 +498,16 @@
 			gap: 0.5rem;
 			margin-top: 0.25rem;
 			color: var(--entity-color);
-			font: var(--text-xs) var(--font-mono);
+			font-family: var(--font-mono);
+			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 			text-transform: capitalize;
 		}
 		.latest-change {
 			margin-top: 0.75rem;
 			color: var(--muted-foreground);
 			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
 			& a {
 				color: var(--foreground);
 				text-underline-offset: 4px;
@@ -519,24 +525,28 @@
 			padding-block: 0.75rem;
 			color: var(--muted-foreground);
 			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
 			& span {
 				margin-left: 0.5rem;
 				font-size: var(--text-xs);
+				line-height: var(--leading-xs);
 			}
 		}
 		.archive-body {
 			padding-top: 0.5rem;
-			& > * + * {
+			& > :global(*) + :global(*) {
 				margin-top: 1rem;
 			}
 		}
 		.archive-copy {
 			color: var(--muted-foreground);
 			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
 		}
 		.descriptions-heading {
 			margin-bottom: 0.75rem;
 			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
 			font-weight: 600;
 		}
 		.ability-descriptions {
@@ -561,6 +571,7 @@
 			margin-bottom: 0.5rem;
 			color: var(--muted-foreground);
 			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
 		}
 		.ability-options {
 			display: flex;
@@ -578,6 +589,7 @@
 			background: var(--card);
 			color: var(--foreground);
 			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
 			text-align: left;
 			transition:
 				border-color var(--duration-normal),
@@ -601,6 +613,7 @@
 		.selected-ability-history {
 			margin-top: 0.5rem;
 			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
 		}
 		.history-link {
 			border-radius: var(--radius-sm);
@@ -620,12 +633,14 @@
 		}
 		.history-heading {
 			color: var(--foreground);
-			font: 500 var(--text-2xl)/1.3333 var(--font-display);
+			font: 500 var(--text-2xl)/var(--leading-2xl) var(--font-display);
 			letter-spacing: 0.025em;
 		}
 		.history-count {
 			color: var(--muted-foreground);
-			font: var(--text-xs) var(--font-mono);
+			font-family: var(--font-mono);
+			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 		}
 		.ability-status {
 			display: flex;
@@ -636,6 +651,7 @@
 			margin-bottom: 1rem;
 			color: var(--muted-foreground);
 			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
 			& strong {
 				color: var(--foreground);
 				font-weight: 500;
@@ -657,13 +673,14 @@
 			padding: 1.25rem 0.25rem 0.5rem;
 			background: color-mix(in srgb, var(--background) 95%, transparent);
 			color: var(--signal);
-			font: var(--text-lg)/1.5556 var(--font-mono);
-			backdrop-filter: blur(4px);
+			font: var(--text-lg)/var(--leading-lg) var(--font-mono);
+			backdrop-filter: blur(8px);
 		}
 		.year-count {
 			margin-left: auto;
 			color: var(--muted-foreground);
 			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 		}
 		.history-entry {
 			scroll-margin-top: 11rem;
@@ -682,6 +699,7 @@
 		.entry-title {
 			color: var(--foreground);
 			font-size: var(--text-base);
+			line-height: var(--leading-base);
 			font-weight: 600;
 		}
 		.entry-date {
@@ -698,6 +716,7 @@
 		.entry-count {
 			color: var(--muted-foreground);
 			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 		}
 		.change-groups {
 			max-inline-size: 72ch;
@@ -713,6 +732,7 @@
 			& h5 {
 				color: var(--foreground);
 				font-size: var(--text-sm);
+				line-height: var(--leading-sm);
 				font-weight: 600;
 			}
 		}
@@ -744,6 +764,7 @@
 			gap: 0.375rem;
 			margin-top: 0.5rem;
 			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 		}
 		.entity-empty {
 			margin-block: 1rem;
@@ -751,10 +772,12 @@
 			& .empty-heading {
 				margin-bottom: 0.5rem;
 				font-size: var(--text-xl);
+				line-height: var(--leading-xl);
 			}
 			& .empty-copy {
 				margin-bottom: 1.5rem;
 				font-size: var(--text-sm);
+				line-height: var(--leading-sm);
 			}
 		}
 		.history-index {
@@ -779,6 +802,7 @@
 			}
 			.entity-title {
 				font-size: var(--text-5xl);
+				line-height: var(--leading-5xl);
 			}
 		}
 		@media (min-width: 80rem) {

@@ -1,0 +1,27 @@
+/* Every focusable surface shows the same ring, so it is defined once. */
+.ui-focus-ring:focus-visible,
+[data-slot='button']:focus-visible,
+[data-slot='badge']:focus-visible,
+.pill-signal:focus-visible,
+.zoom-trigger:focus-visible > img,
+.filter-badge:focus-visible > [data-slot='badge'] {
+	outline: none;
+	border-color: var(--ring);
+	box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 50%, transparent);
+}
+/* Links inside a clipped card ring themselves with an outline rather than
+   `ui-focus-ring`: the card's `clip-path` would crop a ring drawn as box-shadow. */
+.ui-focus-outline:focus-visible,
+.stretched-link:focus-visible {
+	outline: 2px solid var(--primary);
+	outline-offset: 2px;
+}
+/* `clip-path` crops an outline, so a clipped control rings itself from the inside. */
+:is(a, button):is(.clip-corner, .clip-corner-sm, .clip-corner-lg):focus-visible {
+	outline: none;
+	box-shadow: inset 0 0 0 2px var(--ring);
+}
+.zoom-trigger:focus-visible,
+.filter-badge:focus-visible {
+	outline: none;
+}

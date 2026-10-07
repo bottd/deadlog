@@ -49,6 +49,7 @@ export default defineConfig({
 			extensions: ['.svelte', '.mg'],
 			preprocess: [transformMogOutput, vitePreprocess()],
 			adapter,
+			inlineStyleThreshold: 1024,
 			prerender: {
 				handleHttpError: 'fail',
 				handleMissingId: 'warn'

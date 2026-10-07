@@ -114,12 +114,15 @@
 			padding: 0.25rem 0.5rem;
 			background: color-mix(in srgb, var(--primary) 10%, transparent);
 			color: var(--primary);
-			font: var(--text-xs) var(--font-mono);
+			font-family: var(--font-mono);
+			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 		}
 		.byline {
 			margin-top: 0.5rem;
 			color: var(--muted-foreground);
 			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 		}
 		.summary {
 			max-inline-size: 72ch;
@@ -145,6 +148,7 @@
 			flex-shrink: 0;
 			color: var(--entity-accent);
 			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 		}
 		.entity-links {
 			display: flex;
@@ -174,7 +178,9 @@
 		}
 		.extra-count {
 			color: var(--muted-foreground);
-			font: var(--text-xs) var(--font-mono);
+			font-family: var(--font-mono);
+			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 		}
 		.featured-footer {
 			display: flex;
@@ -189,6 +195,7 @@
 		.totals {
 			color: var(--muted-foreground);
 			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 		}
 		.full-patch {
 			display: inline-flex;
@@ -196,6 +203,7 @@
 			gap: 0.5rem;
 			color: var(--signal);
 			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
 		}
 		.featured-media {
 			position: relative;
@@ -213,6 +221,7 @@
 			margin-top: 1.5rem;
 			color: var(--muted-foreground);
 			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
 		}
 		@media (min-width: 40rem) {
 			.featured-body {
@@ -220,6 +229,7 @@
 			}
 			.featured-title {
 				font-size: var(--text-4xl);
+				line-height: var(--leading-4xl);
 			}
 		}
 		@media (min-width: 48rem) {

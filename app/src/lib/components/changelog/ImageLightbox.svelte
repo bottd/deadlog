@@ -112,10 +112,12 @@
 			gap: 0.75rem;
 			color: var(--muted-foreground);
 			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
 		}
 		:global(.lightbox-title) {
 			color: var(--foreground);
 			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
 			font-weight: 500;
 		}
 		:global(.lightbox-control) {
@@ -129,9 +131,15 @@
 			border-radius: var(--radius-md);
 			background: color-mix(in srgb, var(--card) 80%, transparent);
 			color: var(--foreground);
+			transition:
+				background-color var(--duration-normal),
+				scale var(--duration-normal);
 		}
 		:global(.lightbox-control:hover) {
 			background: var(--card);
+		}
+		:global(.lightbox-control:active) {
+			scale: 0.97;
 		}
 		.previous,
 		.next {

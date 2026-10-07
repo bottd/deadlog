@@ -171,6 +171,7 @@
 			background: var(--card);
 			color: var(--muted-foreground);
 			font-size: var(--text-base);
+			line-height: var(--leading-base);
 			text-align: left;
 			& :global(svg) {
 				color: var(--signal);
@@ -181,7 +182,9 @@
 		}
 		.filter-count {
 			color: var(--primary);
-			font: var(--text-xs) var(--font-mono);
+			font-family: var(--font-mono);
+			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 		}
 		:global(.search-sheet) {
 			max-block-size: 85dvh;
@@ -213,6 +216,7 @@
 			padding-inline: 0.5rem;
 			color: var(--signal);
 			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 			&.major {
 				color: var(--primary);
 			}
@@ -224,6 +228,7 @@
 			padding-inline: 0.5rem;
 			color: var(--muted-foreground);
 			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 			&:hover {
 				color: var(--foreground);
 			}

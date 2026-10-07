@@ -104,7 +104,9 @@
 		.error-status {
 			margin-bottom: 2rem;
 			color: var(--muted-foreground);
-			font: var(--text-xs) var(--font-mono);
+			font-family: var(--font-mono);
+			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 			letter-spacing: 0.025em;
 		}
 		.recovery-links {
@@ -118,12 +120,15 @@
 		}
 		.entity-count {
 			color: var(--muted-foreground);
-			font: var(--text-xs) var(--font-mono);
+			font-family: var(--font-mono);
+			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 		}
 		.search-suggestion {
 			margin-top: 2rem;
 			color: var(--muted-foreground);
 			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
 		}
 		@media (min-width: 40rem) {
 			.empty-panel {

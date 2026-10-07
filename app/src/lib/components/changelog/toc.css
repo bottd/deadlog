@@ -3,25 +3,20 @@
 		--toc-icon: 1rem;
 		--toc-ability-icon: 0.875rem;
 		--toc-font-size: var(--text-xs);
+		--toc-line-height: var(--leading-xs);
 		--toc-row-gap: 0.375rem;
 		--toc-row-padding: 0.125rem 0 0.125rem 0.75rem;
 		border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
 		padding: 0.75rem;
 		background: color-mix(in srgb, var(--card) 80%, transparent);
 		box-shadow: var(--shadow-sm);
-		backdrop-filter: blur(4px);
+		backdrop-filter: blur(8px);
 	}
 	.toc-rule {
 		inline-size: 2rem;
 		block-size: 1px;
 		margin-bottom: 1rem;
 		background: color-mix(in srgb, var(--signal) 50%, transparent);
-	}
-	.toc-label {
-		margin-bottom: 1rem;
-		color: var(--muted-foreground);
-		font-weight: 700;
-		letter-spacing: 0.2em;
 	}
 	.toc-tree > * + * {
 		margin-top: 0.25rem;
@@ -37,6 +32,7 @@
 		padding: 0.25rem 0 0.25rem 0.75rem;
 		color: color-mix(in srgb, var(--foreground) 80%, transparent);
 		font-size: var(--text-xs);
+		line-height: var(--leading-xs);
 		font-weight: 600;
 		letter-spacing: -0.025em;
 		transition: color var(--duration-normal);
@@ -71,7 +67,8 @@
 	.toc-count {
 		margin-left: auto;
 		color: var(--signal);
-		font: 0.6875rem var(--font-mono);
+		font-family: var(--font-mono);
+		font-size: 0.6875rem;
 	}
 	.toc-link {
 		display: flex;
@@ -110,6 +107,7 @@
 		gap: var(--toc-row-gap);
 		padding: var(--toc-row-padding);
 		font-size: var(--toc-font-size);
+		line-height: var(--toc-line-height);
 	}
 	.toc-entity-img {
 		inline-size: var(--toc-icon);
@@ -136,17 +134,20 @@
 		gap: 0.5rem;
 		padding: 0.25rem 0 0.25rem 0.75rem;
 		font-size: var(--text-xs);
+		line-height: var(--leading-xs);
 	}
 	.toc-entry-count {
 		margin-left: auto;
 		flex-shrink: 0;
 		color: color-mix(in srgb, var(--muted-foreground) 80%, transparent);
-		font: 0.6875rem var(--font-mono);
+		font-family: var(--font-mono);
+		font-size: 0.6875rem;
 	}
 	.toc-panel[data-size='lg'] {
 		--toc-icon: 1.75rem;
 		--toc-ability-icon: 1.25rem;
 		--toc-font-size: var(--text-sm);
+		--toc-line-height: var(--leading-sm);
 		--toc-row-gap: 0.625rem;
 		--toc-row-padding: 0.375rem 0 0.375rem 1rem;
 		& .toc-tree > * + * {
@@ -159,12 +160,14 @@
 			gap: 0.75rem;
 			padding: 0.5rem 0.5rem 0.5rem 1rem;
 			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
 		}
 		& .toc-count {
 			border-radius: 9999px;
 			padding: 0.125rem 0.5rem;
 			background: color-mix(in srgb, var(--signal) 10%, transparent);
 			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 			font-weight: 500;
 		}
 		& .toc-marker {
@@ -189,6 +192,15 @@
 			gap: 0.5rem;
 			padding-block: 0.25rem;
 			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
 		}
+	}
+}
+@layer components.features {
+	.toc-label {
+		margin-bottom: 1rem;
+		color: var(--muted-foreground);
+		font-weight: 700;
+		letter-spacing: 0.2em;
 	}
 }

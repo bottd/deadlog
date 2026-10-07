@@ -98,6 +98,7 @@
 			text-overflow: ellipsis;
 			white-space: nowrap;
 			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
 		}
 		:global(.entity-option[aria-selected='true']) .option-name {
 			color: var(--entity-accent);
@@ -106,13 +107,17 @@
 		.option-kind {
 			display: block;
 			color: var(--muted-foreground);
-			font: var(--text-xs) var(--font-mono);
+			font-family: var(--font-mono);
+			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 			text-transform: uppercase;
 			letter-spacing: 0.025em;
 		}
 		.selected-label {
 			color: var(--entity-accent);
-			font: var(--text-xs) var(--font-mono);
+			font-family: var(--font-mono);
+			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 			letter-spacing: 0.025em;
 		}
 		.selected-dot {

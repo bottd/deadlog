@@ -1,7 +1,7 @@
-/* app.html declares layer order before SvelteKit loads code-split stylesheets. */
 @import './styles/reset.css' layer(reset);
 @import './styles/tokens.css' layer(tokens);
 @import './styles/base.css' layer(base);
 @import './styles/layout.css' layer(layout);
 @import './styles/primitives.css' layer(components.primitives);
+@import './styles/focus.css' layer(components.focus);
 @import './styles/utilities.css' layer(utilities);

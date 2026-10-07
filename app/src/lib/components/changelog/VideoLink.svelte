@@ -21,7 +21,7 @@
 >
 	<Clapperboard class="icon-sm video-icon" aria-hidden="true" />
 	<span>{label}</span>
-	<ExternalLink class="icon-xs" aria-hidden="true" />
+	<ExternalLink class="icon-xs external-icon" aria-hidden="true" />
 </a>
 
 <style>
@@ -37,6 +37,7 @@
 			background: color-mix(in srgb, var(--card) 60%, transparent);
 			color: var(--muted-foreground);
 			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 			font-weight: 500;
 			text-decoration: none;
 			transition:
@@ -53,6 +54,9 @@
 			}
 			& :global(.video-icon) {
 				color: var(--signal);
+			}
+			& :global(.external-icon) {
+				opacity: 0.6;
 			}
 		}
 	}

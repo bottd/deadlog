@@ -4,8 +4,8 @@ import { resolve } from 'path';
 
 import { CONTENT, HERO_TONE, ITEM_TONE, PLATE, Theme, alpha } from './theme';
 
-const APP_CSS = readFileSync(
-	resolve(import.meta.dirname, '../../../app/src/app.css'),
+const TOKENS_CSS = readFileSync(
+	resolve(import.meta.dirname, '../../../app/src/styles/tokens.css'),
 	'utf8'
 );
 
@@ -21,7 +21,7 @@ function customProperties(css: string): Map<string, string> {
 	return properties;
 }
 
-const css = customProperties(APP_CSS);
+const css = customProperties(TOKENS_CSS);
 
 const MIRRORED: [string, string][] = [
 	[Theme.colors.ink, '--base-950'],

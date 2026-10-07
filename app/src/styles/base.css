@@ -39,6 +39,7 @@
 }
 html {
 	font-family: var(--font-sans);
+	/* Clears the sticky header plus the selected-filter row. */
 	scroll-padding-top: 10rem;
 	color-scheme: dark;
 }
@@ -87,6 +88,7 @@ body {
 		opacity: 1;
 	}
 }
+/* Floored at 0.8 so the footer line stays above 4.5:1 through the whole cycle. */
 @keyframes terminal-flicker {
 	0%,
 	100% {

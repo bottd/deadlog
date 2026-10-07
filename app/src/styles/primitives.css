@@ -1,22 +1,12 @@
-/* Global hooks are intentional for primitives rendered through Bits UI portals. */
-.ui-focus-ring:focus-visible,
-[data-slot='button']:focus-visible,
-[data-slot='badge']:focus-visible,
-.pill-signal:focus-visible {
-	outline: none;
-	border-color: var(--ring);
-	box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 50%, transparent);
-}
-.ui-focus-outline:focus-visible,
-.stretched-link:focus-visible {
-	outline: 2px solid var(--primary);
-	outline-offset: 2px;
-}
+/* Card-wide click target: the heading's link covers the card via `::after`, so the
+   card itself needs no handler while crawlers and middle-click still get a real href. */
 .stretched-link::after {
 	content: '';
 	position: absolute;
 	inset: 0;
 }
+/* The notched panel: two opposite corners cut off. Only the cut size varies, so the
+   polygon is written once and each variant just resets `--corner`. */
 .clip-corner,
 .clip-corner-sm,
 .clip-corner-lg {
@@ -36,9 +26,20 @@
 .clip-corner-lg {
 	--corner: 24px;
 }
-:is(a, button):is(.clip-corner, .clip-corner-sm, .clip-corner-lg):focus-visible {
-	outline: none;
-	box-shadow: inset 0 0 0 2px var(--ring);
+.corner-accent {
+	position: absolute;
+	pointer-events: none;
+	transition: background-color var(--duration-slow);
+	&[data-corner='start'] {
+		top: 0;
+		left: 0;
+		background: var(--corner-tl, color-mix(in srgb, var(--primary) 40%, transparent));
+	}
+	&[data-corner='end'] {
+		bottom: 0;
+		right: 0;
+		background: var(--corner-br, color-mix(in srgb, var(--primary) 20%, transparent));
+	}
 }
 .editorial-divider {
 	height: 1px;
@@ -85,7 +86,7 @@
 .empty-heading {
 	margin-bottom: 0.75rem;
 	color: var(--foreground);
-	font: 500 var(--text-2xl)/1.3333 var(--font-display);
+	font: 500 var(--text-2xl)/var(--leading-2xl) var(--font-display);
 	letter-spacing: 0.025em;
 }
 .empty-copy {
@@ -102,6 +103,7 @@
 }
 .kicker-sm {
 	font-size: var(--text-xs);
+	line-height: var(--leading-xs);
 }
 .kicker-xs {
 	font-size: 0.6875rem;
@@ -117,6 +119,7 @@
 	padding-inline: 0.75rem;
 	border-radius: var(--radius-md);
 	font-size: var(--text-sm);
+	line-height: var(--leading-sm);
 	font-weight: 500;
 	white-space: nowrap;
 	transition:
@@ -155,6 +158,7 @@
 	background: color-mix(in srgb, var(--signal) 10%, transparent);
 	color: var(--signal);
 	font-size: var(--text-sm);
+	line-height: var(--leading-sm);
 	transition:
 		background-color var(--duration-normal),
 		border-color var(--duration-normal);
@@ -176,13 +180,23 @@
 	border-radius: var(--radius-md);
 	padding: 0.125rem 0.5rem;
 	font-size: var(--text-xs);
+	line-height: var(--leading-xs);
 	font-weight: 500;
 	background: var(--primary);
 	color: var(--primary-foreground);
+	transition:
+		background-color var(--duration-normal),
+		box-shadow var(--duration-normal);
+	&:hover {
+		background: color-mix(in srgb, var(--primary) 90%, transparent);
+	}
 	&[data-variant='signal'] {
 		border-color: color-mix(in srgb, var(--signal) 25%, transparent);
 		background: color-mix(in srgb, var(--signal) 15%, transparent);
 		color: var(--signal);
+		&:hover {
+			background: color-mix(in srgb, var(--signal) 25%, transparent);
+		}
 	}
 	& > svg {
 		inline-size: 0.75rem;
@@ -234,12 +248,14 @@
 	padding: 0.375rem 0.5rem;
 	color: var(--muted-foreground);
 	font-size: var(--text-xs);
+	line-height: var(--leading-xs);
 	font-weight: 500;
 }
 [data-slot='command-empty'] {
 	padding-block: 1.5rem;
 	text-align: center;
 	font-size: var(--text-sm);
+	line-height: var(--leading-sm);
 }
 [data-slot='command-item'] {
 	position: relative;
@@ -249,6 +265,7 @@
 	padding: 0.375rem 0.5rem;
 	border-radius: var(--radius-sm);
 	font-size: var(--text-sm);
+	line-height: var(--leading-sm);
 	cursor: default;
 	user-select: none;
 	outline: none;
@@ -328,6 +345,7 @@
 [data-slot='sheet-description'] {
 	color: var(--muted-foreground);
 	font-size: var(--text-sm);
+	line-height: var(--leading-sm);
 }
 [data-slot='tooltip-content'] {
 	z-index: 50;
@@ -339,6 +357,7 @@
 	color: var(--popover-foreground);
 	box-shadow: var(--shadow-md);
 	font-size: var(--text-xs);
+	line-height: var(--leading-xs);
 	text-wrap: balance;
 	transform-origin: var(--bits-tooltip-content-transform-origin);
 	&[data-state='delayed-open'] {
@@ -369,8 +388,8 @@
 	}
 }
 
-/* Shared by the standalone image and gallery, including generated Mog images. */
-.changelog-image {
+.changelog-image,
+.mog-content > p > img {
 	inline-size: 100%;
 	border: 1px solid var(--border);
 	border-radius: var(--radius-lg);
@@ -383,13 +402,6 @@
 	cursor: zoom-in;
 	border-radius: var(--radius-lg);
 	padding: 0;
-	&:focus-visible {
-		outline: none;
-	}
-	&:focus-visible > img {
-		border-color: var(--ring);
-		box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 50%, transparent);
-	}
 	&:hover > img {
 		border-color: color-mix(in srgb, var(--signal) 50%, transparent);
 	}
