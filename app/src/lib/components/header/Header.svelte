@@ -80,6 +80,7 @@
 		}
 		.wordmark {
 			display: flex;
+			min-block-size: 2.75rem;
 			align-items: center;
 			gap: 1rem;
 		}

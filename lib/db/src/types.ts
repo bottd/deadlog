@@ -15,6 +15,8 @@ export interface EntityIcon {
 export interface ChangelogEntityIcon extends EntityIcon {
 	/** Null means a mention without attributed bullets. */
 	changeCount: number | null;
+	/** The entity's heading id in this patch, which outlives a rename. */
+	anchor: string;
 }
 
 export interface EntityChangeGroup {
@@ -64,6 +66,8 @@ export interface FeedEntity {
 export interface FeedEntityRef {
 	id: number;
 	changeCount: number | null;
+	/** Only when the patch named the entity differently from its current name. */
+	anchor?: string;
 }
 
 export interface FeedRow {

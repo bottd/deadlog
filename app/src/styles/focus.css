@@ -6,6 +6,7 @@
 .signal-link:focus-visible,
 .reading-action:focus-visible,
 .back-link:focus-visible,
+:is(.search-form, .directory-search):has(input:focus-visible),
 .zoom-trigger:focus-visible > img,
 .filter-badge:focus-visible > [data-slot='badge'] {
 	outline: none;

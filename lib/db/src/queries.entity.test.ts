@@ -8,6 +8,7 @@ import {
 	getChangelogsByHeroId,
 	getChangelogsByItemId,
 	getChangelogIcons,
+	getFeedIndex,
 	getHeroAbilities,
 	getHeroBySlug,
 	getAbilityLastModified,
@@ -73,12 +74,14 @@ describe('entity history queries', () => {
 			CREATE TABLE changelog_heroes (
 				changelog_id TEXT NOT NULL,
 				hero_id INTEGER NOT NULL,
+				anchor TEXT NOT NULL,
 				change_groups TEXT,
 				PRIMARY KEY (changelog_id, hero_id)
 			);
 			CREATE TABLE changelog_items (
 				changelog_id TEXT NOT NULL,
 				item_id INTEGER NOT NULL,
+				anchor TEXT NOT NULL,
 				change_groups TEXT,
 				PRIMARY KEY (changelog_id, item_id)
 			);
@@ -169,6 +172,7 @@ describe('entity history queries', () => {
 			{
 				changelogId: 'new',
 				heroId: 69,
+				anchor: 'doorman',
 				changeGroups: [
 					{ ability: null, abilitySlug: null, bullets: ['Base bullet damage increased'] },
 					{
@@ -178,11 +182,13 @@ describe('entity history queries', () => {
 					}
 				]
 			},
-			{ changelogId: 'old', heroId: 69, changeGroups: null }
+			// The old patch named the hero before a rename, so its heading id differs.
+			{ changelogId: 'old', heroId: 69, anchor: 'doorkeeper', changeGroups: null }
 		]);
 		await db.insert(schema.changelogItems).values({
 			changelogId: 'new',
 			itemId: 1,
+			anchor: 'tesla-bullets',
 			changeGroups: [{ ability: null, bullets: ['Proc chance increased'] }]
 		});
 	});
@@ -195,6 +201,19 @@ describe('entity history queries', () => {
 			{ id: 'new', changeCount: 2 },
 			{ id: 'old', changeCount: null }
 		]);
+	});
+
+	it('keeps the heading id each patch gave a since-renamed entity', async () => {
+		const history = await getChangelogsByHeroId(db, 69);
+		expect(history.map(({ id, anchor }) => ({ id, anchor }))).toEqual([
+			{ id: 'new', anchor: 'doorman' },
+			{ id: 'old', anchor: 'doorkeeper' }
+		]);
+
+		const feed = await getFeedIndex(db);
+		const refs = Object.fromEntries(feed.rows.map((row) => [row.id, row.heroes[0]]));
+		expect(refs.new).not.toHaveProperty('anchor');
+		expect(refs.old).toMatchObject({ anchor: 'doorkeeper' });
 	});
 
 	it('resolves changelog aliases as canonical rows', async () => {
@@ -261,7 +280,11 @@ describe('entity history queries', () => {
 	it('translates the stored shop taxonomy for existing icon consumers', async () => {
 		const icons = await getChangelogIcons(db, ['new']);
 		expect(icons.new.items[0].itemCategory).toBe('weapon');
-		expect(icons.new.heroes[0]).toMatchObject({ src: '/doorman.png', changeCount: 2 });
+		expect(icons.new.heroes[0]).toMatchObject({
+			src: '/doorman.png',
+			changeCount: 2,
+			anchor: 'doorman'
+		});
 		expect(icons.new.heroes[0]).not.toHaveProperty('images');
 		expect(icons.new.heroes[0]).not.toHaveProperty('changeGroups');
 	});

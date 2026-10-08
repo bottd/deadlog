@@ -140,7 +140,7 @@
 	.toc-entry-count {
 		margin-left: auto;
 		flex-shrink: 0;
-		color: color-mix(in srgb, var(--muted-foreground) 80%, transparent);
+		color: var(--muted-foreground);
 		font-family: var(--font-mono);
 		font-size: var(--text-2xs);
 	}
@@ -205,5 +205,11 @@
 		color: var(--muted-foreground);
 		font-weight: 700;
 		letter-spacing: 0.2em;
+	}
+	@media (pointer: coarse) {
+		.toc-section,
+		.toc-link {
+			min-block-size: 2.75rem;
+		}
 	}
 }

@@ -9,7 +9,13 @@
 		patches,
 		entity
 	}: {
-		patches: { id: string; slug: string; date: Date; changeCount: number | null }[];
+		patches: {
+			id: string;
+			slug: string;
+			anchor: string;
+			date: Date;
+			changeCount: number | null;
+		}[];
 		entity: EntityFilterContext;
 	} = $props();
 	const recent = $derived(patches.slice(0, 6));

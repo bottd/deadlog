@@ -458,7 +458,7 @@
 			margin-left: auto;
 			color: var(--signal);
 		}
-		@media (min-width: 40rem) {
+		@media (min-width: 40rem) and (pointer: fine) {
 			.entity-row {
 				flex-wrap: nowrap;
 				gap: 0;
@@ -474,6 +474,8 @@
 			.extra-count {
 				margin-left: 0.375rem;
 			}
+		}
+		@media (min-width: 40rem) {
 			.full-totals {
 				display: inline;
 			}

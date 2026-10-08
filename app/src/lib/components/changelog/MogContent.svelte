@@ -2,7 +2,11 @@
 	import './mog-content.css';
 	import type { Component } from 'svelte';
 	import { entityFragmentId } from '@deadlog/utils';
-	import { setEntityIcons, type EntityIconsContext } from './entityContext';
+	import {
+		resolveEntity,
+		setEntityIcons,
+		type EntityIconsContext
+	} from './entityContext';
 	import ImageLightbox from './ImageLightbox.svelte';
 
 	interface Props {
@@ -19,8 +23,12 @@
 			return icons.items;
 		}
 	});
+	const anchorsFor = (type: 'hero' | 'item', names: string[] = []) =>
+		names.map(
+			(name) => resolveEntity(icons, type, name)?.anchor ?? entityFragmentId(name)
+		);
 	const selectedSlugs = $derived(
-		new Set([...(filter?.heroes ?? []), ...(filter?.items ?? [])].map(entityFragmentId))
+		new Set([...anchorsFor('hero', filter?.heroes), ...anchorsFor('item', filter?.items)])
 	);
 	const filterMogContent = (node: HTMLElement) => applyEntityFilter(node, selectedSlugs);
 

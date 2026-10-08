@@ -16,6 +16,7 @@ import type { SelectChangelog } from './schema';
 import * as schema from './schema';
 import {
 	countBullets,
+	entityFragmentId,
 	makeSummary,
 	canonicalSlug,
 	formerSlugs,
@@ -48,6 +49,7 @@ export type EntityChangelog<Group = EntityChangeGroup> = Pick<
 	/** Derived from changeGroups — null when the patch mentions the entity without its own section. */
 	changeCount: number | null;
 	changeGroups: Group[] | null;
+	anchor: string;
 };
 
 function buildTextSearchCondition(searchQuery: string): SQL {
@@ -362,7 +364,8 @@ export async function getChangelogsByHeroId(
 	const rows = await db
 		.select({
 			...ENTITY_HISTORY_COLUMNS,
-			changeGroups: schema.changelogHeroes.changeGroups
+			changeGroups: schema.changelogHeroes.changeGroups,
+			anchor: schema.changelogHeroes.anchor
 		})
 		.from(schema.changelogs)
 		.innerJoin(
@@ -386,7 +389,8 @@ export async function getChangelogsByItemId(
 	const rows = await db
 		.select({
 			...ENTITY_HISTORY_COLUMNS,
-			changeGroups: schema.changelogItems.changeGroups
+			changeGroups: schema.changelogItems.changeGroups,
+			anchor: schema.changelogItems.anchor
 		})
 		.from(schema.changelogs)
 		.innerJoin(
@@ -480,7 +484,8 @@ export async function getChangelogIcons(
 				alt: schema.heroes.name,
 				slug: schema.heroes.slug,
 				heroType: schema.heroes.heroType,
-				changeCount: groupBulletCount(schema.changelogHeroes.changeGroups)
+				changeCount: groupBulletCount(schema.changelogHeroes.changeGroups),
+				anchor: schema.changelogHeroes.anchor
 			})
 			.from(schema.changelogHeroes)
 			.innerJoin(schema.heroes, eq(schema.changelogHeroes.heroId, schema.heroes.id))
@@ -495,7 +500,8 @@ export async function getChangelogIcons(
 				alt: schema.items.name,
 				slug: schema.items.slug,
 				itemCategory: schema.items.category,
-				changeCount: groupBulletCount(schema.changelogItems.changeGroups)
+				changeCount: groupBulletCount(schema.changelogItems.changeGroups),
+				anchor: schema.changelogItems.anchor
 			})
 			.from(schema.changelogItems)
 			.innerJoin(schema.items, eq(schema.changelogItems.itemId, schema.items.id))
@@ -551,7 +557,8 @@ async function buildFeedIndex(db: DrizzleDB): Promise<FeedIndex> {
 			.select({
 				changelogId: schema.changelogHeroes.changelogId,
 				id: schema.changelogHeroes.heroId,
-				groups: schema.changelogHeroes.changeGroups
+				groups: schema.changelogHeroes.changeGroups,
+				anchor: schema.changelogHeroes.anchor
 			})
 			.from(schema.changelogHeroes)
 			.all(),
@@ -559,7 +566,8 @@ async function buildFeedIndex(db: DrizzleDB): Promise<FeedIndex> {
 			.select({
 				changelogId: schema.changelogItems.changelogId,
 				id: schema.changelogItems.itemId,
-				groups: schema.changelogItems.changeGroups
+				groups: schema.changelogItems.changeGroups,
+				anchor: schema.changelogItems.anchor
 			})
 			.from(schema.changelogItems)
 			.all(),
@@ -601,17 +609,25 @@ async function buildFeedIndex(db: DrizzleDB): Promise<FeedIndex> {
 
 	const heroesByChangelog = Map.groupBy(heroRefs, (ref) => ref.changelogId);
 	const itemsByChangelog = Map.groupBy(itemRefs, (ref) => ref.changelogId);
-	const toRefs = (
-		refs: { id: number; groups: EntityChangeGroup[] | null }[] = []
-	): FeedEntityRef[] =>
-		refs.map(({ id, groups }) => ({ id, changeCount: countBullets(groups) }));
+	const toRefs =
+		(names: Map<number, string>) =>
+		(
+			refs: { id: number; groups: EntityChangeGroup[] | null; anchor: string }[] = []
+		): FeedEntityRef[] =>
+			refs.map(({ id, groups, anchor }) => ({
+				id,
+				changeCount: countBullets(groups),
+				...(anchor === entityFragmentId(names.get(id) ?? '') ? {} : { anchor })
+			}));
+	const heroRefsFor = toRefs(new Map(heroes.map((hero) => [hero.id, hero.name])));
+	const itemRefsFor = toRefs(new Map(items.map((item) => [item.id, item.name])));
 
 	return {
 		rows: rows.map(({ contentText, ...row }) => ({
 			...row,
 			summary: makeSummary(contentText),
-			heroes: toRefs(heroesByChangelog.get(row.id)),
-			items: toRefs(itemsByChangelog.get(row.id))
+			heroes: heroRefsFor(heroesByChangelog.get(row.id)),
+			items: itemRefsFor(itemsByChangelog.get(row.id))
 		})),
 		heroes: heroes.map((hero) => ({ ...hero, type: 'hero' as const })),
 		items: items.map(({ category, ...item }) => ({

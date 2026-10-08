@@ -1,8 +1,8 @@
-import { entityFragmentId, patchHeading, plural } from '@deadlog/utils';
+import { patchHeading, plural } from '@deadlog/utils';
 import { searchParams } from '#lib/stores/searchParams.svelte.ts';
 import { hasEntity } from '#lib/components/filter-bar/filterState.svelte.ts';
 import { MAX_ENTITY_FILTERS } from '#lib/queries/keys.ts';
-import type { PatchSummary, EntityIcon } from '#lib/types.ts';
+import type { PatchSummary, ChangelogEntityIcon } from '#lib/types.ts';
 import { changePath } from '#lib/seo.ts';
 import { authorInitials } from '#lib/author.ts';
 import type { EntityKind } from '#lib/entityKinds.ts';
@@ -57,8 +57,8 @@ export function patchCardHrefs(patch: { slug: string }) {
 
 	return {
 		href,
-		entityHref: (entity: EntityIcon) => {
-			const fragment = `#${entityFragmentId(entity.alt)}`;
+		entityHref: (entity: ChangelogEntityIcon) => {
+			const fragment = `#${entity.anchor}`;
 			const key = entity.type;
 			const selected = key === 'hero' ? searchParams.hero : searchParams.item;
 			// No entity filter means the patch renders whole, so the fragment lands unaided

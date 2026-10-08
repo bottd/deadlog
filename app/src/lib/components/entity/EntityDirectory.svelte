@@ -210,9 +210,6 @@
 			border: 1px solid var(--border);
 			border-radius: var(--radius-md);
 			background: var(--card);
-			&:focus-within {
-				border-color: var(--signal);
-			}
 		}
 		:global(.directory-search-icon) {
 			position: absolute;
@@ -234,6 +231,7 @@
 			gap: 0.25rem;
 		}
 		.category-button {
+			min-inline-size: 2.75rem;
 			min-block-size: 2.75rem;
 			border-radius: var(--radius-md);
 			padding-inline: 0.75rem;

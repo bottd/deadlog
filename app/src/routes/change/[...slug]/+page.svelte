@@ -358,7 +358,7 @@
 		}
 		.toc-trigger {
 			display: flex;
-			block-size: 2.5rem;
+			block-size: 2.75rem;
 			align-items: center;
 			gap: 0.5rem;
 			margin: 0 0 1rem auto;
@@ -495,8 +495,10 @@
 		}
 		.original-link {
 			display: flex;
-			block-size: 2.5rem;
+			min-inline-size: 2.75rem;
+			block-size: 2.75rem;
 			align-items: center;
+			justify-content: center;
 			gap: 0.5rem;
 			border-radius: var(--radius-md);
 			padding-inline: 0.75rem;

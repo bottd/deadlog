@@ -7,7 +7,12 @@ import type {
 	FeedRow,
 	FeedText
 } from '@deadlog/db';
-import { findEntityName, indexEntityNames, makeSummary } from '@deadlog/utils';
+import {
+	entityFragmentId,
+	findEntityName,
+	indexEntityNames,
+	makeSummary
+} from '@deadlog/utils';
 
 export interface FeedSources {
 	text: FeedText | null;
@@ -110,6 +115,7 @@ function iconsFor(row: FeedRow, entities: EntityLookup) {
 			slug: hero.slug,
 			heroType: hero.heroType,
 			changeCount: ref.changeCount,
+			anchor: ref.anchor ?? entityFragmentId(hero.name),
 			type: 'hero'
 		});
 	}
@@ -124,6 +130,7 @@ function iconsFor(row: FeedRow, entities: EntityLookup) {
 			alt: item.name,
 			slug: item.slug,
 			changeCount: ref.changeCount,
+			anchor: ref.anchor ?? entityFragmentId(item.name),
 			type: 'item',
 			itemCategory: item.itemCategory
 		});

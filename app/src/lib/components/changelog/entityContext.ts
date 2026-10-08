@@ -1,16 +1,11 @@
 import { createContext } from 'svelte';
-import {
-	abilityFragmentId,
-	entityFragmentId,
-	entityNamesMatch,
-	plural
-} from '@deadlog/utils';
+import { abilityFragmentId, entityNamesMatch, plural } from '@deadlog/utils';
 import { changePath } from '#lib/seo.ts';
-import type { EntityIcon } from '#lib/types.ts';
+import type { ChangelogEntityIcon } from '#lib/types.ts';
 
 export interface EntityIconsContext {
-	heroes: EntityIcon[];
-	items: EntityIcon[];
+	heroes: ChangelogEntityIcon[];
+	items: ChangelogEntityIcon[];
 }
 
 export interface EntityFilterContext {
@@ -24,7 +19,7 @@ export function resolveEntity(
 	icons: EntityIconsContext,
 	type: 'hero' | 'item',
 	name: string
-): EntityIcon | undefined {
+): ChangelogEntityIcon | undefined {
 	const entries = type === 'hero' ? icons.heroes : icons.items;
 	return entries.find((entity) => entityNamesMatch(entity.alt, name));
 }
@@ -38,11 +33,14 @@ export function resolveEntity(
  * heading. So an ability anchors on the label of the group it matched, and falls back
  * to the patch itself when the patch mentions it without an attributed group. */
 export function entityPatchHref(
-	patch: { slug: string; changeGroups?: { ability: string | null }[] | null },
+	patch: {
+		slug: string;
+		anchor: string;
+		changeGroups?: { ability: string | null }[] | null;
+	},
 	entity: EntityFilterContext
 ): string {
-	if (entity.type !== 'ability')
-		return `${changePath(patch)}#${entityFragmentId(entity.name)}`;
+	if (entity.type !== 'ability') return `${changePath(patch)}#${patch.anchor}`;
 
 	const label = patch.changeGroups?.find((group) => group.ability)?.ability ?? null;
 	// `abilityFragmentId`, not `entityFragmentId`: the renderer derives a group's id

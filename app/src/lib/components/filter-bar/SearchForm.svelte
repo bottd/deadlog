@@ -118,6 +118,7 @@
 				id={listId}
 				aria-label="Available hero and item filters"
 				aria-multiselectable="true"
+				tabindex={-1}
 				class="search-options"
 			>
 				{#if options.length === 0}
@@ -162,9 +163,6 @@
 			border: 1px solid var(--border);
 			border-radius: var(--radius-md);
 			background: var(--card);
-			&:focus-within {
-				border-color: var(--signal);
-			}
 		}
 		.search-input {
 			min-inline-size: 0;

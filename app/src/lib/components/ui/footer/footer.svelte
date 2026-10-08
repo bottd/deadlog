@@ -44,6 +44,7 @@
 		}
 		.footer-brand {
 			display: flex;
+			min-block-size: 2.75rem;
 			align-items: center;
 			gap: 0.75rem;
 			transition: opacity var(--duration-normal);

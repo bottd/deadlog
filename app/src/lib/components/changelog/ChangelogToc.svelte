@@ -1,12 +1,16 @@
 <script lang="ts">
 	import './toc.css';
-	import type { ChangelogAbilityIcon, EntityIcon, MogTocEntry } from '#lib/types.ts';
-	import { entityFragmentId, resolveHeroAbilitySlug } from '@deadlog/utils';
+	import type {
+		ChangelogAbilityIcon,
+		ChangelogEntityIcon,
+		MogTocEntry
+	} from '#lib/types.ts';
+	import { resolveHeroAbilitySlug } from '@deadlog/utils';
 	import { genericTocEntries } from './toc';
 
 	interface Props {
-		heroes: EntityIcon[];
-		items: EntityIcon[];
+		heroes: ChangelogEntityIcon[];
+		items: ChangelogEntityIcon[];
 		abilityIcons?: ChangelogAbilityIcon[];
 		onnavigate?: () => void;
 		size?: 'sm' | 'lg';
@@ -36,8 +40,8 @@
 		size === 'lg' ? { entity: 28, ability: 20 } : { entity: 16, ability: 14 }
 	);
 
-	// Level-2 headings are entities, level-3 their abilities; heading ids share the
-	// entityFragmentId slug rule, so the entity's id keys its ability bucket.
+	// Level-2 headings are entities, level-3 their abilities; an entity's anchor is its
+	// heading id, so it keys its ability bucket.
 	const groups = $derived.by(() => {
 		const positions = new Map<string, Map<string, number>>();
 		const abilities = new Map<string, MogTocEntry[]>();
@@ -66,14 +70,14 @@
 			.filter((group) => group.entities.length > 0)
 			.map((group) => {
 				const order = positions.get(group.id);
-				const rank = (entity: EntityIcon) =>
-					order?.get(entityFragmentId(entity.alt)) ?? Number.MAX_SAFE_INTEGER;
+				const rank = (entity: ChangelogEntityIcon) =>
+					order?.get(entity.anchor) ?? Number.MAX_SAFE_INTEGER;
 				return {
 					...group,
 					entities: group.entities
 						.toSorted((a, b) => rank(a) - rank(b))
 						.map((entity) => {
-							const fragment = entityFragmentId(entity.alt);
+							const fragment = entity.anchor;
 							const icons = abilityIconsByHero.get(entity.id) ?? [];
 							return {
 								...entity,

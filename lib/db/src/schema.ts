@@ -113,6 +113,8 @@ export const changelogHeroes = sqliteTable(
 		heroId: integer('hero_id')
 			.notNull()
 			.references(() => heroes.id),
+		/** The entity's heading id in this patch, from its name as the patch wrote it. */
+		anchor: text('anchor').notNull(),
 		changeGroups: text('change_groups', { mode: 'json' }).$type<HeroChangeGroup[]>()
 	},
 	(table) => ({
@@ -141,6 +143,8 @@ export const changelogItems = sqliteTable(
 		itemId: integer('item_id')
 			.notNull()
 			.references(() => items.id),
+		/** The entity's heading id in this patch, from its name as the patch wrote it. */
+		anchor: text('anchor').notNull(),
 		changeGroups: text('change_groups', { mode: 'json' }).$type<EntityChangeGroup[]>()
 	},
 	(table) => ({

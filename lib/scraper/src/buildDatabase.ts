@@ -20,7 +20,12 @@ import {
 	type EntityBulletGroup,
 	type EntityChange
 } from '@deadlog/changelog';
-import { findEntityName, resolveHeroAbilitySlug, toSlug } from '@deadlog/utils';
+import {
+	entityFragmentId,
+	findEntityName,
+	resolveHeroAbilitySlug,
+	toSlug
+} from '@deadlog/utils';
 import { indexWithFormerNames, readEntityRenames } from './entityRenames';
 import { isReleasedHero, resolveAbilitySlots } from './heroAbilities';
 
@@ -83,8 +88,14 @@ async function writeBatches<T>(rows: T[], write: (batch: T[]) => PromiseLike<unk
 	}
 }
 
-/** Null groups = the entity is named in the patch but heads no section of its own. */
-type EntityMatch = EntityBulletGroup[] | null;
+/**
+ * Null groups = the entity is named in the patch but heads no section of its own.
+ * The anchor comes from the name the patch used, which a later rename does not change.
+ */
+interface EntityMatch {
+	anchor: string;
+	groups: EntityBulletGroup[] | null;
+}
 
 function collectEntityMatches(
 	names: string[],
@@ -97,7 +108,7 @@ function collectEntityMatches(
 	for (const name of names) {
 		const id = findEntityName(entityMap, name)?.id;
 		if (id !== undefined && !matches.has(id)) {
-			matches.set(id, null);
+			matches.set(id, { anchor: entityFragmentId(name), groups: null });
 		}
 	}
 
@@ -106,7 +117,11 @@ function collectEntityMatches(
 		const id = findEntityName(entityMap, change.name)?.id;
 		if (id === undefined) continue;
 		// An entity can head more than one section in a patch; groups concatenate.
-		matches.set(id, [...(matches.get(id) ?? []), ...change.groups]);
+		const match = matches.get(id);
+		matches.set(id, {
+			anchor: match?.anchor ?? entityFragmentId(change.name),
+			groups: [...(match?.groups ?? []), ...change.groups]
+		});
 	}
 
 	return matches;
@@ -309,12 +324,13 @@ export async function buildDatabaseFromMog(options: BuildOptions): Promise<Build
 					aliasRows.push({ slug: alias, changelogId });
 				}
 
-				for (const [heroId, groups] of heroMatchesForPatch) {
+				for (const [heroId, { anchor, groups }] of heroMatchesForPatch) {
 					const abilities = abilitySlots.get(heroId) ?? [];
 					heroRows.push(
 						insertChangelogHeroSchema.parse({
 							changelogId,
 							heroId,
+							anchor,
 							changeGroups:
 								groups?.map((group) => ({
 									...group,
@@ -327,9 +343,14 @@ export async function buildDatabaseFromMog(options: BuildOptions): Promise<Build
 					heroMatches++;
 				}
 
-				for (const [itemId, changeGroups] of itemMatchesForPatch) {
+				for (const [itemId, { anchor, groups }] of itemMatchesForPatch) {
 					itemRows.push(
-						insertChangelogItemSchema.parse({ changelogId, itemId, changeGroups })
+						insertChangelogItemSchema.parse({
+							changelogId,
+							itemId,
+							anchor,
+							changeGroups: groups
+						})
 					);
 					itemMatches++;
 				}

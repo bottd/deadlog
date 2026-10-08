@@ -441,7 +441,6 @@
 	border-radius: var(--radius-lg);
 	background: color-mix(in srgb, var(--muted) 20%, transparent);
 	object-fit: contain;
-	box-shadow: var(--shadow-lg);
 	transition: border-color var(--duration-normal);
 }
 .zoom-trigger {
