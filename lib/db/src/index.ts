@@ -6,6 +6,7 @@ export type {
 	EntityType,
 	EntityIcon,
 	ChangelogEntityIcon,
+	PatchHighlight,
 	EntityChangeGroup,
 	HeroChangeGroup,
 	ChangelogMatch,

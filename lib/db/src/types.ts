@@ -51,6 +51,14 @@ export interface PatchSummary {
 	icons: { heroes: ChangelogEntityIcon[]; items: ChangelogEntityIcon[] };
 	counts: { heroes: number; items: number };
 	matches: ChangelogMatch[];
+	/** The latest patch's first few changes, in place of its flattened prose. */
+	highlights?: PatchHighlight[];
+}
+
+export interface PatchHighlight {
+	name: string;
+	ability: string | null;
+	text: string;
 }
 
 export interface FeedEntity {

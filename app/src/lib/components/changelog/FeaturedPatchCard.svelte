@@ -23,7 +23,18 @@
 				By {patch.author}{#if view.named}
 					· <time datetime={patch.date}>{view.date}</time>{/if}
 			</p>
-			{#if patch.summary}<p class="summary">
+			{#if patch.highlights}
+				<ul class="highlights">
+					{#each patch.highlights as change (change.name)}
+						<li>
+							<span class="highlight-subject"
+								>{change.name}{#if change.ability}&nbsp;· {change.ability}{/if}</span
+							>
+							{change.text}
+						</li>
+					{/each}
+				</ul>
+			{:else if patch.summary}<p class="summary">
 					{patch.summary}
 				</p>{/if}
 			{#if view.rows.length}
@@ -124,12 +135,21 @@
 		.byline {
 			margin-top: 0.5rem;
 		}
-		.summary {
+		.summary,
+		.highlights {
 			max-inline-size: 72ch;
 			margin-top: 1rem;
 			color: color-mix(in srgb, var(--foreground) 90%, transparent);
 			font-size: var(--text-sm);
 			line-height: var(--leading-relaxed);
+		}
+		.highlights > li + li {
+			margin-top: 0.375rem;
+		}
+		.highlight-subject {
+			margin-inline-end: 0.375rem;
+			color: var(--foreground);
+			font-weight: 600;
 		}
 		.entity-rows {
 			display: flex;

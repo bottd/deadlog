@@ -59,7 +59,7 @@ export function useChangelogQuery(options: UseChangelogQueryOptions) {
 				const [index, text, groups] = await Promise.all([
 					loadFeedIndex(),
 					filters.q ? loadFeedText() : null,
-					selectsEntities ? loadFeedGroups() : null
+					selectsEntities || filters.q ? loadFeedGroups() : null
 				]);
 				if (signal.aborted) throw new DOMException('Aborted', 'AbortError');
 

@@ -33,6 +33,17 @@
 		onsubmit();
 	}
 
+	function pick(entity: (typeof options)[number]) {
+		filterState.toggle(entity.type, entity.data.name);
+		onsubmit();
+	}
+
+	/** Clicks outside land on the backdrop; this covers focus moving to another control. */
+	function focusout(event: FocusEvent) {
+		const next = event.relatedTarget;
+		if (!mobile && next instanceof Node && !event.currentTarget.contains(next)) onclose();
+	}
+
 	function keydown(event: KeyboardEvent) {
 		if (event.key === 'Escape') {
 			event.preventDefault();
@@ -58,6 +69,7 @@
 	loop
 	label="Search all patch notes"
 	class="search-command"
+	onfocusout={focusout}
 >
 	<form method="GET" action="/" onsubmit={submit} class="search-form">
 		<label for="{prefix}-filter-input" class="sr-only"
@@ -80,6 +92,7 @@
 			placeholder="Search heroes, items, or patch text…"
 			bind:value={filterState.inputValue}
 			onfocus={() => (open = true)}
+			onpointerdown={() => (open = true)}
 			oninput={() => (open = true)}
 			onkeydown={keydown}
 			class="search-input"
@@ -135,7 +148,7 @@
 								imageSrc={entityImage(entity.data)}
 								isSelected={entity.isSelected}
 								kind={entity.type}
-								onSelect={() => filterState.toggle(entity.type, entity.data.name)}
+								onSelect={() => pick(entity)}
 							/>
 						{/each}
 					</Command.Group>

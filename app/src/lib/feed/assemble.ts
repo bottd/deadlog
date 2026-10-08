@@ -155,6 +155,29 @@ function groupsFor(groups: FeedGroups, row: FeedRow, icon: ChangelogEntityIcon) 
 	return groups[`${row.id}:${icon.type}:${icon.id}`] ?? [];
 }
 
+/** One change from each of the first few entities, so the plate reads as notes, not a run-on. */
+function highlightsFor(
+	groups: FeedGroups,
+	row: FeedRow,
+	icons: ChangelogEntityIcon[]
+): Pick<PatchSummary, 'highlights'> {
+	const highlights = icons
+		.flatMap((icon) => {
+			const group = groupsFor(groups, row, icon).find((entry) => entry.bullets.length);
+			return group
+				? [
+						{
+							name: icon.alt,
+							ability: group.ability,
+							text: makeSummary(group.bullets[0], 200)
+						}
+					]
+				: [];
+		})
+		.slice(0, 3);
+	return highlights.length ? { highlights } : {};
+}
+
 export function assembleSummaries(
 	rows: FeedRow[],
 	index: FeedIndex,
@@ -173,36 +196,53 @@ export function assembleSummaries(
 	} = {}
 ): PatchSummary[] {
 	const { text, groups } = sources;
-	if (heroIds.length + itemIds.length > 0 && !groups) {
-		throw new Error('assembleSummaries needs the groups tier when entities are selected');
+	const selectsEntities = heroIds.length + itemIds.length > 0;
+	if ((selectsEntities || q !== '') && !groups) {
+		throw new Error('assembleSummaries needs the groups tier to show matching changes');
 	}
 
 	const entities = lookupFor(index);
 	const selected = (icon: ChangelogEntityIcon) =>
 		(icon.type === 'hero' ? heroIds : itemIds).includes(icon.id);
-	const searching = heroIds.length + itemIds.length > 0 || q !== '';
+	const searching = selectsEntities || q !== '';
 	const featureFirst = isFirstPage && !searching;
+	const keyword = q.toLowerCase();
+	const mentions = (value: string | null) => !!value?.toLowerCase().includes(keyword);
 
 	return rows.map((entry, index_) => {
 		const all = iconsFor(entry, entities);
 		const limit = featureFirst && index_ === 0 ? 14 : 6;
 		let remainingExcerpts = 6;
-		const matches = [...all.heroes, ...all.items].filter(selected).map((icon) => {
-			const changes = groupsFor(groups ?? {}, entry, icon)
-				.flatMap((group) =>
-					group.bullets.map((text_) => ({ ability: group.ability, text: text_ }))
-				)
+		const candidates = selectsEntities
+			? [...all.heroes, ...all.items].filter(selected)
+			: q
+				? [...all.heroes, ...all.items]
+				: [];
+		const matches = candidates.flatMap((icon) => {
+			const bullets = groupsFor(groups ?? {}, entry, icon).flatMap((group) =>
+				group.bullets.map((text_) => ({ ability: group.ability, text: text_ }))
+			);
+			// A keyword search shows the bullets that say it, or all of an entity it names.
+			const relevant =
+				selectsEntities || mentions(icon.alt)
+					? bullets
+					: bullets.filter((change) => mentions(change.text) || mentions(change.ability));
+			if (!selectsEntities && (relevant.length === 0 || remainingExcerpts === 0))
+				return [];
+			const changes = relevant
 				.slice(0, Math.min(3, remainingExcerpts))
 				.map((change) => ({ ...change, text: makeSummary(change.text, 320) }));
 			remainingExcerpts -= changes.length;
-			return {
-				id: icon.id,
-				type: icon.type,
-				name: icon.alt,
-				slug: icon.slug,
-				changeCount: icon.changeCount,
-				changes
-			};
+			return [
+				{
+					id: icon.id,
+					type: icon.type,
+					name: icon.alt,
+					slug: icon.slug,
+					changeCount: icon.changeCount,
+					changes
+				}
+			];
 		});
 		return {
 			id: entry.id,
@@ -213,11 +253,16 @@ export function assembleSummaries(
 			authorImage: entry.authorImage,
 			previewImage: entry.previewImage,
 			majorUpdate: entry.majorUpdate,
-			summary: q
-				? searchExcerpt(text?.[entry.id] ?? '', q)
-				: matches.length
-					? ''
-					: entry.summary,
+			// Keyword hits in the notes replace the excerpt; only prose-only hits fall back to it.
+			summary:
+				q && (selectsEntities || !matches.length)
+					? searchExcerpt(text?.[entry.id] ?? '', q)
+					: matches.length
+						? ''
+						: entry.summary,
+			...(featureFirst && index_ === 0 && groups
+				? highlightsFor(groups, entry, [...all.heroes, ...all.items])
+				: {}),
 			icons: {
 				heroes: searching ? [] : all.heroes.slice(0, limit),
 				items: searching ? [] : all.items.slice(0, limit)

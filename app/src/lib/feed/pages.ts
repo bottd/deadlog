@@ -1,4 +1,4 @@
-import type { FeedFilters, FeedIndex } from '@deadlog/db';
+import type { FeedFilters, FeedGroups, FeedIndex } from '@deadlog/db';
 import type { PatchSummary } from '#lib/types.ts';
 import { INITIAL_LOAD_COUNT } from '#lib/queries/keys.ts';
 import { assembleSummaries, queryFeed } from './assemble';
@@ -27,14 +27,19 @@ export function feedPageCount(total: number): number {
 	return 1 + Math.ceil(Math.max(0, total - INITIAL_LOAD_COUNT) / PAGE_SIZE);
 }
 
-export function unfilteredFeedPage(index: FeedIndex, page: number): FeedPage {
+/** `groups` lets the first page's featured patch show real changes. */
+export function unfilteredFeedPage(
+	index: FeedIndex,
+	page: number,
+	groups: FeedGroups | null = null
+): FeedPage {
 	const window = feedWindow(page);
 	const { rows, hasMore } = queryFeed(index, null, UNFILTERED, window);
 	return {
 		changelogs: assembleSummaries(
 			rows,
 			index,
-			{ text: null, groups: null },
+			{ text: null, groups },
 			{ isFirstPage: page === 0 }
 		),
 		hasMore

@@ -24,6 +24,13 @@ export interface PatchCardMatches {
 	kind: EntityKind;
 }
 
+/** A keyword search's matches aren't chosen by name, so the count says whose they are. */
+function namesLabel(names: string[]): string {
+	return names.length <= 2
+		? names.join(' and ')
+		: `${names.slice(0, 2).join(', ')} and ${names.length - 2} more`;
+}
+
 /** Which of this patch's entities the active filters asked for. */
 export function patchCardMatches(patch: PatchCardProps): PatchCardMatches {
 	if (!searchParams.isSearching) return NO_MATCHES;
@@ -42,7 +49,9 @@ export function patchCardMatches(patch: PatchCardProps): PatchCardMatches {
 				? null
 				: entities.length === 1
 					? `${entities[0].name} ${plural(changeCount, 'change')}`
-					: `matched ${plural(changeCount, 'change')}`,
+					: searchParams.hero.length + searchParams.item.length > 0
+						? `matched ${plural(changeCount, 'change')}`
+						: `${plural(changeCount, 'change')} for ${namesLabel(entities.map((entity) => entity.name))}`,
 		kind: entities.every((entity) => entity.type === 'item') ? 'item' : 'hero'
 	};
 }

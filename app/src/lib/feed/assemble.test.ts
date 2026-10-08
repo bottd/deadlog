@@ -224,7 +224,7 @@ describe('feed summaries', () => {
 		const [searched] = assembleSummaries(
 			[row],
 			index,
-			{ text: { patch: '' }, groups: null },
+			{ text: { patch: '' }, groups: {} },
 			{ isFirstPage: true, q: 'parry' }
 		);
 		expect(searched.icons.heroes).toHaveLength(0);
@@ -265,6 +265,84 @@ describe('feed summaries', () => {
 		expect(entry.summary).toBe('');
 		expect(entry.icons).toEqual({ heroes: [], items: [] });
 		expect(entry.counts.heroes).toBe(2);
+	});
+
+	it('answers a keyword search with the matching changes under their entity', () => {
+		const heroes = [hero(1, 'Abrams'), hero(2, 'Bebop'), hero(3, 'Cooldown Kid')];
+		const row = makeRow({
+			heroes: [
+				{ id: 1, changeCount: 3 },
+				{ id: 2, changeCount: 1 },
+				{ id: 3, changeCount: 1 }
+			]
+		});
+		const groups = {
+			'patch:hero:1': [
+				{
+					ability: 'Siphon Life',
+					bullets: ['Cooldown increased from 30s to 35s', 'Radius reduced from 3m to 2m']
+				},
+				{ ability: 'Shoulder Charge', bullets: ['Damage increased'] }
+			],
+			'patch:hero:2': [{ ability: null, bullets: ['Base health increased'] }],
+			'patch:hero:3': [{ ability: null, bullets: ['Bullet damage increased'] }]
+		};
+		const [entry] = assembleSummaries(
+			[row],
+			makeIndex([row], heroes),
+			{ text: { patch: 'Abrams Siphon Life Cooldown increased' }, groups },
+			{ q: 'cooldown' }
+		);
+		expect(entry.matches.map(({ name, changes }) => ({ name, changes }))).toEqual([
+			{
+				name: 'Abrams',
+				changes: [{ ability: 'Siphon Life', text: 'Cooldown increased from 30s to 35s' }]
+			},
+			{
+				name: 'Cooldown Kid',
+				changes: [{ ability: null, text: 'Bullet damage increased' }]
+			}
+		]);
+		expect(entry.summary).toBe('');
+
+		const [prose] = assembleSummaries(
+			[row],
+			makeIndex([row], heroes),
+			{ text: { patch: 'Trooper parry window widened' }, groups },
+			{ q: 'parry' }
+		);
+		expect(prose.matches).toEqual([]);
+		expect(prose.summary).toContain('parry');
+	});
+
+	it('gives only the featured patch a few real changes in place of its prose', () => {
+		const heroes = [hero(1, 'Abrams'), hero(2, 'Bebop')];
+		const row = makeRow({
+			heroes: [
+				{ id: 1, changeCount: 2 },
+				{ id: 2, changeCount: null }
+			]
+		});
+		const groups = {
+			'patch:hero:1': [
+				{ ability: 'Siphon Life', bullets: ['Radius reduced from 3m to 2m', 'Damage up'] }
+			]
+		};
+		const index = makeIndex([row], heroes);
+		const [featured] = assembleSummaries(
+			[row],
+			index,
+			{ text: null, groups },
+			{
+				isFirstPage: true
+			}
+		);
+		expect(featured.highlights).toEqual([
+			{ name: 'Abrams', ability: 'Siphon Life', text: 'Radius reduced from 3m to 2m' }
+		]);
+
+		const [later] = assembleSummaries([row], index, { text: null, groups });
+		expect(later).not.toHaveProperty('highlights');
 	});
 
 	it('refuses to assemble selected-entity excerpts without the groups tier', () => {

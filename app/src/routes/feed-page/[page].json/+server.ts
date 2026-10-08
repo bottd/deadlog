@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import { getFeedIndex } from '@deadlog/db';
+import { getFeedGroups, getFeedIndex } from '@deadlog/db';
 import { feedPageCount, unfilteredFeedPage } from '#lib/feed/pages.ts';
 import type { EntryGenerator, RequestHandler } from './$types';
 
@@ -19,5 +19,6 @@ export const GET: RequestHandler = async ({ params, locals }) => {
 	if (!Number.isInteger(page) || page < 0 || page >= feedPageCount(index.rows.length)) {
 		throw error(404, 'Feed page not found');
 	}
-	return Response.json(unfilteredFeedPage(index, page));
+	const groups = page === 0 ? await getFeedGroups(locals.db) : null;
+	return Response.json(unfilteredFeedPage(index, page, groups));
 };

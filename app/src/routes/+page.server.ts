@@ -1,4 +1,4 @@
-import { getFeedIndex } from '@deadlog/db';
+import { getFeedGroups, getFeedIndex } from '@deadlog/db';
 import type { PageServerLoad } from './$types';
 import { unfilteredFeedPage } from '#lib/feed/pages.ts';
 
@@ -9,8 +9,11 @@ import { unfilteredFeedPage } from '#lib/feed/pages.ts';
 export const prerender = true;
 
 export const load: PageServerLoad = async ({ locals }) => {
-	const index = await getFeedIndex(locals.db);
-	const { changelogs } = unfilteredFeedPage(index, 0);
+	const [index, groups] = await Promise.all([
+		getFeedIndex(locals.db),
+		getFeedGroups(locals.db)
+	]);
+	const { changelogs } = unfilteredFeedPage(index, 0, groups);
 
 	return {
 		changelogs,
