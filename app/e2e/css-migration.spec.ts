@@ -19,9 +19,7 @@ test('search controls keep their sizing after client-side route styles load', as
 	await expect(submit).toHaveCSS('width', '44px');
 	await expect(submit).toHaveCSS('height', '44px');
 	await expect(input).toHaveCSS('font-size', '16px');
-	await expect(
-		page.getByRole('option', { name: /Bebop, Hero, not selected/ })
-	).toBeVisible();
+	await expect(page.getByRole('option', { name: /^Bebop, Hero$/ })).toBeVisible();
 
 	if (!mobile) {
 		const command = page.locator('[data-slot="command"]').filter({ has: input });

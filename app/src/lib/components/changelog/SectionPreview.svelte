@@ -53,10 +53,11 @@
 		.section-preview {
 			display: flex;
 			flex-wrap: wrap;
-			gap: 0.875rem 0.25rem;
+			gap: 1.125rem 0.25rem;
 			margin-bottom: 1.25rem;
 		}
 		.preview-link {
+			position: relative;
 			display: flex;
 			align-items: center;
 			gap: 0.375rem;
@@ -84,6 +85,11 @@
 				block-size: 1.25rem;
 				border-radius: var(--radius-sm);
 				object-fit: cover;
+			}
+			&::after {
+				content: '';
+				position: absolute;
+				inset: -0.5625rem -0.125rem;
 			}
 		}
 	}

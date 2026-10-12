@@ -50,11 +50,11 @@ test.describe('Changelog filtering', () => {
 		await expect(page.getByText('End of Log')).not.toBeVisible();
 	});
 
-	test('clear filters button resets to unfiltered view', async ({ page }) => {
+	test('removing the only filter resets to unfiltered view', async ({ page }) => {
 		await gotoApp(page, '/?hero=NonExistentHero12345');
 		await expect(page.getByText('No changes found')).toBeVisible();
 
-		await page.getByRole('button', { name: 'Clear Filters' }).click();
+		await page.getByRole('button', { name: 'Remove NonExistentHero12345' }).click();
 		await expect(page).toHaveURL(/\/$/);
 
 		const cards = page.locator('a[href^="/change/"]');

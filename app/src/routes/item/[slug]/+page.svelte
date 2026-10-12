@@ -41,7 +41,7 @@
 >
 	{#snippet labelSuffix()}
 		{#if item.tier}
-			<span class="item-tier kicker-xs">
+			<span class="item-tier">
 				/ Tier {item.tier}
 			</span>
 		{/if}

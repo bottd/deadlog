@@ -19,6 +19,5 @@ export const GET: RequestHandler = async ({ params, locals }) => {
 	if (!Number.isInteger(page) || page < 0 || page >= feedPageCount(index.rows.length)) {
 		throw error(404, 'Feed page not found');
 	}
-	const groups = page === 0 ? await getFeedGroups(locals.db) : null;
-	return Response.json(unfilteredFeedPage(index, page, groups));
+	return Response.json(unfilteredFeedPage(index, page, await getFeedGroups(locals.db)));
 };

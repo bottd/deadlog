@@ -1,10 +1,9 @@
 <script lang="ts">
 	import '../app.css';
 	import Header from '#lib/components/header/Header.svelte';
-	import { Toaster } from 'svelte-sonner';
 	import Footer from '#lib/components/ui/footer/footer.svelte';
 	import ScrollToTop from '#lib/components/scroll-to-top/ScrollToTop.svelte';
-	import * as Tooltip from '#lib/components/ui/tooltip/index.ts';
+	import { toaster } from '#lib/toast.svelte.ts';
 	import { QueryClient, QueryClientProvider } from '@tanstack/svelte-query';
 	import { browser } from '$app/env';
 
@@ -30,26 +29,28 @@
 </script>
 
 <QueryClientProvider client={queryClient}>
-	<Tooltip.Provider>
-		<div class="app-shell" data-app-ready="false" {@attach markReady}>
-			<a href="#main-content" class="skip-link caps"> Skip to content </a>
-			<Toaster
-				theme="dark"
-				class="toaster"
-				style="--normal-bg: var(--popover); --normal-text: var(--popover-foreground); --normal-border: var(--border);"
-			/>
+	<div class="app-shell" data-app-ready="false" {@attach markReady}>
+		<a href="#main-content" class="skip-link caps"> Skip to content </a>
+		{#if toaster.wanted}
+			{#await import('svelte-sonner') then { Toaster }}
+				<Toaster
+					theme="dark"
+					class="toaster"
+					style="--normal-bg: var(--popover); --normal-text: var(--popover-foreground); --normal-border: var(--border);"
+				/>
+			{/await}
+		{/if}
 
-			<Header />
+		<Header />
 
-			<div id="main-content" tabindex="-1" class="main-content">
-				{@render children?.()}
-			</div>
-
-			<Footer />
-
-			<ScrollToTop />
+		<div id="main-content" tabindex="-1" class="main-content">
+			{@render children?.()}
 		</div>
-	</Tooltip.Provider>
+
+		<Footer />
+
+		<ScrollToTop />
+	</div>
 </QueryClientProvider>
 
 <style>
@@ -84,7 +85,6 @@
 		}
 		.main-content {
 			outline: none;
-			animation: fade-in 500ms var(--ease-out) 150ms backwards;
 		}
 		.skip-link {
 			position: absolute;

@@ -16,7 +16,7 @@
 	import ExternalLink from '@lucide/svelte/icons/external-link';
 	import Link from '@lucide/svelte/icons/link';
 	import ListIcon from '@lucide/svelte/icons/list';
-	import { toast } from 'svelte-sonner';
+	import { notify } from '#lib/toast.svelte.ts';
 	import { JsonLd, MetaTags } from 'svelte-meta-tags';
 	import {
 		absoluteUrl,
@@ -46,9 +46,9 @@
 	async function copyLink() {
 		try {
 			await navigator.clipboard.writeText(window.location.href);
-			toast.success('Copied to clipboard');
+			notify('success', 'Copied to clipboard');
 		} catch {
-			toast.error('Could not copy this link');
+			notify('error', 'Could not copy this link');
 		}
 	}
 
@@ -244,7 +244,7 @@
 							<div class="patch-metadata">
 								<div class="patch-byline">
 									<Avatar.Root class="article-author-avatar">
-										<Avatar.Image src={changelog.authorImage} alt={changelog.author} />
+										<Avatar.Image src={changelog.authorImage} alt="" />
 										<Avatar.Fallback class="article-author-initials metadata">
 											{authorInitials(changelog.author)}
 										</Avatar.Fallback>

@@ -5,7 +5,7 @@
 		ChangelogEntityIcon,
 		MogTocEntry
 	} from '#lib/types.ts';
-	import { resolveHeroAbilitySlug } from '@deadlog/utils';
+	import { plural, resolveHeroAbilitySlug } from '@deadlog/utils';
 	import { genericTocEntries } from './toc';
 
 	interface Props {
@@ -127,7 +127,11 @@
 				<a href="#{group.id}" class="toc-section" onclick={onnavigate}>
 					<span class="toc-marker" aria-hidden="true"></span>
 					{group.label}
-					<span class="toc-count">{group.entities.length}</span>
+					<span class="toc-count"
+						>{group.entities.length}<span class="sr-only">
+							{plural(group.entities.length, 'entry', 'entries')}</span
+						></span
+					>
 				</a>
 				<ul class="toc-entities">
 					{#each group.entities as entity (entity.id)}

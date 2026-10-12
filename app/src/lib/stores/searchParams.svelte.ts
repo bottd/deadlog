@@ -1,7 +1,7 @@
 import { page, type ReadonlyURLSearchParams } from '$app/state';
 import { goto } from '$app/navigation';
 import { building } from '$app/env';
-import { toast } from 'svelte-sonner';
+import { notify } from '#lib/toast.svelte.ts';
 import { plural } from '@deadlog/utils';
 import {
 	filtersToSearchParams,
@@ -90,7 +90,8 @@ class SearchParamsStore {
 		next.item = next.item.slice(0, MAX_ENTITY_FILTERS);
 		next.q = next.q.slice(0, MAX_QUERY_LENGTH);
 		if (dropped > 0) {
-			toast.error(
+			notify(
+				'error',
 				`Filter limit reached — ${MAX_ENTITY_FILTERS} heroes and ${MAX_ENTITY_FILTERS} items max. ` +
 					`${dropped} ${plural(dropped, 'selection')} not applied.`
 			);

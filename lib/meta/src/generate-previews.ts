@@ -6,11 +6,18 @@ import {
 	type EnrichedHero,
 	type EnrichedItem
 } from '@deadlog/db';
-import { formatDateShort, heroImage, patchHeading } from '@deadlog/utils';
+import {
+	formatDateShort,
+	heroImage,
+	patchHeading,
+	PREVIEW_WIDTHS,
+	previewDerivative,
+	sharedPreviewImages
+} from '@deadlog/utils';
 import { getLibsqlDb as getDb } from '@deadlog/db';
 import { fromJsx } from '@takumi-rs/helpers/jsx';
 import { mkdir, writeFile } from 'fs/promises';
-import { join, resolve } from 'path';
+import { basename, join, resolve } from 'path';
 import { fileURLToPath } from 'url';
 import React from 'react';
 
@@ -193,6 +200,37 @@ async function generateChangelogOG(
 		art
 	});
 	await renderToFile(element, join(outputDir, 'change', `${changeId}.png`));
+}
+
+async function generatePreviewArt(url: string, outputDir = OUTPUT_DIR): Promise<boolean> {
+	try {
+		const src = await convertImageUrl(url);
+		const { node, css } = await fromJsx(
+			React.createElement('img', {
+				src,
+				style: { width: '100%', height: '100%', objectFit: 'cover' }
+			})
+		);
+		await Promise.all(
+			PREVIEW_WIDTHS.map(async (width) => {
+				const image = await renderer.render(node, {
+					width,
+					height: Math.round((width * 9) / 16),
+					format: 'webp',
+					quality: 78,
+					css
+				});
+				await writeFile(
+					join(outputDir, 'preview', basename(previewDerivative(url, width))),
+					image
+				);
+			})
+		);
+		return true;
+	} catch (error) {
+		console.warn(`Skipped patch art ${url}; cards fall back to the source image:`, error);
+		return false;
+	}
 }
 
 async function generateHomeOG(
@@ -386,6 +424,22 @@ async function generatePreviews(
 	totalCount += changelogCount;
 
 	console.log(`Generated ${changelogCount} changelog images`);
+
+	const stockArt = sharedPreviewImages(
+		allChangelogs.map((changelog) => changelog.previewImage)
+	);
+	const art = [
+		...new Set(
+			allChangelogs.flatMap((changelog) =>
+				changelog.previewImage && !stockArt.has(changelog.previewImage)
+					? [changelog.previewImage]
+					: []
+			)
+		)
+	];
+	await mkdir(join(outputDir, 'preview'), { recursive: true });
+	const artCount = await pooled(art, (url) => generatePreviewArt(url, outputDir));
+	console.log(`Generated ${artCount} of ${art.length} patch art derivatives`);
 
 	const heroCount = await pooled(releasedHeroes, (hero) => {
 		if (!isRenderableSlug(hero.slug)) {

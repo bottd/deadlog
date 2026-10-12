@@ -216,6 +216,43 @@ describe('entity history queries', () => {
 		expect(refs.old).toMatchObject({ anchor: 'doorkeeper' });
 	});
 
+	it('merges adjacent change groups for the same ability under its shortest name', async () => {
+		await client.execute({
+			sql: "UPDATE changelog_heroes SET change_groups = ? WHERE changelog_id = 'new' AND hero_id = 69",
+			args: [
+				JSON.stringify([
+					{ ability: 'Call Bell', abilitySlug: 'call-bell', bullets: ['Cooldown up'] },
+					{
+						ability: 'Call Bell Ring',
+						abilitySlug: 'call-bell',
+						bullets: ['Ring radius down']
+					},
+					{ ability: null, abilitySlug: null, bullets: ['Base health up'] },
+					{ ability: 'Call Bell', abilitySlug: 'call-bell', bullets: ['Damage up'] }
+				])
+			]
+		});
+		const [latest] = await getChangelogsByHeroId(db, 69);
+		expect(latest.changeGroups).toEqual([
+			{
+				ability: 'Call Bell',
+				abilitySlug: 'call-bell',
+				bullets: ['Cooldown up', 'Ring radius down']
+			},
+			{ ability: null, abilitySlug: null, bullets: ['Base health up'] },
+			{ ability: 'Call Bell', abilitySlug: 'call-bell', bullets: ['Damage up'] }
+		]);
+		expect(latest.changeCount).toBe(4);
+	});
+
+	it('drops preview art that several patches share from the feed index', async () => {
+		await client.execute(
+			"UPDATE changelogs SET preview_image = 'https://cdn.example/stock.png'"
+		);
+		const feed = await getFeedIndex(db);
+		expect(feed.rows.map((row) => row.previewImage)).toEqual(feed.rows.map(() => null));
+	});
+
 	it('resolves changelog aliases as canonical rows', async () => {
 		await expect(getChangelogBySlug(db, '2026/gameplay-02-02')).resolves.toMatchObject({
 			id: 'new',

@@ -54,15 +54,16 @@
 		top: 50%;
 		left: -0.5px;
 		inline-size: 1px;
-		block-size: 0.75rem;
+		block-size: 1rem;
 		translate: 0 -50%;
+		scale: 1 0.75;
 		background: transparent;
 		transition:
-			height var(--duration-normal),
+			scale var(--duration-normal) var(--ease-out),
 			background-color var(--duration-normal);
 	}
 	.toc-section:hover .toc-marker {
-		block-size: 1rem;
+		scale: 1;
 		background: var(--signal);
 	}
 	.toc-count {
@@ -137,6 +138,13 @@
 		font-size: var(--text-xs);
 		line-height: var(--leading-xs);
 	}
+	.toc-major {
+		inline-size: 0.375rem;
+		block-size: 0.375rem;
+		flex-shrink: 0;
+		border-radius: 50%;
+		background: var(--primary);
+	}
 	.toc-entry-count {
 		margin-left: auto;
 		flex-shrink: 0;
@@ -175,10 +183,8 @@
 		}
 		& .toc-marker {
 			inline-size: 2px;
-			block-size: 1rem;
-		}
-		& .toc-section:hover .toc-marker {
 			block-size: 1.25rem;
+			scale: 1 0.8;
 		}
 		& .toc-entities {
 			margin-top: 0.25rem;
@@ -205,6 +211,10 @@
 		color: var(--muted-foreground);
 		font-weight: 700;
 		letter-spacing: 0.2em;
+	}
+	.toc-section,
+	.toc-link {
+		min-block-size: 1.5rem;
 	}
 	@media (pointer: coarse) {
 		.toc-section,

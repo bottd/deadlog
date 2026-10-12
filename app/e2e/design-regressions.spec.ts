@@ -1,5 +1,6 @@
 import { expect, test } from 'playwright/test';
 import { gotoApp, openEntityFilter } from './helpers';
+import { previewDerivative } from '@deadlog/utils';
 
 const LATEST_CHANGE = '/change/2026/minor-06-11';
 
@@ -9,7 +10,7 @@ test('the global changelog filter navigates from a directory', async ({
 	await gotoApp(page, '/heroes');
 	const input = await openEntityFilter(page, testInfo.project.name === 'mobile-chromium');
 	await input.fill('Bebop');
-	await page.getByRole('option', { name: /Bebop, Hero, not selected/ }).click();
+	await page.getByRole('option', { name: /^Bebop, Hero$/ }).click();
 
 	// Anchored to the root path on purpose: "/?hero=Bebop" and "/heroes?hero=Bebop"
 	// both satisfied a "/?" optional-slash pattern, hiding the fact that filtering
@@ -57,6 +58,8 @@ test('an ability deep link keeps its entity scope and profile history', async ({
 	).toHaveAttribute('aria-pressed', 'true');
 	const patchLink = page
 		.getByRole('region', { name: 'Change History' })
+		.locator('[data-entity-patch]')
+		.first()
 		.getByRole('link')
 		.first();
 	await expect(patchLink).toHaveAttribute('href', /\/change\/[^?]+#doorman$/);
@@ -632,7 +635,10 @@ test('patch cards show preserved post image previews', async ({ page, request })
 		.filter({ has: page.locator(`a[href^="/change/${patch.slug}"]`) })
 		.first()
 		.locator('img[data-patch-preview]');
-	await expect(preview).toHaveAttribute('src', patch.previewImage);
+	await expect(preview).toHaveAttribute(
+		'src',
+		previewDerivative(patch.previewImage, 640)
+	);
 });
 
 test('patch cards use responsive grid columns', async ({ page }, testInfo) => {

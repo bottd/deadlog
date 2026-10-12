@@ -25,7 +25,11 @@
 	const listId = `${prefix}-filter-options`;
 	const shown = $derived(mobile || open);
 	const options = $derived(filterState.mergedList.slice(0, 60));
-	const histories = $derived(filterState.inputValue.trim() ? options.slice(0, 3) : []);
+	const query = $derived(filterState.inputValue.trim());
+	const histories = $derived(query ? options.slice(0, 3) : []);
+	const exactEntity = $derived(
+		options.some((entity) => entity.data.name.toLowerCase() === query.toLowerCase())
+	);
 
 	function submit(event?: SubmitEvent) {
 		event?.preventDefault();
@@ -62,6 +66,19 @@
 		}
 	}
 </script>
+
+{#snippet searchText()}
+	<Command.Item
+		id="{prefix}-option-search-text"
+		value="search-text"
+		onSelect={() => submit()}
+		class="entity-option search-text-option"
+	>
+		<SearchIcon class="icon search-text-icon" />
+		<span class="search-text-label">Search patch text for “<strong>{query}</strong>”</span
+		>
+	</Command.Item>
+{/snippet}
 
 <Command.Root
 	bind:value={commandValue}
@@ -129,15 +146,20 @@
 			{/if}
 			<Command.List
 				id={listId}
-				aria-label="Available hero and item filters"
+				aria-label="Search patch text, or filter by hero or item"
 				aria-multiselectable="true"
 				tabindex={-1}
 				class="search-options"
 			>
+				{#if query && !exactEntity}{@render searchText()}{/if}
 				{#if options.length === 0}
-					<Command.Empty class="search-empty"
-						>No matching heroes or items. Press Enter to search patch text.</Command.Empty
-					>
+					{#if query}
+						<p class="search-empty">No hero or item matches “{query}”.</p>
+					{:else}
+						<Command.Empty class="search-empty"
+							>No heroes or items to filter by.</Command.Empty
+						>
+					{/if}
 				{:else}
 					<Command.Group heading="Filter patches by hero or item">
 						{#each options as entity (entity.key)}
@@ -153,6 +175,7 @@
 						{/each}
 					</Command.Group>
 				{/if}
+				{#if query && exactEntity}{@render searchText()}{/if}
 			</Command.List>
 			<p class="search-help">
 				Patches must match every selected hero, item, and keyword.
@@ -239,8 +262,26 @@
 			padding: 0.5rem;
 		}
 		:global(.search-empty) {
-			padding: 1.25rem 0.75rem;
+			padding: 1rem 0.75rem;
 			color: var(--muted-foreground);
+			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
+		}
+		:global(.search-text-option) {
+			min-block-size: 2.75rem;
+		}
+		:global(.search-text-icon) {
+			inline-size: 2rem;
+			color: var(--signal);
+		}
+		.search-text-label {
+			min-inline-size: 0;
+			flex: 1;
+			overflow-wrap: anywhere;
+			& strong {
+				color: var(--foreground);
+				font-weight: 600;
+			}
 		}
 		.search-help {
 			border-top: 1px solid var(--border-subtle);

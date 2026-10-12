@@ -315,18 +315,21 @@ describe('feed summaries', () => {
 		expect(prose.summary).toContain('parry');
 	});
 
-	it('gives only the featured patch a few real changes in place of its prose', () => {
-		const heroes = [hero(1, 'Abrams'), hero(2, 'Bebop')];
+	it('leads unfiltered cards with real changes, three for the featured patch and two after', () => {
+		const heroes = [hero(1, 'Abrams'), hero(2, 'Bebop'), hero(3, 'Haze')];
 		const row = makeRow({
 			heroes: [
 				{ id: 1, changeCount: 2 },
-				{ id: 2, changeCount: null }
+				{ id: 2, changeCount: 1 },
+				{ id: 3, changeCount: 1 }
 			]
 		});
 		const groups = {
 			'patch:hero:1': [
 				{ ability: 'Siphon Life', bullets: ['Radius reduced from 3m to 2m', 'Damage up'] }
-			]
+			],
+			'patch:hero:2': [{ ability: null, bullets: ['Hook range up'] }],
+			'patch:hero:3': [{ ability: null, bullets: ['Bullet spread down'] }]
 		};
 		const index = makeIndex([row], heroes);
 		const [featured] = assembleSummaries(
@@ -338,11 +341,21 @@ describe('feed summaries', () => {
 			}
 		);
 		expect(featured.highlights).toEqual([
-			{ name: 'Abrams', ability: 'Siphon Life', text: 'Radius reduced from 3m to 2m' }
+			{ name: 'Abrams', ability: 'Siphon Life', text: 'Radius reduced from 3m to 2m' },
+			{ name: 'Bebop', ability: null, text: 'Hook range up' },
+			{ name: 'Haze', ability: null, text: 'Bullet spread down' }
 		]);
 
 		const [later] = assembleSummaries([row], index, { text: null, groups });
-		expect(later).not.toHaveProperty('highlights');
+		expect(later.highlights).toHaveLength(2);
+
+		const [searched] = assembleSummaries(
+			[row],
+			index,
+			{ text: null, groups },
+			{ q: 'hook' }
+		);
+		expect(searched).not.toHaveProperty('highlights');
 	});
 
 	it('refuses to assemble selected-entity excerpts without the groups tier', () => {

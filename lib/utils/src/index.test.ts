@@ -2,6 +2,8 @@ import { describe, expect, it } from 'vitest';
 import {
 	DISPLAY_TIME_ZONE,
 	abilityFragmentId,
+	previewDerivative,
+	sharedPreviewImages,
 	entityNameAliases,
 	entityNamesMatch,
 	escapeMogDelimiters,
@@ -141,5 +143,28 @@ describe('patch date formatting', () => {
 	it('formats ordinal suffixes after timezone conversion', () => {
 		expect(formatDate('2026-03-02T20:00:00.000Z')).toBe('March 2nd, 2026');
 		expect(formatDate('2026-03-13T20:00:00.000Z')).toBe('March 13th, 2026');
+	});
+});
+
+describe('previewDerivative', () => {
+	it('names the derivative after the source file and width', () => {
+		expect(
+			previewDerivative(
+				'https://clan.fastly.steamstatic.com/images/45164767/720ba4e0.png',
+				640
+			)
+		).toBe('/assets/meta/preview/720ba4e0-640.webp');
+	});
+
+	it('keeps the path safe for odd file names', () => {
+		expect(previewDerivative('https://cdn.example/a/b c%20d.jpeg?x=1', 1280)).toBe(
+			'/assets/meta/preview/b_20c_20d-1280.webp'
+		);
+	});
+});
+
+describe('sharedPreviewImages', () => {
+	it('returns only the art more than one patch uses', () => {
+		expect([...sharedPreviewImages(['a', null, 'b', 'a', 'c', 'a'])]).toEqual(['a']);
 	});
 });

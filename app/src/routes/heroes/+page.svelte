@@ -21,7 +21,7 @@
 <EntityDirectory
 	kind="hero"
 	heading="Heroes"
-	lede="Find a hero to read every recorded buff, nerf, and balance change."
+	lede="Find a hero to read every change the patch notes have recorded for them."
 	{entries}
 	seo={{
 		title: 'Deadlock Heroes: Balance Change History | Deadlog',

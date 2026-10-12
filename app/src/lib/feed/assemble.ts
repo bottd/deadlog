@@ -159,22 +159,21 @@ function groupsFor(groups: FeedGroups, row: FeedRow, icon: ChangelogEntityIcon) 
 function highlightsFor(
 	groups: FeedGroups,
 	row: FeedRow,
-	icons: ChangelogEntityIcon[]
+	icons: ChangelogEntityIcon[],
+	count: number
 ): Pick<PatchSummary, 'highlights'> {
-	const highlights = icons
-		.flatMap((icon) => {
-			const group = groupsFor(groups, row, icon).find((entry) => entry.bullets.length);
-			return group
-				? [
-						{
-							name: icon.alt,
-							ability: group.ability,
-							text: makeSummary(group.bullets[0], 200)
-						}
-					]
-				: [];
-		})
-		.slice(0, 3);
+	const highlights: NonNullable<PatchSummary['highlights']> = [];
+	for (const icon of icons) {
+		if (highlights.length === count) break;
+		const group = groupsFor(groups, row, icon).find((entry) => entry.bullets.length);
+		if (group) {
+			highlights.push({
+				name: icon.alt,
+				ability: group.ability,
+				text: makeSummary(group.bullets[0], 200)
+			});
+		}
+	}
 	return highlights.length ? { highlights } : {};
 }
 
@@ -211,7 +210,8 @@ export function assembleSummaries(
 
 	return rows.map((entry, index_) => {
 		const all = iconsFor(entry, entities);
-		const limit = featureFirst && index_ === 0 ? 14 : 6;
+		const featured = featureFirst && index_ === 0;
+		const limit = featured ? 14 : 6;
 		let remainingExcerpts = 6;
 		const candidates = selectsEntities
 			? [...all.heroes, ...all.items].filter(selected)
@@ -244,6 +244,10 @@ export function assembleSummaries(
 				}
 			];
 		});
+		const highlights =
+			!searching && groups
+				? highlightsFor(groups, entry, [...all.heroes, ...all.items], featured ? 3 : 2)
+				: {};
 		return {
 			id: entry.id,
 			slug: entry.slug,
@@ -257,12 +261,10 @@ export function assembleSummaries(
 			summary:
 				q && (selectsEntities || !matches.length)
 					? searchExcerpt(text?.[entry.id] ?? '', q)
-					: matches.length
+					: matches.length || highlights.highlights
 						? ''
 						: entry.summary,
-			...(featureFirst && index_ === 0 && groups
-				? highlightsFor(groups, entry, [...all.heroes, ...all.items])
-				: {}),
+			...highlights,
 			icons: {
 				heroes: searching ? [] : all.heroes.slice(0, limit),
 				items: searching ? [] : all.items.slice(0, limit)

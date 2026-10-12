@@ -23,7 +23,7 @@
 			{...props}
 			data-entity-kind={kind}
 			aria-selected={isSelected}
-			aria-label="{name}, {entityKind.label}, {isSelected ? 'selected' : 'not selected'}"
+			aria-label="{name}, {entityKind.label}"
 		>
 			{#if imageSrc}
 				<img
@@ -66,8 +66,13 @@
 		:global(.entity-option[aria-selected='true']) {
 			background: color-mix(in srgb, var(--entity-accent) 10%, transparent);
 		}
-		:global(.entity-option:is(:hover, [data-selected])) {
+		:global(.entity-option:hover) {
 			background: var(--secondary);
+		}
+		:global(.entity-option[data-selected]) {
+			background: color-mix(in srgb, var(--signal) 16%, transparent);
+			outline: 1px solid color-mix(in srgb, var(--signal) 60%, transparent);
+			outline-offset: -1px;
 		}
 		.option-image,
 		.option-placeholder {

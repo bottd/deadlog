@@ -104,7 +104,7 @@
 			max-block-size: calc(100dvh - 8rem);
 			border-radius: var(--radius-lg);
 			object-fit: contain;
-			box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+			box-shadow: var(--shadow-2xl);
 		}
 		.lightbox-caption {
 			display: flex;

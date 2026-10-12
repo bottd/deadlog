@@ -254,6 +254,25 @@ function getOrdinalSuffix(day: number): string {
 	return ['th', 'st', 'nd', 'rd'][day % 10] ?? 'th';
 }
 
+export const PREVIEW_WIDTHS = [640, 1280] as const;
+
+export function sharedPreviewImages(urls: Iterable<string | null>): Set<string> {
+	const seen = new Set<string>();
+	const shared = new Set<string>();
+	for (const url of urls) {
+		if (!url) continue;
+		if (seen.has(url)) shared.add(url);
+		seen.add(url);
+	}
+	return shared;
+}
+
+export function previewDerivative(url: string, width: number): string {
+	const file = new URL(url).pathname.split('/').pop() ?? '';
+	const name = file.replace(/\.[^.]*$/, '').replace(/[^\w-]/g, '_');
+	return `/assets/meta/preview/${name}-${width}.webp`;
+}
+
 /** Word only, so callers keep control of the count's own markup. */
 export function plural(count: number, one: string, many = `${one}s`): string {
 	return count === 1 ? one : many;

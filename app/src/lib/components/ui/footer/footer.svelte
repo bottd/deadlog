@@ -23,7 +23,9 @@
 			<p>Deadlock is a trademark of Valve Corporation</p>
 		</div>
 		<!-- Full tone at 11px: 9px at 40% alpha under the flicker measured 2.24:1. -->
-		<div class="transmission kicker-xs"><span>// end transmission</span></div>
+		<div class="transmission kicker-xs" aria-hidden="true">
+			<span>// end transmission</span>
+		</div>
 	</div>
 </footer>
 
@@ -103,10 +105,14 @@
 		}
 		.transmission {
 			display: flex;
+			max-inline-size: 100%;
+			flex-wrap: wrap;
 			align-items: center;
+			justify-content: center;
 			gap: 1rem;
 			color: var(--muted-foreground);
 			letter-spacing: 0.25em;
+			text-align: center;
 			&::before,
 			&::after {
 				content: '';

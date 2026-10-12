@@ -39,7 +39,7 @@
 html {
 	font-family: var(--font-sans);
 	/* Clears the sticky header plus the selected-filter row. */
-	scroll-padding-top: 10rem;
+	scroll-padding-top: calc(var(--header-height) + 2.25rem);
 	color-scheme: dark;
 	color: var(--foreground);
 	background-color: var(--background);
@@ -99,17 +99,5 @@ body {
 @keyframes slide-down-out {
 	to {
 		transform: translateY(100%);
-	}
-}
-@keyframes pop-in {
-	from {
-		opacity: 0;
-		transform: scale(0.95);
-	}
-}
-@keyframes pop-out {
-	to {
-		opacity: 0;
-		transform: scale(0.95);
 	}
 }

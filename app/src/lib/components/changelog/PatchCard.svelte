@@ -4,6 +4,7 @@
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
 	import { searchParams } from '#lib/stores/searchParams.svelte.ts';
 	import HighlightedText from './HighlightedText.svelte';
+	import PatchArt from './PatchArt.svelte';
 	import {
 		patchCardHrefs,
 		patchCardMatches,
@@ -26,18 +27,10 @@
 	data-searching={matches.searching}
 >
 	<CornerAccents tlSize="1.5rem" brSize="1rem" thickness="0.125rem" />
-	{#if isNew}<span class="new-flag kicker-xs clip-corner-sm">New</span>{/if}
+	{#if isNew}<span class="new-flag flag kicker-xs clip-corner-sm">New</span>{/if}
 	{#if !matches.searching && patch.previewImage}
 		<div class="preview">
-			<img
-				data-patch-preview
-				src={patch.previewImage}
-				alt=""
-				width="640"
-				height="360"
-				loading="lazy"
-				decoding="async"
-			/>
+			<PatchArt src={patch.previewImage} sizes="(min-width: 40rem) 24rem, 100vw" />
 			<div class="preview-veil" aria-hidden="true"></div>
 		</div>
 	{/if}
@@ -50,10 +43,12 @@
 						href={links.href}
 						aria-label={view.accessibleLabel}
 						class={matches.searching ? 'reading-link ui-focus-ring' : 'stretched-link'}
-						>{view.heading}</a
+						><span class="title-text">{view.heading}</span></a
 					>
 				</h2>
-				{#if isMajor}<span class="major-flag kicker-xs clip-corner-sm">Major</span>{/if}
+				{#if isMajor}<span class="major-flag flag flag-major kicker-xs clip-corner-sm"
+						>Major</span
+					>{/if}
 			</div>
 			<div class="author-row">
 				<Avatar.Root class="patch-author-avatar">
@@ -109,11 +104,21 @@
 				{/each}
 			</div>
 		{/if}
-		{#if patch.summary}<p class="summary">
+		{#if patch.highlights && !matches.searching}
+			<ul class="highlights">
+				{#each patch.highlights as change (change.name)}
+					<li>
+						<span class="highlight-subject"
+							>{change.name}{#if change.ability}&nbsp;· {change.ability}{/if}</span
+						>
+						{change.text}
+					</li>
+				{/each}
+			</ul>
+		{:else if patch.summary}<p class="summary">
 				<HighlightedText text={patch.summary} query={searchParams.q} />
 			</p>{/if}
 		{#each view.rows as row (row.type)}
-			<!-- Unfanned below `sm` so every icon keeps a full 44px touch target. -->
 			<div class="entity-row" data-entity-kind={row.kind}>
 				{#each row.list as icon (icon.id)}
 					<a
@@ -202,25 +207,20 @@
 			background: var(--primary);
 			color: var(--primary-foreground);
 		}
-		.new-flag,
-		.major-flag {
-			padding: 0.125rem 0.375rem;
-			font-weight: 700;
-		}
 		.preview {
 			position: relative;
 			block-size: 7rem;
 			flex-shrink: 0;
 			overflow: hidden;
 			border-bottom: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
-			& img {
+			& :global(img) {
 				inline-size: 100%;
 				block-size: 100%;
 				object-fit: cover;
 				transition: scale 500ms;
 			}
 		}
-		.patch-card:hover .preview img {
+		.patch-card:hover .preview :global(img) {
 			scale: 1.05;
 		}
 		.preview-veil,
@@ -263,8 +263,9 @@
 			gap: 0.5rem;
 			margin-bottom: 0.375rem;
 		}
-		.card-title,
-		.summary {
+		.title-text,
+		.summary,
+		.highlights li {
 			display: -webkit-box;
 			-webkit-line-clamp: 2;
 			line-clamp: 2;
@@ -286,9 +287,6 @@
 		.major-flag {
 			margin-left: auto;
 			flex-shrink: 0;
-			border: 1px solid color-mix(in srgb, var(--primary) 40%, transparent);
-			background: color-mix(in srgb, var(--primary) 15%, transparent);
-			color: var(--primary);
 		}
 		.author-row {
 			display: flex;
@@ -364,6 +362,18 @@
 			color: var(--muted-foreground);
 			font-size: var(--text-xs);
 			line-height: var(--leading-relaxed);
+		}
+		.highlights {
+			display: grid;
+			gap: 0.375rem;
+			color: var(--muted-foreground);
+			font-size: var(--text-xs);
+			line-height: var(--leading-relaxed);
+		}
+		.highlight-subject {
+			margin-inline-end: 0.25rem;
+			color: var(--foreground);
+			font-weight: 600;
 		}
 		.patch-card[data-searching='true'] .summary {
 			display: block;
@@ -459,20 +469,10 @@
 			color: var(--signal);
 		}
 		@media (min-width: 40rem) and (pointer: fine) {
-			.entity-row {
-				flex-wrap: nowrap;
-				gap: 0;
-			}
 			.entity-link,
 			.extra-count {
 				inline-size: 1.75rem;
 				block-size: 1.75rem;
-			}
-			.entity-link + .entity-link {
-				margin-left: -0.375rem;
-			}
-			.extra-count {
-				margin-left: 0.375rem;
 			}
 		}
 		@media (min-width: 40rem) {

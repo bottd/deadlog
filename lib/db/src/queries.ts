@@ -21,6 +21,7 @@ import {
 	canonicalSlug,
 	formerSlugs,
 	HERO_IMAGE_KEYS,
+	sharedPreviewImages,
 	type EntityRenames
 } from '@deadlog/utils';
 
@@ -39,7 +40,8 @@ const ENTITY_HISTORY_COLUMNS = {
 	title: schema.changelogs.title,
 	slug: schema.changelogs.slug,
 	pubDate: schema.changelogs.pubDate,
-	author: schema.changelogs.author
+	author: schema.changelogs.author,
+	majorUpdate: schema.changelogs.majorUpdate
 } as const;
 
 export type EntityChangelog<Group = EntityChangeGroup> = Pick<
@@ -377,8 +379,29 @@ export async function getChangelogsByHeroId(
 		.all();
 	return rows.map((row) => ({
 		...row,
+		changeGroups: row.changeGroups && mergeAbilityGroups(row.changeGroups),
 		changeCount: countBullets(row.changeGroups)
 	}));
+}
+
+function mergeAbilityGroups(groups: HeroChangeGroup[]): HeroChangeGroup[] {
+	const merged: HeroChangeGroup[] = [];
+	for (const group of groups) {
+		const previous = merged.at(-1);
+		if (!previous || !group.abilitySlug || previous.abilitySlug !== group.abilitySlug) {
+			merged.push(group);
+			continue;
+		}
+		merged[merged.length - 1] = {
+			...previous,
+			ability:
+				(group.ability?.length ?? Infinity) < (previous.ability?.length ?? Infinity)
+					? group.ability
+					: previous.ability,
+			bullets: [...previous.bullets, ...group.bullets]
+		};
+	}
+	return merged;
 }
 
 /** See getChangelogsByHeroId — deliberately uncapped for the same reason. */
@@ -621,10 +644,13 @@ async function buildFeedIndex(db: DrizzleDB): Promise<FeedIndex> {
 			}));
 	const heroRefsFor = toRefs(new Map(heroes.map((hero) => [hero.id, hero.name])));
 	const itemRefsFor = toRefs(new Map(items.map((item) => [item.id, item.name])));
+	const stockArt = sharedPreviewImages(rows.map((row) => row.previewImage));
 
 	return {
 		rows: rows.map(({ contentText, ...row }) => ({
 			...row,
+			previewImage:
+				row.previewImage && !stockArt.has(row.previewImage) ? row.previewImage : null,
 			summary: makeSummary(contentText),
 			heroes: heroRefsFor(heroesByChangelog.get(row.id)),
 			items: itemRefsFor(itemsByChangelog.get(row.id))
@@ -724,7 +750,18 @@ export function getRenderableItemSlugs(db: DrizzleDB): Promise<string[]> {
 	return renderableSlugs(db, schema.items, schema.changelogItems.itemId);
 }
 
-export async function getFeedGroups(db: DrizzleDB): Promise<FeedGroups> {
+const feedGroups = new WeakMap<DrizzleDB, Promise<FeedGroups>>();
+
+export function getFeedGroups(db: DrizzleDB): Promise<FeedGroups> {
+	let groups = feedGroups.get(db);
+	if (!groups) {
+		groups = buildFeedGroups(db);
+		feedGroups.set(db, groups);
+	}
+	return groups;
+}
+
+async function buildFeedGroups(db: DrizzleDB): Promise<FeedGroups> {
 	const [heroRows, itemRows] = await Promise.all([
 		db
 			.select({

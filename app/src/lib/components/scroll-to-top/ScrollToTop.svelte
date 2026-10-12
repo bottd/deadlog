@@ -2,12 +2,16 @@
 	import ArrowUp from '@lucide/svelte/icons/arrow-up';
 	import { fly } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
+	import { prefersReducedMotion } from 'svelte/motion';
 	import { scrollY } from 'svelte/reactivity/window';
 
 	const showScrollTop = $derived((scrollY.current ?? 0) > 500);
 
 	function scrollToTop() {
-		window.scrollTo({ top: 0, behavior: 'smooth' });
+		window.scrollTo({
+			top: 0,
+			behavior: prefersReducedMotion.current ? 'auto' : 'smooth'
+		});
 	}
 </script>
 
@@ -17,8 +21,8 @@
 		onclick={scrollToTop}
 		class="ui-focus-ring scroll-top"
 		aria-label="Scroll to top"
-		in:fly={{ y: 10, duration: 250, easing: quintOut }}
-		out:fly={{ y: 10, duration: 200 }}
+		in:fly={{ y: prefersReducedMotion.current ? 0 : 10, duration: 250, easing: quintOut }}
+		out:fly={{ y: prefersReducedMotion.current ? 0 : 10, duration: 200 }}
 	>
 		<ArrowUp class="icon-lg" />
 	</button>

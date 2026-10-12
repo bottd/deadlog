@@ -5,9 +5,12 @@
 	import { FeaturedPatchCard, PatchCard } from './index';
 	import HeroRail from '#lib/components/filter-bar/HeroRail.svelte';
 	import { searchParams as params } from '#lib/stores/searchParams.svelte.ts';
+	import { toggleEntityFilter } from '#lib/components/filter-bar/filterState.svelte.ts';
 	import { useChangelogQuery } from '#lib/hooks/useChangelogQuery.svelte.ts';
 	import CornerAccents from '#lib/components/ui/corner-accents/CornerAccents.svelte';
 	import Frown from '@lucide/svelte/icons/frown';
+	import ChevronRight from '@lucide/svelte/icons/chevron-right';
+	import X from '@lucide/svelte/icons/x';
 	import type { PatchSummary } from '#lib/types.ts';
 
 	const changelogs = $derived(page.data.changelogs ?? []);
@@ -31,10 +34,21 @@
 	function commitVisit() {
 		if (visitCommitted) return;
 		visitCommitted = true;
-		localStorage.setItem(LAST_VISIT_KEY, String(Date.now()));
+		try {
+			localStorage.setItem(LAST_VISIT_KEY, String(Date.now()));
+		} catch {
+			visitCommitted = false;
+		}
+	}
+	function readLastVisit(): string | null {
+		try {
+			return localStorage.getItem(LAST_VISIT_KEY);
+		} catch {
+			return null;
+		}
 	}
 	onMount(() => {
-		const stored = localStorage.getItem(LAST_VISIT_KEY);
+		const stored = readLastVisit();
 		lastVisit = stored ? Number(stored) : null;
 		const dwell = setTimeout(commitVisit, 10_000);
 		return () => clearTimeout(dwell);
@@ -51,6 +65,31 @@
 	const firstSeenIdx = $derived(
 		lastVisit === null || isSearching ? -1 : gridEntries.findIndex((e) => !isNew(e))
 	);
+
+	const matchCount = $derived.by(() => {
+		const more = query.hasNextPage;
+		return `${allChangelogs.length}${more ? '+' : ''} matching ${plural(more ? 2 : allChangelogs.length, 'patch', 'patches')}`;
+	});
+	const announcement = $derived.by(() => {
+		if (isFilterPending) return 'Updating patches\u2026';
+		if (!query.data || filterCount === 0) return '';
+		return allChangelogs.length > 0 ? matchCount : 'No patches match these filters';
+	});
+
+	const activeFilters = $derived([
+		...(['hero', 'item'] as const).flatMap((kind) =>
+			filters[kind].map((name) => ({
+				label: name,
+				remove: () => toggleEntityFilter(kind, name)
+			}))
+		),
+		...(filters.q
+			? [{ label: `\u201c${filters.q}\u201d`, remove: () => params.update({ q: '' }) }]
+			: []),
+		...(filters.major
+			? [{ label: 'Major updates only', remove: () => params.update({ major: false }) }]
+			: [])
+	]);
 
 	function loadMoreWhenVisible(node: HTMLElement) {
 		const observer = new IntersectionObserver(
@@ -90,32 +129,49 @@
 
 <main class="page-container changelog-page">
 	<header class="page-header">
-		<h1 class="page-title display-heading heading-glow">
+		<h1 class="page-title display-heading">
 			{isSearching ? 'Matching patch notes' : 'Deadlock Patch Notes & Changelog'}
 		</h1>
-		<p class="page-lede">
-			{isSearching
-				? 'Changes for your selected heroes, items, and keywords.'
-				: 'Every gameplay update, hero adjustment, and item balance change.'}
-		</p>
-		{#if totalCount > 0}
-			<p class="archive-summary kicker-sm">
-				<strong>{totalCount}</strong>
-				<a href="/archive">{plural(totalCount, 'patch', 'patches')} in the archive</a>
+		{#if !isSearching}
+			<p class="page-lede">
+				Every gameplay update, hero adjustment, and item balance change.
+			</p>
+			{#if totalCount > 0}
+				<p class="archive-summary kicker-sm">
+					<strong>{totalCount}</strong>
+					<a href="/archive" class="hit-44"
+						>{plural(totalCount, 'patch', 'patches')} in the archive</a
+					>
+				</p>
+			{/if}
+		{/if}
+		{#if filterCount > 0 && query.data && allChangelogs.length > 0}
+			<p class="result-summary metadata">
+				<strong>{matchCount}</strong
+				>{#if filterCount > 1}{` · all ${filterCount} filters`}{/if}
+				{#if isSearching}
+					<span class="latest-match"
+						>Latest matching patch: <time datetime={allChangelogs[0].date}
+							>{formatDate(allChangelogs[0].date)}</time
+						></span
+					>
+				{/if}
 			</p>
 		{/if}
 	</header>
 
 	<div class="js-only quick-filters">
 		<details>
-			<summary class="ui-focus-ring hero-disclosure">Quick hero filters</summary>
+			<summary class="ui-focus-ring disclosure-summary filter-control"
+				><ChevronRight class="disclosure-chevron" />Quick hero filters</summary
+			>
 			<HeroRail />
 		</details>
 		<button
 			type="button"
 			onclick={() => params.update({ major: !params.major })}
 			aria-pressed={params.major}
-			class="ui-focus-ring major-toggle"
+			class="ui-focus-ring filter-control major-toggle"
 		>
 			Major updates only
 		</button>
@@ -124,30 +180,10 @@
 	{#if isFilterPending}
 		<div aria-hidden="true" class="filter-progress"></div>
 	{/if}
-	<p aria-live="polite" class="sr-only">
-		{isFilterPending ? 'Updating patches\u2026' : ''}
-	</p>
+	<p role="status" class="sr-only">{announcement}</p>
 
 	{#if query.data}
 		{#if allChangelogs.length > 0}
-			{#if filterCount > 0}
-				<p class="result-summary metadata caps" role="status" aria-live="polite">
-					{allChangelogs.length}{query.hasNextPage ? '+' : ''} matching
-					{query.hasNextPage
-						? 'patches'
-						: plural(allChangelogs.length, 'patch', 'patches')}
-					{#if filterCount > 1}
-						· all {filterCount} filters{/if}
-					{#if isSearching && allChangelogs[0]}
-						<span class="latest-match"
-							>Latest matching patch: <time datetime={allChangelogs[0].date}
-								>{formatDate(allChangelogs[0].date)}</time
-							></span
-						>
-					{/if}
-				</p>
-			{/if}
-
 			{#if !isSearching}
 				<FeaturedPatchCard {...allChangelogs[0]} />
 			{/if}
@@ -177,7 +213,7 @@
 				{/each}
 			</div>
 		{:else}
-			<div class="empty-panel clip-corner" role="status">
+			<div class="empty-panel clip-corner">
 				<CornerAccents tlSize="2rem" />
 				<div class="empty-symbol clip-corner-sm">
 					<Frown class="icon-xl" />
@@ -196,13 +232,29 @@
 							{filterCount === 1 ? 'filter' : `${filterCount} filters`}.
 						{/if}
 					</p>
-					<button
-						type="button"
-						onclick={() => params.reset()}
-						class="ui-focus-ring clear-action"
-					>
-						Clear Filters
-					</button>
+					<ul class="filter-removals" aria-label="Remove a filter">
+						{#each activeFilters as filter (filter.label)}
+							<li>
+								<button
+									type="button"
+									onclick={filter.remove}
+									class="ui-focus-ring filter-control remove-filter"
+								>
+									<X class="icon-sm" aria-hidden="true" />
+									<span><span class="sr-only">Remove </span>{filter.label}</span>
+								</button>
+							</li>
+						{/each}
+					</ul>
+					{#if filterCount > 1}
+						<button
+							type="button"
+							onclick={() => params.reset()}
+							class="ui-focus-ring clear-action"
+						>
+							Clear all filters
+						</button>
+					{/if}
 				{:else}
 					<p class="empty-copy">The log has no entries yet.</p>
 				{/if}
@@ -296,29 +348,30 @@
 			gap: 0.5rem 1rem;
 			margin-bottom: 1.25rem;
 		}
-		.hero-disclosure {
-			border-radius: var(--radius-sm);
-			padding-block: 0.75rem;
-			color: var(--muted-foreground);
-			font-size: var(--text-sm);
-			line-height: var(--leading-sm);
-		}
-		.major-toggle {
+		.filter-control {
 			min-block-size: 2.75rem;
 			border: 1px solid var(--border);
 			border-radius: var(--radius-md);
 			padding-inline: 0.75rem;
 			color: var(--muted-foreground);
-			font-size: var(--text-xs);
-			line-height: var(--leading-xs);
+			font-size: var(--text-sm);
+			line-height: var(--leading-sm);
 			font-weight: 500;
+			&:hover {
+				color: var(--foreground);
+			}
+		}
+		details[open] > .filter-control {
+			border-color: color-mix(in srgb, var(--signal) 45%, transparent);
+			color: var(--foreground);
+		}
+		.major-toggle {
 			transition:
 				border-color var(--duration-normal),
 				color var(--duration-normal),
 				background-color var(--duration-normal);
 			&:hover:not([aria-pressed='true']) {
 				border-color: color-mix(in srgb, var(--primary) 40%, transparent);
-				color: var(--foreground);
 			}
 			&[aria-pressed='true'] {
 				border-color: color-mix(in srgb, var(--primary) 60%, transparent);
@@ -326,14 +379,19 @@
 				color: var(--primary);
 			}
 		}
-		.result-summary,
+		.result-summary {
+			margin-top: 0.75rem;
+		}
 		.new-summary {
 			margin-bottom: 1rem;
+		}
+		.result-summary strong {
+			color: var(--primary);
+			font-weight: 600;
 		}
 		.latest-match {
 			display: block;
 			margin-top: 0.25rem;
-			text-transform: none;
 		}
 		.new-summary {
 			display: flex;
@@ -385,6 +443,26 @@
 		.query-text {
 			color: var(--foreground);
 			font-family: var(--font-mono);
+		}
+		.filter-removals {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 0.5rem;
+			margin-bottom: 1rem;
+		}
+		.remove-filter {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.5rem;
+			color: var(--foreground);
+			transition: border-color var(--duration-normal);
+			&:hover {
+				border-color: color-mix(in srgb, var(--signal) 50%, transparent);
+			}
+			& :global(svg) {
+				color: var(--muted-foreground);
+			}
 		}
 		.clear-action {
 			min-block-size: 2.75rem;
@@ -470,6 +548,11 @@
 		@keyframes spin {
 			to {
 				rotate: 360deg;
+			}
+		}
+		@media (max-width: 39.99rem) {
+			.page-lede {
+				display: none;
 			}
 		}
 		@media (min-width: 40rem) {

@@ -282,7 +282,7 @@
 				font-size: var(--text-sm);
 				line-height: 1.375;
 				font-weight: 600;
-				overflow-wrap: break-word;
+				overflow-wrap: anywhere;
 			}
 		}
 		.entry-text {
@@ -303,7 +303,7 @@
 			min-block-size: 2.75rem;
 			margin-top: 0.5rem;
 		}
-		@media (min-width: 360px) {
+		@media (min-width: 22.5rem) {
 			.directory-grid {
 				grid-template-columns: repeat(2, minmax(0, 1fr));
 			}

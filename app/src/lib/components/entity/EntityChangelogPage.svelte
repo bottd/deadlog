@@ -11,11 +11,18 @@
 		pageMeta
 	} from '#lib/seo.ts';
 	import { JsonLd, MetaTags } from 'svelte-meta-tags';
-	import { countBullets, formatDate, formatYear, plural } from '@deadlog/utils';
+	import {
+		countBullets,
+		formatDate,
+		formatYear,
+		patchHeading,
+		plural
+	} from '@deadlog/utils';
 	import ArrowLeft from '@lucide/svelte/icons/arrow-left';
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
+	import ChevronRight from '@lucide/svelte/icons/chevron-right';
 	import CornerAccents from '#lib/components/ui/corner-accents/CornerAccents.svelte';
-	import EntityHistoryToc from './EntityHistoryToc.svelte';
+	import EntityHistoryToc, { type TocPatch } from './EntityHistoryToc.svelte';
 	import type { Snippet } from 'svelte';
 	import { shallowParams } from '#lib/stores/shallowParams.svelte.ts';
 
@@ -31,6 +38,7 @@
 		title: string;
 		date: Date;
 		author: string;
+		majorUpdate?: boolean;
 		changeCount: number | null;
 		changeGroups?: ChangeGroup[] | null;
 	}
@@ -99,7 +107,10 @@
 		});
 	});
 	const historyYears = $derived([
-		...Map.groupBy(visibleChangelogs, (patch) => formatYear(patch.date))
+		...Map.groupBy(
+			visibleChangelogs.map((patch) => ({ ...patch, heading: patchHeading(patch) })),
+			(patch) => formatYear(patch.date)
+		)
 	]);
 	const showToc = $derived(visibleChangelogs.length >= 6);
 	const tocYears = $derived(
@@ -109,12 +120,14 @@
 					year,
 					patches.map((patch) => ({
 						id: patch.id,
-						label: formatDate(patch.date),
+						label: patch.heading.heading,
+						major: !!patch.majorUpdate,
 						changeCount: patch.changeCount
 					}))
-				] as [string, { id: string; label: string; changeCount: number | null }[]]
+				] as [string, TocPatch[]]
 		)
 	);
+	const singleYear = $derived(historyYears.length === 1);
 	const listing = $derived(ENTITY_LISTING[entity.type]);
 	const latest = $derived(changelogs[0]);
 	const oldest = $derived(changelogs.at(-1));
@@ -178,7 +191,7 @@
 					<div class="identity-text">
 						{#if parent}
 							<p class="parent-entity metadata">
-								<a href="/hero/{parent.slug}" class="ui-focus-ring parent-link"
+								<a href="/hero/{parent.slug}" class="ui-focus-ring parent-link hit-44"
 									>{parent.name}</a
 								>
 							</p>
@@ -193,7 +206,7 @@
 						{#if latest}
 							<p class="latest-change">
 								{latest.changeCount === null ? 'Last mentioned' : 'Last changed'}
-								<a href={entityPatchHref(latest, entity)}
+								<a href={entityPatchHref(latest, entity)} class="ui-focus-ring hit-44"
 									><time datetime={latest.date.toISOString()}
 										>{formatDate(latest.date)}</time
 									></a
@@ -203,13 +216,23 @@
 					</div>
 				</div>
 				<details class="archive-details">
-					<summary class="ui-focus-ring archive-summary">
-						{changelogs.length}
-						{plural(changelogs.length, 'patch', 'patches')}{#if changes.value !== null}
-							· {changes.value} changes{/if}
-						<span>Archive details</span>
+					<summary class="ui-focus-ring disclosure-summary archive-summary">
+						<ChevronRight class="disclosure-chevron" />
+						<span class="archive-label">Archive details</span>
+						<span class="archive-count"
+							>{changelogs.length}
+							{plural(
+								changelogs.length,
+								'patch',
+								'patches'
+							)}{#if changes.value !== null}{' '}·
+								{changes.value} changes{/if}</span
+						>
 					</summary>
 					<div class="archive-body">
+						{#if changes.value !== null}<p class="archive-copy">
+								Each change is one line of the patch notes.
+							</p>{/if}
 						{#if oldest}<p class="archive-copy">
 								First recorded: <time datetime={oldest.date.toISOString()}
 									>{formatDate(oldest.date)}</time
@@ -295,10 +318,13 @@
 					<h2 id="history-heading" class="history-heading display-heading">
 						Change History
 					</h2>
-					<span class="history-count metadata"
-						>{visibleChangelogs.length}
-						{plural(visibleChangelogs.length, 'patch', 'patches')}</span
-					>
+					{#if showToc && !singleYear}
+						<nav class="year-jump" aria-label="Jump to year">
+							{#each historyYears as [year] (year)}
+								<a href="#year-{year}" class="ui-focus-ring year-jump-link">{year}</a>
+							{/each}
+						</nav>
+					{/if}
 				</div>
 				{#if selectedAbility}
 					<div class="ability-status" role="status">
@@ -312,32 +338,41 @@
 				{/if}
 				{#if visibleChangelogs.length}
 					{#each historyYears as [year, patches] (year)}
-						<section aria-labelledby="year-{year}">
-							<h3 id="year-{year}" class="year-heading">
-								{year}
-								<span class="year-count metadata"
-									>{patches.length}
-									{plural(patches.length, 'patch', 'patches')}</span
-								>
-							</h3>
+						<section id="year-{year}" aria-label={year}>
+							{#if !singleYear}
+								<h3 class="year-heading">
+									{year}
+									<span class="year-count metadata"
+										>{patches.length}
+										{plural(patches.length, 'patch', 'patches')}</span
+									>
+								</h3>
+							{/if}
 							<!-- `border`, not `subtle`: `subtle` measures 1.54:1 here, under the 3:1 floor. -->
 							<ol class="history-entries">
 								{#each patches as patch (patch.id)}
 									<li class="history-entry" id="history-{patch.id}" data-entity-patch>
 										<div class="entry-heading-row">
+											{#if patch.id === visibleChangelogs[0]?.id}<span
+													class="latest-flag flag kicker-xs clip-corner-sm">Latest</span
+												>{/if}
+											{#if patch.majorUpdate}<span
+													class="flag flag-major kicker-xs clip-corner-sm">Major</span
+												>{/if}
 											<h4 class="entry-title">
-												<!-- Padding plus matching negative margin: a 44px hit box that leaves
-										     the shared baseline where it is. -->
 												<a
 													href={entityPatchHref(patch, entity)}
-													class="ui-focus-ring entry-date"
-													><time datetime={patch.date.toISOString()}
-														>{formatDate(patch.date)}</time
-													></a
+													class="ui-focus-ring entry-date hit-44"
+													>{#if patch.heading.named}{patch.heading.heading}{:else}<time
+															datetime={patch.date.toISOString()}
+															>{patch.heading.date}</time
+														>{/if}</a
 												>
 											</h4>
 											<span class="entry-count"
-												>{changeCountLabel(patch.changeCount)}</span
+												>{#if patch.heading.named}<time
+														datetime={patch.date.toISOString()}>{patch.heading.date}</time
+													>{' · '}{/if}{changeCountLabel(patch.changeCount)}</span
 											>
 										</div>
 										{#if patch.changeGroups?.length}
@@ -503,17 +538,21 @@
 			margin-top: 0.75rem;
 		}
 		.archive-summary {
-			inline-size: fit-content;
+			flex-wrap: wrap;
 			border-radius: var(--radius-sm);
-			padding-block: 0.75rem;
 			color: var(--muted-foreground);
 			font-size: var(--text-sm);
 			line-height: var(--leading-sm);
-			& span {
-				margin-left: 0.5rem;
-				font-size: var(--text-xs);
-				line-height: var(--leading-xs);
+			&:hover .archive-label {
+				color: var(--signal);
 			}
+		}
+		.archive-label {
+			color: var(--foreground);
+		}
+		.archive-count {
+			font-size: var(--text-xs);
+			line-height: var(--leading-xs);
 		}
 		.archive-body {
 			padding-top: 0.5rem;
@@ -560,6 +599,19 @@
 			display: flex;
 			flex-wrap: wrap;
 			gap: 0.5rem;
+			@media (max-width: 39.99rem) {
+				flex-wrap: nowrap;
+				margin-inline: -1rem;
+				overflow-x: auto;
+				padding: 0.125rem 1rem;
+				scroll-padding-inline: 1rem;
+				scroll-snap-type: x proximity;
+				scrollbar-width: thin;
+				& > * {
+					flex-shrink: 0;
+					scroll-snap-align: start;
+				}
+			}
 		}
 		.ability-chip {
 			display: flex;
@@ -609,6 +661,25 @@
 			font-size: var(--text-2xl);
 			line-height: var(--leading-2xl);
 		}
+		.year-jump {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.25rem;
+		}
+		.year-jump-link {
+			display: inline-flex;
+			min-block-size: 2.75rem;
+			min-inline-size: 2.75rem;
+			align-items: center;
+			justify-content: center;
+			border-radius: var(--radius-sm);
+			padding-inline: 0.5rem;
+			color: var(--signal);
+			font: var(--text-sm) / var(--leading-sm) var(--font-mono);
+			&:hover {
+				background: color-mix(in srgb, var(--signal) 10%, transparent);
+			}
+		}
 		.ability-status {
 			display: flex;
 			flex-wrap: wrap;
@@ -630,7 +701,7 @@
 		}
 		.year-heading {
 			position: sticky;
-			top: 7rem;
+			top: var(--header-height);
 			z-index: 10;
 			display: flex;
 			align-items: baseline;
@@ -638,7 +709,7 @@
 			margin: 0 -0.25rem 0.25rem;
 			border-bottom: 1px solid var(--border-subtle);
 			padding: 1.25rem 0.25rem 0.5rem;
-			background: color-mix(in srgb, var(--background) 95%, transparent);
+			background: color-mix(in srgb, var(--background) 82%, transparent);
 			color: var(--signal);
 			font: var(--text-lg)/var(--leading-lg) var(--font-mono);
 			backdrop-filter: blur(8px);
@@ -663,11 +734,15 @@
 		.entry-title {
 			font-weight: 600;
 		}
+		.flag {
+			align-self: center;
+		}
+		.latest-flag {
+			background: color-mix(in srgb, var(--primary) 12%, transparent);
+			color: var(--primary);
+		}
 		.entry-date {
-			display: inline-block;
-			margin-block: -0.875rem;
 			border-radius: var(--radius-sm);
-			padding-block: 0.875rem;
 			text-underline-offset: 4px;
 			&:hover {
 				color: var(--signal);
@@ -738,8 +813,8 @@
 		}
 		.history-index-scroll {
 			position: sticky;
-			top: 8rem;
-			max-block-size: calc(100dvh - 9rem);
+			top: calc(var(--header-height) + 1rem);
+			max-block-size: calc(100dvh - var(--header-height) - 2rem);
 			overflow-y: auto;
 			overscroll-behavior: contain;
 			padding-right: 0.25rem;
@@ -773,6 +848,9 @@
 				display: block;
 				inline-size: 13rem;
 				flex-shrink: 0;
+			}
+			.year-jump {
+				display: none;
 			}
 		}
 	}

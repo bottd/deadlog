@@ -1,10 +1,15 @@
-<script lang="ts">
-	import '../changelog/toc.css';
-	interface TocPatch {
+<script lang="ts" module>
+	export interface TocPatch {
 		id: string;
 		label: string;
+		major?: boolean;
 		changeCount: number | null;
 	}
+</script>
+
+<script lang="ts">
+	import '../changelog/toc.css';
+	import { plural } from '@deadlog/utils';
 
 	let {
 		years,
@@ -26,7 +31,11 @@
 				<a href="#year-{year}" class="toc-section toc-year" onclick={onnavigate}>
 					<span class="toc-marker" aria-hidden="true"></span>
 					{year}
-					<span class="toc-count">{patches.length}</span>
+					<span class="toc-count"
+						>{patches.length}<span class="sr-only">
+							{plural(patches.length, 'patch', 'patches')}</span
+						></span
+					>
 				</a>
 				<ul class="toc-entities">
 					{#each patches as patch (patch.id)}
@@ -37,8 +46,15 @@
 								onclick={onnavigate}
 							>
 								<span class="toc-link-text">{patch.label}</span>
+								{#if patch.major}<span class="toc-major" aria-hidden="true"></span><span
+										class="sr-only">, major update</span
+									>{/if}
 								{#if patch.changeCount !== null}
-									<span class="toc-entry-count">{patch.changeCount}</span>
+									<span class="toc-entry-count"
+										>{patch.changeCount}<span class="sr-only">
+											{plural(patch.changeCount, 'change')}</span
+										></span
+									>
 								{/if}
 							</a>
 						</li>

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import CornerAccents from '#lib/components/ui/corner-accents/CornerAccents.svelte';
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
+	import PatchArt from './PatchArt.svelte';
 	import { patchCardHrefs, patchCardView, type PatchCardProps } from './patchCard';
 	let patch: PatchCardProps = $props();
 	const view = $derived(patchCardView(patch, true));
@@ -20,9 +21,32 @@
 				<span class="latest-label metadata">Latest Patch</span>
 			</div>
 			<p class="byline">
-				By {patch.author}{#if view.named}
-					· <time datetime={patch.date}>{view.date}</time>{/if}
+				By {patch.author}{#if view.named}{' · '}<time datetime={patch.date}
+						>{view.date}</time
+					>{/if}
 			</p>
+			{#if view.rows.length}
+				<div class="entity-rows">
+					{#each view.rows as row (row.type)}
+						<div class="entity-row" data-entity-kind={row.kind}>
+							<span class="entity-label">{row.label}</span>
+							<div class="entity-links">
+								{#each row.list as icon (icon.id)}
+									<a
+										href={links.entityHref(icon)}
+										aria-label="Jump to {icon.alt} in this patch"
+										class="entity-link"
+									>
+										<img src={icon.src} alt="" width="32" height="32" decoding="async" />
+									</a>
+								{/each}
+							</div>
+							{#if row.extra > 0}<span class="extra-count metadata">+{row.extra}</span
+								>{/if}
+						</div>
+					{/each}
+				</div>
+			{/if}
 			{#if patch.highlights}
 				<ul class="highlights">
 					{#each patch.highlights as change (change.name)}
@@ -37,35 +61,6 @@
 			{:else if patch.summary}<p class="summary">
 					{patch.summary}
 				</p>{/if}
-			{#if view.rows.length}
-				<div class="entity-rows">
-					{#each view.rows as row (row.type)}
-						<div class="entity-row" data-entity-kind={row.kind}>
-							<span class="entity-label">{row.label}</span>
-							<div class="entity-links">
-								{#each row.list as icon (icon.id)}
-									<a
-										href={links.entityHref(icon)}
-										aria-label="Jump to {icon.alt} in this patch"
-										class="entity-link"
-									>
-										<img
-											src={icon.src}
-											alt=""
-											width="32"
-											height="32"
-											loading="lazy"
-											decoding="async"
-										/>
-									</a>
-								{/each}
-							</div>
-							{#if row.extra > 0}<span class="extra-count metadata">+{row.extra}</span
-								>{/if}
-						</div>
-					{/each}
-				</div>
-			{/if}
 			<div class="featured-footer">
 				<span class="totals">{view.totals}</span>
 				<span class="full-patch">View full patch <ArrowRight class="icon" /></span>
@@ -73,14 +68,10 @@
 		</div>
 		{#if patch.previewImage}
 			<div class="featured-media">
-				<img
-					data-patch-preview
+				<PatchArt
 					src={patch.previewImage}
-					alt=""
-					width="640"
-					height="360"
-					decoding="async"
-					fetchpriority="high"
+					sizes="(min-width: 48rem) 34rem, 100vw"
+					priority
 				/>
 			</div>
 		{/if}
@@ -218,7 +209,7 @@
 			position: relative;
 			block-size: 10rem;
 			flex-shrink: 0;
-			& img {
+			& :global(img) {
 				position: absolute;
 				inset: 0;
 				inline-size: 100%;

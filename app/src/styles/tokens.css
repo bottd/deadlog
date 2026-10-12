@@ -1,4 +1,5 @@
 :root {
+	--header-height: 7.75rem;
 	--font-sans: 'Archivo', ui-sans-serif, system-ui, sans-serif;
 	--font-display: 'Oswald', ui-sans-serif, sans-serif;
 	--font-mono: 'JetBrains Mono', ui-monospace, monospace;
@@ -32,6 +33,7 @@
 	--shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 	--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 	--shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+	--shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
 	--safe-area-inset-top: env(safe-area-inset-top, 0px);
 	--safe-area-inset-right: env(safe-area-inset-right, 0px);
 	--safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
@@ -66,7 +68,7 @@
 	--primary-foreground: var(--base-950);
 	--signal: var(--sea-500);
 	--signal-foreground: var(--base-950);
-	--secondary: var(--base-25);
+	--secondary: oklch(from var(--base-25) calc(l + 0.06) c h);
 	--muted: var(--base-900);
 	--muted-foreground: var(--base-500);
 	--accent: var(--accent-500);

@@ -2,6 +2,22 @@
 	import { page } from '$app/state';
 	import FilterInput from '#lib/components/filter-bar/FilterInput.svelte';
 	import Crosshair from '@lucide/svelte/icons/crosshair';
+
+	function publishHeight(node: HTMLElement) {
+		const root = document.documentElement;
+		let height = 0;
+		const observer = new ResizeObserver(([entry]) => {
+			const next = entry.borderBoxSize[0].blockSize;
+			if (next === height) return;
+			height = next;
+			root.style.setProperty('--header-height', `${height}px`);
+		});
+		observer.observe(node);
+		return () => {
+			observer.disconnect();
+			root.style.removeProperty('--header-height');
+		};
+	}
 </script>
 
 {#snippet navLink(href: string, section: string, label: string)}
@@ -12,7 +28,7 @@
 	>
 {/snippet}
 
-<header class="site-header">
+<header class="site-header" {@attach publishHeight}>
 	<div class="page-container">
 		<nav aria-label="Primary navigation">
 			<div class="nav-row">
@@ -54,12 +70,15 @@
 		}
 		.nav-row {
 			display: flex;
-			block-size: 4rem;
+			min-block-size: 4rem;
+			flex-wrap: wrap;
 			align-items: center;
 			justify-content: space-between;
+			column-gap: 1rem;
 		}
 		.nav-links {
 			display: flex;
+			flex-wrap: wrap;
 			align-items: center;
 			gap: 0.25rem;
 		}

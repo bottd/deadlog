@@ -27,7 +27,7 @@ export function feedPageCount(total: number): number {
 	return 1 + Math.ceil(Math.max(0, total - INITIAL_LOAD_COUNT) / PAGE_SIZE);
 }
 
-/** `groups` lets the first page's featured patch show real changes. */
+/** `groups` lets each unfiltered card lead with real changes instead of the post's prose. */
 export function unfilteredFeedPage(
 	index: FeedIndex,
 	page: number,
